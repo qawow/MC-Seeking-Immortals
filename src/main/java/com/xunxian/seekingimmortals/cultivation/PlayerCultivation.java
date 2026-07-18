@@ -21,8 +21,8 @@ import java.util.stream.Collectors;
 public class PlayerCultivation {
     public static final int TECHNIQUE_SLOT_COUNT = 7;
     private static final double GLOBAL_BREAKTHROUGH_CAP = 0.90D;
-    private static final int INITIAL_MANA = 100;
-    private static final int INITIAL_DIVINE_CONSCIOUSNESS = 5;
+    private static final int INITIAL_MANA = 50;
+    private static final int INITIAL_DIVINE_CONSCIOUSNESS = 3;
     private static final int MAX_QI_DEVIATION_RISK = 100;
     private static final int MAX_TRIBULATION_RESISTANCE = 90;
     private static final double WORLDPACK_SPIRIT_RAIN_CULTIVATION_MULTIPLIER = 1.10D;
@@ -990,8 +990,9 @@ public class PlayerCultivation {
     private static final int MORTAL_MIN_SPIRITUAL_POWER = 50;
 
     public int getMaxSpiritualPower() {
-        int raw = Math.round(realm.getBaseMaxSpiritualPower() * stage.getMaxSpiritualPowerMultiplier());
-        int adjusted = (int)Math.round(raw * getGoldCoreAttributeMultiplier());
+        int adjusted = saturatedPositiveInt((double) realm.getBaseMaxSpiritualPower()
+                * stage.getMaxSpiritualPowerMultiplier()
+                * getGoldCoreAttributeMultiplier());
         return realm == Realm.MORTAL ? Math.max(MORTAL_MIN_SPIRITUAL_POWER, adjusted) : adjusted;
     }
 
@@ -1000,7 +1001,9 @@ public class PlayerCultivation {
 
     public int getMaxDivineConsciousness() {
         int base = RealmStageConfig.getDivSenseBase(realm);
-        return (int)Math.round(base * stage.getMaxSpiritualPowerMultiplier() * getGoldCoreAttributeMultiplier());
+        return saturatedPositiveInt((double) base
+                * stage.getMaxSpiritualPowerMultiplier()
+                * getGoldCoreAttributeMultiplier());
     }
 
     // ========== Phase 1: 衍生属性计算方法 ==========
@@ -1011,9 +1014,20 @@ public class PlayerCultivation {
      */
     public int getMaxHealthPoints() {
         int base = RealmStageConfig.getHpBase(realm);
-        int realmHealth = Math.round(base * stage.getMaxSpiritualPowerMultiplier());
-        int bodyBonus = (int)Math.round(Math.sqrt(Math.max(0, bodyRefinement)) * (4.0D + RealmStageConfig.getRealmGrowthIndex(realm) * 1.5D));
-        return (int)Math.round((realmHealth + bodyBonus) * getGoldCoreAttributeMultiplier());
+        double realmHealth = (double) base * stage.getMaxSpiritualPowerMultiplier();
+        double bodyBonus = Math.sqrt(Math.max(0, bodyRefinement))
+                * (4.0D + RealmStageConfig.getRealmGrowthIndex(realm) * 1.5D);
+        return saturatedPositiveInt((realmHealth + bodyBonus) * getGoldCoreAttributeMultiplier());
+    }
+
+    private static int saturatedPositiveInt(double value) {
+        if (Double.isNaN(value) || value <= 1.0D) {
+            return 1;
+        }
+        if (!Double.isFinite(value) || value >= Integer.MAX_VALUE) {
+            return Integer.MAX_VALUE;
+        }
+        return Math.max(1, (int) Math.round(value));
     }
 
     /**
@@ -1583,11 +1597,15 @@ public class PlayerCultivation {
         if (targetRealm == Realm.FOUNDATION_ESTABLISHMENT) {
             return new RealmStage[] { RealmStage.EARLY, RealmStage.MIDDLE, RealmStage.LATE, RealmStage.PEAK };
         }
+        if (targetRealm.getSubStages() == 1) {
+            return new RealmStage[] { RealmStage.EARLY };
+        }
         return new RealmStage[] { RealmStage.EARLY, RealmStage.MIDDLE, RealmStage.LATE };
     }
 
     public CompoundTag saveNBTData() {
         CompoundTag tag = new CompoundTag();
+        tag.putInt("CultivationNbtVersion", 1);
         tag.putLong("cultivation", cultivationExp);
         tag.putLong("cultivationMax", getCultivationMax());
         tag.putInt("mana", spiritualPower);
@@ -1792,10 +1810,7 @@ public class PlayerCultivation {
         }
         techniqueCooldownUntilTicks.clear();
         // M9: legacy cooldown values used per-dimension gameTime; clear them after global-time migration.
-        if (tag.contains("TechniqueCooldownUntilTicks") && tag.getInt("CultivationNbtVersion") < 1) {
-            // 旧冷却值清空，首次登录重置全部冷却
-        } else if (tag.contains("TechniqueCooldownUntilTicks")) {
-        } else if (tag.contains("TechniqueCooldownUntilTicks")) {
+        if (tag.contains("TechniqueCooldownUntilTicks") && tag.getInt("CultivationNbtVersion") >= 1) {
             CompoundTag cooldownTag = tag.getCompound("TechniqueCooldownUntilTicks");
             for (String techniqueId : cooldownTag.getAllKeys()) {
                 long untilTick = cooldownTag.getLong(techniqueId);
@@ -1864,4 +1879,3 @@ public class PlayerCultivation {
         }
     }
 }
-

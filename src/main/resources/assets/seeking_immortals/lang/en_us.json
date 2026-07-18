@@ -3074,6 +3074,7 @@
   "screen.seeking_immortals.sect.mission.dajin_buddhist_temple_line_cloud_mushroom.title": "Dajin Buddhist Line · cloud mushroom",
   "screen.seeking_immortals.sect.mission.dajin_buddhist_temple_line_immortal_ginseng.title": "Dajin Buddhist Line · immortal ginseng",
   "message.seeking_immortals.technique_gate.realm": "Realm too low for %s: requires %s, current %s.",
+  "message.seeking_immortals.technique_gate.realm_unsupported": "%s declares a realm unsupported by this version, so learning or casting was denied.",
   "message.seeking_immortals.technique_gate.sect": "Wrong sect for %s: requires %s, current %s.",
   "message.seeking_immortals.technique_gate.status_blocked": "Techniques cannot be cast while sealed or under a technique-ban status.",
   "message.seeking_immortals.formation_catalog.missing_shards": "Deploying a formation field needs spirit stone shards x%s.",

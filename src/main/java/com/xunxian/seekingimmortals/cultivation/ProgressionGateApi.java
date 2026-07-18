@@ -24,7 +24,7 @@ public final class ProgressionGateApi {
         if (cultivation == null) return false;
         if (minRealmId == null || minRealmId.isBlank()) return true;
         Realm required = Realm.fromDesignId(minRealmId);
-        if (required == null) return true;
+        if (required == null) return false;
         return cultivation.getRealm().ordinal() >= required.ordinal();
     }
 

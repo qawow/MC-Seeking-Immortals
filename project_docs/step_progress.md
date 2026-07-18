@@ -1,3 +1,18 @@
+## 490. 2026-07-19 0.2.21 修炼权限与存档红线
+
+  Step   Status   Notes
+  ---   ---   ---
+  Review scope   Done   max 子代理与主线程交叉审计境界门禁、术法加载、capability NBT 和高境界衍生属性。
+  Backup   Done   12 个既有目标文件按相对路径备份至 `.bak/20260719_051240/`，后续补备 2 个双语语言文件。
+  Realm authority   Done   发布门槛支持阶段后缀；空门槛放行，非空未知门槛统一拒绝；未知术法境界不再被 `TechniqueEntry` 重置为炼气。
+  Persistence   Done   保存 `CultivationNbtVersion=1`，新版冷却真实读取；旧版无版本冷却继续按全局时钟迁移策略清空。
+  Numeric safety   Done   灵力、神识、生命上限使用 double 中间值并饱和到 `Integer.MAX_VALUE`；凡人初始状态不再高于动态上限。
+  Progression shape   Done   渡劫按 `subStages=1` 使用单阶段，不再额外生成初中后三段。
+  Tests   Done   新增 `CultivationAuthorityRegressionTest`、`TechniqueRealmGateTest`；聚焦测试及全量 623 项测试通过。
+  Version/protocol   Done   `mod_version` 0.2.20 -> 0.2.21；无网络包字段、顺序、编码、注册或通道行为变化，protocol 保持 24。
+  Verification   Done   普通 `./gradlew build` BUILD SUCCESSFUL，preflight 正常记录 0.2.21。
+  Update note   Done   `project_docs/updates/20260719_0.2.21_cultivation_authority.md`
+
 ## 489. 2026-07-19 0.2.20 状态伤害与旅行权限深化
 
   Step   Status   Notes

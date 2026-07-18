@@ -3084,6 +3084,7 @@
   "screen.seeking_immortals.sect.mission.dajin_buddhist_temple_line_cloud_mushroom.title": "大晋佛寺一脉·云芝采办",
   "screen.seeking_immortals.sect.mission.dajin_buddhist_temple_line_immortal_ginseng.title": "大晋佛寺一脉·仙参采办",
   "message.seeking_immortals.technique_gate.realm": "境界不足，无法使用「%s」：需要%s，当前%s。",
+  "message.seeking_immortals.technique_gate.realm_unsupported": "「%s」声明了当前版本无法识别的境界，已拒绝学习或释放。",
   "message.seeking_immortals.technique_gate.sect": "宗门不符，无法使用「%s」：需要%s，当前%s。",
   "message.seeking_immortals.technique_gate.status_blocked": "封婴或禁术状态下无法施展功法。",
   "message.seeking_immortals.formation_catalog.missing_shards": "展开阵域需要灵石碎片 x%s。",

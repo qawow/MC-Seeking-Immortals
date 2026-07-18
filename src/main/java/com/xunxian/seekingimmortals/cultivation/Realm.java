@@ -67,7 +67,9 @@ public enum Realm {
         if (id == null || id.isBlank()) {
             return null;
         }
-        String normalized = id.trim().toUpperCase(Locale.ROOT).replace('-', '_');
+        String normalized = stripStageSuffix(id.trim().toUpperCase(Locale.ROOT)
+                .replace('-', '_')
+                .replace(' ', '_'));
         return switch (normalized) {
             case "MORTAL", "FANREN" -> MORTAL;
             case "QI_REFINING", "QI", "LIANQI" -> QI_REFINING;
@@ -91,6 +93,15 @@ public enum Realm {
                 yield null;
             }
         };
+    }
+
+    private static String stripStageSuffix(String id) {
+        for (String suffix : new String[]{"_EARLY", "_MIDDLE", "_MID", "_LATE", "_PEAK"}) {
+            if (id.endsWith(suffix)) {
+                return id.substring(0, id.length() - suffix.length());
+            }
+        }
+        return id;
     }
 
     /** 与 {@link #fromDesignId(String)} 相同，无法识别时回退 {@link #MORTAL}。 */

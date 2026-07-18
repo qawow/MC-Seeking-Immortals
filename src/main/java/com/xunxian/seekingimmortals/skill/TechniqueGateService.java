@@ -70,7 +70,7 @@ public final class TechniqueGateService {
             return GateResult.ok();
         }
         if (technique == null) {
-            return GateResult.ok();
+            return GateResult.deny("message.seeking_immortals.technique_release.effect_unavailable");
         }
         GateResult realm = checkRealm(cultivation, technique);
         if (!realm.allowed()) {
@@ -208,7 +208,8 @@ public final class TechniqueGateService {
     private static GateResult checkRealm(PlayerCultivation cultivation, TechniqueDataManager.TechniqueEntry technique) {
         Realm required = technique.requiredRealm();
         if (required == null) {
-            return GateResult.ok();
+            return GateResult.deny("message.seeking_immortals.technique_gate.realm_unsupported",
+                    technique.name().isBlank() ? technique.id() : technique.name());
         }
         Realm current = cultivation.getRealm();
         if (current.ordinal() < required.ordinal()) {

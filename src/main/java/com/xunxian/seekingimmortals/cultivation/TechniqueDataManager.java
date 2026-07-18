@@ -354,15 +354,8 @@ public final class TechniqueDataManager {
             case "FOUNDATION", "FOUNDATION_ESTABLISHMENT" -> Realm.FOUNDATION_ESTABLISHMENT;
             case "CORE", "CORE_FORMATION", "GOLDEN_CORE", "JINDAN" -> Realm.CORE_FORMATION;
             case "NASCENT", "NASCENT_SOUL", "YUAN_YING" -> Realm.NASCENT_SOUL;
-            case "SPIRIT_TRANSFORMATION", "SPIRIT_TRANSFORMATION_PLUS", "HUASHEN" -> {
-                Realm r = Realm.fromDesignId("SPIRIT_TRANSFORMATION");
-                yield r == null ? Realm.NASCENT_SOUL : r;
-            }
-            case "VOID_REFINEMENT", "BODY_INTEGRATION", "MAHAYANA", "TRUE_IMMORTAL", "IMMORTAL" -> {
-                Realm r = Realm.fromDesignId(normalized);
-                yield r == null ? Realm.NASCENT_SOUL : r;
-            }
-            default -> Realm.QI_REFINING;
+            case "SPIRIT_TRANSFORMATION", "SPIRIT_TRANSFORMATION_PLUS", "HUASHEN" -> Realm.SOUL_TRANSFORMATION;
+            default -> null;
         };
     }
 
@@ -396,9 +389,6 @@ public final class TechniqueDataManager {
             effectElement = effectElement == null ? "" : effectElement;
             cost = Math.max(0, cost);
             cooldownTicks = Math.max(0, cooldownTicks);
-            if (requiredRealm == null) {
-                requiredRealm = Realm.QI_REFINING;
-            }
         }
     }
 

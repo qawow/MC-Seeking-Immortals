@@ -761,8 +761,14 @@ public final class WorldpackGameplayService {
     }
 
     public static boolean meetsMinRealm(Realm currentRealm, String minRealmId) {
+        if (currentRealm == null) {
+            return false;
+        }
+        if (minRealmId == null || minRealmId.isBlank()) {
+            return true;
+        }
         Realm minRealm = parseRealm(minRealmId);
-        return minRealm == null || currentRealm.ordinal() >= minRealm.ordinal();
+        return minRealm != null && currentRealm.ordinal() >= minRealm.ordinal();
     }
 
     public static boolean isFlightSuppressed(PlayerCultivation cultivation) {
