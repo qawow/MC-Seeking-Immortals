@@ -27,6 +27,12 @@ public final class ArtifactActiveSkillService {
 
     public record ResolvedSkill(String techniqueId, SkillType skillType, SkillEffect effect) {}
 
+    public enum CastResult {
+        UNMAPPED,
+        DENIED,
+        SUCCESS
+    }
+
     public static Optional<ResolvedSkill> resolve(String artifactId) {
         ArtifactDataService.ArtifactDefinition def = ArtifactDataService.builtin()
                 .findArtifact(artifactId).orElse(null);
@@ -79,17 +85,18 @@ public final class ArtifactActiveSkillService {
     }
 
     /**
-     * 尝试以 M02 效果释放法宝主动技。成功返回 true；无法映射时返回 false（调用方回退 kind 激活）。
+     * 尝试以 M02 效果释放法宝主动技。只有 {@link CastResult#UNMAPPED} 允许调用方回退 kind 激活；
+     * 映射存在但校验或执行失败时返回 {@link CastResult#DENIED}。
      */
-    public static boolean tryCast(ServerPlayer player, PlayerCultivation cultivation,
-                                  ItemStack stack, ArtifactDataService.ArtifactDefinition def,
-                                  double powerScale) {
+    public static CastResult tryCast(ServerPlayer player, PlayerCultivation cultivation,
+                                     ItemStack stack, ArtifactDataService.ArtifactDefinition def,
+                                     double powerScale) {
         if (player == null || cultivation == null || def == null) {
-            return false;
+            return CastResult.DENIED;
         }
         Optional<ResolvedSkill> resolved = resolve(def);
         if (resolved.isEmpty()) {
-            return false;
+            return CastResult.UNMAPPED;
         }
         ResolvedSkill skill = resolved.get();
         SkillEffect effect = skill.effect();
@@ -99,13 +106,13 @@ public final class ArtifactActiveSkillService {
         int cooldown = ArtifactPowerService.scaledCooldown(effect.getCooldownTicks(level), powerScale);
 
         if (player.getCooldowns().isOnCooldown(stack.getItem())) {
-            return false;
+            return CastResult.DENIED;
         }
         if (!effect.canExecute(player, cultivation)) {
-            return false;
+            return CastResult.DENIED;
         }
         if (cultivation.getSpiritualPower() < cost) {
-            return false;
+            return CastResult.DENIED;
         }
 
         CultivationSkill virtual = new CultivationSkill(skill.skillType());
@@ -129,20 +136,24 @@ public final class ArtifactActiveSkillService {
         try {
             ok = effect.execute(player, cultivation, virtual, context);
         } catch (Throwable t) {
-            return false;
+            return CastResult.DENIED;
         }
         if (!ok) {
-            return false;
+            return CastResult.DENIED;
         }
         if (!cultivation.consumeSpiritualPower(cost)) {
-            return false;
+            return CastResult.DENIED;
         }
         player.getCooldowns().addCooldown(stack.getItem(), cooldown);
         // 本命成长
         if (def.id().equals(NatalBindingService.boundId(player))) {
             NatalBindingService.grow(player);
         }
-        return true;
+        return CastResult.SUCCESS;
+    }
+
+    static boolean shouldFallbackToGeneric(CastResult result) {
+        return result == CastResult.UNMAPPED;
     }
 
     public static String mapTechniqueId(ArtifactDataService.ArtifactDefinition def) {

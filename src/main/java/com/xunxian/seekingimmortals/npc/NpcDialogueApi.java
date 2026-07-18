@@ -105,9 +105,14 @@ public final class NpcDialogueApi {
                 refresh(player, context);
                 return false;
             }
-            clearSession(player);
-            return DialogueActionExecutor.execute(player, session.npcId(), session.treeId(),
+            boolean success = DialogueActionExecutor.execute(player, session.npcId(), session.treeId(),
                     current.id(), deferred.effect());
+            if (success) {
+                clearSession(player);
+            } else {
+                refresh(player, context);
+            }
+            return success;
         }
 
         DialogueBranchService.Node target = tree.nodes().get(pick);
@@ -234,14 +239,16 @@ public final class NpcDialogueApi {
                                        DialogueBranchService.Node node, boolean runEffects, Anchor anchor) {
         String claimKey = normalize(tree.id()) + ":" + normalize(node.id());
         boolean alreadyClaimed = NamedNpcRewardService.hasClaimed(player, claimKey);
-        String context = newContext();
-        writeSession(player, npcId, tree.id(), node.id(), context, List.of(), anchor);
         boolean terminal = false;
         if (runEffects && !alreadyClaimed) {
-            fireNodeReached(player, npcId, tree.id(), node.id());
             boolean hasEffects = node.effects() != null && !node.effects().isEmpty();
+            boolean effectsSucceeded = !hasEffects
+                    || DialogueActionExecutor.executeImmediate(player, npcId, tree.id(), node.id(), node.effects());
+            if (!effectsSucceeded) {
+                return false;
+            }
+            fireNodeReached(player, npcId, tree.id(), node.id());
             if (hasEffects) {
-                DialogueActionExecutor.executeImmediate(player, npcId, tree.id(), node.id(), node.effects());
                 // tree:node claim latches rewards, immediate effects, and favor for this node.
                 NamedNpcRewardService.grantIfUnclaimed(player, claimKey);
                 NamedNpcRewardService.grantIfUnclaimed(player, npcId);
@@ -262,6 +269,8 @@ public final class NpcDialogueApi {
             clearSession(player);
             return true;
         }
+        String context = newContext();
+        writeSession(player, npcId, tree.id(), node.id(), context, List.of(), anchor);
         View view = buildView(player, context, npcId, tree, node);
         // Guard against close/refresh races: only re-issue a view if the session we just wrote is still current.
         Session live = getSession(player).orElse(null);

@@ -23,6 +23,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -207,28 +208,7 @@ public final class QuestHookRuntime {
         if (type.isBlank()) {
             return;
         }
-        // Param-driven quest ids.
-        List<String> questIds = new ArrayList<>();
-        String q = firstNonBlank(effect.param("q"), effect.param("quest"), effect.param("quest_id"), effect.param("id"));
-        if (!q.isBlank()) {
-            questIds.add(q);
-        }
-        // quest_ids may be stored as comma string if params are flat.
-        String multi = effect.param("quest_ids");
-        if (multi != null && !multi.isBlank()) {
-            for (String part : multi.split("[,;\\s]+")) {
-                if (!part.isBlank()) {
-                    questIds.add(part.trim());
-                }
-            }
-        }
-        // Effect-link catalog: "offer_quest:zhenyan_outer_lesson" or bare type.
-        String effectKey = type;
-        if (!q.isBlank()) {
-            effectKey = type + ":" + normalize(q);
-        }
-        questIds.addAll(EFFECT_TO_QUESTS.getOrDefault(normalize(effectKey), List.of()));
-        questIds.addAll(EFFECT_TO_QUESTS.getOrDefault(type, List.of()));
+        List<String> questIds = resolveQuestIds(effect);
 
         switch (type) {
             case "offer_quest", "open_quest", "open_quest_board" -> {
@@ -253,6 +233,61 @@ public final class QuestHookRuntime {
                     tryStartOrAdvanceChain(player, questId);
                 }
             }
+        }
+    }
+
+    static List<String> resolveQuestIds(DialogueBranchService.Effect effect) {
+        if (effect == null) {
+            return List.of();
+        }
+        String type = normalize(effect.type());
+        if (type.isBlank()) {
+            return List.of();
+        }
+        LinkedHashSet<String> questIds = new LinkedHashSet<>();
+        addQuestId(questIds, firstNonBlank(
+                effect.param("q"), effect.param("quest"), effect.param("quest_id")));
+        for (String questId : effect.paramList("quest_ids")) {
+            addQuestId(questIds, questId);
+        }
+        String destination = effectDestination(type, effect);
+        String exactKey = destination.isBlank() ? "" : type + ":" + normalize(destination);
+        List<String> linked;
+        if (!exactKey.isBlank() && EFFECT_TO_QUESTS.containsKey(exactKey)) {
+            linked = EFFECT_TO_QUESTS.get(exactKey);
+        } else {
+            linked = EFFECT_TO_QUESTS.getOrDefault(type, List.of());
+        }
+        for (String questId : linked) {
+            addQuestId(questIds, questId);
+        }
+        return List.copyOf(questIds);
+    }
+
+    private static String effectDestination(String type, DialogueBranchService.Effect effect) {
+        return switch (type) {
+            case "offer_quest", "open_quest", "turnin_quests" -> firstNonBlank(
+                    effect.param("q"), effect.param("quest"), effect.param("quest_id"), effect.param("id"));
+            case "open_quest_board" -> firstNonBlank(
+                    effect.param("board"), effect.param("q"), effect.param("quest"), effect.param("id"));
+            case "enter_instance" -> firstNonBlank(
+                    effect.param("instance"), effect.param("realm"), effect.param("id"));
+            case "open_shop" -> firstNonBlank(effect.param("shop"), effect.param("shop_id"), effect.param("id"));
+            case "grant_item" -> firstNonBlank(effect.param("item"), effect.param("item_id"), effect.param("id"));
+            case "teleport", "start_teleport", "start_travel" -> firstNonBlank(
+                    effect.param("route"), effect.param("to"), effect.param("region"), effect.param("target"));
+            case "mark_structure" -> firstNonBlank(effect.param("structure"), effect.param("id"));
+            case "set_flag", "unlock" -> firstNonBlank(
+                    effect.param("flag"), effect.param("id"), effect.param("token"),
+                    effect.paramList("gates").stream().findFirst().orElse(""));
+            default -> firstNonBlank(effect.param("id"), effect.param("target"));
+        };
+    }
+
+    private static void addQuestId(LinkedHashSet<String> questIds, String questId) {
+        String normalized = normalize(questId);
+        if (!normalized.isBlank()) {
+            questIds.add(normalized);
         }
     }
 
@@ -429,20 +464,14 @@ public final class QuestHookRuntime {
                 continue;
             }
             List<String> quests = new ArrayList<>(stringList(o.get("quest_ids")));
-            map.put(effect, List.copyOf(quests));
-            // Also index bare type prefix before ':'.
-            int colon = effect.indexOf(':');
-            if (colon > 0) {
-                String type = effect.substring(0, colon);
-                map.computeIfAbsent(type, k -> new ArrayList<>());
-                List<String> merged = new ArrayList<>(map.get(type));
-                for (String q : quests) {
-                    if (!merged.contains(q)) {
-                        merged.add(q);
-                    }
+            LinkedHashSet<String> merged = new LinkedHashSet<>(map.getOrDefault(effect, List.of()));
+            for (String quest : quests) {
+                String normalized = normalize(quest);
+                if (!normalized.isBlank()) {
+                    merged.add(normalized);
                 }
-                map.put(type, List.copyOf(merged));
             }
+            map.put(effect, List.copyOf(merged));
         }
         return Collections.unmodifiableMap(map);
     }

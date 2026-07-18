@@ -40,7 +40,8 @@ public final class SecretRealmSessionService {
             return Optional.of("realm_too_low:" + def.realmMin());
         }
         SecretRealmProgressSavedData progress = SecretRealmProgressSavedData.get(player);
-        if (!progress.canJoin(def.id(), def.partyLimit())) {
+        long now = player.server.overworld().getGameTime();
+        if (!progress.canJoin(def.id(), def.partyLimit(), now)) {
             return Optional.of("party_full:" + def.partyLimit());
         }
         if (!isOpenWindow(player, def)) {
@@ -148,7 +149,7 @@ public final class SecretRealmSessionService {
             }
             SecretRealmProgressSavedData progress = SecretRealmProgressSavedData.get(player);
             Optional<SecretRealmProgressSavedData.Session> sessionOpt = progress.getSession(player.getUUID());
-            long now = player.serverLevel().getGameTime();
+            long now = player.server.overworld().getGameTime();
             if (sessionOpt.isEmpty()) {
                 // Recover session if capability says active but SavedData lost (restart mid-run).
                 Optional<SecretRealmCatalogService.RealmDef> def = SecretRealmCatalogService.find(active);

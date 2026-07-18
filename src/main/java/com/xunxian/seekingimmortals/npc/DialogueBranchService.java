@@ -17,8 +17,10 @@ import net.minecraft.world.item.ItemStack;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -207,8 +209,10 @@ public final class DialogueBranchService {
                 }
                 yield invertPossession ? !has : has;
             }
-            case "has_contribution", "has_contribution_currency" -> contribution(player) > 0;
-            case "has_contribution_lt" -> contribution(player) < asInt(raw, Integer.MAX_VALUE);
+            case "has_contribution" -> hasContributionAtLeast(contribution(player), raw);
+            case "has_contribution_currency" -> raw instanceof Boolean expected
+                    && expected == (contribution(player) > 0);
+            case "has_contribution_lt" -> hasContributionBelow(contribution(player), raw);
             case "realm_gte" -> CultivationHelper.meetsRealm(player, stripRealmQualifier(stringOf(raw)));
             case "realm_lt" -> !CultivationHelper.meetsRealm(player, stripRealmQualifier(stringOf(raw)));
             case "quest_flag", "or_quest" -> NpcDialogueFlags.hasFlag(player, stringOf(raw))
@@ -521,7 +525,7 @@ public final class DialogueBranchService {
                 return element.getAsBoolean();
             }
             if (element.getAsJsonPrimitive().isNumber()) {
-                return element.getAsInt();
+                return element.getAsBigDecimal();
             }
             return element.getAsString();
         }
@@ -606,16 +610,31 @@ public final class DialogueBranchService {
     }
 
     private static int asInt(Object raw, int fallback) {
-        if (raw instanceof Number number) {
-            return number.intValue();
-        }
-        if (raw == null) {
-            return fallback;
+        Integer value = exactInt(raw);
+        return value == null ? fallback : value;
+    }
+
+    static boolean hasContributionAtLeast(int contribution, Object raw) {
+        Integer threshold = exactInt(raw);
+        return threshold != null && threshold > 0 && contribution >= threshold;
+    }
+
+    static boolean hasContributionBelow(int contribution, Object raw) {
+        Integer threshold = exactInt(raw);
+        return threshold != null && threshold > 0 && contribution < threshold;
+    }
+
+    private static Integer exactInt(Object raw) {
+        if (raw == null || raw instanceof Boolean) {
+            return null;
         }
         try {
-            return Integer.parseInt(String.valueOf(raw).trim());
-        } catch (NumberFormatException ex) {
-            return fallback;
+            BigDecimal decimal = raw instanceof BigDecimal value
+                    ? value
+                    : new BigDecimal(String.valueOf(raw).trim());
+            return decimal.intValueExact();
+        } catch (ArithmeticException | NumberFormatException ex) {
+            return null;
         }
     }
 
@@ -632,24 +651,40 @@ public final class DialogueBranchService {
     public record Node(String id, Map<String, Object> when, List<String> lines, List<String> next, List<Effect> effects) {}
 
     public record Effect(String type, Map<String, Object> params) {
+        public Object paramValue(String key) {
+            return params.get(normalize(key));
+        }
+
         public String param(String key) {
-            Object value = params.get(normalize(key));
+            Object value = paramValue(key);
             return value == null ? "" : String.valueOf(value);
         }
 
-        public int paramInt(String key, int fallback) {
-            Object value = params.get(normalize(key));
-            if (value instanceof Number number) {
-                return number.intValue();
-            }
+        public List<String> paramList(String key) {
+            Object value = paramValue(key);
             if (value == null) {
-                return fallback;
+                return List.of();
             }
-            try {
-                return Integer.parseInt(String.valueOf(value).trim());
-            } catch (NumberFormatException ex) {
-                return fallback;
+            List<String> values = new ArrayList<>();
+            if (value instanceof Collection<?> collection) {
+                for (Object entry : collection) {
+                    String text = entry == null ? "" : String.valueOf(entry).trim();
+                    if (!text.isBlank()) {
+                        values.add(text);
+                    }
+                }
+            } else {
+                String text = String.valueOf(value).trim();
+                if (!text.isBlank()) {
+                    values.add(text);
+                }
             }
+            return List.copyOf(values);
+        }
+
+        public int paramInt(String key, int fallback) {
+            Integer value = exactInt(paramValue(key));
+            return value == null ? fallback : value;
         }
     }
 }

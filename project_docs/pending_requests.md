@@ -1,3 +1,7 @@
+2026-07-19 0.2.18 pending update: all 13 authority review findings are fixed and build-verified. Remaining risk is live client/dedicated-server/multiplayer smoke for paid portal travel, ascension teleport rollback, offline secret-realm reconnect/expiry, dialogue retry after transient failure, third-party-dimension flight, and status interaction with other damage modifiers; M02/M10 real status application and M15 DamagePipelineHooks registration remain separate follow-ups.
+
+2026-07-19 M14 状态消费端更新：`outgoingDamageMul`、`blocksTechnique`、`hidesRealm` 的下游读取已接线并有自动化回归。仍待独立任务修复 M02 术法与 M10 妖兽的真实 `StatusRegistry.applyStatus` 施加端；M15 `DamagePipelineHooks` 注册也仍未纳入本批。
+
 0.2.1 pending update: frontend P0/P1 repair shipped for quest focus/selection, lifecycle resync, nonce-bound dynamic dialogue, shop-screen ordering, responsive lore journals, full bestiary capacity, HUD safe areas, worldpack countdowns, and movement-slider input. Remaining verification is live client/dedicated-server/multiplayer smoke at extreme GUI scales; broader 0.2.0 gameplay/art debt is unchanged.
 
 0.2.0 pending update: M00-M16 十七模块已合并并完成全局构建，运行时文本材料清单同步至全部发布 JSON。仍待实机验证：客户端/专服/多人烟测、M04 全炼丹公式定向入口、M05 跨币种经济回归、M07/M13 飞舟船坞结构统一、M13 飞升备份防复制、M14 状态消费接线、M15 器灵成长链，以及高保真美术与专用妖兽实体。

@@ -77,45 +77,28 @@ public final class RegionRegistry {
     }
 
     public static String resolveRegionId(Level level, BlockPos pos, String preferredRegionId) {
-        if (preferredRegionId != null && !preferredRegionId.isBlank() && isKnown(preferredRegionId)) {
-            return preferredRegionId;
+        if (level == null) {
+            return isKnown(preferredRegionId) ? preferredRegionId : DEFAULT_REGION_ID;
         }
-        if (level != null) {
-            ResourceLocation dimension = level.dimension().location();
-            Optional<String> byDimension = BUILTIN.regionForDimension(dimension.toString());
-            if (pos != null) {
-                Holder<Biome> biome = level.getBiome(pos);
-                ResourceLocation biomeId = biome.unwrapKey().map(key -> key.location()).orElse(null);
-                Optional<String> byBiome = RegionBiomeMap.builtin().regionForBiome(biomeId);
-                if (byBiome.isPresent() && isKnown(byBiome.get())) {
-                    // Prefer biome when it agrees with dimension family, otherwise still take biome if known.
-                    if (byDimension.isEmpty() || sameDimensionFamily(byBiome.get(), byDimension.get())) {
-                        return byBiome.get();
-                    }
-                }
-            }
-            if (byDimension.isPresent()) {
-                return byDimension.get();
-            }
-            // soft path heuristics for pocket/custom dims
-            String path = dimension.getPath();
-            if (path.contains("tianyuan")) {
-                return knownOrDefault("tianyuan");
-            }
-            if (path.contains("spirit_fengyuan") || path.contains("fengyuan")) {
-                return knownOrDefault("spirit_fengyuan");
-            }
-            if (path.contains("yin_ming") || path.contains("yinming")) {
-                return knownOrDefault("yinming");
-            }
-            if (path.contains("nether_river")) {
-                return knownOrDefault("nether_river");
-            }
-            if (path.contains("demon_rift") || path.contains("fallen_demon")) {
-                return knownOrDefault("fallen_demon_valley");
-            }
+        ResourceLocation dimension = level.dimension().location();
+        Optional<String> byDimension = BUILTIN.regionForExactDimension(dimension.toString());
+        Optional<String> byBiome = Optional.empty();
+        if (pos != null) {
+            Holder<Biome> biome = level.getBiome(pos);
+            ResourceLocation biomeId = biome.unwrapKey().map(key -> key.location()).orElse(null);
+            byBiome = RegionBiomeMap.builtin().regionForBiome(biomeId).filter(RegionRegistry::isKnown);
         }
-        return DEFAULT_REGION_ID;
+        if (byDimension.isPresent()) {
+            return reconcilePreferred(preferredRegionId, byDimension.get(), byBiome.orElse(""));
+        }
+        if ("minecraft".equals(dimension.getNamespace())
+                && !"overworld".equals(dimension.getPath())) {
+            return byBiome.orElse(DEFAULT_REGION_ID);
+        }
+        if (byBiome.isPresent()) {
+            return byBiome.get();
+        }
+        return isKnown(preferredRegionId) ? preferredRegionId : DEFAULT_REGION_ID;
     }
 
     public static String resolveAndSync(ServerPlayer player) {
@@ -126,22 +109,29 @@ public final class RegionRegistry {
             String preferred = cultivation.getWorldpackCurrentRegionId();
             String resolved = resolveRegionId(player.level(), player.blockPosition(), preferred);
             if (!resolved.equals(preferred) && isKnown(resolved)) {
-                // Only auto-sync when preferred is unknown or dimension strongly implies another region.
-                if (!isKnown(preferred)) {
-                    cultivation.setWorldpackCurrentRegionId(resolved);
-                } else {
-                    String dimHint = resolveRegionId(player.level(), player.blockPosition(), null);
-                    if (!dimHint.equals(preferred) && !dimHint.equals(DEFAULT_REGION_ID)
-                            && !sameDimensionFamily(preferred, dimHint)) {
-                        cultivation.setWorldpackCurrentRegionId(dimHint);
-                        resolved = dimHint;
-                    } else {
-                        resolved = preferred;
-                    }
-                }
+                cultivation.setWorldpackCurrentRegionId(resolved);
             }
             return resolved;
         }).orElse(DEFAULT_REGION_ID);
+    }
+
+    static String reconcilePreferred(String preferredRegionId, String dimensionRegionId, String biomeRegionId) {
+        boolean preferredKnown = isKnown(preferredRegionId);
+        boolean dimensionKnown = isKnown(dimensionRegionId);
+        boolean biomeKnown = isKnown(biomeRegionId);
+        if (dimensionKnown) {
+            if (preferredKnown && sameDimensionFamily(preferredRegionId, dimensionRegionId)) {
+                return preferredRegionId;
+            }
+            if (biomeKnown && sameDimensionFamily(biomeRegionId, dimensionRegionId)) {
+                return biomeRegionId;
+            }
+            return dimensionRegionId;
+        }
+        if (biomeKnown) {
+            return biomeRegionId;
+        }
+        return preferredKnown ? preferredRegionId : DEFAULT_REGION_ID;
     }
 
     public record Snapshot(Map<String, RegionDefinition> byId, List<String> cardIds) {
@@ -207,6 +197,28 @@ public final class RegionRegistry {
                 }
             }
             return Optional.empty();
+        }
+
+        public Optional<String> regionForExactDimension(String dimensionId) {
+            if (dimensionId == null || dimensionId.isBlank()) {
+                return Optional.empty();
+            }
+            String key = dimensionId.trim().toLowerCase(Locale.ROOT);
+            ResourceLocation location = ResourceLocation.tryParse(key);
+            String path = location == null ? "" : location.getPath();
+            String fallback = "";
+            for (RegionDefinition definition : byId.values()) {
+                if (!definition.dimensionId().equalsIgnoreCase(key)) {
+                    continue;
+                }
+                if (definition.id().equalsIgnoreCase(path)) {
+                    return Optional.of(definition.id());
+                }
+                if (fallback.isBlank()) {
+                    fallback = definition.id();
+                }
+            }
+            return fallback.isBlank() ? Optional.empty() : Optional.of(fallback);
         }
     }
 

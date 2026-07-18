@@ -64,4 +64,16 @@ class DialogueActionExecutorTest {
         assertTrue(!DialogueActionExecutor.hasTerminalEffect(java.util.List.of(grant)));
         assertTrue(!DialogueActionExecutor.hasTerminalEffect(java.util.List.of()));
     }
+
+    @Test
+    void shippedNodesHaveAtMostOneImmediateEffectForRetrySafety() {
+        for (DialogueBranchService.Tree tree : DialogueBranchService.builtin().trees().values()) {
+            for (DialogueBranchService.Node node : tree.nodes().values()) {
+                long immediate = node.effects().stream()
+                        .filter(effect -> !DialogueActionExecutor.isDeferredChoice(effect))
+                        .count();
+                assertTrue(immediate <= 1, tree.id() + ":" + node.id() + " immediate=" + immediate);
+            }
+        }
+    }
 }

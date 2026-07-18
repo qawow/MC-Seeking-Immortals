@@ -1,5 +1,7 @@
 package com.xunxian.seekingimmortals.worldpack;
 
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
@@ -105,5 +107,19 @@ class SecretRealmM09ServiceTest {
         assertEquals("FOUNDATION", SecretRealmSessionService.normalizeRealmMin("FOUNDATION"));
         assertEquals("QI_REFINING", SecretRealmSessionService.normalizeRealmMin("qi_refining"));
         assertEquals("CORE_FORMATION", SecretRealmSessionService.normalizeRealmMin("CORE_FORMATION"));
+    }
+
+    @Test
+    void expiredOfflineSessionsDoNotConsumePartyCapacity() {
+        CompoundTag root = new CompoundTag();
+        ListTag sessions = new ListTag();
+        sessions.add(new SecretRealmProgressSavedData.Session(
+                "offline-player", "blood_forbidden", 0L, 100L, 4, false).save());
+        root.put("Sessions", sessions);
+
+        SecretRealmProgressSavedData data = SecretRealmProgressSavedData.load(root);
+        assertEquals(1, data.activeCountForRealm("blood_forbidden", 99L));
+        assertEquals(0, data.activeCountForRealm("blood_forbidden", 100L));
+        assertTrue(data.canJoin("blood_forbidden", 1, 100L));
     }
 }

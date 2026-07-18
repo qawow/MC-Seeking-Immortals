@@ -5,6 +5,7 @@ import com.xunxian.seekingimmortals.alchemy.AlchemyRecipeManager;
 import com.xunxian.seekingimmortals.command.SeekingImmortalsCommand;
 import com.xunxian.seekingimmortals.compat.ModCompat;
 import com.xunxian.seekingimmortals.compat.patchouli.PatchouliGuideBridge;
+import com.xunxian.seekingimmortals.combat.status.StatusRegistry;
 import com.xunxian.seekingimmortals.cultivation.BreakthroughService;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.CultivationProvider;
@@ -57,6 +58,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -326,12 +328,16 @@ public final class ModEvents {
             directEntity.getPersistentData().remove("SeekingImmortalsCustomDamage");
         }
 
+        Entity sourceEntity = event.getSource().getEntity();
+        if (sourceEntity instanceof LivingEntity livingAttacker) {
+            event.setAmount(event.getAmount() * (float) StatusRegistry.outgoingDamageMultiplier(livingAttacker));
+        }
+
         // H9: 飞剑/冰锥弹射物伤害已在生成时 calculateDamage，跳过 cultivation multiplier 与 PvP CombatCalculator 二次重算
         if (directEntity != null && directEntity.getPersistentData().getBoolean("SeekingImmortalsProjectileDamage")) {
             return;
         }
 
-        Entity sourceEntity = event.getSource().getEntity();
         if (!(sourceEntity instanceof Player player)) return;
 
         CultivationHelper.get(player).ifPresent(cultivation -> {

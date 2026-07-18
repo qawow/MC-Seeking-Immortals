@@ -6,18 +6,18 @@ import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.region.RegionRegistry;
 import com.xunxian.seekingimmortals.sect.ReputationUnlockService;
 import com.xunxian.seekingimmortals.shop.ShopService;
+import com.xunxian.seekingimmortals.worldpack.DimensionTravelService;
 import com.xunxian.seekingimmortals.worldpack.ReputationService;
-import com.xunxian.seekingimmortals.worldpack.SecretRealmDimensionService;
 import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
+import java.util.function.BooleanSupplier;
 
 /**
  * Server-side executor for dialogue node embedded actions.
@@ -55,13 +55,12 @@ public final class DialogueActionExecutor {
         if (player == null || effects == null || effects.isEmpty()) {
             return true;
         }
-        boolean ok = true;
         for (DialogueBranchService.Effect effect : effects) {
             if (!execute(player, npcId, treeId, nodeId, effect)) {
-                ok = false;
+                return false;
             }
         }
-        return ok;
+        return true;
     }
 
     /** Executes node-entry effects while leaving menu-opening effects for an explicit validated choice. */
@@ -70,13 +69,12 @@ public final class DialogueActionExecutor {
         if (player == null || effects == null || effects.isEmpty()) {
             return true;
         }
-        boolean ok = true;
         for (DialogueBranchService.Effect effect : effects) {
             if (!isDeferredChoice(effect) && !execute(player, npcId, treeId, nodeId, effect)) {
-                ok = false;
+                return false;
             }
         }
-        return ok;
+        return true;
     }
 
     public static boolean isDeferredChoice(DialogueBranchService.Effect effect) {
@@ -128,10 +126,8 @@ public final class DialogueActionExecutor {
                 yield true;
             }
             case TURNIN_QUESTS, OFFER_QUEST, OPEN_QUEST, OPEN_QUEST_BOARD -> {
-                // M11: soft flag + favor, then authority settlement via QuestHookRuntime effect path.
+                // QuestHookRuntime consumes the post-commit DialogueNodeReachedEvent exactly once.
                 NpcDialogueFlags.setFlag(player, "dialogue_" + normalize(nodeId) + "_" + type);
-                NpcFavorService.add(player, npcId, 1);
-                settleQuestEffect(player, type, effect);
                 yield true;
             }
             case ENTER_INSTANCE -> enterInstance(player, effect);
@@ -166,60 +162,6 @@ public final class DialogueActionExecutor {
                 yield true;
             }
         };
-    }
-
-    private static void settleQuestEffect(ServerPlayer player, String type, DialogueBranchService.Effect effect) {
-        if (player == null || effect == null) {
-            return;
-        }
-        List<String> questIds = new ArrayList<>();
-        String q = firstNonBlank(effect.param("q"), effect.param("quest"), effect.param("quest_id"), effect.param("id"));
-        if (!q.isBlank()) {
-            questIds.add(q);
-        }
-        String multi = effect.param("quest_ids");
-        if (multi != null && !multi.isBlank()) {
-            for (String part : multi.split("[,;\\s]+")) {
-                if (!part.isBlank()) {
-                    questIds.add(part.trim());
-                }
-            }
-        }
-        // Catalog effect links (offer_quest:xxx etc.).
-        String effectKey = normalize(type) + (q.isBlank() ? "" : ":" + normalize(q));
-        questIds.addAll(com.xunxian.seekingimmortals.quest.QuestHookRuntime.questsForEffect(effectKey));
-        questIds.addAll(com.xunxian.seekingimmortals.quest.QuestHookRuntime.questsForEffect(type));
-        String action = normalize(type);
-        for (String questId : questIds) {
-            if (questId == null || questId.isBlank()) {
-                continue;
-            }
-            String id = questId.trim();
-            if ("turnin_quests".equals(action)) {
-                if (com.xunxian.seekingimmortals.quest.TextQuestChainService.find(id).isPresent()) {
-                    var progress = com.xunxian.seekingimmortals.quest.TextQuestChainService.progressOf(player, id);
-                    if (progress.stage() > 0 && !progress.complete()) {
-                        com.xunxian.seekingimmortals.quest.TextQuestChainService.advance(player, id);
-                    }
-                } else {
-                    NpcDialogueFlags.setFlag(player, "quest_turnin_" + normalize(id));
-                }
-            } else {
-                if (com.xunxian.seekingimmortals.quest.TextQuestChainService.find(id).isPresent()) {
-                    var progress = com.xunxian.seekingimmortals.quest.TextQuestChainService.progressOf(player, id);
-                    if (progress.stage() <= 0) {
-                        com.xunxian.seekingimmortals.quest.TextQuestChainService.start(player, id);
-                    }
-                } else {
-                    NpcDialogueFlags.setFlag(player, "quest_offered_" + normalize(id));
-                }
-            }
-        }
-        if (questIds.isEmpty()) {
-            player.displayClientMessage(Component.literal("[对话] 任务相关动作已记录。"), false);
-        } else {
-            player.displayClientMessage(Component.literal("[对话] 任务结算：" + String.join(",", questIds)), false);
-        }
     }
 
     private static boolean openShop(ServerPlayer player, String npcId, DialogueBranchService.Effect effect) {
@@ -278,48 +220,64 @@ public final class DialogueActionExecutor {
     private static boolean teleportOrTravel(ServerPlayer player, DialogueBranchService.Effect effect) {
         String dest = firstNonBlank(effect.param("to"), effect.param("region"), effect.param("route"), effect.param("target"));
         int cost = effect.paramInt("cost_contribution", 0);
-        if (cost > 0) {
-            Optional<PlayerCultivation> cultivation = CultivationHelper.get(player);
-            if (cultivation.isEmpty() || !cultivation.get().getSevenMysteriesQuest().spendContribution(cost)) {
-                player.displayClientMessage(Component.literal("[对话] 贡献不足，无法传送。"), false);
-                return false;
-            }
-        }
         if (dest.isBlank()) {
-            // Soft travel: use portal array path if available.
-            try {
-                WorldpackGameplayService.usePortalArray(player);
-                return true;
-            } catch (Throwable ignored) {
-                player.displayClientMessage(Component.literal("[对话] 传送阵尚未连通。"), false);
-                return false;
-            }
+            return executeContributionTravel(player, cost, () -> WorldpackGameplayService.usePortalArray(player));
         }
         String region = normalize(dest);
+        Optional<DimensionTravelService.RouteDef> route = DimensionTravelService.findRouteForTravel(
+                player.level().dimension().location().toString(),
+                region,
+                cost > 0 ? DimensionTravelService.METHOD_REGULATED : "");
+        if (route.isPresent()) {
+            int configuredCost = DimensionTravelService.contributionCost(route.get().id());
+            if (cost > 0 && configuredCost != cost) {
+                player.displayClientMessage(Component.literal("[对话] 通行费用配置不一致，传送已取消。"), false);
+                return false;
+            }
+            boolean success = DimensionTravelService.travelByRoute(player, route.get().id());
+            if (success) {
+                NpcDialogueFlags.setFlag(player, "travel_to_" + region);
+                ReputationService.onPortalTravel(player, region);
+            }
+            return success;
+        }
         if (RegionRegistry.isKnown(region)) {
-            // Mark travel intent; full spatial teleport is owned by M13/worldpack anchors.
-            NpcDialogueFlags.setFlag(player, "travel_to_" + region);
-            ReputationService.onPortalTravel(player, region);
-            player.displayClientMessage(Component.literal("[对话] 记下了前往 " + region + " 的路径。"), false);
-            return true;
+            boolean success = executeContributionTravel(player, cost,
+                    () -> WorldpackGameplayService.travel(player, region));
+            if (success) {
+                NpcDialogueFlags.setFlag(player, "travel_to_" + region);
+            }
+            return success;
         }
         NpcDialogueFlags.setFlag(player, "travel_route_" + region);
         player.displayClientMessage(Component.literal("[对话] 行程已备：" + dest), false);
         return true;
     }
 
+    private static boolean executeContributionTravel(ServerPlayer player, int cost, BooleanSupplier travel) {
+        Optional<PlayerCultivation> cultivation = CultivationHelper.get(player);
+        var progress = cultivation.map(PlayerCultivation::getSevenMysteriesQuest).orElse(null);
+        int current = progress == null ? 0 : progress.getContribution();
+        if (cost > 0 && (progress == null || current < cost || !progress.spendContribution(cost))) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.sect.not_enough_contribution", cost, current), false);
+            return false;
+        }
+        boolean success;
+        try {
+            success = travel != null && travel.getAsBoolean();
+        } catch (Throwable ignored) {
+            success = false;
+        }
+        if (!success && cost > 0 && progress != null) {
+            progress.addContribution(cost);
+        }
+        return success;
+    }
+
     private static boolean enterInstance(ServerPlayer player, DialogueBranchService.Effect effect) {
         String realmId = firstNonBlank(effect.param("instance"), effect.param("realm"), effect.param("id"), "blood_forbidden");
-        try {
-            if (SecretRealmDimensionService.teleportInto(player, realmId)) {
-                return true;
-            }
-        } catch (Throwable ignored) {
-            // M09 may not fully wire every instance id yet.
-        }
-        NpcDialogueFlags.setFlag(player, "enter_instance_" + normalize(realmId));
-        player.displayClientMessage(Component.literal("[对话] 秘境入口已标记：" + realmId), false);
-        return true;
+        return WorldpackGameplayService.enterSecretRealm(player, realmId);
     }
 
     private static boolean addRep(ServerPlayer player, String npcId, DialogueBranchService.Effect effect) {

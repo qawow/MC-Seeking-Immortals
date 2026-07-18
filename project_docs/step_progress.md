@@ -1,3 +1,30 @@
+## 488. 2026-07-19 0.2.18 权限审查修复
+
+  Step   Status   Notes
+  ---   ---   ---
+  Review scope   Done   复核并修复 13 条 P1/P2：维度路由、飞升回滚、离线秘境会话、对话旅行/秘境/claim、任务链接、破损法宝、区域同步、维度飞行、封术、出伤倍率和贡献阈值。
+  Subagent audit   Done   6 个 `gpt-5.6-sol`、`reasoning_effort=max` 子代理并行审计旅行、飞升、秘境、对话、任务、法宝与状态链路，主代理逐项复核并整合。
+  Backup   Done   合并冲突备份 `.bak/20260719_012030_m14_merge_resolution/`；本批既有文件备份 `.bak/20260719_013300_review_authority_fixes/`。
+  Authority fixes   Done   发布路由 schema 正确解析并 fail-closed；付费旅行失败退款；秘境/对话/任务/法宝/区域/飞行路径统一执行服务端权威与失败语义。
+  Status consumers   Done   合入 M14 `outgoingDamageMul`、`blocksTechnique`、`hidesRealm` 消费端与回归；M02/M10 真实状态施加端继续列为后续。
+  Tests   Done   聚焦旅行、秘境、对话、任务、法宝、区域及状态门禁测试通过；全量 Gradle build 通过。
+  Version/protocol   Done   `mod_version` 0.2.17 -> 0.2.18；`ModNetwork.PROTOCOL_VERSION` 保持 24，无包字段、顺序、编码或通道行为变化。
+  Update note   Done   `project_docs/updates/20260719_0.2.18_authority_review_fixes.md`
+
+## 487. 2026-07-19 M14 状态消费端接线
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260719_003407_m14_status_consumers/`
+  outgoingDamageMul consumer          Done StatusRegistry 聚合活跃 SeekingStatusEffect；ModEvents 复用 LivingHurt multiplier
+  blocksTechnique consumer            Done TechniqueGateService.canCast 中央门禁；主释放/双放共用；双语拒绝提示
+  hidesRealm consumer                 Done DivineSenseSpell.castMindRead 玩家境界读取；敛息先判定且不携带真实境界
+  Focused tests                        Done StatusRegistryTest + TechniqueGateServiceTest + DivineSenseSpellTest，7/7 通过
+  Scope boundary                       Done 未改 M02/M10 施加端、CombatCalculator、M15 DamagePipelineHooks、HUD/自身同步
+  Version/protocol                     Unchanged 任务红线保持 `mod_version=0.2.17`；无包字段/顺序/通道变化，protocol 24
+  Full verification                    Done 594 tests；`./gradlew cleanTest build --no-daemon -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL in 1m4s
+  Update note                          Done `project_docs/updates/20260719_m14_status_consumers.md`
+
 ## 486. 2026-07-19 飞升备份复制漏洞收口
 
   Step   Status   Notes

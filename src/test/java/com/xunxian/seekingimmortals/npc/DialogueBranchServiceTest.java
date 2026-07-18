@@ -115,4 +115,22 @@ class DialogueBranchServiceTest {
         assertFalse(DialogueBranchService.matches(null, "", Map.of("window_open", true)));
         assertTrue(DialogueBranchService.matches(null, "", Map.of("window_open", false)));
     }
+
+    @Test
+    void contributionConditionsHonorNumericThresholds() {
+        assertFalse(DialogueBranchService.hasContributionAtLeast(499, 500));
+        assertTrue(DialogueBranchService.hasContributionAtLeast(500, 500));
+        assertTrue(DialogueBranchService.hasContributionAtLeast(501, 500));
+        assertTrue(DialogueBranchService.hasContributionBelow(499, 500));
+        assertFalse(DialogueBranchService.hasContributionBelow(500, 500));
+        assertFalse(DialogueBranchService.hasContributionAtLeast(500, 499.9D));
+        assertFalse(DialogueBranchService.hasContributionAtLeast(500, -1));
+    }
+
+    @Test
+    void effectParameterListsPreserveArrayEntries() {
+        DialogueBranchService.Effect effect = new DialogueBranchService.Effect(
+                "offer_quest", Map.of("quest_ids", List.of("first", "second")));
+        assertEquals(List.of("first", "second"), effect.paramList("quest_ids"));
+    }
 }

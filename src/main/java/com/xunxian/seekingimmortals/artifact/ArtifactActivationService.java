@@ -119,9 +119,50 @@ public final class ArtifactActivationService {
         }
 
         ActivationInfo info = activationInfo(snapshot, artifact);
+        if (!info.supported()) {
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.artifact.unsupported"), true);
+            return false;
+        }
+        if (cultivation.getRealm().ordinal() < info.minRealm().ordinal()
+                && !com.xunxian.seekingimmortals.cultivation.ProgressionGateApi.meetsRealm(
+                        cultivation, info.minRealm())) {
+            // 越阶仍可释放，但 powerScale 已压制；仅当完全凡人且无门槛通过时拒绝低阶。
+            if (powerScale < ArtifactDataService.builtin().realmPowerScale().belowRealmMin() + 1.0e-6D
+                    && cultivation.getRealm().ordinal() + 2 < info.minRealm().ordinal()) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.artifact.realm_too_low", info.minRealm().getDisplayName()), true);
+                return false;
+            }
+        }
+        if (player.getCooldowns().isOnCooldown(stack.getItem())) {
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.artifact.cooldown"), true);
+            return false;
+        }
+        boolean repairActivation = ActivationKind.REPAIR.id.equals(info.kind());
+        if (!repairActivation && info.integrityCost() > 0 && !player.getAbilities().instabuild) {
+            int integrity = getIntegrity(stack, artifact);
+            int effectiveCost = effectiveIntegrityCost(player, artifact, info);
+            if (!hasUsableIntegrity(integrity, effectiveCost, false)) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.artifact.integrity_broken", stack.getHoverName()), true);
+                return false;
+            }
+            if (integrity < effectiveCost) {
+                // Wave459: last-light emergency activation zeros integrity.
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.artifact.integrity_last_light", stack.getHoverName()), true);
+            }
+        }
+        if (info.maxUses() > 0 && getUsesLeft(stack, info.maxUses()) <= 0) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.artifact.talisman_depleted", stack.getHoverName()), true);
+            return false;
+        }
         // M15: 优先走 M02 SkillEffectRegistry 主动技映射（冷却/灵力服务端校验）。
-        if (info.supported() && !ActivationKind.REPAIR.id.equals(info.kind())) {
-            if (ArtifactActiveSkillService.tryCast(player, cultivation, stack, artifact, powerScale)) {
+        if (!repairActivation) {
+            ArtifactActiveSkillService.CastResult castResult = ArtifactActiveSkillService.tryCast(
+                    player, cultivation, stack, artifact, powerScale);
+            if (castResult == ArtifactActiveSkillService.CastResult.SUCCESS) {
                 if (info.integrityCost() > 0 && !player.getAbilities().instabuild) {
                     int effectiveCost = effectiveIntegrityCost(player, artifact, info);
                     int integrity = getIntegrity(stack, artifact);
@@ -144,29 +185,12 @@ public final class ArtifactActivationService {
                         ArtifactPowerService.scaledSpiritualCost(info.spiritualPowerCost(), powerScale)), true);
                 return true;
             }
-        }
-
-        if (!info.supported()) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.artifact.unsupported"), true);
-            return false;
-        }
-        if (cultivation.getRealm().ordinal() < info.minRealm().ordinal()
-                && !com.xunxian.seekingimmortals.cultivation.ProgressionGateApi.meetsRealm(
-                        cultivation, info.minRealm())) {
-            // 越阶仍可释放，但 powerScale 已压制；仅当完全凡人且无门槛通过时拒绝低阶。
-            if (powerScale < ArtifactDataService.builtin().realmPowerScale().belowRealmMin() + 1.0e-6D
-                    && cultivation.getRealm().ordinal() + 2 < info.minRealm().ordinal()) {
-                player.displayClientMessage(Component.translatable(
-                        "message.seeking_immortals.artifact.realm_too_low", info.minRealm().getDisplayName()), true);
+            if (!ArtifactActiveSkillService.shouldFallbackToGeneric(castResult)) {
                 return false;
             }
         }
-        if (player.getCooldowns().isOnCooldown(stack.getItem())) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.artifact.cooldown"), true);
-            return false;
-        }
         RepairTarget repairTarget = null;
-        if (ActivationKind.REPAIR.id.equals(info.kind())) {
+        if (repairActivation) {
             repairTarget = findRepairTarget(player, hand, snapshot);
             if (repairTarget == null) {
                 player.displayClientMessage(Component.translatable(
@@ -178,24 +202,6 @@ public final class ArtifactActivationService {
                         "message.seeking_immortals.artifact.repair_full", repairTarget.stack().getHoverName()), true);
                 return false;
             }
-        } else if (info.integrityCost() > 0 && !player.getAbilities().instabuild) {
-            int integrity = getIntegrity(stack, artifact);
-            int effectiveCost = effectiveIntegrityCost(player, artifact, info);
-            if (integrity <= 0) {
-                player.displayClientMessage(Component.translatable(
-                        "message.seeking_immortals.artifact.integrity_broken", stack.getHoverName()), true);
-                return false;
-            }
-            if (integrity < effectiveCost) {
-                // Wave459: last-light emergency activation zeros integrity.
-                player.displayClientMessage(Component.translatable(
-                        "message.seeking_immortals.artifact.integrity_last_light", stack.getHoverName()), true);
-            }
-        }
-        if (info.maxUses() > 0 && getUsesLeft(stack, info.maxUses()) <= 0) {
-            player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.artifact.talisman_depleted", stack.getHoverName()), true);
-            return false;
         }
         int spCost = ArtifactPowerService.scaledSpiritualCost(
                 effectiveSpiritualCost(player, artifact, info), powerScale);
@@ -252,6 +258,10 @@ public final class ArtifactActivationService {
             cost = Math.max(0, cost - growth / 25);
         }
         return cost;
+    }
+
+    static boolean hasUsableIntegrity(int integrity, int integrityCost, boolean instabuild) {
+        return instabuild || integrityCost <= 0 || integrity > 0;
     }
 
     private static int effectiveSpiritualCost(ServerPlayer player, ArtifactDataService.ArtifactDefinition artifact,

@@ -4,7 +4,10 @@ import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.FlyingAuthority;
 import com.xunxian.seekingimmortals.cultivation.ProgressionGateApi;
 import com.xunxian.seekingimmortals.cultivation.Realm;
+import com.xunxian.seekingimmortals.cultivation.RealmStage;
+import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.resources.ResourceLocation;
 
 /**
  * M13 realm/dimension flight policy layered on {@link FlyingAuthority}.
@@ -12,6 +15,15 @@ import net.minecraft.server.level.ServerPlayer;
  */
 public final class FlyingAuthorityPolicy {
     public static final String SOURCE_POLICY = "dimension_policy";
+
+    enum DimensionFlightRule {
+        MORTAL,
+        YIN,
+        DEMON_RIFT,
+        SECRET_REALM,
+        SPIRIT_REALM,
+        DENY
+    }
 
     private FlyingAuthorityPolicy() {}
 
@@ -33,29 +45,49 @@ public final class FlyingAuthorityPolicy {
         if (player.getAbilities().instabuild || player.isSpectator()) {
             return true;
         }
+        return switch (classifyDimension(dimensionId)) {
+            case YIN -> CultivationHelper.get(player).map(c -> c.isGhostPath()).orElse(false)
+                    && ProgressionGateApi.meetsRealm(player, "FOUNDATION");
+            case DEMON_RIFT -> ProgressionGateApi.meetsRealm(player, "NASCENT_SOUL");
+            case SECRET_REALM -> ProgressionGateApi.meetsRealm(player, "SOUL_TRANSFORMATION");
+            case SPIRIT_REALM -> ProgressionGateApi.meetsRealm(player, "FOUNDATION");
+            case MORTAL -> ProgressionGateApi.meetsRealm(player, "FOUNDATION")
+                    || CultivationHelper.get(player)
+                    .map(c -> allowsMortalCultivation(c.getRealm(), c.getStage()))
+                    .orElse(false);
+            case DENY -> false;
+        };
+    }
+
+    static DimensionFlightRule classifyDimension(String dimensionId) {
         String dim = DimensionRegistryService.toMinecraftDimensionId(dimensionId);
-        // yin pockets: no free flight unless foundation+ ghost path
-        if (YinUnderworldClusterService.isYinDimension(dim)) {
-            boolean ghost = CultivationHelper.get(player).map(c -> c.isGhostPath()).orElse(false);
-            return ghost && ProgressionGateApi.meetsRealm(player, "FOUNDATION");
+        if (DimensionRegistryService.OVERWORLD.equals(dim)) {
+            return DimensionFlightRule.MORTAL;
         }
-        // demon rift: nascent soul+
-        if (dim.endsWith("demon_rift")) {
-            return ProgressionGateApi.meetsRealm(player, "NASCENT_SOUL");
+        if (DimensionRegistryService.YIN_MING_POCKET.equals(dim)
+                || DimensionRegistryService.NETHER_RIVER_POCKET.equals(dim)) {
+            return DimensionFlightRule.YIN;
         }
-        // secret realms: often no_fly — deny free policy flight
-        if (dim.contains("secret_realm")) {
-            return ProgressionGateApi.meetsRealm(player, "SOUL_TRANSFORMATION")
-                    || ProgressionGateApi.meetsRealm(player, "DEITY_TRANSFORMATION");
+        if (DimensionRegistryService.DEMON_RIFT.equals(dim)) {
+            return DimensionFlightRule.DEMON_RIFT;
         }
-        // spirit realm hubs: foundation+ may fly with policy source
-        if (dim.endsWith("tianyuan") || dim.endsWith("spirit_fengyuan") || dim.endsWith("immortal_realm")) {
-            return ProgressionGateApi.meetsRealm(player, "FOUNDATION");
+        if (DimensionRegistryService.TIANYUAN.equals(dim)
+                || DimensionRegistryService.SPIRIT_FENGYUAN.equals(dim)
+                || DimensionRegistryService.IMMORTAL_REALM.equals(dim)) {
+            return DimensionFlightRule.SPIRIT_REALM;
         }
-        // mortal overworld: qi refining late / foundation
-        return ProgressionGateApi.meetsRealm(player, "FOUNDATION")
-                || CultivationHelper.get(player).map(c -> c.getRealm().ordinal() >= Realm.QI_REFINING.ordinal()
-                && c.getRealm() == Realm.QI_REFINING).orElse(false);
+        ResourceLocation location = ResourceLocation.tryParse(dim);
+        if (location != null && SeekingImmortalsMod.MODID.equals(location.getNamespace())
+                && (location.getPath().startsWith("secret_realm_")
+                || DimensionRegistryService.ASURA_REALM.equals(dim))) {
+            return DimensionFlightRule.SECRET_REALM;
+        }
+        return DimensionFlightRule.DENY;
+    }
+
+    static boolean allowsMortalCultivation(Realm realm, RealmStage stage) {
+        return realm == Realm.QI_REFINING && stage != null
+                && stage.ordinal() >= RealmStage.LAYER_10.ordinal();
     }
 
     public static boolean allowsVehicle(ServerPlayer player, String vehicleId) {

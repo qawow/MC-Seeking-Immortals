@@ -130,7 +130,7 @@ public final class SecretRealmProgressSavedData extends SavedData {
         if (player == null || realmId == null || realmId.isBlank()) {
             return;
         }
-        long now = player.serverLevel().getGameTime();
+        long now = player.server.overworld().getGameTime();
         Session session = new Session(
                 player.getUUID().toString(),
                 realmId.trim().toLowerCase(Locale.ROOT),
@@ -158,22 +158,22 @@ public final class SecretRealmProgressSavedData extends SavedData {
         }
     }
 
-    public int activeCountForRealm(String realmId) {
+    public int activeCountForRealm(String realmId, long gameTime) {
         if (realmId == null || realmId.isBlank()) {
             return 0;
         }
         String id = realmId.trim().toLowerCase(Locale.ROOT);
         int count = 0;
         for (Session session : sessions.values()) {
-            if (id.equals(session.realmId()) && !session.expired()) {
+            if (id.equals(session.realmId()) && !session.isTimedOut(gameTime)) {
                 count++;
             }
         }
         return count;
     }
 
-    public boolean canJoin(String realmId, int partyLimit) {
-        return activeCountForRealm(realmId) < Math.max(1, partyLimit);
+    public boolean canJoin(String realmId, int partyLimit, long gameTime) {
+        return activeCountForRealm(realmId, gameTime) < Math.max(1, partyLimit);
     }
 
     private static String key(UUID playerId, String id) {

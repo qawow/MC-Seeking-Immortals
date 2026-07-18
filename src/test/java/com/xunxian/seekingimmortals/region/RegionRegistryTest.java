@@ -106,6 +106,16 @@ class RegionRegistryTest {
         assertTrue(tianyuan <= 2.5D);
     }
 
+    @Test
+    void dimensionResolutionOverridesStaleCrossDimensionCache() {
+        assertEquals("tianyuan", RegionRegistry.reconcilePreferred(
+                "tiannan", "tianyuan", ""));
+        assertEquals("tiannan", RegionRegistry.reconcilePreferred(
+                "tiannan", "qinglan_mountains", ""));
+        assertEquals(RegionRegistry.DEFAULT_REGION_ID, RegionRegistry.reconcilePreferred(
+                "missing_region", "missing_dimension", ""));
+    }
+
     /** Tiny local helper to keep SpiritualAuraManager import usage intentional. */
     private static final class SpiritualAuraCompat {
         private static double regionMultiplierOrDefault(String regionId) {

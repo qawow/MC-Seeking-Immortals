@@ -195,4 +195,14 @@ class ArtifactActivationServiceTest {
         assertEquals(100, ArtifactActivationService.maxIntegrity(cloudBoots));
         assertTrue(cloudBootsActivation.integrityCost() > 0);
     }
+
+    @Test
+    void brokenMappedArtifactsCannotCastOrFallback() {
+        assertFalse(ArtifactActivationService.hasUsableIntegrity(0, 5, false));
+        assertTrue(ArtifactActivationService.hasUsableIntegrity(1, 5, false));
+        assertTrue(ArtifactActiveSkillService.shouldFallbackToGeneric(
+                ArtifactActiveSkillService.CastResult.UNMAPPED));
+        assertFalse(ArtifactActiveSkillService.shouldFallbackToGeneric(
+                ArtifactActiveSkillService.CastResult.DENIED));
+    }
 }

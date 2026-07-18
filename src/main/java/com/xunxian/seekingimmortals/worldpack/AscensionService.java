@@ -199,6 +199,7 @@ public final class AscensionService {
         NpcDialogueFlags.setFlag(player, FLAG_ASCENSION_READY, true);
         setStage(player, "tianyuan_garrison");
         FlyingAuthorityPolicy.onDimensionChanged(player, DimensionRegistryService.TIANYUAN);
+        grantStarterPack(player);
         // Success: discard rollback snapshot so no later restore can duplicate unique/equipment items.
         clearBackup(player);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.ascension.success"), false);
@@ -281,6 +282,9 @@ public final class AscensionService {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.ascension.no_backup"), false);
             return false;
         }
+        for (int slot = 0; slot < player.getInventory().getContainerSize(); slot++) {
+            player.getInventory().setItem(slot, ItemStack.EMPTY);
+        }
         ListTag items = root.getList("Items", 10);
         for (int i = 0; i < items.size(); i++) {
             CompoundTag tag = items.getCompound(i);
@@ -288,7 +292,11 @@ public final class AscensionService {
             if (stack.isEmpty()) {
                 continue;
             }
-            if (!player.getInventory().add(stack)) {
+            int slot = tag.getInt("Slot");
+            if (slot >= 0 && slot < player.getInventory().getContainerSize()
+                    && player.getInventory().getItem(slot).isEmpty()) {
+                player.getInventory().setItem(slot, stack);
+            } else if (!player.getInventory().add(stack)) {
                 player.drop(stack, false);
             }
         }
@@ -346,24 +354,16 @@ public final class AscensionService {
      * Never destroys unique story items.
      */
     private static void applyLoadoutReset(ServerPlayer player) {
-        // retain uniques / equipment; non-unique common stacks stay only in backup NBT
-        List<ItemStack> retained = new ArrayList<>();
+        // Retained stacks stay in their original slots; only resettable stacks are removed.
         for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
             ItemStack stack = player.getInventory().getItem(i);
-            if (stack.isEmpty()) {
-                continue;
-            }
-            if (isUniqueOrWhitelisted(stack)) {
-                retained.add(stack.copy());
-            }
-            player.getInventory().setItem(i, ItemStack.EMPTY);
-        }
-        for (ItemStack stack : retained) {
-            if (!player.getInventory().add(stack)) {
-                player.drop(stack, false);
+            if (!stack.isEmpty() && !isUniqueOrWhitelisted(stack)) {
+                player.getInventory().setItem(i, ItemStack.EMPTY);
             }
         }
-        // starter pack soft grants (idempotent — FLAG_STARTER_GRANTED blocks re-grant)
+    }
+
+    private static void grantStarterPack(ServerPlayer player) {
         if (shouldGrantStarter(NpcDialogueFlags.hasFlag(player, FLAG_STARTER_GRANTED))) {
             grantIfPresent(player, "seeking_immortals:alliance_merit_token", 1);
             grantIfPresent(player, "seeking_immortals:spirit_stone_shard", 16);

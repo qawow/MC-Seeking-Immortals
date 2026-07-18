@@ -1,5 +1,7 @@
 package com.xunxian.seekingimmortals.worldpack;
 
+import com.xunxian.seekingimmortals.cultivation.Realm;
+import com.xunxian.seekingimmortals.cultivation.RealmStage;
 import com.xunxian.seekingimmortals.structure.FlyingBoatDockStructure;
 import com.xunxian.seekingimmortals.structure.ImmortalTeleportGrandArrayStructure;
 import net.minecraft.nbt.CompoundTag;
@@ -83,6 +85,41 @@ class M13DimensionsAscensionTest {
                 || DimensionTravelService.findMethod("fixed_teleport_array").isPresent()
                 || DimensionTravelService.methodCount() >= 1);
         assertFalse(DimensionTravelService.snapshot().matrix().isEmpty());
+    }
+
+    @Test
+    void travelRoutesUsePublishedDimensionAndNestedMethodFields() {
+        DimensionTravelService.RouteDef ascension = DimensionTravelService.findRoute("mortal_to_tianyuan")
+                .orElseThrow();
+        assertEquals(DimensionRegistryService.MORTAL_WORLD, ascension.fromDimension());
+        assertEquals(DimensionRegistryService.TIANYUAN, ascension.toDimension());
+        assertEquals(DimensionTravelService.METHOD_ASCENSION, ascension.method());
+        assertEquals("DEITY_TRANSFORMATION", ascension.realmMin());
+        assertTrue(ascension.oneWay());
+        assertTrue(DimensionTravelService.isDirectRouteImplemented(ascension));
+
+        DimensionTravelService.RouteDef portal = DimensionTravelService.findRoute("tianyuan_to_fengyuan")
+                .orElseThrow();
+        assertEquals(DimensionRegistryService.TIANYUAN, portal.fromDimension());
+        assertEquals(DimensionRegistryService.SPIRIT_FENGYUAN, portal.toDimension());
+        assertEquals(DimensionTravelService.METHOD_REGULATED, portal.method());
+        assertEquals("VOID_REFINEMENT", portal.realmMin());
+        assertEquals("tianyuan_to_spirit_fengyuan", portal.gateId());
+        assertEquals(500, DimensionTravelService.contributionCost(portal.id()));
+    }
+
+    @Test
+    void flightPolicyFailsClosedOutsideRecognizedDimensions() {
+        assertEquals(FlyingAuthorityPolicy.DimensionFlightRule.MORTAL,
+                FlyingAuthorityPolicy.classifyDimension(DimensionRegistryService.OVERWORLD));
+        assertEquals(FlyingAuthorityPolicy.DimensionFlightRule.DENY,
+                FlyingAuthorityPolicy.classifyDimension("minecraft:the_nether"));
+        assertEquals(FlyingAuthorityPolicy.DimensionFlightRule.DENY,
+                FlyingAuthorityPolicy.classifyDimension("minecraft:the_end"));
+        assertEquals(FlyingAuthorityPolicy.DimensionFlightRule.DENY,
+                FlyingAuthorityPolicy.classifyDimension("othermod:tianyuan"));
+        assertTrue(FlyingAuthorityPolicy.allowsMortalCultivation(Realm.QI_REFINING, RealmStage.LAYER_10));
+        assertFalse(FlyingAuthorityPolicy.allowsMortalCultivation(Realm.QI_REFINING, RealmStage.LAYER_9));
     }
 
     @Test

@@ -1,3 +1,7 @@
+> CURRENT TRUTH 2026-07-19: `0.2.18` 权限审查修复收口 13 条旅行/飞升/秘境/对话/任务/法宝/区域/飞行/状态问题。旅行解析匹配发布 schema 且贡献扣费失败退款；飞升回滚按槽位覆盖恢复；离线秘境会话按统一时钟过期；对话入口统一走服务权威且失败不 claim；任务链接按目标精确解析；破损法宝拒绝 mapped cast；维度优先纠正区域；未知维度默认禁飞；M14 出伤/封术/敛息状态消费端已合入。mod_version 0.2.18，protocol 保持 24（无包字段、顺序或通道变化）。聚焦回归与 `./gradlew build` 均通过。Details: project_docs/updates/20260719_0.2.18_authority_review_fixes.md.
+
+> CURRENT TRUTH 2026-07-19: M14 三个状态消费端已接线。`outgoingDamageMul` 沿现有 LivingHurt multiplier 连乘；`blocksTechnique` 下沉至 TechniqueGateService，主释放/双放共用；`hidesRealm` 接入 DivineSenseSpell 单目标读心境界出口，隐藏分支不携带真实境界。M02/M10 真实施加端与 M15 DamagePipelineHooks 注册仍属后续任务。任务红线保持 mod_version 0.2.17，protocol 保持 24（无包变化）。聚焦 7 项测试与全量 594 项测试通过；提交前 `./gradlew cleanTest build --no-daemon -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL。Details: project_docs/updates/20260719_m14_status_consumers.md.
+
 > CURRENT TRUTH 2026-07-19: 飞升备份复制漏洞收口（彻底方案）。成功传送后立即 clearBackup；玩家 restore 下线为 permission 2 管理诊断；再飞升仅看 FLAG_ASCENDED；起步礼 FLAG_STARTER_GRANTED 幂等。不升 mod_version（0.2.17 红线）；protocol 不变。Details: project_docs/updates/20260719_ascension_backup_lockdown.md.
 
 > CURRENT TRUTH 2026-07-18: `0.2.17` 四材气候 hardening。走火阈值与字色 helper 收拢到 `ImmortalUiSkin.qiDevRiskColor`（50/70）；Stats/HUD 共用；新增 `UiClimateStackTest` 覆盖 push/pop/withClimate 色板重绑与阈值。Layout/发包契约不变。mod_version 0.2.17；protocol 保持 24。Details: project_docs/updates/20260718_0.2.17_climate_harden.md.

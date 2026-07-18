@@ -7,6 +7,7 @@ import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.ProgressionGateApi;
+import com.xunxian.seekingimmortals.region.RegionRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -60,7 +61,13 @@ public final class DimensionTravelService {
             String gateId,
             String allowed) {}
 
-    public record CostDef(String routeId, String band, int spiritStoneMin, int spiritStoneMax, double failChance) {}
+    public record CostDef(
+            String routeId,
+            String band,
+            int spiritStoneMin,
+            int spiritStoneMax,
+            int contributionCost,
+            double failChance) {}
 
     public record Snapshot(
             Map<String, MethodDef> methods,
@@ -99,6 +106,19 @@ public final class DimensionTravelService {
         return Optional.ofNullable(SNAPSHOT.routes.get(id.trim().toLowerCase(Locale.ROOT)));
     }
 
+    public static Optional<RouteDef> findRouteForTravel(String fromDimensionId, String targetDimensionId,
+                                                        String methodHint) {
+        return findRouteFor(fromDimensionId, targetDimensionId, methodHint);
+    }
+
+    public static int contributionCost(String routeId) {
+        if (routeId == null || routeId.isBlank()) {
+            return 0;
+        }
+        CostDef cost = SNAPSHOT.costs.get(routeId.trim().toLowerCase(Locale.ROOT));
+        return cost == null ? 0 : Math.max(0, cost.contributionCost());
+    }
+
     /**
      * Server-authoritative travel by route id. Target dimension comes from route data, not client.
      */
@@ -114,8 +134,32 @@ public final class DimensionTravelService {
             return false;
         }
         RouteDef route = optional.get();
-        return travelInternal(player, route.fromDimension(), route.toDimension(), route.method(),
+        if (!isDirectRouteImplemented(route)) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.dim_travel.not_allowed", route.id()), false);
+            return false;
+        }
+        int contributionCost = contributionCost(route.id());
+        var progress = CultivationHelper.get(player)
+                .map(cultivation -> cultivation.getSevenMysteriesQuest())
+                .orElse(null);
+        if (contributionCost > 0) {
+            int current = progress == null ? 0 : progress.getContribution();
+            if (progress == null || current < contributionCost) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.sect.not_enough_contribution", contributionCost, current), false);
+                return false;
+            }
+            if (!progress.spendContribution(contributionCost)) {
+                return false;
+            }
+        }
+        boolean success = travelInternal(player, route.fromDimension(), route.toDimension(), route.method(),
                 route.realmMin(), route.oneWay(), route.gateId(), route.id());
+        if (!success && contributionCost > 0 && progress != null) {
+            progress.addContribution(contributionCost);
+        }
+        return success;
     }
 
     /**
@@ -175,12 +219,29 @@ public final class DimensionTravelService {
 
     private static boolean travelInternal(ServerPlayer player, String fromDim, String toDim, String method,
                                           String realmMin, boolean oneWay, String gateId, String routeKey) {
+        if (fromDim == null || fromDim.isBlank() || toDim == null || toDim.isBlank()
+                || toDim.trim().toLowerCase(Locale.ROOT).startsWith("instance:")) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.dim_travel.not_allowed", routeKey), false);
+            return false;
+        }
+        String currentDimension = normalizeDimToken(player.level().dimension().location().toString());
+        if (!currentDimension.equals(normalizeDimToken(fromDim))) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.dim_travel.not_allowed", routeKey), false);
+            return false;
+        }
         if (isOnCooldown(player, routeKey)) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.dim_travel.cooldown", remainingCooldownSeconds(player, routeKey)), true);
             return false;
         }
         String targetId = DimensionRegistryService.toMinecraftDimensionId(toDim);
+        if (ResourceLocation.tryParse(targetId) == null) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.dim_travel.not_allowed", routeKey), false);
+            return false;
+        }
         Optional<DimensionRegistryService.DimensionDef> def = DimensionRegistryService.find(toDim);
         if (def.isPresent() && def.get().isDeferred()) {
             player.displayClientMessage(Component.translatable(
@@ -248,6 +309,7 @@ public final class DimensionTravelService {
 
         player.teleportTo(target, x + 0.5D, y, z + 0.5D, player.getYRot(), player.getXRot());
         setCooldown(player, routeKey, cooldownFor(method));
+        RegionRegistry.resolveAndSync(player);
         FlyingAuthorityPolicy.onDimensionChanged(player, targetId);
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.dim_travel.success", targetId, method == null ? "" : method), true);
@@ -310,6 +372,14 @@ public final class DimensionTravelService {
         return Optional.ofNullable(fallback);
     }
 
+    static boolean isDirectRouteImplemented(RouteDef route) {
+        if (route == null) {
+            return false;
+        }
+        String id = route.id() == null ? "" : route.id().trim().toLowerCase(Locale.ROOT);
+        return "mortal_to_tianyuan".equals(id) || "tianyuan_to_fengyuan".equals(id);
+    }
+
     private static boolean isForbidden(String allowed) {
         if (allowed == null) {
             return false;
@@ -362,15 +432,23 @@ public final class DimensionTravelService {
                 JsonObject o = element.getAsJsonObject();
                 String id = firstNonBlank(str(o, "id"), str(o, "route_id"));
                 if (id.isBlank()) continue;
+                JsonObject method = firstMethod(o);
+                String methodId = firstNonBlank(str(method, "method"), str(o, "method"),
+                        str(o, "transport"), METHOD_TELEPORT_ARRAY);
+                boolean oneWay = bool(o, "one_way") || bool(method, "one_way")
+                        || bool(method, "one_way_main_body");
+                String allowed = firstNonBlank(str(o, "allowed"),
+                        METHOD_ASCENSION.equals(methodId) ? "ascension_only" : "",
+                        METHOD_REGULATED.equals(methodId) ? "portal_fee" : "");
                 routes.put(id.toLowerCase(Locale.ROOT), new RouteDef(
                         id,
-                        firstNonBlank(str(o, "from_dimension"), str(o, "from"), DimensionRegistryService.MORTAL_WORLD),
-                        firstNonBlank(str(o, "to_dimension"), str(o, "to"), ""),
-                        firstNonBlank(str(o, "method"), str(o, "transport"), METHOD_TELEPORT_ARRAY),
-                        firstNonBlank(str(o, "realm_min"), str(o, "min_realm")),
-                        o.has("one_way") && o.get("one_way").getAsBoolean(),
-                        str(o, "gate"),
-                        str(o, "allowed")));
+                        firstDimensionToken(o, "from_dimension", "from_dim", "from"),
+                        firstDimensionToken(o, "to_dimension", "to_dim", "to"),
+                        methodId,
+                        firstNonBlank(str(method, "realm_min"), str(o, "realm_min"), str(o, "min_realm")),
+                        oneWay,
+                        firstNonBlank(str(method, "gate"), str(o, "gate")),
+                        allowed));
             }
         }
 
@@ -383,6 +461,7 @@ public final class DimensionTravelService {
                 if (id.isBlank()) continue;
                 int min = intOf(o, "spirit_stone_min", intOf(o, "cost_min", 0));
                 int max = intOf(o, "spirit_stone_max", intOf(o, "cost_max", min));
+                int contribution = Math.max(0, intOf(o, "cost_contribution", 0));
                 double fail = 0.0D;
                 if (o.has("fail") || o.has("fail_chance")) {
                     try {
@@ -390,7 +469,8 @@ public final class DimensionTravelService {
                     } catch (Exception ignored) {
                     }
                 }
-                costs.put(id.toLowerCase(Locale.ROOT), new CostDef(id, str(o, "band"), min, max, fail));
+                costs.put(id.toLowerCase(Locale.ROOT),
+                        new CostDef(id, str(o, "band"), min, max, contribution, fail));
             }
         }
 
@@ -422,6 +502,8 @@ public final class DimensionTravelService {
                     "tianyuan_to_fengyuan", DimensionRegistryService.TIANYUAN, DimensionRegistryService.SPIRIT_FENGYUAN,
                     METHOD_REGULATED, "VOID_REFINEMENT", false, "tianyuan_to_spirit_fengyuan", "portal_fee"));
         }
+        costs.putIfAbsent("tianyuan_to_fengyuan",
+                new CostDef("tianyuan_to_fengyuan", "contribution", 0, 0, 500, 0.01D));
         if (matrix.isEmpty()) {
             matrix.add(new TravelMatrixEdge(DimensionRegistryService.MORTAL_WORLD, DimensionRegistryService.TIANYUAN,
                     "ascension_only", "mortal_to_tianyuan", "DEITY_TRANSFORMATION"));
@@ -473,6 +555,56 @@ public final class DimensionTravelService {
         } catch (Exception ignored) {
             return fallback;
         }
+    }
+
+    private static boolean bool(JsonObject object, String key) {
+        if (object == null || !object.has(key) || object.get(key).isJsonNull()) {
+            return false;
+        }
+        try {
+            return object.get(key).getAsBoolean();
+        } catch (Exception ignored) {
+            return false;
+        }
+    }
+
+    private static JsonObject firstMethod(JsonObject route) {
+        if (route == null || !route.has("methods") || !route.get("methods").isJsonArray()) {
+            return new JsonObject();
+        }
+        for (JsonElement element : route.getAsJsonArray("methods")) {
+            if (element.isJsonObject() && !str(element.getAsJsonObject(), "method").isBlank()) {
+                return element.getAsJsonObject();
+            }
+        }
+        return new JsonObject();
+    }
+
+    private static String firstDimensionToken(JsonObject object, String... keys) {
+        if (object == null || keys == null) {
+            return "";
+        }
+        for (String key : keys) {
+            if (key == null || !object.has(key) || object.get(key).isJsonNull()) {
+                continue;
+            }
+            JsonElement element = object.get(key);
+            if (element.isJsonPrimitive()) {
+                String value = element.getAsString();
+                if (value != null && !value.isBlank()) {
+                    return value.trim();
+                }
+            } else if (element.isJsonArray() && element.getAsJsonArray().size() == 1) {
+                JsonElement only = element.getAsJsonArray().get(0);
+                if (only.isJsonPrimitive()) {
+                    String value = only.getAsString();
+                    if (value != null && !value.isBlank()) {
+                        return value.trim();
+                    }
+                }
+            }
+        }
+        return "";
     }
 
     private static String firstNonBlank(String... values) {
