@@ -2,6 +2,8 @@ package com.xunxian.seekingimmortals.worldpack;
 
 import com.xunxian.seekingimmortals.structure.FlyingBoatDockStructure;
 import com.xunxian.seekingimmortals.structure.ImmortalTeleportGrandArrayStructure;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.Files;
@@ -130,5 +132,62 @@ class M13DimensionsAscensionTest {
         assertTrue(Files.exists(DATA.resolve("catalog/dimensions_index.json")));
         assertTrue(Files.exists(DATA.resolve("catalog/dimension_registry_index.json")));
         assertTrue(Files.exists(DATA.resolve("catalog/spatial_nodes_index.json")));
+    }
+
+    /**
+     * After successful teleport, the temporary rollback snapshot must be discarded so
+     * restore returns no_backup and unique/equipment stacks cannot be re-injected.
+     */
+    @Test
+    void successfulAscensionClearsBackupSnapshot() {
+        CompoundTag data = new CompoundTag();
+        CompoundTag backup = new CompoundTag();
+        backup.putBoolean("hasBackup", true);
+        ListTag items = new ListTag();
+        CompoundTag stackTag = new CompoundTag();
+        stackTag.putString("id", "minecraft:diamond_sword");
+        stackTag.putByte("Count", (byte) 1);
+        stackTag.putInt("Slot", 0);
+        items.add(stackTag);
+        backup.put("Items", items);
+        data.put(AscensionService.BACKUP_ROOT, backup);
+
+        assertTrue(AscensionService.hasBackupData(data), "precondition: snapshot present");
+        // Success path: clearBackupData (mirrors attemptAscension after teleported=true)
+        AscensionService.clearBackupData(data);
+        assertFalse(AscensionService.hasBackupData(data), "success must clear hasBackup");
+        assertFalse(data.contains(AscensionService.BACKUP_ROOT), "success removes backup root entirely");
+    }
+
+    /**
+     * Teleport-failure rollback still consumes the temporary snapshot (regression guard).
+     * System restore path remains valid when hasBackup=true; after consume, no_backup.
+     */
+    @Test
+    void teleportFailureRollbackSnapshotIsConsumableOnce() {
+        CompoundTag data = new CompoundTag();
+        CompoundTag backup = new CompoundTag();
+        backup.putBoolean("hasBackup", true);
+        backup.put("Items", new ListTag());
+        data.put(AscensionService.BACKUP_ROOT, backup);
+
+        assertTrue(AscensionService.hasBackupData(data));
+        // Simulate restoreBackup's consume step (clear after inject)
+        AscensionService.clearBackupData(data);
+        assertFalse(AscensionService.hasBackupData(data), "rollback snapshot is one-shot");
+    }
+
+    @Test
+    void reascensionGateIgnoresDimensionAndUsesFlagOnly() {
+        assertTrue(AscensionService.shouldBlockReascension(true),
+                "FLAG_ASCENDED alone must block even outside tianyuan");
+        assertFalse(AscensionService.shouldBlockReascension(false),
+                "without FLAG_ASCENDED the gate stays open");
+    }
+
+    @Test
+    void starterGiftGrantIsIdempotent() {
+        assertTrue(AscensionService.shouldGrantStarter(false), "first grant allowed");
+        assertFalse(AscensionService.shouldGrantStarter(true), "repeat grant blocked by flag");
     }
 }

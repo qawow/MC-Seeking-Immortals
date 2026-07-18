@@ -40,17 +40,22 @@ import java.util.Optional;
 /**
  * M13 ascension_flow + ascension_loadout authority.
  * <p>Conditions: realm (M01) + quest flag (M11) + tribulation (M01).
- * Loadout reset uses backup chest — never hard-destroys inventory; unique items always retained.</p>
+ * Loadout reset snapshots inventory only for teleport-failure rollback.
+ * On successful teleport the snapshot is discarded immediately — there is no player reclaim path.
+ * Unique items are always retained on the player during reset.</p>
  */
 public final class AscensionService {
     public static final String FLAG_ASCENSION_READY = "ascension_ready";
     public static final String FLAG_ASCENDED = "ascended_to_spirit";
     public static final String FLAG_LOADOUT_CONFIRMED = "ascension_loadout_confirmed";
     public static final String FLAG_TRIBULATION_SUCCESS = "tribulation_success";
+    /** Idempotent gate for alliance_merit_token / spirit_stone_shard starter grants. */
+    public static final String FLAG_STARTER_GRANTED = "ascension_starter_granted";
     public static final String QUEST_CHAIN_SPIRIT_RISE = "spirit_realm_rise";
 
     private static final String PENDING_ROOT = "seeking_immortals_ascension_pending";
-    private static final String BACKUP_ROOT = "seeking_immortals_ascension_backup";
+    /** PersistentData key holding a temporary teleport-failure rollback snapshot. */
+    public static final String BACKUP_ROOT = "seeking_immortals_ascension_backup";
     private static final String STAGE_ROOT = "seeking_immortals_ascension_stage";
     private static final Snapshot SNAPSHOT = load();
 
@@ -145,13 +150,15 @@ public final class AscensionService {
     /**
      * Begin ascension. First call without confirmed loadout parks a pending confirmation.
      * Second call with confirmLoadout=true (or after confirmLoadout()) executes travel + reset.
+     * <p>Re-ascension is blocked solely by {@link #FLAG_ASCENDED} (dimension-independent).
+     * Inventory snapshot exists only for teleport-failure rollback and is cleared on success.</p>
      */
     public static boolean attemptAscension(ServerPlayer player, boolean confirmLoadout) {
         if (player == null) {
             return false;
         }
-        if (NpcDialogueFlags.hasFlag(player, FLAG_ASCENDED)
-                && player.level().dimension().location().toString().contains("tianyuan")) {
+        // Dimension-independent: FLAG_ASCENDED alone blocks re-run (cannot farm by leaving tianyuan).
+        if (shouldBlockReascension(NpcDialogueFlags.hasFlag(player, FLAG_ASCENDED))) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.ascension.already"), false);
             return false;
         }
@@ -183,7 +190,7 @@ public final class AscensionService {
         applyLoadoutReset(player);
         boolean teleported = teleportToTianyuan(player);
         if (!teleported) {
-            // restore from backup if teleport failed
+            // Teleport failed after reset: rollback from temporary snapshot (system path only).
             restoreBackup(player);
             player.displayClientMessage(Component.translatable("message.seeking_immortals.ascension.teleport_failed"), false);
             return false;
@@ -192,6 +199,8 @@ public final class AscensionService {
         NpcDialogueFlags.setFlag(player, FLAG_ASCENSION_READY, true);
         setStage(player, "tianyuan_garrison");
         FlyingAuthorityPolicy.onDimensionChanged(player, DimensionRegistryService.TIANYUAN);
+        // Success: discard rollback snapshot so no later restore can duplicate unique/equipment items.
+        clearBackup(player);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.ascension.success"), false);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.ascension.backup_stored"), false);
         return true;
@@ -210,6 +219,59 @@ public final class AscensionService {
         return true;
     }
 
+    /**
+     * Whether the player currently holds a restoreable teleport-failure snapshot.
+     * After a successful ascension this is always false.
+     */
+    public static boolean hasBackup(ServerPlayer player) {
+        return player != null && hasBackupData(player.getPersistentData());
+    }
+
+    /** Pure NBT check used by {@link #hasBackup(ServerPlayer)} and unit tests. */
+    public static boolean hasBackupData(CompoundTag persistentData) {
+        if (persistentData == null || !persistentData.contains(BACKUP_ROOT)) {
+            return false;
+        }
+        return persistentData.getCompound(BACKUP_ROOT).getBoolean("hasBackup");
+    }
+
+    /**
+     * Discard the temporary rollback snapshot (success path / admin cleanup).
+     * Does not touch the live inventory.
+     */
+    public static void clearBackup(ServerPlayer player) {
+        if (player == null) {
+            return;
+        }
+        clearBackupData(player.getPersistentData());
+    }
+
+    /** Pure NBT clear used by {@link #clearBackup(ServerPlayer)} and unit tests. */
+    public static void clearBackupData(CompoundTag persistentData) {
+        if (persistentData == null) {
+            return;
+        }
+        persistentData.remove(BACKUP_ROOT);
+    }
+
+    /**
+     * Re-ascension gate: {@code true} blocks another attempt.
+     * Intentionally ignores current dimension so leaving tianyuan cannot bypass it.
+     */
+    public static boolean shouldBlockReascension(boolean ascendedFlag) {
+        return ascendedFlag;
+    }
+
+    /** Starter-pack gate: grant only when the persistent flag is still unset. */
+    public static boolean shouldGrantStarter(boolean alreadyGranted) {
+        return !alreadyGranted;
+    }
+
+    /**
+     * Apply a temporary rollback snapshot into the player inventory, then consume it.
+     * <p>Intended for system teleport-failure recovery and admin diagnostics only —
+     * successful ascension clears the snapshot so this returns {@code no_backup}.</p>
+     */
     public static boolean restoreBackup(ServerPlayer player) {
         if (player == null) {
             return false;
@@ -230,9 +292,8 @@ public final class AscensionService {
                 player.drop(stack, false);
             }
         }
-        root.putBoolean("hasBackup", false);
-        root.remove("Items");
-        player.getPersistentData().put(BACKUP_ROOT, root);
+        // Consume snapshot so a second restore cannot re-inject the same stacks.
+        clearBackupData(player.getPersistentData());
         player.displayClientMessage(Component.translatable("message.seeking_immortals.ascension.backup_restored"), false);
         return true;
     }
@@ -302,9 +363,12 @@ public final class AscensionService {
                 player.drop(stack, false);
             }
         }
-        // starter pack soft grants (if carriers exist)
-        grantIfPresent(player, "seeking_immortals:alliance_merit_token", 1);
-        grantIfPresent(player, "seeking_immortals:spirit_stone_shard", 16);
+        // starter pack soft grants (idempotent — FLAG_STARTER_GRANTED blocks re-grant)
+        if (shouldGrantStarter(NpcDialogueFlags.hasFlag(player, FLAG_STARTER_GRANTED))) {
+            grantIfPresent(player, "seeking_immortals:alliance_merit_token", 1);
+            grantIfPresent(player, "seeking_immortals:spirit_stone_shard", 16);
+            NpcDialogueFlags.setFlag(player, FLAG_STARTER_GRANTED, true);
+        }
     }
 
     private static boolean isUniqueOrWhitelisted(ItemStack stack) {

@@ -330,7 +330,9 @@ public final class SeekingImmortalsCommand {
                                 .then(Commands.literal("attempt").executes(ctx -> catalogAscensionAttempt(ctx.getSource(), false)))
                                 .then(Commands.literal("confirm").executes(ctx -> catalogAscensionAttempt(ctx.getSource(), true)))
                                 .then(Commands.literal("cancel").executes(ctx -> catalogAscensionCancel(ctx.getSource())))
-                                .then(Commands.literal("restore").executes(ctx -> catalogAscensionRestore(ctx.getSource()))))
+                                // Admin-only diagnostic: successful ascension no longer keeps a reclaim snapshot.
+                                .then(Commands.literal("restore").requires(source -> source.hasPermission(2))
+                                        .executes(ctx -> catalogAscensionRestore(ctx.getSource()))))
                         .then(Commands.literal("reputation")
                                 .executes(ctx -> catalogReputationList(ctx.getSource()))
                                 .then(Commands.literal("list").executes(ctx -> catalogReputationList(ctx.getSource())))
@@ -1607,9 +1609,17 @@ public final class SeekingImmortalsCommand {
         return ok ? 1 : 0;
     }
 
+    /**
+     * Admin diagnostic only (permission 2). Not a player reclaim path —
+     * successful ascension clears the temporary teleport-failure snapshot.
+     */
     private static int catalogAscensionRestore(CommandSourceStack source) throws CommandSyntaxException {
         ServerPlayer player = source.getPlayerOrException();
+        source.sendSuccess(() -> Component.literal(
+                "admin restore diagnostic (not a player reclaim path); hasBackup="
+                        + com.xunxian.seekingimmortals.worldpack.AscensionService.hasBackup(player)), false);
         boolean ok = com.xunxian.seekingimmortals.worldpack.AscensionService.restoreBackup(player);
+        source.sendSuccess(() -> Component.literal(ok ? "admin restore applied" : "admin restore no_backup"), false);
         return ok ? 1 : 0;
     }
 

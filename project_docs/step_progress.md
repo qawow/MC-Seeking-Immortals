@@ -1,3 +1,19 @@
+## 486. 2026-07-19 飞升备份复制漏洞收口
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260719_002034_ascension_backup_lockdown/`
+  Success clears backup                Done teleported=true → clearBackup
+  Fail rollback kept                   Done restoreBackup on teleport fail
+  Player restore offline               Done catalog ascension restore → perm 2 admin only
+  Copy rewrite                         Done zh/en no reclaim hint
+  FLAG_ASCENDED gate                   Done dimension-independent
+  Starter gift idempotent              Done FLAG_STARTER_GRANTED
+  Tests                                Done M13DimensionsAscensionTest helpers
+  Version/protocol                     Done mod_version 保持 0.2.17（任务红线）；protocol 不变
+  Full verification                    Done `bash ./gradlew.unix build --no-daemon -PaiSkipVersionBumpCheck=true` SUCCESS
+  Update note                          Done `project_docs/updates/20260719_ascension_backup_lockdown.md`
+
 ## 485. 2026-07-18 0.2.17 四材气候 hardening
 
   Step   Status   Notes
