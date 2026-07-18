@@ -307,7 +307,7 @@ public class SectHallScreen extends AbstractJournalContainerScreen<SectHallMenu>
         Rect viewport = inset(content, 5);
         ImmortalUiSkin.drawStringFit(font, graphics,
                 Component.translatable(data.dialogue().titleKey()).getString(), viewport.x(), viewport.y(),
-                viewport.width(), ImmortalUiSkin.JOURNAL_BORDER, false);
+                viewport.width(), ImmortalUiSkin.JOURNAL_PAPER, false);
         ImmortalUiSkin.drawWrappedText(font, graphics, Component.translatable(data.dialogue().textKey()),
                 viewport.x(), viewport.y() + 16, viewport.width(), Math.max(1, viewport.height() - 16),
                 ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);

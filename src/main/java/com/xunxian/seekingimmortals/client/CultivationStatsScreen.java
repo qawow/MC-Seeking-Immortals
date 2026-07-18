@@ -30,9 +30,9 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
 
     private static final int INK_SOFT = ImmortalUiSkin.JOURNAL_INNER;
     private static final int INK_ROW = ImmortalUiSkin.JOURNAL_ROW;
-    /** Bamboo-green accent (legacy name kept only as local alias). */
-    private static final int BRONZE = ImmortalUiSkin.JOURNAL_BORDER;
-    private static final int BRONZE_DIM = ImmortalUiSkin.JOURNAL_BORDER_DIM;
+    /** Bamboo rim / divider fills only — never body text. */
+    private static final int BAMBOO = ImmortalUiSkin.JOURNAL_BORDER;
+    private static final int BAMBOO_DIM = ImmortalUiSkin.JOURNAL_BORDER_DIM;
     private static final int JADE_LINE = ImmortalUiSkin.JOURNAL_JADE;
     private static final int JADE = ImmortalUiSkin.JOURNAL_JADE_TEXT;
     private static final int PAPER = ImmortalUiSkin.JOURNAL_PAPER;
@@ -390,7 +390,7 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
     private int renderRealmFoundation(GuiGraphics graphics, int x, int y, int width,
                                       ClientCultivationData.Snapshot data) {
         y = sectionTitle(graphics, x, y, width, "境界修为");
-        y = row(graphics, x, y, width, "境界", data.realm() + data.stage(), BRONZE);
+        y = row(graphics, x, y, width, "境界", data.realm() + data.stage(), JADE);
         y = row(graphics, x, y, width, "神识 / 肉身", shortNumber(data.divSense()) + " / " + data.bodyRef(), PAPER);
         y = row(graphics, x, y, width, "寿元", data.remainingLifespanYears() + " / " + data.lifespanYears()
                 + " 年 · 年龄 " + data.ageYears(), PAPER);
@@ -419,7 +419,7 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
         y = row(graphics, x, y, width, "属性", data.spiritualRootAttributes(), PAPER);
         y = progressBar(graphics, x, y + 2, width, "灵根纯度",
                 fraction(data.spiritualRootPurity(), 100), data.spiritualRootPurity() + "%", JADE_LINE);
-        y = row(graphics, x, y, width, "修炼速率", "×" + formatDouble(data.cultivationSpeedMultiplier()), BRONZE);
+        y = row(graphics, x, y, width, "修炼速率", "×" + formatDouble(data.cultivationSpeedMultiplier()), JADE);
         y = row(graphics, x, y, width, "根骨加成", "灵根 ×" + formatDouble(data.rootCultivationSpeedCoefficient())
                 + " · 体质 ×" + formatDouble(data.physiqueCultivationSpeedMultiplier()), PAPER_MUTED);
 
@@ -459,7 +459,7 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
         y = row(graphics, x, y, width, "攻伐 / 护体",
                 formatDouble(data.baseAttack()) + " / " + formatDouble(data.baseDefense()), PAPER);
         y = row(graphics, x, y, width, "会心 / 会伤",
-                percent(data.critChance()) + " / " + formatDouble(data.critDamage()) + "×", BRONZE);
+                percent(data.critChance()) + " / " + formatDouble(data.critDamage()) + "×", JADE);
         y = row(graphics, x, y, width, "闪避 / 命中",
                 percent(data.dodgeChance()) + " / " + percent(data.accuracy()), PAPER);
         double defenseReduction = data.baseDefense() / (data.baseDefense() + 100.0D);
@@ -479,10 +479,10 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
                                    ClientCultivationData.Snapshot data) {
         y = sectionTitle(graphics, x, y, width, "破境天劫");
         y = row(graphics, x, y, width, "结丹品相", data.goldCoreGrade() + " · " + data.goldCoreScore() + " 分",
-                data.goldCoreScore() > 0 ? BRONZE : PAPER_MUTED);
+                data.goldCoreScore() > 0 ? JADE : PAPER_MUTED);
         y = row(graphics, x, y, width, "五行圆满", data.completeFiveElements() ? "五行合一" : "未合五行",
                 data.completeFiveElements() ? JADE : PAPER_MUTED);
-        y = row(graphics, x, y, width, "突破把握", percent(data.breakthroughChance()), BRONZE);
+        y = row(graphics, x, y, width, "突破把握", percent(data.breakthroughChance()), JADE);
         y = row(graphics, x, y, width, "执念加成", percent(data.breakthroughObsessionBonus()), PAPER);
         y = row(graphics, x, y, width, "丹药 / 灵眼", percent(data.breakthroughPillBonus())
                 + " / " + percent(data.breakthroughSpiritEyeBonus()), PAPER_MUTED);
@@ -530,7 +530,7 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
     }
 
     private int renderMethodsAndTechniques(GuiGraphics graphics, int x, int y, int width) {
-        y = sectionTitle(graphics, x, y, width, "功法玉简");
+        y = sectionTitle(graphics, x, y, width, "功法竹笺");
         if (ClientMethodData.isSynced()) {
             int learned = ClientMethodData.getLearnedMethodCount();
             y = row(graphics, x, y, width, "已学功法", learned + " 门", learned > 0 ? JADE : PAPER_MUTED);
@@ -542,7 +542,7 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
                     y = row(graphics, x, y, width, "·", line, PAPER);
                 }
                 if (learned > lines.size()) {
-                    y = row(graphics, x, y, width, "余录", "+" + (learned - lines.size()) + " 门", BRONZE);
+                    y = row(graphics, x, y, width, "余录", "+" + (learned - lines.size()) + " 门", JADE);
                 }
             }
         } else {
@@ -557,7 +557,7 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
     private int renderTechniqueCards(GuiGraphics graphics, int x, int y, int width) {
         List<String> techniques = ClientTechniqueData.getLearnedTechniques();
         if (techniques.isEmpty()) {
-            return row(graphics, x, y, width, "玉简", "暂无已同步术法", PAPER_MUTED);
+            return row(graphics, x, y, width, "竹笺", "暂无已同步术法", PAPER_MUTED);
         }
         int shown = Math.min(6, techniques.size());
         for (int i = 0; i < shown; i++) {
@@ -567,7 +567,7 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
             y += 25;
         }
         if (techniques.size() > shown) {
-            y = row(graphics, x, y, width, "余录", "+" + (techniques.size() - shown) + " 门 · 可在技能编辑查看", BRONZE);
+            y = row(graphics, x, y, width, "余录", "+" + (techniques.size() - shown) + " 门 · 可在技能编辑查看", JADE);
         }
         return y;
     }
@@ -618,7 +618,7 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
         if (graphics == null) {
             return;
         }
-        graphics.fill(x, y, x + width, y + 22, BRONZE_DIM);
+        graphics.fill(x, y, x + width, y + 22, BAMBOO_DIM);
         graphics.fill(x + 1, y + 1, x + width - 1, y + 21, INK_SOFT);
         int iconX = x + 3;
         int iconY = y + 3;
@@ -630,7 +630,7 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
             String mark = summary.name().isBlank() ? "术" : summary.name().substring(0, 1);
             graphics.drawCenteredString(font, mark, iconX + 8, iconY + 4, PAPER);
         }
-        drawFit(graphics, summary.name(), x + 23, y + 3, Math.max(8, width - 27), BRONZE);
+        drawFit(graphics, summary.name(), x + 23, y + 3, Math.max(8, width - 27), JADE);
         drawFit(graphics, summary.source() + " · " + summary.attribute(), x + 23, y + 12,
                 Math.max(8, width - 27), PAPER_MUTED);
     }
@@ -644,9 +644,9 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
         }
 
         int tabRailY = layout.foundationTab().bottom() + 1;
-        graphics.fill(layout.content().x(), tabRailY, layout.content().right(), tabRailY + 1, BRONZE_DIM);
+        graphics.fill(layout.content().x(), tabRailY, layout.content().right(), tabRailY + 1, BAMBOO_DIM);
         graphics.fill(layout.content().x(), layout.closeButton().y() - 4,
-                layout.content().right(), layout.closeButton().y() - 3, BRONZE_DIM);
+                layout.content().right(), layout.closeButton().y() - 3, BAMBOO_DIM);
     }
 
     private void drawHeader(GuiGraphics graphics, PanelLayout layout, ClientCultivationData.Snapshot data) {
@@ -678,7 +678,7 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
         String name = player == null ? "无名散修" : player.getName().getString();
         graphics.drawCenteredString(font, fit(name, rect.width() - 12), rect.x() + rect.width() / 2,
                 rect.y() + 7, PAPER);
-        graphics.fill(rect.x() + 9, rect.y() + 18, rect.right() - 9, rect.y() + 19, BRONZE_DIM);
+        graphics.fill(rect.x() + 9, rect.y() + 18, rect.right() - 9, rect.y() + 19, BAMBOO_DIM);
 
         int infoY = rect.y() + 26;
         if (player != null && rect.height() >= 150) {
@@ -694,14 +694,14 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
         }
 
         graphics.drawCenteredString(font, fit(data.realm() + data.stage(), rect.width() - 10),
-                rect.x() + rect.width() / 2, infoY, BRONZE);
+                rect.x() + rect.width() / 2, infoY, JADE);
         infoY += 14;
-        graphics.fill(rect.x() + 10, infoY - 3, rect.right() - 10, infoY - 2, BRONZE_DIM);
+        graphics.fill(rect.x() + 10, infoY - 3, rect.right() - 10, infoY - 2, BAMBOO_DIM);
         infoY = profileLine(graphics, rect, infoY, "寿元", data.remainingLifespanYears() + " 年", PAPER);
         infoY = profileLine(graphics, rect, infoY, "灵根", data.spiritualRoot(), JADE);
         infoY = profileLine(graphics, rect, infoY, "灵气", data.auraNature(), SPIRIT_BLUE);
         infoY = profileLine(graphics, rect, infoY, "状态", statusText(data), statusColor(data));
-        profileLine(graphics, rect, infoY, "修速", "×" + formatDouble(data.cultivationSpeedMultiplier()), BRONZE);
+        profileLine(graphics, rect, infoY, "修速", "×" + formatDouble(data.cultivationSpeedMultiplier()), JADE);
 
         if (rect.height() >= 210) {
             drawSeal(graphics, rect.x() + rect.width() / 2 - 10, rect.bottom() - 27, 20,
@@ -732,7 +732,7 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
     private int sectionTitle(GuiGraphics graphics, int x, int y, int width, String title) {
         if (graphics != null) {
             ImmortalUiSkin.drawTitleBar(graphics, x, y, width, 14);
-            drawFit(graphics, title, x + 8, y + 3, Math.max(8, width - 12), BRONZE);
+            drawFit(graphics, title, x + 8, y + 3, Math.max(8, width - 12), PAPER);
         }
         return y + 18;
     }
@@ -985,7 +985,7 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
             ImmortalUiSkin.drawSemanticStatusBar(graphics, trackX, trackY, trackWidth, 3, value,
                     ImmortalUiSkin.StatusBarStyle.CULTIVATION);
             int thumbCenter = trackX + progressWidth;
-            graphics.fill(thumbCenter - 2, trackY - 2, thumbCenter + 3, trackY + 4, BRONZE);
+            graphics.fill(thumbCenter - 2, trackY - 2, thumbCenter + 3, trackY + 4, BAMBOO);
             graphics.fill(thumbCenter - 1, trackY - 1, thumbCenter + 2, trackY + 3, CINNABAR);
 
             int textY = height >= 18 ? y + 2 : y + Math.max(1, (height - 8) / 2);

@@ -109,9 +109,8 @@ public final class ImmortalUiSkin {
     public static final int HUD_EDGE = 0x885A7348;
     public static final int HUD_SKILL_DISABLED_OVERLAY = 0x6610140C;
     public static final int HUD_COOLDOWN_OVERLAY = 0xCC4E1712;
+    /** Low-alpha channel for skill placeholder cards (combat-readable, not solid). */
     public static final int HUD_SKILL_PLACEHOLDER_ALPHA = 0xAA000000;
-    public static final int HUD_SKILL_PLACEHOLDER_SEED_MASK = 0x003F3F3F;
-    public static final int HUD_SKILL_PLACEHOLDER_FLOOR = 0x00202020;
 
     // Skill-rail-only translucent tokens. Do not reuse for journal/status chrome.
     // Alpha intentionally unchanged from prior climate for combat readability.
@@ -141,10 +140,6 @@ public final class ImmortalUiSkin {
         DANGER,
         NEUTRAL
     }
-
-    private static final ResourceLocation CULTIVATION_PROGRESS_BAR = new ResourceLocation(SeekingImmortalsMod.MODID, "textures/gui/cultivation_progress_bar.png");
-    private static final int CULTIVATION_PROGRESS_TEXTURE_WIDTH = 1204;
-    private static final int CULTIVATION_PROGRESS_TEXTURE_HEIGHT = 153;
 
     private static final ResourceLocation PAPER_TEXTURE =
             new ResourceLocation(SeekingImmortalsMod.MODID, "textures/gui/paper_texture.png");
@@ -379,15 +374,24 @@ public final class ImmortalUiSkin {
     }
 
     public static void drawSkillIconBacking(GuiGraphics graphics, int x, int y, int width, int height, int color) {
-        drawBox(graphics, x, y, width, height, color, PANEL_INNER_BORDER);
+        // Bamboo-paper seal card: dim rim + seeded fill + quiet paper grain on larger icons.
+        drawBox(graphics, x, y, width, height, color, JOURNAL_BORDER_DIM);
+        if (width >= 6 && height >= 6) {
+            graphics.fill(x + 1, y + 1, x + width - 1, y + 2, JOURNAL_RIM_INNER);
+            graphics.fill(x + 1, y + 1, x + 2, y + height - 1, JOURNAL_CINNABAR);
+        }
+        if (width >= 10 && height >= 10) {
+            drawTiledTexture(graphics, PAPER_TEXTURE, x + 1, y + 1, width - 2, height - 2);
+        }
     }
 
-    /** Deterministic placeholder fill for techniques without a dedicated icon PNG. */
+    /** Deterministic bamboo-biased placeholder fill for techniques without a dedicated icon PNG. */
     public static int skillPlaceholderColor(String techniqueId) {
         int colorSeed = Math.abs(techniqueId == null ? 0 : techniqueId.hashCode());
-        return HUD_SKILL_PLACEHOLDER_ALPHA
-                | (colorSeed & HUD_SKILL_PLACEHOLDER_SEED_MASK)
-                | HUD_SKILL_PLACEHOLDER_FLOOR;
+        int r = 0x14 + (colorSeed & 0x18);
+        int g = 0x28 + ((colorSeed >> 3) & 0x28);
+        int b = 0x14 + ((colorSeed >> 6) & 0x14);
+        return HUD_SKILL_PLACEHOLDER_ALPHA | (r << 16) | (g << 8) | b;
     }
 
     /** True when a generated skill-icon PNG exists for the given techniqueId. */
@@ -466,16 +470,27 @@ public final class ImmortalUiSkin {
         }
     }
 
+    /**
+     * Cultivation progress meter in native bamboo chrome.
+     * The old mauve {@code cultivation_progress_bar.png} frame is no longer blitted —
+     * fill tokens alone keep the bar on the 竹简 climate when this helper is re-hooked.
+     */
     public static void drawCultivationProgressBar(GuiGraphics graphics, int x, int y, int width, int height, double fraction) {
         double clamped = clamp01(fraction);
         if (width <= 0 || height <= 0) return;
 
-        graphics.blit(CULTIVATION_PROGRESS_BAR, x, y, width, height, 0.0F, 0.0F,
-                CULTIVATION_PROGRESS_TEXTURE_WIDTH, CULTIVATION_PROGRESS_TEXTURE_HEIGHT,
-                CULTIVATION_PROGRESS_TEXTURE_WIDTH, CULTIVATION_PROGRESS_TEXTURE_HEIGHT);
+        // Dual-tone bamboo frame (no warm legacy texture).
+        graphics.fill(x, y, x + width, y + height, JOURNAL_BORDER);
+        if (width > 2 && height > 2) {
+            graphics.fill(x + 1, y + 1, x + width - 1, y + height - 1, JOURNAL_BAR_BACKING);
+        }
+        if (width > 4 && height > 4) {
+            graphics.fill(x + 1, y + 1, x + width - 1, y + 2, JOURNAL_RIM_INNER);
+            drawTiledTexture(graphics, PAPER_TEXTURE, x + 1, y + 1, width - 2, height - 2);
+        }
 
-        int insetX = Math.min(Math.max(0, (width - 1) / 2), Math.max(6, Math.round(width * 0.055F)));
-        int insetY = Math.min(Math.max(0, (height - 1) / 2), Math.max(2, Math.round(height * 0.20F)));
+        int insetX = Math.min(Math.max(0, (width - 1) / 2), Math.max(2, Math.round(width * 0.04F)));
+        int insetY = Math.min(Math.max(0, (height - 1) / 2), Math.max(2, Math.round(height * 0.18F)));
         int innerX = x + insetX;
         int innerY = y + insetY;
         int innerWidth = Math.max(0, width - insetX * 2);
@@ -486,6 +501,11 @@ public final class ImmortalUiSkin {
         graphics.fill(innerX, innerY, innerX + fillWidth, innerY + innerHeight, JOURNAL_CULTIVATION_FILL);
         int highlightHeight = Math.max(1, innerHeight / 2);
         graphics.fill(innerX, innerY, innerX + fillWidth, innerY + highlightHeight, JOURNAL_CULTIVATION_HIGHLIGHT);
+        // Quiet bamboo node tick at the leading fill edge on wider meters.
+        if (fillWidth >= 8 && innerHeight >= 4) {
+            int nodeX = innerX + fillWidth - 2;
+            graphics.fill(nodeX, innerY + 1, nodeX + 1, innerY + innerHeight - 1, JOURNAL_JADE);
+        }
     }
 
     public static void drawTooltipPanel(GuiGraphics graphics, int x, int y, int width, int height) {

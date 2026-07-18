@@ -729,7 +729,7 @@ public class MethodTreeScreen extends AbstractJournalScreen {
             label = label + " L" + ClientMethodData.getLayer(method.id());
         }
         ImmortalUiSkin.drawStringFit(font, graphics, label, x + 3, y + Math.max(2, (h - 8) / 2),
-                Math.max(1, w - 6), focus ? ImmortalUiSkin.JOURNAL_BORDER
+                Math.max(1, w - 6), focus ? ImmortalUiSkin.JOURNAL_PAPER
                         : (learned ? ImmortalUiSkin.JOURNAL_JADE_TEXT : ImmortalUiSkin.JOURNAL_PAPER_MUTED),
                 false);
     }
