@@ -30,6 +30,7 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
 
     private static final int INK_SOFT = ImmortalUiSkin.JOURNAL_INNER;
     private static final int INK_ROW = ImmortalUiSkin.JOURNAL_ROW;
+    /** Bamboo-green accent (legacy name kept only as local alias). */
     private static final int BRONZE = ImmortalUiSkin.JOURNAL_BORDER;
     private static final int BRONZE_DIM = ImmortalUiSkin.JOURNAL_BORDER_DIM;
     private static final int JADE_LINE = ImmortalUiSkin.JOURNAL_JADE;
@@ -654,7 +655,7 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
         int titleY = header.y() + (header.height() >= 28 ? 5 : 3);
         int titleAreaRight = header.height() >= 28 ? header.right() - 30 : header.right();
         graphics.drawCenteredString(font, fit(title, Math.max(12, titleAreaRight - header.x() - 8)),
-                (header.x() + titleAreaRight) / 2, titleY, BRONZE);
+                (header.x() + titleAreaRight) / 2, titleY, PAPER);
         if (header.height() >= 28) {
             String name = player == null ? "" : player.getName().getString();
             String subtitle = ClientCultivationData.isSynced()
@@ -771,10 +772,10 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
     }
 
     private void drawSeal(GuiGraphics graphics, int x, int y, int size, String mark) {
-        graphics.fill(x, y, x + size, y + size, CINNABAR_BRIGHT);
-        graphics.fill(x + 2, y + 2, x + size - 2, y + size - 2, ImmortalUiSkin.JOURNAL_SEAL_INSET);
-        graphics.fill(x + 4, y + 4, x + size - 4, y + size - 4, CINNABAR);
-        graphics.drawCenteredString(font, fit(mark, size - 6), x + size / 2, y + Math.max(3, (size - 8) / 2), PAPER);
+        // Shared cinnabar seal face, then stamp the short journal mark in paper ink.
+        ImmortalUiSkin.drawCinnabarSeal(graphics, x, y, size);
+        graphics.drawCenteredString(font, fit(mark, Math.max(4, size - 6)),
+                x + size / 2, y + Math.max(3, (size - 8) / 2), PAPER);
     }
 
     private void drawFit(GuiGraphics graphics, String value, int x, int y, int maxWidth, int color) {

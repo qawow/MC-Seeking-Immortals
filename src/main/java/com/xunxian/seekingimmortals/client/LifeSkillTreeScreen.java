@@ -68,7 +68,7 @@ public class LifeSkillTreeScreen extends AbstractJournalScreen {
                 ImmortalUiSkin.fitWidth(font, getTitle().getString(), Math.max(1, header.width() - 16)),
                 header.x() + header.width() / 2,
                 header.y() + Math.max(2, (header.height() - 8) / 2),
-                ImmortalUiSkin.JOURNAL_BORDER);
+                ImmortalUiSkin.JOURNAL_PAPER);
     }
 
     @Override
@@ -183,7 +183,7 @@ public class LifeSkillTreeScreen extends AbstractJournalScreen {
                               SkillType[] types, int mouseX, int mouseY) {
         ImmortalUiSkin.drawTitleBar(graphics, x, y, width, 14);
         ImmortalUiSkin.drawStringFit(font, graphics, heading.getString(), x + 8, y + 3,
-                Math.max(1, width - 12), ImmortalUiSkin.JOURNAL_BORDER, false);
+                Math.max(1, width - 12), ImmortalUiSkin.JOURNAL_PAPER, false);
         y += SECTION_HEADER_HEIGHT;
         for (SkillType type : types) {
             drawSkillRow(graphics, x, y, width, type, mouseX, mouseY);
@@ -229,7 +229,7 @@ public class LifeSkillTreeScreen extends AbstractJournalScreen {
                 skill.experience(), nextValue);
         int half = Math.max(1, (innerWidth - 5) / 2);
         ImmortalUiSkin.drawStringFit(font, graphics, levelText.getString(), innerX, y + 26,
-                half, ImmortalUiSkin.JOURNAL_BORDER, false);
+                half, ImmortalUiSkin.JOURNAL_JADE_TEXT, false);
         ImmortalUiSkin.drawStringFit(font, graphics, experienceText.getString(), innerX + half + 5, y + 26,
                 Math.max(1, innerWidth - half - 5), ImmortalUiSkin.JOURNAL_PAPER, false);
 

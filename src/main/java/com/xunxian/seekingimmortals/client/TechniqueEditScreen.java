@@ -45,7 +45,7 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
     protected void renderJournalTitle(GuiGraphics graphics, JournalChrome chrome, UiRect header) {
         // Keep the original fixed y+4 centered title (not the base fit/vertical-center helper).
         graphics.drawCenteredString(font, getTitle(), header.x() + header.width() / 2,
-                header.y() + 4, ImmortalUiSkin.JOURNAL_BORDER);
+                header.y() + 4, ImmortalUiSkin.JOURNAL_PAPER);
         if (header.height() >= 28) {
             ImmortalUiSkin.drawStringFit(font, graphics,
                     Component.translatable("screen.seeking_immortals.technique_edit.instruction").getString(),
@@ -149,7 +149,7 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
                 ImmortalUiSkin.drawStringFit(font, graphics,
                         Component.translatable("screen.seeking_immortals.technique_edit.slots").getString(),
                         pane.x() + 5, pane.y() + 4, Math.max(1, pane.width() - 10),
-                        ImmortalUiSkin.JOURNAL_BORDER, false);
+                        ImmortalUiSkin.JOURNAL_PAPER, false);
             }
             int hoveredSlot = hoveredSlot(mouseX, mouseY);
             for (int i = 0; i < SLOT_COUNT; i++) {
@@ -162,7 +162,7 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
                 ImmortalUiSkin.drawListRow(graphics, hit.x(), hit.y(), hit.width(), hit.height(),
                         hoveredSlot == i ? ImmortalUiSkin.InteractionState.HOVERED
                                 : ImmortalUiSkin.InteractionState.NORMAL);
-                ImmortalUiSkin.drawSkillSlot(graphics, icon.x(), icon.y(), icon.width(), summary != null);
+                ImmortalUiSkin.drawJadeSlipSlot(graphics, icon.x(), icon.y(), icon.width(), summary != null);
                 int iconInset = icon.width() >= 10 ? 1 : 0;
                 int iconSize = Math.max(1, icon.width() - iconInset * 2);
                 if (summary != null && ImmortalUiSkin.hasSkillIcon(techniqueId)) {
@@ -211,7 +211,7 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
             ImmortalUiSkin.drawStringFit(font, graphics,
                     Component.translatable("screen.seeking_immortals.technique_edit.learned").getString(),
                     pane.x() + 5, pane.y() + 4, Math.max(1, pane.width() - 10),
-                    ImmortalUiSkin.JOURNAL_BORDER, false);
+                    ImmortalUiSkin.JOURNAL_PAPER, false);
         }
         Rect viewport = learnedViewport(layout);
         if (!ClientTechniqueData.isSynced()) {

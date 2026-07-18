@@ -100,7 +100,7 @@ public class QuestTrackerScreen extends AbstractJournalScreen {
     protected void renderJournalTitle(GuiGraphics graphics, JournalChrome chrome, UiRect header) {
         ImmortalUiSkin.drawStringFit(font, graphics, getTitle().getString(),
                 header.x() + 6, header.y() + Math.max(2, (header.height() - font.lineHeight) / 2),
-                Math.max(1, header.width() - 12), ImmortalUiSkin.JOURNAL_BORDER, false);
+                Math.max(1, header.width() - 12), ImmortalUiSkin.JOURNAL_PAPER, false);
     }
 
     @Override
@@ -186,8 +186,9 @@ public class QuestTrackerScreen extends AbstractJournalScreen {
                 boolean hovered = mouseX >= x - 2 && mouseX < x + contentWidth + 2
                         && mouseY >= cursorY - 1 && mouseY < cursorY + lineHeight - 1;
                 if (selected || hovered) {
-                    graphics.fill(x - 2, cursorY - 1, x + contentWidth + 2, cursorY + lineHeight - 1,
-                            selected ? ImmortalUiSkin.JOURNAL_ROW_SELECTED : ImmortalUiSkin.JOURNAL_ROW_HOVERED);
+                    ImmortalUiSkin.drawListRow(graphics, x - 2, cursorY - 1, contentWidth + 4, lineHeight,
+                            selected ? ImmortalUiSkin.InteractionState.SELECTED
+                                    : ImmortalUiSkin.InteractionState.HOVERED);
                 }
             }
             int color = safeLine.startsWith("OK ") ? ImmortalUiSkin.JOURNAL_JADE_TEXT

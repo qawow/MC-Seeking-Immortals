@@ -69,7 +69,7 @@ public class AlchemyFurnaceScreen extends AbstractJournalContainerScreen<Alchemy
     }
 
     private static void drawSlot(GuiGraphics graphics, int left, int top, int slotX, int slotY) {
-        ImmortalUiSkin.drawSkillSlot(graphics, left + slotX - 1, top + slotY - 1, 18, false);
+        ImmortalUiSkin.drawJadeSlipSlot(graphics, left + slotX - 1, top + slotY - 1, 18, false);
     }
 
     record FurnaceLayout(int left, int top, UiRect visiblePanel) {}

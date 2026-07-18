@@ -50,7 +50,7 @@ public class RefinementPlanScreen extends AbstractJournalScreen {
     protected void renderJournalTitle(GuiGraphics graphics, JournalChrome chrome, UiRect header) {
         ImmortalUiSkin.drawStringFit(font, graphics, getTitle().getString(),
                 header.x() + 6, header.y() + Math.max(2, (header.height() - font.lineHeight) / 2),
-                Math.max(1, header.width() - 12), ImmortalUiSkin.JOURNAL_BORDER, false);
+                Math.max(1, header.width() - 12), ImmortalUiSkin.JOURNAL_PAPER, false);
     }
 
     @Override

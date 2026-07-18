@@ -101,11 +101,11 @@ public class ChronicleScreen extends AbstractLoreScreen {
                     for (int i = 0; i < visible && listScroll + i < total; i++) {
                         int index = listScroll + i;
                         int y = layout.list().y() + 2 + i * ROW_H;
-                        int bg = index == selected ? ImmortalUiSkin.JOURNAL_ROW_SELECTED
-                                : (i % 2 == 0 ? ImmortalUiSkin.JOURNAL_ROW : ImmortalUiSkin.JOURNAL_TRANSPARENT);
-                        if (bg != 0) {
-                            graphics.fill(layout.list().x() + 2, y, layout.list().x() + layout.list().w() - 2, y + ROW_H - 1, bg);
-                        }
+                        ImmortalUiSkin.InteractionState rowState = index == selected
+                                ? ImmortalUiSkin.InteractionState.SELECTED
+                                : ImmortalUiSkin.InteractionState.NORMAL;
+                        ImmortalUiSkin.drawListRow(graphics, layout.list().x() + 2, y,
+                                Math.max(1, layout.list().w() - 4), ROW_H - 1, rowState);
                         String label;
                         int color;
                         if (tab == Tab.EVENTS) {

@@ -46,7 +46,7 @@ public class MeditationScreen extends AbstractJournalScreen {
                 ImmortalUiSkin.fitWidth(font, getTitle().getString(), Math.max(1, header.width() - 16)),
                 header.x() + header.width() / 2,
                 header.y() + Math.max(2, (header.height() - 8) / 2),
-                ImmortalUiSkin.JOURNAL_BORDER);
+                ImmortalUiSkin.JOURNAL_PAPER);
     }
 
     @Override
@@ -198,7 +198,7 @@ public class MeditationScreen extends AbstractJournalScreen {
     private int sectionTitle(GuiGraphics graphics, int x, int y, int width, Component value) {
         ImmortalUiSkin.drawTitleBar(graphics, x, y, width, 14);
         ImmortalUiSkin.drawStringFit(font, graphics, value.getString(), x + 8, y + 3,
-                Math.max(1, width - 12), ImmortalUiSkin.JOURNAL_BORDER, false);
+                Math.max(1, width - 12), ImmortalUiSkin.JOURNAL_PAPER, false);
         return y + 18;
     }
 

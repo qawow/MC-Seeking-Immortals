@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-18: `0.2.12` 竹简青衿残留屏 + HUD 细节 polish。标题/分区字色统一竹纸层级；drawSkillSlot→drawJadeSlipSlot；Bestiary/Chronicle/Quest 列表走 drawListRow；status/breathing/HUD 叠竹纹与竹节标。Layout/发包契约不变。mod_version 0.2.12；protocol 保持 24。Details: project_docs/updates/20260718_0.2.12_bamboo_polish.md.
+
 > CURRENT TRUTH 2026-07-18: `0.2.11` 竹简青衿全前端 UI 重设计。JOURNAL_/HUD_ 从暖漆金木改为青竹竹简气候；双层竹边、竹纸/竹纹贴图、竹节角标与标题竹纸字色；去古铜金主框。Layout/发包契约不变。mod_version 0.2.11；protocol 保持 24。Details: project_docs/updates/20260718_0.2.11_bamboo_slip_ui.md.
 
 > CURRENT TRUTH 2026-07-18: `0.2.10` 暖漆问道录全前端暖色重绘。JOURNAL_/HUD_ 从冷青墨绿底改回凡人暖漆金木气候；双调铜边/纸纹/朱砂印细节；paper/jade 贴图偏暖；修为填充去霓虹青。Layout/发包契约不变。mod_version 0.2.10；protocol 保持 24。Details: project_docs/updates/20260718_0.2.10_warm_lacquer_ui.md.

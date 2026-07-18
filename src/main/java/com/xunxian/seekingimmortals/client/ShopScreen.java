@@ -78,7 +78,7 @@ public class ShopScreen extends AbstractJournalScreen {
         ClientShopData.Snapshot data = ClientShopData.get();
         ImmortalUiSkin.drawStringFit(font, graphics, Component.translatable(data.titleKey()).getString(),
                 layout.titleArea().x(), layout.titleArea().y() + Math.max(2, (layout.titleArea().height() - 8) / 2),
-                layout.titleArea().width(), ImmortalUiSkin.JOURNAL_BORDER, false);
+                layout.titleArea().width(), ImmortalUiSkin.JOURNAL_PAPER, false);
     }
 
     @Override
@@ -101,7 +101,7 @@ public class ShopScreen extends AbstractJournalScreen {
             ImmortalUiSkin.drawStringFit(font, graphics,
                     Component.translatable("screen.seeking_immortals.shop.stock").getString(),
                     layout.content().x() + 5, layout.content().y() + 4,
-                    Math.max(1, layout.content().width() - 10), ImmortalUiSkin.JOURNAL_BORDER, false);
+                    Math.max(1, layout.content().width() - 10), ImmortalUiSkin.JOURNAL_PAPER, false);
         }
 
         Rect viewport = listViewport(layout);

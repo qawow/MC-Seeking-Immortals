@@ -208,7 +208,7 @@ public class SectHallScreen extends AbstractJournalContainerScreen<SectHallMenu>
                 Component.translatable("screen.seeking_immortals.sect.title").getString(),
                 layout.titleArea().x(),
                 layout.titleArea().y() + Math.max(2, (layout.titleArea().height() - 8) / 2),
-                layout.titleArea().width(), ImmortalUiSkin.JOURNAL_BORDER, false);
+                layout.titleArea().width(), ImmortalUiSkin.JOURNAL_PAPER, false);
     }
 
     @Override
@@ -274,7 +274,7 @@ public class SectHallScreen extends AbstractJournalContainerScreen<SectHallMenu>
             ImmortalUiSkin.drawStringFit(font, graphics,
                     Component.translatable("screen.seeking_immortals.sect.candidates").getString(),
                     content.x() + 5, content.y() + 4, Math.max(1, content.width() - 10),
-                    ImmortalUiSkin.JOURNAL_BORDER, false);
+                    ImmortalUiSkin.JOURNAL_PAPER, false);
         }
         if (data.candidates().isEmpty()) {
             ImmortalUiSkin.drawWrappedText(font, graphics,
@@ -317,7 +317,7 @@ public class SectHallScreen extends AbstractJournalContainerScreen<SectHallMenu>
         Rect viewport = inset(content, 5);
         ImmortalUiSkin.drawStringFit(font, graphics,
                 Component.translatable("screen.seeking_immortals.sect.mission").getString(),
-                viewport.x(), viewport.y(), viewport.width(), ImmortalUiSkin.JOURNAL_BORDER, false);
+                viewport.x(), viewport.y(), viewport.width(), ImmortalUiSkin.JOURNAL_PAPER, false);
         if (data.mission() != null && data.mission().available()) {
             String text = data.mission().id() + " / "
                     + Component.translatable(data.mission().titleKey()).getString()
@@ -339,7 +339,7 @@ public class SectHallScreen extends AbstractJournalContainerScreen<SectHallMenu>
             ImmortalUiSkin.drawStringFit(font, graphics,
                     Component.translatable("screen.seeking_immortals.sect.shop").getString(),
                     content.x() + 5, content.y() + 4, Math.max(1, content.width() - 10),
-                    ImmortalUiSkin.JOURNAL_BORDER, false);
+                    ImmortalUiSkin.JOURNAL_PAPER, false);
         }
         if (data.shopEntries().isEmpty()) {
             ImmortalUiSkin.drawStringFit(font, graphics,
@@ -373,7 +373,7 @@ public class SectHallScreen extends AbstractJournalContainerScreen<SectHallMenu>
         Rect viewport = inset(content, 5);
         ImmortalUiSkin.drawStringFit(font, graphics,
                 Component.translatable("screen.seeking_immortals.sect.progress").getString(),
-                viewport.x(), viewport.y(), viewport.width(), ImmortalUiSkin.JOURNAL_BORDER, false);
+                viewport.x(), viewport.y(), viewport.width(), ImmortalUiSkin.JOURNAL_PAPER, false);
         int y = ImmortalUiSkin.drawWrappedText(font, graphics,
                 Component.translatable(data.objectiveKey()), viewport.x(), viewport.y() + 16,
                 viewport.width(), Math.max(1, viewport.height() - 28),

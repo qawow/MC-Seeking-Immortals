@@ -99,7 +99,7 @@ public class AuctionScreen extends AbstractJournalScreen {
                 : Math.max(1, layout.refreshButton().x() - layout.header().x() - 5);
         ImmortalUiSkin.drawStringFit(font, graphics, title.getString(), layout.header().x() + 7,
                 layout.header().y() + Math.max(2, (layout.header().height() - 8) / 2), titleWidth,
-                ImmortalUiSkin.JOURNAL_BORDER, false);
+                ImmortalUiSkin.JOURNAL_PAPER, false);
     }
 
     @Override

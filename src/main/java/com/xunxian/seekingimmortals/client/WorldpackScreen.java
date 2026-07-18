@@ -146,7 +146,7 @@ public class WorldpackScreen extends AbstractJournalScreen {
         Layout layout = calculateLayout(width, height);
         ImmortalUiSkin.drawStringFit(font, graphics, title.getString(), layout.titleArea().x(),
                 layout.titleArea().y() + Math.max(2, (layout.titleArea().height() - 8) / 2),
-                layout.titleArea().width(), ImmortalUiSkin.JOURNAL_BORDER, false);
+                layout.titleArea().width(), ImmortalUiSkin.JOURNAL_PAPER, false);
     }
 
     @Override

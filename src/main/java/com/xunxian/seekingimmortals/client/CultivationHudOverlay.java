@@ -52,7 +52,7 @@ public final class CultivationHudOverlay {
         int cursor = textY;
         String realmLine = "境界 " + data.realm() + data.stage();
         if (!canDrawText(minecraft, cursor, contentBottom)) return;
-        drawFit(minecraft, graphics, realmLine, textX, cursor, barWidth, ImmortalUiSkin.JOURNAL_BORDER);
+        drawFit(minecraft, graphics, realmLine, textX, cursor, barWidth, ImmortalUiSkin.JOURNAL_PAPER);
         cursor += minecraft.font.lineHeight + 1;
 
         if (cursor + minecraft.font.lineHeight + 6 > contentBottom) return;
@@ -83,7 +83,7 @@ public final class CultivationHudOverlay {
         List<HudLine> lines = new ArrayList<>();
         String advancementLine = advancementLine(data);
         if (!advancementLine.isBlank()) {
-            lines.add(new HudLine(advancementLine, ImmortalUiSkin.JOURNAL_BORDER));
+            lines.add(new HudLine(advancementLine, ImmortalUiSkin.JOURNAL_JADE_TEXT));
         }
         if (data.tribulationActive()) {
             int seconds = Math.max(0, (int)Math.ceil(data.tribulationNextStrikeTicks() / 20.0D));

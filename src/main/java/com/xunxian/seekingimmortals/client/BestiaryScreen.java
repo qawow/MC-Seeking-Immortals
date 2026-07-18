@@ -117,11 +117,11 @@ public class BestiaryScreen extends AbstractLoreScreen {
                         BeastBestiaryService.BeastEntry entry = view.get(index);
                         boolean unlocked = ClientLoreData.isBeastUnlocked(entry.id());
                         int y = layout.list().y() + 2 + i * ROW_H;
-                        int bg = entry.id().equals(selectedId) ? ImmortalUiSkin.JOURNAL_ROW_SELECTED
-                                : (i % 2 == 0 ? ImmortalUiSkin.JOURNAL_ROW : ImmortalUiSkin.JOURNAL_TRANSPARENT);
-                        if (bg != 0) {
-                            graphics.fill(layout.list().x() + 2, y, layout.list().x() + layout.list().w() - 2, y + ROW_H - 1, bg);
-                        }
+                        ImmortalUiSkin.InteractionState rowState = entry.id().equals(selectedId)
+                                ? ImmortalUiSkin.InteractionState.SELECTED
+                                : ImmortalUiSkin.InteractionState.NORMAL;
+                        ImmortalUiSkin.drawListRow(graphics, layout.list().x() + 2, y,
+                                Math.max(1, layout.list().w() - 4), ROW_H - 1, rowState);
                         String label = unlocked
                                 ? ("T" + entry.tier() + " " + entry.display())
                                 : Component.translatable("screen.seeking_immortals.bestiary.locked").getString();

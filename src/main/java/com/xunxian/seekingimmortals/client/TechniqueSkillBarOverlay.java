@@ -254,7 +254,7 @@ public final class TechniqueSkillBarOverlay {
             graphics.drawString(minecraft.font, initial,
                     x + Math.max(1, size - minecraft.font.width(initial) - 1),
                     y + Math.max(1, size - minecraft.font.lineHeight - 1),
-                    ImmortalUiSkin.JOURNAL_BORDER, true);
+                    ImmortalUiSkin.JOURNAL_PAPER, true);
         }
     }
 

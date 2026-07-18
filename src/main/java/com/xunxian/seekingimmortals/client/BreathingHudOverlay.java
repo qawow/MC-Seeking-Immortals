@@ -37,7 +37,7 @@ public final class BreathingHudOverlay {
         if (titleY + minecraft.font.lineHeight <= y + height) {
             graphics.drawString(minecraft.font, title,
                     x + Math.max(padding, (width - minecraft.font.width(title)) / 2), titleY,
-                    ImmortalUiSkin.JOURNAL_BORDER, false);
+                    ImmortalUiSkin.JOURNAL_PAPER, false);
         }
 
         double progress = (minecraft.player.tickCount % SETTLEMENT_TICKS) / (double) SETTLEMENT_TICKS;

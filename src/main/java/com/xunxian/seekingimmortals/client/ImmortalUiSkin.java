@@ -538,22 +538,30 @@ public final class ImmortalUiSkin {
         }
         if (width > 6 && height > 6) {
             graphics.fill(x + 3, y + 3, x + width - 3, y + height - 3, HUD_INNER);
+            // Quiet bamboo paper grain on compact HUD cards.
+            if (width >= 48 && height >= 20) {
+                drawTiledTexture(graphics, PAPER_TEXTURE, x + 3, y + 3, width - 6, height - 6);
+            }
             graphics.fill(x + 2, y + 2, x + width - 2, y + 3, HUD_EDGE);
         }
         if (width >= 10 && height >= 8) {
             graphics.fill(x + width - 4, y + 4, x + width - 3, y + height - 4, JOURNAL_JADE);
         }
+        // Tiny bamboo node on wider HUD cards.
+        if (width >= 60 && height >= 18) {
+            drawBambooNodeMark(graphics, x + width - 8, y + height / 2, false);
+        }
     }
 
     /**
-     * Left-top jade-tablet chrome for the merged 气血/修为/灵力 strip.
+     * Left-top bamboo-slip chrome for the merged 气血/修为/灵力 strip.
      * {@code fullStrip} adds a taller tablet body and a bottom cinnabar seal mark.
      * Stays more solid than the translucent skill rail for combat readability.
      */
     public static void drawStatusStripChrome(GuiGraphics graphics, int x, int y, int width, int height,
                                              boolean fullStrip) {
         if (width <= 0 || height <= 0) return;
-        // Soft multi-layer shadow for a deeper 玉简 float.
+        // Soft multi-layer shadow for a deeper bamboo-slip float.
         graphics.fill(x + 2, y + 3, x + width + 2, y + height + 3, HUD_SHADOW_SOFT);
         graphics.fill(x + 1, y + 2, x + width + 1, y + height + 2, HUD_SHADOW);
         graphics.fill(x, y, x + width, y + height, HUD_BORDER);
@@ -563,35 +571,43 @@ public final class ImmortalUiSkin {
         if (width > 6 && height > 6) {
             graphics.fill(x + 3, y + 3, x + width - 3, y + height - 3, HUD_INNER);
             drawTiledTexture(graphics, JADE_TEXTURE, x + 3, y + 3, width - 6, height - 6);
+            // Quiet bamboo grain on the solid status tablet (still low-α via texture).
+            if (width >= 40 && height >= 20) {
+                drawTiledTexture(graphics, BAMBOO_TEXTURE, x + 3, y + 3, width - 6, height - 6);
+            }
             graphics.fill(x + 2, y + 2, x + width - 2, y + 3, HUD_EDGE);
             if (height > 8) {
                 graphics.fill(x + 2, y + height - 3, x + width - 2, y + height - 2, HUD_EDGE);
             }
         }
-        // Left cinnabar edge — talisman seal strip on the jade tablet.
+        // Left cinnabar edge — talisman seal strip on the bamboo tablet.
         if (width >= 8 && height >= 8) {
             graphics.fill(x + 2, y + 3, x + 4, y + height - 3, JOURNAL_CINNABAR);
             if (height >= 14) {
                 graphics.fill(x + 2, y + 3, x + 3, Math.min(y + height - 3, y + 10), JOURNAL_CINNABAR_BRIGHT);
             }
         }
-        // Jade tick on the right rim.
+        // Bamboo-green tick on the right rim.
         if (width >= 12 && height >= 10) {
             graphics.fill(x + width - 4, y + 4, x + width - 3, y + height - 4, JOURNAL_JADE);
         }
-        // Tiny corner L-marks on the full strip only.
+        // Mid-side bamboo node marks + corner L-marks on the full strip only.
         if (fullStrip && width >= 28 && height >= 24) {
             int mark = Math.min(10, Math.max(4, width / 16));
             drawCornerMark(graphics, x + 5, y + 5, mark, 1, 1);
             drawCornerMark(graphics, x + width - 5, y + 5, mark, -1, 1);
             drawCornerMark(graphics, x + 5, y + height - 5, mark, 1, -1);
             drawCornerMark(graphics, x + width - 5, y + height - 5, mark, -1, -1);
+            if (height >= 36) {
+                drawBambooNodeMark(graphics, x + 3, y + height / 2, true);
+                drawBambooNodeMark(graphics, x + width - 4, y + height / 2, true);
+            }
             int seal = Math.min(8, Math.max(4, Math.min(width, height) / 10));
             drawCinnabarSeal(graphics, x + width - seal - 5, y + height - seal - 4, seal);
         }
     }
 
-    /** Softer meditation tablet for the bottom breathing HUD. */
+    /** Softer meditation bamboo tablet for the bottom breathing HUD. */
     public static void drawBreathingTablet(GuiGraphics graphics, int x, int y, int width, int height) {
         if (width <= 0 || height <= 0) return;
         graphics.fill(x + 1, y + 2, x + width + 1, y + height + 2, HUD_SHADOW);
@@ -602,9 +618,14 @@ public final class ImmortalUiSkin {
         if (width > 6 && height > 6) {
             graphics.fill(x + 3, y + 3, x + width - 3, y + height - 3, HUD_INNER);
             drawTiledTexture(graphics, JADE_TEXTURE, x + 3, y + 3, width - 6, height - 6);
+            if (width >= 48) {
+                drawTiledTexture(graphics, BAMBOO_TEXTURE, x + 3, y + 3, width - 6, height - 6);
+            }
             graphics.fill(x + 2, y + 2, x + width - 2, y + 3, HUD_EDGE);
         }
-        if (width >= 12 && height >= 10) {
+        // Left cinnabar side bar + right bamboo-green tick.
+        if (width >= 10 && height >= 10) {
+            graphics.fill(x + 2, y + 3, x + 3, y + height - 3, JOURNAL_CINNABAR);
             graphics.fill(x + width - 4, y + 4, x + width - 3, y + height - 4, JOURNAL_JADE);
         }
         if (width >= 20 && height >= 14) {
@@ -613,7 +634,7 @@ public final class ImmortalUiSkin {
         }
     }
 
-    /** Thin vertical jade-slip rail behind the seven technique slots (solid legacy path). */
+    /** Thin vertical bamboo-slip rail behind the seven technique slots (solid legacy path). */
     public static void drawJadeSlipRail(GuiGraphics graphics, int x, int y, int width, int height) {
         if (width <= 0 || height <= 0) return;
         graphics.fill(x + 1, y + 2, x + width + 1, y + height + 2, HUD_SHADOW);
@@ -624,6 +645,9 @@ public final class ImmortalUiSkin {
         if (width > 4 && height > 4) {
             graphics.fill(x + 2, y + 2, x + width - 2, y + height - 2, HUD_INNER);
             drawTiledTexture(graphics, JADE_TEXTURE, x + 2, y + 2, width - 4, height - 4);
+            if (height >= 48) {
+                drawTiledTexture(graphics, BAMBOO_TEXTURE, x + 2, y + 2, width - 4, height - 4);
+            }
         }
         if (width >= 6 && height >= 10) {
             graphics.fill(x + width - 3, y + 3, x + width - 2, y + height - 3, JOURNAL_JADE);
@@ -631,12 +655,17 @@ public final class ImmortalUiSkin {
         if (width >= 8 && height >= 12) {
             graphics.fill(x + 2, y + 3, x + 3, y + height - 3, JOURNAL_CINNABAR);
         }
+        // Quiet bamboo node ticks at rail ends (solid path only).
+        if (width >= 10 && height >= 40) {
+            drawBambooNodeMark(graphics, x + width / 2, y + 5, false);
+            drawBambooNodeMark(graphics, x + width / 2, y + height - 5, false);
+        }
     }
 
     /**
-     * Semi-transparent jade-slip rail for the live left skill bar.
+     * Semi-transparent bamboo-slip rail for the live left skill bar.
      * Uses skill-only tokens so journal/status solid HUD chrome stays readable.
-     * Jade grain is low-alpha so the rail stays see-through.
+     * Grain is low-alpha so the rail stays see-through; skill alpha is never raised.
      */
     public static void drawTranslucentJadeSlipRail(GuiGraphics graphics, int x, int y, int width, int height) {
         if (width <= 0 || height <= 0) return;
@@ -658,7 +687,7 @@ public final class ImmortalUiSkin {
     }
 
     /**
-     * Bamboo/jade-slip skill slot. Prefer this over the legacy
+     * Bamboo-slip skill slot. Prefer this over the legacy
      * {@link #drawSkillSlot} for solid previews; live HUD uses
      * {@link #drawTranslucentJadeSlipSlot}.
      */
@@ -675,6 +704,11 @@ public final class ImmortalUiSkin {
         }
         if (filled && size >= 8) {
             graphics.fill(x + 1, y + 1, x + 2, y + size - 1, JOURNAL_CINNABAR);
+        }
+        // Tiny bottom bamboo node on larger filled slots.
+        if (filled && size >= 16) {
+            graphics.fill(x + size / 2 - 2, y + size - 3, x + size / 2 + 2, y + size - 2, JOURNAL_BORDER);
+            graphics.fill(x + size / 2 - 1, y + size - 4, x + size / 2 + 1, y + size - 3, JOURNAL_RIM_INNER);
         }
     }
 

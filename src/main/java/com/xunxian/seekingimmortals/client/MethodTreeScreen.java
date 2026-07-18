@@ -379,7 +379,7 @@ public class MethodTreeScreen extends AbstractJournalScreen {
     protected void renderJournalTitle(GuiGraphics graphics, JournalChrome chrome, UiRect header) {
         Layout layout = calculateLayout(width, height);
         graphics.drawCenteredString(font, title, layout.header().x() + layout.header().width() / 2,
-                layout.header().y() + 4, ImmortalUiSkin.JOURNAL_BORDER);
+                layout.header().y() + 4, ImmortalUiSkin.JOURNAL_PAPER);
         int learnedCount = ClientMethodData.getLearnedMethodCount();
         String headerText = Component.translatable("screen.seeking_immortals.method_tree.header",
                 filtered.size(), allMethods.size(), learnedCount).getString();
@@ -487,7 +487,7 @@ public class MethodTreeScreen extends AbstractJournalScreen {
         String name = selected.display() == null || selected.display().isBlank()
                 ? selected.id() : selected.display();
         ImmortalUiSkin.drawStringFit(font, graphics, name, detailX, detailY, detailW,
-                ImmortalUiSkin.JOURNAL_BORDER, false);
+                ImmortalUiSkin.JOURNAL_PAPER, false);
         int y = detailY + LINE + 2;
         y = detailLine(graphics, detailX, y, detailW, "id", selected.id());
         y = detailLine(graphics, detailX, y, detailW, "school",
@@ -510,7 +510,7 @@ public class MethodTreeScreen extends AbstractJournalScreen {
         y += 4;
         ImmortalUiSkin.drawStringFit(font, graphics,
                 Component.translatable("screen.seeking_immortals.method_tree.layer_graph").getString(),
-                detailX, y, detailW, ImmortalUiSkin.JOURNAL_BORDER, false);
+                detailX, y, detailW, ImmortalUiSkin.JOURNAL_JADE_TEXT, false);
         y += LINE;
         ImmortalUiSkin.drawSemanticStatusBar(graphics, detailX, y, detailW, 5,
                 learned ? layer / (double)ManualCatalogService.MAX_METHOD_LAYER : 0.0D,
@@ -520,7 +520,7 @@ public class MethodTreeScreen extends AbstractJournalScreen {
         y += 4;
         ImmortalUiSkin.drawStringFit(font, graphics,
                 Component.translatable("screen.seeking_immortals.method_tree.school_graph").getString(),
-                detailX, y, detailW, ImmortalUiSkin.JOURNAL_BORDER, false);
+                detailX, y, detailW, ImmortalUiSkin.JOURNAL_JADE_TEXT, false);
         y += LINE;
         y = drawSchoolAdjacencyGraph(graphics, detailX, y, detailW, selected);
         ImmortalUiSkin.drawStringFit(font, graphics,

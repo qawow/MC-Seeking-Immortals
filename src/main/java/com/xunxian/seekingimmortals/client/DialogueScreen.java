@@ -130,7 +130,7 @@ public class DialogueScreen extends AbstractJournalScreen {
         ImmortalUiSkin.drawTitleBar(graphics, panel.x() + 4, panel.y() + 4,
                 Math.max(1, panel.width() - 8), Math.min(headerHeight, Math.max(1, panel.height() - 4)));
         ImmortalUiSkin.drawStringFit(font, graphics, getTitle().getString(), titleArea.x(), titleArea.y(),
-                titleArea.width(), ImmortalUiSkin.JOURNAL_BORDER, false);
+                titleArea.width(), ImmortalUiSkin.JOURNAL_PAPER, false);
     }
 
     @Override

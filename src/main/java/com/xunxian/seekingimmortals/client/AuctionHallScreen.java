@@ -134,7 +134,7 @@ public class AuctionHallScreen extends AbstractJournalContainerScreen<AuctionHal
         ImmortalUiSkin.drawStringFit(font, graphics,
                 Component.translatable("screen.seeking_immortals.auction.title").getString(),
                 header.x() + 7, header.y() + Math.max(2, (header.height() - 8) / 2),
-                titleWidth, ImmortalUiSkin.JOURNAL_BORDER, false);
+                titleWidth, ImmortalUiSkin.JOURNAL_PAPER, false);
     }
 
     @Override

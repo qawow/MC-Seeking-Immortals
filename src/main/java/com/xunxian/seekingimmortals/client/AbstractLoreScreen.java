@@ -54,7 +54,7 @@ public abstract class AbstractLoreScreen extends AbstractJournalScreen {
                 chrome.panelWidth() - 12, 16);
         ImmortalUiSkin.drawStringFit(font, graphics, getTitle().getString() + loreTitleProgress(),
                 chrome.panelX() + 12, chrome.panelY() + 10, chrome.panelWidth() - 24,
-                ImmortalUiSkin.JOURNAL_BORDER, false);
+                ImmortalUiSkin.JOURNAL_PAPER, false);
     }
 
     protected void sendLoreAction(String action) {

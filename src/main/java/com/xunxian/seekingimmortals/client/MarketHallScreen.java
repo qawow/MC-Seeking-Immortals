@@ -165,7 +165,7 @@ public class MarketHallScreen extends AbstractJournalContainerScreen<MarketHallM
                 ? "screen.seeking_immortals.shop.market_title" : data.titleKey());
         ImmortalUiSkin.drawStringFit(font, graphics, heading.getString(), header.x() + 7,
                 header.y() + 3, Math.max(1, header.width() - 12),
-                ImmortalUiSkin.JOURNAL_BORDER, false);
+                ImmortalUiSkin.JOURNAL_PAPER, false);
     }
 
     @Override
