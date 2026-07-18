@@ -19,6 +19,12 @@ public class SectScreen extends AbstractJournalScreen {
     private Tab tab = Tab.DIALOGUE;
     private int listScroll;
 
+
+    @Override
+    protected UiClimate defaultClimate() {
+        return UiClimate.WARM_LACQUER;
+    }
+
     public SectScreen() {
         super(Component.translatable("screen.seeking_immortals.sect.title"));
     }

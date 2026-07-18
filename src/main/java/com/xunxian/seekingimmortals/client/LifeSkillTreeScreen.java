@@ -36,6 +36,12 @@ public class LifeSkillTreeScreen extends AbstractJournalScreen {
     private final Screen parent;
     private final ScrollableListPanel listPanel = new ScrollableListPanel();
 
+
+    @Override
+    protected UiClimate defaultClimate() {
+        return UiClimate.JADE_SLIP;
+    }
+
     public LifeSkillTreeScreen(Screen parent) {
         super(Component.translatable("screen.seeking_immortals.skill_tree.title"));
         this.parent = parent;

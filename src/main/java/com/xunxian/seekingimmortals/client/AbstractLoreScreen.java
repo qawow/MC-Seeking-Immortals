@@ -25,6 +25,12 @@ public abstract class AbstractLoreScreen extends AbstractJournalScreen {
         super(title);
     }
 
+    /** Lore family is always bamboo slip (outer-sect notes / bestiary / chronicle). */
+    @Override
+    protected UiClimate defaultClimate() {
+        return UiClimate.BAMBOO_SLIP;
+    }
+
     /** Optional progress suffix drawn after the title (e.g. {@code "  3/12"}). */
     protected String loreTitleProgress() {
         return "";

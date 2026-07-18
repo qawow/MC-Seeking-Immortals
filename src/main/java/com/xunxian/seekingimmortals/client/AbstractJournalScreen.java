@@ -9,7 +9,8 @@ import net.minecraft.network.chat.Component;
  * {@code renderBackground → drawLayeredPanel → drawTitleBar + title → drawInnerFrame → content → super.render}.
  *
  * <p>Subclasses supply layout and content hooks; scrolling, tabs and row buttons are optional
- * collaborators ({@link ScrollableListPanel}, {@link TabBar}) rather than hard-coded here.</p>
+ * collaborators ({@link ScrollableListPanel}, {@link TabBar}) rather than hard-coded here.
+ * Material climate defaults to bamboo and may be overridden via {@link #defaultClimate()}.</p>
  */
 public abstract class AbstractJournalScreen extends Screen {
     protected AbstractJournalScreen(Component title) {
@@ -35,16 +36,26 @@ public abstract class AbstractJournalScreen extends Screen {
         }
     }
 
+    /** Material climate for this screen family. Override per semantic routing. */
+    protected UiClimate defaultClimate() {
+        return UiClimate.BAMBOO_SLIP;
+    }
+
     @Override
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-        renderBackground(graphics);
-        JournalChrome chrome = journalChrome();
-        if (chrome != null) {
-            renderJournalChrome(graphics, chrome);
-            renderJournalContent(graphics, chrome, mouseX, mouseY, partialTick);
+        ImmortalUiSkin.pushClimate(defaultClimate());
+        try {
+            renderBackground(graphics);
+            JournalChrome chrome = journalChrome();
+            if (chrome != null) {
+                renderJournalChrome(graphics, chrome);
+                renderJournalContent(graphics, chrome, mouseX, mouseY, partialTick);
+            }
+            super.render(graphics, mouseX, mouseY, partialTick);
+            renderAfterWidgets(graphics, chrome, mouseX, mouseY, partialTick);
+        } finally {
+            ImmortalUiSkin.popClimate();
         }
-        super.render(graphics, mouseX, mouseY, partialTick);
-        renderAfterWidgets(graphics, chrome, mouseX, mouseY, partialTick);
     }
 
     /** Current chrome geometry for this frame. */

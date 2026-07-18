@@ -81,6 +81,12 @@ public class MethodTreeScreen extends AbstractJournalScreen {
         }
     }
 
+
+    @Override
+    protected UiClimate defaultClimate() {
+        return UiClimate.JADE_SLIP;
+    }
+
     public MethodTreeScreen() {
         this(null);
     }

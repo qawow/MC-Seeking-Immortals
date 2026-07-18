@@ -48,6 +48,16 @@ public final class CultivationHealthOverlay {
     }
 
     static void renderHealthBar(GuiGraphics graphics, Minecraft minecraft, LocalPlayer player, int screenWidth, int screenHeight) {
+        ImmortalUiSkin.pushClimate(UiClimate.JADE_SLIP);
+        try {
+            renderHealthBarUnderClimate(graphics, minecraft, player, screenWidth, screenHeight);
+        } finally {
+            ImmortalUiSkin.popClimate();
+        }
+    }
+
+    private static void renderHealthBarUnderClimate(GuiGraphics graphics, Minecraft minecraft, LocalPlayer player,
+                                                    int screenWidth, int screenHeight) {
         ImmortalHudLayout.Layout layout = ImmortalHudLayout.calculate(screenWidth, screenHeight);
         boolean fullStrip = minecraft.screen == null && ClientCultivationData.isSynced();
         ImmortalHudLayout.Rect chrome = fullStrip ? layout.statusStrip() : layout.healthOnlyStrip();

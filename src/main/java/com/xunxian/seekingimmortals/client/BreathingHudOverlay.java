@@ -23,6 +23,13 @@ public final class BreathingHudOverlay {
         ClientCultivationData.Snapshot data = ClientCultivationData.getSnapshot();
         if (!ClientCultivationData.effectiveMeditating()) return;
 
+        ImmortalUiSkin.withClimate(UiClimate.JADE_SLIP, () ->
+                renderBreathingTablet(gui, graphics, partialTick, screenWidth, screenHeight, minecraft, data));
+    }
+
+    private static void renderBreathingTablet(ForgeGui gui, GuiGraphics graphics, float partialTick,
+                                              int screenWidth, int screenHeight,
+                                              Minecraft minecraft, ClientCultivationData.Snapshot data) {
         ImmortalHudLayout.Rect panel = ImmortalHudLayout.breathingRect(screenWidth, screenHeight);
         int width = panel.width();
         int height = panel.height();

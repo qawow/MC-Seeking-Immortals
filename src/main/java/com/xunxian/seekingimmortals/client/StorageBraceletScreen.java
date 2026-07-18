@@ -19,6 +19,12 @@ public class StorageBraceletScreen extends AbstractJournalScreen {
     private int scrollOffset;
     private int renderedContentHeight;
 
+
+    @Override
+    protected UiClimate defaultClimate() {
+        return UiClimate.WARM_LACQUER;
+    }
+
     public StorageBraceletScreen(List<String> previewLines) {
         super(Component.translatable("screen.seeking_immortals.storage_bracelet.title"));
         if (previewLines != null) {

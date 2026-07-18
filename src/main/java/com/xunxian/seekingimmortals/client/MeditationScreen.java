@@ -16,6 +16,12 @@ public class MeditationScreen extends AbstractJournalScreen {
 
     private final ScrollableListPanel listPanel = new ScrollableListPanel();
 
+
+    @Override
+    protected UiClimate defaultClimate() {
+        return UiClimate.JADE_SLIP;
+    }
+
     public MeditationScreen() {
         super(Component.translatable("screen.seeking_immortals.meditation.title"));
         this.listPanel.setScrollStep(18)

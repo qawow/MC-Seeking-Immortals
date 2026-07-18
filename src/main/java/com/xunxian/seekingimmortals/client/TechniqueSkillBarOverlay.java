@@ -48,6 +48,12 @@ public final class TechniqueSkillBarOverlay {
 
     private static void renderSkillBar(GuiGraphics graphics, ImmortalHudLayout.Rect frame,
                                        List<String> techniqueSlots, int slotSize, int slotGap, int padding) {
+        ImmortalUiSkin.withClimate(UiClimate.JADE_SLIP, () ->
+                renderSkillBarUnderClimate(graphics, frame, techniqueSlots, slotSize, slotGap, padding));
+    }
+
+    private static void renderSkillBarUnderClimate(GuiGraphics graphics, ImmortalHudLayout.Rect frame,
+                                                   List<String> techniqueSlots, int slotSize, int slotGap, int padding) {
         Minecraft minecraft = Minecraft.getInstance();
         int windowWidth = Math.max(1, minecraft.getWindow().getScreenWidth());
         int windowHeight = Math.max(1, minecraft.getWindow().getScreenHeight());

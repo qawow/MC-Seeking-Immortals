@@ -21,6 +21,12 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
     private String draggingTechniqueId = "";
     private int learnedScrollOffset = 0;
 
+
+    @Override
+    protected UiClimate defaultClimate() {
+        return UiClimate.JADE_SLIP;
+    }
+
     public TechniqueEditScreen() {
         super(Component.translatable("screen.seeking_immortals.technique_edit.title"));
     }

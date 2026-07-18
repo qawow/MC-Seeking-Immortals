@@ -29,6 +29,12 @@ public class WorldpackScreen extends AbstractJournalScreen {
     private long observedRevision = Long.MIN_VALUE;
     private int observedActionState = Integer.MIN_VALUE;
 
+
+    @Override
+    protected UiClimate defaultClimate() {
+        return UiClimate.BAMBOO_SLIP;
+    }
+
     public WorldpackScreen() {
         super(Component.translatable("screen.seeking_immortals.worldpack.title"));
         this.listPanel.setScrollStep(ROW_HEIGHT)

@@ -10,7 +10,8 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
  * Journal chrome base for {@link AbstractContainerScreen} subclasses.
  *
  * <p>Pipeline mirrors {@link AbstractJournalScreen} while respecting container rendering:
- * {@code renderBackground → (super.render → renderBg chrome/body + slots/widgets) → overlays → tooltips}.</p>
+ * {@code renderBackground → (super.render → renderBg chrome/body + slots/widgets) → overlays → tooltips}.
+ * Material climate defaults to warm lacquer (market/desk family) and may be overridden.</p>
  */
 public abstract class AbstractJournalContainerScreen<T extends AbstractContainerMenu>
         extends AbstractContainerScreen<T> {
@@ -18,12 +19,22 @@ public abstract class AbstractJournalContainerScreen<T extends AbstractContainer
         super(menu, inventory, title);
     }
 
+    /** Material climate for this container family. Override per semantic routing. */
+    protected UiClimate defaultClimate() {
+        return UiClimate.WARM_LACQUER;
+    }
+
     @Override
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-        renderBackground(graphics);
-        super.render(graphics, mouseX, mouseY, partialTick);
-        renderJournalOverlays(graphics, mouseX, mouseY, partialTick);
-        renderTooltip(graphics, mouseX, mouseY);
+        ImmortalUiSkin.pushClimate(defaultClimate());
+        try {
+            renderBackground(graphics);
+            super.render(graphics, mouseX, mouseY, partialTick);
+            renderJournalOverlays(graphics, mouseX, mouseY, partialTick);
+            renderTooltip(graphics, mouseX, mouseY);
+        } finally {
+            ImmortalUiSkin.popClimate();
+        }
     }
 
     @Override

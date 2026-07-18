@@ -16,6 +16,12 @@ public class RefinementPlanScreen extends AbstractJournalScreen {
     private final List<String> lines = new ArrayList<>();
     private final ScrollableListPanel listPanel = new ScrollableListPanel();
 
+
+    @Override
+    protected UiClimate defaultClimate() {
+        return UiClimate.WARM_LACQUER;
+    }
+
     public RefinementPlanScreen(List<String> lines) {
         super(Component.translatable("screen.seeking_immortals.refine_plan.title"));
         if (lines != null) {

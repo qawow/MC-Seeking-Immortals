@@ -18,6 +18,12 @@ public class ShopScreen extends AbstractJournalScreen {
 
     private int listScroll;
 
+
+    @Override
+    protected UiClimate defaultClimate() {
+        return UiClimate.WARM_LACQUER;
+    }
+
     public ShopScreen() {
         super(Component.translatable("screen.seeking_immortals.shop.market_title"));
     }

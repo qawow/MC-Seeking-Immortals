@@ -19,6 +19,12 @@ public class AuctionScreen extends AbstractJournalScreen {
     private int scrollOffset;
     private int contentHeight;
 
+
+    @Override
+    protected UiClimate defaultClimate() {
+        return UiClimate.WARM_LACQUER;
+    }
+
     public AuctionScreen() {
         super(Component.translatable("screen.seeking_immortals.auction.title"));
     }

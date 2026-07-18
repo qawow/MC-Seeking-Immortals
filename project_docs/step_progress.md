@@ -1,3 +1,19 @@
+## 483. 2026-07-18 0.2.15 四材分层问道录气候内核
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260718_211313_layered_climate_ui/`
+  UiClimate + palettes                 Done JADE/BAMBOO/LACQUER/CINNABAR
+  ImmortalUiSkin climate stack         Done push/pop/withClimate；draw* 走色板
+  lacquer grain texture                Done 32×32 低 alpha
+  Abstract shell climate               Done defaultClimate + render 包栈
+  Screen routing                       Done 玉简/竹简/暖漆语义覆写
+  HUD jade climate                     Done 四 Overlay 强制玉简
+  Danger button cinnabar               Done ImmortalButton.danger
+  Version/protocol                     Done `0.2.14` -> `0.2.15`；protocol 保持 24
+  Full verification                    Done `./gradlew test` + `build`
+  Update note                          Done `project_docs/updates/20260718_0.2.15_layered_climate_ui.md`
+
 ## 477. 2026-07-18 0.2.9 HUD 技能轨玉纹对齐
 
   Step   Status   Notes

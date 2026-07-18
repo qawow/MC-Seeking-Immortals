@@ -20,6 +20,12 @@ public class QuestTrackerScreen extends AbstractJournalScreen {
     private Button demonicButton;
     private final ScrollableListPanel listPanel = new ScrollableListPanel();
 
+
+    @Override
+    protected UiClimate defaultClimate() {
+        return UiClimate.BAMBOO_SLIP;
+    }
+
     public QuestTrackerScreen() {
         super(Component.translatable("screen.seeking_immortals.quest_tracker.title"));
         this.listPanel.setScrollStep(16)

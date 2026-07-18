@@ -41,6 +41,12 @@ public class DialogueScreen extends AbstractJournalScreen {
     private int promptScroll;
     private int renderedPromptHeight;
 
+
+    @Override
+    protected UiClimate defaultClimate() {
+        return UiClimate.BAMBOO_SLIP;
+    }
+
     public DialogueScreen(OpenDialogueScreenPacket view) {
         super(Component.translatable("screen.seeking_immortals.dialogue.title"));
         this.view = view == null

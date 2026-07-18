@@ -66,6 +66,12 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
     private int renderedContentHeight;
     private int contentRevision = Integer.MIN_VALUE;
 
+
+    @Override
+    protected UiClimate defaultClimate() {
+        return UiClimate.JADE_SLIP;
+    }
+
     public CultivationStatsScreen(LocalPlayer player) {
         this(player, false);
     }

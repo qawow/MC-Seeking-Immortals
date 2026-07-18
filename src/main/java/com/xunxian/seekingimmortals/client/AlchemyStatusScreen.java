@@ -17,6 +17,12 @@ public class AlchemyStatusScreen extends AbstractJournalScreen {
     private final String lastMessage;
     private final ScrollableListPanel listPanel = new ScrollableListPanel();
 
+
+    @Override
+    protected UiClimate defaultClimate() {
+        return UiClimate.BAMBOO_SLIP;
+    }
+
     public AlchemyStatusScreen(int skillLevel, int skillExp, String lastMessage) {
         super(Component.translatable("screen.seeking_immortals.alchemy.title"));
         this.skillLevel = skillLevel;

@@ -42,8 +42,9 @@ public final class CultivationHudOverlay {
         int barWidth = Math.max(1, band.right() - textX - 3);
         int contentBottom = band.bottom() - paddingY;
 
-        ImmortalUiSkin.withScissor(graphics, band.x(), band.y(), band.width(), band.height(), () ->
-                renderCultivationBand(graphics, minecraft, data, textX, textY, barWidth, contentBottom));
+        ImmortalUiSkin.withClimate(UiClimate.JADE_SLIP, () ->
+                ImmortalUiSkin.withScissor(graphics, band.x(), band.y(), band.width(), band.height(), () ->
+                        renderCultivationBand(graphics, minecraft, data, textX, textY, barWidth, contentBottom)));
     }
 
     private static void renderCultivationBand(GuiGraphics graphics, Minecraft minecraft,

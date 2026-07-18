@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-18: `0.2.15` 四材分层问道录气候内核。`UiClimate` 四材色板 + `ImmortalUiSkin` push/pop 气候栈；抽象壳 `defaultClimate` 语义路由（修炼玉简 / 杂务竹简 / 坊市暖漆 / 危签叠加）；HUD 四层强制玉简；漆木 grain 贴图。Layout/发包契约不变。mod_version 0.2.15；protocol 保持 24。Details: project_docs/updates/20260718_0.2.15_layered_climate_ui.md.
+
 > CURRENT TRUTH 2026-07-18: `0.2.14` 竹简青衿残留细抠。数值/选中字色去 BORDER；Stats 斑马行 drawListRow；JEI 暖金→竹纸 token；drawPanel/drawSkillSlot 转发竹简绘制。Layout/发包契约不变。mod_version 0.2.14；protocol 保持 24。Details: project_docs/updates/20260718_0.2.14_bamboo_residual.md.
 
 > CURRENT TRUTH 2026-07-18: `0.2.13` 竹简青衿别名清理与占位加深。Stats 去 BRONZE→BAMBOO/JADE；玉简文案改竹笺；进度条 helper 去旧暖色贴图；技能占位竹笺卡；对话/节点字色对齐。Layout/发包契约不变。mod_version 0.2.13；protocol 保持 24。Details: project_docs/updates/20260718_0.2.13_bamboo_cleanup.md.
