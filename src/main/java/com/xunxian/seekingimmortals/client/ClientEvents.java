@@ -9,7 +9,6 @@ import com.xunxian.seekingimmortals.network.SetMeditatingPacket;
 import com.xunxian.seekingimmortals.registry.ModEntities;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.entity.VillagerRenderer;
@@ -289,14 +288,13 @@ public final class ClientEvents {
             if (event.getScreen().getClass() != InventoryScreen.class) return;
             int x = event.getScreen().width / 2 - 88;
             int y = event.getScreen().height / 2 - 104;
-            event.addListener(Button.builder(Component.translatable("screen.seeking_immortals.cultivation_stats.tab"), button -> {
-                    Minecraft minecraft = Minecraft.getInstance();
-                    if (minecraft.player != null) {
-                        minecraft.setScreen(new CultivationStatsScreen(minecraft.player, true));
-                    }
-                })
-                    .bounds(x, y, 42, 18)
-                    .build());
+            event.addListener(ImmortalButton.secondary(x, y, 42, 18,
+                    Component.translatable("screen.seeking_immortals.cultivation_stats.tab"), button -> {
+                        Minecraft minecraft = Minecraft.getInstance();
+                        if (minecraft.player != null) {
+                            minecraft.setScreen(new CultivationStatsScreen(minecraft.player, true));
+                        }
+                    }));
         }
     }
 }

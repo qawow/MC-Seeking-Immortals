@@ -80,6 +80,14 @@ public final class ImmortalUiSkin {
     public static final int JOURNAL_SCROLLBAR_TRACK = 0x99101611;
     public static final int JOURNAL_CULTIVATION_FILL = 0x8836E6D0;
     public static final int JOURNAL_CULTIVATION_HIGHLIGHT = 0xAA8FFFF0;
+    /** 1px paper sheen on panel top edge — keep alpha ≤ 0x22 for 克制问道录. */
+    public static final int JOURNAL_PAPER_SHEEN = 0x22E8DFC2;
+    /** Soft bottom weight on journal panels. */
+    public static final int JOURNAL_PAPER_WEIGHT = 0x440A0E0C;
+    /** Soft multi-layer HUD drop shadow (status strip). */
+    public static final int HUD_SHADOW_SOFT = 0x44000000;
+    public static final int HUD_SLOT_FILLED_SOLID = 0xCC121814;
+    public static final int HUD_SLOT_EMPTY_SOLID = 0x66100E09;
 
     // Compact HUD surfaces use the same materials with less visual weight.
     public static final int HUD_SHADOW = 0x66000000;
@@ -125,6 +133,12 @@ public final class ImmortalUiSkin {
     private static final int CULTIVATION_PROGRESS_TEXTURE_WIDTH = 1204;
     private static final int CULTIVATION_PROGRESS_TEXTURE_HEIGHT = 153;
 
+    private static final ResourceLocation PAPER_TEXTURE =
+            new ResourceLocation(SeekingImmortalsMod.MODID, "textures/gui/paper_texture.png");
+    private static final ResourceLocation JADE_TEXTURE =
+            new ResourceLocation(SeekingImmortalsMod.MODID, "textures/gui/jade_texture.png");
+    private static final int MATERIAL_TILE = 32;
+
     /** techniqueIds that have a generated PNG under textures/gui/skill/<id>.png. */
     private static final java.util.Set<String> KNOWN_SKILL_ICONS = java.util.Set.of(
             "qi_guiding_art", "fireball_art", "ice_cone_art", "thunder_strike_art",
@@ -151,7 +165,17 @@ public final class ImmortalUiSkin {
             graphics.fill(x + 1, y + 1, x + width - 1, y + height - 1, JOURNAL_VOID);
         }
         if (width > 8 && height > 8) {
-            graphics.fill(x + 4, y + 4, x + width - 4, y + height - 4, JOURNAL_PANEL);
+            int ix = x + 4;
+            int iy = y + 4;
+            int iw = width - 8;
+            int ih = height - 8;
+            graphics.fill(ix, iy, ix + iw, iy + ih, JOURNAL_PANEL);
+            // Restrained paper grain — low-alpha tiled texture, never neon glow.
+            drawTiledTexture(graphics, PAPER_TEXTURE, ix, iy, iw, ih);
+            if (ih >= 3) {
+                graphics.fill(ix, iy, ix + iw, iy + 1, JOURNAL_PAPER_SHEEN);
+                graphics.fill(ix, iy + ih - 1, ix + iw, iy + ih, JOURNAL_PAPER_WEIGHT);
+            }
         }
 
         if (width >= 24 && height >= 18) {
@@ -166,6 +190,9 @@ public final class ImmortalUiSkin {
     /** Draws a restrained inner content frame without adding another floating panel. */
     public static void drawInnerFrame(GuiGraphics graphics, int x, int y, int width, int height) {
         drawBox(graphics, x, y, width, height, JOURNAL_INNER, JOURNAL_BORDER_DIM);
+        if (width > 4 && height > 4) {
+            drawTiledTexture(graphics, PAPER_TEXTURE, x + 1, y + 1, width - 2, height - 2);
+        }
     }
 
     /** Draws a dark title strip with a cinnabar marker and bronze baseline. */
@@ -177,6 +204,10 @@ public final class ImmortalUiSkin {
         }
         if (height >= 2) {
             graphics.fill(x, y + height - 1, x + width, y + height, JOURNAL_BORDER_DIM);
+        }
+        // Hairline paper sheen under the title — 克制, not magical bloom.
+        if (height >= 4 && width > 8) {
+            graphics.fill(x + 4, y + 1, x + width - 2, y + 2, JOURNAL_PAPER_SHEEN);
         }
     }
 
@@ -212,6 +243,8 @@ public final class ImmortalUiSkin {
         drawControlBox(graphics, x, y, width, height, fill, border);
         if (safeState == InteractionState.SELECTED && width > 6 && height > 2) {
             graphics.fill(x + 3, y + height - 2, x + width - 3, y + height - 1, JOURNAL_JADE);
+        } else if (safeState == InteractionState.HOVERED && width > 4 && height > 2) {
+            graphics.fill(x + 4, y + height - 2, x + width - 4, y + height - 1, JOURNAL_BORDER);
         }
     }
 
@@ -245,7 +278,10 @@ public final class ImmortalUiSkin {
         int border = disabled ? JOURNAL_BORDER_DIM : primary ? JOURNAL_CINNABAR_BRIGHT : JOURNAL_BORDER;
         drawControlBox(graphics, x, y, width, height, fill, border);
         if (primary && !disabled && width > 4 && height > 4) {
+            // Cinnabar seal stripe — primary action reads as a stamped order.
             graphics.fill(x + 2, y + 2, x + 4, y + height - 2, JOURNAL_CINNABAR);
+        } else if (!primary && safeState == InteractionState.HOVERED && width > 6 && height > 4) {
+            graphics.fill(x + 3, y + height - 3, x + width - 3, y + height - 2, JOURNAL_BORDER_DIM);
         }
     }
 
@@ -433,7 +469,7 @@ public final class ImmortalUiSkin {
                                              boolean fullStrip) {
         if (width <= 0 || height <= 0) return;
         // Soft multi-layer shadow for a deeper 玉简 float.
-        graphics.fill(x + 2, y + 3, x + width + 2, y + height + 3, 0x44000000);
+        graphics.fill(x + 2, y + 3, x + width + 2, y + height + 3, HUD_SHADOW_SOFT);
         graphics.fill(x + 1, y + 2, x + width + 1, y + height + 2, HUD_SHADOW);
         graphics.fill(x, y, x + width, y + height, HUD_BORDER);
         if (width > 2 && height > 2) {
@@ -441,6 +477,7 @@ public final class ImmortalUiSkin {
         }
         if (width > 6 && height > 6) {
             graphics.fill(x + 3, y + 3, x + width - 3, y + height - 3, HUD_INNER);
+            drawTiledTexture(graphics, JADE_TEXTURE, x + 3, y + 3, width - 6, height - 6);
             graphics.fill(x + 2, y + 2, x + width - 2, y + 3, HUD_EDGE);
             if (height > 8) {
                 graphics.fill(x + 2, y + height - 3, x + width - 2, y + height - 2, HUD_EDGE);
@@ -479,6 +516,7 @@ public final class ImmortalUiSkin {
         }
         if (width > 6 && height > 6) {
             graphics.fill(x + 3, y + 3, x + width - 3, y + height - 3, HUD_INNER);
+            drawTiledTexture(graphics, JADE_TEXTURE, x + 3, y + 3, width - 6, height - 6);
             graphics.fill(x + 2, y + 2, x + width - 2, y + 3, HUD_EDGE);
         }
         if (width >= 12 && height >= 10) {
@@ -539,7 +577,7 @@ public final class ImmortalUiSkin {
     public static void drawJadeSlipSlot(GuiGraphics graphics, int x, int y, int size, boolean filled) {
         if (size <= 0) return;
         int border = filled ? JOURNAL_BORDER : JOURNAL_BORDER_DIM;
-        int fill = filled ? 0xCC121814 : 0x66100E09;
+        int fill = filled ? HUD_SLOT_FILLED_SOLID : HUD_SLOT_EMPTY_SOLID;
         drawBox(graphics, x, y, size, size, fill, border);
         if (size >= 6) {
             graphics.fill(x + 1, y + 1, x + size - 1, y + 2, filled ? JOURNAL_JADE : HUD_EDGE);
@@ -650,6 +688,37 @@ public final class ImmortalUiSkin {
                                       int color, boolean dropShadow) {
         return drawWrappedText(font, graphics, Component.literal(value == null ? "" : value),
                 x, y, maxWidth, maxHeight, color, dropShadow);
+    }
+
+    /**
+     * Tiles a low-alpha material texture into a rectangle. Safe no-op on bad size;
+     * texture bind failures are absorbed by the resource system (missing texture).
+     */
+    public static void drawTiledTexture(GuiGraphics graphics, ResourceLocation texture,
+                                        int x, int y, int width, int height) {
+        if (graphics == null || texture == null || width <= 0 || height <= 0) return;
+        int tile = MATERIAL_TILE;
+        for (int ty = 0; ty < height; ty += tile) {
+            int th = Math.min(tile, height - ty);
+            for (int tx = 0; tx < width; tx += tile) {
+                int tw = Math.min(tile, width - tx);
+                graphics.blit(texture, x + tx, y + ty, 0, 0, tw, th, tile, tile);
+            }
+        }
+    }
+
+    /** Optional paper grain fill for custom content regions. */
+    public static void drawPaperFill(GuiGraphics graphics, int x, int y, int width, int height) {
+        if (width <= 0 || height <= 0) return;
+        graphics.fill(x, y, x + width, y + height, JOURNAL_INNER);
+        drawTiledTexture(graphics, PAPER_TEXTURE, x, y, width, height);
+    }
+
+    /** Optional jade grain fill for HUD tablets / seals. */
+    public static void drawJadeFill(GuiGraphics graphics, int x, int y, int width, int height) {
+        if (width <= 0 || height <= 0) return;
+        graphics.fill(x, y, x + width, y + height, HUD_INNER);
+        drawTiledTexture(graphics, JADE_TEXTURE, x, y, width, height);
     }
 
     private static void drawBox(GuiGraphics graphics, int x, int y, int width, int height, int fillColor, int borderColor) {

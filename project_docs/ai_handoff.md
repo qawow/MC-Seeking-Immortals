@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-18: `0.2.8` 凡人问道录全前端克制重设计。真实 paper/jade 32×32 平铺贴图接入 ImmortalUiSkin；panel/title/inner/HUD 叠低 alpha 材质；MethodTree/Shop/Auction/Sect/StorageBracelet(+Menu) 迁入 AbstractJournal*；背包「修仙」用 ImmortalButton。拖拽/双滚动/发包契约与 ImmortalHudLayout 几何不变。mod_version 0.2.8；protocol 保持 24。Details: project_docs/updates/20260718_0.2.8_fanren_journal_ui.md.
+
 > CURRENT TRUTH 2026-07-17: `0.2.6` left-stack HUD. Left-top jade status strip merges 气血 + 修为/灵力; left skill rail is vertically centered under the strip and semi-transparent; bottom breathing tablet stays. Health owns strip chrome; cultivation paints content only. Health replace predicate unchanged from 0.2.4. Protocol remains 24. Details: project_docs/updates/20260717_0.2.6_hud_left_status_skill.md.
 
 > CURRENT TRUTH 2026-07-17: `0.2.5` deep fanren-style HUD redesign. Right-top jade status strip merges 气血 + 修为/灵力; left jade-slip 7-slot skill rail; bottom breathing tablet. Health owns strip chrome (full vs health-only when screen open); cultivation paints content only. Health replace predicate unchanged from 0.2.4. Protocol remains 24. Details: project_docs/updates/20260717_0.2.5_hud_visual_redesign.md.

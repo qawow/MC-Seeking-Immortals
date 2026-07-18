@@ -2,7 +2,6 @@ package com.xunxian.seekingimmortals.client;
 
 import com.xunxian.seekingimmortals.artifact.ArtifactStorageService;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.world.item.ItemStack;
@@ -11,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /** Client preview of NBT-stored bracelet contents. Server withdrawal remains authoritative. */
-public class StorageBraceletScreen extends Screen {
+public class StorageBraceletScreen extends AbstractJournalScreen {
     private static final int DESIRED_WIDTH = 260;
     private static final int DESIRED_HEIGHT = 180;
     private static final int LINE_GAP = 2;
@@ -44,19 +43,25 @@ public class StorageBraceletScreen extends Screen {
     }
 
     @Override
-    public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-        renderBackground(graphics);
+    protected JournalChrome journalChrome() {
         Layout layout = calculateLayout(width, height);
         Rect panel = layout.panel();
-        Rect titleBar = layout.titleBar();
-        Rect viewport = layout.viewport();
-        ImmortalUiSkin.drawLayeredPanel(graphics, panel.x(), panel.y(), panel.width(), panel.height());
-        ImmortalUiSkin.drawTitleBar(graphics, titleBar.x(), titleBar.y(), titleBar.width(), titleBar.height());
-        ImmortalUiSkin.drawStringFit(font, graphics, title.getString(),
-                titleBar.x() + 6, titleBar.y() + Math.max(2, (titleBar.height() - font.lineHeight) / 2),
-                Math.max(1, titleBar.width() - 12), ImmortalUiSkin.JOURNAL_BORDER, false);
-        ImmortalUiSkin.drawInnerFrame(graphics, viewport.x(), viewport.y(), viewport.width(), viewport.height());
+        return new JournalChrome(panel.x(), panel.y(), panel.width(), panel.height(),
+                toUi(layout.titleBar()), toUi(layout.viewport()));
+    }
 
+    @Override
+    protected void renderJournalTitle(GuiGraphics graphics, JournalChrome chrome, UiRect header) {
+        ImmortalUiSkin.drawStringFit(font, graphics, title.getString(),
+                header.x() + 6, header.y() + Math.max(2, (header.height() - font.lineHeight) / 2),
+                Math.max(1, header.width() - 12), ImmortalUiSkin.JOURNAL_BORDER, false);
+    }
+
+    @Override
+    protected void renderJournalContent(GuiGraphics graphics, JournalChrome chrome,
+                                         int mouseX, int mouseY, float partialTick) {
+        Layout layout = calculateLayout(width, height);
+        Rect viewport = layout.viewport();
         int contentWidth = Math.max(1, viewport.width() - 10);
         renderedContentHeight = measureContent(contentWidth);
         int visibleHeight = Math.max(1, viewport.height() - 6);
@@ -67,7 +72,6 @@ public class StorageBraceletScreen extends Screen {
                         viewport.y() + 3 - scrollOffset, contentWidth));
         ImmortalUiSkin.drawThinScrollbar(graphics, viewport.right() - 3, viewport.y() + 1,
                 Math.max(1, viewport.height() - 2), renderedContentHeight, visibleHeight, scrollOffset);
-        super.render(graphics, mouseX, mouseY, partialTick);
     }
 
     @Override
@@ -83,9 +87,8 @@ public class StorageBraceletScreen extends Screen {
         return super.mouseScrolled(mouseX, mouseY, delta);
     }
 
-    @Override
-    public boolean isPauseScreen() {
-        return false;
+    private static UiRect toUi(Rect rect) {
+        return new UiRect(rect.x(), rect.y(), rect.width(), rect.height());
     }
 
     private int measureContent(int contentWidth) {

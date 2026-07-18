@@ -2,11 +2,10 @@ package com.xunxian.seekingimmortals.client;
 
 import com.xunxian.seekingimmortals.menu.StorageBraceletMenu;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 
-public class StorageBraceletScreenMenu extends AbstractContainerScreen<StorageBraceletMenu> {
+public class StorageBraceletScreenMenu extends AbstractJournalContainerScreen<StorageBraceletMenu> {
     private static final int CONTAINER_WIDTH = 176;
 
     public StorageBraceletScreenMenu(StorageBraceletMenu menu, Inventory inv, Component title) {
@@ -18,13 +17,15 @@ public class StorageBraceletScreenMenu extends AbstractContainerScreen<StorageBr
     }
 
     @Override
-    protected void renderBg(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
+    protected UiRect journalTitleBar() {
+        return new UiRect(leftPos + 4, topPos + 4, imageWidth - 8, 12);
+    }
+
+    @Override
+    protected void renderJournalBody(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
         int x = leftPos;
         int y = topPos;
         int rows = (menu.storageSlots() + 8) / 9;
-        ImmortalUiSkin.drawLayeredPanel(graphics, x, y, imageWidth, imageHeight);
-        ImmortalUiSkin.drawTitleBar(graphics, x + 4, y + 4, imageWidth - 8, 12);
-
         for (int i = 0; i < menu.storageSlots(); i++) {
             int row = i / 9;
             int col = i % 9;
@@ -45,21 +46,11 @@ public class StorageBraceletScreenMenu extends AbstractContainerScreen<StorageBr
     }
 
     @Override
-    protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
-        ImmortalUiSkin.drawStringFit(font, graphics, title.getString(),
-                titleLabelX, 6, Math.max(1, imageWidth - titleLabelX * 2),
-                ImmortalUiSkin.JOURNAL_BORDER, false);
+    protected void renderJournalOverlays(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
         ImmortalUiSkin.drawStringFit(font, graphics, playerInventoryTitle.getString(),
-                inventoryLabelX, inventoryLabelY,
+                leftPos + inventoryLabelX, topPos + inventoryLabelY,
                 Math.max(1, imageWidth - inventoryLabelX * 2),
                 ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
-    }
-
-    @Override
-    public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-        renderBackground(graphics);
-        super.render(graphics, mouseX, mouseY, partialTick);
-        renderTooltip(graphics, mouseX, mouseY);
     }
 
     static ContainerLayout calculateLayout(int screenWidth, int screenHeight, int storageSlots) {

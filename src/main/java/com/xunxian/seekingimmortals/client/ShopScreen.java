@@ -4,13 +4,12 @@ import com.xunxian.seekingimmortals.network.ModNetwork;
 import com.xunxian.seekingimmortals.network.ShopActionPacket;
 import com.xunxian.seekingimmortals.shop.ShopService;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
 
 import java.util.List;
 
-public class ShopScreen extends Screen {
+public class ShopScreen extends AbstractJournalScreen {
     private static final int PANEL_WIDTH = 360;
     private static final int PANEL_HEIGHT = 236;
     private static final int PANEL_MARGIN = 4;
@@ -66,22 +65,27 @@ public class ShopScreen extends Screen {
     }
 
     @Override
-    public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-        renderBackground(graphics);
-        renderPanel(graphics, mouseX, mouseY);
-        super.render(graphics, mouseX, mouseY, partialTick);
+    protected JournalChrome journalChrome() {
+        Layout layout = calculateLayout(width, height);
+        // Content paints its own stock frame; skip shared single inner frame.
+        return new JournalChrome(layout.left(), layout.top(), layout.panelWidth(), layout.panelHeight(),
+                toUi(layout.header()), null);
     }
 
-    private void renderPanel(GuiGraphics graphics, int mouseX, int mouseY) {
+    @Override
+    protected void renderJournalTitle(GuiGraphics graphics, JournalChrome chrome, UiRect header) {
         Layout layout = calculateLayout(width, height);
         ClientShopData.Snapshot data = ClientShopData.get();
-        ImmortalUiSkin.drawLayeredPanel(graphics, layout.left(), layout.top(),
-                layout.panelWidth(), layout.panelHeight());
-        ImmortalUiSkin.drawTitleBar(graphics, layout.header().x(), layout.header().y(),
-                layout.header().width(), layout.header().height());
         ImmortalUiSkin.drawStringFit(font, graphics, Component.translatable(data.titleKey()).getString(),
                 layout.titleArea().x(), layout.titleArea().y() + Math.max(2, (layout.titleArea().height() - 8) / 2),
                 layout.titleArea().width(), ImmortalUiSkin.JOURNAL_BORDER, false);
+    }
+
+    @Override
+    protected void renderJournalContent(GuiGraphics graphics, JournalChrome chrome,
+                                         int mouseX, int mouseY, float partialTick) {
+        Layout layout = calculateLayout(width, height);
+        ClientShopData.Snapshot data = ClientShopData.get();
 
         if (layout.info().height() >= 9) {
             ImmortalUiSkin.drawStringFit(font, graphics,
@@ -133,6 +137,10 @@ public class ShopScreen extends Screen {
                 viewport.height(), listScroll * layout.rowHeight());
     }
 
+    private static UiRect toUi(Rect rect) {
+        return new UiRect(rect.x(), rect.y(), rect.width(), rect.height());
+    }
+
     private void renderEntry(GuiGraphics graphics, Layout layout, Rect row,
                              ClientShopData.Entry entry, boolean disabled) {
         Rect action = rowAction(layout, (row.y() - listViewport(layout).y()) / layout.rowHeight());
@@ -177,11 +185,6 @@ public class ShopScreen extends Screen {
             return true;
         }
         return super.mouseScrolled(mouseX, mouseY, delta);
-    }
-
-    @Override
-    public boolean isPauseScreen() {
-        return false;
     }
 
     static Layout calculateLayout(int screenWidth, int screenHeight) {

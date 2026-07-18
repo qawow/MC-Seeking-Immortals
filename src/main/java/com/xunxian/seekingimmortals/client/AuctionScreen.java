@@ -4,13 +4,12 @@ import com.xunxian.seekingimmortals.catalog.AuctionSoftService;
 import com.xunxian.seekingimmortals.network.AuctionActionPacket;
 import com.xunxian.seekingimmortals.network.ModNetwork;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 
 import java.util.List;
 
 /** Responsive catalogue auction view; all actions remain server authoritative. */
-public class AuctionScreen extends Screen {
+public class AuctionScreen extends AbstractJournalScreen {
     private static final int PANEL_MARGIN = 4;
     private static final int PANEL_WIDTH = 360;
     private static final int PANEL_HEIGHT = 236;
@@ -83,12 +82,40 @@ public class AuctionScreen extends Screen {
     }
 
     @Override
-    public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-        renderBackground(graphics);
+    protected JournalChrome journalChrome() {
         AuctionLayout layout = calculateLayout(width, height);
-        drawFrame(graphics, layout);
+        return new JournalChrome(layout.left(), layout.top(), layout.panelWidth(), layout.panelHeight(),
+                toShared(layout.header()), null);
+    }
+
+    private static com.xunxian.seekingimmortals.client.UiRect toShared(UiRect rect) {
+        return new com.xunxian.seekingimmortals.client.UiRect(rect.x(), rect.y(), rect.width(), rect.height());
+    }
+
+    @Override
+    protected void renderJournalTitle(GuiGraphics graphics, JournalChrome chrome,
+                                      com.xunxian.seekingimmortals.client.UiRect header) {
+        AuctionLayout layout = calculateLayout(width, height);
+        int titleWidth = layout.panelWidth() < 240 ? layout.header().width()
+                : Math.max(1, layout.refreshButton().x() - layout.header().x() - 5);
+        ImmortalUiSkin.drawStringFit(font, graphics, title.getString(), layout.header().x() + 7,
+                layout.header().y() + Math.max(2, (layout.header().height() - 8) / 2), titleWidth,
+                ImmortalUiSkin.JOURNAL_BORDER, false);
+    }
+
+    @Override
+    protected void renderJournalContent(GuiGraphics graphics, JournalChrome chrome,
+                                         int mouseX, int mouseY, float partialTick) {
+        AuctionLayout layout = calculateLayout(width, height);
+        AuctionSoftService.Snapshot snapshot = AuctionSoftService.builtin();
+        ImmortalUiSkin.drawStringFit(font, graphics,
+                Component.translatable("screen.seeking_immortals.auction.summary",
+                        snapshot.venueCount(), snapshot.lotCount()).getString(),
+                layout.summary().x() + 3, layout.summary().y() + 2,
+                Math.max(1, layout.summary().width() - 6), ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
+        ImmortalUiSkin.drawInnerFrame(graphics, layout.viewport().x(), layout.viewport().y(),
+                layout.viewport().width(), layout.viewport().height());
         drawLots(graphics, layout, mouseX, mouseY);
-        super.render(graphics, mouseX, mouseY, partialTick);
     }
 
     @Override
@@ -101,11 +128,6 @@ public class AuctionScreen extends Screen {
             return true;
         }
         return super.mouseScrolled(mouseX, mouseY, delta);
-    }
-
-    @Override
-    public boolean isPauseScreen() {
-        return false;
     }
 
     static AuctionLayout calculateLayout(int screenWidth, int screenHeight) {
@@ -141,26 +163,6 @@ public class AuctionScreen extends Screen {
     static int clampScroll(int requested, int contentHeight, int viewportHeight) {
         int maximum = Math.max(0, contentHeight - Math.max(1, viewportHeight));
         return Math.max(0, Math.min(requested, maximum));
-    }
-
-    private void drawFrame(GuiGraphics graphics, AuctionLayout layout) {
-        ImmortalUiSkin.drawLayeredPanel(graphics, layout.left(), layout.top(),
-                layout.panelWidth(), layout.panelHeight());
-        ImmortalUiSkin.drawTitleBar(graphics, layout.header().x(), layout.header().y(),
-                layout.header().width(), layout.header().height());
-        int titleWidth = layout.panelWidth() < 240 ? layout.header().width()
-                : Math.max(1, layout.refreshButton().x() - layout.header().x() - 5);
-        ImmortalUiSkin.drawStringFit(font, graphics, title.getString(), layout.header().x() + 7,
-                layout.header().y() + Math.max(2, (layout.header().height() - 8) / 2), titleWidth,
-                ImmortalUiSkin.JOURNAL_BORDER, false);
-        AuctionSoftService.Snapshot snapshot = AuctionSoftService.builtin();
-        ImmortalUiSkin.drawStringFit(font, graphics,
-                Component.translatable("screen.seeking_immortals.auction.summary",
-                        snapshot.venueCount(), snapshot.lotCount()).getString(),
-                layout.summary().x() + 3, layout.summary().y() + 2,
-                Math.max(1, layout.summary().width() - 6), ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
-        ImmortalUiSkin.drawInnerFrame(graphics, layout.viewport().x(), layout.viewport().y(),
-                layout.viewport().width(), layout.viewport().height());
     }
 
     private void drawLots(GuiGraphics graphics, AuctionLayout layout, int mouseX, int mouseY) {

@@ -27,8 +27,10 @@ import java.util.Set;
  * Wave486: layout offsets server-persisted via MethodLayoutService / protocol 17.
  * Reuses TextMaterialCatalogService method index + ClientMethodData learned mirror.
  * Learn/cultivate/sync go through MethodActionPacket → ManualCatalogService (server authority).
+ *
+ * <p>Chrome shell uses {@link AbstractJournalScreen}; graph drag / dual-scroll contracts stay local.</p>
  */
-public class MethodTreeScreen extends Screen {
+public class MethodTreeScreen extends AbstractJournalScreen {
     private static final int MAX_PANEL_W = 520;
     private static final int MAX_PANEL_H = 320;
     private static final int PANEL_MARGIN = 4;
@@ -366,13 +368,16 @@ public class MethodTreeScreen extends Screen {
     }
 
     @Override
-    public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-        renderBackground(graphics);
+    protected JournalChrome journalChrome() {
         Layout layout = calculateLayout(width, height);
-        ImmortalUiSkin.drawLayeredPanel(graphics, layout.left(), layout.top(),
-                layout.panelWidth(), layout.panelHeight());
-        ImmortalUiSkin.drawTitleBar(graphics, layout.header().x(), layout.header().y(),
-                layout.header().width(), layout.header().height());
+        // Dual list/detail frames are painted in content; skip single shared inner frame.
+        return new JournalChrome(layout.left(), layout.top(), layout.panelWidth(), layout.panelHeight(),
+                toUi(layout.header()), null);
+    }
+
+    @Override
+    protected void renderJournalTitle(GuiGraphics graphics, JournalChrome chrome, UiRect header) {
+        Layout layout = calculateLayout(width, height);
         graphics.drawCenteredString(font, title, layout.header().x() + layout.header().width() / 2,
                 layout.header().y() + 4, ImmortalUiSkin.JOURNAL_BORDER);
         int learnedCount = ClientMethodData.getLearnedMethodCount();
@@ -390,16 +395,23 @@ public class MethodTreeScreen extends Screen {
                     Math.max(1, layout.header().width() - half - 7),
                     ImmortalUiSkin.JOURNAL_JADE_TEXT, false);
         }
+    }
 
+    @Override
+    protected void renderJournalContent(GuiGraphics graphics, JournalChrome chrome,
+                                         int mouseX, int mouseY, float partialTick) {
+        Layout layout = calculateLayout(width, height);
         ImmortalUiSkin.drawInnerFrame(graphics, layout.list().x(), layout.list().y(),
                 layout.list().width(), layout.list().height());
         ImmortalUiSkin.drawInnerFrame(graphics, layout.detail().x(), layout.detail().y(),
                 layout.detail().width(), layout.detail().height());
         renderMethodList(graphics, layout, mouseX, mouseY);
         renderMethodDetail(graphics, layout);
-
         updateLearnButton();
-        super.render(graphics, mouseX, mouseY, partialTick);
+    }
+
+    private static UiRect toUi(Rect rect) {
+        return new UiRect(rect.x(), rect.y(), rect.width(), rect.height());
     }
 
     private void renderMethodList(GuiGraphics graphics, Layout layout, int mouseX, int mouseY) {
@@ -920,11 +932,6 @@ public class MethodTreeScreen extends Screen {
             return;
         }
         super.onClose();
-    }
-
-    @Override
-    public boolean isPauseScreen() {
-        return false;
     }
 
     record Rect(int x, int y, int width, int height) {

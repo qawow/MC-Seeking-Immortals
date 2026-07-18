@@ -1,3 +1,17 @@
+## 476. 2026-07-18 0.2.8 凡人问道录全前端 UI
+
+  Step   Status   Notes
+  ---   ---   ---
+  Rollback WIP                         Done 从 0.2.7 干净基线重做（丢弃半成品 glow/空贴图）
+  Backup                               Done `.bak/20260718_154134_fanren_ui/`
+  Skin + real textures                 Done paper/jade 32×32；panel/title/inner/HUD 叠纹；命名 slot token
+  Legacy screen migrate                Done MethodTree/Shop/Auction/Sect/StorageBracelet(+Menu) → AbstractJournal*
+  Inventory entry                      Done ImmortalButton.secondary「修仙」
+  HUD polish                           Done status strip + breathing tablet jade tile
+  Version/protocol                     Done `0.2.7` -> `0.2.8`；protocol 保持 24
+  Full verification                    Done `./gradlew build`
+  Update note                          Done `project_docs/updates/20260718_0.2.8_fanren_journal_ui.md`
+
 ## 475. 2026-07-17 0.2.6 状态条左上 + 技能栏左中半透明
 
   Step   Status   Notes
