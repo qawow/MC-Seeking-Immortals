@@ -19,15 +19,16 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Optional;
 
 public final class WorldpackGameplayService {
@@ -97,7 +98,7 @@ public final class WorldpackGameplayService {
     public static void sync(ServerPlayer player, boolean openScreen) {
         CultivationHelper.get(player).ifPresentOrElse(cultivation -> {
             WorldpackDataService.Snapshot snapshot = WorldpackDataService.builtin();
-            WorldpackSavedData savedData = prepareSavedData(player, snapshot);
+            WorldpackSavedData savedData = WorldpackSavedData.get(player.server.overworld());
             String regionId = normalizeRegion(cultivation, snapshot);
             WorldpackSavedData.EventRoll eventRoll = refreshDailyEvent(player, cultivation, savedData, snapshot, regionId);
             WorldpackSnapshot data = buildSnapshot(player, cultivation, savedData, snapshot, eventRoll, openScreen);
@@ -158,9 +159,10 @@ public final class WorldpackGameplayService {
     public static void handleClientAction(ServerPlayer player, String action, String targetId) {
         String normalizedAction = action == null ? "" : action.trim().toLowerCase(Locale.ROOT);
         switch (normalizedAction) {
-            case ACTION_SYNC -> sync(player, false);
+            case ACTION_SYNC -> syncSnapshot(player);
             case ACTION_TRAVEL -> travel(player, targetId);
-            case ACTION_ENTER -> enterSecretRealm(player, targetId);
+            case ACTION_ENTER -> player.sendSystemMessage(Component.translatable(
+                    "message.seeking_immortals.worldpack.gate_required"));
             case ACTION_RETURN -> returnFromSecretRealm(player);
             default -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.unknown_action", normalizedAction));
         }
@@ -211,20 +213,12 @@ public final class WorldpackGameplayService {
                 player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.bad_anchor", region.travelAnchor()));
                 return;
             }
-            if (!fromPortalArray && requiresPortalArray(region)
-                    && !consumeNonPortalTravelAccess(player, currentRegion, region)) {
-                return;
-            }
-            if (fromPortalArray && !consumePortalArrayTravelFee(player, currentRegion, region)) {
-                return;
-            }
-            if (fromPortalArray && !consumeSpatialNodeFee(player, currentRegion, region)) {
-                return;
-            }
-            if (!consumeRegionalTravelFee(player, currentRegion, region)) {
+            TravelCostReservation travelCosts = reserveTravelCosts(player, currentRegion, region, fromPortalArray);
+            if (travelCosts == null) {
                 return;
             }
             if (!teleportToAnchor(player, anchor.get())) {
+                travelCosts.refund(player);
                 player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.bad_anchor", region.travelAnchor()));
                 return;
             }
@@ -292,16 +286,22 @@ public final class WorldpackGameplayService {
                 player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.cooldown", (cooldownUntil - now + 19L) / 20L));
                 return;
             }
-            WorldpackSavedData savedData = prepareSavedData(player, snapshot);
+            boolean dedicatedDimension = SecretRealmDimensionService.hasDedicatedDimension(player, realm.id());
+            WorldpackSavedData savedData = dedicatedDimension
+                    ? WorldpackSavedData.get(player.server.overworld())
+                    : prepareSavedData(player, snapshot);
             WorldpackDataService.RegionCard region = regionOptional.get();
-            Optional<WorldpackSavedData.Anchor> anchor = savedData.getAnchor(region.travelAnchor());
-            if (anchor.isEmpty()) {
-                player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.missing_anchor", region.travelAnchor()));
-                return;
-            }
-            if (!canTeleportToAnchor(player, anchor.get())) {
-                player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.bad_anchor", region.travelAnchor()));
-                return;
+            Optional<WorldpackSavedData.Anchor> anchor = Optional.empty();
+            if (!dedicatedDimension) {
+                anchor = savedData.getAnchor(region.travelAnchor());
+                if (anchor.isEmpty()) {
+                    player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.missing_anchor", region.travelAnchor()));
+                    return;
+                }
+                if (!canTeleportToAnchor(player, anchor.get())) {
+                    player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.bad_anchor", region.travelAnchor()));
+                    return;
+                }
             }
             WorldpackSavedData.EventRoll roll = refreshDailyEvent(player, cultivation, savedData, snapshot, realm.regionId());
             boolean ticketDiscount = activeEffects(snapshot, roll).contains(EFFECT_SECRET_REALM_TICKET_HINT);
@@ -309,28 +309,44 @@ public final class WorldpackGameplayService {
                 player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.missing_ticket", realm.ticketItem()));
                 return;
             }
-            if (!ticketDiscount && !consumeTicket(player, realm.ticketItem())) {
-                player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.missing_ticket", realm.ticketItem()));
+            InventoryReservation ticketReservation = InventoryReservation.none();
+            if (!ticketDiscount) {
+                Item ticket = resolveItem(realm.ticketItem());
+                ticketReservation = ticket == null || ticket == Items.AIR
+                        ? null
+                        : InventoryReservation.consume(player, Map.of(ticket, 1));
+                if (ticketReservation == null) {
+                    player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.missing_ticket", realm.ticketItem()));
+                    return;
+                }
+            }
+            String returnDimension = player.level().dimension().location().toString();
+            double returnX = player.getX();
+            double returnY = player.getY();
+            double returnZ = player.getZ();
+            float returnYRot = player.getYRot();
+            float returnXRot = player.getXRot();
+            // Wave47: prefer dedicated secret-realm dimension pack when available.
+            boolean entered = dedicatedDimension
+                    ? SecretRealmDimensionService.teleportInto(player, realm.id())
+                    : teleportToAnchor(player, anchor.orElseThrow());
+            if (entered && dedicatedDimension) {
+                player.sendSystemMessage(Component.translatable(
+                        "message.seeking_immortals.worldpack.enter_dedicated_dimension",
+                        SecretRealmDimensionService.dimensionIdFor(realm.id()).orElse("")));
+            }
+            if (!entered) {
+                ticketReservation.refund(player);
+                player.sendSystemMessage(Component.translatable(
+                        "message.seeking_immortals.worldpack.enter_teleport_failed", display(realm)));
                 return;
             }
-            cultivation.setWorldpackReturnLocation(player.level().dimension().location().toString(),
-                    player.getX(), player.getY(), player.getZ(), player.getYRot(), player.getXRot());
+            cultivation.setWorldpackReturnLocation(returnDimension,
+                    returnX, returnY, returnZ, returnYRot, returnXRot);
             cultivation.setWorldpackActiveSecretRealmId(realm.id());
             cultivation.setWorldpackCurrentRegionId(realm.regionId());
             if (realm.cooldownTicks() > 0) {
                 cultivation.setWorldpackCooldownUntil(realm.id(), now + realm.cooldownTicks());
-            }
-            // Wave47: prefer dedicated secret-realm dimension pack when available.
-            boolean enteredDedicated = SecretRealmDimensionService.teleportInto(player, realm.id());
-            if (!enteredDedicated) {
-                if (!teleportToAnchor(player, anchor.get())) {
-                    player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.bad_anchor", region.travelAnchor()));
-                    return;
-                }
-            } else {
-                player.sendSystemMessage(Component.translatable(
-                        "message.seeking_immortals.worldpack.enter_dedicated_dimension",
-                        SecretRealmDimensionService.dimensionIdFor(realm.id()).orElse("")));
             }
             player.sendSystemMessage(Component.translatable(ticketDiscount
                     ? "message.seeking_immortals.worldpack.enter_discount"
@@ -380,15 +396,16 @@ public final class WorldpackGameplayService {
     }
 
     public static boolean useNetherFerryGate(ServerPlayer player, boolean enforceRequires) {
-        if (enforceRequires && !SpatialNodeRequiresService.enforceByType(player, "pocket_gate")) {
+        Optional<Boolean> returnResult = returnIfSecretRealmActive(player);
+        if (returnResult.isPresent()) {
+            return returnResult.get();
+        }
+        SpatialNodeRequiresService.Reservation reservation = reserveSpatialNode(player, "pocket_gate", enforceRequires);
+        if (reservation == null) {
             return false;
         }
         boolean[] success = { false };
         CultivationHelper.get(player).ifPresentOrElse(cultivation -> {
-            if (!cultivation.getWorldpackActiveSecretRealmId().isBlank()) {
-                success[0] = returnFromSecretRealm(player);
-                return;
-            }
             success[0] = enterBoundRealmOr(player, "nether_ferry_gate", () -> {
                 WorldpackDataService.Snapshot snapshot = WorldpackDataService.builtin();
                 String current = normalizeRegion(cultivation, snapshot);
@@ -398,7 +415,7 @@ public final class WorldpackGameplayService {
                 return travel(player, destination, true);
             });
         }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.no_data")));
-        return success[0];
+        return completeSpatialNodeUse(player, reservation, success[0]);
     }
 
     /** ancient_rift multiblock activation (fallen demon valley route). */
@@ -407,37 +424,26 @@ public final class WorldpackGameplayService {
     }
 
     public static boolean useAncientRiftGate(ServerPlayer player, boolean enforceRequires) {
-        if (enforceRequires && !SpatialNodeRequiresService.enforceByType(player, "ancient_rift")) {
-            return false;
+        Optional<Boolean> returnResult = returnIfSecretRealmActive(player);
+        if (returnResult.isPresent()) {
+            return returnResult.get();
         }
-        // M09: prefer bound secret realm when catalog maps this gate.
-        if (SecretRealmCatalogService.primaryRealmForGate("ancient_rift_gate").isPresent()) {
-            boolean[] bound = { false };
-            CultivationHelper.get(player).ifPresent(cultivation -> {
-                if (!cultivation.getWorldpackActiveSecretRealmId().isBlank()) {
-                    bound[0] = returnFromSecretRealm(player);
-                    return;
-                }
-                bound[0] = enterBoundRealmOr(player, "ancient_rift_gate", () -> false);
-            });
-            if (bound[0]) {
-                return true;
-            }
+        SpatialNodeRequiresService.Reservation reservation = reserveSpatialNode(player, "ancient_rift", enforceRequires);
+        if (reservation == null) {
+            return false;
         }
         boolean[] success = { false };
         CultivationHelper.get(player).ifPresentOrElse(cultivation -> {
-            if (!cultivation.getWorldpackActiveSecretRealmId().isBlank()) {
-                success[0] = returnFromSecretRealm(player);
-                return;
-            }
-            WorldpackDataService.Snapshot snapshot = WorldpackDataService.builtin();
-            String current = normalizeRegion(cultivation, snapshot);
-            String destination = FALLEN_DEMON_REGION_ID.equals(current)
-                    ? DEFAULT_REGION_ID
-                    : FALLEN_DEMON_REGION_ID;
-            success[0] = travel(player, destination, true);
+            success[0] = enterBoundRealmOr(player, "ancient_rift_gate", () -> {
+                WorldpackDataService.Snapshot snapshot = WorldpackDataService.builtin();
+                String current = normalizeRegion(cultivation, snapshot);
+                String destination = FALLEN_DEMON_REGION_ID.equals(current)
+                        ? DEFAULT_REGION_ID
+                        : FALLEN_DEMON_REGION_ID;
+                return travel(player, destination, true);
+            });
         }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.no_data")));
-        return success[0];
+        return completeSpatialNodeUse(player, reservation, success[0]);
     }
 
     private static final String CHAOTIC_SEA_REGION_ID = "chaotic_sea";
@@ -449,15 +455,16 @@ public final class WorldpackGameplayService {
     }
 
     public static boolean useAscensionGate(ServerPlayer player, boolean enforceRequires) {
-        if (enforceRequires && !SpatialNodeRequiresService.enforceByType(player, "ascension_gate")) {
+        Optional<Boolean> returnResult = returnIfSecretRealmActive(player);
+        if (returnResult.isPresent()) {
+            return returnResult.get();
+        }
+        SpatialNodeRequiresService.Reservation reservation = reserveSpatialNode(player, "ascension_gate", enforceRequires);
+        if (reservation == null) {
             return false;
         }
         boolean[] success = { false };
         CultivationHelper.get(player).ifPresentOrElse(cultivation -> {
-            if (!cultivation.getWorldpackActiveSecretRealmId().isBlank()) {
-                success[0] = returnFromSecretRealm(player);
-                return;
-            }
             // M09: prefer high-realm secret bindings; fallback is spirit-realm hub travel.
             success[0] = enterBoundRealmOr(player, "ascension_gate", () -> {
                 boolean hopped = travel(player, TIANYUAN_REGION_ID, true);
@@ -468,7 +475,7 @@ public final class WorldpackGameplayService {
                 return hopped;
             });
         }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.no_data")));
-        return success[0];
+        return completeSpatialNodeUse(player, reservation, success[0]);
     }
 
     /** Wave462: blood_forbidden_gate enters blood_forbidden secret realm (ticket gated). */
@@ -477,20 +484,16 @@ public final class WorldpackGameplayService {
     }
 
     public static boolean useBloodForbiddenGate(ServerPlayer player, boolean enforceRequires) {
-        // Dedicated blood_forbidden_gate type may be absent; enforce when present, otherwise continue to ticket path.
-        if (enforceRequires) {
-            SpatialNodeRequiresService.enforceByType(player, "blood_forbidden_gate");
+        Optional<Boolean> returnResult = returnIfSecretRealmActive(player);
+        if (returnResult.isPresent()) {
+            return returnResult.get();
+        }
+        SpatialNodeRequiresService.Reservation reservation = reserveSpatialNode(player, "blood_forbidden_gate", enforceRequires);
+        if (reservation == null) {
+            return false;
         }
         boolean[] success = { false };
         CultivationHelper.get(player).ifPresentOrElse(cultivation -> {
-            if ("blood_forbidden".equals(cultivation.getWorldpackActiveSecretRealmId())) {
-                success[0] = returnFromSecretRealm(player);
-                return;
-            }
-            if (!cultivation.getWorldpackActiveSecretRealmId().isBlank()) {
-                success[0] = returnFromSecretRealm(player);
-                return;
-            }
             success[0] = enterBoundRealmOr(player, "blood_forbidden_gate",
                     () -> {
                         if (enterSecretRealm(player, "blood_forbidden")) {
@@ -504,7 +507,7 @@ public final class WorldpackGameplayService {
                         return corridor;
                     });
         }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.no_data")));
-        return success[0];
+        return completeSpatialNodeUse(player, reservation, success[0]);
     }
 
     /** cycle_gate multiblock activation (void palace via chaotic_sea). */
@@ -513,20 +516,16 @@ public final class WorldpackGameplayService {
     }
 
     public static boolean useCycleGate(ServerPlayer player, boolean enforceRequires) {
-        if (enforceRequires && !SpatialNodeRequiresService.enforceByType(player, "cycle_gate")) {
+        Optional<Boolean> returnResult = returnIfSecretRealmActive(player);
+        if (returnResult.isPresent()) {
+            return returnResult.get();
+        }
+        SpatialNodeRequiresService.Reservation reservation = reserveSpatialNode(player, "cycle_gate", enforceRequires);
+        if (reservation == null) {
             return false;
         }
         boolean[] success = { false };
         CultivationHelper.get(player).ifPresentOrElse(cultivation -> {
-            if (!cultivation.getWorldpackActiveSecretRealmId().isBlank()) {
-                // Prefer returning from active secret realm when standing at cycle gate.
-                if ("void_palace".equals(cultivation.getWorldpackActiveSecretRealmId())) {
-                    success[0] = returnFromSecretRealm(player);
-                    return;
-                }
-                success[0] = returnFromSecretRealm(player);
-                return;
-            }
             success[0] = enterBoundRealmOr(player, "cycle_gate", () -> {
                 WorldpackDataService.Snapshot snapshot = WorldpackDataService.builtin();
                 String current = normalizeRegion(cultivation, snapshot);
@@ -544,7 +543,7 @@ public final class WorldpackGameplayService {
                 return travel(player, DEFAULT_REGION_ID, true);
             });
         }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.no_data")));
-        return success[0];
+        return completeSpatialNodeUse(player, reservation, success[0]);
     }
 
     /** hidden_rift multiblock activation (inverse-star hideout). */
@@ -553,15 +552,16 @@ public final class WorldpackGameplayService {
     }
 
     public static boolean useHiddenRiftGate(ServerPlayer player, boolean enforceRequires) {
-        if (enforceRequires && !SpatialNodeRequiresService.enforceByType(player, "hidden_rift")) {
+        Optional<Boolean> returnResult = returnIfSecretRealmActive(player);
+        if (returnResult.isPresent()) {
+            return returnResult.get();
+        }
+        SpatialNodeRequiresService.Reservation reservation = reserveSpatialNode(player, "hidden_rift", enforceRequires);
+        if (reservation == null) {
             return false;
         }
         boolean[] success = { false };
         CultivationHelper.get(player).ifPresentOrElse(cultivation -> {
-            if (!cultivation.getWorldpackActiveSecretRealmId().isBlank()) {
-                success[0] = returnFromSecretRealm(player);
-                return;
-            }
             success[0] = enterBoundRealmOr(player, "hidden_rift_gate", () -> {
                 WorldpackDataService.Snapshot snapshot = WorldpackDataService.builtin();
                 String current = normalizeRegion(cultivation, snapshot);
@@ -571,7 +571,7 @@ public final class WorldpackGameplayService {
                 return travel(player, destination, true);
             });
         }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.no_data")));
-        return success[0];
+        return completeSpatialNodeUse(player, reservation, success[0]);
     }
 
     private static final String BARBARIAN_WASTELAND_REGION_ID = "barbarian_wasteland";
@@ -582,15 +582,16 @@ public final class WorldpackGameplayService {
     }
 
     public static boolean useKingTerritoryGate(ServerPlayer player, boolean enforceRequires) {
-        if (enforceRequires && !SpatialNodeRequiresService.enforceByType(player, "king_territory")) {
+        Optional<Boolean> returnResult = returnIfSecretRealmActive(player);
+        if (returnResult.isPresent()) {
+            return returnResult.get();
+        }
+        SpatialNodeRequiresService.Reservation reservation = reserveSpatialNode(player, "king_territory", enforceRequires);
+        if (reservation == null) {
             return false;
         }
         boolean[] success = { false };
         CultivationHelper.get(player).ifPresentOrElse(cultivation -> {
-            if (!cultivation.getWorldpackActiveSecretRealmId().isBlank()) {
-                success[0] = returnFromSecretRealm(player);
-                return;
-            }
             success[0] = enterBoundRealmOr(player, "king_territory_gate", () -> {
                 WorldpackDataService.Snapshot snapshot = WorldpackDataService.builtin();
                 String current = normalizeRegion(cultivation, snapshot);
@@ -605,7 +606,36 @@ public final class WorldpackGameplayService {
                 return hopped;
             });
         }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.no_data")));
-        return success[0];
+        return completeSpatialNodeUse(player, reservation, success[0]);
+    }
+
+    private static Optional<Boolean> returnIfSecretRealmActive(ServerPlayer player) {
+        boolean[] active = { false };
+        boolean[] returned = { false };
+        CultivationHelper.get(player).ifPresent(cultivation -> {
+            if (!cultivation.getWorldpackActiveSecretRealmId().isBlank()) {
+                active[0] = true;
+                returned[0] = returnFromSecretRealm(player);
+            }
+        });
+        return active[0] ? Optional.of(returned[0]) : Optional.empty();
+    }
+
+    private static SpatialNodeRequiresService.Reservation reserveSpatialNode(ServerPlayer player,
+                                                                              String nodeType,
+                                                                              boolean enforceRequires) {
+        return enforceRequires
+                ? SpatialNodeRequiresService.reserveByType(player, nodeType)
+                : SpatialNodeRequiresService.Reservation.none();
+    }
+
+    private static boolean completeSpatialNodeUse(ServerPlayer player,
+                                                  SpatialNodeRequiresService.Reservation reservation,
+                                                  boolean success) {
+        if (!success && reservation != null) {
+            reservation.refund(player);
+        }
+        return success;
     }
 
     public static boolean returnFromSecretRealm(ServerPlayer player) {
@@ -631,6 +661,12 @@ public final class WorldpackGameplayService {
             }
             player.teleportTo(targetLevel, cultivation.getWorldpackReturnX(), cultivation.getWorldpackReturnY(), cultivation.getWorldpackReturnZ(),
                     cultivation.getWorldpackReturnYRot(), cultivation.getWorldpackReturnXRot());
+            if (player.serverLevel() != targetLevel
+                    || player.distanceToSqr(cultivation.getWorldpackReturnX(), cultivation.getWorldpackReturnY(),
+                    cultivation.getWorldpackReturnZ()) > 16.0D) {
+                player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.return_teleport_failed"));
+                return;
+            }
             cultivation.setWorldpackActiveSecretRealmId("");
             cultivation.clearWorldpackReturnLocation();
             SecretRealmTrialService.onReturn(player);
@@ -651,18 +687,7 @@ public final class WorldpackGameplayService {
         if (bound.isEmpty()) {
             return fallback != null && Boolean.TRUE.equals(fallback.get());
         }
-        SecretRealmCatalogService.RealmDef def = bound.get();
-        // Ensure player region matches when possible so enterSecretRealm region gate can pass.
-        CultivationHelper.get(player).ifPresent(cultivation -> {
-            if (!def.regionId().isBlank()
-                    && !def.regionId().equals(cultivation.getWorldpackCurrentRegionId())) {
-                travel(player, def.regionId(), false);
-            }
-        });
-        if (enterSecretRealm(player, def.id())) {
-            return true;
-        }
-        return fallback != null && Boolean.TRUE.equals(fallback.get());
+        return enterSecretRealm(player, bound.get().id());
     }
 
     public static boolean setAnchor(ServerPlayer player, String anchorId) {
@@ -1062,80 +1087,96 @@ public final class WorldpackGameplayService {
         return RouteRequirement.NONE;
     }
 
-    private static boolean consumeNonPortalTravelAccess(ServerPlayer player, String currentRegionId,
-                                                        WorldpackDataService.RegionCard targetRegion) {
+    private static TravelCostReservation reserveTravelCosts(ServerPlayer player, String currentRegionId,
+                                                            WorldpackDataService.RegionCard targetRegion,
+                                                            boolean fromPortalArray) {
+        Map<Item, Integer> costs = new LinkedHashMap<>();
+        if (!fromPortalArray && requiresPortalArray(targetRegion)
+                && !planNonPortalTravelAccess(player, currentRegionId, targetRegion, costs)) {
+            return null;
+        }
+        if (fromPortalArray && !planPortalArrayTravelFee(player, currentRegionId, targetRegion, costs)) {
+            return null;
+        }
+        if (fromPortalArray && !planSpatialNodeFee(player, currentRegionId, targetRegion, costs)) {
+            return null;
+        }
+        if (!planRegionalTravelFee(player, currentRegionId, targetRegion, costs)) {
+            return null;
+        }
+        InventoryReservation inventory = InventoryReservation.consume(player, costs);
+        if (inventory == null) {
+            return null;
+        }
+        return new TravelCostReservation(inventory);
+    }
+
+    private static boolean planNonPortalTravelAccess(ServerPlayer player, String currentRegionId,
+                                                     WorldpackDataService.RegionCard targetRegion,
+                                                     Map<Item, Integer> costs) {
         if (!canUseWindFeatherRaftRoute(currentRegionId, targetRegion)) {
             player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.portal_required"));
             return false;
         }
-        if (!consumeTicket(player, WIND_FEATHER_RAFT_TICKET_ITEM)) {
-            player.sendSystemMessage(Component.translatable(
-                    "message.seeking_immortals.worldpack.missing_travel_ticket",
-                    Component.translatable(itemDescriptionId(WIND_FEATHER_RAFT_TICKET_ITEM))));
-            return false;
-        }
-        return true;
+        return planTravelCost(player, costs, WIND_FEATHER_RAFT_TICKET_ITEM, 1,
+                Component.translatable(
+                        "message.seeking_immortals.worldpack.missing_travel_ticket",
+                        Component.translatable(itemDescriptionId(WIND_FEATHER_RAFT_TICKET_ITEM))));
     }
 
-    private static boolean consumePortalArrayTravelFee(ServerPlayer player, String currentRegionId,
-                                                       WorldpackDataService.RegionCard targetRegion) {
+    private static boolean planPortalArrayTravelFee(ServerPlayer player, String currentRegionId,
+                                                    WorldpackDataService.RegionCard targetRegion,
+                                                    Map<Item, Integer> costs) {
         if (!requiresPortalArrayTravelFee(currentRegionId, targetRegion)) {
             return true;
         }
-        if (!consumeTicket(player, ALLIANCE_MERIT_TOKEN_ITEM)) {
-            player.sendSystemMessage(Component.translatable(
-                    "message.seeking_immortals.worldpack.missing_portal_fee",
-                    Component.translatable(itemDescriptionId(ALLIANCE_MERIT_TOKEN_ITEM))));
-            return false;
-        }
-        return true;
+        return planTravelCost(player, costs, ALLIANCE_MERIT_TOKEN_ITEM, 1,
+                Component.translatable(
+                        "message.seeking_immortals.worldpack.missing_portal_fee",
+                        Component.translatable(itemDescriptionId(ALLIANCE_MERIT_TOKEN_ITEM))));
     }
 
-    /**
-     * Text-material spatial_nodes P0 item fees by destination region.
-     * Creative/instabuild bypass is handled inside consumeTicket/consumeItems.
-     */
-    private static boolean consumeSpatialNodeFee(ServerPlayer player, String currentRegionId,
-                                                 WorldpackDataService.RegionCard targetRegion) {
+    private static boolean planSpatialNodeFee(ServerPlayer player, String currentRegionId,
+                                              WorldpackDataService.RegionCard targetRegion,
+                                              Map<Item, Integer> costs) {
         SpatialNodeFeeRules.Fee fee = SpatialNodeFeeRules.portalDestinationFee(currentRegionId, targetRegion.id());
         if (!fee.present()) {
             return true;
         }
-        if (fee.count() <= 1) {
-            if (!consumeTicket(player, fee.itemId())) {
-                player.sendSystemMessage(Component.translatable(
-                        fee.messageKey(),
-                        Component.translatable(itemDescriptionId(fee.itemId())),
-                        fee.count()));
-                return false;
-            }
-            return true;
-        }
-        Item item = resolveItem(fee.itemId());
-        if (item == null || item == Items.AIR || !consumeItems(player, item, fee.count())) {
-            player.sendSystemMessage(Component.translatable(
+        return planTravelCost(player, costs, fee.itemId(), fee.count(),
+                Component.translatable(
                     fee.messageKey(),
                     Component.translatable(itemDescriptionId(fee.itemId())),
                     fee.count()));
-            return false;
-        }
-        return true;
     }
 
-    private static boolean consumeRegionalTravelFee(ServerPlayer player, String currentRegionId,
-                                                    WorldpackDataService.RegionCard targetRegion) {
+    private static boolean planRegionalTravelFee(ServerPlayer player, String currentRegionId,
+                                                 WorldpackDataService.RegionCard targetRegion,
+                                                 Map<Item, Integer> costs) {
         int yinStoneFee = netherRiverFerryYinStoneFee(currentRegionId, targetRegion);
         if (yinStoneFee <= 0) {
             return true;
         }
-        Item item = resolveItem(YIN_STONE_ITEM);
-        if (item == null || item == Items.AIR || !consumeItems(player, item, yinStoneFee)) {
-            player.sendSystemMessage(Component.translatable(
-                    "message.seeking_immortals.worldpack.missing_nether_ferry_fee",
-                    yinStoneFee,
-                    Component.translatable(itemDescriptionId(YIN_STONE_ITEM))));
+        return planTravelCost(player, costs, YIN_STONE_ITEM, yinStoneFee,
+                Component.translatable(
+                        "message.seeking_immortals.worldpack.missing_nether_ferry_fee",
+                        yinStoneFee,
+                        Component.translatable(itemDescriptionId(YIN_STONE_ITEM))));
+    }
+
+    private static boolean planTravelCost(ServerPlayer player, Map<Item, Integer> costs,
+                                          String itemId, int count, Component missingMessage) {
+        Item item = resolveItem(itemId);
+        if (item == null || item == Items.AIR || count <= 0) {
+            player.sendSystemMessage(missingMessage);
             return false;
         }
+        long required = (long) costs.getOrDefault(item, 0) + count;
+        if (required > Integer.MAX_VALUE || !InventoryReservation.hasItems(player, item, (int) required)) {
+            player.sendSystemMessage(missingMessage);
+            return false;
+        }
+        costs.put(item, (int) required);
         return true;
     }
 
@@ -1179,7 +1220,8 @@ public final class WorldpackGameplayService {
         }
         ensureDefaultPortalPlatform(targetLevel, anchor);
         player.teleportTo(targetLevel, anchor.x(), anchor.y(), anchor.z(), anchor.yRot(), anchor.xRot());
-        return true;
+        return player.serverLevel() == targetLevel
+                && player.distanceToSqr(anchor.x(), anchor.y(), anchor.z()) <= 16.0D;
     }
 
     static boolean usesDefaultPortalPlatform(WorldpackSavedData.Anchor anchor) {
@@ -1241,76 +1283,24 @@ public final class WorldpackGameplayService {
         if (item == null || item == Items.AIR) {
             return false;
         }
-        if (player.getAbilities().instabuild) {
-            return true;
-        }
-        for (ItemStack stack : player.getInventory().items) {
-            if (stack.is(item) && stack.getCount() > 0) {
-                return true;
-            }
-        }
-        return false;
+        return InventoryReservation.hasItems(player, item, 1);
     }
 
-    private static boolean consumeTicket(ServerPlayer player, String itemId) {
-        Item item = resolveItem(itemId);
-        if (item == null || item == Items.AIR) {
-            return false;
-        }
-        if (player.getAbilities().instabuild) {
-            return true;
-        }
-        for (ItemStack stack : player.getInventory().items) {
-            if (stack.is(item) && stack.getCount() > 0) {
-                stack.shrink(1);
-                return true;
-            }
-        }
-        return false;
-    }
+    private static final class TravelCostReservation {
+        private final InventoryReservation inventory;
+        private boolean refunded;
 
-    private static boolean consumeItems(ServerPlayer player, Item item, int count) {
-        if (count <= 0) {
-            return true;
+        private TravelCostReservation(InventoryReservation inventory) {
+            this.inventory = inventory == null ? InventoryReservation.none() : inventory;
         }
-        if (player.getAbilities().instabuild) {
-            return true;
-        }
-        if (!hasItems(player, item, count)) {
-            return false;
-        }
-        int remaining = count;
-        for (ItemStack stack : player.getInventory().items) {
-            if (!stack.is(item) || stack.isEmpty()) {
-                continue;
-            }
-            int consumed = Math.min(remaining, stack.getCount());
-            stack.shrink(consumed);
-            remaining -= consumed;
-            if (remaining <= 0) {
-                return true;
-            }
-        }
-        return false;
-    }
 
-    private static boolean hasItems(ServerPlayer player, Item item, int count) {
-        if (count <= 0) {
-            return true;
-        }
-        if (player.getAbilities().instabuild) {
-            return true;
-        }
-        int found = 0;
-        for (ItemStack stack : player.getInventory().items) {
-            if (stack.is(item) && !stack.isEmpty()) {
-                found += stack.getCount();
-                if (found >= count) {
-                    return true;
-                }
+        private void refund(ServerPlayer player) {
+            if (refunded) {
+                return;
             }
+            refunded = true;
+            inventory.refund(player);
         }
-        return false;
     }
 
     private static Item resolveItem(String itemId) {

@@ -12,8 +12,10 @@ import net.minecraft.world.item.Items;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -29,32 +31,45 @@ public final class SpatialNodeRequiresService {
      * Used by placeable multiblock gates that map 1:N to catalog nodes.
      */
     public static boolean enforceByType(ServerPlayer player, String nodeType) {
-        if (player == null || nodeType == null || nodeType.isBlank()) {
-            return true;
+        return reserveByType(player, nodeType) != null;
+    }
+
+    public static Reservation reserveByType(ServerPlayer player, String nodeType) {
+        if (player == null) {
+            return null;
+        }
+        if (nodeType == null || nodeType.isBlank()) {
+            return Reservation.none();
         }
         String type = nodeType.trim().toLowerCase(Locale.ROOT);
         for (SpatialNodeCatalogService.Node node : SpatialNodeCatalogService.builtin().nodes().values()) {
             if (node.type() != null && type.equals(node.type().trim().toLowerCase(Locale.ROOT))) {
-                return enforce(player, node);
+                return reserve(player, node);
             }
         }
-        return true;
+        return Reservation.none();
     }
 
     public static boolean enforce(ServerPlayer player, SpatialNodeCatalogService.Node node) {
+        return reserve(player, node) != null;
+    }
+
+    public static Reservation reserve(ServerPlayer player, SpatialNodeCatalogService.Node node) {
         if (player == null || node == null) {
-            return false;
+            return null;
         }
         boolean creative = player.getAbilities().instabuild;
+        Map<Item, Integer> costs = new LinkedHashMap<>();
 
-        // Spirit-stone cost from catalog.
         if (node.costSpiritStone() > 0 && !creative) {
-            if (!consumeItem(player, ModItems.SPIRIT_STONE_SHARD.get(), node.costSpiritStone())) {
+            Item shard = ModItems.SPIRIT_STONE_SHARD.get();
+            if (!canAddCost(player, costs, shard, node.costSpiritStone())) {
                 player.displayClientMessage(Component.translatable(
                         "message.seeking_immortals.spatial_node.missing_cost",
                         node.costSpiritStone()), true);
-                return false;
+                return null;
             }
+            addCost(costs, shard, node.costSpiritStone());
         }
 
         List<String> softWarnings = new ArrayList<>();
@@ -79,7 +94,7 @@ public final class SpatialNodeRequiresService {
                     player.displayClientMessage(Component.translatable(
                             "message.seeking_immortals.spatial_node.realm_gate",
                             realmGate.get().getDisplayName()), true);
-                    return false;
+                    return null;
                 }
                 continue;
             }
@@ -88,25 +103,25 @@ public final class SpatialNodeRequiresService {
             if (lower.contains("_or_") || lower.contains("|")) {
                 String[] parts = lower.split("_or_|\\|");
                 boolean anyMapped = false;
-                boolean anyHeld = creative;
+                Item selected = null;
                 for (String part : parts) {
                     Item item = mapRequireToItem(part.trim());
                     if (item == null) {
                         continue;
                     }
                     anyMapped = true;
-                    if (creative || countItem(player, item) > 0) {
-                        anyHeld = true;
-                        if (!creative) {
-                            consumeItem(player, item, 1);
-                        }
+                    if (creative || canAddCost(player, costs, item, 1)) {
+                        selected = item;
                         break;
                     }
                 }
-                if (anyMapped && !anyHeld) {
+                if (anyMapped && selected == null) {
                     player.displayClientMessage(Component.translatable(
                             "message.seeking_immortals.spatial_node.missing_require", req), true);
-                    return false;
+                    return null;
+                }
+                if (!creative && selected != null) {
+                    addCost(costs, selected, 1);
                 }
                 if (!anyMapped) {
                     softWarnings.add(req);
@@ -116,10 +131,13 @@ public final class SpatialNodeRequiresService {
 
             Item item = mapRequireToItem(lower);
             if (item != null) {
-                if (!creative && !consumeItem(player, item, 1)) {
+                if (!creative && !canAddCost(player, costs, item, 1)) {
                     player.displayClientMessage(Component.translatable(
                             "message.seeking_immortals.spatial_node.missing_require", req), true);
-                    return false;
+                    return null;
+                }
+                if (!creative) {
+                    addCost(costs, item, 1);
                 }
                 continue;
             }
@@ -133,7 +151,7 @@ public final class SpatialNodeRequiresService {
                     player.displayClientMessage(Component.translatable(
                             "message.seeking_immortals.spatial_node.missing_reputation",
                             faction, need, ReputationService.get(player, faction)), true);
-                    return false;
+                    return null;
                 }
                 continue;
             }
@@ -143,7 +161,7 @@ public final class SpatialNodeRequiresService {
                 if (!checkEventRequire(player, lower)) {
                     player.displayClientMessage(Component.translatable(
                             "message.seeking_immortals.spatial_node.missing_event", req), true);
-                    return false;
+                    return null;
                 }
                 continue;
             }
@@ -155,7 +173,56 @@ public final class SpatialNodeRequiresService {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.spatial_node.soft_require", soft), false);
         }
-        return true;
+        if (creative || costs.isEmpty()) {
+            return Reservation.none();
+        }
+        InventoryReservation inventory = InventoryReservation.consume(player, costs);
+        if (inventory == null) {
+            return null;
+        }
+        return new Reservation(costs, inventory);
+    }
+
+    private static boolean canAddCost(ServerPlayer player, Map<Item, Integer> costs, Item item, int count) {
+        long required = (long) costs.getOrDefault(item, 0) + Math.max(0, count);
+        return item != null && required <= Integer.MAX_VALUE && countItem(player, item) >= required;
+    }
+
+    private static void addCost(Map<Item, Integer> costs, Item item, int count) {
+        if (item != null && count > 0) {
+            costs.merge(item, count, Integer::sum);
+        }
+    }
+
+    public static final class Reservation {
+        private final Map<Item, Integer> costs;
+        private final InventoryReservation inventory;
+        private boolean refunded;
+
+        private Reservation(Map<Item, Integer> costs, InventoryReservation inventory) {
+            this.costs = costs == null ? Map.of() : Map.copyOf(costs);
+            this.inventory = inventory == null ? InventoryReservation.none() : inventory;
+        }
+
+        public static Reservation none() {
+            return new Reservation(Map.of(), InventoryReservation.none());
+        }
+
+        public Map<Item, Integer> costs() {
+            return costs;
+        }
+
+        public boolean isEmpty() {
+            return costs.isEmpty();
+        }
+
+        public void refund(ServerPlayer player) {
+            if (refunded) {
+                return;
+            }
+            refunded = true;
+            inventory.refund(player);
+        }
     }
 
     private static boolean isKnownEventRequire(String lower) {
@@ -260,23 +327,4 @@ public final class SpatialNodeRequiresService {
         return total;
     }
 
-    private static boolean consumeItem(ServerPlayer player, Item item, int count) {
-        if (count <= 0) {
-            return true;
-        }
-        if (countItem(player, item) < count) {
-            return false;
-        }
-        int remaining = count;
-        for (int i = 0; i < player.getInventory().getContainerSize() && remaining > 0; i++) {
-            ItemStack stack = player.getInventory().getItem(i);
-            if (!stack.is(item)) {
-                continue;
-            }
-            int take = Math.min(remaining, stack.getCount());
-            stack.shrink(take);
-            remaining -= take;
-        }
-        return remaining <= 0;
-    }
 }

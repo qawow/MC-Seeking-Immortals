@@ -123,10 +123,8 @@ public class WorldpackScreen extends AbstractJournalScreen {
             } else {
                 ClientWorldpackData.SecretRealm realm = data.realms().get(listScroll + row);
                 ImmortalButton button = ImmortalButton.primary(action.x(), action.y(), action.width(), action.height(),
-                        Component.translatable("screen.seeking_immortals.worldpack.enter"), ignored ->
-                                ModNetwork.CHANNEL.sendToServer(new WorldpackActionPacket(
-                                        WorldpackGameplayService.ACTION_ENTER, realm.id())));
-                button.active = canEnterRealm(data, realm);
+                        Component.translatable("screen.seeking_immortals.worldpack.gate_required"), ignored -> {});
+                button.active = false;
                 addRenderableWidget(button);
             }
         }

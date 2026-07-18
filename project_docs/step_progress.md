@@ -1,3 +1,20 @@
+## 491. 2026-07-19 0.2.23 秘境与旅行事务权限
+
+  Step   Status   Notes
+  ---   ---   ---
+  Review scope   Done   max 子代理与主线程复核客户端秘境入口、命令权限、界门费用、秘境会话提交、跨维验收及召唤物构造。
+  Backup   Done   16 个既有目标文件按相对路径备份至 `.bak/20260719_054538/`。
+  Entry authority   Done   客户端 ACTION_ENTER 和界面按钮不再直入；worldpack enter / catalog spatial travel 收为 permission 2；剧情对话仍经服务端会话权威进入。
+  Secret-realm transaction   Done   传送成功后才提交返程点/active/session/cooldown；专属维度失败不 fallback，绑定界门失败不备用旅行；返回失败保留状态且返程不收费。
+  Gate/travel costs   Done   七类空间节点与普通旅行聚合预检；原始 ItemStack/NBT 精确预留，失败幂等退款；catalog 节点校验来源并按 authored region 路由。
+  Read-only sync   Done   客户端 ACTION_SYNC 与开屏同步不再调用平台 bootstrap，不会远程重写默认 anchor 周边方块。
+  Teleport verification   Done   专用维度与 anchor 传送验证实际 level 和目标距离，取消或偏离不再报告成功。
+  Constructor safety   Done   `SummonedServitorEntity.registerGoals` 对构造期空 archetype 使用 GENERIC，避免服务端创建实体 NPE。
+  Tests   Done   新增 `SecretRealmEntryAuthorityTest`，扩展 `SpatialNodeCatalogServiceTest`；全量 627 项测试通过。
+  Version/protocol   Done   `mod_version` 0.2.21 -> 0.2.22 -> 0.2.23；0.2.22 首轮构建后追加 max 复审代码修复，按指纹门禁再升 patch；protocol 保持 24。
+  Verification   Done   0.2.22 首轮普通构建成功；追加修复后同版本被 preflight 正确拒绝；0.2.23 最终普通构建成功。
+  Update note   Done   `project_docs/updates/20260719_0.2.23_secret_realm_travel_authority.md`
+
 ## 490. 2026-07-19 0.2.21 修炼权限与存档红线
 
   Step   Status   Notes

@@ -81,32 +81,39 @@ public final class SpatialNodeCatalogService {
             return false;
         }
         Node node = optional.get();
-        if (!SpatialNodeRequiresService.enforce(player, node)) {
+        String currentDimension = player.serverLevel().dimension().location().toString();
+        if (!sourceDimensionMatches(currentDimension, node)) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.spatial_node.wrong_dimension",
+                    DimensionRegistryService.toMinecraftDimensionId(node.dimensionFrom()), currentDimension), true);
+            return false;
+        }
+        SpatialNodeRequiresService.Reservation reservation = SpatialNodeRequiresService.reserve(player, node);
+        if (reservation == null) {
             return false;
         }
         String type = node.type() == null ? "" : node.type().trim().toLowerCase(Locale.ROOT);
+        boolean ok = executeTravel(player, node, type);
+        if (!ok) {
+            reservation.refund(player);
+            return false;
+        }
+        registerNetworkNode(player, node);
+        player.displayClientMessage(Component.translatable(
+                "message.seeking_immortals.spatial_node.travel_ok", node.display(), type), true);
+        return true;
+    }
+
+    private static boolean executeTravel(ServerPlayer player, Node node, String type) {
         // M13: cross-dimension nodes go through DimensionTravelService (server route authority).
         if (node.dimensionTo() != null && !node.dimensionTo().isBlank()
                 && (type.contains("ascension") || isCrossDimension(node))) {
             if (type.contains("ascension")) {
-                boolean ascended = AscensionService.attemptAscension(player, false)
-                        || (AscensionService.hasPendingConfirmation(player) && false);
-                if (ascended || AscensionService.hasPendingConfirmation(player)) {
-                    player.displayClientMessage(Component.translatable(
-                            "message.seeking_immortals.spatial_node.travel_ok", node.display(), type), true);
-                    registerNetworkNode(player, node);
-                    return ascended || AscensionService.hasPendingConfirmation(player);
-                }
+                return AscensionService.attemptAscension(player, false);
             }
-            boolean dimOk = DimensionTravelService.travelToDimension(player, node.dimensionTo(), type);
-            if (dimOk) {
-                registerNetworkNode(player, node);
-                player.displayClientMessage(Component.translatable(
-                        "message.seeking_immortals.spatial_node.travel_ok", node.display(), type), true);
-                return true;
-            }
+            return DimensionTravelService.travelToDimension(player, node.dimensionTo(), type);
         }
-        boolean ok = switch (type) {
+        return switch (type) {
             case "pocket_gate" -> WorldpackGameplayService.useNetherFerryGate(player, false);
             case "ancient_rift" -> WorldpackGameplayService.useAncientRiftGate(player, false);
             case "cycle_gate" -> WorldpackGameplayService.useCycleGate(player, false);
@@ -114,20 +121,26 @@ public final class SpatialNodeCatalogService {
             case "king_territory" -> WorldpackGameplayService.useKingTerritoryGate(player, false);
             case "ascension_gate" -> AscensionService.attemptAscension(player, false)
                     || WorldpackGameplayService.useAscensionGate(player, false);
-            case "sect_gate", "fixed_teleport_array" -> WorldpackGameplayService.usePortalArray(player);
+            case "sect_gate", "fixed_teleport_array" -> travelToAuthoredRegion(player, node);
             default -> {
-                String region = node.region() == null || node.region().isBlank()
-                        ? WorldpackGameplayService.DEFAULT_REGION_ID
-                        : node.region();
-                yield WorldpackGameplayService.travel(player, region);
+                yield travelToAuthoredRegion(player, node);
             }
         };
-        if (ok) {
-            registerNetworkNode(player, node);
-            player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.spatial_node.travel_ok", node.display(), type), true);
+    }
+
+    private static boolean travelToAuthoredRegion(ServerPlayer player, Node node) {
+        String region = node.region() == null || node.region().isBlank()
+                ? WorldpackGameplayService.DEFAULT_REGION_ID
+                : node.region();
+        return WorldpackGameplayService.travel(player, region);
+    }
+
+    static boolean sourceDimensionMatches(String currentDimension, Node node) {
+        if (node == null || node.dimensionFrom() == null || node.dimensionFrom().isBlank()) {
+            return true;
         }
-        return ok;
+        String expected = DimensionRegistryService.toMinecraftDimensionId(node.dimensionFrom());
+        return expected.equals(currentDimension == null ? "" : currentDimension.trim().toLowerCase(Locale.ROOT));
     }
 
     private static boolean isCrossDimension(Node node) {

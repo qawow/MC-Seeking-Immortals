@@ -130,7 +130,8 @@ public final class SecretRealmDimensionService {
             }
         }
         player.teleportTo(target, x + 0.5D, y, z + 0.5D, player.getYRot(), player.getXRot());
-        return true;
+        return player.serverLevel() == target
+                && player.distanceToSqr(x + 0.5D, y, z + 0.5D) <= 16.0D;
     }
 
     public static int dedicatedDimensionCount() {

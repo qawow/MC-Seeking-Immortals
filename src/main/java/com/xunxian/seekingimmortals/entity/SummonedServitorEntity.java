@@ -270,14 +270,15 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
-        double attackSpeed = switch (archetype) {
+        Archetype goalArchetype = archetype == null ? Archetype.GENERIC : archetype;
+        double attackSpeed = switch (goalArchetype) {
             case BEAST -> 1.35D;
             case PUPPET -> 1.00D;
             case GHOST -> 1.20D;
             default -> 1.15D;
         };
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, attackSpeed, true));
-        double stroll = switch (archetype) {
+        double stroll = switch (goalArchetype) {
             case BEAST -> 1.05D;
             case PUPPET -> 0.75D;
             case GHOST -> 0.95D;
