@@ -32,7 +32,7 @@ public class FlameRingSpell extends SpellEffect {
         Vec3 center = player.position().add(0.0D, 0.35D, 0.0D);
         AABB area = new AABB(center, center).inflate(RADIUS, 1.15D, RADIUS);
         List<LivingEntity> targets = level.getEntitiesOfClass(LivingEntity.class, area,
-                entity -> entity != player && entity.isAlive() && !entity.isSpectator());
+                entity -> canAffect(player, entity));
         if (targets.isEmpty()) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.spell.area.fail"), true);
             return false;
@@ -46,7 +46,7 @@ public class FlameRingSpell extends SpellEffect {
                 continue;
             }
             double falloff = Math.max(0.45D, 1.0D - distance / (RADIUS + 0.1D));
-            target.hurt(player.damageSources().magic(), (float)(damage * falloff));
+            target.hurt(player.damageSources().indirectMagic(player, player), (float)(damage * falloff));
             target.setSecondsOnFire(3);
             target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 45 + skill.getLevel() * 3, 0, false, true));
             hitCount++;

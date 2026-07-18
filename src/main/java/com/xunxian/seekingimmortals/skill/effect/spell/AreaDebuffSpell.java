@@ -60,7 +60,7 @@ public class AreaDebuffSpell extends SpellEffect {
         AABB area = new AABB(center.x - radius, center.y - 1.0D, center.z - radius,
                 center.x + radius, center.y + 2.0D, center.z + radius);
         List<LivingEntity> targets = level.getEntitiesOfClass(LivingEntity.class, area,
-                entity -> entity != player && entity.isAlive() && !entity.isSpectator());
+                entity -> canAffect(player, entity));
         if (targets.isEmpty()) {
             player.displayClientMessage(Component.translatable(failKey), true);
             return false;
@@ -69,7 +69,7 @@ public class AreaDebuffSpell extends SpellEffect {
         double damage = calculateDamage(skill.getLevel(), skill.getProficiency());
         for (LivingEntity target : targets) {
             if (damage > 0.0D) {
-                target.hurt(player.damageSources().magic(), (float)damage);
+                target.hurt(player.damageSources().indirectMagic(player, player), (float)damage);
             }
             applyEffect(target, primaryEffect, primaryDurationTicks, primaryAmplifier, skill);
             applyEffect(target, secondaryEffect, secondaryDurationTicks, secondaryAmplifier, skill);

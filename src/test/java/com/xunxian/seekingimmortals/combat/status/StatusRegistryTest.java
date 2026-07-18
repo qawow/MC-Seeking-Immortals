@@ -24,4 +24,30 @@ class StatusRegistryTest {
         assertTrue(StatusRegistryTestSupport.hidesRealm("conceal_qi"));
         assertFalse(StatusRegistryTestSupport.hidesRealm("seal_nascent"));
     }
+
+    @Test
+    void accuracyDeltasStackAndResistedDurationsNeverGrow() {
+        assertEquals(-0.18D,
+                StatusRegistryTestSupport.accuracyDelta("soul_shock", "fear"), 0.0001D);
+        assertEquals(2, StatusRegistry.resistedDuration(4, 0.50D));
+        assertEquals(1, StatusRegistry.resistedDuration(1, 0.75D));
+        assertEquals(4, StatusRegistry.resistedDuration(4, 0.0D));
+    }
+
+    @Test
+    void emergencyAntidoteStillHonorsDeclaredFamilies() {
+        StatusCatalogService.AntidoteClear rule = StatusCatalogService.builtin().antidotes().stream()
+                .filter(antidote -> "huiyang_emergency".equals(antidote.id()))
+                .findFirst()
+                .orElseThrow();
+        assertTrue(rule.emergency());
+        assertTrue(PoisonAntidoteService.matchesFamilyRule(rule,
+                StatusCatalogService.builtin().find("poison").orElseThrow()));
+        assertTrue(PoisonAntidoteService.matchesFamilyRule(rule,
+                StatusCatalogService.builtin().find("soul_wound").orElseThrow()));
+        assertFalse(PoisonAntidoteService.matchesFamilyRule(rule,
+                StatusCatalogService.builtin().find("shield").orElseThrow()));
+        assertFalse(PoisonAntidoteService.matchesFamilyRule(rule,
+                StatusCatalogService.builtin().find("sword_intent").orElseThrow()));
+    }
 }

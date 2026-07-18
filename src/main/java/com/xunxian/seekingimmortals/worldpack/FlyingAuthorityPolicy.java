@@ -85,6 +85,10 @@ public final class FlyingAuthorityPolicy {
         return DimensionFlightRule.DENY;
     }
 
+    public static boolean permitsManagedFlightDimension(String dimensionId) {
+        return classifyDimension(dimensionId) != DimensionFlightRule.DENY;
+    }
+
     static boolean allowsMortalCultivation(Realm realm, RealmStage stage) {
         return realm == Realm.QI_REFINING && stage != null
                 && stage.ordinal() >= RealmStage.LAYER_10.ordinal();
@@ -112,6 +116,9 @@ public final class FlyingAuthorityPolicy {
         if (player == null || player.level().isClientSide) {
             return;
         }
+        if (player.getAbilities().instabuild || player.isSpectator()) {
+            return;
+        }
         if (allowsFreeFlight(player)) {
             // policy source is a soft mayfly grant at baseline speed; other sources may override speed
             FlyingAuthority.grant(player, SOURCE_POLICY, 0.0F);
@@ -126,8 +133,13 @@ public final class FlyingAuthorityPolicy {
         }
         // clear transient grants that should not cross realms, then re-apply policy
         FlyingAuthority.clearAll(player);
-        if (allowsFreeFlight(player, newDimensionId)) {
+        if (shouldGrantPolicy(player.getAbilities().instabuild, player.isSpectator(),
+                allowsFreeFlight(player, newDimensionId))) {
             FlyingAuthority.grant(player, SOURCE_POLICY, 0.0F);
         }
+    }
+
+    static boolean shouldGrantPolicy(boolean instabuild, boolean spectator, boolean allowedByRealmAndDimension) {
+        return !instabuild && !spectator && allowedByRealmAndDimension;
     }
 }

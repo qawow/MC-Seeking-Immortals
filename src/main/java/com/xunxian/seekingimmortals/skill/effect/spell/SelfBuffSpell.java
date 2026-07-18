@@ -1,5 +1,6 @@
 package com.xunxian.seekingimmortals.skill.effect.spell;
 
+import com.xunxian.seekingimmortals.combat.status.StatusRegistry;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.skill.CultivationSkill;
 import com.xunxian.seekingimmortals.skill.effect.SkillContext;
@@ -22,11 +23,25 @@ public class SelfBuffSpell extends SpellEffect {
     private final ParticleOptions particle;
     private final SoundEvent sound;
     private final String successKey;
+    private final String statusId;
+    private final int statusDurationTicks;
+    private final int statusAmplifier;
 
     public SelfBuffSpell(int cost, int cooldownTicks,
                          MobEffect primaryEffect, int primaryDurationTicks, int primaryAmplifier,
                          MobEffect secondaryEffect, int secondaryDurationTicks, int secondaryAmplifier,
                          ParticleOptions particle, SoundEvent sound, String successKey) {
+        this(cost, cooldownTicks,
+                primaryEffect, primaryDurationTicks, primaryAmplifier,
+                secondaryEffect, secondaryDurationTicks, secondaryAmplifier,
+                particle, sound, successKey, "", 0, 0);
+    }
+
+    public SelfBuffSpell(int cost, int cooldownTicks,
+                         MobEffect primaryEffect, int primaryDurationTicks, int primaryAmplifier,
+                         MobEffect secondaryEffect, int secondaryDurationTicks, int secondaryAmplifier,
+                         ParticleOptions particle, SoundEvent sound, String successKey,
+                         String statusId, int statusDurationTicks, int statusAmplifier) {
         super(cost, cooldownTicks, 0.0D);
         this.primaryEffect = primaryEffect;
         this.primaryDurationTicks = primaryDurationTicks;
@@ -37,12 +52,19 @@ public class SelfBuffSpell extends SpellEffect {
         this.particle = particle;
         this.sound = sound;
         this.successKey = successKey;
+        this.statusId = statusId == null ? "" : statusId;
+        this.statusDurationTicks = statusDurationTicks;
+        this.statusAmplifier = statusAmplifier;
     }
 
     @Override
     public boolean execute(ServerPlayer player, PlayerCultivation cultivation, CultivationSkill skill, SkillContext context) {
         applyEffect(player, primaryEffect, primaryDurationTicks, primaryAmplifier, skill);
         applyEffect(player, secondaryEffect, secondaryDurationTicks, secondaryAmplifier, skill);
+        if (!statusId.isBlank() && statusDurationTicks > 0) {
+            StatusRegistry.applyStatus(player, statusId, statusAmplifier,
+                    scaledStatusDuration(statusDurationTicks, skill.getLevel()));
+        }
         if (player.level() instanceof ServerLevel level) {
             level.sendParticles(particle,
                     player.getX(), player.getY() + 1.0D, player.getZ(),
@@ -60,5 +82,9 @@ public class SelfBuffSpell extends SpellEffect {
         int scaledDuration = durationTicks + Math.max(0, skill.getLevel() - 1) * 20;
         int scaledAmplifier = amplifier + Math.max(0, skill.getLevel() / 5);
         player.addEffect(new MobEffectInstance(effect, scaledDuration, scaledAmplifier, false, true));
+    }
+
+    static int scaledStatusDuration(int baseDurationTicks, int skillLevel) {
+        return Math.max(1, baseDurationTicks) + Math.max(0, skillLevel - 1) * 20;
     }
 }

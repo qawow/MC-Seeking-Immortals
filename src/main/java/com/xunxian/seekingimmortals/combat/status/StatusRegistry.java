@@ -75,6 +75,25 @@ public final class StatusRegistry {
                                       int level,
                                       int durationTicks,
                                       @Nullable RandomSource random) {
+        return applyStatusInternal(target, caster, statusId, level, durationTicks, random, true);
+    }
+
+    /** Applies an authoritative encounter status while retaining its caster as the effect source. */
+    public static boolean applyGuaranteedStatus(LivingEntity target,
+                                                @Nullable LivingEntity caster,
+                                                String statusId,
+                                                int level,
+                                                int durationTicks) {
+        return applyStatusInternal(target, caster, statusId, level, durationTicks, null, false);
+    }
+
+    private static boolean applyStatusInternal(LivingEntity target,
+                                               @Nullable LivingEntity caster,
+                                               String statusId,
+                                               int level,
+                                               int durationTicks,
+                                               @Nullable RandomSource random,
+                                               boolean checkHit) {
         if (target == null || target.level().isClientSide || statusId == null || statusId.isBlank()) {
             return false;
         }
@@ -92,7 +111,7 @@ public final class StatusRegistry {
         int duration = durationTicks > 0 ? durationTicks : def.defaultDurationTicks();
 
         if (!def.beneficial()) {
-            if (caster != null) {
+            if (checkHit && caster != null) {
                 double hitChance = computeHitChance(caster, target);
                 RandomSource rng = random != null ? random
                         : (target.level().getRandom() != null ? target.level().getRandom() : RandomSource.create());
@@ -103,32 +122,36 @@ public final class StatusRegistry {
             // 体质 debuff_resist 缩短有害状态时长
             double resist = targetDebuffResist(target);
             if (resist > 0.0D) {
-                duration = Math.max(10, (int) Math.round(duration * (1.0D - Math.min(0.75D, resist))));
+                duration = resistedDuration(duration, resist);
             }
         }
 
         MobEffectInstance existing = target.getEffect(effectOpt.get());
+        MobEffectInstance next;
         if (existing != null) {
             int nextAmp = Math.max(existing.getAmplifier(), amplifier);
             int nextDur = Math.max(existing.getDuration(), duration);
-            target.addEffect(new MobEffectInstance(effectOpt.get(), nextDur, nextAmp, false, true, true));
+            next = new MobEffectInstance(effectOpt.get(), nextDur, nextAmp, false, true, true);
         } else {
-            target.addEffect(new MobEffectInstance(effectOpt.get(), duration, amplifier, false, true, true));
+            next = new MobEffectInstance(effectOpt.get(), duration, amplifier, false, true, true);
         }
-        return true;
+        return caster == null ? target.addEffect(next) : target.addEffect(next, caster);
+    }
+
+    static int resistedDuration(int requestedDuration, double resist) {
+        int requested = Math.max(1, requestedDuration);
+        if (resist <= 0.0D) {
+            return requested;
+        }
+        double reduction = 1.0D - Mth.clamp(resist, 0.0D, 0.75D);
+        return Mth.clamp((int) Math.round(requested * reduction), 1, requested);
     }
 
     public static boolean clearStatus(LivingEntity target, String statusId) {
         if (target == null || target.level().isClientSide) {
             return false;
         }
-        return resolve(statusId).map(effect -> {
-            if (target.hasEffect(effect)) {
-                target.removeEffect(effect);
-                return true;
-            }
-            return false;
-        }).orElse(false);
+        return resolve(statusId).map(target::removeEffect).orElse(false);
     }
 
     public static boolean hasStatus(LivingEntity target, String statusId) {
@@ -146,6 +169,31 @@ public final class StatusRegistry {
 
     static double outgoingDamageMultiplierForEffects(Iterable<SeekingStatusEffect> effects) {
         return outgoingDamageMultiplier(effects, Function.identity());
+    }
+
+    public static double accuracyDelta(LivingEntity target) {
+        return target == null
+                ? 0.0D
+                : accuracyDelta(target.getActiveEffects(), StatusRegistry::seekingEffectOf);
+    }
+
+    static double accuracyDeltaForEffects(Iterable<SeekingStatusEffect> effects) {
+        return accuracyDelta(effects, Function.identity());
+    }
+
+    private static <T> double accuracyDelta(Iterable<T> activeStatuses,
+                                            Function<T, SeekingStatusEffect> mapper) {
+        if (activeStatuses == null) {
+            return 0.0D;
+        }
+        double delta = 0.0D;
+        for (T activeStatus : activeStatuses) {
+            SeekingStatusEffect effect = mapper.apply(activeStatus);
+            if (effect != null) {
+                delta += effect.getAccuracyDelta();
+            }
+        }
+        return delta;
     }
 
     private static <T> double outgoingDamageMultiplier(Iterable<T> activeStatuses,

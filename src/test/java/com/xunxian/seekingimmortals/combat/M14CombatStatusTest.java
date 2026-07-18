@@ -80,6 +80,9 @@ class M14CombatStatusTest {
         assertEquals(0.95D, clampHit(0.70 + 0.08 * 10 - 0), 0.0001D);
         // 下限 0.05
         assertEquals(0.05D, clampHit(0.70 + 0.08 * (-20) - 0.5), 0.0001D);
+        assertEquals(0.72D, CombatCalculator.adjustedAccuracy(0.90D, -0.18D), 0.0001D);
+        assertEquals(0.05D, CombatCalculator.adjustedAccuracy(0.10D, -0.20D), 0.0001D);
+        assertEquals(0.99D, CombatCalculator.adjustedAccuracy(0.99D, 0.0D), 0.0001D);
     }
 
     @Test
@@ -162,6 +165,8 @@ class M14CombatStatusTest {
         assertEquals("frozen", StatusRegistry.normalizeId("freeze"));
         assertEquals("burn", StatusRegistry.normalizeId("burn"));
         assertFalse(StatusRegistry.isKnown("not_registered_status_xyz"));
+        assertEquals(-0.08D, StatusRegistry.definition("soul_shock").orElseThrow().accuracyDelta(), 0.0001D);
+        assertEquals(-0.10D, StatusRegistry.definition("fear").orElseThrow().accuracyDelta(), 0.0001D);
     }
 
     private static double clampHit(double chance) {

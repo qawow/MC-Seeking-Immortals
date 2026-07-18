@@ -1,5 +1,6 @@
 package com.xunxian.seekingimmortals.skill.effect.spell;
 
+import com.xunxian.seekingimmortals.combat.status.StatusRegistry;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.entity.SwordProjectileEntity;
 import com.xunxian.seekingimmortals.registry.ModItems;
@@ -89,7 +90,7 @@ public class SwordTechniqueSpell extends SpellEffect {
         for (LivingEntity target : targets) {
             double along = target.position().subtract(start).dot(direction);
             double falloff = Math.max(0.58D, 1.0D - along / (range * 1.35D));
-            target.hurt(player.damageSources().magic(), (float)(damage * falloff));
+            target.hurt(player.damageSources().indirectMagic(player, player), (float)(damage * falloff));
             form.applyHitEffects(target, skill);
             hitCount++;
         }
@@ -147,7 +148,7 @@ public class SwordTechniqueSpell extends SpellEffect {
         double damage = calculateDamage(skill.getLevel(), skill.getProficiency());
         List<LivingEntity> targets = findLineTargets(level, player, origin.add(0.0D, 0.8D, 0.0D), destination.add(0.0D, 0.8D, 0.0D), radius);
         for (LivingEntity target : targets) {
-            target.hurt(player.damageSources().magic(), (float)damage);
+            target.hurt(player.damageSources().indirectMagic(player, player), (float)damage);
             target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, scaleDuration(50, skill, 4), 1, false, true));
         }
 
@@ -174,7 +175,7 @@ public class SwordTechniqueSpell extends SpellEffect {
         for (LivingEntity target : targets) {
             double distance = Math.sqrt(target.distanceToSqr(center));
             double falloff = Math.max(0.50D, 1.0D - distance / (radius * 1.65D));
-            target.hurt(player.damageSources().magic(), (float)(damage * falloff));
+            target.hurt(player.damageSources().indirectMagic(player, player), (float)(damage * falloff));
             target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, scaleDuration(90, skill, 5), 2, false, true));
         }
 
@@ -201,7 +202,7 @@ public class SwordTechniqueSpell extends SpellEffect {
 
         double damage = calculateDamage(skill.getLevel(), skill.getProficiency());
         for (LivingEntity target : targets) {
-            target.hurt(player.damageSources().magic(), (float)damage);
+            target.hurt(player.damageSources().indirectMagic(player, player), (float)damage);
             target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, scaleDuration(70, skill, 5), 0, false, true));
         }
         player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, scaleDuration(45, skill, 3), 0, false, true));
@@ -217,6 +218,7 @@ public class SwordTechniqueSpell extends SpellEffect {
         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, duration, 0, false, true));
         player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, duration, 0, false, true));
         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, duration, 0, false, true));
+        StatusRegistry.applyStatus(player, "sword_intent", 0, duration);
         form.spawnMergeAura(level, player, radius);
         level.playSound(null, player.blockPosition(), form.sound, SoundSource.PLAYERS, 0.72F, form.pitch);
         player.displayClientMessage(Component.translatable(successKey, Math.max(1, duration / 20)), true);
@@ -236,7 +238,7 @@ public class SwordTechniqueSpell extends SpellEffect {
         for (LivingEntity target : targets) {
             double distance = Math.sqrt(target.distanceToSqr(center));
             double falloff = Math.max(0.55D, 1.0D - distance / (radius * 1.8D));
-            target.hurt(player.damageSources().magic(), (float)(damage * falloff));
+            target.hurt(player.damageSources().indirectMagic(player, player), (float)(damage * falloff));
             target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, scaleDuration(95, skill, 6), 2, false, true));
             target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, scaleDuration(80, skill, 5), 0, false, true));
         }
@@ -274,7 +276,7 @@ public class SwordTechniqueSpell extends SpellEffect {
 
         double damage = calculateDamage(skill.getLevel(), skill.getProficiency());
         for (LivingEntity target : targets) {
-            target.hurt(player.damageSources().magic(), (float)damage);
+            target.hurt(player.damageSources().indirectMagic(player, player), (float)damage);
             target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, scaleDuration(45, skill, 4), 0, false, true));
         }
         form.spawnDualDance(level, start, leftEnd, rightEnd);
@@ -354,7 +356,7 @@ public class SwordTechniqueSpell extends SpellEffect {
     }
 
     private static boolean canTarget(Entity entity, ServerPlayer player) {
-        return entity != player && entity instanceof LivingEntity living && living.isAlive() && !entity.isSpectator();
+        return canAffect(player, entity);
     }
 
     private static boolean canStandAt(ServerLevel level, BlockPos feet) {

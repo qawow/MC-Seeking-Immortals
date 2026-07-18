@@ -333,23 +333,17 @@ public final class ModEvents {
             event.setAmount(event.getAmount() * (float) StatusRegistry.outgoingDamageMultiplier(livingAttacker));
         }
 
-        // H9: 飞剑/冰锥弹射物伤害已在生成时 calculateDamage，跳过 cultivation multiplier 与 PvP CombatCalculator 二次重算
-        if (directEntity != null && directEntity.getPersistentData().getBoolean("SeekingImmortalsProjectileDamage")) {
-            return;
+        if (sourceEntity instanceof Player player) {
+            CultivationHelper.get(player).ifPresent(cultivation -> {
+                double multiplier = cultivation.getOutgoingDamageMultiplier();
+                if (directEntity != null && directEntity.getPersistentData().contains("SeekingImmortalsDamageMultiplier")) {
+                    multiplier *= directEntity.getPersistentData().getDouble("SeekingImmortalsDamageMultiplier");
+                }
+                multiplier *= com.xunxian.seekingimmortals.artifact.ArtifactSynergyService
+                        .outgoingDamageMultiplier(player);
+                event.setAmount(event.getAmount() * (float)multiplier);
+            });
         }
-
-        if (!(sourceEntity instanceof Player player)) return;
-
-        CultivationHelper.get(player).ifPresent(cultivation -> {
-            double multiplier = cultivation.getOutgoingDamageMultiplier();
-            if (directEntity != null && directEntity.getPersistentData().contains("SeekingImmortalsDamageMultiplier")) {
-                multiplier *= directEntity.getPersistentData().getDouble("SeekingImmortalsDamageMultiplier");
-            }
-            // M15: 法宝协同攻击倍率（经伤害管线，不直改属性）。
-            multiplier *= com.xunxian.seekingimmortals.artifact.ArtifactSynergyService
-                    .outgoingDamageMultiplier(player);
-            event.setAmount(event.getAmount() * (float)multiplier);
-        });
 
         // M15: 防御协同降低承伤（仍走 LivingHurt 管线）。
         if (event.getEntity() instanceof Player hurtTarget) {
@@ -751,7 +745,13 @@ public final class ModEvents {
     }
 
     private static boolean handleWorldpackNoFly(ServerPlayer player, PlayerCultivation cultivation) {
-        if (player.isCreative() || player.isSpectator() || !WorldpackGameplayService.isFlightSuppressed(cultivation)) {
+        if (player.isCreative() || player.isSpectator()) {
+            return false;
+        }
+        boolean dimensionDenied = !com.xunxian.seekingimmortals.worldpack.FlyingAuthorityPolicy
+                .permitsManagedFlightDimension(player.level().dimension().location().toString());
+        boolean realmSuppressed = WorldpackGameplayService.isFlightSuppressed(cultivation);
+        if (!dimensionDenied && !realmSuppressed) {
             return false;
         }
         CompoundTag data = player.getPersistentData();
@@ -762,7 +762,10 @@ public final class ModEvents {
         data.remove(FlyingSwordAdvancedSpell.ACTIVE_KEY);
         FlyingAuthority.clearAll(player);
         if (hadManagedFlight) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.flight.stop.no_fly_secret_realm"), true);
+            String reason = dimensionDenied
+                    ? "message.seeking_immortals.flight.stop.dimension"
+                    : "message.seeking_immortals.flight.stop.no_fly_secret_realm";
+            player.displayClientMessage(Component.translatable(reason), true);
         }
         return true;
     }

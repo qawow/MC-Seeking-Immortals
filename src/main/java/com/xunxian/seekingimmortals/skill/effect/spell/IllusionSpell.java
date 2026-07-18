@@ -64,7 +64,7 @@ public class IllusionSpell extends SpellEffect {
 
         double damage = calculateDamage(skill.getLevel(), skill.getProficiency());
         if (damage > 0.0D) {
-            target.hurt(player.damageSources().magic(), (float)damage);
+            target.hurt(player.damageSources().indirectMagic(player, player), (float)damage);
         }
         form.applySingle(target, skill);
         form.spawnSingle(level, player.getEyePosition(), target.position().add(0.0D, target.getBbHeight() * 0.58D, 0.0D));
@@ -88,7 +88,7 @@ public class IllusionSpell extends SpellEffect {
         for (LivingEntity target : targets) {
             double falloff = Math.max(0.42D, 1.0D - Math.sqrt(target.distanceToSqr(center)) / (radius * 1.65D));
             if (damage > 0.0D) {
-                target.hurt(player.damageSources().magic(), (float)(damage * falloff));
+                target.hurt(player.damageSources().indirectMagic(player, player), (float)(damage * falloff));
             }
             form.applyArea(target, center, skill);
             hitCount++;
@@ -120,7 +120,7 @@ public class IllusionSpell extends SpellEffect {
         double damage = calculateDamage(skill.getLevel(), skill.getProficiency()) * 0.55D;
         for (LivingEntity target : targets) {
             if (damage > 0.0D) {
-                target.hurt(player.damageSources().magic(), (float)damage);
+                target.hurt(player.damageSources().indirectMagic(player, player), (float)damage);
             }
             add(target, MobEffects.CONFUSION, scaleTicks(70, skill, 5), 0);
             add(target, MobEffects.MOVEMENT_SLOWDOWN, scaleTicks(55, skill, 4), 1);
@@ -261,7 +261,7 @@ public class IllusionSpell extends SpellEffect {
     }
 
     private boolean canTarget(Entity entity, ServerPlayer player) {
-        return entity != player && entity instanceof LivingEntity living && living.isAlive() && !living.isSpectator();
+        return canAffect(player, entity);
     }
 
     private boolean canStandAt(ServerLevel level, BlockPos feet) {

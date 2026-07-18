@@ -65,7 +65,7 @@ public class XuanYinSpell extends SpellEffect {
         int hitCount = 0;
         for (LivingEntity target : targets) {
             double falloff = Math.max(0.42D, 1.0D - target.position().distanceTo(center) / (radius + 0.8D));
-            target.hurt(player.damageSources().magic(), (float)(damage * falloff));
+            target.hurt(player.damageSources().indirectMagic(player, player), (float)(damage * falloff));
             applyYinRot(target, skill, target.getMobType() == MobType.UNDEAD ? 0 : 1);
             hitCount++;
         }
@@ -84,7 +84,7 @@ public class XuanYinSpell extends SpellEffect {
             return false;
         }
 
-        target.hurt(player.damageSources().magic(), (float)calculateDamage(skill.getLevel(), skill.getProficiency()));
+        target.hurt(player.damageSources().indirectMagic(player, player), (float)calculateDamage(skill.getLevel(), skill.getProficiency()));
         add(target, MobEffects.MOVEMENT_SLOWDOWN, scaled(120, skill, 10), 4);
         add(target, MobEffects.WEAKNESS, scaled(100, skill, 8), 1);
         Vec3 pull = player.position().subtract(target.position());
@@ -123,7 +123,7 @@ public class XuanYinSpell extends SpellEffect {
         for (LivingEntity target : targets) {
             double along = target.position().subtract(start).dot(direction);
             double falloff = Math.max(0.50D, 1.0D - along / (range * 1.25D));
-            target.hurt(player.damageSources().magic(), (float)(damage * falloff));
+            target.hurt(player.damageSources().indirectMagic(player, player), (float)(damage * falloff));
             applyYinRot(target, skill, 1);
             add(target, MobEffects.BLINDNESS, scaled(55, skill, 5), 0);
             hitCount++;
@@ -199,7 +199,7 @@ public class XuanYinSpell extends SpellEffect {
     }
 
     private boolean canTarget(Entity entity, ServerPlayer player) {
-        return entity != player && entity instanceof LivingEntity living && living.isAlive() && !living.isSpectator();
+        return canAffect(player, entity);
     }
 
     private double distanceToSegment(Vec3 point, Vec3 start, Vec3 line) {

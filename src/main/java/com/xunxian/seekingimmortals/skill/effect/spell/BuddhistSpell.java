@@ -70,7 +70,7 @@ public class BuddhistSpell extends SpellEffect {
         for (LivingEntity target : targets.stream().limit(form == BuddhistForm.ZEN_PULSE ? 10 : 8).toList()) {
             double falloff = Math.max(0.46D, 1.0D - target.position().distanceTo(center) / (radius + 0.9D));
             if (damage > 0.0D) {
-                target.hurt(player.damageSources().magic(), (float)(damage * falloff * form.damageMultiplier(target)));
+                target.hurt(player.damageSources().indirectMagic(player, player), (float)(damage * falloff * form.damageMultiplier(target)));
             }
             form.applyTargetEffects(player, target, center, skill);
             hitCount++;
@@ -114,7 +114,7 @@ public class BuddhistSpell extends SpellEffect {
         for (LivingEntity target : targets.stream().limit(form == BuddhistForm.DEMON_SUBDUE_PALM ? 5 : 4).toList()) {
             double along = target.position().distanceTo(start);
             double falloff = Math.max(0.55D, 1.0D - along / (range * 1.45D));
-            target.hurt(player.damageSources().magic(), (float)(damage * falloff * form.damageMultiplier(target)));
+            target.hurt(player.damageSources().indirectMagic(player, player), (float)(damage * falloff * form.damageMultiplier(target)));
             form.applyTargetEffects(player, target, player.position(), skill);
             hitCount++;
         }
@@ -134,7 +134,7 @@ public class BuddhistSpell extends SpellEffect {
         }
 
         double damage = calculateDamage(skill.getLevel(), skill.getProficiency());
-        target.hurt(player.damageSources().magic(), (float)(damage * form.damageMultiplier(target)));
+        target.hurt(player.damageSources().indirectMagic(player, player), (float)(damage * form.damageMultiplier(target)));
         form.applyTargetEffects(player, target, player.position(), skill);
         Vec3 center = target.position().add(0.0D, target.getBbHeight() * 0.52D, 0.0D);
         form.spawnStrike(level, player.getEyePosition(), center);
@@ -185,7 +185,7 @@ public class BuddhistSpell extends SpellEffect {
     }
 
     private static boolean canTarget(Entity entity, ServerPlayer player) {
-        return entity != player && entity instanceof LivingEntity living && living.isAlive() && !living.isSpectator();
+        return canAffect(player, entity);
     }
 
     private static double distanceToSegment(Vec3 point, Vec3 start, Vec3 line) {

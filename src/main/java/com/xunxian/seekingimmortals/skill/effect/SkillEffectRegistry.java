@@ -507,7 +507,8 @@ public class SkillEffectRegistry {
                         net.minecraft.world.effect.MobEffects.ABSORPTION, 160, 0,
                         net.minecraft.core.particles.ParticleTypes.CRIMSON_SPORE,
                         net.minecraft.sounds.SoundEvents.WARDEN_HEARTBEAT,
-                        "message.seeking_immortals.spell.blood_sacrifice.success"));
+                        "message.seeking_immortals.spell.blood_sacrifice.success",
+                        "berserk", 160, 0));
         register(SkillType.BLOOD_CURSE_MARK, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(28, 160, 12.0D, 20.0D,
                         net.minecraft.world.effect.MobEffects.WEAKNESS, 140, 1,
                         net.minecraft.world.effect.MobEffects.WITHER, 80, 0,
@@ -1168,10 +1169,14 @@ register(SkillType.SPIRIT_ART_BEAST_CALL, new com.xunxian.seekingimmortals.skill
                 57, 260, 35.0D, 16.0D, 3.5D,
                 com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.MIND_CONFUSION,
                 "message.seeking_immortals.spell.hehuan_union_secret.success"));
-        register(SkillType.TIANMO_BERSERK, new com.xunxian.seekingimmortals.skill.effect.spell.DemonicGhostSpell(
-                57, 260, 58.0D, 16.0D, 3.8D,
-                com.xunxian.seekingimmortals.skill.effect.spell.DemonicGhostSpell.DemonicGhostForm.BLOOD_SHADOW_ESCAPE,
-                "message.seeking_immortals.spell.tianmo_berserk.success"));
+        register(SkillType.TIANMO_BERSERK, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(
+                57, 260,
+                net.minecraft.world.effect.MobEffects.DAMAGE_BOOST, 120, 1,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SPEED, 120, 1,
+                net.minecraft.core.particles.ParticleTypes.SOUL_FIRE_FLAME,
+                net.minecraft.sounds.SoundEvents.WARDEN_HEARTBEAT,
+                "message.seeking_immortals.spell.tianmo_berserk.success",
+                "berserk", 120, 0));
         register(SkillType.ILLUSION_WORLD, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(
                 74, 260, 42.0D, 18.0D, 4.5D,
                 com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.HUNDRED_ILLUSION,
@@ -1296,9 +1301,14 @@ register(SkillType.SPIRIT_ART_BEAST_CALL, new com.xunxian.seekingimmortals.skill
         register(SkillType.CAST_YIN_PROTECT_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
                         com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
                         "message.seeking_immortals.spell.cast_yin_protect_talisman.success"));
-        register(SkillType.CAST_GHOST_HIDE_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
-                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
-                        "message.seeking_immortals.spell.cast_ghost_hide_talisman.success"));
+        register(SkillType.CAST_GHOST_HIDE_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(
+                        8, 80,
+                        net.minecraft.world.effect.MobEffects.INVISIBILITY, 600, 0,
+                        null, 0, 0,
+                        net.minecraft.core.particles.ParticleTypes.SOUL,
+                        net.minecraft.sounds.SoundEvents.SOUL_ESCAPE,
+                        "message.seeking_immortals.spell.cast_ghost_hide_talisman.success",
+                        "conceal_qi", 600, 0));
         register(SkillType.CAST_SPACE_ANCHOR_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
                         com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
                         "message.seeking_immortals.spell.cast_space_anchor_talisman.success"));

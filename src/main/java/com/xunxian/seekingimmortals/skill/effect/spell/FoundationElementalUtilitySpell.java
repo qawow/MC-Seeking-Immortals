@@ -72,7 +72,7 @@ public class FoundationElementalUtilitySpell extends SpellEffect {
 
         double damage = calculateDamage(skill.getLevel(), skill.getProficiency());
         if (damage > 0.0D) {
-            target.hurt(player.damageSources().magic(), (float) damage);
+            target.hurt(player.damageSources().indirectMagic(player, player), (float) damage);
         }
         add(target, MobEffects.MOVEMENT_SLOWDOWN, 130, 4, skill);
         add(target, MobEffects.DIG_SLOWDOWN, 100, 1, skill);
@@ -108,7 +108,7 @@ public class FoundationElementalUtilitySpell extends SpellEffect {
         Vec3 traceEnd = blockHit.getType() == HitResult.Type.MISS ? end : blockHit.getLocation();
         AABB searchBox = new AABB(start, traceEnd).inflate(radius);
         EntityHitResult entityHit = ProjectileUtil.getEntityHitResult(level, player, start, traceEnd, searchBox,
-                entity -> entity != player && entity instanceof LivingEntity living && living.isAlive() && !entity.isSpectator());
+                entity -> canAffect(player, entity));
         if (entityHit == null) {
             return null;
         }

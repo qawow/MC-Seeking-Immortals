@@ -78,15 +78,10 @@ public final class PoisonAntidoteService {
                 cleared = true;
             }
         }
-        // 按 family 清（emergency 或 family 列表）
-        if (!rule.clearsFamilies().isEmpty() || rule.emergency()) {
+        // emergency 仅忽略 fails_on，仍严格受 clears_families 限制。
+        if (!rule.clearsFamilies().isEmpty()) {
             for (StatusCatalogService.StatusDefinition def : StatusCatalogService.builtin().effects()) {
-                boolean familyMatch = rule.clearsFamilies().contains(def.family());
-                if ((familyMatch || rule.emergency()) && StatusRegistry.hasStatus(target, def.id())) {
-                    // fails_on 阻止特定变体对应状态被普通解毒清掉
-                    if (!rule.emergency() && isFailedBy(rule, def.id())) {
-                        continue;
-                    }
+                if (matchesFamilyRule(rule, def) && StatusRegistry.hasStatus(target, def.id())) {
                     if (StatusRegistry.clearStatus(target, def.id())) {
                         cleared = true;
                     }
@@ -94,6 +89,14 @@ public final class PoisonAntidoteService {
             }
         }
         return cleared;
+    }
+
+    static boolean matchesFamilyRule(StatusCatalogService.AntidoteClear rule,
+                                     StatusCatalogService.StatusDefinition definition) {
+        if (rule == null || definition == null || !rule.clearsFamilies().contains(definition.family())) {
+            return false;
+        }
+        return rule.emergency() || !isFailedBy(rule, definition.id());
     }
 
     private static boolean isFailedBy(StatusCatalogService.AntidoteClear rule, String statusId) {

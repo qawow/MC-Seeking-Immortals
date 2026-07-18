@@ -118,6 +118,13 @@ class M13DimensionsAscensionTest {
                 FlyingAuthorityPolicy.classifyDimension("minecraft:the_end"));
         assertEquals(FlyingAuthorityPolicy.DimensionFlightRule.DENY,
                 FlyingAuthorityPolicy.classifyDimension("othermod:tianyuan"));
+        assertTrue(FlyingAuthorityPolicy.permitsManagedFlightDimension(DimensionRegistryService.OVERWORLD));
+        assertTrue(FlyingAuthorityPolicy.permitsManagedFlightDimension(DimensionRegistryService.TIANYUAN));
+        assertFalse(FlyingAuthorityPolicy.permitsManagedFlightDimension("minecraft:the_nether"));
+        assertFalse(FlyingAuthorityPolicy.permitsManagedFlightDimension("othermod:tianyuan"));
+        assertTrue(FlyingAuthorityPolicy.shouldGrantPolicy(false, false, true));
+        assertFalse(FlyingAuthorityPolicy.shouldGrantPolicy(true, false, true));
+        assertFalse(FlyingAuthorityPolicy.shouldGrantPolicy(false, true, true));
         assertTrue(FlyingAuthorityPolicy.allowsMortalCultivation(Realm.QI_REFINING, RealmStage.LAYER_10));
         assertFalse(FlyingAuthorityPolicy.allowsMortalCultivation(Realm.QI_REFINING, RealmStage.LAYER_9));
     }
@@ -169,6 +176,35 @@ class M13DimensionsAscensionTest {
         assertTrue(Files.exists(DATA.resolve("catalog/dimensions_index.json")));
         assertTrue(Files.exists(DATA.resolve("catalog/dimension_registry_index.json")));
         assertTrue(Files.exists(DATA.resolve("catalog/spatial_nodes_index.json")));
+    }
+
+    @Test
+    void catalogTravelPrefersAuthoredRouteAuthority() throws Exception {
+        Path sourcePath = Path.of("src", "main", "java", "com", "xunxian", "seekingimmortals",
+                "worldpack", "DimensionTravelService.java");
+        String source = Files.readString(sourcePath);
+        int methodStart = source.indexOf("public static boolean travelToDimension");
+        int methodEnd = source.indexOf("public static boolean isOnCooldown", methodStart);
+        assertTrue(methodStart >= 0);
+        assertTrue(methodEnd > methodStart);
+        String method = source.substring(methodStart, methodEnd);
+        int routeLookup = method.indexOf("findRouteFor(");
+        int matrixLookup = method.indexOf("findMatrixEdge(");
+        assertTrue(routeLookup >= 0);
+        assertTrue(matrixLookup > routeLookup);
+        assertTrue(method.contains("return travelByRoute(player, route.get().id())"));
+
+        int internalStart = source.indexOf("private static boolean travelInternal");
+        int internalEnd = source.indexOf("private static long cooldownFor", internalStart);
+        assertTrue(internalStart >= 0);
+        assertTrue(internalEnd > internalStart);
+        String internal = source.substring(internalStart, internalEnd);
+        int teleport = internal.indexOf("player.teleportTo(target");
+        int commitCheck = internal.indexOf("if (player.level() != target)");
+        int platformWrite = internal.indexOf("ensurePlatform(target");
+        assertTrue(teleport >= 0);
+        assertTrue(commitCheck > teleport);
+        assertTrue(platformWrite > commitCheck);
     }
 
     /**

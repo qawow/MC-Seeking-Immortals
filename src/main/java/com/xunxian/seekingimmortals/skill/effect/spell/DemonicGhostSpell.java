@@ -72,7 +72,7 @@ public class DemonicGhostSpell extends SpellEffect {
                 origin.add(0.0D, 0.8D, 0.0D), destination.add(0.0D, 0.8D, 0.0D), Math.max(0.9D, radius));
         double damage = calculateDamage(skill.getLevel(), skill.getProficiency());
         for (LivingEntity target : targets) {
-            target.hurt(player.damageSources().magic(), (float)damage);
+            target.hurt(player.damageSources().indirectMagic(player, player), (float)damage);
             add(target, MobEffects.WITHER, scaled(65, skill, 5), 0);
             add(target, MobEffects.MOVEMENT_SLOWDOWN, scaled(45, skill, 4), 1);
         }
@@ -119,7 +119,7 @@ public class DemonicGhostSpell extends SpellEffect {
         for (LivingEntity target : targets) {
             double along = target.position().subtract(start).dot(direction);
             double falloff = Math.max(0.50D, 1.0D - along / (Math.max(1.0D, range) * 1.25D));
-            target.hurt(player.damageSources().magic(), (float)(damage * falloff));
+            target.hurt(player.damageSources().indirectMagic(player, player), (float)(damage * falloff));
             add(target, MobEffects.WITHER, scaled(95, skill, 7), 1);
             add(target, MobEffects.WEAKNESS, scaled(80, skill, 6), 1);
             add(target, MobEffects.BLINDNESS, scaled(40, skill, 4), 0);
@@ -173,7 +173,7 @@ public class DemonicGhostSpell extends SpellEffect {
 
         double damage = calculateDamage(skill.getLevel(), skill.getProficiency());
         for (LivingEntity target : targets) {
-            target.hurt(player.damageSources().magic(), (float)damage);
+            target.hurt(player.damageSources().indirectMagic(player, player), (float)damage);
             add(target, MobEffects.WEAKNESS, scaled(90, skill, 7), 1);
             add(target, MobEffects.MOVEMENT_SLOWDOWN, scaled(55, skill, 5), 1);
         }
@@ -227,7 +227,7 @@ public class DemonicGhostSpell extends SpellEffect {
             if (away.lengthSqr() < 0.001D) {
                 away = player.getLookAngle();
             }
-            target.hurt(player.damageSources().magic(), (float)damage);
+            target.hurt(player.damageSources().indirectMagic(player, player), (float)damage);
             target.push(away.normalize().x * 0.72D, 0.18D, away.normalize().z * 0.72D);
             target.hasImpulse = true;
             add(target, MobEffects.MOVEMENT_SLOWDOWN, scaled(45, skill, 4), 1);
@@ -257,7 +257,7 @@ public class DemonicGhostSpell extends SpellEffect {
     }
 
     private static boolean canTarget(Entity entity, ServerPlayer player) {
-        return entity != player && entity instanceof LivingEntity living && living.isAlive() && !entity.isSpectator();
+        return canAffect(player, entity);
     }
 
     private static boolean canStandAt(ServerLevel level, BlockPos feet) {

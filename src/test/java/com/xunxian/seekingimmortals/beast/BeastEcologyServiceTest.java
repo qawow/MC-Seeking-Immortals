@@ -1,8 +1,11 @@
 package com.xunxian.seekingimmortals.beast;
 
+import com.xunxian.seekingimmortals.combat.status.StatusRegistry;
 import com.xunxian.seekingimmortals.worldpack.BeastSpawnTableService;
 import org.junit.jupiter.api.Test;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -88,7 +91,7 @@ class BeastEcologyServiceTest {
     }
 
     @Test
-    void bossCatalogAndStatusStubs() {
+    void bossCatalogUsesCanonicalStatusesAndIndependentCooldowns() {
         assertTrue(BeastBossService.size() >= 16);
         assertTrue(BeastBossService.find("blood_jiao_guardian").isPresent());
         assertTrue(BeastBossService.find("kunwu_puppet_king").isPresent());
@@ -97,12 +100,30 @@ class BeastEcologyServiceTest {
         assertTrue(BeastBossService.isKnownStatusId("burn"));
         assertTrue(BeastBossService.isKnownStatusId("soul_shock"));
         assertFalse(BeastBossService.isKnownStatusId("not_a_real_status"));
-        // M02 abstract effect types used by phases should be recognized.
-        for (var phase : def.phases()) {
-            assertTrue(com.xunxian.seekingimmortals.skill.effect.AbstractTechniqueEffectResolver
-                            .isAbstractTypeRegistered(phase.effectType())
-                            || !phase.effectType().isBlank());
+        for (var boss : BeastBossService.snapshot().byId().values()) {
+            for (var phase : boss.phases()) {
+                assertTrue(StatusRegistry.isKnown(phase.statusId()),
+                        boss.bossId() + " has unknown status " + phase.statusId());
+                assertEquals(StatusRegistry.definition(phase.statusId()).orElseThrow().beneficial(),
+                        BeastBossService.statusTargetsSelf(phase),
+                        boss.bossId() + " has wrong status recipient for " + phase.statusId());
+                assertTrue(com.xunxian.seekingimmortals.skill.effect.AbstractTechniqueEffectResolver
+                                .isAbstractTypeRegistered(phase.effectType())
+                                || !phase.effectType().isBlank());
+            }
         }
+        assertFalse(BeastBossService.isPhaseReady(79, 80));
+        assertTrue(BeastBossService.isPhaseReady(80, 80));
+        assertFalse(BeastBossService.isPhaseReady(159, 160));
+        assertTrue(BeastBossService.isPhaseReady(160, 160));
+    }
+
+    @Test
+    void bossStatusesKeepCasterWithoutPlayerRealmHitChecks() throws Exception {
+        Path sourcePath = Path.of("src", "main", "java", "com", "xunxian", "seekingimmortals",
+                "beast", "BeastBossService.java");
+        String source = Files.readString(sourcePath);
+        assertTrue(source.contains("StatusRegistry.applyGuaranteedStatus(statusTarget, mob"));
     }
 
     @Test

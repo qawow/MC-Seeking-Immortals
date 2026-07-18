@@ -50,7 +50,7 @@ public class ObjectControlSpell extends SpellEffect {
 
         if (target instanceof LivingEntity living) {
             double damage = calculateDamage(skill.getLevel(), skill.getProficiency());
-            living.hurt(player.damageSources().magic(), (float)damage);
+            living.hurt(player.damageSources().indirectMagic(player, player), (float)damage);
             living.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 70 + skill.getLevel() * 10, Math.max(0, skill.getLevel() / 5), false, true));
             living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40 + skill.getLevel() * 6, 0, false, true));
             level.sendParticles(ParticleTypes.END_ROD, living.getX(), living.getY() + living.getBbHeight() * 0.55D, living.getZ(),
@@ -74,7 +74,9 @@ public class ObjectControlSpell extends SpellEffect {
         Vec3 traceEnd = blockHit.getType() == HitResult.Type.MISS ? end : blockHit.getLocation();
         AABB searchBox = new AABB(start, traceEnd).inflate(1.0D);
         EntityHitResult entityHit = ProjectileUtil.getEntityHitResult(level, player, start, traceEnd, searchBox,
-                entity -> entity != player && entity.isAlive() && !entity.isSpectator() && (entity instanceof ItemEntity || entity instanceof LivingEntity));
+                entity -> entity instanceof ItemEntity
+                        ? entity.isAlive() && !entity.isSpectator()
+                        : canAffect(player, entity));
         return entityHit == null ? null : entityHit.getEntity();
     }
 

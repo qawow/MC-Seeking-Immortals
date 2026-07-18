@@ -65,14 +65,14 @@ public class ThunderStrikeSpell extends SpellEffect {
     private EntityHitResult findTarget(ServerLevel level, ServerPlayer player, Vec3 start, Vec3 traceEnd) {
         AABB searchBox = new AABB(start, traceEnd).inflate(1.25D);
         return ProjectileUtil.getEntityHitResult(level, player, start, traceEnd, searchBox,
-                entity -> entity != player && entity instanceof LivingEntity living && living.isAlive() && !entity.isSpectator());
+                entity -> canAffect(player, entity));
     }
 
     private int strikeTargets(ServerLevel level, ServerPlayer player, Vec3 center, LivingEntity directTarget,
                               double damage, CultivationSkill skill) {
         AABB area = new AABB(center, center).inflate(SPLASH_RADIUS, 1.75D, SPLASH_RADIUS);
         List<LivingEntity> targets = level.getEntitiesOfClass(LivingEntity.class, area,
-                entity -> entity.isAlive() && entity != player);
+                entity -> canAffect(player, entity));
         int hitCount = 0;
         for (LivingEntity target : targets) {
             double distance = Math.sqrt(target.distanceToSqr(center));
@@ -81,7 +81,7 @@ public class ThunderStrikeSpell extends SpellEffect {
             if (scaledDamage <= 0.0F) {
                 continue;
             }
-            target.hurt(player.damageSources().magic(), scaledDamage);
+            target.hurt(player.damageSources().indirectMagic(player, player), scaledDamage);
             target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 45 + skill.getLevel() * 4, 0, false, true));
             target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 50 + skill.getLevel() * 4, 0, false, true));
             hitCount++;

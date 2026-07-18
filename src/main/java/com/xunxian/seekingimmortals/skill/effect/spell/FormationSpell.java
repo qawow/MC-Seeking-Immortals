@@ -114,7 +114,7 @@ public class FormationSpell extends SpellEffect {
             double falloff = Math.max(0.42D, 1.0D - target.position().distanceTo(center) / (radius + 1.0D));
             double amount = damage * falloff * form.damageMultiplier(target);
             if (amount > 0.0D) {
-                target.hurt(player.damageSources().magic(), (float)amount);
+                target.hurt(player.damageSources().indirectMagic(player, player), (float)amount);
             }
             form.applyTarget(player, target, center, skill);
             hitCount++;
@@ -146,7 +146,7 @@ public class FormationSpell extends SpellEffect {
     }
 
     private static boolean canTarget(Entity entity, ServerPlayer player) {
-        return entity != player && entity instanceof LivingEntity living && living.isAlive() && !living.isSpectator();
+        return canAffect(player, entity);
     }
 
     private static int deflectProjectiles(ServerPlayer player, ServerLevel level, double radius) {

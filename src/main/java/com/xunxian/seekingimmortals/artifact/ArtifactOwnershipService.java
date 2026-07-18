@@ -111,16 +111,20 @@ public final class ArtifactOwnershipService {
         // 高阶古宝/灵宝必须先认主。
         ArtifactDataService.ArtifactDefinition def = ArtifactDataService.builtin()
                 .findArtifact(artifactId).orElse(null);
-        if (def != null && (def.gameTier() >= 9
-                || "ancient_treasure".equalsIgnoreCase(def.tier())
-                || "spirit_treasure".equalsIgnoreCase(def.tier())
-                || "legendary".equalsIgnoreCase(def.tier()))) {
+        if (requiresClaim(def)) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.artifact.claim.required",
                     def.display()), true);
             return false;
         }
         return true;
+    }
+
+    public static boolean requiresClaim(ArtifactDataService.ArtifactDefinition definition) {
+        return definition != null && (definition.gameTier() >= 9
+                || "ancient_treasure".equalsIgnoreCase(definition.tier())
+                || "spirit_treasure".equalsIgnoreCase(definition.tier())
+                || "legendary".equalsIgnoreCase(definition.tier()));
     }
 
     public static Optional<UUID> ownerUuid(ItemStack stack) {

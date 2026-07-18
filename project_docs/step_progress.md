@@ -1,3 +1,19 @@
+## 489. 2026-07-19 0.2.20 状态伤害与旅行权限深化
+
+  Step   Status   Notes
+  ---   ---   ---
+  Review scope   Done   延续 0.2.18 审查，复核目录旅行、持续飞行、M10 Boss、M14 状态生命周期、M02 状态生产、伤害来源/投射物管线与 M15 协同装备资格。
+  Subagent review   Done   5 名前置审计与 3 名 `gpt-5.6-sol` / `reasoning_effort=max` 补丁复审；有效发现已修，刻意的 Boss guaranteed-hit 与剩余数值风险已记录。
+  Backup   Done   55 个既有目标文件按相对路径备份至 `.bak/20260719_035714_0.2.19_status_damage_authority/`。
+  Travel/flight   Done   authored route 优先于 matrix，付费路线不再免费降级；跨维验收成功后才提交平台/返程点/冷却；未知维度清理模组飞行且不采样创造/旁观基线。
+  Status/Boss   Done   Boss canonical 状态、正确受术者/来源与独立 elapsed cooldown；状态真实返回、caster、抗性时长、0.99 命中上限和 emergency family 规则落地。
+  Producers/damage   Done   四个明确技能施加真实且同步时长的状态；技能/法宝伤害保留 caster；术法 PvP 目标门禁、投射物 PvP 结算/附效成功语义与 NBT 父类状态修复。
+  Artifact synergy   Done   仅扫描双手与 Curios；capability/境界、主人、认主、完整性失败关闭；本命零消耗不能绕过破损门禁。
+  Tests   Done   9 组聚焦测试通过；新增伤害来源、技能状态/时长、Boss/状态/路线/飞行/协同资格回归。
+  Version/protocol   Done   `mod_version` 0.2.18 -> 0.2.19；max 复审后的代码修复再推进至 0.2.20；`ModNetwork.PROTOCOL_VERSION` 保持 24，无包字段、顺序、编码、注册或通道行为变化。
+  Verification   Done   0.2.19 初次普通构建通过；复审修复后的同版本构建被指纹门禁正确阻止；0.2.20 普通 `./gradlew build` 通过。
+  Update note   Done   `project_docs/updates/20260719_0.2.20_status_damage_authority.md`
+
 ## 488. 2026-07-19 0.2.18 权限审查修复
 
   Step   Status   Notes

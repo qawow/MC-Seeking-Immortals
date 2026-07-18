@@ -63,7 +63,6 @@ public class CultivationFireballEntity extends Projectile {
         setElement(element);
         setPos(owner.getEyePosition().add(normalized.scale(0.8D)));
         setDeltaMovement(normalized.scale(speed));
-        getPersistentData().putBoolean("SeekingImmortalsProjectileDamage", true);
     }
 
     @Override
@@ -101,8 +100,8 @@ public class CultivationFireballEntity extends Projectile {
             return;
         }
 
-        target.hurt(level().damageSources().indirectMagic(this, owner), (float) damage);
-        if (target instanceof LivingEntity living) {
+        boolean damaged = target.hurt(level().damageSources().indirectMagic(this, owner), (float) damage);
+        if (damaged && target instanceof LivingEntity living) {
             getElement().applyDirectEffect(living);
         }
         applySplash(result.getLocation(), target);
@@ -129,8 +128,9 @@ public class CultivationFireballEntity extends Projectile {
             double falloff = Math.max(0.25D, 1.0D - distance / Math.max(0.1D, element.splashRadius));
             float splashDamage = (float) (damage * 0.35D * falloff);
             if (splashDamage > 0.0F) {
-                living.hurt(level().damageSources().indirectMagic(this, owner), splashDamage);
-                element.applySplashEffect(living);
+                if (living.hurt(level().damageSources().indirectMagic(this, owner), splashDamage)) {
+                    element.applySplashEffect(living);
+                }
             }
         }
     }
@@ -196,6 +196,7 @@ public class CultivationFireballEntity extends Projectile {
 
     @Override
     protected void readAdditionalSaveData(CompoundTag tag) {
+        super.readAdditionalSaveData(tag);
         if (tag.contains("Damage")) {
             damage = tag.getDouble("Damage");
         }
@@ -207,6 +208,7 @@ public class CultivationFireballEntity extends Projectile {
 
     @Override
     protected void addAdditionalSaveData(CompoundTag tag) {
+        super.addAdditionalSaveData(tag);
         tag.putDouble("Damage", damage);
         tag.putInt("Element", getElement().id);
         tag.putInt("Life", life);

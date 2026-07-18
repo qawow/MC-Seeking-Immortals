@@ -18,6 +18,7 @@ public class SeekingStatusEffect extends MobEffect {
     private final double tickHeal;
     private final int tickInterval;
     private final double movementMul;
+    private final double accuracyDelta;
     private final double outgoingDamageMul;
     private final double defenseMul;
     private final boolean blocksTechnique;
@@ -30,6 +31,7 @@ public class SeekingStatusEffect extends MobEffect {
                                double tickHeal,
                                int tickInterval,
                                double movementMul,
+                               double accuracyDelta,
                                double outgoingDamageMul,
                                double defenseMul,
                                boolean blocksTechnique,
@@ -40,6 +42,7 @@ public class SeekingStatusEffect extends MobEffect {
         this.tickHeal = tickHeal;
         this.tickInterval = Math.max(1, tickInterval);
         this.movementMul = movementMul;
+        this.accuracyDelta = accuracyDelta;
         this.outgoingDamageMul = outgoingDamageMul;
         this.defenseMul = defenseMul;
         this.blocksTechnique = blocksTechnique;
@@ -67,6 +70,10 @@ public class SeekingStatusEffect extends MobEffect {
 
     public double getOutgoingDamageMul() {
         return outgoingDamageMul <= 0.0D ? 1.0D : outgoingDamageMul;
+    }
+
+    public double getAccuracyDelta() {
+        return accuracyDelta;
     }
 
     public double getDefenseMul() {

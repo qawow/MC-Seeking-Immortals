@@ -68,7 +68,7 @@ public class DaoSpell extends SpellEffect {
         for (LivingEntity target : targets) {
             double falloff = Math.max(0.45D, 1.0D - target.position().distanceTo(center) / (radius + 1.2D));
             if (damage > 0.0D) {
-                target.hurt(player.damageSources().magic(), (float)(damage * falloff));
+                target.hurt(player.damageSources().indirectMagic(player, player), (float)(damage * falloff));
             }
             form.applyArea(target, center, skill);
             hitCount++;
@@ -96,7 +96,7 @@ public class DaoSpell extends SpellEffect {
         for (LivingEntity target : targets.stream().limit(4).toList()) {
             double distance = target.getEyePosition().distanceTo(start);
             double falloff = Math.max(0.62D, 1.0D - distance / (range * 1.8D));
-            target.hurt(player.damageSources().magic(), (float)(damage * falloff));
+            target.hurt(player.damageSources().indirectMagic(player, player), (float)(damage * falloff));
             form.applySingle(target, skill);
             hitCount++;
         }
@@ -117,7 +117,7 @@ public class DaoSpell extends SpellEffect {
 
         double damage = calculateDamage(skill.getLevel(), skill.getProficiency());
         if (damage > 0.0D) {
-            target.hurt(player.damageSources().magic(), (float)damage);
+            target.hurt(player.damageSources().indirectMagic(player, player), (float)damage);
         }
         form.applySingle(target, skill);
         Vec3 targetCenter = target.position().add(0.0D, target.getBbHeight() * 0.58D, 0.0D);
@@ -209,7 +209,7 @@ public class DaoSpell extends SpellEffect {
     }
 
     private static boolean canTarget(Entity entity, ServerPlayer player) {
-        return entity != player && entity instanceof LivingEntity living && living.isAlive() && !living.isSpectator();
+        return canAffect(player, entity);
     }
 
     private static double distanceToSegment(Vec3 point, Vec3 start, Vec3 line) {

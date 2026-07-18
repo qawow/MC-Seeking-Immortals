@@ -172,19 +172,16 @@ public final class DimensionTravelService {
         }
         String from = player.level().dimension().location().toString();
         String to = DimensionRegistryService.toMinecraftDimensionId(targetDimensionId);
+        Optional<RouteDef> route = findRouteFor(from, targetDimensionId, methodHint);
+        if (route.isPresent()) {
+            return travelByRoute(player, route.get().id());
+        }
         // forbid free client target unless matrix allows
         Optional<TravelMatrixEdge> edge = findMatrixEdge(from, targetDimensionId);
         if (edge.isEmpty()) {
-            // allow if a known route exists
-            Optional<RouteDef> route = findRouteFor(from, targetDimensionId, methodHint);
-            if (route.isEmpty()) {
-                player.displayClientMessage(Component.translatable(
-                        "message.seeking_immortals.dim_travel.not_allowed", to), false);
-                return false;
-            }
-            RouteDef r = route.get();
-            return travelInternal(player, r.fromDimension(), r.toDimension(), r.method(),
-                    r.realmMin(), r.oneWay(), r.gateId(), r.id());
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.dim_travel.not_allowed", to), false);
+            return false;
         }
         TravelMatrixEdge matrix = edge.get();
         if (isForbidden(matrix.allowed())) {
@@ -297,17 +294,27 @@ public final class DimensionTravelService {
         int z = 0;
         int y = target.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z) + 1;
         y = Math.max(target.getMinBuildHeight() + 2, Math.min(target.getMaxBuildHeight() - 2, y));
-        ensurePlatform(target, new BlockPos(x, y - 1, z));
 
+        String returnDimension = player.level().dimension().location().toString();
+        double returnX = player.getX();
+        double returnY = player.getY();
+        double returnZ = player.getZ();
+        float returnYRot = player.getYRot();
+        float returnXRot = player.getXRot();
+
+        player.teleportTo(target, x + 0.5D, y, z + 0.5D, player.getYRot(), player.getXRot());
+        if (player.level() != target) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.dim_travel.teleport_failed", targetId), false);
+            return false;
+        }
+        ensurePlatform(target, new BlockPos(x, y - 1, z));
         if (oneWay) {
             CultivationHelper.get(player).ifPresent(c -> c.clearWorldpackReturnLocation());
         } else {
             CultivationHelper.get(player).ifPresent(c -> c.setWorldpackReturnLocation(
-                    player.level().dimension().location().toString(),
-                    player.getX(), player.getY(), player.getZ(), player.getYRot(), player.getXRot()));
+                    returnDimension, returnX, returnY, returnZ, returnYRot, returnXRot));
         }
-
-        player.teleportTo(target, x + 0.5D, y, z + 0.5D, player.getYRot(), player.getXRot());
         setCooldown(player, routeKey, cooldownFor(method));
         RegionRegistry.resolveAndSync(player);
         FlyingAuthorityPolicy.onDimensionChanged(player, targetId);

@@ -20,6 +20,10 @@ public final class StatusRegistryTestSupport {
         return StatusRegistry.hidesRealmForEffects(activeEffects(statusIds));
     }
 
+    public static double accuracyDelta(String... statusIds) {
+        return StatusRegistry.accuracyDeltaForEffects(activeEffects(statusIds));
+    }
+
     private static List<SeekingStatusEffect> activeEffects(String... statusIds) {
         List<SeekingStatusEffect> effects = new ArrayList<>();
         if (statusIds == null) {
@@ -37,6 +41,7 @@ public final class StatusRegistryTestSupport {
                     0.0D,
                     20,
                     1.0D,
+                    def.accuracyDelta(),
                     def.outgoingDamageMul(),
                     1.0D,
                     def.blocksTechnique(),

@@ -57,7 +57,7 @@ public class SpiritFlameBeamSpell extends SpellEffect {
         for (LivingEntity target : targets) {
             double distanceAlong = target.position().subtract(start).dot(direction);
             double falloff = Math.max(0.58D, 1.0D - distanceAlong / (RANGE * 1.4D));
-            target.hurt(player.damageSources().magic(), (float)(damage * falloff));
+            target.hurt(player.damageSources().indirectMagic(player, player), (float)(damage * falloff));
             target.setSecondsOnFire(3);
             target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 70 + skill.getLevel() * 4, 0, false, true));
             hitCount++;
@@ -74,7 +74,7 @@ public class SpiritFlameBeamSpell extends SpellEffect {
         AABB box = new AABB(start, end).inflate(BEAM_RADIUS);
         Vec3 line = end.subtract(start);
         return level.getEntitiesOfClass(LivingEntity.class, box,
-                        entity -> entity != player && entity.isAlive() && !entity.isSpectator()
+                        entity -> canAffect(player, entity)
                                 && distanceToSegment(entity.position().add(0.0D, entity.getBbHeight() * 0.5D, 0.0D), start, line) <= BEAM_RADIUS)
                 .stream()
                 .sorted(Comparator.comparingDouble(entity -> entity.distanceToSqr(player)))

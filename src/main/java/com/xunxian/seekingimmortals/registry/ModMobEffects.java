@@ -35,6 +35,7 @@ public final class ModMobEffects {
                             def.tickHeal(),
                             def.tickInterval(),
                             def.movementMul(),
+                            def.accuracyDelta(),
                             def.outgoingDamageMul(),
                             def.defenseMul(),
                             def.blocksTechnique(),

@@ -142,7 +142,7 @@ public final class ArtifactActivationService {
         if (!repairActivation && info.integrityCost() > 0 && !player.getAbilities().instabuild) {
             int integrity = getIntegrity(stack, artifact);
             int effectiveCost = effectiveIntegrityCost(player, artifact, info);
-            if (!hasUsableIntegrity(integrity, effectiveCost, false)) {
+            if (!hasUsableIntegrity(integrity, info.integrityCost(), false)) {
                 player.displayClientMessage(Component.translatable(
                         "message.seeking_immortals.artifact.integrity_broken", stack.getHoverName()), true);
                 return false;
@@ -624,7 +624,7 @@ public final class ArtifactActivationService {
         Vec3 center = player.getEyePosition().add(player.getLookAngle().normalize().scale(3.5D));
         double damage = 4.0D + gameTier * 1.8D;
         affectArea(player, center, 3.6D + gameTier * 0.2D, living -> {
-            living.hurt(player.damageSources().magic(), (float) damage);
+            living.hurt(player.damageSources().indirectMagic(player, player), (float) damage);
             living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 220, 2, false, true));
             living.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 200, 1, false, true));
             living.addEffect(new MobEffectInstance(MobEffects.GLOWING, 140, 0, false, true));
@@ -655,7 +655,7 @@ public final class ArtifactActivationService {
         double radius = 4.8D + gameTier * 0.28D;
         double damage = 3.5D + gameTier * 1.5D;
         affectNearby(player, radius, living -> {
-            living.hurt(player.damageSources().magic(), (float) damage);
+            living.hurt(player.damageSources().indirectMagic(player, player), (float) damage);
             living.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 160, 0, false, true));
             living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 140, 1, false, true));
             living.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 120, 0, false, true));
@@ -671,7 +671,7 @@ public final class ArtifactActivationService {
         double radius = 5.0D + gameTier * 0.3D;
         double damage = 3.0D + gameTier * 1.35D;
         affectNearby(player, radius, living -> {
-            living.hurt(player.damageSources().magic(), (float) damage);
+            living.hurt(player.damageSources().indirectMagic(player, player), (float) damage);
             living.addEffect(new MobEffectInstance(MobEffects.POISON, 120 + gameTier * 10, 0, false, true));
             living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 180, 1, false, true));
             living.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 160, 0, false, true));
@@ -709,7 +709,7 @@ public final class ArtifactActivationService {
         double radius = 5.2D + gameTier * 0.35D;
         double damage = 3.0D + gameTier * 1.2D;
         affectArea(player, center, radius, living -> {
-            living.hurt(player.damageSources().magic(), (float) damage);
+            living.hurt(player.damageSources().indirectMagic(player, player), (float) damage);
             Vec3 pull = center.subtract(living.position());
             if (pull.lengthSqr() > 0.04D) {
                 living.setDeltaMovement(living.getDeltaMovement()
@@ -736,7 +736,7 @@ public final class ArtifactActivationService {
         player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100 + gameTier * 8, 0, false, true));
         player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, duration, Math.max(1, gameTier / 4), false, true));
         affectNearby(player, radius, living -> {
-            living.hurt(player.damageSources().magic(), (float) (2.0D + gameTier * 0.9D));
+            living.hurt(player.damageSources().indirectMagic(player, player), (float) (2.0D + gameTier * 0.9D));
             living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 1, false, true));
             living.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 120, 0, false, true));
             living.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 160, 0, false, true));
@@ -784,7 +784,7 @@ public final class ArtifactActivationService {
         Vec3 center = player.getEyePosition().add(player.getLookAngle().normalize().scale(4.0D));
         double damage = 5.0D + gameTier * 2.2D;
         affectArea(player, center, 3.2D + gameTier * 0.25D, living -> {
-            living.hurt(player.damageSources().magic(), (float) damage);
+            living.hurt(player.damageSources().indirectMagic(player, player), (float) damage);
             living.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 180, 1, false, true));
             living.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 100, 0, false, true));
             living.addEffect(new MobEffectInstance(MobEffects.GLOWING, 100, 0, false, true));
@@ -800,7 +800,7 @@ public final class ArtifactActivationService {
         double radius = 5.5D + gameTier * 0.35D;
         double damage = 2.0D + gameTier * 0.8D;
         affectNearby(player, radius, living -> {
-            living.hurt(player.damageSources().magic(), (float) damage);
+            living.hurt(player.damageSources().indirectMagic(player, player), (float) damage);
             living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 220, 2, false, true));
             living.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 180, 1, false, true));
             living.addEffect(new MobEffectInstance(MobEffects.GLOWING, 120, 0, false, true));
@@ -865,7 +865,7 @@ public final class ArtifactActivationService {
         double radius = 3.8D + gameTier * 0.28D;
         double damage = 3.0D + gameTier * 1.15D;
         affectArea(player, center, radius, living -> {
-            living.hurt(player.damageSources().magic(), (float) damage);
+            living.hurt(player.damageSources().indirectMagic(player, player), (float) damage);
             Vec3 pull = center.subtract(living.position());
             if (pull.lengthSqr() > 0.04D) {
                 living.setDeltaMovement(living.getDeltaMovement()
@@ -948,7 +948,7 @@ public final class ArtifactActivationService {
             double damage = 6.0D + artifact.gameTier() * 3.0D;
             affectNearby(player, 7.0D, living -> {
                 if (living instanceof Monster) {
-                    living.hurt(player.damageSources().magic(), (float) damage);
+                    living.hurt(player.damageSources().indirectMagic(player, player), (float) damage);
                     living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 240, 3, false, true));
                     living.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 240, 2, false, true));
                     living.addEffect(new MobEffectInstance(MobEffects.GLOWING, 180, 0, false, true));

@@ -68,7 +68,7 @@ public class SecretElementalSpell extends SpellEffect {
         for (LivingEntity target : targets) {
             double distanceAlong = target.position().subtract(start).dot(direction);
             double falloff = Math.max(0.55D, 1.0D - distanceAlong / (range * 1.35D));
-            target.hurt(player.damageSources().magic(), (float)(damage * falloff * element.damageMultiplier(target)));
+            target.hurt(player.damageSources().indirectMagic(player, player), (float)(damage * falloff * element.damageMultiplier(target)));
             element.applyEffects(target, skill);
             hitCount++;
         }
@@ -94,7 +94,7 @@ public class SecretElementalSpell extends SpellEffect {
         for (LivingEntity target : targets) {
             double distance = target.position().distanceTo(center);
             double falloff = Math.max(0.48D, 1.0D - distance / (radius + 0.85D));
-            target.hurt(player.damageSources().magic(), (float)(damage * falloff * element.damageMultiplier(target)));
+            target.hurt(player.damageSources().indirectMagic(player, player), (float)(damage * falloff * element.damageMultiplier(target)));
             element.applyEffects(target, skill);
             hitCount++;
         }
@@ -120,7 +120,7 @@ public class SecretElementalSpell extends SpellEffect {
         double maxDistance = radius + 0.8D;
         AABB area = new AABB(center, center).inflate(maxDistance, 2.4D, maxDistance);
         return level.getEntitiesOfClass(LivingEntity.class, area,
-                        entity -> entity != player && entity.isAlive() && !entity.isSpectator()
+                        entity -> canAffect(player, entity)
                                 && entity.position().distanceToSqr(center) <= maxDistance * maxDistance)
                 .stream()
                 .sorted(Comparator.comparingDouble(entity -> entity.distanceToSqr(center)))
@@ -131,7 +131,7 @@ public class SecretElementalSpell extends SpellEffect {
         AABB box = new AABB(start, end).inflate(radius);
         Vec3 line = end.subtract(start);
         return level.getEntitiesOfClass(LivingEntity.class, box,
-                        entity -> entity != player && entity.isAlive() && !entity.isSpectator()
+                        entity -> canAffect(player, entity)
                                 && distanceToSegment(entity.position().add(0.0D, entity.getBbHeight() * 0.5D, 0.0D), start, line) <= radius)
                 .stream()
                 .sorted(Comparator.comparingDouble(entity -> entity.distanceToSqr(player)))

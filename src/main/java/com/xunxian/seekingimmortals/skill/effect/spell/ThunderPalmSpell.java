@@ -43,7 +43,7 @@ public class ThunderPalmSpell extends SpellEffect {
         }
 
         double damage = calculateDamage(skill.getLevel(), skill.getProficiency());
-        target.hurt(player.damageSources().magic(), (float)damage);
+        target.hurt(player.damageSources().indirectMagic(player, player), (float)damage);
         target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 50 + skill.getLevel() * 4, 1, false, true));
         target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 45 + skill.getLevel() * 4, 0, false, true));
         spawnPalmArc(level, player.getEyePosition().subtract(0.0D, 0.35D, 0.0D),
@@ -73,7 +73,7 @@ public class ThunderPalmSpell extends SpellEffect {
     }
 
     private boolean canTarget(Entity entity, ServerPlayer player) {
-        return entity != player && entity instanceof LivingEntity living && living.isAlive() && !entity.isSpectator();
+        return canAffect(player, entity);
     }
 
     private void spawnPalmArc(ServerLevel level, Vec3 start, Vec3 end) {

@@ -53,7 +53,7 @@ public class ElementalAreaSpell extends SpellEffect {
         for (LivingEntity target : targets) {
             double distance = target.position().distanceTo(center);
             double falloff = Math.max(0.42D, 1.0D - distance / (radius + 0.5D));
-            target.hurt(player.damageSources().magic(), (float)(damage * falloff));
+            target.hurt(player.damageSources().indirectMagic(player, player), (float)(damage * falloff));
             element.applyEffects(target, skill);
             hitCount++;
         }
@@ -78,7 +78,7 @@ public class ElementalAreaSpell extends SpellEffect {
     private List<LivingEntity> findTargets(ServerLevel level, ServerPlayer player, Vec3 center) {
         AABB area = new AABB(center, center).inflate(radius, 1.75D, radius);
         return level.getEntitiesOfClass(LivingEntity.class, area,
-                        entity -> entity != player && entity.isAlive() && !entity.isSpectator()
+                        entity -> canAffect(player, entity)
                                 && entity.position().distanceToSqr(center) <= (radius + entity.getBbWidth()) * (radius + entity.getBbWidth()))
                 .stream()
                 .sorted(Comparator.comparingDouble(entity -> entity.distanceToSqr(center)))

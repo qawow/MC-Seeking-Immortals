@@ -35,8 +35,6 @@ public class SwordProjectileEntity extends Projectile {
         this.slowsTarget = slowsTarget;
         setPos(owner.getEyePosition().add(direction.normalize().scale(0.7D)));
         setDeltaMovement(direction.normalize().scale(1.25D));
-        // H9: 标记弹射物来源，防止 onLivingHurt PvP 分支二次重算/吞伤害
-        getPersistentData().putBoolean("SeekingImmortalsProjectileDamage", true);
     }
 
     @Override
@@ -67,8 +65,8 @@ public class SwordProjectileEntity extends Projectile {
         Entity target = result.getEntity();
         Entity owner = getOwner();
         if (target == owner) return;
-        target.hurt(level().damageSources().indirectMagic(this, owner), (float) damage);
-        if (slowsTarget && target instanceof LivingEntity living) {
+        boolean damaged = target.hurt(level().damageSources().indirectMagic(this, owner), (float) damage);
+        if (damaged && slowsTarget && target instanceof LivingEntity living) {
             living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 1));
         }
         discard();
@@ -84,6 +82,7 @@ public class SwordProjectileEntity extends Projectile {
 
     @Override
     protected void readAdditionalSaveData(CompoundTag tag) {
+        super.readAdditionalSaveData(tag);
         damage = tag.getDouble("Damage");
         slowsTarget = tag.getBoolean("SlowsTarget");
         life = tag.getInt("Life");
@@ -91,6 +90,7 @@ public class SwordProjectileEntity extends Projectile {
 
     @Override
     protected void addAdditionalSaveData(CompoundTag tag) {
+        super.addAdditionalSaveData(tag);
         tag.putDouble("Damage", damage);
         tag.putBoolean("SlowsTarget", slowsTarget);
         tag.putInt("Life", life);

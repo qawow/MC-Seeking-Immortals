@@ -5,6 +5,9 @@ import com.xunxian.seekingimmortals.skill.CultivationSkill;
 import com.xunxian.seekingimmortals.skill.effect.SkillContext;
 import com.xunxian.seekingimmortals.skill.effect.SkillEffect;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 
 public abstract class SpellEffect implements SkillEffect {
     protected final int baseSpiritualPowerCost;
@@ -31,5 +34,13 @@ public abstract class SpellEffect implements SkillEffect {
         double levelMultiplier = 1.0 + skillLevel * 0.15;
         double proficiencyMultiplier = 1.0 + proficiency / 10000.0;
         return baseDamage * levelMultiplier * proficiencyMultiplier;
+    }
+
+    protected static boolean canAffect(ServerPlayer caster, Entity entity) {
+        if (caster == null || entity == caster || !(entity instanceof LivingEntity living)
+                || !living.isAlive() || entity.isSpectator()) {
+            return false;
+        }
+        return !(living instanceof Player targetPlayer) || caster.canHarmPlayer(targetPlayer);
     }
 }

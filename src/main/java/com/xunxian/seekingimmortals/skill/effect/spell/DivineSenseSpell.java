@@ -147,7 +147,7 @@ public class DivineSenseSpell extends SpellEffect {
 
         double damage = calculateDamage(skill.getLevel(), skill.getProficiency());
         if (damage > 0.0D) {
-            target.hurt(player.damageSources().magic(), (float)(damage * form.damageMultiplier(target)));
+            target.hurt(player.damageSources().indirectMagic(player, player), (float)(damage * form.damageMultiplier(target)));
         }
         form.applySingleEffects(player, target, skill);
         form.spawnSingle(level, player.getEyePosition(), target.position().add(0.0D, target.getBbHeight() * 0.58D, 0.0D));
@@ -170,7 +170,7 @@ public class DivineSenseSpell extends SpellEffect {
         for (LivingEntity target : targets) {
             double falloff = Math.max(0.48D, 1.0D - target.position().distanceTo(center) / (radius + 0.85D));
             if (damage > 0.0D) {
-                target.hurt(player.damageSources().magic(), (float)(damage * falloff * form.damageMultiplier(target)));
+                target.hurt(player.damageSources().indirectMagic(player, player), (float)(damage * falloff * form.damageMultiplier(target)));
             }
             form.applyAreaEffects(player, target, center, skill);
             hitCount++;
@@ -205,7 +205,7 @@ public class DivineSenseSpell extends SpellEffect {
         for (LivingEntity target : targets) {
             double along = target.position().subtract(start).dot(direction);
             double falloff = Math.max(0.52D, 1.0D - along / (range * 1.30D));
-            target.hurt(player.damageSources().magic(), (float)(damage * falloff * form.damageMultiplier(target)));
+            target.hurt(player.damageSources().indirectMagic(player, player), (float)(damage * falloff * form.damageMultiplier(target)));
             form.applyAreaEffects(player, target, target.position(), skill);
             hitCount++;
         }
@@ -258,7 +258,7 @@ public class DivineSenseSpell extends SpellEffect {
     }
 
     private boolean canTarget(Entity entity, ServerPlayer player) {
-        return entity != player && entity instanceof LivingEntity living && living.isAlive() && !living.isSpectator();
+        return canAffect(player, entity);
     }
 
     private double distanceToSegment(Vec3 point, Vec3 start, Vec3 line) {

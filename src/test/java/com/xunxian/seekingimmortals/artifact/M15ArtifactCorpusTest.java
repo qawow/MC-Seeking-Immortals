@@ -4,6 +4,8 @@ import com.xunxian.seekingimmortals.cultivation.Realm;
 import com.xunxian.seekingimmortals.item.FlyingArtifactItem;
 import org.junit.jupiter.api.Test;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -132,6 +134,38 @@ class M15ArtifactCorpusTest {
         assertEquals(Realm.CORE_FORMATION, ArtifactOwnershipService.SPIRIT_AWAKEN_REALM);
         assertEquals(9, ArtifactOwnershipService.MAX_REFINEMENT_LAYER);
         assertEquals("SeekingImmortalsArtifactOwner", ArtifactOwnershipService.OWNER_UUID_TAG);
+    }
+
+    @Test
+    void synergyRejectsUnequippableOrBrokenArtifacts() {
+        assertTrue(ArtifactSynergyService.isEligibleForSynergy(
+                false, true, false, false, 100, 2, 2));
+        assertFalse(ArtifactSynergyService.isEligibleForSynergy(
+                false, false, true, false, 100, 2, 2));
+        assertFalse(ArtifactSynergyService.isEligibleForSynergy(
+                false, true, false, true, 100, 8, 8));
+        assertFalse(ArtifactSynergyService.isEligibleForSynergy(
+                false, true, true, true, 0, 8, 8));
+        assertFalse(ArtifactSynergyService.isEligibleForSynergy(
+                false, true, true, true, 100, 1, 2));
+        assertFalse(ArtifactSynergyService.isEligibleForSynergy(
+                false, true, false, false, 100, -1, 0));
+        assertTrue(ArtifactSynergyService.isEligibleForSynergy(
+                true, false, false, true, 0, 0, 10));
+    }
+
+    @Test
+    void runtimeSynergyScansOnlyEquippedUsableArtifacts() throws Exception {
+        Path sourcePath = Path.of("src", "main", "java", "com", "xunxian", "seekingimmortals",
+                "artifact", "ArtifactSynergyService.java");
+        String source = Files.readString(sourcePath);
+        assertTrue(source.contains("player.getMainHandItem()"));
+        assertTrue(source.contains("player.getOffhandItem()"));
+        assertTrue(source.contains("CuriosApi.getCuriosInventory(player)"));
+        assertFalse(source.contains("player.getInventory().items"));
+
+        String activation = Files.readString(sourcePath.resolveSibling("ArtifactActivationService.java"));
+        assertTrue(activation.contains("hasUsableIntegrity(integrity, info.integrityCost(), false)"));
     }
 
     @Test

@@ -64,7 +64,7 @@ public class TargetedDebuffSpell extends SpellEffect {
 
         double damage = calculateDamage(skill.getLevel(), skill.getProficiency());
         if (damage > 0.0D) {
-            target.hurt(player.damageSources().magic(), (float)damage);
+            target.hurt(player.damageSources().indirectMagic(player, player), (float)damage);
         }
         applyEffect(target, primaryEffect, primaryDurationTicks, primaryAmplifier, skill);
         applyEffect(target, secondaryEffect, secondaryDurationTicks, secondaryAmplifier, skill);
@@ -97,7 +97,7 @@ public class TargetedDebuffSpell extends SpellEffect {
     }
 
     private boolean canTarget(Entity entity, ServerPlayer player) {
-        return entity != player && entity instanceof LivingEntity living && living.isAlive() && !entity.isSpectator();
+        return canAffect(player, entity);
     }
 
     private static void applyEffect(LivingEntity target, MobEffect effect, int durationTicks, int amplifier, CultivationSkill skill) {

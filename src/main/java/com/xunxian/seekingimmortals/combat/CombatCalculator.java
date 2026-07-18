@@ -1,5 +1,6 @@
 package com.xunxian.seekingimmortals.combat;
 
+import com.xunxian.seekingimmortals.combat.status.StatusRegistry;
 import com.xunxian.seekingimmortals.cultivation.CultivationProvider;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -55,7 +56,8 @@ public class CombatCalculator {
         CombatStats defenseStats = defenderStats.get();
 
         // 1. 命中判定
-        if (rng.nextDouble() > attack.getAccuracy()) {
+        double accuracy = adjustedAccuracy(attack.getAccuracy(), StatusRegistry.accuracyDelta(attacker));
+        if (rng.nextDouble() > accuracy) {
             DamageResult miss = new DamageResult(0, false, false, true, pipelineBase, 0);
             pre.setMissed(true);
             pre.setAmount(0);
@@ -106,6 +108,10 @@ public class CombatCalculator {
         }
         return player.getCapability(CultivationProvider.CULTIVATION)
             .map(CombatStats::new);
+    }
+
+    static double adjustedAccuracy(double baseAccuracy, double statusDelta) {
+        return Math.max(0.05D, Math.min(0.99D, baseAccuracy + statusDelta));
     }
 
     /**

@@ -4,6 +4,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
+import com.xunxian.seekingimmortals.combat.status.StatusCatalogService;
+import com.xunxian.seekingimmortals.combat.status.StatusRegistry;
 import com.xunxian.seekingimmortals.entity.SummonedServitorEntity;
 import com.xunxian.seekingimmortals.skill.effect.AbstractTechniqueEffectResolver;
 import com.xunxian.seekingimmortals.worldpack.BossEncounterService;
@@ -17,7 +19,6 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
-
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -33,19 +34,14 @@ import java.util.Optional;
 
 /**
  * M10: secret-realm boss supply — entity registration via SummonedServitor shells + phased skills.
- * Skill effect types reference M02 abstract effect ids; status ids are M14 stubs until StatusRegistry lands.
+ * Skill effect types reference M02 abstract effect ids; status application is routed through M14.
  */
 public final class BeastBossService {
     private static final String PHASE_TAG = "seeking_immortals_boss_phase";
     private static final String PHASE_TICK = "seeking_immortals_boss_phase_tick";
     private static final Snapshot SNAPSHOT = load();
 
-    /** M14 status id stubs (string-stable for cross-module). */
-    public static final List<String> STATUS_ID_STUBS = List.of(
-            "burn", "frozen", "soul_shock", "illusion", "karma", "demonic_qi",
-            "foundation_unstable", "marrow_drain", "seal_nascent", "conceal_qi",
-            "bleed", "poison", "paralyze", "fear", "suppress", "rage",
-            "shield", "regen", "haste", "slow");
+    public static final List<String> STATUS_ID_STUBS = List.copyOf(StatusRegistry.allIds());
 
     private BeastBossService() {}
 
@@ -90,7 +86,7 @@ public final class BeastBossService {
         if (statusId == null || statusId.isBlank()) {
             return false;
         }
-        return STATUS_ID_STUBS.contains(statusId.trim().toLowerCase(Locale.ROOT));
+        return StatusRegistry.isKnown(statusId);
     }
 
     /**
@@ -134,7 +130,7 @@ public final class BeastBossService {
 
     /**
      * Tick phased skills for a boss shell. Safe no-op for non-bosses.
-     * Uses M02 abstract effect type names as skill labels + M14 status stubs applied via vanilla proxies.
+     * Uses M02 abstract effect type names as skill labels and M14 status ids for runtime effects.
      */
     public static void tickBossSkills(Mob mob) {
         if (mob == null || mob.level().isClientSide || !BossEncounterService.isBossMob(mob)) {
@@ -145,33 +141,42 @@ public final class BeastBossService {
         if (def.isEmpty() || def.get().phases().isEmpty()) {
             return;
         }
-        int tick = mob.getPersistentData().getInt(PHASE_TICK) + 1;
-        mob.getPersistentData().putInt(PHASE_TICK, tick);
-        int phaseIndex = mob.getPersistentData().getInt(PHASE_TAG);
-        List<PhaseSkill> phases = def.get().phases();
-        PhaseSkill skill = phases.get(Math.floorMod(phaseIndex, phases.size()));
-        int cd = Math.max(40, skill.cooldownTicks());
-        if (tick % cd != 0) {
-            return;
-        }
-        // Advance phase on each cast.
-        mob.getPersistentData().putInt(PHASE_TAG, (phaseIndex + 1) % phases.size());
-        applyPhaseSkill(mob, skill);
-    }
-
-    private static void applyPhaseSkill(Mob mob, PhaseSkill skill) {
-        // M02 abstract effect type is recorded; runtime uses vanilla proxies until full M02 cast pipeline for mobs.
-        String type = skill.effectType() == null ? "aoe" : skill.effectType().toLowerCase(Locale.ROOT);
-        boolean known = AbstractTechniqueEffectResolver.isAbstractTypeRegistered(type);
         LivingEntity target = mob.getTarget();
         if (target == null || !target.isAlive()) {
             return;
         }
-        // Status stub → vanilla effect proxy (M14 will replace with StatusRegistry).
-        applyStatusStub(target, skill.statusId());
+        int tick = mob.getPersistentData().getInt(PHASE_TICK) + 1;
+        int phaseIndex = mob.getPersistentData().getInt(PHASE_TAG);
+        List<PhaseSkill> phases = def.get().phases();
+        PhaseSkill skill = phases.get(Math.floorMod(phaseIndex, phases.size()));
+        if (!isPhaseReady(tick, skill.cooldownTicks())) {
+            mob.getPersistentData().putInt(PHASE_TICK, tick);
+            return;
+        }
+        if (applyPhaseSkill(mob, target, skill)) {
+            mob.getPersistentData().putInt(PHASE_TAG, (phaseIndex + 1) % phases.size());
+            mob.getPersistentData().putInt(PHASE_TICK, 0);
+        }
+    }
+
+    static boolean isPhaseReady(int elapsedTicks, int cooldownTicks) {
+        return elapsedTicks >= Math.max(40, cooldownTicks);
+    }
+
+    static boolean statusTargetsSelf(PhaseSkill skill) {
+        return skill != null && StatusRegistry.definition(skill.statusId())
+                .map(StatusCatalogService.StatusDefinition::beneficial)
+                .orElse(false);
+    }
+
+    private static boolean applyPhaseSkill(Mob mob, LivingEntity target, PhaseSkill skill) {
+        String type = skill.effectType() == null ? "aoe" : skill.effectType().toLowerCase(Locale.ROOT);
+        boolean known = AbstractTechniqueEffectResolver.isAbstractTypeRegistered(type);
+        LivingEntity statusTarget = statusTargetsSelf(skill) ? mob : target;
+        StatusRegistry.applyGuaranteedStatus(statusTarget, mob, skill.statusId(), 0, 0);
         switch (type) {
             case "aoe", "aoe_dot", "field", "domain" -> {
-                target.hurt(mob.damageSources().magic(), 4.0F);
+                target.hurt(mob.damageSources().indirectMagic(mob, mob), 4.0F);
                 target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 0));
             }
             case "projectile", "beam", "strike", "melee" -> target.hurt(mob.damageSources().mobAttack(mob), 6.0F);
@@ -179,40 +184,16 @@ public final class BeastBossService {
             case "buff_self", "buff", "rage" -> mob.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 80, 0));
             case "heal", "heal_spirit", "regen" -> mob.heal(6.0F);
             case "soul_attack", "drain" -> {
-                target.hurt(mob.damageSources().magic(), 5.0F);
+                target.hurt(mob.damageSources().indirectMagic(mob, mob), 5.0F);
                 mob.heal(2.0F);
             }
             default -> {
                 if (known) {
-                    target.hurt(mob.damageSources().magic(), 3.0F);
+                    target.hurt(mob.damageSources().indirectMagic(mob, mob), 3.0F);
                 }
             }
         }
-    }
-
-    /** M14 status id stub application via vanilla proxies. */
-    public static void applyStatusStub(LivingEntity target, String statusId) {
-        if (target == null || statusId == null || statusId.isBlank()) {
-            return;
-        }
-        String id = statusId.trim().toLowerCase(Locale.ROOT);
-        switch (id) {
-            case "burn" -> target.setSecondsOnFire(4);
-            case "frozen", "slow" -> target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 1));
-            case "poison", "marrow_drain" -> target.addEffect(new MobEffectInstance(MobEffects.POISON, 60, 0));
-            case "bleed" -> target.addEffect(new MobEffectInstance(MobEffects.WITHER, 40, 0));
-            case "fear", "soul_shock" -> target.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 40, 0));
-            case "paralyze", "seal_nascent", "suppress" -> target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 2));
-            case "illusion" -> target.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 60, 0));
-            case "demonic_qi", "karma", "foundation_unstable" -> target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 80, 0));
-            case "shield" -> target.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 80, 0));
-            case "regen" -> target.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 60, 0));
-            case "haste", "rage" -> target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 60, 0));
-            case "conceal_qi" -> target.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 40, 0));
-            default -> {
-                // unknown stub — no-op
-            }
-        }
+        return true;
     }
 
     /**
@@ -276,8 +257,8 @@ public final class BeastBossService {
         List<PhaseSkill> list = new ArrayList<>();
         String key = bossId == null ? "" : bossId;
         if (key.contains("puppet")) {
-            list.add(new PhaseSkill("melee", "suppress", 80, "puppet smash"));
-            list.add(new PhaseSkill("aoe", "slow", 100, "gear shockwave"));
+            list.add(new PhaseSkill("melee", "stun", 80, "puppet smash"));
+            list.add(new PhaseSkill("aoe", "array_bind", 100, "gear shockwave"));
             list.add(new PhaseSkill("buff_self", "shield", 160, "iron shell"));
         } else if (key.contains("ghost") || key.contains("yin") || key.contains("nether")) {
             list.add(new PhaseSkill("soul_attack", "soul_shock", 70, "ghost wail"));
@@ -286,15 +267,15 @@ public final class BeastBossService {
         } else if (key.contains("jiao") || key.contains("dragon") || key.contains("blood")) {
             list.add(new PhaseSkill("projectile", "bleed", 60, "blood lance"));
             list.add(new PhaseSkill("aoe_dot", "burn", 100, "blood miasma"));
-            list.add(new PhaseSkill("rage", "rage", 140, "berserk"));
+            list.add(new PhaseSkill("rage", "berserk", 140, "berserk"));
         } else if (key.contains("ice") || key.contains("moon") || key.contains("guanghan")) {
             list.add(new PhaseSkill("beam", "frozen", 80, "frost beam"));
-            list.add(new PhaseSkill("field", "slow", 120, "ice field"));
-            list.add(new PhaseSkill("control", "paralyze", 100, "shatter lock"));
+            list.add(new PhaseSkill("field", "frozen", 120, "ice field"));
+            list.add(new PhaseSkill("control", "stun", 100, "shatter lock"));
         } else {
             list.add(new PhaseSkill("strike", "bleed", 70, "opening strike"));
             list.add(new PhaseSkill("aoe", tier >= 10 ? "demonic_qi" : "poison", 100, "pressure wave"));
-            list.add(new PhaseSkill("ultimate", "suppress", 160, "domain crush"));
+            list.add(new PhaseSkill("ultimate", "seal_nascent", 160, "domain crush"));
         }
         return List.copyOf(list);
     }

@@ -82,7 +82,7 @@ public class ConfucianSpell extends SpellEffect {
         }
 
         double damage = calculateDamage(skill.getLevel(), skill.getProficiency());
-        target.hurt(player.damageSources().magic(), (float)(damage * form.damageMultiplier(target)));
+        target.hurt(player.damageSources().indirectMagic(player, player), (float)(damage * form.damageMultiplier(target)));
         form.applyTarget(player, target, target.position(), skill);
         form.spawnSingle(level, player.getEyePosition(), target.position().add(0.0D, target.getBbHeight() * 0.58D, 0.0D));
         play(level, form, target.blockPosition());
@@ -106,7 +106,7 @@ public class ConfucianSpell extends SpellEffect {
         for (LivingEntity target : targets.stream().limit(form == ConfucianForm.SCROLL_STRIKE ? 4 : 5).toList()) {
             double distance = target.getEyePosition().distanceTo(start);
             double falloff = Math.max(0.58D, 1.0D - distance / (range * 1.65D));
-            target.hurt(player.damageSources().magic(), (float)(damage * falloff * form.damageMultiplier(target)));
+            target.hurt(player.damageSources().indirectMagic(player, player), (float)(damage * falloff * form.damageMultiplier(target)));
             form.applyTarget(player, target, player.position(), skill);
             hitCount++;
         }
@@ -131,7 +131,7 @@ public class ConfucianSpell extends SpellEffect {
         int hitCount = 0;
         for (LivingEntity target : targets.stream().limit(9).toList()) {
             double falloff = Math.max(0.44D, 1.0D - target.position().distanceTo(center) / (radius + 1.0D));
-            target.hurt(player.damageSources().magic(), (float)(damage * falloff));
+            target.hurt(player.damageSources().indirectMagic(player, player), (float)(damage * falloff));
             form.applyTarget(player, target, center, skill);
             hitCount++;
         }
@@ -184,7 +184,7 @@ public class ConfucianSpell extends SpellEffect {
     }
 
     private static boolean canTarget(Entity entity, ServerPlayer player) {
-        return entity != player && entity instanceof LivingEntity living && living.isAlive() && !living.isSpectator();
+        return canAffect(player, entity);
     }
 
     private static double distanceToSegment(Vec3 point, Vec3 start, Vec3 line) {
