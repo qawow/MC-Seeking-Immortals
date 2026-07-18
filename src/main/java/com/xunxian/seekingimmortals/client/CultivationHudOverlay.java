@@ -19,8 +19,6 @@ import java.util.Locale;
 public final class CultivationHudOverlay {
     private static final int PADDING_X = 2;
     private static final int PADDING_Y = 2;
-    private static final int QI_DEV_WARN_THRESHOLD = 50;
-    private static final int QI_DEV_DANGER_THRESHOLD = 70;
 
     private CultivationHudOverlay() {}
 
@@ -96,14 +94,12 @@ public final class CultivationHudOverlay {
 
     private static String coreLine(ClientCultivationData.Snapshot data) {
         int qiRisk = data.qiDevRisk();
-        return "神识 " + shortNumber(data.divSense()) + "  走火 " + qiRisk + "%" + (qiRisk >= QI_DEV_DANGER_THRESHOLD ? " 高危" : "");
+        return "神识 " + shortNumber(data.divSense()) + "  走火 " + qiRisk + "%"
+                + (qiRisk >= ImmortalUiSkin.QI_DEV_DANGER_THRESHOLD ? " 高危" : "");
     }
 
     private static int coreLineColor(ClientCultivationData.Snapshot data) {
-        int qiRisk = data.qiDevRisk();
-        if (qiRisk >= QI_DEV_DANGER_THRESHOLD) return ImmortalUiSkin.JOURNAL_CINNABAR_BRIGHT;
-        if (qiRisk >= QI_DEV_WARN_THRESHOLD) return ImmortalUiSkin.JOURNAL_WARNING;
-        return ImmortalUiSkin.JOURNAL_JADE_TEXT;
+        return ImmortalUiSkin.qiDevRiskColor(data.qiDevRisk(), ImmortalUiSkin.JOURNAL_JADE_TEXT);
     }
 
     private static String advancementLine(ClientCultivationData.Snapshot data) {

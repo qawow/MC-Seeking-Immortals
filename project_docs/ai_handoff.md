@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-18: `0.2.17` 四材气候 hardening。走火阈值与字色 helper 收拢到 `ImmortalUiSkin.qiDevRiskColor`（50/70）；Stats/HUD 共用；新增 `UiClimateStackTest` 覆盖 push/pop/withClimate 色板重绑与阈值。Layout/发包契约不变。mod_version 0.2.17；protocol 保持 24。Details: project_docs/updates/20260718_0.2.17_climate_harden.md.
+
 > CURRENT TRUTH 2026-07-18: `0.2.16` 四材分层残留收口。Stats/MethodTree 静态色别名改实时 `JOURNAL_*` 读，气候栈切换后不再冻结竹简色；突破钮 `ImmortalButton.danger` 叠朱砂危签；走火风险 ≥70 朱砂 / >0 琥珀分层。Layout/发包契约不变。mod_version 0.2.16；protocol 保持 24。Details: project_docs/updates/20260718_0.2.16_layered_climate_polish.md.
 
 > CURRENT TRUTH 2026-07-18: `0.2.15` 四材分层问道录气候内核。`UiClimate` 四材色板 + `ImmortalUiSkin` push/pop 气候栈；抽象壳 `defaultClimate` 语义路由（修炼玉简 / 杂务竹简 / 坊市暖漆 / 危签叠加）；HUD 四层强制玉简；漆木 grain 贴图。Layout/发包契约不变。mod_version 0.2.15；protocol 保持 24。Details: project_docs/updates/20260718_0.2.15_layered_climate_ui.md.

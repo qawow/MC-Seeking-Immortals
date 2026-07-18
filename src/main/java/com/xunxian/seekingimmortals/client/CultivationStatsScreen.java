@@ -464,7 +464,8 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
         y = sectionTitle(graphics, x, y, width, "临敌气象");
         y = row(graphics, x, y, width, "神识强度", shortNumber(data.divSense()), ImmortalUiSkin.JOURNAL_PAPER);
         y = row(graphics, x, y, width, "肉身根基", Integer.toString(data.bodyRef()), ImmortalUiSkin.JOURNAL_PAPER);
-        y = row(graphics, x, y, width, "走火风险", data.qiDevRisk() + "%", qiDevRiskColor(data.qiDevRisk()));
+        y = row(graphics, x, y, width, "走火风险", data.qiDevRisk() + "%",
+                ImmortalUiSkin.qiDevRiskColor(data.qiDevRisk()));
         return row(graphics, x, y, width, "抗劫底蕴", data.tribRes() + "%", ImmortalUiSkin.JOURNAL_JADE_TEXT);
     }
 
@@ -803,21 +804,6 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
         if (abs >= 1_000_000D) return String.format(Locale.ROOT, "%.1fM", value / 1_000_000D);
         if (abs >= 10_000D) return String.format(Locale.ROOT, "%.1f万", value / 10_000D);
         return Long.toString(value);
-    }
-
-    private int dangerColor(boolean danger) {
-        return danger ? ImmortalUiSkin.JOURNAL_CINNABAR_BRIGHT : ImmortalUiSkin.JOURNAL_PAPER;
-    }
-
-    /** 走火分层：≥70 危签朱砂，>0 琥珀警告，否则正文纸色。 */
-    private int qiDevRiskColor(int riskPercent) {
-        if (riskPercent >= 70) {
-            return ImmortalUiSkin.JOURNAL_CINNABAR_BRIGHT;
-        }
-        if (riskPercent > 0) {
-            return ImmortalUiSkin.JOURNAL_WARNING;
-        }
-        return ImmortalUiSkin.JOURNAL_PAPER;
     }
 
     private int statusColor(ClientCultivationData.Snapshot data) {

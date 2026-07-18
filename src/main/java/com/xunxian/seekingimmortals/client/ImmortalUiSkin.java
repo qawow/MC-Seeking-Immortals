@@ -106,6 +106,11 @@ public final class ImmortalUiSkin {
     public static final int LINE_HEIGHT = 11;
     public static final int SECTION_GAP = 5;
 
+    /** HUD / stats 走火警告阈值（百分数）。 */
+    public static final int QI_DEV_WARN_THRESHOLD = 50;
+    /** HUD / stats 走火危签阈值（百分数）。 */
+    public static final int QI_DEV_DANGER_THRESHOLD = 70;
+
     public enum InteractionState {
         NORMAL,
         HOVERED,
@@ -181,6 +186,36 @@ public final class ImmortalUiSkin {
         } finally {
             popClimate();
         }
+    }
+
+    /**
+     * 走火风险字色：≥{@link #QI_DEV_DANGER_THRESHOLD} 朱砂危签，
+     * ≥{@link #QI_DEV_WARN_THRESHOLD} 琥珀警告，否则 {@code calmColor}。
+     */
+    public static int qiDevRiskColor(int riskPercent, int calmColor) {
+        if (riskPercent >= QI_DEV_DANGER_THRESHOLD) {
+            return JOURNAL_CINNABAR_BRIGHT;
+        }
+        if (riskPercent >= QI_DEV_WARN_THRESHOLD) {
+            return JOURNAL_WARNING;
+        }
+        return calmColor;
+    }
+
+    /** 走火风险字色；平静态默认正文纸色。 */
+    public static int qiDevRiskColor(int riskPercent) {
+        return qiDevRiskColor(riskPercent, JOURNAL_PAPER);
+    }
+
+    /** Test-only: climate stack depth (0 means default bamboo with no pushes). */
+    static int climateStackDepthForTest() {
+        return CLIMATE_STACK.size();
+    }
+
+    /** Test-only: clear stack and rebind default bamboo palette. */
+    static void forceResetClimateForTest() {
+        CLIMATE_STACK.clear();
+        applyPalette(UiClimate.BAMBOO_SLIP.palette());
     }
 
     private static void applyPalette(UiClimate.Palette p) {

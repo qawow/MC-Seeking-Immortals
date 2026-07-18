@@ -1,3 +1,15 @@
+## 485. 2026-07-18 0.2.17 四材气候 hardening
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260718_230515_climate_harden/`
+  Shared qi-dev risk helper            Done ImmortalUiSkin.qiDevRiskColor + 50/70 阈值
+  Stats/HUD wire                       Done 共用 helper；删局部重复/死 dangerColor
+  UiClimateStackTest                   Done push/pop/withClimate/嵌套/null/阈值/兼容别名
+  Version/protocol                     Done `0.2.16` -> `0.2.17`；protocol 保持 24
+  Full verification                    Done `./gradlew test` + `build`
+  Update note                          Done `project_docs/updates/20260718_0.2.17_climate_harden.md`
+
 ## 484. 2026-07-18 0.2.16 四材分层残留收口
 
   Step   Status   Notes
