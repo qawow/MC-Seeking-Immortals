@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-19: M14 三个状态消费端已接线。`outgoingDamageMul` 沿现有 LivingHurt multiplier 连乘；`blocksTechnique` 下沉至 TechniqueGateService，主释放/双放共用；`hidesRealm` 接入 DivineSenseSpell 单目标读心境界出口，隐藏分支不携带真实境界。M02/M10 真实施加端与 M15 DamagePipelineHooks 注册仍属后续任务。任务红线保持 mod_version 0.2.17，protocol 保持 24（无包变化）。聚焦 7 项测试与全量 594 项测试通过；提交前 `./gradlew cleanTest build --no-daemon -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL。Details: project_docs/updates/20260719_m14_status_consumers.md.
+
 > CURRENT TRUTH 2026-07-18: `0.2.17` 四材气候 hardening。走火阈值与字色 helper 收拢到 `ImmortalUiSkin.qiDevRiskColor`（50/70）；Stats/HUD 共用；新增 `UiClimateStackTest` 覆盖 push/pop/withClimate 色板重绑与阈值。Layout/发包契约不变。mod_version 0.2.17；protocol 保持 24。Details: project_docs/updates/20260718_0.2.17_climate_harden.md.
 
 > CURRENT TRUTH 2026-07-18: `0.2.16` 四材分层残留收口。Stats/MethodTree 静态色别名改实时 `JOURNAL_*` 读，气候栈切换后不再冻结竹简色；突破钮 `ImmortalButton.danger` 叠朱砂危签；走火风险 ≥70 朱砂 / >0 琥珀分层。Layout/发包契约不变。mod_version 0.2.16；protocol 保持 24。Details: project_docs/updates/20260718_0.2.16_layered_climate_polish.md.

@@ -5,6 +5,7 @@ import com.xunxian.seekingimmortals.alchemy.AlchemyRecipeManager;
 import com.xunxian.seekingimmortals.command.SeekingImmortalsCommand;
 import com.xunxian.seekingimmortals.compat.ModCompat;
 import com.xunxian.seekingimmortals.compat.patchouli.PatchouliGuideBridge;
+import com.xunxian.seekingimmortals.combat.status.StatusRegistry;
 import com.xunxian.seekingimmortals.cultivation.BreakthroughService;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.CultivationProvider;
@@ -342,6 +343,7 @@ public final class ModEvents {
             // M15: 法宝协同攻击倍率（经伤害管线，不直改属性）。
             multiplier *= com.xunxian.seekingimmortals.artifact.ArtifactSynergyService
                     .outgoingDamageMultiplier(player);
+            multiplier *= StatusRegistry.outgoingDamageMultiplier(player);
             event.setAmount(event.getAmount() * (float)multiplier);
         });
 

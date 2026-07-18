@@ -1,12 +1,17 @@
 package com.xunxian.seekingimmortals.skill.effect.spell;
 
+import com.xunxian.seekingimmortals.combat.status.StatusRegistry;
+import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
+import com.xunxian.seekingimmortals.cultivation.Realm;
 import com.xunxian.seekingimmortals.skill.CultivationSkill;
 import com.xunxian.seekingimmortals.skill.effect.SkillContext;
 import java.util.Comparator;
 import java.util.List;
+import javax.annotation.Nullable;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
@@ -18,6 +23,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobType;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.phys.AABB;
@@ -92,9 +98,43 @@ public class DivineSenseSpell extends SpellEffect {
         form.spawnLink(level, player.getEyePosition().subtract(0.0D, 0.12D, 0.0D),
                 target.position().add(0.0D, target.getBbHeight() * 0.66D, 0.0D));
         level.playSound(null, target.blockPosition(), form.sound, SoundSource.PLAYERS, 0.62F, form.pitch);
-        player.displayClientMessage(Component.translatable(successKey, target.getDisplayName(),
-                Math.round(target.getHealth()), Math.round(target.getMaxHealth())), true);
+        MutableComponent result = Component.translatable(successKey, target.getDisplayName(),
+                Math.round(target.getHealth()), Math.round(target.getMaxHealth()));
+        if (target instanceof Player targetPlayer) {
+            result.append(" ").append(readPlayerRealm(targetPlayer).component());
+        }
+        player.displayClientMessage(result, true);
         return true;
+    }
+
+    private static RealmReadResult readPlayerRealm(Player target) {
+        if (StatusRegistry.hidesRealm(target)) {
+            return realmReadResult(true, null);
+        }
+        return CultivationHelper.get(target)
+                .map(cultivation -> realmReadResult(false, cultivation.getRealm()))
+                .orElseGet(() -> realmReadResult(false, null));
+    }
+
+    static RealmReadResult realmReadResult(boolean hidden, @Nullable Realm realm) {
+        if (hidden) {
+            return new RealmReadResult("message.seeking_immortals.spell.realm_read.hidden", List.of());
+        }
+        if (realm == null) {
+            return new RealmReadResult("message.seeking_immortals.spell.realm_read.unknown", List.of());
+        }
+        return new RealmReadResult("message.seeking_immortals.spell.realm_read.visible",
+                List.of(realm.getDisplayName()));
+    }
+
+    record RealmReadResult(String messageKey, List<Object> args) {
+        RealmReadResult {
+            args = List.copyOf(args);
+        }
+
+        Component component() {
+            return Component.translatable(messageKey, args.toArray());
+        }
     }
 
     private boolean castSingleTarget(ServerPlayer player, CultivationSkill skill) {

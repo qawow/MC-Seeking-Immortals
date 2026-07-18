@@ -5,6 +5,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
+import com.xunxian.seekingimmortals.combat.status.StatusRegistry;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.cultivation.Realm;
 import com.xunxian.seekingimmortals.cultivation.TechniqueDataManager;
@@ -52,6 +53,14 @@ public final class TechniqueGateService {
 
     public static GateResult canCast(ServerPlayer player, PlayerCultivation cultivation,
                                      TechniqueDataManager.TechniqueEntry technique) {
+        return canCast(player, cultivation, technique, StatusRegistry.blocksTechnique(player));
+    }
+
+    static GateResult canCast(ServerPlayer player, PlayerCultivation cultivation,
+                              TechniqueDataManager.TechniqueEntry technique, boolean statusBlocked) {
+        if (statusBlocked) {
+            return GateResult.deny("message.seeking_immortals.technique_gate.status_blocked");
+        }
         return evaluate(player, cultivation, technique, true);
     }
 

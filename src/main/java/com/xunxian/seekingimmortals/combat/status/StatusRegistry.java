@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
 import java.util.Collection;
 import java.util.Locale;
 import java.util.Optional;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 /**
  * M14 统一状态 id → MobEffect 映射与施加入口。
@@ -136,16 +138,70 @@ public final class StatusRegistry {
         return resolve(statusId).map(target::hasEffect).orElse(false);
     }
 
+    public static double outgoingDamageMultiplier(LivingEntity target) {
+        return target == null
+                ? 1.0D
+                : outgoingDamageMultiplier(target.getActiveEffects(), StatusRegistry::seekingEffectOf);
+    }
+
+    static double outgoingDamageMultiplierForEffects(Iterable<SeekingStatusEffect> effects) {
+        return outgoingDamageMultiplier(effects, Function.identity());
+    }
+
+    private static <T> double outgoingDamageMultiplier(Iterable<T> activeStatuses,
+                                                       Function<T, SeekingStatusEffect> mapper) {
+        if (activeStatuses == null) {
+            return 1.0D;
+        }
+        double multiplier = 1.0D;
+        for (T activeStatus : activeStatuses) {
+            SeekingStatusEffect effect = mapper.apply(activeStatus);
+            if (effect != null) {
+                multiplier *= effect.getOutgoingDamageMul();
+            }
+        }
+        return multiplier;
+    }
+
     public static boolean blocksTechnique(LivingEntity target) {
-        if (target == null) {
+        return target != null && hasStatusFlag(target.getActiveEffects(), StatusRegistry::seekingEffectOf,
+                SeekingStatusEffect::blocksTechnique);
+    }
+
+    static boolean blocksTechniqueForEffects(Iterable<SeekingStatusEffect> effects) {
+        return hasStatusFlag(effects, Function.identity(), SeekingStatusEffect::blocksTechnique);
+    }
+
+    public static boolean hidesRealm(LivingEntity target) {
+        return target != null && hasStatusFlag(target.getActiveEffects(), StatusRegistry::seekingEffectOf,
+                SeekingStatusEffect::hidesRealm);
+    }
+
+    static boolean hidesRealmForEffects(Iterable<SeekingStatusEffect> effects) {
+        return hasStatusFlag(effects, Function.identity(), SeekingStatusEffect::hidesRealm);
+    }
+
+    private static <T> boolean hasStatusFlag(Iterable<T> activeStatuses,
+                                             Function<T, SeekingStatusEffect> mapper,
+                                             Predicate<SeekingStatusEffect> predicate) {
+        if (activeStatuses == null) {
             return false;
         }
-        for (StatusCatalogService.StatusDefinition def : StatusCatalogService.builtin().effects()) {
-            if (def.blocksTechnique() && hasStatus(target, def.id())) {
+        for (T activeStatus : activeStatuses) {
+            SeekingStatusEffect effect = mapper.apply(activeStatus);
+            if (effect != null && predicate.test(effect)) {
                 return true;
             }
         }
         return false;
+    }
+
+    @Nullable
+    private static SeekingStatusEffect seekingEffectOf(MobEffectInstance instance) {
+        if (instance != null && instance.getEffect() instanceof SeekingStatusEffect effect) {
+            return effect;
+        }
+        return null;
     }
 
     /**

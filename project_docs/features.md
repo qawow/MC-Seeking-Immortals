@@ -1,3 +1,5 @@
+2026-07-19 M14 feature note: active SeekingStatusEffect outgoing multipliers now stack on the existing LivingHurt path; seal/technique-ban states centrally reject both primary and dual-cast technique paths; Mind Read reports another player's realm unless conceal-qi hides it. No custom packet or self-HUD behavior changed; protocol remains 24.
+
 0.2.1 feature note: frontend hardening adds selected-chain quest tracking, complete lifecycle mirror resync, server-rendered nonce-bound dialogue choices, safe deferred shop opening, responsive bestiary/chronicle/compendium layouts, untruncated 1,894-entry lore sync, HUD rail safety below 300px, live worldpack countdowns, and deterministic 5% movement controls. Protocol 24.
 
 0.2.0 feature note: M00-M16 十七模块统一进入 main，覆盖数据管线、境界、功法、物品、炼制、经济、区域、阵法、宗门、秘境、妖兽、任务、NPC、维度飞升、战斗状态、法宝与图鉴百科；运行时 text-material manifest 完整索引 289 个发布 JSON，协议 23 隔离新增 M16 lore 消息。

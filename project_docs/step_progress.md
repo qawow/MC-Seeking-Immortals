@@ -1,3 +1,17 @@
+## 486. 2026-07-19 M14 状态消费端接线
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260719_003407_m14_status_consumers/`
+  outgoingDamageMul consumer          Done StatusRegistry 聚合活跃 SeekingStatusEffect；ModEvents 复用 LivingHurt multiplier
+  blocksTechnique consumer            Done TechniqueGateService.canCast 中央门禁；主释放/双放共用；双语拒绝提示
+  hidesRealm consumer                 Done DivineSenseSpell.castMindRead 玩家境界读取；敛息先判定且不携带真实境界
+  Focused tests                        Done StatusRegistryTest + TechniqueGateServiceTest + DivineSenseSpellTest，7/7 通过
+  Scope boundary                       Done 未改 M02/M10 施加端、CombatCalculator、M15 DamagePipelineHooks、HUD/自身同步
+  Version/protocol                     Unchanged 任务红线保持 `mod_version=0.2.17`；无包字段/顺序/通道变化，protocol 24
+  Full verification                    Done 594 tests；`./gradlew cleanTest build --no-daemon -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL in 1m4s
+  Update note                          Done `project_docs/updates/20260719_m14_status_consumers.md`
+
 ## 485. 2026-07-18 0.2.17 四材气候 hardening
 
   Step   Status   Notes
