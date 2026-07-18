@@ -52,7 +52,7 @@ public abstract class AbstractJournalContainerScreen<T extends AbstractContainer
         graphics.drawCenteredString(font, fitted,
                 leftPos + imageWidth / 2,
                 header.y() + Math.max(2, (header.height() - 8) / 2),
-                ImmortalUiSkin.JOURNAL_BORDER);
+                ImmortalUiSkin.JOURNAL_PAPER);
     }
 
     /** Container-specific body (slots, meters, frames) drawn after chrome inside {@link #renderBg}. */

@@ -79,7 +79,7 @@ public abstract class AbstractJournalScreen extends Screen {
         graphics.drawCenteredString(font, fitted,
                 header.x() + header.width() / 2,
                 header.y() + Math.max(2, (header.height() - 8) / 2),
-                ImmortalUiSkin.JOURNAL_BORDER);
+                ImmortalUiSkin.JOURNAL_PAPER);
     }
 
     @Override
