@@ -15,85 +15,97 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * Native Minecraft client UI skin for Seeking Immortals screens and overlays.
  *
- * <p>The UI deliberately uses only vanilla/Forge client rendering primitives
- * such as {@link GuiGraphics#fill}, {@link GuiGraphics#blit} and text drawing.
- * This keeps custom HUDs and screens client-only without any third-party UI
- * framework dependency.</p>
+ * <p>Visual language: 暖漆问道录 — warm lacquer wood desk, aged parchment paper,
+ * antique bronze-gold frames, cinnabar seals, and restrained moss jade accents.
+ * Only vanilla/Forge client primitives ({@link GuiGraphics#fill}, blit, text)
+ * are used; no third-party UI framework.</p>
  */
 public final class ImmortalUiSkin {
-    // Shared surface helpers still used by drawPanel / skill slots / health / tooltips.
-    // Journal screens draw through JOURNAL_* + paper/jade material helpers below.
-    public static final int PANEL_BORDER = 0xCCE6D59A;
+    // Legacy surface aliases — aligned to the warm lacquer journal so leftover
+    // drawPanel / skill-slot / health / tooltip paths do not reintroduce cool ink.
+    public static final int PANEL_BORDER = 0xCCD4BC78;
     public static final int PANEL = 0xD61B1208;
     public static final int PANEL_INNER = 0xCC2A1B0D;
     public static final int PANEL_INNER_BORDER = 0x663B2F18;
     public static final int SKILL_EMPTY = 0x22000000;
-    public static final int SKILL_EMPTY_BORDER = 0x88E6D59A;
+    public static final int SKILL_EMPTY_BORDER = 0x88D4BC78;
     public static final int SKILL_FILLED = 0xAA111111;
-    public static final int SKILL_FILLED_BORDER = 0xFFE6D59A;
+    public static final int SKILL_FILLED_BORDER = 0xFFD4BC78;
     public static final int STATUS_BAR_BACKING = 0x991B1208;
-    public static final int STATUS_BAR_BORDER = 0x99E6D59A;
-    public static final int STATUS_BAR_FILL = 0xCC66D17A;
+    public static final int STATUS_BAR_BORDER = 0x99D4BC78;
+    public static final int STATUS_BAR_FILL = 0xCC6FAE88;
     public static final int HEALTH_BAR_FILL = 0xD8B7332B;
     public static final int HEALTH_BAR_HIGHLIGHT = 0xAAE0715F;
     public static final int ABSORPTION_BAR_FILL = 0xDDE6C46A;
     public static final int TOOLTIP_PANEL = 0xEE130C05;
-    public static final int TOOLTIP_BORDER = 0xDDE6D59A;
+    public static final int TOOLTIP_BORDER = 0xDDD4BC78;
 
     // HUD text colors still used by TechniqueSkillBarOverlay / BreathingHudOverlay.
-    public static final int COLOR_TEXT_MUTED = 0xFFBFAF8A;
-    public static final int COLOR_TEXT_NORMAL = 0xFFEFE4C2;
+    public static final int COLOR_TEXT_MUTED = 0xFFB8A882;
+    public static final int COLOR_TEXT_NORMAL = 0xFFF0E4C0;
 
-    // Shared journal palette.
+    // 暖漆问道录 — warm lacquer journal palette (V1 gold lineage, refined depth).
     public static final int JOURNAL_TRANSPARENT = 0x00000000;
-    public static final int JOURNAL_SHADOW = 0x88000000;
-    public static final int JOURNAL_BORDER = 0xFFB99A55;
-    public static final int JOURNAL_BORDER_DIM = 0x886F5A31;
-    public static final int JOURNAL_VOID = 0xF00A0E0C;
-    public static final int JOURNAL_PANEL = 0xF2151B16;
-    public static final int JOURNAL_INNER = 0xE61C251D;
-    public static final int JOURNAL_HEADER = 0xF0101713;
-    public static final int JOURNAL_ROW = 0x3329362B;
-    public static final int JOURNAL_ROW_HOVERED = 0x77344938;
-    public static final int JOURNAL_ROW_SELECTED = 0xAA274133;
-    public static final int JOURNAL_ROW_DISABLED = 0x44101411;
-    public static final int JOURNAL_CONTROL = 0xF018211A;
-    public static final int JOURNAL_CONTROL_HOVERED = 0xF024382B;
-    public static final int JOURNAL_CONTROL_DISABLED = 0xDD101411;
-    public static final int JOURNAL_TAB_SELECTED = 0xF0274133;
-    public static final int JOURNAL_JADE = 0xFF73C79C;
-    public static final int JOURNAL_JADE_TEXT = 0xFFA7E0BE;
-    public static final int JOURNAL_PAPER = 0xFFE8DFC2;
-    public static final int JOURNAL_PAPER_MUTED = 0xFFC0B796;
-    public static final int JOURNAL_SPIRIT = 0xFF82D6DE;
-    public static final int JOURNAL_CINNABAR = 0xFF9F443B;
-    public static final int JOURNAL_CINNABAR_BRIGHT = 0xFFE47E68;
-    public static final int JOURNAL_WARNING = 0xFFE1B36A;
-    public static final int JOURNAL_BAR_BACKING = 0xEE080C0A;
-    public static final int JOURNAL_BAR_HIGHLIGHT = 0x332B5845;
-    public static final int JOURNAL_ICON_INSET = 0xFF532823;
-    public static final int JOURNAL_SEAL_INSET = 0xFF582A24;
-    public static final int JOURNAL_NODE_EMPTY = 0xFF3B493C;
-    public static final int JOURNAL_NODE_LOCKED = 0xFF5B5646;
-    public static final int JOURNAL_DIVIDER_GLOW = 0x663B8060;
-    public static final int JOURNAL_SCROLLBAR_TRACK = 0x99101611;
-    public static final int JOURNAL_CULTIVATION_FILL = 0x8836E6D0;
-    public static final int JOURNAL_CULTIVATION_HIGHLIGHT = 0xAA8FFFF0;
-    /** 1px paper sheen on panel top edge — keep alpha ≤ 0x22 for 克制问道录. */
-    public static final int JOURNAL_PAPER_SHEEN = 0x22E8DFC2;
+    public static final int JOURNAL_SHADOW = 0x99000000;
+    /** Antique bronze-gold outer rim. */
+    public static final int JOURNAL_BORDER = 0xFFD4BC78;
+    /** Dim inner bronze for dual-tone rims. */
+    public static final int JOURNAL_BORDER_DIM = 0x887A6238;
+    /** Deep warm lacquer void under the panel body. */
+    public static final int JOURNAL_VOID = 0xF0140E08;
+    /** Warm umber lacquer panel body. */
+    public static final int JOURNAL_PANEL = 0xF21C140C;
+    /** Inner parchment well fill. */
+    public static final int JOURNAL_INNER = 0xE6241A10;
+    /** Title strip — darker lacquer. */
+    public static final int JOURNAL_HEADER = 0xF0120C07;
+    public static final int JOURNAL_ROW = 0x332A2114;
+    public static final int JOURNAL_ROW_HOVERED = 0x774A3A22;
+    public static final int JOURNAL_ROW_SELECTED = 0xAA3A2E18;
+    public static final int JOURNAL_ROW_DISABLED = 0x44120E09;
+    public static final int JOURNAL_CONTROL = 0xF01A140D;
+    public static final int JOURNAL_CONTROL_HOVERED = 0xF02C2214;
+    public static final int JOURNAL_CONTROL_DISABLED = 0xDD100C08;
+    public static final int JOURNAL_TAB_SELECTED = 0xF03A2C18;
+    /** Moss jade accent — semantic only, never the whole climate. */
+    public static final int JOURNAL_JADE = 0xFF6FAE88;
+    public static final int JOURNAL_JADE_TEXT = 0xFFB7D9C2;
+    /** Warm parchment body text. */
+    public static final int JOURNAL_PAPER = 0xFFF0E4C0;
+    public static final int JOURNAL_PAPER_MUTED = 0xFFB8A882;
+    /** Misty spirit blue-gray (not ice cyan). */
+    public static final int JOURNAL_SPIRIT = 0xFF8FB8C4;
+    public static final int JOURNAL_CINNABAR = 0xFF8E3A32;
+    public static final int JOURNAL_CINNABAR_BRIGHT = 0xFFD97A62;
+    public static final int JOURNAL_WARNING = 0xFFD4A85A;
+    public static final int JOURNAL_BAR_BACKING = 0xEE0E0A06;
+    public static final int JOURNAL_BAR_HIGHLIGHT = 0x33C9B27A;
+    public static final int JOURNAL_ICON_INSET = 0xFF4A2A22;
+    public static final int JOURNAL_SEAL_INSET = 0xFF4E2A22;
+    public static final int JOURNAL_NODE_EMPTY = 0xFF3A3428;
+    public static final int JOURNAL_NODE_LOCKED = 0xFF5A5240;
+    public static final int JOURNAL_DIVIDER_GLOW = 0x556FAE88;
+    public static final int JOURNAL_SCROLLBAR_TRACK = 0x99140E08;
+    /** Cultivation fill — moss jade, no neon cyan. */
+    public static final int JOURNAL_CULTIVATION_FILL = 0x886FAE88;
+    public static final int JOURNAL_CULTIVATION_HIGHLIGHT = 0xAAB7D9C2;
+    /** 1px paper sheen — keep alpha ≤ 0x22 for 克制问道录. */
+    public static final int JOURNAL_PAPER_SHEEN = 0x22F0E4C0;
     /** Soft bottom weight on journal panels. */
-    public static final int JOURNAL_PAPER_WEIGHT = 0x440A0E0C;
+    public static final int JOURNAL_PAPER_WEIGHT = 0x44140E08;
+    /** Dual-rim inner gold hairline. */
+    public static final int JOURNAL_RIM_INNER = 0x66D4BC78;
     /** Soft multi-layer HUD drop shadow (status strip). */
     public static final int HUD_SHADOW_SOFT = 0x44000000;
-    public static final int HUD_SLOT_FILLED_SOLID = 0xCC121814;
-    public static final int HUD_SLOT_EMPTY_SOLID = 0x66100E09;
+    public static final int HUD_SLOT_FILLED_SOLID = 0xCC1A140D;
+    public static final int HUD_SLOT_EMPTY_SOLID = 0x66140E08;
 
-    // Compact HUD surfaces use the same materials with less visual weight.
+    // Compact HUD surfaces share warm lacquer materials with less weight.
     public static final int HUD_SHADOW = 0x66000000;
-    public static final int HUD_BORDER = 0xCCB99A55;
-    public static final int HUD_BACKING = 0xE8100E09;
-    public static final int HUD_INNER = 0xE8161D14;
-    public static final int HUD_EDGE = 0x885B4524;
+    public static final int HUD_BORDER = 0xCCD4BC78;
+    public static final int HUD_BACKING = 0xE816100A;
+    public static final int HUD_INNER = 0xE81C1610;
+    public static final int HUD_EDGE = 0x887A6238;
     public static final int HUD_SKILL_DISABLED_OVERLAY = 0x66120D0A;
     public static final int HUD_COOLDOWN_OVERLAY = 0xCC4E1712;
     public static final int HUD_SKILL_PLACEHOLDER_ALPHA = 0xAA000000;
@@ -102,13 +114,13 @@ public final class ImmortalUiSkin {
 
     // Skill-rail-only translucent tokens. Do not reuse for journal/status chrome.
     public static final int HUD_SKILL_SHADOW = 0x44000000;
-    public static final int HUD_SKILL_BORDER = 0x99B99A55;
-    public static final int HUD_SKILL_BACKING = 0x66100E09;
-    public static final int HUD_SKILL_INNER = 0x55161D14;
-    public static final int HUD_SKILL_SLOT_FILLED = 0x99121814;
-    public static final int HUD_SKILL_SLOT_EMPTY = 0x44100E09;
+    public static final int HUD_SKILL_BORDER = 0x99D4BC78;
+    public static final int HUD_SKILL_BACKING = 0x6616100A;
+    public static final int HUD_SKILL_INNER = 0x551C1610;
+    public static final int HUD_SKILL_SLOT_FILLED = 0x991A140D;
+    public static final int HUD_SKILL_SLOT_EMPTY = 0x44140E08;
 
-    // Layout layout spacing tokens
+    // Layout spacing tokens
     public static final int LINE_HEIGHT = 11;
     public static final int SECTION_GAP = 5;
 
@@ -154,14 +166,23 @@ public final class ImmortalUiSkin {
         drawBox(graphics, x + 2, y + 2, width - 4, height - 4, PANEL_INNER, PANEL_INNER_BORDER);
     }
 
-    /** Draws the full ink, bronze and shadow surface used by journal-style screens. */
+    /** Draws the full warm lacquer, bronze and paper surface used by journal screens. */
     public static void drawLayeredPanel(GuiGraphics graphics, int x, int y, int width, int height) {
         if (width <= 0 || height <= 0) return;
 
+        // Soft dual shadow for a desk-bound journal float.
+        graphics.fill(x + 3, y + 3, x + width + 3, y + height + 3, HUD_SHADOW_SOFT);
         graphics.fill(x + 2, y + 2, x + width + 2, y + height + 2, JOURNAL_SHADOW);
+        // Dual-tone bronze rim: bright outer gold + dim inner bronze.
         graphics.fill(x, y, x + width, y + height, JOURNAL_BORDER);
         if (width > 2 && height > 2) {
             graphics.fill(x + 1, y + 1, x + width - 1, y + height - 1, JOURNAL_VOID);
+        }
+        if (width > 4 && height > 4) {
+            graphics.fill(x + 2, y + 2, x + width - 2, y + 3, JOURNAL_RIM_INNER);
+            graphics.fill(x + 2, y + height - 3, x + width - 2, y + height - 2, JOURNAL_BORDER_DIM);
+            graphics.fill(x + 2, y + 2, x + 3, y + height - 2, JOURNAL_RIM_INNER);
+            graphics.fill(x + width - 3, y + 2, x + width - 2, y + height - 2, JOURNAL_BORDER_DIM);
         }
         if (width > 8 && height > 8) {
             int ix = x + 4;
@@ -184,12 +205,23 @@ public final class ImmortalUiSkin {
             drawCornerMark(graphics, x + 5, y + height - 5, mark, 1, -1);
             drawCornerMark(graphics, x + width - 5, y + height - 5, mark, -1, -1);
         }
+        // Large journals get a quiet cinnabar seal in the bottom-right.
+        if (width >= 120 && height >= 80) {
+            int seal = Math.min(10, Math.max(5, Math.min(width, height) / 24));
+            drawCinnabarSeal(graphics, x + width - seal - 8, y + height - seal - 8, seal);
+        }
     }
 
     /** Draws a restrained inner content frame without adding another floating panel. */
     public static void drawInnerFrame(GuiGraphics graphics, int x, int y, int width, int height) {
-        drawBox(graphics, x, y, width, height, JOURNAL_INNER, JOURNAL_BORDER_DIM);
+        if (width <= 0 || height <= 0) return;
+        // Dual-tone inset bronze rather than a second heavy panel.
+        graphics.fill(x, y, x + width, y + height, JOURNAL_BORDER_DIM);
+        if (width > 2 && height > 2) {
+            graphics.fill(x + 1, y + 1, x + width - 1, y + height - 1, JOURNAL_INNER);
+        }
         if (width > 4 && height > 4) {
+            graphics.fill(x + 1, y + 1, x + width - 1, y + 2, JOURNAL_RIM_INNER);
             drawTiledTexture(graphics, PAPER_TEXTURE, x + 1, y + 1, width - 2, height - 2);
         }
     }
@@ -200,13 +232,30 @@ public final class ImmortalUiSkin {
         graphics.fill(x, y, x + width, y + height, JOURNAL_HEADER);
         if (width >= 4) {
             graphics.fill(x, y, x + Math.min(3, width), y + height, JOURNAL_CINNABAR);
+            if (height >= 4) {
+                graphics.fill(x, y, x + 1, Math.min(y + height, y + 6), JOURNAL_CINNABAR_BRIGHT);
+            }
         }
+        // Dual baseline: dim bronze + short gold tick.
         if (height >= 2) {
             graphics.fill(x, y + height - 1, x + width, y + height, JOURNAL_BORDER_DIM);
+            if (width >= 16) {
+                graphics.fill(x + 4, y + height - 1, x + Math.max(8, width / 5), y + height, JOURNAL_BORDER);
+            }
         }
         // Hairline paper sheen under the title — 克制, not magical bloom.
         if (height >= 4 && width > 8) {
             graphics.fill(x + 4, y + 1, x + width - 2, y + 2, JOURNAL_PAPER_SHEEN);
+        }
+        // Bound-journal balance tick on the right.
+        if (width >= 24 && height >= 6) {
+            int tick = Math.min(8, Math.max(4, width / 20));
+            graphics.fill(x + width - tick - 3, y + height / 2, x + width - 3, y + height / 2 + 1, JOURNAL_BORDER);
+        }
+        // Small seal on wide title bars.
+        if (width >= 80 && height >= 12) {
+            int seal = Math.min(7, Math.max(4, height - 4));
+            drawCinnabarSeal(graphics, x + width - seal - 6, y + Math.max(2, (height - seal) / 2), seal);
         }
     }
 
@@ -247,7 +296,7 @@ public final class ImmortalUiSkin {
         }
     }
 
-    /** Draws a flat list row for normal, hover, selected and disabled states. */
+    /** Draws a list row for normal, hover, selected and disabled states. */
     public static void drawListRow(GuiGraphics graphics, int x, int y, int width, int height,
                                    InteractionState state) {
         if (width <= 0 || height <= 0) return;
@@ -259,8 +308,13 @@ public final class ImmortalUiSkin {
             case NORMAL -> JOURNAL_ROW;
         };
         graphics.fill(x, y, x + width, y + height, fill);
-        if (safeState == InteractionState.SELECTED && width >= 2) {
+        // Quiet bottom rule so dense lists keep a paper-ledger rhythm.
+        if (height >= 3 && safeState != InteractionState.DISABLED) {
+            graphics.fill(x + 2, y + height - 1, x + width - 2, y + height, JOURNAL_BORDER_DIM);
+        }
+        if (safeState == InteractionState.SELECTED && width >= 3) {
             graphics.fill(x, y, x + 2, y + height, JOURNAL_JADE);
+            graphics.fill(x + 2, y, x + 3, y + height, JOURNAL_BORDER_DIM);
         } else if (safeState == InteractionState.HOVERED && width >= 1) {
             graphics.fill(x, y, x + 1, y + height, JOURNAL_BORDER);
         }
@@ -279,8 +333,14 @@ public final class ImmortalUiSkin {
         if (primary && !disabled && width > 4 && height > 4) {
             // Cinnabar seal stripe — primary action reads as a stamped order.
             graphics.fill(x + 2, y + 2, x + 4, y + height - 2, JOURNAL_CINNABAR);
+            if (height >= 10 && width >= 12) {
+                int seal = Math.min(5, height - 4);
+                drawCinnabarSeal(graphics, x + width - seal - 3, y + Math.max(2, (height - seal) / 2), seal);
+            }
         } else if (!primary && safeState == InteractionState.HOVERED && width > 6 && height > 4) {
-            graphics.fill(x + 3, y + height - 3, x + width - 3, y + height - 2, JOURNAL_BORDER_DIM);
+            graphics.fill(x + 3, y + height - 3, x + width - 3, y + height - 2, JOURNAL_BORDER);
+        } else if (!primary && !disabled && width > 6 && height > 4) {
+            graphics.fill(x + 3, y + height - 2, x + width - 3, y + height - 1, JOURNAL_BORDER_DIM);
         }
     }
 
@@ -417,7 +477,21 @@ public final class ImmortalUiSkin {
     }
 
     public static void drawTooltipPanel(GuiGraphics graphics, int x, int y, int width, int height) {
-        drawBox(graphics, x, y, width, height, TOOLTIP_PANEL, TOOLTIP_BORDER);
+        if (width <= 0 || height <= 0) return;
+        // Mini journal chrome so tooltips match the warm lacquer desk.
+        graphics.fill(x + 1, y + 2, x + width + 1, y + height + 2, HUD_SHADOW);
+        graphics.fill(x, y, x + width, y + height, JOURNAL_BORDER);
+        if (width > 2 && height > 2) {
+            graphics.fill(x + 1, y + 1, x + width - 1, y + height - 1, TOOLTIP_PANEL);
+        }
+        if (width > 4 && height > 4) {
+            graphics.fill(x + 1, y + 1, x + width - 1, y + 2, JOURNAL_RIM_INNER);
+            drawTiledTexture(graphics, PAPER_TEXTURE, x + 1, y + 1, width - 2, height - 2);
+        }
+        if (width >= 14 && height >= 12) {
+            int seal = Math.min(6, Math.max(3, Math.min(width, height) / 6));
+            drawCinnabarSeal(graphics, x + width - seal - 3, y + 3, seal);
+        }
     }
 
     /** Draws a two-pixel scrollbar and hides it when all content is visible. */
@@ -622,12 +696,16 @@ public final class ImmortalUiSkin {
     /** Small square cinnabar seal ornament (native fills). */
     public static void drawCinnabarSeal(GuiGraphics graphics, int x, int y, int size) {
         if (size <= 0) return;
-        graphics.fill(x, y, x + size, y + size, JOURNAL_CINNABAR);
+        // Outer dim ring + bright face + inset core — reads as a stamped seal.
+        graphics.fill(x, y, x + size, y + size, JOURNAL_SEAL_INSET);
         if (size >= 3) {
             graphics.fill(x + 1, y + 1, x + size - 1, y + size - 1, JOURNAL_CINNABAR_BRIGHT);
         }
         if (size >= 5) {
             graphics.fill(x + 2, y + 2, x + size - 2, y + size - 2, JOURNAL_CINNABAR);
+        }
+        if (size >= 7) {
+            graphics.fill(x + 3, y + 3, x + size - 3, y + size - 3, JOURNAL_CINNABAR_BRIGHT);
         }
     }
 
@@ -741,8 +819,10 @@ public final class ImmortalUiSkin {
     private static void drawControlBox(GuiGraphics graphics, int x, int y, int width, int height,
                                        int fillColor, int borderColor) {
         drawBox(graphics, x, y, width, height, fillColor, borderColor);
-        if (width > 4 && height > 3) {
-            graphics.fill(x + 2, y + 2, x + width - 2, y + 3, JOURNAL_BORDER_DIM);
+        // Dual rim: bright outer already drawn; add inner gold hairline + bottom weight.
+        if (width > 4 && height > 4) {
+            graphics.fill(x + 1, y + 1, x + width - 1, y + 2, JOURNAL_RIM_INNER);
+            graphics.fill(x + 1, y + height - 2, x + width - 1, y + height - 1, JOURNAL_BORDER_DIM);
         }
     }
 
@@ -750,8 +830,17 @@ public final class ImmortalUiSkin {
                                        int xDirection, int yDirection) {
         int xEnd = x + length * xDirection;
         int yEnd = y + length * yDirection;
+        // Dual-stroke L: outer gold + dim inner for carved-bronze corners.
         fillNormalized(graphics, x, y, xEnd, y + yDirection, JOURNAL_BORDER);
         fillNormalized(graphics, x, y, x + xDirection, yEnd, JOURNAL_BORDER);
+        int insetX = x + xDirection;
+        int insetY = y + yDirection;
+        int insetEndX = x + (length - 1) * xDirection;
+        int insetEndY = y + (length - 1) * yDirection;
+        if (length >= 4) {
+            fillNormalized(graphics, insetX, insetY, insetEndX, insetY + yDirection, JOURNAL_BORDER_DIM);
+            fillNormalized(graphics, insetX, insetY, insetX + xDirection, insetEndY, JOURNAL_BORDER_DIM);
+        }
     }
 
     private static void fillNormalized(GuiGraphics graphics, int x1, int y1, int x2, int y2, int color) {

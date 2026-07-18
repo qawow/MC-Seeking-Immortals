@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-18: `0.2.10` 暖漆问道录全前端暖色重绘。JOURNAL_/HUD_ 从冷青墨绿底改回凡人暖漆金木气候；双调铜边/纸纹/朱砂印细节；paper/jade 贴图偏暖；修为填充去霓虹青。Layout/发包契约不变。mod_version 0.2.10；protocol 保持 24。Details: project_docs/updates/20260718_0.2.10_warm_lacquer_ui.md.
+
 > CURRENT TRUTH 2026-07-18: `0.2.9` HUD 技能轨/槽位叠 jade 纹；AuctionScreen 局部 UiRect 改名为 Rect，消除对包级类型遮蔽。Layout/发包契约不变。mod_version 0.2.9；protocol 保持 24。Details: project_docs/updates/20260718_0.2.9_hud_skill_jade.md.
 
 > CURRENT TRUTH 2026-07-18: `0.2.8` 凡人问道录全前端克制重设计。真实 paper/jade 32×32 平铺贴图接入 ImmortalUiSkin；panel/title/inner/HUD 叠低 alpha 材质；MethodTree/Shop/Auction/Sect/StorageBracelet(+Menu) 迁入 AbstractJournal*；背包「修仙」用 ImmortalButton。拖拽/双滚动/发包契约与 ImmortalHudLayout 几何不变。mod_version 0.2.8；protocol 保持 24。Details: project_docs/updates/20260718_0.2.8_fanren_journal_ui.md.
