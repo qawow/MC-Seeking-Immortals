@@ -37,11 +37,7 @@ public class MethodTreeScreen extends AbstractJournalScreen {
     private static final int WIDE_LAYOUT_WIDTH = 380;
     private static final int LINE = 12;
     private static final int NODE = 12;
-    private static final int LINK = ImmortalUiSkin.JOURNAL_BORDER_DIM;
-    private static final int NODE_EMPTY = ImmortalUiSkin.JOURNAL_NODE_EMPTY;
-    private static final int NODE_REACHED = ImmortalUiSkin.JOURNAL_JADE;
-    private static final int NODE_CURRENT = ImmortalUiSkin.JOURNAL_BORDER;
-    private static final int NODE_LOCKED = ImmortalUiSkin.JOURNAL_NODE_LOCKED;
+    // Node/link colors read live from ImmortalUiSkin so JADE_SLIP climate rebinds apply.
     private static final int GRAPH_COLS = 3;
     private static final int GRAPH_MAX = 6;
 
@@ -597,13 +593,13 @@ public class MethodTreeScreen extends AbstractJournalScreen {
             int ny = ys[i - 1];
             int color;
             if (currentLayer <= 0) {
-                color = NODE_LOCKED;
+                color = ImmortalUiSkin.JOURNAL_NODE_LOCKED;
             } else if (i < currentLayer) {
-                color = NODE_REACHED;
+                color = ImmortalUiSkin.JOURNAL_JADE;
             } else if (i == currentLayer) {
-                color = NODE_CURRENT;
+                color = ImmortalUiSkin.JOURNAL_BORDER;
             } else {
-                color = NODE_EMPTY;
+                color = ImmortalUiSkin.JOURNAL_NODE_EMPTY;
             }
             graphics.fill(nx, ny, nx + nodeSize, ny + nodeSize, color);
             if (nodeSize > 2) {
@@ -711,11 +707,11 @@ public class MethodTreeScreen extends AbstractJournalScreen {
         int minY = Math.min(y1, y2);
         int maxY = Math.max(y1, y2);
         if (Math.abs(x2 - x1) >= Math.abs(y2 - y1)) {
-            graphics.fill(minX, y1 - 1, maxX, y1 + 1, LINK);
-            graphics.fill(x2 - 1, minY, x2 + 1, maxY, LINK);
+            graphics.fill(minX, y1 - 1, maxX, y1 + 1, ImmortalUiSkin.JOURNAL_BORDER_DIM);
+            graphics.fill(x2 - 1, minY, x2 + 1, maxY, ImmortalUiSkin.JOURNAL_BORDER_DIM);
         } else {
-            graphics.fill(x1 - 1, minY, x1 + 1, maxY, LINK);
-            graphics.fill(minX, y2 - 1, maxX, y2 + 1, LINK);
+            graphics.fill(x1 - 1, minY, x1 + 1, maxY, ImmortalUiSkin.JOURNAL_BORDER_DIM);
+            graphics.fill(minX, y2 - 1, maxX, y2 + 1, ImmortalUiSkin.JOURNAL_BORDER_DIM);
         }
     }
 
@@ -723,7 +719,7 @@ public class MethodTreeScreen extends AbstractJournalScreen {
                                TextMaterialCatalogService.MethodEntry method, boolean focus) {
         boolean present = method != null;
         boolean learned = present && ClientMethodData.hasLearned(method.id());
-        int border = focus ? NODE_CURRENT : (learned ? NODE_REACHED : NODE_EMPTY);
+        int border = focus ? ImmortalUiSkin.JOURNAL_BORDER : (learned ? ImmortalUiSkin.JOURNAL_JADE : ImmortalUiSkin.JOURNAL_NODE_EMPTY);
         graphics.fill(x, y, x + w, y + h, border);
         if (w > 2 && h > 2) {
             graphics.fill(x + 1, y + 1, x + w - 1, y + h - 1, ImmortalUiSkin.JOURNAL_CONTROL);

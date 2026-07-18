@@ -1,3 +1,16 @@
+## 484. 2026-07-18 0.2.16 四材分层残留收口
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260718_222308_layered_climate_polish/`
+  Live climate tokens                  Done Stats/MethodTree 去 static-final 色别名
+  Breakthrough danger                  Done ImmortalButton.danger 突破钮
+  Qi-dev risk tiers                    Done ≥70 朱砂 / >0 琥珀 / 0 纸色
+  Audit                                Done JEI token 已对齐；BORDER 不当字色
+  Version/protocol                     Done `0.2.15` -> `0.2.16`；protocol 保持 24
+  Full verification                    Done `./gradlew test` + `build`
+  Update note                          Done `project_docs/updates/20260718_0.2.16_layered_climate_polish.md`
+
 ## 483. 2026-07-18 0.2.15 四材分层问道录气候内核
 
   Step   Status   Notes
