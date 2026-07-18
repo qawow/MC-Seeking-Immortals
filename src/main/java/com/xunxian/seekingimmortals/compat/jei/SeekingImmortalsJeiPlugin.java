@@ -111,12 +111,15 @@ public final class SeekingImmortalsJeiPlugin implements IModPlugin {
         public void draw(AlchemyRecipe recipe, mezz.jei.api.gui.ingredient.IRecipeSlotsView recipeSlotsView,
                          GuiGraphics graphics, double mouseX, double mouseY) {
             var font = net.minecraft.client.Minecraft.getInstance().font;
-            graphics.drawString(font, recipe.displayName(), 2, 2, 0xFFE6D59A, false);
+            graphics.drawString(font, recipe.displayName(), 2, 2,
+                    com.xunxian.seekingimmortals.client.ImmortalUiSkin.JOURNAL_PAPER, false);
             graphics.drawString(font, Component.translatable("jei.seeking_immortals.alchemy.tier",
-                    recipe.requiredFurnaceTier(), recipe.idealFireTier()), 2, 44, 0xFFBFAF8A, false);
+                    recipe.requiredFurnaceTier(), recipe.idealFireTier()), 2, 44,
+                    com.xunxian.seekingimmortals.client.ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
             graphics.drawString(font, Component.translatable("jei.seeking_immortals.alchemy.stats",
                     Math.round(recipe.successRate() * 100.0D),
-                    Math.round(recipe.explosionChance() * 100.0D)), 2, 56, 0xFFBFAF8A, false);
+                    Math.round(recipe.explosionChance() * 100.0D)), 2, 56,
+                    com.xunxian.seekingimmortals.client.ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
         }
 
         @Override
@@ -173,9 +176,12 @@ public final class SeekingImmortalsJeiPlugin implements IModPlugin {
         public void draw(ArtifactDataService.RefinementRecipe recipe, mezz.jei.api.gui.ingredient.IRecipeSlotsView slots,
                          GuiGraphics graphics, double mouseX, double mouseY) {
             var font = net.minecraft.client.Minecraft.getInstance().font;
-            graphics.drawString(font, recipe.display(), 2, 2, 0xFFE6D59A, false);
-            graphics.drawString(font, recipe.id(), 2, 16, 0xFFBFAF8A, false);
-            graphics.drawString(font, recipe.realmMin() + " | " + Math.round(recipe.baseSuccessRate() * 100) + "%", 2, 40, 0xFFBFAF8A, false);
+            graphics.drawString(font, recipe.display(), 2, 2,
+                    com.xunxian.seekingimmortals.client.ImmortalUiSkin.JOURNAL_PAPER, false);
+            graphics.drawString(font, recipe.id(), 2, 16,
+                    com.xunxian.seekingimmortals.client.ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
+            graphics.drawString(font, recipe.realmMin() + " | " + Math.round(recipe.baseSuccessRate() * 100) + "%",
+                    2, 40, com.xunxian.seekingimmortals.client.ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
         }
     }
 }

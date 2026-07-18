@@ -448,7 +448,7 @@ public class MethodTreeScreen extends AbstractJournalScreen {
                     name += " L" + layer;
                 }
                 int color = learned ? ImmortalUiSkin.JOURNAL_JADE_TEXT
-                        : selected ? ImmortalUiSkin.JOURNAL_BORDER : ImmortalUiSkin.JOURNAL_PAPER;
+                        : selected ? ImmortalUiSkin.JOURNAL_JADE_TEXT : ImmortalUiSkin.JOURNAL_PAPER;
                 ImmortalUiSkin.drawStringFit(font, graphics, mark + name,
                         viewport.x() + 4, rowY + 2, Math.max(1, viewport.width() - 8), color, false);
             }

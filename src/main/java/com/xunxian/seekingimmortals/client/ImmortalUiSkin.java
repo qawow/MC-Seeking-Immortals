@@ -160,9 +160,9 @@ public final class ImmortalUiSkin {
 
     private ImmortalUiSkin() {}
 
+    /** Legacy entry — forwards to bamboo-slip layered panel so leftover callers stay on climate. */
     public static void drawPanel(GuiGraphics graphics, int x, int y, int width, int height) {
-        drawBox(graphics, x, y, width, height, PANEL, PANEL_BORDER);
-        drawBox(graphics, x + 2, y + 2, width - 4, height - 4, PANEL_INNER, PANEL_INNER_BORDER);
+        drawLayeredPanel(graphics, x, y, width, height);
     }
 
     /** Draws the full bamboo-slip, bamboo-green and paper surface used by journal screens. */
@@ -369,8 +369,9 @@ public final class ImmortalUiSkin {
         };
     }
 
+    /** Legacy entry — forwards to bamboo-slip slot chrome. Prefer {@link #drawJadeSlipSlot}. */
     public static void drawSkillSlot(GuiGraphics graphics, int x, int y, int size, boolean filled) {
-        drawBox(graphics, x, y, size, size, filled ? SKILL_FILLED : SKILL_EMPTY, filled ? SKILL_FILLED_BORDER : SKILL_EMPTY_BORDER);
+        drawJadeSlipSlot(graphics, x, y, size, filled);
     }
 
     public static void drawSkillIconBacking(GuiGraphics graphics, int x, int y, int width, int height, int color) {

@@ -153,7 +153,7 @@ public class MeditationScreen extends AbstractJournalScreen {
                 Component.translatable("screen.seeking_immortals.meditation.section.efficiency"));
         y = row(graphics, x, y, width,
                 Component.translatable("screen.seeking_immortals.meditation.efficiency"),
-                Component.literal("x" + fmt(data.cultivationSpeedMultiplier())), ImmortalUiSkin.JOURNAL_BORDER);
+                Component.literal("x" + fmt(data.cultivationSpeedMultiplier())), ImmortalUiSkin.JOURNAL_JADE_TEXT);
         y = row(graphics, x, y, width,
                 Component.translatable("screen.seeking_immortals.meditation.root_factor"),
                 Component.literal("x" + fmt(data.rootCultivationSpeedCoefficient()) + " / x"
@@ -183,7 +183,7 @@ public class MeditationScreen extends AbstractJournalScreen {
         y = row(graphics, x, y, width,
                 Component.translatable("screen.seeking_immortals.meditation.gold_core"),
                 Component.literal(data.goldCoreGrade() + " · " + data.goldCoreScore()),
-                data.goldCoreScore() > 0 ? ImmortalUiSkin.JOURNAL_BORDER : ImmortalUiSkin.JOURNAL_PAPER_MUTED);
+                data.goldCoreScore() > 0 ? ImmortalUiSkin.JOURNAL_JADE_TEXT : ImmortalUiSkin.JOURNAL_PAPER_MUTED);
         y += 8;
         y = sectionTitle(graphics, x, y, width,
                 Component.translatable("screen.seeking_immortals.meditation.section.cycle"));

@@ -29,7 +29,6 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
     private static final double MOVEMENT_SLIDER_STEP = 0.05D;
 
     private static final int INK_SOFT = ImmortalUiSkin.JOURNAL_INNER;
-    private static final int INK_ROW = ImmortalUiSkin.JOURNAL_ROW;
     /** Bamboo rim / divider fills only — never body text. */
     private static final int BAMBOO = ImmortalUiSkin.JOURNAL_BORDER;
     private static final int BAMBOO_DIM = ImmortalUiSkin.JOURNAL_BORDER_DIM;
@@ -739,9 +738,10 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
 
     private int row(GuiGraphics graphics, int x, int y, int width, String label, String value, int color) {
         if (graphics != null) {
-            if (((y / LINE_HEIGHT) & 1) == 0) {
-                graphics.fill(x, y - 1, x + width, y + 10, INK_ROW);
-            }
+            ImmortalUiSkin.InteractionState state = ((y / LINE_HEIGHT) & 1) == 0
+                    ? ImmortalUiSkin.InteractionState.NORMAL
+                    : ImmortalUiSkin.InteractionState.DISABLED;
+            ImmortalUiSkin.drawListRow(graphics, x, y - 1, width, LINE_HEIGHT, state);
             int labelWidth = Math.min(68, Math.max(38, width / 3));
             graphics.fill(x + 2, y + 3, x + 3, y + 7, JADE_LINE);
             drawFit(graphics, label, x + 6, y, Math.max(8, labelWidth - 6), PAPER_MUTED);
