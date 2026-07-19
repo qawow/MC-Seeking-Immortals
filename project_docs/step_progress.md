@@ -1,3 +1,16 @@
+## 505. 2026-07-20 0.2.55 术法伤害/符箓退款/法宝倍率
+
+  Step   Status   Notes
+  ---   ---   ---
+  Audit   Done   SkillType 硬编码伤害覆盖 corpus；符箓先扣后放；法宝 powerScale 只改费用/冷却。
+  Backup   Done   `.bak/20260720_044116_0.2.55_corpus_damage/`。
+  Technique damage   Done   通用形状注册效果重建 RuntimeSpec；定制库法术保留。
+  Talisman txn   Done   tryReserve + commit/refund 接入主释放与 dual-cast。
+  Artifact scale   Done   通用激活伤害全部 scaledDamage。
+  Verify   Done   普通构建成功，全量测试通过。
+  Version   Done   `mod_version=0.2.55`；protocol 保持 25。
+  Handoff   Done   `project_docs/updates/20260720_0.2.55_runtime_authority.md`。
+
 ## 504. 2026-07-20 0.2.54 七类专用术法与功法扩展学习门槛
 
   Step   Status   Notes

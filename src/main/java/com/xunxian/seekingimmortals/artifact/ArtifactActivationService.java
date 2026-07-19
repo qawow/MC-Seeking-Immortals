@@ -214,7 +214,7 @@ public final class ArtifactActivationService {
         if (repairTarget != null) {
             applyRepair(player, stack, repairTarget, info);
         } else {
-            applyActivation(player, cultivation, artifact, info);
+            applyActivation(player, cultivation, artifact, info, powerScale);
             // Wave456: natal-bound artifact gains growth on successful activation.
             if (artifact.id().equals(NatalBindingService.boundId(player))) {
                 NatalBindingService.grow(player);
@@ -518,30 +518,32 @@ public final class ArtifactActivationService {
     }
 
     private static void applyActivation(ServerPlayer player, PlayerCultivation cultivation,
-                                        ArtifactDataService.ArtifactDefinition artifact, ActivationInfo info) {
+                                        ArtifactDataService.ArtifactDefinition artifact, ActivationInfo info,
+                                        double powerScale) {
+        double scale = Math.max(0.0D, powerScale);
         switch (ActivationKind.byId(info.kind())) {
             case MOVEMENT -> applyMovement(player, artifact.gameTier());
             case DEFENSE -> applyDefense(player, artifact.gameTier());
             case FOCUS -> applyFocus(player, cultivation, artifact.gameTier());
-            case OFFENSE -> launchProjectile(player, artifact, artifact.gameTier());
-            case RULER -> applyRuler(player, artifact.gameTier());
+            case OFFENSE -> launchProjectile(player, artifact, artifact.gameTier(), scale);
+            case RULER -> applyRuler(player, artifact.gameTier(), scale);
             case MIRROR -> applyMirror(player, artifact.gameTier());
-            case SOUND -> applySound(player, artifact.gameTier());
-            case SWARM -> applySwarm(player, artifact.gameTier());
+            case SOUND -> applySound(player, artifact.gameTier(), scale);
+            case SWARM -> applySwarm(player, artifact.gameTier(), scale);
             case TELEPORT_PROTECTION -> applyTeleportProtection(player, artifact.gameTier());
-            case MAGNET -> applyMagnet(player, artifact.gameTier());
-            case WORLD_DOMAIN -> applyWorldDomain(player, artifact.gameTier());
+            case MAGNET -> applyMagnet(player, artifact.gameTier(), scale);
+            case WORLD_DOMAIN -> applyWorldDomain(player, artifact.gameTier(), scale);
             case FORMATION -> applyFormation(player, artifact.gameTier());
-            case SOUL_DESTROY -> applySoulDestroy(player, artifact.gameTier());
-            case SPACE_CONTROL -> applySpaceControl(player, artifact.gameTier());
+            case SOUL_DESTROY -> applySoulDestroy(player, artifact.gameTier(), scale);
+            case SPACE_CONTROL -> applySpaceControl(player, artifact.gameTier(), scale);
             case UTILITY -> applyUtility(player, cultivation, artifact);
-            case CAPTURE -> applyCapture(player, artifact.gameTier());
+            case CAPTURE -> applyCapture(player, artifact.gameTier(), scale);
             case REFINEMENT -> applyRefinement(player, cultivation, artifact.gameTier());
             case SPIRIT_LIQUID -> applySpiritLiquid(player, cultivation, artifact.gameTier());
             case VEHICLE -> applyVehicle(player, artifact.gameTier());
             case ILLUSION -> applyIllusion(player, artifact.gameTier());
             case BEAST_CONTROL -> applyBeastControl(player, artifact.gameTier());
-            case TALISMAN -> applyTalisman(player, cultivation, artifact);
+            case TALISMAN -> applyTalisman(player, cultivation, artifact, scale);
             case REPAIR -> {
             }
             case NONE -> {
@@ -612,17 +614,17 @@ public final class ArtifactActivationService {
     }
 
     private static void launchProjectile(ServerPlayer player, ArtifactDataService.ArtifactDefinition artifact,
-                                         int gameTier) {
-        double damage = 4.0D + gameTier * 2.5D;
+                                         int gameTier, double powerScale) {
+        double damage = ArtifactPowerService.scaledDamage(4.0D + gameTier * 2.5D, powerScale);
         Vec3 look = player.getLookAngle();
         CultivationFireballEntity projectile = new CultivationFireballEntity(
                 player.serverLevel(), player, look, damage, 1.22D, elementFor(artifact));
         player.serverLevel().addFreshEntity(projectile);
     }
 
-    private static void applyRuler(ServerPlayer player, int gameTier) {
+    private static void applyRuler(ServerPlayer player, int gameTier, double powerScale) {
         Vec3 center = player.getEyePosition().add(player.getLookAngle().normalize().scale(3.5D));
-        double damage = 4.0D + gameTier * 1.8D;
+        double damage = ArtifactPowerService.scaledDamage(4.0D + gameTier * 1.8D, powerScale);
         affectArea(player, center, 3.6D + gameTier * 0.2D, living -> {
             living.hurt(player.damageSources().indirectMagic(player, player), (float) damage);
             living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 220, 2, false, true));
@@ -651,9 +653,9 @@ public final class ArtifactActivationService {
                 SoundSource.PLAYERS, 0.55F, 1.1F);
     }
 
-    private static void applySound(ServerPlayer player, int gameTier) {
+    private static void applySound(ServerPlayer player, int gameTier, double powerScale) {
         double radius = 4.8D + gameTier * 0.28D;
-        double damage = 3.5D + gameTier * 1.5D;
+        double damage = ArtifactPowerService.scaledDamage(3.5D + gameTier * 1.5D, powerScale);
         affectNearby(player, radius, living -> {
             living.hurt(player.damageSources().indirectMagic(player, player), (float) damage);
             living.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 160, 0, false, true));
@@ -667,9 +669,9 @@ public final class ArtifactActivationService {
                 SoundSource.PLAYERS, 0.8F, 0.65F);
     }
 
-    private static void applySwarm(ServerPlayer player, int gameTier) {
+    private static void applySwarm(ServerPlayer player, int gameTier, double powerScale) {
         double radius = 5.0D + gameTier * 0.3D;
-        double damage = 3.0D + gameTier * 1.35D;
+        double damage = ArtifactPowerService.scaledDamage(3.0D + gameTier * 1.35D, powerScale);
         affectNearby(player, radius, living -> {
             living.hurt(player.damageSources().indirectMagic(player, player), (float) damage);
             living.addEffect(new MobEffectInstance(MobEffects.POISON, 120 + gameTier * 10, 0, false, true));
@@ -703,11 +705,11 @@ public final class ArtifactActivationService {
                 SoundSource.PLAYERS, 0.6F, 0.9F);
     }
 
-    private static void applyMagnet(ServerPlayer player, int gameTier) {
+    private static void applyMagnet(ServerPlayer player, int gameTier, double powerScale) {
         Vec3 center = player.position().add(0.0D, 1.0D, 0.0D)
                 .add(player.getLookAngle().normalize().scale(2.6D));
         double radius = 5.2D + gameTier * 0.35D;
-        double damage = 3.0D + gameTier * 1.2D;
+        double damage = ArtifactPowerService.scaledDamage(3.0D + gameTier * 1.2D, powerScale);
         affectArea(player, center, radius, living -> {
             living.hurt(player.damageSources().indirectMagic(player, player), (float) damage);
             Vec3 pull = center.subtract(living.position());
@@ -729,14 +731,15 @@ public final class ArtifactActivationService {
                 SoundSource.PLAYERS, 0.55F, 0.65F);
     }
 
-    private static void applyWorldDomain(ServerPlayer player, int gameTier) {
+    private static void applyWorldDomain(ServerPlayer player, int gameTier, double powerScale) {
         double radius = 5.8D + gameTier * 0.35D;
         int duration = 180 + gameTier * 18;
         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, duration, gameTier >= 10 ? 1 : 0, false, true));
         player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100 + gameTier * 8, 0, false, true));
         player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, duration, Math.max(1, gameTier / 4), false, true));
         affectNearby(player, radius, living -> {
-            living.hurt(player.damageSources().indirectMagic(player, player), (float) (2.0D + gameTier * 0.9D));
+            living.hurt(player.damageSources().indirectMagic(player, player),
+                    (float) ArtifactPowerService.scaledDamage(2.0D + gameTier * 0.9D, powerScale));
             living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 1, false, true));
             living.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 120, 0, false, true));
             living.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 160, 0, false, true));
@@ -780,9 +783,9 @@ public final class ArtifactActivationService {
         });
     }
 
-    private static void applySoulDestroy(ServerPlayer player, int gameTier) {
+    private static void applySoulDestroy(ServerPlayer player, int gameTier, double powerScale) {
         Vec3 center = player.getEyePosition().add(player.getLookAngle().normalize().scale(4.0D));
-        double damage = 5.0D + gameTier * 2.2D;
+        double damage = ArtifactPowerService.scaledDamage(5.0D + gameTier * 2.2D, powerScale);
         affectArea(player, center, 3.2D + gameTier * 0.25D, living -> {
             living.hurt(player.damageSources().indirectMagic(player, player), (float) damage);
             living.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 180, 1, false, true));
@@ -796,9 +799,9 @@ public final class ArtifactActivationService {
                 SoundSource.PLAYERS, 0.65F, 0.78F);
     }
 
-    private static void applySpaceControl(ServerPlayer player, int gameTier) {
+    private static void applySpaceControl(ServerPlayer player, int gameTier, double powerScale) {
         double radius = 5.5D + gameTier * 0.35D;
-        double damage = 2.0D + gameTier * 0.8D;
+        double damage = ArtifactPowerService.scaledDamage(2.0D + gameTier * 0.8D, powerScale);
         affectNearby(player, radius, living -> {
             living.hurt(player.damageSources().indirectMagic(player, player), (float) damage);
             living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 220, 2, false, true));
@@ -860,10 +863,10 @@ public final class ArtifactActivationService {
                 SoundSource.PLAYERS, 0.5F, 1.15F);
     }
 
-    private static void applyCapture(ServerPlayer player, int gameTier) {
+    private static void applyCapture(ServerPlayer player, int gameTier, double powerScale) {
         Vec3 center = player.getEyePosition().add(player.getLookAngle().normalize().scale(3.2D));
         double radius = 3.8D + gameTier * 0.28D;
-        double damage = 3.0D + gameTier * 1.15D;
+        double damage = ArtifactPowerService.scaledDamage(3.0D + gameTier * 1.15D, powerScale);
         affectArea(player, center, radius, living -> {
             living.hurt(player.damageSources().indirectMagic(player, player), (float) damage);
             Vec3 pull = center.subtract(living.position());
@@ -943,9 +946,9 @@ public final class ArtifactActivationService {
     }
 
     private static void applyTalisman(ServerPlayer player, PlayerCultivation cultivation,
-                                      ArtifactDataService.ArtifactDefinition artifact) {
+                                      ArtifactDataService.ArtifactDefinition artifact, double powerScale) {
         if ("talisman_treasure_demon_seal".equals(artifact.id())) {
-            double damage = 6.0D + artifact.gameTier() * 3.0D;
+            double damage = ArtifactPowerService.scaledDamage(6.0D + artifact.gameTier() * 3.0D, powerScale);
             affectNearby(player, 7.0D, living -> {
                 if (living instanceof Monster) {
                     living.hurt(player.damageSources().indirectMagic(player, player), (float) damage);
@@ -969,7 +972,7 @@ public final class ArtifactActivationService {
             });
             return;
         }
-        double damage = 8.0D + artifact.gameTier() * 4.0D;
+        double damage = ArtifactPowerService.scaledDamage(8.0D + artifact.gameTier() * 4.0D, powerScale);
         Vec3 look = player.getLookAngle();
         CultivationFireballEntity projectile = new CultivationFireballEntity(
                 player.serverLevel(), player, look, damage, 1.05D, elementFor(artifact));

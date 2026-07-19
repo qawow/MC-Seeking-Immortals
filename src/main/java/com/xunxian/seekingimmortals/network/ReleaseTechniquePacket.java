@@ -143,7 +143,10 @@ public record ReleaseTechniquePacket(int slot) {
                         }
                     }
                     // Soft talisman_consume policy for CAST_* / *talisman* techniques.
-                    if (!TalismanConsumePolicy.tryConsume(player, technique.id(), skillType)) {
+                    // Reserve first; refund if effect fails so failed casts never eat talismans.
+                    TalismanConsumePolicy.Reservation talismanReservation =
+                            TalismanConsumePolicy.tryReserve(player, technique.id(), skillType);
+                    if (!talismanReservation.allowed()) {
                         SyncCultivationDataPacket.send(player, cultivation);
                         return;
                     }
@@ -153,11 +156,13 @@ public record ReleaseTechniquePacket(int slot) {
                             .lookDirection(player.getLookAngle())
                             .build();
                     if (!effect.execute(player, cultivation, skill, ctx)) {
+                        talismanReservation.refund(player);
                         player.displayClientMessage(
                                 Component.translatable("message.seeking_immortals.technique_release.effect_failed"), true);
                         SyncCultivationDataPacket.send(player, cultivation);
                         return;
                     }
+                    talismanReservation.commit(player);
                     // H5: execute 成功后扣费
                     if (!cultivation.consumeSpiritualPower(cost)) {
                         return;
@@ -251,7 +256,9 @@ public record ReleaseTechniquePacket(int slot) {
             if (cultivation.getSpiritualPower() < cost) {
                 continue;
             }
-            if (!TalismanConsumePolicy.tryConsume(player, technique.id(), skillType)) {
+            TalismanConsumePolicy.Reservation talismanReservation =
+                    TalismanConsumePolicy.tryReserve(player, technique.id(), skillType);
+            if (!talismanReservation.allowed()) {
                 continue;
             }
             SkillContext ctx = SkillContext.builder()
@@ -260,8 +267,10 @@ public record ReleaseTechniquePacket(int slot) {
                     .lookDirection(player.getLookAngle())
                     .build();
             if (!effect.execute(player, cultivation, skill, ctx)) {
+                talismanReservation.refund(player);
                 continue;
             }
+            talismanReservation.commit(player);
             if (!cultivation.consumeSpiritualPower(cost)) {
                 continue;
             }

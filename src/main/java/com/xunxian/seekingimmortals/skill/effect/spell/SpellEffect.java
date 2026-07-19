@@ -30,6 +30,11 @@ public abstract class SpellEffect implements SkillEffect {
         return Math.max(0, baseCooldownTicks);
     }
 
+    /** Authored/base damage before level and proficiency multipliers. */
+    public double getBaseDamage() {
+        return baseDamage;
+    }
+
     protected double calculateDamage(int skillLevel, int proficiency) {
         double levelMultiplier = 1.0 + skillLevel * 0.15;
         double proficiencyMultiplier = 1.0 + proficiency / 10000.0;

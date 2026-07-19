@@ -56,23 +56,65 @@ public final class AbstractTechniqueEffectResolver {
         if (technique == null) {
             return null;
         }
-        SkillType typed = resolveSkillType(technique);
-        if (typed != null) {
-            SkillEffect registered = safeGet(typed);
-            if (registered != null) {
-                return registered;
-            }
-        }
         String techniqueId = normalize(technique.id());
         SkillEffect cached = BY_TECHNIQUE_ID.get(techniqueId);
         if (cached != null) {
             return cached;
+        }
+        SkillType typed = resolveSkillType(technique);
+        if (typed != null) {
+            SkillEffect registered = safeGet(typed);
+            if (registered != null) {
+                // Simple registry shapes still lose to authored damage/range/effect_key.
+                SkillEffect preferred = preferAuthoredRuntime(technique, registered);
+                SkillEffect chosen = preferred != null ? preferred : registered;
+                if (preferred != null && !techniqueId.isBlank()) {
+                    BY_TECHNIQUE_ID.put(techniqueId, chosen);
+                }
+                return chosen;
+            }
         }
         SkillEffect created = createForTechnique(technique);
         if (created != null && !techniqueId.isBlank()) {
             BY_TECHNIQUE_ID.put(techniqueId, created);
         }
         return created;
+    }
+
+    /**
+     * When the SkillType registry only provides a generic-shaped spell, rebuild from corpus
+     * RuntimeSpec so authored damage_base / range / effect_key win over hardcoded library stats.
+     * Bespoke multi-form library spells (Dao/Illusion/Buddhist/...) keep their registry entry.
+     */
+    private static SkillEffect preferAuthoredRuntime(TechniqueDataManager.TechniqueEntry technique,
+                                                     SkillEffect registered) {
+        if (technique == null || registered == null || !hasAuthoredRuntimeFields(technique)) {
+            return null;
+        }
+        if (!isGenericShapedRegistryEffect(registered)) {
+            return null;
+        }
+        try {
+            return createForTechnique(technique);
+        } catch (Throwable ignored) {
+            return null;
+        }
+    }
+
+    private static boolean hasAuthoredRuntimeFields(TechniqueDataManager.TechniqueEntry technique) {
+        return technique.damageBase() > 0.0D
+                || (technique.range() != null && !technique.range().isBlank())
+                || (technique.effectKey() != null && !technique.effectKey().isBlank());
+    }
+
+    private static boolean isGenericShapedRegistryEffect(SkillEffect effect) {
+        return effect instanceof ElementalProjectileSpell
+                || effect instanceof ElementalAreaSpell
+                || effect instanceof TargetedDebuffSpell
+                || effect instanceof AreaDebuffSpell
+                || effect instanceof SelfBuffSpell
+                || effect instanceof RecoverySpell
+                || effect instanceof HonestSummonSpell;
     }
 
     public static SkillType resolveSkillType(TechniqueDataManager.TechniqueEntry technique) {

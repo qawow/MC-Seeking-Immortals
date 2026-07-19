@@ -2,12 +2,15 @@ package com.xunxian.seekingimmortals.skill;
 
 import com.xunxian.seekingimmortals.cultivation.TechniqueDataManager;
 import com.xunxian.seekingimmortals.skill.effect.AbstractTechniqueEffectResolver;
+import com.xunxian.seekingimmortals.skill.effect.SkillEffect;
+import com.xunxian.seekingimmortals.skill.effect.spell.SpellEffect;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -50,6 +53,22 @@ class M02TechniqueCorpusTest {
         assertEquals("single", fireball.target());
         assertEquals("fire", fireball.element());
         assertTrue(fireball.tags().contains("fire"));
+
+        // When the effect can be materialised (full game or bootstrap), SkillType hardcodes must
+        // not beat corpus damage_base (FireballSpell 6.0 vs authored 12.0). Pure JVM may return
+        // null because ElementalProjectileSpell loads entity classes that need bootstrap.
+        SkillEffect resolvedFireball = AbstractTechniqueEffectResolver.resolve(techniques.get("fireball"));
+        if (resolvedFireball != null) {
+            SpellEffect fireballSpell = assertInstanceOf(SpellEffect.class, resolvedFireball);
+            assertEquals(12.0D, fireballSpell.getBaseDamage(), 0.001D,
+                    "authored fireball damage_base must win over SkillType library hardcode");
+        }
+
+        TechniqueDataManager.TechniqueEntry talisman = techniques.get("cast_fire_burst_talisman");
+        SkillEffect resolvedTalisman = AbstractTechniqueEffectResolver.resolve(talisman);
+        if (resolvedTalisman instanceof SpellEffect spell) {
+            assertEquals(18.0D, spell.getBaseDamage(), 0.001D);
+        }
 
         var scan = AbstractTechniqueEffectResolver.runtimeSpec(techniques.get("divine_sense_scan"));
         assertEquals("scan", scan.type());

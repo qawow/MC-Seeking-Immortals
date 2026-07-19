@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-20: `0.2.55` 术法 corpus 伤害、符箓退款与法宝 powerScale。通用形状 SkillType 优先路径重建 authored RuntimeSpec；符箓改为预留/成功提交/失败退还（含 dual-cast）；通用法宝激活全部伤害公式接入 `scaledDamage`。普通 `./gradlew build --no-daemon` 成功。`mod_version=0.2.55`，协议保持 `25`。完整交接见 `project_docs/updates/20260720_0.2.55_runtime_authority.md`。
+
 > CURRENT TRUTH 2026-07-20: `0.2.54` 七类专用术法与功法扩展学习门槛。`ultimate/secret_art/talisman_consume/command/craft_gate/wall/buff_zone` 现有专用可执行实现，按 damage/range/target/element/tags/effect_key 生成运行时；未知类型仍 fail-closed。功法目录加载灵根/体质/种族/宗门品阶/转修后禁学等字段，并接入 `ManualCatalogService.evaluateLearnGate`：他宗硬拒绝、同宗校验品阶、无宗门保留典籍路径。普通 `./gradlew build --no-daemon` 成功，全量 697 项、0 failures/errors/skipped。`mod_version=0.2.54`，协议保持 `25`。完整交接见 `project_docs/updates/20260720_0.2.54_technique_dedicated_method_gates.md`。
 
 > CURRENT TRUTH 2026-07-20: `0.2.53` 术法结构字段与安全回退。`TechniqueEntry` 保留 damageBase/effectKey/tags/target/range；通用投射/范围/减益/控制/增益/恢复/移动/近战/召唤按 authored 字段生成运行时，召唤走 `HonestSummonSpell`；七类高风险类型当时 fail-closed。后续 0.2.54 已为七类提供专用实现。`mod_version=0.2.53`，协议 25。见 `project_docs/updates/20260720_0.2.53_structured_techniques.md`。

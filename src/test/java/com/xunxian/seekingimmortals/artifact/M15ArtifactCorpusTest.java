@@ -196,4 +196,26 @@ class M15ArtifactCorpusTest {
         assertEquals(0, badLots, "auction lots must resolve catalog ids");
         assertEquals(0, badDrops);
     }
+
+    @Test
+    void scaledDamageMultipliesBaseByScale() {
+        assertEquals(5.0D, ArtifactPowerService.scaledDamage(20.0D, 0.25D), 1.0e-6D);
+        assertEquals(20.0D, ArtifactPowerService.scaledDamage(20.0D, 1.0D), 1.0e-6D);
+        assertEquals(0.0D, ArtifactPowerService.scaledDamage(20.0D, 0.0D), 1.0e-6D);
+        assertEquals(0.0D, ArtifactPowerService.scaledDamage(20.0D, -1.0D), 1.0e-6D);
+    }
+
+    @Test
+    void genericActivationDamageSitesUsePowerScale() throws Exception {
+        String activation = Files.readString(Path.of(
+                "src", "main", "java", "com", "xunxian", "seekingimmortals",
+                "artifact", "ArtifactActivationService.java"));
+        assertTrue(activation.contains("ArtifactPowerService.scaledDamage"));
+        assertTrue(activation.contains("applyActivation(player, cultivation, artifact, info, powerScale)"));
+        // every damage assignment must be scaled
+        long unscaled = activation.lines()
+                .filter(line -> line.contains("double damage =") && !line.contains("scaledDamage"))
+                .count();
+        assertEquals(0L, unscaled);
+    }
 }
