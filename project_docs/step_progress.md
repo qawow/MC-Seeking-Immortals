@@ -1,3 +1,17 @@
+## 502. 2026-07-20 0.2.48 功法动态层数与学习门槛
+
+  Step   Status   Notes
+  ---   ---   ---
+  Audit   Done   核对 136 部功法目录与层数矩阵，确认固定九层丢失显式层数、境界上限、前置层数、阶段层名和逐层境界带。
+  Backup   Done   既有生产、测试、资源、版本和六份状态文档按相对路径备份至 `.bak/20260720_153500_method_layers/`；新增两份测试和 update note 无旧文件。
+  Catalog   Done   `MethodEntry` 保留 `realm_max_learn`、显式最大层数、前置功法和前置层数；动态上限按显式、矩阵、固定 1 层依次解析。
+  Runtime   Done   学习校验最低/最高境界与前置层；精进校验下一层 `realm_band`；长春 13 层映射五阶段，青元 13 层，零阶段生活功法固定 1 层。
+  Grant authority   Done   典籍只接受精确目录功法 id，并在提交已研读前预检授法门槛；术法来源关键词和宗门授法必须命中目录并通过境界、前置与冲突门槛，不再写入未知猜测 id。
+  Client/network   Done   包格式不变，服务端与客户端按方法 id 动态钳制；界面进度、按钮、层节点、阶段名和下一层境界共用动态上限。
+  Verify   Done   聚焦测试通过；最终普通 `./gradlew build --no-daemon` BUILD SUCCESSFUL（1m），全量 685 项，0 failures、0 errors、0 skipped。
+  Version   Done   首次完整实现升至 0.2.47 并成功构建；随后补典籍提交前预检，未升版构建被 preflight 正确拒绝，最终升至 `mod_version=0.2.48`。无网络字段、顺序、编码、注册、方向或通道不兼容变化，protocol 保持 25。
+  Handoff   Done   完整功法门槛、个性化成本、生活熟练度、术法字段、专用物品、多方块与实机烟测写入 `project_docs/updates/20260720_0.2.48_method_progression.md`。
+
 ## 501. 2026-07-19 0.2.46 丹药语义第二阶段
 
   Step   Status   Notes

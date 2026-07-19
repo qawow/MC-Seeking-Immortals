@@ -22,4 +22,22 @@ class TextMaterialCatalogServiceTest {
         assertEquals(8, FlightVehicleService.vehicleCount());
         assertTrue(FlightVehicleService.find("wind_feather_raft").isPresent());
     }
+
+    @Test
+    void preservesMethodLayerAndPrerequisiteMetadata() {
+        TextMaterialCatalogService.MethodEntry changchun = TextMaterialCatalogService.builtin()
+                .findMethod("changchun_gong").orElseThrow();
+        assertEquals(13, changchun.explicitMaxLayers());
+        assertEquals("QI_REFINING", changchun.realmMaxLearn());
+
+        TextMaterialCatalogService.MethodEntry qingyuan = TextMaterialCatalogService.builtin()
+                .findMethod("qingyuan_sword_art").orElseThrow();
+        assertTrue(qingyuan.prerequisiteMethods().contains("changchun_gong"));
+        assertEquals(13, qingyuan.prerequisiteMethodLayers().get("changchun_gong"));
+
+        assertEquals(9, TextMaterialCatalogService.builtin().findMethod("artifact_refining_basic")
+                .orElseThrow().explicitMaxLayers());
+        assertEquals(12, TextMaterialCatalogService.builtin().findMethod("treasure_appraisal_art")
+                .orElseThrow().explicitMaxLayers());
+    }
 }

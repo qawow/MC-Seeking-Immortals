@@ -58,6 +58,23 @@ class M02TechniqueCorpusTest {
         assertTrue(MethodLayerTechniqueService.methodCount() >= 100,
                 "layer matrix should cover most methods");
         assertFalse(MethodLayerTechniqueService.techniquesForLayer("changchun_gong", 1).isEmpty());
+        assertEquals(13, MethodLayerTechniqueService.maxLayers("changchun_gong"));
+        assertEquals(13, MethodLayerTechniqueService.maxLayers("qingyuan_sword_art"));
+        assertEquals(1, MethodLayerTechniqueService.maxLayers("huangfeng_alchemy_scripture"));
+        assertEquals("1-3层启蒙", MethodLayerTechniqueService.layerNameForLayer("changchun_gong", 3));
+        assertEquals("4-6层", MethodLayerTechniqueService.layerNameForLayer("changchun_gong", 4));
+        assertEquals(MethodLayerTechniqueService.techniquesForLayer("changchun_gong", 1),
+                MethodLayerTechniqueService.techniquesForLayer("changchun_gong", 3));
+        assertTrue(MethodLayerTechniqueService.techniquesForLayer("changchun_gong", 4).size()
+                > MethodLayerTechniqueService.techniquesForLayer("changchun_gong", 3).size());
+        assertEquals("FOUNDATION",
+                MethodLayerTechniqueService.requiredRealmForLayer("qingyuan_sword_art", 6));
+        assertEquals("CORE_FORMATION",
+                MethodLayerTechniqueService.requiredRealmForLayer("qingyuan_sword_art", 7));
+        assertEquals("NASCENT_SOUL",
+                MethodLayerTechniqueService.requiredRealmForLayer("qingyuan_sword_art", 9));
+        assertEquals("DEITY_TRANSFORMATION",
+                MethodLayerTechniqueService.requiredRealmForLayer("qingyuan_sword_art", 13));
     }
 
     /** Avoid direct ManualCatalogService static init surprises in pure unit tests. */

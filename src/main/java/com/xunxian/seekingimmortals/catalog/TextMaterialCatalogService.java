@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
 
@@ -47,7 +48,43 @@ public final class TextMaterialCatalogService {
         }
     }
 
-    public record MethodEntry(String id, String display, String realmMin, String school, String attribute) {}
+    public record MethodEntry(String id, String display, String realmMin, String realmMaxLearn,
+                              String school, String attribute, int explicitMaxLayers,
+                              List<String> prerequisiteMethods,
+                              Map<String, Integer> prerequisiteMethodLayers) {
+        public MethodEntry {
+            id = id == null ? "" : id;
+            display = display == null ? "" : display;
+            realmMin = realmMin == null ? "" : realmMin;
+            realmMaxLearn = realmMaxLearn == null ? "" : realmMaxLearn;
+            school = school == null ? "" : school;
+            attribute = attribute == null ? "" : attribute;
+            explicitMaxLayers = Math.max(0, explicitMaxLayers);
+            List<String> normalizedPrerequisites = prerequisiteMethods == null ? new ArrayList<>()
+                    : prerequisiteMethods.stream()
+                    .filter(value -> value != null && !value.isBlank())
+                    .map(value -> value.trim().toLowerCase(Locale.ROOT))
+                    .distinct()
+                    .collect(java.util.stream.Collectors.toCollection(ArrayList::new));
+            if (prerequisiteMethodLayers == null || prerequisiteMethodLayers.isEmpty()) {
+                prerequisiteMethodLayers = Map.of();
+            } else {
+                Map<String, Integer> normalized = new LinkedHashMap<>();
+                prerequisiteMethodLayers.forEach((methodId, layer) -> {
+                    if (methodId != null && !methodId.isBlank() && layer != null && layer > 0) {
+                        normalized.put(methodId.trim().toLowerCase(Locale.ROOT), layer);
+                    }
+                });
+                prerequisiteMethodLayers = Map.copyOf(normalized);
+            }
+            for (String methodId : prerequisiteMethodLayers.keySet()) {
+                if (!normalizedPrerequisites.contains(methodId)) {
+                    normalizedPrerequisites.add(methodId);
+                }
+            }
+            prerequisiteMethods = List.copyOf(normalizedPrerequisites);
+        }
+    }
 
     public record FlightBinding(String id, String display, String realmMin, double speed,
                                 String fuel, String carrierItem, String fuelItem, int fuelCount) {}
@@ -148,7 +185,19 @@ public final class TextMaterialCatalogService {
                 if (school.isBlank()) school = str(o, "unlocks_techniques_school");
                 String attribute = str(o, "element");
                 if (attribute.isBlank()) attribute = str(o, "element_required");
-                methods.put(id, new MethodEntry(id, str(o, "display"), realmMin, school, attribute));
+                JsonObject learn = object(o, "learn_requirements");
+                JsonObject setting = object(o, "setting");
+                String realmMaxLearn = str(learn, "realm_max_learn");
+                int explicitMaxLayers = positiveInt(setting, "layers_max");
+                if (explicitMaxLayers <= 0) {
+                    explicitMaxLayers = positiveInt(learn, "layers_required");
+                }
+                List<String> prerequisites = mergeLists(
+                        stringList(o.get("prerequisite_methods")),
+                        stringList(learn.get("prerequisite_methods")));
+                methods.put(id, new MethodEntry(id, str(o, "display"), realmMin, realmMaxLearn,
+                        school, attribute, explicitMaxLayers, prerequisites,
+                        positiveIntMap(learn.get("prerequisite_realm_layers"))));
             }
         }
         JsonObject methodIndex = readJson("data/" + SeekingImmortalsMod.MODID + "/catalog/cultivation_methods_index.json");
@@ -158,8 +207,8 @@ public final class TextMaterialCatalogService {
                 JsonObject o = element.getAsJsonObject();
                 String id = str(o, "id");
                 if (id.isBlank() || methods.containsKey(id)) continue;
-                methods.put(id, new MethodEntry(id, str(o, "display"), str(o, "realm_min"),
-                        str(o, "school"), str(o, "attribute")));
+                methods.put(id, new MethodEntry(id, str(o, "display"), str(o, "realm_min"), "",
+                        str(o, "school"), str(o, "attribute"), 0, List.of(), Map.of()));
             }
         }
 
@@ -242,6 +291,56 @@ public final class TextMaterialCatalogService {
             return new JsonArray();
         }
         return root.getAsJsonArray(key);
+    }
+
+    private static JsonObject object(JsonObject root, String key) {
+        if (root == null || !root.has(key) || !root.get(key).isJsonObject()) {
+            return new JsonObject();
+        }
+        return root.getAsJsonObject(key);
+    }
+
+    private static int positiveInt(JsonObject object, String key) {
+        if (object == null || !object.has(key) || !object.get(key).isJsonPrimitive()) {
+            return 0;
+        }
+        try {
+            return Math.max(0, object.get(key).getAsInt());
+        } catch (Exception ignored) {
+            return 0;
+        }
+    }
+
+    private static Map<String, Integer> positiveIntMap(JsonElement element) {
+        if (element == null || !element.isJsonObject()) {
+            return Map.of();
+        }
+        Map<String, Integer> values = new LinkedHashMap<>();
+        for (Map.Entry<String, JsonElement> entry : element.getAsJsonObject().entrySet()) {
+            try {
+                int value = entry.getValue().getAsInt();
+                if (entry.getKey() != null && !entry.getKey().isBlank() && value > 0) {
+                    values.put(entry.getKey(), value);
+                }
+            } catch (Exception ignored) {
+                // Ignore malformed optional prerequisite layer entries.
+            }
+        }
+        return Map.copyOf(values);
+    }
+
+    private static List<String> mergeLists(List<String> first, List<String> second) {
+        List<String> merged = new ArrayList<>();
+        if (first != null) {
+            merged.addAll(first);
+        }
+        if (second != null) {
+            merged.addAll(second);
+        }
+        return merged.stream()
+                .filter(value -> value != null && !value.isBlank())
+                .distinct()
+                .toList();
     }
 
     private static String str(JsonObject object, String key) {

@@ -17,7 +17,7 @@ import java.util.function.Supplier;
 
 /**
  * Wave477: server-authoritative learned cultivation methods sync.
- * Wave481 (protocol 16): each entry includes method layer (1-9).
+ * Wave481 (protocol 16): each entry includes a server-authoritative method layer.
  */
 public record SyncLearnedMethodsPacket(List<Entry> learnedMethods) {
     public static final int MAX_METHOD_ID_LENGTH = 128;
@@ -26,7 +26,7 @@ public record SyncLearnedMethodsPacket(List<Entry> learnedMethods) {
     public record Entry(String id, int layer) {
         public Entry {
             id = id == null ? "" : id;
-            layer = Math.max(0, Math.min(ManualCatalogService.MAX_METHOD_LAYER, layer));
+            layer = Math.max(0, Math.min(ManualCatalogService.maxMethodLayer(id), layer));
         }
     }
 

@@ -1,6 +1,7 @@
 package com.xunxian.seekingimmortals.catalog;
 
 import net.minecraft.nbt.CompoundTag;
+import com.xunxian.seekingimmortals.cultivation.Realm;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -22,8 +23,32 @@ class ManualCatalogServiceMethodLayerTest {
     }
 
     @Test
-    void maxLayerConstantIsNine() {
-        assertEquals(9, ManualCatalogService.MAX_METHOD_LAYER);
+    void methodMaxLayersFollowCatalogAndMatrix() {
+        assertEquals(13, ManualCatalogService.maxMethodLayer("changchun_gong"));
+        assertEquals(13, ManualCatalogService.maxMethodLayer("qingyuan_sword_art"));
+        assertEquals(12, ManualCatalogService.maxMethodLayer("treasure_appraisal_art"));
+        assertEquals(1, ManualCatalogService.maxMethodLayer("huangfeng_alchemy_scripture"));
+        assertEquals(1, ManualCatalogService.maxMethodLayer("unknown_method"));
+    }
+
+    @Test
+    void learningGateHonorsRealmMaximumAndPrerequisiteLayers() {
+        TextMaterialCatalogService.MethodEntry changchun = TextMaterialCatalogService.builtin()
+                .findMethod("changchun_gong").orElseThrow();
+        assertEquals(ManualCatalogService.MethodLearnFailure.REALM_TOO_HIGH,
+                ManualCatalogService.evaluateLearnGate(changchun, Realm.FOUNDATION_ESTABLISHMENT,
+                        ignored -> 0).failure());
+
+        TextMaterialCatalogService.MethodEntry qingyuan = TextMaterialCatalogService.builtin()
+                .findMethod("qingyuan_sword_art").orElseThrow();
+        assertEquals(ManualCatalogService.MethodLearnFailure.PREREQUISITE_MISSING,
+                ManualCatalogService.evaluateLearnGate(qingyuan, Realm.FOUNDATION_ESTABLISHMENT,
+                        ignored -> 0).failure());
+        assertEquals(ManualCatalogService.MethodLearnFailure.PREREQUISITE_LAYER,
+                ManualCatalogService.evaluateLearnGate(qingyuan, Realm.FOUNDATION_ESTABLISHMENT,
+                        ignored -> 12).failure());
+        assertTrue(ManualCatalogService.evaluateLearnGate(qingyuan, Realm.FOUNDATION_ESTABLISHMENT,
+                ignored -> 13).isAllowed());
     }
 
     @Test

@@ -5,6 +5,7 @@ import com.xunxian.seekingimmortals.catalog.TextMaterialCatalogService;
 import com.xunxian.seekingimmortals.network.MethodActionPacket;
 import com.xunxian.seekingimmortals.network.MethodLayoutActionPacket;
 import com.xunxian.seekingimmortals.network.ModNetwork;
+import com.xunxian.seekingimmortals.skill.MethodLayerTechniqueService;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -20,7 +21,7 @@ import java.util.Set;
 
 /**
  * Wave478: interactive cultivation method tree / learn UI.
- * Wave481: cultivate button for method layers (1-9).
+ * Wave481: cultivate button for catalog-defined method layers.
  * Wave483: node-link layer chain + school adjacency graph in the detail pane.
  * Wave484: freer multi-node school graph with clickable peers (up to 6).
  * Wave485: freeform drag layout for school-graph nodes (client offsets).
@@ -244,6 +245,7 @@ public class MethodTreeScreen extends AbstractJournalScreen {
         boolean hasSelection = selected != null;
         boolean learned = hasSelection && ClientMethodData.hasLearned(selected.id());
         int layer = hasSelection ? ClientMethodData.getLayer(selected.id()) : 0;
+        int maxLayer = hasSelection ? ManualCatalogService.maxMethodLayer(selected.id()) : 1;
         if (learnButton != null) {
             boolean canUseDiagnosticLearn = minecraft != null
                     && minecraft.player != null
@@ -252,7 +254,7 @@ public class MethodTreeScreen extends AbstractJournalScreen {
             learnButton.active = canUseDiagnosticLearn && hasSelection && !learned;
         }
         if (cultivateButton != null) {
-            cultivateButton.active = learned && layer > 0 && layer < ManualCatalogService.MAX_METHOD_LAYER;
+            cultivateButton.active = learned && layer > 0 && layer < maxLayer;
         }
     }
 
@@ -490,6 +492,7 @@ public class MethodTreeScreen extends AbstractJournalScreen {
 
         boolean learned = ClientMethodData.hasLearned(selected.id());
         int layer = ClientMethodData.getLayer(selected.id());
+        int maxLayer = ManualCatalogService.maxMethodLayer(selected.id());
         String name = selected.display() == null || selected.display().isBlank()
                 ? selected.id() : selected.display();
         ImmortalUiSkin.drawStringFit(font, graphics, name, detailX, detailY, detailW,
@@ -504,12 +507,21 @@ public class MethodTreeScreen extends AbstractJournalScreen {
                 selected.attribute() == null || selected.attribute().isBlank() ? "-" : selected.attribute());
         if (learned) {
             y = detailLine(graphics, detailX, y, detailW, "layer",
-                    layer + " / " + ManualCatalogService.MAX_METHOD_LAYER);
-            if (layer < ManualCatalogService.MAX_METHOD_LAYER) {
+                    layer + " / " + maxLayer);
+            String layerName = MethodLayerTechniqueService.layerNameForLayer(selected.id(), layer);
+            if (!layerName.isBlank()) {
+                y = detailLine(graphics, detailX, y, detailW, "layer_name", layerName);
+            }
+            if (layer < maxLayer) {
                 y = detailLine(graphics, detailX, y, detailW, "cost_sp",
                         Integer.toString(ManualCatalogService.cultivateSpiritualCost(layer)));
                 y = detailLine(graphics, detailX, y, detailW, "cost_exp",
                         Integer.toString(ManualCatalogService.cultivateCultivationCost(layer)));
+                String nextRealm = MethodLayerTechniqueService.requiredRealmForLayer(selected.id(), layer + 1);
+                if (!nextRealm.isBlank()) {
+                    y = detailLine(graphics, detailX, y, detailW, "next_realm",
+                            com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts.realm(nextRealm).getString());
+                }
             }
         }
 
@@ -519,10 +531,10 @@ public class MethodTreeScreen extends AbstractJournalScreen {
                 detailX, y, detailW, ImmortalUiSkin.JOURNAL_JADE_TEXT, false);
         y += LINE;
         ImmortalUiSkin.drawSemanticStatusBar(graphics, detailX, y, detailW, 5,
-                learned ? layer / (double)ManualCatalogService.MAX_METHOD_LAYER : 0.0D,
+                learned ? layer / (double)maxLayer : 0.0D,
                 learned ? ImmortalUiSkin.StatusBarStyle.CULTIVATION : ImmortalUiSkin.StatusBarStyle.NEUTRAL);
         y += 8;
-        y = drawLayerNodeChain(graphics, detailX, y, detailW, learned ? layer : 0);
+        y = drawLayerNodeChain(graphics, detailX, y, detailW, maxLayer, learned ? layer : 0);
         y += 4;
         ImmortalUiSkin.drawStringFit(font, graphics,
                 Component.translatable("screen.seeking_immortals.method_tree.school_graph").getString(),
@@ -534,7 +546,7 @@ public class MethodTreeScreen extends AbstractJournalScreen {
                 detailX, y, detailW, ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
         y += LINE;
         String statusKey = learned
-                ? (layer >= ManualCatalogService.MAX_METHOD_LAYER
+                ? (layer >= maxLayer
                 ? "screen.seeking_immortals.method_tree.status_max"
                 : "screen.seeking_immortals.method_tree.status_learned")
                 : "screen.seeking_immortals.method_tree.status_locked";
@@ -570,10 +582,11 @@ public class MethodTreeScreen extends AbstractJournalScreen {
     }
 
     /**
-     * Wave483: horizontal 1..MAX layer nodes with links; filled through current layer.
+     * Wave483: horizontal dynamic layer nodes with links; filled through current layer.
      */
-    private int drawLayerNodeChain(GuiGraphics graphics, int x, int y, int width, int currentLayer) {
-        int max = ManualCatalogService.MAX_METHOD_LAYER;
+    private int drawLayerNodeChain(GuiGraphics graphics, int x, int y, int width,
+                                   int maxLayer, int currentLayer) {
+        int max = Math.max(1, maxLayer);
         int nodeSize = Math.max(1, Math.min(NODE, width));
         int gap = width >= NODE + 4 ? 4 : 1;
         int columns = Math.max(1, Math.min(max, (width + gap) / Math.max(1, nodeSize + gap)));

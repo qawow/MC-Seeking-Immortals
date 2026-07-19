@@ -1,7 +1,9 @@
 package com.xunxian.seekingimmortals.catalog;
 
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
+import com.xunxian.seekingimmortals.cultivation.Realm;
 import com.xunxian.seekingimmortals.network.SyncLearnedMethodsPacket;
+import com.xunxian.seekingimmortals.skill.MethodLayerTechniqueService;
 import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -14,6 +16,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
+import java.util.function.Function;
 
 /**
  * Applies manuals_catalog entries via existing catalog carriers.
@@ -21,20 +24,39 @@ import java.util.Optional;
  * Wave473: cultivation method learn authority (persistent learned methods for TechniqueGate).
  * Wave474: manual unlocks + sect outer promotion grant starter methods.
  * Wave475: technique-manual source text maps to related cultivation methods.
- * Wave481: method layer cultivation (1-9) with spiritual/cultivation costs.
+ * Wave481: method layer cultivation with spiritual/cultivation costs.
  * Reuses TextMaterialCatalogService.ManualEntry/MethodEntry and CultivationHelper only (no new systems).
  */
 public final class ManualCatalogService {
     public static final String STUDIED_TAG = "seeking_immortals_studied_manuals";
     public static final String LEARNED_METHODS_TAG = "seeking_immortals_learned_methods";
     public static final String METHOD_LAYERS_TAG = "seeking_immortals_method_layers";
-    public static final int MAX_METHOD_LAYER = 9;
     private static final List<String> PROGRESSION_TAGS = List.of(
             STUDIED_TAG,
             LEARNED_METHODS_TAG,
             METHOD_LAYERS_TAG);
 
     private ManualCatalogService() {}
+
+    enum MethodLearnFailure {
+        NONE,
+        REALM_TOO_LOW,
+        REALM_TOO_HIGH,
+        INVALID_REALM,
+        PREREQUISITE_MISSING,
+        PREREQUISITE_LAYER
+    }
+
+    record MethodLearnGate(MethodLearnFailure failure, String requiredMethod,
+                           int requiredLayer, int currentLayer) {
+        static MethodLearnGate allowed() {
+            return new MethodLearnGate(MethodLearnFailure.NONE, "", 0, 0);
+        }
+
+        boolean isAllowed() {
+            return failure == MethodLearnFailure.NONE;
+        }
+    }
 
     /** Preserve consumed-manual progression when Forge clones a player after death. */
     public static void copyProgressionData(CompoundTag originalData, CompoundTag clonedData) {
@@ -67,6 +89,9 @@ public final class ManualCatalogService {
             if (hasStudied(player, manual.id())) {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.manual.already_studied",
                         displayName(manual)), false);
+                return;
+            }
+            if (!canGrantUnlockMethods(player, manual.unlocks(), cultivation.getRealm())) {
                 return;
             }
             markStudied(player, manual.id());
@@ -257,17 +282,17 @@ public final class ManualCatalogService {
             return false;
         }
         TextMaterialCatalogService.MethodEntry method = optional.get();
+        if (hasLearnedMethod(player, method.id())) {
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.method.already_learned",
+                    method.display()), false);
+            return false;
+        }
         boolean[] ok = {false};
         CultivationHelper.get(player).ifPresent(cultivation -> {
-            if (!method.realmMin().isBlank()
-                    && !WorldpackGameplayService.meetsMinRealm(cultivation.getRealm(), method.realmMin())) {
-                player.displayClientMessage(Component.translatable("message.seeking_immortals.method.realm_too_low",
-                        method.display(), method.realmMin()), false);
-                return;
-            }
-            if (hasLearnedMethod(player, method.id())) {
-                player.displayClientMessage(Component.translatable("message.seeking_immortals.method.already_learned",
-                        method.display()), false);
+            MethodLearnGate gate = evaluateLearnGate(method, cultivation.getRealm(),
+                    prerequisiteId -> getMethodLayer(player, prerequisiteId));
+            if (!gate.isAllowed()) {
+                displayLearnGateFailure(player, method, gate);
                 return;
             }
             // M02: manual conflict matrix D/F pairs block learning.
@@ -281,8 +306,7 @@ public final class ManualCatalogService {
             }
             markLearnedMethod(player, method.id());
             setMethodLayer(player, method.id(), 1);
-            int techniquesGranted = com.xunxian.seekingimmortals.skill.MethodLayerTechniqueService
-                    .grantForMethodLayer(player, method.id(), 1);
+            int techniquesGranted = MethodLayerTechniqueService.grantForMethodLayer(player, method.id(), 1);
             // Light insight buff so learning is immediately felt.
             player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 20 * 30, 0));
             player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 20 * 60, 0));
@@ -298,7 +322,7 @@ public final class ManualCatalogService {
     }
 
     /**
-     * Wave481: cultivate an already-learned method to raise its layer (max 9).
+     * Wave481: cultivate an already-learned method to raise its catalog-defined layer.
      * Costs spiritual power + cultivation exp scaled by current layer.
      */
     public static boolean cultivateMethod(ServerPlayer player, String methodId) {
@@ -315,13 +339,24 @@ public final class ManualCatalogService {
             return false;
         }
         int layer = getMethodLayer(player, method.id());
-        if (layer >= MAX_METHOD_LAYER) {
+        int maxLayer = maxMethodLayer(method.id());
+        if (layer >= maxLayer) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.method.layer_max",
-                    method.display(), MAX_METHOD_LAYER), false);
+                    method.display(), maxLayer), false);
             return false;
         }
         boolean[] ok = {false};
         CultivationHelper.get(player).ifPresent(cultivation -> {
+            int nextLayer = layer + 1;
+            String requiredRealm = MethodLayerTechniqueService.requiredRealmForLayer(method.id(), nextLayer);
+            if (!requiredRealm.isBlank()
+                    && !WorldpackGameplayService.meetsMinRealm(cultivation.getRealm(), requiredRealm)) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.method.layer_realm_too_low",
+                        method.display(), nextLayer,
+                        com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts.realm(requiredRealm)), false);
+                return;
+            }
             int spCost = cultivateSpiritualCost(layer);
             int expCost = cultivateCultivationCost(layer);
             if (cultivation.getSpiritualPower() < spCost) {
@@ -343,14 +378,12 @@ public final class ManualCatalogService {
                         cultivation.getCultivationLong() - expCost);
                 cultivation.setCultivation(next);
             }
-            int nextLayer = layer + 1;
             setMethodLayer(player, method.id(), nextLayer);
-            int techniquesGranted = com.xunxian.seekingimmortals.skill.MethodLayerTechniqueService
-                    .grantForMethodLayer(player, method.id(), nextLayer);
+            int techniquesGranted = MethodLayerTechniqueService.grantForMethodLayer(player, method.id(), nextLayer);
             SyncLearnedMethodsPacket.send(player);
             player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 20 * 15, 0));
             player.displayClientMessage(Component.translatable("message.seeking_immortals.method.cultivated",
-                    method.display(), nextLayer, MAX_METHOD_LAYER), true);
+                    method.display(), nextLayer, maxLayer), true);
             if (techniquesGranted > 0) {
                 player.displayClientMessage(Component.translatable(
                         "message.seeking_immortals.method.techniques_granted", techniquesGranted), false);
@@ -370,6 +403,10 @@ public final class ManualCatalogService {
         return 40 + layer * 30;
     }
 
+    public static int maxMethodLayer(String methodId) {
+        return MethodLayerTechniqueService.maxLayers(methodId);
+    }
+
     public static int getMethodLayer(ServerPlayer player, String methodId) {
         if (player == null || methodId == null || methodId.isBlank()) {
             return 0;
@@ -380,7 +417,7 @@ public final class ManualCatalogService {
         }
         CompoundTag layers = player.getPersistentData().getCompound(METHOD_LAYERS_TAG);
         int layer = layers.getInt(key);
-        return layer <= 0 ? 1 : Math.min(MAX_METHOD_LAYER, layer);
+        return layer <= 0 ? 1 : Math.min(maxMethodLayer(key), layer);
     }
 
     public static void setMethodLayer(ServerPlayer player, String methodId, int layer) {
@@ -389,7 +426,7 @@ public final class ManualCatalogService {
         }
         String key = methodId.trim().toLowerCase(Locale.ROOT);
         CompoundTag layers = player.getPersistentData().getCompound(METHOD_LAYERS_TAG).copy();
-        layers.putInt(key, Math.max(1, Math.min(MAX_METHOD_LAYER, layer)));
+        layers.putInt(key, Math.max(1, Math.min(maxMethodLayer(key), layer)));
         player.getPersistentData().put(METHOD_LAYERS_TAG, layers);
         // Ensure learned flag stays true when layer is set.
         if (!hasLearnedMethod(player, key)) {
@@ -475,12 +512,12 @@ public final class ManualCatalogService {
         if (hasLearnedMethod(player, methodId)) {
             return Optional.empty();
         }
-        // Prefer catalog-known methods; still mark even if index omits rich entry.
-        markLearnedMethod(player, methodId);
-        String display = TextMaterialCatalogService.builtin().findMethod(methodId)
-                .map(TextMaterialCatalogService.MethodEntry::display)
-                .filter(s -> !s.isBlank())
-                .orElse(methodId);
+        TextMaterialCatalogService.MethodEntry method = TextMaterialCatalogService.builtin()
+                .findMethod(methodId).orElse(null);
+        if (method == null || !grantKnownMethodIfEligible(player, method)) {
+            return Optional.empty();
+        }
+        String display = method.display().isBlank() ? method.id() : method.display();
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.method.sect_granted", display, sectId), true);
         return Optional.of(methodId);
@@ -496,45 +533,41 @@ public final class ManualCatalogService {
                 continue;
             }
             String token = raw.trim().toLowerCase(Locale.ROOT);
-            // Direct method id.
-            if (TextMaterialCatalogService.builtin().findMethod(token).isPresent()
-                    || looksLikeMethodId(token)) {
-                if (!hasLearnedMethod(player, token)) {
-                    markLearnedMethod(player, token);
-                    granted++;
-                }
-                continue;
-            }
-            // Soft map: unlock token contains a known method id.
-            for (TextMaterialCatalogService.MethodEntry method
-                    : TextMaterialCatalogService.builtin().methods().values()) {
-                String mid = method.id() == null ? "" : method.id().toLowerCase(Locale.ROOT);
-                if (mid.isBlank()) {
-                    continue;
-                }
-                if (token.contains(mid) || mid.contains(token)) {
-                    if (!hasLearnedMethod(player, mid)) {
-                        markLearnedMethod(player, mid);
-                        granted++;
-                    }
-                    break;
-                }
+            TextMaterialCatalogService.MethodEntry method = TextMaterialCatalogService.builtin()
+                    .findMethod(token).orElse(null);
+            if (method != null && grantKnownMethodIfEligible(player, method)) {
+                granted++;
             }
         }
         return granted;
     }
 
-    private static boolean looksLikeMethodId(String token) {
-        return token.endsWith("_art")
-                || token.endsWith("_gong")
-                || token.endsWith("_jue")
-                || token.endsWith("_method")
-                || token.contains("_body_art")
-                || token.contains("_soul_art")
-                || token.contains("_blood_art")
-                || token.contains("_phantom_art")
-                || token.contains("_seal_art")
-                || token.contains("_sword_art");
+    private static boolean canGrantUnlockMethods(ServerPlayer player, List<String> unlocks, Realm currentRealm) {
+        if (unlocks == null || unlocks.isEmpty()) {
+            return true;
+        }
+        for (String raw : unlocks) {
+            TextMaterialCatalogService.MethodEntry method = TextMaterialCatalogService.builtin()
+                    .findMethod(raw).orElse(null);
+            if (method == null || hasLearnedMethod(player, method.id())) {
+                continue;
+            }
+            MethodLearnGate gate = evaluateLearnGate(method, currentRealm,
+                    prerequisiteId -> getMethodLayer(player, prerequisiteId));
+            if (!gate.isAllowed()) {
+                displayLearnGateFailure(player, method, gate);
+                return false;
+            }
+            com.xunxian.seekingimmortals.skill.ManualConflictMatrixService.GateResult conflict =
+                    com.xunxian.seekingimmortals.skill.ManualConflictMatrixService.canLearnMethod(player, method.id());
+            if (!conflict.allowed()) {
+                if (conflict.messageKey() != null && !conflict.messageKey().isBlank()) {
+                    player.displayClientMessage(Component.translatable(conflict.messageKey(), conflict.args()), false);
+                }
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -555,19 +588,109 @@ public final class ManualCatalogService {
                 continue;
             }
             if (blob.contains(mid) || blob.contains(mid.replace('_', ' '))) {
-                if (!hasLearnedMethod(player, mid)) {
-                    markLearnedMethod(player, mid);
+                if (grantKnownMethodIfEligible(player, method)) {
                     granted++;
                 }
             }
         }
         // Keyword map for common Chinese/English source labels.
         String mapped = methodFromSourceKeywords(blob);
-        if (!mapped.isBlank() && !hasLearnedMethod(player, mapped)) {
-            markLearnedMethod(player, mapped);
+        TextMaterialCatalogService.MethodEntry mappedMethod = TextMaterialCatalogService.builtin()
+                .findMethod(mapped).orElse(null);
+        if (mappedMethod != null && grantKnownMethodIfEligible(player, mappedMethod)) {
             granted++;
         }
         return granted;
+    }
+
+    static MethodLearnGate evaluateLearnGate(TextMaterialCatalogService.MethodEntry method, Realm currentRealm,
+                                             Function<String, Integer> layerLookup) {
+        if (method == null || currentRealm == null) {
+            return new MethodLearnGate(MethodLearnFailure.INVALID_REALM, "", 0, 0);
+        }
+        if (!method.realmMin().isBlank()
+                && !WorldpackGameplayService.meetsMinRealm(currentRealm, method.realmMin())) {
+            return new MethodLearnGate(MethodLearnFailure.REALM_TOO_LOW, "", 0, 0);
+        }
+        if (!method.realmMaxLearn().isBlank()) {
+            Realm maxRealm = Realm.fromDesignId(method.realmMaxLearn());
+            if (maxRealm == null) {
+                return new MethodLearnGate(MethodLearnFailure.INVALID_REALM, "", 0, 0);
+            }
+            if (currentRealm.ordinal() > maxRealm.ordinal()) {
+                return new MethodLearnGate(MethodLearnFailure.REALM_TOO_HIGH, "", 0, 0);
+            }
+        }
+        Function<String, Integer> lookup = layerLookup == null ? ignored -> 0 : layerLookup;
+        for (String prerequisite : method.prerequisiteMethods()) {
+            int currentLayer = Math.max(0, lookup.apply(prerequisite));
+            int requiredLayer = Math.max(1,
+                    method.prerequisiteMethodLayers().getOrDefault(prerequisite, 1));
+            if (currentLayer <= 0) {
+                return new MethodLearnGate(MethodLearnFailure.PREREQUISITE_MISSING,
+                        prerequisite, requiredLayer, currentLayer);
+            }
+            if (currentLayer < requiredLayer) {
+                return new MethodLearnGate(MethodLearnFailure.PREREQUISITE_LAYER,
+                        prerequisite, requiredLayer, currentLayer);
+            }
+        }
+        return MethodLearnGate.allowed();
+    }
+
+    private static boolean grantKnownMethodIfEligible(ServerPlayer player,
+                                                       TextMaterialCatalogService.MethodEntry method) {
+        if (player == null || method == null || hasLearnedMethod(player, method.id())) {
+            return false;
+        }
+        boolean[] granted = {false};
+        CultivationHelper.get(player).ifPresent(cultivation -> {
+            MethodLearnGate gate = evaluateLearnGate(method, cultivation.getRealm(),
+                    prerequisiteId -> getMethodLayer(player, prerequisiteId));
+            if (!gate.isAllowed()) {
+                return;
+            }
+            com.xunxian.seekingimmortals.skill.ManualConflictMatrixService.GateResult conflict =
+                    com.xunxian.seekingimmortals.skill.ManualConflictMatrixService.canLearnMethod(player, method.id());
+            if (!conflict.allowed()) {
+                return;
+            }
+            markLearnedMethod(player, method.id());
+            setMethodLayer(player, method.id(), 1);
+            MethodLayerTechniqueService.grantForMethodLayer(player, method.id(), 1);
+            granted[0] = true;
+        });
+        return granted[0];
+    }
+
+    private static void displayLearnGateFailure(ServerPlayer player,
+                                                TextMaterialCatalogService.MethodEntry method,
+                                                MethodLearnGate gate) {
+        switch (gate.failure()) {
+            case REALM_TOO_LOW -> player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.method.realm_too_low", method.display(),
+                    com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts.realm(method.realmMin())), false);
+            case REALM_TOO_HIGH -> player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.method.realm_too_high", method.display(),
+                    com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts.realm(method.realmMaxLearn())), false);
+            case PREREQUISITE_MISSING -> player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.method.prerequisite_missing", method.display(),
+                    methodDisplay(gate.requiredMethod())), false);
+            case PREREQUISITE_LAYER -> player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.method.prerequisite_layer", method.display(),
+                    methodDisplay(gate.requiredMethod()), gate.requiredLayer(), gate.currentLayer()), false);
+            case INVALID_REALM -> player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.method.invalid_realm_gate", method.display()), false);
+            case NONE -> {
+            }
+        }
+    }
+
+    private static String methodDisplay(String methodId) {
+        return TextMaterialCatalogService.builtin().findMethod(methodId)
+                .map(TextMaterialCatalogService.MethodEntry::display)
+                .filter(display -> display != null && !display.isBlank())
+                .orElse(methodId == null ? "" : methodId);
     }
 
     private static String methodFromSourceKeywords(String blob) {

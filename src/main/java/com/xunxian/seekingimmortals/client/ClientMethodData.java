@@ -11,7 +11,7 @@ import java.util.Map;
 
 /**
  * Wave477: client mirror of server learned cultivation methods.
- * Wave481: stores method layers (1-9).
+ * Wave481: stores catalog-defined method layers.
  */
 public final class ClientMethodData {
     private static Map<String, Integer> learnedMethods = Map.of();
@@ -29,7 +29,8 @@ public final class ClientMethodData {
                     return;
                 }
                 String key = id.trim().toLowerCase(Locale.ROOT);
-                int lv = layer == null ? 1 : Math.max(1, Math.min(ManualCatalogService.MAX_METHOD_LAYER, layer));
+                int lv = layer == null ? 1
+                        : Math.max(1, Math.min(ManualCatalogService.maxMethodLayer(key), layer));
                 next.put(key, lv);
             });
             learnedMethods = Map.copyOf(next);
