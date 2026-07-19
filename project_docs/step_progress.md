@@ -1,3 +1,14 @@
+## 500. 2026-07-19 0.2.43 批量物品功能第一阶段
+
+  Step   Status   Notes
+  ---   ---   ---
+  Audit   Done   max 代理复核批量物品、丹药、法宝、功法和术法目录；确认丹方来源、精确丹药 ID、储物 effect 与材料法宝四个当前批次问题，并形成后续缺口清单。
+  Backup   Done   回滚点 `.bak/20260719_0.2.40_bulk_items/`、`.bak/20260719_0.2.42_bulk_item_followup/`、`.bak/20260719_0.2.43_bulk_item_final/`，均保持相对路径且不纳入提交。
+  Implement   Done   36 个目录消耗品、便携储物、丹药别名、避雷/天劫、灵田肥、投射物退款等运行时已接入；炼丹方读取 `medium`，精确高阶回灵丹优先，储物袋 effect 规范化，`material_artifact` 降为普通载体。
+  Verify   Done   聚焦 `ModBulkItemsTest` 与 `CatalogConsumableServiceTest` 6 项通过；最终普通 `./gradlew build --no-daemon` BUILD SUCCESSFUL，全量 676 项，0 failures、0 errors、0 skipped。
+  Version   Done   `mod_version` 0.2.39 -> 0.2.43；无网络字段、顺序、注册、方向或通道不兼容变化，`ModNetwork.PROTOCOL_VERSION` 保持 25。
+  Handoff   Done   未完成的逐丹效果、功法 13 层 schema、747 条术法字段消费、符箓事务、法宝倍率、交付 outbox 与储物 TOCTOU 已写入 `project_docs/updates/20260719_0.2.43_bulk_item_functions.md`。
+
 ## 499. 2026-07-19 0.2.39 拍卖余额不足扣款原子性
 
   Step   Status   Notes

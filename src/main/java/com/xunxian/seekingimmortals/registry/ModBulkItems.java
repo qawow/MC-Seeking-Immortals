@@ -6,6 +6,9 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.item.CatalogCarrierItem;
+import com.xunxian.seekingimmortals.item.CatalogConsumableItem;
+import com.xunxian.seekingimmortals.item.ArtifactCatalogItem;
+import com.xunxian.seekingimmortals.item.alchemy.AlchemyFormulaItem;
 import com.xunxian.seekingimmortals.item.material.MaterialCategory;
 import com.xunxian.seekingimmortals.item.material.MaterialRarity;
 import com.xunxian.seekingimmortals.item.pill.BulkPillItem;
@@ -187,21 +190,28 @@ public final class ModBulkItems {
         } else if ("pill".equals(cat) || "consumable".equals(cat) || "talisman".equals(cat)) {
             props = props.stacksTo(16);
         }
-        if ("pill".equals(cat) || id.endsWith("_pill") || id.contains("_pill_") || id.endsWith("_dan")) {
-            PillQuality quality = qualityFromId(id);
-            return new BulkPillItem(props, materialCategory, materialRarity, description, basePillId(id), quality);
-        }
-        return new CatalogCarrierItem(props, materialCategory, materialRarity, description, id, grade);
-    }
-
-    private static String basePillId(String id) {
-        String path = id == null ? "" : id.toLowerCase(Locale.ROOT);
-        for (String suffix : new String[]{"_mid", "_middle", "_high", "_supreme", "_perfect", "_low"}) {
-            if (path.endsWith(suffix)) {
-                return path.substring(0, path.length() - suffix.length());
+        BulkItemKind kind = BulkItemClassifier.classify(id, cat);
+        return switch (kind) {
+            case FORMULA -> new AlchemyFormulaItem(props.stacksTo(1),
+                    BulkItemClassifier.recipeOutput(id).orElse(id), BulkItemClassifier.formulaSource(id));
+            case ARTIFACT -> new ArtifactCatalogItem(props.stacksTo(1), id);
+            case CONSUMABLE -> {
+                BulkItemClassifier.ConsumableDefinition definition =
+                        BulkItemClassifier.consumable(id).orElseThrow();
+                yield new CatalogConsumableItem(
+                        definition.storageSlots() > 0 ? props.stacksTo(1) : props,
+                        materialCategory,
+                        materialRarity,
+                        description,
+                        definition);
             }
-        }
-        return path;
+            case PILL -> {
+                PillQuality quality = qualityFromId(id);
+                yield new BulkPillItem(props, materialCategory, materialRarity, description,
+                        id, quality);
+            }
+            case CARRIER -> new CatalogCarrierItem(props, materialCategory, materialRarity, description, id, grade);
+        };
     }
 
     private static PillQuality qualityFromId(String id) {

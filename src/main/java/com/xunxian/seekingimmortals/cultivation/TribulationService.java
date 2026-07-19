@@ -1,6 +1,7 @@
 package com.xunxian.seekingimmortals.cultivation;
 
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
+import com.xunxian.seekingimmortals.item.CatalogConsumableService;
 import com.xunxian.seekingimmortals.spiritual.SpiritualAuraManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -62,14 +63,25 @@ public final class TribulationService {
                 auraInfo.formationBonus(),
                 cultivation.getTribulationDamageReductionBonus());
 
-        applyDivineSenseInstability(player, cultivation, targetRealm);
         spawnStrikeVisual(player);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.tribulation.strike",
                 strikeNumber,
                 totalStrikes,
                 Math.round(damage * 10.0D) / 10.0D,
                 percent(reduction)), false);
-        player.hurt(player.damageSources().magic(), (float)Math.min(Float.MAX_VALUE, damage));
+        CatalogConsumableService.markTribulationDamage(player);
+        boolean damageAccepted;
+        try {
+            damageAccepted = player.hurt(player.damageSources().magic(), (float)Math.min(Float.MAX_VALUE, damage));
+        } finally {
+            CatalogConsumableService.clearTribulationDamage(player);
+        }
+        if (!damageAccepted) {
+            cultivation.scheduleTribulationRetry(20);
+            SyncCultivationDataPacket.send(player, cultivation);
+            return;
+        }
+        applyDivineSenseInstability(player, cultivation, targetRealm);
         cultivation.recordTribulationStrike(STRIKE_INTERVAL_TICKS);
 
         if (cultivation.isTribulationActive() && !player.isDeadOrDying() && cultivation.isTribulationComplete()) {

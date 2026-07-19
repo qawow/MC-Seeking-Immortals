@@ -334,6 +334,19 @@ class Phase1CultivationSystemTest {
     }
 
     @Test
+    void canceledTribulationStrikeCanRetryWithoutAdvancingWave() {
+        PlayerCultivation cultivation = new PlayerCultivation();
+        cultivation.startTribulation(Realm.CORE_FORMATION, 3, 0);
+        cultivation.scheduleTribulationRetry(20);
+        assertEquals(0, cultivation.getTribulationCurrentStrike());
+        for (int tick = 0; tick < 19; tick++) {
+            assertFalse(cultivation.tickTribulationCountdown());
+        }
+        assertTrue(cultivation.tickTribulationCountdown());
+        assertEquals(0, cultivation.getTribulationCurrentStrike());
+    }
+
+    @Test
     void validatesTribulationDamageFormulaInputsAndCap() {
         int coreRequirement = TribulationService.getTargetDivineSenseRequirement(Realm.CORE_FORMATION);
         double base = TribulationService.calculateDamageReductionPercent(0, 0, coreRequirement, Realm.CORE_FORMATION, 1.0D, 0);

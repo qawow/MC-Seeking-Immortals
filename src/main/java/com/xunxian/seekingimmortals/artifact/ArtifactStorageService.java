@@ -2,8 +2,10 @@ package com.xunxian.seekingimmortals.artifact;
 
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.cultivation.Realm;
+import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.item.ArtifactCatalogItem;
 import com.xunxian.seekingimmortals.item.InventoryDeliveryService;
+import com.xunxian.seekingimmortals.item.PortableStorageItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -83,6 +85,11 @@ public final class ArtifactStorageService {
             return false;
         }
         Realm minRealm = realmFromDesignId(artifact.realmMin());
+        if (minRealm == null) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.artifact.unknown_realm", artifact.realmMin()), true);
+            return false;
+        }
         if (cultivation.getRealm().ordinal() < minRealm.ordinal()) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.artifact.realm_too_low", minRealm.getDisplayName()), true);
@@ -92,6 +99,11 @@ public final class ArtifactStorageService {
                 && ArtifactActivationService.getIntegrity(braceletStack, artifact) <= 0) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.artifact.integrity_broken", braceletStack.getHoverName()), true);
+            return false;
+        }
+        if (!isStorageCountValid(braceletStack, slots)) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.artifact.storage_overflow", countStored(braceletStack), slots), true);
             return false;
         }
 
@@ -109,6 +121,50 @@ public final class ArtifactStorageService {
         }, buf -> {
             buf.writeEnum(hand);
             buf.writeVarInt(slots);
+        });
+        return true;
+    }
+
+    public static boolean usePortableStorage(ServerPlayer player, ItemStack storageStack, InteractionHand hand) {
+        if (player == null || storageStack == null || storageStack.isEmpty()
+                || !(storageStack.getItem() instanceof PortableStorageItem portable)) {
+            return false;
+        }
+        int slots = Math.max(1, Math.min(27, portable.portableStorageSlots()));
+        Realm required = portableStorageRealm(portable.portableStorageRealmMin());
+        if (required == null) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.artifact.unknown_realm",
+                    portable.portableStorageRealmMin()), true);
+            return false;
+        }
+        if (CultivationHelper.get(player)
+                .map(cultivation -> cultivation.getRealm().ordinal() < required.ordinal())
+                .orElse(!Realm.MORTAL.equals(required))) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.artifact.realm_too_low", required.getDisplayName()), true);
+            return false;
+        }
+        if (!isStorageCountValid(storageStack, slots)) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.artifact.storage_overflow", countStored(storageStack), slots), true);
+            return false;
+        }
+        NetworkHooks.openScreen(player, new net.minecraft.world.MenuProvider() {
+            @Override
+            public Component getDisplayName() {
+                return Component.translatable("screen.seeking_immortals.storage_bracelet.title");
+            }
+
+            @Override
+            public net.minecraft.world.inventory.AbstractContainerMenu createMenu(
+                    int id, net.minecraft.world.entity.player.Inventory inv, Player ignored) {
+                return new com.xunxian.seekingimmortals.menu.StorageBraceletMenu(
+                        id, inv, hand, storageStack, portable.portableStorageSlots());
+            }
+        }, buf -> {
+            buf.writeEnum(hand);
+            buf.writeVarInt(portable.portableStorageSlots());
         });
         return true;
     }
@@ -165,10 +221,34 @@ public final class ArtifactStorageService {
 
     
     public static boolean supportsStack(ItemStack stack) {
-        if (stack == null || stack.isEmpty() || !(stack.getItem() instanceof ArtifactCatalogItem item)) {
+        if (stack == null || stack.isEmpty()) {
             return false;
         }
-        return supports(item.artifactId());
+        if (stack.getItem() instanceof PortableStorageItem portable) {
+            return portable.portableStorageSlots() > 0;
+        }
+        return stack.getItem() instanceof ArtifactCatalogItem item && supports(item.artifactId());
+    }
+
+    public static int storageSlots(ItemStack stack) {
+        if (stack == null || stack.isEmpty()) {
+            return 0;
+        }
+        if (stack.getItem() instanceof PortableStorageItem portable) {
+            return Math.max(0, Math.min(27, portable.portableStorageSlots()));
+        }
+        if (stack.getItem() instanceof ArtifactCatalogItem artifact) {
+            return storageSlots(artifact.artifactId());
+        }
+        return 0;
+    }
+
+    static boolean isStorageCountValid(int storedCount, int slots) {
+        return storedCount >= 0 && slots > 0 && storedCount <= slots;
+    }
+
+    private static boolean isStorageCountValid(ItemStack stack, int slots) {
+        return isStorageCountValid(countStored(stack), slots);
     }
 
     public static ItemStackHandler createHandler(ItemStack bracelet, int slots) {
@@ -270,18 +350,13 @@ public final class ArtifactStorageService {
         if (id == null || id.isBlank()) {
             return Realm.MORTAL;
         }
-        return switch (id.toUpperCase(Locale.ROOT)) {
-            case "QI_REFINING" -> Realm.QI_REFINING;
-            case "FOUNDATION", "FOUNDATION_ESTABLISHMENT" -> Realm.FOUNDATION_ESTABLISHMENT;
-            case "CORE_FORMATION" -> Realm.CORE_FORMATION;
-            case "NASCENT_SOUL" -> Realm.NASCENT_SOUL;
-            case "SOUL_TRANSFORMATION" -> Realm.SOUL_TRANSFORMATION;
-            case "VOID_REFINEMENT" -> Realm.VOID_REFINEMENT;
-            case "UNITY" -> Realm.UNITY;
-            case "GREAT_VEHICLE", "MAHAYANA" -> Realm.MAHAYANA;
-            case "TRIBULATION" -> Realm.TRIBULATION;
-            case "TRUE_IMMORTAL" -> Realm.TRUE_IMMORTAL;
-            default -> Realm.MORTAL;
-        };
+        return Realm.fromDesignId(id);
+    }
+
+    private static Realm portableStorageRealm(String id) {
+        if (id == null || id.isBlank()) {
+            return Realm.MORTAL;
+        }
+        return Realm.fromDesignId(id);
     }
 }

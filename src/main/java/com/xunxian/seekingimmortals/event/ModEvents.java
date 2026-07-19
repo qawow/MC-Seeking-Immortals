@@ -24,6 +24,7 @@ import com.xunxian.seekingimmortals.entity.SpiritStoneBankerEntity;
 import com.xunxian.seekingimmortals.entity.SummonedServitorEntity;
 import com.xunxian.seekingimmortals.catalog.SpiritStoneLadderService;
 import com.xunxian.seekingimmortals.item.ArtifactCatalogItem;
+import com.xunxian.seekingimmortals.item.CatalogConsumableService;
 import com.xunxian.seekingimmortals.item.SpiritStoneItem;
 import com.xunxian.seekingimmortals.item.pill.CatalogPillItem;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
@@ -80,6 +81,7 @@ import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
+import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -420,6 +422,17 @@ public final class ModEvents {
             event.setAmount((float)result.getFinalDamage());
         }
         com.xunxian.seekingimmortals.combat.CombatCalculator.showDamageFeedback(attacker, defender, result);
+    }
+
+    @SubscribeEvent(priority = EventPriority.LOWEST)
+    public static void onLivingDamage(LivingDamageEvent event) {
+        if (event.getEntity() instanceof ServerPlayer serverPlayer) {
+            float mitigated = CatalogConsumableService.mitigateLightningDamage(
+                    serverPlayer, event.getSource(), event.getAmount());
+            if (mitigated != event.getAmount()) {
+                event.setAmount(mitigated);
+            }
+        }
     }
 
     // H11: Flying lifecycle cleanup.

@@ -1207,6 +1207,12 @@ public class PlayerCultivation {
         tribulationNextStrikeTicks = Math.max(0, nextDelayTicks);
     }
 
+    public void scheduleTribulationRetry(int delayTicks) {
+        if (tribulationActive) {
+            tribulationNextStrikeTicks = Math.max(1, delayTicks);
+        }
+    }
+
     public boolean isTribulationComplete() {
         return tribulationActive && tribulationTotalStrikes > 0 && tribulationCurrentStrike >= tribulationTotalStrikes;
     }

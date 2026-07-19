@@ -113,6 +113,23 @@ public final class BeastContractService {
     }
 
     public static boolean feed(ServerPlayer player, String beastId) {
+        return feedInternal(player, beastId, true);
+    }
+
+    public static boolean feedFromConsumable(ServerPlayer player) {
+        if (player == null) {
+            return false;
+        }
+        List<Contract> contracts = list(player);
+        if (contracts.isEmpty()) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.beast.feed_no_contract"), false);
+            return false;
+        }
+        return feedInternal(player, contracts.get(0).id(), false);
+    }
+
+    private static boolean feedInternal(ServerPlayer player, String beastId, boolean consumeInventoryFeed) {
         String id = normalize(beastId);
         id = BeastBestiaryService.find(id).map(BeastBestiaryService.BeastEntry::id).orElse(id);
         CompoundTag root = player.getPersistentData().getCompound(ROOT).copy();
@@ -120,7 +137,7 @@ public final class BeastContractService {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.beast.missing", id), false);
             return false;
         }
-        if (!player.getAbilities().instabuild) {
+        if (consumeInventoryFeed && !player.getAbilities().instabuild) {
             if (!consumeOne(player, ModItems.BEAST_CORE.get().getDefaultInstance())
                     && !consumeOne(player, ModItems.SPIRIT_STONE_SHARD.get().getDefaultInstance())
                     && !consumeFeedItems(player)) {

@@ -37,6 +37,14 @@ class ArtifactStorageAuthorityTest {
     }
 
     @Test
+    void storageRejectsOnlyOverflowingPositiveCapacities() {
+        assertTrue(ArtifactStorageService.isStorageCountValid(0, 9));
+        assertTrue(ArtifactStorageService.isStorageCountValid(9, 9));
+        assertFalse(ArtifactStorageService.isStorageCountValid(10, 9));
+        assertFalse(ArtifactStorageService.isStorageCountValid(1, 0));
+    }
+
+    @Test
     void menuKeepsAuthorityBoundToTheOpeningBracelet() throws Exception {
         String source = Files.readString(MENU_SOURCE);
         String removed = compact(methodSource(source, "public void removed("));

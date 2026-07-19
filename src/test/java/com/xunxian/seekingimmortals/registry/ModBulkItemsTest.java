@@ -4,6 +4,8 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.xunxian.seekingimmortals.alchemy.AlchemyFormulaSource;
+import com.xunxian.seekingimmortals.item.pill.PillEffectCatalog;
 import org.junit.jupiter.api.Test;
 
 import java.io.InputStream;
@@ -14,6 +16,7 @@ import java.util.Locale;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -64,5 +67,101 @@ class ModBulkItemsTest {
         assertTrue(ids.contains("palm_heaven_bottle_stand"));
         assertTrue(ids.contains("market_stall_counter"));
         assertTrue(hasDingshenGrade);
+    }
+
+    @Test
+    void classifierUsesAuthoritativeKindsAndRecipeOutputs() {
+        assertEquals(BulkItemKind.FORMULA,
+                BulkItemClassifier.classify("recipe_bigu", "consumable"));
+        assertEquals("bigu_pill", BulkItemClassifier.recipeOutput("recipe_bigu").orElseThrow());
+        assertEquals(BulkItemKind.ARTIFACT,
+                BulkItemClassifier.classify("flying_sword_low", "artifact"));
+        assertEquals(BulkItemKind.CONSUMABLE,
+                BulkItemClassifier.classify("spirit_rice_bowl", "consumable"));
+        assertEquals(BulkItemKind.CONSUMABLE,
+                BulkItemClassifier.classify("storage_pouch_low", "consumable"));
+        assertEquals(BulkItemKind.PILL,
+                BulkItemClassifier.classify("appearance_lock_pill", "pill"));
+        assertEquals(BulkItemKind.PILL,
+                BulkItemClassifier.classify("beast_taming_pill_low", "pill"));
+        assertEquals(BulkItemKind.CARRIER,
+                BulkItemClassifier.classify("spirit_pill_voucher", "pill"));
+        assertEquals(BulkItemKind.CARRIER,
+                BulkItemClassifier.classify("recipe_binding_talisman", "talisman"));
+        assertEquals(BulkItemKind.CARRIER,
+                BulkItemClassifier.classify("recipe_gold_armor_talisman", "talisman"));
+        assertEquals(BulkItemKind.CARRIER,
+                BulkItemClassifier.classify("recipe_invisibility_talisman", "talisman"));
+        assertEquals(BulkItemKind.CARRIER,
+                BulkItemClassifier.classify("evil_mirage_mirror_shard", "artifact"));
+        assertEquals(BulkItemKind.CARRIER,
+                BulkItemClassifier.classify("natal_artifact_embryo", "artifact"));
+        assertEquals("restore_mana",
+                PillEffectCatalog.findByPillId("spirit_recovery_pill_high").orElseThrow().effect());
+        assertEquals("restore_mana_50pct",
+                PillEffectCatalog.findByPillId("spirit_recovery_pill").orElseThrow().effect());
+    }
+
+    @Test
+    void everyShippedAlchemyRecipeCarrierResolvesToARealOutput() throws Exception {
+        Set<String> bulkIds = new HashSet<>();
+        try (InputStream in = ModBulkItemsTest.class.getClassLoader()
+                .getResourceAsStream("assets/seeking_immortals/catalog_bulk_items.json")) {
+            assertNotNull(in);
+            JsonObject root = JsonParser.parseReader(new InputStreamReader(in, StandardCharsets.UTF_8)).getAsJsonObject();
+            for (JsonElement element : root.getAsJsonArray("items")) {
+                bulkIds.add(element.getAsJsonObject().get("id").getAsString().toLowerCase(Locale.ROOT));
+            }
+        }
+        try (InputStream in = ModBulkItemsTest.class.getClassLoader()
+                .getResourceAsStream("data/seeking_immortals/catalog/alchemy_recipes_index.json")) {
+            assertNotNull(in);
+            JsonObject root = JsonParser.parseReader(new InputStreamReader(in, StandardCharsets.UTF_8)).getAsJsonObject();
+            for (JsonElement element : root.getAsJsonArray("recipes")) {
+                JsonObject recipe = element.getAsJsonObject();
+                String id = recipe.get("id").getAsString().toLowerCase(Locale.ROOT);
+                if (!bulkIds.contains(id)) {
+                    continue;
+                }
+                assertEquals(BulkItemKind.FORMULA,
+                        BulkItemClassifier.classify(id, "consumable"), id);
+                assertEquals(recipe.get("output").getAsString().toLowerCase(Locale.ROOT),
+                        BulkItemClassifier.recipeOutput(id).orElseThrow(), id);
+            }
+        }
+    }
+
+    @Test
+    void formulaSourcesFollowShippedMediumSchema() throws Exception {
+        int jade = 0;
+        int sectSecret = 0;
+        try (InputStream in = ModBulkItemsTest.class.getClassLoader()
+                .getResourceAsStream("data/seeking_immortals/text_material/alchemy_recipes.json")) {
+            assertNotNull(in);
+            JsonObject root = JsonParser.parseReader(new InputStreamReader(in, StandardCharsets.UTF_8))
+                    .getAsJsonObject();
+            for (JsonElement element : root.getAsJsonArray("recipes")) {
+                JsonObject recipe = element.getAsJsonObject();
+                String id = recipe.get("id").getAsString();
+                String medium = recipe.has("medium") ? recipe.get("medium").getAsString() : "";
+                AlchemyFormulaSource expected = switch (medium) {
+                    case "jade_slip" -> {
+                        jade++;
+                        yield AlchemyFormulaSource.JADE;
+                    }
+                    case "sect_secret_scroll" -> {
+                        sectSecret++;
+                        yield AlchemyFormulaSource.SECT_SECRET;
+                    }
+                    case "", "paper_formula" -> AlchemyFormulaSource.PAPER;
+                    default -> throw new IllegalStateException("unknown medium=" + medium);
+                };
+                assertEquals(expected, BulkItemClassifier.formulaSource(id), id);
+            }
+        }
+        assertEquals(23, jade);
+        assertEquals(14, sectSecret);
+        assertEquals(AlchemyFormulaSource.PAPER,
+                BulkItemClassifier.formulaSource("recipe_solid_essence_pill"));
     }
 }

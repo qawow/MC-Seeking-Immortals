@@ -1,6 +1,7 @@
 package com.xunxian.seekingimmortals.block;
 
 import com.xunxian.seekingimmortals.craft.GardenLiquidService;
+import com.xunxian.seekingimmortals.item.CatalogConsumableService;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
 import com.xunxian.seekingimmortals.registry.ModItems;
 import com.xunxian.seekingimmortals.structure.SpiritHerbPlanterStructure;
@@ -29,8 +30,8 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 /**
  * Text-material spirit_herb_planter + garden_liquid_calendar_v108.
  * Sneak-use validates a soil/array ring then harvests a catalog herb.
- * Holding 掌天瓶/绿液 spends one annual green-liquid charge to accelerate (bypass planter CD only;
- * never exceeds year quota).
+ * Holding 掌天瓶/绿液 spends one annual green-liquid charge to accelerate; primed fertilizer
+ * charges provide the same short growth cycle without touching the green-liquid year quota.
  */
 public class SpiritHerbPlanterBlock extends Block {
     private static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
@@ -71,15 +72,21 @@ public class SpiritHerbPlanterBlock extends Block {
         }
 
         long now = level.getGameTime();
-        String key = pos.asLong() + "";
+        String legacyKey = Long.toString(pos.asLong());
+        String key = level.dimension().location() + ":" + legacyKey;
         CompoundTag root = serverPlayer.getPersistentData().getCompound(COOLDOWN_ROOT).copy();
-        long readyAt = root.getLong(key);
+        pruneExpiredCooldowns(root, now);
+        long readyAt = root.contains(key) ? root.getLong(key) : root.getLong(legacyKey);
+        if (!root.contains(key) && readyAt > now) {
+            root.putLong(key, readyAt);
+        }
+        root.remove(legacyKey);
+        serverPlayer.getPersistentData().put(COOLDOWN_ROOT, root);
         boolean onCooldown = !serverPlayer.getAbilities().instabuild && readyAt > now;
         boolean accelerated = false;
         ItemStack held = serverPlayer.getItemInHand(hand);
         boolean holdingBottleOrLiquid = GardenLiquidService.isBottle(held) || GardenLiquidService.isLiquid(held)
                 || GardenLiquidService.hasBoundBottle(serverPlayer);
-
         if (onCooldown) {
             if (holdingBottleOrLiquid) {
                 // Redline: 催熟不可绕过年帽 — charge must succeed first.
@@ -87,6 +94,8 @@ public class SpiritHerbPlanterBlock extends Block {
                     return InteractionResult.CONSUME;
                 }
                 accelerated = true;
+            } else if (CatalogConsumableService.hasFertilizerCharge(serverPlayer)) {
+                accelerated = CatalogConsumableService.consumeFertilizerCharge(serverPlayer);
             } else {
                 long remainSec = Math.max(1L, (readyAt - now + 19L) / 20L);
                 player.displayClientMessage(Component.translatable(
@@ -133,5 +142,13 @@ public class SpiritHerbPlanterBlock extends Block {
         }
         // accelerated bonus pool
         return ModItems.DRAGON_BLOOD_GRASS.get();
+    }
+
+    private static void pruneExpiredCooldowns(CompoundTag root, long now) {
+        for (String key : java.util.Set.copyOf(root.getAllKeys())) {
+            if (root.getLong(key) <= now) {
+                root.remove(key);
+            }
+        }
     }
 }

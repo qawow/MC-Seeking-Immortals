@@ -43,7 +43,7 @@ public class BulkPillItem extends BaseMaterialItem {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if (!level.isClientSide && player instanceof ServerPlayer serverPlayer) {
-            boolean consumed = PillEffectCatalog.tryConsume(serverPlayer, stack, quality);
+            boolean consumed = PillEffectCatalog.tryConsume(serverPlayer, stack, catalogId, quality);
             if (consumed) {
                 if (!serverPlayer.getAbilities().instabuild) {
                     stack.shrink(1);
@@ -63,7 +63,8 @@ public class BulkPillItem extends BaseMaterialItem {
                 .withStyle(style -> style.withColor(quality.getColor())));
         PillEffectCatalog.findByPillId(catalogId).ifPresent(entry -> {
             if (entry.effect() != null && !entry.effect().isBlank()) {
-                tooltip.add(Component.literal(entry.effect()).withStyle(ChatFormatting.DARK_GRAY));
+                tooltip.add(Component.translatable("tooltip.seeking_immortals.catalog_pill.effect",
+                        entry.effect()).withStyle(ChatFormatting.DARK_GRAY));
             }
             if (entry.realmMin() != null && !entry.realmMin().isBlank()) {
                 tooltip.add(Component.translatable("tooltip.seeking_immortals.catalog_pill.min_realm",

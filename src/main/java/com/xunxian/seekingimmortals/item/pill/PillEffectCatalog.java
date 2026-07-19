@@ -34,6 +34,12 @@ import java.util.Optional;
  */
 public final class PillEffectCatalog {
     private static final String RESOURCE = "data/" + SeekingImmortalsMod.MODID + "/alchemy/pill_effect_catalog.json";
+    private static final Map<String, String> PILL_ALIASES = Map.of(
+            "appearance_lock_pill", "dingyan_pill",
+            "beast_taming_pill_low", "beast_taming_pill",
+            "marrow_drain_pill", "marrow_extract_pill",
+            "qingxu_pill", "calm_spirit_pill"
+    );
     private static final Map<String, Entry> BY_PILL_ID = load();
     private static final Map<String, Entry> BY_ITEM_PATH = indexByItemPath(BY_PILL_ID);
 
@@ -45,7 +51,35 @@ public final class PillEffectCatalog {
         if (pillId == null || pillId.isBlank()) {
             return Optional.empty();
         }
-        return Optional.ofNullable(BY_PILL_ID.get(pillId.trim().toLowerCase(Locale.ROOT)));
+        String key = pillId.trim().toLowerCase(Locale.ROOT);
+        Entry direct = BY_PILL_ID.get(key);
+        if (direct != null) {
+            return Optional.of(direct);
+        }
+        String canonical = canonicalPillId(key);
+        Entry aliased = BY_PILL_ID.get(canonical);
+        if (aliased != null) {
+            return Optional.of(aliased);
+        }
+        for (String suffix : new String[]{"_mid", "_middle", "_high", "_supreme", "_perfect", "_low"}) {
+            if (!key.endsWith(suffix)) {
+                continue;
+            }
+            String baseKey = key.substring(0, key.length() - suffix.length());
+            Entry base = BY_PILL_ID.get(baseKey);
+            if (base == null) {
+                base = BY_PILL_ID.get(canonicalPillId(baseKey));
+            }
+            if (base != null) {
+                return Optional.of(base);
+            }
+        }
+        return Optional.empty();
+    }
+
+    public static String canonicalPillId(String pillId) {
+        String key = pillId == null ? "" : pillId.trim().toLowerCase(Locale.ROOT);
+        return PILL_ALIASES.getOrDefault(key, key);
     }
 
     public static Optional<Entry> findByItem(Item item) {
@@ -56,25 +90,16 @@ public final class PillEffectCatalog {
         if (key == null) {
             return Optional.empty();
         }
-        Entry direct = BY_ITEM_PATH.get(key.getPath());
+        String path = key.getPath().toLowerCase(Locale.ROOT);
+        Entry direct = BY_ITEM_PATH.get(path);
         if (direct != null) {
             return Optional.of(direct);
         }
-        // quality suffix strip: foo_mid / foo_high / foo_supreme
-        String path = key.getPath();
-        for (String suffix : new String[]{"_mid", "_high", "_supreme", "_middle", "_perfect", "_low"}) {
-            if (path.endsWith(suffix)) {
-                Entry base = BY_ITEM_PATH.get(path.substring(0, path.length() - suffix.length()));
-                if (base != null) {
-                    return Optional.of(base);
-                }
-                Entry byId = BY_PILL_ID.get(path.substring(0, path.length() - suffix.length()));
-                if (byId != null) {
-                    return Optional.of(byId);
-                }
-            }
+        Optional<Entry> aliased = findByPillId(path);
+        if (aliased.isPresent()) {
+            return aliased;
         }
-        return Optional.ofNullable(BY_PILL_ID.get(path));
+        return Optional.empty();
     }
 
     public static int size() {
@@ -90,7 +115,14 @@ public final class PillEffectCatalog {
      * @return true if the pill was consumed successfully
      */
     public static boolean tryConsume(ServerPlayer player, ItemStack stack, PillQuality quality) {
-        Optional<Entry> optional = findByItem(stack.getItem());
+        return tryConsume(player, stack, "", quality);
+    }
+
+    public static boolean tryConsume(ServerPlayer player, ItemStack stack, String pillId, PillQuality quality) {
+        Optional<Entry> optional = findByPillId(pillId);
+        if (optional.isEmpty()) {
+            optional = findByItem(stack.getItem());
+        }
         if (optional.isEmpty()) {
             return false;
         }
