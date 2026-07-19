@@ -8065,3 +8065,16 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Description policy   Done   14 个贡献/传送/阵盘条目补充双语精确说明；全部 `formation_item_behaviors` 条目按放置、激活、查看显示真实交互策略。
   Build   Done   首次构建仅因旧 13 条阵法计数断言失败；更新为 14 后普通 `./gradlew build --no-daemon` BUILD SUCCESSFUL，全量 695 项测试通过。
   Protocol   Done   未改网络字段、顺序、类型、注册、方向或通道兼容行为，`ModNetwork.PROTOCOL_VERSION` 保持 `25`。
+
+## 506. 2026-07-20 0.2.53 术法结构字段与安全回退
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   代码备份位于 `.bak/20260720_0.2.53_structured_techniques/`，状态文档备份位于 `.bak/20260720_0.2.53_structured_techniques_docs/`。
+  Structured fields   Done   `TechniqueEntry` 保留 `damage_base`、`effect_key`、合并 tags、target 与 range，并兼容旧构造调用。
+  Resolver priority   Done   已有 `SkillType` 专用实现优先；纯 JVM 环境可直接扫描 enum 映射，避免注册表未初始化造成假阴性。
+  Generic runtime   Done   投射、范围、减益、控制、增益、恢复、移动、近战和召唤按 authored 伤害、元素、目标和范围生成真实效果。
+  Fail closed   Done   `ultimate`、`secret_art`、`talisman_consume`、`command`、`craft_gate`、`wall`、`buff_zone` 无专用实现时返回不可释放。
+  Tests   Done   `M02TechniqueCorpusTest` 覆盖字段解析、运行参数、专用映射与高风险类型失败关闭。
+  Build   Done   普通 `./gradlew build --no-daemon` BUILD SUCCESSFUL；全量 696 项测试，0 failures/errors/skipped。
+  Protocol   Done   未改网络字段、顺序、类型、注册、方向或通道行为，协议保持 `25`。

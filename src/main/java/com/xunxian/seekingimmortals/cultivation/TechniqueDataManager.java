@@ -271,14 +271,31 @@ public final class TechniqueDataManager {
             if (requiresMethod.isBlank()) requiresMethod = getString(object, "source_method");
             String effectType = "";
             String effectElement = "";
+            double damageBase = 0.0D;
+            String effectKey = "";
+            Set<String> tags = new LinkedHashSet<>(getStringSet(object.get("tags")));
             if (object.has("effect") && object.get("effect").isJsonObject()) {
                 JsonObject effect = object.getAsJsonObject("effect");
                 effectType = getString(effect, "type");
                 effectElement = getString(effect, "element");
+                damageBase = getDouble(effect, "damage_base");
+                effectKey = getString(effect, "effect_key");
+                tags.addAll(getStringSet(effect.get("tags")));
                 if (elementAttr.isBlank()) elementAttr = effectElement;
             } else if (object.has("effect") && object.get("effect").isJsonPrimitive()) {
                 effectType = object.get("effect").getAsString();
             }
+            if (damageBase <= 0.0D) {
+                damageBase = getDouble(object, "damage_base");
+            }
+            if (effectKey.isBlank()) {
+                effectKey = getString(object, "effect_key");
+            }
+            JsonObject setting = object.has("setting") && object.get("setting").isJsonObject()
+                    ? object.getAsJsonObject("setting")
+                    : new JsonObject();
+            String target = firstNonBlank(getString(setting, "target"), getString(object, "target"));
+            String range = firstNonBlank(getString(setting, "range"), getString(object, "range"));
             int cost = object.has("spirit_cost_base") && !object.get("spirit_cost_base").isJsonNull()
                     ? object.get("spirit_cost_base").getAsInt()
                     : (object.has("cost") && !object.get("cost").isJsonNull() ? object.get("cost").getAsInt() : 15);
@@ -300,7 +317,12 @@ public final class TechniqueDataManager {
                     tier.isBlank() ? "spell" : tier,
                     effectType,
                     effectElement,
-                    getInt(object, "cooldown_ticks")));
+                    getInt(object, "cooldown_ticks"),
+                    damageBase,
+                    effectKey,
+                    tags,
+                    target,
+                    range));
         }
     }
 
@@ -327,6 +349,36 @@ public final class TechniqueDataManager {
     private static int getInt(JsonObject object, String key) {
         return object.has(key) && !object.get(key).isJsonNull() && object.get(key).isJsonPrimitive()
                 ? object.get(key).getAsInt() : 0;
+    }
+
+    private static double getDouble(JsonObject object, String key) {
+        if (object == null || !object.has(key) || object.get(key).isJsonNull()
+                || !object.get(key).isJsonPrimitive()) {
+            return 0.0D;
+        }
+        try {
+            return object.get(key).getAsDouble();
+        } catch (RuntimeException ignored) {
+            return 0.0D;
+        }
+    }
+
+    private static Set<String> getStringSet(JsonElement element) {
+        if (element == null || !element.isJsonArray()) {
+            return Set.of();
+        }
+        Set<String> values = new LinkedHashSet<>();
+        for (JsonElement child : element.getAsJsonArray()) {
+            if (child == null || child.isJsonNull() || !child.isJsonPrimitive()
+                    || !child.getAsJsonPrimitive().isString()) {
+                continue;
+            }
+            String value = child.getAsString().trim().toLowerCase(Locale.ROOT);
+            if (!value.isBlank()) {
+                values.add(value);
+            }
+        }
+        return Set.copyOf(values);
     }
 
     private static String firstNonBlank(String... values) {
@@ -371,7 +423,20 @@ public final class TechniqueDataManager {
             String tier,
             String effectType,
             String effectElement,
-            int cooldownTicks) {
+            int cooldownTicks,
+            double damageBase,
+            String effectKey,
+            Set<String> tags,
+            String target,
+            String range) {
+        /** Legacy 12-arg constructor used by datapack entries and older call sites. */
+        public TechniqueEntry(String id, String name, String source, String attribute,
+                              int quality, int cost, Realm requiredRealm, String requiresMethod,
+                              String tier, String effectType, String effectElement, int cooldownTicks) {
+            this(id, name, source, attribute, quality, cost, requiredRealm, requiresMethod,
+                    tier, effectType, effectElement, cooldownTicks, 0.0D, "", Set.of(), "", "");
+        }
+
         /** Legacy 7-arg constructor used by tests and older call sites. */
         public TechniqueEntry(String id, String name, String source, String attribute,
                               int quality, int cost, Realm requiredRealm) {
@@ -387,6 +452,14 @@ public final class TechniqueDataManager {
             tier = tier == null ? "" : tier;
             effectType = effectType == null ? "" : effectType;
             effectElement = effectElement == null ? "" : effectElement;
+            damageBase = Math.max(0.0D, damageBase);
+            effectKey = effectKey == null ? "" : effectKey.trim().toLowerCase(Locale.ROOT);
+            tags = tags == null ? Set.of() : tags.stream()
+                    .filter(value -> value != null && !value.isBlank())
+                    .map(value -> value.trim().toLowerCase(Locale.ROOT))
+                    .collect(java.util.stream.Collectors.toUnmodifiableSet());
+            target = target == null ? "" : target.trim().toLowerCase(Locale.ROOT);
+            range = range == null ? "" : range.trim().toLowerCase(Locale.ROOT);
             cost = Math.max(0, cost);
             cooldownTicks = Math.max(0, cooldownTicks);
         }

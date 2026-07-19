@@ -1,24 +1,27 @@
 package com.xunxian.seekingimmortals.skill.effect;
 
-import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.cultivation.TechniqueDataManager;
+import com.xunxian.seekingimmortals.entity.CultivationFireballEntity;
 import com.xunxian.seekingimmortals.skill.CultivationSkill;
 import com.xunxian.seekingimmortals.skill.SkillType;
-import net.minecraft.server.level.ServerPlayer;
+import com.xunxian.seekingimmortals.skill.effect.spell.AreaDebuffSpell;
+import com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell;
+import com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell;
+import com.xunxian.seekingimmortals.skill.effect.spell.HonestSummonSpell;
+import com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell;
+import com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell;
+import com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell;
+import com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffects;
 
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * M02: maps text-material technique {@code effect.type} (40 abstract kinds) onto reusable
- * SkillEffect implementations so every loaded technique can resolve an effect without a
- * dedicated SkillType enum constant.
- *
- * <p>Spell implementations that touch Minecraft registries are created lazily so pure unit
- * tests can still assert resolvability without bootstrapping Forge.
- */
 public final class AbstractTechniqueEffectResolver {
     private static final Set<String> ABSTRACT_TYPES = Set.of(
             "projectile", "beam", "cone", "chain", "aoe", "aoe_dot", "field", "domain", "wall",
@@ -27,38 +30,41 @@ public final class AbstractTechniqueEffectResolver {
             "teleport_short", "melee", "strike", "ultimate", "secret_art", "soul_attack",
             "summon", "summon_field", "talisman_consume", "utility", "utility_combat",
             "scout", "scan", "inspect", "command", "craft_gate");
-
+    private static final Set<String> GENERIC_RUNTIME_TYPES = Set.of(
+            "projectile", "beam", "cone", "chain", "aoe", "aoe_dot", "field", "domain",
+            "trap", "debuff", "dot", "drain", "control", "buff_self", "buff", "transform",
+            "heal", "heal_spirit", "cleanse", "movement", "dash", "escape", "teleport_short",
+            "melee", "strike", "soul_attack", "summon", "summon_field", "utility",
+            "utility_combat", "scout", "scan", "inspect");
+    private static final Set<String> DEDICATED_ONLY_TYPES = Set.of(
+            "ultimate", "secret_art", "talisman_consume", "command", "craft_gate", "wall", "buff_zone");
     private static final Map<String, SkillEffect> BY_TECHNIQUE_ID = new ConcurrentHashMap<>();
-    private static final Map<String, SkillEffect> BY_ABSTRACT_TYPE = new ConcurrentHashMap<>();
-    private static final Object INIT_LOCK = new Object();
-    private static volatile boolean templatesReady;
-    private static volatile boolean templatesFailed;
     private static final CultivationSkill VIRTUAL_SKILL = createVirtualSkill();
-    private static final SkillEffect FALLBACK_STUB = new StubEffect(12, 100);
 
     private AbstractTechniqueEffectResolver() {}
+
+    public record RuntimeSpec(String type, double damage, double range, double radius,
+                              String target, String element, String effectKey, Set<String> tags) {}
 
     public static SkillEffect resolve(TechniqueDataManager.TechniqueEntry technique) {
         if (technique == null) {
             return null;
         }
-        SkillType typed = safeByTechniqueId(technique.id());
-        if (typed == null) {
-            typed = safeByDisplayName(technique.name());
-        }
+        SkillType typed = resolveSkillType(technique);
         if (typed != null) {
             SkillEffect registered = safeGet(typed);
             if (registered != null) {
                 return registered;
             }
         }
-        SkillEffect cached = BY_TECHNIQUE_ID.get(technique.id());
+        String techniqueId = normalize(technique.id());
+        SkillEffect cached = BY_TECHNIQUE_ID.get(techniqueId);
         if (cached != null) {
             return cached;
         }
         SkillEffect created = createForTechnique(technique);
-        if (created != null) {
-            BY_TECHNIQUE_ID.put(technique.id(), created);
+        if (created != null && !techniqueId.isBlank()) {
+            BY_TECHNIQUE_ID.put(techniqueId, created);
         }
         return created;
     }
@@ -68,26 +74,297 @@ public final class AbstractTechniqueEffectResolver {
             return null;
         }
         SkillType typed = safeByTechniqueId(technique.id());
-        if (typed != null) {
-            return typed;
+        return typed != null ? typed : safeByDisplayName(technique.name());
+    }
+
+    public static CultivationSkill virtualSkill() {
+        return VIRTUAL_SKILL;
+    }
+
+    public static boolean isAbstractTypeRegistered(String effectType) {
+        return ABSTRACT_TYPES.contains(normalize(effectType));
+    }
+
+    public static boolean isGenericRuntimeType(String effectType) {
+        return GENERIC_RUNTIME_TYPES.contains(normalize(effectType));
+    }
+
+    public static boolean requiresDedicatedImplementation(String effectType) {
+        return DEDICATED_ONLY_TYPES.contains(normalize(effectType));
+    }
+
+    public static int registeredAbstractTypeCount() {
+        return ABSTRACT_TYPES.size();
+    }
+
+    public static RuntimeSpec runtimeSpec(TechniqueDataManager.TechniqueEntry technique) {
+        if (technique == null) {
+            return new RuntimeSpec("", 0.0D, 0.0D, 0.0D, "", "neutral", "", Set.of());
         }
-        return safeByDisplayName(technique.name());
+        String type = normalize(technique.effectType());
+        String target = normalize(technique.target());
+        double damage = technique.damageBase() > 0.0D
+                ? technique.damageBase()
+                : defaultDamage(type);
+        double range = resolveRange(technique.range(), type, target);
+        double radius = resolveRadius(type, target);
+        String element = resolveElement(technique);
+        return new RuntimeSpec(type, damage, range, radius, target, element,
+                normalize(technique.effectKey()), technique.tags());
+    }
+
+    private static SkillEffect createForTechnique(TechniqueDataManager.TechniqueEntry technique) {
+        RuntimeSpec spec = runtimeSpec(technique);
+        if (!GENERIC_RUNTIME_TYPES.contains(spec.type())) {
+            return null;
+        }
+        int cost = Math.max(1, technique.cost());
+        int cooldown = technique.cooldownTicks() > 0 ? technique.cooldownTicks() : 100;
+        try {
+            return createGenericEffect(technique, spec, cost, cooldown);
+        } catch (Throwable ignored) {
+            return null;
+        }
+    }
+
+    private static SkillEffect createGenericEffect(TechniqueDataManager.TechniqueEntry technique,
+                                                   RuntimeSpec spec, int cost, int cooldown) {
+        return switch (spec.type()) {
+            case "projectile", "beam", "cone" -> new ElementalProjectileSpell(
+                    cost, cooldown, spec.damage(), projectileSpeed(spec.type()), projectileElement(spec.element()),
+                    "message.seeking_immortals.spell.generic_projectile.success");
+            case "chain", "aoe", "aoe_dot", "field", "domain" -> new ElementalAreaSpell(
+                    cost, cooldown, spec.damage(), spec.range(), spec.radius(), areaElement(spec.element()),
+                    "message.seeking_immortals.spell.generic_aoe.success");
+            case "debuff", "dot", "drain", "soul_attack" -> new TargetedDebuffSpell(
+                    cost, cooldown, spec.damage(), spec.range(),
+                    primaryDebuff(spec.element()), 100, 2,
+                    MobEffects.WEAKNESS, 80, 0,
+                    ParticleTypes.SMOKE, SoundEvents.SCULK_SHRIEKER_SHRIEK,
+                    "message.seeking_immortals.spell.generic_debuff.success",
+                    "message.seeking_immortals.spell.target.fail");
+            case "trap", "control" -> new AreaDebuffSpell(
+                    cost, cooldown, spec.damage(), spec.range(), spec.radius(),
+                    MobEffects.MOVEMENT_SLOWDOWN, 120, 3,
+                    MobEffects.DIG_SLOWDOWN, 100, 0,
+                    ParticleTypes.POOF, SoundEvents.ENCHANTMENT_TABLE_USE,
+                    "message.seeking_immortals.spell.generic_control.success",
+                    "message.seeking_immortals.spell.area.fail");
+            case "buff_self", "buff", "transform", "utility", "utility_combat", "scout", "scan", "inspect" ->
+                    createBuff(spec, cost, cooldown);
+            case "heal", "heal_spirit", "cleanse" -> new RecoverySpell(
+                    cost, cooldown, spec.damage(), Math.max(2.0D, spec.radius()),
+                    recoveryForm(spec.type()), "message.seeking_immortals.spell.generic_heal.success");
+            case "movement", "dash", "escape", "teleport_short" -> new SelfBuffSpell(
+                    cost, cooldown,
+                    MobEffects.MOVEMENT_SPEED, movementDuration(spec), 1,
+                    MobEffects.JUMP, movementDuration(spec), 0,
+                    ParticleTypes.CLOUD, SoundEvents.ELYTRA_FLYING,
+                    "message.seeking_immortals.spell.generic_movement.success");
+            case "melee", "strike" -> new SwordTechniqueSpell(
+                    cost, cooldown, spec.damage(), spec.range(), Math.max(0.45D, spec.radius() / 4.0D),
+                    SwordTechniqueSpell.SwordForm.FLYING_SWORD_STRIKE,
+                    "message.seeking_immortals.spell.generic_melee.success");
+            case "summon", "summon_field" -> new HonestSummonSpell(
+                    cost, cooldown, technique.id(), summonStrength(spec.damage()),
+                    Math.max(0, summonStrength(spec.damage()) - 1),
+                    Math.max(120, cooldown), "message.seeking_immortals.spell.generic_summon.success");
+            default -> null;
+        };
+    }
+
+    private static SkillEffect createBuff(RuntimeSpec spec, int cost, int cooldown) {
+        MobEffect primary = switch (spec.type()) {
+            case "scan", "scout", "inspect" -> MobEffects.NIGHT_VISION;
+            default -> buffPrimary(spec.element());
+        };
+        MobEffect secondary = switch (spec.type()) {
+            case "scan", "scout", "inspect" -> MobEffects.MOVEMENT_SPEED;
+            default -> buffSecondary(spec.element());
+        };
+        return new SelfBuffSpell(
+                cost, cooldown,
+                primary, 160, 0,
+                secondary, 140, 0,
+                ParticleTypes.ENCHANT, SoundEvents.AMETHYST_BLOCK_CHIME,
+                "message.seeking_immortals.spell.generic_buff.success");
+    }
+
+    private static CultivationFireballEntity.SpellElement projectileElement(String element) {
+        return switch (normalize(element)) {
+            case "water" -> CultivationFireballEntity.SpellElement.WATER;
+            case "metal", "gold" -> CultivationFireballEntity.SpellElement.METAL;
+            case "ice" -> CultivationFireballEntity.SpellElement.ICE;
+            case "wind" -> CultivationFireballEntity.SpellElement.WIND;
+            case "wood" -> CultivationFireballEntity.SpellElement.WOOD;
+            case "yin", "dark", "ghost" -> CultivationFireballEntity.SpellElement.DARK;
+            case "yang", "light" -> CultivationFireballEntity.SpellElement.LIGHT;
+            case "earth" -> CultivationFireballEntity.SpellElement.EARTH;
+            case "thunder", "lightning" -> CultivationFireballEntity.SpellElement.THUNDER;
+            default -> CultivationFireballEntity.SpellElement.FIRE;
+        };
+    }
+
+    private static ElementalAreaSpell.AreaElement areaElement(String element) {
+        return switch (normalize(element)) {
+            case "water" -> ElementalAreaSpell.AreaElement.MIST_RAIN;
+            case "earth", "metal", "gold" -> ElementalAreaSpell.AreaElement.SAND_STORM;
+            case "ice" -> ElementalAreaSpell.AreaElement.BLIZZARD;
+            case "wind", "wood" -> ElementalAreaSpell.AreaElement.CYCLONE;
+            case "thunder", "lightning", "yang", "light" -> ElementalAreaSpell.AreaElement.CHAIN_THUNDER;
+            default -> ElementalAreaSpell.AreaElement.LAVA;
+        };
+    }
+
+    private static MobEffect primaryDebuff(String element) {
+        return switch (normalize(element)) {
+            case "fire", "yang", "light" -> MobEffects.WEAKNESS;
+            case "yin", "dark", "ghost" -> MobEffects.WITHER;
+            default -> MobEffects.MOVEMENT_SLOWDOWN;
+        };
+    }
+
+    private static MobEffect buffPrimary(String element) {
+        return switch (normalize(element)) {
+            case "fire", "metal", "gold", "thunder", "lightning" -> MobEffects.DAMAGE_BOOST;
+            case "wind" -> MobEffects.MOVEMENT_SPEED;
+            default -> MobEffects.DAMAGE_RESISTANCE;
+        };
+    }
+
+    private static MobEffect buffSecondary(String element) {
+        return switch (normalize(element)) {
+            case "wood", "water" -> MobEffects.REGENERATION;
+            case "wind" -> MobEffects.JUMP;
+            default -> MobEffects.ABSORPTION;
+        };
+    }
+
+    private static RecoverySpell.RecoveryForm recoveryForm(String type) {
+        return switch (normalize(type)) {
+            case "cleanse" -> RecoverySpell.RecoveryForm.DETOXIFY;
+            case "heal_spirit" -> RecoverySpell.RecoveryForm.SPIRIT_RECOVERY;
+            default -> RecoverySpell.RecoveryForm.HEAL_QI;
+        };
+    }
+
+    private static String resolveElement(TechniqueDataManager.TechniqueEntry technique) {
+        String direct = normalize(technique.effectElement());
+        if (!direct.isBlank() && !"neutral".equals(direct)) {
+            return direct;
+        }
+        String attribute = normalize(technique.attribute());
+        if (!attribute.isBlank() && !"neutral".equals(attribute)) {
+            return attribute;
+        }
+        for (String candidate : Set.of("fire", "water", "metal", "wood", "earth", "wind",
+                "ice", "thunder", "lightning", "yin", "yang", "dark", "light", "ghost")) {
+            if (technique.tags().contains(candidate)) {
+                return candidate;
+            }
+        }
+        return "neutral";
+    }
+
+    private static double resolveRange(String authoredRange, String type, String target) {
+        String normalized = normalize(authoredRange);
+        if (!normalized.isBlank()) {
+            try {
+                return Math.max(0.0D, Math.min(64.0D, Double.parseDouble(normalized)));
+            } catch (NumberFormatException ignored) {
+                return switch (normalized) {
+                    case "long" -> 32.0D;
+                    case "medium" -> 20.0D;
+                    case "short" -> 10.0D;
+                    case "dash" -> 9.0D;
+                    case "touch", "melee" -> 4.0D;
+                    default -> defaultRange(type, target);
+                };
+            }
+        }
+        return defaultRange(type, target);
+    }
+
+    private static double defaultRange(String type, String target) {
+        if (Set.of("buff_self", "buff", "transform", "heal", "heal_spirit", "cleanse").contains(type)
+                || "self".equals(target)) {
+            return 0.0D;
+        }
+        if (Set.of("movement", "dash", "escape", "teleport_short", "melee", "strike").contains(type)) {
+            return 9.0D;
+        }
+        return "area".equals(target) ? 22.0D : 18.0D;
+    }
+
+    private static double resolveRadius(String type, String target) {
+        if (Set.of("chain", "aoe", "aoe_dot", "field", "domain", "trap", "control").contains(type)) {
+            return "area".equals(target) ? 5.0D : 3.5D;
+        }
+        if ("summon_field".equals(type)) {
+            return 4.0D;
+        }
+        return "area".equals(target) ? 4.0D : 2.0D;
+    }
+
+    private static double defaultDamage(String type) {
+        return switch (normalize(type)) {
+            case "projectile", "beam", "cone" -> 12.0D;
+            case "chain", "aoe", "aoe_dot", "field", "domain" -> 16.0D;
+            case "debuff", "dot", "drain", "control", "trap", "soul_attack" -> 8.0D;
+            case "melee", "strike" -> 18.0D;
+            case "heal", "heal_spirit", "cleanse" -> 12.0D;
+            default -> 0.0D;
+        };
+    }
+
+    private static double projectileSpeed(String type) {
+        return switch (normalize(type)) {
+            case "beam" -> 1.65D;
+            case "cone" -> 1.0D;
+            default -> 1.2D;
+        };
+    }
+
+    private static int movementDuration(RuntimeSpec spec) {
+        return Math.max(80, (int) Math.round(100.0D + spec.range() * 4.0D));
+    }
+
+    private static int summonStrength(double damage) {
+        return Math.max(0, Math.min(4, (int) Math.floor(Math.max(0.0D, damage) / 20.0D)));
     }
 
     private static SkillType safeByTechniqueId(String id) {
         try {
-            return SkillEffectRegistry.byTechniqueId(id);
+            SkillType registered = SkillEffectRegistry.byTechniqueId(id);
+            if (registered != null) {
+                return registered;
+            }
         } catch (Throwable ignored) {
-            return null;
         }
+        String normalized = normalize(id);
+        for (SkillType type : SkillType.values()) {
+            if (normalized.equals(normalize(type.getTechniqueId()))) {
+                return type;
+            }
+        }
+        return null;
     }
 
     private static SkillType safeByDisplayName(String name) {
         try {
-            return SkillEffectRegistry.byDisplayName(name);
+            SkillType registered = SkillEffectRegistry.byDisplayName(name);
+            if (registered != null) {
+                return registered;
+            }
         } catch (Throwable ignored) {
-            return null;
         }
+        String normalized = normalize(name);
+        for (SkillType type : SkillType.values()) {
+            if (normalized.equals(normalize(type.getDisplayName()))) {
+                return type;
+            }
+        }
+        return null;
     }
 
     private static SkillEffect safeGet(SkillType type) {
@@ -98,161 +375,6 @@ public final class AbstractTechniqueEffectResolver {
         }
     }
 
-    /** Level-1 virtual skill used when the technique has no SkillType enum mapping. */
-    public static CultivationSkill virtualSkill() {
-        return VIRTUAL_SKILL;
-    }
-
-    public static boolean isAbstractTypeRegistered(String effectType) {
-        String type = normalize(effectType);
-        return ABSTRACT_TYPES.contains(type) || "projectile".equals(type) || type.isBlank();
-    }
-
-    public static int registeredAbstractTypeCount() {
-        return ABSTRACT_TYPES.size();
-    }
-
-    private static SkillEffect createForTechnique(TechniqueDataManager.TechniqueEntry technique) {
-        ensureTemplates();
-        String type = normalize(technique.effectType());
-        if (type.isBlank()) {
-            type = "projectile";
-        }
-        SkillEffect template = BY_ABSTRACT_TYPE.get(type);
-        if (template == null) {
-            template = BY_ABSTRACT_TYPE.get("projectile");
-        }
-        if (template == null) {
-            template = FALLBACK_STUB;
-        }
-        int cooldown = technique.cooldownTicks() > 0 ? technique.cooldownTicks() : 100;
-        return new CostAwareEffect(template, Math.max(1, technique.cost()), cooldown);
-    }
-
-    private static void ensureTemplates() {
-        if (templatesReady || templatesFailed) {
-            return;
-        }
-        synchronized (INIT_LOCK) {
-            if (templatesReady || templatesFailed) {
-                return;
-            }
-            try {
-                buildAbstractTypeEffects(BY_ABSTRACT_TYPE);
-                templatesReady = true;
-            } catch (Throwable throwable) {
-                // Outside a bootstrapped Minecraft/Forge runtime (unit tests), keep stubs.
-                templatesFailed = true;
-                for (String type : ABSTRACT_TYPES) {
-                    BY_ABSTRACT_TYPE.putIfAbsent(type, FALLBACK_STUB);
-                }
-                BY_ABSTRACT_TYPE.putIfAbsent("projectile", FALLBACK_STUB);
-            }
-        }
-    }
-
-    private static void buildAbstractTypeEffects(Map<String, SkillEffect> map) {
-        // Heavy imports kept inside method so class init does not touch MC registries.
-        SkillEffect projectile = new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(
-                12, 40, 14.0D, 1.15D,
-                com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
-                "message.seeking_immortals.spell.generic_projectile.success");
-        SkillEffect beam = new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(
-                16, 60, 22.0D, 1.25D,
-                com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.METAL,
-                "message.seeking_immortals.spell.generic_beam.success");
-        SkillEffect aoe = new com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell(
-                14, 120, 16.0D, 18.0D, 3.4D,
-                com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell.AreaElement.LAVA,
-                "message.seeking_immortals.spell.generic_aoe.success");
-        SkillEffect debuff = new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(
-                10, 100, 8.0D, 18.0D,
-                net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 80, 2,
-                net.minecraft.world.effect.MobEffects.WEAKNESS, 60, 0,
-                net.minecraft.core.particles.ParticleTypes.SMOKE,
-                net.minecraft.sounds.SoundEvents.SCULK_SHRIEKER_SHRIEK,
-                "message.seeking_immortals.spell.generic_debuff.success",
-                "message.seeking_immortals.spell.target.fail");
-        SkillEffect buffSelf = new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(
-                10, 160,
-                net.minecraft.world.effect.MobEffects.DAMAGE_BOOST, 160, 0,
-                net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE, 160, 0,
-                net.minecraft.core.particles.ParticleTypes.ENCHANT,
-                net.minecraft.sounds.SoundEvents.AMETHYST_BLOCK_CHIME,
-                "message.seeking_immortals.spell.generic_buff.success");
-        SkillEffect heal = new com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell(
-                12, 120, 18.0D, 2.0D,
-                com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell.RecoveryForm.HEAL_QI,
-                "message.seeking_immortals.spell.generic_heal.success");
-        SkillEffect movement = new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(
-                8, 100,
-                net.minecraft.world.effect.MobEffects.MOVEMENT_SPEED, 140, 1,
-                net.minecraft.world.effect.MobEffects.JUMP, 140, 0,
-                net.minecraft.core.particles.ParticleTypes.CLOUD,
-                net.minecraft.sounds.SoundEvents.ELYTRA_FLYING,
-                "message.seeking_immortals.spell.generic_movement.success");
-        SkillEffect summon = new com.xunxian.seekingimmortals.skill.effect.spell.HonestSummonSpell(
-                14, 200, "generic_summon", 1, 0, 200,
-                "message.seeking_immortals.spell.generic_summon.success");
-        SkillEffect sword = new com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell(
-                16, 120, 30.0D, 20.0D, 0.7D,
-                com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell.SwordForm.FLYING_SWORD_STRIKE,
-                "message.seeking_immortals.spell.generic_melee.success");
-        SkillEffect illusion = new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(
-                12, 140, 10.0D, 16.0D, 1.0D,
-                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.MIND_CONFUSION,
-                "message.seeking_immortals.spell.generic_illusion.success");
-        SkillEffect control = new com.xunxian.seekingimmortals.skill.effect.spell.AreaDebuffSpell(
-                12, 120, 2.0D, 16.0D, 3.0D,
-                net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 100, 3,
-                net.minecraft.world.effect.MobEffects.DIG_SLOWDOWN, 80, 0,
-                net.minecraft.core.particles.ParticleTypes.POOF,
-                net.minecraft.sounds.SoundEvents.ENCHANTMENT_TABLE_USE,
-                "message.seeking_immortals.spell.generic_control.success",
-                "message.seeking_immortals.spell.area.fail");
-
-        map.put("projectile", projectile);
-        map.put("beam", beam);
-        map.put("cone", projectile);
-        map.put("chain", aoe);
-        map.put("aoe", aoe);
-        map.put("aoe_dot", aoe);
-        map.put("field", aoe);
-        map.put("domain", aoe);
-        map.put("wall", aoe);
-        map.put("trap", control);
-        map.put("buff_zone", buffSelf);
-        map.put("debuff", debuff);
-        map.put("dot", debuff);
-        map.put("drain", debuff);
-        map.put("control", control);
-        map.put("buff_self", buffSelf);
-        map.put("buff", buffSelf);
-        map.put("transform", buffSelf);
-        map.put("heal", heal);
-        map.put("heal_spirit", heal);
-        map.put("cleanse", heal);
-        map.put("movement", movement);
-        map.put("dash", movement);
-        map.put("escape", movement);
-        map.put("teleport_short", movement);
-        map.put("melee", sword);
-        map.put("strike", sword);
-        map.put("ultimate", aoe);
-        map.put("secret_art", aoe);
-        map.put("soul_attack", debuff);
-        map.put("summon", summon);
-        map.put("summon_field", summon);
-        map.put("talisman_consume", projectile);
-        map.put("utility", buffSelf);
-        map.put("utility_combat", buffSelf);
-        map.put("scout", buffSelf);
-        map.put("scan", buffSelf);
-        map.put("inspect", buffSelf);
-        map.put("command", buffSelf);
-        map.put("craft_gate", buffSelf);
-    }
-
     private static CultivationSkill createVirtualSkill() {
         CultivationSkill skill = new CultivationSkill(SkillType.FIREBALL);
         skill.unlock();
@@ -261,47 +383,5 @@ public final class AbstractTechniqueEffectResolver {
 
     private static String normalize(String value) {
         return value == null ? "" : value.trim().toLowerCase(Locale.ROOT);
-    }
-
-    private record CostAwareEffect(SkillEffect delegate, int cost, int cooldown) implements SkillEffect {
-        @Override
-        public boolean execute(ServerPlayer player, PlayerCultivation cultivation,
-                               CultivationSkill skill, SkillContext context) {
-            return delegate.execute(player, cultivation, skill, context);
-        }
-
-        @Override
-        public int getSpiritualPowerCost(int skillLevel) {
-            return Math.max(1, cost + Math.max(0, skillLevel - 1));
-        }
-
-        @Override
-        public int getCooldownTicks(int skillLevel) {
-            return Math.max(20, cooldown - Math.max(0, skillLevel - 1) * 2);
-        }
-
-        @Override
-        public boolean canExecute(ServerPlayer player, PlayerCultivation cultivation) {
-            return delegate.canExecute(player, cultivation);
-        }
-    }
-
-    /** No-op effect used when Minecraft registries are unavailable (unit tests). */
-    private record StubEffect(int cost, int cooldown) implements SkillEffect {
-        @Override
-        public boolean execute(ServerPlayer player, PlayerCultivation cultivation,
-                               CultivationSkill skill, SkillContext context) {
-            return true;
-        }
-
-        @Override
-        public int getSpiritualPowerCost(int skillLevel) {
-            return Math.max(1, cost);
-        }
-
-        @Override
-        public int getCooldownTicks(int skillLevel) {
-            return Math.max(20, cooldown);
-        }
     }
 }
