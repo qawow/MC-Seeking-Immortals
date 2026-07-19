@@ -1,3 +1,5 @@
+2026-07-20 0.2.58 pending update: more reward paths enqueue on full inventory; auction offline refunds deliver before ledger take; soft catalog craft requires nearby formed stations. Protocol 25. Remaining: storage continuous authorization, auction settle idempotency polish, and live smoke.
+
 2026-07-20 0.2.57 pending update: persistent delivery outbox SavedData enqueues full-inventory rewards/refunds and claims them on login; auction win/refund and secret-realm chest claims use giveOrEnqueue; talisman craft material consume is all-or-nothing. Protocol 25. Remaining: auction take-before-give ledger ordering, more reward paths on outbox, station-gated soft craft, storage continuous auth, live smoke.
 
 2026-07-20 0.2.56 pending update: mapped artifact active skills now apply powerScale through SkillContext and SpellEffect damage calculation; formation free-field mapping expands aliases/keywords so fewer ids fall to weak CATALOG_GENERIC while inspect-only materials stay non-consumable. Protocol 25. Remaining: multiblock form-consume-rollback transactions, delivery outbox, continuous storage auth, CAST_* registry fidelity, and live smoke.

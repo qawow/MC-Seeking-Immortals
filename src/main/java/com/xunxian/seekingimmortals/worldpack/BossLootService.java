@@ -106,13 +106,13 @@ public final class BossLootService {
                 continue;
             }
             ItemStack gift = stack.get();
-            InventoryDeliveryService.giveOrDrop(player, gift);
+            InventoryDeliveryService.giveOrEnqueue(player, gift, "boss_loot");
             granted++;
         }
         if (granted == 0) {
             // Soft fallback so bosses never feel empty on a bad roll.
             ItemStack fallback = new ItemStack(ModItems.SPIRIT_STONE_SHARD.get(), firstClear ? 6 : 3);
-            InventoryDeliveryService.giveOrDrop(player, fallback);
+            InventoryDeliveryService.giveOrEnqueue(player, fallback, "boss_loot");
             granted = 1;
         }
         return granted;

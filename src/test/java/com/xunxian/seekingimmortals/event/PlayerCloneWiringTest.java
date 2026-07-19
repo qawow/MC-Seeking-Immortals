@@ -64,7 +64,9 @@ class PlayerCloneWiringTest {
 
         int take = method.indexOf(
                 "PlayerPersistentDataClonePolicy.takeExtremePreserved(player.getPersistentData())");
-        int deliver = method.indexOf("InventoryDeliveryService.giveOrDrop(player,stack)", take);
+        int deliverDrop = method.indexOf("InventoryDeliveryService.giveOrDrop(player,stack)", take);
+        int deliverEnqueue = method.indexOf("InventoryDeliveryService.giveOrEnqueue(player,stack", take);
+        int deliver = deliverDrop >= 0 ? deliverDrop : deliverEnqueue;
 
         assertTrue(take >= 0, "respawn restoration must consume the preserved payload through clone policy");
         assertTrue(deliver > take, "each consumed preserved stack must use shared inventory delivery");

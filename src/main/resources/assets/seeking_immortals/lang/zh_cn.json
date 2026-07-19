@@ -4799,5 +4799,8 @@
   "message.seeking_immortals.method.faction_rank_too_low": "修习「%s」需要更高宗门身份：%s。",
   "message.seeking_immortals.method.convert_required": "「%s」应在 %s 后转修更高功法，不可继续初学。",
   "message.seeking_immortals.delivery.queued": "行囊已满，「%s」x%s 已记入交付账本，稍后补发。",
-  "message.seeking_immortals.delivery.claimed": "交付账本补发 %s 件物品。"
+  "message.seeking_immortals.delivery.claimed": "交付账本补发 %s 件物品。",
+  "message.seeking_immortals.refine.need_station": "附近需要成型的炼器炉（G1-G3）。",
+  "message.seeking_immortals.talisman_table.need_station": "附近需要成型的制符台。",
+  "message.seeking_immortals.puppet_assembly_bench.need_station": "附近需要成型的傀儡组装台。"
 }

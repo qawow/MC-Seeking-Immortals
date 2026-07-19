@@ -605,14 +605,18 @@ public final class AuctionSoftService {
             return 0;
         }
         AuctionHouseSavedData house = AuctionHouseSavedData.get(player);
-        int amount = house.takePendingRefund(player.getUUID());
+        int amount = house.peekPendingRefund(player.getUUID());
         if (amount <= 0) {
             return 0;
         }
+        // Deliver/enqueue first, then clear the refund ledger so crash cannot swallow the amount.
         giveShards(player, amount);
-        player.displayClientMessage(Component.translatable(
-                "message.seeking_immortals.auction.pending_refund_claim", amount), true);
-        return amount;
+        int taken = house.takePendingRefund(player.getUUID());
+        if (taken > 0) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.auction.pending_refund_claim", taken), true);
+        }
+        return taken;
     }
 
     private static boolean meetsLotAccess(ServerPlayer player, Lot lot) {

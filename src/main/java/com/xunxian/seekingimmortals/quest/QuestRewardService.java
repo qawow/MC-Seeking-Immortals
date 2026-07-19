@@ -124,7 +124,7 @@ public final class QuestRewardService {
         }
         ItemStack stack = resolveUniqueStack(key, uniqueToken);
         if (!stack.isEmpty()) {
-            InventoryDeliveryService.giveOrDrop(player, stack);
+            InventoryDeliveryService.giveOrEnqueue(player, stack, "quest_unique");
         }
         markUniqueClaimed(player, key);
         player.displayClientMessage(Component.translatable(

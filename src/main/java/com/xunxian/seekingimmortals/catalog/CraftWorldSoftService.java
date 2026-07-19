@@ -5,6 +5,8 @@ import com.xunxian.seekingimmortals.artifact.ArtifactRefinementService;
 import com.xunxian.seekingimmortals.craft.PuppetCraftService;
 import com.xunxian.seekingimmortals.craft.TalismanCraftService;
 import com.xunxian.seekingimmortals.structure.FormationFieldService;
+import com.xunxian.seekingimmortals.structure.MultiblockStationService;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -91,6 +93,10 @@ public final class CraftWorldSoftService {
     }
 
     public static boolean craft(ServerPlayer player, String recipeId, int forgeGrade) {
+        if (!requiresNearbyStation(player, "refinement_forge", "refinement_forge_g1", "refinement_forge_g3")) {
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.refine.need_station"), true);
+            return false;
+        }
         BulkCatalogIndexService.Entry entry = findEntry("refinement_recipes_index", recipeId);
         String id = entry == null ? norm(recipeId) : entry.id();
         Optional<ArtifactDataService.RefinementRecipe> recipe = ArtifactDataService.builtin().findRecipe(id);
@@ -204,6 +210,10 @@ public final class CraftWorldSoftService {
 
     /** Wave466: catalog → TalismanCraftService authority bridge. */
     public static boolean craftTalisman(ServerPlayer player, String recipeId) {
+        if (!requiresNearbyStation(player, "talisman_table")) {
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.talisman_table.need_station"), true);
+            return false;
+        }
         TalismanCraftService.CraftResult result = TalismanCraftService.craftById(player, recipeId);
         if (result.messageKey() != null && !result.messageKey().isBlank()) {
             if (result.success() && result.recipe() != null) {
@@ -222,6 +232,10 @@ public final class CraftWorldSoftService {
 
     /** Wave466: catalog → PuppetCraftService authority bridge. */
     public static boolean craftPuppet(ServerPlayer player, String recipeId) {
+        if (!requiresNearbyStation(player, "puppet_assembly_bench")) {
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.puppet_assembly_bench.need_station"), true);
+            return false;
+        }
         PuppetCraftService.CraftResult result = PuppetCraftService.craftById(player, recipeId);
         if (result.messageKey() != null && !result.messageKey().isBlank()) {
             if (result.success() && result.recipe() != null) {
@@ -236,6 +250,31 @@ public final class CraftWorldSoftService {
             SoftPhaseShellMark.markIfPresent(player, "phase13_puppet_craft");
         }
         return result.success();
+    }
+
+
+    private static boolean requiresNearbyStation(ServerPlayer player, String... stationIds) {
+        if (player == null || player.level() == null || stationIds == null || stationIds.length == 0) {
+            return false;
+        }
+        if (player.getAbilities().instabuild) {
+            return true;
+        }
+        BlockPos origin = player.blockPosition();
+        int radius = 4;
+        for (int dx = -radius; dx <= radius; dx++) {
+            for (int dy = -1; dy <= 2; dy++) {
+                for (int dz = -radius; dz <= radius; dz++) {
+                    BlockPos pos = origin.offset(dx, dy, dz);
+                    for (String stationId : stationIds) {
+                        if (MultiblockStationService.isStationFormed(player.level(), stationId, pos)) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     private static boolean consumeShards(ServerPlayer player, int count) {

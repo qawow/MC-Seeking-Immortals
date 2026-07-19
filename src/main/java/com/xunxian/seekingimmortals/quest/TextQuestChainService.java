@@ -517,7 +517,7 @@ public final class TextQuestChainService {
             case BRANCH_DEMONIC -> new ItemStack(ModItems.YIN_STONE.get(), 4);
             default -> new ItemStack(ModItems.SPIRIT_STONE_SHARD.get(), 2);
         };
-        InventoryDeliveryService.giveOrDrop(player, bonus);
+        InventoryDeliveryService.giveOrEnqueue(player, bonus, "quest_chain");
         markAuthorityReward(player, ledgerKey);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.branch_bonus",
                 branch, bonus.getHoverName()), true);
@@ -607,7 +607,7 @@ public final class TextQuestChainService {
             return;
         }
         ItemStack reward = new ItemStack(ModItems.SPIRIT_STONE_SHARD.get(), 2);
-        InventoryDeliveryService.giveOrDrop(player, reward);
+        InventoryDeliveryService.giveOrEnqueue(player, reward, "quest_chain");
         mid.putBoolean(key, true);
         player.getPersistentData().put(MID_REWARD_TAG, mid);
         player.displayClientMessage(Component.translatable(
@@ -629,7 +629,7 @@ public final class TextQuestChainService {
             return;
         }
         for (ItemStack stack : stacks) {
-            InventoryDeliveryService.giveOrDrop(player, stack);
+            InventoryDeliveryService.giveOrEnqueue(player, stack, "quest_chain");
         }
         markAuthorityReward(player, id);
         // Keep legacy soft-reward tag for older clients/docs that still read it.

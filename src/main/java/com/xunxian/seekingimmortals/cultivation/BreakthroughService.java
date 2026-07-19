@@ -249,7 +249,7 @@ public final class BreakthroughService {
     public static void restorePreservedOnRespawn(ServerPlayer player) {
         for (ItemStack stack : PlayerPersistentDataClonePolicy.takeExtremePreserved(
                 player.getPersistentData())) {
-            InventoryDeliveryService.giveOrDrop(player, stack);
+            InventoryDeliveryService.giveOrEnqueue(player, stack, "breakthrough_preserve");
         }
     }
 

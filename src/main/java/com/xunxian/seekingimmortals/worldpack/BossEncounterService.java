@@ -138,7 +138,7 @@ public final class BossEncounterService {
             placeBossCache(level, boss.blockPosition().above(), killer, session, realmId, bossId, firstClear);
         }
         ItemStack bonus = new ItemStack(ModItems.SPIRIT_STONE_SHARD.get(), firstClear ? 8 : 3);
-        InventoryDeliveryService.giveOrDrop(killer, bonus);
+        InventoryDeliveryService.giveOrEnqueue(killer, bonus, "boss_encounter");
         ReputationService.add(killer, "secret_realm_explorer", firstClear ? 3 : 1);
         BestiaryUnlockService.unlock(killer, bossId, BestiaryUnlockService.UnlockKind.KILL);
         killer.displayClientMessage(Component.translatable("message.seeking_immortals.boss.defeated", bossId), true);

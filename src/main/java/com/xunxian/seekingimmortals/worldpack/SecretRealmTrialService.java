@@ -454,7 +454,7 @@ public final class SecretRealmTrialService {
     private static void unlockMid(ServerPlayer player, String realmId, BlockPos near) {
         fillNearbySealedChest(player, near, realmId, Layer.MID);
         ItemStack bonus = new ItemStack(ModItems.SPIRIT_STONE_SHARD.get(), 4);
-        InventoryDeliveryService.giveOrDrop(player, bonus);
+        InventoryDeliveryService.giveOrEnqueue(player, bonus, "secret_realm_trial");
         ReputationService.add(player, "secret_realm_explorer", 1);
         player.sendSystemMessage(Component.translatable(
                 "message.seeking_immortals.worldpack.trial_mid_clear", realmId));
@@ -491,7 +491,7 @@ public final class SecretRealmTrialService {
             }
         }
         rewardStacks(realmId, layer, level.random.nextInt(4))
-                .forEach(stack -> InventoryDeliveryService.giveOrDrop(player, stack));
+                .forEach(stack -> InventoryDeliveryService.giveOrEnqueue(player, stack, "secret_realm_trial"));
     }
 
     /** Wave480: health/damage pairs for typed guardian shells. */
@@ -529,7 +529,7 @@ public final class SecretRealmTrialService {
         }
         Item reward = proxyRewardItem(realmId);
         ItemStack stack = new ItemStack(reward, 1);
-        InventoryDeliveryService.giveOrDrop(player, stack);
+        InventoryDeliveryService.giveOrEnqueue(player, stack, "secret_realm_trial");
 
         Optional<TextMaterialCatalogService.SecretRealmFlavor> flavor =
                 TextMaterialCatalogService.builtin().findFlavor(realmId);

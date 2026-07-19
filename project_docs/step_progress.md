@@ -1,3 +1,12 @@
+## 508. 2026-07-20 0.2.58 奖励 outbox 扩面与软制作工站门禁
+
+  Step   Status   Notes
+  ---   ---   ---
+  Outbox expand   Done   多奖励路径 giveOrEnqueue；拍卖退款顺序硬化。
+  Soft craft gate Done   制符/傀儡/炼器 soft 入口要求附近成型工站。
+  Verify   Done   普通构建成功，全量测试通过。
+  Version  Done   `mod_version=0.2.58`；protocol 25。
+
 ## 507. 2026-07-20 0.2.57 交付 outbox 与制符原子扣料
 
   Step   Status   Notes

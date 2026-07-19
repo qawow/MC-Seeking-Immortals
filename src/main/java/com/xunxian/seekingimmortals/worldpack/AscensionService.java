@@ -401,7 +401,7 @@ public final class AscensionService {
             return;
         }
         ItemStack stack = new ItemStack(item, Math.max(1, count));
-        InventoryDeliveryService.giveOrDrop(player, stack);
+        InventoryDeliveryService.giveOrEnqueue(player, stack, "ascension");
     }
 
     private static boolean teleportToTianyuan(ServerPlayer player) {

@@ -130,7 +130,7 @@ public final class FlightVehicleService {
         if (!player.getAbilities().instabuild && !consumeAll(player, costs)) {
             return false;
         }
-        InventoryDeliveryService.giveOrDrop(player, new ItemStack(ModItems.WIND_FEATHER_RAFT_TICKET.get()));
+        InventoryDeliveryService.giveOrEnqueue(player, new ItemStack(ModItems.WIND_FEATHER_RAFT_TICKET.get()), "flight_vehicle");
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.flight_vehicle.blueprint_crafted"), true);
         return true;

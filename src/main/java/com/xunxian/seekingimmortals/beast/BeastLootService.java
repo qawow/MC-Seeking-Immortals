@@ -161,7 +161,7 @@ public final class BeastLootService {
             if (stack.isEmpty()) {
                 continue;
             }
-            InventoryDeliveryService.giveOrDrop(killer, stack.get());
+            InventoryDeliveryService.giveOrEnqueue(killer, stack.get(), "beast_loot");
             granted++;
         }
         // Named / bestiary explicit drops (lower chance each).
@@ -173,7 +173,7 @@ public final class BeastLootService {
             if (stack.isEmpty()) {
                 continue;
             }
-            InventoryDeliveryService.giveOrDrop(killer, stack.get());
+            InventoryDeliveryService.giveOrEnqueue(killer, stack.get(), "beast_loot");
             granted++;
         }
         // Tier common material table flavor.
@@ -182,7 +182,7 @@ public final class BeastLootService {
             String pick = commons.get(rng.nextInt(commons.size()));
             Optional<ItemStack> stack = resolveStack(pick, 1);
             if (stack.isPresent()) {
-                InventoryDeliveryService.giveOrDrop(killer, stack.get());
+                InventoryDeliveryService.giveOrEnqueue(killer, stack.get(), "beast_loot");
                 granted++;
             }
         }

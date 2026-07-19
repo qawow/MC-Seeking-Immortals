@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-20: `0.2.58` 奖励 outbox 扩面与软制作工站门禁。Boss/妖兽/任务/突破保留物/秘境试炼/飞升等奖励改 `giveOrEnqueue`；拍卖离线退款 peek→交付→take；软制作要求附近成型工站。普通构建成功。`mod_version=0.2.58`，协议 25。见 `project_docs/updates/20260720_0.2.58_outbox_station_gates.md`。
+
 > CURRENT TRUTH 2026-07-20: `0.2.57` 交付 outbox 与制符原子扣料。新增 `DeliveryOutboxSavedData`；满包奖励/退款可入账并在登录补发；制符扣料全有或全无，产物优先 outbox。普通构建成功。`mod_version=0.2.57`，协议 25。见 `project_docs/updates/20260720_0.2.57_delivery_outbox_craft.md`。
 
 > CURRENT TRUTH 2026-07-20: `0.2.56` mapped 法宝主动技 powerScale 与阵法映射。`SkillContext.powerScale` + `SpellEffect` ThreadLocal 使 mapped 主动技伤害受越阶压制；阵法 free-field 别名/关键词映射扩展，更多 id 不再落入弱 generic。普通构建成功。`mod_version=0.2.56`，协议保持 `25`。见 `project_docs/updates/20260720_0.2.56_mapped_scale_formation.md`。
