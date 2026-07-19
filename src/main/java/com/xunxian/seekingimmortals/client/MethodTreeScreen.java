@@ -245,7 +245,11 @@ public class MethodTreeScreen extends AbstractJournalScreen {
         boolean learned = hasSelection && ClientMethodData.hasLearned(selected.id());
         int layer = hasSelection ? ClientMethodData.getLayer(selected.id()) : 0;
         if (learnButton != null) {
-            learnButton.active = hasSelection && !learned;
+            boolean canUseDiagnosticLearn = minecraft != null
+                    && minecraft.player != null
+                    && minecraft.player.hasPermissions(2);
+            learnButton.visible = canUseDiagnosticLearn;
+            learnButton.active = canUseDiagnosticLearn && hasSelection && !learned;
         }
         if (cultivateButton != null) {
             cultivateButton.active = learned && layer > 0 && layer < ManualCatalogService.MAX_METHOD_LAYER;

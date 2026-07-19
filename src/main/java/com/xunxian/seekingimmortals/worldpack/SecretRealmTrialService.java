@@ -70,7 +70,11 @@ public final class SecretRealmTrialService {
             spawnMidPatrol(level, player, midCenter, id);
             // Wave48: one-time guardian encounter per realm for this player.
             spawnCoreEncounter(level, player, coreCenter, id);
-            BossEncounterService.spawnIfNeeded(player, "core_" + id);
+            SecretRealmCatalogService.find(id).stream()
+                    .flatMap(realm -> realm.bosses().stream())
+                    .filter(BossEncounterService::isKnownBossId)
+                    .findFirst()
+                    .ifPresent(bossId -> BossEncounterService.spawnIfNeeded(player, bossId));
             applyLayerHazards(player, id);
             player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 20 * 30, 0, false, true, true));
             player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 20 * 45, 0, false, true, true));

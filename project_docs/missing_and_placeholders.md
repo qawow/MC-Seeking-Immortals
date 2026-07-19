@@ -1503,3 +1503,6 @@ No new placeholder textures, models, item ids, blocks, recipes, loot tables, GUI
 ## 0.1.364 FTB Tiannan seven-sects item-task bridge placeholder note
 
 The five upgraded Tiannan seven-sects FTB tasks are intentionally non-consuming inventory checks only. They make existing Spirit Iron, Beast Core, and Fire Talisman carriers visible to FTB progression for Huadao forge work, Giant Sword relic restoration, Yuling beast-puppet binding, spirit-beast contract routing, and Tianfu low talisman certification, but they do not grant rewards, consume costs, lock branches, write `QuestProgress`, sync Seeking Immortals quest state, validate sect/craft-state, validate beast contracts, validate talisman crafting, trigger NPC/server events, spawn encounters, or prove live client behavior. Remaining placeholders include wider item-task coverage, advancement/custom tasks, server-authoritative reward bridges, branch locks, craft-state/reputation validation, boss/encounter wiring, quest icons, and live FTB client smoke checks.
+## 0.2.29 命令与任务账本权限遗留
+
+本批未新增占位物品、模型、纹理、实体、菜单、数据 schema 或网络字段；复用现有目录、玩家持久数据、权限等级和阵法部署入口。自动化覆盖高风险命令节点、`learn:` 包、普通玩家学习按钮、未知 Boss、秘境目录 Boss、见闻重复幂等/首次失败不认领、同日日常、采集扣物和阵法凭证。仍需真实客户端/专服烟测管理员学习按钮、命令建议树、宗门任务跨日和秘境 Boss 生成。下一批优先移除 vanilla `refine_*.json` 炼器旁路；秘境/Boss owner-session Schema V2、任务 hook 当前步骤、拍卖事务、远程菜单、Boss 捕捉、死亡 clone、鉴定与 Curios 飞行门禁仍未完成。

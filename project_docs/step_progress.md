@@ -7904,3 +7904,16 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Verification   Done   Focused `FtbQuestSnbtTest` passed after the Tiannan bridge changes. Final current-tree `./gradlew --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.365`; inherited network-package warning reviewed as unrelated to this FTB/docs recheck.
   Backup   Done   Existing docs were backed up to `.bak/20260707_0.1.365_current_tree_build_recheck/`; the new update note had no previous file to preserve.
   Follow-up   Pending   Audit inherited network-package diffs before release if packet formats changed; continue replacing FTB inventory checks with authoritative task/reward/state bridges; live-smoke portal/refinement/FTB flows.
+## 494. 2026-07-19 0.2.29 命令、C2S 与任务账本权限
+
+  Step   Status   Notes
+  ---   ---   ---
+  Review scope   Done   主线程与 max 子代理复核命令树、MethodActionPacket/UI、Boss 目录、秘境试炼、见闻发现和宗门日常事务。
+  Backup   Done   17 个既有目标文件按相对路径备份至 `.bak/20260719_081851_command_authority/`；两份新测试和 update note 无既有版本可备份。
+  Command/C2S gate   Done   高风险调试与直接变更命令要求 permission 2；`learn:` 包仅管理员执行，普通功法树隐藏诊断学习，正常修炼不受影响。
+  Boss authority   Done   Boss ID 规范化后必须存在于 BossLoot 或 BeastBoss 目录；秘境只选择 RealmDef 声明的首个已知 Boss，不再合成伪 ID。
+  Ledger integrity   Done   重复见闻不再推进任务/声望，首次映射效果失败不写发现账本；同日宗门任务不可重接；采集真实扣物，阵法上交要求接取后成功部署凭证。
+  Tests   Done   新增 `CommandMutationAuthorityTest` 与 `GameplayAuthorityLedgerTest` 共 9 组回归；全量 648 项测试通过。
+  Version/protocol   Done   首次 0.2.28 构建后追加见闻提交顺序修复，最终 `mod_version` 0.2.27 -> 0.2.29；未改变包字段、顺序、编码、注册或通道兼容格式，protocol 保持 24。
+  Verification   Done   最终普通 `./gradlew build` BUILD SUCCESSFUL，preflight 正常记录 0.2.29。
+  Update note   Done   `project_docs/updates/20260719_0.2.29_command_mutation_authority.md`

@@ -162,37 +162,40 @@ public final class ChronicleTradeSoftService {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.chronicle.unknown", eventId), false);
             return false;
         }
-        Optional<String> mapped = mappedChronicleChainId(key);
-        com.xunxian.seekingimmortals.phase.SoftPhaseShellService.mark(player, "chronicle_" + key, false);
-
-        boolean first = !hasDiscovered(player, key);
-        if (first) {
-            markDiscovered(player, key);
-            grantDiscoverReward(player, key);
-            applyChronicleReputation(player, key);
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.chronicle.first_discover",
-                    entry.display()), true);
-        }
-
-        if (mapped.isEmpty()) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.chronicle.discovered_soft", entry.display()), true);
+        if (hasDiscovered(player, key)) {
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.chronicle.already_discovered"), false);
             return true;
         }
-        TextQuestChainService.ChainProgress progress = TextQuestChainService.progressOf(player, mapped.get());
+        Optional<String> mapped = mappedChronicleChainId(key);
         boolean ok = true;
-        if (progress.stage() <= 0) {
-            ok = TextQuestChainService.start(player, mapped.get());
-        } else if (!progress.complete()) {
-            // Wave466: re-discover advances an already-started mapped chain once.
-            ok = TextQuestChainService.advance(player, mapped.get());
-        } else {
-            ReputationService.onQuestComplete(player, mapped.get());
+        if (mapped.isPresent()) {
+            TextQuestChainService.ChainProgress progress = TextQuestChainService.progressOf(player, mapped.get());
+            if (progress.stage() <= 0) {
+                ok = TextQuestChainService.start(player, mapped.get());
+            } else if (!progress.complete()) {
+                ok = TextQuestChainService.advance(player, mapped.get());
+            } else {
+                ReputationService.onQuestComplete(player, mapped.get());
+            }
         }
-        if (ok) {
+        if (!ok) {
+            return false;
+        }
+
+        com.xunxian.seekingimmortals.phase.SoftPhaseShellService.mark(player, "chronicle_" + key, false);
+        markDiscovered(player, key);
+        grantDiscoverReward(player, key);
+        applyChronicleReputation(player, key);
+        player.displayClientMessage(Component.translatable("message.seeking_immortals.chronicle.first_discover",
+                entry.display()), true);
+        if (mapped.isPresent()) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.chronicle.discovered",
                     entry.display(), mapped.get()), true);
+        } else {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.chronicle.discovered_soft", entry.display()), true);
         }
-        return ok;
+        return true;
     }
 
     public static boolean hasDiscovered(ServerPlayer player, String eventId) {

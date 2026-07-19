@@ -1,6 +1,7 @@
 package com.xunxian.seekingimmortals.structure;
 
 import com.xunxian.seekingimmortals.registry.ModBlocks;
+import com.xunxian.seekingimmortals.sect.SectMissionGenerator;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
@@ -236,6 +237,7 @@ public final class FormationFieldService {
                 com.xunxian.seekingimmortals.skill.SkillType.FORMATION_SENSE,
                 8,
                 3);
+        SectMissionGenerator.onFormationDeployed(deployer);
     }
 
     public static void loadFromSavedData(ServerLevel level) {

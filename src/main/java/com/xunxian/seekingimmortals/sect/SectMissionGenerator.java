@@ -7,6 +7,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Locale;
 import java.util.concurrent.ThreadLocalRandom;
@@ -72,6 +73,9 @@ public final class SectMissionGenerator {
             }
         } else {
             EscortMissionService.clearEscort(player, true);
+        }
+        if ("formation".equalsIgnoreCase(mission.type())) {
+            root.putBoolean("formation", false);
         }
         player.getPersistentData().put(ACTIVE_ROOT, tag);
         player.getPersistentData().put(PROGRESS_ROOT, root);
@@ -144,6 +148,16 @@ public final class SectMissionGenerator {
         player.displayClientMessage(Component.translatable("message.seeking_immortals.escort.arrived"), false);
     }
 
+    public static void onFormationDeployed(ServerPlayer player) {
+        Mission active = activeGenerated(player);
+        if (active == null || !"formation".equalsIgnoreCase(active.type())) {
+            return;
+        }
+        CompoundTag root = player.getPersistentData().getCompound(PROGRESS_ROOT).copy();
+        root.putBoolean("formation", true);
+        player.getPersistentData().put(PROGRESS_ROOT, root);
+    }
+
     public static boolean turnIn(ServerPlayer player, Mission mission) {
         if (mission == null || player == null) {
             return false;
@@ -151,16 +165,15 @@ public final class SectMissionGenerator {
         CompoundTag root = player.getPersistentData().getCompound(PROGRESS_ROOT).copy();
         String type = mission.type() == null ? "" : mission.type().toLowerCase(Locale.ROOT);
         if ("gather".equals(type)) {
-            int have = 0;
-            for (ItemStack stack : player.getInventory().items) {
-                if (stack.getDescriptionId().contains(mission.target())) {
-                    have += stack.getCount();
-                }
-            }
-            if (have < mission.count() && !player.getAbilities().instabuild) {
+            int required = Math.max(1, mission.count());
+            int have = countGatherItems(player, mission.target());
+            if (have < required && !player.getAbilities().instabuild) {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.sect_mission.gather_missing",
-                        mission.target(), mission.count(), have), false);
+                        mission.target(), required, have), false);
                 return false;
+            }
+            if (!player.getAbilities().instabuild) {
+                consumeGatherItems(player, mission.target(), required);
             }
         } else if ("kill".equals(type)) {
             int kills = root.getInt("kills");
@@ -186,6 +199,12 @@ public final class SectMissionGenerator {
             }
             LifeSkillService.grantPractice(player, SkillType.BEAST_TAMING, 16, 6);
         } else if ("formation".equals(type)) {
+            if (!root.getBoolean("formation") && !player.getAbilities().instabuild) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.sect_mission.formation_missing"), false);
+                return false;
+            }
+            root.putBoolean("formation", false);
             LifeSkillService.grantPractice(player, SkillType.FORMATION, 16, 6);
         }
 
@@ -195,6 +214,40 @@ public final class SectMissionGenerator {
                 mission.id(), mission.rewardContribution()), true);
         clearGenerated(player);
         return true;
+    }
+
+    private static int countGatherItems(ServerPlayer player, String target) {
+        int count = 0;
+        for (ItemStack stack : player.getInventory().items) {
+            if (matchesGatherTarget(stack, target)) {
+                count += stack.getCount();
+            }
+        }
+        return count;
+    }
+
+    private static void consumeGatherItems(ServerPlayer player, String target, int count) {
+        int remaining = Math.max(0, count);
+        for (ItemStack stack : player.getInventory().items) {
+            if (!matchesGatherTarget(stack, target)) {
+                continue;
+            }
+            int consumed = Math.min(remaining, stack.getCount());
+            stack.shrink(consumed);
+            remaining -= consumed;
+            if (remaining <= 0) {
+                return;
+            }
+        }
+    }
+
+    private static boolean matchesGatherTarget(ItemStack stack, String target) {
+        if (stack == null || stack.isEmpty() || target == null || target.isBlank()) {
+            return false;
+        }
+        var itemId = ForgeRegistries.ITEMS.getKey(stack.getItem());
+        String normalized = target.trim().toLowerCase(Locale.ROOT);
+        return itemId != null && (itemId.toString().equals(normalized) || itemId.getPath().equals(normalized));
     }
 
     /** Wave490: try turn-in of active generated mission if present. */

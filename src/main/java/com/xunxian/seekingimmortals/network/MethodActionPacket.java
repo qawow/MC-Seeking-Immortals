@@ -39,7 +39,7 @@ public record MethodActionPacket(String action) {
             String lower = raw.toLowerCase(Locale.ROOT);
             if (lower.startsWith("learn:")) {
                 String methodId = raw.substring(6).trim();
-                if (!methodId.isBlank()) {
+                if (player.hasPermissions(2) && !methodId.isBlank()) {
                     ManualCatalogService.learnMethod(player, methodId);
                 }
             } else if (lower.startsWith("cultivate:")) {

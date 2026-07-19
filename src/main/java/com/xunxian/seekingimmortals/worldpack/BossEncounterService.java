@@ -13,6 +13,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
 
+import java.util.Locale;
+
 /**
  * Named boss encounter spawner for secret-realm cores / high events (Wave52/460).
  * Wave460: stronger scaling + nearby boss-chest reward cache.
@@ -31,7 +33,11 @@ public final class BossEncounterService {
         if (player == null || bossId == null || bossId.isBlank()) {
             return false;
         }
-        String key = TAG + "_" + bossId;
+        String id = bossId.trim().toLowerCase(Locale.ROOT);
+        if (!isKnownBossId(id)) {
+            return false;
+        }
+        String key = TAG + "_" + id;
         if (player.getPersistentData().getBoolean(key)) {
             return false;
         }
@@ -39,42 +45,51 @@ public final class BossEncounterService {
             return false;
         }
         // M10: prefer catalog boss (tier-scaled + phase skills) when known.
-        if (com.xunxian.seekingimmortals.beast.BeastBossService.find(bossId).isPresent()) {
-            boolean catalog = com.xunxian.seekingimmortals.beast.BeastBossService.spawnCatalogBoss(player, bossId);
+        if (com.xunxian.seekingimmortals.beast.BeastBossService.find(id).isPresent()) {
+            boolean catalog = com.xunxian.seekingimmortals.beast.BeastBossService.spawnCatalogBoss(player, id);
             if (catalog) {
                 player.getPersistentData().putBoolean(key, true);
                 ReputationService.add(player, "secret_realm_explorer", 1);
                 return true;
             }
         }
-        SummonedServitorEntity.Archetype archetype = TrialCombatShellService.archetypeFor(bossId);
+        SummonedServitorEntity.Archetype archetype = TrialCombatShellService.archetypeFor(id);
         double health = 80.0D;
         double damage = 10.0D;
-        if (bossId.contains("void") || bossId.contains("asura") || bossId.contains("king")) {
+        if (id.contains("void") || id.contains("asura") || id.contains("king")) {
             health = 120.0D;
             damage = 14.0D;
-        } else if (bossId.contains("diyuan") || bossId.contains("demon")) {
+        } else if (id.contains("diyuan") || id.contains("demon")) {
             health = 100.0D;
             damage = 12.0D;
         }
         BlockPos pos = player.blockPosition().offset(2, 0, 2);
         Mob boss = TrialCombatShellService.spawnHostile(
-                level, pos, player.getYRot(), "boss_" + bossId, health, damage, archetype);
+                level, pos, player.getYRot(), "boss_" + id, health, damage, archetype);
         if (boss == null) {
             return false;
         }
-        boss.setCustomName(Component.translatable("entity.seeking_immortals.boss.name", bossId));
+        boss.setCustomName(Component.translatable("entity.seeking_immortals.boss.name", id));
         boss.setCustomNameVisible(true);
         boss.setTarget(player);
         // Wave471: tag for kill-gated reward; do not pre-place cache.
         CompoundTag tag = boss.getPersistentData().getCompound(BOSS_TAG).copy();
-        tag.putString(BOSS_ID, bossId);
+        tag.putString(BOSS_ID, id);
         boss.getPersistentData().put(BOSS_TAG, tag);
         player.getPersistentData().putBoolean(key, true);
-        player.displayClientMessage(Component.translatable("message.seeking_immortals.boss.spawned", bossId), true);
-        player.displayClientMessage(Component.translatable("message.seeking_immortals.boss.kill_gate_hint", bossId), false);
+        player.displayClientMessage(Component.translatable("message.seeking_immortals.boss.spawned", id), true);
+        player.displayClientMessage(Component.translatable("message.seeking_immortals.boss.kill_gate_hint", id), false);
         ReputationService.add(player, "secret_realm_explorer", 1);
         return true;
+    }
+
+    public static boolean isKnownBossId(String bossId) {
+        if (bossId == null || bossId.isBlank()) {
+            return false;
+        }
+        String id = bossId.trim().toLowerCase(Locale.ROOT);
+        return BossLootService.find(id).isPresent()
+                || com.xunxian.seekingimmortals.beast.BeastBossService.find(id).isPresent();
     }
 
     public static boolean isBossMob(Mob mob) {

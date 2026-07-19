@@ -319,8 +319,11 @@ public final class SectContributionService {
                 return;
             }
             long day = currentDay(player);
-            if (progress.isSectMissionAccepted() && progress.getSectMissionDay() == day && !progress.isSectMissionCompleted()) {
-                player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.mission_already_active"));
+            if (progress.isSectMissionAccepted() && progress.getSectMissionDay() == day) {
+                String message = progress.isSectMissionCompleted()
+                        ? "message.seeking_immortals.sect.mission_already_done"
+                        : "message.seeking_immortals.sect.mission_already_active";
+                player.sendSystemMessage(Component.translatable(message));
                 syncSect(player, cultivation, true);
                 return;
             }
