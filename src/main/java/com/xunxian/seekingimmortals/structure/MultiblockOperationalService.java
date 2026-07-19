@@ -1,5 +1,6 @@
 package com.xunxian.seekingimmortals.structure;
 
+import com.xunxian.seekingimmortals.catalog.ItemCatalogService;
 import com.xunxian.seekingimmortals.item.InventoryDeliveryService;
 import com.xunxian.seekingimmortals.registry.ModItems;
 import net.minecraft.core.BlockPos;
@@ -182,6 +183,144 @@ public final class MultiblockOperationalService {
                 entry.display(), refund), true);
         return true;
     }
+
+    /**
+     * Overhaul a formed station to intact using structure-specific materials (when resolvable)
+     * plus a shard surcharge. Materials are reserved first; any failure refunds them.
+     */
+    public static boolean overhaul(ServerPlayer player, String stationId, BlockPos origin) {
+        if (player == null || !(player.level() instanceof ServerLevel level)) {
+            return false;
+        }
+        MultiblockStructureCatalog.StructureEntry entry = MultiblockStructureCatalog.builtin()
+                .find(stationId).orElse(null);
+        if (entry == null) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.multiblock.unknown", stationId), false);
+            return false;
+        }
+        if (!MultiblockStationService.isStationFormed(level, stationId, origin)
+                && !player.getAbilities().instabuild) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.multiblock.repair_need_form", entry.display()), true);
+            return false;
+        }
+        MultiblockOperationalSavedData.StationState state = ensureState(level, stationId, origin);
+        if (state.state() == MultiblockOperationalSavedData.OpState.INTACT && state.hp() >= state.maxHp()) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.multiblock.already_intact", entry.display()), true);
+            return false;
+        }
+
+        List<Item> materials = MultiblockMaterialCatalog.resolveItems(stationId);
+        int shardCost = Math.max(repairCostShards(state) * 2, 12);
+        if (!player.getAbilities().instabuild) {
+            List<ItemStack> reserved = tryReserveMaterials(player, materials, 1);
+            if (reserved == null) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.multiblock.overhaul_need_materials",
+                        entry.display(), Math.max(1, materials.size())), true);
+                return false;
+            }
+            List<ItemStack> shards = tryReserveShards(player, shardCost);
+            if (shards == null) {
+                refundStacks(player, reserved);
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.multiblock.repair_need_shards", shardCost), true);
+                return false;
+            }
+            try {
+                MultiblockOperationalSavedData.StationState next = forceIntact(level, stationId, origin);
+                if (next == null) {
+                    refundStacks(player, reserved);
+                    refundStacks(player, shards);
+                    return false;
+                }
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.multiblock.overhauled",
+                        entry.display(), reserved.size(), shardCost), true);
+                return true;
+            } catch (RuntimeException exception) {
+                refundStacks(player, reserved);
+                refundStacks(player, shards);
+                throw exception;
+            }
+        }
+
+        MultiblockOperationalSavedData.StationState next = forceIntact(level, stationId, origin);
+        if (next == null) {
+            return false;
+        }
+        player.displayClientMessage(Component.translatable(
+                "message.seeking_immortals.multiblock.overhauled",
+                entry.display(), materials.size(), 0), true);
+        return true;
+    }
+
+    private static MultiblockOperationalSavedData.StationState forceIntact(
+            ServerLevel level, String stationId, BlockPos origin) {
+        MultiblockOperationalSavedData.StationState state = ensureState(level, stationId, origin);
+        if (state == null) {
+            return null;
+        }
+        MultiblockOperationalSavedData.StationState next = new MultiblockOperationalSavedData.StationState(
+                state.dimensionId(), state.stationId(), state.packedOrigin(),
+                MultiblockOperationalSavedData.OpState.INTACT, state.maxHp(), state.maxHp());
+        MultiblockOperationalSavedData.get(level).upsert(next);
+        MultiblockStationService.markDirty(level, origin);
+        return next;
+    }
+
+    /** Reserve one of each material. Null if short. Empty list if no resolvable materials. */
+    private static List<ItemStack> tryReserveMaterials(ServerPlayer player, List<Item> materials, int each) {
+        if (player == null) {
+            return null;
+        }
+        if (materials == null || materials.isEmpty() || each <= 0) {
+            return List.of();
+        }
+        // Pre-check counts without mutation.
+        for (Item item : materials) {
+            if (item == null || item == net.minecraft.world.item.Items.AIR) {
+                continue;
+            }
+            int have = 0;
+            for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
+                ItemStack stack = player.getInventory().getItem(i);
+                if (stack.is(item)) {
+                    have += stack.getCount();
+                }
+            }
+            if (have < each) {
+                return null;
+            }
+        }
+        List<ItemStack> taken = new ArrayList<>();
+        for (Item item : materials) {
+            if (item == null || item == net.minecraft.world.item.Items.AIR) {
+                continue;
+            }
+            int remaining = each;
+            for (int i = 0; i < player.getInventory().getContainerSize() && remaining > 0; i++) {
+                ItemStack stack = player.getInventory().getItem(i);
+                if (!stack.is(item)) {
+                    continue;
+                }
+                int take = Math.min(remaining, stack.getCount());
+                ItemStack copy = stack.copy();
+                copy.setCount(take);
+                taken.add(copy);
+                stack.shrink(take);
+                remaining -= take;
+            }
+            if (remaining > 0) {
+                refundStacks(player, taken);
+                return null;
+            }
+        }
+        return taken;
+    }
+
 
     public static MultiblockOperationalSavedData.StationState applyDamage(
             ServerLevel level, String stationId, BlockPos origin, int amount, boolean announce) {

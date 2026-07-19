@@ -73,4 +73,26 @@ class MultiblockOperationalServiceTest {
                         || compact.contains("bestNearbyEfficiency(player,stationIds)>0.0D"),
                 "soft craft station gate must require operational efficiency > 0");
     }
+
+    @Test
+    void materialCatalogIndexesStructureSamples() {
+        assertTrue(MultiblockMaterialCatalog.builtin().structureCount() >= 50);
+        assertTrue(MultiblockMaterialCatalog.builtin().materialsFor("alchemy_furnace_g1").size() >= 1);
+        assertTrue(MultiblockMaterialCatalog.builtin().materialsFor("talisman_table").size() >= 1);
+    }
+
+    @Test
+    void overhaulReservesStructureMaterialsBeforeCommit() throws Exception {
+        String source = Files.readString(Path.of(
+                "src", "main", "java", "com", "xunxian", "seekingimmortals",
+                "structure", "MultiblockOperationalService.java"));
+        String compact = source.replaceAll("\\s+", "");
+        assertTrue(compact.contains("tryReserveMaterials(player,materials,1)"));
+        int mats = compact.indexOf("tryReserveMaterials(player,materials,1)");
+        int shards = compact.indexOf("tryReserveShards(player,shardCost)");
+        int force = compact.indexOf("forceIntact(level,stationId,origin)");
+        assertTrue(mats >= 0 && shards > mats && force > shards,
+                "overhaul must reserve structure materials then shards before forceIntact");
+        assertTrue(compact.contains("refundStacks(player,reserved)"));
+    }
 }

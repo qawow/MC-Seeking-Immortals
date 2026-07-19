@@ -397,7 +397,10 @@ public final class SeekingImmortalsCommand {
                                                 .executes(ctx -> stationRepair(ctx.getSource(), StringArgumentType.getString(ctx, "id")))))
                                 .then(Commands.literal("dismantle").requires(source -> source.hasPermission(2))
                                         .then(Commands.argument("id", StringArgumentType.word())
-                                                .executes(ctx -> stationDismantle(ctx.getSource(), StringArgumentType.getString(ctx, "id"))))))
+                                                .executes(ctx -> stationDismantle(ctx.getSource(), StringArgumentType.getString(ctx, "id")))))
+                                .then(Commands.literal("overhaul")
+                                        .then(Commands.argument("id", StringArgumentType.word())
+                                                .executes(ctx -> stationOverhaul(ctx.getSource(), StringArgumentType.getString(ctx, "id"))))))
                         .then(Commands.literal("talisman")
                                 .executes(ctx -> catalogTalismanList(ctx.getSource()))
                                 .then(Commands.literal("list").executes(ctx -> catalogTalismanList(ctx.getSource())))
@@ -1802,6 +1805,14 @@ public final class SeekingImmortalsCommand {
                 player, stationId, player.blockPosition());
         return ok ? 1 : 0;
     }
+
+    private static int stationOverhaul(CommandSourceStack source, String stationId) throws CommandSyntaxException {
+        net.minecraft.server.level.ServerPlayer player = source.getPlayerOrException();
+        boolean ok = com.xunxian.seekingimmortals.structure.MultiblockOperationalService.overhaul(
+                player, stationId, player.blockPosition());
+        return ok ? 1 : 0;
+    }
+
 
     private static int catalogFormationsPreview(CommandSourceStack source, String id) throws CommandSyntaxException {
         return CraftWorldSoftService.preview(source.getPlayerOrException(), "formation_catalog_index", id,

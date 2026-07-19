@@ -1,3 +1,14 @@
+## 516. 2026-07-20 0.2.66 多方块结构材料大修事务
+
+  Step   Status   Notes
+  ---   ---   ---
+  Material catalog Done   used_by_sample → MultiblockMaterialCatalog。
+  Overhaul txn Done   材料+碎片预留/退款后 forceIntact。
+  Command  Done   station overhaul。
+  Verify   Done   普通构建成功，全量测试通过。
+  Version  Done   `mod_version=0.2.66`；protocol 25。
+  Handoff  Done   `project_docs/updates/20260720_0.2.66_multiblock_overhaul.md`。
+
 ## 515. 2026-07-20 0.2.65 多方块运行态与修理事务
 
   Step   Status   Notes

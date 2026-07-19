@@ -4816,5 +4816,7 @@
   "message.seeking_immortals.delivery.claimed": "Claimed %s queued delivery item(s).",
   "message.seeking_immortals.refine.need_station": "A formed refinement forge (G1-G3) is required nearby.",
   "message.seeking_immortals.talisman_table.need_station": "A formed talisman table is required nearby.",
-  "message.seeking_immortals.puppet_assembly_bench.need_station": "A formed puppet assembly bench is required nearby."
+  "message.seeking_immortals.puppet_assembly_bench.need_station": "A formed puppet assembly bench is required nearby.",
+  "message.seeking_immortals.multiblock.overhaul_need_materials": "Overhaul of %s needs about %s structure materials.",
+  "message.seeking_immortals.multiblock.overhauled": "Overhauled %s using %s material stacks and %s shards."
 }

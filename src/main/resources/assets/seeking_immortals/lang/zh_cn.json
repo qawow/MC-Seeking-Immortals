@@ -4816,5 +4816,7 @@
   "message.seeking_immortals.delivery.claimed": "交付账本补发 %s 件物品。",
   "message.seeking_immortals.refine.need_station": "附近需要成型的炼器炉（G1-G3）。",
   "message.seeking_immortals.talisman_table.need_station": "附近需要成型的制符台。",
-  "message.seeking_immortals.puppet_assembly_bench.need_station": "附近需要成型的傀儡组装台。"
+  "message.seeking_immortals.puppet_assembly_bench.need_station": "附近需要成型的傀儡组装台。",
+  "message.seeking_immortals.multiblock.overhaul_need_materials": "大修《%s》需要结构材料约 %s 种，请备齐后重试。",
+  "message.seeking_immortals.multiblock.overhauled": "已大修《%s》：消耗结构材料 %s 项、灵石碎片 %s。"
 }
