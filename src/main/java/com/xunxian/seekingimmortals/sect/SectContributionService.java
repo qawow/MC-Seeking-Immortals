@@ -5,6 +5,8 @@ import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.cultivation.Realm;
 import com.xunxian.seekingimmortals.entity.SectStewardEntity;
+import com.xunxian.seekingimmortals.menu.MenuAccessContext;
+import com.xunxian.seekingimmortals.menu.SectHallMenu;
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
 import com.xunxian.seekingimmortals.network.SyncLearnedTechniquesPacket;
 import com.xunxian.seekingimmortals.network.SyncSectDataPacket;
@@ -18,6 +20,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -135,13 +138,17 @@ public final class SectContributionService {
     }
 
     public static boolean advanceSectQuest(ServerPlayer player) {
+        return advanceSectQuest(player, true);
+    }
+
+    private static boolean advanceSectQuest(ServerPlayer player, boolean openScreen) {
         boolean[] advanced = { false };
         CultivationHelper.get(player).ifPresentOrElse(cultivation -> {
             QuestProgress progress = cultivation.getSevenMysteriesQuest();
             Optional<SectDefinitionService.SectDefinition> definition = currentDefinition(progress);
             if (definition.isEmpty()) {
                 player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.not_member", SECT_DISPLAY));
-                syncSect(player, cultivation, true);
+                syncSect(player, cultivation, openScreen);
                 return;
             }
             normalizeSectState(progress);
@@ -159,7 +166,7 @@ public final class SectContributionService {
                             combat ? "OK" : "X",
                             gather ? "OK" : "X",
                             quiz ? "OK" : "X"));
-                    syncSect(player, cultivation, true);
+                    syncSect(player, cultivation, openScreen);
                     return;
                 }
                 progress.addSectFlag(sid + "_knocking_passed");
@@ -176,7 +183,7 @@ public final class SectContributionService {
                 } catch (Throwable ignored) {
                     // optional in tests
                 }
-                syncAll(player, cultivation, true, sid);
+                syncAll(player, cultivation, openScreen, sid);
                 advanced[0] = true;
                 return;
             }
@@ -185,7 +192,7 @@ public final class SectContributionService {
                     player.sendSystemMessage(Component.translatable(
                             "message.seeking_immortals.sect.advance_need_foundation",
                             definition.get().displayZh()));
-                    syncSect(player, cultivation, true);
+                    syncSect(player, cultivation, openScreen);
                     return;
                 }
                 progress.addSectFlag(definition.get().id() + "_foundation_dilemma");
@@ -193,7 +200,7 @@ public final class SectContributionService {
                 player.sendSystemMessage(Component.translatable(
                         "message.seeking_immortals.sect.foundation_dilemma",
                         definition.get().displayZh()));
-                syncAll(player, cultivation, true, definition.get().id());
+                syncAll(player, cultivation, openScreen, definition.get().id());
                 advanced[0] = true;
                 return;
             }
@@ -203,7 +210,7 @@ public final class SectContributionService {
                             "message.seeking_immortals.sect.advance_need_contribution",
                             INNER_PROMOTION_REQUIRED_CONTRIBUTION,
                             progress.getContribution()));
-                    syncSect(player, cultivation, true);
+                    syncSect(player, cultivation, openScreen);
                     return;
                 }
                 progress.addSectFlag(definition.get().id() + "_inner_promotion");
@@ -213,7 +220,7 @@ public final class SectContributionService {
                         "message.seeking_immortals.sect.inner_promoted",
                         definition.get().displayZh(),
                         SectDefinitionService.INNER_DISCIPLE_ROLE));
-                syncAll(player, cultivation, true, definition.get().id());
+                syncAll(player, cultivation, openScreen, definition.get().id());
                 advanced[0] = true;
                 return;
             }
@@ -223,7 +230,7 @@ public final class SectContributionService {
                             "message.seeking_immortals.sect.complete_need_contribution",
                             PHASE10_COMPLETE_REQUIRED_CONTRIBUTION,
                             progress.getContribution()));
-                    syncSect(player, cultivation, true);
+                    syncSect(player, cultivation, openScreen);
                     return;
                 }
                 progress.addSectFlag(definition.get().id() + "_phase10_complete");
@@ -231,12 +238,12 @@ public final class SectContributionService {
                 player.sendSystemMessage(Component.translatable(
                         "message.seeking_immortals.sect.phase10_complete",
                         definition.get().displayZh()));
-                syncAll(player, cultivation, true, definition.get().id());
+                syncAll(player, cultivation, openScreen, definition.get().id());
                 advanced[0] = true;
                 return;
             }
             player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.inner_complete"));
-            syncSect(player, cultivation, true);
+            syncSect(player, cultivation, openScreen);
         }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.no_data")));
         return advanced[0];
     }
@@ -307,7 +314,7 @@ public final class SectContributionService {
         return bought[0];
     }
 
-    public static boolean acceptMission(ServerPlayer player) {
+    public static boolean acceptMission(ServerPlayer player, boolean openScreen) {
         boolean[] accepted = { false };
         CultivationHelper.get(player).ifPresentOrElse(cultivation -> {
             QuestProgress progress = cultivation.getSevenMysteriesQuest();
@@ -315,7 +322,7 @@ public final class SectContributionService {
             Optional<SectDefinitionService.SectDefinition> definition = currentDefinition(progress);
             if (definition.isEmpty() || progress.getSectQuestStage() < STAGE_OUTER_DISCIPLE) {
                 player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.mission_not_member"));
-                syncSect(player, cultivation, true);
+                syncSect(player, cultivation, openScreen);
                 return;
             }
             long day = currentDay(player);
@@ -324,14 +331,14 @@ public final class SectContributionService {
                         ? "message.seeking_immortals.sect.mission_already_done"
                         : "message.seeking_immortals.sect.mission_already_active";
                 player.sendSystemMessage(Component.translatable(message));
-                syncSect(player, cultivation, true);
+                syncSect(player, cultivation, openScreen);
                 return;
             }
             // Wave490: alternate kill/escort/beast/formation generator missions with item dailies.
             if ((day & 1L) == 1L) {
                 SectMissionGenerator.Mission generated = SectMissionGenerator.generate(definition.get().id());
                 if (!SectMissionGenerator.acceptGenerated(player, generated)) {
-                    syncSect(player, cultivation, true);
+                    syncSect(player, cultivation, openScreen);
                     return;
                 }
                 progress.setSectMission(generated.id(), day);
@@ -346,13 +353,21 @@ public final class SectContributionService {
                         "message.seeking_immortals.sect.mission_accepted",
                         Component.translatable(mission.titleKey())));
             }
-            syncAll(player, cultivation, true, definition.get().id());
+            syncAll(player, cultivation, openScreen, definition.get().id());
             accepted[0] = true;
         }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.no_data")));
         return accepted[0];
     }
 
+    public static boolean acceptMission(ServerPlayer player) {
+        return acceptMission(player, true);
+    }
+
     public static boolean turnInMission(ServerPlayer player) {
+        return turnInMission(player, true);
+    }
+
+    private static boolean turnInMission(ServerPlayer player, boolean openScreen) {
         boolean[] turnedIn = { false };
         CultivationHelper.get(player).ifPresentOrElse(cultivation -> {
             QuestProgress progress = cultivation.getSevenMysteriesQuest();
@@ -360,12 +375,12 @@ public final class SectContributionService {
             Optional<SectDefinitionService.SectDefinition> definition = currentDefinition(progress);
             if (definition.isEmpty() || !progress.isSectMissionAccepted()) {
                 player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.mission_none"));
-                syncSect(player, cultivation, true);
+                syncSect(player, cultivation, openScreen);
                 return;
             }
             if (progress.isSectMissionCompleted()) {
                 player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.mission_already_done"));
-                syncSect(player, cultivation, true);
+                syncSect(player, cultivation, openScreen);
                 return;
             }
 
@@ -373,7 +388,7 @@ public final class SectContributionService {
             SectMissionGenerator.Mission generated = SectMissionGenerator.activeGenerated(player);
             if (generated != null && generated.id().equals(progress.getSectMissionId())) {
                 if (!SectMissionGenerator.turnIn(player, generated)) {
-                    syncSect(player, cultivation, true);
+                    syncSect(player, cultivation, openScreen);
                     return;
                 }
                 int rewardContribution = WorldpackGameplayService.applySectContributionBonus(
@@ -385,7 +400,7 @@ public final class SectContributionService {
                         Component.literal(generated.id()),
                         rewardContribution,
                         progress.getContribution()));
-                syncAll(player, cultivation, true, definition.get().id());
+                syncAll(player, cultivation, openScreen, definition.get().id());
                 turnedIn[0] = true;
                 return;
             }
@@ -393,7 +408,7 @@ public final class SectContributionService {
             Optional<SectContentService.MissionDefinition> missionOptional = SectContentService.missionById(definition.get().id(), progress.getSectMissionId());
             if (missionOptional.isEmpty()) {
                 player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.mission_missing_definition"));
-                syncSect(player, cultivation, true);
+                syncSect(player, cultivation, openScreen);
                 return;
             }
             SectContentService.MissionDefinition mission = missionOptional.get();
@@ -403,7 +418,7 @@ public final class SectContributionService {
                         "message.seeking_immortals.sect.mission_missing_items",
                         mission.target(),
                         mission.itemId()));
-                syncSect(player, cultivation, true);
+                syncSect(player, cultivation, openScreen);
                 return;
             }
             int rewardContribution = WorldpackGameplayService.applySectContributionBonus(
@@ -415,7 +430,7 @@ public final class SectContributionService {
                     Component.translatable(mission.titleKey()),
                     rewardContribution,
                     progress.getContribution()));
-            syncAll(player, cultivation, true, definition.get().id());
+            syncAll(player, cultivation, openScreen, definition.get().id());
             turnedIn[0] = true;
         }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.no_data")));
         return turnedIn[0];
@@ -471,20 +486,31 @@ public final class SectContributionService {
     }
 
     public static void openScreen(ServerPlayer player, String focusSectId) {
+        openScreen(player, focusSectId, null);
+    }
+
+    public static void openScreen(ServerPlayer player, String focusSectId, Entity source) {
         CultivationHelper.get(player).ifPresentOrElse(cultivation -> {
                     normalizeSectState(cultivation.getSevenMysteriesQuest());
-                    // Wave490: sync data then open productized SectHall MenuType.
-                    syncSect(player, cultivation, true, focusSectId);
+                    syncSect(player, cultivation, false, focusSectId);
+                    openSectHall(player, focusSectId, source);
                 },
                 () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.no_data")));
     }
 
     /** Wave490: productized sect hall MenuType open path. */
     public static void openSectHall(ServerPlayer player, String focusSectId) {
+        openSectHall(player, focusSectId, null);
+    }
+
+    public static void openSectHall(ServerPlayer player, String focusSectId, Entity source) {
         if (player == null) {
             return;
         }
         final String focus = focusSectId == null ? "" : focusSectId;
+        MenuAccessContext access = source == null
+                ? MenuAccessContext.atPlayer(player)
+                : MenuAccessContext.atEntity(player, source);
         net.minecraftforge.network.NetworkHooks.openScreen(player, new net.minecraft.world.MenuProvider() {
             @Override
             public Component getDisplayName() {
@@ -494,42 +520,52 @@ public final class SectContributionService {
             @Override
             public net.minecraft.world.inventory.AbstractContainerMenu createMenu(
                     int id, net.minecraft.world.entity.player.Inventory inv, net.minecraft.world.entity.player.Player p) {
-                return new com.xunxian.seekingimmortals.menu.SectHallMenu(id, inv, focus);
+                return new SectHallMenu(id, inv, focus, access);
             }
-        }, buf -> buf.writeUtf(focus, 128));
+        }, buf -> {
+            buf.writeUtf(focus, 128);
+            buf.writeLong(access.token());
+        });
     }
 
-    public static void handleClientAction(ServerPlayer player, String action, String targetId, String extra) {
+    public static void handleClientAction(ServerPlayer player, String action, String targetId, String extra,
+                                          long accessToken) {
         String normalizedAction = normalize(action);
         String normalizedTarget = normalize(targetId);
+        if (!(player.containerMenu instanceof SectHallMenu menu)
+                || !menu.authorizes(player, accessToken)) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.menu.invalid_context"), true);
+            return;
+        }
+        if ((ACTION_OPEN.equals(normalizedAction)
+                || ACTION_APPLY.equals(normalizedAction)
+                || ACTION_JOIN.equals(normalizedAction))
+                && !menu.authorizesSect(normalizedTarget.isBlank() ? SECT_ID : normalizedTarget)) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.menu.invalid_context"), true);
+            return;
+        }
+        if (requiresFocusedSect(normalizedAction)
+                && !isCurrentSect(player, menu.focusSectId())) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.menu.invalid_context"), true);
+            return;
+        }
         switch (normalizedAction) {
-            case ACTION_OPEN -> openScreen(player, normalizedTarget);
-            case ACTION_APPLY -> {
-                applySect(player, normalizedTarget, true);
-                openScreen(player, normalizedTarget);
-            }
-            case ACTION_JOIN -> {
-                applySect(player, normalizedTarget.isBlank() ? SECT_ID : normalizedTarget, true);
-                openScreen(player, normalizedTarget);
-            }
-            case ACTION_DIALOGUE -> handleDialogue(player, normalizedTarget);
-            case ACTION_ADVANCE -> advanceSectQuest(player);
-            case ACTION_ACCEPT_MISSION -> acceptMission(player);
-            case ACTION_TURN_IN_MISSION -> turnInMission(player);
-            case ACTION_BUY -> {
-                buy(player, normalizedTarget);
-                openScreen(player);
-            }
-            case ACTION_DONATE_SPIRIT_GRASS -> {
-                donateSpiritGrass(player);
-                openScreen(player);
-            }
+            case ACTION_OPEN -> CultivationHelper.get(player).ifPresent(
+                    cultivation -> syncSect(player, cultivation, false, menu.focusSectId()));
+            case ACTION_APPLY -> applySect(player, normalizedTarget, false);
+            case ACTION_JOIN -> applySect(
+                    player, normalizedTarget.isBlank() ? SECT_ID : normalizedTarget, false);
+            case ACTION_DIALOGUE -> handleDialogue(player, normalizedTarget, false);
+            case ACTION_ADVANCE -> advanceSectQuest(player, false);
+            case ACTION_ACCEPT_MISSION -> acceptMission(player, false);
+            case ACTION_TURN_IN_MISSION -> turnInMission(player, false);
+            case ACTION_BUY -> buy(player, normalizedTarget);
+            case ACTION_DONATE_SPIRIT_GRASS -> donateSpiritGrass(player);
             default -> CultivationHelper.get(player).ifPresent(cultivation -> syncSect(player, cultivation, false));
         }
-    }
-
-    public static void handleClientAction(ServerPlayer player, String action, String entryId) {
-        handleClientAction(player, action, entryId, "");
     }
 
     public static void spawnSteward(ServerPlayer player) {
@@ -578,22 +614,61 @@ public final class SectContributionService {
     }
 
     public static boolean handleStewardInteraction(ServerPlayer player, SectStewardEntity steward) {
-        return handleStewardInteraction(player, steward.getSectId());
+        return handleStewardInteraction(player, steward.getSectId(), steward);
     }
 
     public static boolean handleStewardInteraction(ServerPlayer player, String sectId) {
+        return handleStewardInteraction(player, sectId, null);
+    }
+
+    public static boolean authorizeStewardInteraction(ServerPlayer player, String sectId) {
+        if (player == null) {
+            return false;
+        }
         SectDefinitionService.SectDefinition definition = definitionOrQinglan(sectId);
-        CultivationHelper.get(player).ifPresent(cultivation -> {
-            normalizeSectState(cultivation.getSevenMysteriesQuest());
-            QuestProgress progress = cultivation.getSevenMysteriesQuest();
-            if (!progress.getSectId().isBlank()
-                    && !SectDefinitionService.LEGACY_SEVEN_MYSTERIES_SECT_ID.equals(progress.getSectId())
-                    && !definition.id().equals(progress.getSectId())) {
-                player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.other_sect", displaySect(progress)));
-            }
-        });
-        openScreen(player, definition.id());
+        Optional<PlayerCultivation> cultivation = CultivationHelper.get(player);
+        if (cultivation.isEmpty()) {
+            player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.no_data"));
+            return false;
+        }
+        QuestProgress progress = cultivation.get().getSevenMysteriesQuest();
+        normalizeSectState(progress);
+        if (!progress.getSectId().isBlank() && !definition.id().equals(normalize(progress.getSectId()))) {
+            player.sendSystemMessage(Component.translatable(
+                    "message.seeking_immortals.sect.other_sect", displaySect(progress)));
+            return false;
+        }
         return true;
+    }
+
+    private static boolean handleStewardInteraction(ServerPlayer player, String sectId, Entity source) {
+        SectDefinitionService.SectDefinition definition = definitionOrQinglan(sectId);
+        if (!authorizeStewardInteraction(player, definition.id())) {
+            return true;
+        }
+        openScreen(player, definition.id(), source);
+        return true;
+    }
+
+    private static boolean requiresFocusedSect(String action) {
+        return ACTION_DIALOGUE.equals(action)
+                || ACTION_ADVANCE.equals(action)
+                || ACTION_ACCEPT_MISSION.equals(action)
+                || ACTION_TURN_IN_MISSION.equals(action)
+                || ACTION_BUY.equals(action)
+                || ACTION_DONATE_SPIRIT_GRASS.equals(action);
+    }
+
+    private static boolean isCurrentSect(ServerPlayer player, String focusSectId) {
+        String focus = normalize(focusSectId);
+        if (focus.isBlank()) {
+            return false;
+        }
+        return CultivationHelper.get(player).map(cultivation -> {
+            QuestProgress progress = cultivation.getSevenMysteriesQuest();
+            normalizeSectState(progress);
+            return focus.equals(normalize(progress.getSectId()));
+        }).orElse(false);
     }
 
     public static void syncSect(ServerPlayer player, PlayerCultivation cultivation, boolean openScreen) {
@@ -699,23 +774,23 @@ public final class SectContributionService {
                 canTurnIn);
     }
 
-    private static void handleDialogue(ServerPlayer player, String optionId) {
+    private static void handleDialogue(ServerPlayer player, String optionId, boolean openScreen) {
         CultivationHelper.get(player).ifPresentOrElse(cultivation -> {
             QuestProgress progress = cultivation.getSevenMysteriesQuest();
             normalizeSectState(progress);
             Optional<SectDefinitionService.SectDefinition> definition = currentDefinition(progress);
             if (definition.isEmpty()) {
-                syncSect(player, cultivation, true);
+                syncSect(player, cultivation, openScreen);
                 return;
             }
             Optional<SectContentService.DialogueOption> option = SectContentService.optionForStage(
                     definition.get().id(), progress.getSectQuestStage(), optionId);
             String action = option.map(SectContentService.DialogueOption::action).orElse("");
             switch (action) {
-                case ACTION_ADVANCE -> advanceSectQuest(player);
-                case ACTION_ACCEPT_MISSION -> acceptMission(player);
-                case ACTION_TURN_IN_MISSION -> turnInMission(player);
-                default -> syncSect(player, cultivation, true);
+                case ACTION_ADVANCE -> advanceSectQuest(player, openScreen);
+                case ACTION_ACCEPT_MISSION -> acceptMission(player, openScreen);
+                case ACTION_TURN_IN_MISSION -> turnInMission(player, openScreen);
+                default -> syncSect(player, cultivation, openScreen);
             }
         }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.no_data")));
     }

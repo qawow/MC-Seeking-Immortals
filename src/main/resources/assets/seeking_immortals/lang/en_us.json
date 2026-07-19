@@ -4593,5 +4593,6 @@
   "message.seeking_immortals.worldpack.reward_owner_denied": "This reward does not belong to your active secret-realm session.",
   "message.seeking_immortals.worldpack.reward_sealed": "The reward seal has not been released yet.",
   "message.seeking_immortals.worldpack.reward_claimed": "The secret-realm reward has been delivered.",
-  "message.seeking_immortals.worldpack.reward_break_denied": "This session-bound reward chest cannot be broken."
+  "message.seeking_immortals.worldpack.reward_break_denied": "This session-bound reward chest cannot be broken.",
+  "message.seeking_immortals.menu.invalid_context": "This interaction is no longer valid. Return to the relevant trader or steward."
 }

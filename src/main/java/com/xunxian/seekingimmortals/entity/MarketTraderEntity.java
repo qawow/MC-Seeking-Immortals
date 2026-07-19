@@ -79,12 +79,12 @@ public class MarketTraderEntity extends Villager {
         // Prefer dialogue tree when bound; shop action nodes open shelves server-side.
         if (!namedNpcId.isBlank() || !dialogueTreeId.isBlank()) {
             String npc = namedNpcId.isBlank() ? "market_vendor" : namedNpcId;
-            if (NpcDialogueApi.startDialogue(player, npc, dialogueTreeId)) {
+            if (NpcDialogueApi.startDialogue(player, npc, dialogueTreeId, this)) {
                 return true;
             }
         }
         String shop = shopId == null || shopId.isBlank() ? ShopService.MARKET_HERBAL_STALL : shopId;
-        ShopService.openMarket(player, shop);
+        ShopService.openMarket(player, shop, this);
         return true;
     }
 

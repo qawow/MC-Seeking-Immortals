@@ -173,7 +173,7 @@ public final class DialogueActionExecutor {
         if (shopId.isBlank()) {
             shopId = ShopService.MARKET_HERBAL_STALL;
         }
-        ShopService.openMarket(player, shopId);
+        ShopService.openMarket(player, shopId, NpcDialogueApi.currentSourceEntity(player).orElse(null));
         player.displayClientMessage(Component.literal("[对话] 打开商店：" + shopId), true);
         return true;
     }

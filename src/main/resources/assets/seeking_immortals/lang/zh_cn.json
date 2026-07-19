@@ -4593,5 +4593,6 @@
   "message.seeking_immortals.worldpack.reward_owner_denied": "此秘境奖励不属于你当前的秘境会话。",
   "message.seeking_immortals.worldpack.reward_sealed": "奖励禁制尚未解除。",
   "message.seeking_immortals.worldpack.reward_claimed": "秘境奖励已收入行囊。",
-  "message.seeking_immortals.worldpack.reward_break_denied": "秘境奖励箱受会话禁制保护，无法破坏。"
+  "message.seeking_immortals.worldpack.reward_break_denied": "秘境奖励箱受会话禁制保护，无法破坏。",
+  "message.seeking_immortals.menu.invalid_context": "当前交互已失效，请重新靠近对应商人或执事。"
 }

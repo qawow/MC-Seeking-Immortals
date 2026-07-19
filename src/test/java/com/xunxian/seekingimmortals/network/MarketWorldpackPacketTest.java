@@ -43,7 +43,8 @@ class MarketWorldpackPacketTest {
 
     @Test
     void shopActionRoundTrips() {
-        ShopActionPacket packet = new ShopActionPacket("buy", "market_herbal_stall", "spirit_grass_bundle");
+        ShopActionPacket packet = new ShopActionPacket(
+                "buy", "market_herbal_stall", "spirit_grass_bundle", 0x1020304050607080L);
         FriendlyByteBuf buffer = new FriendlyByteBuf(Unpooled.buffer());
 
         ShopActionPacket.encode(packet, buffer);
@@ -52,6 +53,7 @@ class MarketWorldpackPacketTest {
         assertEquals("buy", decoded.action());
         assertEquals("market_herbal_stall", decoded.shopId());
         assertEquals("spirit_grass_bundle", decoded.entryId());
+        assertEquals(0x1020304050607080L, decoded.accessToken());
     }
 
     @Test

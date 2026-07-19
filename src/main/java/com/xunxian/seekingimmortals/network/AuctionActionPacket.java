@@ -1,6 +1,7 @@
 package com.xunxian.seekingimmortals.network;
 
 import com.xunxian.seekingimmortals.catalog.AuctionSoftService;
+import com.xunxian.seekingimmortals.menu.AuctionHallMenu;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkEvent;
@@ -12,7 +13,7 @@ import java.util.function.Supplier;
  * Client→server auction actions. Mirrors ShopActionPacket pattern.
  * PROTOCOL_VERSION must bump when this packet is added.
  */
-public record AuctionActionPacket(String action, String id) {
+public record AuctionActionPacket(String action, String id, long accessToken) {
     public static final String ACTION_PREVIEW = "preview";
     public static final String ACTION_BID = "bid";
     public static final String ACTION_SETTLE = "settle";
@@ -23,13 +24,18 @@ public record AuctionActionPacket(String action, String id) {
     private static final int MAX_ACTION = 64;
     private static final int MAX_ID = 96;
 
+    public AuctionActionPacket(String action, String id) {
+        this(action, id, 0L);
+    }
+
     public static void encode(AuctionActionPacket packet, FriendlyByteBuf buffer) {
         buffer.writeUtf(packet.action == null ? "" : packet.action, MAX_ACTION);
         buffer.writeUtf(packet.id == null ? "" : packet.id, MAX_ID);
+        buffer.writeLong(packet.accessToken);
     }
 
     public static AuctionActionPacket decode(FriendlyByteBuf buffer) {
-        return new AuctionActionPacket(buffer.readUtf(MAX_ACTION), buffer.readUtf(MAX_ID));
+        return new AuctionActionPacket(buffer.readUtf(MAX_ACTION), buffer.readUtf(MAX_ID), buffer.readLong());
     }
 
     public static void handle(AuctionActionPacket packet, Supplier<NetworkEvent.Context> contextSupplier) {
@@ -37,6 +43,12 @@ public record AuctionActionPacket(String action, String id) {
         context.enqueueWork(() -> {
             ServerPlayer player = context.getSender();
             if (player == null) {
+                return;
+            }
+            if (!(player.containerMenu instanceof AuctionHallMenu menu)
+                    || !menu.authorizes(player, packet.accessToken)) {
+                player.displayClientMessage(net.minecraft.network.chat.Component.translatable(
+                        "message.seeking_immortals.menu.invalid_context"), true);
                 return;
             }
             String action = packet.action == null ? "" : packet.action.trim().toLowerCase(Locale.ROOT);

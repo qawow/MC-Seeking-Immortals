@@ -2,12 +2,13 @@ package com.xunxian.seekingimmortals.network;
 
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.network.NetworkDirection;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 
 public final class ModNetwork {
     // 0.2.1: dialogue screens now receive a bounded server-rendered view.
-    private static final String PROTOCOL_VERSION = "24";
+    private static final String PROTOCOL_VERSION = "25";
 
     public static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
             new ResourceLocation(SeekingImmortalsMod.MODID, "main"),
@@ -19,165 +20,165 @@ public final class ModNetwork {
 
     public static void register() {
         int id = 0;
-        CHANNEL.messageBuilder(SetMeditatingPacket.class, id++)
+        CHANNEL.messageBuilder(SetMeditatingPacket.class, id++, NetworkDirection.PLAY_TO_SERVER)
                 .encoder(SetMeditatingPacket::encode)
                 .decoder(SetMeditatingPacket::decode)
                 .consumerMainThread(SetMeditatingPacket::handle)
                 .add();
-        CHANNEL.messageBuilder(SyncLearnedTechniquesPacket.class, id++)
+        CHANNEL.messageBuilder(SyncLearnedTechniquesPacket.class, id++, NetworkDirection.PLAY_TO_CLIENT)
                 .encoder(SyncLearnedTechniquesPacket::encode)
                 .decoder(SyncLearnedTechniquesPacket::decode)
                 .consumerMainThread(SyncLearnedTechniquesPacket::handle)
                 .add();
-        CHANNEL.messageBuilder(SyncCultivationDataPacket.class, id++)
+        CHANNEL.messageBuilder(SyncCultivationDataPacket.class, id++, NetworkDirection.PLAY_TO_CLIENT)
                 .encoder(SyncCultivationDataPacket::encode)
                 .decoder(SyncCultivationDataPacket::decode)
                 .consumerMainThread(SyncCultivationDataPacket::handle)
                 .add();
         // Wave477: learned cultivation methods (protocol 14).
-        CHANNEL.messageBuilder(SyncLearnedMethodsPacket.class, id++)
+        CHANNEL.messageBuilder(SyncLearnedMethodsPacket.class, id++, NetworkDirection.PLAY_TO_CLIENT)
                 .encoder(SyncLearnedMethodsPacket::encode)
                 .decoder(SyncLearnedMethodsPacket::decode)
                 .consumerMainThread(SyncLearnedMethodsPacket::handle)
                 .add();
-        CHANNEL.messageBuilder(ReleaseTechniquePacket.class, id++)
+        CHANNEL.messageBuilder(ReleaseTechniquePacket.class, id++, NetworkDirection.PLAY_TO_SERVER)
                 .encoder(ReleaseTechniquePacket::encode)
                 .decoder(ReleaseTechniquePacket::decode)
                 .consumerMainThread(ReleaseTechniquePacket::handle)
                 .add();
-        CHANNEL.messageBuilder(SetTechniqueSlotPacket.class, id++)
+        CHANNEL.messageBuilder(SetTechniqueSlotPacket.class, id++, NetworkDirection.PLAY_TO_SERVER)
                 .encoder(SetTechniqueSlotPacket::encode)
                 .decoder(SetTechniqueSlotPacket::decode)
                 .consumerMainThread(SetTechniqueSlotPacket::handle)
                 .add();
-        CHANNEL.messageBuilder(AttemptBreakthroughPacket.class, id++)
+        CHANNEL.messageBuilder(AttemptBreakthroughPacket.class, id++, NetworkDirection.PLAY_TO_SERVER)
                 .encoder(AttemptBreakthroughPacket::encode)
                 .decoder(AttemptBreakthroughPacket::decode)
                 .consumerMainThread(AttemptBreakthroughPacket::handle)
                 .add();
-        CHANNEL.messageBuilder(SetMovementSpeedScalePacket.class, id++)
+        CHANNEL.messageBuilder(SetMovementSpeedScalePacket.class, id++, NetworkDirection.PLAY_TO_SERVER)
                 .encoder(SetMovementSpeedScalePacket::encode)
                 .decoder(SetMovementSpeedScalePacket::decode)
                 .consumerMainThread(SetMovementSpeedScalePacket::handle)
                 .add();
-        CHANNEL.messageBuilder(SyncSectDataPacket.class, id++)
+        CHANNEL.messageBuilder(SyncSectDataPacket.class, id++, NetworkDirection.PLAY_TO_CLIENT)
                 .encoder(SyncSectDataPacket::encode)
                 .decoder(SyncSectDataPacket::decode)
                 .consumerMainThread(SyncSectDataPacket::handle)
                 .add();
-        CHANNEL.messageBuilder(SectActionPacket.class, id++)
+        CHANNEL.messageBuilder(SectActionPacket.class, id++, NetworkDirection.PLAY_TO_SERVER)
                 .encoder(SectActionPacket::encode)
                 .decoder(SectActionPacket::decode)
                 .consumerMainThread(SectActionPacket::handle)
                 .add();
-        CHANNEL.messageBuilder(SyncShopDataPacket.class, id++)
+        CHANNEL.messageBuilder(SyncShopDataPacket.class, id++, NetworkDirection.PLAY_TO_CLIENT)
                 .encoder(SyncShopDataPacket::encode)
                 .decoder(SyncShopDataPacket::decode)
                 .consumerMainThread(SyncShopDataPacket::handle)
                 .add();
-        CHANNEL.messageBuilder(ShopActionPacket.class, id++)
+        CHANNEL.messageBuilder(ShopActionPacket.class, id++, NetworkDirection.PLAY_TO_SERVER)
                 .encoder(ShopActionPacket::encode)
                 .decoder(ShopActionPacket::decode)
                 .consumerMainThread(ShopActionPacket::handle)
                 .add();
-        CHANNEL.messageBuilder(SyncWorldpackDataPacket.class, id++)
+        CHANNEL.messageBuilder(SyncWorldpackDataPacket.class, id++, NetworkDirection.PLAY_TO_CLIENT)
                 .encoder(SyncWorldpackDataPacket::encode)
                 .decoder(SyncWorldpackDataPacket::decode)
                 .consumerMainThread(SyncWorldpackDataPacket::handle)
                 .add();
-        CHANNEL.messageBuilder(WorldpackActionPacket.class, id++)
+        CHANNEL.messageBuilder(WorldpackActionPacket.class, id++, NetworkDirection.PLAY_TO_SERVER)
                 .encoder(WorldpackActionPacket::encode)
                 .decoder(WorldpackActionPacket::decode)
                 .consumerMainThread(WorldpackActionPacket::handle)
                 .add();
-        CHANNEL.messageBuilder(AuctionActionPacket.class, id++)
+        CHANNEL.messageBuilder(AuctionActionPacket.class, id++, NetworkDirection.PLAY_TO_SERVER)
                 .encoder(AuctionActionPacket::encode)
                 .decoder(AuctionActionPacket::decode)
                 .consumerMainThread(AuctionActionPacket::handle)
                 .add();
-        CHANNEL.messageBuilder(OpenAuctionScreenPacket.class, id++)
+        CHANNEL.messageBuilder(OpenAuctionScreenPacket.class, id++, NetworkDirection.PLAY_TO_CLIENT)
                 .encoder(OpenAuctionScreenPacket::encode)
                 .decoder(OpenAuctionScreenPacket::decode)
                 .consumerMainThread(OpenAuctionScreenPacket::handle)
                 .add();
         // Wave47: dialogue GUI packets.
-        CHANNEL.messageBuilder(OpenDialogueScreenPacket.class, id++)
+        CHANNEL.messageBuilder(OpenDialogueScreenPacket.class, id++, NetworkDirection.PLAY_TO_CLIENT)
                 .encoder(OpenDialogueScreenPacket::encode)
                 .decoder(OpenDialogueScreenPacket::decode)
                 .consumerMainThread(OpenDialogueScreenPacket::handle)
                 .add();
-        CHANNEL.messageBuilder(DialogueActionPacket.class, id++)
+        CHANNEL.messageBuilder(DialogueActionPacket.class, id++, NetworkDirection.PLAY_TO_SERVER)
                 .encoder(DialogueActionPacket::encode)
                 .decoder(DialogueActionPacket::decode)
                 .consumerMainThread(DialogueActionPacket::handle)
                 .add();
         // Wave49: quest tracker + shop rank lock wire changes (protocol 12).
-        CHANNEL.messageBuilder(SyncQuestTrackerPacket.class, id++)
+        CHANNEL.messageBuilder(SyncQuestTrackerPacket.class, id++, NetworkDirection.PLAY_TO_CLIENT)
                 .encoder(SyncQuestTrackerPacket::encode)
                 .decoder(SyncQuestTrackerPacket::decode)
                 .consumerMainThread(SyncQuestTrackerPacket::handle)
                 .add();
-        CHANNEL.messageBuilder(QuestTrackerActionPacket.class, id++)
+        CHANNEL.messageBuilder(QuestTrackerActionPacket.class, id++, NetworkDirection.PLAY_TO_SERVER)
                 .encoder(QuestTrackerActionPacket::encode)
                 .decoder(QuestTrackerActionPacket::decode)
                 .consumerMainThread(QuestTrackerActionPacket::handle)
                 .add();
         // Wave50: alchemy/storage/refine GUI open packets.
-        CHANNEL.messageBuilder(OpenAlchemyStatusPacket.class, id++)
+        CHANNEL.messageBuilder(OpenAlchemyStatusPacket.class, id++, NetworkDirection.PLAY_TO_CLIENT)
                 .encoder(OpenAlchemyStatusPacket::encode)
                 .decoder(OpenAlchemyStatusPacket::decode)
                 .consumerMainThread(OpenAlchemyStatusPacket::handle)
                 .add();
-        CHANNEL.messageBuilder(OpenStoragePreviewPacket.class, id++)
+        CHANNEL.messageBuilder(OpenStoragePreviewPacket.class, id++, NetworkDirection.PLAY_TO_CLIENT)
                 .encoder(OpenStoragePreviewPacket::encode)
                 .decoder(OpenStoragePreviewPacket::decode)
                 .consumerMainThread(OpenStoragePreviewPacket::handle)
                 .add();
-        CHANNEL.messageBuilder(OpenRefinePlanPacket.class, id++)
+        CHANNEL.messageBuilder(OpenRefinePlanPacket.class, id++, NetworkDirection.PLAY_TO_CLIENT)
                 .encoder(OpenRefinePlanPacket::encode)
                 .decoder(OpenRefinePlanPacket::decode)
                 .consumerMainThread(OpenRefinePlanPacket::handle)
                 .add();
         // Wave478: method-tree learn/sync intent (protocol 15) — appended after existing packets.
-        CHANNEL.messageBuilder(MethodActionPacket.class, id++)
+        CHANNEL.messageBuilder(MethodActionPacket.class, id++, NetworkDirection.PLAY_TO_SERVER)
                 .encoder(MethodActionPacket::encode)
                 .decoder(MethodActionPacket::decode)
                 .consumerMainThread(MethodActionPacket::handle)
                 .add();
         // Wave486: freeform method-tree layout (protocol 17).
-        CHANNEL.messageBuilder(SyncMethodLayoutPacket.class, id++)
+        CHANNEL.messageBuilder(SyncMethodLayoutPacket.class, id++, NetworkDirection.PLAY_TO_CLIENT)
                 .encoder(SyncMethodLayoutPacket::encode)
                 .decoder(SyncMethodLayoutPacket::decode)
                 .consumerMainThread(SyncMethodLayoutPacket::handle)
                 .add();
-        CHANNEL.messageBuilder(MethodLayoutActionPacket.class, id++)
+        CHANNEL.messageBuilder(MethodLayoutActionPacket.class, id++, NetworkDirection.PLAY_TO_SERVER)
                 .encoder(MethodLayoutActionPacket::encode)
                 .decoder(MethodLayoutActionPacket::decode)
                 .consumerMainThread(MethodLayoutActionPacket::handle)
                 .add();
         // Wave491 protocol 18: auction live ladder + skill tree actions.
-        CHANNEL.messageBuilder(SyncAuctionLadderPacket.class, id++)
+        CHANNEL.messageBuilder(SyncAuctionLadderPacket.class, id++, NetworkDirection.PLAY_TO_CLIENT)
                 .encoder(SyncAuctionLadderPacket::encode)
                 .decoder(SyncAuctionLadderPacket::decode)
                 .consumerMainThread(SyncAuctionLadderPacket::handle)
                 .add();
-        CHANNEL.messageBuilder(SkillTreeActionPacket.class, id++)
+        CHANNEL.messageBuilder(SkillTreeActionPacket.class, id++, NetworkDirection.PLAY_TO_SERVER)
                 .encoder(SkillTreeActionPacket::encode)
                 .decoder(SkillTreeActionPacket::decode)
                 .consumerMainThread(SkillTreeActionPacket::handle)
                 .add();
-        CHANNEL.messageBuilder(SyncSkillDataPacket.class, id++)
+        CHANNEL.messageBuilder(SyncSkillDataPacket.class, id++, NetworkDirection.PLAY_TO_CLIENT)
                 .encoder(SyncSkillDataPacket::encode)
                 .decoder(SyncSkillDataPacket::decode)
                 .consumerMainThread(SyncSkillDataPacket::handle)
                 .add();
         // M16: lore unlock sync + encyclopedia open intent (appended; no existing packet field change).
-        CHANNEL.messageBuilder(SyncLoreUnlockPacket.class, id++)
+        CHANNEL.messageBuilder(SyncLoreUnlockPacket.class, id++, NetworkDirection.PLAY_TO_CLIENT)
                 .encoder(SyncLoreUnlockPacket::encode)
                 .decoder(SyncLoreUnlockPacket::decode)
                 .consumerMainThread(SyncLoreUnlockPacket::handle)
                 .add();
-        CHANNEL.messageBuilder(LoreScreenActionPacket.class, id++)
+        CHANNEL.messageBuilder(LoreScreenActionPacket.class, id++, NetworkDirection.PLAY_TO_SERVER)
                 .encoder(LoreScreenActionPacket::encode)
                 .decoder(LoreScreenActionPacket::decode)
                 .consumerMainThread(LoreScreenActionPacket::handle)

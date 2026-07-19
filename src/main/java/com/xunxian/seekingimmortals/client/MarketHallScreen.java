@@ -40,8 +40,7 @@ public class MarketHallScreen extends AbstractJournalContainerScreen<MarketHallM
     }
 
     private List<String> shopIds() {
-        List<String> ids = ShopService.marketShopIds();
-        return ids == null || ids.isEmpty() ? List.of(menu.shopId()) : ids;
+        return List.of(menu.shopId());
     }
 
     private String currentShopId() {
@@ -52,7 +51,7 @@ public class MarketHallScreen extends AbstractJournalContainerScreen<MarketHallM
 
     private void syncCurrentShop() {
         ModNetwork.CHANNEL.sendToServer(new ShopActionPacket(
-                ShopService.ACTION_SYNC, currentShopId(), ""));
+                ShopService.ACTION_SYNC, currentShopId(), "", menu.accessToken()));
     }
 
     private void rebuild() {
@@ -136,7 +135,7 @@ public class MarketHallScreen extends AbstractJournalContainerScreen<MarketHallM
                     : ImmortalButton.primary(row.right() - buttonWidth - 4, buttonY, buttonWidth, 17,
                     Component.translatable("screen.seeking_immortals.shop.buy"), ignored ->
                             ModNetwork.CHANNEL.sendToServer(new ShopActionPacket(
-                                    ShopService.ACTION_BUY, shopId, entry.id())));
+                                    ShopService.ACTION_BUY, shopId, entry.id(), menu.accessToken())));
             buy.active = entry.remainingStock() != 0 && !entry.locked();
             buy.visible = buttonY >= layout.viewport().y() && buttonY + 17 <= layout.viewport().bottom();
             addRenderableWidget(buy);

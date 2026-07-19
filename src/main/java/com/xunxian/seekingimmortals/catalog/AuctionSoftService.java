@@ -1,6 +1,8 @@
 package com.xunxian.seekingimmortals.catalog;
 
 import com.xunxian.seekingimmortals.item.InventoryDeliveryService;
+import com.xunxian.seekingimmortals.menu.AuctionHallMenu;
+import com.xunxian.seekingimmortals.menu.MenuAccessContext;
 import com.xunxian.seekingimmortals.registry.ModItems;
 import com.xunxian.seekingimmortals.worldpack.AuctionHouseSavedData;
 import com.xunxian.seekingimmortals.worldpack.ReputationService;
@@ -8,6 +10,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -56,11 +59,18 @@ public final class AuctionSoftService {
 
     /** Wave491: open hall and push live ladder page. */
     public static void openHall(ServerPlayer player, int page) {
+        openHall(player, page, null);
+    }
+
+    public static void openHall(ServerPlayer player, int page, Entity source) {
         if (player == null) {
             return;
         }
         player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.live_ready"), true);
         syncLadder(player, page);
+        MenuAccessContext access = source == null
+                ? MenuAccessContext.atPlayer(player)
+                : MenuAccessContext.atEntity(player, source);
         net.minecraftforge.network.NetworkHooks.openScreen(player, new net.minecraft.world.MenuProvider() {
             @Override
             public Component getDisplayName() {
@@ -70,11 +80,9 @@ public final class AuctionSoftService {
             @Override
             public net.minecraft.world.inventory.AbstractContainerMenu createMenu(
                     int id, net.minecraft.world.entity.player.Inventory inv, net.minecraft.world.entity.player.Player p) {
-                return new com.xunxian.seekingimmortals.menu.AuctionHallMenu(id, inv);
+                return new AuctionHallMenu(id, inv, access);
             }
-        }, buf -> {
-            // no payload
-        });
+        }, buf -> buf.writeLong(access.token()));
     }
 
     /** Wave491: server→client live bid ladder page. */

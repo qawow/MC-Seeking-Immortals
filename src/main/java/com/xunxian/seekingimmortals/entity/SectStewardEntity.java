@@ -88,14 +88,17 @@ public class SectStewardEntity extends Villager {
         if (player == null) {
             return false;
         }
+        if (!SectContributionService.authorizeStewardInteraction(player, sectId)) {
+            return true;
+        }
         if (!namedNpcId.isBlank()) {
-            return NpcDialogueApi.startDialogue(player, namedNpcId, dialogueTreeId);
+            return NpcDialogueApi.startDialogue(player, namedNpcId, dialogueTreeId, this);
         }
         // Resolve a named NPC for this sect/role when possible.
         String resolved = resolveNamedNpcId();
         if (!resolved.isBlank()) {
             setNamedNpcId(resolved);
-            return NpcDialogueApi.startDialogue(player, resolved, dialogueTreeId);
+            return NpcDialogueApi.startDialogue(player, resolved, dialogueTreeId, this);
         }
         return false;
     }

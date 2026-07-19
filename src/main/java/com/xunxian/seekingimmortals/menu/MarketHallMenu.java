@@ -2,6 +2,7 @@ package com.xunxian.seekingimmortals.menu;
 
 import com.xunxian.seekingimmortals.registry.ModMenus;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -13,18 +14,33 @@ import net.minecraft.world.item.ItemStack;
  */
 public class MarketHallMenu extends AbstractContainerMenu {
     private final String shopId;
+    private final MenuAccessContext accessContext;
 
     public MarketHallMenu(int id, Inventory inv, String shopId) {
+        this(id, inv, shopId, MenuAccessContext.client(0L));
+    }
+
+    public MarketHallMenu(int id, Inventory inv, String shopId, MenuAccessContext accessContext) {
         super(ModMenus.MARKET_HALL.get(), id);
-        this.shopId = shopId == null || shopId.isBlank() ? "herbal_stall" : shopId;
+        this.shopId = shopId == null || shopId.isBlank() ? "market_herbal_stall" : shopId;
+        this.accessContext = accessContext;
     }
 
     public static MarketHallMenu fromNetwork(int id, Inventory inv, FriendlyByteBuf buf) {
-        return new MarketHallMenu(id, inv, buf.readUtf(128));
+        return new MarketHallMenu(id, inv, buf.readUtf(128), MenuAccessContext.client(buf.readLong()));
     }
 
     public String shopId() {
         return shopId;
+    }
+
+    public long accessToken() {
+        return accessContext.token();
+    }
+
+    public boolean authorizes(ServerPlayer player, String requestedShopId, long presentedToken) {
+        String requested = requestedShopId == null ? "" : requestedShopId.trim().toLowerCase(java.util.Locale.ROOT);
+        return shopId.equals(requested) && accessContext.authorizes(player, presentedToken);
     }
 
     @Override
@@ -34,6 +50,6 @@ public class MarketHallMenu extends AbstractContainerMenu {
 
     @Override
     public boolean stillValid(Player player) {
-        return player != null && player.isAlive();
+        return accessContext.isValid(player);
     }
 }

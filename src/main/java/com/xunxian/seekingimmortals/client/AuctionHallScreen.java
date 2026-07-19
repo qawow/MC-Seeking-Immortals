@@ -33,7 +33,8 @@ public class AuctionHallScreen extends AbstractJournalContainerScreen<AuctionHal
     @Override
     protected void init() {
         super.init();
-        ModNetwork.CHANNEL.sendToServer(new AuctionActionPacket(AuctionActionPacket.ACTION_PAGE, "0"));
+        ModNetwork.CHANNEL.sendToServer(new AuctionActionPacket(
+                AuctionActionPacket.ACTION_PAGE, "0", menu.accessToken()));
         rebuildButtons();
     }
 
@@ -107,8 +108,8 @@ public class AuctionHallScreen extends AbstractJournalContainerScreen<AuctionHal
         addRenderableWidget(bid);
     }
 
-    private static void send(String action, String payload) {
-        ModNetwork.CHANNEL.sendToServer(new AuctionActionPacket(action, payload));
+    private void send(String action, String payload) {
+        ModNetwork.CHANNEL.sendToServer(new AuctionActionPacket(action, payload, menu.accessToken()));
     }
 
     @Override

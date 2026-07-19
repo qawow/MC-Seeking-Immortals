@@ -1,3 +1,21 @@
+## 498. 2026-07-19 0.2.37 商店/拍卖/宗门菜单现场权限
+
+  Step   Status   Notes
+  ---   ---   ---
+  Review scope   Done   主线程串联 Shop/Auction/Sect C2S、MenuType、命令树、实体与对话会话；本轮 3 个 max 工作代理分担命令/网络/村民修复，2 个 max 审计代理扫描后续权限、事务和未消费 schema。
+  Backup   Done   31 个既有生产、测试、资源、版本和状态文档按相对路径备份至 `.bak/20260719_0.2.35_menu_action_authority/`；新增 `MenuAccessContext`、4 份权限测试和 update note 无旧文件。
+  Live context   Done   服务端菜单绑定打开维度、原始 8 格锚点、可选来源实体 UUID 和非零随机令牌；显式实体来源无效不降级，玩家与 NPC 都必须留在原锚点附近。
+  Replay defense   Done   Shop/Auction/Sect C2S 均携带本次菜单令牌，服务端要求当前菜单类型与令牌一致；同类菜单重新打开也会生成新令牌，旧包不能跨会话重放。
+  Target binding   Done   市场包匹配菜单固定 shopId；宗门申请类目标匹配 focus，成员对话/晋升/任务/购买/捐献还要求当前宗门等于非空 focus；其他宗门成员在命名对话与大厅入口前均被拒绝。
+  Source continuity   Done   商人和执事直接开屏绑定实体；NPC Session 保存来源 UUID 与原锚点，延迟 open_shop 继承原 NPC；命名普通村民不再进入宗门服务，菜单动作只刷新不重开。
+  Command authority   Done   market open/buy、auction open/interest/bid/settle、sect open/join/apply/advance/buy/donate 统一 permission 2；列表、预览、状态、候选和商店目录保持只读开放。
+  Network direction   Done   31 条 SimpleChannel 注册全部显式限定方向：15 条 C2S `PLAY_TO_SERVER`、16 条 S2C `PLAY_TO_CLIENT`。
+  Tests   Done   三类包令牌往返及 7 组聚焦回归通过；新增菜单现场、命令权限、网络方向和命名村民契约测试。
+  Version/protocol   Done   初始令牌修复构建为 0.2.35；提交前锚点 NPE 与宗门命名对话门禁修复将最终 `mod_version` 从 0.2.34 升至 0.2.37。三个包新增 `long accessToken`，`ModNetwork.PROTOCOL_VERSION` 24 -> 25。
+  Verification   Done   0.2.36 中间树普通构建已通过；修正新增测试的分支定位后，0.2.37 定向 5 项通过，最终普通 `./gradlew build` BUILD SUCCESSFUL（57s），全量 665 项、0 failures/errors/skipped。
+  Audit queue   Done   下一批优先处理任务 current-step/分支/NPC 状态机与拍卖中央 escrow/outbox；同区旅行、鉴定扣费、功法层数元数据、持久交付和 Curios 飞行归属继续保留。
+  Update note   Done   `project_docs/updates/20260719_0.2.37_menu_action_authority.md`
+
 ## 497. 2026-07-19 0.2.34 秘境奖励与捕捉权限
 
   Step   Status   Notes

@@ -57,7 +57,8 @@ class SectPacketTest {
 
     @Test
     void sectActionRoundTrips() {
-        SectActionPacket packet = new SectActionPacket("buy", "foundation_formula", "extra_payload");
+        SectActionPacket packet = new SectActionPacket(
+                "buy", "foundation_formula", "extra_payload", 0x1122334455667788L);
         FriendlyByteBuf buffer = new FriendlyByteBuf(Unpooled.buffer());
 
         SectActionPacket.encode(packet, buffer);
@@ -66,6 +67,7 @@ class SectPacketTest {
         assertEquals("buy", decoded.action());
         assertEquals("foundation_formula", decoded.targetId());
         assertEquals("extra_payload", decoded.extra());
+        assertEquals(0x1122334455667788L, decoded.accessToken());
         assertFalse(decoded.targetId().isBlank());
     }
 

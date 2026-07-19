@@ -9,6 +9,8 @@ import com.xunxian.seekingimmortals.catalog.MarketPriceService;
 import com.xunxian.seekingimmortals.catalog.NewGamePlusEconomyService;
 import com.xunxian.seekingimmortals.catalog.TradeRouteEconomyService;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
+import com.xunxian.seekingimmortals.menu.MarketHallMenu;
+import com.xunxian.seekingimmortals.menu.MenuAccessContext;
 import com.xunxian.seekingimmortals.network.SyncShopDataPacket;
 import com.xunxian.seekingimmortals.quest.QuestProgress;
 import com.xunxian.seekingimmortals.sect.SectContributionService;
@@ -16,6 +18,7 @@ import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -95,7 +98,16 @@ public final class ShopService {
     }
 
     public static void openMarket(ServerPlayer player, String shopId) {
-        syncMarket(player, shopId, true);
+        openMarket(player, shopId, null);
+    }
+
+    public static void openMarket(ServerPlayer player, String shopId, Entity source) {
+        String normalizedShop = normalizeShopId(shopId);
+        if (!isMarketShop(normalizedShop)) {
+            normalizedShop = MARKET_HERBAL_STALL;
+        }
+        syncMarket(player, normalizedShop, false);
+        openMarketHall(player, normalizedShop, source);
     }
 
     public static void syncMarket(ServerPlayer player, boolean openScreen) {
@@ -118,6 +130,10 @@ public final class ShopService {
 
     /** Wave490: productized market hall MenuType open path. */
     public static void openMarketHall(ServerPlayer player, String shopId) {
+        openMarketHall(player, shopId, null);
+    }
+
+    public static void openMarketHall(ServerPlayer player, String shopId, Entity source) {
         if (player == null) {
             return;
         }
@@ -126,6 +142,9 @@ public final class ShopService {
             normalizedShop = MARKET_HERBAL_STALL;
         }
         final String openId = normalizedShop;
+        MenuAccessContext access = source == null
+                ? MenuAccessContext.atPlayer(player)
+                : MenuAccessContext.atEntity(player, source);
         net.minecraftforge.network.NetworkHooks.openScreen(player, new net.minecraft.world.MenuProvider() {
             @Override
             public net.minecraft.network.chat.Component getDisplayName() {
@@ -135,14 +154,24 @@ public final class ShopService {
             @Override
             public net.minecraft.world.inventory.AbstractContainerMenu createMenu(
                     int id, net.minecraft.world.entity.player.Inventory inv, net.minecraft.world.entity.player.Player p) {
-                return new com.xunxian.seekingimmortals.menu.MarketHallMenu(id, inv, openId);
+                return new MarketHallMenu(id, inv, openId, access);
             }
-        }, buf -> buf.writeUtf(openId, 128));
+        }, buf -> {
+            buf.writeUtf(openId, 128);
+            buf.writeLong(access.token());
+        });
     }
 
-    public static void handleClientAction(ServerPlayer player, String action, String shopId, String entryId) {
+    public static void handleClientAction(ServerPlayer player, String action, String shopId, String entryId,
+                                          long accessToken) {
         String normalizedAction = action == null ? "" : action.trim().toLowerCase(Locale.ROOT);
         String normalizedShop = normalizeShopId(shopId);
+        if (!(player.containerMenu instanceof MarketHallMenu menu)
+                || !menu.authorizes(player, normalizedShop, accessToken)) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.menu.invalid_context"), true);
+            return;
+        }
         if (!isMarketShop(normalizedShop)) {
             player.sendSystemMessage(Component.translatable("message.seeking_immortals.market.unknown_shop", normalizedShop));
             syncMarket(player, false);

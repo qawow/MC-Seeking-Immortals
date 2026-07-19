@@ -6,6 +6,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.Entity;
 import net.minecraftforge.common.MinecraftForge;
 
 import java.util.ArrayList;
@@ -24,7 +25,8 @@ public final class NpcDialogueApi {
     private NpcDialogueApi() {}
 
     public record Session(String npcId, String treeId, String nodeId, String context, List<String> choiceIds,
-                          String dimension, double anchorX, double anchorY, double anchorZ) {}
+                          String dimension, double anchorX, double anchorY, double anchorZ,
+                          String sourceEntityId) {}
 
     public record View(String context, String npcId, String treeId, String nodeId, Component speaker,
                        List<Component> lines, List<OpenDialogueScreenPacket.Choice> choices) {}
@@ -38,6 +40,17 @@ public final class NpcDialogueApi {
         if (player == null) {
             return false;
         }
+        return startDialogue(player, npcId, treeId, captureAnchor(player));
+    }
+
+    public static boolean startDialogue(ServerPlayer player, String npcId, String treeId, Entity source) {
+        if (player == null || source == null || !source.isAlive() || source.level() != player.level()) {
+            return false;
+        }
+        return startDialogue(player, npcId, treeId, captureAnchor(player, source));
+    }
+
+    private static boolean startDialogue(ServerPlayer player, String npcId, String treeId, Anchor anchor) {
         TextQuestDialogueService.clearSession(player);
         clearSession(player);
         String npc = normalize(npcId);
@@ -54,7 +67,7 @@ public final class NpcDialogueApi {
             return false;
         }
         Optional<DialogueBranchService.Node> root = DialogueBranchService.resolveRoot(player, npc, treeOpt.get());
-        return root.isPresent() && presentNode(player, npc, treeOpt.get(), root.get(), true, captureAnchor(player));
+        return root.isPresent() && presentNode(player, npc, treeOpt.get(), root.get(), true, anchor);
     }
 
     public static boolean onDialogueNodeReached(ServerPlayer player, String npcId, String nodeId) {
@@ -198,7 +211,20 @@ public final class NpcDialogueApi {
                 .toList();
         return Optional.of(new Session(npcId, treeId, tag.getString("NodeId"),
                 tag.getString("Context"), choices, tag.getString("Dimension"),
-                tag.getDouble("AnchorX"), tag.getDouble("AnchorY"), tag.getDouble("AnchorZ")));
+                tag.getDouble("AnchorX"), tag.getDouble("AnchorY"), tag.getDouble("AnchorZ"),
+                tag.getString("SourceEntityId")));
+    }
+
+    public static Optional<Entity> currentSourceEntity(ServerPlayer player) {
+        Session session = getSession(player).filter(value -> withinAnchor(player, value)).orElse(null);
+        if (session == null || session.sourceEntityId().isBlank()) {
+            return Optional.empty();
+        }
+        try {
+            return Optional.ofNullable(player.serverLevel().getEntity(UUID.fromString(session.sourceEntityId())));
+        } catch (IllegalArgumentException ignored) {
+            return Optional.empty();
+        }
     }
 
     public static boolean matchesContext(ServerPlayer player, String context) {
@@ -427,6 +453,7 @@ public final class NpcDialogueApi {
         tag.putDouble("AnchorX", anchor.x());
         tag.putDouble("AnchorY", anchor.y());
         tag.putDouble("AnchorZ", anchor.z());
+        tag.putString("SourceEntityId", anchor.sourceEntityId());
         player.getPersistentData().put(SESSION_ROOT, tag);
     }
 
@@ -435,11 +462,18 @@ public final class NpcDialogueApi {
     }
 
     private static Anchor captureAnchor(ServerPlayer player) {
-        return new Anchor(player.level().dimension().location().toString(), player.getX(), player.getY(), player.getZ());
+        return new Anchor(player.level().dimension().location().toString(), player.getX(), player.getY(),
+                player.getZ(), "");
+    }
+
+    private static Anchor captureAnchor(ServerPlayer player, Entity source) {
+        return new Anchor(player.level().dimension().location().toString(), source.getX(), source.getY(),
+                source.getZ(), source.getUUID().toString());
     }
 
     private static Anchor anchorOf(Session session) {
-        return new Anchor(session.dimension(), session.anchorX(), session.anchorY(), session.anchorZ());
+        return new Anchor(session.dimension(), session.anchorX(), session.anchorY(), session.anchorZ(),
+                session.sourceEntityId());
     }
 
     private static boolean withinAnchor(ServerPlayer player, Session session) {
@@ -450,8 +484,21 @@ public final class NpcDialogueApi {
         if (!current.toString().equals(session.dimension())) {
             return false;
         }
-        return distanceSqr(player.getX(), player.getY(), player.getZ(),
-                session.anchorX(), session.anchorY(), session.anchorZ()) <= MAX_SESSION_DISTANCE_SQR;
+        if (!session.sourceEntityId().isBlank()) {
+            try {
+                Entity source = player.serverLevel().getEntity(UUID.fromString(session.sourceEntityId()));
+                return source != null && source.isAlive() && source.level() == player.level()
+                        && distanceSqr(source.getX(), source.getY(), source.getZ(), session.anchorX(),
+                        session.anchorY(), session.anchorZ()) <= MAX_SESSION_DISTANCE_SQR
+                        && distanceSqr(player.getX(), player.getY(), player.getZ(), session.anchorX(),
+                        session.anchorY(), session.anchorZ()) <= MAX_SESSION_DISTANCE_SQR
+                        && player.distanceToSqr(source) <= MAX_SESSION_DISTANCE_SQR;
+            } catch (IllegalArgumentException ignored) {
+                return false;
+            }
+        }
+        return distanceSqr(player.getX(), player.getY(), player.getZ(), session.anchorX(), session.anchorY(),
+                session.anchorZ()) <= MAX_SESSION_DISTANCE_SQR;
     }
 
     static double distanceSqr(double x, double y, double z, double anchorX, double anchorY, double anchorZ) {
@@ -474,5 +521,5 @@ public final class NpcDialogueApi {
 
     private record DeferredEffect(DialogueBranchService.Effect effect) {}
 
-    private record Anchor(String dimension, double x, double y, double z) {}
+    private record Anchor(String dimension, double x, double y, double z, String sourceEntityId) {}
 }

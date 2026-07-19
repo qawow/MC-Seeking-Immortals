@@ -8,7 +8,6 @@ import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
 import com.xunxian.seekingimmortals.network.SyncLearnedTechniquesPacket;
 import com.xunxian.seekingimmortals.network.SyncSkillDataPacket;
 import com.xunxian.seekingimmortals.registry.ModItems;
-import com.xunxian.seekingimmortals.sect.SectContributionService;
 import com.xunxian.seekingimmortals.skill.SkillType;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -97,10 +96,7 @@ public final class QuestService {
             check(player);
             return true;
         }
-        if (SectContributionService.NPC_STEWARD.equals(name)) {
-            return SectContributionService.handleStewardInteraction(player);
-        }
-        // Wave55: text-quest named NPC authority entry (after seven-mysteries / sect).
+        // Wave55: text-quest named NPC authority entry (after seven-mysteries).
         return TextQuestNpcHookService.handleNamedVillagerInteraction(player, villager);
     }
 

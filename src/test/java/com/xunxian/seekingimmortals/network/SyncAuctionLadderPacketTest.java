@@ -27,4 +27,17 @@ class SyncAuctionLadderPacketTest {
         assertEquals(10, decoded.lots().get(0).current());
         assertTrue(decoded.lots().get(0).next() >= 10);
     }
+
+    @Test
+    void auctionActionRoundTripsMenuToken() {
+        AuctionActionPacket original = new AuctionActionPacket("bid", "lot_a", 0x123456789ABCDEFL);
+        FriendlyByteBuf buffer = new FriendlyByteBuf(Unpooled.buffer());
+
+        AuctionActionPacket.encode(original, buffer);
+        AuctionActionPacket decoded = AuctionActionPacket.decode(buffer);
+
+        assertEquals("bid", decoded.action());
+        assertEquals("lot_a", decoded.id());
+        assertEquals(0x123456789ABCDEFL, decoded.accessToken());
+    }
 }

@@ -7,22 +7,28 @@ import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;
 
-public record ShopActionPacket(String action, String shopId, String entryId) {
+public record ShopActionPacket(String action, String shopId, String entryId, long accessToken) {
     private static final int MAX_ACTION = 64;
     private static final int MAX_SHOP_ID = 96;
     private static final int MAX_ENTRY_ID = 96;
+
+    public ShopActionPacket(String action, String shopId, String entryId) {
+        this(action, shopId, entryId, 0L);
+    }
 
     public static void encode(ShopActionPacket packet, FriendlyByteBuf buffer) {
         buffer.writeUtf(packet.action == null ? "" : packet.action, MAX_ACTION);
         buffer.writeUtf(packet.shopId == null ? "" : packet.shopId, MAX_SHOP_ID);
         buffer.writeUtf(packet.entryId == null ? "" : packet.entryId, MAX_ENTRY_ID);
+        buffer.writeLong(packet.accessToken);
     }
 
     public static ShopActionPacket decode(FriendlyByteBuf buffer) {
         return new ShopActionPacket(
                 buffer.readUtf(MAX_ACTION),
                 buffer.readUtf(MAX_SHOP_ID),
-                buffer.readUtf(MAX_ENTRY_ID));
+                buffer.readUtf(MAX_ENTRY_ID),
+                buffer.readLong());
     }
 
     public static void handle(ShopActionPacket packet, Supplier<NetworkEvent.Context> contextSupplier) {
@@ -30,7 +36,7 @@ public record ShopActionPacket(String action, String shopId, String entryId) {
         context.enqueueWork(() -> {
             ServerPlayer player = context.getSender();
             if (player != null) {
-                ShopService.handleClientAction(player, packet.action, packet.shopId, packet.entryId);
+                ShopService.handleClientAction(player, packet.action, packet.shopId, packet.entryId, packet.accessToken);
             }
         });
         context.setPacketHandled(true);

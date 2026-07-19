@@ -80,7 +80,8 @@ public class SectHallScreen extends AbstractJournalContainerScreen<SectHallMenu>
                 layout.refreshButton().width(), layout.refreshButton().height(),
                 Component.translatable("screen.seeking_immortals.sect.refresh"), button ->
                         ModNetwork.CHANNEL.sendToServer(new SectActionPacket(
-                                SectContributionService.ACTION_OPEN, menu.focusSectId(), ""))));
+                                SectContributionService.ACTION_OPEN, menu.focusSectId(), "",
+                                menu.accessToken()))));
         addRenderableWidget(ImmortalButton.secondary(layout.closeButton().x(), layout.closeButton().y(),
                 layout.closeButton().width(), layout.closeButton().height(),
                 Component.translatable("screen.seeking_immortals.sect.close"), button -> onClose()));
@@ -110,7 +111,10 @@ public class SectHallScreen extends AbstractJournalContainerScreen<SectHallMenu>
 
     private void addCandidateButtons(Layout layout, ClientSectData.Snapshot data) {
         Rect viewport = candidateViewport(layout);
-        List<ClientSectData.Candidate> candidates = data.candidates();
+        List<ClientSectData.Candidate> candidates = data.candidates().stream()
+                .filter(candidate -> menu.focusSectId().isBlank()
+                        || menu.focusSectId().equals(candidate.id()))
+                .toList();
         bindListViewport(viewport, layout.rowHeight(), candidates.size());
         int listScroll = listPanel.scrollRows();
         int visible = listPanel.visibleRowCount();
@@ -120,7 +124,8 @@ public class SectHallScreen extends AbstractJournalContainerScreen<SectHallMenu>
             addRenderableWidget(ImmortalButton.primary(action.x(), action.y(), action.width(), action.height(),
                     Component.translatable("screen.seeking_immortals.sect.join"), button ->
                             ModNetwork.CHANNEL.sendToServer(new SectActionPacket(
-                                    SectContributionService.ACTION_APPLY, candidate.id(), ""))));
+                                    SectContributionService.ACTION_APPLY, candidate.id(), "",
+                                    menu.accessToken()))));
         }
     }
 
@@ -134,7 +139,8 @@ public class SectHallScreen extends AbstractJournalContainerScreen<SectHallMenu>
             addRenderableWidget(ImmortalButton.primary(bounds.x(), bounds.y(), bounds.width(), bounds.height(),
                     Component.translatable(option.labelKey()), button ->
                             ModNetwork.CHANNEL.sendToServer(new SectActionPacket(
-                                    SectContributionService.ACTION_DIALOGUE, option.id(), ""))));
+                                    SectContributionService.ACTION_DIALOGUE, option.id(), "",
+                                    menu.accessToken()))));
         }
     }
 
@@ -146,15 +152,18 @@ public class SectHallScreen extends AbstractJournalContainerScreen<SectHallMenu>
         addRenderableWidget(ImmortalButton.primary(accept.x(), accept.y(), accept.width(), accept.height(),
                 Component.translatable("screen.seeking_immortals.sect.mission.accept"), button ->
                         ModNetwork.CHANNEL.sendToServer(new SectActionPacket(
-                                SectContributionService.ACTION_ACCEPT_MISSION, "", ""))));
+                                SectContributionService.ACTION_ACCEPT_MISSION, "", "",
+                                menu.accessToken()))));
         addRenderableWidget(ImmortalButton.primary(turnIn.x(), turnIn.y(), turnIn.width(), turnIn.height(),
                 Component.translatable("screen.seeking_immortals.sect.mission.turn_in"), button ->
                         ModNetwork.CHANNEL.sendToServer(new SectActionPacket(
-                                SectContributionService.ACTION_TURN_IN_MISSION, "", ""))));
+                                SectContributionService.ACTION_TURN_IN_MISSION, "", "",
+                                menu.accessToken()))));
         addRenderableWidget(ImmortalButton.primary(donate.x(), donate.y(), donate.width(), donate.height(),
                 Component.translatable("screen.seeking_immortals.sect.donate"), button ->
                         ModNetwork.CHANNEL.sendToServer(new SectActionPacket(
-                                SectContributionService.ACTION_DONATE_SPIRIT_GRASS, "", ""))));
+                                SectContributionService.ACTION_DONATE_SPIRIT_GRASS, "", "",
+                                menu.accessToken()))));
     }
 
     private void addShopButtons(Layout layout, ClientSectData.Snapshot data) {
@@ -169,7 +178,8 @@ public class SectHallScreen extends AbstractJournalContainerScreen<SectHallMenu>
             addRenderableWidget(ImmortalButton.primary(action.x(), action.y(), action.width(), action.height(),
                     Component.translatable("screen.seeking_immortals.sect.buy"), button ->
                             ModNetwork.CHANNEL.sendToServer(new SectActionPacket(
-                                    SectContributionService.ACTION_BUY, entry.id(), ""))));
+                                    SectContributionService.ACTION_BUY, entry.id(), "",
+                                    menu.accessToken()))));
         }
     }
 
@@ -178,7 +188,8 @@ public class SectHallScreen extends AbstractJournalContainerScreen<SectHallMenu>
         addRenderableWidget(ImmortalButton.primary(bounds.x(), bounds.y(), bounds.width(), bounds.height(),
                 Component.translatable("screen.seeking_immortals.sect.advance"), button ->
                         ModNetwork.CHANNEL.sendToServer(new SectActionPacket(
-                                SectContributionService.ACTION_ADVANCE, "", ""))));
+                                SectContributionService.ACTION_ADVANCE, "", "",
+                                menu.accessToken()))));
     }
 
     // -------------------------------------------------------------------------
