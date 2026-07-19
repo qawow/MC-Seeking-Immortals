@@ -99,7 +99,7 @@ public final class SecretRealmRewardService {
         binding.remove(REWARDS_TAG);
         chest.getPersistentData().put(BINDING_TAG, binding);
         chest.setChanged();
-        rewards.forEach(stack -> InventoryDeliveryService.giveOrDrop(player, stack));
+        rewards.forEach(stack -> InventoryDeliveryService.giveOrEnqueue(player, stack, "secret_realm_reward"));
         if (chest.getLevel() != null) {
             chest.getLevel().removeBlock(chest.getBlockPos(), false);
         }

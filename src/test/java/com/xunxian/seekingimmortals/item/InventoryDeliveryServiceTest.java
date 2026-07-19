@@ -11,6 +11,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class InventoryDeliveryServiceTest {
     private static final Pattern DUPLICATING_DELIVERY = Pattern.compile(
@@ -44,6 +45,25 @@ class InventoryDeliveryServiceTest {
         assertFalse(text.contains("return delivered"));
         assertFalse(text.contains("player.drop("));
         assertEquals(1, countOccurrences(text, "ItemHandlerHelper.giveItemToPlayer("));
+    }
+
+    @Test
+    void outboxHelpersArePresentAndDeliveryStillUsesForgeRemainder() throws IOException {
+        Path source = Path.of("src", "main", "java", "com", "xunxian", "seekingimmortals",
+                "item", "InventoryDeliveryService.java");
+        String text = Files.readString(source);
+        assertFalse(text.contains("return delivered"));
+        assertEquals(1, countOccurrences(text, "ItemHandlerHelper.giveItemToPlayer("));
+        assertEquals(true, text.contains("giveOrEnqueue"));
+        assertEquals(true, text.contains("claimQueued"));
+        assertEquals(true, text.contains("canFullyAccept"));
+        Path outbox = Path.of("src", "main", "java", "com", "xunxian", "seekingimmortals",
+                "item", "DeliveryOutboxSavedData.java");
+        String outboxText = Files.readString(outbox);
+        assertEquals(true, outboxText.contains("seeking_immortals_delivery_outbox")
+                || outboxText.contains("_delivery_outbox"));
+        assertEquals(true, outboxText.contains("enqueue"));
+        assertEquals(true, outboxText.contains("claimAll"));
     }
 
     private static int countOccurrences(String source, String needle) {

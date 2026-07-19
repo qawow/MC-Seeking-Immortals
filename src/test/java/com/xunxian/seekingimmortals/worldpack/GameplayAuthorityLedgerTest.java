@@ -104,7 +104,9 @@ class GameplayAuthorityLedgerTest {
                 "reward chests must store owner, session, realm, and encounter binding");
         int match = claim.indexOf("SecretRealmSessionService.matchesEncounter(player,binding)");
         int claimed = claim.indexOf("binding.putBoolean(CLAIMED_TAG,true)");
-        int delivery = claim.indexOf("InventoryDeliveryService.giveOrDrop(");
+        int deliveryDrop = claim.indexOf("InventoryDeliveryService.giveOrDrop(");
+        int deliveryEnqueue = claim.indexOf("InventoryDeliveryService.giveOrEnqueue(");
+        int delivery = deliveryDrop >= 0 ? deliveryDrop : deliveryEnqueue;
         assertTrue(match >= 0 && claimed > match && delivery > claimed,
                 "reward delivery must validate binding and close the claim before item delivery");
     }

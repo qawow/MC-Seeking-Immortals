@@ -336,13 +336,13 @@ public final class AuctionSoftService {
         ItemStack reward = new ItemStack(rewardItemFor(lot), rewardCountFor(lot));
         // Wave492: won auction lots arrive pre-appraised for economy honesty.
         markAppraisedReward(reward, lot);
-        InventoryDeliveryService.giveOrDrop(player, reward);
+        InventoryDeliveryService.giveOrEnqueue(player, reward, "auction_win");
         // Grant first valid extra if present.
         for (String extra : lot.extras()) {
             Item extraItem = resolveItem(extra);
             if (extraItem != null && extraItem != Items.AIR) {
                 ItemStack extraStack = new ItemStack(extraItem, 1);
-                InventoryDeliveryService.giveOrDrop(player, extraStack);
+                InventoryDeliveryService.giveOrEnqueue(player, extraStack, "auction_win_extra");
                 break;
             }
         }
@@ -595,7 +595,8 @@ public final class AuctionSoftService {
             return;
         }
         ItemStack stack = new ItemStack(ModItems.SPIRIT_STONE_SHARD.get(), count);
-        InventoryDeliveryService.giveOrDrop(player, stack);
+        // Prefer durable outbox over world drop when inventory cannot accept the refund.
+        InventoryDeliveryService.giveOrEnqueue(player, stack, "auction_refund");
     }
 
     /** Wave467: claim offline outbid refunds on login. */

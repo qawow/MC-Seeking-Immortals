@@ -1,3 +1,13 @@
+## 507. 2026-07-20 0.2.57 交付 outbox 与制符原子扣料
+
+  Step   Status   Notes
+  ---   ---   ---
+  Outbox   Done   DeliveryOutboxSavedData + giveOrEnqueue + login claim。
+  Auction/SR   Done   退款/中奖/秘境奖励接入 outbox。
+  Talisman   Done   扣料原子化；产物 outbox。
+  Verify   Done   普通构建成功，全量测试通过。
+  Version  Done   `mod_version=0.2.57`；protocol 25。
+
 ## 506. 2026-07-20 0.2.56 mapped powerScale 与阵法映射
 
   Step   Status   Notes

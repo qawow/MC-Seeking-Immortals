@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-20: `0.2.57` 交付 outbox 与制符原子扣料。新增 `DeliveryOutboxSavedData`；满包奖励/退款可入账并在登录补发；制符扣料全有或全无，产物优先 outbox。普通构建成功。`mod_version=0.2.57`，协议 25。见 `project_docs/updates/20260720_0.2.57_delivery_outbox_craft.md`。
+
 > CURRENT TRUTH 2026-07-20: `0.2.56` mapped 法宝主动技 powerScale 与阵法映射。`SkillContext.powerScale` + `SpellEffect` ThreadLocal 使 mapped 主动技伤害受越阶压制；阵法 free-field 别名/关键词映射扩展，更多 id 不再落入弱 generic。普通构建成功。`mod_version=0.2.56`，协议保持 `25`。见 `project_docs/updates/20260720_0.2.56_mapped_scale_formation.md`。
 
 > CURRENT TRUTH 2026-07-20: `0.2.55` 术法 corpus 伤害、符箓退款与法宝 powerScale。通用形状 SkillType 优先路径重建 authored RuntimeSpec；符箓改为预留/成功提交/失败退还（含 dual-cast）；通用法宝激活全部伤害公式接入 `scaledDamage`。普通 `./gradlew build --no-daemon` 成功。`mod_version=0.2.55`，协议保持 `25`。完整交接见 `project_docs/updates/20260720_0.2.55_runtime_authority.md`。

@@ -656,6 +656,12 @@ public final class ModEvents {
                 givePatchouliGuideBook(serverPlayer);
                 // Wave467: claim offline auction outbid refunds.
                 com.xunxian.seekingimmortals.catalog.AuctionSoftService.claimPendingRefunds(serverPlayer);
+                // Persistent delivery outbox (rewards that could not fit inventory).
+                int delivered = com.xunxian.seekingimmortals.item.InventoryDeliveryService.claimQueued(serverPlayer);
+                if (delivered > 0) {
+                    serverPlayer.displayClientMessage(Component.translatable(
+                            "message.seeking_immortals.delivery.claimed", delivered), false);
+                }
                 // M04: 掌天瓶唯一性服务端强制
                 com.xunxian.seekingimmortals.craft.GardenLiquidService.enforceUniqueBottle(serverPlayer);
                 syncClientMirrors(serverPlayer, cultivation);

@@ -106,12 +106,14 @@ public final class TalismanCraftService {
                 player, com.xunxian.seekingimmortals.skill.SkillType.TALISMAN_CRAFTING, recipe.successRate());
         RandomSource random = player.getRandom();
         if (random.nextDouble() > rate) {
+            // Failed craft keeps materials (same risk model as puppet bench).
             com.xunxian.seekingimmortals.skill.LifeSkillService.grantPractice(player,
                     com.xunxian.seekingimmortals.skill.SkillType.TALISMAN_CRAFTING, 8, 3);
             return new CraftResult(false, recipe, ItemStack.EMPTY, "message.seeking_immortals.talisman_table.failed");
         }
         ItemStack product = new ItemStack(recipe.product());
-        InventoryDeliveryService.giveOrDrop(player, product);
+        // Prefer outbox over world drop when the player cannot fully accept the product.
+        InventoryDeliveryService.giveOrEnqueue(player, product, "talisman_craft:" + recipe.id());
         com.xunxian.seekingimmortals.skill.LifeSkillService.grantPractice(player,
                 com.xunxian.seekingimmortals.skill.SkillType.TALISMAN_CRAFTING, 22, 10);
         return new CraftResult(true, recipe, product, "message.seeking_immortals.talisman_table.activated");
@@ -147,14 +149,13 @@ public final class TalismanCraftService {
     }
 
     private static boolean consumeMaterials(ServerPlayer player, Recipe recipe) {
+        // Snapshot-check first so a mid-loop shortage cannot leave a half-consumed inventory.
+        if (!hasMaterials(player, recipe)) {
+            return false;
+        }
         Optional<Map<Item, Integer>> requirements = materialRequirements(recipe);
         if (requirements.isEmpty()) {
             return false;
-        }
-        for (Map.Entry<Item, Integer> requirement : requirements.get().entrySet()) {
-            if (count(player, requirement.getKey()) < requirement.getValue()) {
-                return false;
-            }
         }
         for (Map.Entry<Item, Integer> requirement : requirements.get().entrySet()) {
             int remaining = requirement.getValue();
@@ -168,10 +169,21 @@ public final class TalismanCraftService {
                 remaining -= take;
             }
             if (remaining > 0) {
+                // Should be unreachable after hasMaterials; refund everything and fail closed.
+                refundMaterials(player, recipe);
                 return false;
             }
         }
         return true;
+    }
+
+    private static void refundMaterials(ServerPlayer player, Recipe recipe) {
+        if (player == null || recipe == null) {
+            return;
+        }
+        for (Material material : recipe.materials()) {
+            InventoryDeliveryService.giveOrDrop(player, new ItemStack(material.item(), material.count()));
+        }
     }
 
     private static Optional<Map<Item, Integer>> materialRequirements(Recipe recipe) {

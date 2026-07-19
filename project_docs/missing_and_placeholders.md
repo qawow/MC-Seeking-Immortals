@@ -1,3 +1,9 @@
+## 0.2.57 交付 outbox 与制符原子扣料
+
+本批未新增占位资源。交付 outbox 与制符原子扣料已落地。全量构建通过，协议 25。
+
+仍未完成：拍卖 take-before-give 顺序、更多奖励路径 outbox 化、软制作工站门禁、储物持续授权与实机烟测。
+
 ## 0.2.56 mapped powerScale 与阵法映射
 
 本批未新增占位资源。mapped 法宝主动技伤害受 powerScale 压制；阵法 free-field 映射更完整。全量构建通过，协议 25。

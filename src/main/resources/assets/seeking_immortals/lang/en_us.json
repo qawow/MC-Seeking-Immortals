@@ -4797,5 +4797,7 @@
   "message.seeking_immortals.method.race_mismatch": "Learning \"%s\" requires race: %s.",
   "message.seeking_immortals.method.faction_mismatch": "Learning \"%s\" conflicts with your current sect; required: %s.",
   "message.seeking_immortals.method.faction_rank_too_low": "Learning \"%s\" needs a higher sect rank: %s.",
-  "message.seeking_immortals.method.convert_required": "\"%s\" must be converted after %s; it can no longer be newly learned."
+  "message.seeking_immortals.method.convert_required": "\"%s\" must be converted after %s; it can no longer be newly learned.",
+  "message.seeking_immortals.delivery.queued": "Inventory full: queued %s x%s for later delivery.",
+  "message.seeking_immortals.delivery.claimed": "Claimed %s queued delivery item(s)."
 }
