@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-20: `0.2.65` 多方块运行态与修理事务。持久 intact/damaged/critical/disabled；修理预留灵石碎片；禁用工站不能软制作；新增 station 命令。普通构建成功。`mod_version=0.2.65`，协议 25。见 `project_docs/updates/20260720_0.2.65_multiblock_ops.md`。
+
 > CURRENT TRUTH 2026-07-20: `0.2.64` 生活技能熟练度纳入成功率。`successBonus` 叠加等级与熟练度（满熟练 +10%）；制符/傀儡/炼丹/炼器统一受益。普通构建成功。`mod_version=0.2.64`，协议 25。见 `project_docs/updates/20260720_0.2.64_life_proficiency.md`。
 
 > CURRENT TRUTH 2026-07-20: `0.2.63` 功法个性化精进成本与层数清理。精进成本按 school/属性/阶梯分流；登录 sanitize 旧固定九层 NBT。普通构建成功。`mod_version=0.2.63`，协议 25。见 `project_docs/updates/20260720_0.2.63_method_costs.md`。

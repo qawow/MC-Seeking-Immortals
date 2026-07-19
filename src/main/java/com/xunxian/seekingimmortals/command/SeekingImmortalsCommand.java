@@ -388,6 +388,16 @@ public final class SeekingImmortalsCommand {
                                                 .executes(ctx -> catalogFormationsDeploy(ctx.getSource(), StringArgumentType.getString(ctx, "id")))))
                                 .then(Commands.argument("id", StringArgumentType.word())
                                         .executes(ctx -> catalogFormationsPreview(ctx.getSource(), StringArgumentType.getString(ctx, "id")))))
+                        .then(Commands.literal("station")
+                                .then(Commands.literal("inspect")
+                                        .then(Commands.argument("id", StringArgumentType.word())
+                                                .executes(ctx -> stationInspect(ctx.getSource(), StringArgumentType.getString(ctx, "id")))))
+                                .then(Commands.literal("repair")
+                                        .then(Commands.argument("id", StringArgumentType.word())
+                                                .executes(ctx -> stationRepair(ctx.getSource(), StringArgumentType.getString(ctx, "id")))))
+                                .then(Commands.literal("dismantle").requires(source -> source.hasPermission(2))
+                                        .then(Commands.argument("id", StringArgumentType.word())
+                                                .executes(ctx -> stationDismantle(ctx.getSource(), StringArgumentType.getString(ctx, "id"))))))
                         .then(Commands.literal("talisman")
                                 .executes(ctx -> catalogTalismanList(ctx.getSource()))
                                 .then(Commands.literal("list").executes(ctx -> catalogTalismanList(ctx.getSource())))
@@ -1769,6 +1779,28 @@ public final class SeekingImmortalsCommand {
             source.sendSuccess(() -> Component.literal(line), false);
         }
         return 1;
+    }
+
+
+    private static int stationInspect(CommandSourceStack source, String stationId) throws CommandSyntaxException {
+        net.minecraft.server.level.ServerPlayer player = source.getPlayerOrException();
+        boolean ok = com.xunxian.seekingimmortals.structure.MultiblockOperationalService.inspect(
+                player, stationId, player.blockPosition());
+        return ok ? 1 : 0;
+    }
+
+    private static int stationRepair(CommandSourceStack source, String stationId) throws CommandSyntaxException {
+        net.minecraft.server.level.ServerPlayer player = source.getPlayerOrException();
+        boolean ok = com.xunxian.seekingimmortals.structure.MultiblockOperationalService.repair(
+                player, stationId, player.blockPosition());
+        return ok ? 1 : 0;
+    }
+
+    private static int stationDismantle(CommandSourceStack source, String stationId) throws CommandSyntaxException {
+        net.minecraft.server.level.ServerPlayer player = source.getPlayerOrException();
+        boolean ok = com.xunxian.seekingimmortals.structure.MultiblockOperationalService.dismantle(
+                player, stationId, player.blockPosition());
+        return ok ? 1 : 0;
     }
 
     private static int catalogFormationsPreview(CommandSourceStack source, String id) throws CommandSyntaxException {

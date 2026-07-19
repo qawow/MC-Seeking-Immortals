@@ -1,3 +1,15 @@
+## 515. 2026-07-20 0.2.65 多方块运行态与修理事务
+
+  Step   Status   Notes
+  ---   ---   ---
+  SavedData Done   MultiblockOperationalSavedData 持久状态/耐久。
+  Runtime   Done   inspect/repair(预留退款)/dismantle + 附近效率。
+  Soft craft Done   禁用工站效率 0 不可制作。
+  Command   Done   station inspect/repair/dismantle。
+  Verify    Done   普通构建成功，全量测试通过。
+  Version   Done   `mod_version=0.2.65`；protocol 25。
+  Handoff   Done   `project_docs/updates/20260720_0.2.65_multiblock_ops.md`。
+
 ## 514. 2026-07-20 0.2.64 生活技能熟练度纳入成功率
 
   Step   Status   Notes

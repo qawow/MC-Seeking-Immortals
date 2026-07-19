@@ -5,6 +5,7 @@ import com.xunxian.seekingimmortals.artifact.ArtifactRefinementService;
 import com.xunxian.seekingimmortals.craft.PuppetCraftService;
 import com.xunxian.seekingimmortals.craft.TalismanCraftService;
 import com.xunxian.seekingimmortals.structure.FormationFieldService;
+import com.xunxian.seekingimmortals.structure.MultiblockOperationalService;
 import com.xunxian.seekingimmortals.structure.MultiblockStationService;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -260,21 +261,8 @@ public final class CraftWorldSoftService {
         if (player.getAbilities().instabuild) {
             return true;
         }
-        BlockPos origin = player.blockPosition();
-        int radius = 4;
-        for (int dx = -radius; dx <= radius; dx++) {
-            for (int dy = -1; dy <= 2; dy++) {
-                for (int dz = -radius; dz <= radius; dz++) {
-                    BlockPos pos = origin.offset(dx, dy, dz);
-                    for (String stationId : stationIds) {
-                        if (MultiblockStationService.isStationFormed(player.level(), stationId, pos)) {
-                            return true;
-                        }
-                    }
-                }
-            }
-        }
-        return false;
+        // Formed stations that are operationally disabled do not satisfy soft craft gates.
+        return MultiblockOperationalService.bestNearbyEfficiency(player, stationIds) > 0.0D;
     }
 
     private static boolean consumeShards(ServerPlayer player, int count) {
