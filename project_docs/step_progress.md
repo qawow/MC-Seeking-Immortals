@@ -1,3 +1,15 @@
+## 512. 2026-07-20 0.2.62 CAST 注册表保真 / 鉴定扣费 / 飞行权限
+
+  Step   Status   Notes
+  ---   ---   ---
+  CAST registry Done   CAST_* → TalismanConsumeSpell；ghost-hide 保留 conceal_qi。
+  Appraisal cost Done   先扣灵力再写 NBT/练习/声望。
+  Flight auth   Done   Curios 飞行静默校验 owner/认主/完整性。
+  Tests   Done   CAST/鉴定/飞行契约与 SkillStatusProduction 通过。
+  Verify  Done   普通构建成功，全量测试通过。
+  Version Done   `mod_version=0.2.62`；protocol 25。
+  Handoff Done   `project_docs/updates/20260720_0.2.62_cast_appraise_flight.md`。
+
 ## 511. 2026-07-20 0.2.61 任务链推进权限收口
 
   Step   Status   Notes

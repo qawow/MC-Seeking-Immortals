@@ -1,3 +1,5 @@
+2026-07-20 0.2.62 pending update: CAST_* registry maps to mode-aware TalismanConsumeSpell (ghost-hide keeps conceal_qi), appraisal spends spiritual power before writing NBT, and Curios flight silently re-checks owner/claim/integrity. Protocol 25. Remaining: method individualized costs/life proficiency/old NBT cleanup, multiblock form-consume-rollback, and live smoke.
+
 2026-07-20 0.2.61 pending update: text-quest advance rejects unstarted chains, hook advances must match the current step hook, and same-branch reselect no longer farms reputation. Protocol 25. Remaining: CAST_* registry fidelity, appraisal cost commit, Curios flight owner/integrity gates, method individualized costs/life proficiency, and live smoke.
 
 2026-07-20 0.2.60 pending update: auction settle claims house/WON before delivery, authored reward ids fail closed, and residual gift/storage/craft-refund paths enqueue instead of world-dropping. Protocol 25. Remaining: QuestTracker authority, CAST_* fidelity, method individualized costs/life proficiency, Curios flight gates, appraisal cost commit, and live smoke.

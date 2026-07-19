@@ -1268,39 +1268,28 @@ register(SkillType.SPIRIT_ART_BEAST_CALL, new com.xunxian.seekingimmortals.skill
                 20, 260, 12.0D, 24.0D, 5.0D,
                 com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseSpell.DivineSenseForm.SENSE_SCAN,
                 "message.seeking_immortals.spell.auction_bid_insight_secret.success"));
-        register(SkillType.CAST_FIRE_BURST_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
-                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FLAME_BURST,
-                        "message.seeking_immortals.spell.cast_fire_burst_talisman.success"));
-        register(SkillType.CAST_ICE_SEAL_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 18.0D, 1.10D,
-                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.ICE,
-                        "message.seeking_immortals.spell.cast_ice_seal_talisman.success"));
-        register(SkillType.CAST_ESCAPE_HEAVEN_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(
-                8, 80, 8.0D, 16.0D, 2.0D,
-                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.VOID_STEP,
+        // CAST_* talismans: mode-aware TalismanConsumeSpell (effectKey drives projectile/aoe/buff/control/movement).
+        register(SkillType.CAST_FIRE_BURST_TALISMAN, castTalisman(22.0D, "fire", "aoe_burst_fire",
+                "message.seeking_immortals.spell.cast_fire_burst_talisman.success"));
+        register(SkillType.CAST_ICE_SEAL_TALISMAN, castTalisman(18.0D, "ice", "seal_control_ice",
+                "message.seeking_immortals.spell.cast_ice_seal_talisman.success"));
+        register(SkillType.CAST_ESCAPE_HEAVEN_TALISMAN, castTalisman(8.0D, "wind", "escape_teleport",
                 "message.seeking_immortals.spell.cast_escape_heaven_talisman.success"));
-        register(SkillType.CAST_SPIRIT_FIX_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell(
-                8, 80, 18.0D, 0.0D,
-                com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell.RecoveryForm.SPIRIT_RECOVERY,
+        register(SkillType.CAST_SPIRIT_FIX_TALISMAN, castTalisman(10.0D, "spirit", "buff_spirit_fix",
                 "message.seeking_immortals.spell.cast_spirit_fix_talisman.success"));
-        register(SkillType.CAST_THUNDER_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 22.0D, 1.20D,
-                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.THUNDER,
-                        "message.seeking_immortals.spell.cast_thunder_talisman.success"));
-        register(SkillType.CAST_SOUL_LOCK_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 16.0D, 1.05D,
-                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.DARK,
-                        "message.seeking_immortals.spell.cast_soul_lock_talisman.success"));
-        register(SkillType.CAST_TELEPORT_ARRAY_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(
-                8, 80, 6.0D, 20.0D, 2.0D,
-                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.VOID_STEP,
+        register(SkillType.CAST_THUNDER_TALISMAN, castTalisman(24.0D, "thunder", "aoe_thunder_strike",
+                "message.seeking_immortals.spell.cast_thunder_talisman.success"));
+        register(SkillType.CAST_SOUL_LOCK_TALISMAN, castTalisman(16.0D, "dark", "lock_seal_control",
+                "message.seeking_immortals.spell.cast_soul_lock_talisman.success"));
+        register(SkillType.CAST_TELEPORT_ARRAY_TALISMAN, castTalisman(8.0D, "space", "teleport_array_escape",
                 "message.seeking_immortals.spell.cast_teleport_array_talisman.success"));
-        register(SkillType.CAST_BEAST_CONTRACT_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
-                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
-                        "message.seeking_immortals.spell.cast_beast_contract_talisman.success"));
-        register(SkillType.CAST_ANTI_DEMON_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
-                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
-                        "message.seeking_immortals.spell.cast_anti_demon_talisman.success"));
-        register(SkillType.CAST_YIN_PROTECT_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
-                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
-                        "message.seeking_immortals.spell.cast_yin_protect_talisman.success"));
+        register(SkillType.CAST_BEAST_CONTRACT_TALISMAN, castTalisman(12.0D, "beast", "contract_buff",
+                "message.seeking_immortals.spell.cast_beast_contract_talisman.success"));
+        register(SkillType.CAST_ANTI_DEMON_TALISMAN, castTalisman(22.0D, "fire", "aoe_burst_anti_demon",
+                "message.seeking_immortals.spell.cast_anti_demon_talisman.success"));
+        register(SkillType.CAST_YIN_PROTECT_TALISMAN, castTalisman(10.0D, "yin", "protect_armor_buff",
+                "message.seeking_immortals.spell.cast_yin_protect_talisman.success"));
+        // Keep SelfBuffSpell so CAST_GHOST_HIDE continues to produce canonical conceal_qi status.
         register(SkillType.CAST_GHOST_HIDE_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(
                         8, 80,
                         net.minecraft.world.effect.MobEffects.INVISIBILITY, 600, 0,
@@ -1309,51 +1298,36 @@ register(SkillType.SPIRIT_ART_BEAST_CALL, new com.xunxian.seekingimmortals.skill
                         net.minecraft.sounds.SoundEvents.SOUL_ESCAPE,
                         "message.seeking_immortals.spell.cast_ghost_hide_talisman.success",
                         "conceal_qi", 600, 0));
-        register(SkillType.CAST_SPACE_ANCHOR_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
-                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
-                        "message.seeking_immortals.spell.cast_space_anchor_talisman.success"));
-        register(SkillType.CAST_LIFE_SAVE_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
-                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
-                        "message.seeking_immortals.spell.cast_life_save_talisman.success"));
-        register(SkillType.CAST_EARTH_WALL_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
-                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
-                        "message.seeking_immortals.spell.cast_earth_wall_talisman.success"));
-        register(SkillType.CAST_MIRAGE_HEART_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
-                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
-                        "message.seeking_immortals.spell.cast_mirage_heart_talisman.success"));
-        register(SkillType.CAST_INVISIBILITY_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
-                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
-                        "message.seeking_immortals.spell.cast_invisibility_talisman.success"));
-        register(SkillType.CAST_SPIRIT_GATHER_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
-                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
-                        "message.seeking_immortals.spell.cast_spirit_gather_talisman.success"));
-        register(SkillType.CAST_ILLUSION_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
-                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
-                        "message.seeking_immortals.spell.cast_illusion_talisman.success"));
-        register(SkillType.CAST_STAR_PALACE_PATROL_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
-                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
-                        "message.seeking_immortals.spell.cast_star_palace_patrol_talisman.success"));
-        register(SkillType.CAST_GOLDEN_ARMOR_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
-                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
-                        "message.seeking_immortals.spell.cast_golden_armor_talisman.success"));
-        register(SkillType.CAST_INVERSE_STAR_CIPHER_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
-                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
-                        "message.seeking_immortals.spell.cast_inverse_star_cipher_talisman.success"));
-        register(SkillType.CAST_BU_TIAN_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
-                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
-                        "message.seeking_immortals.spell.cast_bu_tian_talisman.success"));
-        register(SkillType.CAST_WOOD_BIND_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
-                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
-                        "message.seeking_immortals.spell.cast_wood_bind_talisman.success"));
-        register(SkillType.CAST_METAL_BLADE_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
-                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
-                        "message.seeking_immortals.spell.cast_metal_blade_talisman.success"));
-        register(SkillType.CAST_VOID_PALACE_KEY_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
-                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
-                        "message.seeking_immortals.spell.cast_void_palace_key_talisman.success"));
-        register(SkillType.CAST_TALISMAN_WOODEN_OX, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
-                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
-                        "message.seeking_immortals.spell.cast_talisman_wooden_ox.success"));
+        register(SkillType.CAST_SPACE_ANCHOR_TALISMAN, castTalisman(14.0D, "space", "anchor_seal_control",
+                "message.seeking_immortals.spell.cast_space_anchor_talisman.success"));
+        register(SkillType.CAST_LIFE_SAVE_TALISMAN, castTalisman(12.0D, "life", "life_resurrect_buff",
+                "message.seeking_immortals.spell.cast_life_save_talisman.success"));
+        register(SkillType.CAST_EARTH_WALL_TALISMAN, castTalisman(12.0D, "earth", "wall_protect_buff",
+                "message.seeking_immortals.spell.cast_earth_wall_talisman.success"));
+        register(SkillType.CAST_MIRAGE_HEART_TALISMAN, castTalisman(10.0D, "illusion", "illusion_mask_buff",
+                "message.seeking_immortals.spell.cast_mirage_heart_talisman.success"));
+        register(SkillType.CAST_INVISIBILITY_TALISMAN, castTalisman(8.0D, "wind", "invis_hide_escape",
+                "message.seeking_immortals.spell.cast_invisibility_talisman.success"));
+        register(SkillType.CAST_SPIRIT_GATHER_TALISMAN, castTalisman(10.0D, "spirit", "gather_spirit_buff",
+                "message.seeking_immortals.spell.cast_spirit_gather_talisman.success"));
+        register(SkillType.CAST_ILLUSION_TALISMAN, castTalisman(10.0D, "illusion", "illusion_mask_buff",
+                "message.seeking_immortals.spell.cast_illusion_talisman.success"));
+        register(SkillType.CAST_STAR_PALACE_PATROL_TALISMAN, castTalisman(18.0D, "star", "aoe_patrol_burst",
+                "message.seeking_immortals.spell.cast_star_palace_patrol_talisman.success"));
+        register(SkillType.CAST_GOLDEN_ARMOR_TALISMAN, castTalisman(12.0D, "metal", "armor_protect_buff",
+                "message.seeking_immortals.spell.cast_golden_armor_talisman.success"));
+        register(SkillType.CAST_INVERSE_STAR_CIPHER_TALISMAN, castTalisman(14.0D, "star", "seal_control_cipher",
+                "message.seeking_immortals.spell.cast_inverse_star_cipher_talisman.success"));
+        register(SkillType.CAST_BU_TIAN_TALISMAN, castTalisman(14.0D, "life", "life_buff_heal",
+                "message.seeking_immortals.spell.cast_bu_tian_talisman.success"));
+        register(SkillType.CAST_WOOD_BIND_TALISMAN, castTalisman(16.0D, "wood", "bind_seal_control",
+                "message.seeking_immortals.spell.cast_wood_bind_talisman.success"));
+        register(SkillType.CAST_METAL_BLADE_TALISMAN, castTalisman(20.0D, "metal", "projectile_blade_metal",
+                "message.seeking_immortals.spell.cast_metal_blade_talisman.success"));
+        register(SkillType.CAST_VOID_PALACE_KEY_TALISMAN, castTalisman(10.0D, "void", "teleport_escape_void",
+                "message.seeking_immortals.spell.cast_void_palace_key_talisman.success"));
+        register(SkillType.CAST_TALISMAN_WOODEN_OX, castTalisman(12.0D, "wood", "buff_contract_ox",
+                "message.seeking_immortals.spell.cast_talisman_wooden_ox.success"));
         register(SkillType.GHOST_KING_SUMMON, new com.xunxian.seekingimmortals.skill.effect.spell.HonestSummonSpell(12, 220, "ghost_king_summon", 1, 0, 240, "message.seeking_immortals.spell.ghost_king_summon.success"));
 
                 registerTechniqueAlias("fireball", SkillType.FIREBALL);
@@ -1377,4 +1351,10 @@ register(SkillType.SPIRIT_ART_BEAST_CALL, new com.xunxian.seekingimmortals.skill
         registerTechniqueAlias("soul_search", SkillType.SOUL_SEARCH_SPELL);
         registerTechniqueAlias("demon_subdue", SkillType.DEMON_SUBDUE_SEAL);
     }
+    private static SkillEffect castTalisman(double damage, String element, String effectKey, String successKey) {
+        return new com.xunxian.seekingimmortals.skill.effect.spell.TalismanConsumeSpell(
+                8, 80, damage, 16.0D, 3.0D, element, effectKey,
+                java.util.Set.of("talisman", "talisman_consume"), successKey);
+    }
+
 }

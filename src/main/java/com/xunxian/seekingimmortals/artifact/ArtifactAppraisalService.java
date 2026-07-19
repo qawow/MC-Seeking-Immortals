@@ -75,6 +75,27 @@ public final class ArtifactAppraisalService {
         if (partial) {
             estimatedValue = Math.max(5, estimatedValue / 2);
         }
+
+        // Cost must succeed before any permanent appraisal NBT or practice/reputation grants.
+        int spiritCost = Math.max(5, 8 + tier * 2);
+        if (!player.getAbilities().instabuild) {
+            var cultivationOpt = CultivationHelper.get(player);
+            if (cultivationOpt.isEmpty()) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.appraisal.no_data"), true);
+                return false;
+            }
+            var cultivation = cultivationOpt.get();
+            if (cultivation.getSpiritualPower() < spiritCost
+                    || !cultivation.consumeSpiritualPower(spiritCost)) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.appraisal.no_power", spiritCost), true);
+                SyncCultivationDataPacket.send(player, cultivation);
+                return false;
+            }
+            SyncCultivationDataPacket.send(player, cultivation);
+        }
+
         CompoundTag tag = target.getOrCreateTag();
         tag.putBoolean(TAG_APPRAISED, true);
         tag.putBoolean(TAG_APPRAISED + "Partial", partial);
@@ -83,12 +104,6 @@ public final class ArtifactAppraisalService {
         tag.putString(TAG_APPRAISED_EFFECT, effect == null ? "" : effect);
         tag.putInt(TAG_APPRAISED_VALUE, estimatedValue);
 
-        CultivationHelper.get(player).ifPresent(cultivation -> {
-            if (!player.getAbilities().instabuild) {
-                cultivation.consumeSpiritualPower(Math.max(5, 8 + tier * 2));
-            }
-            SyncCultivationDataPacket.send(player, cultivation);
-        });
         LifeSkillService.grantPractice(player, SkillType.ARTIFACT_REFINING, partial ? 10 : 16, partial ? 4 : 8);
         ReputationService.add(player, "merchant_guild", 1);
         ReputationService.add(player, "chaotic_sea", 1);

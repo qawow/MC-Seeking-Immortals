@@ -1121,11 +1121,14 @@ public final class ModEvents {
     private static boolean hasFlyingArtifact(Player player) {
         if (!ModList.get().isLoaded("curios")) return false;
         return CuriosApi.getCuriosInventory(player)
-                .map(handler -> handler.findFirstCurio(ModEvents::isManagedFlyingArtifact).isPresent())
+                .map(handler -> handler.findFirstCurio(stack -> isAuthorizedFlyingArtifact(player, stack)).isPresent())
                 .orElse(false);
     }
 
     private static boolean isManagedFlyingArtifact(ItemStack stack) {
+        if (stack == null || stack.isEmpty()) {
+            return false;
+        }
         if (stack.is(ModItems.FLYING_SWORD.get()) || stack.is(ModItems.FLYING_ARTIFACT.get())) {
             return true;
         }
@@ -1145,6 +1148,56 @@ public final class ModEvents {
                     .isFlyingCapable(flying.artifactId());
         }
         return false;
+    }
+
+    /** Flying curios must remain owner-authorized and retain positive integrity. */
+    private static boolean isAuthorizedFlyingArtifact(Player player, ItemStack stack) {
+        if (!isManagedFlyingArtifact(stack)) {
+            return false;
+        }
+        if (!(player instanceof ServerPlayer serverPlayer)) {
+            return true;
+        }
+        if (serverPlayer.getAbilities().instabuild) {
+            return true;
+        }
+        String artifactId = resolveFlyingArtifactId(stack);
+        if (artifactId == null || artifactId.isBlank()) {
+            return false;
+        }
+        // Silent checks for tick path — canActivate would spam claim messages every tick.
+        if (!com.xunxian.seekingimmortals.artifact.ArtifactOwnershipService.isUsableBy(serverPlayer, stack)) {
+            return false;
+        }
+        var def = com.xunxian.seekingimmortals.artifact.ArtifactDataService.builtin()
+                .findArtifact(artifactId).orElse(null);
+        if (def != null && com.xunxian.seekingimmortals.artifact.ArtifactOwnershipService.requiresClaim(def)
+                && com.xunxian.seekingimmortals.artifact.ArtifactOwnershipService.ownerUuid(stack).isEmpty()) {
+            return false;
+        }
+        if (def != null) {
+            return com.xunxian.seekingimmortals.artifact.ArtifactActivationService.getIntegrity(stack, def) > 0;
+        }
+        return true;
+    }
+
+    private static String resolveFlyingArtifactId(ItemStack stack) {
+        if (stack == null || stack.isEmpty()) {
+            return null;
+        }
+        if (stack.getItem() instanceof ArtifactCatalogItem artifactItem) {
+            return artifactItem.artifactId();
+        }
+        if (stack.getItem() instanceof com.xunxian.seekingimmortals.item.FlyingArtifactItem flying) {
+            return flying.artifactId();
+        }
+        if (stack.is(ModItems.FLYING_SWORD.get())) {
+            return com.xunxian.seekingimmortals.item.FlyingArtifactItem.FLYING_SWORD_ARTIFACT_ID;
+        }
+        if (stack.is(ModItems.FLYING_ARTIFACT.get())) {
+            return com.xunxian.seekingimmortals.item.FlyingArtifactItem.FLYING_ARTIFACT_ID;
+        }
+        return null;
     }
 
     private static void grantFlying(ServerPlayer player, FlightProfile profile) {
