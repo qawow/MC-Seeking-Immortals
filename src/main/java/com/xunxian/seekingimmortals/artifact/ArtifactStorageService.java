@@ -3,6 +3,7 @@ package com.xunxian.seekingimmortals.artifact;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.cultivation.Realm;
 import com.xunxian.seekingimmortals.item.ArtifactCatalogItem;
+import com.xunxian.seekingimmortals.item.InventoryDeliveryService;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -12,7 +13,11 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkHooks;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.ShulkerBoxBlock;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.ItemStackHandler;
 
 import java.util.ArrayList;
@@ -74,10 +79,19 @@ public final class ArtifactStorageService {
         if (slots <= 0) {
             return false;
         }
+        if (!ArtifactOwnershipService.canActivate(player, braceletStack, artifact.id())) {
+            return false;
+        }
         Realm minRealm = realmFromDesignId(artifact.realmMin());
         if (cultivation.getRealm().ordinal() < minRealm.ordinal()) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.artifact.realm_too_low", minRealm.getDisplayName()), true);
+            return false;
+        }
+        if (!player.getAbilities().instabuild
+                && ArtifactActivationService.getIntegrity(braceletStack, artifact) <= 0) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.artifact.integrity_broken", braceletStack.getHoverName()), true);
             return false;
         }
 
@@ -141,11 +155,7 @@ public final class ArtifactStorageService {
 
         ItemStack restored = items.remove(items.size() - 1);
         writeItems(braceletStack, items);
-        ItemStack toGive = restored.copy();
-        player.getInventory().add(toGive);
-        if (!toGive.isEmpty()) {
-            player.drop(toGive, false);
-        }
+        InventoryDeliveryService.giveOrDrop(player, restored);
         player.containerMenu.broadcastChanges();
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.artifact.storage_retrieved", restored.getHoverName(),
@@ -162,12 +172,7 @@ public final class ArtifactStorageService {
     }
 
     public static ItemStackHandler createHandler(ItemStack bracelet, int slots) {
-        ItemStackHandler handler = new ItemStackHandler(Math.max(1, slots));
-        java.util.List<ItemStack> stored = storedItems(bracelet);
-        for (int i = 0; i < Math.min(slots, stored.size()); i++) {
-            handler.setStackInSlot(i, stored.get(i).copy());
-        }
-        return handler;
+        return new BraceletItemHandler(bracelet, slots);
     }
 
     public static void writeHandler(ItemStack bracelet, ItemStackHandler handler) {
@@ -185,10 +190,20 @@ public final class ArtifactStorageService {
     }
 
     private static boolean canStore(ItemStack stack) {
-        if (stack.getItem() instanceof ArtifactCatalogItem artifactItem) {
-            return !supports(artifactItem.artifactId());
+        if (stack == null || stack.isEmpty()) {
+            return false;
         }
-        return true;
+        boolean storageArtifact = supportsStack(stack);
+        boolean shulker = stack.getItem() instanceof BlockItem blockItem
+                && blockItem.getBlock() instanceof ShulkerBoxBlock;
+        boolean bundle = stack.is(Items.BUNDLE);
+        boolean itemHandler = stack.getCapability(ForgeCapabilities.ITEM_HANDLER).isPresent();
+        return !isForbiddenContainer(storageArtifact, shulker, bundle, itemHandler);
+    }
+
+    static boolean isForbiddenContainer(boolean storageArtifact, boolean shulker,
+                                        boolean bundle, boolean itemHandler) {
+        return storageArtifact || shulker || bundle || itemHandler;
     }
 
     private static List<ItemStack> storedItems(ItemStack braceletStack) {
@@ -222,6 +237,33 @@ public final class ArtifactStorageService {
             }
         }
         braceletStack.getOrCreateTag().put(STORAGE_ITEMS_TAG, list);
+    }
+
+    private static final class BraceletItemHandler extends ItemStackHandler {
+        private final ItemStack bracelet;
+        private boolean loading = true;
+
+        private BraceletItemHandler(ItemStack bracelet, int slots) {
+            super(Math.max(1, slots));
+            this.bracelet = bracelet;
+            List<ItemStack> stored = storedItems(bracelet);
+            for (int i = 0; i < Math.min(getSlots(), stored.size()); i++) {
+                super.setStackInSlot(i, stored.get(i).copy());
+            }
+            loading = false;
+        }
+
+        @Override
+        public boolean isItemValid(int slot, ItemStack stack) {
+            return canStore(stack);
+        }
+
+        @Override
+        protected void onContentsChanged(int slot) {
+            if (!loading) {
+                writeHandler(bracelet, this);
+            }
+        }
     }
 
     private static Realm realmFromDesignId(String id) {

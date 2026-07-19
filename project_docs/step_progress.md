@@ -1,3 +1,18 @@
+## 493. 2026-07-19 0.2.27 储物镯实例与嵌套权限
+
+  Step   Status   Notes
+  ---   ---   ---
+  Review scope   Done   max 子代理与主线程复核菜单 SWAP、detached handler 写回、Shift-click 部分合并、嵌套容器和法宝 owner/完整性门禁。
+  Backup   Done   8 个既有目标文件按相对路径备份至 `.bak/20260719_073733_storage_bracelet/`；新测试和 update note 无既有版本可备份。
+  Instance binding   Done   菜单持有打开时 ItemStack 对象；handler、quick move 与 removed 只写绑定对象，当前手替换品不接收快照，实例失配立即 invalid。
+  Swap authority   Done   主手绑定 hotbar 数字键和副手 F-SWAP 在服务端菜单早退；原绑定 hotbar 槽继续拒绝 pickup。
+  Nested storage   Done   handler `isItemValid` 接入统一 canStore，拒绝储物法宝、潜影盒、Bundle 与 Forge item-handler capability 容器。
+  Artifact gate   Done   开屏前校验主人、境界与完整性大于零；旧取回路径迁入 `InventoryDeliveryService`。
+  Tests   Done   新增 `ArtifactStorageAuthorityTest` 4 组回归；全量 639 项测试通过。
+  Version/protocol   Done   `mod_version` 0.2.26 -> 0.2.27；未改变菜单附加数据、包字段、顺序、编码、注册或通道行为，protocol 保持 24。
+  Verification   Done   普通 `./gradlew build` BUILD SUCCESSFUL，preflight 正常记录 0.2.27。
+  Update note   Done   `project_docs/updates/20260719_0.2.27_storage_bracelet_authority.md`
+
 ## 492. 2026-07-19 0.2.26 飞升护送与库存事务
 
   Step   Status   Notes

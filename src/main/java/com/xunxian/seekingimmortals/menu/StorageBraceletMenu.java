@@ -7,6 +7,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ClickType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.ItemStackHandler;
@@ -19,11 +20,15 @@ import net.minecraftforge.items.SlotItemHandler;
 public class StorageBraceletMenu extends AbstractContainerMenu {
     private final ItemStackHandler handler;
     private final InteractionHand hand;
+    private final ItemStack boundBracelet;
+    private final int boundHotbarSlot;
     private final int storageSlots;
 
     public StorageBraceletMenu(int id, Inventory inv, InteractionHand hand, ItemStack bracelet, int storageSlots) {
         super(ModMenus.STORAGE_BRACELET.get(), id);
         this.hand = hand;
+        this.boundBracelet = bracelet;
+        this.boundHotbarSlot = hand == InteractionHand.MAIN_HAND ? inv.selected : -1;
         this.storageSlots = Math.max(1, Math.min(27, storageSlots));
         this.handler = ArtifactStorageService.createHandler(bracelet, this.storageSlots);
 
@@ -47,7 +52,7 @@ public class StorageBraceletMenu extends AbstractContainerMenu {
                 @Override
                 public boolean mayPickup(Player player) {
                     ItemStack stack = getItem();
-                    if (hand == InteractionHand.MAIN_HAND && hotbarIndex == inv.selected) {
+                    if (hand == InteractionHand.MAIN_HAND && hotbarIndex == boundHotbarSlot) {
                         return false;
                     }
                     return super.mayPickup(player);
@@ -71,9 +76,19 @@ public class StorageBraceletMenu extends AbstractContainerMenu {
     public void removed(Player player) {
         super.removed(player);
         if (!player.level().isClientSide) {
-            ItemStack bracelet = hand == InteractionHand.MAIN_HAND ? player.getMainHandItem() : player.getOffhandItem();
-            ArtifactStorageService.writeHandler(bracelet, handler);
+            ArtifactStorageService.writeHandler(boundBracelet, handler);
         }
+    }
+
+    @Override
+    public void clicked(int slotId, int button, ClickType clickType, Player player) {
+        boolean swapsBoundHand = clickType == ClickType.SWAP
+                && ((hand == InteractionHand.MAIN_HAND && button == boundHotbarSlot)
+                || (hand == InteractionHand.OFF_HAND && button == 40));
+        if (swapsBoundHand) {
+            return;
+        }
+        super.clicked(slotId, button, clickType, player);
     }
 
     @Override
@@ -95,6 +110,9 @@ public class StorageBraceletMenu extends AbstractContainerMenu {
             } else {
                 slot.setChanged();
             }
+            if (!player.level().isClientSide) {
+                ArtifactStorageService.writeHandler(boundBracelet, handler);
+            }
         }
         return result;
     }
@@ -102,6 +120,6 @@ public class StorageBraceletMenu extends AbstractContainerMenu {
     @Override
     public boolean stillValid(Player player) {
         ItemStack bracelet = hand == InteractionHand.MAIN_HAND ? player.getMainHandItem() : player.getOffhandItem();
-        return !bracelet.isEmpty() && ArtifactStorageService.supportsStack(bracelet);
+        return bracelet == boundBracelet && !bracelet.isEmpty() && ArtifactStorageService.supportsStack(bracelet);
     }
 }
