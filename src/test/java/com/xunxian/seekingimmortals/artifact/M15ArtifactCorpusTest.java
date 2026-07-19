@@ -218,4 +218,21 @@ class M15ArtifactCorpusTest {
                 .count();
         assertEquals(0L, unscaled);
     }
+
+    @Test
+    void mappedActiveSkillsPushPowerScale() throws Exception {
+        String active = Files.readString(Path.of(
+                "src", "main", "java", "com", "xunxian", "seekingimmortals",
+                "artifact", "ArtifactActiveSkillService.java"));
+        assertTrue(active.contains(".powerScale(powerScale)"));
+        assertTrue(active.contains("SpellEffect.pushPowerScale(powerScale)"));
+        assertTrue(active.contains("SpellEffect.clearPowerScale()"));
+
+        String spell = Files.readString(Path.of(
+                "src", "main", "java", "com", "xunxian", "seekingimmortals",
+                "skill", "effect", "spell", "SpellEffect.java"));
+        assertTrue(spell.contains("currentPowerScale()"));
+        assertTrue(spell.contains("ACTIVE_POWER_SCALE"));
+    }
 }
+

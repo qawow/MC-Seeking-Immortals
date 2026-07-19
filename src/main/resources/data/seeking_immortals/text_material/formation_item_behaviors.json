@@ -53,8 +53,8 @@
     {
       "id": "array_blueprint_scroll",
       "display": "阵图残卷",
-      "formation_id": "",
-      "uses": null,
+      "formation_id": "spirit_gather",
+      "uses": 3,
       "place_block": null,
       "action": "inspect_only"
     },
@@ -85,24 +85,24 @@
     {
       "id": "nine_palace_disk",
       "display": "九宫阵盘",
-      "formation_id": "",
-      "uses": null,
+      "formation_id": "defense_wall",
+      "uses": 3,
       "place_block": null,
       "action": "inspect_only"
     },
     {
       "id": "spirit_gather_flag",
       "display": "聚灵阵旗",
-      "formation_id": "",
-      "uses": null,
+      "formation_id": "spirit_gather",
+      "uses": 3,
       "place_block": null,
       "action": "inspect_only"
     },
     {
       "id": "kill_array_core",
       "display": "杀阵核心",
-      "formation_id": "",
-      "uses": null,
+      "formation_id": "kill_sword",
+      "uses": 3,
       "place_block": null,
       "action": "inspect_only"
     },

@@ -10,6 +10,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 
 public abstract class SpellEffect implements SkillEffect {
+    private static final ThreadLocal<Double> ACTIVE_POWER_SCALE = ThreadLocal.withInitial(() -> 1.0D);
+
     protected final int baseSpiritualPowerCost;
     protected final int baseCooldownTicks;
     protected final double baseDamage;
@@ -18,6 +20,20 @@ public abstract class SpellEffect implements SkillEffect {
         this.baseSpiritualPowerCost = baseSpiritualPowerCost;
         this.baseCooldownTicks = baseCooldownTicks;
         this.baseDamage = baseDamage;
+    }
+
+    /** Temporary combat scale for artifact-mapped casts. Always clear in a finally block. */
+    public static void pushPowerScale(double scale) {
+        ACTIVE_POWER_SCALE.set(Math.max(0.0D, scale));
+    }
+
+    public static void clearPowerScale() {
+        ACTIVE_POWER_SCALE.set(1.0D);
+    }
+
+    public static double currentPowerScale() {
+        Double scale = ACTIVE_POWER_SCALE.get();
+        return scale == null ? 1.0D : Math.max(0.0D, scale);
     }
 
     @Override
@@ -38,7 +54,14 @@ public abstract class SpellEffect implements SkillEffect {
     protected double calculateDamage(int skillLevel, int proficiency) {
         double levelMultiplier = 1.0 + skillLevel * 0.15;
         double proficiencyMultiplier = 1.0 + proficiency / 10000.0;
-        return baseDamage * levelMultiplier * proficiencyMultiplier;
+        return baseDamage * levelMultiplier * proficiencyMultiplier * currentPowerScale();
+    }
+
+    protected double calculateDamage(int skillLevel, int proficiency, SkillContext context) {
+        double scale = context == null ? currentPowerScale() : context.getPowerScale();
+        double levelMultiplier = 1.0 + skillLevel * 0.15;
+        double proficiencyMultiplier = 1.0 + proficiency / 10000.0;
+        return baseDamage * levelMultiplier * proficiencyMultiplier * Math.max(0.0D, scale);
     }
 
     protected static boolean canAffect(ServerPlayer caster, Entity entity) {

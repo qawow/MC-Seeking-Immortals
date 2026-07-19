@@ -1,3 +1,13 @@
+## 506. 2026-07-20 0.2.56 mapped powerScale 与阵法映射
+
+  Step   Status   Notes
+  ---   ---   ---
+  Mapped scale   Done   SkillContext + SpellEffect ThreadLocal 覆盖 calculateDamage。
+  Formation map  Done   别名与关键词回退扩展；inspect_only 材料保持不动。
+  Verify   Done   普通构建成功，全量测试通过。
+  Version  Done   `mod_version=0.2.56`；protocol 25。
+  Handoff  Done   `project_docs/updates/20260720_0.2.56_mapped_scale_formation.md`。
+
 ## 505. 2026-07-20 0.2.55 术法伤害/符箓退款/法宝倍率
 
   Step   Status   Notes

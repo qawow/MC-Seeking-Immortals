@@ -1,3 +1,9 @@
+## 0.2.56 mapped powerScale 与阵法映射
+
+本批未新增占位资源。mapped 法宝主动技伤害受 powerScale 压制；阵法 free-field 映射更完整。全量构建通过，协议 25。
+
+仍未完成：多方块 form→consume→rollback、持久交付 outbox、储物持续授权、CAST_* 低保真清理与实机烟测。
+
 ## 0.2.55 术法伤害/符箓退款/法宝倍率
 
 本批未新增占位模型、纹理、物品/方块/实体/网络 id 或持久 schema。通用形状术法优先消费 corpus 伤害；符箓失败可退；通用法宝激活伤害受 powerScale 压制。全量构建通过，协议保持 25。

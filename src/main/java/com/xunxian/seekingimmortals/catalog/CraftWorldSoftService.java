@@ -139,6 +139,22 @@ public final class CraftWorldSoftService {
                 return Optional.of(e.getValue());
             }
         }
+        // Keyword fallback for free-field disks/flags that only carry partial ids.
+        if (id.contains("spirit_gather") || id.contains("juling") || id.contains("聚灵")) {
+            return Optional.of(FormationFieldService.FieldKind.SPIRIT_GATHER);
+        }
+        if (id.contains("kill") || id.contains("sword") || id.contains("杀")) {
+            return Optional.of(FormationFieldService.FieldKind.KILL_SWORD);
+        }
+        if (id.contains("seal") || id.contains("demon") || id.contains("禁") || id.contains("镇")) {
+            return Optional.of(FormationFieldService.FieldKind.SEAL_DEMON);
+        }
+        if (id.contains("illusion") || id.contains("maze") || id.contains("迷")) {
+            return Optional.of(FormationFieldService.FieldKind.ILLUSION_MAZE);
+        }
+        if (id.contains("defense") || id.contains("barrier") || id.contains("wall") || id.contains("护")) {
+            return Optional.of(FormationFieldService.FieldKind.DEFENSE);
+        }
         // Wave492: unknown formation catalog ids deploy as generic free fields (no soft_only dead-end).
         return Optional.of(FormationFieldService.FieldKind.CATALOG_GENERIC);
     }
@@ -278,13 +294,23 @@ public final class CraftWorldSoftService {
         map.put("sword_array_bagua", FormationFieldService.FieldKind.KILL_SWORD);
         map.put("thunder_tribulation_array", FormationFieldService.FieldKind.SPIRIT_GATHER);
         map.put("blood_sacrifice_array", FormationFieldService.FieldKind.SEAL_DEMON);
-        map.put("teleport_array", FormationFieldService.FieldKind.CATALOG_GENERIC);
-        map.put("teleport_array_long_range", FormationFieldService.FieldKind.CATALOG_GENERIC);
+        map.put("teleport_array", FormationFieldService.FieldKind.DEFENSE);
+        map.put("teleport_array_long_range", FormationFieldService.FieldKind.DEFENSE);
+        map.put("seal_barrier", FormationFieldService.FieldKind.SEAL_DEMON);
+        map.put("portable_seal", FormationFieldService.FieldKind.SEAL_DEMON);
+        map.put("kill_array", FormationFieldService.FieldKind.KILL_SWORD);
+        map.put("kill_array_core", FormationFieldService.FieldKind.KILL_SWORD);
+        map.put("spirit_gather_flag", FormationFieldService.FieldKind.SPIRIT_GATHER);
+        map.put("spirit_gather_flag_set", FormationFieldService.FieldKind.SPIRIT_GATHER);
+        map.put("nine_palace", FormationFieldService.FieldKind.DEFENSE);
+        map.put("nine_palace_disk", FormationFieldService.FieldKind.DEFENSE);
+        map.put("array_blueprint", FormationFieldService.FieldKind.SPIRIT_GATHER);
+        map.put("array_blueprint_scroll", FormationFieldService.FieldKind.SPIRIT_GATHER);
+        map.put("mulan_wind_ride_array", FormationFieldService.FieldKind.DEFENSE);
         map.put("blood_forbidden_gate", FormationFieldService.FieldKind.SEAL_DEMON);
         map.put("nine_dragon_flame_barrier", FormationFieldService.FieldKind.DEFENSE);
         map.put("inverted_five_elements_array", FormationFieldService.FieldKind.SPIRIT_GATHER);
         map.put("vajra_prison_array", FormationFieldService.FieldKind.SEAL_DEMON);
-        map.put("mulan_wind_ride_array", FormationFieldService.FieldKind.CATALOG_GENERIC);
         map.put("nine_dragon_flame_barrier_formation_core", FormationFieldService.FieldKind.DEFENSE);
         map.put("kill_sword_formation", FormationFieldService.FieldKind.KILL_SWORD);
         map.put("seal_demon_array", FormationFieldService.FieldKind.SEAL_DEMON);

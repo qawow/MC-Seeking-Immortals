@@ -130,13 +130,18 @@ public final class ArtifactActiveSkillService {
                 .level(player.serverLevel())
                 .position(player.position())
                 .lookDirection(player.getLookAngle())
+                .powerScale(powerScale)
                 .build();
 
         boolean ok;
         try {
+            // Push scale so all SpellEffect.calculateDamage call sites honor over-tier suppression.
+            com.xunxian.seekingimmortals.skill.effect.spell.SpellEffect.pushPowerScale(powerScale);
             ok = effect.execute(player, cultivation, virtual, context);
         } catch (Throwable t) {
             return CastResult.DENIED;
+        } finally {
+            com.xunxian.seekingimmortals.skill.effect.spell.SpellEffect.clearPowerScale();
         }
         if (!ok) {
             return CastResult.DENIED;

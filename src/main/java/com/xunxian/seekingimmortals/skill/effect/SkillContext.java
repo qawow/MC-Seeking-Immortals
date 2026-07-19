@@ -11,6 +11,7 @@ public class SkillContext {
     private final Vec3 lookDirection;
     private final Entity targetEntity;
     private final BlockPos targetBlock;
+    private final double powerScale;
 
     private SkillContext(Builder builder) {
         this.level = builder.level;
@@ -18,6 +19,7 @@ public class SkillContext {
         this.lookDirection = builder.lookDirection;
         this.targetEntity = builder.targetEntity;
         this.targetBlock = builder.targetBlock;
+        this.powerScale = builder.powerScale;
     }
 
     public Level getLevel() { return level; }
@@ -25,6 +27,11 @@ public class SkillContext {
     public Vec3 getLookDirection() { return lookDirection; }
     public Entity getTargetEntity() { return targetEntity; }
     public BlockPos getTargetBlock() { return targetBlock; }
+
+    /** Combat power multiplier. Defaults to 1.0 for ordinary technique casts. */
+    public double getPowerScale() {
+        return powerScale <= 0.0D ? 0.0D : powerScale;
+    }
 
     public static Builder builder() { return new Builder(); }
 
@@ -34,12 +41,17 @@ public class SkillContext {
         private Vec3 lookDirection;
         private Entity targetEntity;
         private BlockPos targetBlock;
+        private double powerScale = 1.0D;
 
         public Builder level(Level level) { this.level = level; return this; }
         public Builder position(Vec3 position) { this.position = position; return this; }
         public Builder lookDirection(Vec3 lookDirection) { this.lookDirection = lookDirection; return this; }
         public Builder targetEntity(Entity targetEntity) { this.targetEntity = targetEntity; return this; }
         public Builder targetBlock(BlockPos targetBlock) { this.targetBlock = targetBlock; return this; }
+        public Builder powerScale(double powerScale) {
+            this.powerScale = powerScale;
+            return this;
+        }
 
         public SkillContext build() { return new SkillContext(this); }
     }
