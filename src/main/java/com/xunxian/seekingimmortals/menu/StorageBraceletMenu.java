@@ -5,6 +5,7 @@ import com.xunxian.seekingimmortals.registry.ModMenus;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ClickType;
@@ -75,13 +76,16 @@ public class StorageBraceletMenu extends AbstractContainerMenu {
     @Override
     public void removed(Player player) {
         super.removed(player);
-        if (!player.level().isClientSide) {
+        if (!player.level().isClientSide && stillValid(player)) {
             ArtifactStorageService.writeHandler(boundBracelet, handler);
         }
     }
 
     @Override
     public void clicked(int slotId, int button, ClickType clickType, Player player) {
+        if (!stillValid(player)) {
+            return;
+        }
         boolean swapsBoundHand = clickType == ClickType.SWAP
                 && ((hand == InteractionHand.MAIN_HAND && button == boundHotbarSlot)
                 || (hand == InteractionHand.OFF_HAND && button == 40));
@@ -89,10 +93,16 @@ public class StorageBraceletMenu extends AbstractContainerMenu {
             return;
         }
         super.clicked(slotId, button, clickType, player);
+        if (!player.level().isClientSide && stillValid(player)) {
+            ArtifactStorageService.writeHandler(boundBracelet, handler);
+        }
     }
 
     @Override
     public ItemStack quickMoveStack(Player player, int index) {
+        if (!stillValid(player)) {
+            return ItemStack.EMPTY;
+        }
         ItemStack result = ItemStack.EMPTY;
         Slot slot = slots.get(index);
         if (slot != null && slot.hasItem()) {
@@ -120,6 +130,12 @@ public class StorageBraceletMenu extends AbstractContainerMenu {
     @Override
     public boolean stillValid(Player player) {
         ItemStack bracelet = hand == InteractionHand.MAIN_HAND ? player.getMainHandItem() : player.getOffhandItem();
-        return bracelet == boundBracelet && !bracelet.isEmpty() && ArtifactStorageService.supportsStack(bracelet);
+        if (bracelet != boundBracelet || bracelet.isEmpty() || !ArtifactStorageService.supportsStack(bracelet)) {
+            return false;
+        }
+        if (player instanceof ServerPlayer serverPlayer) {
+            return ArtifactStorageService.isContinuouslyAuthorized(serverPlayer, boundBracelet);
+        }
+        return true;
     }
 }

@@ -220,6 +220,38 @@ public final class ArtifactStorageService {
     }
 
     
+
+    /**
+     * Continuous menu authorization: same instance, support, owner/claim, realm, positive integrity.
+     * Used by StorageBraceletMenu.stillValid and mutation paths.
+     */
+    public static boolean isContinuouslyAuthorized(ServerPlayer player, ItemStack bracelet) {
+        if (player == null || bracelet == null || bracelet.isEmpty() || !supportsStack(bracelet)) {
+            return false;
+        }
+        if (player.getAbilities().instabuild) {
+            return true;
+        }
+        if (bracelet.getItem() instanceof ArtifactCatalogItem artifactItem) {
+            String artifactId = artifactItem.artifactId();
+            if (!ArtifactOwnershipService.canActivate(player, bracelet, artifactId)) {
+                return false;
+            }
+            return ArtifactDataService.builtin().findArtifact(artifactId).map(def -> {
+                Realm minRealm = realmFromDesignId(def.realmMin());
+                if (minRealm != null) {
+                    PlayerCultivation cultivation = CultivationHelper.get(player).orElse(null);
+                    if (cultivation == null || cultivation.getRealm().ordinal() < minRealm.ordinal()) {
+                        return false;
+                    }
+                }
+                return ArtifactActivationService.getIntegrity(bracelet, def) > 0;
+            }).orElse(false);
+        }
+        // Portable storage pouches: no owner/integrity gate beyond support.
+        return true;
+    }
+
     public static boolean supportsStack(ItemStack stack) {
         if (stack == null || stack.isEmpty()) {
             return false;

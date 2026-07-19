@@ -64,9 +64,12 @@ class ArtifactStorageAuthorityTest {
         String stillValid = compact(methodSource(source, "public boolean stillValid("));
         assertTrue(stillValid.contains("boundBracelet"),
                 "stillValid must retain the exact bracelet used to open the menu");
-        assertTrue(Pattern.compile("(?:this\\.)?boundBracelet==|==(?:this\\.)?boundBracelet")
+        assertTrue(Pattern.compile("(?:this\\.)?boundBracelet(?:==|!=)|(?:==|!=)(?:this\\.)?boundBracelet")
                         .matcher(stillValid).find(),
                 "stillValid must compare boundBracelet by object identity");
+        assertTrue(stillValid.contains("isContinuouslyAuthorized")
+                        || source.contains("isContinuouslyAuthorized"),
+                "menu mutations must re-check continuous storage authorization");
 
         String clicked = compact(methodSource(source, "public void clicked("));
         int swapCheck = clicked.indexOf("ClickType.SWAP");
@@ -160,4 +163,21 @@ class ArtifactStorageAuthorityTest {
     private static String compact(String source) {
         return source.replaceAll("\\s+", "");
     }
+
+    @Test
+    void continuousAuthorizationHelperExists() throws Exception {
+        String service = Files.readString(Path.of(
+                "src", "main", "java", "com", "xunxian", "seekingimmortals",
+                "artifact", "ArtifactStorageService.java"));
+        assertTrue(service.contains("isContinuouslyAuthorized"));
+        assertTrue(service.contains("ArtifactOwnershipService.canActivate"));
+        assertTrue(service.contains("getIntegrity(bracelet, def) > 0")
+                || service.contains("getIntegrity(bracelet, def)>0"));
+        String menu = Files.readString(Path.of(
+                "src", "main", "java", "com", "xunxian", "seekingimmortals",
+                "menu", "StorageBraceletMenu.java"));
+        assertTrue(menu.contains("isContinuouslyAuthorized"));
+        assertTrue(menu.contains("if (!stillValid(player))"));
+    }
 }
+

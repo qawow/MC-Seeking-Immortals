@@ -1,3 +1,14 @@
+## 509. 2026-07-20 0.2.59 储物菜单持续授权
+
+  Step   Status   Notes
+  ---   ---   ---
+  Helper   Done   `ArtifactStorageService.isContinuouslyAuthorized` 覆盖 owner/境界/完整性。
+  Menu     Done   stillValid/clicked/quickMove/removed 再校验；写回仅在授权时。
+  Tests    Done   身份比较接受 `!=`；新增 continuousAuthorization 契约。
+  Verify   Done   普通构建成功，全量 704 项通过。
+  Version  Done   `mod_version=0.2.59`；protocol 25。
+  Handoff  Done   `project_docs/updates/20260720_0.2.59_storage_continuous_auth.md`。
+
 ## 508. 2026-07-20 0.2.58 奖励 outbox 扩面与软制作工站门禁
 
   Step   Status   Notes
