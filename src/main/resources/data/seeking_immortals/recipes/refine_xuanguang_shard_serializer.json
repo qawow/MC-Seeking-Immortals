@@ -1,0 +1,16 @@
+{
+  "type": "seeking_immortals:refinement",
+  "group": "refinement",
+  "ingredients": [
+    { "item": "seeking_immortals:xuanguang_mirror_shard" },
+    { "item": "seeking_immortals:xuanguang_mirror_shard" },
+    { "item": "seeking_immortals:xuanguang_mirror_shard" },
+    { "item": "seeking_immortals:demon_core_high" },
+    { "item": "seeking_immortals:demon_core_high" },
+    { "item": "seeking_immortals:true_spirit_blood_drop" }
+  ],
+  "result": { "item": "seeking_immortals:xuanguang_mirror", "count": 1 },
+  "success_rate": 0.12,
+  "realm_min": "CORE_FORMATION",
+  "forge_grade": 5
+}

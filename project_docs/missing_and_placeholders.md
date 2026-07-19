@@ -1,3 +1,11 @@
+## 0.2.31 炼器配方权限遗留
+
+本批未新增占位物品、模型、纹理、方块、菜单、schema 或网络包；删除 24 个工作台近似配方，新增 11 个 catalog 对齐的 custom serializer，修正 7 个旧方并删除 1 个重复方。旧世界已解锁的工作台配方会随数据包重载失效，但既有物品不回收。当前只注册 G1/G2/G3 炼器炉，新增的 G4-G6 serializer 不会在低阶炉执行；真正的高阶炉方块、结构、菜单/反馈和 JEI 分类仍未实现。真实客户端仍需烟测三阶炉结构、数据包重载、配方书撤销、材料选择与失败残骸。
+
+## 0.2.29 命令与任务账本权限遗留
+
+本批未新增占位物品、模型、纹理、实体、菜单、数据 schema 或网络字段；复用现有目录、玩家持久数据、权限等级和阵法部署入口。自动化覆盖高风险命令节点、`learn:` 包、普通玩家学习按钮、未知 Boss、秘境目录 Boss、见闻重复幂等/首次失败不认领、同日日常、采集扣物和阵法凭证。仍需真实客户端/专服烟测管理员学习按钮、命令建议树、宗门任务跨日和秘境 Boss 生成。下一批优先移除 vanilla `refine_*.json` 炼器旁路；秘境/Boss owner-session Schema V2、任务 hook 当前步骤、拍卖事务、远程菜单、Boss 捕捉、死亡 clone、鉴定与 Curios 飞行门禁仍未完成。
+
 ## 0.2.27 储物镯权限遗留
 
 本批未新增占位物品、模型、纹理、菜单类型、数据 schema 或网络包；复用现有储物镯、菜单、Forge item handler 和法宝门禁。自动化覆盖实例绑定、SWAP 早退、Shift-click 写回、16 种嵌套判定以及 owner/完整性顺序；仍需真实客户端和专服烟测拖拽、数字键、F、Q、断线、死亡、跨维及其他模组 capability 容器。旧存档中已嵌套的容器允许取出但不能重新放入，避免升级时直接销毁内容。普通 Boss/phase/mission/beast/natal 命令、秘境 owner/session 奖励重放、Boss 捕捉、走火保留物 clone、鉴定消耗与 Curios 飞行门禁仍是后续高风险项。
@@ -1503,6 +1511,3 @@ No new placeholder textures, models, item ids, blocks, recipes, loot tables, GUI
 ## 0.1.364 FTB Tiannan seven-sects item-task bridge placeholder note
 
 The five upgraded Tiannan seven-sects FTB tasks are intentionally non-consuming inventory checks only. They make existing Spirit Iron, Beast Core, and Fire Talisman carriers visible to FTB progression for Huadao forge work, Giant Sword relic restoration, Yuling beast-puppet binding, spirit-beast contract routing, and Tianfu low talisman certification, but they do not grant rewards, consume costs, lock branches, write `QuestProgress`, sync Seeking Immortals quest state, validate sect/craft-state, validate beast contracts, validate talisman crafting, trigger NPC/server events, spawn encounters, or prove live client behavior. Remaining placeholders include wider item-task coverage, advancement/custom tasks, server-authoritative reward bridges, branch locks, craft-state/reputation validation, boss/encounter wiring, quest icons, and live FTB client smoke checks.
-## 0.2.29 命令与任务账本权限遗留
-
-本批未新增占位物品、模型、纹理、实体、菜单、数据 schema 或网络字段；复用现有目录、玩家持久数据、权限等级和阵法部署入口。自动化覆盖高风险命令节点、`learn:` 包、普通玩家学习按钮、未知 Boss、秘境目录 Boss、见闻重复幂等/首次失败不认领、同日日常、采集扣物和阵法凭证。仍需真实客户端/专服烟测管理员学习按钮、命令建议树、宗门任务跨日和秘境 Boss 生成。下一批优先移除 vanilla `refine_*.json` 炼器旁路；秘境/Boss owner-session Schema V2、任务 hook 当前步骤、拍卖事务、远程菜单、Boss 捕捉、死亡 clone、鉴定与 Curios 飞行门禁仍未完成。

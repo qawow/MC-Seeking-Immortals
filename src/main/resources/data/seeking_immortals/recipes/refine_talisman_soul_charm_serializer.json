@@ -1,0 +1,14 @@
+{
+  "type": "seeking_immortals:refinement",
+  "group": "refinement",
+  "ingredients": [
+    { "item": "seeking_immortals:talisman_paper" },
+    { "item": "seeking_immortals:talisman_paper" },
+    { "item": "seeking_immortals:talisman_paper" },
+    { "item": "seeking_immortals:soul_gathering_stone" }
+  ],
+  "result": { "item": "seeking_immortals:talisman_treasure_soul_charm", "count": 1 },
+  "success_rate": 0.25,
+  "realm_min": "CORE_FORMATION",
+  "forge_grade": 4
+}

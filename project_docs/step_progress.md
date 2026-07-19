@@ -1,3 +1,29 @@
+## 495. 2026-07-19 0.2.31 炼器配方权限收口
+
+  Step   Status   Notes
+  ---   ---   ---
+  Review scope   Done   max 子代理与主线程审计 68 个 `refine_*.json`、全部 recipes 产物、ArtifactRefinementService 和三阶炼器炉 helper。
+  Backup   Done   24 个待删资源、ResourceJsonParseTest、版本和五份状态文档备份至 `.bak/20260719_085430_refinement_recipe_authority/`。
+  Bypass removal   Done   删除 24 个工作台法宝配方；11 个原旁路目标新增 custom serializer，7 个旧方材料对齐，重复定神珠方删除，现有 55 个 serializer 精确映射 catalog。
+  Test replacement   Done   移除 23 个旧近似配方正向测试；新增 3 个权威不变量，扫描全部 artifact 输出、任意 recipe 文件名和全部 serializer，并精确对账材料多重集与元数据。
+  Version/protocol   Done   首次 0.2.30 构建后按 max 复审补齐 serializer/测试，最终 `mod_version` 0.2.29 -> 0.2.31；无网络变化，protocol 保持 24。
+  Verification   Done   基础 JSON/Patchouli、M04 serializer 与强化权威测试通过；最终普通 `./gradlew build` BUILD SUCCESSFUL，共 628 tests。
+  Update note   Done   `project_docs/updates/20260719_0.2.31_refinement_recipe_authority.md`
+
+## 494. 2026-07-19 0.2.29 命令、C2S 与任务账本权限
+
+  Step   Status   Notes
+  ---   ---   ---
+  Review scope   Done   主线程与 max 子代理复核命令树、MethodActionPacket/UI、Boss 目录、秘境试炼、见闻发现和宗门日常事务。
+  Backup   Done   17 个既有目标文件按相对路径备份至 `.bak/20260719_081851_command_authority/`；两份新测试和 update note 无既有版本可备份。
+  Command/C2S gate   Done   高风险调试与直接变更命令要求 permission 2；`learn:` 包仅管理员执行，普通功法树隐藏诊断学习，正常修炼不受影响。
+  Boss authority   Done   Boss ID 规范化后必须存在于 BossLoot 或 BeastBoss 目录；秘境只选择 RealmDef 声明的首个已知 Boss，不再合成伪 ID。
+  Ledger integrity   Done   重复见闻不再推进任务/声望，首次映射效果失败不写发现账本；同日宗门任务不可重接；采集真实扣物，阵法上交要求接取后成功部署凭证。
+  Tests   Done   新增 `CommandMutationAuthorityTest` 与 `GameplayAuthorityLedgerTest` 共 9 组回归；全量 648 项测试通过。
+  Version/protocol   Done   首次 0.2.28 构建后追加见闻提交顺序修复，最终 `mod_version` 0.2.27 -> 0.2.29；未改变包字段、顺序、编码、注册或通道兼容格式，protocol 保持 24。
+  Verification   Done   最终普通 `./gradlew build` BUILD SUCCESSFUL，preflight 正常记录 0.2.29。
+  Update note   Done   `project_docs/updates/20260719_0.2.29_command_mutation_authority.md`
+
 ## 493. 2026-07-19 0.2.27 储物镯实例与嵌套权限
 
   Step   Status   Notes
@@ -7904,16 +7930,3 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Verification   Done   Focused `FtbQuestSnbtTest` passed after the Tiannan bridge changes. Final current-tree `./gradlew --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.365`; inherited network-package warning reviewed as unrelated to this FTB/docs recheck.
   Backup   Done   Existing docs were backed up to `.bak/20260707_0.1.365_current_tree_build_recheck/`; the new update note had no previous file to preserve.
   Follow-up   Pending   Audit inherited network-package diffs before release if packet formats changed; continue replacing FTB inventory checks with authoritative task/reward/state bridges; live-smoke portal/refinement/FTB flows.
-## 494. 2026-07-19 0.2.29 命令、C2S 与任务账本权限
-
-  Step   Status   Notes
-  ---   ---   ---
-  Review scope   Done   主线程与 max 子代理复核命令树、MethodActionPacket/UI、Boss 目录、秘境试炼、见闻发现和宗门日常事务。
-  Backup   Done   17 个既有目标文件按相对路径备份至 `.bak/20260719_081851_command_authority/`；两份新测试和 update note 无既有版本可备份。
-  Command/C2S gate   Done   高风险调试与直接变更命令要求 permission 2；`learn:` 包仅管理员执行，普通功法树隐藏诊断学习，正常修炼不受影响。
-  Boss authority   Done   Boss ID 规范化后必须存在于 BossLoot 或 BeastBoss 目录；秘境只选择 RealmDef 声明的首个已知 Boss，不再合成伪 ID。
-  Ledger integrity   Done   重复见闻不再推进任务/声望，首次映射效果失败不写发现账本；同日宗门任务不可重接；采集真实扣物，阵法上交要求接取后成功部署凭证。
-  Tests   Done   新增 `CommandMutationAuthorityTest` 与 `GameplayAuthorityLedgerTest` 共 9 组回归；全量 648 项测试通过。
-  Version/protocol   Done   首次 0.2.28 构建后追加见闻提交顺序修复，最终 `mod_version` 0.2.27 -> 0.2.29；未改变包字段、顺序、编码、注册或通道兼容格式，protocol 保持 24。
-  Verification   Done   最终普通 `./gradlew build` BUILD SUCCESSFUL，preflight 正常记录 0.2.29。
-  Update note   Done   `project_docs/updates/20260719_0.2.29_command_mutation_authority.md`

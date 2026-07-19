@@ -1,0 +1,19 @@
+{
+  "type": "seeking_immortals:refinement",
+  "group": "refinement",
+  "ingredients": [
+    { "item": "seeking_immortals:seven_flame_fan_replica" },
+    { "item": "seeking_immortals:fire_feather" },
+    { "item": "seeking_immortals:fire_feather" },
+    { "item": "seeking_immortals:fire_feather" },
+    { "item": "seeking_immortals:fire_feather" },
+    { "item": "seeking_immortals:fire_feather" },
+    { "item": "seeking_immortals:fire_feather" },
+    { "item": "seeking_immortals:fire_feather" },
+    { "item": "seeking_immortals:fire_feather" }
+  ],
+  "result": { "item": "seeking_immortals:three_flame_fan_replica", "count": 1 },
+  "success_rate": 0.08,
+  "realm_min": "VOID_REFINEMENT",
+  "forge_grade": 6
+}

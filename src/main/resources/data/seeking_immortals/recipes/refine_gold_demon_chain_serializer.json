@@ -1,0 +1,17 @@
+{
+  "type": "seeking_immortals:refinement",
+  "group": "refinement",
+  "ingredients": [
+    { "item": "seeking_immortals:gold_seam_stone" },
+    { "item": "seeking_immortals:gold_seam_stone" },
+    { "item": "seeking_immortals:gold_seam_stone" },
+    { "item": "seeking_immortals:demon_core_mid" },
+    { "item": "seeking_immortals:demon_core_mid" },
+    { "item": "seeking_immortals:kunwu_copper" },
+    { "item": "seeking_immortals:kunwu_copper" }
+  ],
+  "result": { "item": "seeking_immortals:gold_demon_chain", "count": 1 },
+  "success_rate": 0.3,
+  "realm_min": "CORE_FORMATION",
+  "forge_grade": 4
+}

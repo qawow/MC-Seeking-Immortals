@@ -1,0 +1,13 @@
+{
+  "type": "seeking_immortals:refinement",
+  "group": "refinement",
+  "ingredients": [
+    { "item": "seeking_immortals:void_palace_cold_jade" },
+    { "item": "seeking_immortals:void_palace_cold_jade" },
+    { "item": "seeking_immortals:hundred_year_ice" }
+  ],
+  "result": { "item": "seeking_immortals:void_palace_cold_jade_pendant", "count": 1 },
+  "success_rate": 0.2,
+  "realm_min": "CORE_FORMATION",
+  "forge_grade": 4
+}

@@ -1,0 +1,18 @@
+{
+  "type": "seeking_immortals:refinement",
+  "group": "refinement",
+  "ingredients": [
+    { "item": "seeking_immortals:talisman_paper" },
+    { "item": "seeking_immortals:talisman_paper" },
+    { "item": "seeking_immortals:talisman_paper" },
+    { "item": "seeking_immortals:talisman_paper" },
+    { "item": "seeking_immortals:talisman_paper" },
+    { "item": "seeking_immortals:gold_seam_stone" },
+    { "item": "seeking_immortals:gold_seam_stone" },
+    { "item": "seeking_immortals:demon_core_mid" }
+  ],
+  "result": { "item": "seeking_immortals:gold_light_brick", "count": 1 },
+  "success_rate": 0.22,
+  "realm_min": "CORE_FORMATION",
+  "forge_grade": 4
+}

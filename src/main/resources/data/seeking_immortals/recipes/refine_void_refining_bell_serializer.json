@@ -1,0 +1,17 @@
+{
+  "type": "seeking_immortals:refinement",
+  "group": "refinement",
+  "ingredients": [
+    { "item": "seeking_immortals:void_bell_fragment" },
+    { "item": "seeking_immortals:void_bell_fragment" },
+    { "item": "seeking_immortals:void_marrow" },
+    { "item": "seeking_immortals:void_marrow" },
+    { "item": "seeking_immortals:void_marrow" },
+    { "item": "seeking_immortals:space_crystal" },
+    { "item": "seeking_immortals:space_crystal" }
+  ],
+  "result": { "item": "seeking_immortals:void_refining_bell", "count": 1 },
+  "success_rate": 0.06,
+  "realm_min": "VOID_REFINEMENT",
+  "forge_grade": 6
+}

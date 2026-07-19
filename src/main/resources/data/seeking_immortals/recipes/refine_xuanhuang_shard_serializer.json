@@ -1,0 +1,18 @@
+{
+  "type": "seeking_immortals:refinement",
+  "group": "refinement",
+  "ingredients": [
+    { "item": "seeking_immortals:xuanhuang_mirror_shard" },
+    { "item": "seeking_immortals:xuanhuang_mirror_shard" },
+    { "item": "seeking_immortals:xuanhuang_mirror_shard" },
+    { "item": "seeking_immortals:demon_core_high" },
+    { "item": "seeking_immortals:demon_core_high" },
+    { "item": "seeking_immortals:demon_core_high" },
+    { "item": "seeking_immortals:soul_gathering_stone" },
+    { "item": "seeking_immortals:soul_gathering_stone" }
+  ],
+  "result": { "item": "seeking_immortals:xuanhuang_mirror", "count": 1 },
+  "success_rate": 0.08,
+  "realm_min": "NASCENT_SOUL",
+  "forge_grade": 5
+}
