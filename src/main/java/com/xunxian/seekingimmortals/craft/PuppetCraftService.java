@@ -1,6 +1,8 @@
 package com.xunxian.seekingimmortals.craft;
 
+import com.xunxian.seekingimmortals.catalog.ItemCatalogService;
 import com.xunxian.seekingimmortals.catalog.SummonHonestMvpService;
+import com.xunxian.seekingimmortals.item.InventoryDeliveryService;
 import com.xunxian.seekingimmortals.registry.ModItems;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -42,7 +44,7 @@ public final class PuppetCraftService {
 
     public static Optional<Recipe> findCraftable(ServerPlayer player) {
         for (Recipe recipe : ensureRecipes()) {
-            if (hasMaterials(player, recipe)) {
+            if (hasRequiredBlueprint(player, recipe) && hasMaterials(player, recipe)) {
                 return Optional.of(recipe);
             }
         }
@@ -81,20 +83,24 @@ public final class PuppetCraftService {
             return new CraftResult(false, null, "message.seeking_immortals.puppet_assembly_bench.unknown_recipe");
         }
         Recipe recipe = optional.get();
-        if (!player.getAbilities().instabuild && !hasMaterials(player, recipe)) {
-            return new CraftResult(false, recipe, "message.seeking_immortals.puppet_assembly_bench.missing_materials");
-        }
         return craftRecipe(player, recipe);
     }
 
     private static CraftResult craftRecipe(ServerPlayer player, Recipe recipe) {
-        if (!player.getAbilities().instabuild && !consumeMaterials(player, recipe)) {
-            return new CraftResult(false, recipe, "message.seeking_immortals.puppet_assembly_bench.missing_materials");
+        boolean creative = player.getAbilities().instabuild;
+        boolean skillUnlocked = com.xunxian.seekingimmortals.skill.LifeSkillService.meetsLevel(player,
+                com.xunxian.seekingimmortals.skill.SkillType.PUPPET_CONTROL, 0);
+        String preflightFailure = preflightFailure(
+                creative,
+                skillUnlocked,
+                creative || hasRequiredBlueprint(player, recipe),
+                creative || hasMaterials(player, recipe));
+        if (!preflightFailure.isBlank()) {
+            return new CraftResult(false, recipe, preflightFailure);
         }
-        // Wave489: special skill PUPPET_CONTROL gate + success bonus.
-        if (!com.xunxian.seekingimmortals.skill.LifeSkillService.meetsLevel(player,
-                com.xunxian.seekingimmortals.skill.SkillType.PUPPET_CONTROL, 0)) {
-            return new CraftResult(false, recipe, "message.seeking_immortals.puppet_assembly_bench.skill_locked");
+        if (!creative && !consumeMaterials(player, recipe)) {
+            return new CraftResult(false, recipe,
+                    "message.seeking_immortals.puppet_assembly_bench.missing_materials");
         }
         double rate = com.xunxian.seekingimmortals.skill.LifeSkillService.adjustedSuccessRate(
                 player, com.xunxian.seekingimmortals.skill.SkillType.PUPPET_CONTROL, recipe.successRate());
@@ -106,23 +112,27 @@ public final class PuppetCraftService {
         }
         int skillLv = com.xunxian.seekingimmortals.skill.LifeSkillService.level(player,
                 com.xunxian.seekingimmortals.skill.SkillType.PUPPET_CONTROL);
-        // Wave49: durable puppet lifetime (10 minutes) + craft feedback buffs.
-        player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, Math.min(200, recipe.durationTicks()), recipe.strengthAmp()));
-        player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, Math.min(200, recipe.durationTicks()), recipe.resistAmp()));
         double health = 28.0D + recipe.strengthAmp() * 10.0D + recipe.resistAmp() * 5.0D + skillLv * 1.5D;
         double damage = 5.0D + recipe.strengthAmp() * 1.8D + skillLv * 0.25D;
         int life = Math.max(20 * 600, recipe.durationTicks() * 4) + skillLv * 40;
         boolean spawned = SummonHonestMvpService.spawnConfigured(
                 player, "puppet_" + recipe.id(), life, health, damage,
                 com.xunxian.seekingimmortals.entity.SummonedServitorEntity.Archetype.PUPPET, true);
+        if (!spawned) {
+            if (!creative) {
+                refundMaterials(player, recipe);
+            }
+            return new CraftResult(false, recipe,
+                    "message.seeking_immortals.puppet_assembly_bench.spawn_failed");
+        }
+        player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST,
+                Math.min(200, recipe.durationTicks()), recipe.strengthAmp()));
+        player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE,
+                Math.min(200, recipe.durationTicks()), recipe.resistAmp()));
         com.xunxian.seekingimmortals.skill.LifeSkillService.grantPractice(player,
                 com.xunxian.seekingimmortals.skill.SkillType.PUPPET_CONTROL, 24, 12);
-        if (spawned) {
-            // Wave458: hint repair loop after successful craft.
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.puppet.repair_hint"), false);
-            return new CraftResult(true, recipe, "message.seeking_immortals.puppet_assembly_bench.activated");
-        }
-        return new CraftResult(true, recipe, "message.seeking_immortals.puppet_assembly_bench.activated_no_entity");
+        player.displayClientMessage(Component.translatable("message.seeking_immortals.puppet.repair_hint"), false);
+        return new CraftResult(true, recipe, "message.seeking_immortals.puppet_assembly_bench.activated");
     }
 
     private static List<Recipe> ensureRecipes() {
@@ -150,6 +160,15 @@ public final class PuppetCraftService {
         return true;
     }
 
+    private static boolean hasRequiredBlueprint(ServerPlayer player, Recipe recipe) {
+        Optional<String> blueprintId = blueprintIdForRecipe(recipe.id());
+        if (blueprintId.isEmpty()) {
+            return true;
+        }
+        Item blueprint = ItemCatalogService.resolveCatalogItem(blueprintId.get());
+        return blueprint != null && count(player, blueprint) > 0;
+    }
+
     private static boolean consumeMaterials(ServerPlayer player, Recipe recipe) {
         if (!hasMaterials(player, recipe)) {
             return false;
@@ -170,6 +189,35 @@ public final class PuppetCraftService {
             }
         }
         return true;
+    }
+
+    private static void refundMaterials(ServerPlayer player, Recipe recipe) {
+        for (Material material : recipe.materials()) {
+            InventoryDeliveryService.giveOrDrop(player, new ItemStack(material.item(), material.count()));
+        }
+    }
+
+    public static Optional<String> blueprintIdForRecipe(String recipeId) {
+        String id = recipeId == null ? "" : recipeId.trim().toLowerCase(java.util.Locale.ROOT);
+        return switch (id) {
+            case "assemble_basic_wood" -> Optional.of("basic_wood_puppet_blueprint");
+            case "assemble_giant_ape" -> Optional.of("giant_ape_puppet_blueprint");
+            default -> Optional.empty();
+        };
+    }
+
+    static String preflightFailure(boolean creative, boolean skillUnlocked,
+                                   boolean blueprintAvailable, boolean materialsAvailable) {
+        if (!skillUnlocked) {
+            return "message.seeking_immortals.puppet_assembly_bench.skill_locked";
+        }
+        if (!creative && !blueprintAvailable) {
+            return "message.seeking_immortals.puppet_assembly_bench.missing_blueprint";
+        }
+        if (!creative && !materialsAvailable) {
+            return "message.seeking_immortals.puppet_assembly_bench.missing_materials";
+        }
+        return "";
     }
 
     private static int count(ServerPlayer player, Item item) {

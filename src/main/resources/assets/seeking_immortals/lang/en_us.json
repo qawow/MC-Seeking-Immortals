@@ -3336,6 +3336,8 @@
   "message.seeking_immortals.sect_mission.formation_missing": "Deploy a formation after accepting this mission first.",
   "message.seeking_immortals.talisman_table.skill_locked": "Talisman crafting skill locked.",
   "message.seeking_immortals.puppet_assembly_bench.skill_locked": "Puppet control skill locked.",
+  "message.seeking_immortals.puppet_assembly_bench.missing_blueprint": "The matching puppet blueprint must be present in your inventory; it is not consumed by crafting.",
+  "message.seeking_immortals.puppet_assembly_bench.spawn_failed": "The puppet entity could not spawn, so all materials were refunded.",
   "message.seeking_immortals.appraisal.skill_gate": "Artifact refining too low: need L%s to appraise tier %s",
   "message.seeking_immortals.appraisal.partial": "Partial appraisal: %s · ~tier %s · type %s · value %s",
   "tooltip.seeking_immortals.unappraised": "Unappraised: use appraisal tool on opposite hand",

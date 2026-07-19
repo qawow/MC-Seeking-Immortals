@@ -8041,3 +8041,15 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Focused tests   Done   六组定向测试共 11 项通过，覆盖五个分类、延迟材料不右键扣除、制符预检、阵法时长、飞舟成本与 1190 条说明策略。
   Build   Done   普通 `./gradlew build --no-daemon` BUILD SUCCESSFUL；全量 690 项测试，0 failures/errors/skipped。
   Protocol   Done   无网络包字段、顺序、类型、方向或通道行为变化，`ModNetwork.PROTOCOL_VERSION` 保持 `25`。
+## 504. 2026-07-20 0.2.50 傀儡图纸与制作事务
+
+  Step   Status   Notes
+  ---   ---   ---
+  Audit   Done   核对货币/凭证、阵法行为和傀儡物品；确认地渊令已由秘境 ticket authority 消费，傀儡图纸与修缮包仍无真实制作/维修语义。
+  Backup   Done   既有代码、资源、版本和六份状态文档备份至 `.bak/20260720_0.2.50_puppet_items/`。
+  Blueprint authority   Done   `assemble_basic_wood` 与 `assemble_giant_ape` 要求对应图纸在行囊中；图纸不消耗，可作为持续知识凭证。
+  Craft transaction   Done   傀儡操控技能、图纸和完整材料预检先于扣料；实体生成失败退还全部材料且不发强化/熟练度。
+  Repair item   Done   `puppet_repair_kit` 优先进入自有傀儡维修消费端，旧通用材料回退保持兼容。
+  Focused tests   Done   `PuppetCraftServiceTest` 与 `SummonHonestMvpServiceTest` 定向通过。
+  Build   Done   普通 `./gradlew build --no-daemon` BUILD SUCCESSFUL；全量 691 项测试，0 failures/errors/skipped。
+  Protocol   Done   无包字段、顺序、类型、注册或方向变化，协议保持 `25`。

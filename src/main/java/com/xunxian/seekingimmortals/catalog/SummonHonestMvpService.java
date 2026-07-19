@@ -300,6 +300,17 @@ public final class SummonHonestMvpService {
     }
 
     private static boolean consumeRepairMaterial(ServerPlayer player) {
+        net.minecraft.world.item.Item repairKit = ItemCatalogService.resolveCatalogItem("puppet_repair_kit");
+        if (repairKit != null) {
+            for (int index = 0; index < player.getInventory().items.size(); index++) {
+                ItemStack stack = player.getInventory().items.get(index);
+                if (stack.is(repairKit)) {
+                    stack.shrink(1);
+                    player.containerMenu.broadcastChanges();
+                    return true;
+                }
+            }
+        }
         for (int i = 0; i < player.getInventory().items.size(); i++) {
             ItemStack stack = player.getInventory().items.get(i);
             if (stack.is(ModItems.IRONWOOD.get()) || stack.is(ModItems.PUPPET_CORE_BLANK.get())
