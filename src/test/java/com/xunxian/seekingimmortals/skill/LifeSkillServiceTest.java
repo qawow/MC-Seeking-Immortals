@@ -27,5 +27,29 @@ class LifeSkillServiceTest {
     void bonusConstantsAreStable() {
         assertEquals(0.02D, LifeSkillService.BONUS_PER_LEVEL, 1e-9);
         assertEquals(0.20D, LifeSkillService.BONUS_MAX, 1e-9);
+        assertEquals(0.10D, LifeSkillService.PROFICIENCY_BONUS_MAX, 1e-9);
+    }
+
+    @Test
+    void proficiencyBonusScalesLinearlyToCap() {
+        assertEquals(0.0D, LifeSkillService.proficiencyBonus(0), 1e-9);
+        assertEquals(0.05D, LifeSkillService.proficiencyBonus(5000), 1e-9);
+        assertEquals(0.10D, LifeSkillService.proficiencyBonus(10000), 1e-9);
+        assertEquals(0.10D, LifeSkillService.proficiencyBonus(20000), 1e-9);
+        assertEquals(0.0D, LifeSkillService.proficiencyBonus(-10), 1e-9);
+    }
+
+    @Test
+    void successBonusSourceConsumesProficiency() throws Exception {
+        String source = java.nio.file.Files.readString(java.nio.file.Path.of(
+                "src", "main", "java", "com", "xunxian", "seekingimmortals",
+                "skill", "LifeSkillService.java"));
+        String compact = source.replaceAll("\\s+", "");
+        assertTrue(compact.contains("proficiencyBonus(proficiency(player,type))")
+                        || compact.contains("proficiencyBonus(proficiency("),
+                "successBonus must include proficiency contribution");
+        assertTrue(compact.contains("PROFICIENCY_BONUS_MAX"));
+        assertTrue(compact.contains("BONUS_MAX+PROFICIENCY_BONUS_MAX")
+                        || compact.contains("BONUS_MAX + PROFICIENCY_BONUS_MAX"));
     }
 }

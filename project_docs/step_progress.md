@@ -1,3 +1,13 @@
+## 514. 2026-07-20 0.2.64 生活技能熟练度纳入成功率
+
+  Step   Status   Notes
+  ---   ---   ---
+  Proficiency bonus Done   满熟练 +10% 成功率，叠加等级加成。
+  Tests   Done   LifeSkillServiceTest 扩展。
+  Verify  Done   普通构建成功，全量测试通过。
+  Version Done   `mod_version=0.2.64`；protocol 25。
+  Handoff Done   `project_docs/updates/20260720_0.2.64_life_proficiency.md`。
+
 ## 513. 2026-07-20 0.2.63 功法个性化精进成本与层数清理
 
   Step   Status   Notes

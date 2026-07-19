@@ -13,6 +13,8 @@ import net.minecraft.server.level.ServerPlayer;
 public final class LifeSkillService {
     public static final double BONUS_PER_LEVEL = 0.02D;
     public static final double BONUS_MAX = 0.20D;
+    /** Full proficiency (10000) grants this much extra success chance. */
+    public static final double PROFICIENCY_BONUS_MAX = 0.10D;
     public static final int DEFAULT_XP = 20;
     public static final int DEFAULT_PROFICIENCY = 8;
 
@@ -30,12 +32,29 @@ public final class LifeSkillService {
                 .orElse(0);
     }
 
+    public static int proficiency(ServerPlayer player, SkillType type) {
+        if (player == null || type == null) {
+            return 0;
+        }
+        return CultivationHelper.get(player)
+                .map(c -> {
+                    CultivationSkill skill = c.getSkill(type);
+                    return skill == null || !skill.isUnlocked() ? 0 : Math.max(0, skill.getProficiency());
+                })
+                .orElse(0);
+    }
+
     public static double successBonus(ServerPlayer player, SkillType type) {
         int lv = level(player, type);
-        if (lv <= 0) {
-            return 0.0D;
-        }
-        return Math.min(BONUS_MAX, lv * BONUS_PER_LEVEL);
+        double levelBonus = lv <= 0 ? 0.0D : Math.min(BONUS_MAX, lv * BONUS_PER_LEVEL);
+        double proficiencyBonus = proficiencyBonus(proficiency(player, type));
+        return Math.min(BONUS_MAX + PROFICIENCY_BONUS_MAX, levelBonus + proficiencyBonus);
+    }
+
+    /** Pure helper for tests and callers without a live player. */
+    public static double proficiencyBonus(int proficiency) {
+        int clamped = Math.max(0, Math.min(10000, proficiency));
+        return PROFICIENCY_BONUS_MAX * (clamped / 10000.0D);
     }
 
     public static double adjustedSuccessRate(ServerPlayer player, SkillType type, double baseRate) {

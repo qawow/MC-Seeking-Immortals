@@ -1,3 +1,5 @@
+2026-07-20 0.2.64 pending update: life-skill proficiency now contributes up to +10% craft success via LifeSkillService.successBonus for all adjustedSuccessRate consumers. Protocol 25. Remaining: multiblock form-consume-rollback and live client/server/multiplayer smoke.
+
 2026-07-20 0.2.63 pending update: method cultivate costs are school/attribute/ladder aware and login sync sanitizes old fixed-layer NBT. Protocol 25. Remaining: multiblock form-consume-rollback, deeper life-skill proficiency weighting, and live smoke.
 
 2026-07-20 0.2.62 pending update: CAST_* registry maps to mode-aware TalismanConsumeSpell (ghost-hide keeps conceal_qi), appraisal spends spiritual power before writing NBT, and Curios flight silently re-checks owner/claim/integrity. Protocol 25. Remaining: method individualized costs/life proficiency/old NBT cleanup, multiblock form-consume-rollback, and live smoke.
