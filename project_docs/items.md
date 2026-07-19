@@ -1,3 +1,5 @@
+0.2.34 item/data note: No new registered item, block, entity, recipe, loot, model, or texture ids. Secret-realm sessions add compatible `SessionId` and claimed-encounter SavedData fields; reward chests reuse vanilla chests as empty owner/session-bound NBT escrow and add bilingual feedback only. Capture jars reuse existing ecology/bestiary metadata, prefer a weakened legal target, and require a tameable non-protected beast at 35% health or lower. Protocol 24 unchanged.
+
 0.2.1 item/data note: No new item, block, entity, recipe, loot, or catalog ids. The frontend repair reuses existing dialogue portraits and journal assets, adds one bilingual `open_shop` UI label, and changes dialogue/lore/quest synchronization behavior. Protocol 24.
 
 0.2.0 item/data note: M00-M16 共 17 个模块已统一进入主线；本发布汇总不新增额外物品 id，保留各模块既有注册与双语资源。运行时 text-material manifest 覆盖全部 289 个发布 JSON（其中 techniques 21）；M16 新增 lore 同步/动作消息使协议统一升至 23。

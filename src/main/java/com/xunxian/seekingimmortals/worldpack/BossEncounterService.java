@@ -1,5 +1,6 @@
 package com.xunxian.seekingimmortals.worldpack;
 
+import com.xunxian.seekingimmortals.beast.BestiaryUnlockService;
 import com.xunxian.seekingimmortals.entity.SummonedServitorEntity;
 import com.xunxian.seekingimmortals.item.InventoryDeliveryService;
 import com.xunxian.seekingimmortals.registry.ModItems;
@@ -37,7 +38,12 @@ public final class BossEncounterService {
         if (!isKnownBossId(id)) {
             return false;
         }
-        String key = TAG + "_" + id;
+        SecretRealmProgressSavedData.Session session =
+                SecretRealmSessionService.activeSession(player, "").orElse(null);
+        if (session == null) {
+            return false;
+        }
+        String key = TAG + "_" + session.sessionId() + "_" + id;
         if (player.getPersistentData().getBoolean(key)) {
             return false;
         }
@@ -46,8 +52,9 @@ public final class BossEncounterService {
         }
         // M10: prefer catalog boss (tier-scaled + phase skills) when known.
         if (com.xunxian.seekingimmortals.beast.BeastBossService.find(id).isPresent()) {
-            boolean catalog = com.xunxian.seekingimmortals.beast.BeastBossService.spawnCatalogBoss(player, id);
-            if (catalog) {
+            Mob catalogBoss = com.xunxian.seekingimmortals.beast.BeastBossService.spawnCatalogBoss(player, id);
+            if (catalogBoss != null) {
+                bindBoss(catalogBoss, player, session, id);
                 player.getPersistentData().putBoolean(key, true);
                 ReputationService.add(player, "secret_realm_explorer", 1);
                 return true;
@@ -72,10 +79,7 @@ public final class BossEncounterService {
         boss.setCustomName(Component.translatable("entity.seeking_immortals.boss.name", id));
         boss.setCustomNameVisible(true);
         boss.setTarget(player);
-        // Wave471: tag for kill-gated reward; do not pre-place cache.
-        CompoundTag tag = boss.getPersistentData().getCompound(BOSS_TAG).copy();
-        tag.putString(BOSS_ID, id);
-        boss.getPersistentData().put(BOSS_TAG, tag);
+        bindBoss(boss, player, session, id);
         player.getPersistentData().putBoolean(key, true);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.boss.spawned", id), true);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.boss.kill_gate_hint", id), false);
@@ -103,13 +107,17 @@ public final class BossEncounterService {
         return mob.getPersistentData().getCompound(BOSS_TAG).getString(BOSS_ID);
     }
 
-    public static void onBossKilled(ServerPlayer killer, Mob boss) {
+    public static boolean onBossKilled(ServerPlayer killer, Mob boss) {
         if (killer == null || boss == null || !isBossMob(boss)) {
-            return;
+            return false;
+        }
+        CompoundTag bossTag = boss.getPersistentData().getCompound(BOSS_TAG);
+        if (!SecretRealmSessionService.claimEncounter(killer, bossTag)) {
+            return false;
         }
         String bossId = bossIdOf(boss);
         if (bossId.isBlank()) {
-            return;
+            return false;
         }
         CompoundTag kills = killer.getPersistentData().getCompound(KILL_ROOT).copy();
         boolean firstKill = !kills.getBoolean(bossId);
@@ -119,17 +127,20 @@ public final class BossEncounterService {
         }
         // M09: first/repeat loot from boss_loot_runtime (unique never on repeat).
         boolean firstClear = firstKill;
-        String realmId = resolveRealmId(killer, bossId);
+        String realmId = SecretRealmSessionService.boundRealmId(bossTag);
         if (!realmId.isBlank()) {
             firstClear = !SecretRealmProgressSavedData.get(killer).hasFirstCleared(killer.getUUID(), realmId);
         }
         int granted = BossLootService.grantBossLoot(killer, bossId, firstClear, killer.getRandom());
-        if (killer.level() instanceof ServerLevel level) {
-            placeBossCache(level, boss.blockPosition().above(), bossId, firstClear);
+        SecretRealmProgressSavedData.Session session =
+                SecretRealmSessionService.activeSession(killer, realmId).orElse(null);
+        if (killer.level() instanceof ServerLevel level && session != null) {
+            placeBossCache(level, boss.blockPosition().above(), killer, session, realmId, bossId, firstClear);
         }
         ItemStack bonus = new ItemStack(ModItems.SPIRIT_STONE_SHARD.get(), firstClear ? 8 : 3);
         InventoryDeliveryService.giveOrDrop(killer, bonus);
         ReputationService.add(killer, "secret_realm_explorer", firstClear ? 3 : 1);
+        BestiaryUnlockService.unlock(killer, bossId, BestiaryUnlockService.UnlockKind.KILL);
         killer.displayClientMessage(Component.translatable("message.seeking_immortals.boss.defeated", bossId), true);
         if (granted > 0) {
             killer.displayClientMessage(Component.translatable(
@@ -139,43 +150,45 @@ public final class BossEncounterService {
         if (!realmId.isBlank()) {
             SecretRealmSessionService.onRealmCleared(realmId, killer);
         }
+        return true;
     }
 
-    private static String resolveRealmId(ServerPlayer killer, String bossId) {
-        String active = "";
-        var optional = com.xunxian.seekingimmortals.cultivation.CultivationHelper.get(killer);
-        if (optional.isPresent()) {
-            active = optional.get().getWorldpackActiveSecretRealmId();
-        }
-        if (active != null && !active.isBlank()) {
-            return active.trim().toLowerCase(java.util.Locale.ROOT);
-        }
-        return BossLootService.find(bossId).map(BossLootService.TableDef::secretRealmId).orElse("");
+    private static void bindBoss(Mob boss, ServerPlayer player,
+                                 SecretRealmProgressSavedData.Session session, String bossId) {
+        CompoundTag tag = boss.getPersistentData().getCompound(BOSS_TAG).copy();
+        tag.putString(BOSS_ID, bossId);
+        SecretRealmSessionService.bindEncounter(
+                tag, player, session, session.realmId(), "boss:" + bossId);
+        boss.getPersistentData().put(BOSS_TAG, tag);
     }
 
-    private static void placeBossCache(ServerLevel level, BlockPos pos, String bossId, boolean firstClear) {
+    private static void placeBossCache(ServerLevel level, BlockPos pos, ServerPlayer player,
+                                       SecretRealmProgressSavedData.Session session,
+                                       String realmId, String bossId, boolean firstClear) {
         BlockPos chestPos = pos;
         if (!level.getBlockState(chestPos).isAir() && !level.getBlockState(chestPos).canBeReplaced()) {
             chestPos = pos.above();
         }
         level.setBlock(chestPos, Blocks.CHEST.defaultBlockState(), 3);
         if (level.getBlockEntity(chestPos) instanceof ChestBlockEntity chest) {
-            // Prefer rolled catalog drops already granted to inventory; chest keeps soft residual.
-            chest.setItem(0, new ItemStack(ModItems.SPIRIT_STONE_SHARD.get(), firstClear ? 12 : 4));
+            java.util.ArrayList<ItemStack> rewards = new java.util.ArrayList<>();
+            rewards.add(new ItemStack(ModItems.SPIRIT_STONE_SHARD.get(), firstClear ? 12 : 4));
             if (firstClear) {
-                chest.setItem(1, new ItemStack(ModItems.IMMORTAL_JADE.get(), 1));
+                rewards.add(new ItemStack(ModItems.IMMORTAL_JADE.get(), 1));
             }
             if (bossId.contains("void") || bossId.contains("asura")) {
                 if (firstClear) {
-                    chest.setItem(2, new ItemStack(ModItems.VOID_CRYSTAL.get(), 1));
+                    rewards.add(new ItemStack(ModItems.VOID_CRYSTAL.get(), 1));
                 } else {
-                    chest.setItem(2, new ItemStack(ModItems.SPIRIT_STONE_SHARD.get(), 2));
+                    rewards.add(new ItemStack(ModItems.SPIRIT_STONE_SHARD.get(), 2));
                 }
             } else if (bossId.contains("demon") || bossId.contains("blood")) {
-                chest.setItem(2, new ItemStack(ModItems.DEMONIC_BLOOD_CORAL.get(), firstClear ? 2 : 1));
+                rewards.add(new ItemStack(ModItems.DEMONIC_BLOOD_CORAL.get(), firstClear ? 2 : 1));
             } else {
-                chest.setItem(2, new ItemStack(ModItems.ALLIANCE_MERIT_TOKEN.get(), firstClear ? 2 : 1));
+                rewards.add(new ItemStack(ModItems.ALLIANCE_MERIT_TOKEN.get(), firstClear ? 2 : 1));
             }
+            SecretRealmRewardService.initializeChest(
+                    chest, player, session, realmId, "boss:" + bossId, false, rewards);
         }
     }
 }

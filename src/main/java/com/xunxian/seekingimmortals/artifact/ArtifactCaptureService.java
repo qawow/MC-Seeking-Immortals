@@ -7,12 +7,13 @@ import com.xunxian.seekingimmortals.catalog.SummonHonestMvpService;
 import com.xunxian.seekingimmortals.cultivation.BeastContractService;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.entity.SummonedServitorEntity;
+import com.xunxian.seekingimmortals.worldpack.BossEncounterService;
+import com.xunxian.seekingimmortals.worldpack.SecretRealmTrialService;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
 
@@ -25,6 +26,7 @@ public final class ArtifactCaptureService {
     private static final String TAG_TIER = "SeekingImmortalsCapturedTier";
     /** Capture gap: player tier may lag target by at most this. */
     private static final int CAPTURE_TIER_GAP = 1;
+    static final float CAPTURE_HEALTH_RATIO = 0.35F;
 
     private ArtifactCaptureService() {}
 
@@ -56,29 +58,31 @@ public final class ArtifactCaptureService {
             return releaseBeast(player, jar, stored);
         }
         AABB box = player.getBoundingBox().inflate(4.0D);
-        // Prefer ecology-tagged beasts (M10).
         LivingEntity best = null;
         int bestTier = Integer.MAX_VALUE;
+        boolean bestWeakened = false;
         for (LivingEntity living : player.serverLevel().getEntitiesOfClass(LivingEntity.class, box)) {
-            if (living == player || !living.isAlive()) {
-                continue;
-            }
-            boolean ecology = living.getPersistentData().getBoolean("seeking_immortals_ecology_beast")
-                    || living.getPersistentData().contains("seeking_immortals_beast_id");
-            boolean monster = living instanceof Monster;
-            if (!ecology && !monster) {
+            if (living == player || !isCapturableTarget(living)) {
                 continue;
             }
             int tier = living.getPersistentData().contains("seeking_immortals_beast_tier")
                     ? living.getPersistentData().getInt("seeking_immortals_beast_tier")
                     : resolveTier(living);
-            if (tier < bestTier || (tier == bestTier && ecology)) {
+            boolean weakened = isWeakened(living);
+            if (best == null || (weakened && !bestWeakened)
+                    || (weakened == bestWeakened && tier < bestTier)) {
                 best = living;
                 bestTier = tier;
+                bestWeakened = weakened;
             }
         }
         if (best == null) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.capture.none"), true);
+            return false;
+        }
+        if (!isWeakened(best)) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.capture.health", Math.round(CAPTURE_HEALTH_RATIO * 100.0F)), true);
             return false;
         }
         int tier = bestTier <= 0 ? 1 : BeastTierService.clampTier(bestTier);
@@ -95,13 +99,7 @@ public final class ArtifactCaptureService {
                     "message.seeking_immortals.capture.tier_cap", tier, maxCapturable), true);
             return false;
         }
-        String id = best.getPersistentData().contains("seeking_immortals_beast_id")
-                ? best.getPersistentData().getString("seeking_immortals_beast_id")
-                : best.getType().toShortString();
-        if (id == null || id.isBlank()) {
-            id = best.getType().toShortString();
-        }
-        id = BeastBestiaryService.find(id).map(BeastBestiaryService.BeastEntry::id).orElse(id);
+        String id = beastIdOf(best);
         jar.getOrCreateTag().putString(TAG, id);
         jar.getOrCreateTag().putInt(TAG_TIER, tier);
         best.addEffect(new MobEffectInstance(MobEffects.GLOWING, 40, 0));
@@ -109,6 +107,43 @@ public final class ArtifactCaptureService {
         BestiaryUnlockService.unlock(player, id, BestiaryUnlockService.UnlockKind.SEEN);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.capture.caught", id), true);
         return true;
+    }
+
+    static boolean isCapturableTarget(LivingEntity living) {
+        if (living == null || !living.isAlive()) {
+            return false;
+        }
+        if (!living.getPersistentData().getBoolean("seeking_immortals_ecology_beast")) {
+            return false;
+        }
+        if (living instanceof net.minecraft.world.entity.player.Player
+                || living instanceof net.minecraft.world.entity.npc.AbstractVillager) {
+            return false;
+        }
+        if (living instanceof net.minecraft.world.entity.Mob mob
+                && (BossEncounterService.isBossMob(mob) || SecretRealmTrialService.isTrialMob(mob))) {
+            return false;
+        }
+        if (living instanceof SummonedServitorEntity servitor && !servitor.isHostileTrial()) {
+            return false;
+        }
+        return BeastBestiaryService.find(beastIdOf(living))
+                .filter(BeastBestiaryService.BeastEntry::tameable)
+                .filter(entry -> !entry.trueSpirit() && !entry.companionOnly())
+                .isPresent();
+    }
+
+    static boolean isWeakened(LivingEntity living) {
+        return living != null && living.getMaxHealth() > 0.0F
+                && living.getHealth() <= living.getMaxHealth() * CAPTURE_HEALTH_RATIO;
+    }
+
+    private static String beastIdOf(LivingEntity living) {
+        String id = living.getPersistentData().getString("seeking_immortals_beast_id");
+        if (id == null || id.isBlank()) {
+            id = living.getType().toShortString();
+        }
+        return BeastBestiaryService.find(id).map(BeastBestiaryService.BeastEntry::id).orElse(id);
     }
 
     private static int resolveTier(LivingEntity living) {

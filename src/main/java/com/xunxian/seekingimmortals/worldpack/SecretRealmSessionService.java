@@ -3,6 +3,7 @@ package com.xunxian.seekingimmortals.worldpack;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.ProgressionGateApi;
 import com.xunxian.seekingimmortals.cultivation.Realm;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.common.MinecraftForge;
@@ -15,6 +16,10 @@ import java.util.Optional;
  */
 public final class SecretRealmSessionService {
     private static final String SESSION_CLEAR_ROOT = "seeking_immortals_realm_session_clear";
+    public static final String OWNER_UUID = "OwnerUUID";
+    public static final String SESSION_ID = "SessionId";
+    public static final String REALM_ID = "RealmId";
+    public static final String ENCOUNTER_ID = "EncounterId";
 
     private SecretRealmSessionService() {}
 
@@ -78,14 +83,18 @@ public final class SecretRealmSessionService {
         return false;
     }
 
-    public static void onEnter(ServerPlayer player, String realmId) {
+    public static SecretRealmProgressSavedData.Session onEnter(ServerPlayer player, String realmId) {
         if (player == null || realmId == null || realmId.isBlank()) {
-            return;
+            return null;
         }
         Optional<SecretRealmCatalogService.RealmDef> defOpt = SecretRealmCatalogService.find(realmId);
         int timeLimit = defOpt.map(SecretRealmCatalogService.RealmDef::timeLimitTicks).orElse(20 * 60 * 30);
         int party = defOpt.map(SecretRealmCatalogService.RealmDef::partyLimit).orElse(4);
-        SecretRealmProgressSavedData.get(player).startSession(player, realmId, timeLimit, party);
+        SecretRealmProgressSavedData.Session session =
+                SecretRealmProgressSavedData.get(player).startSession(player, realmId, timeLimit, party);
+        if (session == null) {
+            return null;
+        }
         // Reset per-session clear latch.
         player.getPersistentData().put(SESSION_CLEAR_ROOT, new net.minecraft.nbt.CompoundTag());
         // Mid-layer traps via M07 free fields.
@@ -98,6 +107,7 @@ public final class SecretRealmSessionService {
             player.sendSystemMessage(Component.translatable(
                     "message.seeking_immortals.worldpack.realm_open_condition", defOpt.get().openCondition()));
         }
+        return session;
     }
 
     public static void onLeave(ServerPlayer player) {
@@ -117,6 +127,9 @@ public final class SecretRealmSessionService {
             return;
         }
         String id = realmId.trim().toLowerCase(Locale.ROOT);
+        if (activeSession(player, id).isEmpty()) {
+            return;
+        }
         net.minecraft.nbt.CompoundTag sessionClear = player.getPersistentData().getCompound(SESSION_CLEAR_ROOT).copy();
         if (sessionClear.getBoolean(id)) {
             return;
@@ -201,5 +214,81 @@ public final class SecretRealmSessionService {
         }
         // Accept UPPER_SNAKE design-ish values from text material.
         return key.toLowerCase(Locale.ROOT);
+    }
+
+    public static Optional<SecretRealmProgressSavedData.Session> activeSession(
+            ServerPlayer player, String expectedRealmId) {
+        if (player == null) {
+            return Optional.empty();
+        }
+        String expected = expectedRealmId == null ? "" : expectedRealmId.trim().toLowerCase(Locale.ROOT);
+        String activeRealm = CultivationHelper.get(player)
+                .map(cultivation -> cultivation.getWorldpackActiveSecretRealmId())
+                .orElse("");
+        if (activeRealm == null || activeRealm.isBlank()) {
+            return Optional.empty();
+        }
+        activeRealm = activeRealm.trim().toLowerCase(Locale.ROOT);
+        if (!expected.isBlank() && !expected.equals(activeRealm)) {
+            return Optional.empty();
+        }
+        long now = player.server.overworld().getGameTime();
+        String requiredRealm = expected.isBlank() ? activeRealm : expected;
+        return SecretRealmProgressSavedData.get(player).getSession(player.getUUID())
+                .filter(session -> player.getUUID().toString().equals(session.playerId()))
+                .filter(session -> requiredRealm.equals(session.realmId()))
+                .filter(session -> !session.sessionId().isBlank())
+                .filter(session -> !session.isTimedOut(now));
+    }
+
+    public static void bindEncounter(CompoundTag tag, ServerPlayer owner,
+                                     SecretRealmProgressSavedData.Session session,
+                                     String realmId, String encounterId) {
+        if (tag == null || owner == null || session == null) {
+            return;
+        }
+        tag.putString(OWNER_UUID, owner.getUUID().toString());
+        tag.putString(SESSION_ID, session.sessionId());
+        tag.putString(REALM_ID, normalizeId(realmId));
+        tag.putString(ENCOUNTER_ID, normalizeId(encounterId));
+    }
+
+    public static boolean matchesEncounter(ServerPlayer player, CompoundTag tag) {
+        if (player == null || !hasEncounterBinding(tag)) {
+            return false;
+        }
+        String ownerId = tag.getString(OWNER_UUID);
+        String sessionId = tag.getString(SESSION_ID);
+        String realmId = normalizeId(tag.getString(REALM_ID));
+        if (!player.getUUID().toString().equals(ownerId)) {
+            return false;
+        }
+        return activeSession(player, realmId)
+                .map(session -> sessionId.equals(session.sessionId()))
+                .orElse(false);
+    }
+
+    public static boolean hasEncounterBinding(CompoundTag tag) {
+        return tag != null
+                && !tag.getString(OWNER_UUID).isBlank()
+                && !tag.getString(SESSION_ID).isBlank()
+                && !normalizeId(tag.getString(REALM_ID)).isBlank()
+                && !normalizeId(tag.getString(ENCOUNTER_ID)).isBlank();
+    }
+
+    public static boolean claimEncounter(ServerPlayer player, CompoundTag tag) {
+        if (!matchesEncounter(player, tag)) {
+            return false;
+        }
+        return SecretRealmProgressSavedData.get(player).claimEncounter(
+                player.getUUID(), tag.getString(SESSION_ID), tag.getString(ENCOUNTER_ID));
+    }
+
+    public static String boundRealmId(CompoundTag tag) {
+        return tag == null ? "" : normalizeId(tag.getString(REALM_ID));
+    }
+
+    private static String normalizeId(String value) {
+        return value == null ? "" : value.trim().toLowerCase(Locale.ROOT);
     }
 }

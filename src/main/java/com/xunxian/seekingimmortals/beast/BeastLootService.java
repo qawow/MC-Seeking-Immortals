@@ -194,16 +194,7 @@ public final class BeastLootService {
             return;
         }
         var tag = dead.getPersistentData();
-        if (!tag.getBoolean("seeking_immortals_ecology_beast")
-                && !tag.contains("seeking_immortals_beast_id")) {
-            // Boss path still unlocks bestiary when boss_id present.
-            if (tag.contains(com.xunxian.seekingimmortals.worldpack.BossEncounterService.BOSS_TAG)) {
-                String bossId = com.xunxian.seekingimmortals.worldpack.BossEncounterService.bossIdOf(
-                        dead instanceof net.minecraft.world.entity.Mob mob ? mob : null);
-                if (!bossId.isBlank()) {
-                    BestiaryUnlockService.unlock(killer, bossId, BestiaryUnlockService.UnlockKind.KILL);
-                }
-            }
+        if (!tag.getBoolean("seeking_immortals_ecology_beast")) {
             return;
         }
         String beastId = tag.getString("seeking_immortals_beast_id");

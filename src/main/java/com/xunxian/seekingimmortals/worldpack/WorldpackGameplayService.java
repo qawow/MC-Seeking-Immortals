@@ -366,8 +366,8 @@ public final class WorldpackGameplayService {
                             String.join(", ", flavor.rareDrops())));
                 }
             });
-            SecretRealmTrialService.onEnter(player, realm.id());
             SecretRealmSessionService.onEnter(player, realm.id());
+            SecretRealmTrialService.onEnter(player, realm.id());
             sync(player, false);
             success[0] = true;
         }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.no_data")));

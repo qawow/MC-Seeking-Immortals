@@ -4588,5 +4588,10 @@
   "effect.seeking_immortals.heal_hot": "Regeneration",
   "effect.seeking_immortals.heal_hot.description": "Regeneration",
   "effect.seeking_immortals.tribulation_mark": "Tribulation Mark",
-  "effect.seeking_immortals.tribulation_mark.description": "Tribulation Mark"
+  "effect.seeking_immortals.tribulation_mark.description": "Tribulation Mark",
+  "message.seeking_immortals.capture.health": "Capture failed: weaken the target to %s%% health or less.",
+  "message.seeking_immortals.worldpack.reward_owner_denied": "This reward does not belong to your active secret-realm session.",
+  "message.seeking_immortals.worldpack.reward_sealed": "The reward seal has not been released yet.",
+  "message.seeking_immortals.worldpack.reward_claimed": "The secret-realm reward has been delivered.",
+  "message.seeking_immortals.worldpack.reward_break_denied": "This session-bound reward chest cannot be broken."
 }

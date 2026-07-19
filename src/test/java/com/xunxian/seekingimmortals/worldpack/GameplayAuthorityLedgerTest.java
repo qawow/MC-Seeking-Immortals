@@ -57,6 +57,59 @@ class GameplayAuthorityLedgerTest {
     }
 
     @Test
+    void secretRealmSessionExistsBeforeTrialsSpawn() throws Exception {
+        String gameplay = compact(readSource("worldpack", "WorldpackGameplayService.java"));
+        int session = gameplay.indexOf("SecretRealmSessionService.onEnter(player,realm.id())");
+        int trial = gameplay.indexOf("SecretRealmTrialService.onEnter(player,realm.id())");
+
+        assertTrue(session >= 0 && trial > session,
+                "session creation must precede trial, boss, and reward spawning");
+    }
+
+    @Test
+    void secretRealmKillsClaimBoundEncountersBeforeRewardsOrQuestHooks() throws Exception {
+        String trialSource = readSource("worldpack", "SecretRealmTrialService.java");
+        String trialKill = compact(methodSource(trialSource, "public static boolean onTrialMobKilled("));
+        int trialClaim = trialKill.indexOf("SecretRealmSessionService.claimEncounter(killer,trial)");
+        int trialReward = firstIndex(trialKill, "unlockMid(", "unlockCore(");
+        assertTrue(trialClaim >= 0 && trialReward > trialClaim,
+                "trial rewards must remain behind the owner-session encounter claim");
+
+        String bossSource = readSource("worldpack", "BossEncounterService.java");
+        String bossKill = compact(methodSource(bossSource, "public static boolean onBossKilled("));
+        int bossClaim = bossKill.indexOf("SecretRealmSessionService.claimEncounter(killer,bossTag)");
+        int bossLoot = bossKill.indexOf("BossLootService.grantBossLoot(");
+        assertTrue(bossClaim >= 0 && bossLoot > bossClaim,
+                "boss loot must remain behind the owner-session encounter claim");
+
+        String events = compact(readSource("event", "ModEvents.java"));
+        assertTrue(events.contains("if(accepted){")
+                        && events.indexOf("QuestHookRuntime.onSecretRealmClear(") > events.indexOf("if(accepted){"),
+                "quest hooks must advance only after the trial authority accepts the kill");
+        String hurt = compact(methodSource(readSource("event", "ModEvents.java"),
+                "public static void onLivingHurt("));
+        assertTrue(hurt.contains("SecretRealmSessionService.matchesEncounter(authorityPlayer,binding)"),
+                "other players and their servitors must not be able to kill a bound encounter");
+    }
+
+    @Test
+    void rewardChestsKeepItemsOutOfVanillaInventoryAndRequireSessionBinding() throws Exception {
+        String rewards = readSource("worldpack", "SecretRealmRewardService.java");
+        String initialize = compact(methodSource(rewards, "public static void initializeChest("));
+        String claim = compact(methodSource(rewards, "public static ClaimResult claim("));
+
+        assertTrue(initialize.contains("chest.clearContent()"),
+                "bound reward chests must expose no hopper-readable vanilla inventory");
+        assertTrue(initialize.contains("SecretRealmSessionService.bindEncounter("),
+                "reward chests must store owner, session, realm, and encounter binding");
+        int match = claim.indexOf("SecretRealmSessionService.matchesEncounter(player,binding)");
+        int claimed = claim.indexOf("binding.putBoolean(CLAIMED_TAG,true)");
+        int delivery = claim.indexOf("InventoryDeliveryService.giveOrDrop(");
+        assertTrue(match >= 0 && claimed > match && delivery > claimed,
+                "reward delivery must validate binding and close the claim before item delivery");
+    }
+
+    @Test
     void duplicateChronicleDiscoveryCannotMutateMappedQuestAgain() throws Exception {
         String source = readSource("catalog", "ChronicleTradeSoftService.java");
         String discover = compact(methodSource(source, "public static boolean discoverChronicle("));

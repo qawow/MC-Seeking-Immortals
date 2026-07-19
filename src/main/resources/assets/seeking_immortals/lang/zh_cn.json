@@ -4588,5 +4588,10 @@
   "effect.seeking_immortals.heal_hot": "回春",
   "effect.seeking_immortals.heal_hot.description": "回春",
   "effect.seeking_immortals.tribulation_mark": "劫痕",
-  "effect.seeking_immortals.tribulation_mark.description": "劫痕"
+  "effect.seeking_immortals.tribulation_mark.description": "劫痕",
+  "message.seeking_immortals.capture.health": "收容失败：目标气血必须降至 %s%% 或以下。",
+  "message.seeking_immortals.worldpack.reward_owner_denied": "此秘境奖励不属于你当前的秘境会话。",
+  "message.seeking_immortals.worldpack.reward_sealed": "奖励禁制尚未解除。",
+  "message.seeking_immortals.worldpack.reward_claimed": "秘境奖励已收入行囊。",
+  "message.seeking_immortals.worldpack.reward_break_denied": "秘境奖励箱受会话禁制保护，无法破坏。"
 }

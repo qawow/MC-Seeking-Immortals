@@ -21,6 +21,7 @@ import com.xunxian.seekingimmortals.entity.CushionSeatEntity;
 import com.xunxian.seekingimmortals.entity.MarketTraderEntity;
 import com.xunxian.seekingimmortals.entity.SectStewardEntity;
 import com.xunxian.seekingimmortals.entity.SpiritStoneBankerEntity;
+import com.xunxian.seekingimmortals.entity.SummonedServitorEntity;
 import com.xunxian.seekingimmortals.catalog.SpiritStoneLadderService;
 import com.xunxian.seekingimmortals.item.ArtifactCatalogItem;
 import com.xunxian.seekingimmortals.item.SpiritStoneItem;
@@ -47,6 +48,7 @@ import com.xunxian.seekingimmortals.skill.effect.spell.MultiSwordArraySpell;
 import com.xunxian.seekingimmortals.spiritual.SpiritualAuraManager;
 import com.xunxian.seekingimmortals.structure.FormationFieldService;
 import com.xunxian.seekingimmortals.worldpack.DemonRiftHazard;
+import com.xunxian.seekingimmortals.worldpack.SecretRealmRewardService;
 import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
 import com.xunxian.seekingimmortals.worldpack.YinUnderworldHazard;
 import net.minecraft.core.particles.ParticleTypes;
@@ -81,6 +83,7 @@ import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.level.ExplosionEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
@@ -181,7 +184,21 @@ public final class ModEvents {
     @SubscribeEvent
     public static void onBlockBreak(net.minecraftforge.event.level.BlockEvent.BreakEvent event) {
         if (event.getLevel() instanceof ServerLevel serverLevel) {
+            if (SecretRealmRewardService.isBoundReward(serverLevel.getBlockEntity(event.getPos()))) {
+                event.getPlayer().displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.worldpack.reward_break_denied"), true);
+                event.setCanceled(true);
+                return;
+            }
             com.xunxian.seekingimmortals.structure.MultiblockStationService.markDirty(serverLevel, event.getPos());
+        }
+    }
+
+    @SubscribeEvent
+    public static void onExplosionDetonate(ExplosionEvent.Detonate event) {
+        if (event.getLevel() instanceof ServerLevel serverLevel) {
+            event.getAffectedBlocks().removeIf(pos ->
+                    SecretRealmRewardService.isBoundReward(serverLevel.getBlockEntity(pos)));
         }
     }
 
@@ -298,6 +315,36 @@ public final class ModEvents {
 
     @SubscribeEvent
     public static void onLivingHurt(LivingHurtEvent event) {
+        if (event.getEntity() instanceof net.minecraft.world.entity.Mob encounterMob) {
+            CompoundTag binding = null;
+            if (com.xunxian.seekingimmortals.worldpack.SecretRealmTrialService.isTrialMob(encounterMob)) {
+                binding = encounterMob.getPersistentData().getCompound(
+                        com.xunxian.seekingimmortals.worldpack.SecretRealmTrialService.TRIAL_TAG);
+            } else if (com.xunxian.seekingimmortals.worldpack.BossEncounterService.isBossMob(encounterMob)) {
+                binding = encounterMob.getPersistentData().getCompound(
+                        com.xunxian.seekingimmortals.worldpack.BossEncounterService.BOSS_TAG);
+            }
+            Entity authoritySource = event.getSource().getEntity();
+            ServerPlayer authorityPlayer = authoritySource instanceof ServerPlayer player
+                    ? player
+                    : authoritySource instanceof SummonedServitorEntity servitor
+                    ? servitor.getOwnerUUID()
+                            .map(uuid -> event.getEntity().getServer() == null ? null
+                                    : event.getEntity().getServer().getPlayerList().getPlayer(uuid))
+                            .orElse(null)
+                    : null;
+            boolean playerControlled = authoritySource instanceof ServerPlayer
+                    || authoritySource instanceof SummonedServitorEntity;
+            if (com.xunxian.seekingimmortals.worldpack.SecretRealmSessionService
+                    .hasEncounterBinding(binding) && playerControlled
+                    && (authorityPlayer == null
+                    || !com.xunxian.seekingimmortals.worldpack.SecretRealmSessionService
+                    .matchesEncounter(authorityPlayer, binding))) {
+                event.setAmount(0.0F);
+                event.setCanceled(true);
+                return;
+            }
+        }
         if (event.getEntity() instanceof Player hurtPlayer) {
             // M13: 寿元耗尽致死不触发打坐中断与走火入魔
             if (hurtPlayer.getPersistentData().getBoolean("SeekingImmortalsLifespanDeath")) {
@@ -403,12 +450,15 @@ public final class ModEvents {
         if (event.getEntity() instanceof net.minecraft.world.entity.Mob mob
                 && event.getSource().getEntity() instanceof ServerPlayer killer) {
             if (com.xunxian.seekingimmortals.worldpack.SecretRealmTrialService.isTrialMob(mob)) {
-                com.xunxian.seekingimmortals.worldpack.SecretRealmTrialService.onTrialMobKilled(killer, mob);
-                // M11: advance quest hooks on secret-realm kill clears.
-                String realmId = com.xunxian.seekingimmortals.worldpack.SecretRealmTrialService.trialRealm(mob);
-                String kind = com.xunxian.seekingimmortals.worldpack.SecretRealmTrialService.trialKind(mob);
-                String layer = "guardian".equals(kind) ? "core" : "mid";
-                com.xunxian.seekingimmortals.quest.QuestHookRuntime.onSecretRealmClear(killer, realmId, layer);
+                boolean accepted = com.xunxian.seekingimmortals.worldpack.SecretRealmTrialService
+                        .onTrialMobKilled(killer, mob);
+                if (accepted) {
+                    // M11: advance quest hooks only for the bound session owner.
+                    String realmId = com.xunxian.seekingimmortals.worldpack.SecretRealmTrialService.trialRealm(mob);
+                    String kind = com.xunxian.seekingimmortals.worldpack.SecretRealmTrialService.trialKind(mob);
+                    String layer = "guardian".equals(kind) ? "core" : "mid";
+                    com.xunxian.seekingimmortals.quest.QuestHookRuntime.onSecretRealmClear(killer, realmId, layer);
+                }
             }
             if (com.xunxian.seekingimmortals.worldpack.BossEncounterService.isBossMob(mob)) {
                 com.xunxian.seekingimmortals.worldpack.BossEncounterService.onBossKilled(killer, mob);
@@ -553,6 +603,27 @@ public final class ModEvents {
         if (event.getLevel().isClientSide) return;
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
         if (!(event.getLevel() instanceof ServerLevel serverLevel)) return;
+        SecretRealmRewardService.ClaimResult reward = SecretRealmRewardService.claim(
+                player, serverLevel.getBlockEntity(event.getPos()));
+        if (reward != SecretRealmRewardService.ClaimResult.NOT_BOUND) {
+            if (reward == SecretRealmRewardService.ClaimResult.DENIED) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.worldpack.reward_owner_denied"), true);
+                event.setCancellationResult(InteractionResult.FAIL);
+            } else if (reward == SecretRealmRewardService.ClaimResult.SEALED) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.worldpack.reward_sealed"), true);
+                event.setCancellationResult(InteractionResult.SUCCESS);
+            } else if (reward == SecretRealmRewardService.ClaimResult.CLAIMED) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.worldpack.reward_claimed"), true);
+                event.setCancellationResult(InteractionResult.SUCCESS);
+            } else {
+                event.setCancellationResult(InteractionResult.SUCCESS);
+            }
+            event.setCanceled(true);
+            return;
+        }
         if (QuestService.handleBlockInteraction(player, serverLevel, event.getPos(), event.getHand())) {
             event.setCancellationResult(InteractionResult.SUCCESS);
             event.setCanceled(true);

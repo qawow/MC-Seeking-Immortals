@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -121,5 +122,40 @@ class SecretRealmM09ServiceTest {
         assertEquals(1, data.activeCountForRealm("blood_forbidden", 99L));
         assertEquals(0, data.activeCountForRealm("blood_forbidden", 100L));
         assertTrue(data.canJoin("blood_forbidden", 1, 100L));
+    }
+
+    @Test
+    void sessionIdsAndEncounterClaimsPersistAndStaySessionScoped() {
+        UUID playerId = UUID.randomUUID();
+        CompoundTag root = new CompoundTag();
+        ListTag sessions = new ListTag();
+        sessions.add(new SecretRealmProgressSavedData.Session(
+                playerId.toString(), "session-a", "blood_forbidden", 10L, 200L, 4, false).save());
+        root.put("Sessions", sessions);
+
+        SecretRealmProgressSavedData data = SecretRealmProgressSavedData.load(root);
+        assertEquals("session-a", data.getSession(playerId).orElseThrow().sessionId());
+        assertTrue(data.claimEncounter(playerId, "session-a", "trial:core"));
+        assertFalse(data.claimEncounter(playerId, "session-a", "trial:core"));
+        assertTrue(data.claimEncounter(playerId, "session-b", "trial:core"));
+
+        SecretRealmProgressSavedData restored = SecretRealmProgressSavedData.load(data.save(new CompoundTag()));
+        assertTrue(restored.hasClaimedEncounter(playerId, "session-a", "trial:core"));
+        assertTrue(restored.hasClaimedEncounter(playerId, "session-b", "trial:core"));
+    }
+
+    @Test
+    void legacySessionsReceiveStableCompatibilityIds() {
+        CompoundTag legacy = new CompoundTag();
+        legacy.putString("PlayerId", "legacy-player");
+        legacy.putString("RealmId", "blood_forbidden");
+        legacy.putLong("EnteredAt", 42L);
+        legacy.putLong("ExpiresAt", 500L);
+        legacy.putInt("PartyLimit", 4);
+
+        String first = SecretRealmProgressSavedData.Session.load(legacy).sessionId();
+        String second = SecretRealmProgressSavedData.Session.load(legacy).sessionId();
+        assertFalse(first.isBlank());
+        assertEquals(first, second);
     }
 }

@@ -32,16 +32,16 @@ import java.util.Optional;
  * Not a full custom-biome instanced worldgen pass.
  */
 public final class SecretRealmTrialService {
-    private static final String REWARD_ROOT = "seeking_immortals_secret_realm_trial_rewards";
     private static final String ENCOUNTER_ROOT = "seeking_immortals_secret_realm_encounters";
     private static final String MID_ENCOUNTER_ROOT = "seeking_immortals_secret_realm_mid_encounters";
-    private static final String MID_CLEAR_ROOT = "seeking_immortals_secret_realm_mid_clear";
-    private static final String CORE_CLEAR_ROOT = "seeking_immortals_secret_realm_core_clear";
     public static final String TRIAL_TAG = "seeking_immortals_trial";
     public static final String TRIAL_KIND = "Kind";
     public static final String TRIAL_REALM = "Realm";
     public static final String KIND_GUARDIAN = "guardian";
     public static final String KIND_PATROL = "patrol";
+    private static final String ENCOUNTER_OUTER = "trial:outer";
+    private static final String ENCOUNTER_MID = "trial:mid";
+    private static final String ENCOUNTER_CORE = "trial:core";
 
     private SecretRealmTrialService() {}
 
@@ -53,6 +53,12 @@ public final class SecretRealmTrialService {
         if (!(player.level() instanceof ServerLevel level)) {
             return;
         }
+        Optional<SecretRealmProgressSavedData.Session> sessionOpt =
+                SecretRealmSessionService.activeSession(player, id);
+        if (sessionOpt.isEmpty()) {
+            return;
+        }
+        SecretRealmProgressSavedData.Session session = sessionOpt.get();
         if (isShellTrialRealm(id)) {
             BlockPos center = player.blockPosition().above();
             int radius = shellRadiusFor(id);
@@ -63,13 +69,13 @@ public final class SecretRealmTrialService {
             buildInnerChamber(level, midCenter, Math.max(2, radius - 1));
             buildCoreSanctum(level, coreCenter, Math.max(2, radius - 1));
             // Wave471: outer loot free; mid/core chests sealed until kill gates.
-            placeLootChest(level, center.offset(0, 0, 2), id, Layer.OUTER);
-            placeSealedChest(level, midCenter, id, Layer.MID);
-            placeSealedChest(level, coreCenter, id, Layer.CORE);
+            placeLootChest(level, center.offset(0, 0, 2), player, session, id, Layer.OUTER);
+            placeSealedChest(level, midCenter, player, session, id, Layer.MID);
+            placeSealedChest(level, coreCenter, player, session, id, Layer.CORE);
             // Wave460: mid patrol before core boss pressure.
-            spawnMidPatrol(level, player, midCenter, id);
+            spawnMidPatrol(level, player, session, midCenter, id);
             // Wave48: one-time guardian encounter per realm for this player.
-            spawnCoreEncounter(level, player, coreCenter, id);
+            spawnCoreEncounter(level, player, session, coreCenter, id);
             SecretRealmCatalogService.find(id).stream()
                     .flatMap(realm -> realm.bosses().stream())
                     .filter(BossEncounterService::isKnownBossId)
@@ -258,68 +264,69 @@ public final class SecretRealmTrialService {
         setIfAir(level, center.offset(-2, 0, -2), ModBlocks.SPIRIT_ORE.get().defaultBlockState());
     }
 
-    private static void placeLootChest(ServerLevel level, BlockPos pos, String realmId) {
-        placeLootChest(level, pos, realmId, Layer.OUTER);
-    }
-
-    private static void placeLootChest(ServerLevel level, BlockPos pos, String realmId, Layer layer) {
+    private static void placeLootChest(ServerLevel level, BlockPos pos, ServerPlayer player,
+                                       SecretRealmProgressSavedData.Session session,
+                                       String realmId, Layer layer) {
         BlockPos chestPos = pos.above();
         if (!level.getBlockState(chestPos).isAir() && !level.getBlockState(chestPos).canBeReplaced()) {
             return;
         }
         level.setBlock(chestPos, Blocks.CHEST.defaultBlockState(), 3);
         if (level.getBlockEntity(chestPos) instanceof net.minecraft.world.level.block.entity.ChestBlockEntity chest) {
-            fillChest(chest, realmId, layer, level.random.nextInt(4));
+            SecretRealmRewardService.initializeChest(
+                    chest, player, session, realmId, encounterId(layer), false,
+                    rewardStacks(realmId, layer, level.random.nextInt(4)));
         }
     }
 
-    private static void placeSealedChest(ServerLevel level, BlockPos pos, String realmId, Layer layer) {
+    private static void placeSealedChest(ServerLevel level, BlockPos pos, ServerPlayer player,
+                                         SecretRealmProgressSavedData.Session session,
+                                         String realmId, Layer layer) {
         BlockPos chestPos = pos.above();
         if (!level.getBlockState(chestPos).isAir() && !level.getBlockState(chestPos).canBeReplaced()) {
             return;
         }
         level.setBlock(chestPos, Blocks.CHEST.defaultBlockState(), 3);
-        // Wave471: leave empty until kill gate; optional sealed marker item.
         if (level.getBlockEntity(chestPos) instanceof net.minecraft.world.level.block.entity.ChestBlockEntity chest) {
-            chest.setItem(0, new ItemStack(ModItems.JADE_SLIP_BLANK.get(), 1));
-            chest.getPersistentData().putString(TRIAL_TAG + "_layer", layer.name());
-            chest.getPersistentData().putString(TRIAL_TAG + "_realm", realmId == null ? "" : realmId);
-            chest.getPersistentData().putBoolean(TRIAL_TAG + "_sealed", true);
+            SecretRealmRewardService.initializeChest(
+                    chest, player, session, realmId, encounterId(layer), true, List.of());
         }
     }
 
-    private static void fillChest(net.minecraft.world.level.block.entity.ChestBlockEntity chest,
-                                  String realmId, Layer layer, int shardJitter) {
+    private static List<ItemStack> rewardStacks(String realmId, Layer layer, int shardJitter) {
         int shardBase = switch (layer) {
             case OUTER -> 2;
             case MID -> 4;
             case CORE -> 8;
         };
-        chest.clearContent();
-        chest.setItem(0, new ItemStack(ModItems.SPIRIT_STONE_SHARD.get(), shardBase + Math.max(0, shardJitter)));
+        java.util.ArrayList<ItemStack> rewards = new java.util.ArrayList<>();
+        rewards.add(new ItemStack(ModItems.SPIRIT_STONE_SHARD.get(), shardBase + Math.max(0, shardJitter)));
         if (layer != Layer.OUTER) {
-            chest.setItem(1, new ItemStack(proxyRewardItem(realmId), layer == Layer.CORE ? 2 : 1));
+            rewards.add(new ItemStack(proxyRewardItem(realmId), layer == Layer.CORE ? 2 : 1));
         }
         if (layer == Layer.CORE) {
             if (realmId.contains("void") || realmId.contains("palace") || realmId.contains("star")) {
-                chest.setItem(2, new ItemStack(ModItems.VOID_CRYSTAL.get(), 1));
+                rewards.add(new ItemStack(ModItems.VOID_CRYSTAL.get(), 1));
             } else if (realmId.contains("demon") || realmId.contains("blood")) {
-                chest.setItem(2, new ItemStack(ModItems.DEMONIC_BLOOD_CORAL.get(), 1));
+                rewards.add(new ItemStack(ModItems.DEMONIC_BLOOD_CORAL.get(), 1));
             } else if (realmId.contains("yin") || realmId.contains("nether") || realmId.contains("ghost")) {
-                chest.setItem(2, new ItemStack(ModItems.SOUL_FRAGMENT.get(), 2));
+                rewards.add(new ItemStack(ModItems.SOUL_FRAGMENT.get(), 2));
             } else {
-                chest.setItem(2, new ItemStack(ModItems.IMMORTAL_JADE.get(), 1));
+                rewards.add(new ItemStack(ModItems.IMMORTAL_JADE.get(), 1));
             }
-            chest.setItem(3, new ItemStack(ModItems.ALLIANCE_MERIT_TOKEN.get(), 1));
+            rewards.add(new ItemStack(ModItems.ALLIANCE_MERIT_TOKEN.get(), 1));
         } else if (layer == Layer.MID) {
-            chest.setItem(2, new ItemStack(ModItems.JADE_SLIP_BLANK.get(), 1));
+            rewards.add(new ItemStack(ModItems.JADE_SLIP_BLANK.get(), 1));
         }
-        chest.getPersistentData().putBoolean(TRIAL_TAG + "_sealed", false);
+        return List.copyOf(rewards);
     }
 
-    private static void spawnMidPatrol(ServerLevel level, ServerPlayer player, BlockPos midCenter, String realmId) {
+    private static void spawnMidPatrol(ServerLevel level, ServerPlayer player,
+                                       SecretRealmProgressSavedData.Session session,
+                                       BlockPos midCenter, String realmId) {
         CompoundTag root = player.getPersistentData().getCompound(MID_ENCOUNTER_ROOT).copy();
-        if (root.getBoolean(realmId)) {
+        String sessionKey = sessionKey(session, realmId, ENCOUNTER_MID);
+        if (root.getBoolean(sessionKey)) {
             return;
         }
         // Wave480: typed GeckoLib combat shells instead of bare vanilla zombies/skeletons.
@@ -335,9 +342,9 @@ public final class SecretRealmTrialService {
             patrol.setCustomName(Component.translatable("entity.seeking_immortals.trial_patrol.name", realmId));
             patrol.setCustomNameVisible(true);
             patrol.setTarget(player);
-            tagTrial(patrol, KIND_PATROL, realmId);
+            tagTrial(patrol, player, session, KIND_PATROL, realmId, ENCOUNTER_MID);
         }
-        root.putBoolean(realmId, true);
+        root.putBoolean(sessionKey, true);
         player.getPersistentData().put(MID_ENCOUNTER_ROOT, root);
         player.sendSystemMessage(Component.translatable(
                 "message.seeking_immortals.worldpack.trial_mid_patrol", realmId, count));
@@ -347,9 +354,12 @@ public final class SecretRealmTrialService {
      * Wave48 encounter depth: spawn 1 guardian + 1-2 adds at the core sanctum once per realm.
      * Wave480: typed SummonedServitor combat shells (BEAST/PUPPET/GHOST/GENERIC) with GeckoLib textures.
      */
-    private static void spawnCoreEncounter(ServerLevel level, ServerPlayer player, BlockPos coreCenter, String realmId) {
+    private static void spawnCoreEncounter(ServerLevel level, ServerPlayer player,
+                                           SecretRealmProgressSavedData.Session session,
+                                           BlockPos coreCenter, String realmId) {
         CompoundTag root = player.getPersistentData().getCompound(ENCOUNTER_ROOT).copy();
-        if (root.getBoolean(realmId)) {
+        String sessionKey = sessionKey(session, realmId, ENCOUNTER_CORE);
+        if (root.getBoolean(sessionKey)) {
             return;
         }
         SummonedServitorEntity.Archetype archetype = TrialCombatShellService.archetypeFor(realmId);
@@ -363,7 +373,7 @@ public final class SecretRealmTrialService {
         guardian.setCustomName(Component.translatable("entity.seeking_immortals.trial_guardian.name", realmId));
         guardian.setCustomNameVisible(true);
         guardian.setTarget(player);
-        tagTrial(guardian, KIND_GUARDIAN, realmId);
+        tagTrial(guardian, player, session, KIND_GUARDIAN, realmId, ENCOUNTER_CORE);
         int adds = realmId.contains("king") || realmId.contains("void") || realmId.contains("asura") ? 2 : 1;
         for (int i = 0; i < adds; i++) {
             BlockPos addPos = coreCenter.offset((i == 0 ? 2 : -2), 1, (i == 0 ? 1 : -1));
@@ -375,22 +385,25 @@ public final class SecretRealmTrialService {
             add.setCustomName(Component.translatable("entity.seeking_immortals.trial_patrol.name", realmId));
             add.setCustomNameVisible(true);
             add.setTarget(player);
-            tagTrial(add, KIND_PATROL, realmId);
+            tagTrial(add, player, session, KIND_PATROL, realmId, ENCOUNTER_MID);
         }
-        root.putBoolean(realmId, true);
+        root.putBoolean(sessionKey, true);
         player.getPersistentData().put(ENCOUNTER_ROOT, root);
         player.sendSystemMessage(Component.translatable(
                 "message.seeking_immortals.worldpack.trial_encounter", realmId, guardian.getName().getString(), adds));
         ReputationService.add(player, "secret_realm_explorer", 1);
     }
 
-    public static void tagTrial(Mob mob, String kind, String realmId) {
-        if (mob == null) {
+    public static void tagTrial(Mob mob, ServerPlayer owner,
+                                SecretRealmProgressSavedData.Session session,
+                                String kind, String realmId, String encounterId) {
+        if (mob == null || owner == null || session == null) {
             return;
         }
         CompoundTag tag = mob.getPersistentData().getCompound(TRIAL_TAG).copy();
         tag.putString(TRIAL_KIND, kind == null ? "" : kind);
         tag.putString(TRIAL_REALM, realmId == null ? "" : realmId.trim().toLowerCase(Locale.ROOT));
+        SecretRealmSessionService.bindEncounter(tag, owner, session, realmId, encounterId);
         mob.getPersistentData().put(TRIAL_TAG, tag);
     }
 
@@ -415,29 +428,30 @@ public final class SecretRealmTrialService {
     /**
      * Wave471: combat kill gates for mid/core unlocks.
      */
-    public static void onTrialMobKilled(ServerPlayer killer, Mob mob) {
+    public static boolean onTrialMobKilled(ServerPlayer killer, Mob mob) {
         if (killer == null || mob == null || !isTrialMob(mob)) {
-            return;
+            return false;
+        }
+        CompoundTag trial = mob.getPersistentData().getCompound(TRIAL_TAG);
+        if (!SecretRealmSessionService.claimEncounter(killer, trial)) {
+            return false;
         }
         String kind = trialKind(mob);
         String realmId = trialRealm(mob);
         if (realmId.isBlank()) {
-            return;
+            return false;
         }
         if (KIND_PATROL.equals(kind)) {
             unlockMid(killer, realmId, mob.blockPosition());
         } else if (KIND_GUARDIAN.equals(kind)) {
             unlockCore(killer, realmId, mob.blockPosition());
+        } else {
+            return false;
         }
+        return true;
     }
 
     private static void unlockMid(ServerPlayer player, String realmId, BlockPos near) {
-        CompoundTag root = player.getPersistentData().getCompound(MID_CLEAR_ROOT).copy();
-        if (root.getBoolean(realmId)) {
-            return;
-        }
-        root.putBoolean(realmId, true);
-        player.getPersistentData().put(MID_CLEAR_ROOT, root);
         fillNearbySealedChest(player, near, realmId, Layer.MID);
         ItemStack bonus = new ItemStack(ModItems.SPIRIT_STONE_SHARD.get(), 4);
         InventoryDeliveryService.giveOrDrop(player, bonus);
@@ -447,18 +461,12 @@ public final class SecretRealmTrialService {
     }
 
     private static void unlockCore(ServerPlayer player, String realmId, BlockPos near) {
-        CompoundTag root = player.getPersistentData().getCompound(CORE_CLEAR_ROOT).copy();
-        boolean first = !root.getBoolean(realmId);
-        if (first) {
-            root.putBoolean(realmId, true);
-            player.getPersistentData().put(CORE_CLEAR_ROOT, root);
-            fillNearbySealedChest(player, near, realmId, Layer.CORE);
-            ReputationService.add(player, "secret_realm_explorer", 2);
-            player.sendSystemMessage(Component.translatable(
-                    "message.seeking_immortals.worldpack.trial_core_clear", realmId));
-            // M09: publish clear hook when core guardian falls (no catalog boss path).
-            SecretRealmSessionService.onRealmCleared(realmId, player);
-        }
+        fillNearbySealedChest(player, near, realmId, Layer.CORE);
+        ReputationService.add(player, "secret_realm_explorer", 2);
+        player.sendSystemMessage(Component.translatable(
+                "message.seeking_immortals.worldpack.trial_core_clear", realmId));
+        // M09: publish clear hook when core guardian falls (no catalog boss path).
+        SecretRealmSessionService.onRealmCleared(realmId, player);
         grantOneTimeRareDropProxy(player, realmId);
     }
 
@@ -474,24 +482,16 @@ public final class SecretRealmTrialService {
                     if (!(level.getBlockEntity(pos) instanceof net.minecraft.world.level.block.entity.ChestBlockEntity chest)) {
                         continue;
                     }
-                    CompoundTag data = chest.getPersistentData();
-                    if (!data.getBoolean(TRIAL_TAG + "_sealed")) {
-                        continue;
+                    List<ItemStack> rewards = rewardStacks(realmId, layer, level.random.nextInt(4));
+                    if (SecretRealmRewardService.unlock(
+                            chest, player, realmId, encounterId(layer), rewards)) {
+                        return;
                     }
-                    String chestRealm = data.getString(TRIAL_TAG + "_realm");
-                    String chestLayer = data.getString(TRIAL_TAG + "_layer");
-                    if (!realmId.equals(chestRealm) || !layer.name().equals(chestLayer)) {
-                        continue;
-                    }
-                    fillChest(chest, realmId, layer, level.random.nextInt(4));
-                    chest.setChanged();
-                    return;
                 }
             }
         }
-        // Fallback: grant layer loot directly if sealed chest not found.
-        ItemStack stack = new ItemStack(proxyRewardItem(realmId), layer == Layer.CORE ? 2 : 1);
-        InventoryDeliveryService.giveOrDrop(player, stack);
+        rewardStacks(realmId, layer, level.random.nextInt(4))
+                .forEach(stack -> InventoryDeliveryService.giveOrDrop(player, stack));
     }
 
     /** Wave480: health/damage pairs for typed guardian shells. */
@@ -513,20 +513,23 @@ public final class SecretRealmTrialService {
         if (player == null || realmId == null) {
             return false;
         }
+        Optional<SecretRealmProgressSavedData.Session> session =
+                SecretRealmSessionService.activeSession(player, realmId);
+        if (session.isEmpty()) {
+            return false;
+        }
         return player.getPersistentData().getCompound(ENCOUNTER_ROOT)
-                .getBoolean(realmId.trim().toLowerCase(Locale.ROOT));
+                .getBoolean(sessionKey(session.get(), realmId, ENCOUNTER_CORE));
     }
 
     private static void grantOneTimeRareDropProxy(ServerPlayer player, String realmId) {
-        CompoundTag root = player.getPersistentData().getCompound(REWARD_ROOT).copy();
-        if (root.getBoolean(realmId)) {
+        if (!SecretRealmProgressSavedData.get(player).claimUniqueDrop(
+                player.getUUID(), "trial_rare_proxy:" + realmId)) {
             return;
         }
         Item reward = proxyRewardItem(realmId);
         ItemStack stack = new ItemStack(reward, 1);
         InventoryDeliveryService.giveOrDrop(player, stack);
-        root.putBoolean(realmId, true);
-        player.getPersistentData().put(REWARD_ROOT, root);
 
         Optional<TextMaterialCatalogService.SecretRealmFlavor> flavor =
                 TextMaterialCatalogService.builtin().findFlavor(realmId);
@@ -554,5 +557,18 @@ public final class SecretRealmTrialService {
             return ModItems.YIN_STONE.get();
         }
         return ModItems.SPIRIT_STONE_SHARD.get();
+    }
+
+    private static String encounterId(Layer layer) {
+        return switch (layer) {
+            case OUTER -> ENCOUNTER_OUTER;
+            case MID -> ENCOUNTER_MID;
+            case CORE -> ENCOUNTER_CORE;
+        };
+    }
+
+    private static String sessionKey(SecretRealmProgressSavedData.Session session,
+                                     String realmId, String encounterId) {
+        return session.sessionId() + "|" + realmId.trim().toLowerCase(Locale.ROOT) + "|" + encounterId;
     }
 }

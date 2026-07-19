@@ -199,24 +199,24 @@ public final class BeastBossService {
     /**
      * Bridge for BossEncounterService: prefer catalog spawn when boss id is known.
      */
-    public static boolean spawnCatalogBoss(ServerPlayer player, String bossId) {
+    public static Mob spawnCatalogBoss(ServerPlayer player, String bossId) {
         if (player == null || !(player.level() instanceof ServerLevel level)) {
-            return false;
+            return null;
         }
         Optional<BossDef> def = find(bossId);
         if (def.isEmpty()) {
-            return false;
+            return null;
         }
         BlockPos pos = player.blockPosition().offset(2, 0, 2);
         Mob boss = spawnBoss(level, pos, player.getYRot(), bossId);
         if (boss == null) {
-            return false;
+            return null;
         }
         boss.setTarget(player);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.boss.spawned",
                 def.get().display().isBlank() ? bossId : def.get().display()), true);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.boss.kill_gate_hint", bossId), false);
-        return true;
+        return boss;
     }
 
     private static Snapshot load() {

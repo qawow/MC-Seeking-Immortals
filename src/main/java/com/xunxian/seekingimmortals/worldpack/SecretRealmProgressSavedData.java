@@ -27,6 +27,7 @@ public final class SecretRealmProgressSavedData extends SavedData {
     private final Map<String, Integer> clearCounts = new HashMap<>();
     private final Map<String, Session> sessions = new HashMap<>();
     private final Set<String> claimedUniqueDrops = new HashSet<>();
+    private final Set<String> claimedEncounters = new HashSet<>();
 
     public static SecretRealmProgressSavedData get(ServerLevel level) {
         return level.getServer().overworld().getDataStorage().computeIfAbsent(
@@ -65,6 +66,13 @@ public final class SecretRealmProgressSavedData extends SavedData {
                 data.claimedUniqueDrops.add(value);
             }
         }
+        ListTag encounters = tag.getList("ClaimedEncounters", 8);
+        for (int i = 0; i < encounters.size(); i++) {
+            String value = encounters.getString(i);
+            if (value != null && !value.isBlank()) {
+                data.claimedEncounters.add(value);
+            }
+        }
         return data;
     }
 
@@ -91,6 +99,10 @@ public final class SecretRealmProgressSavedData extends SavedData {
         ListTag uniques = new ListTag();
         claimedUniqueDrops.stream().sorted().forEach(value -> uniques.add(StringTag.valueOf(value)));
         tag.put("ClaimedUniques", uniques);
+
+        ListTag encounters = new ListTag();
+        claimedEncounters.stream().sorted().forEach(value -> encounters.add(StringTag.valueOf(value)));
+        tag.put("ClaimedEncounters", encounters);
         return tag;
     }
 
@@ -126,13 +138,15 @@ public final class SecretRealmProgressSavedData extends SavedData {
         return claimedUniqueDrops.contains(key(playerId, dropId));
     }
 
-    public void startSession(ServerPlayer player, String realmId, int timeLimitTicks, int partyLimit) {
+    public Session startSession(ServerPlayer player, String realmId, int timeLimitTicks, int partyLimit) {
         if (player == null || realmId == null || realmId.isBlank()) {
-            return;
+            return null;
         }
         long now = player.server.overworld().getGameTime();
+        clearSession(player.getUUID());
         Session session = new Session(
                 player.getUUID().toString(),
+                UUID.randomUUID().toString(),
                 realmId.trim().toLowerCase(Locale.ROOT),
                 now,
                 now + Math.max(20 * 60, timeLimitTicks),
@@ -140,6 +154,7 @@ public final class SecretRealmProgressSavedData extends SavedData {
                 false);
         sessions.put(session.playerId(), session);
         setDirty();
+        return session;
     }
 
     public Optional<Session> getSession(UUID playerId) {
@@ -153,9 +168,26 @@ public final class SecretRealmProgressSavedData extends SavedData {
         if (playerId == null) {
             return;
         }
-        if (sessions.remove(playerId.toString()) != null) {
+        Session removed = sessions.remove(playerId.toString());
+        if (removed != null) {
+            String prefix = encounterPrefix(playerId, removed.sessionId());
+            claimedEncounters.removeIf(value -> value.startsWith(prefix));
             setDirty();
         }
+    }
+
+    public boolean claimEncounter(UUID playerId, String sessionId, String encounterId) {
+        String claim = encounterKey(playerId, sessionId, encounterId);
+        if (claim.isBlank() || claimedEncounters.contains(claim)) {
+            return false;
+        }
+        claimedEncounters.add(claim);
+        setDirty();
+        return true;
+    }
+
+    public boolean hasClaimedEncounter(UUID playerId, String sessionId, String encounterId) {
+        return claimedEncounters.contains(encounterKey(playerId, sessionId, encounterId));
     }
 
     public int activeCountForRealm(String realmId, long gameTime) {
@@ -183,16 +215,39 @@ public final class SecretRealmProgressSavedData extends SavedData {
         return playerId + "|" + id.trim().toLowerCase(Locale.ROOT);
     }
 
+    private static String encounterKey(UUID playerId, String sessionId, String encounterId) {
+        if (playerId == null || sessionId == null || sessionId.isBlank()
+                || encounterId == null || encounterId.isBlank()) {
+            return "";
+        }
+        return encounterPrefix(playerId, sessionId) + encounterId.trim().toLowerCase(Locale.ROOT);
+    }
+
+    private static String encounterPrefix(UUID playerId, String sessionId) {
+        if (playerId == null || sessionId == null || sessionId.isBlank()) {
+            return "";
+        }
+        return playerId + "|" + sessionId.trim().toLowerCase(Locale.ROOT) + "|";
+    }
+
     public record Session(
             String playerId,
+            String sessionId,
             String realmId,
             long enteredAtTick,
             long expiresAtTick,
             int partyLimit,
             boolean expired) {
+        public Session(String playerId, String realmId, long enteredAtTick, long expiresAtTick,
+                       int partyLimit, boolean expired) {
+            this(playerId, legacySessionId(playerId, realmId, enteredAtTick), realmId,
+                    enteredAtTick, expiresAtTick, partyLimit, expired);
+        }
+
         public CompoundTag save() {
             CompoundTag tag = new CompoundTag();
             tag.putString("PlayerId", playerId == null ? "" : playerId);
+            tag.putString("SessionId", sessionId == null ? "" : sessionId);
             tag.putString("RealmId", realmId == null ? "" : realmId);
             tag.putLong("EnteredAt", enteredAtTick);
             tag.putLong("ExpiresAt", expiresAtTick);
@@ -202,10 +257,18 @@ public final class SecretRealmProgressSavedData extends SavedData {
         }
 
         public static Session load(CompoundTag tag) {
+            String playerId = tag.getString("PlayerId");
+            String realmId = tag.getString("RealmId");
+            long enteredAt = tag.getLong("EnteredAt");
+            String sessionId = tag.getString("SessionId");
+            if (sessionId.isBlank()) {
+                sessionId = legacySessionId(playerId, realmId, enteredAt);
+            }
             return new Session(
-                    tag.getString("PlayerId"),
-                    tag.getString("RealmId"),
-                    tag.getLong("EnteredAt"),
+                    playerId,
+                    sessionId,
+                    realmId,
+                    enteredAt,
                     tag.getLong("ExpiresAt"),
                     Math.max(1, tag.getInt("PartyLimit")),
                     tag.getBoolean("Expired"));
@@ -213,6 +276,11 @@ public final class SecretRealmProgressSavedData extends SavedData {
 
         public boolean isTimedOut(long gameTime) {
             return expired || gameTime >= expiresAtTick;
+        }
+
+        private static String legacySessionId(String playerId, String realmId, long enteredAtTick) {
+            String source = String.valueOf(playerId) + "|" + String.valueOf(realmId) + "|" + enteredAtTick;
+            return UUID.nameUUIDFromBytes(source.getBytes(java.nio.charset.StandardCharsets.UTF_8)).toString();
         }
     }
 }

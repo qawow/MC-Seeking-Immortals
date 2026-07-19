@@ -1,3 +1,18 @@
+## 497. 2026-07-19 0.2.34 秘境奖励与捕捉权限
+
+  Step   Status   Notes
+  ---   ---   ---
+  Review scope   Done   按暂停交接由主线程复核秘境 Session SavedData、试炼/Boss 生成与死亡事件、奖励箱、妖兽生态标签和捕捉罐；本批未启用子代理。
+  Backup   Done   20 个既有生产、测试、版本和状态文档按相对路径备份至 `.bak/20260719_0.2.33_secret_realm_reward_authority/`；新增奖励服务、捕捉权限测试和 update note 无旧文件。
+  Session schema   Done   Session 增加兼容加载的 UUID `sessionId`，SavedData 持久化 session-scoped encounter claim；秘境入口先建会话再生成实体/箱子，旧会话获得稳定兼容 ID。
+  Encounter authority   Done   试炼、Boss 统一绑定 owner/session/realm/encounter；非归属玩家及其侍灵伤害被拒绝，死亡奖励、图鉴与任务 hook 只在当前会话原子 claim 成功后执行，重复实体不再重放。
+  Reward escrow   Done   外层/中层/核心/Boss 箱不再保存原版可漏斗读取库存，奖励写入会话绑定 NBT；只有绑定玩家当前会话可领取，箱子不能破坏或被爆炸摧毁，领取前先关闭 claim 再统一交付。
+  Capture authority   Done   捕捉罐只扫描 `ecology_beast=true` 且图鉴可驯服、非真灵/专属的残血目标；Boss、试炼、玩家、NPC、普通怪物和非生态侍灵在写罐或移除实体前 fail-closed。
+  Tests   Done   扩展 M09/GameplayAuthority 回归并新增 `ArtifactCaptureAuthorityTest`，聚焦测试通过；发布生态表仍至少存在一个合法可捕捉目标。
+  Version/protocol   Done   首次 `0.2.33` 构建后追加残血目标优先选择，preflight 正确要求再次升版；最终 `mod_version` 0.2.32 -> 0.2.34。未改变包字段、顺序、编码、注册或通道行为，protocol 保持 24。
+  Verification   Done   最终 `0.2.34` 正式普通 `./gradlew build` BUILD SUCCESSFUL（58s）；AI preflight 记录 0.2.34，全量 651 项测试、0 failures、0 errors。
+  Update note   Done   `project_docs/updates/20260719_0.2.34_secret_realm_reward_authority.md`
+
 ## 496. 2026-07-19 0.2.32 玩家死亡 Clone 与护送事务
 
   Step   Status   Notes
