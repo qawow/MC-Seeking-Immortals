@@ -37,7 +37,7 @@ class DamageSourceAuthorityTest {
         String activationSource = Files.readString(activation);
         assertFalse(activationSource.contains("damageSources().magic()"));
         int artifactHits = count(activationSource, "player.damageSources().indirectMagic(player, player)");
-        assertTrue(spellHits == 42, "expected 42 caster-aware spell damage sites, got " + spellHits);
+        assertTrue(spellHits == 47, "expected 47 caster-aware spell damage sites, got " + spellHits);
         assertTrue(artifactHits == 9, "expected 9 caster-aware artifact damage sites, got " + artifactHits);
 
         String events = Files.readString(JAVA_ROOT.resolve(Path.of("event", "ModEvents.java")));

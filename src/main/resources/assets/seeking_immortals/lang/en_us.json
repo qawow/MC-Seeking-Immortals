@@ -4782,5 +4782,20 @@
   "tooltip.seeking_immortals.catalog_pill.effect.tribulation_breakthrough_aid": "Assists its target breakthrough and raises tribulation resistance",
   "tooltip.seeking_immortals.catalog_pill.effect.tribulation_guard": "Raises tribulation resistance and grants protection",
   "tooltip.seeking_immortals.catalog_pill.effect.tribulation_lightning_reduce": "Raises lightning-tribulation resistance and protection",
-  "tooltip.seeking_immortals.catalog_pill.effect.yin_damage_resist_24h": "Resists yin damage for one day"
+  "tooltip.seeking_immortals.catalog_pill.effect.yin_damage_resist_24h": "Resists yin damage for one day",
+  "message.seeking_immortals.spell.generic_wall.success": "Wall art forms: %s barrier blocks, hitting %s foes.",
+  "message.seeking_immortals.spell.generic_buff_zone.success": "Buff zone unfolds for %s allies, restoring %s spirit.",
+  "message.seeking_immortals.spell.generic_ultimate.success": "Ultimate art erupts, hitting %s for peak %s damage.",
+  "message.seeking_immortals.spell.generic_secret_art.success": "Secret art manifests, hitting %s for peak %s damage.",
+  "message.seeking_immortals.spell.generic_talisman_consume.success": "Talisman art resolves (%s), value %s.",
+  "message.seeking_immortals.spell.generic_command.success": "Command issued: reinforced %s owned summons.",
+  "message.seeking_immortals.spell.generic_command.self_focus": "No summons nearby; focus briefly returns to yourself.",
+  "message.seeking_immortals.spell.generic_craft_gate.success": "Craft gate opens, binding/reinforcing %s nearby puppets.",
+  "message.seeking_immortals.spell.generic_craft_gate.no_target": "Craft gate opens with crafting buff; no nearby puppet to bind.",
+  "message.seeking_immortals.method.root_mismatch": "Learning \"%s\" requires matching spirit roots: %s.",
+  "message.seeking_immortals.method.constitution_mismatch": "Learning \"%s\" requires constitution: %s.",
+  "message.seeking_immortals.method.race_mismatch": "Learning \"%s\" requires race: %s.",
+  "message.seeking_immortals.method.faction_mismatch": "Learning \"%s\" conflicts with your current sect; required: %s.",
+  "message.seeking_immortals.method.faction_rank_too_low": "Learning \"%s\" needs a higher sect rank: %s.",
+  "message.seeking_immortals.method.convert_required": "\"%s\" must be converted after %s; it can no longer be newly learned."
 }

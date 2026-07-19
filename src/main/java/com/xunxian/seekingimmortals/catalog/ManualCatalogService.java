@@ -1,8 +1,13 @@
 package com.xunxian.seekingimmortals.catalog;
 
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
+import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
+import com.xunxian.seekingimmortals.cultivation.ProgressionGateApi;
 import com.xunxian.seekingimmortals.cultivation.Realm;
 import com.xunxian.seekingimmortals.network.SyncLearnedMethodsPacket;
+import com.xunxian.seekingimmortals.quest.QuestProgress;
+import com.xunxian.seekingimmortals.sect.SectContributionService;
+import com.xunxian.seekingimmortals.sect.SectDefinitionService;
 import com.xunxian.seekingimmortals.skill.MethodLayerTechniqueService;
 import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
 import net.minecraft.nbt.CompoundTag;
@@ -44,13 +49,28 @@ public final class ManualCatalogService {
         REALM_TOO_HIGH,
         INVALID_REALM,
         PREREQUISITE_MISSING,
-        PREREQUISITE_LAYER
+        PREREQUISITE_LAYER,
+        ROOT_MISMATCH,
+        CONSTITUTION_MISMATCH,
+        RACE_MISMATCH,
+        FACTION_MISMATCH,
+        FACTION_RANK_TOO_LOW,
+        CONVERT_REQUIRED
     }
 
     record MethodLearnGate(MethodLearnFailure failure, String requiredMethod,
                            int requiredLayer, int currentLayer) {
         static MethodLearnGate allowed() {
             return new MethodLearnGate(MethodLearnFailure.NONE, "", 0, 0);
+        }
+
+        static MethodLearnGate deny(MethodLearnFailure failure) {
+            return new MethodLearnGate(failure == null ? MethodLearnFailure.INVALID_REALM : failure, "", 0, 0);
+        }
+
+        static MethodLearnGate deny(MethodLearnFailure failure, String requiredMethod) {
+            return new MethodLearnGate(failure == null ? MethodLearnFailure.INVALID_REALM : failure,
+                    requiredMethod == null ? "" : requiredMethod, 0, 0);
         }
 
         boolean isAllowed() {
@@ -289,8 +309,9 @@ public final class ManualCatalogService {
         }
         boolean[] ok = {false};
         CultivationHelper.get(player).ifPresent(cultivation -> {
-            MethodLearnGate gate = evaluateLearnGate(method, cultivation.getRealm(),
-                    prerequisiteId -> getMethodLayer(player, prerequisiteId));
+            MethodLearnGate gate = evaluateLearnGate(method, cultivation,
+                    prerequisiteId -> getMethodLayer(player, prerequisiteId),
+                    cultivation.getSevenMysteriesQuest());
             if (!gate.isAllowed()) {
                 displayLearnGateFailure(player, method, gate);
                 return;
@@ -552,8 +573,15 @@ public final class ManualCatalogService {
             if (method == null || hasLearnedMethod(player, method.id())) {
                 continue;
             }
-            MethodLearnGate gate = evaluateLearnGate(method, currentRealm,
-                    prerequisiteId -> getMethodLayer(player, prerequisiteId));
+            PlayerCultivation cultivation = CultivationHelper.get(player).orElse(null);
+            MethodLearnGate gate = evaluateLearnGate(method, cultivation != null ? cultivation : null,
+                    prerequisiteId -> getMethodLayer(player, prerequisiteId),
+                    cultivation != null ? cultivation.getSevenMysteriesQuest() : null);
+            // Pure realm fallback for unit-safe unlock previews when capability is absent.
+            if (cultivation == null) {
+                gate = evaluateLearnGate(method, currentRealm,
+                        prerequisiteId -> getMethodLayer(player, prerequisiteId));
+            }
             if (!gate.isAllowed()) {
                 displayLearnGateFailure(player, method, gate);
                 return false;
@@ -603,22 +631,42 @@ public final class ManualCatalogService {
         return granted;
     }
 
+    /**
+     * Pure realm/prerequisite gate used by unit tests and capability-free previews.
+     * Player-facing learning uses the cultivation-aware overload so root/faction gates apply.
+     */
     static MethodLearnGate evaluateLearnGate(TextMaterialCatalogService.MethodEntry method, Realm currentRealm,
                                              Function<String, Integer> layerLookup) {
+        return evaluateLearnGate(method, currentRealm, layerLookup, null, null);
+    }
+
+    static MethodLearnGate evaluateLearnGate(TextMaterialCatalogService.MethodEntry method,
+                                             PlayerCultivation cultivation,
+                                             Function<String, Integer> layerLookup,
+                                             QuestProgress progress) {
+        Realm realm = cultivation == null ? null : cultivation.getRealm();
+        return evaluateLearnGate(method, realm, layerLookup, cultivation, progress);
+    }
+
+    private static MethodLearnGate evaluateLearnGate(TextMaterialCatalogService.MethodEntry method,
+                                                     Realm currentRealm,
+                                                     Function<String, Integer> layerLookup,
+                                                     PlayerCultivation cultivation,
+                                                     QuestProgress progress) {
         if (method == null || currentRealm == null) {
-            return new MethodLearnGate(MethodLearnFailure.INVALID_REALM, "", 0, 0);
+            return MethodLearnGate.deny(MethodLearnFailure.INVALID_REALM);
         }
         if (!method.realmMin().isBlank()
                 && !WorldpackGameplayService.meetsMinRealm(currentRealm, method.realmMin())) {
-            return new MethodLearnGate(MethodLearnFailure.REALM_TOO_LOW, "", 0, 0);
+            return MethodLearnGate.deny(MethodLearnFailure.REALM_TOO_LOW);
         }
         if (!method.realmMaxLearn().isBlank()) {
             Realm maxRealm = Realm.fromDesignId(method.realmMaxLearn());
             if (maxRealm == null) {
-                return new MethodLearnGate(MethodLearnFailure.INVALID_REALM, "", 0, 0);
+                return MethodLearnGate.deny(MethodLearnFailure.INVALID_REALM);
             }
             if (currentRealm.ordinal() > maxRealm.ordinal()) {
-                return new MethodLearnGate(MethodLearnFailure.REALM_TOO_HIGH, "", 0, 0);
+                return MethodLearnGate.deny(MethodLearnFailure.REALM_TOO_HIGH);
             }
         }
         Function<String, Integer> lookup = layerLookup == null ? ignored -> 0 : layerLookup;
@@ -635,7 +683,66 @@ public final class ManualCatalogService {
                         prerequisite, requiredLayer, currentLayer);
             }
         }
+
+        // Extended authored gates. Empty requirements remain permissive.
+        if (cultivation != null) {
+            if (!method.requiredSpiritRoots().isEmpty()
+                    && !ProgressionGateApi.meetsAnyRoot(cultivation, method.requiredSpiritRoots())) {
+                return MethodLearnGate.deny(MethodLearnFailure.ROOT_MISMATCH);
+            }
+            if (!method.requiredConstitution().isBlank()
+                    && !ProgressionGateApi.meetsConstitution(cultivation, method.requiredConstitution())) {
+                return MethodLearnGate.deny(MethodLearnFailure.CONSTITUTION_MISMATCH,
+                        method.requiredConstitution());
+            }
+            if (!method.requiredRace().isBlank()
+                    && !ProgressionGateApi.meetsRace(cultivation, method.requiredRace())) {
+                return MethodLearnGate.deny(MethodLearnFailure.RACE_MISMATCH, method.requiredRace());
+            }
+            if (!method.mustConvertAfter().isBlank()) {
+                Realm convertAfter = Realm.fromDesignId(method.mustConvertAfter());
+                if (convertAfter != null && currentRealm.ordinal() > convertAfter.ordinal()) {
+                    return MethodLearnGate.deny(MethodLearnFailure.CONVERT_REQUIRED,
+                            method.mustConvertAfter());
+                }
+            }
+        }
+        if (!method.requiredFaction().isBlank()) {
+            String requiredFaction = SectDefinitionService.canonicalizeSectId(method.requiredFaction());
+            String currentFaction = progress == null ? ""
+                    : SectDefinitionService.canonicalizeSectId(progress.getSectId());
+            // Empty membership keeps the manual/legacy path open. A different live sect hard-blocks.
+            // Rank is only enforced when the player already belongs to the authored faction.
+            if (!requiredFaction.isBlank() && !currentFaction.isBlank()
+                    && !requiredFaction.equals(currentFaction)) {
+                return MethodLearnGate.deny(MethodLearnFailure.FACTION_MISMATCH, requiredFaction);
+            }
+            if (!requiredFaction.isBlank()
+                    && requiredFaction.equals(currentFaction)
+                    && !method.factionRelationMin().isBlank()
+                    && !meetsFactionRelation(progress, method.factionRelationMin())) {
+                return MethodLearnGate.deny(MethodLearnFailure.FACTION_RANK_TOO_LOW,
+                        method.factionRelationMin());
+            }
+        }
         return MethodLearnGate.allowed();
+    }
+
+    private static boolean meetsFactionRelation(QuestProgress progress, String relationMin) {
+        if (progress == null || relationMin == null || relationMin.isBlank()) {
+            return true;
+        }
+        int stage = Math.max(0, progress.getSectQuestStage());
+        String key = relationMin.trim().toLowerCase(Locale.ROOT);
+        int required = switch (key) {
+            case "candidate", "applicant", "outer_candidate" -> 1;
+            case "outer", "outer_disciple" -> SectContributionService.STAGE_OUTER_DISCIPLE;
+            case "inner", "inner_disciple" -> SectContributionService.STAGE_INNER_DISCIPLE;
+            case "core", "core_disciple", "true_disciple" -> Math.max(SectContributionService.STAGE_INNER_DISCIPLE + 1, 5);
+            case "elder", "deacon" -> Math.max(SectContributionService.STAGE_INNER_DISCIPLE + 2, 6);
+            default -> 0;
+        };
+        return stage >= required;
     }
 
     private static boolean grantKnownMethodIfEligible(ServerPlayer player,
@@ -645,8 +752,9 @@ public final class ManualCatalogService {
         }
         boolean[] granted = {false};
         CultivationHelper.get(player).ifPresent(cultivation -> {
-            MethodLearnGate gate = evaluateLearnGate(method, cultivation.getRealm(),
-                    prerequisiteId -> getMethodLayer(player, prerequisiteId));
+            MethodLearnGate gate = evaluateLearnGate(method, cultivation,
+                    prerequisiteId -> getMethodLayer(player, prerequisiteId),
+                    cultivation.getSevenMysteriesQuest());
             if (!gate.isAllowed()) {
                 return;
             }
@@ -679,6 +787,24 @@ public final class ManualCatalogService {
             case PREREQUISITE_LAYER -> player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.method.prerequisite_layer", method.display(),
                     methodDisplay(gate.requiredMethod()), gate.requiredLayer(), gate.currentLayer()), false);
+            case ROOT_MISMATCH -> player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.method.root_mismatch", method.display(),
+                    String.join("/", method.requiredSpiritRoots())), false);
+            case CONSTITUTION_MISMATCH -> player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.method.constitution_mismatch", method.display(),
+                    gate.requiredMethod()), false);
+            case RACE_MISMATCH -> player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.method.race_mismatch", method.display(),
+                    gate.requiredMethod()), false);
+            case FACTION_MISMATCH -> player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.method.faction_mismatch", method.display(),
+                    gate.requiredMethod()), false);
+            case FACTION_RANK_TOO_LOW -> player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.method.faction_rank_too_low", method.display(),
+                    gate.requiredMethod()), false);
+            case CONVERT_REQUIRED -> player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.method.convert_required", method.display(),
+                    com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts.realm(gate.requiredMethod())), false);
             case INVALID_REALM -> player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.method.invalid_realm_gate", method.display()), false);
             case NONE -> {

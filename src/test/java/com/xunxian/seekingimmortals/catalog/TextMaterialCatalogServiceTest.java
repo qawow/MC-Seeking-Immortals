@@ -29,11 +29,18 @@ class TextMaterialCatalogServiceTest {
                 .findMethod("changchun_gong").orElseThrow();
         assertEquals(13, changchun.explicitMaxLayers());
         assertEquals("QI_REFINING", changchun.realmMaxLearn());
+        assertTrue(changchun.requiredSpiritRoots().contains("wood"));
+        assertEquals("huangfeng_valley", changchun.requiredFaction());
+        assertEquals("FOUNDATION", changchun.mustConvertAfter());
 
         TextMaterialCatalogService.MethodEntry qingyuan = TextMaterialCatalogService.builtin()
                 .findMethod("qingyuan_sword_art").orElseThrow();
         assertTrue(qingyuan.prerequisiteMethods().contains("changchun_gong"));
         assertEquals(13, qingyuan.prerequisiteMethodLayers().get("changchun_gong"));
+        assertTrue(qingyuan.requiredSpiritRoots().contains("metal")
+                || qingyuan.requiredSpiritRoots().contains("wood"));
+        assertTrue(qingyuan.requiredItems().contains("flying_sword_low")
+                || qingyuan.suggestedItems().contains("flying_sword_low"));
 
         assertEquals(9, TextMaterialCatalogService.builtin().findMethod("artifact_refining_basic")
                 .orElseThrow().explicitMaxLayers());

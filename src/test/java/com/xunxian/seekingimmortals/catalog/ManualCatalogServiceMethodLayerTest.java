@@ -52,6 +52,18 @@ class ManualCatalogServiceMethodLayerTest {
     }
 
     @Test
+    void pureTokenRootGateAndEmptyCollectionPass() {
+        assertTrue(com.xunxian.seekingimmortals.cultivation.ProgressionGateApi
+                .meetsAnyRootTokens(java.util.List.of("wood", "fire"), java.util.List.of("wood")));
+        assertTrue(com.xunxian.seekingimmortals.cultivation.ProgressionGateApi
+                .meetsAnyRootTokens(java.util.List.of("metal"), java.util.List.of("wood", "metal")));
+        assertTrue(!com.xunxian.seekingimmortals.cultivation.ProgressionGateApi
+                .meetsAnyRootTokens(java.util.List.of("fire"), java.util.List.of("wood")));
+        assertTrue(com.xunxian.seekingimmortals.cultivation.ProgressionGateApi
+                .meetsAnyRootTokens(java.util.List.of(), java.util.List.of()));
+    }
+
+    @Test
     void deathCloneCopiesAllConsumedManualProgression() {
         CompoundTag original = new CompoundTag();
         CompoundTag studied = new CompoundTag();

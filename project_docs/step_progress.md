@@ -1,3 +1,16 @@
+## 504. 2026-07-20 0.2.54 七类专用术法与功法扩展学习门槛
+
+  Step   Status   Notes
+  ---   ---   ---
+  Audit   Done   术法七类此前 fail-closed；功法灵根/宗门/转修字段已加载但未接入学习门禁。
+  Backup   Done   `.bak/20260720_043246_technique_method_gates/`。
+  Dedicated spells   Done   六类新 spell + resolver 工厂 + 双语消息；伤害归属计数 42→47。
+  Method gates   Done   灵根 any-of、体质/种族、转修禁学、他宗拒绝、同宗品阶；无宗门保留典籍路径。
+  Tests   Done   聚焦语料/目录/门槛测试通过；`DamageSourceAuthorityTest` 同步。
+  Verify   Done   普通 `./gradlew build --no-daemon` BUILD SUCCESSFUL，全量 697 项，0 failures/errors/skipped。
+  Version   Done   `mod_version=0.2.54`；无网络变化，protocol 保持 25。
+  Handoff   Done   `project_docs/updates/20260720_0.2.54_technique_dedicated_method_gates.md`。
+
 ## 502. 2026-07-20 0.2.48 功法动态层数与学习门槛
 
   Step   Status   Notes

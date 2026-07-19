@@ -2,6 +2,7 @@ package com.xunxian.seekingimmortals.cultivation;
 
 import net.minecraft.world.entity.player.Player;
 
+import java.util.Collection;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
@@ -75,6 +76,55 @@ public final class ProgressionGateApi {
             if (attr.name().equalsIgnoreCase(raw)
                     || attr.getDisplayName().equals(raw)
                     || attr.getCorpusId().equalsIgnoreCase(key)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /** Any-of spirit-root gate used by cultivation method learning. Empty list = no gate. */
+    public static boolean meetsAnyRoot(Player player, Collection<String> requiredAny) {
+        if (requiredAny == null || requiredAny.isEmpty()) return true;
+        return CultivationHelper.get(player)
+                .map(c -> meetsAnyRoot(c, requiredAny))
+                .orElse(false);
+    }
+
+    public static boolean meetsAnyRoot(PlayerCultivation cultivation, Collection<String> requiredAny) {
+        if (cultivation == null) return false;
+        if (requiredAny == null || requiredAny.isEmpty()) return true;
+        for (String requirement : requiredAny) {
+            if (meetsRoot(cultivation, requirement)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /** Pure attribute-token check for catalog unit tests without a full cultivation object. */
+    public static boolean meetsAnyRootTokens(Collection<String> playerRootTokens,
+                                             Collection<String> requiredAny) {
+        if (requiredAny == null || requiredAny.isEmpty()) return true;
+        if (playerRootTokens == null || playerRootTokens.isEmpty()) return false;
+        java.util.Set<String> owned = new java.util.HashSet<>();
+        for (String token : playerRootTokens) {
+            if (token == null || token.isBlank()) continue;
+            String key = token.trim().toLowerCase(Locale.ROOT);
+            owned.add(key);
+            SpiritualRootAttribute attribute = SpiritualRootAttribute.fromCorpusId(key);
+            if (attribute != SpiritualRootAttribute.NONE) {
+                owned.add(attribute.getCorpusId());
+                owned.add(attribute.name().toLowerCase(Locale.ROOT));
+            }
+        }
+        for (String requirement : requiredAny) {
+            if (requirement == null || requirement.isBlank()) continue;
+            String key = requirement.trim().toLowerCase(Locale.ROOT);
+            if (owned.contains(key)) return true;
+            SpiritualRootAttribute attribute = SpiritualRootAttribute.fromCorpusId(key);
+            if (attribute != SpiritualRootAttribute.NONE
+                    && (owned.contains(attribute.getCorpusId())
+                    || owned.contains(attribute.name().toLowerCase(Locale.ROOT)))) {
                 return true;
             }
         }

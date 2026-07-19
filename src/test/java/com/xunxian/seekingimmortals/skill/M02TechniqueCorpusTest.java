@@ -61,21 +61,59 @@ class M02TechniqueCorpusTest {
     }
 
     @Test
-    void unsupportedSpecialFamiliesFailClosedUnlessDedicated() {
+    void dedicatedSpecialFamiliesResolveExecutableEffects() {
         Map<String, TechniqueDataManager.TechniqueEntry> techniques = TechniqueDataManager.builtinTechniques();
-        TechniqueDataManager.TechniqueEntry unmappedUltimate = techniques.get("xuewu_grand_curse");
-        assertNotNull(unmappedUltimate);
-        assertTrue(AbstractTechniqueEffectResolver.requiresDedicatedImplementation(
-                unmappedUltimate.effectType()));
-        assertNull(AbstractTechniqueEffectResolver.resolve(unmappedUltimate));
+
+        TechniqueDataManager.TechniqueEntry ultimate = techniques.get("xuewu_grand_curse");
+        assertNotNull(ultimate);
+        assertEquals("ultimate", ultimate.effectType());
+        assertTrue(AbstractTechniqueEffectResolver.requiresDedicatedImplementation(ultimate.effectType()));
+        assertNotNull(AbstractTechniqueEffectResolver.resolve(ultimate));
+
+        TechniqueDataManager.TechniqueEntry secretArt = techniques.get("tianmo_demon_body_secret");
+        assertNotNull(secretArt);
+        assertEquals("secret_art", secretArt.effectType());
+        assertTrue(AbstractTechniqueEffectResolver.requiresDedicatedImplementation(secretArt.effectType()));
+        assertNotNull(AbstractTechniqueEffectResolver.resolve(secretArt));
+
+        TechniqueDataManager.TechniqueEntry wall = techniques.get("qingyan_earth_spike_wall");
+        assertNotNull(wall);
+        assertEquals("wall", wall.effectType());
+        assertTrue(AbstractTechniqueEffectResolver.requiresDedicatedImplementation(wall.effectType()));
+        assertNotNull(AbstractTechniqueEffectResolver.resolve(wall));
+
+        TechniqueDataManager.TechniqueEntry buffZone = techniques.get("spirit_gather_array");
+        assertNotNull(buffZone);
+        assertEquals("buff_zone", buffZone.effectType());
+        assertTrue(AbstractTechniqueEffectResolver.requiresDedicatedImplementation(buffZone.effectType()));
+        assertNotNull(AbstractTechniqueEffectResolver.resolve(buffZone));
+
+        TechniqueDataManager.TechniqueEntry command = techniques.get("qingyuan_bamboo_cloud_drive");
+        assertNotNull(command);
+        assertEquals("command", command.effectType());
+        assertTrue(AbstractTechniqueEffectResolver.requiresDedicatedImplementation(command.effectType()));
+        assertNotNull(AbstractTechniqueEffectResolver.resolve(command));
+
+        TechniqueDataManager.TechniqueEntry craftGate = techniques.get("beast_soul_puppet_bind");
+        assertNotNull(craftGate);
+        assertEquals("craft_gate", craftGate.effectType());
+        assertTrue(AbstractTechniqueEffectResolver.requiresDedicatedImplementation(craftGate.effectType()));
+        assertNotNull(AbstractTechniqueEffectResolver.resolve(craftGate));
 
         TechniqueDataManager.TechniqueEntry mappedTalisman = techniques.get("cast_fire_burst_talisman");
         assertNotNull(mappedTalisman);
+        assertEquals("talisman_consume", mappedTalisman.effectType());
         assertTrue(AbstractTechniqueEffectResolver.requiresDedicatedImplementation(
                 mappedTalisman.effectType()));
+        // SkillType registry mapping remains available for this corpus id.
         assertNotNull(AbstractTechniqueEffectResolver.resolveSkillType(mappedTalisman));
+        assertNotNull(AbstractTechniqueEffectResolver.resolve(mappedTalisman));
 
+        // Unknown high-risk / unregistered abstract type still fails closed.
         assertFalse(AbstractTechniqueEffectResolver.isAbstractTypeRegistered("unknown_effect"));
+        assertFalse(AbstractTechniqueEffectResolver.isGenericRuntimeType("unknown_effect"));
+        assertFalse(AbstractTechniqueEffectResolver.requiresDedicatedImplementation("unknown_effect"));
+        assertNull(AbstractTechniqueEffectResolver.resolve(null));
     }
 
     @Test

@@ -4782,5 +4782,20 @@
   "tooltip.seeking_immortals.catalog_pill.effect.tribulation_breakthrough_aid": "指定破境瓶颈生效，并提升渡劫抗性",
   "tooltip.seeking_immortals.catalog_pill.effect.tribulation_guard": "提升渡劫抗性并获得短时护体",
   "tooltip.seeking_immortals.catalog_pill.effect.tribulation_lightning_reduce": "提升雷劫抗性并获得短时护体",
-  "tooltip.seeking_immortals.catalog_pill.effect.yin_damage_resist_24h": "一日内抵御阴气伤害"
+  "tooltip.seeking_immortals.catalog_pill.effect.yin_damage_resist_24h": "一日内抵御阴气伤害",
+  "message.seeking_immortals.spell.generic_wall.success": "岩壁术法成形：%s 格屏障，波及 %s 名敌手。",
+  "message.seeking_immortals.spell.generic_buff_zone.success": "聚灵/增益场展开，惠及 %s 人，回灵 %s。",
+  "message.seeking_immortals.spell.generic_ultimate.success": "终极神通爆发，命中 %s，峰值伤害 %s。",
+  "message.seeking_immortals.spell.generic_secret_art.success": "秘术显化，命中 %s，峰值伤害 %s。",
+  "message.seeking_immortals.spell.generic_talisman_consume.success": "符箓术法生效（%s），参数 %s。",
+  "message.seeking_immortals.spell.generic_command.success": "御使令下，强化了 %s 个自有召唤物。",
+  "message.seeking_immortals.spell.generic_command.self_focus": "无召唤物应令，神识暂聚自身。",
+  "message.seeking_immortals.spell.generic_craft_gate.success": "炼制门禁开启，绑定/强化附近傀儡 %s 个。",
+  "message.seeking_immortals.spell.generic_craft_gate.no_target": "炼制门禁开启：短时炼器增益已附身，附近无可绑定傀儡。",
+  "message.seeking_immortals.method.root_mismatch": "修习「%s」需要匹配灵根：%s。",
+  "message.seeking_immortals.method.constitution_mismatch": "修习「%s」需要体质：%s。",
+  "message.seeking_immortals.method.race_mismatch": "修习「%s」需要种族：%s。",
+  "message.seeking_immortals.method.faction_mismatch": "修习「%s」与当前宗门不符，需要：%s。",
+  "message.seeking_immortals.method.faction_rank_too_low": "修习「%s」需要更高宗门身份：%s。",
+  "message.seeking_immortals.method.convert_required": "「%s」应在 %s 后转修更高功法，不可继续初学。"
 }

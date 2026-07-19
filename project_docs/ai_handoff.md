@@ -1,3 +1,9 @@
+> CURRENT TRUTH 2026-07-20: `0.2.54` 七类专用术法与功法扩展学习门槛。`ultimate/secret_art/talisman_consume/command/craft_gate/wall/buff_zone` 现有专用可执行实现，按 damage/range/target/element/tags/effect_key 生成运行时；未知类型仍 fail-closed。功法目录加载灵根/体质/种族/宗门品阶/转修后禁学等字段，并接入 `ManualCatalogService.evaluateLearnGate`：他宗硬拒绝、同宗校验品阶、无宗门保留典籍路径。普通 `./gradlew build --no-daemon` 成功，全量 697 项、0 failures/errors/skipped。`mod_version=0.2.54`，协议保持 `25`。完整交接见 `project_docs/updates/20260720_0.2.54_technique_dedicated_method_gates.md`。
+
+> CURRENT TRUTH 2026-07-20: `0.2.53` 术法结构字段与安全回退。`TechniqueEntry` 保留 damageBase/effectKey/tags/target/range；通用投射/范围/减益/控制/增益/恢复/移动/近战/召唤按 authored 字段生成运行时，召唤走 `HonestSummonSpell`；七类高风险类型当时 fail-closed。后续 0.2.54 已为七类提供专用实现。`mod_version=0.2.53`，协议 25。见 `project_docs/updates/20260720_0.2.53_structured_techniques.md`。
+
+> CURRENT TRUTH 2026-07-20: `0.2.52` 贡献符与聚灵阵盘语义。宗门贡献符每枚兑换 1 点当前宗门贡献；聚灵阵盘为一次性 spirit_gather 自由阵场，成功激活后才消耗，可与灵砂袋延长时长。`mod_version=0.2.52`，协议 25。见 `project_docs/updates/20260720_0.2.52_currency_formation_items.md`。
+
 > CURRENT TRUTH 2026-07-20: `0.2.50` 傀儡物品事务收口。基础木傀与巨猿傀儡配方现在要求行囊中持有对应图纸，图纸作为知识凭证不随制作消耗；制作统一先校验傀儡操控技能、图纸和完整材料，再提交库存。实体生成失败不再返回假成功或保留临时强化，而是退还全部材料；`puppet_repair_kit` 现优先作为自有傀儡修缮材料，旧铁木/核心胚/灵铁回退仍兼容。定向测试与普通 `./gradlew build --no-daemon` 均成功，全量 691 项、0 failures/errors/skipped。`mod_version=0.2.50`，协议保持 `25`。完整交接见 `project_docs/updates/20260720_0.2.50_puppet_items.md`。
 
 > CURRENT TRUTH 2026-07-20: `0.2.49` 专用物品与目录说明第二阶段。`detox_minor_pill`、`talisman_ink_bottle`、`spirit_sand_pouch`、`yin_coffin_nail`、`wind_feather_raft_blueprint` 已从 inert carrier 转为专用运行时：轻度解毒不越权清高阶魔毒；24 条制符配方统一消耗符墨并在技能/材料预检后才扣料；灵砂仅在自由阵场成功激活后消耗并延长时长；镇尸钉只强化附近自有鬼仆；风雷舟图纸要求化神、成型船坞和确定材料后产出风羽舟票。1190 条 bulk item 通过统一双语定位/交互策略替换“目录载体”展示，保留真实独立效果 tooltip。定向 11 项测试与普通 `./gradlew build --no-daemon` 均成功，全量 690 项、0 failures/errors/skipped。`mod_version=0.2.49`，网络协议保持 `25`。完整交接见 `project_docs/updates/20260720_0.2.49_item_semantics.md`。

@@ -51,7 +51,19 @@ public final class TextMaterialCatalogService {
     public record MethodEntry(String id, String display, String realmMin, String realmMaxLearn,
                               String school, String attribute, int explicitMaxLayers,
                               List<String> prerequisiteMethods,
-                              Map<String, Integer> prerequisiteMethodLayers) {
+                              Map<String, Integer> prerequisiteMethodLayers,
+                              List<String> requiredSpiritRoots,
+                              List<String> bonusSpiritRoots,
+                              String requiredFaction,
+                              String factionRelationMin,
+                              List<String> learnSources,
+                              List<String> suggestedItems,
+                              List<String> requiredItems,
+                              String mustConvertAfter,
+                              String requiredConstitution,
+                              String requiredRace,
+                              String regionPresent,
+                              String source) {
         public MethodEntry {
             id = id == null ? "" : id;
             display = display == null ? "" : display;
@@ -83,6 +95,30 @@ public final class TextMaterialCatalogService {
                 }
             }
             prerequisiteMethods = List.copyOf(normalizedPrerequisites);
+            requiredSpiritRoots = normalizeTokenList(requiredSpiritRoots);
+            bonusSpiritRoots = normalizeTokenList(bonusSpiritRoots);
+            requiredFaction = requiredFaction == null ? "" : requiredFaction.trim().toLowerCase(Locale.ROOT);
+            factionRelationMin = factionRelationMin == null ? "" : factionRelationMin.trim().toLowerCase(Locale.ROOT);
+            learnSources = normalizeTokenList(learnSources);
+            suggestedItems = normalizeTokenList(suggestedItems);
+            requiredItems = normalizeTokenList(requiredItems);
+            mustConvertAfter = mustConvertAfter == null ? "" : mustConvertAfter.trim().toUpperCase(Locale.ROOT);
+            requiredConstitution = requiredConstitution == null ? ""
+                    : requiredConstitution.trim().toLowerCase(Locale.ROOT);
+            requiredRace = requiredRace == null ? "" : requiredRace.trim().toLowerCase(Locale.ROOT);
+            regionPresent = regionPresent == null ? "" : regionPresent.trim().toLowerCase(Locale.ROOT);
+            source = source == null ? "" : source.trim();
+        }
+
+        /** Compatibility constructor used by catalog-index fallback rows. */
+        public MethodEntry(String id, String display, String realmMin, String realmMaxLearn,
+                           String school, String attribute, int explicitMaxLayers,
+                           List<String> prerequisiteMethods,
+                           Map<String, Integer> prerequisiteMethodLayers) {
+            this(id, display, realmMin, realmMaxLearn, school, attribute, explicitMaxLayers,
+                    prerequisiteMethods, prerequisiteMethodLayers,
+                    List.of(), List.of(), "", "", List.of(), List.of(), List.of(),
+                    "", "", "", "", "");
         }
     }
 
@@ -197,7 +233,20 @@ public final class TextMaterialCatalogService {
                         stringList(learn.get("prerequisite_methods")));
                 methods.put(id, new MethodEntry(id, str(o, "display"), realmMin, realmMaxLearn,
                         school, attribute, explicitMaxLayers, prerequisites,
-                        positiveIntMap(learn.get("prerequisite_realm_layers"))));
+                        positiveIntMap(learn.get("prerequisite_realm_layers")),
+                        spiritRootTokens(learn, setting, "required_any"),
+                        spiritRootTokens(learn, setting, "bonus"),
+                        firstNonBlank(str(learn, "faction"), str(setting, "faction")),
+                        str(learn, "faction_relation_min"),
+                        stringList(learn.get("learn_source")),
+                        stringList(learn.get("items_suggested")),
+                        stringList(setting.get("requires_items")),
+                        str(setting, "must_convert_after"),
+                        firstNonBlank(str(learn, "constitution"), str(learn, "physique"),
+                                str(setting, "constitution"), str(setting, "physique")),
+                        firstNonBlank(str(learn, "race_required"), str(setting, "race")),
+                        firstNonBlank(str(learn, "region_present"), str(setting, "region")),
+                        str(o, "source")));
             }
         }
         JsonObject methodIndex = readJson("data/" + SeekingImmortalsMod.MODID + "/catalog/cultivation_methods_index.json");
@@ -367,5 +416,48 @@ public final class TextMaterialCatalogService {
             }
         }
         return List.copyOf(list);
+    }
+
+    private static List<String> normalizeTokenList(List<String> raw) {
+        if (raw == null || raw.isEmpty()) {
+            return List.of();
+        }
+        List<String> out = new ArrayList<>();
+        for (String token : raw) {
+            if (token == null || token.isBlank()) {
+                continue;
+            }
+            String normalized = token.trim().toLowerCase(Locale.ROOT);
+            if (!out.contains(normalized)) {
+                out.add(normalized);
+            }
+        }
+        return List.copyOf(out);
+    }
+
+    private static List<String> spiritRootTokens(JsonObject learn, JsonObject setting, String key) {
+        List<String> fromLearn = List.of();
+        if (learn != null) {
+            JsonObject roots = object(learn, "spirit_roots");
+            fromLearn = stringList(roots.get(key));
+        }
+        List<String> fromSetting = List.of();
+        if (setting != null) {
+            JsonObject gate = object(setting, "spirit_root_gate");
+            fromSetting = stringList(gate.get(key));
+        }
+        return normalizeTokenList(mergeLists(fromLearn, fromSetting));
+    }
+
+    private static String firstNonBlank(String... values) {
+        if (values == null) {
+            return "";
+        }
+        for (String value : values) {
+            if (value != null && !value.isBlank()) {
+                return value.trim();
+            }
+        }
+        return "";
     }
 }

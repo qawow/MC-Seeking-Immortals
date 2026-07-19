@@ -11,6 +11,12 @@ import com.xunxian.seekingimmortals.skill.effect.spell.HonestSummonSpell;
 import com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell;
 import com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell;
 import com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell;
+import com.xunxian.seekingimmortals.skill.effect.spell.WallTechniqueSpell;
+import com.xunxian.seekingimmortals.skill.effect.spell.TalismanConsumeSpell;
+import com.xunxian.seekingimmortals.skill.effect.spell.HighImpactTechniqueSpell;
+import com.xunxian.seekingimmortals.skill.effect.spell.CraftGateTechniqueSpell;
+import com.xunxian.seekingimmortals.skill.effect.spell.CommandTechniqueSpell;
+import com.xunxian.seekingimmortals.skill.effect.spell.BuffZoneTechniqueSpell;
 import com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
@@ -115,7 +121,7 @@ public final class AbstractTechniqueEffectResolver {
 
     private static SkillEffect createForTechnique(TechniqueDataManager.TechniqueEntry technique) {
         RuntimeSpec spec = runtimeSpec(technique);
-        if (!GENERIC_RUNTIME_TYPES.contains(spec.type())) {
+        if (!GENERIC_RUNTIME_TYPES.contains(spec.type()) && !DEDICATED_ONLY_TYPES.contains(spec.type())) {
             return null;
         }
         int cost = Math.max(1, technique.cost());
@@ -169,6 +175,37 @@ public final class AbstractTechniqueEffectResolver {
                     cost, cooldown, technique.id(), summonStrength(spec.damage()),
                     Math.max(0, summonStrength(spec.damage()) - 1),
                     Math.max(120, cooldown), "message.seeking_immortals.spell.generic_summon.success");
+            case "wall" -> new WallTechniqueSpell(
+                    cost, cooldown, Math.max(12.0D, spec.damage()), Math.max(8.0D, spec.range()),
+                    Math.max(2.5D, spec.radius()), spec.element(),
+                    "message.seeking_immortals.spell.generic_wall.success");
+            case "buff_zone" -> new BuffZoneTechniqueSpell(
+                    cost, cooldown, spec.damage(), Math.max(6.0D, spec.range()), Math.max(3.5D, spec.radius()),
+                    spec.element(), spec.tags(), spec.effectKey(),
+                    "message.seeking_immortals.spell.generic_buff_zone.success");
+            case "ultimate" -> new HighImpactTechniqueSpell(
+                    cost, Math.max(cooldown, 160), Math.max(40.0D, spec.damage()),
+                    Math.max(14.0D, spec.range()), Math.max(4.5D, spec.radius()),
+                    spec.target(), spec.element(), spec.effectKey(), spec.tags(), "",
+                    HighImpactTechniqueSpell.Form.ULTIMATE,
+                    "message.seeking_immortals.spell.generic_ultimate.success");
+            case "secret_art" -> new HighImpactTechniqueSpell(
+                    cost, Math.max(cooldown, 140), Math.max(32.0D, spec.damage()),
+                    Math.max(12.0D, spec.range()), Math.max(4.0D, spec.radius()),
+                    spec.target(), spec.element(), spec.effectKey(), spec.tags(), "",
+                    HighImpactTechniqueSpell.Form.SECRET_ART,
+                    "message.seeking_immortals.spell.generic_secret_art.success");
+            case "talisman_consume" -> new TalismanConsumeSpell(
+                    cost, cooldown, Math.max(10.0D, spec.damage()), Math.max(10.0D, spec.range()),
+                    Math.max(2.8D, spec.radius()), spec.element(), spec.effectKey(), spec.tags(),
+                    "message.seeking_immortals.spell.generic_talisman_consume.success");
+            case "command" -> new CommandTechniqueSpell(
+                    cost, cooldown, Math.max(8.0D, spec.damage()), Math.max(10.0D, spec.range()),
+                    Math.max(4.0D, spec.radius()), spec.element(), spec.tags(),
+                    "message.seeking_immortals.spell.generic_command.success");
+            case "craft_gate" -> new CraftGateTechniqueSpell(
+                    cost, cooldown, spec.damage(), Math.max(8.0D, spec.range()), Math.max(3.5D, spec.radius()),
+                    spec.tags(), "message.seeking_immortals.spell.generic_craft_gate.success");
             default -> null;
         };
     }
@@ -293,12 +330,27 @@ public final class AbstractTechniqueEffectResolver {
         if (Set.of("movement", "dash", "escape", "teleport_short", "melee", "strike").contains(type)) {
             return 9.0D;
         }
+        if (Set.of("ultimate", "secret_art").contains(type) || "battlefield".equals(target)) {
+            return 24.0D;
+        }
+        if (Set.of("wall", "buff_zone", "command", "craft_gate", "talisman_consume").contains(type)) {
+            return 16.0D;
+        }
         return "area".equals(target) ? 22.0D : 18.0D;
     }
 
     private static double resolveRadius(String type, String target) {
         if (Set.of("chain", "aoe", "aoe_dot", "field", "domain", "trap", "control").contains(type)) {
             return "area".equals(target) ? 5.0D : 3.5D;
+        }
+        if (Set.of("ultimate", "secret_art", "buff_zone").contains(type)) {
+            return "battlefield".equals(target) || "area".equals(target) ? 6.0D : 4.5D;
+        }
+        if ("wall".equals(type)) {
+            return 3.0D;
+        }
+        if (Set.of("talisman_consume", "command", "craft_gate").contains(type)) {
+            return 3.5D;
         }
         if ("summon_field".equals(type)) {
             return 4.0D;
@@ -313,6 +365,11 @@ public final class AbstractTechniqueEffectResolver {
             case "debuff", "dot", "drain", "control", "trap", "soul_attack" -> 8.0D;
             case "melee", "strike" -> 18.0D;
             case "heal", "heal_spirit", "cleanse" -> 12.0D;
+            case "wall" -> 20.0D;
+            case "talisman_consume" -> 14.0D;
+            case "command" -> 18.0D;
+            case "ultimate" -> 80.0D;
+            case "secret_art" -> 64.0D;
             default -> 0.0D;
         };
     }
