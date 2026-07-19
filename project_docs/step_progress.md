@@ -1,3 +1,16 @@
+## 499. 2026-07-19 0.2.39 拍卖余额不足扣款原子性
+
+  Step   Status   Notes
+  ---   ---   ---
+  Audit   Done   max 审计确认 `consumeShards` 单遍边扣边判不足，跨格余额不足会吞掉已扫描碎片；同时记录拍卖 outbox、错误奖励和 QuestTracker P1 队列。
+  Backup   Done   生产、测试、版本与状态文档按相对路径备份至 `.bak/20260719_0.2.38_auction_atomic_debit/`；新增 update note 无旧文件。
+  Atomic debit   Done   先按对象身份去重并快照所有匹配栈；负数/总额不足零修改返回，足额后按快照第二遍精确扣除，保留非目标栈。
+  Tests   Done   纯数据夹具覆盖跨格不足、足额精确扣除、重复引用和负数请求；首次 ItemStack 夹具因纯 JUnit 未 bootstrap registry 失败，替换后定向 6 项通过。
+  Version/protocol   Done   `mod_version` 0.2.37 -> 0.2.39（0.2.38 中间成功构建后 max 复核触发再升版）；未改 packet 字段、顺序、编码、注册、方向或通道行为，protocol 保持 25。
+  Verification   Done   0.2.38 普通构建已通过（56s、667 项）；0.2.39 最终普通 `./gradlew build` BUILD SUCCESSFUL（56s），全量 669 项、0 failures/errors/skipped。
+  Remaining   Pending   winner/refund 持久 outbox、未知奖励 fail-closed、QuestTracker 权限、商路凭证和统一交付事务后续分批处理。
+  Update note   Done   `project_docs/updates/20260719_0.2.39_auction_atomic_debit.md`
+
 ## 498. 2026-07-19 0.2.37 商店/拍卖/宗门菜单现场权限
 
   Step   Status   Notes

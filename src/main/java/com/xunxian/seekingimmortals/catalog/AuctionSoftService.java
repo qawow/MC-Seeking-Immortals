@@ -17,9 +17,15 @@ import net.minecraft.world.item.Items;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 import java.util.UUID;
+import java.util.function.ObjIntConsumer;
+import java.util.function.Predicate;
+import java.util.function.ToIntFunction;
 
 /**
  * Live auction with shared multiplayer ladder over economy_auction_bands lots.
@@ -528,18 +534,61 @@ public final class AuctionSoftService {
 
     private static boolean consumeShards(ServerPlayer player, int count) {
         Item shard = ModItems.SPIRIT_STONE_SHARD.get();
-        int remaining = count;
-        for (int i = 0; i < player.getInventory().getContainerSize() && remaining > 0; i++) {
-            ItemStack stack = player.getInventory().getItem(i);
-            if (!stack.is(shard)) {
-                continue;
+        List<ItemStack> stacks = new ArrayList<>(player.getInventory().getContainerSize());
+        for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
+            stacks.add(player.getInventory().getItem(i));
+        }
+        return consumeItemStacks(stacks, shard, count);
+    }
+
+    static boolean consumeItemStacks(List<ItemStack> stacks, Item item, int count) {
+        if (count == 0) {
+            return true;
+        }
+        if (count < 0 || stacks == null || item == null || item == Items.AIR) {
+            return false;
+        }
+        return consumeMatchingEntries(stacks, stack -> stack != null && stack.is(item),
+                ItemStack::getCount, ItemStack::shrink, count);
+    }
+
+    static <T> boolean consumeMatchingEntries(List<T> entries, Predicate<T> matches,
+                                               ToIntFunction<T> countOf, ObjIntConsumer<T> consume,
+                                               int requested) {
+        if (requested == 0) {
+            return true;
+        }
+        if (requested < 0 || entries == null || matches == null || countOf == null || consume == null) {
+            return false;
+        }
+        long available = 0L;
+        List<DebitEntry<T>> debitEntries = new ArrayList<>();
+        Set<T> seen = Collections.newSetFromMap(new IdentityHashMap<>());
+        for (T entry : entries) {
+            if (entry != null && seen.add(entry) && matches.test(entry)) {
+                int entryCount = Math.max(0, countOf.applyAsInt(entry));
+                if (entryCount > 0) {
+                    debitEntries.add(new DebitEntry<>(entry, entryCount));
+                    available += entryCount;
+                }
             }
-            int take = Math.min(remaining, stack.getCount());
-            stack.shrink(take);
+        }
+        if (available < requested) {
+            return false;
+        }
+        int remaining = requested;
+        for (DebitEntry<T> debitEntry : debitEntries) {
+            if (remaining <= 0) {
+                break;
+            }
+            int take = Math.min(remaining, debitEntry.available());
+            consume.accept(debitEntry.entry(), take);
             remaining -= take;
         }
-        return remaining <= 0;
+        return remaining == 0;
     }
+
+    private record DebitEntry<T>(T entry, int available) {}
 
     private static void giveShards(ServerPlayer player, int count) {
         if (player == null || count <= 0) {
