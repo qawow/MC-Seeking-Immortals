@@ -378,8 +378,8 @@ public final class ManualCatalogService {
                         com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts.realm(requiredRealm)), false);
                 return;
             }
-            int spCost = cultivateSpiritualCost(layer);
-            int expCost = cultivateCultivationCost(layer);
+            int spCost = cultivateSpiritualCost(method, layer);
+            int expCost = cultivateCultivationCost(method, layer);
             if (cultivation.getSpiritualPower() < spCost) {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.method.cultivate_need_sp",
                         spCost, cultivation.getSpiritualPower()), false);
@@ -415,13 +415,106 @@ public final class ManualCatalogService {
     }
 
     public static int cultivateSpiritualCost(int currentLayer) {
-        int layer = Math.max(1, currentLayer);
-        return 20 + layer * 12;
+        return cultivateSpiritualCost((TextMaterialCatalogService.MethodEntry) null, currentLayer);
     }
 
     public static int cultivateCultivationCost(int currentLayer) {
+        return cultivateCultivationCost((TextMaterialCatalogService.MethodEntry) null, currentLayer);
+    }
+
+    public static int cultivateSpiritualCost(String methodId, int currentLayer) {
+        return cultivateSpiritualCost(findMethod(methodId), currentLayer);
+    }
+
+    public static int cultivateCultivationCost(String methodId, int currentLayer) {
+        return cultivateCultivationCost(findMethod(methodId), currentLayer);
+    }
+
+    public static int cultivateSpiritualCost(TextMaterialCatalogService.MethodEntry method, int currentLayer) {
         int layer = Math.max(1, currentLayer);
-        return 40 + layer * 30;
+        CostProfile profile = costProfile(method);
+        return Math.max(1, profile.baseSp() + layer * profile.spPerLayer());
+    }
+
+    public static int cultivateCultivationCost(TextMaterialCatalogService.MethodEntry method, int currentLayer) {
+        int layer = Math.max(1, currentLayer);
+        CostProfile profile = costProfile(method);
+        return Math.max(1, profile.baseExp() + layer * profile.expPerLayer());
+    }
+
+    private static TextMaterialCatalogService.MethodEntry findMethod(String methodId) {
+        if (methodId == null || methodId.isBlank()) {
+            return null;
+        }
+        return TextMaterialCatalogService.builtin().findMethod(methodId).orElse(null);
+    }
+
+    /**
+     * Individualized cultivation cost profile.
+     * Life/craft methods are cheaper; combat/demon methods cost more; long ladders amortize.
+     */
+    static CostProfile costProfile(TextMaterialCatalogService.MethodEntry method) {
+        if (method == null) {
+            return CostProfile.DEFAULT;
+        }
+        String school = method.school() == null ? "" : method.school().toLowerCase(Locale.ROOT);
+        String attr = method.attribute() == null ? "" : method.attribute().toLowerCase(Locale.ROOT);
+        String id = method.id() == null ? "" : method.id().toLowerCase(Locale.ROOT);
+        String blob = school + " " + attr + " " + id;
+
+        int baseSp = 20;
+        int spPerLayer = 12;
+        int baseExp = 40;
+        int expPerLayer = 30;
+
+        if (blob.contains("craft") || blob.contains("alchemy") || blob.contains("appraise")
+                || blob.contains("formation") || blob.contains("life") || blob.contains("auxiliary")
+                || blob.contains("scripture") || blob.contains("manual_life")) {
+            baseSp = 12;
+            spPerLayer = 6;
+            baseExp = 24;
+            expPerLayer = 14;
+        } else if (blob.contains("sword") || blob.contains("combat") || blob.contains("battle")
+                || blob.contains("demon") || blob.contains("ghost") || blob.contains("blood")
+                || blob.contains("kill") || blob.contains("dao")) {
+            baseSp = 28;
+            spPerLayer = 16;
+            baseExp = 55;
+            expPerLayer = 38;
+        } else if (blob.contains("body") || blob.contains("temper") || blob.contains("physique")) {
+            baseSp = 18;
+            spPerLayer = 10;
+            baseExp = 48;
+            expPerLayer = 34;
+        }
+
+        // Long ladders (e.g. Changchun 13) amortize per-layer cost slightly.
+        int maxLayers = maxMethodLayer(method.id());
+        if (maxLayers >= 12) {
+            spPerLayer = Math.max(4, spPerLayer - 2);
+            expPerLayer = Math.max(10, expPerLayer - 4);
+        } else if (maxLayers <= 1) {
+            // Zero-stage life methods: fixed single-layer learn; cultivate should not apply, but keep tiny costs.
+            baseSp = Math.min(baseSp, 10);
+            spPerLayer = Math.min(spPerLayer, 4);
+            baseExp = Math.min(baseExp, 20);
+            expPerLayer = Math.min(expPerLayer, 8);
+        }
+
+        // Wood/support methods lean cheaper; fire/thunder lean costlier.
+        if (blob.contains("wood") || blob.contains("heal") || blob.contains("spirit")) {
+            baseSp = Math.max(8, baseSp - 2);
+            baseExp = Math.max(16, baseExp - 4);
+        } else if (blob.contains("fire") || blob.contains("thunder") || blob.contains("lightning")) {
+            baseSp += 2;
+            spPerLayer += 1;
+        }
+
+        return new CostProfile(baseSp, spPerLayer, baseExp, expPerLayer);
+    }
+
+    record CostProfile(int baseSp, int spPerLayer, int baseExp, int expPerLayer) {
+        static final CostProfile DEFAULT = new CostProfile(20, 12, 40, 30);
     }
 
     public static int maxMethodLayer(String methodId) {
@@ -515,7 +608,61 @@ public final class ManualCatalogService {
     }
 
     public static void syncLearnedMethods(ServerPlayer player) {
+        if (player != null) {
+            sanitizeMethodLayers(player);
+        }
         SyncLearnedMethodsPacket.send(player);
+    }
+
+    /**
+     * One-shot clamp for old fixed-9-layer NBT: drop unknown methods, clamp layers to catalog max,
+     * and drop zero/negative layer entries for unlearned keys.
+     */
+    public static int sanitizeMethodLayers(ServerPlayer player) {
+        if (player == null) {
+            return 0;
+        }
+        CompoundTag learned = player.getPersistentData().getCompound(LEARNED_METHODS_TAG).copy();
+        CompoundTag layers = player.getPersistentData().getCompound(METHOD_LAYERS_TAG).copy();
+        int changed = 0;
+        // Remove layer entries for methods that are no longer learned / unknown.
+        for (String key : List.copyOf(layers.getAllKeys())) {
+            String id = key == null ? "" : key.trim().toLowerCase(Locale.ROOT);
+            if (id.isBlank() || !learned.getBoolean(id) || findMethod(id) == null) {
+                layers.remove(key);
+                changed++;
+                continue;
+            }
+            int max = maxMethodLayer(id);
+            int raw = layers.getInt(key);
+            int clamped = Math.max(1, Math.min(max, raw <= 0 ? 1 : raw));
+            if (clamped != raw) {
+                layers.putInt(key, clamped);
+                changed++;
+            } else if (!id.equals(key)) {
+                layers.remove(key);
+                layers.putInt(id, clamped);
+                changed++;
+            }
+        }
+        // Ensure every learned method has a layer entry.
+        for (String key : learned.getAllKeys()) {
+            if (!learned.getBoolean(key)) {
+                continue;
+            }
+            String id = key == null ? "" : key.trim().toLowerCase(Locale.ROOT);
+            if (id.isBlank() || findMethod(id) == null) {
+                continue;
+            }
+            if (!layers.contains(id)) {
+                layers.putInt(id, 1);
+                changed++;
+            }
+        }
+        if (changed > 0) {
+            player.getPersistentData().put(METHOD_LAYERS_TAG, layers);
+        }
+        return changed;
     }
 
     /**

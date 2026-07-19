@@ -514,9 +514,9 @@ public class MethodTreeScreen extends AbstractJournalScreen {
             }
             if (layer < maxLayer) {
                 y = detailLine(graphics, detailX, y, detailW, "cost_sp",
-                        Integer.toString(ManualCatalogService.cultivateSpiritualCost(layer)));
+                        Integer.toString(ManualCatalogService.cultivateSpiritualCost(selected.id(), layer)));
                 y = detailLine(graphics, detailX, y, detailW, "cost_exp",
-                        Integer.toString(ManualCatalogService.cultivateCultivationCost(layer)));
+                        Integer.toString(ManualCatalogService.cultivateCultivationCost(selected.id(), layer)));
                 String nextRealm = MethodLayerTechniqueService.requiredRealmForLayer(selected.id(), layer + 1);
                 if (!nextRealm.isBlank()) {
                     y = detailLine(graphics, detailX, y, detailW, "next_realm",

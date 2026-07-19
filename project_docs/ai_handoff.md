@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-20: `0.2.63` 功法个性化精进成本与层数清理。精进成本按 school/属性/阶梯分流；登录 sanitize 旧固定九层 NBT。普通构建成功。`mod_version=0.2.63`，协议 25。见 `project_docs/updates/20260720_0.2.63_method_costs.md`。
+
 > CURRENT TRUTH 2026-07-20: `0.2.62` CAST 注册表保真 / 鉴定扣费 / 飞行权限。CAST_* 映射 mode-aware TalismanConsumeSpell（ghost-hide 保留 conceal_qi）；鉴定先扣灵力再写 NBT；Curios 飞行静默校验 owner/认主/完整性。普通构建成功。`mod_version=0.2.62`，协议 25。见 `project_docs/updates/20260720_0.2.62_cast_appraise_flight.md`。
 
 > CURRENT TRUTH 2026-07-20: `0.2.61` 任务链推进权限收口。`advance` 拒绝未启动；hook 仅匹配当前 step；同分支再选不刷声望。普通构建成功。`mod_version=0.2.61`，协议 25。见 `project_docs/updates/20260720_0.2.61_quest_advance_authority.md`。

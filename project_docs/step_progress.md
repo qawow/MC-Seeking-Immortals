@@ -1,3 +1,14 @@
+## 513. 2026-07-20 0.2.63 功法个性化精进成本与层数清理
+
+  Step   Status   Notes
+  ---   ---   ---
+  Cost profiles Done   生活/战斗/炼体/长阶梯分流；UI 展示 method-aware 成本。
+  Sanitize NBT  Done   登录 sync 时钳制/清理旧层数条目。
+  Tests   Done   ManualCatalogServiceMethodLayerTest 扩展。
+  Verify  Done   普通构建成功，全量测试通过。
+  Version Done   `mod_version=0.2.63`；protocol 25。
+  Handoff Done   `project_docs/updates/20260720_0.2.63_method_costs.md`。
+
 ## 512. 2026-07-20 0.2.62 CAST 注册表保真 / 鉴定扣费 / 飞行权限
 
   Step   Status   Notes

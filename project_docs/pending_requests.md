@@ -1,3 +1,5 @@
+2026-07-20 0.2.63 pending update: method cultivate costs are school/attribute/ladder aware and login sync sanitizes old fixed-layer NBT. Protocol 25. Remaining: multiblock form-consume-rollback, deeper life-skill proficiency weighting, and live smoke.
+
 2026-07-20 0.2.62 pending update: CAST_* registry maps to mode-aware TalismanConsumeSpell (ghost-hide keeps conceal_qi), appraisal spends spiritual power before writing NBT, and Curios flight silently re-checks owner/claim/integrity. Protocol 25. Remaining: method individualized costs/life proficiency/old NBT cleanup, multiblock form-consume-rollback, and live smoke.
 
 2026-07-20 0.2.61 pending update: text-quest advance rejects unstarted chains, hook advances must match the current step hook, and same-branch reselect no longer farms reputation. Protocol 25. Remaining: CAST_* registry fidelity, appraisal cost commit, Curios flight owner/integrity gates, method individualized costs/life proficiency, and live smoke.

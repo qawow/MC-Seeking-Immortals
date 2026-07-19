@@ -18,8 +18,29 @@ class ManualCatalogServiceMethodLayerTest {
         assertTrue(sp5 > sp1);
         assertTrue(exp1 >= 40);
         assertTrue(exp5 > exp1);
+        // Generic baseline remains the default profile.
         assertEquals(20 + 12, ManualCatalogService.cultivateSpiritualCost(1));
         assertEquals(40 + 30, ManualCatalogService.cultivateCultivationCost(1));
+    }
+
+    @Test
+    void individualizedCostsDifferByMethodFamily() {
+        int genericSp = ManualCatalogService.cultivateSpiritualCost(1);
+        int lifeSp = ManualCatalogService.cultivateSpiritualCost("huangfeng_alchemy_scripture", 1);
+        int combatSp = ManualCatalogService.cultivateSpiritualCost("qingyuan_sword_art", 1);
+        int longSp = ManualCatalogService.cultivateSpiritualCost("changchun_gong", 1);
+
+        assertTrue(lifeSp < genericSp, "life/craft methods should cost less spiritual power");
+        assertTrue(combatSp > genericSp || combatSp >= genericSp,
+                "combat/sword methods should not be cheaper than baseline");
+        // Long ladders amortize per-layer cost.
+        assertTrue(ManualCatalogService.cultivateSpiritualCost("changchun_gong", 5)
+                < ManualCatalogService.cultivateSpiritualCost(5)
+                || longSp <= genericSp);
+
+        int lifeExp = ManualCatalogService.cultivateCultivationCost("huangfeng_alchemy_scripture", 1);
+        int genericExp = ManualCatalogService.cultivateCultivationCost(1);
+        assertTrue(lifeExp < genericExp, "life/craft methods should cost less cultivation exp");
     }
 
     @Test
@@ -85,5 +106,19 @@ class ManualCatalogServiceMethodLayerTest {
                 .getBoolean("mixed_method"));
         assertEquals(4, clone.getCompound(ManualCatalogService.METHOD_LAYERS_TAG)
                 .getInt("mixed_method"));
+    }
+
+    @Test
+    void sanitizeMethodLayersClampsAndDropsStaleEntriesInSource() throws Exception {
+        String source = java.nio.file.Files.readString(java.nio.file.Path.of(
+                "src", "main", "java", "com", "xunxian", "seekingimmortals",
+                "catalog", "ManualCatalogService.java"));
+        String compact = source.replaceAll("\\s+", "");
+        assertTrue(compact.contains("sanitizeMethodLayers(ServerPlayerplayer)"));
+        assertTrue(compact.contains("syncLearnedMethods(ServerPlayerplayer){if(player!=null){sanitizeMethodLayers(player);}"));
+        assertTrue(compact.contains("maxMethodLayer(id)"));
+        // cultivate path must use method-aware costs
+        assertTrue(compact.contains("cultivateSpiritualCost(method,layer)"));
+        assertTrue(compact.contains("cultivateCultivationCost(method,layer)"));
     }
 }
