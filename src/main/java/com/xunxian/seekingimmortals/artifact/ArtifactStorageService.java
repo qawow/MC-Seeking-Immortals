@@ -211,7 +211,7 @@ public final class ArtifactStorageService {
 
         ItemStack restored = items.remove(items.size() - 1);
         writeItems(braceletStack, items);
-        InventoryDeliveryService.giveOrDrop(player, restored);
+        InventoryDeliveryService.giveOrEnqueue(player, restored, "storage_withdraw");
         player.containerMenu.broadcastChanges();
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.artifact.storage_retrieved", restored.getHoverName(),

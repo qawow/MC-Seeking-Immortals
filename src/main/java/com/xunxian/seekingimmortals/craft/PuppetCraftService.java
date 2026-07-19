@@ -193,7 +193,7 @@ public final class PuppetCraftService {
 
     private static void refundMaterials(ServerPlayer player, Recipe recipe) {
         for (Material material : recipe.materials()) {
-            InventoryDeliveryService.giveOrDrop(player, new ItemStack(material.item(), material.count()));
+            InventoryDeliveryService.giveOrEnqueue(player, new ItemStack(material.item(), material.count()), "puppet_craft_refund");
         }
     }
 

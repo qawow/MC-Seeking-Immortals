@@ -1,3 +1,5 @@
+2026-07-20 0.2.60 pending update: auction settle claims house/WON before delivery, authored reward ids fail closed, and residual gift/storage/craft-refund paths enqueue instead of world-dropping. Protocol 25. Remaining: QuestTracker authority, CAST_* fidelity, method individualized costs/life proficiency, Curios flight gates, appraisal cost commit, and live smoke.
+
 2026-07-20 0.2.59 pending update: storage menus continuously re-check owner/realm/integrity and only flush when still authorized. Protocol 25. Remaining: auction settle idempotency/order hardening, residual giveOrDrop path review, CAST_* fidelity, method individualized costs, and live smoke.
 
 2026-07-20 0.2.58 pending update: more reward paths enqueue on full inventory; auction offline refunds deliver before ledger take; soft catalog craft requires nearby formed stations. Protocol 25. Remaining: storage continuous authorization, auction settle idempotency polish, and live smoke.

@@ -329,26 +329,38 @@ public final class AuctionSoftService {
 
         CompoundTag won = player.getPersistentData().getCompound(WON_ROOT).copy();
         if (won.getBoolean(lot.id())) {
+            // Heal house/player ledger drift without re-delivering rewards.
+            house.markSettled(lot.id());
             player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.already_won", lot.display()), false);
             return false;
         }
 
-        ItemStack reward = new ItemStack(rewardItemFor(lot), rewardCountFor(lot));
+        Item rewardItem = rewardItemFor(lot);
+        if (rewardItem == null || rewardItem == Items.AIR) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.auction.unknown", lot.display()), false);
+            return false;
+        }
+
+        // Claim settlement first so crash after delivery cannot re-open the lot.
+        house.markSettled(lot.id());
+        won.putBoolean(lot.id(), true);
+        player.getPersistentData().put(WON_ROOT, won);
+
+        ItemStack reward = new ItemStack(rewardItem, rewardCountFor(lot));
         // Wave492: won auction lots arrive pre-appraised for economy honesty.
         markAppraisedReward(reward, lot);
-        InventoryDeliveryService.giveOrEnqueue(player, reward, "auction_win");
+        String lotKey = lot.id() == null ? "" : lot.id();
+        InventoryDeliveryService.giveOrEnqueue(player, reward, "auction_win:" + lotKey);
         // Grant first valid extra if present.
         for (String extra : lot.extras()) {
             Item extraItem = resolveItem(extra);
             if (extraItem != null && extraItem != Items.AIR) {
                 ItemStack extraStack = new ItemStack(extraItem, 1);
-                InventoryDeliveryService.giveOrEnqueue(player, extraStack, "auction_win_extra");
+                InventoryDeliveryService.giveOrEnqueue(player, extraStack, "auction_win_extra:" + lotKey);
                 break;
             }
         }
-        house.markSettled(lot.id());
-        won.putBoolean(lot.id(), true);
-        player.getPersistentData().put(WON_ROOT, won);
         ReputationService.add(player, "auction_house", 5);
         try {
             com.xunxian.seekingimmortals.phase.SoftPhaseShellService.mark(player, "phase14_tiannan_auction", false);
@@ -470,10 +482,14 @@ public final class AuctionSoftService {
     }
 
     private static Item rewardItemFor(Lot lot) {
-        // A5: exact reward_item first.
-        Item explicit = resolveItem(lot.rewardItem());
-        if (explicit != null && explicit != Items.AIR) {
-            return explicit;
+        // A5: exact reward_item first. Authored but unresolved ids fail closed.
+        String authoredReward = lot.rewardItem();
+        if (authoredReward != null && !authoredReward.isBlank()) {
+            Item explicit = resolveItem(authoredReward);
+            if (explicit != null && explicit != Items.AIR) {
+                return explicit;
+            }
+            return null;
         }
         // id table
         String id = lot.id() == null ? "" : lot.id().toLowerCase(Locale.ROOT);

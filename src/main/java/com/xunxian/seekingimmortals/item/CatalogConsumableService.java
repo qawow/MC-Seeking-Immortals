@@ -447,7 +447,7 @@ public final class CatalogConsumableService {
         if (stack.isEmpty()) {
             return false;
         }
-        InventoryDeliveryService.giveOrDrop(player, stack);
+        InventoryDeliveryService.giveOrEnqueue(player, stack, "catalog_consumable");
         return true;
     }
 

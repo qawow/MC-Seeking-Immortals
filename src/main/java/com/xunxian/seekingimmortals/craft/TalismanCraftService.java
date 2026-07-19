@@ -182,7 +182,7 @@ public final class TalismanCraftService {
             return;
         }
         for (Material material : recipe.materials()) {
-            InventoryDeliveryService.giveOrDrop(player, new ItemStack(material.item(), material.count()));
+            InventoryDeliveryService.giveOrEnqueue(player, new ItemStack(material.item(), material.count()), "talisman_craft_refund");
         }
     }
 

@@ -1,3 +1,15 @@
+## 510. 2026-07-20 0.2.60 拍卖 settle 幂等与剩余交付 outbox
+
+  Step   Status   Notes
+  ---   ---   ---
+  Settle order   Done   markSettled/WON 先于 giveOrEnqueue；already_won 愈合 house。
+  Reward fail-closed Done   authored reward_item 解析失败不模糊回退。
+  Residual outbox Done   礼包/储物取出/制符傀儡退料 enqueue。
+  Tests   Done   AuctionSoftServiceTest 增加 settle 顺序契约。
+  Verify  Done   普通构建成功，全量测试通过。
+  Version Done   `mod_version=0.2.60`；protocol 25。
+  Handoff Done   `project_docs/updates/20260720_0.2.60_auction_settle_outbox.md`。
+
 ## 509. 2026-07-20 0.2.59 储物菜单持续授权
 
   Step   Status   Notes
