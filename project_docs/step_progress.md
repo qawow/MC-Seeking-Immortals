@@ -1,3 +1,15 @@
+## 511. 2026-07-20 0.2.61 任务链推进权限收口
+
+  Step   Status   Notes
+  ---   ---   ---
+  Unstarted gate Done   advance 拒绝 stage<=0。
+  Current step   Done   hook 仅匹配当前 stepHooks[stage-1]。
+  Branch rep     Done   同分支再选不刷声望。
+  Tests/lang     Done   契约测试与双语消息。
+  Verify  Done   普通构建成功，全量测试通过。
+  Version Done   `mod_version=0.2.61`；protocol 25。
+  Handoff Done   `project_docs/updates/20260720_0.2.61_quest_advance_authority.md`。
+
 ## 510. 2026-07-20 0.2.60 拍卖 settle 幂等与剩余交付 outbox
 
   Step   Status   Notes

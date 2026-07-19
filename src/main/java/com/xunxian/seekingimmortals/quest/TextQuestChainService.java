@@ -209,7 +209,10 @@ public final class TextQuestChainService {
         String id = chain.id();
         int stage = Math.max(0, root.getInt(id));
         if (stage <= 0) {
-            stage = 1;
+            // Must start() first so realm/region/faction gates cannot be skipped.
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.text_quest.not_started", chain.display()), false);
+            return false;
         } else if (chain.stepCount() > 0 && stage >= chain.stepCount()) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.complete",
                     chain.display()), false);
@@ -252,6 +255,43 @@ public final class TextQuestChainService {
      * Wave48 authoritative stage cost. Returns empty for free stages.
      * Pure data: item ids are string paths so unit tests do not need Forge registries.
      */
+    /**
+     * Expected hook for the player's current 1-based stage.
+     * Empty means the chain has no authored step hook for that stage (dialogue advance allowed).
+     */
+    public static Optional<String> expectedHookForStage(String chainId, int stage) {
+        if (stage <= 0) {
+            return Optional.empty();
+        }
+        return find(chainId).flatMap(chain -> {
+            List<String> hooks = chain.stepHooks();
+            if (hooks == null || hooks.isEmpty() || stage > hooks.size()) {
+                return Optional.empty();
+            }
+            String hook = hooks.get(stage - 1);
+            if (hook == null || hook.isBlank()) {
+                return Optional.empty();
+            }
+            return Optional.of(normalize(hook));
+        });
+    }
+
+    /** True when the fired hook matches the current stage, or the stage has no authored hook. */
+    public static boolean matchesCurrentStepHook(ServerPlayer player, String chainId, String hookId) {
+        if (player == null) {
+            return false;
+        }
+        ChainProgress progress = progressOf(player, chainId);
+        if (progress.stage() <= 0 || progress.complete()) {
+            return false;
+        }
+        Optional<String> expected = expectedHookForStage(chainId, progress.stage());
+        if (expected.isEmpty()) {
+            return true;
+        }
+        return expected.get().equals(normalize(hookId));
+    }
+
     public static Optional<StageCost> stageCostFor(String chainId, int targetStage, int stepCount) {
         String id = normalize(chainId);
         if (targetStage <= 1 || stepCount <= 0) {
@@ -454,6 +494,12 @@ public final class TextQuestChainService {
         if (!current.isBlank() && !BRANCH_NEUTRAL.equals(current) && !current.equals(normalized)) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.text_quest.branch_already_locked", id, current), false);
+            return false;
+        }
+        if (current.equals(normalized)) {
+            // Same branch re-select must not farm reputation.
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.text_quest.branch_same", optional.get().display(), normalized), false);
             return false;
         }
         setBranch(player, id, normalized);

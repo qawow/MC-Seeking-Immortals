@@ -317,13 +317,17 @@ public final class QuestHookRuntime {
             }
         }
         for (String chainId : chains) {
-            tryAdvanceActive(player, chainId);
+            tryAdvanceActive(player, chainId, hook);
         }
         // Soft flag so dialogue conditions / future UI can see the hook fire.
         NpcDialogueFlags.setFlag(player, "hook_" + hook);
     }
 
     private static void tryAdvanceActive(ServerPlayer player, String chainId) {
+        tryAdvanceActive(player, chainId, "");
+    }
+
+    private static void tryAdvanceActive(ServerPlayer player, String chainId, String hookId) {
         String id = normalize(chainId);
         if (id.isBlank()) {
             return;
@@ -338,6 +342,10 @@ public final class QuestHookRuntime {
             return;
         }
         if (progress.complete()) {
+            return;
+        }
+        // Only the authored current-step hook may advance; empty expected hooks stay open for dialogue.
+        if (!hookId.isBlank() && !TextQuestChainService.matchesCurrentStepHook(player, id, hookId)) {
             return;
         }
         TextQuestChainService.advance(player, id);

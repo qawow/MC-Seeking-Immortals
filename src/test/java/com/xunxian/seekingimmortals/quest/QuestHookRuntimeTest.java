@@ -36,4 +36,20 @@ class QuestHookRuntimeTest {
         assertEquals(List.of("any_travel"), QuestHookRuntime.resolveQuestIds(travel));
         assertEquals(List.of("zhenyan_outer_lesson", "extra"), QuestHookRuntime.resolveQuestIds(array));
     }
+
+    @Test
+    void hookAdvanceRequiresCurrentStepMatchInSource() throws Exception {
+        String source = java.nio.file.Files.readString(java.nio.file.Path.of(
+                "src", "main", "java", "com", "xunxian", "seekingimmortals",
+                "quest", "QuestHookRuntime.java"));
+        String compact = source.replaceAll("\\s+", "");
+        assertTrue(compact.contains("matchesCurrentStepHook(player,id,hookId)"),
+                "hook-driven advances must match the current step hook");
+        assertTrue(compact.contains("tryAdvanceActive(player,chainId,hook)"),
+                "tryAdvanceByHook must pass the fired hook into the active advance path");
+        int stageGuard = compact.indexOf("if(progress.stage()<=0){return;}");
+        int advance = compact.indexOf("TextQuestChainService.advance(player,id)");
+        assertTrue(stageGuard >= 0 && advance > stageGuard,
+                "hook advances must require an already-started chain");
+    }
 }

@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-20: `0.2.61` 任务链推进权限收口。`advance` 拒绝未启动；hook 仅匹配当前 step；同分支再选不刷声望。普通构建成功。`mod_version=0.2.61`，协议 25。见 `project_docs/updates/20260720_0.2.61_quest_advance_authority.md`。
+
 > CURRENT TRUTH 2026-07-20: `0.2.60` 拍卖 settle 幂等与剩余交付 outbox。settle 先 claim house/WON 再交付；authored 奖励解析失败 fail-closed；礼包/储物取出/制符傀儡退料改 `giveOrEnqueue`。普通构建成功。`mod_version=0.2.60`，协议 25。见 `project_docs/updates/20260720_0.2.60_auction_settle_outbox.md`。
 
 > CURRENT TRUTH 2026-07-20: `0.2.59` 储物菜单持续授权。`isContinuouslyAuthorized` 在菜单 stillValid/clicked/quickMove/removed 路径复检 owner/境界/完整性；写回仅在仍授权时执行。普通构建成功，全量 704 项。`mod_version=0.2.59`，协议 25。见 `project_docs/updates/20260720_0.2.59_storage_continuous_auth.md`。

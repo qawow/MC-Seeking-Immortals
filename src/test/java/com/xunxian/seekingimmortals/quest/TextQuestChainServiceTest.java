@@ -76,4 +76,70 @@ class TextQuestChainServiceTest {
         assertTrue(line.contains("REW="));
         assertTrue(line.contains("cost="));
     }
+
+    @Test
+    void advanceRejectsUnstartedChainsInSource() throws Exception {
+        String source = java.nio.file.Files.readString(java.nio.file.Path.of(
+                "src", "main", "java", "com", "xunxian", "seekingimmortals",
+                "quest", "TextQuestChainService.java"));
+        String compact = source.replaceAll("\\s+", "");
+        int advance = compact.indexOf("publicstaticbooleanadvance(ServerPlayerplayer,StringchainId)");
+        assertTrue(advance >= 0);
+        int bodyStart = compact.indexOf('{', advance);
+        int depth = 0;
+        int bodyEnd = -1;
+        for (int i = bodyStart; i < compact.length(); i++) {
+            char c = compact.charAt(i);
+            if (c == '{') depth++;
+            else if (c == '}' && --depth == 0) {
+                bodyEnd = i;
+                break;
+            }
+        }
+        String body = compact.substring(advance, bodyEnd + 1);
+        assertTrue(body.contains("if(stage<=0)"), "advance must inspect unstarted stage");
+        assertTrue(body.contains("text_quest.not_started"), "unstarted advance must warn not_started");
+        assertTrue(body.contains("returnfalse;"), "unstarted advance must fail closed");
+        assertFalse(body.contains("stage=1;") && body.indexOf("stage=1;") < body.indexOf("stage++"),
+                "advance must not auto-start stage 1");
+    }
+
+    @Test
+    void expectedHookMatchesCatalogStepOrder() {
+        Optional<String> first = TextQuestChainService.expectedHookForStage("huangfeng_cultivation_path", 1);
+        assertTrue(first.isPresent());
+        assertEquals("huangfeng_entry", first.get());
+        Optional<String> second = TextQuestChainService.expectedHookForStage("huangfeng_cultivation_path", 2);
+        assertTrue(second.isPresent());
+        assertEquals("alchemy_apprentice", second.get());
+        assertTrue(TextQuestChainService.expectedHookForStage("huangfeng_cultivation_path", 0).isEmpty());
+    }
+
+    @Test
+    void chooseBranchRejectsSameBranchReputationFarmInSource() throws Exception {
+        String source = java.nio.file.Files.readString(java.nio.file.Path.of(
+                "src", "main", "java", "com", "xunxian", "seekingimmortals",
+                "quest", "TextQuestChainService.java"));
+        String compact = source.replaceAll("\\s+", "");
+        int method = compact.indexOf("publicstaticbooleanchooseBranch(");
+        assertTrue(method >= 0);
+        int bodyStart = compact.indexOf('{', method);
+        int depth = 0;
+        int bodyEnd = -1;
+        for (int i = bodyStart; i < compact.length(); i++) {
+            char c = compact.charAt(i);
+            if (c == '{') depth++;
+            else if (c == '}' && --depth == 0) {
+                bodyEnd = i;
+                break;
+            }
+        }
+        String body = compact.substring(method, bodyEnd + 1);
+        assertTrue(body.contains("current.equals(normalized)") || body.contains("normalized.equals(current)"));
+        assertTrue(body.contains("branch_same"));
+        int sameGuard = body.indexOf("branch_same");
+        int repAdd = body.indexOf("ReputationService.add(");
+        assertTrue(sameGuard >= 0 && repAdd > sameGuard,
+                "same-branch rejection must run before reputation grant");
+    }
 }
