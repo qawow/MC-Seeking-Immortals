@@ -70,7 +70,8 @@ public class CatalogConsumableItem extends BaseMaterialItem implements PortableS
         if (result != CatalogConsumableService.UseResult.SUCCESS) {
             return InteractionResultHolder.fail(stack);
         }
-        if (storageSlots <= 0 && !serverPlayer.getAbilities().instabuild) {
+        if (CatalogConsumableService.shouldConsumeOnSuccess(effect, storageSlots)
+                && !serverPlayer.getAbilities().instabuild) {
             stack.shrink(1);
         }
         return InteractionResultHolder.success(stack);

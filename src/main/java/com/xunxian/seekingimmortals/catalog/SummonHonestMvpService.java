@@ -21,6 +21,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
@@ -270,6 +271,32 @@ public final class SummonHonestMvpService {
         }
         player.displayClientMessage(Component.translatable("message.seeking_immortals.puppet.repaired", puppets.size()), true);
         return puppets.size();
+    }
+
+    public static boolean empowerNearestOwnedGhost(ServerPlayer player) {
+        if (player == null) {
+            return false;
+        }
+        SummonedServitorEntity ghost = listOwnedServitors(player).stream()
+                .filter(servitor -> servitor.getArchetype() == SummonedServitorEntity.Archetype.GHOST)
+                .filter(servitor -> servitor.level() == player.level())
+                .filter(servitor -> servitor.distanceToSqr(player) <= 16.0D * 16.0D)
+                .min(Comparator.comparingDouble(servitor -> servitor.distanceToSqr(player)))
+                .orElse(null);
+        if (ghost == null) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.catalog_consumable.coffin_nail_no_ghost"), true);
+            return false;
+        }
+        ghost.heal(8.0F);
+        ghost.extendLife(20 * 60 * 5);
+        ghost.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 20 * 60 * 5, 0));
+        ghost.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 20 * 60 * 5, 0));
+        ghost.setStance(SummonedServitorEntity.Stance.GUARD);
+        player.displayClientMessage(Component.translatable(
+                "message.seeking_immortals.catalog_consumable.coffin_nail_success",
+                ghost.getDisplayName()), true);
+        return true;
     }
 
     private static boolean consumeRepairMaterial(ServerPlayer player) {

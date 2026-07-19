@@ -5,6 +5,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
+import com.xunxian.seekingimmortals.catalog.ItemCatalogService;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -12,6 +13,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -30,6 +32,8 @@ import java.util.Optional;
  */
 public final class FormationItemService {
     private static final String USES_REMAINING_TAG = "SeekingImmortalsFormationUses";
+    private static final int NORMAL_FIELD_DURATION_TICKS = 20 * 90;
+    private static final int FUELED_FIELD_DURATION_TICKS = 20 * 150;
     private static final Snapshot BUILTIN = loadBuiltin();
 
     private FormationItemService() {}
@@ -127,15 +131,20 @@ public final class FormationItemService {
 
         // Activate free field from formation_id mapping.
         FormationFieldService.FieldKind kind = CraftWorldMappedKind(formationId);
+        boolean fueled = hasFormationFuel(player);
         boolean ok = FormationFieldService.activateFreeField(
                 serverLevel,
                 player.blockPosition(),
                 kind,
-                20 * 90,
+                fieldDurationTicks(fueled),
                 player,
                 formationId.isBlank() ? null : formationId);
         if (ok) {
             consumeUse(player, stack, behavior);
+            if (fueled && consumeFormationFuel(player)) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.formation_item.fueled"), true);
+            }
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.formation_item.activated",
                     behavior.display() == null ? behavior.id() : behavior.display(),
@@ -146,6 +155,41 @@ public final class FormationItemService {
                 "message.seeking_immortals.formation_item.failed",
                 behavior.display() == null ? behavior.id() : behavior.display()), true);
         return Optional.of(InteractionResultHolder.fail(stack));
+    }
+
+    static int fieldDurationTicks(boolean fueled) {
+        return fueled ? FUELED_FIELD_DURATION_TICKS : NORMAL_FIELD_DURATION_TICKS;
+    }
+
+    private static boolean hasFormationFuel(ServerPlayer player) {
+        if (player.getAbilities().instabuild) {
+            return false;
+        }
+        Item fuel = ItemCatalogService.resolveCatalogItem("spirit_sand_pouch");
+        if (fuel == null) {
+            return false;
+        }
+        for (int index = 0; index < player.getInventory().getContainerSize(); index++) {
+            if (player.getInventory().getItem(index).is(fuel)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean consumeFormationFuel(ServerPlayer player) {
+        Item fuel = ItemCatalogService.resolveCatalogItem("spirit_sand_pouch");
+        if (fuel == null) {
+            return false;
+        }
+        for (int index = 0; index < player.getInventory().getContainerSize(); index++) {
+            ItemStack fuelStack = player.getInventory().getItem(index);
+            if (fuelStack.is(fuel)) {
+                fuelStack.shrink(1);
+                return true;
+            }
+        }
+        return false;
     }
 
     private static FormationFieldService.FieldKind CraftWorldMappedKind(String formationId) {

@@ -60,7 +60,12 @@ public final class BulkItemClassifier {
             "healing_salve",
             "poison_antidote_pack",
             "smoke_bomb_spirit",
-            "sound_beacon"
+            "sound_beacon",
+            "detox_minor_pill",
+            "talisman_ink_bottle",
+            "spirit_sand_pouch",
+            "yin_coffin_nail",
+            "wind_feather_raft_blueprint"
     );
     private static final Map<String, AlchemyFormulaSource> ALCHEMY_FORMULA_SOURCES =
             loadAlchemyFormulaSources();
@@ -147,6 +152,17 @@ public final class BulkItemClassifier {
         int storageSlots = parseStorageSlots(effect);
         if (storageSlots == 9 || storageSlots == 18 || storageSlots == 27) {
             return "portable_storage_" + storageSlots;
+        }
+        String dedicated = switch (id) {
+            case "detox_minor_pill" -> "detox_minor";
+            case "talisman_ink_bottle" -> "talisman_craft_material";
+            case "spirit_sand_pouch" -> "array_fuel";
+            case "yin_coffin_nail" -> "corpse_control";
+            case "wind_feather_raft_blueprint" -> "vehicle_craft";
+            default -> "";
+        };
+        if (!dedicated.isBlank()) {
+            return dedicated;
         }
         if (!effect.isBlank()) {
             return effect;

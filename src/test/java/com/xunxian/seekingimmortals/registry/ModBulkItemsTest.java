@@ -80,6 +80,17 @@ class ModBulkItemsTest {
                 BulkItemClassifier.classify("spirit_rice_bowl", "consumable"));
         assertEquals(BulkItemKind.CONSUMABLE,
                 BulkItemClassifier.classify("storage_pouch_low", "consumable"));
+        assertEquals(BulkItemKind.CONSUMABLE,
+                BulkItemClassifier.classify("detox_minor_pill", "consumable"));
+        assertEquals("detox_minor", BulkItemClassifier.consumable("detox_minor_pill").orElseThrow().effect());
+        assertEquals("talisman_craft_material",
+                BulkItemClassifier.consumable("talisman_ink_bottle").orElseThrow().effect());
+        assertEquals("array_fuel",
+                BulkItemClassifier.consumable("spirit_sand_pouch").orElseThrow().effect());
+        assertEquals("corpse_control",
+                BulkItemClassifier.consumable("yin_coffin_nail").orElseThrow().effect());
+        assertEquals("vehicle_craft",
+                BulkItemClassifier.consumable("wind_feather_raft_blueprint").orElseThrow().effect());
         assertEquals(BulkItemKind.PILL,
                 BulkItemClassifier.classify("appearance_lock_pill", "pill"));
         assertEquals(BulkItemKind.PILL,

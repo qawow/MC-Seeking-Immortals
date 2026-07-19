@@ -1545,3 +1545,8 @@ No new placeholder textures, models, item ids, blocks, recipes, loot tables, GUI
 ## 0.1.364 FTB Tiannan seven-sects item-task bridge placeholder note
 
 The five upgraded Tiannan seven-sects FTB tasks are intentionally non-consuming inventory checks only. They make existing Spirit Iron, Beast Core, and Fire Talisman carriers visible to FTB progression for Huadao forge work, Giant Sword relic restoration, Yuling beast-puppet binding, spirit-beast contract routing, and Tianfu low talisman certification, but they do not grant rewards, consume costs, lock branches, write `QuestProgress`, sync Seeking Immortals quest state, validate sect/craft-state, validate beast contracts, validate talisman crafting, trigger NPC/server events, spawn encounters, or prove live client behavior. Remaining placeholders include wider item-task coverage, advancement/custom tasks, server-authoritative reward bridges, branch locks, craft-state/reputation validation, boss/encounter wiring, quest icons, and live FTB client smoke checks.
+## 0.2.49 专用物品与目录说明交接
+
+本批未新增注册物品、方块、实体、模型、纹理、网络包或持久 schema。五个明确 inert 物品均已进入服务端闭环；制符与飞舟成本先完整预检再扣除，灵砂和符墨不因单独右键浪费，镇尸钉无合法鬼仆时不扣，清毒丹不越权处理高阶魔毒。1190 条 bulk item 均有双语用途定位和交互策略，原 JSON 中 869 条“目录载体”占位不再作为玩家 tooltip 展示。普通全量构建 690 项通过，协议保持 25。
+
+仍未完成：统一说明目前是 category/id 规则生成，已有源语料中的逐物品独特 lore、获取方式、精确配方去向和经济用途尚未全部提升为独立双语文本；`diyuan_access_token`、贡献凭证、结构/阵盘/傀儡载体仍需逐服务核对分类、堆叠和消费事务。灵砂只增强自由阵场，所有 place-block 阵法、祭坛、界门和多方块燃料/失败回滚仍需完整审计。功法尚缺灵根/体质/阵营/声望/来源/环境/转修规则，747 条术法结构化字段仍未全面执行；法宝倍率、储物持续授权、持久交付 outbox 与真实客户端/专服/多人烟测继续保留。

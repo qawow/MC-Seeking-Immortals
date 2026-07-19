@@ -1,5 +1,6 @@
 package com.xunxian.seekingimmortals.craft;
 
+import com.xunxian.seekingimmortals.catalog.ItemCatalogService;
 import com.xunxian.seekingimmortals.item.InventoryDeliveryService;
 import com.xunxian.seekingimmortals.registry.ModItems;
 import net.minecraft.server.level.ServerPlayer;
@@ -9,7 +10,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.function.Supplier;
 
@@ -88,13 +91,16 @@ public final class TalismanCraftService {
     }
 
     private static CraftResult craftRecipe(ServerPlayer player, Recipe recipe) {
-        if (!player.getAbilities().instabuild && !consumeMaterials(player, recipe)) {
-            return new CraftResult(false, recipe, ItemStack.EMPTY, "message.seeking_immortals.talisman_table.missing_materials");
+        boolean creative = player.getAbilities().instabuild;
+        boolean skillUnlocked = com.xunxian.seekingimmortals.skill.LifeSkillService.meetsLevel(player,
+                com.xunxian.seekingimmortals.skill.SkillType.TALISMAN_CRAFTING, 0);
+        String preflightFailure = preflightFailure(creative, skillUnlocked, creative || hasMaterials(player, recipe));
+        if (!preflightFailure.isBlank()) {
+            return new CraftResult(false, recipe, ItemStack.EMPTY, preflightFailure);
         }
-        // Wave489: life-skill gate + success bonus from TALISMAN_CRAFTING.
-        if (!com.xunxian.seekingimmortals.skill.LifeSkillService.meetsLevel(player,
-                com.xunxian.seekingimmortals.skill.SkillType.TALISMAN_CRAFTING, 0)) {
-            return new CraftResult(false, recipe, ItemStack.EMPTY, "message.seeking_immortals.talisman_table.skill_locked");
+        if (!creative && !consumeMaterials(player, recipe)) {
+            return new CraftResult(false, recipe, ItemStack.EMPTY,
+                    "message.seeking_immortals.talisman_table.missing_materials");
         }
         double rate = com.xunxian.seekingimmortals.skill.LifeSkillService.adjustedSuccessRate(
                 player, com.xunxian.seekingimmortals.skill.SkillType.TALISMAN_CRAFTING, recipe.successRate());
@@ -128,8 +134,12 @@ public final class TalismanCraftService {
         if (player.getAbilities().instabuild) {
             return true;
         }
-        for (Material material : recipe.materials()) {
-            if (count(player, material.item()) < material.count()) {
+        Optional<Map<Item, Integer>> requirements = materialRequirements(recipe);
+        if (requirements.isEmpty()) {
+            return false;
+        }
+        for (Map.Entry<Item, Integer> requirement : requirements.get().entrySet()) {
+            if (count(player, requirement.getKey()) < requirement.getValue()) {
                 return false;
             }
         }
@@ -137,14 +147,20 @@ public final class TalismanCraftService {
     }
 
     private static boolean consumeMaterials(ServerPlayer player, Recipe recipe) {
-        if (!hasMaterials(player, recipe)) {
+        Optional<Map<Item, Integer>> requirements = materialRequirements(recipe);
+        if (requirements.isEmpty()) {
             return false;
         }
-        for (Material material : recipe.materials()) {
-            int remaining = material.count();
+        for (Map.Entry<Item, Integer> requirement : requirements.get().entrySet()) {
+            if (count(player, requirement.getKey()) < requirement.getValue()) {
+                return false;
+            }
+        }
+        for (Map.Entry<Item, Integer> requirement : requirements.get().entrySet()) {
+            int remaining = requirement.getValue();
             for (int i = 0; i < player.getInventory().getContainerSize() && remaining > 0; i++) {
                 ItemStack stack = player.getInventory().getItem(i);
-                if (!stack.is(material.item())) {
+                if (!stack.is(requirement.getKey())) {
                     continue;
                 }
                 int take = Math.min(remaining, stack.getCount());
@@ -156,6 +172,33 @@ public final class TalismanCraftService {
             }
         }
         return true;
+    }
+
+    private static Optional<Map<Item, Integer>> materialRequirements(Recipe recipe) {
+        Map<Item, Integer> requirements = new LinkedHashMap<>();
+        for (Material material : recipe.materials()) {
+            requirements.merge(material.item(), material.count(), Integer::sum);
+        }
+        Item ink = ItemCatalogService.resolveCatalogItem("talisman_ink_bottle");
+        if (ink == null) {
+            return Optional.empty();
+        }
+        requirements.merge(ink, requiredInkCount(), Integer::sum);
+        return Optional.of(requirements);
+    }
+
+    static String preflightFailure(boolean creative, boolean skillUnlocked, boolean materialsAvailable) {
+        if (!skillUnlocked) {
+            return "message.seeking_immortals.talisman_table.skill_locked";
+        }
+        if (!creative && !materialsAvailable) {
+            return "message.seeking_immortals.talisman_table.missing_materials";
+        }
+        return "";
+    }
+
+    public static int requiredInkCount() {
+        return 1;
     }
 
     private static int count(ServerPlayer player, Item item) {

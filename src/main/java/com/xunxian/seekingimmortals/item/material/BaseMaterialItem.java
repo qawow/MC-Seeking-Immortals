@@ -11,6 +11,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import com.xunxian.seekingimmortals.item.CatalogItemDescriptionService;
 
 import java.util.List;
 import java.util.Locale;
@@ -60,12 +61,9 @@ public class BaseMaterialItem extends Item {
     public void appendHoverText(ItemStack stack, Level level, List<Component> tooltip, TooltipFlag flag) {
         tooltip.add(Component.literal(rarity.getDisplayName()).withStyle(style -> style.withColor(rarity.getColor())));
         tooltip.add(Component.literal(category.getDisplayName()).withStyle(ChatFormatting.GRAY));
-        // Wave496: material descriptions prefer lang keys; catalog bulk keeps bilingual carrier tooltip.
+        // Wave496: material descriptions prefer lang keys; bulk catalog descriptions are generated bilingually.
         String desc = description == null ? "" : description;
-        if (desc.startsWith("目录载体") || desc.toLowerCase(Locale.ROOT).startsWith("catalog carrier")) {
-            tooltip.add(Component.translatable("tooltip.seeking_immortals.catalog_carrier", stack.getHoverName())
-                    .withStyle(ChatFormatting.DARK_GRAY));
-        } else {
+        if (!CatalogItemDescriptionService.appendCatalogDescription(stack, tooltip, desc)) {
             String path = stack.getItem().builtInRegistryHolder().key().location().getPath();
             String descKey = "tooltip.seeking_immortals.material." + path;
             Language language = Language.getInstance();

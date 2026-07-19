@@ -1,6 +1,7 @@
 package com.xunxian.seekingimmortals.item;
 
 import com.xunxian.seekingimmortals.artifact.ArtifactStorageService;
+import com.xunxian.seekingimmortals.catalog.FlightVehicleService;
 import com.xunxian.seekingimmortals.cultivation.BeastContractService;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
@@ -11,6 +12,8 @@ import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
 import com.xunxian.seekingimmortals.registry.ModItems;
 import com.xunxian.seekingimmortals.entity.CultivationFireballEntity;
 import com.xunxian.seekingimmortals.catalog.ItemCatalogService;
+import com.xunxian.seekingimmortals.catalog.SummonHonestMvpService;
+import com.xunxian.seekingimmortals.combat.status.PoisonAntidoteService;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -85,9 +88,14 @@ public final class CatalogConsumableService {
             case "random_talisman_low" -> giveRandomTalisman(player, 1);
             case "random_talisman_mid" -> giveRandomTalisman(player, 2);
             case "random_talisman_high" -> giveRandomTalisman(player, 3);
+            case "detox_minor" -> clearMinorPoison(player);
+            case "talisman_craft_material" -> explainTalismanInk(player);
+            case "array_fuel" -> explainFormationFuel(player);
+            case "corpse_control" -> SummonHonestMvpService.empowerNearestOwnedGhost(player);
+            case "vehicle_craft" -> FlightVehicleService.craftWindFeatherRaftTicket(player);
             default -> knownIdAction(player, id);
         };
-        if (success && !isDurableStorage(action)) {
+        if (success && !isDurableStorage(action) && !isDeferredMaterial(action)) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.catalog_consumable.success", stack.getHoverName()), true);
         }
@@ -131,6 +139,14 @@ public final class CatalogConsumableService {
 
     public static boolean isLightningStrike(boolean vanillaLightning, boolean tribulationMarker) {
         return vanillaLightning || tribulationMarker;
+    }
+
+    static boolean shouldConsumeOnSuccess(String effect, int storageSlots) {
+        if (storageSlots > 0) {
+            return false;
+        }
+        String action = normalize(effect);
+        return !"talisman_craft_material".equals(action) && !"array_fuel".equals(action);
     }
 
     public static int lightningWardCharges(Player player) {
@@ -372,6 +388,25 @@ public final class CatalogConsumableService {
         return hadEffect;
     }
 
+    private static boolean clearMinorPoison(ServerPlayer player) {
+        boolean cleared = player.hasEffect(MobEffects.POISON) || player.hasEffect(MobEffects.CONFUSION);
+        player.removeEffect(MobEffects.POISON);
+        player.removeEffect(MobEffects.CONFUSION);
+        return PoisonAntidoteService.applyAntidote(player, "bailian_jiedu") || cleared;
+    }
+
+    private static boolean explainTalismanInk(ServerPlayer player) {
+        player.displayClientMessage(Component.translatable(
+                "message.seeking_immortals.catalog_consumable.talisman_ink_material"), true);
+        return true;
+    }
+
+    private static boolean explainFormationFuel(ServerPlayer player) {
+        player.displayClientMessage(Component.translatable(
+                "message.seeking_immortals.catalog_consumable.formation_fuel_material"), true);
+        return true;
+    }
+
     private static boolean smokeScreen(ServerPlayer player) {
         player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 160, 0));
         player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 160, 1));
@@ -416,6 +451,11 @@ public final class CatalogConsumableService {
 
     private static boolean isDurableStorage(String effect) {
         return normalize(effect).startsWith("portable_storage_");
+    }
+
+    private static boolean isDeferredMaterial(String effect) {
+        String action = normalize(effect);
+        return "talisman_craft_material".equals(action) || "array_fuel".equals(action);
     }
 
     private static void sync(ServerPlayer player, PlayerCultivation cultivation) {

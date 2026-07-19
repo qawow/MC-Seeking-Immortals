@@ -8029,3 +8029,15 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Verification   Done   Focused `FtbQuestSnbtTest` passed after the Tiannan bridge changes. Final current-tree `./gradlew --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.365`; inherited network-package warning reviewed as unrelated to this FTB/docs recheck.
   Backup   Done   Existing docs were backed up to `.bak/20260707_0.1.365_current_tree_build_recheck/`; the new update note had no previous file to preserve.
   Follow-up   Pending   Audit inherited network-package diffs before release if packet formats changed; continue replacing FTB inventory checks with authoritative task/reward/state bridges; live-smoke portal/refinement/FTB flows.
+## 503. 2026-07-20 0.2.49 专用物品与目录说明
+
+  Step   Status   Notes
+  ---   ---   ---
+  Audit   Done   审计 1190 条 bulk item、869 条“目录载体”描述与五个明确 inert 专用物品。
+  Backup   Done   既有代码、资源、测试、版本和六份状态文档按相对路径备份至 `.bak/20260720_0.2.49_item_semantics/`。
+  Dedicated items   Done   清毒丹、符墨、灵砂袋、镇尸钉、风雷舟图纸进入服务端专用执行路径，失败不扣；飞行载具燃料改为实体生成后提交。
+  Talisman transaction   Done   24 条制符配方统一追加一瓶符墨，技能与完整材料预检先于任何库存修改，同物品需求合并后统一扣除。
+  Description policy   Done   新增 `CatalogItemDescriptionService`，为全部 bulk item 生成双语用途定位和真实交互策略，placeholder 不再显示“目录载体”。
+  Focused tests   Done   六组定向测试共 11 项通过，覆盖五个分类、延迟材料不右键扣除、制符预检、阵法时长、飞舟成本与 1190 条说明策略。
+  Build   Done   普通 `./gradlew build --no-daemon` BUILD SUCCESSFUL；全量 690 项测试，0 failures/errors/skipped。
+  Protocol   Done   无网络包字段、顺序、类型、方向或通道行为变化，`ModNetwork.PROTOCOL_VERSION` 保持 `25`。

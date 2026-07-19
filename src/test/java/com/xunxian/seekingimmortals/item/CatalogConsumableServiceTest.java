@@ -35,4 +35,14 @@ class CatalogConsumableServiceTest {
         assertEquals(27, high.storageSlots());
         assertEquals("portable_storage_27", high.effect());
     }
+
+    @Test
+    void deferredCraftMaterialsAreNotConsumedByRightClick() {
+        assertFalse(CatalogConsumableService.shouldConsumeOnSuccess("talisman_craft_material", 0));
+        assertFalse(CatalogConsumableService.shouldConsumeOnSuccess("array_fuel", 0));
+        assertFalse(CatalogConsumableService.shouldConsumeOnSuccess("portable_storage_9", 9));
+        assertTrue(CatalogConsumableService.shouldConsumeOnSuccess("detox_minor", 0));
+        assertTrue(CatalogConsumableService.shouldConsumeOnSuccess("corpse_control", 0));
+        assertTrue(CatalogConsumableService.shouldConsumeOnSuccess("vehicle_craft", 0));
+    }
 }
