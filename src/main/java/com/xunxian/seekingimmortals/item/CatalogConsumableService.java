@@ -14,6 +14,7 @@ import com.xunxian.seekingimmortals.entity.CultivationFireballEntity;
 import com.xunxian.seekingimmortals.catalog.ItemCatalogService;
 import com.xunxian.seekingimmortals.catalog.SummonHonestMvpService;
 import com.xunxian.seekingimmortals.combat.status.PoisonAntidoteService;
+import com.xunxian.seekingimmortals.sect.SectContributionTokenService;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -93,9 +94,10 @@ public final class CatalogConsumableService {
             case "array_fuel" -> explainFormationFuel(player);
             case "corpse_control" -> SummonHonestMvpService.empowerNearestOwnedGhost(player);
             case "vehicle_craft" -> FlightVehicleService.craftWindFeatherRaftTicket(player);
+            case "sect_contribution_redeem" -> SectContributionTokenService.redeem(player);
             default -> knownIdAction(player, id);
         };
-        if (success && !isDurableStorage(action) && !isDeferredMaterial(action)) {
+        if (success && shouldAnnounceGenericSuccess(action)) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.catalog_consumable.success", stack.getHoverName()), true);
         }
@@ -456,6 +458,13 @@ public final class CatalogConsumableService {
     private static boolean isDeferredMaterial(String effect) {
         String action = normalize(effect);
         return "talisman_craft_material".equals(action) || "array_fuel".equals(action);
+    }
+
+    private static boolean shouldAnnounceGenericSuccess(String effect) {
+        String action = normalize(effect);
+        return !isDurableStorage(action)
+                && !isDeferredMaterial(action)
+                && !"sect_contribution_redeem".equals(action);
     }
 
     private static void sync(ServerPlayer player, PlayerCultivation cultivation) {

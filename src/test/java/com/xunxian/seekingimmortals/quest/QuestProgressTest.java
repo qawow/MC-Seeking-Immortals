@@ -65,6 +65,10 @@ class QuestProgressTest {
         progress.addContribution(30);
         progress.addContribution(-100);
         assertEquals(0, progress.getContribution());
+
+        progress.addContribution(Integer.MAX_VALUE);
+        progress.addContribution(100);
+        assertEquals(Integer.MAX_VALUE, progress.getContribution());
     }
 
     @Test

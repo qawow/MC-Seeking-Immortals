@@ -8053,3 +8053,15 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Focused tests   Done   `PuppetCraftServiceTest` 与 `SummonHonestMvpServiceTest` 定向通过。
   Build   Done   普通 `./gradlew build --no-daemon` BUILD SUCCESSFUL；全量 691 项测试，0 failures/errors/skipped。
   Protocol   Done   无包字段、顺序、类型、注册或方向变化，协议保持 `25`。
+## 505. 2026-07-20 0.2.52 贡献符与阵法物品语义
+
+  Step   Status   Notes
+  ---   ---   ---
+  Audit   Done   核对 40 个货币条目、地渊令既有秘境扣票、传送阵令牌与 12 个未登记阵盘/阵旗载体；只实现源数据明确支持的可执行语义。
+  Backup   Done   既有代码、资源、测试、版本和六份状态文档按相对路径备份至 `.bak/20260720_0.2.51_currency_formation/`。
+  Contribution token   Done   宗门贡献符每枚兑换 1 点当前宗门贡献；无能力、无登记宗门或贡献封顶均失败且不消耗，并立即同步玩家修炼数据。
+  Overflow safety   Done   `QuestProgress.addContribution` 使用 long 中间值并将结果饱和到 `[0, Integer.MAX_VALUE]`，避免高余额溢出归零。
+  Formation item   Done   聚灵阵盘新增单次 `spirit_gather` 自由阵场行为；成功后才消耗，灵砂只在成功激活后提交并把 90 秒延长至 150 秒。
+  Description policy   Done   14 个贡献/传送/阵盘条目补充双语精确说明；全部 `formation_item_behaviors` 条目按放置、激活、查看显示真实交互策略。
+  Build   Done   首次构建仅因旧 13 条阵法计数断言失败；更新为 14 后普通 `./gradlew build --no-daemon` BUILD SUCCESSFUL，全量 695 项测试通过。
+  Protocol   Done   未改网络字段、顺序、类型、注册、方向或通道兼容行为，`ModNetwork.PROTOCOL_VERSION` 保持 `25`。

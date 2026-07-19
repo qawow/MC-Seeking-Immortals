@@ -80,8 +80,8 @@ class M07FormationsMultiblockTest {
 
     @Test
     void formationItemsAndMpSequencesLoad() {
-        assertEquals(13, FormationItemService.builtin().size());
-        assertEquals(13, FormationApi.formationItemBehaviorSize());
+        assertEquals(14, FormationItemService.builtin().size());
+        assertEquals(14, FormationApi.formationItemBehaviorSize());
         assertTrue(FormationItemService.builtin().find("portable_spirit_gather_disk").isPresent());
         assertEquals("spirit_gathering_array",
                 FormationItemService.builtin().find("portable_spirit_gather_disk").orElseThrow().placeBlock());

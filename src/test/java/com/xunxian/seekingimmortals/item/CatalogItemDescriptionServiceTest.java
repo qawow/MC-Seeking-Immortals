@@ -31,6 +31,7 @@ class CatalogItemDescriptionServiceTest {
                 CatalogItemDescriptionService.Profile profile = CatalogItemDescriptionService.profile(id, category);
                 assertFalse(profile.purposeKey().isBlank(), id);
                 assertFalse(profile.interactionKey().isBlank(), id);
+                assertNotNull(profile.detailKey(), id);
                 assertFalse(profile.purposeKey().endsWith("catalog_carrier"), id);
                 if (CatalogItemDescriptionService.isPlaceholder(description)) {
                     placeholders++;
@@ -40,5 +41,24 @@ class CatalogItemDescriptionServiceTest {
         }
         assertTrue(count >= 1190, "count=" + count);
         assertTrue(placeholders >= 800, "placeholders=" + placeholders);
+    }
+
+    @Test
+    void auditedCurrencyAndFormationItemsExposeExactPolicies() {
+        CatalogItemDescriptionService.Profile token = CatalogItemDescriptionService.profile(
+                "sect_contribution_token", "consumable");
+        assertTrue(token.purposeKey().endsWith(".currency"));
+        assertTrue(token.interactionKey().endsWith(".consume"));
+        assertTrue(token.detailKey().endsWith(".sect_contribution_token"));
+
+        CatalogItemDescriptionService.Profile disk = CatalogItemDescriptionService.profile(
+                "spirit_gathering_array_disk", "consumable");
+        assertTrue(disk.interactionKey().endsWith(".formation_activate"));
+        assertTrue(disk.detailKey().endsWith(".spirit_gathering_array_disk"));
+
+        CatalogItemDescriptionService.Profile component = CatalogItemDescriptionService.profile(
+                "formation_flag_post", "artifact");
+        assertTrue(component.purposeKey().endsWith(".formation"));
+        assertTrue(component.interactionKey().endsWith(".material"));
     }
 }

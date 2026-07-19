@@ -65,7 +65,8 @@ public final class BulkItemClassifier {
             "talisman_ink_bottle",
             "spirit_sand_pouch",
             "yin_coffin_nail",
-            "wind_feather_raft_blueprint"
+            "wind_feather_raft_blueprint",
+            "sect_contribution_token"
     );
     private static final Map<String, AlchemyFormulaSource> ALCHEMY_FORMULA_SOURCES =
             loadAlchemyFormulaSources();
@@ -125,6 +126,15 @@ public final class BulkItemClassifier {
         ExtendedCatalogService.ConsumableEntry entry =
                 ExtendedCatalogService.builtin().consumables().get(key);
         if (entry == null) {
+            if ("sect_contribution_token".equals(key)) {
+                return Optional.of(new ConsumableDefinition(
+                        key,
+                        "Sect Contribution Token",
+                        "currency",
+                        "",
+                        "sect_contribution_redeem",
+                        0));
+            }
             return Optional.empty();
         }
         String effect = executableEffect(key, entry.effect());
@@ -159,6 +169,7 @@ public final class BulkItemClassifier {
             case "spirit_sand_pouch" -> "array_fuel";
             case "yin_coffin_nail" -> "corpse_control";
             case "wind_feather_raft_blueprint" -> "vehicle_craft";
+            case "sect_contribution_token" -> "sect_contribution_redeem";
             default -> "";
         };
         if (!dedicated.isBlank()) {

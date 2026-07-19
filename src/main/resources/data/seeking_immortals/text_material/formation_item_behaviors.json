@@ -105,6 +105,14 @@
       "uses": null,
       "place_block": null,
       "action": "inspect_only"
+    },
+    {
+      "id": "spirit_gathering_array_disk",
+      "display": "聚灵阵盘",
+      "formation_id": "spirit_gather",
+      "uses": 1,
+      "place_block": null,
+      "action": "activate_free_field"
     }
   ]
 }

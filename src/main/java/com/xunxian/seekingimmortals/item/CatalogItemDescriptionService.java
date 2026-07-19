@@ -3,6 +3,7 @@ package com.xunxian.seekingimmortals.item;
 import com.xunxian.seekingimmortals.catalog.ItemCatalogService;
 import com.xunxian.seekingimmortals.registry.BulkItemClassifier;
 import com.xunxian.seekingimmortals.registry.BulkItemKind;
+import com.xunxian.seekingimmortals.structure.FormationItemService;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
@@ -13,7 +14,7 @@ import java.util.Locale;
 public final class CatalogItemDescriptionService {
     private CatalogItemDescriptionService() {}
 
-    public record Profile(String purposeKey, String interactionKey) {}
+    public record Profile(String purposeKey, String interactionKey, String detailKey) {}
 
     public static boolean appendCatalogDescription(ItemStack stack, List<Component> tooltip, String description) {
         if (stack == null || stack.isEmpty()) {
@@ -33,6 +34,9 @@ public final class CatalogItemDescriptionService {
                 Component.translatable(profile.purposeKey())).withStyle(ChatFormatting.DARK_AQUA));
         tooltip.add(Component.translatable("tooltip.seeking_immortals.catalog_item.interaction",
                 Component.translatable(profile.interactionKey())).withStyle(ChatFormatting.GRAY));
+        if (!profile.detailKey().isBlank()) {
+            tooltip.add(Component.translatable(profile.detailKey()).withStyle(ChatFormatting.DARK_GRAY));
+        }
         return true;
     }
 
@@ -41,14 +45,19 @@ public final class CatalogItemDescriptionService {
         String normalizedCategory = normalize(category);
         String purpose = purposeKey(normalizedId, normalizedCategory);
         BulkItemKind kind = BulkItemClassifier.classify(normalizedId, normalizedCategory);
-        String interaction = switch (kind) {
-            case CONSUMABLE -> "tooltip.seeking_immortals.catalog_item.interaction.consume";
-            case PILL -> "tooltip.seeking_immortals.catalog_item.interaction.pill";
-            case FORMULA -> "tooltip.seeking_immortals.catalog_item.interaction.formula";
-            case ARTIFACT -> "tooltip.seeking_immortals.catalog_item.interaction.artifact";
-            case CARRIER -> carrierInteractionKey(normalizedCategory, purpose);
-        };
-        return new Profile(purpose, interaction);
+        String interaction = formationInteractionKey(normalizedId);
+        if (interaction.isBlank()) {
+            interaction = isFormationComponent(normalizedCategory, purpose)
+                    ? "tooltip.seeking_immortals.catalog_item.interaction.material"
+                    : switch (kind) {
+                        case CONSUMABLE -> "tooltip.seeking_immortals.catalog_item.interaction.consume";
+                        case PILL -> "tooltip.seeking_immortals.catalog_item.interaction.pill";
+                        case FORMULA -> "tooltip.seeking_immortals.catalog_item.interaction.formula";
+                        case ARTIFACT -> "tooltip.seeking_immortals.catalog_item.interaction.artifact";
+                        case CARRIER -> carrierInteractionKey(normalizedCategory, purpose);
+                    };
+        }
+        return new Profile(purpose, interaction, detailKey(normalizedId));
     }
 
     static boolean isPlaceholder(String description) {
@@ -57,6 +66,9 @@ public final class CatalogItemDescriptionService {
     }
 
     private static String purposeKey(String id, String category) {
+        if ("sect_contribution_token".equals(id)) {
+            return "tooltip.seeking_immortals.catalog_item.purpose.currency";
+        }
         if (containsAny(id, "blueprint", "recipe", "manual", "scroll", "jade_slip", "book", "formula")) {
             return "tooltip.seeking_immortals.catalog_item.purpose.knowledge";
         }
@@ -86,6 +98,9 @@ public final class CatalogItemDescriptionService {
     }
 
     private static String carrierInteractionKey(String category, String purpose) {
+        if (isFormationComponent(category, purpose)) {
+            return "tooltip.seeking_immortals.catalog_item.interaction.material";
+        }
         if ("currency".equals(category)) {
             return "tooltip.seeking_immortals.catalog_item.interaction.currency";
         }
@@ -102,6 +117,33 @@ public final class CatalogItemDescriptionService {
             return "tooltip.seeking_immortals.catalog_item.interaction.component";
         }
         return "tooltip.seeking_immortals.catalog_item.interaction.material";
+    }
+
+    private static boolean isFormationComponent(String category, String purpose) {
+        return purpose.endsWith(".formation") && !"consumable".equals(category);
+    }
+
+    private static String formationInteractionKey(String id) {
+        return FormationItemService.builtin().find(id)
+                .map(behavior -> switch (normalize(behavior.action())) {
+                    case "place_block" -> "tooltip.seeking_immortals.catalog_item.interaction.formation_place";
+                    case "activate_free_field" -> "tooltip.seeking_immortals.catalog_item.interaction.formation_activate";
+                    case "inspect_only" -> "tooltip.seeking_immortals.catalog_item.interaction.formation_inspect";
+                    default -> "";
+                })
+                .orElse("");
+    }
+
+    private static String detailKey(String id) {
+        return switch (id) {
+            case "sect_contribution_token", "teleport_array_ticket", "array_disk_basic",
+                    "array_disk_fragment", "crystal_array_disk", "formation_flag_jade",
+                    "formation_flag_low", "formation_flag_mid", "formation_flag_post",
+                    "immortal_array_disk", "jade_array_disk", "platinum_array_disk",
+                    "space_array_disk", "spirit_gathering_array_disk" ->
+                    "tooltip.seeking_immortals.catalog_item.detail." + id;
+            default -> "";
+        };
     }
 
     private static boolean containsAny(String value, String... parts) {

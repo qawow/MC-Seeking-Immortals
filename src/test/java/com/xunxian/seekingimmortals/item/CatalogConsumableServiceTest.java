@@ -44,5 +44,6 @@ class CatalogConsumableServiceTest {
         assertTrue(CatalogConsumableService.shouldConsumeOnSuccess("detox_minor", 0));
         assertTrue(CatalogConsumableService.shouldConsumeOnSuccess("corpse_control", 0));
         assertTrue(CatalogConsumableService.shouldConsumeOnSuccess("vehicle_craft", 0));
+        assertTrue(CatalogConsumableService.shouldConsumeOnSuccess("sect_contribution_redeem", 0));
     }
 }

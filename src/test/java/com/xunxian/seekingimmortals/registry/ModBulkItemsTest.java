@@ -91,6 +91,10 @@ class ModBulkItemsTest {
                 BulkItemClassifier.consumable("yin_coffin_nail").orElseThrow().effect());
         assertEquals("vehicle_craft",
                 BulkItemClassifier.consumable("wind_feather_raft_blueprint").orElseThrow().effect());
+        assertEquals(BulkItemKind.CONSUMABLE,
+                BulkItemClassifier.classify("sect_contribution_token", "consumable"));
+        assertEquals("sect_contribution_redeem",
+                BulkItemClassifier.consumable("sect_contribution_token").orElseThrow().effect());
         assertEquals(BulkItemKind.PILL,
                 BulkItemClassifier.classify("appearance_lock_pill", "pill"));
         assertEquals(BulkItemKind.PILL,

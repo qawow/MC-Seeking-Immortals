@@ -113,7 +113,8 @@ public class QuestProgress {
     }
 
     public void addContribution(int amount) {
-        contribution = Math.max(0, contribution + amount);
+        long updated = (long) contribution + amount;
+        contribution = (int) Math.max(0L, Math.min(Integer.MAX_VALUE, updated));
     }
 
     public boolean spendContribution(int amount) {
