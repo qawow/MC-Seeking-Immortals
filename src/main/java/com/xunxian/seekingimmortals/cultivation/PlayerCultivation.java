@@ -70,6 +70,7 @@ public class PlayerCultivation {
     private boolean severeInjury = false;
     private int heartDemonLevel = 0;
     private int heartDemonTriggerTicks = 0;
+    private boolean deathSubstituteReady = false;
     private boolean shatteredCore = false;
     private int realmFallScars = 0;
     private final Set<String> learnedTechniques = new HashSet<>();
@@ -540,6 +541,31 @@ public class PlayerCultivation {
     public void clearHeartDemon() {
         heartDemonLevel = 0;
         heartDemonTriggerTicks = 0;
+    }
+
+    public boolean reduceHeartDemon(int layers) {
+        if (layers <= 0 || heartDemonLevel <= 0) return false;
+        heartDemonLevel = Math.max(0, heartDemonLevel - layers);
+        if (heartDemonLevel == 0) {
+            heartDemonTriggerTicks = 0;
+        }
+        return true;
+    }
+
+    public boolean hasDeathSubstituteReady() {
+        return deathSubstituteReady;
+    }
+
+    public boolean grantDeathSubstitute() {
+        if (deathSubstituteReady) return false;
+        deathSubstituteReady = true;
+        return true;
+    }
+
+    public boolean consumeDeathSubstitute() {
+        if (!deathSubstituteReady) return false;
+        deathSubstituteReady = false;
+        return true;
     }
 
     public void scheduleHeartDemonTrigger(RandomSource random) {
@@ -1659,6 +1685,7 @@ public class PlayerCultivation {
         tag.putBoolean("SevereInjury", severeInjury);
         tag.putInt("HeartDemonLevel", heartDemonLevel);
         tag.putInt("HeartDemonTriggerTicks", heartDemonTriggerTicks);
+        tag.putBoolean("DeathSubstituteReady", deathSubstituteReady);
         tag.putBoolean("ShatteredCore", shatteredCore);
         tag.putInt("RealmFallScars", realmFallScars);
         tag.putInt("CultivationBoostTicks", cultivationBoostTicks);
@@ -1757,6 +1784,7 @@ public class PlayerCultivation {
         severeInjury = tag.getBoolean("SevereInjury");
         heartDemonLevel = Math.max(0, tag.getInt("HeartDemonLevel"));
         heartDemonTriggerTicks = Math.max(0, tag.getInt("HeartDemonTriggerTicks"));
+        deathSubstituteReady = tag.getBoolean("DeathSubstituteReady");
         shatteredCore = tag.getBoolean("ShatteredCore");
         realmFallScars = Math.max(0, tag.getInt("RealmFallScars"));
         cultivationBoostTicks = Math.max(0, tag.getInt("CultivationBoostTicks"));

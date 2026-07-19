@@ -3,6 +3,7 @@ package com.xunxian.seekingimmortals.item.pill;
 import com.xunxian.seekingimmortals.item.material.BaseMaterialItem;
 import com.xunxian.seekingimmortals.item.material.MaterialCategory;
 import com.xunxian.seekingimmortals.item.material.MaterialRarity;
+import com.xunxian.seekingimmortals.cultivation.Realm;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -64,11 +65,20 @@ public class BulkPillItem extends BaseMaterialItem {
         PillEffectCatalog.findByPillId(catalogId).ifPresent(entry -> {
             if (entry.effect() != null && !entry.effect().isBlank()) {
                 tooltip.add(Component.translatable("tooltip.seeking_immortals.catalog_pill.effect",
-                        entry.effect()).withStyle(ChatFormatting.DARK_GRAY));
+                        Component.translatable("tooltip.seeking_immortals.catalog_pill.effect." + entry.effect()))
+                        .withStyle(ChatFormatting.DARK_GRAY));
             }
             if (entry.realmMin() != null && !entry.realmMin().isBlank()) {
+                Realm minRealm = Realm.fromDesignId(entry.realmMin());
                 tooltip.add(Component.translatable("tooltip.seeking_immortals.catalog_pill.min_realm",
-                        entry.realmMin().toLowerCase(Locale.ROOT)).withStyle(ChatFormatting.BLUE));
+                        minRealm == null ? entry.realmMin().toLowerCase(Locale.ROOT) : minRealm.getDisplayName())
+                        .withStyle(ChatFormatting.BLUE));
+            }
+            if (entry.realmTarget() != null && !entry.realmTarget().isBlank()) {
+                Realm targetRealm = Realm.fromDesignId(entry.realmTarget());
+                tooltip.add(Component.translatable("tooltip.seeking_immortals.catalog_pill.target_realm",
+                        targetRealm == null ? entry.realmTarget() : targetRealm.getDisplayName())
+                        .withStyle(ChatFormatting.GOLD));
             }
         });
     }

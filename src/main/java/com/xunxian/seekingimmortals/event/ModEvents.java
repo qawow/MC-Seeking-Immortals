@@ -350,7 +350,6 @@ public final class ModEvents {
         if (event.getEntity() instanceof Player hurtPlayer) {
             // M13: 寿元耗尽致死不触发打坐中断与走火入魔
             if (hurtPlayer.getPersistentData().getBoolean("SeekingImmortalsLifespanDeath")) {
-                hurtPlayer.getPersistentData().remove("SeekingImmortalsLifespanDeath");
                 return;
             }
             if (hurtPlayer instanceof ServerPlayer serverPlayer
@@ -1320,8 +1319,12 @@ public final class ModEvents {
         cultivation.addAgeYears((int) Math.min(passedDays, 1000L));
         if (cultivation.isLifespanExhausted() && !player.isCreative() && !player.isSpectator()) {
             // M13: 设置寿元死亡 flag，阻止 onLivingHurt 中打坐中断与走火入魔
-            player.getPersistentData().putBoolean("SeekingImmortalsLifespanDeath", true);
-            player.hurt(player.damageSources().fellOutOfWorld(), Float.MAX_VALUE);
+            data.putBoolean("SeekingImmortalsLifespanDeath", true);
+            try {
+                player.hurt(player.damageSources().fellOutOfWorld(), Float.MAX_VALUE);
+            } finally {
+                data.remove("SeekingImmortalsLifespanDeath");
+            }
             player.displayClientMessage(Component.translatable("message.seeking_immortals.lifespan.exhausted"), false);
         }
     }

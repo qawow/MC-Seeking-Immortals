@@ -5,14 +5,18 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
+import com.xunxian.seekingimmortals.cultivation.BeastContractService;
 import com.xunxian.seekingimmortals.cultivation.BreakthroughService;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.cultivation.Realm;
+import com.xunxian.seekingimmortals.cultivation.SpiritualRootAttribute;
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
@@ -24,16 +28,17 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 
-/**
- * Data-driven pill effect map for catalog/bulk carriers (M04).
- * Loads {@code data/seeking_immortals/alchemy/pill_effect_catalog.json}.
- */
 public final class PillEffectCatalog {
-    private static final String RESOURCE = "data/" + SeekingImmortalsMod.MODID + "/alchemy/pill_effect_catalog.json";
+    private static final String EFFECT_RESOURCE =
+            "data/" + SeekingImmortalsMod.MODID + "/alchemy/pill_effect_catalog.json";
+    private static final String DESIGN_RESOURCE =
+            "data/" + SeekingImmortalsMod.MODID + "/text_material/pills_catalog.json";
     private static final Map<String, String> PILL_ALIASES = Map.of(
             "appearance_lock_pill", "dingyan_pill",
             "beast_taming_pill_low", "beast_taming_pill",
@@ -45,13 +50,33 @@ public final class PillEffectCatalog {
 
     private PillEffectCatalog() {}
 
-    public record Entry(String pillId, String display, String category, String effect, String realmMin, String itemId) {}
+    public record Entry(
+            String pillId,
+            String display,
+            String category,
+            String effect,
+            String realmMin,
+            String itemId,
+            String realmMax,
+            String realmTarget,
+            int spiritGainFlat,
+            Set<String> effectTags,
+            String element,
+            String risk,
+            String school,
+            int durationTicks,
+            String note
+    ) {
+        public Entry {
+            effectTags = effectTags == null ? Set.of() : Set.copyOf(effectTags);
+        }
+    }
 
     public static Optional<Entry> findByPillId(String pillId) {
         if (pillId == null || pillId.isBlank()) {
             return Optional.empty();
         }
-        String key = pillId.trim().toLowerCase(Locale.ROOT);
+        String key = normalize(pillId);
         Entry direct = BY_PILL_ID.get(key);
         if (direct != null) {
             return Optional.of(direct);
@@ -78,7 +103,7 @@ public final class PillEffectCatalog {
     }
 
     public static String canonicalPillId(String pillId) {
-        String key = pillId == null ? "" : pillId.trim().toLowerCase(Locale.ROOT);
+        String key = normalize(pillId);
         return PILL_ALIASES.getOrDefault(key, key);
     }
 
@@ -90,16 +115,9 @@ public final class PillEffectCatalog {
         if (key == null) {
             return Optional.empty();
         }
-        String path = key.getPath().toLowerCase(Locale.ROOT);
+        String path = normalize(key.getPath());
         Entry direct = BY_ITEM_PATH.get(path);
-        if (direct != null) {
-            return Optional.of(direct);
-        }
-        Optional<Entry> aliased = findByPillId(path);
-        if (aliased.isPresent()) {
-            return aliased;
-        }
-        return Optional.empty();
+        return direct == null ? findByPillId(path) : Optional.of(direct);
     }
 
     public static int size() {
@@ -110,10 +128,6 @@ public final class PillEffectCatalog {
         return Collections.unmodifiableMap(BY_PILL_ID);
     }
 
-    /**
-     * Apply catalog effect for a bulk/catalog pill item.
-     * @return true if the pill was consumed successfully
-     */
     public static boolean tryConsume(ServerPlayer player, ItemStack stack, PillQuality quality) {
         return tryConsume(player, stack, "", quality);
     }
@@ -127,19 +141,39 @@ public final class PillEffectCatalog {
             return false;
         }
         Entry entry = optional.get();
+        PillQuality resolvedQuality = quality == null ? PillQuality.LOW : quality;
         return CultivationHelper.get(player)
-                .map(cultivation -> apply(player, cultivation, stack, entry, quality == null ? PillQuality.LOW : quality))
+                .map(cultivation -> apply(player, cultivation, stack, entry, resolvedQuality))
                 .orElse(false);
     }
 
     private static boolean apply(ServerPlayer player, PlayerCultivation cultivation, ItemStack stack,
                                  Entry entry, PillQuality quality) {
-        Realm minRealm = Realm.fromDesignIdOrMortal(entry.realmMin());
+        Realm minRealm = Realm.fromDesignId(entry.realmMin());
+        if (minRealm == null) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.catalog_pill.invalid_realm", entry.realmMin()), true);
+            return false;
+        }
         if (cultivation.getRealm().ordinal() < minRealm.ordinal()) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.catalog_pill.realm_too_low",
                     stack.getHoverName(), minRealm.getDisplayName()), true);
             return false;
+        }
+        if (!entry.realmMax().isBlank()) {
+            Realm maxRealm = Realm.fromDesignId(entry.realmMax());
+            if (maxRealm == null) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.catalog_pill.invalid_realm", entry.realmMax()), true);
+                return false;
+            }
+            if (cultivation.getRealm().ordinal() > maxRealm.ordinal()) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.catalog_pill.realm_too_high",
+                        stack.getHoverName(), maxRealm.getDisplayName()), true);
+                return false;
+            }
         }
 
         BreakthroughService.HandBreakthroughAidResult aidResult =
@@ -151,48 +185,42 @@ public final class PillEffectCatalog {
             return false;
         }
 
-        double mult = quality.getEffectMultiplier() * cultivation.getPillAbsorptionMultiplier();
-        String effect = entry.effect() == null ? "generic_cultivation" : entry.effect();
-        boolean ok = applyEffect(player, cultivation, effect, entry.category(), mult, quality);
-        if (ok) {
-            SyncCultivationDataPacket.send(player, cultivation);
-            player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.catalog_pill.success", stack.getHoverName()), true);
+        double multiplier = quality.getEffectMultiplier() * cultivation.getPillAbsorptionMultiplier();
+        boolean applied = applyEffect(player, cultivation, entry, multiplier, quality);
+        if (!applied) {
+            return false;
         }
-        return ok;
+        SyncCultivationDataPacket.send(player, cultivation);
+        player.displayClientMessage(Component.translatable(
+                "message.seeking_immortals.catalog_pill.success", stack.getHoverName()), true);
+        return true;
     }
 
     private static boolean applyEffect(ServerPlayer player, PlayerCultivation cultivation,
-                                       String effect, String category, double mult, PillQuality quality) {
+                                       Entry entry, double multiplier, PillQuality quality) {
+        String effect = entry.effect();
         return switch (effect) {
-            case "no_food_24h" -> {
-                player.getFoodData().eat(scale(10, mult), (float) (5.0D * mult));
-                player.getPersistentData().putInt(CatalogPillItem.FASTING_TICKS_KEY, scaleTicks(24000, mult));
-                yield true;
-            }
+            case "no_food_24h" -> applyFasting(player, multiplier);
             case "restore_spirit_30pct", "restore_mana_50pct", "restore_mana" -> {
                 int max = Math.max(1, cultivation.getMaxSpiritualPower());
-                double pct = "restore_mana_50pct".equals(effect) ? 0.50D : "restore_mana".equals(effect) ? 0.35D : 0.30D;
-                cultivation.addSpiritualPower(Math.max(1, (int) Math.round(max * pct * mult)));
-                yield true;
+                double percent = "restore_mana_50pct".equals(effect) ? 0.50D
+                        : "restore_mana".equals(effect) ? 0.35D : 0.30D;
+                yield addSpiritualPower(cultivation, Math.max(1, (int) Math.round(max * percent * multiplier)));
             }
-            case "erase_memory_12h" -> {
-                player.getPersistentData().putInt(CatalogPillItem.FORGET_DUST_TICKS_KEY, scaleTicks(2400, mult));
-                player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, scaleTicks(2400, mult), 0));
-                yield true;
+            case "erase_memory_12h" -> applyForgetDust(player, multiplier);
+            case "pet_mind_clarity" -> {
+                boolean changed = BeastContractService.feedFromConsumable(player);
+                changed |= player.removeEffect(MobEffects.CONFUSION);
+                yield changed;
             }
-            case "pet_mind_clarity", "pet_growth" -> {
-                player.getPersistentData().putInt(CatalogPillItem.CLEAR_VOID_PET_CLARITY_KEY, scaleTicks(6000, mult));
-                player.removeEffect(MobEffects.CONFUSION);
-                yield true;
-            }
+            case "pet_growth" -> BeastContractService.feedFromConsumable(player);
             case "max_lifespan_plus" -> {
-                cultivation.addLifespanYears(scale(500, mult));
+                cultivation.addLifespanYears(scale(500, multiplier));
                 cultivation.addQiDeviationRisk(5);
                 yield true;
             }
             case "lifespan_plus_decades" -> {
-                cultivation.addLifespanYears(scale(40 + player.getRandom().nextInt(31), mult));
+                cultivation.addLifespanYears(scale(40 + player.getRandom().nextInt(31), multiplier));
                 cultivation.addQiDeviationRisk(6);
                 yield true;
             }
@@ -203,247 +231,602 @@ public final class PillEffectCatalog {
                     yield false;
                 }
                 cultivation.setUsedReturnYangTrueWater(true);
-                cultivation.addLifespanYears(scale(300, mult));
+                cultivation.addLifespanYears(scale(300, multiplier));
                 player.heal(player.getMaxHealth());
                 yield true;
             }
             case "lifespan_small" -> {
-                cultivation.addLifespanYears(scale(20, mult));
+                cultivation.addLifespanYears(scale(20, multiplier));
                 yield true;
             }
-            case "freeze_appearance" -> {
-                if (player.getPersistentData().getBoolean(CatalogPillItem.APPEARANCE_FIXED_KEY)) {
-                    player.displayClientMessage(Component.translatable(
-                            "message.seeking_immortals.catalog_pill.appearance_fixed_exists"), true);
-                    yield false;
-                }
-                player.getPersistentData().putBoolean(CatalogPillItem.APPEARANCE_FIXED_KEY, true);
-                yield true;
-            }
+            case "freeze_appearance" -> applyAppearanceFixing(player);
             case "power_now_lifespan_debt" -> {
-                player.getPersistentData().putInt(CatalogPillItem.MARROW_ADDICTION_KEY,
-                        player.getPersistentData().getInt(CatalogPillItem.MARROW_ADDICTION_KEY) + 1);
-                cultivation.addBodyRefinement(scale(10, mult));
+                CompoundTag data = player.getPersistentData();
+                data.putInt(CatalogPillItem.MARROW_ADDICTION_KEY,
+                        data.getInt(CatalogPillItem.MARROW_ADDICTION_KEY) + 1);
+                cultivation.addAgeYears(scale(2, multiplier));
+                cultivation.addBodyRefinement(scale(10, multiplier));
                 cultivation.addQiDeviationRisk(15);
-                player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, scaleTicks(1200, mult), 1));
-                player.addEffect(new MobEffectInstance(MobEffects.WITHER, scaleTicks(120, mult), 0));
+                addOrUpgradeEffect(player, MobEffects.DAMAGE_BOOST, scaleTicks(1200, multiplier), 1);
+                addOrUpgradeEffect(player, MobEffects.WITHER, scaleTicks(120, multiplier), 0);
                 yield true;
             }
             case "lethal_silent" -> {
-                player.addEffect(new MobEffectInstance(MobEffects.POISON, scaleTicks(1200, mult), 2));
-                player.addEffect(new MobEffectInstance(MobEffects.WITHER, scaleTicks(600, mult), 1));
-                player.hurt(player.damageSources().magic(), Math.max(1.0F, 8.0F * (float) mult));
+                addOrUpgradeEffect(player, MobEffects.POISON, scaleTicks(1200, multiplier), 2);
+                addOrUpgradeEffect(player, MobEffects.WITHER, scaleTicks(600, multiplier), 1);
+                player.hurt(player.damageSources().magic(), Math.max(1.0F, 8.0F * (float) multiplier));
                 yield true;
             }
             case "force_power_side_effect" -> {
                 cultivation.addQiDeviationRisk(25);
-                player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, scaleTicks(1800, mult), 2));
-                player.addEffect(new MobEffectInstance(MobEffects.POISON, scaleTicks(400, mult), 1));
+                addOrUpgradeEffect(player, MobEffects.DAMAGE_BOOST, scaleTicks(1800, multiplier), 2);
+                addOrUpgradeEffect(player, MobEffects.POISON, scaleTicks(400, multiplier), 1);
                 yield true;
             }
             case "save_life_self_damage" -> {
-                player.heal(Math.max(1.0F, 12.0F * (float) mult));
-                player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, scaleTicks(240, mult), 1));
+                boolean changed = heal(player, 12.0F * (float) multiplier);
+                changed |= addOrUpgradeEffect(player, MobEffects.REGENERATION, scaleTicks(240, multiplier), 1);
+                if (!changed) yield false;
                 cultivation.addAgeYears(2);
                 cultivation.addBodyRefinement(-2);
                 yield true;
             }
             case "spirit_root_purify" -> {
                 cultivation.retestLingGen(player.getRandom(), true);
-                cultivation.addBodyRefinement(scale(5, mult));
+                cultivation.addBodyRefinement(scale(5, multiplier));
                 yield true;
             }
             case "physique_plus", "demon_body_temper" -> {
-                cultivation.addBodyRefinement(scale(6, mult));
-                cultivation.addCultivationExp(scale(25, mult));
+                cultivation.addBodyRefinement(scale(6, multiplier));
+                cultivation.addCultivationExp(scale(25, multiplier));
+                if ("demon_body_temper".equals(effect)) {
+                    cultivation.addQiDeviationRisk(4);
+                }
                 yield true;
             }
             case "suppress_demon_qi_24h", "resist_demon_qi_corruption",
-                 "reduce_demon_qi_stack", "purge_demon_qi" -> {
-                cultivation.clearHeartDemon();
-                player.getPersistentData().putInt(CatalogPillItem.YIN_PROTECTION_TICKS_KEY, scaleTicks(24000, mult));
-                player.removeEffect(MobEffects.WITHER);
-                player.removeEffect(MobEffects.POISON);
-                yield true;
-            }
-            case "clear_poison", "clear_cold_poison", "sea_poison_cure" -> {
-                player.removeEffect(MobEffects.POISON);
-                player.removeEffect(MobEffects.WITHER);
-                player.removeEffect(MobEffects.MOVEMENT_SLOWDOWN);
-                player.heal(Math.max(1.0F, 6.0F * (float) mult));
-                yield true;
-            }
+                 "reduce_demon_qi_stack", "purge_demon_qi" -> applyDemonPurge(player, cultivation, multiplier);
+            case "clear_poison", "clear_cold_poison", "sea_poison_cure" -> applyDetox(player, multiplier);
             case "temp_mana_shield" -> {
-                player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, scaleTicks(2400, mult), 1));
-                cultivation.addSpiritualPower(scale(40, mult));
-                yield true;
+                int duration = entry.durationTicks() > 0 ? scaleTicks(entry.durationTicks(), multiplier)
+                        : scaleTicks(2400, multiplier);
+                boolean changed = addOrUpgradeEffect(player, MobEffects.ABSORPTION, duration, 1);
+                changed |= addSpiritualPower(cultivation, scale(40, multiplier));
+                yield changed;
             }
             case "beast_contract_bonus" -> {
-                player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, scaleTicks(3600, mult), 0));
-                cultivation.addDivineConsciousness(scale(8, mult));
+                if (!BeastContractService.feedFromConsumable(player)) yield false;
+                addOrUpgradeEffect(player, MobEffects.DAMAGE_RESISTANCE, scaleTicks(3600, multiplier), 0);
+                addDivineConsciousness(cultivation, scale(8, multiplier));
                 yield true;
             }
             case "cultivation_speed_1h", "cultivation_speed_tianyuan", "blood_cultivation_boost" -> {
-                double boost = 1.0D + 0.25D * mult;
-                cultivation.addCultivationBoost(scaleTicks(72000, mult), boost);
-                cultivation.addCultivationExp(scale(60, mult));
-                yield true;
-            }
-            case "foundation_breakthrough_bonus", "stabilize_foundation" -> {
-                if (cultivation.isBreakthroughAssisted()) {
-                    player.displayClientMessage(Component.translatable(
-                            "message.seeking_immortals.catalog_pill.breakthrough_exists"), true);
-                    yield false;
+                cultivation.addCultivationBoost(scaleTicks(72000, multiplier), 1.0D + 0.25D * multiplier);
+                cultivation.addCultivationExp(scale(60, multiplier));
+                if ("blood_cultivation_boost".equals(effect)) {
+                    cultivation.addQiDeviationRisk(3);
                 }
-                cultivation.setBreakthroughPillBonus(quality.getBreakthroughBonus());
                 yield true;
             }
+            case "foundation_breakthrough_bonus", "stabilize_foundation" ->
+                    applyTargetedBreakthrough(player, cultivation, entry, quality, false);
             case "dual_cultivation_compatible", "dual_cultivation_bonus", "demonic_dual_cultivation" -> {
-                cultivation.addCultivationExp(scale(90, mult));
-                cultivation.addCultivationBoost(scaleTicks(24000, mult), 1.0D + 0.20D * mult);
+                cultivation.addCultivationExp(scale(90, multiplier));
+                cultivation.addCultivationBoost(scaleTicks(24000, multiplier), 1.0D + 0.20D * multiplier);
+                if ("demonic_dual_cultivation".equals(effect)) {
+                    cultivation.addQiDeviationRisk(6);
+                }
                 yield true;
             }
-            case "calm_inner_demon", "heart_demon_resist" -> {
-                cultivation.clearHeartDemon();
-                player.removeEffect(MobEffects.CONFUSION);
-                cultivation.addDivineConsciousness(scale(10, mult));
-                yield true;
-            }
-            case "restore_soul_minor" -> {
-                cultivation.addDivineConsciousness(scale(12, mult));
-                player.removeEffect(MobEffects.BLINDNESS);
-                yield true;
-            }
+            case "calm_inner_demon", "heart_demon_resist" -> applyHeartDemonRelief(player, cultivation, multiplier, true);
+            case "restore_soul_minor" -> applySoulHealing(player, cultivation, multiplier);
             case "sea_sickness_immune", "movement_speed" -> {
-                player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, scaleTicks(6000, mult), 0));
-                player.removeEffect(MobEffects.CONFUSION);
-                yield true;
+                boolean changed = addOrUpgradeEffect(player, MobEffects.MOVEMENT_SPEED, scaleTicks(6000, multiplier), 0);
+                changed |= player.removeEffect(MobEffects.CONFUSION);
+                yield changed;
             }
             case "yin_damage_resist_24h" -> {
-                int duration = scaleTicks(24000, mult);
-                player.getPersistentData().putInt(CatalogPillItem.YIN_PROTECTION_TICKS_KEY,
-                        Math.max(player.getPersistentData().getInt(CatalogPillItem.YIN_PROTECTION_TICKS_KEY), duration));
-                player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, scaleTicks(1200, mult), 0));
-                yield true;
+                boolean changed = setMaxTicks(player.getPersistentData(), CatalogPillItem.YIN_PROTECTION_TICKS_KEY,
+                        scaleTicks(24000, multiplier));
+                changed |= addOrUpgradeEffect(player, MobEffects.DAMAGE_RESISTANCE, scaleTicks(1200, multiplier), 0);
+                yield changed;
             }
-            case "tribulation_lightning_reduce", "ascension_tribulation_aid" -> {
-                player.getPersistentData().putInt(CatalogPillItem.PRESSURE_RESIST_TICKS_KEY, scaleTicks(36000, mult));
-                player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, scaleTicks(2400, mult), 1));
-                yield true;
-            }
+            case "tribulation_lightning_reduce", "ascension_tribulation_aid" ->
+                    applyTribulationGuard(player, cultivation, multiplier);
             case "killing_intent_control" -> {
-                cultivation.addQiDeviationRisk(-Math.min(20, scale(8, mult)));
-                player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, scaleTicks(1800, mult), 0));
-                yield true;
+                int before = cultivation.getQiDeviationRisk();
+                cultivation.addQiDeviationRisk(-Math.min(20, scale(8, multiplier)));
+                boolean changed = cultivation.getQiDeviationRisk() != before;
+                changed |= addOrUpgradeEffect(player, MobEffects.DAMAGE_BOOST, scaleTicks(1800, multiplier), 0);
+                yield changed;
             }
-            default -> applyByCategory(player, cultivation, category, mult, quality);
-        };
-    }
-
-    private static boolean applyByCategory(ServerPlayer player, PlayerCultivation cultivation,
-                                           String category, double mult, PillQuality quality) {
-        String cat = category == null ? "cultivation" : category.toLowerCase(Locale.ROOT);
-        return switch (cat) {
-            case "breakthrough" -> {
-                if (cultivation.isBreakthroughAssisted()) {
+            case "spirit_gain_flat" -> addSpiritualPower(cultivation, scale(entry.spiritGainFlat(), multiplier));
+            case "targeted_breakthrough_aid" -> applyTargetedBreakthrough(player, cultivation, entry, quality, false);
+            case "tribulation_breakthrough_aid" -> applyTargetedBreakthrough(player, cultivation, entry, quality, true);
+            case "soul_heal" -> applySoulHealing(player, cultivation, multiplier);
+            case "hp_regen" -> {
+                boolean changed = heal(player, 8.0F * (float) multiplier);
+                changed |= addOrUpgradeEffect(player, MobEffects.REGENERATION, scaleTicks(300, multiplier), 1);
+                yield changed;
+            }
+            case "heart_demon_reduce" -> applyHeartDemonRelief(player, cultivation, multiplier, false);
+            case "death_substitute_once" -> {
+                boolean granted = cultivation.grantDeathSubstitute();
+                if (!granted) {
                     player.displayClientMessage(Component.translatable(
-                            "message.seeking_immortals.catalog_pill.breakthrough_exists"), true);
-                    yield false;
+                            "message.seeking_immortals.catalog_pill.death_substitute_exists"), true);
                 }
-                cultivation.setBreakthroughPillBonus(quality.getBreakthroughBonus());
-                cultivation.addCultivationExp(scale(40, mult));
+                yield granted;
+            }
+            case "detox" -> applyDetox(player, multiplier);
+            case "diyuan_adaptation" -> applyDiyuanAdaptation(player, multiplier);
+            case "marrow_cleansing" -> applyMarrowCleansing(player, cultivation, entry, multiplier);
+            case "elemental_cultivation" -> applyElementalCultivation(player, cultivation, entry, multiplier);
+            case "high_tier_cultivation" -> {
+                cultivation.addCultivationExp(scale(900, multiplier));
+                cultivation.addDivineConsciousness(scale(30, multiplier));
+                cultivation.addCultivationBoost(scaleTicks(36000, multiplier), 1.0D + 0.45D * multiplier);
+                cultivation.addQiDeviationRisk(3);
+                addOrUpgradeEffect(player, MobEffects.REGENERATION, scaleTicks(300, multiplier), 1);
                 yield true;
             }
-            case "recovery" -> {
-                cultivation.addSpiritualPower(scale(80, mult));
-                player.heal(Math.max(1.0F, 6.0F * (float) mult));
+            case "cultivation_progress" -> applyCultivationProgress(player, cultivation, entry, multiplier);
+            case "restorative_tonic" -> applyRestorativeTonic(player, cultivation, multiplier);
+            case "body_tempering" -> {
+                cultivation.addBodyRefinement(scale(5, multiplier));
+                cultivation.addCultivationExp(scale(25, multiplier));
                 yield true;
             }
-            case "poison" -> {
-                player.removeEffect(MobEffects.POISON);
-                player.removeEffect(MobEffects.WITHER);
-                player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, scaleTicks(200, mult), 0));
+            case "toxic_cultivation" -> applyToxicCultivation(player, cultivation, entry, multiplier);
+            case "illusion_tonic" -> {
+                boolean changed = addOrUpgradeEffect(player, MobEffects.INVISIBILITY, scaleTicks(1200, multiplier), 0);
+                changed |= addOrUpgradeEffect(player, MobEffects.NIGHT_VISION, scaleTicks(1200, multiplier), 0);
+                yield changed;
+            }
+            case "legendary_essence" -> {
+                cultivation.addCultivationExp(scale(300, multiplier));
+                cultivation.addLifespanYears(scale(50, multiplier));
+                cultivation.addDivineConsciousness(scale(20, multiplier));
                 yield true;
             }
-            case "legendary" -> {
-                cultivation.addCultivationExp(scale(200, mult));
-                cultivation.addLifespanYears(scale(50, mult));
-                cultivation.addDivineConsciousness(scale(20, mult));
-                yield true;
+            case "special_tonic" -> {
+                int before = cultivation.getQiDeviationRisk();
+                cultivation.addQiDeviationRisk(-scale(5, multiplier));
+                boolean changed = before != cultivation.getQiDeviationRisk();
+                changed |= addOrUpgradeEffect(player, MobEffects.ABSORPTION, scaleTicks(600, multiplier), 0);
+                yield changed;
             }
-            case "special" -> {
-                cultivation.addCultivationExp(scale(50, mult));
-                cultivation.addDivineConsciousness(scale(6, mult));
-                yield true;
-            }
+            case "tribulation_guard" -> applyTribulationGuard(player, cultivation, multiplier);
             default -> {
-                // generic_cultivation / cultivation
-                cultivation.addSpiritualPower(scale(60, mult));
-                cultivation.addCultivationExp(scale(40, mult));
-                yield true;
+                SeekingImmortalsMod.LOGGER.error("Unsupported pill effect {} for {}", effect, entry.pillId());
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.catalog_pill.effect_unavailable", entry.display()), true);
+                yield false;
             }
         };
     }
 
-    private static int scale(double base, double mult) {
-        return Math.max(1, (int) Math.round(base * mult));
+    private static boolean applyFasting(ServerPlayer player, double multiplier) {
+        int duration = scaleTicks(24000, multiplier);
+        boolean changed = setMaxTicks(player.getPersistentData(), CatalogPillItem.FASTING_TICKS_KEY, duration);
+        if (player.getFoodData().getFoodLevel() < 18) {
+            player.getFoodData().setFoodLevel(18);
+            changed = true;
+        }
+        if (player.getFoodData().getSaturationLevel() < 5.0F) {
+            player.getFoodData().setSaturation(5.0F);
+            changed = true;
+        }
+        return changed;
     }
 
-    private static int scaleTicks(int base, double mult) {
-        return Math.max(20, scale(base, mult));
+    private static boolean applyForgetDust(ServerPlayer player, double multiplier) {
+        int duration = scaleTicks(2400, multiplier);
+        boolean changed = setMaxTicks(player.getPersistentData(), CatalogPillItem.FORGET_DUST_TICKS_KEY, duration);
+        changed |= addOrUpgradeEffect(player, MobEffects.CONFUSION, duration, 0);
+        changed |= addOrUpgradeEffect(player, MobEffects.BLINDNESS, Math.min(duration, scaleTicks(200, multiplier)), 0);
+        return changed;
+    }
+
+    private static boolean applyAppearanceFixing(ServerPlayer player) {
+        CompoundTag data = player.getPersistentData();
+        if (data.getBoolean(CatalogPillItem.APPEARANCE_FIXED_KEY)) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.catalog_pill.appearance_fixed_exists"), true);
+            return false;
+        }
+        data.putBoolean(CatalogPillItem.APPEARANCE_FIXED_KEY, true);
+        return true;
+    }
+
+    private static boolean applyDemonPurge(ServerPlayer player, PlayerCultivation cultivation, double multiplier) {
+        boolean changed = cultivation.hasHeartDemon();
+        cultivation.clearHeartDemon();
+        changed |= setMaxTicks(player.getPersistentData(), CatalogPillItem.YIN_PROTECTION_TICKS_KEY,
+                scaleTicks(24000, multiplier));
+        changed |= removeEffects(player, MobEffects.WITHER, MobEffects.POISON, MobEffects.CONFUSION);
+        return changed;
+    }
+
+    private static boolean applyDetox(ServerPlayer player, double multiplier) {
+        boolean changed = removeEffects(player, MobEffects.POISON, MobEffects.WITHER,
+                MobEffects.MOVEMENT_SLOWDOWN, MobEffects.HUNGER, MobEffects.CONFUSION);
+        if (player.getHealth() < player.getMaxHealth()) {
+            changed |= heal(player, 6.0F * (float) multiplier);
+        }
+        return changed;
+    }
+
+    private static boolean applyHeartDemonRelief(ServerPlayer player, PlayerCultivation cultivation,
+                                                  double multiplier, boolean clearAll) {
+        boolean changed;
+        if (clearAll) {
+            changed = cultivation.hasHeartDemon();
+            cultivation.clearHeartDemon();
+        } else {
+            changed = cultivation.reduceHeartDemon(Math.max(1, scale(1, multiplier)));
+        }
+        changed |= player.removeEffect(MobEffects.CONFUSION);
+        if (changed) {
+            addDivineConsciousness(cultivation, scale(8, multiplier));
+        }
+        return changed;
+    }
+
+    private static boolean applySoulHealing(ServerPlayer player, PlayerCultivation cultivation, double multiplier) {
+        boolean changed = addDivineConsciousness(cultivation, scale(12, multiplier));
+        changed |= removeEffects(player, MobEffects.BLINDNESS, MobEffects.CONFUSION, MobEffects.WEAKNESS);
+        return changed;
+    }
+
+    private static boolean applyDiyuanAdaptation(ServerPlayer player, double multiplier) {
+        boolean changed = setMaxTicks(player.getPersistentData(), CatalogPillItem.PRESSURE_RESIST_TICKS_KEY,
+                scaleTicks(24000, multiplier));
+        changed |= removeEffects(player, MobEffects.MOVEMENT_SLOWDOWN, MobEffects.CONFUSION);
+        changed |= addOrUpgradeEffect(player, MobEffects.DAMAGE_RESISTANCE, scaleTicks(1200, multiplier), 0);
+        return changed;
+    }
+
+    private static boolean applyTribulationGuard(ServerPlayer player, PlayerCultivation cultivation, double multiplier) {
+        int before = cultivation.getTribulationResistance();
+        cultivation.addTribulationResistance(Math.max(1, scale(5, multiplier)));
+        boolean changed = before != cultivation.getTribulationResistance();
+        changed |= setMaxTicks(player.getPersistentData(), CatalogPillItem.PRESSURE_RESIST_TICKS_KEY,
+                scaleTicks(36000, multiplier));
+        changed |= addOrUpgradeEffect(player, MobEffects.DAMAGE_RESISTANCE, scaleTicks(2400, multiplier), 1);
+        return changed;
+    }
+
+    private static boolean applyTargetedBreakthrough(ServerPlayer player, PlayerCultivation cultivation,
+                                                       Entry entry, PillQuality quality, boolean tribulationAid) {
+        Realm target = entry.realmTarget().isBlank()
+                ? cultivation.getNextBreakthroughRealm()
+                : Realm.fromDesignId(entry.realmTarget());
+        if (target == null) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.catalog_pill.invalid_realm", entry.realmTarget()), true);
+            return false;
+        }
+        if (!cultivation.isAtBreakthroughCap()) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.catalog_pill.not_at_breakthrough"), true);
+            return false;
+        }
+        if (cultivation.getNextBreakthroughRealm() != target) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.catalog_pill.wrong_target", target.getDisplayName()), true);
+            return false;
+        }
+        if (cultivation.isBreakthroughAssisted()) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.catalog_pill.breakthrough_exists"), true);
+            return false;
+        }
+        cultivation.setBreakthroughPillBonus(quality.getBreakthroughBonus());
+        if (tribulationAid) {
+            cultivation.addTribulationResistance(quality.getBreakthroughBonusPercent());
+        }
+        return true;
+    }
+
+    private static boolean applyMarrowCleansing(ServerPlayer player, PlayerCultivation cultivation,
+                                                 Entry entry, double multiplier) {
+        cultivation.retestLingGen(player.getRandom(), true);
+        cultivation.addBodyRefinement(scale(5, multiplier));
+        if (entry.risk().contains("lifespan") && player.getRandom().nextFloat() < 0.25F) {
+            cultivation.addAgeYears(Math.max(1, scale(2, multiplier)));
+        }
+        return true;
+    }
+
+    private static boolean applyElementalCultivation(ServerPlayer player, PlayerCultivation cultivation,
+                                                       Entry entry, double multiplier) {
+        Set<SpiritualRootAttribute> roots = cultivation.getSpiritualRootAttributes();
+        boolean compatible = switch (normalize(entry.element())) {
+            case "fire" -> roots.contains(SpiritualRootAttribute.FIRE);
+            case "ice" -> roots.contains(SpiritualRootAttribute.ICE) || roots.contains(SpiritualRootAttribute.WATER);
+            case "ice_fire" -> roots.contains(SpiritualRootAttribute.FIRE)
+                    && (roots.contains(SpiritualRootAttribute.ICE) || roots.contains(SpiritualRootAttribute.WATER));
+            case "mixed", "" -> !roots.isEmpty();
+            default -> false;
+        };
+        int cultivationGain = compatible ? 120 : 40;
+        cultivation.addCultivationExp(scale(cultivationGain, multiplier));
+        if (!compatible) {
+            cultivation.addQiDeviationRisk(entry.risk().contains("dual") ? 15 : 7);
+            addOrUpgradeEffect(player, MobEffects.CONFUSION, scaleTicks(200, multiplier), 0);
+        }
+        return true;
+    }
+
+    private static boolean applyCultivationProgress(ServerPlayer player, PlayerCultivation cultivation,
+                                                     Entry entry, double multiplier) {
+        Realm target = entry.realmTarget().isBlank() ? null : Realm.fromDesignId(entry.realmTarget());
+        if (target != null && cultivation.getRealm() != target) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.catalog_pill.target_realm_only", target.getDisplayName()), true);
+            return false;
+        }
+        int tier = target == null ? cultivation.getRealm().ordinal() : target.ordinal();
+        int before = cultivation.getCultivationExp();
+        cultivation.addCultivationExp(scale(40 + Math.max(0, tier) * 20, multiplier));
+        boolean changed = before != cultivation.getCultivationExp();
+        if (entry.school().contains("demonic") || entry.risk().contains("demonic")) {
+            cultivation.addQiDeviationRisk(5);
+            changed = true;
+        }
+        return changed;
+    }
+
+    private static boolean applyRestorativeTonic(ServerPlayer player, PlayerCultivation cultivation, double multiplier) {
+        boolean changed = addSpiritualPower(cultivation, scale(60, multiplier));
+        changed |= heal(player, 6.0F * (float) multiplier);
+        changed |= removeEffects(player, MobEffects.CONFUSION, MobEffects.WEAKNESS);
+        return changed;
+    }
+
+    private static boolean applyToxicCultivation(ServerPlayer player, PlayerCultivation cultivation,
+                                                  Entry entry, double multiplier) {
+        cultivation.addCultivationExp(scale(100, multiplier));
+        cultivation.addQiDeviationRisk(entry.school().contains("demonic") ? 12 : 8);
+        addOrUpgradeEffect(player, MobEffects.DAMAGE_BOOST, scaleTicks(1200, multiplier), 1);
+        addOrUpgradeEffect(player, MobEffects.POISON, scaleTicks(160, multiplier), 0);
+        return true;
+    }
+
+    private static boolean addSpiritualPower(PlayerCultivation cultivation, int amount) {
+        int before = cultivation.getSpiritualPower();
+        cultivation.addSpiritualPower(amount);
+        return cultivation.getSpiritualPower() != before;
+    }
+
+    private static boolean addDivineConsciousness(PlayerCultivation cultivation, int amount) {
+        int before = cultivation.getDivineConsciousness();
+        cultivation.addDivineConsciousness(amount);
+        return cultivation.getDivineConsciousness() != before;
+    }
+
+    private static boolean heal(ServerPlayer player, float amount) {
+        float before = player.getHealth();
+        player.heal(Math.max(1.0F, amount));
+        return player.getHealth() > before;
+    }
+
+    private static boolean removeEffects(ServerPlayer player, MobEffect... effects) {
+        boolean changed = false;
+        for (MobEffect effect : effects) {
+            changed |= player.removeEffect(effect);
+        }
+        return changed;
+    }
+
+    private static boolean addOrUpgradeEffect(ServerPlayer player, MobEffect effect, int duration, int amplifier) {
+        MobEffectInstance existing = player.getEffect(effect);
+        if (existing != null && existing.getAmplifier() > amplifier) {
+            return false;
+        }
+        if (existing != null && existing.getAmplifier() == amplifier && existing.getDuration() >= duration) {
+            return false;
+        }
+        player.addEffect(new MobEffectInstance(effect, duration, amplifier));
+        return true;
+    }
+
+    private static boolean setMaxTicks(CompoundTag data, String key, int ticks) {
+        int current = Math.max(0, data.getInt(key));
+        if (current >= ticks) {
+            return false;
+        }
+        data.putInt(key, ticks);
+        return true;
+    }
+
+    private static int scale(double base, double multiplier) {
+        return Math.max(1, (int) Math.round(base * multiplier));
+    }
+
+    private static int scaleTicks(int base, double multiplier) {
+        return Math.max(20, scale(base, multiplier));
     }
 
     private static Map<String, Entry> load() {
-        Map<String, Entry> map = new LinkedHashMap<>();
-        try (InputStream in = PillEffectCatalog.class.getClassLoader().getResourceAsStream(RESOURCE)) {
-            if (in == null) {
-                SeekingImmortalsMod.LOGGER.warn("Pill effect catalog missing: {}", RESOURCE);
-                return map;
-            }
-            JsonObject root = JsonParser.parseReader(new InputStreamReader(in, StandardCharsets.UTF_8)).getAsJsonObject();
-            JsonArray arr = root.getAsJsonArray("entries");
-            if (arr == null) {
-                return map;
-            }
-            for (JsonElement el : arr) {
-                if (!el.isJsonObject()) {
-                    continue;
-                }
-                JsonObject o = el.getAsJsonObject();
-                String pillId = text(o, "pill_id");
-                if (pillId.isBlank()) {
-                    continue;
-                }
-                pillId = pillId.toLowerCase(Locale.ROOT);
-                map.put(pillId, new Entry(
-                        pillId,
-                        text(o, "display"),
-                        text(o, "category"),
-                        text(o, "effect").isBlank() ? "generic_cultivation" : text(o, "effect"),
-                        text(o, "realm_min").isBlank() ? "QI_REFINING" : text(o, "realm_min"),
-                        text(o, "item")));
-            }
-            SeekingImmortalsMod.LOGGER.info("Loaded {} pill effect catalog entries.", map.size());
-        } catch (Exception ex) {
-            SeekingImmortalsMod.LOGGER.error("Failed loading pill effect catalog", ex);
+        Map<String, Entry> entries = new LinkedHashMap<>();
+        JsonObject root = readJson(EFFECT_RESOURCE);
+        if (root == null || !root.has("entries") || !root.get("entries").isJsonArray()) {
+            return entries;
         }
-        return map;
+        for (JsonElement element : root.getAsJsonArray("entries")) {
+            if (!element.isJsonObject()) continue;
+            JsonObject object = element.getAsJsonObject();
+            String pillId = normalize(text(object, "pill_id"));
+            if (pillId.isBlank()) continue;
+            entries.put(pillId, new Entry(
+                    pillId,
+                    text(object, "display"),
+                    firstNonBlank(text(object, "category"), "cultivation"),
+                    firstNonBlank(text(object, "effect"), "generic_cultivation"),
+                    firstNonBlank(text(object, "realm_min"), "QI_REFINING"),
+                    text(object, "item"),
+                    "", "", 0, Set.of(), "", "", "", 0, ""));
+        }
+        mergeDesignMetadata(entries);
+        SeekingImmortalsMod.LOGGER.info("Loaded {} pill effect catalog entries.", entries.size());
+        return entries;
+    }
+
+    private static void mergeDesignMetadata(Map<String, Entry> entries) {
+        JsonObject root = readJson(DESIGN_RESOURCE);
+        if (root == null || !root.has("pills") || !root.get("pills").isJsonArray()) {
+            return;
+        }
+        for (JsonElement element : root.getAsJsonArray("pills")) {
+            if (!element.isJsonObject()) continue;
+            JsonObject object = element.getAsJsonObject();
+            String pillId = normalize(text(object, "id"));
+            Entry base = entries.get(pillId);
+            if (base == null) continue;
+            Set<String> tags = stringSet(object.get("effect_tags"));
+            String category = firstNonBlank(text(object, "category"), base.category());
+            String realmTarget = firstNonBlank(text(object, "realm_target"), inferredTarget(pillId));
+            int spiritGain = integer(object, "spirit_gain_flat");
+            String consumeRealm = nestedText(object, "learn_requirements", "consume", "realm_min");
+            String effect = base.effect();
+            if (effect.isBlank() || "generic_cultivation".equals(effect)) {
+                effect = resolveGenericEffect(pillId, category, realmTarget, spiritGain, tags);
+            }
+            entries.put(pillId, new Entry(
+                    pillId,
+                    firstNonBlank(text(object, "display"), base.display()),
+                    category,
+                    effect,
+                    firstNonBlank(consumeRealm, text(object, "realm_min"), base.realmMin()),
+                    base.itemId(),
+                    text(object, "realm_max"),
+                    realmTarget,
+                    spiritGain,
+                    tags,
+                    normalize(text(object, "element")),
+                    normalize(text(object, "risk")),
+                    normalize(text(object, "school")),
+                    integer(object, "duration_ticks"),
+                    text(object, "note")));
+        }
+    }
+
+    private static String resolveGenericEffect(String pillId, String category, String realmTarget,
+                                               int spiritGain, Set<String> tags) {
+        if (tags.contains("death_substitute_once")) return "death_substitute_once";
+        if (tags.contains("tribulation_aid")) return "tribulation_breakthrough_aid";
+        if (tags.contains("diyuan_debuff_reduce")) return "diyuan_adaptation";
+        if (tags.contains("soul_heal")) return "soul_heal";
+        if (tags.contains("hp_regen")) return "hp_regen";
+        if (tags.contains("heart_demon_reduce")) return "heart_demon_reduce";
+        if (tags.contains("detox")) return "detox";
+        if (spiritGain > 0) return "spirit_gain_flat";
+        if ("breakthrough".equals(category) && !realmTarget.isBlank()) return "targeted_breakthrough_aid";
+        return switch (pillId) {
+            case "bone_marrow_pill", "xiyu_pill" -> "marrow_cleansing";
+            case "ice_fire_pill", "xuanbing_pill", "lieyan_pill", "wuxing_pill" -> "elemental_cultivation";
+            case "pressure_resist_pill", "diyuan_adapt_pill" -> "diyuan_adaptation";
+            case "spirit_realm_condense_pill" -> "high_tier_cultivation";
+            case "yangyuan_pill", "jingxin_pill", "jieqi_pill", "huiyuan_pill" -> "restorative_tonic";
+            case "huanti_pill", "huanxue_pill", "body_refine_pill", "meridian_open_pill",
+                 "barbarian_strength_pill" -> "body_tempering";
+            case "wangchen_pill" -> "erase_memory_12h";
+            case "ghost_cultivate_pill", "demonic_blood_pill", "xueying_pill", "ghost_gate_pill",
+                 "poison_insect_pill", "blood_curse_pill" -> "toxic_cultivation";
+            case "hehuan_pill" -> "dual_cultivation_bonus";
+            case "illusion_pill", "fox_illusion_pill" -> "illusion_tonic";
+            case "tribulation_guard_pill" -> "tribulation_guard";
+            case "tianling_pill" -> "legendary_essence";
+            default -> switch (category) {
+                case "breakthrough" -> "tribulation_guard";
+                case "recovery" -> "restorative_tonic";
+                case "poison" -> "toxic_cultivation";
+                case "legendary" -> "legendary_essence";
+                case "special" -> "special_tonic";
+                default -> "cultivation_progress";
+            };
+        };
+    }
+
+    private static String inferredTarget(String pillId) {
+        return switch (pillId) {
+            case "foundation_pill" -> "FOUNDATION";
+            case "condensation_pill", "jiedan_pill", "ningyuan_pill", "ningjin_pill", "golden_core_pill" ->
+                    "CORE_FORMATION";
+            case "nascent_soul_pill", "ningying_pill" -> "NASCENT_SOUL";
+            case "huashen_pill", "spirit_severing_pill" -> "DEITY_TRANSFORMATION";
+            case "void_condense_pill" -> "VOID_REFINEMENT";
+            default -> "";
+        };
+    }
+
+    private static JsonObject readJson(String resource) {
+        try (InputStream stream = PillEffectCatalog.class.getClassLoader().getResourceAsStream(resource)) {
+            if (stream == null) {
+                SeekingImmortalsMod.LOGGER.warn("Pill catalog missing: {}", resource);
+                return null;
+            }
+            return JsonParser.parseReader(new InputStreamReader(stream, StandardCharsets.UTF_8)).getAsJsonObject();
+        } catch (Exception exception) {
+            SeekingImmortalsMod.LOGGER.error("Failed loading pill catalog {}", resource, exception);
+            return null;
+        }
     }
 
     private static Map<String, Entry> indexByItemPath(Map<String, Entry> byPill) {
-        Map<String, Entry> map = new LinkedHashMap<>();
+        Map<String, Entry> entries = new LinkedHashMap<>();
         for (Entry entry : byPill.values()) {
-            map.put(entry.pillId(), entry);
-            String item = entry.itemId();
-            if (item != null && !item.isBlank()) {
-                String path = item.contains(":") ? item.substring(item.indexOf(':') + 1) : item;
-                map.putIfAbsent(path.toLowerCase(Locale.ROOT), entry);
+            entries.put(entry.pillId(), entry);
+            if (!entry.itemId().isBlank()) {
+                String path = entry.itemId().contains(":")
+                        ? entry.itemId().substring(entry.itemId().indexOf(':') + 1)
+                        : entry.itemId();
+                entries.putIfAbsent(normalize(path), entry);
             }
         }
-        return map;
+        return entries;
     }
 
-    private static String text(JsonObject o, String key) {
-        return o.has(key) && o.get(key).isJsonPrimitive() ? o.get(key).getAsString() : "";
+    private static Set<String> stringSet(JsonElement element) {
+        if (element == null || !element.isJsonArray()) return Set.of();
+        Set<String> values = new LinkedHashSet<>();
+        for (JsonElement value : element.getAsJsonArray()) {
+            if (value.isJsonPrimitive()) {
+                String normalized = normalize(value.getAsString());
+                if (!normalized.isBlank()) values.add(normalized);
+            }
+        }
+        return Set.copyOf(values);
+    }
+
+    private static int integer(JsonObject object, String key) {
+        return object.has(key) && object.get(key).isJsonPrimitive()
+                ? Math.max(0, object.get(key).getAsInt()) : 0;
+    }
+
+    private static String nestedText(JsonObject object, String... path) {
+        JsonObject current = object;
+        for (int index = 0; index < path.length - 1; index++) {
+            if (!current.has(path[index]) || !current.get(path[index]).isJsonObject()) return "";
+            current = current.getAsJsonObject(path[index]);
+        }
+        return text(current, path[path.length - 1]);
+    }
+
+    private static String text(JsonObject object, String key) {
+        return object.has(key) && object.get(key).isJsonPrimitive() ? object.get(key).getAsString() : "";
+    }
+
+    private static String firstNonBlank(String... values) {
+        for (String value : values) {
+            if (value != null && !value.isBlank()) return value;
+        }
+        return "";
+    }
+
+    private static String normalize(String value) {
+        return value == null ? "" : value.trim().toLowerCase(Locale.ROOT);
     }
 }

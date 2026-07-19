@@ -2,6 +2,7 @@ package com.xunxian.seekingimmortals.cultivation;
 
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation.QiDeviationTier;
 import com.xunxian.seekingimmortals.item.InventoryDeliveryService;
+import com.xunxian.seekingimmortals.item.pill.PillDeathSubstituteEvents;
 import com.xunxian.seekingimmortals.item.pill.PillQuality;
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
 import com.xunxian.seekingimmortals.persistence.PlayerPersistentDataClonePolicy;
@@ -171,10 +172,12 @@ public final class BreakthroughService {
             }
             case EXTREME -> {
                 cultivation.setQiDeviationRisk(0);
-                restorePreservedOnRespawn(player);
-                preserveHalfInventory(player, random);
-                forceExtremeDeath(player);
-                player.displayClientMessage(Component.translatable("message.seeking_immortals.qi_deviation.extreme"), false);
+                if (!PillDeathSubstituteEvents.trySubstitute(player)) {
+                    restorePreservedOnRespawn(player);
+                    preserveHalfInventory(player, random);
+                    forceExtremeDeath(player);
+                    player.displayClientMessage(Component.translatable("message.seeking_immortals.qi_deviation.extreme"), false);
+                }
             }
             default -> {}
         }

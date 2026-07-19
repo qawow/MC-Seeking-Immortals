@@ -121,6 +121,33 @@ class PlayerCloneWiringTest {
     }
 
     @Test
+    void lifespanDeathBypassesSubstituteAndSubstituteRunsLast() throws IOException {
+        String modEvents = readSource("event", "ModEvents.java");
+        String hurt = compact(methodSource(modEvents, "public static void onLivingHurt("));
+        String lifespan = compact(methodSource(modEvents, "private static void handleAgeAndLifespan("));
+        String substitute = compact(readSource("item/pill", "PillDeathSubstituteEvents.java"));
+
+        assertTrue(hurt.contains("getBoolean(\"SeekingImmortalsLifespanDeath\")"));
+        assertFalse(hurt.contains("remove(\"SeekingImmortalsLifespanDeath\")"),
+                "the lifespan marker must remain visible through LivingDeathEvent");
+
+        int mark = lifespan.indexOf("data.putBoolean(\"SeekingImmortalsLifespanDeath\",true)");
+        int tryStart = lifespan.indexOf("try{", mark);
+        int damage = lifespan.indexOf("player.hurt(", tryStart);
+        int finallyStart = lifespan.indexOf("}finally{", damage);
+        int clear = lifespan.indexOf("data.remove(\"SeekingImmortalsLifespanDeath\")", finallyStart);
+        assertTrue(mark >= 0 && tryStart > mark && damage > tryStart && finallyStart > damage && clear > finallyStart,
+                "the lifespan marker must cover the complete synchronous damage/death event chain");
+
+        int lowestHandler = substitute.indexOf(
+                "@SubscribeEvent(priority=EventPriority.LOWEST)publicstaticvoidonLivingDeath(");
+        int lifespanGuard = substitute.indexOf("getBoolean(\"SeekingImmortalsLifespanDeath\")", lowestHandler);
+        int consume = substitute.indexOf("trySubstitute(player)", lifespanGuard);
+        assertTrue(lowestHandler >= 0 && lifespanGuard > lowestHandler && consume > lifespanGuard,
+                "death substitution must run last and reject lifespan death before consuming its charge");
+    }
+
+    @Test
     void extremeIsolationDoesNotDependOnMutableInventoryRules() throws IOException {
         String breakthrough = readSource("cultivation", "BreakthroughService.java");
         String policy = readSource("persistence", "PlayerPersistentDataClonePolicy.java");

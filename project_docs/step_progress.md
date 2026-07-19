@@ -1,3 +1,17 @@
+## 501. 2026-07-19 0.2.46 丹药语义第二阶段
+
+  Step   Status   Notes
+  ---   ---   ---
+  Audit   Done   对照两份 shipped 丹药目录审查 114 条运行时条目、消费门槛、效果标签和失败语义；确认原始效果目录中的 generic 条目可由设计目录补全。
+  Backup   Done   回滚点 `.bak/20260719_0.2.44_pill_semantics/`、`.bak/20260719_0.2.45_pill_semantics_docs/`、`.bak/20260719_0.2.46_lifespan_death_priority/`，均保持相对路径且不纳入提交。
+  Catalog merge   Done   合并境界上下限/目标、固定灵力、标签、元素、风险、流派、时长和说明；114 条运行时效果不再落入 `generic_cultivation`。
+  Runtime semantics   Done   接入回灵、疗伤、解毒、心魔/神魂、地渊、雷劫、灵兽、元素修炼、炼体、寿元与破境等效果；无收益或门槛不符时 fail-closed。
+  Death substitute   Done   capability 持久保存一次替死；普通死亡与极端走火共用消费入口；寿元标记覆盖同步 hurt/death 链并 finally 清理，替死以 LOWEST 在其他取消机制后兜底。
+  Presentation   Done   Bulk 丹药 tooltip 显示本地化效果、最低境界和目标境界；65 个效果键补齐中英文文本。
+  Verify   Done   `PlayerCloneWiringTest` 9 项与 `PillEffectCatalogTest` 4 项通过；最终普通 `./gradlew build --no-daemon` BUILD SUCCESSFUL（58s），全量 681 项，0 failures、0 errors、0 skipped。
+  Version   Done   0.2.44 后的极端走火接线升至 0.2.45；最终审计再修寿元标记时序并升至 `mod_version=0.2.46`。无包字段/顺序/注册/方向变化，protocol 保持 25。
+  Handoff   Done   专用载体、逐丹高保真差异、功法层数/前置、术法结构化字段、多方块与实机烟测写入 `project_docs/updates/20260719_0.2.46_pill_semantics.md`。
+
 ## 500. 2026-07-19 0.2.43 批量物品功能第一阶段
 
   Step   Status   Notes
