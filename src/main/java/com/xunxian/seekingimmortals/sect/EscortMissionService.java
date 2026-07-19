@@ -4,6 +4,7 @@ import com.xunxian.seekingimmortals.catalog.SummonHonestMvpService;
 import com.xunxian.seekingimmortals.entity.SectStewardEntity;
 import com.xunxian.seekingimmortals.entity.SummonedServitorEntity;
 import com.xunxian.seekingimmortals.registry.ModEntities;
+import com.xunxian.seekingimmortals.worldpack.ServitorRegistrySavedData;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -29,13 +30,17 @@ public final class EscortMissionService {
     private EscortMissionService() {}
 
     public static boolean startEscort(ServerPlayer player) {
+        return startEscort(player, true);
+    }
+
+    public static boolean startEscort(ServerPlayer player, boolean notifyFailure) {
         if (player == null || !(player.level() instanceof ServerLevel level)) {
             return false;
         }
         clearEscort(player, true);
         SummonedServitorEntity escort = ModEntities.SUMMONED_SERVITOR.get().create(level);
         if (escort == null) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.escort.spawn_failed"), true);
+            notifySpawnFailure(player, notifyFailure);
             return false;
         }
         escort.moveTo(player.getX() + 1.2D, player.getY(), player.getZ() + 0.5D, player.getYRot(), 0.0F);
@@ -46,7 +51,15 @@ public final class EscortMissionService {
         escort.getPersistentData().putUUID(ENTITY_TAG_OWNER, player.getUUID());
         if (!level.addFreshEntity(escort)) {
             escort.discard();
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.escort.spawn_failed"), true);
+            notifySpawnFailure(player, notifyFailure);
+            return false;
+        }
+        ServitorRegistrySavedData.State registryState = ServitorRegistrySavedData.get(level).register(
+                player.getUUID(), escort.getUUID(), level.dimension().location().toString(),
+                escort.getStance().name(), SummonHonestMvpService.MAX_ACTIVE_SERVITORS);
+        if (registryState == null || registryState.dismissed()) {
+            escort.discard();
+            notifySpawnFailure(player, notifyFailure);
             return false;
         }
 
@@ -58,8 +71,28 @@ public final class EscortMissionService {
         return true;
     }
 
+    private static void notifySpawnFailure(ServerPlayer player, boolean notifyFailure) {
+        if (notifyFailure) {
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.escort.spawn_failed"), true);
+        }
+    }
+
     public static boolean isActive(ServerPlayer player) {
         return player != null && player.getPersistentData().getCompound(ROOT).getBoolean(TAG_ACTIVE);
+    }
+
+    public static boolean hasLoadedActiveEscort(ServerPlayer player) {
+        if (!isActive(player) || !(player.level() instanceof ServerLevel level)) {
+            return false;
+        }
+        CompoundTag tag = player.getPersistentData().getCompound(ROOT);
+        if (!tag.hasUUID(TAG_ENTITY)) {
+            return false;
+        }
+        Entity entity = level.getEntity(tag.getUUID(TAG_ENTITY));
+        return entity instanceof SummonedServitorEntity escort
+                && escort.isAlive()
+                && isOwnedEscort(player, escort);
     }
 
     public static boolean onStewardContact(ServerPlayer player, SectStewardEntity steward) {
@@ -90,24 +123,35 @@ public final class EscortMissionService {
         return true;
     }
 
-    public static void tick(ServerPlayer player) {
+    public static boolean tick(ServerPlayer player) {
         if (!isActive(player) || !(player.level() instanceof ServerLevel level)) {
-            return;
+            return false;
         }
         CompoundTag tag = player.getPersistentData().getCompound(ROOT);
         if (!tag.hasUUID(TAG_ENTITY)) {
-            failEscort(player);
-            return;
+            clearEscort(player, true);
+            return true;
         }
-        Entity entity = level.getEntity(tag.getUUID(TAG_ENTITY));
-        if (!(entity instanceof SummonedServitorEntity escort) || !escort.isAlive()) {
-            failEscort(player);
-            return;
+        UUID entityId = tag.getUUID(TAG_ENTITY);
+        Entity entity = level.getEntity(entityId);
+        if (!(entity instanceof SummonedServitorEntity escort) || !escort.isAlive()
+                || !isOwnedEscort(player, escort)) {
+            ServitorRegistrySavedData.State state = ServitorRegistrySavedData.get(level)
+                    .state(entityId)
+                    .filter(candidate -> player.getUUID().equals(candidate.ownerId()))
+                    .orElse(null);
+            if (entity == null && state != null && !state.dismissed()
+                    && level.dimension().location().toString().equals(state.dimensionId())) {
+                return false;
+            }
+            clearEscort(player, true);
+            return true;
         }
         // Keep follow stance while active.
         if (escort.getStance() != SummonedServitorEntity.Stance.FOLLOW) {
             escort.setStance(SummonedServitorEntity.Stance.FOLLOW);
         }
+        return false;
     }
 
     public static void clearEscort(ServerPlayer player, boolean dismissEntity) {
@@ -115,23 +159,36 @@ public final class EscortMissionService {
             return;
         }
         CompoundTag tag = player.getPersistentData().getCompound(ROOT);
-        if (dismissEntity && tag.hasUUID(TAG_ENTITY) && player.level() instanceof ServerLevel level) {
-            Entity entity = level.getEntity(tag.getUUID(TAG_ENTITY));
-            if (entity != null) {
-                entity.discard();
-            } else {
+        if (dismissEntity && tag.hasUUID(TAG_ENTITY) && player.getServer() != null) {
+            UUID entityId = tag.getUUID(TAG_ENTITY);
+            ServitorRegistrySavedData.get(player.getServer()).dismiss(player.getUUID(), entityId);
+            SummonedServitorEntity loadedEscort = null;
+            for (ServerLevel level : player.getServer().getAllLevels()) {
+                Entity entity = level.getEntity(entityId);
+                if (entity instanceof SummonedServitorEntity escort && isOwnedEscort(player, escort)) {
+                    loadedEscort = escort;
+                    break;
+                }
+            }
+            if (loadedEscort != null) {
+                loadedEscort.discard();
+            } else if (player.level() instanceof ServerLevel level) {
                 // Fallback: discard nearby escort-tagged servitors owned by player.
                 AABB box = player.getBoundingBox().inflate(24.0D);
                 List<SummonedServitorEntity> list = level.getEntitiesOfClass(SummonedServitorEntity.class, box,
-                        e -> e.getPersistentData().getBoolean(ENTITY_TAG_ESCORT)
-                                && e.getPersistentData().hasUUID(ENTITY_TAG_OWNER)
-                                && player.getUUID().equals(e.getPersistentData().getUUID(ENTITY_TAG_OWNER)));
+                        e -> isOwnedEscort(player, e));
                 for (SummonedServitorEntity e : list) {
                     e.discard();
                 }
             }
         }
         player.getPersistentData().remove(ROOT);
+    }
+
+    private static boolean isOwnedEscort(ServerPlayer player, SummonedServitorEntity escort) {
+        return escort.getPersistentData().getBoolean(ENTITY_TAG_ESCORT)
+                && escort.getPersistentData().hasUUID(ENTITY_TAG_OWNER)
+                && player.getUUID().equals(escort.getPersistentData().getUUID(ENTITY_TAG_OWNER));
     }
 
     private static void failEscort(ServerPlayer player) {

@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ServitorRegistrySavedDataTest {
@@ -29,8 +30,15 @@ class ServitorRegistrySavedDataTest {
         assertEquals("AGGRESSIVE", reloadedFirst.stance(),
                 "entity NBT must not overwrite a deferred owner command when its chunk reloads");
 
-        data.dismissOldest(owner, 1);
+        assertFalse(data.dismiss(UUID.randomUUID(), first).isPresent());
+        assertTrue(data.dismiss(owner, first).orElseThrow().dismissed());
         assertEquals(2, data.countActive(owner));
+        assertTrue(data.register(owner, first, "minecraft:overworld", "FOLLOW", 3).dismissed(),
+                "a deferred exact dismissal must win when the entity chunk reloads");
+        UUID absent = UUID.randomUUID();
+        assertTrue(data.dismiss(owner, absent).orElseThrow().dismissed());
+        assertTrue(data.register(owner, absent, "minecraft:the_end", "FOLLOW", 3).dismissed(),
+                "an absent exact dismissal must create a tombstone for a later chunk load");
 
         ServitorRegistrySavedData loaded = ServitorRegistrySavedData.load(data.save(new CompoundTag()));
         assertEquals(2, loaded.countActive(owner));

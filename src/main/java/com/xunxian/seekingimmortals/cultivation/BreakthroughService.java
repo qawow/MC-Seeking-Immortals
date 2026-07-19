@@ -1,8 +1,10 @@
 package com.xunxian.seekingimmortals.cultivation;
 
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation.QiDeviationTier;
+import com.xunxian.seekingimmortals.item.InventoryDeliveryService;
 import com.xunxian.seekingimmortals.item.pill.PillQuality;
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
+import com.xunxian.seekingimmortals.persistence.PlayerPersistentDataClonePolicy;
 import com.xunxian.seekingimmortals.registry.ModItems;
 import com.xunxian.seekingimmortals.spiritual.SpiritualAuraManager;
 import net.minecraft.network.chat.Component;
@@ -17,8 +19,14 @@ import net.minecraft.world.item.ItemStack;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 public final class BreakthroughService {
+    private static final Set<UUID> ACTIVE_EXTREME_DEATHS = ConcurrentHashMap.newKeySet();
+    private static final Set<UUID> COMMITTED_EXTREME_DEATHS = ConcurrentHashMap.newKeySet();
+
     private BreakthroughService() {}
 
     public enum HandBreakthroughAidResult {
@@ -28,6 +36,9 @@ public final class BreakthroughService {
     }
 
     public static void attempt(ServerPlayer player) {
+        if (player.isSpectator()) {
+            return;
+        }
         CultivationHelper.get(player).ifPresentOrElse(cultivation -> attempt(player, cultivation),
                 () -> player.displayClientMessage(Component.translatable("message.seeking_immortals.breakthrough.no_data"), true));
     }
@@ -160,13 +171,9 @@ public final class BreakthroughService {
             }
             case EXTREME -> {
                 cultivation.setQiDeviationRisk(0);
+                restorePreservedOnRespawn(player);
                 preserveHalfInventory(player, random);
-                player.hurt(player.damageSources().magic(), Float.MAX_VALUE);
-                // H8 兜底：极端走火必须死亡，否则 Totem/吸收/事件取消可能让玩家存活，
-                // 导致已序列化进 PersistentData 的 50% 物品无法经重生路径归还而永久滞留。
-                if (!player.isDeadOrDying()) {
-                    player.kill();
-                }
+                forceExtremeDeath(player);
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.qi_deviation.extreme"), false);
             }
             default -> {}
@@ -174,11 +181,46 @@ public final class BreakthroughService {
         SyncCultivationDataPacket.send(player, cultivation);
     }
 
-    public static final String PRESERVED_KEY = "SeekingImmortalsExtremePreserved";
+    public static final String PRESERVED_KEY = PlayerPersistentDataClonePolicy.EXTREME_PRESERVED_KEY;
+
+    public static void markExtremeDeathCommitted(ServerPlayer player) {
+        if (!ACTIVE_EXTREME_DEATHS.contains(player.getUUID())
+                || !player.getPersistentData().contains(PRESERVED_KEY)) {
+            return;
+        }
+        COMMITTED_EXTREME_DEATHS.add(player.getUUID());
+    }
+
+    private static void forceExtremeDeath(ServerPlayer player) {
+        UUID playerId = player.getUUID();
+        ACTIVE_EXTREME_DEATHS.add(playerId);
+        COMMITTED_EXTREME_DEATHS.remove(playerId);
+        boolean deathCommitted = false;
+        try {
+            player.hurt(player.damageSources().magic(), Float.MAX_VALUE);
+            deathCommitted = COMMITTED_EXTREME_DEATHS.remove(playerId);
+            if (!deathCommitted) {
+                if (player.getHealth() <= 0.0F) {
+                    player.setHealth(1.0F);
+                }
+                player.kill();
+                deathCommitted = COMMITTED_EXTREME_DEATHS.remove(playerId);
+            }
+        } finally {
+            deathCommitted = deathCommitted || COMMITTED_EXTREME_DEATHS.remove(playerId);
+            ACTIVE_EXTREME_DEATHS.remove(playerId);
+            if (!deathCommitted && player.getPersistentData().contains(PRESERVED_KEY)) {
+                if (player.getHealth() <= 0.0F) {
+                    player.setHealth(1.0F);
+                }
+                restorePreservedOnRespawn(player);
+            }
+        }
+    }
 
     /**
      * 走火极限：把背包 50% 物品序列化到 PersistentData 供重生归还（不掉世界），从背包移除后令死亡掉剩余 50%。
-     * <p>keepInventory=false：地上 50% + 重生 50%；keepInventory=true：重生保留 50%。
+     * <p>keepInventory=false：地上 50% + 重生 50%；keepInventory=true：原版与本事务共同保留全部物品。
      */
     private static void preserveHalfInventory(ServerPlayer player, RandomSource random) {
         Inventory inv = player.getInventory();
@@ -202,16 +244,10 @@ public final class BreakthroughService {
 
     /** 重生时归还走火极限保留的物品，用完即删 key。背包满则掉落地面。 */
     public static void restorePreservedOnRespawn(ServerPlayer player) {
-        net.minecraft.nbt.CompoundTag data = player.getPersistentData();
-        if (!data.contains(PRESERVED_KEY)) return;
-        net.minecraft.nbt.ListTag preserved = data.getList(PRESERVED_KEY, net.minecraft.nbt.Tag.TAG_COMPOUND);
-        for (int i = 0; i < preserved.size(); i++) {
-            ItemStack stack = ItemStack.of(preserved.getCompound(i));
-            if (!stack.isEmpty() && !player.getInventory().add(stack)) {
-                player.drop(stack, false);
-            }
+        for (ItemStack stack : PlayerPersistentDataClonePolicy.takeExtremePreserved(
+                player.getPersistentData())) {
+            InventoryDeliveryService.giveOrDrop(player, stack);
         }
-        data.remove(PRESERVED_KEY);
     }
 
     private static void damageRandomEquipment(ServerPlayer player, RandomSource random) {

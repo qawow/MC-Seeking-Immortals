@@ -1,3 +1,17 @@
+## 496. 2026-07-19 0.2.32 玩家死亡 Clone 与护送事务
+
+  Step   Status   Notes
+  ---   ---   ---
+  Review scope   Done   主线程与多轮 `reasoning_effort=max` 子代理穷举 56 个玩家 PersistentData 文件、364 处访问、11 个既有 copy helper，并复核 Forge Clone/Respawn/End、极端走火和护送实体生命周期。
+  Backup   Done   生产、测试、版本和五份状态文档按相对路径备份至 `.bak/20260719_093716_player_clone_authority/`；新增 policy、两份新测试及 update note 无旧文件。
+  Clone policy   Done   capability 复制置于 `try/finally`；58 个永久根键和 2 个动态前缀深拷贝，明确丢弃对话、飞升、秘境、飞行、药效和实体 UUID 等临时状态。
+  Extreme transaction   Done   极端走火隔离半包随任意 Clone 一次迁移；只有 post-cancellation `LivingDropsEvent` 才确认死亡提交，未提交则回血回滚；隔离物不依赖可变 keepInventory，满背包走统一余量交付，旧 payload 先恢复且错误 NBT 一次清理。
+  Escort recovery   Done   已完成凭证跨死亡/End 保留；进行中护送跨死亡/跨维重建，失败持久重试；registry 同步验收 cap、全维精确清理、缺行 tombstone 和区块卸载/真实丢失分流阻止重复或永久卡死。
+  Tests   Done   新增 Clone policy 与 wiring 回归，扩展 servitor registry；21 项聚焦测试和全量 643 项测试通过。
+  Version/protocol   Done   `mod_version` 0.2.31 -> 0.2.32；未改变包字段、顺序、编码、注册或通道行为，protocol 保持 24。
+  Verification   Done   正式 `./gradlew build --no-daemon`（AI preflight `0.2.32`、`test`）BUILD SUCCESSFUL，耗时 1m39s。
+  Update note   Done   `project_docs/updates/20260719_0.2.32_player_clone_authority.md`
+
 ## 495. 2026-07-19 0.2.31 炼器配方权限收口
 
   Step   Status   Notes

@@ -20,6 +20,9 @@ import java.util.concurrent.ThreadLocalRandom;
 public final class SectMissionGenerator {
     private static final String PROGRESS_ROOT = "seeking_immortals_sect_mission_progress";
     private static final String ACTIVE_ROOT = "seeking_immortals_active_generated_mission";
+    private static final String ESCORT_RESTART_PENDING = "escort_restart_pending";
+    private static final String ESCORT_RESTART_AT = "escort_restart_at";
+    private static final long ESCORT_RESTART_DELAY_TICKS = 200L;
 
     private SectMissionGenerator() {}
 
@@ -61,6 +64,8 @@ public final class SectMissionGenerator {
         tag.putInt("reward", Math.max(0, mission.rewardContribution()));
         // Reset type-specific progress counters on accept.
         CompoundTag root = player.getPersistentData().getCompound(PROGRESS_ROOT).copy();
+        root.remove(ESCORT_RESTART_PENDING);
+        root.remove(ESCORT_RESTART_AT);
         if ("kill".equalsIgnoreCase(mission.type())) {
             root.putInt("kills", 0);
             root.putString("kill_target", mission.target() == null ? "monster" : mission.target());
@@ -93,6 +98,64 @@ public final class SectMissionGenerator {
         }
         return new Mission(id, tag.getString("type"), tag.getString("target"),
                 Math.max(1, tag.getInt("count")), Math.max(0, tag.getInt("reward")));
+    }
+
+    public static boolean hasActiveEscortMission(ServerPlayer player) {
+        Mission mission = activeGenerated(player);
+        return mission != null && "escort".equalsIgnoreCase(mission.type());
+    }
+
+    public static void restartEscortAfterRespawn(ServerPlayer player) {
+        if (!hasActiveEscortMission(player)) {
+            return;
+        }
+        CompoundTag root = player.getPersistentData().getCompound(PROGRESS_ROOT).copy();
+        if (root.getBoolean("escort")) {
+            root.remove(ESCORT_RESTART_PENDING);
+            root.remove(ESCORT_RESTART_AT);
+            player.getPersistentData().put(PROGRESS_ROOT, root);
+            return;
+        }
+        if (EscortMissionService.hasLoadedActiveEscort(player)) {
+            return;
+        }
+        root.putBoolean("escort", false);
+        root.putBoolean(ESCORT_RESTART_PENDING, true);
+        root.putLong(ESCORT_RESTART_AT, 0L);
+        player.getPersistentData().put(PROGRESS_ROOT, root);
+        retryPendingEscort(player);
+    }
+
+    public static void retryPendingEscort(ServerPlayer player) {
+        if (!hasActiveEscortMission(player)) {
+            return;
+        }
+        CompoundTag root = player.getPersistentData().getCompound(PROGRESS_ROOT).copy();
+        if (root.getBoolean("escort")) {
+            root.remove(ESCORT_RESTART_PENDING);
+            root.remove(ESCORT_RESTART_AT);
+            player.getPersistentData().put(PROGRESS_ROOT, root);
+            return;
+        }
+        if (!root.getBoolean(ESCORT_RESTART_PENDING)) {
+            if (EscortMissionService.isActive(player)) {
+                return;
+            }
+            root.putBoolean(ESCORT_RESTART_PENDING, true);
+            root.putLong(ESCORT_RESTART_AT, 0L);
+            player.getPersistentData().put(PROGRESS_ROOT, root);
+        }
+        long now = player.serverLevel().getGameTime();
+        if (now < root.getLong(ESCORT_RESTART_AT)) {
+            return;
+        }
+        if (EscortMissionService.startEscort(player, false)) {
+            root.remove(ESCORT_RESTART_PENDING);
+            root.remove(ESCORT_RESTART_AT);
+        } else {
+            root.putLong(ESCORT_RESTART_AT, now + ESCORT_RESTART_DELAY_TICKS);
+        }
+        player.getPersistentData().put(PROGRESS_ROOT, root);
     }
 
     public static void clearGenerated(ServerPlayer player) {

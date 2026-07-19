@@ -1,3 +1,7 @@
+## 0.2.32 玩家死亡 Clone 与护送事务遗留
+
+本批未新增占位物品、模型、纹理、实体类型、菜单、网络包或不兼容 capability schema；新增一个集中 Clone policy、极端走火 post-drop 提交状态及宗门进度根内的护送重试字段。自动化覆盖 58 个永久根键、2 个动态前缀、临时键排除、NBT 深拷贝/错误类型/一次消费、死亡/End Clone、post-cancellation 提交/回滚、可变 keepInventory 隔离、完成态护送、重试与 registry tombstone；全量 643 项测试和正式 `./gradlew build --no-daemon` 已通过。仍需真实客户端/专服烟测其他模组取消或改写掉落事件、死亡界面改规则时原版另一半库存行为、End 返回事件顺序、护送跨维/区块卸载/随从满额及满背包掉落实体。交付 helper 的世界实体生成失败仍是 at-most-once 风险；任务 hook 当前步骤、秘境/Boss owner-session Schema V2、拍卖/商店原子性、远程菜单、Boss 捕捉、鉴定消耗和 Curios 飞行门禁继续列为高风险后续。完整暂停交接见 `project_docs/updates/20260719_0.2.32_handoff_unfinished.md`。
+
 ## 0.2.31 炼器配方权限遗留
 
 本批未新增占位物品、模型、纹理、方块、菜单、schema 或网络包；删除 24 个工作台近似配方，新增 11 个 catalog 对齐的 custom serializer，修正 7 个旧方并删除 1 个重复方。旧世界已解锁的工作台配方会随数据包重载失效，但既有物品不回收。当前只注册 G1/G2/G3 炼器炉，新增的 G4-G6 serializer 不会在低阶炉执行；真正的高阶炉方块、结构、菜单/反馈和 JEI 分类仍未实现。真实客户端仍需烟测三阶炉结构、数据包重载、配方书撤销、材料选择与失败残骸。

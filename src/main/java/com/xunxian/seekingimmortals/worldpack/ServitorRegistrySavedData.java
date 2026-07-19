@@ -132,6 +132,29 @@ public final class ServitorRegistrySavedData extends SavedData {
         return changed;
     }
 
+    public Optional<State> dismiss(UUID ownerId, UUID entityId) {
+        State state = entityId == null ? null : servitors.get(entityId);
+        if (ownerId == null || entityId == null) {
+            return Optional.empty();
+        }
+        if (state == null) {
+            State tombstone = new State(ownerId, entityId, "", "FOLLOW", true);
+            servitors.put(entityId, tombstone);
+            setDirty();
+            return Optional.of(tombstone);
+        }
+        if (!ownerId.equals(state.ownerId())) {
+            return Optional.empty();
+        }
+        if (state.dismissed()) {
+            return Optional.of(state);
+        }
+        State dismissed = new State(state.ownerId(), state.entityId(), state.dimensionId(), state.stance(), true);
+        servitors.put(entityId, dismissed);
+        setDirty();
+        return Optional.of(dismissed);
+    }
+
     public List<State> dismissAll(UUID ownerId) {
         return dismissOldest(ownerId, countActive(ownerId));
     }

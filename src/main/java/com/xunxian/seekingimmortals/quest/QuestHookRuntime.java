@@ -12,7 +12,7 @@ import com.xunxian.seekingimmortals.region.DailyEventScheduler;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -114,28 +114,28 @@ public final class QuestHookRuntime {
         }
     }
 
-    @SubscribeEvent
-    public static void onLivingDeath(LivingDeathEvent event) {
+    @SubscribeEvent(receiveCanceled = true)
+    public static void onLivingDrops(LivingDropsEvent event) {
         if (event == null || event.getEntity() == null || event.getEntity().level().isClientSide) {
             return;
         }
         if (!(event.getSource().getEntity() instanceof ServerPlayer killer)) {
             return;
         }
-        // Secret-realm mid/core clear is handled in ModEvents; here we only do generic kill hooks.
-        String typeId = "monster";
         try {
+            // Secret-realm mid/core clear is handled in ModEvents; here we only do generic kill hooks.
+            String typeId = "monster";
             var key = net.minecraftforge.registries.ForgeRegistries.ENTITY_TYPES.getKey(event.getEntity().getType());
             if (key != null) {
                 typeId = key.getPath();
             }
-        } catch (Throwable ignored) {
-            // registry may be absent in pure unit tests
-        }
-        tryAdvanceByHook(killer, "kill_" + normalize(typeId));
-        tryAdvanceByHook(killer, "slay_" + normalize(typeId));
-        if (typeId.contains("beast") || typeId.contains("wolf") || typeId.contains("spider")) {
-            tryAdvanceByHook(killer, "slay_beast_bounty");
+            tryAdvanceByHook(killer, "kill_" + normalize(typeId));
+            tryAdvanceByHook(killer, "slay_" + normalize(typeId));
+            if (typeId.contains("beast") || typeId.contains("wolf") || typeId.contains("spider")) {
+                tryAdvanceByHook(killer, "slay_beast_bounty");
+            }
+        } catch (RuntimeException exception) {
+            SeekingImmortalsMod.LOGGER.error("Failed to apply committed quest kill hooks", exception);
         }
     }
 

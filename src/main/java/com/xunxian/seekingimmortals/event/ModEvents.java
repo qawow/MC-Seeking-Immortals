@@ -30,11 +30,14 @@ import com.xunxian.seekingimmortals.network.ModNetwork;
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
 import com.xunxian.seekingimmortals.network.SyncLearnedTechniquesPacket;
 import com.xunxian.seekingimmortals.network.SyncSkillDataPacket;
+import com.xunxian.seekingimmortals.persistence.PlayerPersistentDataClonePolicy;
 import com.xunxian.seekingimmortals.quest.QuestService;
 import com.xunxian.seekingimmortals.quest.TextQuestChainService;
 import com.xunxian.seekingimmortals.quest.TextQuestNpcHookService;
 import com.xunxian.seekingimmortals.registry.ModItems;
 import com.xunxian.seekingimmortals.sect.SectContributionService;
+import com.xunxian.seekingimmortals.sect.EscortMissionService;
+import com.xunxian.seekingimmortals.sect.SectMissionGenerator;
 import com.xunxian.seekingimmortals.shop.ShopService;
 import com.xunxian.seekingimmortals.skill.SkillType;
 import com.xunxian.seekingimmortals.skill.effect.spell.AuraBodyShieldSpell;
@@ -74,10 +77,11 @@ import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -128,23 +132,21 @@ public final class ModEvents {
     @SubscribeEvent
     public static void onPlayerClone(PlayerEvent.Clone event) {
         event.getOriginal().reviveCaps();
-        CultivationHelper.get(event.getOriginal()).ifPresent(oldData ->
-                CultivationHelper.get(event.getEntity()).ifPresent(newData -> newData.loadNBTData(oldData.saveNBTData())));
-        CompoundTag originalData = event.getOriginal().getPersistentData();
-        CompoundTag clonedData = event.getEntity().getPersistentData();
-        com.xunxian.seekingimmortals.catalog.ManualCatalogService.copyProgressionData(originalData, clonedData);
-        com.xunxian.seekingimmortals.catalog.MethodLayoutService.copyLayoutData(originalData, clonedData);
-        com.xunxian.seekingimmortals.craft.GardenLiquidService.copyPersistentData(originalData, clonedData);
-        com.xunxian.seekingimmortals.catalog.NewGamePlusEconomyService.copyPersistentData(originalData, clonedData);
-        // Text-quest / lore / NPC authority mirrors. Temporary dialogue sessions are intentionally excluded.
-        TextQuestChainService.copyPersistentData(originalData, clonedData);
-        com.xunxian.seekingimmortals.quest.TimelineChronicleService.copyPersistentData(originalData, clonedData);
-        com.xunxian.seekingimmortals.catalog.ChronicleTradeSoftService.copyPersistentData(originalData, clonedData);
-        com.xunxian.seekingimmortals.beast.BestiaryUnlockService.copyPersistentData(originalData, clonedData);
-        com.xunxian.seekingimmortals.npc.NamedNpcRewardService.copyPersistentData(originalData, clonedData);
-        com.xunxian.seekingimmortals.npc.NpcFavorService.copyPersistentData(originalData, clonedData);
-        com.xunxian.seekingimmortals.npc.NpcDialogueFlags.copyPersistentData(originalData, clonedData);
-        event.getOriginal().invalidateCaps();
+        try {
+            CompoundTag originalData = event.getOriginal().getPersistentData();
+            CompoundTag clonedData = event.getEntity().getPersistentData();
+            PlayerPersistentDataClonePolicy.moveExtremePreserved(originalData, clonedData);
+            CultivationHelper.get(event.getOriginal()).ifPresent(oldData ->
+                    CultivationHelper.get(event.getEntity()).ifPresent(newData ->
+                            newData.loadNBTData(oldData.saveNBTData())));
+            PlayerPersistentDataClonePolicy.copyDurableData(originalData, clonedData);
+            if (event.getOriginal() instanceof ServerPlayer originalPlayer
+                    && SectMissionGenerator.hasActiveEscortMission(originalPlayer)) {
+                EscortMissionService.clearEscort(originalPlayer, true);
+            }
+        } finally {
+            event.getOriginal().invalidateCaps();
+        }
     }
 
     @SubscribeEvent
@@ -222,7 +224,10 @@ public final class ModEvents {
                 }
                 // Wave491: escort servitor leash/follow health.
                 if (serverPlayer.tickCount % 20 == 0) {
-                    com.xunxian.seekingimmortals.sect.EscortMissionService.tick(serverPlayer);
+                    SectMissionGenerator.retryPendingEscort(serverPlayer);
+                    if (EscortMissionService.tick(serverPlayer)) {
+                        SectMissionGenerator.restartEscortAfterRespawn(serverPlayer);
+                    }
                 }
                 // Wave492: divine sense expansion passive tick.
                 if (serverPlayer.tickCount % 40 == 0) {
@@ -371,11 +376,23 @@ public final class ModEvents {
     }
 
     // H11: Flying lifecycle cleanup.
-    @SubscribeEvent
-    public static void onLivingDeath(LivingDeathEvent event) {
+    @SubscribeEvent(priority = EventPriority.LOWEST, receiveCanceled = true)
+    public static void onLivingDrops(LivingDropsEvent event) {
         if (event.getEntity().level().isClientSide) {
             return;
         }
+        try {
+            handleCommittedLivingDrops(event);
+        } catch (RuntimeException exception) {
+            SeekingImmortalsMod.LOGGER.error("Failed to apply committed death side effects", exception);
+        } finally {
+            if (event.getEntity() instanceof ServerPlayer player) {
+                BreakthroughService.markExtremeDeathCommitted(player);
+            }
+        }
+    }
+
+    private static void handleCommittedLivingDrops(LivingDropsEvent event) {
         // Wave49: sect-war scoring when a player dies to another player.
         if (event.getEntity() instanceof ServerPlayer victim
                 && event.getSource().getEntity() instanceof ServerPlayer killer) {
@@ -429,6 +446,7 @@ public final class ModEvents {
         MultiSwordArraySpell.clear(player);
         FlyingAuthority.clearAll(player);
         BreakthroughService.restorePreservedOnRespawn(player);
+        SectMissionGenerator.restartEscortAfterRespawn(player);
         CultivationHelper.get(player).ifPresent(cultivation -> {
             refreshCultivationAttributeState(player, cultivation);
             syncClientMirrors(player, cultivation);
@@ -443,6 +461,7 @@ public final class ModEvents {
         player.getPersistentData().remove(AuraBodyShieldSpell.ACTIVE_KEY);
         MultiSwordArraySpell.clear(player);
         FlyingAuthority.clearAll(player);
+        SectMissionGenerator.restartEscortAfterRespawn(player);
         // M13: re-apply realm/dimension flight policy after clearing transient sources.
         com.xunxian.seekingimmortals.worldpack.FlyingAuthorityPolicy.onDimensionChanged(
                 player, event.getTo().location().toString());
