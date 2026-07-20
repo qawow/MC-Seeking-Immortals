@@ -1,5 +1,6 @@
 package com.xunxian.seekingimmortals.item;
 
+import com.xunxian.seekingimmortals.cultivation.Realm;
 import com.xunxian.seekingimmortals.item.material.BaseMaterialItem;
 import com.xunxian.seekingimmortals.item.material.MaterialCategory;
 import com.xunxian.seekingimmortals.item.material.MaterialRarity;
@@ -59,6 +60,18 @@ public class CatalogTalismanItem extends BaseMaterialItem {
         if (!(player instanceof ServerPlayer serverPlayer)) {
             return InteractionResultHolder.fail(stack);
         }
+
+        // 使用 ItemUsageGateService 进行境界门禁检查
+        Realm minRealm = parseMinRealmFromGrade(grade);
+        if (minRealm != null) {
+            ItemUsageGateService.ItemRequirement requirement = ItemUsageGateService.ItemRequirement.realm(minRealm);
+            ItemUsageGateService.GateResult gateCheck = ItemUsageGateService.canUse(serverPlayer, requirement);
+            if (!gateCheck.allowed()) {
+                serverPlayer.displayClientMessage(gateCheck.message(), true);
+                return InteractionResultHolder.fail(stack);
+            }
+        }
+
         boolean ok = CatalogTalismanService.cast(serverPlayer, catalogId, role);
         if (!ok) {
             return InteractionResultHolder.fail(stack);
@@ -76,6 +89,14 @@ public class CatalogTalismanItem extends BaseMaterialItem {
             tooltip.add(Component.translatable("tooltip.seeking_immortals.talisman_grade." + grade.toLowerCase(Locale.ROOT))
                     .withStyle(ChatFormatting.GOLD));
         }
+
+        // 使用 ItemUsageGateService 显示境界要求
+        Realm minRealm = parseMinRealmFromGrade(grade);
+        if (minRealm != null) {
+            ItemUsageGateService.ItemRequirement requirement = ItemUsageGateService.ItemRequirement.realm(minRealm);
+            ItemUsageGateService.appendRequirementTooltip(stack, tooltip, requirement);
+        }
+
         tooltip.add(Component.translatable("tooltip.seeking_immortals.catalog_talisman.use")
                 .withStyle(ChatFormatting.GREEN));
         String mode = CatalogTalismanService.modeKey(catalogId, role);
@@ -83,5 +104,23 @@ public class CatalogTalismanItem extends BaseMaterialItem {
             tooltip.add(Component.translatable("tooltip.seeking_immortals.catalog_talisman.mode." + mode)
                     .withStyle(ChatFormatting.GRAY));
         }
+    }
+
+    /**
+     * 根据符箓品级解析最低境界要求。
+     */
+    private Realm parseMinRealmFromGrade(String grade) {
+        if (grade == null || grade.isBlank()) {
+            return Realm.QI_REFINING;
+        }
+        String normalized = grade.trim().toLowerCase(Locale.ROOT);
+        return switch (normalized) {
+            case "low", "下品", "一阶" -> Realm.QI_REFINING;
+            case "middle", "中品", "二阶" -> Realm.FOUNDATION_ESTABLISHMENT;
+            case "high", "上品", "三阶" -> Realm.CORE_FORMATION;
+            case "top", "极品", "四阶" -> Realm.NASCENT_SOUL;
+            case "supreme", "仙品", "五阶" -> Realm.SOUL_TRANSFORMATION;
+            default -> Realm.QI_REFINING;
+        };
     }
 }

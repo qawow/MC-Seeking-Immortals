@@ -92,6 +92,9 @@ public class TechniqueManualItem extends Item {
         tooltip.add(Component.translatable("tooltip.seeking_immortals.technique_manual.source", source).withStyle(ChatFormatting.GOLD));
         tooltip.add(Component.translatable("tooltip.seeking_immortals.technique_manual.condition", TechniqueDataManager.describeConditions(source)).withStyle(ChatFormatting.GRAY));
         tooltip.add(Component.translatable("tooltip.seeking_immortals.technique_manual.learn", TechniqueDataManager.describeTechniqueNames(source)).withStyle(ChatFormatting.DARK_AQUA));
+
+        // 使用 ItemUsageGateService 显示功法要求提示
+        // TechniqueGateService 已经处理了更详细的前置检查，这里只显示基本提示
         tooltip.add(Component.translatable("tooltip.seeking_immortals.technique_manual.use").withStyle(ChatFormatting.GREEN));
     }
 

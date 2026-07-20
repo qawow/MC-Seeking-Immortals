@@ -2,6 +2,7 @@ package com.xunxian.seekingimmortals.item.pill;
 
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
+import com.xunxian.seekingimmortals.item.ItemUsageGateService;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -32,6 +33,14 @@ public class BasePillItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if (!level.isClientSide && player instanceof ServerPlayer serverPlayer) {
+            // 使用 ItemUsageGateService 进行境界门禁检查
+            ItemUsageGateService.ItemRequirement requirement = ItemUsageGateService.ItemRequirement.realm(pillType.getMinRealm());
+            ItemUsageGateService.GateResult gateCheck = ItemUsageGateService.canUse(serverPlayer, requirement);
+            if (!gateCheck.allowed()) {
+                serverPlayer.displayClientMessage(gateCheck.message(), true);
+                return InteractionResultHolder.fail(stack);
+            }
+
             if (consumePill(serverPlayer)) {
                 stack.shrink(1);
                 return InteractionResultHolder.success(stack);
@@ -62,6 +71,9 @@ public class BasePillItem extends Item {
         tooltip.add(Component.literal(quality.getDisplayName()).withStyle(style -> style.withColor(quality.getColor())));
         tooltip.add(Component.literal(pillType.getCategory().getDisplayName()).withStyle(ChatFormatting.GRAY));
         tooltip.add(Component.literal(pillType.getDescription()).withStyle(ChatFormatting.DARK_GRAY));
-        tooltip.add(Component.literal("最低境界: " + pillType.getMinRealm().getDisplayName()).withStyle(ChatFormatting.BLUE));
+
+        // 使用 ItemUsageGateService 显示境界要求
+        ItemUsageGateService.ItemRequirement requirement = ItemUsageGateService.ItemRequirement.realm(pillType.getMinRealm());
+        ItemUsageGateService.appendRequirementTooltip(stack, tooltip, requirement);
     }
 }

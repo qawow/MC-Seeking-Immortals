@@ -5,6 +5,7 @@ import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.cultivation.Realm;
 import com.xunxian.seekingimmortals.cultivation.SpiritualRootAttribute;
+import com.xunxian.seekingimmortals.item.ItemUsageGateService;
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
@@ -77,9 +78,12 @@ public class CatalogPillItem extends Item {
                     getDescription()), true);
             return false;
         }
-        if (cultivation.getRealm().ordinal() < type.minRealm().ordinal()) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.catalog_pill.realm_too_low",
-                    getDescription(), type.minRealm().getDisplayName()), true);
+
+        // 使用 ItemUsageGateService 进行境界门禁检查
+        ItemUsageGateService.ItemRequirement requirement = ItemUsageGateService.ItemRequirement.realm(type.minRealm());
+        ItemUsageGateService.GateResult gateCheck = ItemUsageGateService.canUse(player, requirement);
+        if (!gateCheck.allowed()) {
+            player.displayClientMessage(gateCheck.message(), true);
             return false;
         }
 
@@ -352,8 +356,10 @@ public class CatalogPillItem extends Item {
         tooltip.add(Component.translatable("tooltip.seeking_immortals.catalog_pill.quality." + quality.designId())
                 .withStyle(style -> style.withColor(quality.getColor())));
         tooltip.add(Component.translatable("tooltip.seeking_immortals.catalog_pill." + type.id()).withStyle(ChatFormatting.GRAY));
-        tooltip.add(Component.translatable("tooltip.seeking_immortals.catalog_pill.min_realm",
-                type.minRealm().getDisplayName()).withStyle(ChatFormatting.BLUE));
+
+        // 使用 ItemUsageGateService 显示境界要求
+        ItemUsageGateService.ItemRequirement requirement = ItemUsageGateService.ItemRequirement.realm(type.minRealm());
+        ItemUsageGateService.appendRequirementTooltip(stack, tooltip, requirement);
     }
 
     private double effectiveMultiplier(PlayerCultivation cultivation) {
