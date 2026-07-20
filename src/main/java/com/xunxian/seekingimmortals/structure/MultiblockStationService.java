@@ -255,6 +255,33 @@ public final class MultiblockStationService {
                             ModBlocks.SPIRIT_ORE.get()).complete();
                     yield new ValidateOutcome(ok, "spirit_beast_evolution_pool");
                 }
+                case "teleport_gate" -> {
+                    if (!(level instanceof Level live)) {
+                        yield new ValidateOutcome(false, "needs_level");
+                    }
+                    Block ring = ModBlocks.SPIRIT_GATHERING_ARRAY.get();
+                    Block pillar = ModBlocks.SPIRIT_ORE.get();
+                    boolean ok = TeleportGateStructure.validate(live, origin, ring, pillar).complete();
+                    yield new ValidateOutcome(ok, "teleport_gate");
+                }
+                case "platform" -> {
+                    if (!(level instanceof Level live)) {
+                        yield new ValidateOutcome(false, "needs_level");
+                    }
+                    Block base = ModBlocks.SPIRIT_GATHERING_ARRAY.get();
+                    Block decoration = ModBlocks.SPIRIT_ORE.get();
+                    boolean ok = PlatformStructure.validate(live, origin, base, decoration).complete();
+                    yield new ValidateOutcome(ok, "platform");
+                }
+                case "altar" -> {
+                    if (!(level instanceof Level live)) {
+                        yield new ValidateOutcome(false, "needs_level");
+                    }
+                    Block base = ModBlocks.SPIRIT_GATHERING_ARRAY.get();
+                    Block offering = ModBlocks.SPIRIT_ORE.get();
+                    boolean ok = AltarStructure.validate(live, origin, base, offering).complete();
+                    yield new ValidateOutcome(ok, "altar");
+                }
                 case "ring" -> {
                     if (!(level instanceof Level live)) {
                         yield new ValidateOutcome(false, "needs_level");

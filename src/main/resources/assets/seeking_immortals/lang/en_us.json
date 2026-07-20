@@ -5075,5 +5075,22 @@
   "message.seeking_immortals.structure_tool.blueprint_sequence": "Build sequence %s has %s steps:",
   "message.seeking_immortals.structure_tool.blueprint_no_sequence": "No multiplayer build sequence for this station; showing operational inspect instead.",
   "tooltip.seeking_immortals.catalog_item.detail.structure_repair_bench": "Right-click inspects a nearby station; sneak-use repairs or commissions it (shards/materials).",
-  "tooltip.seeking_immortals.catalog_item.detail.structure_blueprint_table": "Right-click shows a nearby station build sequence; sneak-use commissions it."
+  "tooltip.seeking_immortals.catalog_item.detail.structure_blueprint_table": "Right-click shows a nearby station build sequence; sneak-use commissions it.",
+  "message.seeking_immortals.item_gate.no_player": "Unable to determine user.",
+  "message.seeking_immortals.item_gate.no_cultivation": "Unable to read cultivation data.",
+  "message.seeking_immortals.item_gate.realm": "This item requires at least %s realm (current: %s).",
+  "message.seeking_immortals.item_gate.root": "This item requires specific spiritual root: %s.",
+  "message.seeking_immortals.item_gate.method": "This item requires learned technique: %s.",
+  "message.seeking_immortals.item_gate.no_sect": "This item requires sect membership.",
+  "message.seeking_immortals.item_gate.sect": "This item requires sect: %s (current: %s).",
+  "message.seeking_immortals.item_gate.sect_stage": "This item requires sect stage: %s (current: %s).",
+  "message.seeking_immortals.item_gate.path": "This item requires cultivation path: %s.",
+  "message.seeking_immortals.item_gate.race": "This item requires race: %s.",
+  "tooltip.seeking_immortals.item_requirement.realm": "§6Requires Realm: %s",
+  "tooltip.seeking_immortals.item_requirement.root": "§6Requires Root: %s",
+  "tooltip.seeking_immortals.item_requirement.method": "§6Requires Technique: %s",
+  "tooltip.seeking_immortals.item_requirement.sect": "§6Requires Sect: %s",
+  "tooltip.seeking_immortals.item_requirement.sect_stage": "§6Requires Stage: %s",
+  "tooltip.seeking_immortals.item_requirement.path": "§6Requires Path: %s",
+  "tooltip.seeking_immortals.item_requirement.race": "§6Requires Race: %s"
 }

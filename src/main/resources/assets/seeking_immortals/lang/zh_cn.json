@@ -5096,5 +5096,22 @@
   "message.seeking_immortals.structure_tool.blueprint_sequence": "建造序列《%s》共 %s 步：",
   "message.seeking_immortals.structure_tool.blueprint_no_sequence": "该工站暂无多人建造序列，已改为运行态诊断。",
   "tooltip.seeking_immortals.catalog_item.detail.structure_repair_bench": "右键诊断附近工站；潜行右键修理或启封（消耗碎片/材料）。",
-  "tooltip.seeking_immortals.catalog_item.detail.structure_blueprint_table": "右键查看附近工站建造序列；潜行右键尝试启封。"
+  "tooltip.seeking_immortals.catalog_item.detail.structure_blueprint_table": "右键查看附近工站建造序列；潜行右键尝试启封。",
+  "message.seeking_immortals.item_gate.no_player": "无法确定使用者。",
+  "message.seeking_immortals.item_gate.no_cultivation": "无法读取修仙数据。",
+  "message.seeking_immortals.item_gate.realm": "此物品需要至少 %s 境界（当前：%s）。",
+  "message.seeking_immortals.item_gate.root": "此物品需要特定灵根：%s。",
+  "message.seeking_immortals.item_gate.method": "此物品需要学习功法：%s。",
+  "message.seeking_immortals.item_gate.no_sect": "此物品需要加入宗门。",
+  "message.seeking_immortals.item_gate.sect": "此物品需要加入宗门：%s（当前：%s）。",
+  "message.seeking_immortals.item_gate.sect_stage": "此物品需要宗门弟子阶位：%s（当前阶位：%s）。",
+  "message.seeking_immortals.item_gate.path": "此物品需要修炼路线：%s。",
+  "message.seeking_immortals.item_gate.race": "此物品需要种族：%s。",
+  "tooltip.seeking_immortals.item_requirement.realm": "§6需要境界：%s",
+  "tooltip.seeking_immortals.item_requirement.root": "§6需要灵根：%s",
+  "tooltip.seeking_immortals.item_requirement.method": "§6需要功法：%s",
+  "tooltip.seeking_immortals.item_requirement.sect": "§6需要宗门：%s",
+  "tooltip.seeking_immortals.item_requirement.sect_stage": "§6需要弟子阶位：%s",
+  "tooltip.seeking_immortals.item_requirement.path": "§6需要修炼路线：%s",
+  "tooltip.seeking_immortals.item_requirement.race": "§6需要种族：%s"
 }
