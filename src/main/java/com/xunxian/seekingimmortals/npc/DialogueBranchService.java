@@ -62,6 +62,28 @@ public final class DialogueBranchService {
         return treeForArchetype(archetypeId).map(Tree::id).orElse("");
     }
 
+    /**
+     * Resolve the first authored regional profile for a named NPC. Profile order is intentional:
+     * narrow role/archetype/npc bindings precede broad regional fallbacks in the data file.
+     */
+    public static Optional<Tree> treeForNpcProfile(String npcId, String regionId, String role,
+                                                   String archetypeId) {
+        for (RegionalProfile profile : BUILTIN.regionalProfiles()) {
+            if (profile.matches(npcId, regionId, role, archetypeId)) {
+                Tree tree = BUILTIN.trees().get(profile.treeId());
+                if (tree != null) {
+                    return Optional.of(tree);
+                }
+            }
+        }
+        return Optional.empty();
+    }
+
+    public static String treeIdForNpcProfile(String npcId, String regionId, String role,
+                                             String archetypeId) {
+        return treeForNpcProfile(npcId, regionId, role, archetypeId).map(Tree::id).orElse("");
+    }
+
     public static Optional<Tree> treeForNpc(String npcId) {
         String id = normalize(npcId);
         if (id.isBlank()) {
@@ -439,6 +461,7 @@ public final class DialogueBranchService {
 
     private static Snapshot loadBuiltin() {
         Map<String, Tree> trees = new LinkedHashMap<>();
+        List<RegionalProfile> regionalProfiles = new ArrayList<>();
         JsonObject root = readJson("data/" + SeekingImmortalsMod.MODID + "/text_material/npc_dialogue_branches_v139.json");
         if (root != null && root.has("trees") && root.get("trees").isJsonArray()) {
             for (JsonElement element : root.getAsJsonArray("trees")) {
@@ -451,7 +474,29 @@ public final class DialogueBranchService {
                 }
             }
         }
-        return new Snapshot(Collections.unmodifiableMap(trees));
+        if (root != null && root.has("regional_profiles") && root.get("regional_profiles").isJsonArray()) {
+            for (JsonElement element : root.getAsJsonArray("regional_profiles")) {
+                if (!element.isJsonObject()) {
+                    continue;
+                }
+                RegionalProfile profile = parseRegionalProfile(element.getAsJsonObject());
+                if (!profile.id().isBlank() && !profile.treeId().isBlank()) {
+                    regionalProfiles.add(profile);
+                }
+            }
+        }
+        return new Snapshot(Collections.unmodifiableMap(trees), List.copyOf(regionalProfiles));
+    }
+
+    private static RegionalProfile parseRegionalProfile(JsonObject object) {
+        return new RegionalProfile(
+                normalize(str(object, "id", "")),
+                normalize(str(object, "tree", "")),
+                normalizedStringList(object.get("regions")),
+                normalizedStringList(object.get("roles")),
+                normalizedStringList(object.get("archetypes")),
+                normalizedStringList(object.get("npc_ids")),
+                normalizedStringList(object.get("exclude_npc_ids")));
     }
 
     private static Tree parseTree(JsonObject object) {
@@ -569,6 +614,13 @@ public final class DialogueBranchService {
         return List.copyOf(list);
     }
 
+    private static List<String> normalizedStringList(JsonElement element) {
+        return stringList(element).stream()
+                .map(DialogueBranchService::normalize)
+                .filter(value -> !value.isBlank())
+                .toList();
+    }
+
     private static JsonObject readJson(String path) {
         try (InputStream stream = DialogueBranchService.class.getClassLoader().getResourceAsStream(path)) {
             if (stream == null) {
@@ -644,7 +696,38 @@ public final class DialogueBranchService {
 
     private record RepThreshold(String rep, int n) {}
 
-    public record Snapshot(Map<String, Tree> trees) {}
+    public record Snapshot(Map<String, Tree> trees, List<RegionalProfile> regionalProfiles) {}
+
+    public record RegionalProfile(String id, String treeId, List<String> regions, List<String> roles,
+                                  List<String> archetypes, List<String> npcIds,
+                                  List<String> excludeNpcIds) {
+        public RegionalProfile {
+            id = normalize(id);
+            treeId = normalize(treeId);
+            regions = regions == null ? List.of() : List.copyOf(regions);
+            roles = roles == null ? List.of() : List.copyOf(roles);
+            archetypes = archetypes == null ? List.of() : List.copyOf(archetypes);
+            npcIds = npcIds == null ? List.of() : List.copyOf(npcIds);
+            excludeNpcIds = excludeNpcIds == null ? List.of() : List.copyOf(excludeNpcIds);
+        }
+
+        public boolean matches(String npcId, String regionId, String role, String archetypeId) {
+            String npc = normalize(npcId);
+            if (excludeNpcIds.contains(npc)) {
+                return false;
+            }
+            return selectorMatches(npcIds, npc)
+                    && selectorMatches(regions, normalize(regionId))
+                    && selectorMatches(roles, normalize(role))
+                    && selectorMatches(archetypes, normalize(archetypeId));
+        }
+
+        private static boolean selectorMatches(List<String> selectors, String value) {
+            return selectors == null || selectors.isEmpty()
+                    || selectors.contains("*")
+                    || (!value.isBlank() && selectors.contains(value));
+        }
+    }
 
     public record Tree(String id, String archetype, String root, List<String> npcIds, Map<String, Node> nodes) {}
 

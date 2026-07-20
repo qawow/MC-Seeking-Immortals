@@ -1,3 +1,17 @@
+## 536. 2026-07-20 0.2.88 P1 区域 NPC 对话树扩展
+
+  Step   Status   Notes
+  ---   ---   ---
+  Regional profiles Done   天南、北境、乱星海、大晋、灵界、阴冥 6 组 × 商人/执事，共 12 个资源画像。
+  Dialogue trees Done   新增 12 棵可达闭合树，提供成员/外客、商店、公开委托、任务板与本地情报分支。
+  Named NPC coverage Done   179 个具名 NPC 均有可解析树；region/tree/shop 引用零问题。
+  Sect shops Done   宗门具名 NPC 按 `SectDefinitionService` 打开本宗贡献堂，不再落到通用黄枫谷货架。
+  Route repairs Done   修复传送阵三状态/缺灵石、天渊缴费不足、秘境窗口关闭及旧贡献吏缺失/不可达节点。
+  Tests Done   新增 8 项覆盖；定向、NPC/商店/宗门回归与全量 764 项通过。
+  Client smoke Done   注册表冻结、音频与纹理图集成功；主动 Ctrl-C 停止，仅有 flite narrator 环境噪声。
+  Version Done   首次完整构建为 0.2.87；全树引用审计补修后最终 `mod_version=0.2.88`。无包字段/顺序/类型/通道变化，protocol 保持 26。
+  Handoff Done   `project_docs/updates/20260720_0.2.88_regional_dialogue.md`。
+
 ## 535. 2026-07-20 0.2.86 P1 宗门专属玩法闭环
 
   Step   Status   Notes

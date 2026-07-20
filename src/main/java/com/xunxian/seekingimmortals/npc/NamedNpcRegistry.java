@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.region.RegionRegistry;
+import com.xunxian.seekingimmortals.sect.SectDefinitionService;
 import com.xunxian.seekingimmortals.shop.ShopService;
 
 import java.io.InputStream;
@@ -156,7 +157,12 @@ public final class NamedNpcRegistry {
                 String repTrack = parseRepTrack(description);
                 String factionId = sectId;
                 String archetype = bindings.getOrDefault(id, defaultArchetypeForRole(role));
-                String treeId = DialogueBranchService.treeIdForArchetype(archetype);
+                String treeId = bindings.containsKey(id)
+                        ? DialogueBranchService.treeIdForArchetype(archetype)
+                        : DialogueBranchService.treeIdForNpcProfile(id, region, role, archetype);
+                if (treeId.isBlank()) {
+                    treeId = DialogueBranchService.treeIdForArchetype(archetype);
+                }
                 String shopId = defaultShopFor(role, sectId, shopTier, vendorShops.get(id));
                 String dialoguePackId = dialoguePacks.getOrDefault(id, "");
                 npcs.put(id, new NamedNpc(
@@ -186,17 +192,17 @@ public final class NamedNpcRegistry {
                 if (role.isBlank()) {
                     role = normalize(str(o, "role", "seed"));
                 }
+                String region = normalize(str(o, "region", inferRegionFromFaction(faction)));
                 String archetype = normalize(str(o, "dialogue_archetype", bindings.getOrDefault(id, "")));
                 if (archetype.isBlank()) {
                     archetype = bindings.getOrDefault(id, "");
                 }
-                String treeId = DialogueBranchService.treeIdForArchetype(archetype);
-                if (treeId.isBlank() && !archetype.isBlank()) {
-                    treeId = "tree_" + archetype;
+                String treeId = DialogueBranchService.treeIdForNpcProfile(id, region, role, archetype);
+                if (treeId.isBlank()) {
+                    treeId = DialogueBranchService.treeIdForArchetype(archetype);
                 }
                 List<String> services = stringList(o.get("services"));
                 String shopId = shopFromServices(services, faction);
-                String region = inferRegionFromFaction(faction);
                 NamedNpc existing = npcs.get(id);
                 if (existing != null) {
                     npcs.put(id, existing.withSeed(
@@ -343,6 +349,12 @@ public final class NamedNpcRegistry {
         }
         if (key.contains("contribution") || key.contains("deacon") || key.contains("elder") || key.contains("sect")) {
             String sect = normalize(sectId);
+            String authoredShop = SectDefinitionService.find(sect)
+                    .map(SectDefinitionService.SectDefinition::shopId)
+                    .orElse("");
+            if (!authoredShop.isBlank()) {
+                return authoredShop;
+            }
             if (sect.contains("huangfeng")) {
                 return ShopService.HUANGFENG_CONTRIBUTION_HALL;
             }

@@ -183,7 +183,8 @@
       ],
       "dialogue_archetype": "market_vendor",
       "dialogue_ref": "npc_dialogue_templates_v138.json",
-      "v144": true
+      "v144": true,
+      "role": "black_market_contact"
     },
     {
       "id": "npc_blood_forbidden_steward",
@@ -243,7 +244,8 @@
       ],
       "note": "诚实半成品，不作完整宗门百科",
       "dialogue_ref": "npc_dialogue_templates_v138.json",
-      "v144": true
+      "v144": true,
+      "role": "great_elder"
     }
   ],
   "still_not_done": [

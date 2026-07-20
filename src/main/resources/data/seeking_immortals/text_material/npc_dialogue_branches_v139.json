@@ -76,6 +76,21 @@
           "effects": []
         },
         {
+          "id": "offer_scatter_quest",
+          "when": {},
+          "lines": [
+            "公示板上的散修差事不记内门配额，但会结算公开报酬。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "offer_quest"
+            }
+          ]
+        },
+        {
           "id": "offer_if_member",
           "when": {
             "rep_gte": {
@@ -89,6 +104,7 @@
           "next": [
             "quest_list",
             "quota_shop",
+            "quota_shop_deny",
             "turnin"
           ],
           "effects": []
@@ -234,9 +250,12 @@
             "要传哪里？灵石与令牌都备好了？"
           ],
           "next": [
-            "check_array",
+            "hostile",
             "no_permit",
-            "hostile"
+            "check_array",
+            "check_array_damaged",
+            "pay_and_go",
+            "no_stones"
           ],
           "effects": []
         },
@@ -270,7 +289,8 @@
         {
           "id": "check_array",
           "when": {
-            "array_state": "disabled"
+            "array_state": "disabled",
+            "has_token": true
           },
           "lines": [
             "阵瘫痪了，先找人修。"
@@ -288,7 +308,8 @@
         {
           "id": "check_array_damaged",
           "when": {
-            "array_state": "damaged"
+            "array_state": "damaged",
+            "has_token": true
           },
           "lines": [
             "阵纹不稳，传也行，别怪我没提醒——可能偏航。"
@@ -303,6 +324,7 @@
           "id": "pay_and_go",
           "when": {
             "array_state": "intact",
+            "has_token": true,
             "has_stones": true
           },
           "lines": [
@@ -344,6 +366,21 @@
             "想好了再来。"
           ],
           "next": [],
+          "effects": []
+        },
+        {
+          "id": "no_stones",
+          "when": {
+            "array_state": "intact",
+            "has_token": true,
+            "has_stones": false
+          },
+          "lines": [
+            "阵是好的，你却没备灵石。"
+          ],
+          "next": [
+            "end"
+          ],
           "effects": []
         },
         {
@@ -689,6 +726,7 @@
           ],
           "next": [
             "pay_portal",
+            "pay_portal_deny",
             "avatar_info",
             "end"
           ],
@@ -1194,7 +1232,7 @@
         {
           "id": "no_window",
           "when": {
-            "quest_flag": "blood_forbidden_closed"
+            "window_open": false
           },
           "lines": [
             "未到开放周期，界碑是死的。"
@@ -1502,8 +1540,1398 @@
           "effects": []
         }
       ]
+    },
+    {
+      "id": "tree_tiannan_steward",
+      "archetype": "regional_tiannan_steward",
+      "root": "greet",
+      "npc_ids": [],
+      "nodes": [
+        {
+          "id": "greet",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "堂规、差事、贡献册都在这里。先说你要办哪一桩。"
+          ],
+          "next": [
+            "member_service",
+            "visitor_service",
+            "regional_duties",
+            "farewell"
+          ],
+          "effects": []
+        },
+        {
+          "id": "member_service",
+          "when": {
+            "faction_member": true
+          },
+          "lines": [
+            "同门身份已验，可查宗门差事与本堂兑换。"
+          ],
+          "next": [
+            "mission_board",
+            "contribution_shop",
+            "farewell"
+          ],
+          "effects": []
+        },
+        {
+          "id": "visitor_service",
+          "when": {
+            "not_member": true
+          },
+          "lines": [
+            "外客不得动内册，但可听本地规矩与公开委托。"
+          ],
+          "next": [
+            "public_commission",
+            "regional_duties",
+            "farewell"
+          ],
+          "effects": []
+        },
+        {
+          "id": "mission_board",
+          "when": {},
+          "lines": [
+            "查阅本堂任务册。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "open_quest_board"
+            }
+          ]
+        },
+        {
+          "id": "contribution_shop",
+          "when": {},
+          "lines": [
+            "查看可用贡献与当前货架。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "open_shop"
+            }
+          ]
+        },
+        {
+          "id": "public_commission",
+          "when": {},
+          "lines": [
+            "领取一项公开区域委托。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "offer_quest"
+            }
+          ]
+        },
+        {
+          "id": "regional_duties",
+          "when": {},
+          "lines": [
+            "天南各宗重传承，也重日常巡山、采集与护送。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "heard_tiannan_steward_briefing"
+            }
+          ]
+        },
+        {
+          "id": "farewell",
+          "when": {},
+          "lines": [
+            "办完便让开案前位置。"
+          ],
+          "next": [],
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "tree_tiannan_merchant",
+      "archetype": "regional_tiannan_merchant",
+      "root": "greet",
+      "npc_ids": [],
+      "nodes": [
+        {
+          "id": "greet",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "天南坊市货杂人更多，先看货，再问来路。"
+          ],
+          "next": [
+            "browse",
+            "commission",
+            "local_intel",
+            "farewell"
+          ],
+          "effects": []
+        },
+        {
+          "id": "browse",
+          "when": {},
+          "lines": [
+            "把当前货架拿来看看。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "open_shop"
+            }
+          ]
+        },
+        {
+          "id": "commission",
+          "when": {},
+          "lines": [
+            "缺货可接坊市委托，报酬与声望分开结。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "open_quest_board"
+            }
+          ]
+        },
+        {
+          "id": "local_intel",
+          "when": {},
+          "lines": [
+            "近期七派、魔道与散修都在收材料，价格不会久稳。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "heard_tiannan_market_intel"
+            }
+          ]
+        },
+        {
+          "id": "farewell",
+          "when": {},
+          "lines": [
+            "不买便慢走，别挡后来人。"
+          ],
+          "next": [],
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "tree_north_frontier_steward",
+      "archetype": "regional_north_frontier_steward",
+      "root": "greet",
+      "npc_ids": [],
+      "nodes": [
+        {
+          "id": "greet",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "北境与慕兰前线不养闲人。查军务、贡献或补给，快说。"
+          ],
+          "next": [
+            "member_service",
+            "visitor_service",
+            "regional_duties",
+            "farewell"
+          ],
+          "effects": []
+        },
+        {
+          "id": "member_service",
+          "when": {
+            "faction_member": true
+          },
+          "lines": [
+            "身份与战功册相符，可领巡防差事并换前线物资。"
+          ],
+          "next": [
+            "mission_board",
+            "contribution_shop",
+            "farewell"
+          ],
+          "effects": []
+        },
+        {
+          "id": "visitor_service",
+          "when": {
+            "not_member": true
+          },
+          "lines": [
+            "非本部修士只可接公开护送与边地清剿。"
+          ],
+          "next": [
+            "public_commission",
+            "regional_duties",
+            "farewell"
+          ],
+          "effects": []
+        },
+        {
+          "id": "mission_board",
+          "when": {},
+          "lines": [
+            "查阅本堂任务册。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "open_quest_board"
+            }
+          ]
+        },
+        {
+          "id": "contribution_shop",
+          "when": {},
+          "lines": [
+            "查看可用贡献与当前货架。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "open_shop"
+            }
+          ]
+        },
+        {
+          "id": "public_commission",
+          "when": {},
+          "lines": [
+            "领取一项公开区域委托。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "offer_quest"
+            }
+          ]
+        },
+        {
+          "id": "regional_duties",
+          "when": {},
+          "lines": [
+            "风沙、毒瘴与魔道袭扰都会改变当日差事。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "heard_north_frontier_steward_briefing"
+            }
+          ]
+        },
+        {
+          "id": "farewell",
+          "when": {},
+          "lines": [
+            "办完便让开案前位置。"
+          ],
+          "next": [],
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "tree_north_frontier_merchant",
+      "archetype": "regional_north_frontier_merchant",
+      "root": "greet",
+      "npc_ids": [],
+      "nodes": [
+        {
+          "id": "greet",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "边市只收现货与真凭证，战时价格随补给线起落。"
+          ],
+          "next": [
+            "browse",
+            "commission",
+            "local_intel",
+            "farewell"
+          ],
+          "effects": []
+        },
+        {
+          "id": "browse",
+          "when": {},
+          "lines": [
+            "把当前货架拿来看看。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "open_shop"
+            }
+          ]
+        },
+        {
+          "id": "commission",
+          "when": {},
+          "lines": [
+            "护送、侦察和回收军需都能换取本地信用。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "open_quest_board"
+            }
+          ]
+        },
+        {
+          "id": "local_intel",
+          "when": {},
+          "lines": [
+            "北地道路常断，囤疗伤物和阵旗比追涨灵石稳妥。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "heard_north_frontier_market_intel"
+            }
+          ]
+        },
+        {
+          "id": "farewell",
+          "when": {},
+          "lines": [
+            "不买便慢走，别挡后来人。"
+          ],
+          "next": [],
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "tree_chaotic_sea_steward",
+      "archetype": "regional_chaotic_sea_steward",
+      "root": "greet",
+      "npc_ids": [],
+      "nodes": [
+        {
+          "id": "greet",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "航籍、巡海、岛税与功勋都归此案。报上来路。"
+          ],
+          "next": [
+            "member_service",
+            "visitor_service",
+            "regional_duties",
+            "farewell"
+          ],
+          "effects": []
+        },
+        {
+          "id": "member_service",
+          "when": {
+            "faction_member": true
+          },
+          "lines": [
+            "记录无误，可查巡海差事、岛际配额和本部补给。"
+          ],
+          "next": [
+            "mission_board",
+            "contribution_shop",
+            "farewell"
+          ],
+          "effects": []
+        },
+        {
+          "id": "visitor_service",
+          "when": {
+            "not_member": true
+          },
+          "lines": [
+            "外来修士先守岛规；公开航差可以领，内库不可查。"
+          ],
+          "next": [
+            "public_commission",
+            "regional_duties",
+            "farewell"
+          ],
+          "effects": []
+        },
+        {
+          "id": "mission_board",
+          "when": {},
+          "lines": [
+            "查阅本堂任务册。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "open_quest_board"
+            }
+          ]
+        },
+        {
+          "id": "contribution_shop",
+          "when": {},
+          "lines": [
+            "查看可用贡献与当前货架。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "open_shop"
+            }
+          ]
+        },
+        {
+          "id": "public_commission",
+          "when": {},
+          "lines": [
+            "领取一项公开区域委托。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "offer_quest"
+            }
+          ]
+        },
+        {
+          "id": "regional_duties",
+          "when": {},
+          "lines": [
+            "海兽潮、逆星暗线和航路天气会轮换任务。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "heard_chaotic_sea_steward_briefing"
+            }
+          ]
+        },
+        {
+          "id": "farewell",
+          "when": {},
+          "lines": [
+            "办完便让开案前位置。"
+          ],
+          "next": [],
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "tree_chaotic_sea_merchant",
+      "archetype": "regional_chaotic_sea_merchant",
+      "root": "greet",
+      "npc_ids": [],
+      "nodes": [
+        {
+          "id": "greet",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "海货看鲜度，航票看印记，赊账免谈。"
+          ],
+          "next": [
+            "browse",
+            "commission",
+            "local_intel",
+            "farewell"
+          ],
+          "effects": []
+        },
+        {
+          "id": "browse",
+          "when": {},
+          "lines": [
+            "把当前货架拿来看看。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "open_shop"
+            }
+          ]
+        },
+        {
+          "id": "commission",
+          "when": {},
+          "lines": [
+            "收海兽材、护船与探路的委托今日都还挂着。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "open_quest_board"
+            }
+          ]
+        },
+        {
+          "id": "local_intel",
+          "when": {},
+          "lines": [
+            "外海价低但风险高，内海价稳却要交税。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "heard_chaotic_sea_market_intel"
+            }
+          ]
+        },
+        {
+          "id": "farewell",
+          "when": {},
+          "lines": [
+            "不买便慢走，别挡后来人。"
+          ],
+          "next": [],
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "tree_dajin_steward",
+      "archetype": "regional_dajin_steward",
+      "root": "greet",
+      "npc_ids": [],
+      "nodes": [
+        {
+          "id": "greet",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "大晋规矩多，门牒、贡献、拍卖凭证一项也不能少。"
+          ],
+          "next": [
+            "member_service",
+            "visitor_service",
+            "regional_duties",
+            "farewell"
+          ],
+          "effects": []
+        },
+        {
+          "id": "member_service",
+          "when": {
+            "faction_member": true
+          },
+          "lines": [
+            "宗籍已核，可查差事与本门兑换。"
+          ],
+          "next": [
+            "mission_board",
+            "contribution_shop",
+            "farewell"
+          ],
+          "effects": []
+        },
+        {
+          "id": "visitor_service",
+          "when": {
+            "not_member": true
+          },
+          "lines": [
+            "外客只能办公开委托；禁库与内拍资格另审。"
+          ],
+          "next": [
+            "public_commission",
+            "regional_duties",
+            "farewell"
+          ],
+          "effects": []
+        },
+        {
+          "id": "mission_board",
+          "when": {},
+          "lines": [
+            "查阅本堂任务册。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "open_quest_board"
+            }
+          ]
+        },
+        {
+          "id": "contribution_shop",
+          "when": {},
+          "lines": [
+            "查看可用贡献与当前货架。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "open_shop"
+            }
+          ]
+        },
+        {
+          "id": "public_commission",
+          "when": {},
+          "lines": [
+            "领取一项公开区域委托。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "offer_quest"
+            }
+          ]
+        },
+        {
+          "id": "regional_duties",
+          "when": {},
+          "lines": [
+            "昆吾、晋京与边军三路消息会改变任务与货架。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "heard_dajin_steward_briefing"
+            }
+          ]
+        },
+        {
+          "id": "farewell",
+          "when": {},
+          "lines": [
+            "办完便让开案前位置。"
+          ],
+          "next": [],
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "tree_dajin_merchant",
+      "archetype": "regional_dajin_merchant",
+      "root": "greet",
+      "npc_ids": [],
+      "nodes": [
+        {
+          "id": "greet",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "先验货，再谈价。来路不明的东西要另付鉴定费。"
+          ],
+          "next": [
+            "browse",
+            "commission",
+            "local_intel",
+            "farewell"
+          ],
+          "effects": []
+        },
+        {
+          "id": "browse",
+          "when": {},
+          "lines": [
+            "把当前货架拿来看看。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "open_shop"
+            }
+          ]
+        },
+        {
+          "id": "commission",
+          "when": {},
+          "lines": [
+            "拍卖跑腿、护送与材料鉴定都有公开委托。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "open_quest_board"
+            }
+          ]
+        },
+        {
+          "id": "local_intel",
+          "when": {},
+          "lines": [
+            "大晋明铺讲凭证，暗市讲担保；两边都不认空口。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "heard_dajin_market_intel"
+            }
+          ]
+        },
+        {
+          "id": "farewell",
+          "when": {},
+          "lines": [
+            "不买便慢走，别挡后来人。"
+          ],
+          "next": [],
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "tree_spirit_realm_steward",
+      "archetype": "regional_spirit_realm_steward",
+      "root": "greet",
+      "npc_ids": [],
+      "nodes": [
+        {
+          "id": "greet",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "灵界只认功勋、境界与守城记录。要办何事？"
+          ],
+          "next": [
+            "member_service",
+            "visitor_service",
+            "regional_duties",
+            "farewell"
+          ],
+          "effects": []
+        },
+        {
+          "id": "member_service",
+          "when": {
+            "faction_member": true
+          },
+          "lines": [
+            "驻军或氏族记录有效，可查功勋差事与高阶补给。"
+          ],
+          "next": [
+            "mission_board",
+            "contribution_shop",
+            "farewell"
+          ],
+          "effects": []
+        },
+        {
+          "id": "visitor_service",
+          "when": {
+            "not_member": true
+          },
+          "lines": [
+            "未登记者只能接外围差事，界门与内库暂不开放。"
+          ],
+          "next": [
+            "public_commission",
+            "regional_duties",
+            "farewell"
+          ],
+          "effects": []
+        },
+        {
+          "id": "mission_board",
+          "when": {},
+          "lines": [
+            "查阅本堂任务册。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "open_quest_board"
+            }
+          ]
+        },
+        {
+          "id": "contribution_shop",
+          "when": {},
+          "lines": [
+            "查看可用贡献与当前货架。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "open_shop"
+            }
+          ]
+        },
+        {
+          "id": "public_commission",
+          "when": {},
+          "lines": [
+            "领取一项公开区域委托。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "offer_quest"
+            }
+          ]
+        },
+        {
+          "id": "regional_duties",
+          "when": {},
+          "lines": [
+            "兽潮、地渊与跨界巡防会按时段刷新。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "heard_spirit_realm_steward_briefing"
+            }
+          ]
+        },
+        {
+          "id": "farewell",
+          "when": {},
+          "lines": [
+            "办完便让开案前位置。"
+          ],
+          "next": [],
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "tree_spirit_realm_merchant",
+      "archetype": "regional_spirit_realm_merchant",
+      "root": "greet",
+      "npc_ids": [],
+      "nodes": [
+        {
+          "id": "greet",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "灵界材料贵在纯度，功勋货贵在资格。"
+          ],
+          "next": [
+            "browse",
+            "commission",
+            "local_intel",
+            "farewell"
+          ],
+          "effects": []
+        },
+        {
+          "id": "browse",
+          "when": {},
+          "lines": [
+            "把当前货架拿来看看。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "open_shop"
+            }
+          ]
+        },
+        {
+          "id": "commission",
+          "when": {},
+          "lines": [
+            "守城、押运与蛮荒采样都能换本地功勋。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "open_quest_board"
+            }
+          ]
+        },
+        {
+          "id": "local_intel",
+          "when": {},
+          "lines": [
+            "高阶货并非有灵石就能买，先把登记与声望做足。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "heard_spirit_realm_market_intel"
+            }
+          ]
+        },
+        {
+          "id": "farewell",
+          "when": {},
+          "lines": [
+            "不买便慢走，别挡后来人。"
+          ],
+          "next": [],
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "tree_underworld_steward",
+      "archetype": "regional_underworld_steward",
+      "root": "greet",
+      "npc_ids": [],
+      "nodes": [
+        {
+          "id": "greet",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "阴路有阴路的册。生魂、鬼契与渡资都要记清。"
+          ],
+          "next": [
+            "member_service",
+            "visitor_service",
+            "regional_duties",
+            "farewell"
+          ],
+          "effects": []
+        },
+        {
+          "id": "member_service",
+          "when": {
+            "faction_member": true
+          },
+          "lines": [
+            "契印相合，可查阴差、渡引与本地兑换。"
+          ],
+          "next": [
+            "mission_board",
+            "contribution_shop",
+            "farewell"
+          ],
+          "effects": []
+        },
+        {
+          "id": "visitor_service",
+          "when": {
+            "not_member": true
+          },
+          "lines": [
+            "阳气太重的外客只可接公开引魂差事。"
+          ],
+          "next": [
+            "public_commission",
+            "regional_duties",
+            "farewell"
+          ],
+          "effects": []
+        },
+        {
+          "id": "mission_board",
+          "when": {},
+          "lines": [
+            "查阅本堂任务册。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "open_quest_board"
+            }
+          ]
+        },
+        {
+          "id": "contribution_shop",
+          "when": {},
+          "lines": [
+            "查看可用贡献与当前货架。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "open_shop"
+            }
+          ]
+        },
+        {
+          "id": "public_commission",
+          "when": {},
+          "lines": [
+            "领取一项公开区域委托。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "offer_quest"
+            }
+          ]
+        },
+        {
+          "id": "regional_duties",
+          "when": {},
+          "lines": [
+            "冥河潮、阴雾与魂潮决定今日能走哪条路。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "heard_underworld_steward_briefing"
+            }
+          ]
+        },
+        {
+          "id": "farewell",
+          "when": {},
+          "lines": [
+            "办完便让开案前位置。"
+          ],
+          "next": [],
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "tree_underworld_merchant",
+      "archetype": "regional_underworld_merchant",
+      "root": "greet",
+      "npc_ids": [],
+      "nodes": [
+        {
+          "id": "greet",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "魂材不退换，渡引不过期也不保命。"
+          ],
+          "next": [
+            "browse",
+            "commission",
+            "local_intel",
+            "farewell"
+          ],
+          "effects": []
+        },
+        {
+          "id": "browse",
+          "when": {},
+          "lines": [
+            "把当前货架拿来看看。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "open_shop"
+            }
+          ]
+        },
+        {
+          "id": "commission",
+          "when": {},
+          "lines": [
+            "引魂、镇尸与护渡委托都可换阴路信用。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "open_quest_board"
+            }
+          ]
+        },
+        {
+          "id": "local_intel",
+          "when": {},
+          "lines": [
+            "阴市看契印胜过看脸，假凭证会招来真正的鬼差。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "heard_underworld_market_intel"
+            }
+          ]
+        },
+        {
+          "id": "farewell",
+          "when": {},
+          "lines": [
+            "不买便慢走，别挡后来人。"
+          ],
+          "next": [],
+          "effects": []
+        }
+      ]
     }
   ],
   "effect_quest_links_ref": "dialogue_effect_quest_links_v140.json",
-  "v140": true
+  "v140": true,
+  "regional_profiles": [
+    {
+      "id": "profile_tiannan_steward",
+      "tree": "tree_tiannan_steward",
+      "regions": [
+        "tiannan",
+        "extreme_west",
+        "extreme_west_thousand_bamboo",
+        "kunwu"
+      ],
+      "roles": [
+        "sect_master",
+        "great_elder",
+        "alchemy_elder",
+        "outer_deacon",
+        "patrol_captain"
+      ]
+    },
+    {
+      "id": "profile_tiannan_merchant",
+      "tree": "tree_tiannan_merchant",
+      "regions": [
+        "tiannan",
+        "extreme_west",
+        "extreme_west_thousand_bamboo",
+        "kunwu"
+      ],
+      "roles": [
+        "black_market_contact",
+        "quest_giver_main"
+      ]
+    },
+    {
+      "id": "profile_north_frontier_steward",
+      "tree": "tree_north_frontier_steward",
+      "regions": [
+        "tiannan_north_waste",
+        "mulan",
+        "tianlan"
+      ],
+      "roles": [
+        "sect_master",
+        "great_elder",
+        "alchemy_elder",
+        "outer_deacon",
+        "patrol_captain"
+      ]
+    },
+    {
+      "id": "profile_north_frontier_merchant",
+      "tree": "tree_north_frontier_merchant",
+      "regions": [
+        "tiannan_north_waste",
+        "mulan",
+        "tianlan"
+      ],
+      "roles": [
+        "black_market_contact",
+        "quest_giver_main"
+      ]
+    },
+    {
+      "id": "profile_chaotic_sea_steward",
+      "tree": "tree_chaotic_sea_steward",
+      "regions": [
+        "chaotic_sea",
+        "outer_sea_market"
+      ],
+      "roles": [
+        "sect_master",
+        "great_elder",
+        "alchemy_elder",
+        "outer_deacon",
+        "patrol_captain"
+      ]
+    },
+    {
+      "id": "profile_chaotic_sea_merchant",
+      "tree": "tree_chaotic_sea_merchant",
+      "regions": [
+        "chaotic_sea",
+        "outer_sea_market"
+      ],
+      "roles": [
+        "black_market_contact",
+        "quest_giver_main"
+      ]
+    },
+    {
+      "id": "profile_dajin_steward",
+      "tree": "tree_dajin_steward",
+      "regions": [
+        "dajin",
+        "great_jin_central"
+      ],
+      "roles": [
+        "sect_master",
+        "great_elder",
+        "alchemy_elder",
+        "outer_deacon",
+        "patrol_captain"
+      ]
+    },
+    {
+      "id": "profile_dajin_merchant",
+      "tree": "tree_dajin_merchant",
+      "regions": [
+        "dajin",
+        "great_jin_central"
+      ],
+      "roles": [
+        "black_market_contact",
+        "quest_giver_main"
+      ]
+    },
+    {
+      "id": "profile_spirit_realm_steward",
+      "tree": "tree_spirit_realm_steward",
+      "regions": [
+        "tianyuan",
+        "spirit_fengyuan",
+        "spirit_realm_border"
+      ],
+      "roles": [
+        "sect_master",
+        "great_elder",
+        "alchemy_elder",
+        "outer_deacon",
+        "patrol_captain"
+      ]
+    },
+    {
+      "id": "profile_spirit_realm_merchant",
+      "tree": "tree_spirit_realm_merchant",
+      "regions": [
+        "tianyuan",
+        "spirit_fengyuan",
+        "spirit_realm_border"
+      ],
+      "roles": [
+        "black_market_contact",
+        "quest_giver_main"
+      ]
+    },
+    {
+      "id": "profile_underworld_steward",
+      "tree": "tree_underworld_steward",
+      "regions": [
+        "yinming",
+        "nether_river"
+      ],
+      "roles": [
+        "sect_master",
+        "great_elder",
+        "alchemy_elder",
+        "outer_deacon",
+        "patrol_captain"
+      ]
+    },
+    {
+      "id": "profile_underworld_merchant",
+      "tree": "tree_underworld_merchant",
+      "regions": [
+        "yinming",
+        "nether_river"
+      ],
+      "roles": [
+        "black_market_contact",
+        "quest_giver_main"
+      ]
+    }
+  ]
 }
