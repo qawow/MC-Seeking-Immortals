@@ -1,0 +1,47 @@
+{
+  "name": "Spiritual Root System",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:linggen_test_stone",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(l)Spiritual Roots$() are a cultivator's innate talent, determining cultivation speed, technique power, and cultivation path. Use $(l)Root Test Stone$() to check your root attributes."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Root Attributes",
+      "text": "Five elemental roots correspond to five elements:$(li)$(l)Metal Root$(): Metal technique power +30%$(li)$(l)Wood Root$(): Wood technique power +30%$(li)$(l)Water Root$(): Water technique power +30%$(li)$(l)Fire Root$(): Fire technique power +30%$(li)$(l)Earth Root$(): Earth technique power +30%$(br2)Rare variant roots include $(l)Thunder/Ice/Wind$()."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Root Count",
+      "text": "Root count affects cultivation speed:$(li)$(l)Single Root$() (Heavenly Root): 200% speed, extremely rare$(li)$(l)Dual Root$(): 150% speed, quite excellent$(li)$(l)Triple Root$(): 100% speed, average quality$(li)$(l)Quad Root$(): 70% speed, poor quality$(li)$(l)Penta Root$() (False Root): 50% speed, difficult to cultivate$(br2)Fewer roots = purer talent = faster cultivation."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Root Purity",
+      "text": "Besides count, each root has a $(l)purity value$():$(li)Purity 90-100: Supreme root$(li)Purity 70-89: High-grade root$(li)Purity 50-69: Middle-grade root$(li)Purity 30-49: Low-grade root$(li)Purity 10-29: Inferior root$(br2)Purity affects that element's technique power and cultivation efficiency for that attribute's manuals."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Special Physiques",
+      "text": "Some cultivators have innate $(l)special physiques$(), stronger than normal roots:$(li)$(l)Thunder Spirit Body$(): Thunder technique power x2, tribulation resistance +50%$(li)$(l)Ice Spirit Body$(): Ice technique power x2, cold poison immunity$(li)$(l)Fire Spirit Body$(): Fire technique power x2, fire damage halved$(li)$(l)True Spirit Body$(): All attributes +20%, breakthrough success +10%$(br2)Special physiques are extremely rare (~0.1-1%) but highly advantageous."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Roots & Manuals",
+      "text": "Manuals usually have root requirements:$(li)$(l)Metal Manuals$(): Metal root +50% cultivation speed$(li)$(l)Compound Manuals$(): Require two or more roots$(li)$(l)Neutral Manuals$(): Any root can cultivate$(li)$(l)Special Manuals$(): Require specific physique or variant root$(br2)Choosing manuals matching your roots yields better results."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Root Improvement",
+      "text": "Roots can be improved through special methods:$(li)Take $(l)Marrow Cleansing Pills$() to boost purity$(li)Small chance to optimize roots when breaking through with Foundation Pills$(li)Special realm opportunities can change root attributes$(li)High-tier manual cultivation slowly improves root quality$(br2)Note: Marrow Cleansing Pills are extremely rare, usually found only in high-tier realms or sect treasuries."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Root Strategy",
+      "text": "Choose development path based on roots:$(li)$(l)Single Root$(): Specialize in corresponding element manuals, aim for high realms$(li)$(l)Dual Root$(): Cultivate compound manuals, balanced development$(li)$(l)Triple Root+$(): Choose neutral manuals or life skill path$(li)$(l)Special Physique$(): Find physique-exclusive manuals for maximum advantage$(br2)Roots aren't everything—manuals, pills, and opportunities matter equally."
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "name": "FAQ",
+  "category": "seeking_immortals:basics",
+  "icon": "minecraft:book",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Q: How to start?",
+      "text": "A: First, craft or find a $(l)Root Test Stone$() and right-click yourself to test your spiritual roots. Then collect $(l)Spirit Stones$() to absorb spiritual power, press $(l)V key$() to meditate and cultivate, accumulate cultivation experience, then use $(l)/seeking_immortals breakthrough$() to advance realms.$(br2)Beginners should complete the $(l)Seven Mysteries Sect quest line$() for guidance and basic resources."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Q: Not enough spiritual power?",
+      "text": "A: Spiritual power recovery methods:$(li)Hold spirit stone and right-click to activate absorption$(li)Use Qi Recovery Pills for quick restoration$(li)Meditate on spirit gathering arrays or cushions$(li)Wear Spirit Charm to increase recovery speed$(br2)Early game, keep multiple stacks of spirit stones to avoid running out during combat."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Q: Breakthrough keeps failing?",
+      "text": "A: Ways to improve breakthrough success:$(li)Accumulate more cultivation experience (exceed minimum)$(li)Use $(l)Breakthrough Pills$() to assist$(li)Attempt breakthrough in high-aura environments$(li)Ensure good root quality (single > dual)$(li)Avoid breakthrough near end of lifespan$(br2)Failure causes experience loss; prepare well before attempting."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Q: How to learn techniques?",
+      "text": "A:$(li)Obtain $(l)Technique Manual$() item$(li)Right-click to learn the manual$(li)Press $(l)Technique Edit Key$() to open editor$(li)Drag techniques to 7 slots$(li)Bind slot keys in controls settings$(li)Press keys to release techniques$(br2)If technique edit key is unbound, set it in $(l)Options→Controls→Key Binds$()."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Q: How to join a sect?",
+      "text": "A: Different sects have different entry requirements:$(li)Complete $(l)Seven Mysteries quest line$() to access Yue Nation sects$(li)Talk to sect NPCs to receive entry quests$(li)Complete trials or contribution requirements$(li)Officially become sect disciple$(br2)Each sect provides exclusive manuals, recipes, quests, and shop discounts. 30 sects available; see $(l)Sect Compendium$()."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Q: Running out of lifespan?",
+      "text": "A: Ways to extend lifespan:$(li)Breakthrough to higher realm ASAP (each realm has lifespan cap)$(li)Take $(l)Lifespan Pills$() for temporary extension$(li)Obtain special physique or manual bonuses$(li)Explore secret realms for lifespan treasures$(br2)Lifespan depletion causes death; must breakthrough before end of lifespan."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Q: How to get spirit stones?",
+      "text": "A: Spirit stone sources:$(li)Mine $(l)Spirit Ore$() (world generation)$(li)Monster drops$(li)Quest rewards$(li)Trade with NPCs in markets$(li)Sell pills, talismans, and other items$(li)Explore secret realm treasure chests$(br2)Five-element spirit stones (metal/wood/water/fire/earth) provide matching root attribute bonuses."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Q: Suffering qi deviation?",
+      "text": "A: Qi deviation reduces attributes and causes continuous damage. Solutions:$(li)Take $(l)Clear Spirit Powder$() or $(l)Calm Heart Pills$()$(li)Seek elder help at sect$(li)Wait for natural recovery in safe area$(li)Use $(l)Stabilization Talismans$() to stabilize mind$(br2)Prevention: Don't force breakthrough at low success rates, keep spiritual power sufficient, take Fasting Pills regularly."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Q: How to check progress?",
+      "text": "A: Ways to view progress:$(li)Open $(l)Inventory$(), click $(l)Cultivation$() button in top right for detailed attributes$(li)Use $(l)/seeking_immortals quest$() to check quest progress$(li)Use $(l)/seeking_immortals realm$() for realm info$(li)View $(l)Technique Bar HUD$() on screen left$(li)Use $(l)JEI$() (optional mod) to view recipes and items$(br2)In-game encyclopedia records unlocked content."
+    }
+  ]
+}

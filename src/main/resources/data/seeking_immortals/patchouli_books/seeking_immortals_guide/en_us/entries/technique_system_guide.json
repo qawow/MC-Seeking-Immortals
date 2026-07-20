@@ -1,0 +1,47 @@
+{
+  "name": "Technique System Guide",
+  "category": "seeking_immortals:techniques",
+  "icon": "seeking_immortals:fire_talisman",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The $(l)Technique System$() is the core combat mechanism. Cultivators learn techniques through manuals, bind them to 7 slots, and release via hotkeys."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Learning Techniques",
+      "text": "Techniques are learned via $(l)Technique Manuals$().$(br2)Right-click manual to:$(li)Consume the manual item$(li)Unlock the cultivation method and all its techniques$(li)Techniques added to learned list$(br2)Different manuals contain different techniques. Qi Refining manuals typically have 3-5 basic techniques; high-tier manuals can have 10+ techniques."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Configuring Technique Slots",
+      "text": "Players have $(l)7 technique slots$().$(br2)To configure:$(li)Press $(l)Technique Edit Key$() (bind in controls)$(li)Open technique edit interface$(li)Drag techniques from learned list to 7 slots$(li)Right-click slot to clear$(br2)Only slotted techniques can be released."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Releasing Techniques",
+      "text": "Technique release requires:$(li)Bind keys for 7 slots in controls$(li)Sufficient spiritual power (varies per technique)$(li)Technique not on cooldown$(li)Meet release conditions (targeting, range, etc.)$(br2)After release, enters cooldown. The technique bar on screen left shows cooldown progress."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Technique Categories",
+      "text": "Techniques by effect type:$(li)$(l)Attack$(): Fireball, Thunder Strike, Ice Cone$(li)$(l)Defense$(): Barrier, Earth Wall, Shield$(li)$(l)Support$(): Light Body, Invisibility, Detection$(li)$(l)Control$(): Immobilization, Entrapment, Seal$(li)$(l)Summon$(): Spirit Beast, Puppet Control$(li)$(l)Healing$(): Rejuvenation, Healing Art"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Technique Power",
+      "text": "Power affected by:$(li)$(l)Realm & Cultivation$(): Higher realm = stronger base power$(li)$(l)Spiritual Root$(): Matching element boosts power 30-50%$(li)$(l)Special Physique$(): Thunder Body doubles thunder technique power$(li)$(l)Manual Quality$(): Heaven-grade far exceeds Yellow-grade$(li)$(l)Divine Sense$(): Stronger sense = better control"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Advanced Techniques",
+      "text": "Higher manuals unlock stronger techniques:$(li)$(l)Qi Refining$(): Basic five-element techniques$(li)$(l)Foundation$(): Compound element, initial divine powers$(li)$(l)Core Formation$(): Golden Core powers, domain techniques$(li)$(l)Nascent Soul$(): Nascent dharma, spatial techniques$(li)$(l)Deity+$(): Deity powers, area-of-effect techniques$(br2)Learning multiple manuals provides more choices, but slots must be managed."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Techniques vs Talismans",
+      "text": "$(l)Talismans$() are consumables with technique-like effects but no manual prerequisite.$(br2)Advantages:$(li)No manual requirement$(li)Fast release$(li)Good for emergencies$(br2)Disadvantages:$(li)Consumable, must remake$(li)Fixed power, doesn't scale with realm$(br2)Recommendation: Slot common techniques, keep emergency talismans in inventory."
+    }
+  ]
+}

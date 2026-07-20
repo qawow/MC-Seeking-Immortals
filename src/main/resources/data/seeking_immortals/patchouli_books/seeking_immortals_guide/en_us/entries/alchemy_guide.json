@@ -1,0 +1,47 @@
+{
+  "name": "Alchemy System Guide",
+  "category": "seeking_immortals:alchemy_pills",
+  "icon": "seeking_immortals:rejuvenation_pill_low",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The $(l)Alchemy System$() is a core life skill. Through alchemy, you can craft various pills for spiritual power recovery, cultivation acceleration, breakthrough assistance, and healing."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Alchemy Workstations",
+      "text": "Alchemy requires dedicated $(l)Alchemy Furnaces$() or $(l)workstations$().$(br2)Basic process:$(li)Build or place alchemy furnace$(li)Prepare recipe materials (herbs, beast materials, minerals)$(li)Place materials per recipe$(li)Provide spiritual power or fire source$(li)Wait for completion$(br2)Workstation operation state determines efficiency and success rate. See $(l)Station Operations$()."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Pill Quality",
+      "text": "Pills have four quality tiers:$(li)$(l)Low Grade$(): Base effect, high success rate$(li)$(l)Middle Grade$(): 1.5x effect$(li)$(l)High Grade$(): 2x effect$(li)$(l)Perfect Grade$(): 3x effect, very rare$(br2)Alchemy skill level, workstation configuration, and material quality all affect final pill quality."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Basic Pills",
+      "text": "Beginner-recommended pills:$(li)$(l)Rejuvenation Pill$(): Restores spiritual power, Qi Refining essential$(li)$(l)Foundation Building Pill$(): Aids Foundation breakthrough$(li)$(l)Healing Pill$(): Restores health$(li)$(l)Clear Spirit Powder$(): Removes debuffs$(li)$(l)Fasting Pill$(): Removes hunger, essential for long meditation$(br2)Simple recipes, easy materials, good for skill practice."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Advanced Pills",
+      "text": "High-tier pills require rare materials and high alchemy skill:$(li)$(l)Core Formation Pill$(): Aids Core Formation breakthrough$(li)$(l)Nascent Soul Pill$(): Aids Nascent Soul breakthrough$(li)$(l)Deity Transformation Pill$(): Aids Deity breakthrough$(li)$(l)Cultivation Pill$(): Increases cultivation gain rate$(li)$(l)Soul Capture Pill$(): Divine sense enhancement$(li)$(l)Lifespan Pill$(): Extends lifespan$(br2)These pills are extremely valuable cultivation resources."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Alchemy Skill",
+      "text": "Alchemy skill improves through practice:$(li)Each successful alchemy grants skill experience$(li)Higher skill = higher success rate and quality$(li)Learning $(l)Alchemy Manuals$() provides bonuses$(li)Joining sects like $(l)Yellow Maple Valley$() unlocks recipe inheritance$(br2)High-level alchemists can craft rare pills, becoming highly sought after."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Recipe Acquisition",
+      "text": "Recipe sources:$(li)$(l)Sect Inheritance$(): Learn exclusive recipes after joining$(li)$(l)Quest Rewards$(): Obtain recipe scrolls from quests$(li)$(l)Market Purchase$(): Buy from NPC merchants$(li)$(l)Secret Realm Exploration$(): Ancient recipes hidden in realms$(li)$(l)JEI Viewing$(): Optional JEI mod shows all registered recipes$(br2)Collecting recipes is an important alchemist goal."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Alchemy Economy",
+      "text": "Alchemy is a major income source:$(li)Craft and sell pills to players or NPCs$(li)Accept sect or faction pill orders$(li)Provide pill supplies for realm exploration teams$(li)Establish your own alchemy market$(br2)High-quality pills can be traded for large amounts of spirit stones, manuals, or rare materials.$(br2)See $(l)Economy Tiers$() and $(l)Market System$()."
+    }
+  ]
+}

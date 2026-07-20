@@ -1,0 +1,47 @@
+{
+  "name": "Beginner's Guide",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:linggen_test_stone",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Welcome to Seeking Immortals. This guide will help you take your first steps from mortal to cultivator.$(br2)This mod focuses on $(l)mortal-style cultivation$(), emphasizing spiritual power management, lifespan pressure, root quality differences, and gradual realm breakthroughs."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Step 1: Test Spiritual Root",
+      "text": "Use $(l)Spiritual Root Test Stone$() on yourself to check your root quality.$(br2)Spiritual roots determine cultivation speed and elemental technique power. Dual roots are better than triple roots, and single roots are excellent quality.$(br2)Special physiques (like Thunder Spirit Body, Ice Spirit Body) provide additional technique power bonuses."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Step 2: Obtain Spiritual Power",
+      "text": "Cultivation requires $(l)spiritual power$().$(br2)Ways to obtain spiritual power:$(li)Right-click with spirit stone to activate absorption$(li)Use Qi Recovery Pills for quick restoration$(li)Meditate in high-aura environments or spirit gathering arrays$(li)Wear Spirit Charm in curios slot$(br2)Max spiritual power increases with realm."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Step 3: Meditate and Cultivate",
+      "text": "Press $(l)V key$() (default) to enter meditation.$(br2)During meditation:$(li)Taking damage interrupts meditation$(li)Moving or jumping interrupts meditation$(li)Consumes spiritual power to gain cultivation experience$(li)Meditating on cushion increases efficiency$(br2)After accumulating enough experience, you can attempt realm breakthrough."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Step 4: Breakthrough Realm",
+      "text": "Use command $(l)/seeking_immortals breakthrough$() to attempt breakthrough.$(br2)Requirements:$(li)Sufficient cultivation experience$(li)Meet age requirement for the realm$(li)High success rate (Breakthrough Pills help)$(br2)Failure causes experience loss; repeated failures may trigger qi deviation."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Step 5: Learn Techniques",
+      "text": "Right-click $(l)Technique Manual$() to learn cultivation methods.$(br2)Press $(l)Technique Edit Key$() (bind in controls) to configure 7 technique slots, then bind keys to release techniques.$(br2)Techniques consume spiritual power and have cooldowns."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Step 6: Resource Loop",
+      "text": "Cultivation requires many resources:$(li)$(l)Spirit Stones$(): Absorb spiritual power, trade currency$(li)$(l)Pills$(): Accelerate cultivation, aid breakthrough, restore status$(li)$(l)Talismans$(): One-time technique items$(li)$(l)Materials$(): Raw materials for alchemy, refining, talisman-making$(br2)Gather through harvesting, killing monsters, completing quests, or trading in markets."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Next Steps",
+      "text": "After basic cultivation, you can:$(li)Join a sect for technique inheritance and resources$(li)Explore secret realms for treasures$(li)Learn alchemy, refining, talisman-making$(li)Participate in sect quests and faction wars$(br2)See other handbook chapters for detailed information."
+    }
+  ]
+}

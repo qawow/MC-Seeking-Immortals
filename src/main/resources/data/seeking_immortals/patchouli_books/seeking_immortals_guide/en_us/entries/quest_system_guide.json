@@ -1,0 +1,47 @@
+{
+  "name": "Quest System Guide",
+  "category": "seeking_immortals:basics",
+  "icon": "minecraft:writable_book",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Seeking Immortals contains multiple quest lines spanning the complete cultivation journey from mortal to ascension. Quest lines include $(l)main quests$(), $(l)sect quests$(), $(l)faction quests$(), and $(l)side quests$()."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Seven Mysteries Sect Tutorial",
+      "text": "The $(l)Seven Mysteries Sect quest line$() is the beginner tutorial, starting from the mortal stage.$(br2)Quest flow:$(li)Talk to $(l)Elder Mo$() and complete spiritual root test$(li)Join Seven Mysteries Sect, receive Yellow Dragon Manual$(li)Complete labor, submit 10 spiritual herbs$(li)Learn basic alchemy$(li)Discover the sect secret"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Seven Mysteries Quest (cont.)",
+      "text": "$(li)Investigate the secret room, obtain mysterious vial$(li)Use spirit liquid to ripen crops and report back$(li)Obtain evidence of elder corruption$(li)Choose branch: report, stay silent, or blackmail$(li)Escape during Heavenly Gang Alliance attack$(li)Head to Yue Nation to unlock follow-up sect lines$(br2)Use command $(l)/seeking_immortals quest$() to check progress."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Main Story Chapters",
+      "text": "After Seven Mysteries, the main story has 6 chapters:$(br)$(l)Chapter 1: Sect Cultivation$() (Qi Refining → Foundation)$(br)$(l)Chapter 2: Foundation Secret Realm$() (Blood Forbidden Land)$(br)$(l)Chapter 3: Chaotic Sea$() (Foundation → Core Formation)$(br)$(l)Chapter 4: Great Jin$() (Core → Nascent Soul)$(br)$(l)Chapter 5: Deity Tribulation$() (Nascent → Deity)$(br)$(l)Chapter 6: Spirit Realm Ascension$() (Deity → Void+)"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Sect Quest Lines",
+      "text": "Each sect offers exclusive quests:$(li)$(l)Yellow Maple Valley$(): Alchemy and Blood Forbidden training$(li)$(l)Blade Transformation Workshop$(): Blade dao and intent$(li)$(l)Giant Sword Sect$(): Giant sword art and relic restoration$(li)$(l)Veiled Moon Sect$(): Illusion art and formation practice$(li)$(l)Heavenly Talisman Gate$(): Talisman mastery$(li)$(l)Thousand Bamboo Sect$(): Puppet art and Dayan technique"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Faction Quest Lines",
+      "text": "Different regions offer unique faction quests:$(li)$(l)Mulan-Tianlan War$(): Spell Masters vs Beast Tamers$(li)$(l)Star Palace Faction$(): Chaotic Sea patrols and enforcement$(li)$(l)Inverse Star Alliance$(): Smuggling, intelligence, resistance$(li)$(l)Six Demonic Sects$(): Ghost Spirit Gate, Hehuan Sect, etc.$(li)$(l)Great Jin Clans$(): Clan disputes and Kunwu treasures$(li)$(l)Tianyuan City$(): Merit system and Diyuan delving"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Secret Realm Quests",
+      "text": "19 explorable secret realms, each with quest chains:$(li)$(l)Blood Forbidden Land$(): Foundation materials, Blood Jiao guardian$(li)$(l)Void Heaven Palace$(): Void key and ancient spirit treasures$(li)$(l)Kunwu Mountain$(): Seal fragments and puppet mechanisms$(li)$(l)Fallen Demon Valley$(): Demon qi purification, spatial rifts$(li)$(l)Nether River$(): Soul stones, ghost cultivation$(li)$(l)Diyuan Depths$(): Spirit vein shards, pressure trials"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Side & Special Quests",
+      "text": "Rich side quests beyond main story:$(li)$(l)Craft Mastery$(): Alchemy, refining, talisman, formation mastery$(li)$(l)Ghost Path$(): Underworld pilgrimage, ghost cultivation taboo$(li)$(l)Spirit Beast Puppet$(): Beast contracts and puppet furnace$(li)$(l)Eighteen Clan Pilgrimage$(): Fengyuan world exploration$(li)$(l)Barbarian King Hunt$(): King tokens and ancient beast cores$(br2)Each quest line offers unique rewards and story."
+    }
+  ]
+}
