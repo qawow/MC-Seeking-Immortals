@@ -541,6 +541,9 @@ public final class ModItems {
     public static final RegistryObject<Item> TALISMAN_TABLE = ITEMS.register("talisman_table", () -> new BlockItem(ModBlocks.TALISMAN_TABLE.get(), new Item.Properties()));
     public static final RegistryObject<Item> PUPPET_ASSEMBLY_BENCH = ITEMS.register("puppet_assembly_bench", () -> new BlockItem(ModBlocks.PUPPET_ASSEMBLY_BENCH.get(), new Item.Properties()));
     public static final RegistryObject<Item> REFINEMENT_FORGE_G3 = ITEMS.register("refinement_forge_g3", () -> new BlockItem(ModBlocks.REFINEMENT_FORGE_G3.get(), new Item.Properties()));
+    public static final RegistryObject<Item> REFINEMENT_FORGE_G4 = ITEMS.register("refinement_forge_g4", () -> new BlockItem(ModBlocks.REFINEMENT_FORGE_G4.get(), new Item.Properties()));
+    public static final RegistryObject<Item> REFINEMENT_FORGE_G5 = ITEMS.register("refinement_forge_g5", () -> new BlockItem(ModBlocks.REFINEMENT_FORGE_G5.get(), new Item.Properties()));
+    public static final RegistryObject<Item> REFINEMENT_FORGE_G6 = ITEMS.register("refinement_forge_g6", () -> new BlockItem(ModBlocks.REFINEMENT_FORGE_G6.get(), new Item.Properties()));
     public static final RegistryObject<Item> SPIRIT_HERB_PLANTER = ITEMS.register("spirit_herb_planter", () -> new BlockItem(ModBlocks.SPIRIT_HERB_PLANTER.get(), new Item.Properties()));
     public static final RegistryObject<Item> LOW_SPIRIT_IRON_ORE = ITEMS.register("low_spirit_iron_ore", () -> new BlockItem(ModBlocks.LOW_SPIRIT_IRON_ORE.get(), new Item.Properties()));
     public static final RegistryObject<Item> YIN_ESSENCE_ORE = ITEMS.register("yin_essence_ore", () -> new BlockItem(ModBlocks.YIN_ESSENCE_ORE.get(), new Item.Properties()));

@@ -84,7 +84,8 @@ public final class BulkItemClassifier {
             "mortal_medicine",
             "jade_slip_blank",
             "paper_formula_scroll",
-            "spirit_pill_voucher"
+            "spirit_pill_voucher",
+            "teleport_array_ticket"
     );
     private static final Map<String, AlchemyFormulaSource> ALCHEMY_FORMULA_SOURCES =
             loadAlchemyFormulaSources();
@@ -257,6 +258,7 @@ public final class BulkItemClassifier {
                 case "diyuan_access_token" -> "travel_diyuan";
                 case "jade_slip_blank", "paper_formula_scroll" -> "inscribe_formula";
                 case "spirit_pill_voucher" -> "redeem_spirit_pill_voucher";
+                case "teleport_array_ticket" -> "board_teleport_array";
                 default -> "";
             };
             if (!synthetic.isBlank()) {
@@ -310,6 +312,7 @@ public final class BulkItemClassifier {
             case "fallen_demon_scout_report" -> "discover_fallen_demon";
             case "kunwu_map_scroll" -> "discover_kunwu";
             case "mortal_medicine" -> "restore_health";
+            case "teleport_array_ticket" -> "board_teleport_array";
             default -> "";
         };
         if (!dedicated.isBlank()) {

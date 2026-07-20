@@ -1,7 +1,7 @@
 {
   "schema_version": 5,
   "source": "M07 merged v134 entries + v135 war extras (86)",
-  "total": 86,
+  "total": 92,
   "with_mp_sequences": 83,
   "authority": "v135 counts; entries from v134 + 4 war structures",
   "entries": [
@@ -898,6 +898,76 @@
       "max_hp": 150,
       "has_upgrade": false,
       "source": "v135 material used_by"
+    },
+    {
+      "id": "refinement_forge_g2",
+      "display": "二品炼器台",
+      "type": "multiblock_controller",
+      "dimensions": "2×2×2",
+      "build_mode": "handcrafted_kept",
+      "default_state": "intact",
+      "max_hp": 250,
+      "has_upgrade": true
+    },
+    {
+      "id": "refinement_forge_g4",
+      "display": "四品炼器阵",
+      "type": "multiblock_controller",
+      "dimensions": "7×7×4",
+      "build_mode": "handcrafted_kept",
+      "default_state": "intact",
+      "max_hp": 400,
+      "has_upgrade": true,
+      "cost_min": 500,
+      "cost_max": 4000
+    },
+    {
+      "id": "refinement_forge_g5",
+      "display": "五品炼器阵",
+      "type": "multiblock_controller",
+      "dimensions": "9×9×5",
+      "build_mode": "handcrafted_kept",
+      "default_state": "intact",
+      "max_hp": 500,
+      "has_upgrade": true,
+      "cost_min": 800,
+      "cost_max": 6000
+    },
+    {
+      "id": "refinement_forge_g6",
+      "display": "六品炼器阵",
+      "type": "multiblock_controller",
+      "dimensions": "11×11×6",
+      "build_mode": "handcrafted_kept",
+      "default_state": "intact",
+      "max_hp": 600,
+      "has_upgrade": true,
+      "cost_min": 1200,
+      "cost_max": 9000
+    },
+    {
+      "id": "alchemy_furnace_g4",
+      "display": "四品丹炉",
+      "type": "multiblock_controller",
+      "dimensions": "5×5×4（宽×深×高）",
+      "build_mode": "handcrafted_kept",
+      "default_state": "intact",
+      "max_hp": 400,
+      "has_upgrade": true,
+      "cost_min": 450,
+      "cost_max": 3500
+    },
+    {
+      "id": "alchemy_furnace_g5",
+      "display": "五品丹炉",
+      "type": "multiblock_controller",
+      "dimensions": "5×5×5（宽×深×高）",
+      "build_mode": "handcrafted_kept",
+      "default_state": "intact",
+      "max_hp": 500,
+      "has_upgrade": true,
+      "cost_min": 700,
+      "cost_max": 5000
     }
   ],
   "by_type": {

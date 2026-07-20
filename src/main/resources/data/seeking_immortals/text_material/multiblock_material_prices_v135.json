@@ -95,9 +95,11 @@
       "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
       "tier": "mid",
       "category": "component",
-      "used_by_structures_count": 1,
+      "used_by_structures_count": 3,
       "used_by_sample": [
-        "alchemy_furnace_g3"
+        "alchemy_furnace_g3",
+        "alchemy_furnace_g4",
+        "alchemy_furnace_g5"
       ]
     },
     {
@@ -110,9 +112,12 @@
       "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
       "tier": "mid",
       "category": "component",
-      "used_by_structures_count": 1,
+      "used_by_structures_count": 4,
       "used_by_sample": [
-        "refinement_forge_g3"
+        "refinement_forge_g3",
+        "refinement_forge_g4",
+        "refinement_forge_g5",
+        "refinement_forge_g6"
       ]
     },
     {
@@ -307,9 +312,10 @@
       "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
       "tier": "mid",
       "category": "misc",
-      "used_by_structures_count": 1,
+      "used_by_structures_count": 2,
       "used_by_sample": [
-        "refinement_forge_g1"
+        "refinement_forge_g1",
+        "refinement_forge_g2"
       ]
     },
     {
@@ -337,9 +343,11 @@
       "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
       "tier": "mid",
       "category": "component",
-      "used_by_structures_count": 1,
+      "used_by_structures_count": 3,
       "used_by_sample": [
-        "alchemy_furnace_g3"
+        "alchemy_furnace_g3",
+        "alchemy_furnace_g4",
+        "alchemy_furnace_g5"
       ]
     },
     {
@@ -532,10 +540,11 @@
       "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
       "tier": "mid",
       "category": "component",
-      "used_by_structures_count": 2,
+      "used_by_structures_count": 3,
       "used_by_sample": [
         "alchemy_furnace_g2",
-        "spirit_fire_brazier"
+        "spirit_fire_brazier",
+        "alchemy_furnace_g4"
       ]
     },
     {
@@ -607,9 +616,11 @@
       "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
       "tier": "mid",
       "category": "misc",
-      "used_by_structures_count": 1,
+      "used_by_structures_count": 3,
       "used_by_sample": [
-        "alchemy_furnace_g3"
+        "alchemy_furnace_g3",
+        "alchemy_furnace_g4",
+        "alchemy_furnace_g5"
       ]
     },
     {
@@ -1147,10 +1158,11 @@
       "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
       "tier": "low",
       "category": "bulk",
-      "used_by_structures_count": 2,
+      "used_by_structures_count": 3,
       "used_by_sample": [
         "alchemy_furnace_g2",
-        "spirit_fire_brazier"
+        "spirit_fire_brazier",
+        "alchemy_furnace_g4"
       ]
     },
     {
@@ -1498,9 +1510,10 @@
       "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
       "tier": "mid",
       "category": "component",
-      "used_by_structures_count": 1,
+      "used_by_structures_count": 2,
       "used_by_sample": [
-        "refinement_forge_g1"
+        "refinement_forge_g1",
+        "refinement_forge_g2"
       ]
     },
     {
@@ -1513,12 +1526,13 @@
       "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
       "tier": "mid",
       "category": "component",
-      "used_by_structures_count": 4,
+      "used_by_structures_count": 5,
       "used_by_sample": [
         "refinement_forge_g1",
         "puppet_assembly_bench",
         "puppet_workshop",
-        "structure_repair_bench"
+        "structure_repair_bench",
+        "refinement_forge_g2"
       ]
     },
     {
@@ -1576,9 +1590,12 @@
       "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
       "tier": "mid",
       "category": "component",
-      "used_by_structures_count": 1,
+      "used_by_structures_count": 4,
       "used_by_sample": [
-        "refinement_forge_g3"
+        "refinement_forge_g3",
+        "refinement_forge_g4",
+        "refinement_forge_g5",
+        "refinement_forge_g6"
       ]
     },
     {
@@ -2026,9 +2043,10 @@
       "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
       "tier": "mid",
       "category": "misc",
-      "used_by_structures_count": 1,
+      "used_by_structures_count": 2,
       "used_by_sample": [
-        "refinement_forge_g1"
+        "refinement_forge_g1",
+        "refinement_forge_g2"
       ]
     },
     {
@@ -2041,9 +2059,12 @@
       "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
       "tier": "mid",
       "category": "misc",
-      "used_by_structures_count": 1,
+      "used_by_structures_count": 4,
       "used_by_sample": [
-        "refinement_forge_g3"
+        "refinement_forge_g3",
+        "refinement_forge_g4",
+        "refinement_forge_g5",
+        "refinement_forge_g6"
       ]
     },
     {
@@ -2071,9 +2092,11 @@
       "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
       "tier": "mid",
       "category": "component",
-      "used_by_structures_count": 1,
+      "used_by_structures_count": 3,
       "used_by_sample": [
-        "alchemy_furnace_g3"
+        "alchemy_furnace_g3",
+        "alchemy_furnace_g4",
+        "alchemy_furnace_g5"
       ]
     },
     {
@@ -2551,10 +2574,13 @@
       "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
       "tier": "mid",
       "category": "misc",
-      "used_by_structures_count": 2,
+      "used_by_structures_count": 5,
       "used_by_sample": [
         "refinement_forge_g3",
-        "spirit_fire_brazier"
+        "spirit_fire_brazier",
+        "refinement_forge_g4",
+        "refinement_forge_g5",
+        "refinement_forge_g6"
       ]
     },
     {
@@ -2691,7 +2717,12 @@
         "teleport_array_pedestal",
         "spirit_vein_tap",
         "bao_ding_socket",
-        "puppet_workshop"
+        "puppet_workshop",
+        "refinement_forge_g4",
+        "refinement_forge_g5",
+        "refinement_forge_g6",
+        "alchemy_furnace_g4",
+        "alchemy_furnace_g5"
       ]
     },
     {
@@ -3366,9 +3397,10 @@
       "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
       "tier": "mid",
       "category": "component",
-      "used_by_structures_count": 1,
+      "used_by_structures_count": 2,
       "used_by_sample": [
-        "alchemy_furnace_g2"
+        "alchemy_furnace_g2",
+        "alchemy_furnace_g4"
       ]
     },
     {

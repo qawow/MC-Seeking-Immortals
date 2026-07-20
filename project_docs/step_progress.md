@@ -1,3 +1,16 @@
+## 544. 2026-07-20 0.2.98 高阶炼器阵与传送令
+
+  Step   Status   Notes
+  ---   ---   ---
+  G4-G6 forge Done   RefinementForgeHighBlock/Structure + 注册/校验/资源。
+  Structure index Done   92 条目；g2/g4–g6 + alchemy g4/g5 对齐 patterns。
+  Materials Done   used_by_sample 覆盖缺站。
+  Ticket Done   teleport_array_ticket → board_teleport_array。
+  Corpus types Done   aoe_control/shield generic 路由。
+  Tests Done   HighStructure/M07/分类/消耗/语料；全量构建通过。
+  Version Done   `mod_version=0.2.98`；protocol 26。
+  Handoff Done   `project_docs/updates/20260720_0.2.98_high_forge.md`。
+
 ## 543. 2026-07-20 0.2.97 丹券兑换与别名丹药确认
 
   Step   Status   Notes

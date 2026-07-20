@@ -69,7 +69,8 @@ class CatalogConsumableServiceTest {
                 java.util.Map.entry("mortal_medicine", "restore_health"),
                 java.util.Map.entry("jade_slip_blank", "inscribe_formula"),
                 java.util.Map.entry("paper_formula_scroll", "inscribe_formula"),
-                java.util.Map.entry("spirit_pill_voucher", "redeem_spirit_pill_voucher"));
+                java.util.Map.entry("spirit_pill_voucher", "redeem_spirit_pill_voucher"),
+                java.util.Map.entry("teleport_array_ticket", "board_teleport_array"));
         cases.forEach((id, effect) -> {
             var definition = com.xunxian.seekingimmortals.registry.BulkItemClassifier
                     .consumable(id);
@@ -95,5 +96,8 @@ class CatalogConsumableServiceTest {
         assertTrue(source.contains("enterSecretRealm"),
                 "diyuan access token must enter the secret realm, not region-travel");
         assertTrue(source.contains("FieldKind.SPIRIT_GATHER"));
+        assertTrue(source.contains("board_teleport_array"),
+                "teleport array ticket must board via FlightVehicleService");
+        assertTrue(source.contains("FlightVehicleService.board"));
     }
 }

@@ -15,13 +15,22 @@ class M07FormationsMultiblockTest {
 
     @Test
     void structureIndexLoadsEightySixEntries() {
-        assertEquals(89, MultiblockStructureCatalog.builtin().size());
-        assertEquals(89, FormationApi.structureIndexSize());
+        assertEquals(92, MultiblockStructureCatalog.builtin().size());
+        assertEquals(92, FormationApi.structureIndexSize());
         assertTrue(MultiblockStructureCatalog.builtin().find("immortal_teleport_grand_array").isPresent());
         assertTrue(MultiblockStructureCatalog.builtin().find("sect_formation_hub").isPresent());
         assertTrue(MultiblockStructureCatalog.builtin().find("flying_boat_dock").isPresent());
         assertTrue(MultiblockStructureCatalog.builtin().find("capture_point_obelisk").isPresent());
         assertTrue(MultiblockStructureCatalog.builtin().find("war_banner_pole").isPresent());
+        assertTrue(MultiblockStructureCatalog.builtin().find("refinement_forge_g4").isPresent());
+        assertTrue(MultiblockStructureCatalog.builtin().find("refinement_forge_g5").isPresent());
+        assertTrue(MultiblockStructureCatalog.builtin().find("refinement_forge_g6").isPresent());
+        assertTrue(MultiblockStructureCatalog.builtin().find("alchemy_furnace_g4").isPresent());
+        assertTrue(MultiblockStructureCatalog.builtin().find("alchemy_furnace_g5").isPresent());
+        assertEquals("refinement_forge_g4",
+                MultiblockStructureCatalog.builtin().find("refinement_forge_g4").orElseThrow().pattern().validator());
+        assertEquals(4,
+                MultiblockStructureCatalog.builtin().find("refinement_forge_g4").orElseThrow().pattern().tier());
     }
 
     @Test

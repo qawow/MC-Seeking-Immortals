@@ -1739,6 +1739,63 @@
         "radius": 1,
         "ring_role": "spirit_ore"
       }
+    },
+    {
+      "id": "refinement_forge_g4",
+      "display": "四品炼器阵",
+      "type": "multiblock_controller",
+      "dimensions": "7×7×4",
+      "size": {
+        "w": 7,
+        "h": 4,
+        "d": 7
+      },
+      "radius": 3,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 400,
+      "pattern": {
+        "validator": "refinement_forge_g4",
+        "tier": 4
+      }
+    },
+    {
+      "id": "refinement_forge_g5",
+      "display": "五品炼器阵",
+      "type": "multiblock_controller",
+      "dimensions": "9×9×5",
+      "size": {
+        "w": 9,
+        "h": 5,
+        "d": 9
+      },
+      "radius": 4,
+      "large": true,
+      "default_state": "intact",
+      "max_hp": 500,
+      "pattern": {
+        "validator": "refinement_forge_g5",
+        "tier": 5
+      }
+    },
+    {
+      "id": "refinement_forge_g6",
+      "display": "六品炼器阵",
+      "type": "multiblock_controller",
+      "dimensions": "11×11×6",
+      "size": {
+        "w": 11,
+        "h": 6,
+        "d": 11
+      },
+      "radius": 5,
+      "large": true,
+      "default_state": "intact",
+      "max_hp": 600,
+      "pattern": {
+        "validator": "refinement_forge_g6",
+        "tier": 6
+      }
     }
   ]
 }

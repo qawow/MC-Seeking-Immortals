@@ -120,6 +120,7 @@ public final class CatalogConsumableService {
                     "message.seeking_immortals.catalog_consumable.discover_kunwu");
             case "inscribe_formula" -> inscribeFormula(player, id);
             case "redeem_spirit_pill_voucher" -> redeemSpiritPillVoucher(player);
+            case "board_teleport_array" -> FlightVehicleService.board(player, "teleport_array_ticket");
             default -> knownIdAction(player, id);
         };
         if (success && shouldAnnounceGenericSuccess(action)) {

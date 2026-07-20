@@ -83,6 +83,9 @@ public final class ModCreativeTabs {
                 output.accept(ModItems.TALISMAN_TABLE.get());
                 output.accept(ModItems.PUPPET_ASSEMBLY_BENCH.get());
                 output.accept(ModItems.REFINEMENT_FORGE_G3.get());
+                output.accept(ModItems.REFINEMENT_FORGE_G4.get());
+                output.accept(ModItems.REFINEMENT_FORGE_G5.get());
+                output.accept(ModItems.REFINEMENT_FORGE_G6.get());
                 output.accept(ModItems.SPIRIT_HERB_PLANTER.get());
                 output.accept(ModItems.LOW_SPIRIT_IRON_ORE.get());
                 output.accept(ModItems.YIN_ESSENCE_ORE.get());

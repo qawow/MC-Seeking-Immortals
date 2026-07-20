@@ -30,15 +30,15 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public final class AbstractTechniqueEffectResolver {
     private static final Set<String> ABSTRACT_TYPES = Set.of(
-            "projectile", "beam", "cone", "chain", "aoe", "aoe_dot", "field", "domain", "wall",
-            "trap", "buff_zone", "debuff", "dot", "drain", "control", "buff_self", "buff",
+            "projectile", "beam", "cone", "chain", "aoe", "aoe_control", "aoe_dot", "field", "domain", "wall",
+            "trap", "buff_zone", "debuff", "dot", "drain", "control", "buff_self", "buff", "shield",
             "transform", "heal", "heal_spirit", "cleanse", "movement", "dash", "escape",
             "teleport_short", "melee", "strike", "ultimate", "secret_art", "soul_attack",
             "summon", "summon_field", "talisman_consume", "utility", "utility_combat",
             "scout", "scan", "inspect", "command", "craft_gate");
     private static final Set<String> GENERIC_RUNTIME_TYPES = Set.of(
-            "projectile", "beam", "cone", "chain", "aoe", "aoe_dot", "field", "domain",
-            "trap", "debuff", "dot", "drain", "control", "buff_self", "buff", "transform",
+            "projectile", "beam", "cone", "chain", "aoe", "aoe_control", "aoe_dot", "field", "domain",
+            "trap", "debuff", "dot", "drain", "control", "buff_self", "buff", "shield", "transform",
             "heal", "heal_spirit", "cleanse", "movement", "dash", "escape", "teleport_short",
             "melee", "strike", "soul_attack", "summon", "summon_field", "utility",
             "utility_combat", "scout", "scan", "inspect");
@@ -181,7 +181,7 @@ public final class AbstractTechniqueEffectResolver {
             case "projectile", "beam", "cone" -> new ElementalProjectileSpell(
                     cost, cooldown, spec.damage(), projectileSpeed(spec.type()), projectileElement(spec.element()),
                     "message.seeking_immortals.spell.generic_projectile.success");
-            case "chain", "aoe", "aoe_dot", "field", "domain" -> new ElementalAreaSpell(
+            case "chain", "aoe", "aoe_control", "aoe_dot", "field", "domain" -> new ElementalAreaSpell(
                     cost, cooldown, spec.damage(), spec.range(), spec.radius(), areaElement(spec.element()),
                     "message.seeking_immortals.spell.generic_aoe.success");
             case "debuff", "dot", "drain", "soul_attack" -> new TargetedDebuffSpell(
@@ -198,7 +198,7 @@ public final class AbstractTechniqueEffectResolver {
                     ParticleTypes.POOF, SoundEvents.ENCHANTMENT_TABLE_USE,
                     "message.seeking_immortals.spell.generic_control.success",
                     "message.seeking_immortals.spell.area.fail");
-            case "buff_self", "buff", "transform", "utility", "utility_combat", "scout", "scan", "inspect" ->
+            case "buff_self", "buff", "shield", "transform", "utility", "utility_combat", "scout", "scan", "inspect" ->
                     createBuff(spec, cost, cooldown);
             case "heal", "heal_spirit", "cleanse" -> new RecoverySpell(
                     cost, cooldown, spec.damage(), Math.max(2.0D, spec.radius()),

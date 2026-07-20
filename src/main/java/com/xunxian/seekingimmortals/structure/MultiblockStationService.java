@@ -129,6 +129,30 @@ public final class MultiblockStationService {
                             ModBlocks.REFINEMENT_FORGE_G3.get(), ModBlocks.SPIRIT_ORE.get()).complete();
                     yield new ValidateOutcome(ok, "refinement_forge_g3");
                 }
+                case "refinement_forge_g4" -> {
+                    if (!(level instanceof Level live)) {
+                        yield new ValidateOutcome(false, "needs_level");
+                    }
+                    boolean ok = RefinementForgeHighStructure.validate(live, origin,
+                            ModBlocks.REFINEMENT_FORGE_G4.get(), ModBlocks.SPIRIT_ORE.get(), 4).complete();
+                    yield new ValidateOutcome(ok, "refinement_forge_g4");
+                }
+                case "refinement_forge_g5" -> {
+                    if (!(level instanceof Level live)) {
+                        yield new ValidateOutcome(false, "needs_level");
+                    }
+                    boolean ok = RefinementForgeHighStructure.validate(live, origin,
+                            ModBlocks.REFINEMENT_FORGE_G5.get(), ModBlocks.SPIRIT_ORE.get(), 5).complete();
+                    yield new ValidateOutcome(ok, "refinement_forge_g5");
+                }
+                case "refinement_forge_g6" -> {
+                    if (!(level instanceof Level live)) {
+                        yield new ValidateOutcome(false, "needs_level");
+                    }
+                    boolean ok = RefinementForgeHighStructure.validate(live, origin,
+                            ModBlocks.REFINEMENT_FORGE_G6.get(), ModBlocks.SPIRIT_ORE.get(), 6).complete();
+                    yield new ValidateOutcome(ok, "refinement_forge_g6");
+                }
                 case "talisman_table" -> {
                     if (!(level instanceof Level live)) {
                         yield new ValidateOutcome(false, "needs_level");

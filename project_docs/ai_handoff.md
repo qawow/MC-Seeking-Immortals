@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-20: `0.2.98` 高阶炼器阵与传送令收口。注册 `refinement_forge_g4/g5/g6` 方块/结构/工站校验（环阵半径 grade-1 + 角柱 + 口部净空），结构目录与 station_patterns 扩至 92（补 g2/g4–g6 与 alchemy g4/g5）；材料 sample 覆盖上述缺站；`teleport_array_ticket` 右键 `board_teleport_array` 走 FlightVehicleService；语料 type `aoe_control`/`shield` 纳入 generic resolver。无网络变化，协议 26。全量构建通过。见 `project_docs/updates/20260720_0.2.98_high_forge.md`。
+
 > CURRENT TRUTH 2026-07-20: `0.2.97` 丹券兑换与别名丹药确认完成。`spirit_pill_voucher` 可兑换随机低阶丹药；四个别名丹药经 PillEffectCatalog 可执行。master_plan 标注 0.2.93–0.2.97 物品语义收口。协议 26。见 `project_docs/updates/20260720_0.2.97_pill_voucher.md`。
 
 > CURRENT TRUTH 2026-07-20: `0.2.96` 阵具激活与装备右键完成。阵具 inspect_only/空 uses 改为自由阵场激活；equipment bulk 可乘骑灵舟、召唤傀儡、放置二/三品丹炉。协议 26。见 `project_docs/updates/20260720_0.2.96_equipment_formation.md`。

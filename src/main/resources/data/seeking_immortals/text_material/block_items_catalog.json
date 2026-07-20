@@ -215,6 +215,62 @@
         "note": "结构向条目，具体门槛见关联主表。",
         "ref": "block_items_catalog.json"
       }
+    },
+    {
+      "id": "refinement_forge_g2",
+      "display": "二品炼器台",
+      "type": "multiblock_controller",
+      "forge_grade": 2,
+      "setting": {
+        "lore": "二品炼器台",
+        "source_file": "block_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "block_items_catalog.json"
+      }
+    },
+    {
+      "id": "refinement_forge_g4",
+      "display": "四品炼器阵",
+      "type": "multiblock_controller",
+      "forge_grade": 4,
+      "setting": {
+        "lore": "四品炼器阵",
+        "source_file": "block_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "block_items_catalog.json"
+      }
+    },
+    {
+      "id": "refinement_forge_g5",
+      "display": "五品炼器阵",
+      "type": "multiblock_controller",
+      "forge_grade": 5,
+      "setting": {
+        "lore": "五品炼器阵",
+        "source_file": "block_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "block_items_catalog.json"
+      }
+    },
+    {
+      "id": "refinement_forge_g6",
+      "display": "六品炼器阵",
+      "type": "multiblock_controller",
+      "forge_grade": 6,
+      "setting": {
+        "lore": "六品炼器阵",
+        "source_file": "block_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "block_items_catalog.json"
+      }
     }
   ],
   "item_forms": [

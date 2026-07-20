@@ -29,6 +29,7 @@ import com.xunxian.seekingimmortals.block.CatalogFormationCoreBlock;
 import com.xunxian.seekingimmortals.block.LongRangeTeleportArrayBlock;
 import com.xunxian.seekingimmortals.block.PuppetAssemblyBenchBlock;
 import com.xunxian.seekingimmortals.block.RefinementForgeG3Block;
+import com.xunxian.seekingimmortals.block.RefinementForgeHighBlock;
 import com.xunxian.seekingimmortals.block.SpiritHerbPlanterBlock;
 import com.xunxian.seekingimmortals.block.TalismanTableBlock;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -143,6 +144,12 @@ public final class ModBlocks {
             () -> new PuppetAssemblyBenchBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.5F, 6.0F).requiresCorrectToolForDrops().sound(SoundType.WOOD).noOcclusion()));
     public static final RegistryObject<Block> REFINEMENT_FORGE_G3 = BLOCKS.register("refinement_forge_g3",
             () -> new RefinementForgeG3Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(4.0F, 12.0F).requiresCorrectToolForDrops().sound(SoundType.ANVIL).noOcclusion()));
+    public static final RegistryObject<Block> REFINEMENT_FORGE_G4 = BLOCKS.register("refinement_forge_g4",
+            () -> new RefinementForgeHighBlock(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(4.5F, 13.0F).requiresCorrectToolForDrops().sound(SoundType.ANVIL).noOcclusion(), 4));
+    public static final RegistryObject<Block> REFINEMENT_FORGE_G5 = BLOCKS.register("refinement_forge_g5",
+            () -> new RefinementForgeHighBlock(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(5.0F, 14.0F).requiresCorrectToolForDrops().sound(SoundType.ANVIL).noOcclusion(), 5));
+    public static final RegistryObject<Block> REFINEMENT_FORGE_G6 = BLOCKS.register("refinement_forge_g6",
+            () -> new RefinementForgeHighBlock(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(5.5F, 15.0F).requiresCorrectToolForDrops().sound(SoundType.ANVIL).noOcclusion(), 6));
     public static final RegistryObject<Block> SPIRIT_HERB_PLANTER = BLOCKS.register("spirit_herb_planter",
             () -> new SpiritHerbPlanterBlock(BlockBehaviour.Properties.of().mapColor(MapColor.GRASS).strength(0.8F).sound(SoundType.GRASS).noOcclusion()));
     public static final RegistryObject<Block> LOW_SPIRIT_IRON_ORE = BLOCKS.register("low_spirit_iron_ore",
