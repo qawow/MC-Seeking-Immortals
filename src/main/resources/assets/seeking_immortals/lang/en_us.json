@@ -5092,5 +5092,11 @@
   "tooltip.seeking_immortals.item_requirement.sect": "§6Requires Sect: %s",
   "tooltip.seeking_immortals.item_requirement.sect_stage": "§6Requires Stage: %s",
   "tooltip.seeking_immortals.item_requirement.path": "§6Requires Path: %s",
-  "tooltip.seeking_immortals.item_requirement.race": "§6Requires Race: %s"
+  "tooltip.seeking_immortals.item_requirement.race": "§6Requires Race: %s",
+  "tooltip.seeking_immortals.fire_talisman.desc": "Launch fire projectile to attack enemies, damage and speed boosted by Fire/Thunder affinity",
+  "tooltip.seeking_immortals.speed_talisman.desc": "Increase movement speed, duration and effect boosted by Wind/Thunder affinity",
+  "tooltip.seeking_immortals.armor_talisman.desc": "Protective golden light, damage reduction, duration and effect boosted by Earth/Metal/Ice affinity",
+  "tooltip.seeking_immortals.talisman.qi_cost": "§9Qi Cost: %s",
+  "tooltip.seeking_immortals.talisman.affinity": "§6Root Affinity: %s",
+  "tooltip.seeking_immortals.talisman.use": "§aRight-click to activate"
 }

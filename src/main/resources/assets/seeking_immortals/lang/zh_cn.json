@@ -5148,5 +5148,11 @@
   "message.seeking_immortals.validator.blood_pool.missing_blood": "血池结构：血液缺失 %s 块",
   "message.seeking_immortals.validator.grand_hall.missing_foundation": "大殿结构：地基缺失 %s 块",
   "message.seeking_immortals.validator.grand_hall.missing_pillars": "大殿结构：立柱缺失 %s 块",
-  "message.seeking_immortals.validator.grand_hall.missing_ceiling": "大殿结构：天花板缺失 %s 块"
+  "message.seeking_immortals.validator.grand_hall.missing_ceiling": "大殿结构：天花板缺失 %s 块",
+  "tooltip.seeking_immortals.fire_talisman.desc": "激发火弹攻击敌人，伤害与飞行速度受火/雷/隐雷灵根加成",
+  "tooltip.seeking_immortals.speed_talisman.desc": "提升移动速度，持续时间与效果受风/雷/隐雷灵根加成",
+  "tooltip.seeking_immortals.armor_talisman.desc": "提供护体金光，减免伤害，持续时间与效果受土/金/冰灵根加成",
+  "tooltip.seeking_immortals.talisman.qi_cost": "§9消耗灵力：%s",
+  "tooltip.seeking_immortals.talisman.affinity": "§6灵根加成：%s",
+  "tooltip.seeking_immortals.talisman.use": "§a右键使用激活符箓"
 }
