@@ -52,4 +52,13 @@ class LifeSkillServiceTest {
         assertTrue(compact.contains("BONUS_MAX+PROFICIENCY_BONUS_MAX")
                         || compact.contains("BONUS_MAX + PROFICIENCY_BONUS_MAX"));
     }
+
+    @Test
+    void stationEfficiencyScalesSuccessRate() {
+        assertEquals(0.50D, LifeSkillService.applyStationEfficiency(0.50D, 1.0D), 1e-9);
+        assertEquals(0.30D, LifeSkillService.applyStationEfficiency(0.50D, 0.60D), 1e-9);
+        assertEquals(0.10D, LifeSkillService.applyStationEfficiency(0.50D, 0.20D), 1e-9);
+        assertEquals(0.03D, LifeSkillService.applyStationEfficiency(0.50D, 0.0D), 1e-9);
+        assertTrue(LifeSkillService.applyStationEfficiency(1.5D, 1.0D) <= 0.95D);
+    }
 }

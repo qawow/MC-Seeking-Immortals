@@ -200,6 +200,20 @@ public final class ItemCatalogService {
         putAlias(aliases, "refinement_forge_g1", "refinement_forge");
         putAlias(aliases, "yin_essence_ore_block", "yin_essence_ore");
         putAlias(aliases, "earth_fire_alchemy_room", "sect_earth_fire_room");
+        // Multiblock/economy currency and component aliases.
+        putAlias(aliases, "spirit_stone_low", "low_spirit_stone");
+        putAlias(aliases, "spirit_stone_mid", "mid_spirit_stone");
+        putAlias(aliases, "spirit_stone_high", "high_spirit_stone");
+        putAlias(aliases, "spirit_stone", "spirit_stone_shard");
+        putAlias(aliases, "low_spirit_stone_shard", "spirit_stone_shard");
+        putAlias(aliases, "spirit_shard", "spirit_stone_shard");
+        putAlias(aliases, "jade_immortal", "immortal_jade");
+        putAlias(aliases, "xuan_iron", "black_iron");
+        putAlias(aliases, "iron_wood", "ironwood");
+        putAlias(aliases, "refinement_forge_g2", "refinement_forge");
+        putAlias(aliases, "refinement_forge_g3", "refinement_forge");
+        putAlias(aliases, "alchemy_furnace_g2", "alchemy_furnace");
+        putAlias(aliases, "alchemy_furnace_g3", "alchemy_furnace");
 
         JsonObject bulkRoot = readJson("assets/" + SeekingImmortalsMod.MODID + "/catalog_bulk_items.json");
         if (bulkRoot != null) {

@@ -104,6 +104,9 @@ public final class TalismanCraftService {
         }
         double rate = com.xunxian.seekingimmortals.skill.LifeSkillService.adjustedSuccessRate(
                 player, com.xunxian.seekingimmortals.skill.SkillType.TALISMAN_CRAFTING, recipe.successRate());
+        double efficiency = com.xunxian.seekingimmortals.catalog.CraftWorldSoftService
+                .nearbyStationEfficiency(player, "talisman_table");
+        rate = com.xunxian.seekingimmortals.skill.LifeSkillService.applyStationEfficiency(rate, efficiency);
         RandomSource random = player.getRandom();
         if (random.nextDouble() > rate) {
             // Failed craft keeps materials (same risk model as puppet bench).

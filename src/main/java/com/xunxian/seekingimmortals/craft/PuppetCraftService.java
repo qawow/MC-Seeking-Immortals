@@ -104,6 +104,9 @@ public final class PuppetCraftService {
         }
         double rate = com.xunxian.seekingimmortals.skill.LifeSkillService.adjustedSuccessRate(
                 player, com.xunxian.seekingimmortals.skill.SkillType.PUPPET_CONTROL, recipe.successRate());
+        double efficiency = com.xunxian.seekingimmortals.catalog.CraftWorldSoftService
+                .nearbyStationEfficiency(player, "puppet_assembly_bench");
+        rate = com.xunxian.seekingimmortals.skill.LifeSkillService.applyStationEfficiency(rate, efficiency);
         RandomSource random = player.getRandom();
         if (random.nextDouble() > rate) {
             com.xunxian.seekingimmortals.skill.LifeSkillService.grantPractice(player,

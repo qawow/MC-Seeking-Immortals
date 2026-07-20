@@ -1,3 +1,14 @@
+## 518. 2026-07-20 0.2.68 材料别名与工站效率进成功率
+
+  Step   Status   Notes
+  ---   ---   ---
+  Hard aliases Done   货币/组件/工站等级 id 硬别名扩展。
+  Efficiency scale Done   applyStationEfficiency + nearbyStationEfficiency 接入制符/傀儡/炼器。
+  Tests    Done   LifeSkill / ItemCatalog / Multiblock 契约。
+  Verify   Done   普通构建成功，全量测试通过。
+  Version  Done   `mod_version=0.2.68`；protocol 25。
+  Handoff  Done   `project_docs/updates/20260720_0.2.68_aliases_efficiency.md`。
+
 ## 517. 2026-07-20 0.2.67 多方块材料价带碎片回退
 
   Step   Status   Notes

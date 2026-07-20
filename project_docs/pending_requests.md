@@ -1,3 +1,5 @@
+2026-07-20 0.2.68 pending update: currency/station hard aliases expanded; soft craft success rates (talisman/puppet/refinement) now scale by nearby station operational efficiency. Protocol 25. Remaining: deeper material-id/bulk alias polish (further reduce overhaul price-band tax) and live client/server/multiplayer smoke.
+
 2026-07-20 0.2.67 pending update: multiblock overhaul taxes unresolved structure materials via authored price-band shard fallback (capped 128). Protocol 25. Remaining: deeper material-id/alias resolution polish and live client/server/multiplayer smoke.
 
 2026-07-20 0.2.66 pending update: multiblock overhaul reserves structure-sample materials plus shard surcharge before forceIntact, with refund-on-failure. Protocol 25. Remaining: unresolved material-id item mapping polish and live client/server/multiplayer smoke.

@@ -106,4 +106,17 @@ class MultiblockOperationalServiceTest {
         assertTrue(alchemy <= 128, "fallback tax must remain capped");
         assertEquals(0, unknown);
     }
+
+    @Test
+    void craftPathsScaleByStationEfficiencyInSource() throws Exception {
+        for (String path : java.util.List.of(
+                "craft/TalismanCraftService.java",
+                "craft/PuppetCraftService.java",
+                "artifact/ArtifactRefinementService.java")) {
+            String source = Files.readString(Path.of(
+                    "src", "main", "java", "com", "xunxian", "seekingimmortals", path));
+            assertTrue(source.contains("applyStationEfficiency"),
+                    path + " must scale success by station efficiency");
+        }
+    }
 }

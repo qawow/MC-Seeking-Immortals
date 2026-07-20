@@ -29,6 +29,17 @@ class ItemCatalogServiceTest {
         assertEquals("yin_essence_ore", ItemCatalogService.resolveId("yin_essence_ore_block"));
         assertEquals("sect_earth_fire_room", ItemCatalogService.resolveId("earth_fire_alchemy_room"));
         assertEquals("yellow_essence", ItemCatalogService.resolveId("seeking_immortals:yellow_essence_grass"));
+        // 0.2.68 currency / station / component hard aliases
+        assertEquals("low_spirit_stone", ItemCatalogService.resolveId("spirit_stone_low"));
+        assertEquals("mid_spirit_stone", ItemCatalogService.resolveId("spirit_stone_mid"));
+        assertEquals("high_spirit_stone", ItemCatalogService.resolveId("spirit_stone_high"));
+        assertEquals("spirit_stone_shard", ItemCatalogService.resolveId("spirit_stone"));
+        assertEquals("spirit_stone_shard", ItemCatalogService.resolveId("spirit_shard"));
+        assertEquals("immortal_jade", ItemCatalogService.resolveId("jade_immortal"));
+        assertEquals("black_iron", ItemCatalogService.resolveId("xuan_iron"));
+        assertEquals("ironwood", ItemCatalogService.resolveId("iron_wood"));
+        assertEquals("alchemy_furnace", ItemCatalogService.resolveId("alchemy_furnace_g2"));
+        assertEquals("refinement_forge", ItemCatalogService.resolveId("refinement_forge_g3"));
     }
 
     @Test

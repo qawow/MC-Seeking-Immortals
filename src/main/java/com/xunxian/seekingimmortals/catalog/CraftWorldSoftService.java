@@ -265,6 +265,17 @@ public final class CraftWorldSoftService {
         return MultiblockOperationalService.bestNearbyEfficiency(player, stationIds) > 0.0D;
     }
 
+    /** Nearby station efficiency for success scaling (1.0 when creative / absent gate). */
+    public static double nearbyStationEfficiency(ServerPlayer player, String... stationIds) {
+        if (player == null || player.getAbilities().instabuild) {
+            return 1.0D;
+        }
+        if (stationIds == null || stationIds.length == 0) {
+            return 1.0D;
+        }
+        return MultiblockOperationalService.bestNearbyEfficiency(player, stationIds);
+    }
+
     private static boolean consumeShards(ServerPlayer player, int count) {
         var shard = com.xunxian.seekingimmortals.registry.ModItems.SPIRIT_STONE_SHARD.get();
         int remaining = count;

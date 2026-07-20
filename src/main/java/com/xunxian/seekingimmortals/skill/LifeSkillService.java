@@ -62,6 +62,16 @@ public final class LifeSkillService {
         return Math.max(0.03D, Math.min(0.95D, base + successBonus(player, type)));
     }
 
+    /**
+     * Apply station operational efficiency to a craft success rate.
+     * Damaged/critical stations reduce chance; disabled (0) collapses to the floor.
+     */
+    public static double applyStationEfficiency(double rate, double efficiency) {
+        double clampedRate = Math.max(0.0D, Math.min(1.0D, rate));
+        double eff = Math.max(0.0D, Math.min(1.0D, efficiency));
+        return Math.max(0.03D, Math.min(0.95D, clampedRate * eff));
+    }
+
     public static boolean meetsLevel(ServerPlayer player, SkillType type, int required) {
         if (player != null && player.getAbilities().instabuild) {
             return true;

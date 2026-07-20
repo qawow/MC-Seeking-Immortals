@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-20: `0.2.68` 材料别名与工站效率进成功率。货币/工站硬别名扩展；制符/傀儡/炼器成功率乘以附近工站运行效率。普通构建成功。`mod_version=0.2.68`，协议 25。见 `project_docs/updates/20260720_0.2.68_aliases_efficiency.md`。
+
 > CURRENT TRUTH 2026-07-20: `0.2.67` 多方块材料价带碎片回退。overhaul 在结构材料无法解析时按价表 minPrice 加碎片税（封顶 128）。普通构建成功。`mod_version=0.2.67`，协议 25。见 `project_docs/updates/20260720_0.2.67_material_fallback.md`。
 
 > CURRENT TRUTH 2026-07-20: `0.2.66` 多方块结构材料大修事务。`MultiblockMaterialCatalog` + overhaul 预留结构材料/碎片后 forceIntact，失败退款。普通构建成功。`mod_version=0.2.66`，协议 25。见 `project_docs/updates/20260720_0.2.66_multiblock_overhaul.md`。
