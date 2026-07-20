@@ -63,7 +63,7 @@ public final class TalismanConsumePolicy {
         Item item = resolveItem(techniqueId, skillType);
         for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
             ItemStack stack = player.getInventory().getItem(i);
-            if (!stack.is(item) || stack.isEmpty()) {
+            if (stack.isEmpty() || !matchesTechnique(stack, techniqueId, skillType)) {
                 continue;
             }
             ItemStack taken = stack.split(1);
@@ -71,7 +71,8 @@ public final class TalismanConsumePolicy {
                 continue;
             }
             player.getInventory().setChanged();
-            return Reservation.reserved(item, taken);
+            // Remember the actual item type for messaging.
+            return Reservation.reserved(taken.getItem(), taken);
         }
         player.displayClientMessage(Component.translatable("message.seeking_immortals.talisman_consume.missing",
                 item.getDescription()), true);
@@ -81,19 +82,68 @@ public final class TalismanConsumePolicy {
     static Item resolveItem(String techniqueId, SkillType skillType) {
         String id = (techniqueId == null ? "" : techniqueId + " " + (skillType == null ? "" : skillType.name()))
                 .toLowerCase(Locale.ROOT);
+        // Prefer a bulk catalog talisman that matches the technique id when present in inventory later;
+        // resolveItem only picks the dedicated fallback family.
         if (id.contains("armor") || id.contains("shield") || id.contains("golden") || id.contains("protect")
-                || id.contains("earth") || id.contains("wall")) {
+                || id.contains("earth") || id.contains("wall") || id.contains("body_guard") || id.contains("defense")) {
             return ModItems.ARMOR_TALISMAN.get();
         }
         if (id.contains("wind") || id.contains("speed") || id.contains("escape") || id.contains("teleport")
-                || id.contains("invis") || id.contains("hide") || id.contains("ghost_hide")) {
+                || id.contains("invis") || id.contains("hide") || id.contains("ghost_hide") || id.contains("void_escape")
+                || id.contains("blood_escape")) {
             return ModItems.SPEED_TALISMAN.get();
         }
         if (id.contains("yin") || id.contains("soul") || id.contains("ghost") || id.contains("anti_demon")
-                || id.contains("seal")) {
+                || id.contains("seal") || id.contains("demon") || id.contains("ward")) {
             return ModItems.YIN_BODY_PROTECTION_CHARM.get();
         }
         return ModItems.FIRE_TALISMAN.get();
+    }
+
+    /**
+     * True when the stack is an acceptable talisman payment for the technique:
+     * exact dedicated family item, or any bulk CatalogTalismanItem whose mode family matches.
+     */
+    public static boolean matchesTechnique(ItemStack stack, String techniqueId, SkillType skillType) {
+        if (stack == null || stack.isEmpty()) {
+            return false;
+        }
+        Item expected = resolveItem(techniqueId, skillType);
+        if (stack.is(expected)) {
+            return true;
+        }
+        if (stack.getItem() instanceof com.xunxian.seekingimmortals.item.CatalogTalismanItem talisman) {
+            String mode = com.xunxian.seekingimmortals.item.CatalogTalismanService.modeKey(
+                    talisman.catalogId(), talisman.role());
+            String expectedFamily = familyOf(expected);
+            return expectedFamily.equals(familyOfMode(mode));
+        }
+        return false;
+    }
+
+    private static String familyOf(Item item) {
+        if (item == ModItems.ARMOR_TALISMAN.get()) {
+            return "armor";
+        }
+        if (item == ModItems.SPEED_TALISMAN.get()) {
+            return "escape";
+        }
+        if (item == ModItems.YIN_BODY_PROTECTION_CHARM.get()) {
+            return "ward";
+        }
+        return "projectile";
+    }
+
+    private static String familyOfMode(String mode) {
+        if (mode == null) {
+            return "projectile";
+        }
+        return switch (mode) {
+            case "armor" -> "armor";
+            case "escape", "speed", "invis" -> "escape";
+            case "ward", "control", "heal", "utility", "contract" -> "ward";
+            default -> "projectile";
+        };
     }
 
     public static final class Reservation {

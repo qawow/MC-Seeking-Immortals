@@ -1,3 +1,5 @@
+2026-07-20 0.2.95 pending update: bulk talismans are now right-click executable with CAST fuel family matching. Remaining: inspect-only formation items, equipment boat/puppet right-click, missing pill rows + voucher redeem, final art/GeckoLib, live multiplayer smoke.
+
 2026-07-20 0.2.94 pending update: blank jade/paper formula inscription, formula study knowledge, and bulk manual study are live. Remaining executable item depth: bulk talisman use/consume mapping, inspect-only formation items, equipment boat/puppet right-click board/summon, missing pill rows + spirit_pill_voucher redeem, final art/GeckoLib, and live multiplayer smoke.
 
 2026-07-20 0.2.93 pending update: master_plan P2 Patchouli pages are closed for station operations, delivery outbox, consumable semantics, companion growth, JEI authority recipes, sect specialties and secret-realm playbook (94/94 zh/en entries, book version 3). Remaining P2: final art/GeckoLib depth. Still pending: live client page browsing, full gameplay smoke, dedicated-server/two-client concurrency, and human multiplayer sign-off.

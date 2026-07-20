@@ -122,7 +122,53 @@ public final class BulkItemClassifier {
         if (isCatalogManual(key, category)) {
             return BulkItemKind.MANUAL;
         }
+        if (isExecutableTalisman(key, category)) {
+            return BulkItemKind.TALISMAN;
+        }
         return BulkItemKind.CARRIER;
+    }
+
+    /**
+     * Executable bulk talismans: category=talisman (or id ends with _talisman/_fu)
+     * excluding paper/materials/recipe sheets and obvious herbs/ores mis-tagged as talisman.
+     */
+    public static boolean isExecutableTalisman(String id, String category) {
+        String key = normalize(id);
+        if (key.isBlank()) {
+            return false;
+        }
+        if (isTalismanMaterialOrRecipe(key)) {
+            return false;
+        }
+        String cat = normalize(category);
+        if ("talisman".equals(cat)) {
+            return true;
+        }
+        return key.endsWith("_talisman")
+                || key.endsWith("_fu")
+                || key.contains("talisman_");
+    }
+
+    public static boolean isTalismanMaterialOrRecipe(String id) {
+        String key = normalize(id);
+        if (key.isBlank()) {
+            return false;
+        }
+        if (key.startsWith("recipe_")) {
+            return true;
+        }
+        if (key.contains("talisman_paper") || key.equals("talisman_paper") || key.equals("yin_talisman_paper")) {
+            return true;
+        }
+        // Mis-tagged bulk materials under talisman category.
+        return key.equals("ginseng_spirit")
+                || key.equals("mirage_sand")
+                || key.equals("nether_bone_grass")
+                || key.equals("phoenix_tail_fern")
+                || key.equals("star_moon_grass")
+                || key.equals("thunder_essence_lotus")
+                || key.equals("thunder_stone")
+                || key.equals("wind_sage_grass");
     }
 
     /** Bulk manuals that can study via ManualCatalogService even without a manuals_catalog row. */

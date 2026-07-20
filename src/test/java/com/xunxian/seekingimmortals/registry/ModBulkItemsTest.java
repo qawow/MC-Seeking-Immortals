@@ -107,6 +107,11 @@ class ModBulkItemsTest {
                 BulkItemClassifier.classify("beast_taming_manual", "manual"));
         assertEquals(BulkItemKind.CONSUMABLE,
                 BulkItemClassifier.classify("jade_slip_blank", "craft"));
+        assertEquals(BulkItemKind.TALISMAN,
+                BulkItemClassifier.classify("fire_burst_talisman", "talisman"));
+        assertEquals(BulkItemKind.CARRIER,
+                BulkItemClassifier.classify("talisman_paper", "talisman"));
+
 
         assertEquals(BulkItemKind.CARRIER,
                 BulkItemClassifier.classify("recipe_binding_talisman", "talisman"));

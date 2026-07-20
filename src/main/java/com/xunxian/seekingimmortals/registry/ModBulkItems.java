@@ -8,6 +8,8 @@ import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.item.CatalogCarrierItem;
 import com.xunxian.seekingimmortals.item.CatalogConsumableItem;
 import com.xunxian.seekingimmortals.item.CatalogManualItem;
+import com.xunxian.seekingimmortals.item.CatalogTalismanItem;
+import com.xunxian.seekingimmortals.item.CatalogTalismanService;
 import com.xunxian.seekingimmortals.item.ArtifactCatalogItem;
 import com.xunxian.seekingimmortals.item.alchemy.AlchemyFormulaItem;
 import com.xunxian.seekingimmortals.item.material.MaterialCategory;
@@ -212,6 +214,8 @@ public final class ModBulkItems {
                         id, quality);
             }
             case MANUAL -> new CatalogManualItem(props.stacksTo(16), id);
+            case TALISMAN -> new CatalogTalismanItem(props.stacksTo(16), materialCategory, materialRarity, description,
+                    id, grade, CatalogTalismanService.roleOf(id));
             case CARRIER -> new CatalogCarrierItem(props, materialCategory, materialRarity, description, id, grade);
         };
     }

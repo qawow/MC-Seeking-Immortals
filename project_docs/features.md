@@ -1,3 +1,5 @@
+2026-07-20 0.2.95 feature note: bulk talismans cast by role/id modes; CAST consume accepts matching bulk families; paper/recipe sheets stay carriers. Protocol remains 26.
+
 2026-07-20 0.2.94 feature note: blank jade/paper carriers inscribe random medium-matched alchemy formulas; formula items study into durable knowledge accepted by furnaces; bulk manuals register as CatalogManualItem with soft study. Protocol remains 26.
 
 2026-07-20 0.2.93 feature note: Patchouli guide gains seven bilingual system pages (station ops, delivery outbox, consumable semantics, companion growth, JEI recipes, sect specialties, secret-realm playbook) and rewrites outdated not-implemented copy; book version 3. Protocol remains 26.

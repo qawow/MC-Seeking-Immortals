@@ -1,3 +1,14 @@
+## 541. 2026-07-20 0.2.95 bulk 符箓右键施放
+
+  Step   Status   Notes
+  ---   ---   ---
+  Classifier Done   TALISMAN kind；材料/配方纸排除。
+  Cast service Done   CatalogTalismanService 模式映射 + 灵力消耗。
+  CAST fuel Done   TalismanConsumePolicy 接受同族 bulk 符。
+  Tests Done   分类/模式/源码契约；全量构建通过。
+  Version Done   `mod_version=0.2.95`；protocol 26。
+  Handoff Done   `project_docs/updates/20260720_0.2.95_bulk_talisman.md`。
+
 ## 540. 2026-07-20 0.2.94 空白载体铭刻与丹方/手册研读
 
   Step   Status   Notes
