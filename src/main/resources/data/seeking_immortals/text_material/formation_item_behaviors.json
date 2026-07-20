@@ -38,7 +38,7 @@
       "id": "teleport_array_core",
       "display": "传送阵核心",
       "formation_id": "teleport_array",
-      "uses": null,
+      "uses": 1,
       "place_block": null,
       "action": "activate_free_field"
     },
@@ -56,7 +56,7 @@
       "formation_id": "spirit_gather",
       "uses": 3,
       "place_block": null,
-      "action": "inspect_only"
+      "action": "activate_free_field"
     },
     {
       "id": "nine_dragon_flame_array_disk",
@@ -88,7 +88,7 @@
       "formation_id": "defense_wall",
       "uses": 3,
       "place_block": null,
-      "action": "inspect_only"
+      "action": "activate_free_field"
     },
     {
       "id": "spirit_gather_flag",
@@ -96,7 +96,7 @@
       "formation_id": "spirit_gather",
       "uses": 3,
       "place_block": null,
-      "action": "inspect_only"
+      "action": "activate_free_field"
     },
     {
       "id": "kill_array_core",
@@ -104,7 +104,7 @@
       "formation_id": "kill_sword",
       "uses": 3,
       "place_block": null,
-      "action": "inspect_only"
+      "action": "activate_free_field"
     },
     {
       "id": "spirit_gathering_array_disk",

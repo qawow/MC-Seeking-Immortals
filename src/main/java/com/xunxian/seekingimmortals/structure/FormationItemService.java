@@ -94,12 +94,9 @@ public final class FormationItemService {
 
         String action = behavior.action() == null ? "" : behavior.action().trim().toLowerCase(Locale.ROOT);
         String formationId = behavior.formationId() == null ? "" : behavior.formationId();
-        if ("inspect_only".equals(action)
-                || ("activate_free_field".equals(action) && behavior.uses() == null)) {
-            player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.formation_item.inspect",
-                    behavior.display() == null ? behavior.id() : behavior.display()), true);
-            return Optional.of(InteractionResultHolder.success(stack));
+        // Legacy inspect_only is treated as free-field activation with default uses.
+        if ("inspect_only".equals(action)) {
+            action = "activate_free_field";
         }
         if (!meetsRealmGate(player, formationId)) {
             return Optional.of(InteractionResultHolder.fail(stack));

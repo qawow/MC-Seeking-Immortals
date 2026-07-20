@@ -5013,5 +5013,14 @@
   "tooltip.seeking_immortals.catalog_talisman.mode.ward": "Mode: ward",
   "tooltip.seeking_immortals.catalog_talisman.mode.heal": "Mode: heal/spirit",
   "tooltip.seeking_immortals.catalog_talisman.mode.contract": "Mode: beast affinity",
-  "tooltip.seeking_immortals.catalog_talisman.mode.utility": "Mode: utility omen"
+  "tooltip.seeking_immortals.catalog_talisman.mode.utility": "Mode: utility omen",
+  "tooltip.seeking_immortals.catalog_equipment.use": "Right-click equipment: board vehicles, summon puppets, or place furnaces.",
+  "tooltip.seeking_immortals.catalog_equipment.mode.vehicle": "Type: flight vehicle (fuel to board)",
+  "tooltip.seeking_immortals.catalog_equipment.mode.puppet": "Type: puppet (summon servitor)",
+  "tooltip.seeking_immortals.catalog_equipment.mode.furnace": "Type: furnace shell (place block)",
+  "tooltip.seeking_immortals.catalog_equipment.mode.unknown": "Type: unknown equipment",
+  "tooltip.seeking_immortals.catalog_item.interaction.equipment": "Right-click to board/summon/place",
+  "message.seeking_immortals.catalog_equipment.unknown": "Unknown equipment: %s",
+  "message.seeking_immortals.catalog_equipment.no_space": "No free space to place the block.",
+  "message.seeking_immortals.catalog_equipment.furnace_placed": "Placed: %s"
 }

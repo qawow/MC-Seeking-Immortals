@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-20: `0.2.96` 阵具激活与装备右键完成。阵具 inspect_only/空 uses 改为自由阵场激活；equipment bulk 可乘骑灵舟、召唤傀儡、放置二/三品丹炉。协议 26。见 `project_docs/updates/20260720_0.2.96_equipment_formation.md`。
+
 > CURRENT TRUTH 2026-07-20: `0.2.95` bulk 符箓右键施放完成。可执行 bulk 符注册为 `CatalogTalismanItem`，按 role/id 映射投射/护体/遁逃等模式并消耗灵力；符纸/配方纸保持材料载体；CAST 消耗策略接受同族 bulk 符。协议 26。见 `project_docs/updates/20260720_0.2.95_bulk_talisman.md`。
 
 > CURRENT TRUTH 2026-07-20: `0.2.94` 空白玉简/纸方铭刻、丹方研读知识与 bulk 手册研读完成。`inscribe_formula` 按介质随机产出权威丹方；`AlchemyFormulaKnowledge` 持久化已学丹方并让丹炉无需装入也可开炉；27 条 bulk 手册注册为 `CatalogManualItem` 并可 soft study。无网络变化，协议 26。见 `project_docs/updates/20260720_0.2.94_item_study.md`。

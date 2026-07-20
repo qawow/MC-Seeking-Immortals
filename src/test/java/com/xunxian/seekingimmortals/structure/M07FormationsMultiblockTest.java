@@ -85,8 +85,12 @@ class M07FormationsMultiblockTest {
         assertTrue(FormationItemService.builtin().find("portable_spirit_gather_disk").isPresent());
         assertEquals("spirit_gathering_array",
                 FormationItemService.builtin().find("portable_spirit_gather_disk").orElseThrow().placeBlock());
-        assertEquals("inspect_only",
+        assertEquals("activate_free_field",
                 FormationItemService.builtin().find("array_blueprint_scroll").orElseThrow().action());
+        assertEquals(3,
+                FormationItemService.builtin().find("array_blueprint_scroll").orElseThrow().uses());
+        assertEquals("activate_free_field",
+                FormationItemService.builtin().find("nine_palace_disk").orElseThrow().action());
         assertEquals(10,
                 FormationItemService.builtin().find("portable_spirit_gather_disk").orElseThrow().uses());
 

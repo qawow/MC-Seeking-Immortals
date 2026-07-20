@@ -111,6 +111,10 @@ class ModBulkItemsTest {
                 BulkItemClassifier.classify("fire_burst_talisman", "talisman"));
         assertEquals(BulkItemKind.CARRIER,
                 BulkItemClassifier.classify("talisman_paper", "talisman"));
+        assertEquals(BulkItemKind.EQUIPMENT,
+                BulkItemClassifier.classify("spirit_boat_low", "equipment"));
+        assertEquals(BulkItemKind.EQUIPMENT,
+                BulkItemClassifier.classify("basic_wood_puppet", "equipment"));
 
 
         assertEquals(BulkItemKind.CARRIER,

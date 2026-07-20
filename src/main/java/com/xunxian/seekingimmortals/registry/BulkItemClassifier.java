@@ -125,7 +125,27 @@ public final class BulkItemClassifier {
         if (isExecutableTalisman(key, category)) {
             return BulkItemKind.TALISMAN;
         }
+        if (isEquipment(key, category)) {
+            return BulkItemKind.EQUIPMENT;
+        }
         return BulkItemKind.CARRIER;
+    }
+
+    public static boolean isEquipment(String id, String category) {
+        String key = normalize(id);
+        if (key.isBlank()) {
+            return false;
+        }
+        String cat = normalize(category);
+        if ("equipment".equals(cat)) {
+            return true;
+        }
+        return key.endsWith("_puppet")
+                || key.contains("spirit_boat")
+                || key.contains("wind_feather_raft")
+                || key.contains("cloud_sedan")
+                || key.contains("ferry")
+                || key.startsWith("alchemy_furnace_g");
     }
 
     /**

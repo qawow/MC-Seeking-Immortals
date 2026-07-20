@@ -5013,5 +5013,14 @@
   "tooltip.seeking_immortals.catalog_talisman.mode.ward": "模式：驱邪护身",
   "tooltip.seeking_immortals.catalog_talisman.mode.heal": "模式：疗愈回灵",
   "tooltip.seeking_immortals.catalog_talisman.mode.contract": "模式：御兽亲和",
-  "tooltip.seeking_immortals.catalog_talisman.mode.utility": "模式：机缘辅助"
+  "tooltip.seeking_immortals.catalog_talisman.mode.utility": "模式：机缘辅助",
+  "tooltip.seeking_immortals.catalog_equipment.use": "右键使用装备：乘骑灵舟、召唤傀儡或放置丹炉。",
+  "tooltip.seeking_immortals.catalog_equipment.mode.vehicle": "类型：飞行载具（消耗燃料乘骑）",
+  "tooltip.seeking_immortals.catalog_equipment.mode.puppet": "类型：傀儡（召唤侍从）",
+  "tooltip.seeking_immortals.catalog_equipment.mode.furnace": "类型：丹炉壳体（放置方块）",
+  "tooltip.seeking_immortals.catalog_equipment.mode.unknown": "类型：未知装备",
+  "tooltip.seeking_immortals.catalog_item.interaction.equipment": "右键乘骑/召唤/放置",
+  "message.seeking_immortals.catalog_equipment.unknown": "无法识别的装备：%s",
+  "message.seeking_immortals.catalog_equipment.no_space": "附近没有可放置的空位。",
+  "message.seeking_immortals.catalog_equipment.furnace_placed": "已放置：%s"
 }

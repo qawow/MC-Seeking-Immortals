@@ -7,6 +7,7 @@ import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.item.CatalogCarrierItem;
 import com.xunxian.seekingimmortals.item.CatalogConsumableItem;
+import com.xunxian.seekingimmortals.item.CatalogEquipmentItem;
 import com.xunxian.seekingimmortals.item.CatalogManualItem;
 import com.xunxian.seekingimmortals.item.CatalogTalismanItem;
 import com.xunxian.seekingimmortals.item.CatalogTalismanService;
@@ -216,6 +217,7 @@ public final class ModBulkItems {
             case MANUAL -> new CatalogManualItem(props.stacksTo(16), id);
             case TALISMAN -> new CatalogTalismanItem(props.stacksTo(16), materialCategory, materialRarity, description,
                     id, grade, CatalogTalismanService.roleOf(id));
+            case EQUIPMENT -> new CatalogEquipmentItem(props.stacksTo(1), materialCategory, materialRarity, description, id);
             case CARRIER -> new CatalogCarrierItem(props, materialCategory, materialRarity, description, id, grade);
         };
     }

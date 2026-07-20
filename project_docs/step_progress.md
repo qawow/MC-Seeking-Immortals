@@ -1,3 +1,13 @@
+## 542. 2026-07-20 0.2.96 阵具激活与装备右键
+
+  Step   Status   Notes
+  ---   ---   ---
+  Formation Done   inspect_only→activate_free_field；补 uses。
+  Equipment Done   VEHICLE/PUPPET/FURNACE 右键权威。
+  Tests Done   分类/模式/阵具契约；全量构建通过。
+  Version Done   `mod_version=0.2.96`；protocol 26。
+  Handoff Done   `project_docs/updates/20260720_0.2.96_equipment_formation.md`。
+
 ## 541. 2026-07-20 0.2.95 bulk 符箓右键施放
 
   Step   Status   Notes

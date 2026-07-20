@@ -1,3 +1,5 @@
+2026-07-20 0.2.96 feature note: formation inspect-only items activate free fields; equipment bulk boards vehicles, summons puppets, places furnaces. Protocol remains 26.
+
 2026-07-20 0.2.95 feature note: bulk talismans cast by role/id modes; CAST consume accepts matching bulk families; paper/recipe sheets stay carriers. Protocol remains 26.
 
 2026-07-20 0.2.94 feature note: blank jade/paper carriers inscribe random medium-matched alchemy formulas; formula items study into durable knowledge accepted by furnaces; bulk manuals register as CatalogManualItem with soft study. Protocol remains 26.

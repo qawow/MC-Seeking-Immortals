@@ -55,6 +55,7 @@ public final class CatalogItemDescriptionService {
                         case FORMULA -> "tooltip.seeking_immortals.catalog_item.interaction.formula";
                         case MANUAL -> "tooltip.seeking_immortals.catalog_item.interaction.manual";
                         case TALISMAN -> "tooltip.seeking_immortals.catalog_item.interaction.talisman";
+                        case EQUIPMENT -> "tooltip.seeking_immortals.catalog_item.interaction.equipment";
                         case ARTIFACT -> "tooltip.seeking_immortals.catalog_item.interaction.artifact";
                         case CARRIER -> carrierInteractionKey(normalizedCategory, purpose);
                     };

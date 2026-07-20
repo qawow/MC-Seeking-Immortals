@@ -7,5 +7,6 @@ public enum BulkItemKind {
     PILL,
     MANUAL,
     TALISMAN,
+    EQUIPMENT,
     CARRIER
 }
