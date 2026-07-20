@@ -1,0 +1,23 @@
+{
+  "name": "宗门专属玩法",
+  "category": "seeking_immortals:sects_factions",
+  "icon": "seeking_immortals:sect_contribution_token",
+  "sortnum": 15,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "三十宗闭环",
+      "text": "30 个可玩宗门各自具备：唯一阶段功法授予、本宗贡献堂折扣、任务贡献增量与专精技能实践。旧成员在宗门同步时自动补授当前可学功法，仍遵守境界、灵根、种族、阵营与冲突门禁。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "贡献与商店",
+      "text": "贡献符每枚兑换 1 点当前宗门贡献。贡献堂显示价与服务端扣款一致；非本宗商店不享折扣。阶位叠加折扣与任务增益，再叠世界事件倍率。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "对话与区域",
+      "text": "天南、北境、乱星海、大晋、灵界、阴冥等区域组为商人/执事提供分支树；具名宗门执事打开本宗贡献堂，不再落到通用货架。菜单动作需现场令牌与锚点，走远或换菜单会失效。"
+    }
+  ]
+}

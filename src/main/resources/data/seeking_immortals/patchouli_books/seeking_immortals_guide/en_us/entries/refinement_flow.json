@@ -1,18 +1,23 @@
 {
-  "name": "炼器流程",
+  "name": "Refinement Flow",
   "category": "seeking_immortals:artifacts_formations",
   "icon": "seeking_immortals:flying_sword_low",
   "sortnum": 10,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "炼器阵+手册+灵铁/铜；古宝残片重铸",
-      "title": "炼器流程"
+      "title": "Authority Path",
+      "text": "Artifacts refine only through custom forge serializers—no crafting-table bypass. 73 recipes settle realm, forge tier, material multisets and success; failures wear materials honestly."
     },
     {
       "type": "patchouli:text",
-      "text": "语料 patchouli_item_book.static_entries.refinement_flow",
-      "title": "来源"
+      "title": "Stations",
+      "text": "G1–G3 forges must be formed and commissioned. Success scales with proficiency and operational efficiency. JEI reuses server resolvePlan for real counts and outputs."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Claim and Power",
+      "text": "Outputs enter claim, integrity and refine-layer flows. Broken artifacts reject mapped actives; powerScale hits damage. Full bags enqueue to the outbox."
     }
   ]
 }

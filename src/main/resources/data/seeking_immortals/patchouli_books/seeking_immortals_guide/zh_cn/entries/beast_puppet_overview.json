@@ -1,38 +1,33 @@
 {
   "name": "灵兽与傀儡",
   "category": "seeking_immortals:basics",
-  "icon": "seeking_immortals:spirit_beast_bridle",
+  "icon": "seeking_immortals:beast_core",
   "sortnum": 34,
   "pages": [
     {
       "type": "patchouli:text",
       "title": "两条路线",
-      "text": "本页对应 beast_bestiary.json、BEAST_PUPPET_v63.md、puppet_definitions.json 与 puppet_craft_recipes.json。文本材料明确区分两套系统：灵兽是驯服/伙伴关系，核心是精血认主；傀儡是装备/合成产物，核心是图纸、材料、神识和功法。"
+      "text": "灵兽是驯服/契约伙伴，核心是精血认主与成长；傀儡是图纸驱动的装备式造物，核心是材料、神识、功法与核心淬炼。二者共享 0–20 级经验曲线，但阶段语义独立。详见 $(l)灵兽与傀儡成长$() 条目。"
     },
     {
       "type": "patchouli:text",
-      "title": "灵兽阶位",
-      "text": "妖兽表按一至十三阶映射修士境界，五阶起常见妖丹，七阶以上开始关联化形小劫。当前模组已有 beast_core、spirit_beast_bone、spirit_beast_bridle、beast_taming_whip 等载体，以及御灵阁贡献供给；真实灵兽实体、亲密度、成长和掉落生态仍未落地。"
+      "title": "灵兽当前可用",
+      "text": "捕捉罐可封印目录可驯、残血≤35% 的生态兽；契约、喂养、战功推进经验与亲和；到作者阶段阈值时需靠近可运行的$(l)灵兽化形池$()突破。召唤阶位、生命、伤害与寿命随进化阶段提升。真灵/专属/Boss 不可常规捕捉。"
     },
     {
       "type": "patchouli:text",
-      "title": "驯服门槛",
-      "text": "tame_requirements 常用 realm_min、items、method_any、ritual、success_base、quests 与 tame_allowed。低阶如双瞳鼠可用御兽环和御兽基础诀尝试；风啸鹰需要筑基与飞行配合；噬金虫和啼魂兽偏机缘认主；凶蛟、巨猿等多标记为不可常规驯服。"
+      "title": "傀儡当前可用",
+      "text": "7 条傀儡配方要求行囊持有对应图纸（知识凭证，不消耗）与完整材料。组装、命中、击杀、修理写入玩家持久核心；7/14/20 级在$(l)傀儡核心炉$()淬炼。死亡 Clone 保留成长，倍率在后续召唤时应用。"
     },
     {
       "type": "patchouli:text",
-      "title": "傀儡制作",
-      "text": "傀儡定义按 T0-T6 进阶，从木人傀儡、巨猿傀儡、巨龟傀儡到石灵傀儡、混元核心改造和灵界级原型。制作门槛通常包含 realm_min、qianzhu_puppet_art 或 dayan_art、图纸/核心、divine_sense_min 与 quest_unlock。"
+      "title": "入口",
+      "text": "御灵阁贡献、极西千竹、相关手册与驱灵/傀儡/大衍类功法是主要入口。制作与召唤均服务端校验境界、工站成型与材料；失败退料，满包走交付信箱。"
     },
     {
       "type": "patchouli:text",
-      "title": "当前入口",
-      "text": "当前可见入口包括御灵阁商店、极西千竹区域、千竹机关塔秘境、御灵/千竹/大衍相关手册，以及已加载的功法数据：驱灵术、傀儡机关术、大衍诀与灵兽共生类术法。它们多是数据和学习入口，不会直接生成灵兽或傀儡战斗单位。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "后续实现",
-      "text": "后续应优先复用现有 ShopService、TechniqueManualItem、ArtifactDataService、世界包秘境和 GeckoLib/FTB Quests 前置库。待补内容包括灵兽实体与 AI、契约/亲密度、御兽环消耗、傀儡装配台、自定义配方、傀儡实体/召唤物、维修燃料、掉落表和任务引导。"
+      "title": "仍待加深",
+      "text": "专属 GeckoLib 骨骼与最终贴图、已召傀儡当场刷新永久属性、真人多人喂养/淬炼烟测仍属美术与实机项。玩法闭环本身已可运行。"
     }
   ]
 }

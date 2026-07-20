@@ -6,13 +6,18 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "符纸阶+墨+制符台；见 talisman_recipes.json",
-      "title": "符箓流程"
+      "title": "制符事务",
+      "text": "在成型且可运行的制符台附近制作。24 条权威配方均消耗 1 瓶符墨与对应符纸/材料；扣料全有或全无，产物优先交付信箱。"
     },
     {
       "type": "patchouli:text",
-      "text": "语料 patchouli_item_book.static_entries.talisman_flow",
-      "title": "来源"
+      "title": "成功率",
+      "text": "成功率叠生活技能熟练度与附近工站运行效率。禁用或未启封工站会拒绝软制作；交互时会尝试自动启封。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "使用与退款",
+      "text": "符箓施放预留后再生效；效果失败可退还。CAST 类映射按模式消费。JEI 制符分类展示完整材料表（含符墨）。"
     }
   ]
 }

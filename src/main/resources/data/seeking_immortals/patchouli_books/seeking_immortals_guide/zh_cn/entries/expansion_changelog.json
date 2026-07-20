@@ -6,13 +6,18 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "v29–v37 区域丹药/秘境宝箱/宗门专精坊市见 docs/ITEMS_EXPANSION_v*.md 与 items_by_region.json",
-      "title": "扩充变更录"
+      "title": "0.2.x 系统收口",
+      "text": "0.2.65–0.2.75：工站运行态、form/repair/overhaul、炼丹损耗联动。0.2.57–0.2.60：交付信箱与拍卖 settle。0.2.49–0.2.72：消耗品与旅行/凭证/见闻可执行化。0.2.84–0.2.90：秘境、宗门专属、区域对话、灵兽傀儡成长。0.2.92：JEI 三类权威配方全量展示。"
     },
     {
       "type": "patchouli:text",
-      "text": "语料 patchouli_item_book.static_entries.expansion_changelog",
-      "title": "来源"
+      "title": "本手册",
+      "text": "0.2.93 起补入工站运行态、交付信箱、消耗品语义、成长、宗门专属、秘境试炼与 JEI 导读页，并改写过期“未落地”措辞。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "更早扩充",
+      "text": "v29–v37 区域丹药/秘境宝箱/宗门专精坊市见历史 ITEMS_EXPANSION 文档与 items_by_region 索引。"
     }
   ]
 }

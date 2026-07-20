@@ -1,0 +1,33 @@
+{
+  "name": "Station Operations",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:alchemy_furnace",
+  "sortnum": 36,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Operational States",
+      "text": "Alchemy furnaces, refinement forges, talisman tables and puppet core forges keep a server-side operational ledger: $(l)intact / damaged / critical / disabled$(). Efficiency multiplies soft-craft success for alchemy, refinement, talismans and puppets."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Commission (form)",
+      "text": "Newly formed shells default to $(l)disabled$() until commissioned. Crafting at the station auto-forms when possible, or run $(code)/seeking_immortals station form <id>$(). Form reserves structure materials plus a shard tax and refunds on failure."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Repair and Overhaul",
+      "text": "$(code)station repair$() spends spirit shards on already-commissioned stations and cannot bypass form. $(code)station overhaul$() spends structure materials (unresolved ids fall back to a capped price-band shard tax). $(code)station inspect$() reports state, HP and efficiency."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Wear Loop",
+      "text": "Alchemy explosions, blown lids and failed brews wear the furnace (80/30/8). Incomplete shells also drift damage on inspect. Disabled stations reject soft craft. Keep stations intact to keep success rates honest."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Common IDs",
+      "text": "Typical ids: alchemy_furnace_g1~g5, refinement_forge_g1~g3, talisman_table, puppet_core_forge, spirit_beast_evolution_pool. Build the shell, commission it, then craft."
+    }
+  ]
+}

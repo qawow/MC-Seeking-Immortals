@@ -1,18 +1,18 @@
 {
-  "name": "傀儡流程",
+  "name": "Puppet Flow",
   "category": "seeking_immortals:beasts_puppets",
   "icon": "seeking_immortals:beast_core",
   "sortnum": 10,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "铁木→巨猿→巨龟→石灵→混元核心；见 puppet_definitions.json",
-      "title": "傀儡流程"
+      "title": "Craft Ladder",
+      "text": "Wood → ape → turtle → stone definitions advance by blueprint and materials. Craft validates puppet skill, blueprint and full materials; spawn failure refunds everything."
     },
     {
       "type": "patchouli:text",
-      "text": "语料 patchouli_item_book.static_entries.puppet_flow",
-      "title": "来源"
+      "title": "Growth",
+      "text": "Assembly/combat/repair advance a persistent core; levels 7/14/20 refine at the core forge. Repair kits prefer owned puppets. See Companion Growth."
     }
   ]
 }

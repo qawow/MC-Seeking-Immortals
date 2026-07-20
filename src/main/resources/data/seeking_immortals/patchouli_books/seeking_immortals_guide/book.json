@@ -1,7 +1,7 @@
 {
   "name": "寻仙问道手册",
-  "landing_text": "欢迎踏入寻仙问道。此手册汇入功法、丹药、法宝、妖兽、宗门、秘境、维度与术语数值等分册；玩家亦可使用游戏内图鉴/编年史/百科屏查阅解锁进度。Patchouli 为可选依赖。",
-  "version": 2,
+  "landing_text": "欢迎踏入寻仙问道。此手册汇入功法、丹药、法宝、妖兽、宗门、秘境、工站运行态、交付信箱、消耗品与术语数值等分册；玩家亦可使用游戏内图鉴/编年史/百科屏查阅解锁进度。Patchouli 为可选依赖。",
+  "version": 3,
   "creative_tab": "seeking_immortals:seeking_immortals_tab",
   "use_resource_pack": true
 }

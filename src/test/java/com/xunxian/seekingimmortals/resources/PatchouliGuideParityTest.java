@@ -26,12 +26,20 @@ class PatchouliGuideParityTest {
         Set<String> zh = stems(BOOK_ROOT.resolve("zh_cn/entries"));
         Set<String> en = stems(BOOK_ROOT.resolve("en_us/entries"));
         assertEquals(zh, en, "zh/en patchouli entries must match");
-        assertTrue(zh.size() >= 80, "expected expanded patchouli entries, got " + zh.size());
+        assertTrue(zh.size() >= 90, "expected expanded patchouli entries, got " + zh.size());
         assertTrue(zh.contains("name_alias_glossary"));
         assertTrue(zh.contains("numeric_overview"));
         assertTrue(zh.contains("bestiary_compendium"));
         assertTrue(zh.contains("chronicle_timeline"));
         assertTrue(zh.contains("lore_hub"));
+        // 0.2.93 P2-10 new-system guide pages
+        assertTrue(zh.contains("station_operations"));
+        assertTrue(zh.contains("delivery_outbox"));
+        assertTrue(zh.contains("consumable_semantics"));
+        assertTrue(zh.contains("companion_growth"));
+        assertTrue(zh.contains("craft_recipe_browser"));
+        assertTrue(zh.contains("sect_specialty_play"));
+        assertTrue(zh.contains("secret_realm_playbook"));
 
         Set<String> cats = stems(BOOK_ROOT.resolve("zh_cn/categories"));
         assertTrue(cats.contains("techniques"));
@@ -39,7 +47,7 @@ class PatchouliGuideParityTest {
         assertTrue(cats.contains("reference"));
         assertTrue(cats.size() >= 6);
 
-        // referenced icons should look like item ids
+        // referenced icons should look like item ids; pages must stay non-empty text
         for (String stem : zh) {
             Path path = BOOK_ROOT.resolve("zh_cn/entries/" + stem + ".json");
             try (Reader reader = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
@@ -47,8 +55,16 @@ class PatchouliGuideParityTest {
                 String icon = root.get("icon").getAsString();
                 assertFalse(icon.isBlank());
                 assertTrue(icon.contains(":"), "icon should be namespaced: " + icon + " in " + stem);
+                assertTrue(root.has("pages") && root.getAsJsonArray("pages").size() >= 1,
+                        "entry needs pages: " + stem);
             }
         }
+
+        JsonObject book;
+        try (Reader reader = Files.newBufferedReader(BOOK_ROOT.resolve("book.json"), StandardCharsets.UTF_8)) {
+            book = JsonParser.parseReader(reader).getAsJsonObject();
+        }
+        assertTrue(book.get("version").getAsInt() >= 3, "book version should track 0.2.93 guide wave");
     }
 
     private static Set<String> stems(Path dir) throws IOException {

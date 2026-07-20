@@ -1,0 +1,23 @@
+{
+  "name": "Sect Specialty Play",
+  "category": "seeking_immortals:sects_factions",
+  "icon": "seeking_immortals:sect_contribution_token",
+  "sortnum": 15,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Thirty Sects",
+      "text": "Each of the 30 playable sects has a unique stage-bound method grant, own-hall discount, mission contribution increment and specialty skill practice. Existing members are backfilled on sync while all method gates remain server-authoritative."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Contribution Shops",
+      "text": "Each contribution token redeems one point. Displayed hall prices match server debit; foreign halls never discount. Rank and world-event multipliers stack after specialty increments."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Dialogue",
+      "text": "Regional merchant/steward trees cover Tiannan, North, Chaotic Sea, Great Jin, Spirit Realm and Yin Underworld. Named sect stewards open their own halls. Menu actions require live tokens and anchors."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "交付信箱 Outbox",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:storage_pouch_low",
+  "sortnum": 37,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "为什么需要信箱",
+      "text": "奖励、退款、制作产物若在背包已满时直接丢到地上，可能被拾走、清实体或崩溃丢失。模组统一走 $(l)giveOrEnqueue$()：能进包就进包，否则整叠写入持久交付信箱。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "覆盖范围",
+      "text": "炼丹/炼器/制符产物与退料、任务与商店奖励、拍卖中标与超价退款、秘境/Boss 掉落、突破保留物、飞升起步礼、储物取出等路径都优先入信箱。登录时自动尝试补发；仍放不下会保留剩余条目。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "玩家体验",
+      "text": "背包塞满后再制符或领奖，应看到入队提示而非地上掉落。腾出空位后重登或触发补发即可取回。信箱是防丢语义，不是额外储物玩法。"
+    }
+  ]
+}

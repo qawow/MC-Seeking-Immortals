@@ -1,0 +1,23 @@
+{
+  "name": "Delivery Outbox",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:storage_pouch_low",
+  "sortnum": 37,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Why an Outbox",
+      "text": "Rewards, refunds and craft outputs must not vanish on a full inventory. The mod uses $(l)giveOrEnqueue$(): insert when possible, otherwise persist the whole stack in a delivery outbox SavedData."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Coverage",
+      "text": "Alchemy/refinement/talisman products and refunds, quest/shop rewards, auction wins and outbid refunds, secret-realm/Boss loot, breakthrough preserves, ascension starters and storage withdrawals prefer the outbox. Login auto-claims pending entries."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Player Flow",
+      "text": "Fill your bag, craft a talisman or claim a reward, and expect a queued notice instead of a world drop. Free space and rejoin to receive remainders. The outbox is anti-loss plumbing, not extra storage gameplay."
+    }
+  ]
+}

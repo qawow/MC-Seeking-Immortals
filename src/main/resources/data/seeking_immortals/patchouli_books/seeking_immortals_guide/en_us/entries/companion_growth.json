@@ -1,0 +1,28 @@
+{
+  "name": "Beast and Puppet Growth",
+  "category": "seeking_immortals:beasts_puppets",
+  "icon": "seeking_immortals:beast_core",
+  "sortnum": 12,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Shared Levels",
+      "text": "Beasts and puppets share a 0–20 curve: next level costs $(l)20 + 10×current level$(). Stage semantics stay domain-specific."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Beast Feeding",
+      "text": "Nurture pills, feed, cores, shards and combat grant weighted XP and affinity. Evolution thresholds come from authored stage counts and require an $(l)operational Spirit Beast Evolution Pool$(). Full-affinity threshold retries without a pool do not consume feed. Legacy Growth maps cleanly."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Puppet Refinement",
+      "text": "All seven craft recipes map to persistent owner cores. Assembly, hits, kills and repairs advance XP; levels 7/14/20 refine at a $(l)Puppet Core Forge$(). Death clone keeps progress; multipliers apply on later summons."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Entry Notes",
+      "text": "Capture jars only seal bestiary-tameable ecology beasts at ≤35% health. Puppet craft needs the matching blueprint as knowledge (not consumed) plus full materials."
+    }
+  ]
+}

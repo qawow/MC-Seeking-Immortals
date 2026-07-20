@@ -6,13 +6,18 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "炼器阵+手册+灵铁/铜；古宝残片重铸",
-      "title": "炼器流程"
+      "title": "权威炼器",
+      "text": "法宝炼器只走炼器炉自定义 serializer，不再有工作台近似旁路。73 条配方按境界、炉阶、材料多重集与成功率结算；失败有损耗与残骸语义。"
     },
     {
       "type": "patchouli:text",
-      "text": "语料 patchouli_item_book.static_entries.refinement_flow",
-      "title": "来源"
+      "title": "工站与效率",
+      "text": "G1–G3 炼器炉需成型并启封。成功率叠生活熟练度与运行效率。JEI 炼器分类复用服务端 resolvePlan，展示真实材料数量与产物。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "认主与祭炼",
+      "text": "产物进入认主、完整性与祭炼层流程。破损法宝拒绝 mapped 主动技；powerScale 贯穿伤害。满包交付走 outbox。"
     }
   ]
 }

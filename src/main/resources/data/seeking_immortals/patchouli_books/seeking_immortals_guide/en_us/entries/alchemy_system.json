@@ -1,18 +1,28 @@
 {
-  "name": "炼丹炉与丹方",
+  "name": "Alchemy Furnaces and Formulas",
   "category": "seeking_immortals:basics",
   "icon": "seeking_immortals:alchemy_furnace",
   "sortnum": 4,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "炼丹展示",
-      "text": "炼丹炉需要炉体、炉盖、丹火与已安装丹方。炉体/炉盖/丹火分为一至五阶，部分高阶丹药还要求控火境界或完整地火室。地火室以宗门地火室阵基为中心，下方放置岩浆块，东西南北四侧各放置一个聚灵阵；丹炉需在阵基 5 格水平、2 格垂直范围内。"
+      "title": "Furnaces",
+      "text": "Furnaces need body, lid, flame and an installed formula. Tiers run 1–5. They are multiblock stations that must be formed and commissioned; see Station Operations."
     },
     {
       "type": "patchouli:text",
-      "title": "内置丹方",
-      "text": "当前内置 22 个炼丹 JSON：cultivation_pill、qi_recovery_pill、calming_pill_low、foundation_building_pill_low、spirit_gathering_pill、fire_origin_pill、ice_fire_pill、marrow_cleansing_pill、body_tempering_pill、fasting_pill_low、essence_condensing_pill、soul_gathering_pill、marrow_repair_pill、clear_void_pill、forget_dust_pill、appearance_fixing_pill、longevity_pill、blood_qi_pill、return_yang_true_water、marrow_extracting_pill、soul_breaking_pill、poison_dragon_pearl。"
+      "title": "Success and Wear",
+      "text": "Success scales with life-skill proficiency and station efficiency. Explosions, blown lids and failed brews wear the station (80/30/8). Full-bag outputs enqueue to the delivery outbox."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Recipe Browser",
+      "text": "129 authority alchemy recipes. With JEI, all five furnace tiers are catalysts and the progress region opens the category. Remote clients use the packaged manifest baseline."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Pill Effects",
+      "text": "Catalog pills honor realm gates, flat spirit, tags and risk. No-benefit cases refuse consumption. Death substitution, tribulation aid and beast feeding are wired."
     }
   ]
 }

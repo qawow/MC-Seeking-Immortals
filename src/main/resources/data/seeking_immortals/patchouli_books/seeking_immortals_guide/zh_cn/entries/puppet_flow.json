@@ -6,13 +6,13 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "铁木→巨猿→巨龟→石灵→混元核心；见 puppet_definitions.json",
-      "title": "傀儡流程"
+      "title": "制作阶梯",
+      "text": "铁木→巨猿→巨龟→石灵等定义按图纸与材料进阶。制作前校验傀儡操控技能、图纸与完整材料；实体生成失败退还全部材料。"
     },
     {
       "type": "patchouli:text",
-      "text": "语料 patchouli_item_book.static_entries.puppet_flow",
-      "title": "来源"
+      "title": "成长与淬炼",
+      "text": "组装/战斗/修理推进持久核心经验；7/14/20 级在傀儡核心炉淬炼。修理包优先修缮自有傀儡。详见 $(l)灵兽与傀儡成长$()。"
     }
   ]
 }

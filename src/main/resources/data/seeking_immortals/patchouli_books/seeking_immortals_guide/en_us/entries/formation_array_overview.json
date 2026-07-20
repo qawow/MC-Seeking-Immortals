@@ -7,32 +7,27 @@
     {
       "type": "patchouli:text",
       "title": "Source",
-      "text": "This page maps formation_catalog.json, formation_items_catalog.json, and techniques/formation.json. The source materials group formations into aura gathering, maze, killing, defense, seal, teleport, thunder-guiding, and sect-protection arrays, with flags, disks, blueprints, divine sense, and realm gates as prerequisites."
+      "text": "Maps formation catalogs, formation items and formation techniques: aura gathering, maze, killing, defense, seal, teleport, thunder and mountain-ward arrays."
     },
     {
       "type": "patchouli:text",
       "title": "Playable Now",
-      "text": "seeking_immortals:spirit_gathering_array can already be crafted and placed. Use it to inspect local aura concentration and array bonus. A complete 13x13 floor of Aura Gathering Arrays, ten-high Spirit Ore corner pillars, and a clear 11x11 nine-block aperture form the current realm gate array used by the worldpack travel service."
+      "text": "Place seeking_immortals:spirit_gathering_array to inspect aura. Portable spirit-gather disks deploy a free field and only consume on success; spirit sand extends duration after activation. A full 13×13 gathering floor still forms the realm-gate array used by worldpack travel."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Free Fields",
+      "text": "FormationFieldService owns free fields and ring arrays. Secret-realm traps, aura fields and mission deployments share server-side checks for place, materials, realm, cooldown and cost."
     },
     {
       "type": "patchouli:text",
       "title": "Learning Hooks",
-      "text": "The Wuyue Hall contribution shop already offers seeking_immortals:technique_manual_formation as the current formation manual carrier. Foundation techniques include Formation Sense, which reveals nearby arrays and aura boundaries, while Three Talent Sword Array and Big Dipper Sword Array provide early combat formation hooks."
+      "text": "Formation manuals, foundation Formation Sense and sword-array combat hooks are live. Contribution halls can stock the current manual carriers."
     },
     {
       "type": "patchouli:text",
-      "title": "Catalog Route",
-      "text": "Low formations focus on minor aura gathering, maze arrays, and defense arrays. Mid formations include killing arrays, teleport arrays, inverted five-elements arrays, and wind-riding arrays. High formations add thunder-guiding stakes, Nine-Dragon flame disks, demon-seal pillar arrays, and Vajra prison arrays. Legendary and ancient entries point toward long-range teleportation, Five-Extremes Mountain, sect barriers, and Kunwu demon sealing."
-    },
-    {
-      "type": "patchouli:text",
-      "title": "Disks and Flags",
-      "text": "formation_items_catalog.json reserves portable aura-gathering disks, maze flags, killing disks, defense disks, teleport cores, thunder stakes, array blueprint scrolls, Nine-Dragon flame disks, and aura-gathering flag sets. Most are still catalog entries; future slices should reuse the existing item registry, ShopService, JEI, and Patchouli surfaces."
-    },
-    {
-      "type": "patchouli:text",
-      "title": "Deferred Work",
-      "text": "Portable disk durability, flag placement, persistent area effects, formation fuel, array detection and breaking, sect barrier arrays, a full formation-specialist skill tree, and formation blueprint drops are still deferred. Deployment should remain server-authoritative: position, materials, realm, method, cooldown, and cost must be checked on the server."
+      "title": "Still Deferred",
+      "text": "High-fidelity flag art, mountain-ward spectacle and a full formation specialist tree remain polish. Authority and fuel semantics are already transactional."
     }
   ]
 }

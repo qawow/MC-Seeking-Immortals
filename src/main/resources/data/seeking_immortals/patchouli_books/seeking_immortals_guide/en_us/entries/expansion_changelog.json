@@ -1,18 +1,23 @@
 {
-  "name": "扩充变更录",
+  "name": "Expansion Changelog",
   "category": "seeking_immortals:reference",
   "icon": "seeking_immortals:technique_manual_common",
   "sortnum": 70,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "v29–v37 区域丹药/秘境宝箱/宗门专精坊市见 docs/ITEMS_EXPANSION_v*.md 与 items_by_region.json",
-      "title": "扩充变更录"
+      "title": "0.2.x Closeouts",
+      "text": "0.2.65–0.2.75 station ops and alchemy wear. 0.2.57–0.2.60 delivery outbox and auction settle. 0.2.49–0.2.72 executable consumables. 0.2.84–0.2.90 secret realms, sect specialties, regional dialogue, companion growth. 0.2.92 full JEI alchemy/refinement/talisman catalogs."
     },
     {
       "type": "patchouli:text",
-      "text": "语料 patchouli_item_book.static_entries.expansion_changelog",
-      "title": "来源"
+      "title": "This Guide",
+      "text": "0.2.93 adds station, outbox, consumable, growth, sect, realm and JEI guide pages, and rewrites outdated “not implemented” copy."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Earlier Waves",
+      "text": "Older v29–v37 regional expansions remain documented in historical expansion notes and region item indexes."
     }
   ]
 }

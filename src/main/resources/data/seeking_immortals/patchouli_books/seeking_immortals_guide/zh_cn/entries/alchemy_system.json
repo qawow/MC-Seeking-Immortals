@@ -7,12 +7,22 @@
     {
       "type": "patchouli:text",
       "title": "炼丹展示",
-      "text": "炼丹炉需要炉体、炉盖、丹火与已安装丹方。炉体/炉盖/丹火分为一至五阶，部分高阶丹药还要求控火境界或完整地火室。地火室以宗门地火室阵基为中心，下方放置岩浆块，东西南北四侧各放置一个聚灵阵；丹炉需在阵基 5 格水平、2 格垂直范围内。"
+      "text": "炼丹炉需要炉体、炉盖、丹火与已安装丹方。炉体/炉盖/丹火分一至五阶；部分高阶丹药要求控火境界或地火室。丹炉是多方块工站：需成型并启封后才稳定运行，详见 $(l)工站运行态$()。"
     },
     {
       "type": "patchouli:text",
-      "title": "内置丹方",
-      "text": "当前内置 22 个炼丹 JSON：cultivation_pill、qi_recovery_pill、calming_pill_low、foundation_building_pill_low、spirit_gathering_pill、fire_origin_pill、ice_fire_pill、marrow_cleansing_pill、body_tempering_pill、fasting_pill_low、essence_condensing_pill、soul_gathering_pill、marrow_repair_pill、clear_void_pill、forget_dust_pill、appearance_fixing_pill、longevity_pill、blood_qi_pill、return_yang_true_water、marrow_extracting_pill、soul_breaking_pill、poison_dragon_pearl。"
+      "title": "成功率与损耗",
+      "text": "成功率叠生活技能熟练度与工站运行效率。爆炸/掀盖/炼败按 80/30/8 损耗运行态，形成损耗→修理循环。产物与退料满包时进入交付信箱。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "配方入口",
+      "text": "权威炼丹配方 129 条。安装 JEI 后，五阶丹炉均可作为 catalyst，炉 GUI 进度区可点击打开配方。远程客户端以打包清单为基线。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "丹药效果",
+      "text": "目录丹药按境界上下限、固定灵力、标签与风险执行；无收益或已有更强状态时拒绝扣丹。替死、雷劫辅助、灵兽喂养等特殊语义已接线。"
     }
   ]
 }

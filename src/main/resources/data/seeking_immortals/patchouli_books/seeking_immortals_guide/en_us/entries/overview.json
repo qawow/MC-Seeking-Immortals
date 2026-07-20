@@ -1,32 +1,32 @@
 {
-  "name": "寻仙问道概览",
+  "name": "Seeking Immortals Overview",
   "category": "seeking_immortals:basics",
   "icon": "seeking_immortals:spirit_charm",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "$(l)寻仙问道$() 是一个凡人流修仙玩法模组。玩家从凡俗修炼开始，依靠灵力、境界、灵根、寿元、功法、丹药、符箓、灵石、法宝、坊市和秘境逐步推进修仙路线。"
+      "text": "$(l)Seeking Immortals$() is a mortal-path cultivation mod. Progress through spiritual power, realms, roots, lifespan, methods, pills, talismans, stones, artifacts, markets and secret realms."
     },
     {
       "type": "patchouli:text",
-      "title": "玩法循环",
-      "text": "入门阶段以测灵根、打坐吐纳、积累修为、恢复灵力和手动突破为核心。灵石可供吸收与交易，丹药提供修炼、突破和状态修复，符箓与术法承担早期战斗与探索。"
+      "title": "Core Loop",
+      "text": "Early play is root testing, meditation, cultivation exp, spiritual recovery and manual breakthroughs. Stones fund trade, pills support training and recovery, talismans and spells cover early combat."
     },
     {
       "type": "patchouli:text",
-      "title": "当前入口",
-      "text": "当前书中已覆盖灵石、丹药、符箓、功法、炼丹、基础境界、天渊城、风元大陆、乱星海、星宫、慕兰天澜、蛮荒妖王等入口。更多设定先以导引索引说明，后续逐步拆成专题页。"
+      "title": "What is Live",
+      "text": "This book covers stones, pills, talismans, methods, alchemy/refinement, station operations, the delivery outbox, consumable semantics, companion growth, sect specialties, secret realms, regions and markets. JEI optionally shows three authority recipe classes."
     },
     {
       "type": "patchouli:text",
-      "title": "设定来源",
-      "text": "手册内容来自文本材料中的 patchouli_item_book.json、patchouli_static_entries.json、worldpack、economy、cultivation、pills、artifacts、sects、shops 与 region_cards 等数据。已实装内容会标明当前载体，未实装内容作为后续目标。"
+      "title": "Sources",
+      "text": "Pages track text materials and runtime catalogs. Implemented behavior is labeled honestly; art and human multiplayer sign-off stay separate from gameplay gaps."
     },
     {
       "type": "patchouli:text",
-      "title": "阅读建议",
-      "text": "新玩家先看灵力与境界、灵石、丹药、符箓和功法页；开始跨区域探索后，再阅读设定索引与玩法导引、天渊城、风元大陆、坊市和秘境相关条目。"
+      "title": "Reading Order",
+      "text": "Start with realms, stones, pills, talismans and methods; then station operations, outbox and JEI; then secret realms, sect specialties and regional entries."
     }
   ]
 }

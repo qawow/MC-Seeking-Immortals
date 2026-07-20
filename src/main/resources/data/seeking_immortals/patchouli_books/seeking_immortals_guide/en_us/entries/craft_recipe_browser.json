@@ -1,0 +1,23 @@
+{
+  "name": "JEI Authority Recipes",
+  "category": "seeking_immortals:reference",
+  "icon": "seeking_immortals:alchemy_furnace",
+  "sortnum": 40,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Three Categories",
+      "text": "With JEI installed: $(l)129 alchemy$(), $(l)73 refinement$() and $(l)24 talisman$() recipes. Materials and outputs reuse the server resolve plan; unresolvable author rows are omitted instead of faked."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Catalysts",
+      "text": "All five furnace tiers, G1–G3 forges and the talisman table are catalysts. The furnace progress region opens alchemy recipes. Remote clients use the packaged alchemy manifest; runtime reloads override/extend by id."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Caveats",
+      "text": "JEI shows authority materials (talisman ink included). Live craft still needs formed operational stations, life-skill gates and realm checks. Failures and full bags use refunds/outbox, not JEI simulation."
+    }
+  ]
+}

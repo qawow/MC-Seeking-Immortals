@@ -1,0 +1,23 @@
+{
+  "name": "JEI 权威配方",
+  "category": "seeking_immortals:reference",
+  "icon": "seeking_immortals:alchemy_furnace",
+  "sortnum": 40,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "三类分类",
+      "text": "若安装 JEI，可查询三类权威配方：$(l)炼丹 129$()、$(l)炼器 73$()、$(l)制符 24$()。展示材料与产物均复用服务端解析计划；无法解析的作者条目不会用占位物冒充。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Catalyst 入口",
+      "text": "一至五阶丹炉、G1–G3 炼器炉与制符台均可作为用途查询入口。炼丹炉 GUI 进度区可直接打开炼丹配方。远程客户端以打包炼丹清单为基线，本地/整合服 reload 的配方按 id 覆盖或扩展。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "阅读建议",
+      "text": "JEI 只展示权威事务材料（制符含符墨）。实际制作仍要求附近成型且可运行的工站、生活技能门槛与境界门禁。失败与满包走退款/信箱，不在 JEI 中模拟。"
+    }
+  ]
+}

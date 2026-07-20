@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-20: `0.2.93` P2 Patchouli 新系统补页完成。指南新增工站运行态、交付信箱、消耗品语义、灵兽傀儡成长、JEI 权威配方、宗门专属与秘境试炼 7 组双语条目（94/94），并改写多处仍写“未落地”的过期页；`book.json` version 3。无网络变化，协议保持 26。定向 Patchouli/资源解析测试通过。见 `project_docs/updates/20260720_0.2.93_patchouli_systems.md`。
+
 > MASTER PLAN 2026-07-20: 全玩法实现与验证总计划见 `project_docs/master_plan.md`（固定工作流、架构速查、遗留风险、P0-P2 路线图、三层测试与实机烟测清单、完成定义）。后续 AI 每批次开工前先读该文档。
 
 > CURRENT TRUTH 2026-07-20: `0.2.92` P2 JEI 配方集成扩展完成。`JeiRecipeCatalog` 将三类权威来源投影为展示配方：炼丹通过 129 条打包清单建立远程客户端基线，并让本地/整合服 reload 配方按 id 覆盖或扩展；炼器 73 条全部复用 `ArtifactRefinementService.resolvePlan/resolveItem`，不再显示修理包占位；制符 24 条复用事务材料表并显式展示隐含符墨。插件现有炼丹/炼器/制符三分类、G1-G3 炼器炉/制符台/五阶丹炉 catalysts 与丹炉进度点击区。定向测试和普通构建成功，全量 775 项通过；runClient 到注册表、方块图集及 JEI GUI 图集创建后超时停止，仅见 Linux flite 与本机 OpenAL 设备环境噪声。`mod_version=0.2.92`，协议保持 26。见 `project_docs/updates/20260720_0.2.92_jei_recipe_catalog.md`。

@@ -1,3 +1,15 @@
+## 539. 2026-07-20 0.2.93 P2 Patchouli 新系统补页
+
+  Step   Status   Notes
+  ---   ---   ---
+  Audit Done   P0/P1 已收口；剩余代码面主要为 Patchouli 与美术/实机。
+  New entries Done   7 组 zh/en：station_operations / delivery_outbox / consumable_semantics / companion_growth / craft_recipe_browser / sect_specialty_play / secret_realm_playbook。
+  Rewrites Done   概览/索引/阵法/灵兽傀儡/秘境/炼丹/符箓/炼器/傀儡/变更录对齐 0.2.x。
+  Book meta Done   book.json version 2→3；landing 提工站与交付；天渊条目去 BOM。
+  Tests Done   PatchouliGuideParityTest 扩门；定向资源测试通过。
+  Version Done   `mod_version=0.2.93`；protocol 26。
+  Handoff Done   `project_docs/updates/20260720_0.2.93_patchouli_systems.md`。
+
 ## 538. 2026-07-20 0.2.92 P2 JEI 三类权威配方全量展示
 
   Step   Status   Notes

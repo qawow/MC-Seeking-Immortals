@@ -1,18 +1,23 @@
 {
-  "name": "符箓流程",
+  "name": "Talisman Flow",
   "category": "seeking_immortals:alchemy_pills",
   "icon": "seeking_immortals:fire_talisman",
   "sortnum": 20,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "符纸阶+墨+制符台；见 talisman_recipes.json",
-      "title": "符箓流程"
+      "title": "Crafting",
+      "text": "Craft near a formed operational talisman table. All 24 recipes spend one ink bottle plus paper/materials; consume is all-or-nothing and products prefer the outbox."
     },
     {
       "type": "patchouli:text",
-      "text": "语料 patchouli_item_book.static_entries.talisman_flow",
-      "title": "来源"
+      "title": "Success",
+      "text": "Success scales with life-skill proficiency and station efficiency. Disabled stations reject soft craft; interaction auto-commissions when possible."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Cast and Refund",
+      "text": "Casts reserve then commit; failures refund. CAST_* maps are mode-aware. JEI shows the full material table including ink."
     }
   ]
 }

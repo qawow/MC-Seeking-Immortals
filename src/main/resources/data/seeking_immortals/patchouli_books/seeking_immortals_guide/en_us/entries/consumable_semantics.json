@@ -1,0 +1,28 @@
+{
+  "name": "Consumable Semantics",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:fire_talisman",
+  "sortnum": 38,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Executable Catalog",
+      "text": "Bulk consumables are no longer inert tooltips. Boat/ferry/teleport tickets and Diyuan tokens call travel or realm entry; spirit-gather disks deploy free aura fields; invitations, tax slips, patrol seals and sect tokens hit auction, reputation and identity; map scraps write real chronicle discoveries."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Craft Fuels",
+      "text": "Talisman ink is required by all 24 talisman recipes. Spirit sand extends free formation duration only after a successful activation. Wind-feather raft blueprints mint a travel ticket when Spirit Transformation, a formed dock and materials are ready. Failures refund key costs."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Heals and Wards",
+      "text": "Minor detox, mortal medicine, thunder wards, yin protection, smoke screens and sound beacons all run server-side. No-benefit or stronger-status cases refuse consumption. Pure materials remain tooltip carriers by design."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Authority",
+      "text": "Every consume is server-authoritative: validate → reserve/spend → apply → refund on failure. Travel items honor region vs secret-realm namespaces separately."
+    }
+  ]
+}
