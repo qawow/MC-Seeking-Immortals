@@ -1207,7 +1207,8 @@
         "sect_specialty": "alchemy",
         "breakthrough": "门槛 QI_REFINING；具体突破条件见境界系统。",
         "combat_style": "黄枫丹经 所属道途：alchemy。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "QI_REFINING",
@@ -1247,7 +1248,8 @@
         "sect_specialty": "mixed",
         "breakthrough": "门槛 QI_REFINING；具体突破条件见境界系统。",
         "combat_style": "七玄凡诀 所属道途：mixed。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "QI_REFINING",
@@ -2465,7 +2467,8 @@
         "combat_style": "天南七派基础功 所属道途：mixed。",
         "structural_note": false,
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "QI_REFINING",
@@ -2904,7 +2907,8 @@
         "sect_specialty": "mixed",
         "breakthrough": "门槛 CORE_FORMATION；具体突破条件见境界系统。",
         "combat_style": "南宫王族秘传（仿） 所属道途：mixed。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "CORE_FORMATION",
@@ -2974,7 +2978,8 @@
         "sect_specialty": "mixed",
         "breakthrough": "门槛 QI_REFINING；具体突破条件见境界系统。",
         "combat_style": "QI_REFINING通修诀（通称） 所属道途：mixed。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 9
       },
       "learn_requirements": {
         "realm_min": "QI_REFINING",
@@ -3008,7 +3013,8 @@
         "sect_specialty": "mixed",
         "breakthrough": "门槛 FOUNDATION；具体突破条件见境界系统。",
         "combat_style": "FOUNDATION通修诀（通称） 所属道途：mixed。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 9
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -3042,7 +3048,8 @@
         "sect_specialty": "mixed",
         "breakthrough": "门槛 CORE_FORMATION；具体突破条件见境界系统。",
         "combat_style": "CORE_FORMATION通修诀（通称） 所属道途：mixed。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 9
       },
       "learn_requirements": {
         "realm_min": "CORE_FORMATION",
@@ -3076,7 +3083,8 @@
         "sect_specialty": "mixed",
         "breakthrough": "门槛 NASCENT_SOUL；具体突破条件见境界系统。",
         "combat_style": "NASCENT_SOUL通修诀（通称） 所属道途：mixed。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 9
       },
       "learn_requirements": {
         "realm_min": "NASCENT_SOUL",
@@ -3110,7 +3118,8 @@
         "sect_specialty": "mixed",
         "breakthrough": "门槛 DEITY_TRANSFORMATION；具体突破条件见境界系统。",
         "combat_style": "DEITY_TRANSFORMATION通修诀（通称） 所属道途：mixed。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 9
       },
       "learn_requirements": {
         "realm_min": "DEITY_TRANSFORMATION",
@@ -3145,7 +3154,8 @@
         "breakthrough": "门槛 VOID_REFINING；具体突破条件见境界系统。",
         "combat_style": "VOID_REFINING通修诀（通称） 所属道途：mixed。",
         "structural_note": false,
-        "lore_v142": "贴原著气质精修"
+        "lore_v142": "贴原著气质精修",
+        "layers_max": 9
       },
       "learn_requirements": {
         "realm_min": "VOID_REFINING",
@@ -3180,7 +3190,8 @@
         "sect_specialty": "mixed",
         "breakthrough": "门槛 GREAT_VEHICLE；具体突破条件见境界系统。",
         "combat_style": "GREAT_VEHICLE通修诀（通称） 所属道途：mixed。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 9
       },
       "learn_requirements": {
         "realm_min": "GREAT_VEHICLE",
@@ -3214,7 +3225,8 @@
         "sect_specialty": "mixed",
         "breakthrough": "门槛 SPIRIT_SEVERING；具体突破条件见境界系统。",
         "combat_style": "SPIRIT_SEVERING通修诀（通称） 所属道途：mixed。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 9
       },
       "learn_requirements": {
         "realm_min": "SPIRIT_SEVERING",
@@ -3433,7 +3445,8 @@
         "sect_specialty": "alchemy",
         "breakthrough": "门槛 FOUNDATION；具体突破条件见境界系统。",
         "combat_style": "alchemy专精入门（通称） 所属道途：alchemy。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -3641,7 +3654,8 @@
         "sect_specialty": "mixed",
         "breakthrough": "门槛 QI_REFINING；具体突破条件见境界系统。",
         "combat_style": "幼童门心法 所属道途：mixed。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "QI_REFINING",

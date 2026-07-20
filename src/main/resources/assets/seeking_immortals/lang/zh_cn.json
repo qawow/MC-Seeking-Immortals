@@ -5048,5 +5048,11 @@
   "tooltip.seeking_immortals.catalog_consumable.effect.board_teleport_array": "右键消耗灵石碎片燃料并登船；令牌本身为一次性凭证。",
   "tooltip.seeking_immortals.catalog_item.detail.structure_token": "多方块结构/工站组件或角点凭证：用于 form/建造/任务提交，单独右键不会放置完整建筑。",
   "tooltip.seeking_immortals.catalog_item.detail.array_blueprint_scroll": "首次右键研读阵法知识；已研读后再次右键可消耗次数激活临时聚灵自由阵场。",
-  "tooltip.seeking_immortals.catalog_manual.formation_after_study": "已研读后可再次右键激活关联阵场。"
+  "tooltip.seeking_immortals.catalog_manual.formation_after_study": "已研读后可再次右键激活关联阵场。",
+  "message.seeking_immortals.artifact.binds_vehicle_fallback": "绑定载具 %s 未能登乘，改为短时御空冲势。",
+  "message.seeking_immortals.artifact.binds_void_palace": "虚天殿钥共鸣，已接通虚天秘境/见闻。",
+  "message.seeking_immortals.artifact.binds_blood_forbidden": "五友令牌共鸣，已尝试进入血色禁地。",
+  "message.seeking_immortals.artifact.binds_great_jin_auction": "封锤令生效：大晋商盟拍卖声望已记录。",
+  "message.seeking_immortals.artifact.binds_quest_unlock": "%s 解锁见闻绑定：%s。",
+  "message.seeking_immortals.artifact.binds_quest_known": "%s 绑定 %s 已记录过。"
 }

@@ -1995,18 +1995,36 @@
     {
       "method_id": "huangfeng_alchemy_scripture",
       "display": "黄枫丹经",
-      "total_layers": 0,
-      "layers": [],
-      "note": "无战斗术或纯光环/生活职",
+      "total_layers": 1,
+      "layers": [
+        {
+          "layer": 1,
+          "layer_name": "1层生活职/光环",
+          "realm_band": "QI_REFINING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "生活/宗门基础心法，无战斗术解锁；层数显式为 1"
+        }
+      ],
+      "note": "生活/光环心法：显式 1 层（无战斗术）",
       "path": "craft_alchemy",
       "combat_school": false
     },
     {
       "method_id": "qixuan_mortal_art",
       "display": "七玄凡诀",
-      "total_layers": 0,
-      "layers": [],
-      "note": "无战斗术或纯光环/生活职",
+      "total_layers": 1,
+      "layers": [
+        {
+          "layer": 1,
+          "layer_name": "1层生活职/光环",
+          "realm_band": "QI_REFINING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "生活/宗门基础心法，无战斗术解锁；层数显式为 1"
+        }
+      ],
+      "note": "生活/光环心法：显式 1 层（无战斗术）",
       "path": "mixed",
       "combat_school": false
     },
@@ -2852,9 +2870,18 @@
     {
       "method_id": "tiannan_seven_sect_base",
       "display": "天南七派基础功",
-      "total_layers": 0,
-      "layers": [],
-      "note": "无战斗术或纯光环/生活职",
+      "total_layers": 1,
+      "layers": [
+        {
+          "layer": 1,
+          "layer_name": "1层生活职/光环",
+          "realm_band": "QI_REFINING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "生活/宗门基础心法，无战斗术解锁；层数显式为 1"
+        }
+      ],
+      "note": "生活/光环心法：显式 1 层（无战斗术）",
       "path": "mixed",
       "combat_school": false
     },
@@ -3104,9 +3131,18 @@
     {
       "method_id": "nangong_wangzu_art",
       "display": "南宫王族秘传（仿）",
-      "total_layers": 0,
-      "layers": [],
-      "note": "无战斗术或纯光环/生活职",
+      "total_layers": 1,
+      "layers": [
+        {
+          "layer": 1,
+          "layer_name": "1层生活职/光环",
+          "realm_band": "QI_REFINING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "生活/宗门基础心法，无战斗术解锁；层数显式为 1"
+        }
+      ],
+      "note": "生活/光环心法：显式 1 层（无战斗术）",
       "path": "mixed",
       "combat_school": false
     },
@@ -3133,72 +3169,656 @@
     {
       "method_id": "generic_cultivation_qi_refining",
       "display": "QI_REFINING通修诀（通称）",
-      "total_layers": 0,
-      "layers": [],
-      "note": "无战斗术或纯光环/生活职",
+      "total_layers": 9,
+      "layers": [
+        {
+          "layer": 1,
+          "layer_name": "1层通修",
+          "realm_band": "QI_REFINING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 2,
+          "layer_name": "2层通修",
+          "realm_band": "QI_REFINING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 3,
+          "layer_name": "3层通修",
+          "realm_band": "QI_REFINING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 4,
+          "layer_name": "4层通修",
+          "realm_band": "QI_REFINING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 5,
+          "layer_name": "5层通修",
+          "realm_band": "QI_REFINING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 6,
+          "layer_name": "6层通修",
+          "realm_band": "QI_REFINING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 7,
+          "layer_name": "7层通修",
+          "realm_band": "QI_REFINING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 8,
+          "layer_name": "8层通修",
+          "realm_band": "QI_REFINING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 9,
+          "layer_name": "9层通修",
+          "realm_band": "QI_REFINING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        }
+      ],
+      "note": "通修进度：显式 9 层（无专属战斗术表）",
       "path": "mixed",
       "combat_school": false
     },
     {
       "method_id": "generic_cultivation_foundation",
       "display": "FOUNDATION通修诀（通称）",
-      "total_layers": 0,
-      "layers": [],
-      "note": "无战斗术或纯光环/生活职",
+      "total_layers": 9,
+      "layers": [
+        {
+          "layer": 1,
+          "layer_name": "1层通修",
+          "realm_band": "FOUNDATION",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 2,
+          "layer_name": "2层通修",
+          "realm_band": "FOUNDATION",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 3,
+          "layer_name": "3层通修",
+          "realm_band": "FOUNDATION",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 4,
+          "layer_name": "4层通修",
+          "realm_band": "FOUNDATION",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 5,
+          "layer_name": "5层通修",
+          "realm_band": "FOUNDATION",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 6,
+          "layer_name": "6层通修",
+          "realm_band": "FOUNDATION",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 7,
+          "layer_name": "7层通修",
+          "realm_band": "FOUNDATION",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 8,
+          "layer_name": "8层通修",
+          "realm_band": "FOUNDATION",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 9,
+          "layer_name": "9层通修",
+          "realm_band": "FOUNDATION",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        }
+      ],
+      "note": "通修进度：显式 9 层（无专属战斗术表）",
       "path": "mixed",
       "combat_school": false
     },
     {
       "method_id": "generic_cultivation_core_formation",
       "display": "CORE_FORMATION通修诀（通称）",
-      "total_layers": 0,
-      "layers": [],
-      "note": "无战斗术或纯光环/生活职",
+      "total_layers": 9,
+      "layers": [
+        {
+          "layer": 1,
+          "layer_name": "1层通修",
+          "realm_band": "CORE_FORMATION",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 2,
+          "layer_name": "2层通修",
+          "realm_band": "CORE_FORMATION",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 3,
+          "layer_name": "3层通修",
+          "realm_band": "CORE_FORMATION",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 4,
+          "layer_name": "4层通修",
+          "realm_band": "CORE_FORMATION",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 5,
+          "layer_name": "5层通修",
+          "realm_band": "CORE_FORMATION",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 6,
+          "layer_name": "6层通修",
+          "realm_band": "CORE_FORMATION",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 7,
+          "layer_name": "7层通修",
+          "realm_band": "CORE_FORMATION",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 8,
+          "layer_name": "8层通修",
+          "realm_band": "CORE_FORMATION",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 9,
+          "layer_name": "9层通修",
+          "realm_band": "CORE_FORMATION",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        }
+      ],
+      "note": "通修进度：显式 9 层（无专属战斗术表）",
       "path": "mixed",
       "combat_school": false
     },
     {
       "method_id": "generic_cultivation_nascent_soul",
       "display": "NASCENT_SOUL通修诀（通称）",
-      "total_layers": 0,
-      "layers": [],
-      "note": "无战斗术或纯光环/生活职",
+      "total_layers": 9,
+      "layers": [
+        {
+          "layer": 1,
+          "layer_name": "1层通修",
+          "realm_band": "NASCENT_SOUL",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 2,
+          "layer_name": "2层通修",
+          "realm_band": "NASCENT_SOUL",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 3,
+          "layer_name": "3层通修",
+          "realm_band": "NASCENT_SOUL",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 4,
+          "layer_name": "4层通修",
+          "realm_band": "NASCENT_SOUL",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 5,
+          "layer_name": "5层通修",
+          "realm_band": "NASCENT_SOUL",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 6,
+          "layer_name": "6层通修",
+          "realm_band": "NASCENT_SOUL",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 7,
+          "layer_name": "7层通修",
+          "realm_band": "NASCENT_SOUL",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 8,
+          "layer_name": "8层通修",
+          "realm_band": "NASCENT_SOUL",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 9,
+          "layer_name": "9层通修",
+          "realm_band": "NASCENT_SOUL",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        }
+      ],
+      "note": "通修进度：显式 9 层（无专属战斗术表）",
       "path": "mixed",
       "combat_school": false
     },
     {
       "method_id": "generic_cultivation_deity_transformation",
       "display": "DEITY_TRANSFORMATION通修诀（通称）",
-      "total_layers": 0,
-      "layers": [],
-      "note": "无战斗术或纯光环/生活职",
+      "total_layers": 9,
+      "layers": [
+        {
+          "layer": 1,
+          "layer_name": "1层通修",
+          "realm_band": "DEITY_TRANSFORMATION",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 2,
+          "layer_name": "2层通修",
+          "realm_band": "DEITY_TRANSFORMATION",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 3,
+          "layer_name": "3层通修",
+          "realm_band": "DEITY_TRANSFORMATION",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 4,
+          "layer_name": "4层通修",
+          "realm_band": "DEITY_TRANSFORMATION",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 5,
+          "layer_name": "5层通修",
+          "realm_band": "DEITY_TRANSFORMATION",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 6,
+          "layer_name": "6层通修",
+          "realm_band": "DEITY_TRANSFORMATION",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 7,
+          "layer_name": "7层通修",
+          "realm_band": "DEITY_TRANSFORMATION",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 8,
+          "layer_name": "8层通修",
+          "realm_band": "DEITY_TRANSFORMATION",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 9,
+          "layer_name": "9层通修",
+          "realm_band": "DEITY_TRANSFORMATION",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        }
+      ],
+      "note": "通修进度：显式 9 层（无专属战斗术表）",
       "path": "mixed",
       "combat_school": false
     },
     {
       "method_id": "generic_cultivation_void_refining",
       "display": "VOID_REFINING通修诀（通称）",
-      "total_layers": 0,
-      "layers": [],
-      "note": "无战斗术或纯光环/生活职",
+      "total_layers": 9,
+      "layers": [
+        {
+          "layer": 1,
+          "layer_name": "1层通修",
+          "realm_band": "VOID_REFINING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 2,
+          "layer_name": "2层通修",
+          "realm_band": "VOID_REFINING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 3,
+          "layer_name": "3层通修",
+          "realm_band": "VOID_REFINING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 4,
+          "layer_name": "4层通修",
+          "realm_band": "VOID_REFINING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 5,
+          "layer_name": "5层通修",
+          "realm_band": "VOID_REFINING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 6,
+          "layer_name": "6层通修",
+          "realm_band": "VOID_REFINING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 7,
+          "layer_name": "7层通修",
+          "realm_band": "VOID_REFINING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 8,
+          "layer_name": "8层通修",
+          "realm_band": "VOID_REFINING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 9,
+          "layer_name": "9层通修",
+          "realm_band": "VOID_REFINING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        }
+      ],
+      "note": "通修进度：显式 9 层（无专属战斗术表）",
       "path": "mixed",
       "combat_school": false
     },
     {
       "method_id": "generic_cultivation_great_vehicle",
       "display": "GREAT_VEHICLE通修诀（通称）",
-      "total_layers": 0,
-      "layers": [],
-      "note": "无战斗术或纯光环/生活职",
+      "total_layers": 9,
+      "layers": [
+        {
+          "layer": 1,
+          "layer_name": "1层通修",
+          "realm_band": "GREAT_VEHICLE",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 2,
+          "layer_name": "2层通修",
+          "realm_band": "GREAT_VEHICLE",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 3,
+          "layer_name": "3层通修",
+          "realm_band": "GREAT_VEHICLE",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 4,
+          "layer_name": "4层通修",
+          "realm_band": "GREAT_VEHICLE",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 5,
+          "layer_name": "5层通修",
+          "realm_band": "GREAT_VEHICLE",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 6,
+          "layer_name": "6层通修",
+          "realm_band": "GREAT_VEHICLE",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 7,
+          "layer_name": "7层通修",
+          "realm_band": "GREAT_VEHICLE",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 8,
+          "layer_name": "8层通修",
+          "realm_band": "GREAT_VEHICLE",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 9,
+          "layer_name": "9层通修",
+          "realm_band": "GREAT_VEHICLE",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        }
+      ],
+      "note": "通修进度：显式 9 层（无专属战斗术表）",
       "path": "mixed",
       "combat_school": false
     },
     {
       "method_id": "generic_cultivation_spirit_severing",
       "display": "SPIRIT_SEVERING通修诀（通称）",
-      "total_layers": 0,
-      "layers": [],
-      "note": "无战斗术或纯光环/生活职",
+      "total_layers": 9,
+      "layers": [
+        {
+          "layer": 1,
+          "layer_name": "1层通修",
+          "realm_band": "SPIRIT_SEVERING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 2,
+          "layer_name": "2层通修",
+          "realm_band": "SPIRIT_SEVERING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 3,
+          "layer_name": "3层通修",
+          "realm_band": "SPIRIT_SEVERING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 4,
+          "layer_name": "4层通修",
+          "realm_band": "SPIRIT_SEVERING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 5,
+          "layer_name": "5层通修",
+          "realm_band": "SPIRIT_SEVERING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 6,
+          "layer_name": "6层通修",
+          "realm_band": "SPIRIT_SEVERING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 7,
+          "layer_name": "7层通修",
+          "realm_band": "SPIRIT_SEVERING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 8,
+          "layer_name": "8层通修",
+          "realm_band": "SPIRIT_SEVERING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        },
+        {
+          "layer": 9,
+          "layer_name": "9层通修",
+          "realm_band": "SPIRIT_SEVERING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "通修进度层；术法由其它手册/门派授予"
+        }
+      ],
+      "note": "通修进度：显式 9 层（无专属战斗术表）",
       "path": "mixed",
       "combat_school": false
     },
@@ -3305,9 +3925,18 @@
     {
       "method_id": "sect_specialty_alchemy",
       "display": "alchemy专精入门（通称）",
-      "total_layers": 0,
-      "layers": [],
-      "note": "无战斗术或纯光环/生活职",
+      "total_layers": 1,
+      "layers": [
+        {
+          "layer": 1,
+          "layer_name": "1层生活职/光环",
+          "realm_band": "QI_REFINING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "生活/宗门基础心法，无战斗术解锁；层数显式为 1"
+        }
+      ],
+      "note": "生活/光环心法：显式 1 层（无战斗术）",
       "path": "craft_alchemy",
       "combat_school": false
     },
@@ -3430,9 +4059,18 @@
     {
       "method_id": "juvenile_sect_art",
       "display": "幼童门心法",
-      "total_layers": 0,
-      "layers": [],
-      "note": "无战斗术或纯光环/生活职",
+      "total_layers": 1,
+      "layers": [
+        {
+          "layer": 1,
+          "layer_name": "1层生活职/光环",
+          "realm_band": "QI_REFINING",
+          "unlock_technique_ids": [],
+          "unlock_new_this_layer": [],
+          "note": "生活/宗门基础心法，无战斗术解锁；层数显式为 1"
+        }
+      ],
+      "note": "生活/光环心法：显式 1 层（无战斗术）",
       "path": "mixed",
       "combat_school": false
     },

@@ -5048,5 +5048,11 @@
   "tooltip.seeking_immortals.catalog_consumable.effect.board_teleport_array": "Right-click with spirit-stone-shard fuel to board; the ticket itself is one-shot.",
   "tooltip.seeking_immortals.catalog_item.detail.structure_token": "Multiblock structure/station component or corner token: used for form/build/quest turn-in. Right-click alone will not place the full structure.",
   "tooltip.seeking_immortals.catalog_item.detail.array_blueprint_scroll": "First right-click studies array knowledge; after study, further right-clicks spend uses to activate a temporary spirit-gather free field.",
-  "tooltip.seeking_immortals.catalog_manual.formation_after_study": "After study, right-click again to activate the linked free field."
+  "tooltip.seeking_immortals.catalog_manual.formation_after_study": "After study, right-click again to activate the linked free field.",
+  "message.seeking_immortals.artifact.binds_vehicle_fallback": "Bound vehicle %s could not board; applying a short mobility burst instead.",
+  "message.seeking_immortals.artifact.binds_void_palace": "Void key resonates; void palace access/chronicle updated.",
+  "message.seeking_immortals.artifact.binds_blood_forbidden": "Token resonates; attempting blood forbidden realm entry.",
+  "message.seeking_immortals.artifact.binds_great_jin_auction": "Sealed hammer recorded Great Jin auction reputation.",
+  "message.seeking_immortals.artifact.binds_quest_unlock": "%s unlocks bind: %s.",
+  "message.seeking_immortals.artifact.binds_quest_known": "%s bind %s already recorded."
 }

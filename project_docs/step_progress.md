@@ -1,3 +1,14 @@
+## 546. 2026-07-20 0.2.100 法宝 binds 与空 matrix
+
+  Step   Status   Notes
+  ---   ---   ---
+  Vehicle binds Done   applyVehicle → FlightVehicleService.board。
+  Quest binds Done   void_palace/blood_forbidden/great_jin_auction。
+  Matrix layers Done   14 空表 → 生活1/通修9；catalog layers_max。
+  Tests Done   ArtifactBindsAndMethodMatrixTest；全量构建通过。
+  Version Done   `mod_version=0.2.100`；protocol 26。
+  Handoff Done   `project_docs/updates/20260720_0.2.100_binds_matrix.md`。
+
 ## 545. 2026-07-20 0.2.99 结构 token 与阵图残卷
 
   Step   Status   Notes

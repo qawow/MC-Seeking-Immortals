@@ -1,3 +1,9 @@
+## 0.2.100 法宝 binds 与空 matrix
+
+vehicle/quest binds 激活已接线；14 空 matrix 显式层数。协议 26。
+
+仍未完成：最终美术/GeckoLib、完整实机烟测、专服/多人复签。可选保真：丹药分条、generic 术法 VFX。
+
 ## 0.2.99 结构 token 与阵图残卷
 
 结构同名 bulk 载体 tooltip 诚实；阵图残卷研读后可激活阵场。协议 26。

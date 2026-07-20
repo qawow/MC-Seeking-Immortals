@@ -6,7 +6,9 @@ import com.xunxian.seekingimmortals.entity.CultivationFireballEntity;
 import com.xunxian.seekingimmortals.item.ArtifactCatalogItem;
 import com.xunxian.seekingimmortals.artifact.NatalBindingService;
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
+import com.xunxian.seekingimmortals.catalog.FlightVehicleService;
 import com.xunxian.seekingimmortals.structure.FormationFieldService;
+import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -540,7 +542,7 @@ public final class ArtifactActivationService {
             case CAPTURE -> applyCapture(player, artifact.gameTier(), scale);
             case REFINEMENT -> applyRefinement(player, cultivation, artifact.gameTier());
             case SPIRIT_LIQUID -> applySpiritLiquid(player, cultivation, artifact.gameTier());
-            case VEHICLE -> applyVehicle(player, artifact.gameTier());
+            case VEHICLE -> applyVehicle(player, artifact);
             case ILLUSION -> applyIllusion(player, artifact.gameTier());
             case BEAST_CONTROL -> applyBeastControl(player, artifact.gameTier());
             case TALISMAN -> applyTalisman(player, cultivation, artifact, scale);
@@ -816,11 +818,78 @@ public final class ArtifactActivationService {
                 SoundSource.PLAYERS, 0.45F, 0.72F);
     }
 
+
+    private static String resolveVehicleBind(String binds) {
+        String key = binds == null ? "" : binds.trim().toLowerCase(Locale.ROOT);
+        return switch (key) {
+            case "spirit_boat" -> "spirit_boat_mid";
+            case "spirit_boat_low", "spirit_boat_mid", "spirit_boat_chaotic_sea",
+                    "cloud_sedan", "bone_wind_cart_vehicle", "wind_feather_raft",
+                    "chaotic_sea_ferry", "teleport_array_ticket" -> key;
+            case "bone_wind_cart" -> "bone_wind_cart_vehicle";
+            default -> key;
+        };
+    }
+
+    private static boolean applyQuestBind(ServerPlayer player, String binds,
+                                          ArtifactDataService.ArtifactDefinition artifact) {
+        String key = binds == null ? "" : binds.trim().toLowerCase(Locale.ROOT);
+        if (key.isBlank()) {
+            return false;
+        }
+        return switch (key) {
+            case "void_palace" -> {
+                boolean ok = WorldpackGameplayService.enterSecretRealm(player, "void_palace");
+                if (!ok) {
+                    ok = com.xunxian.seekingimmortals.catalog.ChronicleTradeSoftService
+                            .discoverChronicle(player, "A4_void_palace_built");
+                }
+                if (ok) {
+                    player.displayClientMessage(Component.translatable(
+                            "message.seeking_immortals.artifact.binds_void_palace"), true);
+                }
+                yield ok;
+            }
+            case "blood_forbidden_side", "blood_forbidden", "blood_forbidden_land" -> {
+                boolean ok = WorldpackGameplayService.enterSecretRealm(player, "blood_forbidden");
+                if (ok) {
+                    player.displayClientMessage(Component.translatable(
+                            "message.seeking_immortals.artifact.binds_blood_forbidden"), true);
+                }
+                yield ok;
+            }
+            case "great_jin_auction", "great_jin", "auction" -> {
+                com.xunxian.seekingimmortals.worldpack.ReputationService.add(player, "merchant_guild", 3);
+                com.xunxian.seekingimmortals.worldpack.ReputationService.add(player, "great_jin", 2);
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.artifact.binds_great_jin_auction"), true);
+                yield true;
+            }
+            default -> {
+                // Unknown quest bind still records a durable discovery flag so tokens are not pure fluff.
+                String flag = "artifact_bind_" + key;
+                boolean first = !player.getPersistentData().getBoolean(flag);
+                player.getPersistentData().putBoolean(flag, true);
+                player.displayClientMessage(Component.translatable(
+                        first
+                                ? "message.seeking_immortals.artifact.binds_quest_unlock"
+                                : "message.seeking_immortals.artifact.binds_quest_known",
+                        artifact.display() == null || artifact.display().isBlank() ? artifact.id() : artifact.display(),
+                        key), true);
+                yield true;
+            }
+        };
+    }
+
     private static void applyUtility(ServerPlayer player, PlayerCultivation cultivation,
                                      ArtifactDataService.ArtifactDefinition artifact) {
         String id = artifact.id().toLowerCase(Locale.ROOT);
         String effect = artifact.effect() == null ? "" : artifact.effect().toLowerCase(Locale.ROOT);
         int gameTier = artifact.gameTier();
+        String binds = artifact.binds() == null ? "" : artifact.binds().trim().toLowerCase(Locale.ROOT);
+        if (!binds.isBlank() && applyQuestBind(player, binds, artifact)) {
+            return;
+        }
         int duration = 180 + gameTier * 22;
         if (effect.contains("hide") || effect.contains("aggro") || id.contains("stealth")
                 || id.contains("conceal")) {
@@ -918,7 +987,18 @@ public final class ArtifactActivationService {
                 SoundSource.PLAYERS, 0.5F, 1.35F);
     }
 
-    private static void applyVehicle(ServerPlayer player, int gameTier) {
+    private static void applyVehicle(ServerPlayer player, ArtifactDataService.ArtifactDefinition artifact) {
+        int gameTier = artifact == null ? 1 : artifact.gameTier();
+        String binds = artifact == null || artifact.binds() == null ? "" : artifact.binds().trim().toLowerCase(Locale.ROOT);
+        if (!binds.isBlank()) {
+            String vehicleId = resolveVehicleBind(binds);
+            if (FlightVehicleService.board(player, vehicleId)) {
+                return;
+            }
+            // Fail soft to legacy mobility burst so activation SP cost is not wasted on unknown binds.
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.artifact.binds_vehicle_fallback", binds), true);
+        }
         int duration = 240 + gameTier * 28;
         player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, duration, gameTier >= 7 ? 2 : 1, false, true));
         player.addEffect(new MobEffectInstance(MobEffects.JUMP, duration, gameTier >= 7 ? 1 : 0, false, true));
