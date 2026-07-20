@@ -73,6 +73,7 @@
 - 高阶炼器阵 G4–G6 + 结构目录 92 + 传送阵令牌登船 + aoe_control/shield 路由（0.2.98）
 - 结构 token 诚实 tooltip + 阵图残卷研读/激活双路径（0.2.99）
 - 法宝 binds 消费 + 空 method matrix 显式层数（0.2.100）
+- 术法 generic VFX 15 元素族深度（0.2.101）
 - 剩余非代码：最终美术/GeckoLib、完整实机与多人复签
 
 ### 持续项

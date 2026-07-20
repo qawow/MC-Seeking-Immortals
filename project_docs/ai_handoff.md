@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-20: `0.2.101` 术法 generic VFX 深度。新增 `TechniqueVfxPalette` 15 族元素→粒子/音效/减益/增益映射；区域法扩展 METAL/WOOD/LIGHT/SOUL/BLOOD/VOID/ILLUSION 视觉；generic debuff/control/buff/movement、投射施法、大招/秘术均消费 palette。协议 26。全量构建通过。见 `project_docs/updates/20260720_0.2.101_technique_vfx.md`。
+
 > CURRENT TRUTH 2026-07-20: `0.2.100` 法宝 binds 消费与空 matrix 层数收口。vehicle_key 激活走 `FlightVehicleService.board(binds)`；quest_key 走虚天/血禁秘境或大晋拍卖声望；14 条空 method matrix 显式 1/9 层并写入 cultivation_methods.layers_max。协议 26。全量构建通过。见 `project_docs/updates/20260720_0.2.100_binds_matrix.md`。
 
 > CURRENT TRUTH 2026-07-20: `0.2.99` 结构 token 诚实化与阵图残卷双路径。结构目录同名 bulk 载体统一 detail `structure_token`（非可直接放置）；`array_blueprint_scroll` 首次研读后可走 `FormationItemService` 激活自由阵场。协议 26。全量构建通过。见 `project_docs/updates/20260720_0.2.99_structure_token.md`。

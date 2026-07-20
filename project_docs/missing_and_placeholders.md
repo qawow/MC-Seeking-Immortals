@@ -1,3 +1,9 @@
+## 0.2.101 术法 generic VFX
+
+generic 术法按 15 元素族区分粒子/音效/状态。协议 26。
+
+仍未完成：最终美术/GeckoLib、完整实机烟测、专服/多人复签。可选：丹药分条保真。
+
 ## 0.2.100 法宝 binds 与空 matrix
 
 vehicle/quest binds 激活已接线；14 空 matrix 显式层数。协议 26。

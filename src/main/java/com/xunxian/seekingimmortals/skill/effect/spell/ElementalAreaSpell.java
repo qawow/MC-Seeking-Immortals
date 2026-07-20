@@ -103,7 +103,28 @@ public class ElementalAreaSpell extends SpellEffect {
                 SoundEvents.TRIDENT_RIPTIDE_1, 1.62F),
         CHAIN_THUNDER(new DustParticleOptions(new Vector3f(0.72F, 0.92F, 1.00F), 0.72F),
                 new DustParticleOptions(new Vector3f(0.28F, 0.46F, 1.00F), 0.46F),
-                SoundEvents.LIGHTNING_BOLT_THUNDER, 1.72F);
+                SoundEvents.LIGHTNING_BOLT_THUNDER, 1.72F),
+        METAL_SHARD(new DustParticleOptions(new Vector3f(0.78F, 0.84F, 0.96F), 0.80F),
+                new DustParticleOptions(new Vector3f(1.00F, 1.00F, 1.00F), 0.42F),
+                SoundEvents.ANVIL_LAND, 1.55F),
+        WOOD_BLOOM(new DustParticleOptions(new Vector3f(0.22F, 0.72F, 0.28F), 0.78F),
+                new DustParticleOptions(new Vector3f(0.62F, 0.95F, 0.48F), 0.42F),
+                SoundEvents.GRASS_BREAK, 1.20F),
+        LIGHT_BURST(new DustParticleOptions(new Vector3f(1.00F, 0.90F, 0.35F), 0.82F),
+                new DustParticleOptions(new Vector3f(1.00F, 1.00F, 0.88F), 0.42F),
+                SoundEvents.AMETHYST_BLOCK_CHIME, 1.45F),
+        SOUL_REND(new DustParticleOptions(new Vector3f(0.20F, 0.82F, 0.86F), 0.78F),
+                new DustParticleOptions(new Vector3f(0.08F, 0.42F, 0.48F), 0.44F),
+                SoundEvents.SOUL_ESCAPE, 1.10F),
+        BLOOD_MIST(new DustParticleOptions(new Vector3f(0.72F, 0.05F, 0.08F), 0.88F),
+                new DustParticleOptions(new Vector3f(0.42F, 0.02F, 0.04F), 0.50F),
+                SoundEvents.WARDEN_HEARTBEAT, 0.85F),
+        VOID_RIFT(new DustParticleOptions(new Vector3f(0.34F, 0.08F, 0.58F), 0.86F),
+                new DustParticleOptions(new Vector3f(0.72F, 0.42F, 1.00F), 0.48F),
+                SoundEvents.ENDERMAN_TELEPORT, 0.80F),
+        ILLUSION_HAZE(new DustParticleOptions(new Vector3f(0.78F, 0.42F, 0.96F), 0.72F),
+                new DustParticleOptions(new Vector3f(0.96F, 0.78F, 1.00F), 0.40F),
+                SoundEvents.ILLUSIONER_CAST_SPELL, 1.25F);
 
         private final DustParticleOptions core;
         private final DustParticleOptions edge;
@@ -146,6 +167,34 @@ public class ElementalAreaSpell extends SpellEffect {
                     add(target, MobEffects.MOVEMENT_SLOWDOWN, 55 + levelBonus * 4, 1);
                     add(target, MobEffects.WEAKNESS, 55 + levelBonus * 4, 0);
                 }
+                case METAL_SHARD -> {
+                    add(target, MobEffects.WEAKNESS, 85 + levelBonus * 6, 1);
+                    add(target, MobEffects.DIG_SLOWDOWN, 70 + levelBonus * 5, 0);
+                }
+                case WOOD_BLOOM -> {
+                    add(target, MobEffects.POISON, 80 + levelBonus * 6, 0);
+                    add(target, MobEffects.MOVEMENT_SLOWDOWN, 70 + levelBonus * 5, 1);
+                }
+                case LIGHT_BURST -> {
+                    add(target, MobEffects.GLOWING, 100 + levelBonus * 6, 0);
+                    add(target, MobEffects.WEAKNESS, 60 + levelBonus * 4, 0);
+                }
+                case SOUL_REND -> {
+                    add(target, MobEffects.WITHER, 70 + levelBonus * 5, 0);
+                    add(target, MobEffects.WEAKNESS, 70 + levelBonus * 5, 0);
+                }
+                case BLOOD_MIST -> {
+                    add(target, MobEffects.WITHER, 75 + levelBonus * 5, 1);
+                    add(target, MobEffects.HUNGER, 90 + levelBonus * 6, 0);
+                }
+                case VOID_RIFT -> {
+                    add(target, MobEffects.LEVITATION, 25 + levelBonus * 2, 0);
+                    add(target, MobEffects.BLINDNESS, 40 + levelBonus * 3, 0);
+                }
+                case ILLUSION_HAZE -> {
+                    add(target, MobEffects.CONFUSION, 100 + levelBonus * 6, 0);
+                    add(target, MobEffects.BLINDNESS, 50 + levelBonus * 4, 0);
+                }
             }
         }
 
@@ -157,6 +206,13 @@ public class ElementalAreaSpell extends SpellEffect {
                 case BLIZZARD -> spawnBlizzard(level, center, radius);
                 case CYCLONE -> spawnCyclone(level, center, radius);
                 case CHAIN_THUNDER -> spawnChainThunder(level, center, targets);
+                case METAL_SHARD -> spawnMetalShard(level, center, radius);
+                case WOOD_BLOOM -> spawnWoodBloom(level, center, radius);
+                case LIGHT_BURST -> spawnLightBurst(level, center, radius);
+                case SOUL_REND -> spawnSoulRend(level, center, radius);
+                case BLOOD_MIST -> spawnBloodMist(level, center, radius);
+                case VOID_RIFT -> spawnVoidRift(level, center, radius);
+                case ILLUSION_HAZE -> spawnIllusionHaze(level, center, radius);
             }
         }
 
@@ -231,6 +287,93 @@ public class ElementalAreaSpell extends SpellEffect {
                 previous = next;
             }
             level.sendParticles(core, center.x, center.y + 0.65D, center.z, 24, 0.35D, 0.25D, 0.35D, 0.02D);
+        }
+
+        private void spawnMetalShard(ServerLevel level, Vec3 center, double radius) {
+            ring(level, center.add(0.0D, 0.2D, 0.0D), radius, 72, 0.08D);
+            for (int i = 0; i < 48; i++) {
+                double angle = i * 0.55D;
+                double spread = radius * (0.2D + (i % 12) / 16.0D);
+                level.sendParticles((i & 1) == 0 ? core : edge,
+                        center.x + Math.cos(angle) * spread, center.y + 0.4D + (i % 6) * 0.12D,
+                        center.z + Math.sin(angle) * spread, 1, 0.04D, 0.04D, 0.04D, 0.01D);
+            }
+            level.sendParticles(core, center.x, center.y + 0.5D, center.z, 20, 0.25D, 0.2D, 0.25D, 0.03D);
+        }
+
+        private void spawnWoodBloom(ServerLevel level, Vec3 center, double radius) {
+            ring(level, center.add(0.0D, 0.15D, 0.0D), radius * 0.9D, 60, 0.1D);
+            for (int i = 0; i < 56; i++) {
+                double angle = i * 2.399963D;
+                double spread = radius * Math.sqrt((i % 20) / 20.0D);
+                level.sendParticles((i % 3) == 0 ? edge : core,
+                        center.x + Math.cos(angle) * spread, center.y + 0.2D + (i % 8) * 0.14D,
+                        center.z + Math.sin(angle) * spread, 1, 0.03D, 0.05D, 0.03D, 0.0D);
+            }
+        }
+
+        private void spawnLightBurst(ServerLevel level, Vec3 center, double radius) {
+            ring(level, center.add(0.0D, 0.45D, 0.0D), radius, 80, 0.05D);
+            level.sendParticles(core, center.x, center.y + 0.6D, center.z, 40, 0.35D, 0.4D, 0.35D, 0.02D);
+            for (int i = 0; i < 24; i++) {
+                double angle = i * Math.PI * 2.0D / 24.0D;
+                level.sendParticles(edge,
+                        center.x + Math.cos(angle) * radius * 0.35D, center.y + 0.8D,
+                        center.z + Math.sin(angle) * radius * 0.35D, 2, 0.02D, 0.12D, 0.02D, 0.0D);
+            }
+        }
+
+        private void spawnSoulRend(ServerLevel level, Vec3 center, double radius) {
+            for (int i = 0; i < 64; i++) {
+                double height = 0.1D + (i % 16) * 0.12D;
+                double turn = i * 0.38D;
+                double swirl = radius * (0.2D + (i % 10) / 18.0D);
+                level.sendParticles((i & 1) == 0 ? core : edge,
+                        center.x + Math.cos(turn) * swirl, center.y + height,
+                        center.z + Math.sin(turn) * swirl, 1, 0.04D, 0.05D, 0.04D, 0.0D);
+            }
+            level.sendParticles(core, center.x, center.y + 0.7D, center.z, 18, 0.3D, 0.35D, 0.3D, 0.01D);
+        }
+
+        private void spawnBloodMist(ServerLevel level, Vec3 center, double radius) {
+            ring(level, center.add(0.0D, 0.12D, 0.0D), radius, 70, 0.12D);
+            for (int i = 0; i < 70; i++) {
+                double angle = i * 0.61D;
+                double spread = radius * (0.15D + (i % 14) / 20.0D);
+                level.sendParticles((i % 4) == 0 ? edge : core,
+                        center.x + Math.cos(angle) * spread, center.y + 0.15D + (i % 7) * 0.1D,
+                        center.z + Math.sin(angle) * spread, 1, 0.05D, 0.04D, 0.05D, 0.0D);
+            }
+        }
+
+        private void spawnVoidRift(ServerLevel level, Vec3 center, double radius) {
+            for (int i = 0; i < 48; i++) {
+                double t = i / 48.0D;
+                double y = center.y + t * 2.4D;
+                double r = radius * (0.15D + Math.sin(t * Math.PI) * 0.55D);
+                double angle = i * 0.9D;
+                level.sendParticles(core,
+                        center.x + Math.cos(angle) * r, y,
+                        center.z + Math.sin(angle) * r, 1, 0.03D, 0.03D, 0.03D, 0.0D);
+                if ((i & 1) == 0) {
+                    level.sendParticles(edge,
+                            center.x + Math.cos(angle + 0.4D) * r * 0.7D, y,
+                            center.z + Math.sin(angle + 0.4D) * r * 0.7D, 1, 0.04D, 0.04D, 0.04D, 0.0D);
+                }
+            }
+            level.sendParticles(edge, center.x, center.y + 1.0D, center.z, 24, 0.2D, 0.5D, 0.2D, 0.02D);
+        }
+
+        private void spawnIllusionHaze(ServerLevel level, Vec3 center, double radius) {
+            ring(level, center.add(0.0D, 0.35D, 0.0D), radius, 64, 0.16D);
+            for (int i = 0; i < 50; i++) {
+                double angle = i * 1.13D;
+                double spread = radius * (0.25D + (i % 9) / 14.0D);
+                double y = center.y + 0.3D + Math.sin(i * 0.7D) * 0.45D;
+                level.sendParticles((i & 1) == 0 ? core : edge,
+                        center.x + Math.cos(angle) * spread, y,
+                        center.z + Math.sin(angle) * spread, 1, 0.06D, 0.06D, 0.06D, 0.0D);
+            }
         }
 
         private void ring(ServerLevel level, Vec3 center, double radius, int points, double wave) {

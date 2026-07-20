@@ -1,3 +1,14 @@
+## 547. 2026-07-20 0.2.101 术法 generic VFX 深度
+
+  Step   Status   Notes
+  ---   ---   ---
+  Palette Done   TechniqueVfxPalette 15 族。
+  Area VFX Done   ElementalAreaSpell +7 元素视觉/效果。
+  Generic wire Done   debuff/control/buff/movement/投射/大招消费 palette。
+  Tests Done   TechniqueVfxPaletteTest + 语料回归；全量构建通过。
+  Version Done   `mod_version=0.2.101`；protocol 26。
+  Handoff Done   `project_docs/updates/20260720_0.2.101_technique_vfx.md`。
+
 ## 546. 2026-07-20 0.2.100 法宝 binds 与空 matrix
 
   Step   Status   Notes

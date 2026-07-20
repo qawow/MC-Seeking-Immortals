@@ -3,6 +3,7 @@ package com.xunxian.seekingimmortals.skill.effect.spell;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.skill.CultivationSkill;
 import com.xunxian.seekingimmortals.skill.effect.SkillContext;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
@@ -170,30 +171,37 @@ public class HighImpactTechniqueSpell extends SpellEffect {
     }
 
     private void applyElementExtra(LivingEntity target, CultivationSkill skill) {
-        String e = element.toLowerCase(Locale.ROOT);
-        if (e.contains("fire") || e.contains("flame") || tags.contains("fire")) {
-            target.setSecondsOnFire(5 + skill.getLevel() / 3);
-        } else if (e.contains("ice") || e.contains("frost") || tags.contains("ice")) {
-            target.setTicksFrozen(Math.min(260, target.getTicksFrozen() + 100));
-        } else if (e.contains("thunder") || e.contains("lightning") || tags.contains("thunder")) {
-            target.addEffect(new MobEffectInstance(MobEffects.GLOWING, 60, 0, false, true));
-        } else if (e.contains("blood") || e.contains("demonic") || tags.contains("curse")) {
-            target.addEffect(new MobEffectInstance(MobEffects.WITHER, 70, 1, false, true));
+        TechniqueVfxPalette.Profile vfx = TechniqueVfxPalette.profile(element);
+        int bonus = Math.max(0, skill.getLevel() / 3);
+        switch (vfx.family()) {
+            case FIRE -> target.setSecondsOnFire(5 + bonus);
+            case ICE -> target.setTicksFrozen(Math.min(260, target.getTicksFrozen() + 100 + bonus * 8));
+            case THUNDER, LIGHT -> target.addEffect(new MobEffectInstance(MobEffects.GLOWING, 60 + bonus * 4, 0, false, true));
+            case BLOOD, DARK, SOUL -> target.addEffect(new MobEffectInstance(vfx.primaryDebuff(), 70 + bonus * 4, 1, false, true));
+            case VOID -> target.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 20 + bonus, 0, false, true));
+            case WOOD -> target.addEffect(new MobEffectInstance(MobEffects.POISON, 70 + bonus * 4, 0, false, true));
+            case ILLUSION -> target.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 80 + bonus * 4, 0, false, true));
+            default -> {
+                if (tags.contains("curse") || tags.contains("demonic")) {
+                    target.addEffect(new MobEffectInstance(MobEffects.WITHER, 70, 1, false, true));
+                }
+            }
         }
     }
 
     private void spawnVisual(ServerLevel level, Vec3 center, double effectiveRadius, boolean beam) {
-        DustParticleOptions core = new DustParticleOptions(
-                form == Form.ULTIMATE
-                        ? new Vector3f(1.00F, 0.28F, 0.18F)
-                        : new Vector3f(0.72F, 0.42F, 1.00F), 0.95F);
-        level.sendParticles(core, center.x, center.y + 0.4D, center.z, 72,
-                effectiveRadius * 0.45D, 0.6D, effectiveRadius * 0.45D, 0.03D);
+        TechniqueVfxPalette.Profile vfx = TechniqueVfxPalette.profile(element);
+        vfx.burst(level, center, effectiveRadius, form == Form.ULTIMATE ? 96 : 72);
         level.sendParticles(ParticleTypes.FLASH, center.x, center.y + 0.5D, center.z, 1, 0.0D, 0.0D, 0.0D, 0.0D);
         if (beam) {
-            level.sendParticles(ParticleTypes.END_ROD, center.x, center.y + 0.3D, center.z, 28, 0.2D, 0.2D, 0.2D, 0.05D);
+            level.sendParticles(vfx.accent(), center.x, center.y + 0.3D, center.z, 28, 0.2D, 0.2D, 0.2D, 0.05D);
+            level.sendParticles(ParticleTypes.END_ROD, center.x, center.y + 0.35D, center.z, 12, 0.15D, 0.15D, 0.15D, 0.03D);
         } else {
             level.sendParticles(ParticleTypes.EXPLOSION, center.x, center.y + 0.2D, center.z, 2, 0.1D, 0.1D, 0.1D, 0.0D);
+            level.sendParticles(vfx.core(), center.x, center.y + 0.25D, center.z, 36,
+                    effectiveRadius * 0.3D, 0.35D, effectiveRadius * 0.3D, 0.02D);
         }
+        level.playSound(null, center.x, center.y, center.z, vfx.impactSound(),
+                SoundSource.PLAYERS, 0.8F, form == Form.ULTIMATE ? vfx.impactPitch() * 0.9F : vfx.impactPitch());
     }
 }

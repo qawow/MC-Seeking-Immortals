@@ -4,6 +4,7 @@ import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.entity.CultivationFireballEntity;
 import com.xunxian.seekingimmortals.skill.CultivationSkill;
 import com.xunxian.seekingimmortals.skill.effect.SkillContext;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.phys.Vec3;
@@ -36,6 +37,7 @@ public class ElementalProjectileSpell extends SpellEffect {
         Vec3 look = player.getLookAngle();
         CultivationFireballEntity projectile = new CultivationFireballEntity(context.getLevel(), player, look, damage, speed, element);
         context.getLevel().addFreshEntity(projectile);
+        TechniqueVfxPalette.profile(element.name()).castAt(player.serverLevel(), player);
         player.displayClientMessage(Component.translatable(successKey, String.format(Locale.ROOT, "%.1f", damage)), true);
         return true;
     }

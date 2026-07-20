@@ -1,3 +1,5 @@
+2026-07-20 0.2.101 pending update: generic technique VFX now branches by 15 element families (particles/sounds/debuffs/buffs) including blood/void/illusion/soul. Remaining non-code: final art/GeckoLib, full live smoke, dedicated-server/two-client sign-off. Optional: pill per-entry fidelity only.
+
 2026-07-20 0.2.100 pending update: artifact binds are now consumed on activation and empty method matrices are explicitly 1/9 layers. Remaining non-code: final art/GeckoLib, full live smoke, dedicated-server/two-client sign-off. Optional fidelity only: pill per-entry differentiation, generic technique VFX depth.
 
 2026-07-20 0.2.99 pending update: structure-index bulk tokens now honestly state they are form/build components, and array_blueprint_scroll studies first then activates free fields. Remaining non-code: final art/GeckoLib, full live smoke, dedicated-server/two-client sign-off. Optional fidelity only: artifact binds consumption, empty method matrix layers, pill per-entry fidelity.

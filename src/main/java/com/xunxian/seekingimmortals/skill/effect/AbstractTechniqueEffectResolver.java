@@ -12,6 +12,7 @@ import com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell;
 import com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell;
 import com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell;
 import com.xunxian.seekingimmortals.skill.effect.spell.WallTechniqueSpell;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
 import com.xunxian.seekingimmortals.skill.effect.spell.TalismanConsumeSpell;
 import com.xunxian.seekingimmortals.skill.effect.spell.HighImpactTechniqueSpell;
 import com.xunxian.seekingimmortals.skill.effect.spell.CraftGateTechniqueSpell;
@@ -184,31 +185,40 @@ public final class AbstractTechniqueEffectResolver {
             case "chain", "aoe", "aoe_control", "aoe_dot", "field", "domain" -> new ElementalAreaSpell(
                     cost, cooldown, spec.damage(), spec.range(), spec.radius(), areaElement(spec.element()),
                     "message.seeking_immortals.spell.generic_aoe.success");
-            case "debuff", "dot", "drain", "soul_attack" -> new TargetedDebuffSpell(
-                    cost, cooldown, spec.damage(), spec.range(),
-                    primaryDebuff(spec.element()), 100, 2,
-                    MobEffects.WEAKNESS, 80, 0,
-                    ParticleTypes.SMOKE, SoundEvents.SCULK_SHRIEKER_SHRIEK,
-                    "message.seeking_immortals.spell.generic_debuff.success",
-                    "message.seeking_immortals.spell.target.fail");
-            case "trap", "control" -> new AreaDebuffSpell(
-                    cost, cooldown, spec.damage(), spec.range(), spec.radius(),
-                    MobEffects.MOVEMENT_SLOWDOWN, 120, 3,
-                    MobEffects.DIG_SLOWDOWN, 100, 0,
-                    ParticleTypes.POOF, SoundEvents.ENCHANTMENT_TABLE_USE,
-                    "message.seeking_immortals.spell.generic_control.success",
-                    "message.seeking_immortals.spell.area.fail");
+            case "debuff", "dot", "drain", "soul_attack" -> {
+                TechniqueVfxPalette.Profile vfx = TechniqueVfxPalette.profile(spec.element());
+                yield new TargetedDebuffSpell(
+                        cost, cooldown, spec.damage(), spec.range(),
+                        vfx.primaryDebuff(), 100, 2,
+                        vfx.secondaryDebuff(), 80, 0,
+                        vfx.core(), vfx.impactSound(),
+                        "message.seeking_immortals.spell.generic_debuff.success",
+                        "message.seeking_immortals.spell.target.fail");
+            }
+            case "trap", "control" -> {
+                TechniqueVfxPalette.Profile vfx = TechniqueVfxPalette.profile(spec.element());
+                yield new AreaDebuffSpell(
+                        cost, cooldown, spec.damage(), spec.range(), spec.radius(),
+                        vfx.primaryDebuff(), 120, 3,
+                        vfx.secondaryDebuff(), 100, 0,
+                        vfx.edge(), vfx.castSound(),
+                        "message.seeking_immortals.spell.generic_control.success",
+                        "message.seeking_immortals.spell.area.fail");
+            }
             case "buff_self", "buff", "shield", "transform", "utility", "utility_combat", "scout", "scan", "inspect" ->
                     createBuff(spec, cost, cooldown);
             case "heal", "heal_spirit", "cleanse" -> new RecoverySpell(
                     cost, cooldown, spec.damage(), Math.max(2.0D, spec.radius()),
                     recoveryForm(spec.type()), "message.seeking_immortals.spell.generic_heal.success");
-            case "movement", "dash", "escape", "teleport_short" -> new SelfBuffSpell(
-                    cost, cooldown,
-                    MobEffects.MOVEMENT_SPEED, movementDuration(spec), 1,
-                    MobEffects.JUMP, movementDuration(spec), 0,
-                    ParticleTypes.CLOUD, SoundEvents.ELYTRA_FLYING,
-                    "message.seeking_immortals.spell.generic_movement.success");
+            case "movement", "dash", "escape", "teleport_short" -> {
+                TechniqueVfxPalette.Profile vfx = TechniqueVfxPalette.profile(spec.element());
+                yield new SelfBuffSpell(
+                        cost, cooldown,
+                        MobEffects.MOVEMENT_SPEED, movementDuration(spec), 1,
+                        MobEffects.JUMP, movementDuration(spec), 0,
+                        vfx.accent(), vfx.castSound(),
+                        "message.seeking_immortals.spell.generic_movement.success");
+            }
             case "melee", "strike" -> new SwordTechniqueSpell(
                     cost, cooldown, spec.damage(), spec.range(), Math.max(0.45D, spec.radius() / 4.0D),
                     SwordTechniqueSpell.SwordForm.FLYING_SWORD_STRIKE,
@@ -253,70 +263,70 @@ public final class AbstractTechniqueEffectResolver {
     }
 
     private static SkillEffect createBuff(RuntimeSpec spec, int cost, int cooldown) {
+        TechniqueVfxPalette.Profile vfx = TechniqueVfxPalette.profile(spec.element());
         MobEffect primary = switch (spec.type()) {
             case "scan", "scout", "inspect" -> MobEffects.NIGHT_VISION;
-            default -> buffPrimary(spec.element());
+            case "shield" -> MobEffects.DAMAGE_RESISTANCE;
+            default -> vfx.buffPrimary();
         };
         MobEffect secondary = switch (spec.type()) {
             case "scan", "scout", "inspect" -> MobEffects.MOVEMENT_SPEED;
-            default -> buffSecondary(spec.element());
+            case "shield" -> MobEffects.ABSORPTION;
+            default -> vfx.buffSecondary();
         };
         return new SelfBuffSpell(
                 cost, cooldown,
-                primary, 160, 0,
+                primary, 160, "shield".equals(spec.type()) ? 1 : 0,
                 secondary, 140, 0,
-                ParticleTypes.ENCHANT, SoundEvents.AMETHYST_BLOCK_CHIME,
+                vfx.core(), vfx.castSound(),
                 "message.seeking_immortals.spell.generic_buff.success");
     }
 
     private static CultivationFireballEntity.SpellElement projectileElement(String element) {
-        return switch (normalize(element)) {
-            case "water" -> CultivationFireballEntity.SpellElement.WATER;
-            case "metal", "gold" -> CultivationFireballEntity.SpellElement.METAL;
-            case "ice" -> CultivationFireballEntity.SpellElement.ICE;
-            case "wind" -> CultivationFireballEntity.SpellElement.WIND;
-            case "wood" -> CultivationFireballEntity.SpellElement.WOOD;
-            case "yin", "dark", "ghost" -> CultivationFireballEntity.SpellElement.DARK;
-            case "yang", "light" -> CultivationFireballEntity.SpellElement.LIGHT;
-            case "earth" -> CultivationFireballEntity.SpellElement.EARTH;
-            case "thunder", "lightning" -> CultivationFireballEntity.SpellElement.THUNDER;
-            default -> CultivationFireballEntity.SpellElement.FIRE;
+        return switch (TechniqueVfxPalette.familyOf(element)) {
+            case WATER -> CultivationFireballEntity.SpellElement.WATER;
+            case METAL -> CultivationFireballEntity.SpellElement.METAL;
+            case ICE -> CultivationFireballEntity.SpellElement.ICE;
+            case WIND -> CultivationFireballEntity.SpellElement.WIND;
+            case WOOD -> CultivationFireballEntity.SpellElement.WOOD;
+            case DARK, SOUL, BLOOD, ILLUSION -> CultivationFireballEntity.SpellElement.DARK;
+            case LIGHT -> CultivationFireballEntity.SpellElement.LIGHT;
+            case EARTH -> CultivationFireballEntity.SpellElement.EARTH;
+            case THUNDER -> CultivationFireballEntity.SpellElement.THUNDER;
+            case VOID -> CultivationFireballEntity.SpellElement.DARK;
+            case FIRE, NEUTRAL -> CultivationFireballEntity.SpellElement.FIRE;
         };
     }
 
     private static ElementalAreaSpell.AreaElement areaElement(String element) {
-        return switch (normalize(element)) {
-            case "water" -> ElementalAreaSpell.AreaElement.MIST_RAIN;
-            case "earth", "metal", "gold" -> ElementalAreaSpell.AreaElement.SAND_STORM;
-            case "ice" -> ElementalAreaSpell.AreaElement.BLIZZARD;
-            case "wind", "wood" -> ElementalAreaSpell.AreaElement.CYCLONE;
-            case "thunder", "lightning", "yang", "light" -> ElementalAreaSpell.AreaElement.CHAIN_THUNDER;
-            default -> ElementalAreaSpell.AreaElement.LAVA;
+        return switch (TechniqueVfxPalette.familyOf(element)) {
+            case WATER -> ElementalAreaSpell.AreaElement.MIST_RAIN;
+            case EARTH -> ElementalAreaSpell.AreaElement.SAND_STORM;
+            case METAL -> ElementalAreaSpell.AreaElement.METAL_SHARD;
+            case ICE -> ElementalAreaSpell.AreaElement.BLIZZARD;
+            case WIND -> ElementalAreaSpell.AreaElement.CYCLONE;
+            case WOOD -> ElementalAreaSpell.AreaElement.WOOD_BLOOM;
+            case THUNDER -> ElementalAreaSpell.AreaElement.CHAIN_THUNDER;
+            case LIGHT -> ElementalAreaSpell.AreaElement.LIGHT_BURST;
+            case SOUL -> ElementalAreaSpell.AreaElement.SOUL_REND;
+            case BLOOD -> ElementalAreaSpell.AreaElement.BLOOD_MIST;
+            case VOID -> ElementalAreaSpell.AreaElement.VOID_RIFT;
+            case ILLUSION -> ElementalAreaSpell.AreaElement.ILLUSION_HAZE;
+            case DARK -> ElementalAreaSpell.AreaElement.SOUL_REND;
+            case FIRE, NEUTRAL -> ElementalAreaSpell.AreaElement.LAVA;
         };
     }
 
     private static MobEffect primaryDebuff(String element) {
-        return switch (normalize(element)) {
-            case "fire", "yang", "light" -> MobEffects.WEAKNESS;
-            case "yin", "dark", "ghost" -> MobEffects.WITHER;
-            default -> MobEffects.MOVEMENT_SLOWDOWN;
-        };
+        return TechniqueVfxPalette.profile(element).primaryDebuff();
     }
 
     private static MobEffect buffPrimary(String element) {
-        return switch (normalize(element)) {
-            case "fire", "metal", "gold", "thunder", "lightning" -> MobEffects.DAMAGE_BOOST;
-            case "wind" -> MobEffects.MOVEMENT_SPEED;
-            default -> MobEffects.DAMAGE_RESISTANCE;
-        };
+        return TechniqueVfxPalette.profile(element).buffPrimary();
     }
 
     private static MobEffect buffSecondary(String element) {
-        return switch (normalize(element)) {
-            case "wood", "water" -> MobEffects.REGENERATION;
-            case "wind" -> MobEffects.JUMP;
-            default -> MobEffects.ABSORPTION;
-        };
+        return TechniqueVfxPalette.profile(element).buffSecondary();
     }
 
     private static RecoverySpell.RecoveryForm recoveryForm(String type) {
