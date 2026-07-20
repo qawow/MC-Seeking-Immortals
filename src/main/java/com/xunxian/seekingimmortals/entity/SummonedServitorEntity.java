@@ -558,12 +558,24 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController<>(this, "movement", 5, state -> {
+            if (getArchetype() == Archetype.GHOST && !state.isMoving()) {
+                state.setAnimation(RawAnimation.begin().thenLoop("float_idle"));
+                return PlayState.CONTINUE;
+            }
             if (state.isMoving()) {
                 state.setAnimation(RawAnimation.begin().thenLoop("walk"));
             } else {
                 state.setAnimation(RawAnimation.begin().thenLoop("idle"));
             }
             return PlayState.CONTINUE;
+        }));
+        controllers.add(new AnimationController<>(this, "attack", 2, state -> {
+            if (this.swinging || this.attackAnim > 0.0F || this.hurtTime > 0) {
+                state.setAnimation(RawAnimation.begin().thenPlay("attack"));
+                return PlayState.CONTINUE;
+            }
+            state.getController().forceAnimationReset();
+            return PlayState.STOP;
         }));
     }
 

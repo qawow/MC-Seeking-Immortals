@@ -140,13 +140,8 @@ public final class ImmortalUiSkin {
             new ResourceLocation(SeekingImmortalsMod.MODID, "textures/gui/ink/paper_dry.png");
     private static final int MATERIAL_TILE = 32;
 
-    private static final java.util.Set<String> KNOWN_SKILL_ICONS = java.util.Set.of(
-            "qi_guiding_art", "fireball_art", "ice_cone_art", "thunder_strike_art",
-            "earth_escape_step", "aura_detection_art", "flying_sword_beginner",
-            "single_sword_thrust", "three_talent_sword_array", "divine_sense_expansion",
-            "flying_sword_advanced", "aura_body_shield", "five_elements_escape_art",
-            "big_dipper_sword_array", "formation_sense");
     private static final Map<String, ResourceLocation> SKILL_ICON_CACHE = new ConcurrentHashMap<>();
+    private static final java.util.Set<String> KNOWN_SKILL_ICONS = loadKnownSkillIcons();
 
     /** Client-render-thread climate stack. Default bamboo when empty. */
     private static final Deque<UiClimate> CLIMATE_STACK = new ArrayDeque<>();
@@ -546,14 +541,60 @@ public final class ImmortalUiSkin {
     }
 
     public static boolean hasSkillIcon(String techniqueId) {
-        return techniqueId != null && KNOWN_SKILL_ICONS.contains(techniqueId);
+        if (techniqueId == null || techniqueId.isBlank()) {
+            return false;
+        }
+        String key = techniqueId.trim().toLowerCase(java.util.Locale.ROOT);
+        if (KNOWN_SKILL_ICONS.contains(key)) {
+            return true;
+        }
+        // Late-discovered ids: accept if resource exists once.
+        ResourceLocation location = new ResourceLocation(SeekingImmortalsMod.MODID, "textures/gui/skill/" + key + ".png");
+        try {
+            if (net.minecraft.client.Minecraft.getInstance().getResourceManager().getResource(location).isPresent()) {
+                KNOWN_SKILL_ICONS.add(key);
+                return true;
+            }
+        } catch (Throwable ignored) {
+            // Resource manager may be unavailable during early boot / datagen.
+        }
+        return false;
     }
 
     public static void drawSkillIcon(GuiGraphics graphics, int x, int y, int size, String techniqueId) {
         if (size <= 0 || techniqueId == null) return;
-        ResourceLocation location = SKILL_ICON_CACHE.computeIfAbsent(techniqueId,
+        String key = techniqueId.trim().toLowerCase(java.util.Locale.ROOT);
+        ResourceLocation location = SKILL_ICON_CACHE.computeIfAbsent(key,
                 id -> new ResourceLocation(SeekingImmortalsMod.MODID, "textures/gui/skill/" + id + ".png"));
         graphics.blit(location, x, y, 0, 0, size, size, 16, 16);
+    }
+
+    private static java.util.Set<String> loadKnownSkillIcons() {
+        java.util.Set<String> ids = java.util.concurrent.ConcurrentHashMap.newKeySet();
+        // Seed with shipped classics so HUD never starts empty before resource scan.
+        ids.addAll(java.util.List.of(
+                "qi_guiding_art", "fireball_art", "ice_cone_art", "thunder_strike_art",
+                "earth_escape_step", "aura_detection_art", "flying_sword_beginner",
+                "single_sword_thrust", "three_talent_sword_array", "divine_sense_expansion",
+                "flying_sword_advanced", "aura_body_shield", "five_elements_escape_art",
+                "big_dipper_sword_array", "formation_sense"));
+        try {
+            var resources = net.minecraft.client.Minecraft.getInstance().getResourceManager()
+                    .listResources("textures/gui/skill", loc ->
+                            SeekingImmortalsMod.MODID.equals(loc.getNamespace())
+                                    && loc.getPath().endsWith(".png"));
+            for (var entry : resources.entrySet()) {
+                String pathName = entry.getKey().getPath(); // textures/gui/skill/foo.png
+                int slash = pathName.lastIndexOf('/');
+                int dot = pathName.lastIndexOf('.');
+                if (slash >= 0 && dot > slash) {
+                    ids.add(pathName.substring(slash + 1, dot));
+                }
+            }
+        } catch (Throwable ignored) {
+            // Client resource manager not ready; seed set remains usable.
+        }
+        return ids;
     }
 
     public static void drawStatusBar(GuiGraphics graphics, int x, int y, int width, int height, double fraction) {

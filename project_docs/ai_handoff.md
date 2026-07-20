@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-20: `0.2.103` 美术/GeckoLib 可落地深度。仆从 attack/float_idle 动画与 archetype 缩放；灵舟 Geo 可见渲染（舟/云轿贴图）；技能图标库扩展至 1200+ 并改为资源发现；实体 archetype 贴图强化。协议 26。全量构建通过。见 `project_docs/updates/20260720_0.2.103_art_geckolib.md`。
+
 > CURRENT TRUTH 2026-07-20: `0.2.102` 丹药分条效果差异。命名丹药拆出 jade/yuan/dragon_tiger/spirit_gather/dustfall/yin_yang/spirit_seed/star_sea/sect/merit 等专用 effect；8 条 cultivation_aid_* 走 realm_cultivation_aid 分阶收益；双语 tooltip 补齐。协议 26。全量构建通过。见 `project_docs/updates/20260720_0.2.102_pill_fidelity.md`。
 
 > CURRENT TRUTH 2026-07-20: `0.2.101` 术法 generic VFX 深度。新增 `TechniqueVfxPalette` 15 族元素→粒子/音效/减益/增益映射；区域法扩展 METAL/WOOD/LIGHT/SOUL/BLOOD/VOID/ILLUSION 视觉；generic debuff/control/buff/movement、投射施法、大招/秘术均消费 palette。协议 26。全量构建通过。见 `project_docs/updates/20260720_0.2.101_technique_vfx.md`。

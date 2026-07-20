@@ -13,13 +13,21 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.NetworkHooks;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.RawAnimation;
+import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
 /**
  * Rideable spirit boat / cloud vehicle (Wave49 vehicle depth).
  */
-public class SpiritBoatEntity extends Entity {
+public class SpiritBoatEntity extends Entity implements GeoEntity {
     private int lifeTicks = 20 * 90;
     private String vehicleId = "spirit_boat";
+    private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
 
     public SpiritBoatEntity(EntityType<? extends SpiritBoatEntity> type, Level level) {
         super(type, level);
@@ -103,5 +111,26 @@ public class SpiritBoatEntity extends Entity {
     @Override
     public Packet<ClientGamePacketListener> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
+    }
+
+    public String vehicleId() {
+        return vehicleId;
+    }
+
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        controllers.add(new AnimationController<>(this, "movement", 5, state -> {
+            if (getDeltaMovement().horizontalDistanceSqr() > 1.0E-4D || !getPassengers().isEmpty()) {
+                state.setAnimation(RawAnimation.begin().thenLoop("fly"));
+            } else {
+                state.setAnimation(RawAnimation.begin().thenLoop("idle"));
+            }
+            return PlayState.CONTINUE;
+        }));
+    }
+
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return geoCache;
     }
 }

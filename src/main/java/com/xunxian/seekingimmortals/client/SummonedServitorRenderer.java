@@ -2,6 +2,8 @@ package com.xunxian.seekingimmortals.client;
 
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.entity.SummonedServitorEntity;
+import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib.model.GeoModel;
@@ -14,6 +16,24 @@ public class SummonedServitorRenderer extends GeoEntityRenderer<SummonedServitor
     public SummonedServitorRenderer(EntityRendererProvider.Context context) {
         super(context, new SummonedServitorGeoModel());
         this.shadowRadius = 0.55F;
+    }
+
+    @Override
+    public void preRender(PoseStack poseStack, SummonedServitorEntity animatable,
+                          software.bernie.geckolib.cache.object.BakedGeoModel model,
+                          MultiBufferSource bufferSource, com.mojang.blaze3d.vertex.VertexConsumer buffer,
+                          boolean isReRender, float partialTick, int packedLight, int packedOverlay,
+                          float red, float green, float blue, float alpha) {
+        float scale = switch (animatable.getArchetype()) {
+            case BEAST -> 1.18F;
+            case PUPPET -> 1.05F;
+            case GHOST -> 0.95F;
+            default -> 1.0F;
+        };
+        poseStack.scale(scale, scale, scale);
+        this.shadowRadius = 0.45F * scale;
+        super.preRender(poseStack, animatable, model, bufferSource, buffer, isReRender, partialTick,
+                packedLight, packedOverlay, red, green, blue, alpha);
     }
 
     @Override

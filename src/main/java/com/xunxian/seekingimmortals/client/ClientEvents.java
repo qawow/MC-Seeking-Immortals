@@ -143,7 +143,7 @@ public final class ClientEvents {
         event.registerEntityRenderer(ModEntities.MARKET_TRADER.get(), VillagerRenderer::new);
         event.registerEntityRenderer(ModEntities.SPIRIT_STONE_BANKER.get(), VillagerRenderer::new);
         event.registerEntityRenderer(ModEntities.SUMMONED_SERVITOR.get(), SummonedServitorRenderer::new);
-        event.registerEntityRenderer(ModEntities.SPIRIT_BOAT.get(), EmptyEntityRenderer::new);
+        event.registerEntityRenderer(ModEntities.SPIRIT_BOAT.get(), SpiritBoatRenderer::new);
     }
 
     @Mod.EventBusSubscriber(modid = SeekingImmortalsMod.MODID, value = Dist.CLIENT)

@@ -1,3 +1,15 @@
+## 549. 2026-07-20 0.2.103 美术/GeckoLib 可落地深度
+
+  Step   Status   Notes
+  ---   ---   ---
+  Servitor anim Done   attack + float_idle；archetype 缩放。
+  Spirit boat Done   GeoEntity + 可见 renderer/贴图。
+  Skill icons Done   1200+ 图标；资源发现替代硬编码 15。
+  Entity tex Done   beast/puppet/ghost/generic 贴图强化。
+  Tests Done   ArtGeckoLibDepthTest；全量构建通过。
+  Version Done   `mod_version=0.2.103`；protocol 26。
+  Handoff Done   `project_docs/updates/20260720_0.2.103_art_geckolib.md`。
+
 ## 548. 2026-07-20 0.2.102 丹药分条效果差异
 
   Step   Status   Notes
