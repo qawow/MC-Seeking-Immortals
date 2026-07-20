@@ -1,3 +1,5 @@
+2026-07-20 0.2.76 pending update: technique corpus effect_key audit complete (P0-4, closing master_plan P0); mask_qi now conceals and local_spirit_boost buffs instead of default AOE. Protocol 25. Remaining: master_plan P1 (secret realms, sects, NPC dialogue, beast growth) and live smoke.
+
 2026-07-20 0.2.75 pending update: alchemy explosions/blown lids/failed brews now wear the station operational state (80/30/8), closing the wear→repair loop; material-tax audit found zero unresolved ids (P0-2 closed without change). Protocol 25. Remaining: master_plan P0-4 technique corpus fields, then P1 secret realms/sects.
 
 2026-07-20 0.2.74 pending update: tier-4/5 alchemy furnaces now own dedicated operational-state entries (master_plan P0-1). Protocol 25. Remaining: master_plan P0-2 material-table audit, P0-3 explosion-durability link, then P0-4 technique corpus fields.

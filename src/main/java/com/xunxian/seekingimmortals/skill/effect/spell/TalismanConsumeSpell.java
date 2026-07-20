@@ -61,7 +61,12 @@ public class TalismanConsumeSpell extends SpellEffect {
     }
 
     private Mode resolveMode() {
-        String blob = (effectKey + " " + String.join(" ", tags) + " " + element).toLowerCase(Locale.ROOT);
+        return classifyMode(effectKey + " " + String.join(" ", tags) + " " + element);
+    }
+
+    /** Visible for corpus-audit tests: keyword blob → cast mode. */
+    static Mode classifyMode(String rawBlob) {
+        String blob = rawBlob == null ? "" : rawBlob.toLowerCase(Locale.ROOT);
         if (blob.contains("aoe") || blob.contains("burst") || blob.contains("storm") || blob.contains("explosion")
                 || blob.contains("thunder_strike")) {
             return Mode.AOE;
@@ -77,7 +82,7 @@ public class TalismanConsumeSpell extends SpellEffect {
         if (blob.contains("buff") || blob.contains("protect") || blob.contains("armor") || blob.contains("resist")
                 || blob.contains("shield") || blob.contains("gather") || blob.contains("resurrect")
                 || blob.contains("contract") || blob.contains("fix") || blob.contains("illusion")
-                || blob.contains("wall")) {
+                || blob.contains("wall") || blob.contains("spirit") || blob.contains("boost")) {
             return Mode.BUFF;
         }
         if (blob.contains("projectile") || blob.contains("fire") || blob.contains("bolt")) {
@@ -190,7 +195,8 @@ public class TalismanConsumeSpell extends SpellEffect {
         }
         player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, ticks, 1, false, true));
         player.addEffect(new MobEffectInstance(MobEffects.JUMP, ticks, 0, false, true));
-        if (effectKey.contains("invis") || effectKey.contains("hide") || effectKey.contains("ghost")) {
+        if (effectKey.contains("invis") || effectKey.contains("hide") || effectKey.contains("ghost")
+                || effectKey.contains("mask")) {
             player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, Math.max(40, ticks / 2), 0, false, true));
         }
         level.sendParticles(ParticleTypes.CLOUD, player.getX(), player.getY() + 0.2D, player.getZ(),
@@ -229,7 +235,7 @@ public class TalismanConsumeSpell extends SpellEffect {
         return CultivationFireballEntity.SpellElement.FIRE;
     }
 
-    private enum Mode {
+    enum Mode {
         PROJECTILE, AOE, BUFF, CONTROL, MOVEMENT
     }
 }

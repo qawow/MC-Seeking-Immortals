@@ -1,3 +1,13 @@
+## 526. 2026-07-20 0.2.76 术法 corpus 字段清点
+
+  Step   Status   Notes
+  ---   ---   ---
+  Audit   Done   747 术法 / 18 effect_key 全对账。
+  Fixes   Done   mask_qi 隐身、local_spirit_boost 入 BUFF。
+  Tests   Done   corpus 遍历 + 模式断言；全量 739 项通过。
+  Version Done   `mod_version=0.2.76`；protocol 25。
+  Handoff Done   `project_docs/updates/20260720_0.2.76_corpus_keys.md`。
+
 ## 525. 2026-07-20 0.2.75 炼丹爆炸联动工站耐久
 
   Step   Status   Notes

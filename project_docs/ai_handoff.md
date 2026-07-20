@@ -1,5 +1,7 @@
 > MASTER PLAN 2026-07-20: 全玩法实现与验证总计划见 `project_docs/master_plan.md`（固定工作流、架构速查、遗留风险、P0-P2 路线图、三层测试与实机烟测清单、完成定义）。后续 AI 每批次开工前先读该文档。
 
+> CURRENT TRUTH 2026-07-20: `0.2.76` 术法 corpus 字段清点（master_plan P0-4 完成，P0 收口）。18 个 effect_key 全部路由对账；修复 mask_qi 不隐身与 local_spirit_boost 误伤 AOE。全量 739 项通过。`mod_version=0.2.76`，协议 25。见 `project_docs/updates/20260720_0.2.76_corpus_keys.md`。
+
 > CURRENT TRUTH 2026-07-20: `0.2.75` 炼丹爆炸联动工站耐久（master_plan P0-2/P0-3）。爆炸/掀盖/炼败按 80/30/8 损耗工站运行态；材料税审计 0 未解析收口。全量 737 项通过。`mod_version=0.2.75`，协议 25。见 `project_docs/updates/20260720_0.2.75_explosion_durability.md`。
 
 > CURRENT TRUTH 2026-07-20: `0.2.74` T4/T5 丹炉运行态条目（master_plan P0-1）。station_patterns 补 g4/g5，丹炉工站 id 钳制放宽到 5。全量 736 项通过。`mod_version=0.2.74`，协议 25。见 `project_docs/updates/20260720_0.2.74_furnace_t45.md`。
