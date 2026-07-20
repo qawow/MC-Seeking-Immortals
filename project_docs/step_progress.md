@@ -1,3 +1,14 @@
+## 548. 2026-07-20 0.2.102 丹药分条效果差异
+
+  Step   Status   Notes
+  ---   ---   ---
+  Named splits Done   碧玉/聚元/龙虎/聚灵/降尘/阴阳/灵种/星海等专用 effect。
+  Realm aid Done   cultivation_aid_* → realm_cultivation_aid。
+  Lang Done   11 个新 effect 双语 tooltip。
+  Tests Done   PillEffectCatalogTest 扩展；全量构建通过。
+  Version Done   `mod_version=0.2.102`；protocol 26。
+  Handoff Done   `project_docs/updates/20260720_0.2.102_pill_fidelity.md`。
+
 ## 547. 2026-07-20 0.2.101 术法 generic VFX 深度
 
   Step   Status   Notes

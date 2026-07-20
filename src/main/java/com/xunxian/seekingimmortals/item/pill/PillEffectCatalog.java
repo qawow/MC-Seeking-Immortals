@@ -397,6 +397,17 @@ public final class PillEffectCatalog {
                 yield changed;
             }
             case "tribulation_guard" -> applyTribulationGuard(player, cultivation, multiplier);
+            case "realm_cultivation_aid" -> applyRealmCultivationAid(player, cultivation, entry, multiplier);
+            case "jade_spirit_tonic" -> applyJadeSpiritTonic(player, cultivation, multiplier);
+            case "yuan_gathering" -> applyYuanGathering(player, cultivation, multiplier);
+            case "dragon_tiger_temper" -> applyDragonTigerTemper(player, cultivation, multiplier);
+            case "spirit_gather_tonic" -> applySpiritGatherTonic(player, cultivation, entry, multiplier);
+            case "dustfall_calm" -> applyDustfallCalm(player, cultivation, multiplier);
+            case "yin_yang_balance" -> applyYinYangBalance(player, cultivation, multiplier);
+            case "spirit_seed_growth" -> applySpiritSeedGrowth(player, cultivation, multiplier);
+            case "star_sea_voyage" -> applyStarSeaVoyage(player, cultivation, multiplier);
+            case "sect_spirit_tonic" -> applySectSpiritTonic(player, cultivation, multiplier);
+            case "merit_tonic" -> applyMeritTonic(player, cultivation, multiplier);
             default -> {
                 SeekingImmortalsMod.LOGGER.error("Unsupported pill effect {} for {}", effect, entry.pillId());
                 player.displayClientMessage(Component.translatable(
@@ -569,13 +580,150 @@ public final class PillEffectCatalog {
         }
         int tier = target == null ? cultivation.getRealm().ordinal() : target.ordinal();
         int before = cultivation.getCultivationExp();
-        cultivation.addCultivationExp(scale(40 + Math.max(0, tier) * 20, multiplier));
+        int base = 40 + Math.max(0, tier) * 20;
+        // Named leftover progress pills still get mild identity bonuses.
+        String id = normalize(entry.pillId());
+        if (id.contains("juyuan") || id.contains("juling") || id.contains("condense")) {
+            base += 30;
+            addSpiritualPower(cultivation, scale(25, multiplier));
+        } else if (id.contains("longhu") || id.contains("body") || id.contains("temper")) {
+            base += 15;
+            cultivation.addBodyRefinement(scale(2, multiplier));
+        } else if (id.contains("biyu") || id.contains("jade")) {
+            base += 10;
+            addOrUpgradeEffect(player, MobEffects.ABSORPTION, scaleTicks(400, multiplier), 0);
+        }
+        cultivation.addCultivationExp(scale(base, multiplier));
         boolean changed = before != cultivation.getCultivationExp();
         if (entry.school().contains("demonic") || entry.risk().contains("demonic")) {
             cultivation.addQiDeviationRisk(5);
             changed = true;
         }
         return changed;
+    }
+
+    private static boolean applyRealmCultivationAid(ServerPlayer player, PlayerCultivation cultivation,
+                                                     Entry entry, double multiplier) {
+        Realm target = entry.realmTarget().isBlank() ? null : Realm.fromDesignId(entry.realmTarget());
+        if (target == null) {
+            // Fall back to current realm band aid.
+            target = cultivation.getRealm();
+        }
+        int delta = cultivation.getRealm().ordinal() - target.ordinal();
+        if (delta > 1) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.catalog_pill.target_realm_only", target.getDisplayName()), true);
+            return false;
+        }
+        int tier = Math.max(0, target.ordinal());
+        int exp;
+        double boost;
+        if (delta == 0) {
+            exp = 80 + tier * 35;
+            boost = 1.0D + 0.18D * multiplier + tier * 0.02D;
+            cultivation.addCultivationBoost(scaleTicks(18000 + tier * 1200, multiplier), boost);
+            addSpiritualPower(cultivation, scale(30 + tier * 8, multiplier));
+        } else if (delta < 0) {
+            // Below target: partial aid, no boost.
+            exp = 35 + tier * 12;
+            addSpiritualPower(cultivation, scale(15 + tier * 4, multiplier));
+        } else {
+            // One major realm above: residual aid only.
+            exp = 20 + tier * 8;
+        }
+        int before = cultivation.getCultivationExp();
+        cultivation.addCultivationExp(scale(exp, multiplier));
+        return cultivation.getCultivationExp() != before;
+    }
+
+    private static boolean applyJadeSpiritTonic(ServerPlayer player, PlayerCultivation cultivation, double multiplier) {
+        boolean changed = addSpiritualPower(cultivation, scale(70, multiplier));
+        changed |= addOrUpgradeEffect(player, MobEffects.ABSORPTION, scaleTicks(800, multiplier), 0);
+        changed |= removeEffects(player, MobEffects.POISON, MobEffects.WEAKNESS);
+        cultivation.addCultivationExp(scale(35, multiplier));
+        return true;
+    }
+
+    private static boolean applyYuanGathering(ServerPlayer player, PlayerCultivation cultivation, double multiplier) {
+        cultivation.addCultivationExp(scale(90, multiplier));
+        boolean changed = addSpiritualPower(cultivation, scale(55, multiplier));
+        cultivation.addCultivationBoost(scaleTicks(12000, multiplier), 1.0D + 0.15D * multiplier);
+        return true;
+    }
+
+    private static boolean applyDragonTigerTemper(ServerPlayer player, PlayerCultivation cultivation, double multiplier) {
+        cultivation.addBodyRefinement(scale(8, multiplier));
+        cultivation.addCultivationExp(scale(70, multiplier));
+        addOrUpgradeEffect(player, MobEffects.DAMAGE_BOOST, scaleTicks(1600, multiplier), 0);
+        addOrUpgradeEffect(player, MobEffects.DAMAGE_RESISTANCE, scaleTicks(1200, multiplier), 0);
+        return true;
+    }
+
+    private static boolean applySpiritGatherTonic(ServerPlayer player, PlayerCultivation cultivation,
+                                                   Entry entry, double multiplier) {
+        int base = entry.pillId().contains("minor") || entry.pillId().contains("condense_minor") ? 45 : 80;
+        boolean changed = addSpiritualPower(cultivation, scale(base, multiplier));
+        cultivation.addCultivationExp(scale(base / 2, multiplier));
+        cultivation.addCultivationBoost(scaleTicks(9000, multiplier), 1.0D + 0.12D * multiplier);
+        return true;
+    }
+
+    private static boolean applyDustfallCalm(ServerPlayer player, PlayerCultivation cultivation, double multiplier) {
+        boolean changed = applyHeartDemonRelief(player, cultivation, multiplier * 0.75D, false);
+        changed |= removeEffects(player, MobEffects.CONFUSION, MobEffects.BLINDNESS);
+        changed |= addSpiritualPower(cultivation, scale(20, multiplier));
+        return changed || true;
+    }
+
+    private static boolean applyYinYangBalance(ServerPlayer player, PlayerCultivation cultivation, double multiplier) {
+        cultivation.addCultivationExp(scale(75, multiplier));
+        int before = cultivation.getQiDeviationRisk();
+        cultivation.addQiDeviationRisk(-scale(6, multiplier));
+        boolean changed = before != cultivation.getQiDeviationRisk();
+        changed |= addOrUpgradeEffect(player, MobEffects.DAMAGE_RESISTANCE, scaleTicks(1400, multiplier), 0);
+        changed |= addOrUpgradeEffect(player, MobEffects.NIGHT_VISION, scaleTicks(1400, multiplier), 0);
+        addSpiritualPower(cultivation, scale(35, multiplier));
+        return true;
+    }
+
+    private static boolean applySpiritSeedGrowth(ServerPlayer player, PlayerCultivation cultivation, double multiplier) {
+        cultivation.addCultivationExp(scale(55, multiplier));
+        cultivation.addCultivationBoost(scaleTicks(24000, multiplier), 1.0D + 0.22D * multiplier);
+        cultivation.addDivineConsciousness(scale(6, multiplier));
+        return true;
+    }
+
+    private static boolean applyStarSeaVoyage(ServerPlayer player, PlayerCultivation cultivation, double multiplier) {
+        boolean changed = addOrUpgradeEffect(player, MobEffects.MOVEMENT_SPEED, scaleTicks(3600, multiplier), 0);
+        changed |= addOrUpgradeEffect(player, MobEffects.NIGHT_VISION, scaleTicks(3600, multiplier), 0);
+        changed |= addOrUpgradeEffect(player, MobEffects.WATER_BREATHING, scaleTicks(3600, multiplier), 0);
+        changed |= player.removeEffect(MobEffects.CONFUSION);
+        cultivation.addCultivationExp(scale(40, multiplier));
+        addSpiritualPower(cultivation, scale(30, multiplier));
+        return true;
+    }
+
+    private static boolean applySectSpiritTonic(ServerPlayer player, PlayerCultivation cultivation, double multiplier) {
+        cultivation.addCultivationExp(scale(65, multiplier));
+        addSpiritualPower(cultivation, scale(45, multiplier));
+        cultivation.addCultivationBoost(scaleTicks(10000, multiplier), 1.0D + 0.14D * multiplier);
+        return true;
+    }
+
+    private static boolean applyMeritTonic(ServerPlayer player, PlayerCultivation cultivation, double multiplier) {
+        int before = cultivation.getQiDeviationRisk();
+        cultivation.addQiDeviationRisk(-scale(8, multiplier));
+        boolean changed = before != cultivation.getQiDeviationRisk();
+        changed |= addOrUpgradeEffect(player, MobEffects.ABSORPTION, scaleTicks(1200, multiplier), 1);
+        changed |= addOrUpgradeEffect(player, MobEffects.LUCK, scaleTicks(6000, multiplier), 0);
+        cultivation.addCultivationExp(scale(50, multiplier));
+        // Soft reputation toward tianyuan / merchant if available.
+        try {
+            com.xunxian.seekingimmortals.worldpack.ReputationService.add(player, "tianyuan", scale(2, multiplier));
+        } catch (Throwable ignored) {
+            // Reputation faction may be absent in pure unit environments.
+        }
+        return true;
     }
 
     private static boolean applyRestorativeTonic(ServerPlayer player, PlayerCultivation cultivation, double multiplier) {
@@ -724,6 +872,10 @@ public final class PillEffectCatalog {
         if (tags.contains("detox")) return "detox";
         if (spiritGain > 0) return "spirit_gain_flat";
         if ("breakthrough".equals(category) && !realmTarget.isBlank()) return "targeted_breakthrough_aid";
+        // Realm-band aid pills always keep a dedicated scaled profile.
+        if (pillId.startsWith("cultivation_aid_")) {
+            return "realm_cultivation_aid";
+        }
         return switch (pillId) {
             case "bone_marrow_pill", "xiyu_pill" -> "marrow_cleansing";
             case "ice_fire_pill", "xuanbing_pill", "lieyan_pill", "wuxing_pill" -> "elemental_cultivation";
@@ -739,6 +891,20 @@ public final class PillEffectCatalog {
             case "illusion_pill", "fox_illusion_pill" -> "illusion_tonic";
             case "tribulation_guard_pill" -> "tribulation_guard";
             case "tianling_pill" -> "legendary_essence";
+            case "biyu_pill" -> "jade_spirit_tonic";
+            case "juyuan_pill" -> "yuan_gathering";
+            case "longhu_pill" -> "dragon_tiger_temper";
+            case "spirit_condense_minor", "spirit_condense_pill", "juling_pill" -> "spirit_gather_tonic";
+            case "jiangying_pill" -> "dustfall_calm";
+            case "yin_yang_pill" -> "yin_yang_balance";
+            case "spirit_seed_pill" -> "spirit_seed_growth";
+            case "star_sea_pill" -> "star_sea_voyage";
+            case "huanglong_pill", "luoyun_spirit_pill" -> "sect_spirit_tonic";
+            case "ninghun_dan" -> "soul_heal";
+            case "huichun_pill" -> "hp_regen";
+            case "qingxin_pill" -> "heart_demon_reduce";
+            case "anti_poison_pill" -> "detox";
+            case "tianyuan_merit_pill" -> "merit_tonic";
             default -> switch (category) {
                 case "breakthrough" -> "tribulation_guard";
                 case "recovery" -> "restorative_tonic";

@@ -5054,5 +5054,16 @@
   "message.seeking_immortals.artifact.binds_blood_forbidden": "Token resonates; attempting blood forbidden realm entry.",
   "message.seeking_immortals.artifact.binds_great_jin_auction": "Sealed hammer recorded Great Jin auction reputation.",
   "message.seeking_immortals.artifact.binds_quest_unlock": "%s unlocks bind: %s.",
-  "message.seeking_immortals.artifact.binds_quest_known": "%s bind %s already recorded."
+  "message.seeking_immortals.artifact.binds_quest_known": "%s bind %s already recorded.",
+  "tooltip.seeking_immortals.catalog_pill.effect.realm_cultivation_aid": "Realm-band aid: best at the target realm, partial below, invalid if far above",
+  "tooltip.seeking_immortals.catalog_pill.effect.jade_spirit_tonic": "Jade tonic: restore spirit, short absorption, clear poison/weakness",
+  "tooltip.seeking_immortals.catalog_pill.effect.yuan_gathering": "Gather yuan: cultivation, spirit, and a short cultivation boost",
+  "tooltip.seeking_immortals.catalog_pill.effect.dragon_tiger_temper": "Dragon-tiger temper: body refinement, cultivation, short attack/defense",
+  "tooltip.seeking_immortals.catalog_pill.effect.spirit_gather_tonic": "Spirit gather/condense: restore spirit with cultivation and a short boost",
+  "tooltip.seeking_immortals.catalog_pill.effect.dustfall_calm": "Dustfall calm: reduce heart demon, clear confusion/blind, minor spirit",
+  "tooltip.seeking_immortals.catalog_pill.effect.yin_yang_balance": "Yin-yang balance: cultivation, lower deviation, resistance and night vision",
+  "tooltip.seeking_immortals.catalog_pill.effect.spirit_seed_growth": "Spirit seed: longer cultivation-speed boost with mild divine sense",
+  "tooltip.seeking_immortals.catalog_pill.effect.star_sea_voyage": "Star-sea voyage: speed, night vision, water breathing, mild gains",
+  "tooltip.seeking_immortals.catalog_pill.effect.sect_spirit_tonic": "Sect spirit tonic: cultivation, spirit, short cultivation boost",
+  "tooltip.seeking_immortals.catalog_pill.effect.merit_tonic": "Merit tonic: lower deviation, absorption/luck, minor Tianyuan reputation"
 }

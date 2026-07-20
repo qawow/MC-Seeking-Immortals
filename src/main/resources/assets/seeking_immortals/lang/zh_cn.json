@@ -5054,5 +5054,16 @@
   "message.seeking_immortals.artifact.binds_blood_forbidden": "五友令牌共鸣，已尝试进入血色禁地。",
   "message.seeking_immortals.artifact.binds_great_jin_auction": "封锤令生效：大晋商盟拍卖声望已记录。",
   "message.seeking_immortals.artifact.binds_quest_unlock": "%s 解锁见闻绑定：%s。",
-  "message.seeking_immortals.artifact.binds_quest_known": "%s 绑定 %s 已记录过。"
+  "message.seeking_immortals.artifact.binds_quest_known": "%s 绑定 %s 已记录过。",
+  "tooltip.seeking_immortals.catalog_pill.effect.realm_cultivation_aid": "按目标境界辅修：本境收益最高，低境部分生效，高境过多则无效",
+  "tooltip.seeking_immortals.catalog_pill.effect.jade_spirit_tonic": "碧玉温养：恢复灵力、短时护体并清除毒弱",
+  "tooltip.seeking_immortals.catalog_pill.effect.yuan_gathering": "聚元：增长修为、灵力并短时提升修炼效率",
+  "tooltip.seeking_immortals.catalog_pill.effect.dragon_tiger_temper": "龙虎淬体：提升炼体与修为，并短时增强攻防",
+  "tooltip.seeking_immortals.catalog_pill.effect.spirit_gather_tonic": "聚灵/凝元：恢复灵力并增长修为与短时效率",
+  "tooltip.seeking_immortals.catalog_pill.effect.dustfall_calm": "降尘宁心：削减心魔、清除神魂紊乱并略复灵力",
+  "tooltip.seeking_immortals.catalog_pill.effect.yin_yang_balance": "阴阳调和：增长修为、降低走火并获得护体与夜视",
+  "tooltip.seeking_immortals.catalog_pill.effect.spirit_seed_growth": "灵种：埋下修炼种子，较长时间提升修炼效率",
+  "tooltip.seeking_immortals.catalog_pill.effect.star_sea_voyage": "星海行舟：提速、夜视、水下呼吸并略增修为灵力",
+  "tooltip.seeking_immortals.catalog_pill.effect.sect_spirit_tonic": "宗门灵丹：增长修为与灵力并短时提升修炼效率",
+  "tooltip.seeking_immortals.catalog_pill.effect.merit_tonic": "功勋丹：降走火、护体与幸运，并略记天渊声望"
 }

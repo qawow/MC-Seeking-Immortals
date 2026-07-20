@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-20: `0.2.102` 丹药分条效果差异。命名丹药拆出 jade/yuan/dragon_tiger/spirit_gather/dustfall/yin_yang/spirit_seed/star_sea/sect/merit 等专用 effect；8 条 cultivation_aid_* 走 realm_cultivation_aid 分阶收益；双语 tooltip 补齐。协议 26。全量构建通过。见 `project_docs/updates/20260720_0.2.102_pill_fidelity.md`。
+
 > CURRENT TRUTH 2026-07-20: `0.2.101` 术法 generic VFX 深度。新增 `TechniqueVfxPalette` 15 族元素→粒子/音效/减益/增益映射；区域法扩展 METAL/WOOD/LIGHT/SOUL/BLOOD/VOID/ILLUSION 视觉；generic debuff/control/buff/movement、投射施法、大招/秘术均消费 palette。协议 26。全量构建通过。见 `project_docs/updates/20260720_0.2.101_technique_vfx.md`。
 
 > CURRENT TRUTH 2026-07-20: `0.2.100` 法宝 binds 消费与空 matrix 层数收口。vehicle_key 激活走 `FlightVehicleService.board(binds)`；quest_key 走虚天/血禁秘境或大晋拍卖声望；14 条空 method matrix 显式 1/9 层并写入 cultivation_methods.layers_max。协议 26。全量构建通过。见 `project_docs/updates/20260720_0.2.100_binds_matrix.md`。

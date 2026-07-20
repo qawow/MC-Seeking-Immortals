@@ -43,11 +43,47 @@ class PillEffectCatalogTest {
     }
 
     @Test
+    void namedCultivationPillsResolveToDistinctEffects() {
+        assertEquals("jade_spirit_tonic",
+                PillEffectCatalog.findByPillId("biyu_pill").orElseThrow().effect());
+        assertEquals("yuan_gathering",
+                PillEffectCatalog.findByPillId("juyuan_pill").orElseThrow().effect());
+        assertEquals("dragon_tiger_temper",
+                PillEffectCatalog.findByPillId("longhu_pill").orElseThrow().effect());
+        assertEquals("spirit_gather_tonic",
+                PillEffectCatalog.findByPillId("spirit_condense_minor").orElseThrow().effect());
+        assertEquals("spirit_gather_tonic",
+                PillEffectCatalog.findByPillId("juling_pill").orElseThrow().effect());
+        assertEquals("dustfall_calm",
+                PillEffectCatalog.findByPillId("jiangying_pill").orElseThrow().effect());
+        assertEquals("yin_yang_balance",
+                PillEffectCatalog.findByPillId("yin_yang_pill").orElseThrow().effect());
+        assertEquals("spirit_seed_growth",
+                PillEffectCatalog.findByPillId("spirit_seed_pill").orElseThrow().effect());
+        assertEquals("star_sea_voyage",
+                PillEffectCatalog.findByPillId("star_sea_pill").orElseThrow().effect());
+        assertEquals("merit_tonic",
+                PillEffectCatalog.findByPillId("tianyuan_merit_pill").orElseThrow().effect());
+        assertEquals("realm_cultivation_aid",
+                PillEffectCatalog.findByPillId("cultivation_aid_foundation").orElseThrow().effect());
+        assertEquals("realm_cultivation_aid",
+                PillEffectCatalog.findByPillId("cultivation_aid_nascent_soul").orElseThrow().effect());
+        assertEquals("FOUNDATION",
+                PillEffectCatalog.findByPillId("cultivation_aid_foundation").orElseThrow().realmTarget());
+    }
+
+    @Test
     void noShippedPillFallsBackToGenericCultivation() {
+        int cultivationProgress = 0;
         for (PillEffectCatalog.Entry entry : PillEffectCatalog.all().values()) {
             assertNotEquals("generic_cultivation", entry.effect(), entry.pillId());
             assertFalse(entry.effect().isBlank(), entry.pillId());
+            if ("cultivation_progress".equals(entry.effect())) {
+                cultivationProgress++;
+            }
         }
+        // Remaining true progress leftovers should stay rare after named splits.
+        assertTrue(cultivationProgress <= 8, "cultivation_progress leftovers=" + cultivationProgress);
     }
 
     @Test
