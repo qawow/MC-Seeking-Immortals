@@ -1,3 +1,5 @@
+2026-07-20 0.2.108 pending update: station id contracts for refinement forges g1–g6 commission/soft refine, dialogue teleport stations, flying_boat_dock specialized validator. Remaining non-code: human multiplayer sign-off, full live smoke, studio GeckoLib. Optional: repair/blueprint meta stations, puppet/beast specialized geometry, hub-to-core wiring.
+
 2026-07-20 0.2.107 pending update: ferry_pass right-click travel; nether ferry coin/token no longer board as vehicles; 14 empty method matrices grant executable techniques. Remaining non-code: human multiplayer sign-off, full live smoke, studio GeckoLib. Optional: specialized multiblock validators, talisman/summon fidelity, per-station BOMs.
 
 2026-07-20 0.2.106 pending update: cultivation-pack cult-only techniques map high-level type → abstract runtime effectType (no more blank fail-closed). Remaining non-code: human multiplayer sign-off, full live smoke §6.1–8, studio GeckoLib. Optional: richer authored damage/effect_key on cult-only rows.

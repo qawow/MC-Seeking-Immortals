@@ -983,9 +983,7 @@
       "default_state": "intact",
       "max_hp": 450,
       "pattern": {
-        "validator": "ring",
-        "radius": 2,
-        "ring_role": "spirit_ore"
+        "validator": "flying_boat_dock"
       }
     },
     {

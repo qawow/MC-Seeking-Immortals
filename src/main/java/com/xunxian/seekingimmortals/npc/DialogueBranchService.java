@@ -298,12 +298,19 @@ public final class DialogueBranchService {
         }
         try {
             net.minecraft.core.BlockPos origin = player.blockPosition();
-            boolean fixed = com.xunxian.seekingimmortals.structure.MultiblockStationService
-                    .isStationFormed(player.level(), "fixed_teleport_array", origin)
-                    || com.xunxian.seekingimmortals.structure.MultiblockStationService
-                    .isStationFormed(player.level(), "long_range_teleport_array", origin);
-            if (fixed) {
-                return "intact";
+            // Station catalog ids (not validator names): teleport_array_pedestal / immortal_teleport_grand_array.
+            for (int dx = -4; dx <= 4; dx++) {
+                for (int dy = -2; dy <= 2; dy++) {
+                    for (int dz = -4; dz <= 4; dz++) {
+                        net.minecraft.core.BlockPos probe = origin.offset(dx, dy, dz);
+                        if (com.xunxian.seekingimmortals.structure.MultiblockStationService
+                                .isStationFormed(player.level(), "teleport_array_pedestal", probe)
+                                || com.xunxian.seekingimmortals.structure.MultiblockStationService
+                                .isStationFormed(player.level(), "immortal_teleport_grand_array", probe)) {
+                            return "intact";
+                        }
+                    }
+                }
             }
             // Soft proximity scan: any teleport pedestal/array block nearby counts as damaged
             // (present but not fully formed).

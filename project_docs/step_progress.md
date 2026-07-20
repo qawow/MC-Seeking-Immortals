@@ -1,3 +1,15 @@
+## 554. 2026-07-20 0.2.108 工站 id 契约
+
+  Step   Status   Notes
+  ---   ---   ---
+  Forge commission Done   G1/G3/G4–G6 使用目录 id，去掉死 id 回退。
+  Soft refine Done   附近工站 g1–g6。
+  Dialogue array Done   传送阵目录 id 邻域扫描。
+  Flying dock Done   专属 FlyingBoatDockStructure 校验。
+  Tests Done   StationIdContractTest + M07 dock 断言。
+  Version Done   `mod_version=0.2.108`；protocol 26。
+  Handoff Done   `project_docs/updates/20260720_0.2.108_station_id_contracts.md`。
+
 ## 553. 2026-07-20 0.2.107 渡口路由与空 method 矩阵
 
   Step   Status   Notes

@@ -54,6 +54,7 @@ class M07FormationsMultiblockTest {
         assertEquals(3, dock.sizeW());
         assertEquals(2, dock.sizeH());
         assertEquals(5, dock.sizeD());
+        assertEquals("flying_boat_dock", dock.pattern().validator());
 
         MultiblockStructureCatalog.StructureEntry furnace =
                 MultiblockStructureCatalog.builtin().find("alchemy_furnace_g1").orElseThrow();

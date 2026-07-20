@@ -94,7 +94,9 @@ public final class CraftWorldSoftService {
     }
 
     public static boolean craft(ServerPlayer player, String recipeId, int forgeGrade) {
-        if (!requiresNearbyStation(player, "refinement_forge", "refinement_forge_g1", "refinement_forge_g3")) {
+        if (!requiresNearbyStation(player,
+                "refinement_forge_g1", "refinement_forge_g2", "refinement_forge_g3",
+                "refinement_forge_g4", "refinement_forge_g5", "refinement_forge_g6")) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.refine.need_station"), true);
             return false;
         }

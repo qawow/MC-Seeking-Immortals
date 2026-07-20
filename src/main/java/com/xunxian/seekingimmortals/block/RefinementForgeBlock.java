@@ -79,7 +79,7 @@ public class RefinementForgeBlock extends Block {
             return InteractionResult.CONSUME;
         }
         if (!com.xunxian.seekingimmortals.structure.MultiblockOperationalService
-                .ensureCommissioned(serverPlayer, "refinement_forge", pos)) {
+                .ensureCommissioned(serverPlayer, "refinement_forge_g1", pos)) {
             return InteractionResult.CONSUME;
         }
 

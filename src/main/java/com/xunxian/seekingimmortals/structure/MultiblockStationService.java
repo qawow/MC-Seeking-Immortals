@@ -224,6 +224,17 @@ public final class MultiblockStationService {
                     boolean ok = !state.isAir() && state.getBlock() != Blocks.CAVE_AIR && state.getBlock() != Blocks.VOID_AIR;
                     yield new ValidateOutcome(ok, "single_core");
                 }
+                case "flying_boat_dock" -> {
+                    if (!(level instanceof Level live)) {
+                        yield new ValidateOutcome(false, "needs_level");
+                    }
+                    // Match FlightVehicleService dock geometry: gathering-array platform + spirit-ore masts.
+                    boolean ok = FlyingBoatDockStructure.validate(
+                            live, origin,
+                            ModBlocks.SPIRIT_GATHERING_ARRAY.get(),
+                            ModBlocks.SPIRIT_ORE.get()).complete();
+                    yield new ValidateOutcome(ok, "flying_boat_dock");
+                }
                 case "ring" -> {
                     if (!(level instanceof Level live)) {
                         yield new ValidateOutcome(false, "needs_level");

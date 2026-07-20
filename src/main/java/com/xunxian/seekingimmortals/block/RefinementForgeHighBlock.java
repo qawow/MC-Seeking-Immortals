@@ -69,9 +69,7 @@ public class RefinementForgeHighBlock extends Block {
             return InteractionResult.CONSUME;
         }
         if (!com.xunxian.seekingimmortals.structure.MultiblockOperationalService
-                .ensureCommissioned(serverPlayer, stationId, pos)
-                && !com.xunxian.seekingimmortals.structure.MultiblockOperationalService
-                .ensureCommissioned(serverPlayer, "refinement_forge", pos)) {
+                .ensureCommissioned(serverPlayer, stationId, pos)) {
             return InteractionResult.CONSUME;
         }
         RefinementForgeCraftHelper.tryCraft(serverPlayer, pos, grade,

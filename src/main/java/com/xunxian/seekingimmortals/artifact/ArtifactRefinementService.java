@@ -197,7 +197,9 @@ public final class ArtifactRefinementService {
         double adjustedRate = Math.min(0.95D,
                 adjustedSuccessRate(recipe.baseSuccessRate(), grade, requiredGrade) + skillBonus);
         double efficiency = com.xunxian.seekingimmortals.catalog.CraftWorldSoftService.nearbyStationEfficiency(
-                player, "refinement_forge", "refinement_forge_g1", "refinement_forge_g2", "refinement_forge_g3");
+                player,
+                "refinement_forge_g1", "refinement_forge_g2", "refinement_forge_g3",
+                "refinement_forge_g4", "refinement_forge_g5", "refinement_forge_g6");
         adjustedRate = com.xunxian.seekingimmortals.skill.LifeSkillService
                 .applyStationEfficiency(adjustedRate, efficiency);
         boolean success = succeeds(player.getRandom().nextDouble(), adjustedRate);
