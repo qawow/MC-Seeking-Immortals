@@ -1,3 +1,5 @@
+2026-07-21 0.2.112 pending update: 8 quick-win currency tokens now executable (spirit_boat_ticket, void_palace_map_fragment, fallen_demon_scout_report, kunwu_map_scroll, teleport_talisman_chaotic_sea, star_palace_patrol_seal, auction_invitation, sect_identity_token). Remaining non-code: human multiplayer sign-off, full live smoke, studio GeckoLib. Optional: Priority 1 currency gates (chaotic_sea_teleport_permit, border_pass, void_palace_key_fragment), hub→formation core wiring, changchun matrix expansion.
+
 2026-07-20 0.2.111 pending update: soft bulk manuals grant methods/forge grades/alchemy formulas; manuals_catalog high-value unlocks filled. Remaining non-code: human multiplayer sign-off, full live smoke, studio GeckoLib. Optional: selective currency gates, hub-to-core wiring, changchun matrix expansion.
 
 2026-07-20 0.2.110 pending update: puppet_core_forge / spirit_beast_evolution_pool specialized validators; nether ferry coin/token OR requires; life method layers_max align. Remaining non-code: human multiplayer sign-off, full live smoke, studio GeckoLib. Optional: dead bulk manual grants, selective currency gates, hub-to-core wiring.

@@ -1,3 +1,13 @@
+## 558. 2026-07-21 0.2.112 速赢 currency token 效果
+
+  Step   Status   Notes
+  ---   ---   ---
+  8 quick wins Done   spirit_boat_ticket→travel_spirit_boat 等。
+  Handler verify Done   CatalogConsumableService 已有全部 8 处理器。
+  Test Done   CurrencyTokenEffectWiringTest。
+  Version Done   `mod_version=0.2.112`；protocol 26。
+  Handoff Done   `project_docs/updates/20260721_0.2.112_currency_tokens.md`。
+
 ## 557. 2026-07-20 0.2.111 软秘籍显式授予
 
   Step   Status   Notes

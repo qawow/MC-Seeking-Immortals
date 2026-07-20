@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-21: `0.2.112` 八项速赢 currency token 效果接线。spirit_boat_ticket/void_palace_map_fragment/fallen_demon_scout_report/kunwu_map_scroll/teleport_talisman_chaotic_sea/star_palace_patrol_seal/auction_invitation/sect_identity_token 填入已有 handler 对应 effect 字段。协议 26。见 `project_docs/updates/20260721_0.2.112_currency_tokens.md`。
+
 > CURRENT TRUTH 2026-07-20: `0.2.111` 软秘籍/炼器册显式授予。bulk 秘籍 study 映射功法；软炼器册升 forge grade；recipe_* 研读丹方；manuals_catalog 空 unlocks 补齐高价值行。协议 26。见 `project_docs/updates/20260720_0.2.111_soft_manual_grants.md`。
 
 > CURRENT TRUTH 2026-07-20: `0.2.110` 傀儡核心炉/化形池专属校验；冥河渡口费 coin/token OR 门；生活功法 layers_max 对齐矩阵。协议 26。见 `project_docs/updates/20260720_0.2.110_puppet_beast_ferry.md`。

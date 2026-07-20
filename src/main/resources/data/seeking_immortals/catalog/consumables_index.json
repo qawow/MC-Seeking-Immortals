@@ -48,14 +48,14 @@
       "display": "宗门令牌",
       "category": "quest",
       "realm_min": "",
-      "effect": ""
+      "effect": "show_sect_identity"
     },
     {
       "id": "auction_invitation",
       "display": "拍卖请柬",
       "category": "quest",
       "realm_min": "",
-      "effect": ""
+      "effect": "open_auction_invite"
     },
     {
       "id": "spirit_beast_feed",
@@ -90,7 +90,7 @@
       "display": "灵舟船票",
       "category": "travel",
       "realm_min": "",
-      "effect": ""
+      "effect": "travel_spirit_boat"
     },
     {
       "id": "ferry_pass",
@@ -188,21 +188,21 @@
       "display": "虚天殿残图",
       "category": "quest",
       "realm_min": "CORE_FORMATION",
-      "effect": ""
+      "effect": "discover_void_palace"
     },
     {
       "id": "fallen_demon_scout_report",
       "display": "坠魔谷探报",
       "category": "quest",
       "realm_min": "NASCENT_SOUL",
-      "effect": ""
+      "effect": "discover_fallen_demon"
     },
     {
       "id": "kunwu_map_scroll",
       "display": "昆吾山舆图",
       "category": "quest",
       "realm_min": "CORE_FORMATION",
-      "effect": ""
+      "effect": "discover_kunwu"
     },
     {
       "id": "yin_body_protection_charm",
@@ -244,7 +244,7 @@
       "display": "星宫巡防令",
       "category": "quest",
       "realm_min": "",
-      "effect": ""
+      "effect": "star_palace_patrol"
     },
     {
       "id": "inverse_star_smuggler_pack",
@@ -295,7 +295,7 @@
       "display": "乱星海传送符",
       "category": "talisman_consumable",
       "realm_min": "",
-      "effect": ""
+      "effect": "travel_chaotic_sea"
     },
     {
       "id": "escape_talisman",
