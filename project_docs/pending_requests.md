@@ -1,3 +1,5 @@
+2026-07-20 0.2.78 pending update: InkScroll B2 shipped ui layering (NumberFmt/InkLayout/InkRows/InkPaging) and unified cjk number units. Protocol 25. Remaining: B3 screen migration, B4 HUD, B5 copy keys, B6 style guide + cleanup.
+
 2026-07-20 0.2.77 pending update: InkScroll (云笈墨卷) B1 theme core shipped — light-paper/dark-ink InkScene palettes replace the four-material system behind unchanged tokens; UiClimate deprecated alias. Protocol 25. Remaining: B2 skin split + widgets, B3 screen migration, B4 HUD, B5 copy keys, B6 style guide + cleanup.
 
 2026-07-20 0.2.76 pending update: technique corpus effect_key audit complete (P0-4, closing master_plan P0); mask_qi now conceals and local_spirit_boost buffs instead of default AOE. Protocol 25. Remaining: master_plan P1 (secret realms, sects, NPC dialogue, beast growth) and live smoke.

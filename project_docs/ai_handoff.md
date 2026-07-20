@@ -1,5 +1,7 @@
 > MASTER PLAN 2026-07-20: 全玩法实现与验证总计划见 `project_docs/master_plan.md`（固定工作流、架构速查、遗留风险、P0-P2 路线图、三层测试与实机烟测清单、完成定义）。后续 AI 每批次开工前先读该文档。
 
+> CURRENT TRUTH 2026-07-20: `0.2.78` 云笈墨卷 B2 分层与组件。NumberFmt 统一万/亿/兆（修复 B/M 混用）；InkLayout 布局引擎；InkRows/InkPaging 共享组件；Market 分页委托。全量 747 项通过。`mod_version=0.2.78`，协议 25。见 `project_docs/updates/20260720_0.2.78_inkscroll_b2.md`。
+
 > CURRENT TRUTH 2026-07-20: `0.2.77` 云笈墨卷 B1 主题内核。全新浅纸深墨视觉语言（InkScene 四场景）替代四材色板，token 名不变调用点零改动；UiClimate 转过渡别名；新纸纹生成脚本。全量 743 项通过。`mod_version=0.2.77`，协议 25。前端重构总计划见 /root/.claude/plans/parsed-mapping-puppy.md 与 `project_docs/updates/20260720_0.2.77_inkscroll_b1.md`。
 
 > CURRENT TRUTH 2026-07-20: `0.2.76` 术法 corpus 字段清点（master_plan P0-4 完成，P0 收口）。18 个 effect_key 全部路由对账；修复 mask_qi 不隐身与 local_spirit_boost 误伤 AOE。全量 739 项通过。`mod_version=0.2.76`，协议 25。见 `project_docs/updates/20260720_0.2.76_corpus_keys.md`。

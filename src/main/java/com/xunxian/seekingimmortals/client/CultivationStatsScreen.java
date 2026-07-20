@@ -799,11 +799,7 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
     }
 
     private String shortNumber(long value) {
-        double abs = Math.abs((double)value);
-        if (abs >= 1_000_000_000D) return String.format(Locale.ROOT, "%.1fB", value / 1_000_000_000D);
-        if (abs >= 1_000_000D) return String.format(Locale.ROOT, "%.1fM", value / 1_000_000D);
-        if (abs >= 10_000D) return String.format(Locale.ROOT, "%.1f万", value / 10_000D);
-        return Long.toString(value);
+        return com.xunxian.seekingimmortals.client.ui.NumberFmt.cjk(value);
     }
 
     private int statusColor(ClientCultivationData.Snapshot data) {

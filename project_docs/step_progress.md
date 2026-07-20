@@ -1,3 +1,14 @@
+## 528. 2026-07-20 0.2.78 云笈墨卷 B2 分层与组件
+
+  Step   Status   Notes
+  ---   ---   ---
+  NumberFmt Done   统一万/亿/兆；修复 stats 屏 B/M 混用。
+  InkLayout Done   panel/Spec/clampScroll/tabCell 引擎。
+  Widgets  Done   InkRows/InkPaging；Market 分页委托。
+  Tests    Done   InkUiCoreTest；全量 747 项通过。
+  Version  Done   `mod_version=0.2.78`；protocol 25。
+  Handoff  Done   `project_docs/updates/20260720_0.2.78_inkscroll_b2.md`。
+
 ## 527. 2026-07-20 0.2.77 云笈墨卷 B1 主题内核
 
   Step   Status   Notes

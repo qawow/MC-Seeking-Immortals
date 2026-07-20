@@ -252,19 +252,19 @@ public class MarketHallScreen extends AbstractJournalContainerScreen<MarketHallM
     }
 
     static int maxPage(int entryCount) {
-        return entryCount <= 0 ? 0 : (entryCount - 1) / PAGE_SIZE;
+        return com.xunxian.seekingimmortals.client.ui.widget.InkPaging.maxPage(entryCount, PAGE_SIZE);
     }
 
     static int clampPage(int page, int maxPage) {
-        return Math.max(0, Math.min(page, Math.max(0, maxPage)));
+        return com.xunxian.seekingimmortals.client.ui.widget.InkPaging.clampPage(page, maxPage);
     }
 
     static int pageStart(int page) {
-        return Math.max(0, page) * PAGE_SIZE;
+        return com.xunxian.seekingimmortals.client.ui.widget.InkPaging.pageStart(page, PAGE_SIZE);
     }
 
     static int pageEnd(int page, int entryCount) {
-        return Math.min(Math.max(0, entryCount), pageStart(page) + PAGE_SIZE);
+        return com.xunxian.seekingimmortals.client.ui.widget.InkPaging.pageEnd(page, entryCount, PAGE_SIZE);
     }
 
     static int pageItemCount(int page, int entryCount) {

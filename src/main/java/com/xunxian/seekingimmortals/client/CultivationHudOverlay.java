@@ -149,17 +149,7 @@ public final class CultivationHudOverlay {
     }
 
     private static String shortNumber(long value) {
-        double abs = Math.abs((double)value);
-        if (abs >= 1_000_000_000_000D) return unitNumber(value, 1_000_000_000_000D, "兆");
-        if (abs >= 100_000_000D) return unitNumber(value, 100_000_000D, "亿");
-        if (abs >= 10_000D) return unitNumber(value, 10_000D, "万");
-        return Long.toString(value);
-    }
-
-    private static String unitNumber(long value, double unit, String suffix) {
-        double scaled = value / unit;
-        String pattern = Math.abs(scaled) >= 100.0D ? "%.0f%s" : "%.1f%s";
-        return String.format(Locale.ROOT, pattern, scaled, suffix).replace(".0", "");
+        return com.xunxian.seekingimmortals.client.ui.NumberFmt.cjk(value);
     }
 
     private record HudLine(String text, int color) {}
