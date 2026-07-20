@@ -203,9 +203,8 @@ public final class DialogueActionExecutor {
             Item item = ItemCatalogService.resolveCatalogItem(itemId);
             if (item != null) {
                 ItemStack stack = new ItemStack(item, Math.min(64, count));
-                if (!player.getInventory().add(stack)) {
-                    player.drop(stack, false);
-                }
+                com.xunxian.seekingimmortals.item.InventoryDeliveryService.giveOrEnqueue(
+                        player, stack, "dialogue_reward");
                 ok = true;
             }
         }

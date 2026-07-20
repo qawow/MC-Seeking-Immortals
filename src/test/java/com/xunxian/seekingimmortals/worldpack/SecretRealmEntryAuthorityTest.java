@@ -57,7 +57,9 @@ class SecretRealmEntryAuthorityTest {
 
         String inventory = Files.readString(JAVA_ROOT.resolve(Path.of("worldpack", "InventoryReservation.java")));
         assertTrue(inventory.contains("consumed.add(copyForReservation(stack, take))"));
-        assertTrue(inventory.contains("ItemStack remainder = consumedStack.copy()"));
+        assertTrue(inventory.contains("giveOrEnqueue"),
+                "reservation refund must prefer outbox over world drop");
+        assertTrue(inventory.contains("inventory_reservation_refund"));
     }
 
     @Test

@@ -457,9 +457,8 @@ public final class QuestService {
     }
 
     private static void giveStack(ServerPlayer player, ItemStack stack) {
-        if (!player.getInventory().add(stack)) {
-            player.drop(stack, false);
-        }
+        com.xunxian.seekingimmortals.item.InventoryDeliveryService.giveOrEnqueue(
+                player, stack, "quest_reward");
     }
 
     private static void sync(ServerPlayer player, PlayerCultivation cultivation) {

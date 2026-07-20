@@ -112,11 +112,56 @@ class MultiblockOperationalServiceTest {
         for (String path : java.util.List.of(
                 "craft/TalismanCraftService.java",
                 "craft/PuppetCraftService.java",
-                "artifact/ArtifactRefinementService.java")) {
+                "artifact/ArtifactRefinementService.java",
+                "block/entity/AlchemyFurnaceBlockEntity.java")) {
             String source = Files.readString(Path.of(
                     "src", "main", "java", "com", "xunxian", "seekingimmortals", path));
             assertTrue(source.contains("applyStationEfficiency"),
                     path + " must scale success by station efficiency");
+        }
+    }
+
+    @Test
+    void highValueDeliveryPathsPreferOutboxInSource() throws Exception {
+        for (String path : java.util.List.of(
+                "block/entity/AlchemyFurnaceBlockEntity.java",
+                "artifact/ArtifactRefinementService.java",
+                "quest/QuestService.java",
+                "shop/ShopService.java",
+                "catalog/SpiritStoneLadderService.java",
+                "catalog/ChronicleTradeSoftService.java",
+                "npc/NamedNpcRewardService.java",
+                "npc/DialogueActionExecutor.java",
+                "skill/TalismanConsumePolicy.java",
+                "item/LingGenTestStoneItem.java",
+                "event/ModEvents.java",
+                "worldpack/AscensionService.java",
+                "worldpack/InventoryReservation.java",
+                "block/SpiritHerbPlanterBlock.java")) {
+            String source = Files.readString(Path.of(
+                    "src", "main", "java", "com", "xunxian", "seekingimmortals", path));
+            assertTrue(source.contains("giveOrEnqueue"),
+                    path + " must deliver via giveOrEnqueue");
+        }
+        // ServerPlayer reward paths must not world-drop; ladder keeps a client Player fallback.
+        for (String path : java.util.List.of(
+                "block/entity/AlchemyFurnaceBlockEntity.java",
+                "artifact/ArtifactRefinementService.java",
+                "quest/QuestService.java",
+                "shop/ShopService.java",
+                "catalog/ChronicleTradeSoftService.java",
+                "npc/NamedNpcRewardService.java",
+                "npc/DialogueActionExecutor.java",
+                "skill/TalismanConsumePolicy.java",
+                "item/LingGenTestStoneItem.java",
+                "event/ModEvents.java",
+                "worldpack/AscensionService.java",
+                "worldpack/InventoryReservation.java",
+                "block/SpiritHerbPlanterBlock.java")) {
+            String source = Files.readString(Path.of(
+                    "src", "main", "java", "com", "xunxian", "seekingimmortals", path));
+            assertTrue(!source.contains("player.drop("),
+                    path + " must not world-drop rewards");
         }
     }
 }

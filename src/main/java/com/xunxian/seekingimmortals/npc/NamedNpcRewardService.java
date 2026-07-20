@@ -129,9 +129,8 @@ public final class NamedNpcRewardService {
             return false;
         }
         ItemStack stack = new ItemStack(item, Math.min(64, count));
-        if (!player.getInventory().add(stack)) {
-            player.drop(stack, false);
-        }
+        com.xunxian.seekingimmortals.item.InventoryDeliveryService.giveOrEnqueue(
+                player, stack, "named_npc_reward");
         return true;
     }
 

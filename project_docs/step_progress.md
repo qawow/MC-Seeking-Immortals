@@ -1,3 +1,14 @@
+## 519. 2026-07-20 0.2.69 炼丹效率与交付 outbox 收口
+
+  Step   Status   Notes
+  ---   ---   ---
+  Alchemy efficiency Done   炼丹成功率乘 alchemy_furnace_g{tier} 运行效率。
+  Outbox residual Done   炼丹/炼器/任务/商店/NPC/种植台等满包 giveOrEnqueue。
+  Tests    Done   效率/交付源码契约；秘境退款契约同步。
+  Verify   Done   普通构建成功，全量测试通过。
+  Version  Done   `mod_version=0.2.69`；protocol 25。
+  Handoff  Done   `project_docs/updates/20260720_0.2.69_alchemy_outbox.md`。
+
 ## 518. 2026-07-20 0.2.68 材料别名与工站效率进成功率
 
   Step   Status   Notes

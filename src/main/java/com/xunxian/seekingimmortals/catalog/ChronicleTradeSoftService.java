@@ -243,9 +243,8 @@ public final class ChronicleTradeSoftService {
             return;
         }
         ItemStack stack = new ItemStack(shard, amount);
-        if (!player.getInventory().add(stack)) {
-            player.drop(stack, false);
-        }
+        com.xunxian.seekingimmortals.item.InventoryDeliveryService.giveOrEnqueue(
+                player, stack, "chronicle_reward");
         player.displayClientMessage(Component.translatable("message.seeking_immortals.chronicle.reward",
                 amount), false);
     }
@@ -445,9 +444,8 @@ public final class ChronicleTradeSoftService {
         Item shard = TextQuestChainService.resolveItem("seeking_immortals:spirit_stone_shard");
         if (shard != null && !player.getAbilities().instabuild) {
             ItemStack stack = new ItemStack(shard, profit);
-            if (!player.getInventory().add(stack)) {
-                player.drop(stack, false);
-            }
+            com.xunxian.seekingimmortals.item.InventoryDeliveryService.giveOrEnqueue(
+                    player, stack, "chronicle_trade_profit");
         }
         ReputationService.add(player, "merchant_guild", 3);
         ReputationService.onQuestComplete(player, chainId);

@@ -300,8 +300,9 @@ public final class AscensionService {
             if (slot >= 0 && slot < player.getInventory().getContainerSize()
                     && player.getInventory().getItem(slot).isEmpty()) {
                 player.getInventory().setItem(slot, stack);
-            } else if (!player.getInventory().add(stack)) {
-                player.drop(stack, false);
+            } else {
+                com.xunxian.seekingimmortals.item.InventoryDeliveryService.giveOrEnqueue(
+                        player, stack, "ascension_restore");
             }
         }
         // Consume snapshot so a second restore cannot re-inject the same stacks.

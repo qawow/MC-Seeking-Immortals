@@ -209,9 +209,8 @@ public final class ArtifactRefinementService {
                     player.getGameProfile().getName());
             ArtifactOwnershipService.addRefinementLayer(output, 1);
             Component outputName = output.getHoverName();
-            if (!player.getInventory().add(output)) {
-                player.drop(output, false);
-            }
+            com.xunxian.seekingimmortals.item.InventoryDeliveryService.giveOrEnqueue(
+                    player, output, "artifact_refine:" + recipe.display());
             player.containerMenu.broadcastChanges();
             playFeedback(player, true);
             // Wave459: refining bound natal artifact grows it.
@@ -475,9 +474,8 @@ public final class ArtifactRefinementService {
             int count = loot.count() + (extraRolls > 0 && i == 0 ? 1 : 0);
             ItemStack stack = new ItemStack(item, Math.max(1, count));
             ItemStack summaryStack = stack.copy();
-            if (!player.getInventory().add(stack)) {
-                player.drop(stack, false);
-            }
+            com.xunxian.seekingimmortals.item.InventoryDeliveryService.giveOrEnqueue(
+                    player, stack, "artifact_refine_fail_loot");
             granted.add(summaryStack);
         }
         if (!granted.isEmpty()) {

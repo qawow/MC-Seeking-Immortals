@@ -92,11 +92,8 @@ final class InventoryReservation {
         }
         refunded = true;
         for (ItemStack consumedStack : consumed) {
-            ItemStack remainder = consumedStack.copy();
-            player.getInventory().add(remainder);
-            if (!remainder.isEmpty()) {
-                player.drop(remainder, false);
-            }
+            com.xunxian.seekingimmortals.item.InventoryDeliveryService.giveOrEnqueue(
+                    player, consumedStack.copy(), "inventory_reservation_refund");
         }
     }
 }

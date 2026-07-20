@@ -648,9 +648,8 @@ public final class ShopService {
     }
 
     private static void giveStack(ServerPlayer player, ItemStack stack) {
-        if (!player.getInventory().add(stack)) {
-            player.drop(stack, false);
-        }
+        com.xunxian.seekingimmortals.item.InventoryDeliveryService.giveOrEnqueue(
+                player, stack, "shop_purchase");
     }
 
     private static void sendMarketListing(ServerPlayer player, MarketSnapshot snapshot) {

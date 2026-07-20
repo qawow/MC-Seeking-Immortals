@@ -717,10 +717,8 @@ public final class ModEvents {
             return;
         }
 
-        boolean added = player.getInventory().add(guideBook);
-        if (!added) {
-            player.drop(guideBook, false);
-        }
+        com.xunxian.seekingimmortals.item.InventoryDeliveryService.giveOrEnqueue(
+                player, guideBook, "guide_book_grant");
         data.putBoolean(PATCHOULI_GUIDE_GIVEN_KEY, true);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.guide_book.given"), false);
     }

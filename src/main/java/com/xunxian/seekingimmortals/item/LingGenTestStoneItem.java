@@ -101,9 +101,8 @@ public class LingGenTestStoneItem extends Item {
         ItemStack vial = new ItemStack(com.xunxian.seekingimmortals.registry.ModItems.MYSTIC_VIAL.get());
         com.xunxian.seekingimmortals.item.MysticVialItem.setOwner(vial, player);
         com.xunxian.seekingimmortals.item.MysticVialItem.refillIfNeeded(vial, System.currentTimeMillis());
-        if (!player.getInventory().add(vial)) {
-            player.drop(vial, false);
-        }
+        com.xunxian.seekingimmortals.item.InventoryDeliveryService.giveOrEnqueue(
+                player, vial, "mystic_vial_grant");
         cultivation.setMysticVialGranted(true);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.mystic_vial.granted"), false);
     }

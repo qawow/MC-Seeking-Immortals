@@ -171,7 +171,10 @@ public final class SpiritStoneLadderService {
             }
         }
         ItemStack out = new ItemStack(output);
-        if (!inventory.add(out)) {
+        if (player instanceof net.minecraft.server.level.ServerPlayer serverPlayer) {
+            com.xunxian.seekingimmortals.item.InventoryDeliveryService.giveOrEnqueue(
+                    serverPlayer, out, "spirit_stone_ladder");
+        } else if (!inventory.add(out)) {
             player.drop(out, false);
         }
         return true;

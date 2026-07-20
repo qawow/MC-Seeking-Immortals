@@ -162,9 +162,8 @@ public final class TalismanConsumePolicy {
             }
             finished = true;
             ItemStack give = taken.copy();
-            if (!player.getInventory().add(give)) {
-                player.drop(give, false);
-            }
+            com.xunxian.seekingimmortals.item.InventoryDeliveryService.giveOrEnqueue(
+                    player, give, "talisman_consume_refund");
             player.getInventory().setChanged();
         }
     }

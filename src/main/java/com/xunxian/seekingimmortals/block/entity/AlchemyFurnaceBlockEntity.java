@@ -344,6 +344,12 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
         totalTicks = recipe.cookTicks();
         progressTicks = totalTicks;
         successRate = AlchemyRecipeService.successRate(serverLevel, player, recipe, furnaceTier, fireTier, formulaSource);
+        // Operational damage reduces success the same way soft craft stations do.
+        String alchemyStationId = "alchemy_furnace_g" + Math.min(3, Math.max(1, furnaceTier));
+        double stationEfficiency = com.xunxian.seekingimmortals.structure.MultiblockOperationalService
+                .efficiencyAt(serverLevel, alchemyStationId, worldPosition);
+        successRate = com.xunxian.seekingimmortals.skill.LifeSkillService
+                .applyStationEfficiency(successRate, stationEfficiency);
         explosionChance = AlchemyRecipeService.explosionChance(player, recipe, furnaceTier, lidTier, fireTier, formulaSource);
         craftingPlayerId = player.getUUID();
         player.displayClientMessage(Component.translatable("message.seeking_immortals.alchemy_furnace.started",
@@ -541,9 +547,8 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
         if (result.isEmpty()) {
             return;
         }
-        if (!player.getInventory().add(result)) {
-            player.drop(result, false);
-        }
+        com.xunxian.seekingimmortals.item.InventoryDeliveryService.giveOrEnqueue(
+                player, result, "alchemy_furnace_collect");
         player.displayClientMessage(Component.translatable("message.seeking_immortals.alchemy_furnace.collected", result.getHoverName(), result.getCount()), false);
         setChanged();
     }
@@ -586,9 +591,8 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
             return;
         }
         ItemStack returned = stack.copy();
-        if (!player.getInventory().add(returned)) {
-            player.drop(returned, false);
-        }
+        com.xunxian.seekingimmortals.item.InventoryDeliveryService.giveOrEnqueue(
+                player, returned, "alchemy_furnace_return");
     }
 
     private boolean canInstallFire(ServerLevel serverLevel, ServerPlayer player, ItemStack held, AlchemyTieredItem fireItem) {

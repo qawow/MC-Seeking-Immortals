@@ -107,9 +107,8 @@ public class SpiritHerbPlanterBlock extends Block {
         Item herb = rollHerb(serverPlayer.getRandom(), accelerated);
         int count = 1 + serverPlayer.getRandom().nextInt(accelerated ? 3 : 2);
         ItemStack stack = new ItemStack(herb, count);
-        if (!serverPlayer.getInventory().add(stack)) {
-            serverPlayer.drop(stack, false);
-        }
+        com.xunxian.seekingimmortals.item.InventoryDeliveryService.giveOrEnqueue(
+                serverPlayer, stack, "spirit_herb_planter");
         if (!serverPlayer.getAbilities().instabuild) {
             // Accelerated harvest still starts a short post-care window (cannot zero CD forever).
             long cd = accelerated ? (COOLDOWN_TICKS / 3L) : COOLDOWN_TICKS;
