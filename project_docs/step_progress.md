@@ -1,3 +1,25 @@
+## 551. 2026-07-20 0.2.105 专服 Screen 侧加载修复
+
+  Step   Status   Notes
+  ---   ---   ---
+  Client handlers Done   ClientPacketHandlers 承接 GUI open/refresh。
+  Reflective dispatch Done   ClientPacketDispatch 避免 network 常量池 Screen。
+  Sidedness test Done   networkPacketsDoNotEmbedClientScreenTypes。
+  Version Done   `mod_version=0.2.105`；protocol 26 不变。
+  Handoff Done   `project_docs/updates/20260720_0.2.105_mp_signoff.md`。
+
+## 550. 2026-07-20 0.2.104 专服/双客户端多人复签基建
+
+  Step   Status   Notes
+  ---   ---   ---
+  Authority tests Done   MultiplayerAuthorityRegressionTest（拍卖/工站/outbox/PvP/协议）。
+  live_smoke mp Done   multiplayerAutoProbe + MANUAL_MP_STEPS + mp sign。
+  Clone keys Done   mp_smoke_signed* 跨死持久。
+  Checklist Done   manual_multiplayer_signoff_checklist.md。
+  Version Done   基建于 0.2.104；专服启动修复并入 0.2.105。
+  Handoff Done   `project_docs/updates/20260720_0.2.104_mp_signoff.md`。
+  Human sign Pending   真人专服 + 双客户端按清单签字。
+
 ## 549. 2026-07-20 0.2.103 美术/GeckoLib 可落地深度
 
   Step   Status   Notes

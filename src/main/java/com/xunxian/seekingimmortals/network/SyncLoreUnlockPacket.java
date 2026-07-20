@@ -58,82 +58,8 @@ public record SyncLoreUnlockPacket(
 
     public static void handle(SyncLoreUnlockPacket packet, Supplier<NetworkEvent.Context> contextSupplier) {
         NetworkEvent.Context context = contextSupplier.get();
-        context.enqueueWork(() -> DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
-            com.xunxian.seekingimmortals.client.ClientLoreData.set(
-                    packet.bestiaryUnlocked(),
-                    packet.chronicleDiscovered(),
-                    packet.timelinePhases());
-            String open = packet.openScreen() == null ? "" : packet.openScreen().trim().toLowerCase(Locale.ROOT);
-            net.minecraft.client.Minecraft mc = net.minecraft.client.Minecraft.getInstance();
-            if (open.isBlank()) {
-                if (mc.screen instanceof com.xunxian.seekingimmortals.client.BestiaryScreen bestiary) {
-                    bestiary.refreshFromSync();
-                } else if (mc.screen instanceof com.xunxian.seekingimmortals.client.ChronicleScreen chronicle) {
-                    chronicle.refreshFromSync();
-                } else if (mc.screen instanceof com.xunxian.seekingimmortals.client.LoreCompendiumScreen lore) {
-                    lore.refreshFromSync();
-                }
-                return;
-            }
-
-            boolean mayReplace = mc.screen == null
-                    || mc.screen instanceof com.xunxian.seekingimmortals.client.BestiaryScreen
-                    || mc.screen instanceof com.xunxian.seekingimmortals.client.ChronicleScreen
-                    || mc.screen instanceof com.xunxian.seekingimmortals.client.LoreCompendiumScreen;
-            switch (open) {
-                case "bestiary" -> {
-                    if (mc.screen instanceof com.xunxian.seekingimmortals.client.BestiaryScreen bestiary) {
-                        bestiary.refreshFromSync();
-                    } else if (mayReplace) {
-                        mc.setScreen(new com.xunxian.seekingimmortals.client.BestiaryScreen());
-                    }
-                }
-                case "chronicle" -> {
-                    if (mc.screen instanceof com.xunxian.seekingimmortals.client.ChronicleScreen chronicle) {
-                        chronicle.refreshFromSync();
-                    } else if (mayReplace) {
-                        mc.setScreen(new com.xunxian.seekingimmortals.client.ChronicleScreen());
-                    }
-                }
-                case "compendium", "hub", "lore" -> {
-                    if (mc.screen instanceof com.xunxian.seekingimmortals.client.LoreCompendiumScreen lore
-                            && lore.isShowing(com.xunxian.seekingimmortals.client.LoreCompendiumScreen.Tab.HUB)) {
-                        lore.refreshFromSync();
-                    } else if (mayReplace) {
-                        mc.setScreen(new com.xunxian.seekingimmortals.client.LoreCompendiumScreen());
-                    }
-                }
-                case "glossary" -> {
-                    if (mc.screen instanceof com.xunxian.seekingimmortals.client.LoreCompendiumScreen lore
-                            && lore.isShowing(com.xunxian.seekingimmortals.client.LoreCompendiumScreen.Tab.GLOSSARY)) {
-                        lore.refreshFromSync();
-                    } else if (mayReplace) {
-                        mc.setScreen(new com.xunxian.seekingimmortals.client.LoreCompendiumScreen(
-                                com.xunxian.seekingimmortals.client.LoreCompendiumScreen.Tab.GLOSSARY));
-                    }
-                }
-                case "numeric" -> {
-                    if (mc.screen instanceof com.xunxian.seekingimmortals.client.LoreCompendiumScreen lore
-                            && lore.isShowing(com.xunxian.seekingimmortals.client.LoreCompendiumScreen.Tab.NUMERIC)) {
-                        lore.refreshFromSync();
-                    } else if (mayReplace) {
-                        mc.setScreen(new com.xunxian.seekingimmortals.client.LoreCompendiumScreen(
-                                com.xunxian.seekingimmortals.client.LoreCompendiumScreen.Tab.NUMERIC));
-                    }
-                }
-                case "visual" -> {
-                    if (mc.screen instanceof com.xunxian.seekingimmortals.client.LoreCompendiumScreen lore
-                            && lore.isShowing(com.xunxian.seekingimmortals.client.LoreCompendiumScreen.Tab.VISUAL)) {
-                        lore.refreshFromSync();
-                    } else if (mayReplace) {
-                        mc.setScreen(new com.xunxian.seekingimmortals.client.LoreCompendiumScreen(
-                                com.xunxian.seekingimmortals.client.LoreCompendiumScreen.Tab.VISUAL));
-                    }
-                }
-                default -> {
-                }
-            }
-        }));
+        context.enqueueWork(() -> DistExecutor.unsafeRunWhenOn(Dist.CLIENT,
+                () -> () -> ClientPacketDispatch.invoke("handleSyncLore", packet)));
         context.setPacketHandled(true);
     }
 

@@ -1,3 +1,7 @@
+> CURRENT TRUTH 2026-07-20: `0.2.105` 专服 Screen 侧加载修复 + 多人复签基建。GUI 开屏/同步处理迁入 `ClientPacketHandlers`，`network/*` 经 `ClientPacketDispatch` 反射分发，专服 CONSTRUCT 不再拉 `Screen`；`live_smoke mp` 与 `MultiplayerAuthorityRegressionTest` 落地。协议 26（字段未改）。见 `project_docs/updates/20260720_0.2.105_mp_signoff.md`。
+
+> CURRENT TRUTH 2026-07-20: `0.2.104` 专服/双客户端多人复签基建（被 0.2.105 承接并修复专服启动）。
+
 > CURRENT TRUTH 2026-07-20: `0.2.103` 美术/GeckoLib 可落地深度。仆从 attack/float_idle 动画与 archetype 缩放；灵舟 Geo 可见渲染（舟/云轿贴图）；技能图标库扩展至 1200+ 并改为资源发现；实体 archetype 贴图强化。协议 26。全量构建通过。见 `project_docs/updates/20260720_0.2.103_art_geckolib.md`。
 
 > CURRENT TRUTH 2026-07-20: `0.2.102` 丹药分条效果差异。命名丹药拆出 jade/yuan/dragon_tiger/spirit_gather/dustfall/yin_yang/spirit_seed/star_sea/sect/merit 等专用 effect；8 条 cultivation_aid_* 走 realm_cultivation_aid 分阶收益；双语 tooltip 补齐。协议 26。全量构建通过。见 `project_docs/updates/20260720_0.2.102_pill_fidelity.md`。

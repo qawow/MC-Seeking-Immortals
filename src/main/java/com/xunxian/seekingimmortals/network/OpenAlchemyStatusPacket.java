@@ -27,10 +27,8 @@ public record OpenAlchemyStatusPacket(int skillLevel, int skillExp, String messa
 
     public static void handle(OpenAlchemyStatusPacket packet, Supplier<NetworkEvent.Context> contextSupplier) {
         NetworkEvent.Context context = contextSupplier.get();
-        context.enqueueWork(() -> DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () ->
-                net.minecraft.client.Minecraft.getInstance().setScreen(
-                        new com.xunxian.seekingimmortals.client.AlchemyStatusScreen(
-                                packet.skillLevel(), packet.skillExp(), packet.message()))));
+        context.enqueueWork(() -> DistExecutor.unsafeRunWhenOn(Dist.CLIENT,
+                () -> () -> ClientPacketDispatch.invoke("handleOpenAlchemyStatus", packet)));
         context.setPacketHandled(true);
     }
 }

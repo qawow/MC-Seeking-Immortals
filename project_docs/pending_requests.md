@@ -1,4 +1,8 @@
-2026-07-20 0.2.103 pending update: code-side art/GeckoLib depth landed (servitor attack/float anims, visible spirit boat, broad skill-icon library, archetype texture refresh). Remaining non-code: studio-grade handcrafted GeckoLib models, full live smoke, dedicated-server/two-client multiplayer sign-off.
+2026-07-20 0.2.105 pending update: dedicated-server Screen sidedness fixed (ClientPacketHandlers + reflective dispatch); multiplayer authority regression + live_smoke mp probes/sign + manual checklist. Remaining non-code: human dedicated-server + two-client sign-off (run checklist), full live smoke §6.1–8, studio-grade GeckoLib models.
+
+2026-07-20 0.2.104 pending update: multiplayer authority regression + live_smoke mp probes/sign + manual checklist (superseded by 0.2.105 dedicated-server fix).
+
+2026-07-20 0.2.103 pending update: code-side art/GeckoLib depth landed (servitor attack/float anims, visible spirit boat, broad skill-icon library, archetype texture refresh). Remaining non-code: studio-grade handcrafted GeckoLib models, full live smoke, human multiplayer sign-off.
 
 2026-07-20 0.2.102 pending update: named generic cultivation pills now resolve to distinct effect families, and realm aid pills scale by target band. Remaining non-code only: final art/GeckoLib, full live smoke, dedicated-server/two-client multiplayer sign-off.
 

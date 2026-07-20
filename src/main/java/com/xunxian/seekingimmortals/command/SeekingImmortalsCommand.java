@@ -563,7 +563,15 @@ public final class SeekingImmortalsCommand {
                                 .executes(ctx -> liveSmokeSign(ctx.getSource(), "manual_client_pass"))
                                 .then(Commands.argument("note", StringArgumentType.greedyString())
                                         .executes(ctx -> liveSmokeSign(ctx.getSource(),
-                                                StringArgumentType.getString(ctx, "note"))))))
+                                                StringArgumentType.getString(ctx, "note")))))
+                        .then(Commands.literal("mp")
+                                .executes(ctx -> liveSmokeMp(ctx.getSource()))
+                                .then(Commands.literal("run").executes(ctx -> liveSmokeMp(ctx.getSource())))
+                                .then(Commands.literal("sign")
+                                        .executes(ctx -> liveSmokeMpSign(ctx.getSource(), "manual_mp_pass"))
+                                        .then(Commands.argument("note", StringArgumentType.greedyString())
+                                                .executes(ctx -> liveSmokeMpSign(ctx.getSource(),
+                                                        StringArgumentType.getString(ctx, "note")))))))
                 .then(Commands.literal("breakthrough").executes(ctx -> breakthrough(ctx.getSource())))
                 .then(Commands.literal("lore")
                         .executes(ctx -> loreHub(ctx.getSource()))
@@ -592,6 +600,17 @@ public final class SeekingImmortalsCommand {
     private static int liveSmokeSign(CommandSourceStack source, String note) throws CommandSyntaxException {
         ServerPlayer player = source.getPlayerOrException();
         return LiveSmokeChecklistService.sign(player, note) ? 1 : 0;
+    }
+
+    private static int liveSmokeMp(CommandSourceStack source) throws CommandSyntaxException {
+        ServerPlayer player = source.getPlayerOrException();
+        LiveSmokeChecklistService.print(player, true);
+        return 1;
+    }
+
+    private static int liveSmokeMpSign(CommandSourceStack source, String note) throws CommandSyntaxException {
+        ServerPlayer player = source.getPlayerOrException();
+        return LiveSmokeChecklistService.signMultiplayer(player, note) ? 1 : 0;
     }
 
     private static int showSpiritualPower(CommandSourceStack source) throws CommandSyntaxException {

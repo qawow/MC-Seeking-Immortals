@@ -47,13 +47,8 @@ public record SyncQuestTrackerPacket(List<String> lines) {
 
     public static void handle(SyncQuestTrackerPacket packet, Supplier<NetworkEvent.Context> contextSupplier) {
         NetworkEvent.Context context = contextSupplier.get();
-        context.enqueueWork(() -> DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
-            com.xunxian.seekingimmortals.client.ClientQuestTrackerData.set(packet);
-            net.minecraft.client.Minecraft mc = net.minecraft.client.Minecraft.getInstance();
-            if (mc.screen instanceof com.xunxian.seekingimmortals.client.QuestTrackerScreen tracker) {
-                tracker.refreshWidgets();
-            }
-        }));
+        context.enqueueWork(() -> DistExecutor.unsafeRunWhenOn(Dist.CLIENT,
+                () -> () -> ClientPacketDispatch.invoke("handleSyncQuestTracker", packet)));
         context.setPacketHandled(true);
     }
 }

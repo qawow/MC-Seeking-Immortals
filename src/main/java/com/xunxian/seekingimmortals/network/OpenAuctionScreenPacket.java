@@ -27,14 +27,8 @@ public record OpenAuctionScreenPacket() {
 
     public static void handle(OpenAuctionScreenPacket packet, Supplier<NetworkEvent.Context> contextSupplier) {
         NetworkEvent.Context context = contextSupplier.get();
-        // Wave490: prefer productized hall; legacy AuctionScreen only if no container open.
-        context.enqueueWork(() -> DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
-            net.minecraft.client.Minecraft mc = net.minecraft.client.Minecraft.getInstance();
-            if (!(mc.screen instanceof com.xunxian.seekingimmortals.client.AuctionHallScreen)
-                    && !(mc.screen instanceof com.xunxian.seekingimmortals.client.AuctionScreen)) {
-                mc.setScreen(new com.xunxian.seekingimmortals.client.AuctionScreen());
-            }
-        }));
+        context.enqueueWork(() -> DistExecutor.unsafeRunWhenOn(Dist.CLIENT,
+                () -> () -> ClientPacketDispatch.invoke("handleOpenAuction", packet)));
         context.setPacketHandled(true);
     }
 }

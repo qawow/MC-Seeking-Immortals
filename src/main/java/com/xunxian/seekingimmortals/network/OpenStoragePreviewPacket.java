@@ -40,9 +40,8 @@ public record OpenStoragePreviewPacket(List<String> lines) {
 
     public static void handle(OpenStoragePreviewPacket packet, Supplier<NetworkEvent.Context> contextSupplier) {
         NetworkEvent.Context context = contextSupplier.get();
-        context.enqueueWork(() -> DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () ->
-                net.minecraft.client.Minecraft.getInstance().setScreen(
-                        new com.xunxian.seekingimmortals.client.StorageBraceletScreen(packet.lines()))));
+        context.enqueueWork(() -> DistExecutor.unsafeRunWhenOn(Dist.CLIENT,
+                () -> () -> ClientPacketDispatch.invoke("handleOpenStoragePreview", packet)));
         context.setPacketHandled(true);
     }
 }

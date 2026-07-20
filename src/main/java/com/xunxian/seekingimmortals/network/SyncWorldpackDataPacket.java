@@ -60,17 +60,8 @@ public record SyncWorldpackDataPacket(String currentRegionId, String currentRegi
 
     public static void handle(SyncWorldpackDataPacket packet, Supplier<NetworkEvent.Context> contextSupplier) {
         NetworkEvent.Context context = contextSupplier.get();
-        context.enqueueWork(() -> DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
-            com.xunxian.seekingimmortals.client.ClientWorldpackData.set(packet);
-            if (packet.openScreen()) {
-                net.minecraft.client.Minecraft minecraft = net.minecraft.client.Minecraft.getInstance();
-                if (minecraft.screen instanceof com.xunxian.seekingimmortals.client.WorldpackScreen screen) {
-                    screen.refreshFromSync();
-                } else {
-                    minecraft.setScreen(new com.xunxian.seekingimmortals.client.WorldpackScreen());
-                }
-            }
-        }));
+        context.enqueueWork(() -> DistExecutor.unsafeRunWhenOn(Dist.CLIENT,
+                () -> () -> ClientPacketDispatch.invoke("handleSyncWorldpack", packet)));
         context.setPacketHandled(true);
     }
 

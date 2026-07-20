@@ -85,9 +85,8 @@ public record OpenDialogueScreenPacket(
 
     public static void handle(OpenDialogueScreenPacket packet, Supplier<NetworkEvent.Context> contextSupplier) {
         NetworkEvent.Context context = contextSupplier.get();
-        context.enqueueWork(() -> DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () ->
-                net.minecraft.client.Minecraft.getInstance().setScreen(
-                        new com.xunxian.seekingimmortals.client.DialogueScreen(packet))));
+        context.enqueueWork(() -> DistExecutor.unsafeRunWhenOn(Dist.CLIENT,
+                () -> () -> ClientPacketDispatch.invoke("handleOpenDialogue", packet)));
         context.setPacketHandled(true);
     }
 

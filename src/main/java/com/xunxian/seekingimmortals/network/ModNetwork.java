@@ -18,6 +18,11 @@ public final class ModNetwork {
 
     private ModNetwork() {}
 
+    /** Exposed for live-smoke / multiplayer protocol match probes. */
+    public static String protocolVersion() {
+        return PROTOCOL_VERSION;
+    }
+
     public static void register() {
         int id = 0;
         CHANNEL.messageBuilder(SetMeditatingPacket.class, id++, NetworkDirection.PLAY_TO_SERVER)

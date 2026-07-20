@@ -38,9 +38,8 @@ public record OpenRefinePlanPacket(List<String> lines) {
 
     public static void handle(OpenRefinePlanPacket packet, Supplier<NetworkEvent.Context> contextSupplier) {
         NetworkEvent.Context context = contextSupplier.get();
-        context.enqueueWork(() -> DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () ->
-                net.minecraft.client.Minecraft.getInstance().setScreen(
-                        new com.xunxian.seekingimmortals.client.RefinementPlanScreen(packet.lines()))));
+        context.enqueueWork(() -> DistExecutor.unsafeRunWhenOn(Dist.CLIENT,
+                () -> () -> ClientPacketDispatch.invoke("handleOpenRefinePlan", packet)));
         context.setPacketHandled(true);
     }
 }

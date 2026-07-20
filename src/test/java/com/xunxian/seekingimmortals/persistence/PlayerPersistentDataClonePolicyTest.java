@@ -59,7 +59,11 @@ class PlayerPersistentDataClonePolicyTest {
             "seeking_immortals_live_smoke_signed",
             "seeking_immortals_live_smoke_signed_by",
             "seeking_immortals_live_smoke_signed_note",
-            "seeking_immortals_live_smoke_signed_time");
+            "seeking_immortals_live_smoke_signed_time",
+            "seeking_immortals_mp_smoke_signed",
+            "seeking_immortals_mp_smoke_signed_by",
+            "seeking_immortals_mp_smoke_signed_note",
+            "seeking_immortals_mp_smoke_signed_time");
 
     private static final List<String> EXPECTED_DURABLE_PREFIXES = List.of(
             "seeking_immortals_boss_spawned_",
@@ -67,7 +71,7 @@ class PlayerPersistentDataClonePolicyTest {
 
     @Test
     void exposesExactDurableKeyAndPrefixPolicy() {
-        assertEquals(40, PlayerPersistentDataClonePolicy.durableKeys().size());
+        assertEquals(44, PlayerPersistentDataClonePolicy.durableKeys().size());
         assertEquals(EXPECTED_DURABLE_KEYS, PlayerPersistentDataClonePolicy.durableKeys());
         assertEquals(2, PlayerPersistentDataClonePolicy.durablePrefixes().size());
         assertEquals(EXPECTED_DURABLE_PREFIXES, PlayerPersistentDataClonePolicy.durablePrefixes());

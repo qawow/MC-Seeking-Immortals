@@ -42,17 +42,8 @@ public record SyncShopDataPacket(String shopId, String titleKey, List<EntryData>
 
     public static void handle(SyncShopDataPacket packet, Supplier<NetworkEvent.Context> contextSupplier) {
         NetworkEvent.Context context = contextSupplier.get();
-        context.enqueueWork(() -> DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
-            com.xunxian.seekingimmortals.client.ClientShopData.set(packet);
-            // Wave490: market opens via NetworkHooks MarketHallMenu; keep legacy ShopScreen only as soft fallback.
-            if (packet.openScreen()) {
-                net.minecraft.client.Minecraft mc = net.minecraft.client.Minecraft.getInstance();
-                if (!(mc.screen instanceof com.xunxian.seekingimmortals.client.MarketHallScreen)
-                        && !(mc.screen instanceof com.xunxian.seekingimmortals.client.ShopScreen)) {
-                    mc.setScreen(new com.xunxian.seekingimmortals.client.ShopScreen());
-                }
-            }
-        }));
+        context.enqueueWork(() -> DistExecutor.unsafeRunWhenOn(Dist.CLIENT,
+                () -> () -> ClientPacketDispatch.invoke("handleSyncShop", packet)));
         context.setPacketHandled(true);
     }
 

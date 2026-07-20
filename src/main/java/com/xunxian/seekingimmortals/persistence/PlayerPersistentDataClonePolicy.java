@@ -63,7 +63,11 @@ public final class PlayerPersistentDataClonePolicy {
             "seeking_immortals_live_smoke_signed",
             "seeking_immortals_live_smoke_signed_by",
             "seeking_immortals_live_smoke_signed_note",
-            "seeking_immortals_live_smoke_signed_time");
+            "seeking_immortals_live_smoke_signed_time",
+            "seeking_immortals_mp_smoke_signed",
+            "seeking_immortals_mp_smoke_signed_by",
+            "seeking_immortals_mp_smoke_signed_note",
+            "seeking_immortals_mp_smoke_signed_time");
 
     private static final List<String> DURABLE_PREFIXES = List.of(
             "seeking_immortals_boss_spawned_",
