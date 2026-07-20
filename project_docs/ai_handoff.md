@@ -1,5 +1,7 @@
 > MASTER PLAN 2026-07-20: 全玩法实现与验证总计划见 `project_docs/master_plan.md`（固定工作流、架构速查、遗留风险、P0-P2 路线图、三层测试与实机烟测清单、完成定义）。后续 AI 每批次开工前先读该文档。
 
+> CURRENT TRUTH 2026-07-20: `0.2.83` 云笈墨卷 B6 收官。ui_style_guide.md 交付；6 张退役纹理删除；七批前端重构（0.2.77-0.2.83）完成。全量 750 项通过。`mod_version=0.2.83`，协议 25。见 `project_docs/ui_style_guide.md` 与 `project_docs/updates/20260720_0.2.83_inkscroll_b6.md`。
+
 > CURRENT TRUTH 2026-07-20: `0.2.82` 云笈墨卷 B5 文案键化。Stats 屏 109 处 + HUD 20 处中文字面量全部双语键化；新 hud.*/status.affliction.* 命名空间；LangParityTest 键齐平与 CJK 零字面量门。全量 750 项通过。`mod_version=0.2.82`，协议 25。见 `project_docs/updates/20260720_0.2.82_inkscroll_b5.md`。
 
 > CURRENT TRUTH 2026-07-20: `0.2.81` 云笈墨卷 B4 HUD。HUD 数字/格式化收拢 NumberFmt；无框契约核验；场景取色自动生效。全量 748 项通过。`mod_version=0.2.81`，协议 25。见 `project_docs/updates/20260720_0.2.81_inkscroll_b4.md`。

@@ -1,3 +1,5 @@
+2026-07-20 0.2.83 pending update: InkScroll frontend refactor complete (B1-B6): new ink-on-paper visual language, ui layering, bilingual copy keys, style guide, legacy texture cleanup. Protocol 25. Remaining: runClient visual smoke across 23 screens + 4 HUDs when a graphical environment is available.
+
 2026-07-20 0.2.82 pending update: InkScroll B5 keyed all hardcoded CJK in stats screen + HUD overlays into bilingual lang keys with parity gate test. Protocol 25. Remaining: B6 ui_style_guide.md + legacy texture/facade cleanup.
 
 2026-07-20 0.2.81 pending update: InkScroll B4 HUD overlays unified onto NumberFmt; no-frame contract verified. Protocol 25. Remaining: B5 copy keys, B6 style guide + cleanup.

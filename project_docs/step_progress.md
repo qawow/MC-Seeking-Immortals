@@ -1,3 +1,14 @@
+## 533. 2026-07-20 0.2.83 云笈墨卷 B6 收官
+
+  Step   Status   Notes
+  ---   ---   ---
+  Style guide Done   project_docs/ui_style_guide.md 全章。
+  Cleanup Done   6 张退役纹理删除（零引用确认）。
+  Coverage Done   UI 测试基线全绿，断言只增未减。
+  Verify  Done   普通构建成功，全量 750 项通过。
+  Version Done   `mod_version=0.2.83`；protocol 25。
+  Handoff Done   `project_docs/updates/20260720_0.2.83_inkscroll_b6.md`。
+
 ## 532. 2026-07-20 0.2.82 云笈墨卷 B5 文案键化
 
   Step   Status   Notes
