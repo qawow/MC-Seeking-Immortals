@@ -46,6 +46,7 @@ public final class ModItems {
     public static final RegistryObject<Item> IMMORTAL_JADE = ITEMS.register("immortal_jade", () -> new ImmortalJadeItem(new Item.Properties()));
     public static final RegistryObject<Item> SPIRIT_STONE_SHARD = ITEMS.register("spirit_stone_shard", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> YIN_STONE = ITEMS.register("yin_stone", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> YIN_COFFIN_NAIL = ITEMS.register("yin_coffin_nail", () -> new YinCoffinNailItem(new Item.Properties().stacksTo(16)));
     public static final RegistryObject<Item> ALLIANCE_MERIT_TOKEN = ITEMS.register("alliance_merit_token", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> WAR_CONTRIBUTION_TOKEN = ITEMS.register("war_contribution_token", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> CAPTURE_JAR = ITEMS.register("capture_jar", () -> new com.xunxian.seekingimmortals.item.CaptureJarItem(new Item.Properties()));

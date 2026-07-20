@@ -10,6 +10,7 @@ import com.xunxian.seekingimmortals.cultivation.BreakthroughService;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.CultivationProvider;
 import com.xunxian.seekingimmortals.cultivation.FlyingAuthority;
+import com.xunxian.seekingimmortals.cultivation.GhostContractService;
 import com.xunxian.seekingimmortals.cultivation.MeditationFormula;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.cultivation.Realm;
@@ -309,6 +310,15 @@ public final class ModEvents {
             }
             refreshCultivationAttributeState(event.player, cultivation);
             handleImmortalAfflictions(event.player, cultivation);
+
+            // Wave480: ghost contract stability decay check (once per game day = 24000 ticks)
+            if (event.player instanceof ServerPlayer serverPlayer) {
+                long tickCount = event.player.level().getGameTime();
+                if (tickCount % 24000 == 0 && tickCount > 0) {
+                    GhostContractService.tickStabilityDecay(serverPlayer);
+                }
+            }
+
             if (event.player instanceof ServerPlayer serverPlayer) {
                 SyncCultivationDataPacket.send(serverPlayer, cultivation);
             }
@@ -487,6 +497,9 @@ public final class ModEvents {
                         : net.minecraftforge.registries.ForgeRegistries.ENTITY_TYPES.getKey(mob.getType()).getPath();
                 com.xunxian.seekingimmortals.sect.SectMissionGenerator.onHostileKill(killer, typeId);
             }
+            // Wave480: mark killed entity for ghost contract (10s window)
+            mob.getPersistentData().putLong("SeekingImmortalsGhostContractKillTime", killer.level().getGameTime());
+            mob.getPersistentData().putUUID("SeekingImmortalsGhostContractKiller", killer.getUUID());
         }
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
         player.getPersistentData().remove(FlyingSwordBeginnerSpell.ACTIVE_KEY);

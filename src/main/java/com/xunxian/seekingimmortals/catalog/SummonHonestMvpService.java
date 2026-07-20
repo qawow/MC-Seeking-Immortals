@@ -2,6 +2,7 @@ package com.xunxian.seekingimmortals.catalog;
 
 import com.xunxian.seekingimmortals.cultivation.BeastContractService;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
+import com.xunxian.seekingimmortals.cultivation.GhostContractService;
 import com.xunxian.seekingimmortals.beast.PuppetGrowthService;
 import com.xunxian.seekingimmortals.entity.SummonedServitorEntity;
 import com.xunxian.seekingimmortals.registry.ModEntities;
@@ -305,8 +306,6 @@ public final class SummonHonestMvpService {
                 .min(Comparator.comparingDouble(servitor -> servitor.distanceToSqr(player)))
                 .orElse(null);
         if (ghost == null) {
-            player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.catalog_consumable.coffin_nail_no_ghost"), true);
             return false;
         }
         ghost.heal(8.0F);
@@ -314,6 +313,13 @@ public final class SummonHonestMvpService {
         ghost.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 20 * 60 * 5, 0));
         ghost.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 20 * 60 * 5, 0));
         ghost.setStance(SummonedServitorEntity.Stance.GUARD);
+
+        // Wave480: update contract stability and loyalty when empowering
+        String ghostId = GhostContractService.extractGhostIdFromSummonId(ghost.getSummonId());
+        if (GhostContractService.hasContract(player, ghostId)) {
+            GhostContractService.maintainContract(player, ghostId);
+        }
+
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.catalog_consumable.coffin_nail_success",
                 ghost.getDisplayName()), true);
