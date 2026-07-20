@@ -1,5 +1,6 @@
 package com.xunxian.seekingimmortals.catalog;
 
+import com.xunxian.seekingimmortals.alchemy.AlchemyFormulaKnowledge;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.cultivation.ProgressionGateApi;
@@ -36,10 +37,12 @@ public final class ManualCatalogService {
     public static final String STUDIED_TAG = "seeking_immortals_studied_manuals";
     public static final String LEARNED_METHODS_TAG = "seeking_immortals_learned_methods";
     public static final String METHOD_LAYERS_TAG = "seeking_immortals_method_layers";
+    public static final String SOFT_FORGE_GRADES_TAG = "seeking_immortals_soft_forge_grades";
     private static final List<String> PROGRESSION_TAGS = List.of(
             STUDIED_TAG,
             LEARNED_METHODS_TAG,
-            METHOD_LAYERS_TAG);
+            METHOD_LAYERS_TAG,
+            SOFT_FORGE_GRADES_TAG);
 
     private ManualCatalogService() {}
 
@@ -163,6 +166,24 @@ public final class ManualCatalogService {
         }
         markStudied(player, id);
         int granted = grantMethodsFromTechniqueSource(player, id);
+        // Explicit soft grants for bulk manuals that never match method keywords.
+        for (String methodId : softMethodGrants(id)) {
+            TextMaterialCatalogService.MethodEntry method = TextMaterialCatalogService.builtin()
+                    .findMethod(methodId).orElse(null);
+            if (method != null && grantKnownMethodIfEligible(player, method)) {
+                granted++;
+            }
+        }
+        // Alchemy recipe carriers: recipe_<id> / alchemy_manual_* study a formula if known.
+        String formulaId = softAlchemyRecipeId(id);
+        if (!formulaId.isBlank()) {
+            AlchemyFormulaKnowledge.study(player, formulaId);
+        }
+        // Soft refinement manuals raise forge grade via dedicated NBT map.
+        int softGrade = softForgeGrade(id);
+        if (softGrade > 0) {
+            recordSoftForgeGrade(player, id, softGrade);
+        }
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.manual.studied",
                 Component.translatable("item.seeking_immortals." + id),
@@ -170,6 +191,10 @@ public final class ManualCatalogService {
         if (granted > 0) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.manual.methods_granted", granted), false);
+        }
+        if (softGrade > 0) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.manual.forge_grade", softGrade), false);
         }
         return true;
     }
@@ -327,6 +352,10 @@ public final class ManualCatalogService {
             if (studied.getBoolean(manual.id().toLowerCase(Locale.ROOT))) {
                 max = Math.max(max, manual.unlocksForgeGrade());
             }
+        }
+        CompoundTag softGrades = player.getPersistentData().getCompound(SOFT_FORGE_GRADES_TAG);
+        for (String key : softGrades.getAllKeys()) {
+            max = Math.max(max, softGrades.getInt(key));
         }
         return Math.max(1, max);
     }
@@ -1028,6 +1057,63 @@ public final class ManualCatalogService {
                 .map(TextMaterialCatalogService.MethodEntry::display)
                 .filter(display -> display != null && !display.isBlank())
                 .orElse(methodId == null ? "" : methodId);
+    }
+
+    private static List<String> softMethodGrants(String manualId) {
+        String id = manualId == null ? "" : manualId.trim().toLowerCase(Locale.ROOT);
+        return switch (id) {
+            case "alchemy_manual_low", "huangfeng_alchemy_scripture" -> List.of("huangfeng_alchemy_scripture");
+            case "refinement_manual_high", "refinement_manual_low", "refinement_manual_mid",
+                    "refinement_manual_ancient", "silver_giant_sword_blueprint" -> List.of("artifact_refining_basic");
+            case "manual_ancient_puppet_method", "ancient_puppet_method" -> List.of("qianzhu_puppet_art");
+            case "beast_taming_manual" -> List.of("beast_taming_basic");
+            case "demonic_manual_low" -> List.of("demonic_blood_art_generic");
+            case "fashi_art_fragment", "fashi_array_manual", "formation_scroll_mid" -> List.of("sect_specialty_formation");
+            case "illusion_scroll" -> List.of("yanyue_illusion_art");
+            case "shape_shift_scroll" -> List.of("beast_transformation_art");
+            case "talisman_recipe", "talisman_recipe_mid", "talisman_recipe_high_bundle" -> List.of("tianfu_scripture");
+            case "artifact_identify_scroll" -> List.of("treasure_appraisal_art");
+            case "void_palace_intel_scroll" -> List.of("kunwu_seal_art");
+            case "ghost_cultivation_manual" -> List.of("ghost_nether_art");
+            default -> List.of();
+        };
+    }
+
+    private static String softAlchemyRecipeId(String manualId) {
+        String id = manualId == null ? "" : manualId.trim().toLowerCase(Locale.ROOT);
+        if (id.startsWith("recipe_")) {
+            // recipe_foundation / recipe_bigu → foundation / bigu when present in alchemy catalog.
+            return id.substring("recipe_".length());
+        }
+        if (id.startsWith("recipe")) {
+            return id;
+        }
+        return switch (id) {
+            case "alchemy_manual_low" -> "bigu";
+            default -> "";
+        };
+    }
+
+    private static int softForgeGrade(String manualId) {
+        String id = manualId == null ? "" : manualId.trim().toLowerCase(Locale.ROOT);
+        return switch (id) {
+            case "refinement_manual_low" -> 1;
+            case "refinement_manual_mid" -> 3;
+            case "refinement_manual_high" -> 4;
+            case "refinement_manual_ancient" -> 5;
+            case "silver_giant_sword_blueprint" -> 2;
+            default -> 0;
+        };
+    }
+
+    private static void recordSoftForgeGrade(ServerPlayer player, String manualId, int grade) {
+        if (player == null || manualId == null || manualId.isBlank() || grade <= 0) {
+            return;
+        }
+        CompoundTag tag = player.getPersistentData().getCompound(SOFT_FORGE_GRADES_TAG).copy();
+        String key = manualId.trim().toLowerCase(Locale.ROOT);
+        tag.putInt(key, Math.max(tag.getInt(key), grade));
+        player.getPersistentData().put(SOFT_FORGE_GRADES_TAG, tag);
     }
 
     private static String methodFromSourceKeywords(String blob) {

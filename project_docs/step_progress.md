@@ -1,3 +1,15 @@
+## 557. 2026-07-20 0.2.111 软秘籍显式授予
+
+  Step   Status   Notes
+  ---   ---   ---
+  Soft method map Done   高价值 bulk 秘籍→功法。
+  Soft forge grade Done   refinement_manual_* 写入软品阶。
+  Soft alchemy formula Done   recipe_* → AlchemyFormulaKnowledge。
+  manuals_catalog Done   高价值空 unlocks 补方法。
+  Tests Done   SoftManualGrantTest。
+  Version Done   `mod_version=0.2.111`；protocol 26。
+  Handoff Done   `project_docs/updates/20260720_0.2.111_soft_manual_grants.md`。
+
 ## 556. 2026-07-20 0.2.110 傀儡/化形池与渡口费
 
   Step   Status   Notes

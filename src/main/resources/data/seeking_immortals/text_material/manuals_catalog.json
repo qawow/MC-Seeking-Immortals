@@ -20,7 +20,10 @@
           "realm_min": "QI_REFINING",
           "note": "秘籍残页需神识研读，多属宗门秘传。"
         }
-      }
+      },
+      "unlocks": [
+        "artifact_refining_basic"
+      ]
     },
     {
       "id": "refinement_manual_mid",
@@ -37,7 +40,10 @@
           "realm_min": "QI_REFINING",
           "note": "秘籍残页需神识研读，多属宗门秘传。"
         }
-      }
+      },
+      "unlocks": [
+        "artifact_refining_basic"
+      ]
     },
     {
       "id": "refinement_manual_ancient",
@@ -58,7 +64,10 @@
           "realm_min": "QI_REFINING",
           "note": "秘籍残页需神识研读，多属宗门秘传。"
         }
-      }
+      },
+      "unlocks": [
+        "artifact_refining_basic"
+      ]
     },
     {
       "id": "recipe_refine_flying_sword",
@@ -146,7 +155,10 @@
           "realm_min": "QI_REFINING",
           "note": "秘籍残页需神识研读，多属宗门秘传。"
         }
-      }
+      },
+      "unlocks": [
+        "ghost_nether_art"
+      ]
     },
     {
       "id": "fashi_array_manual",
@@ -165,7 +177,10 @@
           "realm_min": "QI_REFINING",
           "note": "秘籍残页需神识研读，多属宗门秘传。"
         }
-      }
+      },
+      "unlocks": [
+        "sect_specialty_formation"
+      ]
     },
     {
       "id": "array_blueprint_scroll",
@@ -200,7 +215,10 @@
           "realm_min": "QI_REFINING",
           "note": "秘籍残页需神识研读，多属宗门秘传。"
         }
-      }
+      },
+      "unlocks": [
+        "huangfeng_alchemy_scripture"
+      ]
     },
     {
       "id": "recipe_foundation",
@@ -216,7 +234,10 @@
           "realm_min": "QI_REFINING",
           "note": "秘籍残页需神识研读，多属宗门秘传。"
         }
-      }
+      },
+      "unlocks": [
+        "huangfeng_alchemy_scripture"
+      ]
     },
     {
       "id": "recipe_bigu",
@@ -232,7 +253,10 @@
           "realm_min": "QI_REFINING",
           "note": "秘籍残页需神识研读，多属宗门秘传。"
         }
-      }
+      },
+      "unlocks": [
+        "huangfeng_alchemy_scripture"
+      ]
     },
     {
       "id": "recipe_calm_spirit",
@@ -248,7 +272,10 @@
           "realm_min": "QI_REFINING",
           "note": "秘籍残页需神识研读，多属宗门秘传。"
         }
-      }
+      },
+      "unlocks": [
+        "huangfeng_alchemy_scripture"
+      ]
     },
     {
       "id": "recipe_condensation",
@@ -356,7 +383,10 @@
       "setting": {
         "lore": "大衍真解",
         "type": "puppet"
-      }
+      },
+      "unlocks": [
+        "dayan_true_solution"
+      ]
     },
     {
       "id": "manual_ancient_puppet_art",

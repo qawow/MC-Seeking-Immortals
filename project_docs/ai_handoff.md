@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-20: `0.2.111` 软秘籍/炼器册显式授予。bulk 秘籍 study 映射功法；软炼器册升 forge grade；recipe_* 研读丹方；manuals_catalog 空 unlocks 补齐高价值行。协议 26。见 `project_docs/updates/20260720_0.2.111_soft_manual_grants.md`。
+
 > CURRENT TRUTH 2026-07-20: `0.2.110` 傀儡核心炉/化形池专属校验；冥河渡口费 coin/token OR 门；生活功法 layers_max 对齐矩阵。协议 26。见 `project_docs/updates/20260720_0.2.110_puppet_beast_ferry.md`。
 
 > CURRENT TRUTH 2026-07-20: `0.2.109` 结构修复台/蓝图台可右键。`StructureToolService` 对接 inspect/repair/form 与建造序列展示；meta 工具不再是纯 structure token。协议 26。见 `project_docs/updates/20260720_0.2.109_structure_tools.md`。

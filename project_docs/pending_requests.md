@@ -1,3 +1,5 @@
+2026-07-20 0.2.111 pending update: soft bulk manuals grant methods/forge grades/alchemy formulas; manuals_catalog high-value unlocks filled. Remaining non-code: human multiplayer sign-off, full live smoke, studio GeckoLib. Optional: selective currency gates, hub-to-core wiring, changchun matrix expansion.
+
 2026-07-20 0.2.110 pending update: puppet_core_forge / spirit_beast_evolution_pool specialized validators; nether ferry coin/token OR requires; life method layers_max align. Remaining non-code: human multiplayer sign-off, full live smoke, studio GeckoLib. Optional: dead bulk manual grants, selective currency gates, hub-to-core wiring.
 
 2026-07-20 0.2.109 pending update: structure_repair_bench / structure_blueprint_table right-click ops (inspect/repair/form/sequence). Remaining non-code: human multiplayer sign-off, full live smoke, studio GeckoLib. Optional: puppet/beast specialized geometry, hub-to-core wiring, more placeable structure controllers.
