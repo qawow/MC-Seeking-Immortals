@@ -1,11 +1,19 @@
 package com.xunxian.seekingimmortals.worldpack;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import org.junit.jupiter.api.Test;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
@@ -75,7 +83,7 @@ class SecretRealmM09ServiceTest {
 
     @Test
     void bossLootTablesParseAndUniqueRedline() {
-        assertTrue(BossLootService.size() >= 12);
+        assertTrue(BossLootService.size() >= 27);
         assertTrue(BossLootService.find("blood_jiao_guardian").isPresent());
         assertTrue(BossLootService.find("void_palace_lord").isPresent());
 
@@ -90,6 +98,58 @@ class SecretRealmM09ServiceTest {
         boolean anyUnique = first.stream().anyMatch(drop -> drop.unique() || drop.firstClearOnly()
                 || drop.itemId().toLowerCase().contains("void_key"));
         assertTrue(anyUnique || first.size() >= repeat.size());
+    }
+
+    @Test
+    void everyAuthorRealmHasRunnableNamedBossAndRewardTable() {
+        assertEquals(19, SecretRealmCatalogService.size());
+        for (SecretRealmCatalogService.RealmDef realm : SecretRealmCatalogService.snapshot().byId().values()) {
+            assertFalse(realm.bosses().isEmpty(), "realm missing named boss: " + realm.id());
+            for (String bossId : realm.bosses()) {
+                BossLootService.TableDef table = BossLootService.find(bossId)
+                        .orElseThrow(() -> new AssertionError(
+                                "realm boss missing runtime reward table: " + realm.id() + " -> " + bossId));
+                assertEquals(realm.id(), table.secretRealmId(),
+                        "boss reward table points at wrong realm: " + bossId);
+                assertFalse(table.drops().isEmpty(), "realm boss has empty reward table: " + bossId);
+                assertTrue(BossEncounterService.isKnownBossId(bossId),
+                        "realm boss is not spawnable by the named encounter path: " + bossId);
+            }
+        }
+    }
+
+    @Test
+    void authorSourceAndRuntimeBossCoverageStayInSync() throws Exception {
+        JsonObject sourceRealms = JsonParser.parseString(Files.readString(Path.of(
+                "src", "main", "resources", "data", "seeking_immortals",
+                "text_material", "secret_realms.json"))).getAsJsonObject();
+        JsonObject sourceLoot = JsonParser.parseString(Files.readString(Path.of(
+                "src", "main", "resources", "data", "seeking_immortals",
+                "text_material", "boss_loot_tables.json"))).getAsJsonObject();
+
+        Map<String, Set<String>> sourceBosses = new HashMap<>();
+        for (JsonElement element : sourceRealms.getAsJsonArray("realms")) {
+            JsonObject realm = element.getAsJsonObject();
+            Set<String> bosses = new HashSet<>();
+            JsonArray array = realm.has("bosses") ? realm.getAsJsonArray("bosses") : new JsonArray();
+            array.forEach(value -> bosses.add(value.getAsString()));
+            sourceBosses.put(realm.get("id").getAsString(), bosses);
+        }
+        Set<String> sourceLootBosses = new HashSet<>();
+        for (JsonElement element : sourceLoot.getAsJsonArray("tables")) {
+            JsonObject table = element.getAsJsonObject();
+            JsonElement bossId = table.has("boss_id") ? table.get("boss_id") : table.get("id");
+            if (bossId != null && bossId.isJsonPrimitive()) {
+                sourceLootBosses.add(bossId.getAsString());
+            }
+        }
+
+        for (SecretRealmCatalogService.RealmDef realm : SecretRealmCatalogService.snapshot().byId().values()) {
+            assertEquals(new HashSet<>(realm.bosses()), sourceBosses.get(realm.id()),
+                    "text-material/runtime boss drift for " + realm.id());
+            assertTrue(sourceLootBosses.containsAll(realm.bosses()),
+                    "text-material loot tables missing a boss for " + realm.id());
+        }
     }
 
     @Test

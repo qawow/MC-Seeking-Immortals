@@ -446,6 +446,136 @@
       }
     },
     {
+      "boss_id": "ice_fire_demon",
+      "secret_realm": "void_palace",
+      "drops": [
+        {"item": "ice_fire_crystal", "chance": 0.38, "count": [1, 2]},
+        {"item": "space_crystal_fragment", "chance": 0.32, "count": [1, 3]},
+        {"item": "void_crystal", "chance": 0.12, "count": 1},
+        {"item": "ice_fire_pill", "chance": 0.08, "count": 1}
+      ]
+    },
+    {
+      "boss_id": "sealed_demon_lord",
+      "secret_realm": "kunwu_mountain",
+      "drops": [
+        {"item": "demon_core_high", "chance": 0.32, "count": [1, 2]},
+        {"item": "demon_suppress_talisman_blank", "chance": 0.22, "count": [1, 2]},
+        {"item": "demonic_blood_coral", "chance": 0.18, "count": [1, 2]},
+        {"item": "gold_demon_chain", "chance": 0.04, "count": 1, "unique": true, "first_clear_only": true}
+      ]
+    },
+    {
+      "boss_id": "diyuan_guardian",
+      "secret_realm": "diyuan",
+      "drops": [
+        {"item": "earth_spine_root", "chance": 0.36, "count": [1, 3]},
+        {"item": "beast_bone_block", "chance": 0.28, "count": [1, 2]},
+        {"item": "demon_core_high", "chance": 0.16, "count": 1},
+        {"item": "pressure_resist_pill", "chance": 0.12, "count": [1, 2]}
+      ]
+    },
+    {
+      "boss_id": "stone_spirit_puppet",
+      "secret_realm": "thousand_bamboo_puppet_tower",
+      "drops": [
+        {"item": "puppet_core_blank", "chance": 0.42, "count": [1, 3]},
+        {"item": "kunwu_copper", "chance": 0.32, "count": [1, 3]},
+        {"item": "ironwood", "chance": 0.30, "count": [2, 5]},
+        {"item": "natal_artifact_embryo", "chance": 0.04, "count": 1, "first_clear_only": true}
+      ]
+    },
+    {
+      "boss_id": "peak_trial_spirit",
+      "secret_realm": "jiuxian_seclusion",
+      "drops": [
+        {"item": "clear_void_pill", "chance": 0.18, "count": [1, 2]},
+        {"item": "immortal_jade", "chance": 0.10, "count": 1},
+        {"item": "jade_slip_blank", "chance": 0.35, "count": [1, 3]},
+        {"item": "alliance_merit_token", "chance": 0.45, "count": [2, 5]}
+      ]
+    },
+    {
+      "boss_id": "puppet_guardian",
+      "secret_realm": "ancient_cultivator_ruins",
+      "drops": [
+        {"item": "puppet_core_blank", "chance": 0.36, "count": [1, 2]},
+        {"item": "ironwood", "chance": 0.42, "count": [2, 5]},
+        {"item": "low_spirit_iron", "chance": 0.32, "count": [1, 3]},
+        {"item": "scrap_spirit_iron", "chance": 0.48, "count": [2, 6]}
+      ]
+    },
+    {
+      "boss_id": "ghost_cultivator",
+      "secret_realm": "wild_ancient_tomb",
+      "drops": [
+        {"item": "soul_fragment", "chance": 0.42, "count": [1, 3]},
+        {"item": "yin_stone", "chance": 0.36, "count": [1, 3]},
+        {"item": "soul_gathering_stone", "chance": 0.18, "count": 1},
+        {"item": "ghost_cultivation_manual", "chance": 0.08, "count": 1}
+      ]
+    },
+    {
+      "boss_id": "ruin_stone_guardian",
+      "secret_realm": "wild_ancient_ruins",
+      "drops": [
+        {"item": "kunwu_copper", "chance": 0.34, "count": [1, 3]},
+        {"item": "low_spirit_iron", "chance": 0.42, "count": [2, 5]},
+        {"item": "geng_gold_inlay", "chance": 0.16, "count": [1, 2]},
+        {"item": "jade_slip_blank", "chance": 0.22, "count": [1, 2]}
+      ]
+    },
+    {
+      "boss_id": "mulan_fashi_captain",
+      "secret_realm": "tianlan_secret_grotto",
+      "drops": [
+        {"item": "wind_feather", "chance": 0.38, "count": [1, 3]},
+        {"item": "talisman_paper_mortal", "chance": 0.45, "count": [2, 6]},
+        {"item": "war_contribution_token", "chance": 0.28, "count": [1, 3]},
+        {"item": "thunder_bamboo", "chance": 0.10, "count": 1}
+      ]
+    },
+    {
+      "boss_id": "abyss_jiao",
+      "secret_realm": "chaotic_sea_abyss_rift",
+      "drops": [
+        {"item": "jiao_scale", "chance": 0.44, "count": [2, 5]},
+        {"item": "deep_sea_cold_iron", "chance": 0.32, "count": [1, 3]},
+        {"item": "space_crystal_fragment", "chance": 0.18, "count": [1, 2]},
+        {"item": "void_marrow", "chance": 0.06, "count": 1}
+      ]
+    },
+    {
+      "boss_id": "yin_corpses_general",
+      "secret_realm": "yin_mountain_catacomb",
+      "drops": [
+        {"item": "yin_essence_ore", "chance": 0.38, "count": [1, 3]},
+        {"item": "soul_fragment", "chance": 0.42, "count": [2, 5]},
+        {"item": "yin_stone", "chance": 0.34, "count": [1, 3]},
+        {"item": "poluo_beads", "chance": 0.04, "count": 1, "unique": true, "first_clear_only": true}
+      ]
+    },
+    {
+      "boss_id": "garden_heart_warden",
+      "secret_realm": "spirit_grass_valley",
+      "drops": [
+        {"item": "wannian_spirit_grass", "chance": 0.18, "count": [1, 2]},
+        {"item": "spirit_grass", "chance": 0.55, "count": [2, 6]},
+        {"item": "wood_spirit_stone_mid", "chance": 0.24, "count": [1, 2]},
+        {"item": "spirit_gathering_pill", "chance": 0.12, "count": [1, 2]}
+      ]
+    },
+    {
+      "boss_id": "meridian_guardian",
+      "secret_realm": "seven_meridian_cave",
+      "drops": [
+        {"item": "sect_contribution_token", "chance": 0.55, "count": [1, 3]},
+        {"item": "qi_recovery_pill", "chance": 0.42, "count": [1, 2]},
+        {"item": "foundation_building_pill_low", "chance": 0.12, "count": 1},
+        {"item": "jade_slip_blank", "chance": 0.20, "count": 1}
+      ]
+    },
+    {
       "boss_id": "tier_6_spirit_beast_generic",
       "source": "beast_bestiary",
       "drops": [

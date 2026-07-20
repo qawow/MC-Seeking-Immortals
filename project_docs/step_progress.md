@@ -1,3 +1,15 @@
+## 534. 2026-07-20 0.2.84 P1 秘境内容闭环
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coverage audit Done   19 条作者秘境；原 21 个 Boss 中 11 个缺奖励表、2 个秘境无 Boss。
+  Boss loop Done   灵缈园/七脉洞新增守关 Boss；23 个目录 Boss 全部可生成。
+  Loot tables Done   源语料与运行时新增 13 张非空表；总表 27。
+  Tests Done   每秘境 trial/boss/reward + 源/运行时对账；全量 752 项。
+  Client smoke Done   资源重载、注册表冻结、音频和纹理图集成功；主动 Ctrl-C 停止。
+  Version Done   `mod_version=0.2.84`；protocol 25。
+  Handoff Done   `project_docs/updates/20260720_0.2.84_secret_realm_content.md`。
+
 ## 533. 2026-07-20 0.2.83 云笈墨卷 B6 收官
 
   Step   Status   Notes

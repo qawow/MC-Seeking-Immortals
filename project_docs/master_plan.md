@@ -53,7 +53,7 @@
 4. ~~**术法 corpus 未消费字段清点**~~（0.2.76 完成：18 key 对账，2 处路由修复）：`data/seeking_immortals/cultivation/` 中 `effect_key/tags` 仍有未映射值的术法逐条落实（用第 5.3 节的 corpus 对账测试模式）。
 
 ### P1 — 深度系统
-5. **秘境内容充实**：每个 `secret_realms.json` 条目至少一个 trial + boss + 奖励表已接（`SecretRealmTrialService` 已有框架，按 id 关键词补 pool）。
+5. ~~**秘境内容充实**~~（0.2.84 完成：19 条作者深潜秘境全部具备分层 trial、至少一个可生成命名 Boss 与非空奖励表；23 个目录 Boss 全部可执行并完成源/运行时对账）。
 6. **宗门专属内容**：`SectMasterDataService.specialty` 已有数据，落实每宗门专属功法/商店折扣/任务线增量。
 7. **NPC 对话树扩展**：`DialogueBranchService` 按区域补充商人/执事分支（数据驱动，勿硬编码）。
 8. **灵兽/傀儡成长**：喂养经验、进化阈值（`BeastContractService` 已有 feed 入口）。
