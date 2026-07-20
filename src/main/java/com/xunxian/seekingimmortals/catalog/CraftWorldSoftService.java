@@ -261,7 +261,11 @@ public final class CraftWorldSoftService {
         if (player.getAbilities().instabuild) {
             return true;
         }
-        // Formed stations that are operationally disabled do not satisfy soft craft gates.
+        if (MultiblockOperationalService.bestNearbyEfficiency(player, stationIds) > 0.0D) {
+            return true;
+        }
+        // Formed shells that were never commissioned: attempt form once, then recheck.
+        MultiblockOperationalService.tryCommissionNearby(player, stationIds);
         return MultiblockOperationalService.bestNearbyEfficiency(player, stationIds) > 0.0D;
     }
 

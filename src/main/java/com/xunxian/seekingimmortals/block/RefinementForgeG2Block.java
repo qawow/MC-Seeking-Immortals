@@ -48,6 +48,12 @@ public class RefinementForgeG2Block extends Block {
                     check.missingBaseBlocks(), check.missingFrameBlocks()), false);
             return InteractionResult.CONSUME;
         }
+        if (!com.xunxian.seekingimmortals.structure.MultiblockOperationalService
+                .ensureCommissioned(serverPlayer, "refinement_forge", pos)
+                && !com.xunxian.seekingimmortals.structure.MultiblockOperationalService
+                .ensureCommissioned(serverPlayer, "refinement_forge_g1", pos)) {
+            return InteractionResult.CONSUME;
+        }
         RefinementForgeCraftHelper.tryCraft(serverPlayer, pos, 2,
                 "message.seeking_immortals.refinement_forge_g2.activated",
                 "message.seeking_immortals.refinement_forge_g2.no_recipe");

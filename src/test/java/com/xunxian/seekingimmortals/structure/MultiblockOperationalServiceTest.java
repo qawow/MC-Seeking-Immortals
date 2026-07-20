@@ -205,4 +205,29 @@ class MultiblockOperationalServiceTest {
         assertTrue(source.contains("MultiblockOperationalService.form("));
     }
 
+
+    @Test
+    void ensureCommissionedAndSoftCraftAutoFormInSource() throws Exception {
+        String ops = Files.readString(Path.of(
+                "src", "main", "java", "com", "xunxian", "seekingimmortals",
+                "structure", "MultiblockOperationalService.java"));
+        assertTrue(ops.contains("ensureCommissioned"));
+        assertTrue(ops.contains("tryCommissionNearby"));
+        String soft = Files.readString(Path.of(
+                "src", "main", "java", "com", "xunxian", "seekingimmortals",
+                "catalog", "CraftWorldSoftService.java"));
+        assertTrue(soft.contains("tryCommissionNearby"));
+        for (String path : java.util.List.of(
+                "block/TalismanTableBlock.java",
+                "block/PuppetAssemblyBenchBlock.java",
+                "block/RefinementForgeBlock.java",
+                "block/RefinementForgeG2Block.java",
+                "block/RefinementForgeG3Block.java",
+                "block/entity/AlchemyFurnaceBlockEntity.java")) {
+            String source = Files.readString(Path.of(
+                    "src", "main", "java", "com", "xunxian", "seekingimmortals", path));
+            assertTrue(source.contains("ensureCommissioned"),
+                    path + " must auto-commission before craft");
+        }
+    }
 }

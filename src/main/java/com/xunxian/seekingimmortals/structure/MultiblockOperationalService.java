@@ -508,6 +508,62 @@ public final class MultiblockOperationalService {
         }
     }
 
+
+    /**
+     * Ensure a formed shell is commissioned. If already operational, returns true.
+     * Otherwise attempts form() (material reserve → forceIntact) and returns its result.
+     */
+    public static boolean ensureCommissioned(ServerPlayer player, String stationId, BlockPos origin) {
+        if (player == null || !(player.level() instanceof ServerLevel level) || origin == null) {
+            return false;
+        }
+        if (!MultiblockStationService.isStationFormed(level, stationId, origin)
+                && !player.getAbilities().instabuild) {
+            return false;
+        }
+        if (efficiencyAt(level, stationId, origin) > 0.0D) {
+            return true;
+        }
+        if (player.getAbilities().instabuild) {
+            return forceIntact(level, stationId, origin) != null;
+        }
+        return form(player, stationId, origin);
+    }
+
+    /**
+     * Scan near the player for formed-but-uncommissioned stations and attempt form once.
+     * Returns true if any station became operational.
+     */
+    public static boolean tryCommissionNearby(ServerPlayer player, String... stationIds) {
+        if (player == null || player.level() == null || stationIds == null || stationIds.length == 0) {
+            return false;
+        }
+        if (player.getAbilities().instabuild) {
+            return true;
+        }
+        BlockPos origin = player.blockPosition();
+        int radius = 4;
+        for (int dx = -radius; dx <= radius; dx++) {
+            for (int dy = -1; dy <= 2; dy++) {
+                for (int dz = -radius; dz <= radius; dz++) {
+                    BlockPos pos = origin.offset(dx, dy, dz);
+                    for (String stationId : stationIds) {
+                        if (!MultiblockStationService.isStationFormed(player.level(), stationId, pos)) {
+                            continue;
+                        }
+                        if (efficiencyAt(player.level(), stationId, pos) > 0.0D) {
+                            return true;
+                        }
+                        if (form(player, stationId, pos)) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
     /** Nearby formed+operational station efficiency for soft craft gates. */
     public static double bestNearbyEfficiency(ServerPlayer player, String... stationIds) {
         if (player == null || player.level() == null || stationIds == null || stationIds.length == 0) {

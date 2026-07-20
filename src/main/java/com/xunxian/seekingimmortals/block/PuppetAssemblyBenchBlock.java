@@ -59,6 +59,10 @@ public class PuppetAssemblyBenchBlock extends Block {
                     check.missingFrameBlocks()), false);
             return InteractionResult.CONSUME;
         }
+        if (!com.xunxian.seekingimmortals.structure.MultiblockOperationalService
+                .ensureCommissioned(serverPlayer, "puppet_assembly_bench", pos)) {
+            return InteractionResult.CONSUME;
+        }
 
         PuppetCraftService.CraftResult result = PuppetCraftService.craft(serverPlayer);
         ServerLevel serverLevel = serverPlayer.serverLevel();

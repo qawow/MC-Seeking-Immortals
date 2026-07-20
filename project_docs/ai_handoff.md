@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-20: `0.2.71` 工站 form 交互提示。制符/傀儡/炼器/炼丹与软制作门禁在成型壳上自动 ensureCommissioned/tryCommissionNearby。普通构建成功。`mod_version=0.2.71`，协议 25。见 `project_docs/updates/20260720_0.2.71_form_prompts.md`。
+
 > CURRENT TRUTH 2026-07-20: `0.2.70` 多方块 form 建站事务。`form` 预留结构材料+未解析税后 forceIntact；新工站默认 DISABLED；overhaul 改逐项 unresolved 税。普通构建成功。`mod_version=0.2.70`，协议 25。见 `project_docs/updates/20260720_0.2.70_form_commission.md`。
 
 > CURRENT TRUTH 2026-07-20: `0.2.69` 炼丹效率与交付 outbox 收口。炼丹成功率乘工站运行效率；炼丹/炼器/任务/商店/NPC/种植台等满包交付改 giveOrEnqueue。普通构建成功。`mod_version=0.2.69`，协议 25。见 `project_docs/updates/20260720_0.2.69_alchemy_outbox.md`。

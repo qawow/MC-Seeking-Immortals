@@ -279,6 +279,11 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
                     furnaceTier, present, required, missing), true);
             return;
         }
+        String alchemyStationId = "alchemy_furnace_g" + Math.min(3, Math.max(1, furnaceTier));
+        if (!com.xunxian.seekingimmortals.structure.MultiblockOperationalService
+                .ensureCommissioned(player, alchemyStationId, worldPosition)) {
+            return;
+        }
         if (!hasInstalledFormula(recipe)) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.alchemy_furnace.no_formula", recipe.displayName()), true);
             return;
@@ -345,7 +350,6 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
         progressTicks = totalTicks;
         successRate = AlchemyRecipeService.successRate(serverLevel, player, recipe, furnaceTier, fireTier, formulaSource);
         // Operational damage reduces success the same way soft craft stations do.
-        String alchemyStationId = "alchemy_furnace_g" + Math.min(3, Math.max(1, furnaceTier));
         double stationEfficiency = com.xunxian.seekingimmortals.structure.MultiblockOperationalService
                 .efficiencyAt(serverLevel, alchemyStationId, worldPosition);
         successRate = com.xunxian.seekingimmortals.skill.LifeSkillService

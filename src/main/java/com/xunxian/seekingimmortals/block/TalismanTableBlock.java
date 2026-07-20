@@ -58,6 +58,10 @@ public class TalismanTableBlock extends Block {
                     check.missingFrameBlocks()), false);
             return InteractionResult.CONSUME;
         }
+        if (!com.xunxian.seekingimmortals.structure.MultiblockOperationalService
+                .ensureCommissioned(serverPlayer, "talisman_table", pos)) {
+            return InteractionResult.CONSUME;
+        }
 
         TalismanCraftService.CraftResult result = TalismanCraftService.craft(serverPlayer);
         ServerLevel serverLevel = serverPlayer.serverLevel();

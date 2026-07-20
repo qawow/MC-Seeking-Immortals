@@ -78,6 +78,10 @@ public class RefinementForgeBlock extends Block {
                     check.missingFrameBlocks()), false);
             return InteractionResult.CONSUME;
         }
+        if (!com.xunxian.seekingimmortals.structure.MultiblockOperationalService
+                .ensureCommissioned(serverPlayer, "refinement_forge", pos)) {
+            return InteractionResult.CONSUME;
+        }
 
         RefinementForgeCraftHelper.tryCraft(
                 serverPlayer, pos, 1,

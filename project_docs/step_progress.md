@@ -1,3 +1,14 @@
+## 521. 2026-07-20 0.2.71 工站 form 交互提示
+
+  Step   Status   Notes
+  ---   ---   ---
+  Auto form helpers Done   ensureCommissioned / tryCommissionNearby。
+  Block use gates Done   制符/傀儡/炼器 G1-G3 / 炼丹 startRecipe。
+  Soft craft Done   requiresNearbyStation 失败前自动启封。
+  Verify   Done   普通构建成功，全量测试通过。
+  Version  Done   `mod_version=0.2.71`；protocol 25。
+  Handoff  Done   `project_docs/updates/20260720_0.2.71_form_prompts.md`。
+
 ## 520. 2026-07-20 0.2.70 多方块 form 建站事务
 
   Step   Status   Notes
