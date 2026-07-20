@@ -1,3 +1,5 @@
+2026-07-20 0.2.72 pending update: remaining inert catalog consumables (travel tickets, formation disk, credentials, lore maps, mortal remedies) now execute server-authoritative effects via existing travel/formation/reputation/chronicle services. Protocol 25. Remaining: user-directed code problem review batch, then live client/server/multiplayer smoke.
+
 2026-07-20 0.2.71 pending update: formed but uncommissioned stations auto-form on craft use (talisman/puppet/refinement/alchemy) and soft-craft gates tryCommissionNearby before fail-closed. Protocol 25. Remaining: deeper material-id resolve to lower form/overhaul shard tax, and live client/server/multiplayer smoke.
 
 2026-07-20 0.2.70 pending update: multiblock form commissions formed shells via material+shard reserve then forceIntact; new stations default DISABLED until form; overhaul/form tax unresolved components per-item. Protocol 25. Remaining: block-use form prompts, deeper material resolve, and live client/server/multiplayer smoke.

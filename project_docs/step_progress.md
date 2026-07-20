@@ -1,3 +1,15 @@
+## 522. 2026-07-20 0.2.72 剩余消耗品可执行化
+
+  Step   Status   Notes
+  ---   ---   ---
+  Travel items Done   船票/渡票/传送符/地渊令 → WorldpackGameplayService.travel。
+  Formation disk Done   聚灵阵盘部署 SPIRIT_GATHER 自由阵场。
+  Credential items Done   请柬/税条/巡防令/宗门令牌真实语义。
+  Lore items Done   残图/探报/舆图 → 真实 chronicle 事件。
+  Verify   Done   普通构建成功，全量 733 项通过。
+  Version  Done   `mod_version=0.2.72`；protocol 25。
+  Handoff  Done   `project_docs/updates/20260720_0.2.72_consumables.md`。
+
 ## 521. 2026-07-20 0.2.71 工站 form 交互提示
 
   Step   Status   Notes

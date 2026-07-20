@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-20: `0.2.72` 剩余消耗品可执行化。船票/渡票/传送符/地渊令走 travel；聚灵阵盘部署自由阵场；凭证换声望；残图/探报/舆图接真实见闻事件。普通构建成功。`mod_version=0.2.72`，协议 25。见 `project_docs/updates/20260720_0.2.72_consumables.md`。
+
 > CURRENT TRUTH 2026-07-20: `0.2.71` 工站 form 交互提示。制符/傀儡/炼器/炼丹与软制作门禁在成型壳上自动 ensureCommissioned/tryCommissionNearby。普通构建成功。`mod_version=0.2.71`，协议 25。见 `project_docs/updates/20260720_0.2.71_form_prompts.md`。
 
 > CURRENT TRUTH 2026-07-20: `0.2.70` 多方块 form 建站事务。`form` 预留结构材料+未解析税后 forceIntact；新工站默认 DISABLED；overhaul 改逐项 unresolved 税。普通构建成功。`mod_version=0.2.70`，协议 25。见 `project_docs/updates/20260720_0.2.70_form_commission.md`。

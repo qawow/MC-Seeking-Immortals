@@ -95,6 +95,25 @@ public final class CatalogConsumableService {
             case "corpse_control" -> SummonHonestMvpService.empowerNearestOwnedGhost(player);
             case "vehicle_craft" -> FlightVehicleService.craftWindFeatherRaftTicket(player);
             case "sect_contribution_redeem" -> SectContributionTokenService.redeem(player);
+            case "travel_spirit_boat" -> travelRegion(player, "chaotic_sea",
+                    "message.seeking_immortals.catalog_consumable.travel_spirit_boat");
+            case "travel_nether_ferry" -> travelRegion(player, "nether_river",
+                    "message.seeking_immortals.catalog_consumable.travel_nether_ferry");
+            case "travel_chaotic_sea" -> travelRegion(player, "chaotic_sea",
+                    "message.seeking_immortals.catalog_consumable.travel_chaotic_sea");
+            case "travel_diyuan" -> travelRegion(player, "diyuan",
+                    "message.seeking_immortals.catalog_consumable.travel_diyuan");
+            case "deploy_spirit_gather_disk" -> deploySpiritGatherDisk(player);
+            case "open_auction_invite" -> openAuctionInvite(player);
+            case "show_sect_identity" -> showSectIdentity(player);
+            case "island_trade_tax_paid", "star_palace_tax_paid" -> starPalaceTax(player);
+            case "star_palace_patrol" -> starPalacePatrol(player);
+            case "discover_void_palace" -> discoverLore(player, "A4_void_palace_built",
+                    "message.seeking_immortals.catalog_consumable.discover_void_palace");
+            case "discover_fallen_demon" -> discoverLore(player, "E_ancient_demon_seal_weak",
+                    "message.seeking_immortals.catalog_consumable.discover_fallen_demon");
+            case "discover_kunwu" -> discoverLore(player, "A1_kunwu_peak",
+                    "message.seeking_immortals.catalog_consumable.discover_kunwu");
             default -> knownIdAction(player, id);
         };
         if (success && shouldAnnounceGenericSuccess(action)) {
@@ -436,6 +455,85 @@ public final class CatalogConsumableService {
             default -> ModItems.SPEED_TALISMAN.get();
         };
         return giveItem(player, new ItemStack(item, Math.max(1, tier)));
+    }
+
+
+    private static boolean travelRegion(ServerPlayer player, String regionId, String successKey) {
+        boolean ok = com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService.travel(player, regionId);
+        if (ok && successKey != null && !successKey.isBlank()) {
+            player.displayClientMessage(Component.translatable(successKey), true);
+        }
+        return ok;
+    }
+
+    private static boolean deploySpiritGatherDisk(ServerPlayer player) {
+        if (!(player.level() instanceof ServerLevel level)) {
+            return false;
+        }
+        boolean ok = com.xunxian.seekingimmortals.structure.FormationFieldService.activateFreeField(
+                level,
+                player.blockPosition(),
+                com.xunxian.seekingimmortals.structure.FormationFieldService.FieldKind.SPIRIT_GATHER,
+                20 * 90,
+                player,
+                "spirit_gathering_array_disk");
+        player.displayClientMessage(Component.translatable(ok
+                ? "message.seeking_immortals.catalog_consumable.spirit_gather_disk"
+                : "message.seeking_immortals.catalog_consumable.spirit_gather_disk_failed"), true);
+        return ok;
+    }
+
+    private static boolean openAuctionInvite(ServerPlayer player) {
+        // Soft invitation: merchant-guild introduction plus a hint toward the auction hall.
+        com.xunxian.seekingimmortals.worldpack.ReputationService.add(player, "merchant_guild", 2);
+        player.displayClientMessage(Component.translatable(
+                "message.seeking_immortals.catalog_consumable.auction_invite"), true);
+        return true;
+    }
+
+    private static boolean showSectIdentity(ServerPlayer player) {
+        return CultivationHelper.get(player).map(cultivation -> {
+            var progress = cultivation.getSevenMysteriesQuest();
+            String sectId = progress.getSectId();
+            if (sectId == null || sectId.isBlank()) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.catalog_consumable.sect_identity_none"), true);
+                return false;
+            }
+            String role = progress.getSectRole();
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.catalog_consumable.sect_identity",
+                    sectId, role == null || role.isBlank() ? "-" : role), true);
+            return true;
+        }).orElse(false);
+    }
+
+    private static boolean starPalaceTax(ServerPlayer player) {
+        com.xunxian.seekingimmortals.worldpack.ReputationService.add(player, "star_palace", 3);
+        player.displayClientMessage(Component.translatable(
+                "message.seeking_immortals.catalog_consumable.star_palace_tax"), true);
+        return true;
+    }
+
+    private static boolean starPalacePatrol(ServerPlayer player) {
+        com.xunxian.seekingimmortals.worldpack.ReputationService.add(player, "star_palace", 2);
+        player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 20 * 60, 0));
+        player.displayClientMessage(Component.translatable(
+                "message.seeking_immortals.catalog_consumable.star_palace_patrol"), true);
+        return true;
+    }
+
+    private static boolean discoverLore(ServerPlayer player, String eventId, String successKey) {
+        boolean discovered = com.xunxian.seekingimmortals.catalog.ChronicleTradeSoftService
+                .discoverChronicle(player, eventId);
+        if (!discovered) {
+            // Unknown chronicle id still yields explorer knowledge instead of an inert use.
+            com.xunxian.seekingimmortals.worldpack.ReputationService.add(player, "secret_realm_explorer", 1);
+        }
+        if (successKey != null && !successKey.isBlank()) {
+            player.displayClientMessage(Component.translatable(successKey), true);
+        }
+        return true;
     }
 
     private static boolean giveCatalogItem(ServerPlayer player, String id, int count) {

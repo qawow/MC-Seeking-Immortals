@@ -66,7 +66,21 @@ public final class BulkItemClassifier {
             "spirit_sand_pouch",
             "yin_coffin_nail",
             "wind_feather_raft_blueprint",
-            "sect_contribution_token"
+            "sect_contribution_token",
+            "spirit_boat_ticket",
+            "ferry_pass",
+            "teleport_talisman_chaotic_sea",
+            "diyuan_access_token",
+            "spirit_gathering_array_disk",
+            "auction_invitation",
+            "sect_identity_token",
+            "star_palace_tax_receipt",
+            "star_palace_patrol_seal",
+            "void_palace_map_fragment",
+            "fallen_demon_scout_report",
+            "kunwu_map_scroll",
+            "demon_qi_purge_pill",
+            "mortal_medicine"
     );
     private static final Map<String, AlchemyFormulaSource> ALCHEMY_FORMULA_SOURCES =
             loadAlchemyFormulaSources();
@@ -135,6 +149,15 @@ public final class BulkItemClassifier {
                         "sect_contribution_redeem",
                         0));
             }
+            String synthetic = switch (key) {
+                // Bulk carriers without catalog rows still get executable semantics.
+                case "mortal_medicine" -> "restore_health";
+                case "diyuan_access_token" -> "travel_diyuan";
+                default -> "";
+            };
+            if (!synthetic.isBlank()) {
+                return Optional.of(new ConsumableDefinition(key, key, "consumable", "", synthetic, 0));
+            }
             return Optional.empty();
         }
         String effect = executableEffect(key, entry.effect());
@@ -170,6 +193,19 @@ public final class BulkItemClassifier {
             case "yin_coffin_nail" -> "corpse_control";
             case "wind_feather_raft_blueprint" -> "vehicle_craft";
             case "sect_contribution_token" -> "sect_contribution_redeem";
+            case "spirit_boat_ticket" -> "travel_spirit_boat";
+            case "ferry_pass" -> "travel_nether_ferry";
+            case "teleport_talisman_chaotic_sea" -> "travel_chaotic_sea";
+            case "diyuan_access_token" -> "travel_diyuan";
+            case "spirit_gathering_array_disk" -> "deploy_spirit_gather_disk";
+            case "auction_invitation" -> "open_auction_invite";
+            case "sect_identity_token" -> "show_sect_identity";
+            case "star_palace_tax_receipt" -> "star_palace_tax_paid";
+            case "star_palace_patrol_seal" -> "star_palace_patrol";
+            case "void_palace_map_fragment" -> "discover_void_palace";
+            case "fallen_demon_scout_report" -> "discover_fallen_demon";
+            case "kunwu_map_scroll" -> "discover_kunwu";
+            case "mortal_medicine" -> "restore_health";
             default -> "";
         };
         if (!dedicated.isBlank()) {
