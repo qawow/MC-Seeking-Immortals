@@ -369,7 +369,7 @@
       "default_state": "intact",
       "max_hp": 1000,
       "pattern": {
-        "validator": "ring",
+        "validator": "immortal_alchemy_cauldron",
         "radius": 2,
         "ring_role": "spirit_ore"
       }
@@ -389,7 +389,7 @@
       "default_state": "intact",
       "max_hp": 375,
       "pattern": {
-        "validator": "ring",
+        "validator": "time_acceleration_array",
         "radius": 2,
         "ring_role": "spirit_gathering_array"
       }
@@ -409,7 +409,7 @@
       "default_state": "intact",
       "max_hp": 450,
       "pattern": {
-        "validator": "ring",
+        "validator": "rift_world_seed",
         "radius": 1,
         "ring_role": "spirit_ore"
       }
@@ -429,7 +429,7 @@
       "default_state": "intact",
       "max_hp": 300,
       "pattern": {
-        "validator": "ring",
+        "validator": "rift_core_small",
         "radius": 1,
         "ring_role": "spirit_ore"
       }
@@ -449,7 +449,7 @@
       "default_state": "intact",
       "max_hp": 1125,
       "pattern": {
-        "validator": "ring",
+        "validator": "sect_formation_hub",
         "radius": 2,
         "ring_role": "spirit_ore"
       }
@@ -469,7 +469,7 @@
       "default_state": "intact",
       "max_hp": 900,
       "pattern": {
-        "validator": "ring",
+        "validator": "infant_fire_alchemy_room",
         "radius": 3,
         "ring_role": "spirit_ore"
       }
@@ -509,7 +509,7 @@
       "default_state": "intact",
       "max_hp": 450,
       "pattern": {
-        "validator": "ring",
+        "validator": "pedestal",
         "radius": 1,
         "ring_role": "spirit_ore"
       }
@@ -567,7 +567,7 @@
       "default_state": "intact",
       "max_hp": 450,
       "pattern": {
-        "validator": "ring",
+        "validator": "spirit_beast_pen",
         "radius": 1,
         "ring_role": "spirit_ore"
       }
@@ -607,7 +607,7 @@
       "default_state": "intact",
       "max_hp": 150,
       "pattern": {
-        "validator": "ring",
+        "validator": "small_array_post",
         "radius": 1,
         "ring_role": "spirit_gathering_array"
       }
@@ -627,7 +627,7 @@
       "default_state": "intact",
       "max_hp": 337,
       "pattern": {
-        "validator": "ring",
+        "validator": "array_hub",
         "radius": 2,
         "ring_role": "spirit_ore"
       }
@@ -647,7 +647,7 @@
       "default_state": "intact",
       "max_hp": 337,
       "pattern": {
-        "validator": "ring",
+        "validator": "array_hub",
         "radius": 2,
         "ring_role": "spirit_gathering_array"
       }
@@ -863,7 +863,7 @@
       "default_state": "intact",
       "max_hp": 300,
       "pattern": {
-        "validator": "ring",
+        "validator": "small_control_trading",
         "radius": 1,
         "ring_role": "spirit_ore"
       }
@@ -999,7 +999,7 @@
       "default_state": "intact",
       "max_hp": 150,
       "pattern": {
-        "validator": "ring",
+        "validator": "small_array_single",
         "radius": 1,
         "ring_role": "spirit_gathering_array"
       }
@@ -1077,7 +1077,7 @@
       "default_state": "intact",
       "max_hp": 450,
       "pattern": {
-        "validator": "ring",
+        "validator": "secret_realm_gate",
         "radius": 1,
         "ring_role": "spirit_ore"
       }
@@ -1117,7 +1117,7 @@
       "default_state": "intact",
       "max_hp": 450,
       "pattern": {
-        "validator": "ring",
+        "validator": "pedestal",
         "radius": 1,
         "ring_role": "spirit_ore"
       }
@@ -1137,7 +1137,7 @@
       "default_state": "intact",
       "max_hp": 225,
       "pattern": {
-        "validator": "ring",
+        "validator": "small_array_3x3",
         "radius": 1,
         "ring_role": "spirit_gathering_array"
       }
@@ -1177,7 +1177,7 @@
       "default_state": "intact",
       "max_hp": 450,
       "pattern": {
-        "validator": "ring",
+        "validator": "trap_corridor",
         "radius": 4,
         "ring_role": "spirit_ore"
       }
@@ -1197,7 +1197,7 @@
       "default_state": "intact",
       "max_hp": 300,
       "pattern": {
-        "validator": "ring",
+        "validator": "small_control_post",
         "radius": 1,
         "ring_role": "spirit_ore"
       }
@@ -1237,7 +1237,7 @@
       "default_state": "intact",
       "max_hp": 300,
       "pattern": {
-        "validator": "ring",
+        "validator": "kunwu_frost_forge",
         "radius": 1,
         "ring_role": "spirit_ore"
       }
@@ -1277,7 +1277,7 @@
       "default_state": "intact",
       "max_hp": 200,
       "pattern": {
-        "validator": "ring",
+        "validator": "small_control_2x2",
         "radius": 1,
         "ring_role": "spirit_ore"
       }
@@ -1297,7 +1297,7 @@
       "default_state": "intact",
       "max_hp": 750,
       "pattern": {
-        "validator": "ring",
+        "validator": "rift_large",
         "radius": 2,
         "ring_role": "spirit_ore"
       }
@@ -1317,7 +1317,7 @@
       "default_state": "intact",
       "max_hp": 450,
       "pattern": {
-        "validator": "ring",
+        "validator": "secret_realm_gate",
         "radius": 1,
         "ring_role": "spirit_ore"
       }
@@ -1397,7 +1397,7 @@
       "default_state": "intact",
       "max_hp": 300,
       "pattern": {
-        "validator": "ring",
+        "validator": "small_control_post",
         "radius": 1,
         "ring_role": "spirit_ore"
       }
@@ -1456,7 +1456,7 @@
       "default_state": "intact",
       "max_hp": 600,
       "pattern": {
-        "validator": "ring",
+        "validator": "warehouse_loading_bay",
         "radius": 2,
         "ring_role": "spirit_ore"
       }
@@ -1496,7 +1496,7 @@
       "default_state": "intact",
       "max_hp": 900,
       "pattern": {
-        "validator": "ring",
+        "validator": "trial_ring",
         "radius": 3,
         "ring_role": "spirit_ore"
       }
@@ -1516,7 +1516,7 @@
       "default_state": "intact",
       "max_hp": 200,
       "pattern": {
-        "validator": "ring",
+        "validator": "small_control_2x2",
         "radius": 1,
         "ring_role": "spirit_ore"
       }
@@ -1555,7 +1555,7 @@
       "default_state": "intact",
       "max_hp": 150,
       "pattern": {
-        "validator": "ring",
+        "validator": "small_array_post",
         "radius": 1,
         "ring_role": "spirit_gathering_array"
       }
@@ -1575,7 +1575,7 @@
       "default_state": "intact",
       "max_hp": 225,
       "pattern": {
-        "validator": "ring",
+        "validator": "furnace_safety_array",
         "radius": 1,
         "ring_role": "spirit_gathering_array"
       }

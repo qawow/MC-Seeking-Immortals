@@ -47,7 +47,7 @@ class M07FormationsMultiblockTest {
         assertEquals(5, hub.sizeW());
         assertEquals(3, hub.sizeH());
         assertEquals(5, hub.sizeD());
-        assertEquals("ring", hub.pattern().validator());
+        assertEquals("sect_formation_hub", hub.pattern().validator());
 
         MultiblockStructureCatalog.StructureEntry dock =
                 MultiblockStructureCatalog.builtin().find("flying_boat_dock").orElseThrow();
