@@ -1,3 +1,15 @@
+## 520. 2026-07-20 0.2.70 多方块 form 建站事务
+
+  Step   Status   Notes
+  ---   ---   ---
+  Form txn Done   材料+碎片预留/退款后 forceIntact 启封。
+  Uncommissioned default Done   新工站 DISABLED 直至 form。
+  Unresolved tax Done   overhaul/form 按未解析组件计税。
+  Command/lang Done   station form + 中英文消息。
+  Verify   Done   普通构建成功，全量测试通过。
+  Version  Done   `mod_version=0.2.70`；protocol 25。
+  Handoff  Done   `project_docs/updates/20260720_0.2.70_form_commission.md`。
+
 ## 519. 2026-07-20 0.2.69 炼丹效率与交付 outbox 收口
 
   Step   Status   Notes

@@ -44,12 +44,10 @@ public final class MultiblockOperationalService {
             }
             return state;
         }
-        MultiblockOperationalSavedData.OpState initial = MultiblockOperationalSavedData.OpState.fromId(
-                entry == null ? "intact" : entry.defaultState());
+        // New stations stay uncommissioned (disabled) until form() pays structure materials.
         MultiblockOperationalSavedData.StationState created = new MultiblockOperationalSavedData.StationState(
-                dim, stationId, origin.asLong(), initial,
-                initial == MultiblockOperationalSavedData.OpState.INTACT ? maxHp : Math.max(1, maxHp / 2),
-                maxHp);
+                dim, stationId, origin.asLong(), MultiblockOperationalSavedData.OpState.DISABLED,
+                0, maxHp);
         return data.upsert(created);
     }
 
@@ -188,6 +186,93 @@ public final class MultiblockOperationalService {
      * Overhaul a formed station to intact using structure-specific materials (when resolvable)
      * plus a shard surcharge. Materials are reserved first; any failure refunds them.
      */
+
+    /**
+     * Commission a formed shell into operational service.
+     * Reserves structure materials + shard surcharge for unresolved components, then commits INTACT.
+     */
+    public static boolean form(ServerPlayer player, String stationId, BlockPos origin) {
+        if (player == null || !(player.level() instanceof ServerLevel level)) {
+            return false;
+        }
+        MultiblockStructureCatalog.StructureEntry entry = MultiblockStructureCatalog.builtin()
+                .find(stationId).orElse(null);
+        if (entry == null) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.multiblock.unknown", stationId), false);
+            return false;
+        }
+        if (!MultiblockStationService.isStationFormed(level, stationId, origin)
+                && !player.getAbilities().instabuild) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.multiblock.form_need_shell", entry.display()), true);
+            return false;
+        }
+        MultiblockOperationalSavedData data = MultiblockOperationalSavedData.get(level);
+        String dim = level.dimension().location().toString();
+        Optional<MultiblockOperationalSavedData.StationState> existing = data.find(dim, stationId, origin);
+        if (existing.isPresent()) {
+            MultiblockOperationalSavedData.StationState state = existing.get();
+            if (state.state() == MultiblockOperationalSavedData.OpState.INTACT && state.hp() >= state.maxHp()) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.multiblock.already_commissioned", entry.display()), true);
+                return false;
+            }
+            // Damaged stations must overhaul rather than re-form.
+            if (state.state() != MultiblockOperationalSavedData.OpState.DISABLED
+                    || state.hp() > 0) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.multiblock.form_use_overhaul", entry.display()), true);
+                return false;
+            }
+        }
+
+        List<Item> materials = MultiblockMaterialCatalog.resolveItems(stationId);
+        int unresolvedTax = MultiblockMaterialCatalog.unresolvedShardTax(stationId);
+        int shardCost = Math.max(8, materials.isEmpty() ? 12 : 8) + unresolvedTax;
+        if (!player.getAbilities().instabuild) {
+            List<ItemStack> reserved = tryReserveMaterials(player, materials, 1);
+            if (reserved == null) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.multiblock.form_need_materials",
+                        entry.display(), Math.max(1, materials.size())), true);
+                return false;
+            }
+            List<ItemStack> shards = tryReserveShards(player, shardCost);
+            if (shards == null) {
+                refundStacks(player, reserved);
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.multiblock.form_need_shards", shardCost), true);
+                return false;
+            }
+            try {
+                MultiblockOperationalSavedData.StationState next = forceIntact(level, stationId, origin);
+                if (next == null) {
+                    refundStacks(player, reserved);
+                    refundStacks(player, shards);
+                    return false;
+                }
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.multiblock.formed_ok",
+                        entry.display(), reserved.size(), shardCost), true);
+                return true;
+            } catch (RuntimeException exception) {
+                refundStacks(player, reserved);
+                refundStacks(player, shards);
+                throw exception;
+            }
+        }
+
+        MultiblockOperationalSavedData.StationState next = forceIntact(level, stationId, origin);
+        if (next == null) {
+            return false;
+        }
+        player.displayClientMessage(Component.translatable(
+                "message.seeking_immortals.multiblock.formed_ok",
+                entry.display(), materials.size(), 0), true);
+        return true;
+    }
+
     public static boolean overhaul(ServerPlayer player, String stationId, BlockPos origin) {
         if (player == null || !(player.level() instanceof ServerLevel level)) {
             return false;
@@ -213,10 +298,9 @@ public final class MultiblockOperationalService {
         }
 
         List<Item> materials = MultiblockMaterialCatalog.resolveItems(stationId);
-        int priceFallback = MultiblockMaterialCatalog.shardFallbackCost(stationId);
-        // Prefer concrete materials when resolvable; otherwise tax by authored price band.
-        int shardCost = Math.max(repairCostShards(state) * 2, 12)
-                + (materials.isEmpty() ? priceFallback : 0);
+        int unresolvedTax = MultiblockMaterialCatalog.unresolvedShardTax(stationId);
+        // Prefer concrete materials when resolvable; tax only unresolved components.
+        int shardCost = Math.max(repairCostShards(state) * 2, 12) + unresolvedTax;
         if (!player.getAbilities().instabuild) {
             List<ItemStack> reserved = tryReserveMaterials(player, materials, 1);
             if (reserved == null) {

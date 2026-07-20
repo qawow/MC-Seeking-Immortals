@@ -392,6 +392,9 @@ public final class SeekingImmortalsCommand {
                                 .then(Commands.literal("inspect")
                                         .then(Commands.argument("id", StringArgumentType.word())
                                                 .executes(ctx -> stationInspect(ctx.getSource(), StringArgumentType.getString(ctx, "id")))))
+                                .then(Commands.literal("form")
+                                        .then(Commands.argument("id", StringArgumentType.word())
+                                                .executes(ctx -> stationForm(ctx.getSource(), StringArgumentType.getString(ctx, "id")))))
                                 .then(Commands.literal("repair")
                                         .then(Commands.argument("id", StringArgumentType.word())
                                                 .executes(ctx -> stationRepair(ctx.getSource(), StringArgumentType.getString(ctx, "id")))))
@@ -1788,6 +1791,13 @@ public final class SeekingImmortalsCommand {
     private static int stationInspect(CommandSourceStack source, String stationId) throws CommandSyntaxException {
         net.minecraft.server.level.ServerPlayer player = source.getPlayerOrException();
         boolean ok = com.xunxian.seekingimmortals.structure.MultiblockOperationalService.inspect(
+                player, stationId, player.blockPosition());
+        return ok ? 1 : 0;
+    }
+
+    private static int stationForm(CommandSourceStack source, String stationId) throws CommandSyntaxException {
+        net.minecraft.server.level.ServerPlayer player = source.getPlayerOrException();
+        boolean ok = com.xunxian.seekingimmortals.structure.MultiblockOperationalService.form(
                 player, stationId, player.blockPosition());
         return ok ? 1 : 0;
     }

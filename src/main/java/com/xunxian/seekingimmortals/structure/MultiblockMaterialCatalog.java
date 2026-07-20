@@ -66,6 +66,26 @@ public final class MultiblockMaterialCatalog {
         return List.copyOf(items);
     }
 
+
+    /**
+     * Shard tax for materials that cannot be resolved to concrete items.
+     * Resolved components are expected to be paid in-kind; unresolved use price-band tax.
+     */
+    public static int unresolvedShardTax(String stationId) {
+        List<MaterialRef> refs = BUILTIN.materialsFor(stationId);
+        if (refs.isEmpty()) {
+            return 0;
+        }
+        int total = 0;
+        for (MaterialRef ref : refs) {
+            Item item = ItemCatalogService.resolveCatalogItem(ref.id());
+            if (item == null || item == Items.AIR) {
+                total += Math.max(1, ref.minPrice());
+            }
+        }
+        return Math.max(0, Math.min(128, total));
+    }
+
     /**
      * When concrete items cannot be resolved (or none are authored), convert the
      * structure material price band into a spirit-shard overhaul surcharge.

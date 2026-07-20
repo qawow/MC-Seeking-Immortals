@@ -94,8 +94,8 @@ class MultiblockOperationalServiceTest {
         assertTrue(mats >= 0 && shards > mats && force > shards,
                 "overhaul must reserve structure materials then shards before forceIntact");
         assertTrue(compact.contains("refundStacks(player,reserved)"));
-        assertTrue(compact.contains("shardFallbackCost(stationId)"),
-                "overhaul must tax unresolved materials via price-band shard fallback");
+        assertTrue(compact.contains("unresolvedShardTax(stationId)"),
+                "overhaul must tax unresolved materials via per-component shard tax");
     }
 
     @Test
@@ -164,4 +164,45 @@ class MultiblockOperationalServiceTest {
                     path + " must not world-drop rewards");
         }
     }
+
+    @Test
+    void formReservesMaterialsBeforeCommit() throws Exception {
+        String source = Files.readString(Path.of(
+                "src", "main", "java", "com", "xunxian", "seekingimmortals",
+                "structure", "MultiblockOperationalService.java"));
+        String compact = source.replaceAll("\\s+", "");
+        assertTrue(compact.contains("publicstaticbooleanform(ServerPlayerplayer,StringstationId,BlockPosorigin)"));
+        int mats = compact.indexOf("tryReserveMaterials(player,materials,1)");
+        // form method should reserve before forceIntact; search within form body by first forceIntact after form
+        int form = compact.indexOf("publicstaticbooleanform(ServerPlayerplayer,StringstationId,BlockPosorigin)");
+        int force = compact.indexOf("forceIntact(level,stationId,origin)", form);
+        assertTrue(form >= 0 && mats >= 0 && force > form,
+                "form must reserve materials then forceIntact");
+        assertTrue(compact.contains("unresolvedShardTax(stationId)"),
+                "form/overhaul must tax unresolved materials per component");
+        assertTrue(compact.contains("OpState.DISABLED"),
+                "new stations must start uncommissioned/disabled until form");
+    }
+
+    @Test
+    void unresolvedTaxOnlyChargesMissingItems() {
+        // station with materials: tax is between 0 and full fallback cap
+        int full = MultiblockMaterialCatalog.shardFallbackCost("alchemy_furnace_g1");
+        int unresolved = MultiblockMaterialCatalog.unresolvedShardTax("alchemy_furnace_g1");
+        assertTrue(unresolved >= 0 && unresolved <= 128);
+        assertTrue(unresolved <= full || full == 0,
+                "unresolved tax must not exceed full price-band fallback when materials exist");
+        assertEquals(0, MultiblockMaterialCatalog.unresolvedShardTax("not_a_real_station"));
+    }
+
+    @Test
+    void stationFormCommandRegisteredInSource() throws Exception {
+        String source = Files.readString(Path.of(
+                "src", "main", "java", "com", "xunxian", "seekingimmortals",
+                "command", "SeekingImmortalsCommand.java"));
+        assertTrue(source.contains("Commands.literal(\"form\")"));
+        assertTrue(source.contains("stationForm("));
+        assertTrue(source.contains("MultiblockOperationalService.form("));
+    }
+
 }

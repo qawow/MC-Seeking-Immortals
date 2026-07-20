@@ -4818,5 +4818,11 @@
   "message.seeking_immortals.talisman_table.need_station": "附近需要成型的制符台。",
   "message.seeking_immortals.puppet_assembly_bench.need_station": "附近需要成型的傀儡组装台。",
   "message.seeking_immortals.multiblock.overhaul_need_materials": "大修《%s》需要结构材料约 %s 种，请备齐后重试。",
+"message.seeking_immortals.multiblock.form_need_shell": "《%s》结构尚未成型，无法启封运行。",
+"message.seeking_immortals.multiblock.already_commissioned": "《%s》已启封运行，无需重复建站。",
+"message.seeking_immortals.multiblock.form_use_overhaul": "《%s》已有运行态损伤，请使用大修而非重新建站。",
+"message.seeking_immortals.multiblock.form_need_materials": "建站《%s》需要结构材料约 %s 种，请备齐后重试。",
+"message.seeking_immortals.multiblock.form_need_shards": "建站需要灵石碎片 x%s。",
+"message.seeking_immortals.multiblock.formed_ok": "已建站启封《%s》：消耗结构材料 %s 项、灵石碎片 %s。",
   "message.seeking_immortals.multiblock.overhauled": "已大修《%s》：消耗结构材料 %s 项、灵石碎片 %s。"
 }

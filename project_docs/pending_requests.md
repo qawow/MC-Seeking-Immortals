@@ -1,3 +1,5 @@
+2026-07-20 0.2.70 pending update: multiblock form commissions formed shells via material+shard reserve then forceIntact; new stations default DISABLED until form; overhaul/form tax unresolved components per-item. Protocol 25. Remaining: block-use form prompts, deeper material resolve, and live client/server/multiplayer smoke.
+
 2026-07-20 0.2.69 pending update: alchemy success rates scale by furnace operational efficiency; residual full-inventory reward/refund paths (alchemy/refinement/quest/shop/NPC/planter/etc.) prefer giveOrEnqueue outbox. Protocol 25. Remaining: multiblock form→consume→rollback commission, per-unresolved overhaul tax polish, and live client/server/multiplayer smoke.
 
 2026-07-20 0.2.68 pending update: currency/station hard aliases expanded; soft craft success rates (talisman/puppet/refinement) now scale by nearby station operational efficiency. Protocol 25. Remaining: deeper material-id/bulk alias polish (further reduce overhaul price-band tax) and live client/server/multiplayer smoke.
