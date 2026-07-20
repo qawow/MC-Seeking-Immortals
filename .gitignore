@@ -123,3 +123,4 @@ nohup.out
 
 # Windows alternate-data-stream junk (breaks Linux Gradle processResources)
 *:Zone.Identifier
+__pycache__/
