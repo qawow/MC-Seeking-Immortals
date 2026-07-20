@@ -243,6 +243,14 @@ public final class ArtifactRefinementService {
         return Math.max(0.0D, Math.min(0.95D, base + bonusSteps * 0.05D));
     }
 
+    /**
+     * Resolve a catalog recipe through the same author-id mapping used by the
+     * server-authoritative refinement transaction.
+     */
+    public static ResolvedPlan resolvePlan(ArtifactDataService.RefinementRecipe recipe) {
+        return resolvePlan(recipe, itemIdMap(), SeekingImmortalsMod.MODID);
+    }
+
     public static ResolvedPlan resolvePlan(ArtifactDataService.RefinementRecipe recipe,
                                            Map<String, String> canonicalItemIds,
                                            String fallbackNamespace) {
@@ -376,7 +384,8 @@ public final class ArtifactRefinementService {
         return allowFallback ? fallbackNamespace + ":" + sourceId : "";
     }
 
-    private static Item resolveItem(String itemId) {
+    /** Resolve an already canonical, namespaced item id exactly as refinement does at runtime. */
+    public static Item resolveItem(String itemId) {
         ResourceLocation location = ResourceLocation.tryParse(itemId == null ? "" : itemId);
         if (location == null || ForgeRegistries.ITEMS == null) {
             return null;

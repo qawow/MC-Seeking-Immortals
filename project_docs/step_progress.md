@@ -1,3 +1,17 @@
+## 538. 2026-07-20 0.2.92 P2 JEI 三类权威配方全量展示
+
+  Step   Status   Notes
+  ---   ---   ---
+  Display catalog Done   `JeiRecipeCatalog` 独立于 JEI API，将权威源投影为真实 `ItemStack`，解析失败 fail-closed 并保留 omitted id 诊断。
+  Alchemy Done   129 条数据包配方均进入 `recipe_manifest.json`；远程客户端以打包语料为基线，本地 reload 条目按 id 覆盖/扩展，不再只显示 23 条 fallback。
+  Refinement Done   73/73 条复用服务端 `resolvePlan/resolveItem`，展示真实材料数量与真实法宝产物，删除修理包占位。
+  Talisman Done   新增制符分类；24/24 条复用 `materialRequirements`，每条显式包含 1 瓶符墨。
+  JEI hooks Done   G1-G3 炼器炉、制符台、五阶丹炉均注册 catalyst；炼丹炉 GUI 进度区注册配方点击区域；双语标题/统计键补齐。
+  Tests Done   新增共享计划、插件契约、资源清单对账；定向测试及普通构建成功，全量 775 项通过。
+  Client smoke Done   0.2.92 注册表加载、方块图集与 `jei:textures/atlas/gui.png-atlas` 创建成功；75 秒超时停止，仅有 flite/OpenAL 本机环境噪声。
+  Version Done   初版 0.2.91 构建后补齐远程客户端 129 条炼丹语料，preflight 要求最终升至 `mod_version=0.2.92`；无网络变化，protocol 26。
+  Handoff Done   `project_docs/updates/20260720_0.2.92_jei_recipe_catalog.md`。
+
 ## 537. 2026-07-20 0.2.90 P1 灵兽/傀儡成长闭环
 
   Step   Status   Notes

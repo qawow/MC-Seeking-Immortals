@@ -14,6 +14,11 @@ import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedHashMap;
@@ -24,6 +29,10 @@ import java.util.Optional;
 
 public class AlchemyRecipeManager extends SimpleJsonResourceReloadListener {
     private static final Gson GSON = new GsonBuilder().create();
+    private static final String PACKAGED_MANIFEST =
+            "data/seeking_immortals/alchemy/recipe_manifest.json";
+    private static final String PACKAGED_RECIPE_ROOT =
+            "data/seeking_immortals/alchemy/recipes/";
     private static volatile List<AlchemyRecipe> recipes = AlchemyRecipe.builtinRecipes();
     private static volatile Map<String, AlchemyRecipe> recipesById = byId(AlchemyRecipe.builtinRecipes());
 
@@ -33,6 +42,22 @@ public class AlchemyRecipeManager extends SimpleJsonResourceReloadListener {
 
     public static Collection<AlchemyRecipe> recipes() {
         return recipes;
+    }
+
+    /**
+     * Full client-visible corpus for recipe viewers. Packaged datapack recipes
+     * provide the baseline on remote clients, then any locally reloaded runtime
+     * entries override or extend them by id.
+     */
+    public static List<AlchemyRecipe> jeiRecipes() {
+        Map<String, AlchemyRecipe> merged = new LinkedHashMap<>();
+        for (AlchemyRecipe recipe : PackagedHolder.RECIPES) {
+            merged.put(recipe.id(), recipe);
+        }
+        for (AlchemyRecipe recipe : recipes) {
+            merged.put(recipe.id(), recipe);
+        }
+        return List.copyOf(merged.values());
     }
 
     public static Optional<AlchemyRecipe> findById(String id) {
@@ -61,6 +86,44 @@ public class AlchemyRecipeManager extends SimpleJsonResourceReloadListener {
     private static void installRecipes(List<AlchemyRecipe> loaded) {
         recipes = List.copyOf(loaded);
         recipesById = byId(loaded);
+    }
+
+    private static List<AlchemyRecipe> loadPackagedRecipes() {
+        ClassLoader loader = AlchemyRecipeManager.class.getClassLoader();
+        List<AlchemyRecipe> loaded = new ArrayList<>();
+        try (InputStream stream = loader.getResourceAsStream(PACKAGED_MANIFEST)) {
+            if (stream == null) {
+                SeekingImmortalsMod.LOGGER.warn("Missing packaged alchemy recipe manifest {}", PACKAGED_MANIFEST);
+                return AlchemyRecipe.builtinRecipes();
+            }
+            try (Reader reader = new InputStreamReader(stream, StandardCharsets.UTF_8)) {
+                JsonObject root = GSON.fromJson(reader, JsonObject.class);
+                for (JsonElement element : GsonHelper.getAsJsonArray(root, "recipes")) {
+                    String id = GsonHelper.convertToString(element, "packaged alchemy recipe id");
+                    String path = PACKAGED_RECIPE_ROOT + id + ".json";
+                    try (InputStream recipeStream = loader.getResourceAsStream(path)) {
+                        if (recipeStream == null) {
+                            SeekingImmortalsMod.LOGGER.warn("Missing packaged alchemy recipe {}", path);
+                            continue;
+                        }
+                        try (Reader recipeReader = new InputStreamReader(recipeStream, StandardCharsets.UTF_8)) {
+                            JsonObject object = GSON.fromJson(recipeReader, JsonObject.class);
+                            loaded.add(parse(new ResourceLocation(SeekingImmortalsMod.MODID, id), object));
+                        }
+                    } catch (RuntimeException exception) {
+                        SeekingImmortalsMod.LOGGER.warn(
+                                "Skipping invalid packaged alchemy recipe {}: {}", id, exception.getMessage());
+                    }
+                }
+            }
+        } catch (IOException | RuntimeException exception) {
+            SeekingImmortalsMod.LOGGER.warn(
+                    "Unable to load packaged alchemy recipes: {}", exception.getMessage());
+        }
+        if (loaded.isEmpty()) {
+            return AlchemyRecipe.builtinRecipes();
+        }
+        return List.copyOf(loaded);
     }
 
     private static Map<String, AlchemyRecipe> byId(List<AlchemyRecipe> loaded) {
@@ -164,5 +227,9 @@ public class AlchemyRecipeManager extends SimpleJsonResourceReloadListener {
 
     private static double clamp01(double value) {
         return Math.max(0.0D, Math.min(1.0D, value));
+    }
+
+    private static final class PackagedHolder {
+        private static final List<AlchemyRecipe> RECIPES = loadPackagedRecipes();
     }
 }

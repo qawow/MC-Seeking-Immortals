@@ -189,7 +189,11 @@ public final class TalismanCraftService {
         }
     }
 
-    private static Optional<Map<Item, Integer>> materialRequirements(Recipe recipe) {
+    /**
+     * Exact transactional input set, including the implicit talisman ink cost.
+     * Shared with recipe viewers so display and server consumption cannot drift.
+     */
+    public static Optional<Map<Item, Integer>> materialRequirements(Recipe recipe) {
         Map<Item, Integer> requirements = new LinkedHashMap<>();
         for (Material material : recipe.materials()) {
             requirements.merge(material.item(), material.count(), Integer::sum);
