@@ -1,3 +1,13 @@
+## 530. 2026-07-20 0.2.80 云笈墨卷 B3b/c 收口
+
+  Step   Status   Notes
+  ---   ---   ---
+  Audit   Done   商业/行录族无剩余行体或分页复制。
+  Spec.LORE Done   AbstractLoreScreen 常量单源化 + 契约测试。
+  Verify  Done   普通构建成功，全量 748 项通过。
+  Version Done   `mod_version=0.2.80`；protocol 25。
+  Handoff Done   `project_docs/updates/20260720_0.2.80_inkscroll_b3bc.md`。
+
 ## 529. 2026-07-20 0.2.79 云笈墨卷 B3a 修炼族屏迁移
 
   Step   Status   Notes

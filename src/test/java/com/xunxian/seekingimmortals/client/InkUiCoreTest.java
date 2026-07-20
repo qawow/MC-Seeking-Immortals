@@ -61,4 +61,12 @@ class InkUiCoreTest {
         assertEquals(13, InkPaging.pageEnd(2, 13, 6));
         assertEquals(0, InkPaging.maxPage(0, 6));
     }
+
+    @Test
+    void specLoreMatchesLoreScreenContract() {
+        assertEquals(420, InkLayout.Spec.LORE.maxWidth());
+        assertEquals(260, InkLayout.Spec.LORE.maxHeight());
+        assertEquals(4, InkLayout.Spec.LORE.margin());
+        assertEquals(280, InkLayout.Spec.LORE.stackedBreakpoint());
+    }
 }

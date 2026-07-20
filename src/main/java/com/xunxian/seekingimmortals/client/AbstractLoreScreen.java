@@ -15,10 +15,15 @@ import net.minecraft.network.chat.Component;
  * only supply content-specific widgets and body rendering.</p>
  */
 public abstract class AbstractLoreScreen extends AbstractJournalScreen {
-    protected static final int MAX_PANEL_W = 420;
-    protected static final int MAX_PANEL_H = 260;
-    protected static final int PANEL_MARGIN = 4;
-    protected static final int STACKED_BREAKPOINT = 280;
+    // Single source of truth: InkLayout.Spec.LORE (云笈墨卷 layout engine).
+    protected static final int MAX_PANEL_W =
+            com.xunxian.seekingimmortals.client.ui.InkLayout.Spec.LORE.maxWidth();
+    protected static final int MAX_PANEL_H =
+            com.xunxian.seekingimmortals.client.ui.InkLayout.Spec.LORE.maxHeight();
+    protected static final int PANEL_MARGIN =
+            com.xunxian.seekingimmortals.client.ui.InkLayout.Spec.LORE.margin();
+    protected static final int STACKED_BREAKPOINT =
+            com.xunxian.seekingimmortals.client.ui.InkLayout.Spec.LORE.stackedBreakpoint();
     protected static final int MIN_BODY_LINE = 10;
 
     protected AbstractLoreScreen(Component title) {
