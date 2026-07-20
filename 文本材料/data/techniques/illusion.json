@@ -13,7 +13,15 @@
         "type": "debuff",
         "element": "illusion",
         "damage_base": 10,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "yanyue_sect",
+          "v126",
+          "illusion",
+          "neutral",
+          "spell",
+          "debuff"
+        ]
       },
       "tier": "spell",
       "requires_method": "yanyue_illusion_art",
@@ -65,7 +73,15 @@
         "type": "aoe",
         "element": "illusion",
         "damage_base": 35,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "yanyue_sect",
+          "v126",
+          "illusion",
+          "neutral",
+          "spell",
+          "area"
+        ]
       },
       "tier": "spell",
       "description": "百幻术：illusion派术法，属性倾向 illusion。境界门槛 QI_REFINING，耗灵约 17。 常随功法「yanyue_gong」体系解锁。",
@@ -117,7 +133,15 @@
         "type": "debuff",
         "element": "illusion",
         "damage_base": 18,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "yanyue_sect",
+          "v126",
+          "illusion",
+          "neutral",
+          "spell",
+          "debuff"
+        ]
       },
       "tier": "spell",
       "requires_method": "yanyue_illusion_art",
@@ -169,7 +193,15 @@
         "type": "movement",
         "element": "illusion",
         "damage_base": 22,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "yanyue_sect",
+          "v126",
+          "illusion",
+          "neutral",
+          "spell",
+          "movement"
+        ]
       },
       "tier": "spell",
       "description": "虚步：illusion派术法，属性倾向 illusion。境界门槛 QI_REFINING，耗灵约 11。 常随功法「yanyue_gong」体系解锁。",
@@ -221,7 +253,15 @@
         "type": "debuff",
         "element": "illusion",
         "damage_base": 26,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "yanyue_sect",
+          "v126",
+          "illusion",
+          "neutral",
+          "spell",
+          "debuff"
+        ]
       },
       "tier": "spell",
       "description": "梦缚：illusion派术法，属性倾向 illusion。境界门槛 QI_REFINING，耗灵约 13。 常随功法「yanyue_gong」体系解锁。",
@@ -273,7 +313,15 @@
         "type": "summon",
         "element": "illusion",
         "damage_base": 0,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "yanyue_sect",
+          "v126",
+          "illusion",
+          "neutral",
+          "spell",
+          "summon"
+        ]
       },
       "tier": "spell",
       "description": "分身幻影：illusion派术法，属性倾向 illusion。境界门槛 QI_REFINING，耗灵约 12。 常随功法「yanyue_gong」体系解锁。",
@@ -327,7 +375,8 @@
         "element": "illusion",
         "tags": [
           "array"
-        ]
+        ],
+        "damage_base": 24.0
       },
       "description": "掩月幻阵：illusion派术法，属性倾向 illusion。境界门槛 CORE_FORMATION，耗灵约 38。借阵力。 常随功法「yanyue_illusion_art」体系解锁。",
       "source": "凡人向扩充",
@@ -381,7 +430,8 @@
         "element": "illusion",
         "tags": [
           "stealth"
-        ]
+        ],
+        "damage_base": 0.0
       },
       "description": "月纱障：illusion派术法，属性倾向 illusion。境界门槛 FOUNDATION，耗灵约 20。 常随功法「yanyue_illusion_art」体系解锁。",
       "source": "凡人向扩充",
@@ -435,7 +485,8 @@
           "illusion",
           "stealth"
         ],
-        "element": "neutral"
+        "element": "neutral",
+        "damage_base": 0.0
       },
       "source": "凡人向扩充",
       "requires_method": "yanyue_gong",
@@ -488,7 +539,8 @@
           "illusion",
           "stealth"
         ],
-        "element": "neutral"
+        "element": "neutral",
+        "damage_base": 0.0
       },
       "source": "凡人向扩充",
       "requires_method": "yanyue_gong",
@@ -541,7 +593,8 @@
           "illusion",
           "stealth"
         ],
-        "element": "neutral"
+        "element": "neutral",
+        "damage_base": 0.0
       },
       "source": "凡人向扩充",
       "requires_method": "yanyue_gong",
@@ -598,7 +651,8 @@
           "stealth",
           "illusion"
         ],
-        "element": "neutral"
+        "element": "neutral",
+        "damage_base": 0.0
       },
       "description": "掩月幻身：illusion派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 18。 常随功法「yanyue_gong」体系解锁。",
       "tier": "spell",
@@ -649,7 +703,8 @@
         "tags": [
           "illusion"
         ],
-        "element": "neutral"
+        "element": "neutral",
+        "damage_base": 24.0
       },
       "description": "九尾幻境：illusion派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 26。 常随功法「wanhu_phantom_art」体系解锁。",
       "tier": "spell",

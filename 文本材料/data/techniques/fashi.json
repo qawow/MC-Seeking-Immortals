@@ -13,7 +13,13 @@
         "type": "projectile",
         "element": "wind",
         "damage_base": 14,
-        "tags": []
+        "tags": [
+          "fashi_spirit_art",
+          "wind",
+          "fashi",
+          "neutral",
+          "spell"
+        ]
       },
       "race_affinity": [
         "mulan_fashi"
@@ -67,7 +73,14 @@
         "type": "buff",
         "element": "earth",
         "damage_base": 0,
-        "tags": []
+        "tags": [
+          "fashi_spirit_art",
+          "earth",
+          "fashi",
+          "neutral",
+          "spell",
+          "buff"
+        ]
       },
       "race_affinity": [
         "mulan_fashi"
@@ -121,7 +134,14 @@
         "type": "heal",
         "element": "yang",
         "damage_base": 35,
-        "tags": []
+        "tags": [
+          "fashi_spirit_art",
+          "yang",
+          "fashi",
+          "neutral",
+          "spell",
+          "recovery"
+        ]
       },
       "race_affinity": [
         "mulan_fashi"
@@ -176,7 +196,13 @@
         "type": "summon",
         "element": "neutral",
         "damage_base": 0,
-        "tags": []
+        "tags": [
+          "fashi_spirit_art",
+          "neutral",
+          "fashi",
+          "spell",
+          "summon"
+        ]
       },
       "race_affinity": [
         "mulan_fashi"
@@ -229,7 +255,13 @@
         "type": "projectile",
         "element": "thunder",
         "damage_base": 22,
-        "tags": []
+        "tags": [
+          "fashi_spirit_art",
+          "thunder",
+          "fashi",
+          "neutral",
+          "spell"
+        ]
       },
       "tier": "spell",
       "description": "雷灵术：fashi派术法，属性倾向 thunder。境界门槛 QI_REFINING，耗灵约 11。雷法震邪。",
@@ -273,7 +305,14 @@
         "type": "heal",
         "element": "wood",
         "damage_base": 30,
-        "tags": []
+        "tags": [
+          "fashi_spirit_art",
+          "wood",
+          "fashi",
+          "neutral",
+          "spell",
+          "recovery"
+        ]
       },
       "tier": "spell",
       "description": "愈灵术：fashi派术法，属性倾向 wood。境界门槛 QI_REFINING，耗灵约 15。",
@@ -315,7 +354,15 @@
       "effect": {
         "type": "aoe",
         "element": "earth_wind",
-        "damage_base": 22
+        "damage_base": 22,
+        "tags": [
+          "fashi_spirit_art",
+          "earth_wind",
+          "fashi",
+          "neutral",
+          "spell",
+          "area"
+        ]
       },
       "race_affinity": [
         "mulan_fashi"
@@ -368,7 +415,17 @@
       "effect": {
         "type": "summon",
         "element": "beast",
-        "damage_base": 0
+        "damage_base": 0,
+        "tags": [
+          "fashi_spirit_art",
+          "tianlan",
+          "v127",
+          "beast",
+          "fashi",
+          "neutral",
+          "spell",
+          "summon"
+        ]
       },
       "race_affinity": [
         "tianlan_fashi"
@@ -425,7 +482,8 @@
         "element": "wind",
         "tags": [
           "movement"
-        ]
+        ],
+        "damage_base": 0.0
       },
       "race_affinity": [
         "mulan_fashi"
@@ -478,7 +536,14 @@
       "effect": {
         "type": "strike",
         "element": "thunder",
-        "damage_base": 45
+        "damage_base": 45,
+        "tags": [
+          "fashi_spirit_art",
+          "thunder",
+          "fashi",
+          "neutral",
+          "spell"
+        ]
       },
       "tier": "spell",
       "description": "雷掌灵术：fashi派术法，属性倾向 thunder。境界门槛 CORE_FORMATION，耗灵约 30。雷法震邪。",
@@ -628,7 +693,8 @@
         "tags": [
           "wind"
         ],
-        "element": "wind"
+        "element": "wind",
+        "damage_base": 20.0
       },
       "description": "风元风墙：fashi派术法，属性倾向 wind。境界门槛 FOUNDATION，耗灵约 18。 常随功法「spirit_art_mulan」体系解锁。",
       "tier": "spell",
@@ -864,7 +930,17 @@
       "effect": {
         "type": "command",
         "element": "neutral",
-        "damage_base": 0
+        "damage_base": 0,
+        "tags": [
+          "fill_zero_method",
+          "v124",
+          "tianlan",
+          "v127",
+          "neutral",
+          "fashi",
+          "spell",
+          "summon"
+        ]
       },
       "description": "天澜兽魂契：fashi派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 20。神魂手段，慎用。 常随功法「tianlan_beast_soul_art」体系解锁。",
       "setting": {
@@ -1117,7 +1193,13 @@
       "effect": {
         "type": "transform",
         "element": "neutral",
-        "damage_base": 0
+        "damage_base": 0,
+        "tags": [
+          "v129",
+          "neutral",
+          "fashi",
+          "spell"
+        ]
       },
       "description": "惊蛰二变：fashi派术法，属性倾向 neutral。境界门槛 DEITY_TRANSFORMATION，耗灵约 55。 常随功法「jingzhe_shier_bian」体系解锁。",
       "requires_method": "jingzhe_shier_bian",
@@ -1153,7 +1235,15 @@
       "effect": {
         "type": "aoe",
         "element": "wind",
-        "damage_base": 75
+        "damage_base": 75,
+        "tags": [
+          "v129",
+          "wind",
+          "fashi",
+          "neutral",
+          "spell",
+          "area"
+        ]
       },
       "description": "惊蛰翼暴：fashi派术法，属性倾向 wind。境界门槛 VOID_REFINEMENT，耗灵约 60。 常随功法「jingzhe_shier_bian」体系解锁。",
       "requires_method": "jingzhe_shier_bian",

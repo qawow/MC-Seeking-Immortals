@@ -13,7 +13,13 @@
         "type": "aoe",
         "element": "yang",
         "damage_base": 38,
-        "tags": []
+        "tags": [
+          "yang",
+          "buddhist",
+          "righteous",
+          "spell",
+          "area"
+        ]
       },
       "description": "佛光：buddhist派术法，属性倾向 yang。境界门槛 FOUNDATION，耗灵约 19。佛修：降魔、金光、定心，克魔气与心魔。",
       "setting": {
@@ -58,7 +64,13 @@
         "type": "buff",
         "element": "yang",
         "damage_base": 0,
-        "tags": []
+        "tags": [
+          "yang",
+          "buddhist",
+          "righteous",
+          "spell",
+          "buff"
+        ]
       },
       "description": "舍利护体：buddhist派术法，属性倾向 yang。境界门槛 FOUNDATION，耗灵约 12。佛修：降魔、金光、定心，克魔气与心魔。",
       "setting": {
@@ -103,7 +115,12 @@
         "type": "melee",
         "element": "yang",
         "damage_base": 45,
-        "tags": []
+        "tags": [
+          "yang",
+          "buddhist",
+          "righteous",
+          "spell"
+        ]
       },
       "description": "降魔掌：buddhist派术法，属性倾向 yang。境界门槛 FOUNDATION，耗灵约 22。佛修：降魔、金光、定心，克魔气与心魔。",
       "setting": {
@@ -148,7 +165,13 @@
         "type": "aoe",
         "element": "yang",
         "damage_base": 30,
-        "tags": []
+        "tags": [
+          "yang",
+          "buddhist",
+          "righteous",
+          "spell",
+          "area"
+        ]
       },
       "description": "禅波：buddhist派术法，属性倾向 yang。境界门槛 FOUNDATION，耗灵约 15。佛修：降魔、金光、定心，克魔气与心魔。",
       "setting": {
@@ -298,7 +321,16 @@
       "effect": {
         "type": "buff_self",
         "element": "earth",
-        "damage_base": 0
+        "damage_base": 0,
+        "tags": [
+          "v124",
+          "fill_zero_method",
+          "earth",
+          "buddhist",
+          "righteous",
+          "spell",
+          "buff"
+        ]
       },
       "description": "金刚不坏闪：buddhist派术法，属性倾向 earth。境界门槛 QI_REFINING，耗灵约 15。佛修：降魔、金光、定心，克魔气与心魔。 常随功法「buddhist_vajra_body_art」体系解锁。",
       "setting": {
@@ -516,7 +548,15 @@
       "effect": {
         "type": "buff_self",
         "element": "light",
-        "damage_base": 0
+        "damage_base": 0,
+        "tags": [
+          "v129",
+          "light",
+          "buddhist",
+          "righteous",
+          "spell",
+          "buff"
+        ]
       },
       "description": "大晋禅障：buddhist派术法，属性倾向 light。境界门槛 FOUNDATION，耗灵约 18。佛修：降魔、金光、定心，克魔气与心魔。 常随功法「dajin_buddhist_base」体系解锁。",
       "requires_method": "dajin_buddhist_base",
@@ -554,7 +594,15 @@
       "effect": {
         "type": "aoe",
         "element": "light",
-        "damage_base": 42
+        "damage_base": 42,
+        "tags": [
+          "v129",
+          "light",
+          "buddhist",
+          "righteous",
+          "spell",
+          "area"
+        ]
       },
       "description": "降魔梵音：buddhist派术法，属性倾向 light。境界门槛 CORE_FORMATION，耗灵约 32。佛修：降魔、金光、定心，克魔气与心魔。 常随功法「dajin_buddhist_base」体系解锁。",
       "requires_method": "dajin_buddhist_base",
@@ -592,7 +640,15 @@
       "effect": {
         "type": "buff_self",
         "element": "earth",
-        "damage_base": 0
+        "damage_base": 0,
+        "tags": [
+          "v129",
+          "earth",
+          "buddhist",
+          "righteous",
+          "spell",
+          "buff"
+        ]
       },
       "description": "金刚体·进：buddhist派术法，属性倾向 earth。境界门槛 FOUNDATION，耗灵约 20。佛修：降魔、金光、定心，克魔气与心魔。 常随功法「buddhist_vajra_body_art」体系解锁。",
       "requires_method": "buddhist_vajra_body_art",

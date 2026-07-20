@@ -13,7 +13,13 @@
         "type": "buff",
         "element": "yang",
         "damage_base": 0,
-        "tags": []
+        "tags": [
+          "yang",
+          "confucian",
+          "righteous",
+          "spell",
+          "buff"
+        ]
       },
       "description": "浩然正气：confucian派术法，属性倾向 yang。境界门槛 FOUNDATION，耗灵约 12。儒修：浩然、言责、礼法场域，偏辅助与克邪。",
       "setting": {
@@ -55,7 +61,13 @@
         "type": "debuff",
         "element": "neutral",
         "damage_base": 32,
-        "tags": []
+        "tags": [
+          "neutral",
+          "confucian",
+          "righteous",
+          "spell",
+          "debuff"
+        ]
       },
       "description": "言镇：confucian派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 16。儒修：浩然、言责、礼法场域，偏辅助与克邪。",
       "setting": {
@@ -96,7 +108,12 @@
         "type": "projectile",
         "element": "neutral",
         "damage_base": 36,
-        "tags": []
+        "tags": [
+          "neutral",
+          "confucian",
+          "righteous",
+          "spell"
+        ]
       },
       "description": "书卷击：confucian派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 18。儒修：浩然、言责、礼法场域，偏辅助与克邪。",
       "setting": {
@@ -137,7 +154,13 @@
         "type": "aoe",
         "element": "water",
         "damage_base": 40,
-        "tags": []
+        "tags": [
+          "water",
+          "confucian",
+          "righteous",
+          "spell",
+          "area"
+        ]
       },
       "description": "墨海：confucian派术法，属性倾向 water。境界门槛 FOUNDATION，耗灵约 20。儒修：浩然、言责、礼法场域，偏辅助与克邪。",
       "setting": {

@@ -13,7 +13,18 @@
         "type": "projectile",
         "element": "fire",
         "damage_base": 12,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "v124",
+          "v126",
+          "novel_canon",
+          "changchun",
+          "huangfeng_valley",
+          "fire",
+          "neutral",
+          "spell",
+          "elemental"
+        ]
       },
       "tier": "spell",
       "element_required": "fire",
@@ -82,7 +93,15 @@
         "type": "projectile",
         "element": "water",
         "damage_base": 10,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "v126",
+          "huangfeng_valley",
+          "water",
+          "neutral",
+          "spell",
+          "elemental"
+        ]
       },
       "tier": "spell",
       "element_required": "water",
@@ -140,7 +159,16 @@
         "type": "aoe",
         "element": "earth",
         "damage_base": 14,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "v126",
+          "huangfeng_valley",
+          "earth",
+          "neutral",
+          "spell",
+          "area",
+          "elemental"
+        ]
       },
       "tier": "spell",
       "element_required": "earth",
@@ -198,7 +226,16 @@
         "type": "debuff",
         "element": "wood",
         "damage_base": 8,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "v126",
+          "huangfeng_valley",
+          "wood",
+          "neutral",
+          "spell",
+          "debuff",
+          "elemental"
+        ]
       },
       "tier": "spell",
       "element_required": "wood",
@@ -256,7 +293,15 @@
         "type": "projectile",
         "element": "metal",
         "damage_base": 11,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "v126",
+          "huangfeng_valley",
+          "metal",
+          "neutral",
+          "spell",
+          "elemental"
+        ]
       },
       "tier": "spell",
       "element_required": "metal",
@@ -314,7 +359,15 @@
         "type": "projectile",
         "element": "ice",
         "damage_base": 13,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "v126",
+          "huangfeng_valley",
+          "ice",
+          "neutral",
+          "spell",
+          "elemental"
+        ]
       },
       "tier": "spell",
       "element_required": "ice",
@@ -372,7 +425,15 @@
         "type": "projectile",
         "element": "wind",
         "damage_base": 12,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "v126",
+          "huangfeng_valley",
+          "wind",
+          "neutral",
+          "spell",
+          "elemental"
+        ]
       },
       "tier": "spell",
       "element_required": "wind",
@@ -430,7 +491,15 @@
         "type": "melee",
         "element": "thunder",
         "damage_base": 18,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "v126",
+          "huangfeng_valley",
+          "thunder",
+          "neutral",
+          "spell",
+          "elemental"
+        ]
       },
       "tier": "spell",
       "element_required": "thunder",
@@ -489,7 +558,16 @@
         "type": "aoe",
         "element": "fire",
         "damage_base": 22,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "v126",
+          "huangfeng_valley",
+          "fire",
+          "neutral",
+          "spell",
+          "area",
+          "elemental"
+        ]
       },
       "tier": "spell",
       "element_required": "fire",
@@ -548,7 +626,16 @@
         "type": "buff",
         "element": "ice",
         "damage_base": 15,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "v126",
+          "huangfeng_valley",
+          "ice",
+          "neutral",
+          "spell",
+          "buff",
+          "elemental"
+        ]
       },
       "tier": "spell",
       "element_required": "ice",
@@ -606,7 +693,16 @@
         "type": "aoe",
         "element": "fire",
         "damage_base": 28,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "v126",
+          "huangfeng_valley",
+          "fire",
+          "neutral",
+          "spell",
+          "area",
+          "elemental"
+        ]
       },
       "tier": "spell",
       "element_required": "fire",
@@ -665,7 +761,16 @@
         "type": "aoe",
         "element": "water",
         "damage_base": 16,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "v126",
+          "huangfeng_valley",
+          "water",
+          "neutral",
+          "spell",
+          "area",
+          "elemental"
+        ]
       },
       "tier": "spell",
       "element_required": "water",
@@ -723,7 +828,16 @@
         "type": "aoe",
         "element": "earth",
         "damage_base": 24,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "v126",
+          "huangfeng_valley",
+          "earth",
+          "neutral",
+          "spell",
+          "area",
+          "elemental"
+        ]
       },
       "tier": "spell",
       "element_required": "earth",
@@ -781,7 +895,15 @@
         "type": "projectile",
         "element": "wood",
         "damage_base": 9,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "v126",
+          "huangfeng_valley",
+          "wood",
+          "neutral",
+          "spell",
+          "elemental"
+        ]
       },
       "tier": "spell",
       "element_required": "wood",
@@ -839,7 +961,15 @@
         "type": "beam",
         "element": "metal",
         "damage_base": 20,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "v126",
+          "huangfeng_valley",
+          "metal",
+          "neutral",
+          "spell",
+          "elemental"
+        ]
       },
       "tier": "spell",
       "element_required": "metal",
@@ -897,7 +1027,16 @@
         "type": "aoe",
         "element": "ice",
         "damage_base": 26,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "v126",
+          "huangfeng_valley",
+          "ice",
+          "neutral",
+          "spell",
+          "area",
+          "elemental"
+        ]
       },
       "tier": "spell",
       "element_required": "ice",
@@ -955,7 +1094,16 @@
         "type": "aoe",
         "element": "wind",
         "damage_base": 21,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "v126",
+          "huangfeng_valley",
+          "wind",
+          "neutral",
+          "spell",
+          "area",
+          "elemental"
+        ]
       },
       "tier": "spell",
       "element_required": "wind",
@@ -1013,7 +1161,16 @@
         "type": "aoe",
         "element": "thunder",
         "damage_base": 34,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "v126",
+          "huangfeng_valley",
+          "thunder",
+          "neutral",
+          "spell",
+          "area",
+          "elemental"
+        ]
       },
       "tier": "spell",
       "element_required": "thunder",
@@ -1072,7 +1229,15 @@
         "type": "projectile",
         "element": "dark",
         "damage_base": 19,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "v126",
+          "huangfeng_valley",
+          "dark",
+          "neutral",
+          "spell",
+          "elemental"
+        ]
       },
       "tier": "spell",
       "element_required": "dark",
@@ -1130,7 +1295,15 @@
         "type": "projectile",
         "element": "light",
         "damage_base": 17,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "v126",
+          "huangfeng_valley",
+          "light",
+          "neutral",
+          "spell",
+          "elemental"
+        ]
       },
       "tier": "spell",
       "element_required": "light",
@@ -1188,7 +1361,16 @@
         "type": "debuff",
         "element": "water",
         "damage_base": 14,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "v126",
+          "huangfeng_valley",
+          "water",
+          "neutral",
+          "spell",
+          "debuff",
+          "elemental"
+        ]
       },
       "tier": "spell",
       "element_required": "water",
@@ -2110,7 +2292,8 @@
         "tags": [
           "ice_shield"
         ],
-        "element": "ice"
+        "element": "ice",
+        "damage_base": 0.0
       },
       "description": "冰玉盾：elemental派术法，属性倾向 ice。境界门槛 FOUNDATION，耗灵约 —。寒气侵体。 寒域增幅，惧纯阳。 常随功法「xuanbing_zhenjing」体系解锁。",
       "tier": "spell",
@@ -2162,7 +2345,14 @@
       "effect": {
         "type": "aoe",
         "damage_base": 75,
-        "element": "fire"
+        "element": "fire",
+        "tags": [
+          "fire",
+          "elemental",
+          "neutral",
+          "spell",
+          "area"
+        ]
       },
       "description": "炎蛇风暴：elemental派术法，属性倾向 fire。境界门槛 CORE_FORMATION，耗灵约 —。火灵根友好；丹房、火域、杀伐皆常用。 常随功法「lieyan_zhenjing」体系解锁。",
       "tier": "spell",
@@ -2216,7 +2406,8 @@
         "tags": [
           "bind"
         ],
-        "element": "wood"
+        "element": "wood",
+        "damage_base": 8.0
       },
       "description": "木灵藤：elemental派术法，属性倾向 wood。境界门槛 FOUNDATION，耗灵约 —。木灵根友好；药园、束缚、回春向。 常随功法「qingmu_gong」体系解锁。",
       "tier": "spell",
@@ -2270,7 +2461,8 @@
         "tags": [
           "reflect_partial"
         ],
-        "element": "water"
+        "element": "water",
+        "damage_base": 0.0
       },
       "description": "水镜术：elemental派术法，属性倾向 water。境界门槛 FOUNDATION，耗灵约 —。水灵根友好；可克火、润疗与困敌。 常随功法「shuiyuan_gong」体系解锁。",
       "tier": "spell",
@@ -2322,7 +2514,14 @@
       "effect": {
         "type": "aoe",
         "damage_base": 65,
-        "element": "earth"
+        "element": "earth",
+        "tags": [
+          "earth",
+          "elemental",
+          "neutral",
+          "spell",
+          "area"
+        ]
       },
       "description": "山岳压：elemental派术法，属性倾向 earth。境界门槛 CORE_FORMATION，耗灵约 —。土灵根友好；防身、厚重、阵基。 常随功法「tuyuan_gong」体系解锁。",
       "tier": "spell",
@@ -2376,7 +2575,8 @@
         "tags": [
           "freeze"
         ],
-        "element": "ice"
+        "element": "ice",
+        "damage_base": 12.0
       },
       "description": "玄天冰牢：elemental派术法，属性倾向 ice。境界门槛 CORE_FORMATION，耗灵约 —。寒气侵体。 寒域增幅，惧纯阳。 常随功法「xuantian_ice_art」体系解锁。",
       "tier": "spell",
@@ -2478,7 +2678,19 @@
         "type": "buff_self",
         "element": "wood",
         "damage_base": 0,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "v124",
+          "v126",
+          "novel_canon",
+          "changchun",
+          "huangfeng_valley",
+          "wood",
+          "neutral",
+          "spell",
+          "buff",
+          "elemental"
+        ]
       },
       "description": "木灵护体：elemental派术法，属性倾向 wood。境界门槛 QI_REFINING，耗灵约 10。木灵根友好；药园、束缚、回春向。 常随功法「changchun_gong」体系解锁。",
       "setting": {
@@ -2618,7 +2830,15 @@
       "effect": {
         "type": "projectile",
         "element": "wood",
-        "damage_base": 28
+        "damage_base": 28,
+        "tags": [
+          "v124",
+          "fill_zero_method",
+          "wood",
+          "elemental",
+          "neutral",
+          "spell"
+        ]
       },
       "description": "木元刺：elemental派术法，属性倾向 wood。境界门槛 FOUNDATION，耗灵约 16。木灵根友好；药园、束缚、回春向。 常随功法「muyuan_gong」体系解锁。",
       "setting": {
@@ -2660,7 +2880,15 @@
       "effect": {
         "type": "beam",
         "element": "fire",
-        "damage_base": 28
+        "damage_base": 28,
+        "tags": [
+          "v124",
+          "fill_zero_method",
+          "fire",
+          "elemental",
+          "neutral",
+          "spell"
+        ]
       },
       "description": "火元鞭：elemental派术法，属性倾向 fire。境界门槛 FOUNDATION，耗灵约 16。凝火杀伐。 火灵根友好；丹房、火域、杀伐皆常用。 常随功法「huoyuan_gong」体系解锁。",
       "setting": {
@@ -2702,7 +2930,15 @@
       "effect": {
         "type": "projectile",
         "element": "metal",
-        "damage_base": 30
+        "damage_base": 30,
+        "tags": [
+          "v124",
+          "fill_zero_method",
+          "metal",
+          "elemental",
+          "neutral",
+          "spell"
+        ]
       },
       "description": "金翼羽刃：elemental派术法，属性倾向 metal。境界门槛 FOUNDATION，耗灵约 18。金灵根友好；破甲、剑气辅、锋锐。 常随功法「jinyi_gong」体系解锁。",
       "setting": {
@@ -2744,7 +2980,15 @@
       "effect": {
         "type": "projectile",
         "element": "water",
-        "damage_base": 18
+        "damage_base": 18,
+        "tags": [
+          "v124",
+          "fill_zero_method",
+          "water",
+          "elemental",
+          "neutral",
+          "spell"
+        ]
       },
       "description": "青珠水弹：elemental派术法，属性倾向 water。境界门槛 QI_REFINING，耗灵约 10。水灵根友好；可克火、润疗与困敌。 常随功法「qixuan_azure_pearl_art」体系解锁。",
       "setting": {
@@ -2786,7 +3030,16 @@
       "effect": {
         "type": "buff_self",
         "element": "ice",
-        "damage_base": 0
+        "damage_base": 0,
+        "tags": [
+          "v124",
+          "fill_zero_method",
+          "ice",
+          "elemental",
+          "neutral",
+          "spell",
+          "buff"
+        ]
       },
       "description": "昆吾寒罡：elemental派术法，属性倾向 ice。境界门槛 CORE_FORMATION，耗灵约 30。寒域增幅，惧纯阳。 常随功法「kunwu_ice_guard_art」体系解锁。",
       "setting": {
@@ -2828,7 +3081,19 @@
       "effect": {
         "type": "aoe",
         "element": "water",
-        "damage_base": 32
+        "damage_base": 32,
+        "tags": [
+          "v124",
+          "star_palace",
+          "chaotic_sea",
+          "fill_zero_method",
+          "v128",
+          "water",
+          "elemental",
+          "neutral",
+          "spell",
+          "area"
+        ]
       },
       "description": "镇海浪：elemental派术法，属性倾向 water。境界门槛 FOUNDATION，耗灵约 22。水灵根友好；可克火、润疗与困敌。 常随功法「star_palace_sea_art」体系解锁。",
       "setting": {
@@ -2874,7 +3139,16 @@
       "effect": {
         "type": "movement",
         "element": "water",
-        "damage_base": 0
+        "damage_base": 0,
+        "tags": [
+          "v124",
+          "fill_zero_method",
+          "water",
+          "elemental",
+          "neutral",
+          "spell",
+          "movement"
+        ]
       },
       "description": "御浪步：elemental派术法，属性倾向 water。境界门槛 FOUNDATION，耗灵约 14。水灵根友好；可克火、润疗与困敌。 常随功法「chaotic_sea_nav_art」体系解锁。",
       "setting": {
@@ -2916,7 +3190,16 @@
       "effect": {
         "type": "buff_self",
         "element": "metal",
-        "damage_base": 0
+        "damage_base": 0,
+        "tags": [
+          "v124",
+          "fill_zero_method",
+          "metal",
+          "elemental",
+          "neutral",
+          "spell",
+          "buff"
+        ]
       },
       "description": "皇金罡气：elemental派术法，属性倾向 metal。境界门槛 FOUNDATION，耗灵约 18。金灵根友好；破甲、剑气辅、锋锐。 常随功法「huangjin_sect_art」体系解锁。",
       "setting": {
@@ -3479,7 +3762,14 @@
       "effect": {
         "type": "projectile",
         "element": "ice",
-        "damage_base": 40
+        "damage_base": 40,
+        "tags": [
+          "v129",
+          "ice",
+          "elemental",
+          "neutral",
+          "spell"
+        ]
       },
       "description": "昆吾寒刺：elemental派术法，属性倾向 ice。境界门槛 CORE_FORMATION，耗灵约 26。寒域增幅，惧纯阳。 常随功法「kunwu_ice_guard_art」体系解锁。",
       "requires_method": "kunwu_ice_guard_art",
@@ -3517,7 +3807,15 @@
       "effect": {
         "type": "buff_self",
         "element": "ice",
-        "damage_base": 0
+        "damage_base": 0,
+        "tags": [
+          "v129",
+          "ice",
+          "elemental",
+          "neutral",
+          "spell",
+          "buff"
+        ]
       },
       "description": "昆吾绝寒罡：elemental派术法，属性倾向 ice。境界门槛 NASCENT_SOUL，耗灵约 38。寒域增幅，惧纯阳。 常随功法「kunwu_ice_guard_art」体系解锁。",
       "requires_method": "kunwu_ice_guard_art",
@@ -3555,7 +3853,15 @@
       "effect": {
         "type": "buff_self",
         "element": "blood",
-        "damage_base": 0
+        "damage_base": 0,
+        "tags": [
+          "v129",
+          "blood",
+          "elemental",
+          "neutral",
+          "spell",
+          "buff"
+        ]
       },
       "description": "叶家血脉闪：elemental派术法，属性倾向 blood。境界门槛 CORE_FORMATION，耗灵约 28。耗血换力。 常随功法「dajin_ye_clan_art」体系解锁。",
       "requires_method": "dajin_ye_clan_art",
@@ -3593,7 +3899,14 @@
       "effect": {
         "type": "projectile",
         "element": "thunder",
-        "damage_base": 28
+        "damage_base": 28,
+        "tags": [
+          "v129",
+          "thunder",
+          "elemental",
+          "neutral",
+          "spell"
+        ]
       },
       "description": "世家祖传雷：elemental派术法，属性倾向 thunder。境界门槛 FOUNDATION，耗灵约 18。雷法震邪。 雷法克邪，正道山门常见。 常随功法「dajin_clan_ancestor_art」体系解锁。",
       "requires_method": "dajin_clan_ancestor_art",
@@ -3631,7 +3944,14 @@
       "effect": {
         "type": "buff_self",
         "element": "neutral",
-        "damage_base": 0
+        "damage_base": 0,
+        "tags": [
+          "v129",
+          "neutral",
+          "elemental",
+          "spell",
+          "buff"
+        ]
       },
       "description": "世家护灵：elemental派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 14。 常随功法「dajin_clan_ancestor_art」体系解锁。",
       "requires_method": "dajin_clan_ancestor_art",
@@ -3668,7 +3988,14 @@
       "effect": {
         "type": "aoe",
         "element": "neutral",
-        "damage_base": 50
+        "damage_base": 50,
+        "tags": [
+          "v129",
+          "neutral",
+          "elemental",
+          "spell",
+          "area"
+        ]
       },
       "description": "小极灵涌：elemental派术法，属性倾向 neutral。境界门槛 DEITY_TRANSFORMATION，耗灵约 45。 常随功法「xiaji_palace_art」体系解锁。",
       "requires_method": "xiaji_palace_art",

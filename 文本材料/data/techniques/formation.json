@@ -13,7 +13,13 @@
         "type": "trap",
         "element": "metal",
         "damage_base": 40,
-        "tags": []
+        "tags": [
+          "metal",
+          "formation",
+          "neutral",
+          "spell",
+          "debuff"
+        ]
       },
       "tier": "spell",
       "requires_method": "kunwu_seal_art",
@@ -62,7 +68,13 @@
         "type": "trap",
         "element": "illusion",
         "damage_base": 25,
-        "tags": []
+        "tags": [
+          "illusion",
+          "formation",
+          "neutral",
+          "spell",
+          "debuff"
+        ]
       },
       "tier": "spell",
       "requires_method": "kunwu_seal_art",
@@ -111,7 +123,11 @@
         "type": "buff_zone",
         "element": "neutral",
         "damage_base": 0,
-        "tags": []
+        "tags": [
+          "neutral",
+          "formation",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "kunwu_seal_art",
@@ -159,7 +175,13 @@
         "type": "trap",
         "element": "thunder",
         "damage_base": 55,
-        "tags": []
+        "tags": [
+          "thunder",
+          "formation",
+          "neutral",
+          "spell",
+          "debuff"
+        ]
       },
       "tier": "spell",
       "requires_method": "kunwu_seal_art",
@@ -209,7 +231,12 @@
         "type": "debuff",
         "element": "neutral",
         "damage_base": 30,
-        "tags": []
+        "tags": [
+          "neutral",
+          "formation",
+          "spell",
+          "debuff"
+        ]
       },
       "tier": "spell",
       "requires_method": "kunwu_seal_art",
@@ -257,7 +284,13 @@
         "type": "trap",
         "element": "metal",
         "damage_base": 60,
-        "tags": []
+        "tags": [
+          "metal",
+          "formation",
+          "neutral",
+          "spell",
+          "debuff"
+        ]
       },
       "tier": "spell",
       "requires_method": "kunwu_seal_art",
@@ -306,7 +339,12 @@
         "type": "buff_zone",
         "element": "earth",
         "damage_base": 0,
-        "tags": []
+        "tags": [
+          "earth",
+          "formation",
+          "neutral",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "kunwu_seal_art",
@@ -357,7 +395,8 @@
         "element": "water",
         "tags": [
           "sea_control"
-        ]
+        ],
+        "damage_base": 0.0
       },
       "description": "镇海锁阵：formation派术法，属性倾向 water。境界门槛 FOUNDATION，耗灵约 24。借阵力。 阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「star_palace_art」体系解锁。",
       "source": "凡人向扩充",
@@ -411,7 +450,8 @@
         "tags": [
           "patrol"
         ],
-        "element": "neutral"
+        "element": "neutral",
+        "damage_base": 0.0
       },
       "description": "巡海信标：formation派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 18。阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「star_palace_art」体系解锁。",
       "source": "凡人向扩充",
@@ -464,7 +504,8 @@
         "tags": [
           "formation"
         ],
-        "element": "neutral"
+        "element": "neutral",
+        "damage_base": 8.0
       },
       "source": "凡人向扩充",
       "requires_method": "star_palace_art",
@@ -517,7 +558,8 @@
         "tags": [
           "formation"
         ],
-        "element": "neutral"
+        "element": "neutral",
+        "damage_base": 12.0
       },
       "source": "凡人向扩充",
       "requires_method": "star_palace_art",
@@ -616,7 +658,8 @@
         "tags": [
           "sea_terrain"
         ],
-        "element": "neutral"
+        "element": "neutral",
+        "damage_base": 12.0
       },
       "description": "镇海潮封：formation派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 26。阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「star_palace_art」体系解锁。",
       "tier": "spell",
@@ -762,7 +805,15 @@
       "effect": {
         "type": "field",
         "element": "neutral",
-        "damage_base": 15
+        "damage_base": 15,
+        "tags": [
+          "v124",
+          "fill_zero_method",
+          "neutral",
+          "formation",
+          "spell",
+          "area"
+        ]
       },
       "description": "阵修入门盘：formation派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 20。借阵力。 阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「sect_specialty_formation」体系解锁。",
       "setting": {
@@ -1283,7 +1334,15 @@
       "effect": {
         "type": "field",
         "element": "earth",
-        "damage_base": 15
+        "damage_base": 15,
+        "tags": [
+          "v129",
+          "earth",
+          "formation",
+          "neutral",
+          "spell",
+          "area"
+        ]
       },
       "description": "昆吾封固：formation派术法，属性倾向 earth。境界门槛 FOUNDATION，耗灵约 22。阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「kunwu_seal_art」体系解锁。",
       "requires_method": "kunwu_seal_art",
@@ -1321,7 +1380,15 @@
       "effect": {
         "type": "control",
         "element": "earth",
-        "damage_base": 40
+        "damage_base": 40,
+        "tags": [
+          "v129",
+          "earth",
+          "formation",
+          "neutral",
+          "spell",
+          "debuff"
+        ]
       },
       "description": "昆吾镇魔塔印：formation派术法，属性倾向 earth。境界门槛 NASCENT_SOUL，耗灵约 55。阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「kunwu_seal_art」体系解锁。",
       "requires_method": "kunwu_seal_art",
@@ -1359,7 +1426,15 @@
       "effect": {
         "type": "field",
         "element": "earth",
-        "damage_base": 35
+        "damage_base": 35,
+        "tags": [
+          "v129",
+          "earth",
+          "formation",
+          "neutral",
+          "spell",
+          "area"
+        ]
       },
       "description": "天渊城垣阵：formation派术法，属性倾向 earth。境界门槛 VOID_REFINEMENT，耗灵约 40。借阵力。 阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「tianyuan_guard_art」体系解锁。",
       "requires_method": "tianyuan_guard_art",

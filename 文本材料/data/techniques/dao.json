@@ -13,7 +13,13 @@
         "type": "aoe",
         "element": "thunder",
         "damage_base": 50,
-        "tags": []
+        "tags": [
+          "thunder",
+          "dao",
+          "righteous",
+          "spell",
+          "area"
+        ]
       },
       "tier": "spell",
       "description": "五雷正法：道门雷法代表。对魔气、鬼物、邪祟有额外伤害与震慑；施展耗灵高，宜在聚灵或雷雨天借势。",
@@ -61,7 +67,12 @@
         "type": "beam",
         "element": "yang",
         "damage_base": 42,
-        "tags": []
+        "tags": [
+          "yang",
+          "dao",
+          "righteous",
+          "spell"
+        ]
       },
       "tier": "spell",
       "description": "纯阳剑气：dao派术法，属性倾向 yang。境界门槛 QI_REFINING，耗灵约 21。剑意锋锐。 常随功法「taixu_gong」体系解锁。",
@@ -110,7 +121,13 @@
         "type": "debuff",
         "element": "neutral",
         "damage_base": 28,
-        "tags": []
+        "tags": [
+          "neutral",
+          "dao",
+          "righteous",
+          "spell",
+          "debuff"
+        ]
       },
       "tier": "spell",
       "description": "道家法印：dao派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 14。 常随功法「taixu_gong」体系解锁。",
@@ -158,7 +175,13 @@
         "type": "movement",
         "element": "wind",
         "damage_base": 0,
-        "tags": []
+        "tags": [
+          "wind",
+          "dao",
+          "righteous",
+          "spell",
+          "movement"
+        ]
       },
       "tier": "spell",
       "description": "云游步：dao派术法，属性倾向 wind。境界门槛 QI_REFINING，耗灵约 12。 常随功法「taixu_gong」体系解锁。",
@@ -206,7 +229,13 @@
         "type": "debuff",
         "element": "neutral",
         "damage_base": 33,
-        "tags": []
+        "tags": [
+          "neutral",
+          "dao",
+          "righteous",
+          "spell",
+          "debuff"
+        ]
       },
       "tier": "spell",
       "description": "捆仙绳术：dao派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 16。 常随功法「taixu_gong」体系解锁。",
@@ -254,7 +283,13 @@
         "type": "aoe",
         "element": "neutral",
         "damage_base": 44,
-        "tags": []
+        "tags": [
+          "neutral",
+          "dao",
+          "righteous",
+          "spell",
+          "area"
+        ]
       },
       "tier": "spell",
       "description": "八卦印：dao派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 22。 常随功法「taixu_gong」体系解锁。",
@@ -400,7 +435,15 @@
       "effect": {
         "type": "beam",
         "element": "light",
-        "damage_base": 35
+        "damage_base": 35,
+        "tags": [
+          "v124",
+          "fill_zero_method",
+          "light",
+          "dao",
+          "righteous",
+          "spell"
+        ]
       },
       "description": "太玄清光：dao派术法，属性倾向 light。境界门槛 FOUNDATION，耗灵约 20。 常随功法「taiyi_sect_art」体系解锁。",
       "setting": {
@@ -442,7 +485,16 @@
       "effect": {
         "type": "control",
         "element": "neutral",
-        "damage_base": 50
+        "damage_base": 50,
+        "tags": [
+          "v124",
+          "fill_zero_method",
+          "neutral",
+          "dao",
+          "righteous",
+          "spell",
+          "debuff"
+        ]
       },
       "description": "大乘印：dao派术法，属性倾向 neutral。境界门槛 GREAT_VEHICLE，耗灵约 80。 常随功法「great_vehicle_dao」体系解锁。",
       "setting": {
@@ -653,7 +705,15 @@
       "effect": {
         "type": "buff_self",
         "element": "light",
-        "damage_base": 0
+        "damage_base": 0,
+        "tags": [
+          "v129",
+          "light",
+          "dao",
+          "righteous",
+          "spell",
+          "buff"
+        ]
       },
       "description": "小极通脉：dao派术法，属性倾向 light。境界门槛 NASCENT_SOUL，耗灵约 20。 常随功法「xiaji_palace_art」体系解锁。",
       "requires_method": "xiaji_palace_art",
@@ -691,7 +751,15 @@
       "effect": {
         "type": "buff_self",
         "element": "ice",
-        "damage_base": 0
+        "damage_base": 0,
+        "tags": [
+          "v129",
+          "ice",
+          "dao",
+          "righteous",
+          "spell",
+          "buff"
+        ]
       },
       "description": "小极寒焰辅：dao派术法，属性倾向 ice。境界门槛 NASCENT_SOUL，耗灵约 25。 常随功法「xiaji_palace_art」体系解锁。",
       "requires_method": "xiaji_palace_art",
@@ -729,7 +797,14 @@
       "effect": {
         "type": "beam",
         "element": "light",
-        "damage_base": 90
+        "damage_base": 90,
+        "tags": [
+          "v129",
+          "light",
+          "dao",
+          "righteous",
+          "spell"
+        ]
       },
       "description": "大乘道光：dao派术法，属性倾向 light。境界门槛 GREAT_VEHICLE，耗灵约 60。 常随功法「great_vehicle_dao」体系解锁。",
       "requires_method": "great_vehicle_dao",
@@ -766,7 +841,15 @@
       "effect": {
         "type": "field",
         "element": "neutral",
-        "damage_base": 70
+        "damage_base": 70,
+        "tags": [
+          "v129",
+          "neutral",
+          "dao",
+          "righteous",
+          "spell",
+          "area"
+        ]
       },
       "description": "大乘界压：dao派术法，属性倾向 neutral。境界门槛 GREAT_VEHICLE，耗灵约 80。 常随功法「great_vehicle_dao」体系解锁。",
       "requires_method": "great_vehicle_dao",
@@ -803,7 +886,15 @@
       "effect": {
         "type": "buff_self",
         "element": "light",
-        "damage_base": 0
+        "damage_base": 0,
+        "tags": [
+          "v129",
+          "light",
+          "dao",
+          "righteous",
+          "spell",
+          "buff"
+        ]
       },
       "description": "广寒星列：dao派术法，属性倾向 light。境界门槛 VOID_REFINEMENT，耗灵约 35。 常随功法「guanghan_star_map_art」体系解锁。",
       "requires_method": "guanghan_star_map_art",

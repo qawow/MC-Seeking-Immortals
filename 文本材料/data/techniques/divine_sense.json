@@ -13,7 +13,13 @@
         "type": "scout",
         "element": "neutral",
         "damage_base": 0,
-        "tags": []
+        "tags": [
+          "generic_sense",
+          "v124",
+          "neutral",
+          "divine_sense",
+          "spell"
+        ]
       },
       "description": "神识扫描：以神识铺开探敌探物。大衍修士范围与精度远超常人；强敌可反噬神识。",
       "setting": {
@@ -56,7 +62,12 @@
         "type": "debuff",
         "element": "neutral",
         "damage_base": 25,
-        "tags": []
+        "tags": [
+          "neutral",
+          "divine_sense",
+          "spell",
+          "debuff"
+        ]
       },
       "description": "神识压：divine_sense派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 12。",
       "setting": {
@@ -97,7 +108,13 @@
         "type": "projectile",
         "element": "neutral",
         "damage_base": 30,
-        "tags": []
+        "tags": [
+          "generic_not_dayan",
+          "v124",
+          "neutral",
+          "divine_sense",
+          "spell"
+        ]
       },
       "description": "神念针：divine_sense派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 15。",
       "setting": {
@@ -140,7 +157,12 @@
         "type": "aoe",
         "element": "neutral",
         "damage_base": 45,
-        "tags": []
+        "tags": [
+          "neutral",
+          "divine_sense",
+          "spell",
+          "area"
+        ]
       },
       "description": "神识域：divine_sense派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 22。",
       "setting": {
@@ -181,7 +203,11 @@
         "type": "scout",
         "element": "neutral",
         "damage_base": 0,
-        "tags": []
+        "tags": [
+          "neutral",
+          "divine_sense",
+          "spell"
+        ]
       },
       "description": "读心：divine_sense派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 12。",
       "setting": {
@@ -222,7 +248,12 @@
         "type": "debuff",
         "element": "neutral",
         "damage_base": 40,
-        "tags": []
+        "tags": [
+          "neutral",
+          "divine_sense",
+          "spell",
+          "debuff"
+        ]
       },
       "description": "神识锁：divine_sense派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 20。",
       "setting": {
@@ -265,7 +296,8 @@
         "tags": [
           "divine_sense"
         ],
-        "element": "neutral"
+        "element": "neutral",
+        "damage_base": 0.0
       },
       "source": "凡人向扩充",
       "setting": {
@@ -310,7 +342,8 @@
         "tags": [
           "divine_sense"
         ],
-        "element": "neutral"
+        "element": "neutral",
+        "damage_base": 0.0
       },
       "source": "凡人向扩充",
       "setting": {
@@ -353,7 +386,8 @@
         "tags": [
           "divine_sense"
         ],
-        "element": "neutral"
+        "element": "neutral",
+        "damage_base": 0.0
       },
       "source": "凡人向扩充",
       "setting": {
@@ -628,7 +662,17 @@
       "effect": {
         "type": "buff_self",
         "element": "soul",
-        "damage_base": 0
+        "damage_base": 0,
+        "tags": [
+          "v124",
+          "fill_zero_method",
+          "novel_canon",
+          "soul",
+          "divine_sense",
+          "neutral",
+          "spell",
+          "buff"
+        ]
       },
       "description": "炼神专注：divine_sense派术法，属性倾向 soul。境界门槛 VOID_REFINEMENT，耗灵约 30。 常随功法「lian_shen_shu」体系解锁。",
       "setting": {
@@ -673,7 +717,13 @@
         "type": "scan",
         "element": "soul",
         "damage_base": 0,
-        "tags": []
+        "tags": [
+          "v124",
+          "soul",
+          "divine_sense",
+          "neutral",
+          "spell"
+        ]
       },
       "description": "炼神通探：divine_sense派术法，属性倾向 soul。境界门槛 VOID_REFINEMENT，耗灵约 25。 常随功法「spirit_severing_art」体系解锁。",
       "tags": [
@@ -751,7 +801,15 @@
       "effect": {
         "type": "buff_self",
         "element": "soul",
-        "damage_base": 0
+        "damage_base": 0,
+        "tags": [
+          "v129",
+          "soul",
+          "divine_sense",
+          "neutral",
+          "spell",
+          "buff"
+        ]
       },
       "description": "炼神二层：divine_sense派术法，属性倾向 soul。境界门槛 VOID_REFINEMENT，耗灵约 40。 常随功法「lian_shen_shu」体系解锁。",
       "requires_method": "lian_shen_shu",
@@ -788,7 +846,14 @@
       "effect": {
         "type": "soul_attack",
         "element": "soul",
-        "damage_base": 85
+        "damage_base": 85,
+        "tags": [
+          "v129",
+          "soul",
+          "divine_sense",
+          "neutral",
+          "spell"
+        ]
       },
       "description": "炼神刺：divine_sense派术法，属性倾向 soul。境界门槛 BODY_INTEGRATION，耗灵约 55。 常随功法「lian_shen_shu」体系解锁。",
       "requires_method": "lian_shen_shu",
@@ -825,7 +890,14 @@
       "effect": {
         "type": "scan",
         "element": "soul",
-        "damage_base": 0
+        "damage_base": 0,
+        "tags": [
+          "v129",
+          "soul",
+          "divine_sense",
+          "neutral",
+          "spell"
+        ]
       },
       "description": "广寒图探：divine_sense派术法，属性倾向 soul。境界门槛 VOID_REFINEMENT，耗灵约 30。 常随功法「guanghan_star_map_art」体系解锁。",
       "requires_method": "guanghan_star_map_art",

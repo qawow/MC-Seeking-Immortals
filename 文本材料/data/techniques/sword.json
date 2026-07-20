@@ -13,7 +13,19 @@
         "type": "beam",
         "element": "metal",
         "damage_base": 45,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "qingyuan",
+          "v124",
+          "v126",
+          "novel_canon",
+          "novel_anchored",
+          "huangfeng_valley",
+          "metal",
+          "neutral",
+          "spell",
+          "sword"
+        ]
       },
       "requires_method": "qingyuan_sword_art",
       "tier": "spell",
@@ -75,7 +87,19 @@
         "type": "projectile",
         "element": "metal",
         "damage_base": 38,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "qingyuan",
+          "v124",
+          "v126",
+          "novel_canon",
+          "novel_anchored",
+          "huangfeng_valley",
+          "metal",
+          "neutral",
+          "spell",
+          "sword"
+        ]
       },
       "requires_method": "qingyuan_sword_art",
       "tier": "spell",
@@ -131,7 +155,19 @@
         "type": "beam",
         "element": "wood",
         "damage_base": 40,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "qingyuan",
+          "v124",
+          "v126",
+          "novel_canon",
+          "novel_anchored",
+          "huangfeng_valley",
+          "wood",
+          "neutral",
+          "spell",
+          "sword"
+        ]
       },
       "tier": "spell",
       "requires_method": "qingyuan_sword_art",
@@ -187,7 +223,18 @@
         "type": "buff",
         "element": "metal",
         "damage_base": 25,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "qingyuan",
+          "v126",
+          "novel_anchored",
+          "huangfeng_valley",
+          "metal",
+          "neutral",
+          "spell",
+          "buff",
+          "sword"
+        ]
       },
       "tier": "spell",
       "requires_method": "qingyuan_sword_art",
@@ -241,7 +288,18 @@
         "type": "aoe",
         "element": "metal",
         "damage_base": 80,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "qingyuan",
+          "v126",
+          "novel_anchored",
+          "huangfeng_valley",
+          "metal",
+          "neutral",
+          "spell",
+          "area",
+          "sword"
+        ]
       },
       "tier": "spell",
       "requires_method": "qingyuan_sword_art",
@@ -295,7 +353,18 @@
         "type": "movement",
         "element": "metal",
         "damage_base": 30,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "qingyuan",
+          "v126",
+          "novel_anchored",
+          "huangfeng_valley",
+          "metal",
+          "neutral",
+          "spell",
+          "movement",
+          "sword"
+        ]
       },
       "tier": "spell",
       "requires_method": "qingyuan_sword_art",
@@ -349,7 +418,14 @@
         "type": "melee",
         "element": "metal",
         "damage_base": 50,
-        "tags": []
+        "tags": [
+          "demonic",
+          "v124",
+          "metal",
+          "sword",
+          "neutral",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "demonic_blood_art_generic",
@@ -400,7 +476,18 @@
         "type": "buff",
         "element": "metal",
         "damage_base": 0,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "qingyuan",
+          "v126",
+          "novel_anchored",
+          "huangfeng_valley",
+          "metal",
+          "neutral",
+          "spell",
+          "buff",
+          "sword"
+        ]
       },
       "tier": "spell",
       "requires_method": "qingyuan_sword_art",
@@ -454,7 +541,17 @@
         "type": "beam",
         "element": "metal",
         "damage_base": 52,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "qingyuan",
+          "v126",
+          "novel_anchored",
+          "huangfeng_valley",
+          "metal",
+          "neutral",
+          "spell",
+          "sword"
+        ]
       },
       "tier": "spell",
       "requires_method": "qingyuan_sword_art",
@@ -508,7 +605,18 @@
         "type": "aoe",
         "element": "metal",
         "damage_base": 70,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "qingyuan",
+          "v126",
+          "novel_anchored",
+          "huangfeng_valley",
+          "metal",
+          "neutral",
+          "spell",
+          "area",
+          "sword"
+        ]
       },
       "tier": "spell",
       "requires_method": "qingyuan_sword_art",
@@ -562,7 +670,17 @@
         "type": "melee",
         "element": "metal",
         "damage_base": 48,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "qingyuan",
+          "v126",
+          "novel_anchored",
+          "huangfeng_valley",
+          "metal",
+          "neutral",
+          "spell",
+          "sword"
+        ]
       },
       "tier": "spell",
       "requires_method": "qingyuan_sword_art",
@@ -618,7 +736,8 @@
         "element": "metal",
         "tags": [
           "array_sword"
-        ]
+        ],
+        "damage_base": 24.0
       },
       "description": "天星剑阵：sword派术法，属性倾向 metal。境界门槛 CORE_FORMATION，耗灵约 35。剑意锋锐。 剑修手段：剑气、剑丝、御剑一体，忌心魔。 常随功法「star_palace_art」体系解锁。",
       "source": "凡人向扩充",
@@ -796,7 +915,13 @@
       "effect": {
         "type": "beam",
         "element": "metal",
-        "damage_base": 40
+        "damage_base": 40,
+        "tags": [
+          "metal",
+          "sword",
+          "neutral",
+          "spell"
+        ]
       },
       "description": "金剑指：sword派术法，属性倾向 metal。境界门槛 FOUNDATION，耗灵约 —。剑意锋锐。 剑修手段：剑气、剑丝、御剑一体，忌心魔。 常随功法「jinxuan_gong」体系解锁。",
       "tier": "spell",
@@ -1192,7 +1317,15 @@
       "effect": {
         "type": "melee",
         "element": "metal",
-        "damage_base": 22
+        "damage_base": 22,
+        "tags": [
+          "v124",
+          "fill_zero_method",
+          "metal",
+          "sword",
+          "neutral",
+          "spell"
+        ]
       },
       "description": "剑修入门斩：sword派术法，属性倾向 metal。境界门槛 FOUNDATION，耗灵约 12。剑意锋锐。 剑修手段：剑气、剑丝、御剑一体，忌心魔。 常随功法「sect_specialty_sword」体系解锁。",
       "setting": {
@@ -1234,7 +1367,16 @@
       "effect": {
         "type": "melee",
         "element": "metal",
-        "damage_base": 26
+        "damage_base": 26,
+        "tags": [
+          "v124",
+          "fill_zero_method",
+          "crossover_easter_egg",
+          "metal",
+          "sword",
+          "neutral",
+          "spell"
+        ]
       },
       "description": "武当剑式（彩蛋）：sword派术法，属性倾向 metal。境界门槛 FOUNDATION，耗灵约 15。剑意锋锐。 剑修手段：剑气、剑丝、御剑一体，忌心魔。 常随功法「wudang_sword_art」体系解锁。",
       "setting": {

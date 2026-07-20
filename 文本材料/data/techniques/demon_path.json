@@ -13,7 +13,12 @@
         "type": "melee",
         "element": "demon",
         "damage_base": 70,
-        "tags": []
+        "tags": [
+          "demon",
+          "demonic",
+          "spell",
+          "demon_path"
+        ]
       },
       "description": "天魔手：demon_path派术法，属性倾向 demon。境界门槛 CORE_FORMATION，耗灵约 35。",
       "setting": {
@@ -54,7 +59,13 @@
         "type": "aoe",
         "element": "demon",
         "damage_base": 65,
-        "tags": []
+        "tags": [
+          "demon",
+          "demonic",
+          "spell",
+          "area",
+          "demon_path"
+        ]
       },
       "description": "魔气爆：demon_path派术法，属性倾向 demon。境界门槛 CORE_FORMATION，耗灵约 32。",
       "setting": {
@@ -95,7 +106,14 @@
         "type": "debuff",
         "element": "yin",
         "damage_base": 40,
-        "tags": []
+        "tags": [
+          "yin",
+          "demon",
+          "demonic",
+          "spell",
+          "debuff",
+          "demon_path"
+        ]
       },
       "description": "魂契：demon_path派术法，属性倾向 yin。境界门槛 CORE_FORMATION，耗灵约 20。神魂手段，慎用。",
       "setting": {
@@ -137,7 +155,13 @@
         "type": "debuff",
         "element": "demon",
         "damage_base": 55,
-        "tags": []
+        "tags": [
+          "demon",
+          "demonic",
+          "spell",
+          "debuff",
+          "demon_path"
+        ]
       },
       "description": "魔噬魂：demon_path派术法，属性倾向 demon。境界门槛 CORE_FORMATION，耗灵约 27。神魂手段，慎用。",
       "setting": {
@@ -177,7 +201,16 @@
       "effect": {
         "type": "transform",
         "element": "neutral",
-        "damage_base": 0
+        "damage_base": 0,
+        "tags": [
+          "v124",
+          "fill_zero_method",
+          "neutral",
+          "demon",
+          "demonic",
+          "spell",
+          "demon_path"
+        ]
       },
       "description": "妖修化形（初）：demon_path派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 40。 常随功法「beast_transformation_art」体系解锁。",
       "setting": {

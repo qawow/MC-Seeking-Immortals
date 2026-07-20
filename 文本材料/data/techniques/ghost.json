@@ -22,7 +22,8 @@
         "element": "yin",
         "tags": [
           "soul_damage"
-        ]
+        ],
+        "damage_base": 8.0
       },
       "description": "噬魂阴风：ghost派术法，属性倾向 yin。境界门槛 QI_REFINING，耗灵约 14。神魂手段，慎用。 常随功法「yin_luo_ghost_art」体系解锁。",
       "source": "凡人向扩充",
@@ -73,7 +74,8 @@
         "element": "yin",
         "tags": [
           "banner"
-        ]
+        ],
+        "damage_base": 16.0
       },
       "description": "招魂幡浪：ghost派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 22。神魂手段，慎用。 常随功法「yin_luo_ghost_art」体系解锁。",
       "source": "凡人向扩充",
@@ -124,7 +126,8 @@
         "tags": [
           "stealth_yin"
         ],
-        "element": "yin"
+        "element": "yin",
+        "damage_base": 0.0
       },
       "description": "阴罗鬼cloak：ghost派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 18。 常随功法「yin_luo_ghost_art」体系解锁。",
       "source": "凡人向扩充",
@@ -175,7 +178,8 @@
         "tags": [
           "ghost_king"
         ],
-        "element": "yin"
+        "element": "yin",
+        "damage_base": 0.0
       },
       "description": "鬼王化身：ghost派术法，属性倾向 yin。境界门槛 CORE_FORMATION，耗灵约 40。 常随功法「yin_luo_ghost_art」体系解锁。",
       "source": "凡人向扩充",
@@ -226,7 +230,8 @@
         "tags": [
           "nether"
         ],
-        "element": "yin"
+        "element": "yin",
+        "damage_base": 0.0
       },
       "description": "冥河鬼步：ghost派术法，属性倾向 yin。境界门槛 QI_REFINING，耗灵约 12。 常随功法「ghost_nether_art」体系解锁。",
       "source": "凡人向扩充",
@@ -388,7 +393,8 @@
         "tags": [
           "corpse"
         ],
-        "element": "yin"
+        "element": "yin",
+        "damage_base": 0.0
       },
       "description": "唤尸术：ghost派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 18。 常随功法「guiling_soul_art」体系解锁。",
       "tier": "spell",
@@ -480,7 +486,15 @@
       "effect": {
         "type": "control",
         "element": "yin",
-        "damage_base": 18
+        "damage_base": 18,
+        "tags": [
+          "v124",
+          "fill_zero_method",
+          "yin",
+          "ghost",
+          "spell",
+          "debuff"
+        ]
       },
       "description": "鬼修入门锁：ghost派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 16。 常随功法「sect_specialty_ghost」体系解锁。",
       "setting": {
@@ -743,7 +757,14 @@
       "effect": {
         "type": "control",
         "element": "yin",
-        "damage_base": 35
+        "damage_base": 35,
+        "tags": [
+          "v129",
+          "yin",
+          "ghost",
+          "spell",
+          "debuff"
+        ]
       },
       "description": "阴罗九魂锁：ghost派术法，属性倾向 yin。境界门槛 CORE_FORMATION，耗灵约 40。神魂手段，慎用。 常随功法「yin_luo_ghost_art」体系解锁。",
       "requires_method": "yin_luo_ghost_art",
@@ -780,7 +801,14 @@
       "effect": {
         "type": "summon",
         "element": "yin",
-        "damage_base": 48
+        "damage_base": 48,
+        "tags": [
+          "v129",
+          "yin",
+          "ghost",
+          "spell",
+          "summon"
+        ]
       },
       "description": "阴罗尸潮：ghost派术法，属性倾向 yin。境界门槛 NASCENT_SOUL，耗灵约 50。 常随功法「yin_luo_ghost_art」体系解锁。",
       "requires_method": "yin_luo_ghost_art",

@@ -1923,7 +1923,8 @@
           "avatar",
           "soul"
         ],
-        "element": "neutral"
+        "element": "neutral",
+        "damage_base": 0.0
       },
       "description": "元婴出窍：misc派术法，属性倾向 neutral。境界门槛 NASCENT_SOUL，耗灵约 34。",
       "tier": "spell",
@@ -1966,7 +1967,8 @@
         "tags": [
           "domain"
         ],
-        "element": "neutral"
+        "element": "neutral",
+        "damage_base": 16.0
       },
       "description": "化神领域：misc派术法，属性倾向 neutral。境界门槛 DEITY_TRANSFORMATION，耗灵约 42。",
       "tier": "spell",
@@ -2008,7 +2010,8 @@
           "swarm",
           "metal_eater"
         ],
-        "element": "neutral"
+        "element": "neutral",
+        "damage_base": 0.0
       },
       "description": "噬金虫群：misc派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 26。",
       "tier": "spell",
@@ -2056,7 +2059,12 @@
       "effect": {
         "type": "projectile",
         "damage_base": 100,
-        "element": "neutral"
+        "element": "neutral",
+        "tags": [
+          "neutral",
+          "misc",
+          "spell"
+        ]
       },
       "description": "灵珠连射：misc派术法，属性倾向 neutral。境界门槛 VOID_REFINEMENT，耗灵约 —。 常随功法「lingzu_pearl_art」体系解锁。",
       "tier": "spell",

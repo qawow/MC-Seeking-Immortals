@@ -13,7 +13,12 @@
         "type": "movement",
         "element": "space",
         "damage_base": 0,
-        "tags": []
+        "tags": [
+          "space",
+          "movement",
+          "neutral",
+          "spell"
+        ]
       },
       "tier": "spell",
       "description": "瞬步：movement派术法，属性倾向 space。境界门槛 QI_REFINING，耗灵约 12。",
@@ -56,7 +61,12 @@
         "type": "movement",
         "element": "earth",
         "damage_base": 0,
-        "tags": []
+        "tags": [
+          "earth",
+          "movement",
+          "neutral",
+          "spell"
+        ]
       },
       "tier": "spell",
       "description": "土遁：movement派术法，属性倾向 earth。境界门槛 QI_REFINING，耗灵约 12。保命逃遁。",
@@ -113,7 +123,18 @@
         "type": "movement",
         "element": "wind",
         "damage_base": 0,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "v124",
+          "v126",
+          "novel_canon",
+          "changchun",
+          "huangfeng_valley",
+          "wind",
+          "neutral",
+          "spell",
+          "movement"
+        ]
       },
       "tier": "spell",
       "description": "御风：movement派术法，属性倾向 wind。境界门槛 QI_REFINING，耗灵约 12。 常随功法「changchun_gong」体系解锁。",
@@ -163,7 +184,12 @@
         "type": "movement",
         "element": "mixed",
         "damage_base": 0,
-        "tags": []
+        "tags": [
+          "mixed",
+          "movement",
+          "neutral",
+          "spell"
+        ]
       },
       "tier": "spell",
       "description": "五行遁：movement派术法，属性倾向 mixed。境界门槛 QI_REFINING，耗灵约 12。保命逃遁。",
@@ -206,7 +232,12 @@
         "type": "movement",
         "element": "dark",
         "damage_base": 0,
-        "tags": []
+        "tags": [
+          "dark",
+          "movement",
+          "neutral",
+          "spell"
+        ]
       },
       "tier": "spell",
       "description": "影闪：movement派术法，属性倾向 dark。境界门槛 QI_REFINING，耗灵约 12。",
@@ -249,7 +280,12 @@
         "type": "movement",
         "element": "water",
         "damage_base": 0,
-        "tags": []
+        "tags": [
+          "water",
+          "movement",
+          "neutral",
+          "spell"
+        ]
       },
       "tier": "spell",
       "description": "水遁：movement派术法，属性倾向 water。境界门槛 QI_REFINING，耗灵约 12。保命逃遁。",
@@ -294,7 +330,8 @@
         "tags": [
           "smuggle"
         ],
-        "element": "neutral"
+        "element": "neutral",
+        "damage_base": 0.0
       },
       "description": "暗港遁步：movement派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 16。保命逃遁。 常随功法「inverse_star_art」体系解锁。",
       "source": "凡人向扩充",
@@ -348,7 +385,8 @@
         "tags": [
           "movement"
         ],
-        "element": "water"
+        "element": "water",
+        "damage_base": 0.0
       },
       "source": "凡人向扩充",
       "setting": {
@@ -398,7 +436,8 @@
         "tags": [
           "movement"
         ],
-        "element": "wind"
+        "element": "wind",
+        "damage_base": 0.0
       },
       "source": "凡人向扩充",
       "setting": {
@@ -448,7 +487,8 @@
         "tags": [
           "movement"
         ],
-        "element": "fire"
+        "element": "fire",
+        "damage_base": 0.0
       },
       "source": "凡人向扩充",
       "setting": {
@@ -498,7 +538,8 @@
         "tags": [
           "movement"
         ],
-        "element": "neutral"
+        "element": "neutral",
+        "damage_base": 0.0
       },
       "source": "凡人向扩充",
       "setting": {
@@ -539,7 +580,8 @@
         "tags": [
           "stealth"
         ],
-        "element": "neutral"
+        "element": "neutral",
+        "damage_base": 0.0
       },
       "description": "逆星影步：movement派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 18。 常随功法「inverse_star_art」体系解锁。",
       "tier": "spell",
@@ -723,7 +765,18 @@
       "effect": {
         "type": "dash",
         "element": "void",
-        "damage_base": 0
+        "damage_base": 0,
+        "tags": [
+          "v124",
+          "chaotic_sea",
+          "inverse_star",
+          "fill_zero_method",
+          "v128",
+          "void",
+          "movement",
+          "neutral",
+          "spell"
+        ]
       },
       "description": "逆星潜步：movement派术法，属性倾向 void。境界门槛 FOUNDATION，耗灵约 18。 常随功法「inverse_star_shadow_art」体系解锁。",
       "setting": {

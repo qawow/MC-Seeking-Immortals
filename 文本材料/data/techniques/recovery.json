@@ -13,7 +13,12 @@
         "type": "heal",
         "element": "wood",
         "damage_base": 30,
-        "tags": []
+        "tags": [
+          "wood",
+          "recovery",
+          "neutral",
+          "spell"
+        ]
       },
       "tier": "spell",
       "description": "回气术：recovery派术法，属性倾向 wood。境界门槛 QI_REFINING，耗灵约 15。",
@@ -56,7 +61,12 @@
         "type": "cleanse",
         "element": "wood",
         "damage_base": 0,
-        "tags": []
+        "tags": [
+          "wood",
+          "recovery",
+          "neutral",
+          "spell"
+        ]
       },
       "tier": "spell",
       "description": "解毒术：recovery派术法，属性倾向 wood。境界门槛 QI_REFINING，耗灵约 12。",
@@ -99,7 +109,11 @@
         "type": "heal_spirit",
         "element": "neutral",
         "damage_base": 25,
-        "tags": []
+        "tags": [
+          "neutral",
+          "recovery",
+          "spell"
+        ]
       },
       "tier": "spell",
       "description": "凝神术：recovery派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 12。",
@@ -141,7 +155,12 @@
         "type": "heal",
         "element": "water",
         "damage_base": 40,
-        "tags": []
+        "tags": [
+          "water",
+          "recovery",
+          "neutral",
+          "spell"
+        ]
       },
       "tier": "spell",
       "description": "疗伤术：recovery派术法，属性倾向 water。境界门槛 QI_REFINING，耗灵约 20。疗伤续战。",
@@ -184,7 +203,12 @@
         "type": "heal",
         "element": "wood",
         "damage_base": 50,
-        "tags": []
+        "tags": [
+          "wood",
+          "recovery",
+          "neutral",
+          "spell"
+        ]
       },
       "tier": "spell",
       "description": "群体疗伤：recovery派术法，属性倾向 wood。境界门槛 QI_REFINING，耗灵约 25。疗伤续战。",
@@ -227,7 +251,12 @@
         "type": "heal",
         "element": "wood",
         "damage_base": 0,
-        "tags": []
+        "tags": [
+          "wood",
+          "recovery",
+          "neutral",
+          "spell"
+        ]
       },
       "tier": "spell",
       "description": "续命术：recovery派术法，属性倾向 wood。境界门槛 QI_REFINING，耗灵约 12。",
@@ -272,7 +301,8 @@
         "tags": [
           "defense"
         ],
-        "element": "neutral"
+        "element": "neutral",
+        "damage_base": 0.0
       },
       "source": "凡人向扩充",
       "setting": {
@@ -315,7 +345,8 @@
         "tags": [
           "defense"
         ],
-        "element": "neutral"
+        "element": "neutral",
+        "damage_base": 0.0
       },
       "source": "凡人向扩充",
       "setting": {

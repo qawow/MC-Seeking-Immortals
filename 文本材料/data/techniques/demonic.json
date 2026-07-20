@@ -13,7 +13,15 @@
         "type": "aoe",
         "element": "fire",
         "damage_base": 42,
-        "tags": []
+        "tags": [
+          "v125",
+          "tianmo_sect",
+          "fire",
+          "demonic",
+          "spell",
+          "area",
+          "dao"
+        ]
       },
       "tier": "spell",
       "alignment": "demonic",
@@ -64,7 +72,15 @@
         "type": "debuff",
         "element": "yin",
         "damage_base": 35,
-        "tags": []
+        "tags": [
+          "guiling_gate",
+          "v125",
+          "yin",
+          "demonic",
+          "spell",
+          "debuff",
+          "dao"
+        ]
       },
       "tier": "spell",
       "alignment": "demonic",
@@ -116,7 +132,16 @@
         "type": "buff",
         "element": "blood",
         "damage_base": 0,
-        "tags": []
+        "tags": [
+          "six_sects",
+          "v125",
+          "blood",
+          "xuewu_sect",
+          "demonic",
+          "spell",
+          "buff",
+          "dao"
+        ]
       },
       "tier": "spell",
       "alignment": "demonic",
@@ -169,7 +194,13 @@
         "type": "transform",
         "element": "demon",
         "damage_base": 0,
-        "tags": []
+        "tags": [
+          "demon",
+          "tianmo_sect",
+          "demonic",
+          "spell",
+          "dao"
+        ]
       },
       "tier": "spell",
       "alignment": "demonic",
@@ -220,7 +251,14 @@
         "type": "debuff",
         "element": "demon",
         "damage_base": 38,
-        "tags": []
+        "tags": [
+          "demon",
+          "demonic_six",
+          "demonic",
+          "spell",
+          "debuff",
+          "dao"
+        ]
       },
       "tier": "spell",
       "alignment": "demonic",
@@ -270,7 +308,14 @@
         "type": "buff",
         "element": "demon",
         "damage_base": 0,
-        "tags": []
+        "tags": [
+          "demon",
+          "demonic_six",
+          "demonic",
+          "spell",
+          "buff",
+          "dao"
+        ]
       },
       "tier": "spell",
       "alignment": "demonic",
@@ -319,7 +364,16 @@
       "spirit_cost_base": 18,
       "effect": {
         "type": "buff",
-        "element": "illusion"
+        "element": "illusion",
+        "tags": [
+          "illusion",
+          "demonic_six",
+          "demonic",
+          "spell",
+          "buff",
+          "dao"
+        ],
+        "damage_base": 0.0
       },
       "description": "狐影幻形：demonic派术法，属性倾向 illusion。境界门槛 FOUNDATION，耗灵约 18。 常随功法「wanhu_phantom_art」体系解锁。",
       "source": "凡人向扩充",
@@ -367,7 +421,18 @@
       "spirit_cost_base": 28,
       "effect": {
         "type": "debuff",
-        "element": "blood"
+        "element": "blood",
+        "tags": [
+          "six_sects",
+          "v125",
+          "blood",
+          "xuewu_sect",
+          "demonic",
+          "secret",
+          "debuff",
+          "dao"
+        ],
+        "damage_base": 12.0
       },
       "description": "血咒印：demonic派术法，属性倾向 blood。境界门槛 CORE_FORMATION，耗灵约 28。耗血换力。 常随功法「xuewu_blood_art」体系解锁。",
       "source": "凡人向扩充",
@@ -639,7 +704,8 @@
           "charm",
           "mind"
         ],
-        "element": "demon"
+        "element": "demon",
+        "damage_base": 8.0
       },
       "description": "合欢迷心：demonic派术法，属性倾向 demon。境界门槛 FOUNDATION，耗灵约 18。 常随功法「hehuan_mind_art」体系解锁。",
       "tier": "spell",
@@ -748,7 +814,8 @@
         "tags": [
           "curse"
         ],
-        "element": "demon"
+        "element": "demon",
+        "damage_base": 8.0
       },
       "description": "血巫咒印：demonic派术法，属性倾向 demon。境界门槛 FOUNDATION，耗灵约 18。耗血换力。 常随功法「xuewu_blood_art」体系解锁。",
       "tier": "spell",
@@ -938,7 +1005,16 @@
       "effect": {
         "type": "field",
         "element": "yin",
-        "damage_base": 35
+        "damage_base": 35,
+        "tags": [
+          "v124",
+          "fill_zero_method",
+          "yin",
+          "demonic_six",
+          "demonic",
+          "spell",
+          "area"
+        ]
       },
       "description": "坠魔雾：demonic派术法，属性倾向 yin。境界门槛 NASCENT_SOUL，耗灵约 40。 常随功法「fallen_demon_art」体系解锁。",
       "setting": {
@@ -980,7 +1056,15 @@
       "effect": {
         "type": "projectile",
         "element": "yin",
-        "damage_base": 24
+        "damage_base": 24,
+        "tags": [
+          "v124",
+          "fill_zero_method",
+          "yin",
+          "demonic_six",
+          "demonic",
+          "spell"
+        ]
       },
       "description": "魔修入门煞：demonic派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 16。 常随功法「sect_specialty_demonic」体系解锁。",
       "setting": {
@@ -1686,7 +1770,15 @@
       "effect": {
         "type": "debuff",
         "element": "yin",
-        "damage_base": 30
+        "damage_base": 30,
+        "tags": [
+          "v129",
+          "yin",
+          "demonic_six",
+          "demonic",
+          "spell",
+          "debuff"
+        ]
       },
       "description": "叶家暗令：demonic派术法，属性倾向 yin。境界门槛 NASCENT_SOUL，耗灵约 40。 常随功法「dajin_ye_clan_art」体系解锁。",
       "requires_method": "dajin_ye_clan_art",
@@ -1724,7 +1816,14 @@
       "effect": {
         "type": "melee",
         "element": "yin",
-        "damage_base": 72
+        "damage_base": 72,
+        "tags": [
+          "v129",
+          "yin",
+          "demonic_six",
+          "demonic",
+          "spell"
+        ]
       },
       "description": "地渊修罗斩：demonic派术法，属性倾向 yin。境界门槛 VOID_REFINEMENT，耗灵约 48。 常随功法「diyuan_asura_art」体系解锁。",
       "requires_method": "diyuan_asura_art",
@@ -1761,7 +1860,15 @@
       "effect": {
         "type": "field",
         "element": "blood",
-        "damage_base": 45
+        "damage_base": 45,
+        "tags": [
+          "v129",
+          "blood",
+          "demonic_six",
+          "demonic",
+          "spell",
+          "area"
+        ]
       },
       "description": "地渊血雾：demonic派术法，属性倾向 blood。境界门槛 VOID_REFINEMENT，耗灵约 40。耗血换力。 常随功法「diyuan_asura_art」体系解锁。",
       "requires_method": "diyuan_asura_art",

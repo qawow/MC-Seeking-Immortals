@@ -13,7 +13,15 @@
         "type": "projectile",
         "element": "fire",
         "damage_base": 20,
-        "tags": []
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "fire",
+          "talisman",
+          "neutral",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
@@ -68,7 +76,15 @@
         "type": "projectile",
         "element": "ice",
         "damage_base": 18,
-        "tags": []
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "ice",
+          "talisman",
+          "neutral",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
@@ -122,7 +138,16 @@
         "type": "movement",
         "element": "space",
         "damage_base": 0,
-        "tags": []
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "space",
+          "talisman",
+          "neutral",
+          "spell",
+          "movement"
+        ]
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
@@ -176,7 +201,15 @@
         "type": "buff",
         "element": "neutral",
         "damage_base": 0,
-        "tags": []
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "neutral",
+          "talisman",
+          "spell",
+          "buff"
+        ]
       },
       "tier": "spell",
       "description": "护体符：talisman派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 12。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_scripture」体系解锁。",
@@ -229,7 +262,16 @@
         "type": "aoe",
         "element": "fire",
         "damage_base": 35,
-        "tags": []
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "fire",
+          "talisman",
+          "neutral",
+          "spell",
+          "area"
+        ]
       },
       "tier": "spell",
       "description": "爆炎符：talisman派术法，属性倾向 fire。境界门槛 QI_REFINING，耗灵约 17。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_scripture」体系解锁。",
@@ -284,7 +326,16 @@
         "type": "buff",
         "element": "wind",
         "damage_base": 0,
-        "tags": []
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "wind",
+          "talisman",
+          "neutral",
+          "spell",
+          "buff"
+        ]
       },
       "tier": "spell",
       "description": "神行符：talisman派术法，属性倾向 wind。境界门槛 QI_REFINING，耗灵约 12。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_scripture」体系解锁。",
@@ -338,7 +389,15 @@
         "type": "debuff",
         "element": "neutral",
         "damage_base": 0,
-        "tags": []
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "neutral",
+          "talisman",
+          "spell",
+          "debuff"
+        ]
       },
       "tier": "spell",
       "description": "定身符：talisman派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 12。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_scripture」体系解锁。",
@@ -391,7 +450,16 @@
         "type": "aoe",
         "element": "yang",
         "damage_base": 28,
-        "tags": []
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "yang",
+          "talisman",
+          "neutral",
+          "spell",
+          "area"
+        ]
       },
       "tier": "spell",
       "path_required": "ghost_cultivator",
@@ -449,7 +517,8 @@
         "element": "spirit",
         "tags": [
           "bind"
-        ]
+        ],
+        "damage_base": 8.0
       },
       "description": "缚灵符术：talisman派术法，属性倾向 spirit。境界门槛 FOUNDATION，耗灵约 16。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "source": "凡人向扩充",
@@ -504,7 +573,8 @@
         "element": "metal",
         "tags": [
           "defense"
-        ]
+        ],
+        "damage_base": 0.0
       },
       "description": "金刚符术：talisman派术法，属性倾向 metal。境界门槛 FOUNDATION，耗灵约 14。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "source": "凡人向扩充",
@@ -557,7 +627,17 @@
       "effect": {
         "type": "aoe",
         "element": "thunder",
-        "damage_base": 60
+        "damage_base": 60,
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "thunder",
+          "talisman",
+          "neutral",
+          "secret",
+          "area"
+        ]
       },
       "description": "雷符暴雨：talisman派术法，属性倾向 thunder。境界门槛 CORE_FORMATION，耗灵约 32。雷法震邪。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "source": "凡人向扩充",
@@ -665,7 +745,15 @@
         "type": "talisman_consume",
         "effect_key": "aoe_fire",
         "damage_base": 18,
-        "element": "neutral"
+        "element": "neutral",
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "neutral",
+          "talisman",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
@@ -712,7 +800,15 @@
         "type": "talisman_consume",
         "effect_key": "slow_ice",
         "damage_base": 12,
-        "element": "neutral"
+        "element": "neutral",
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "neutral",
+          "talisman",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
@@ -759,7 +855,15 @@
         "type": "talisman_consume",
         "effect_key": "long_escape",
         "damage_base": 12,
-        "element": "neutral"
+        "element": "neutral",
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "neutral",
+          "talisman",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
@@ -806,7 +910,17 @@
         "type": "talisman_consume",
         "effect_key": "anti_illusion",
         "damage_base": 12,
-        "element": "neutral"
+        "element": "neutral",
+        "tags": [
+          "alt_seven",
+          "v127",
+          "novel_canon",
+          "v124",
+          "tianfu",
+          "neutral",
+          "talisman",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
@@ -855,7 +969,15 @@
         "type": "talisman_consume",
         "effect_key": "thunder_strike",
         "damage_base": 80,
-        "element": "neutral"
+        "element": "neutral",
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "neutral",
+          "talisman",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
@@ -902,7 +1024,15 @@
         "type": "talisman_consume",
         "effect_key": "soul_bind",
         "damage_base": 12,
-        "element": "neutral"
+        "element": "neutral",
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "neutral",
+          "talisman",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
@@ -949,7 +1079,15 @@
         "type": "talisman_consume",
         "effect_key": "array_teleport",
         "damage_base": 12,
-        "element": "neutral"
+        "element": "neutral",
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "neutral",
+          "talisman",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
@@ -996,7 +1134,15 @@
         "type": "talisman_consume",
         "effect_key": "pet_contract",
         "damage_base": 12,
-        "element": "neutral"
+        "element": "neutral",
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "neutral",
+          "talisman",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
@@ -1043,7 +1189,15 @@
         "type": "talisman_consume",
         "effect_key": "demon_repulse",
         "damage_base": 12,
-        "element": "neutral"
+        "element": "neutral",
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "neutral",
+          "talisman",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
@@ -1090,7 +1244,15 @@
         "type": "talisman_consume",
         "effect_key": "yin_damage_resist_0.3",
         "damage_base": 12,
-        "element": "neutral"
+        "element": "neutral",
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "neutral",
+          "talisman",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
@@ -1137,7 +1299,15 @@
         "type": "talisman_consume",
         "effect_key": "mask_qi",
         "damage_base": 12,
-        "element": "neutral"
+        "element": "neutral",
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "neutral",
+          "talisman",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
@@ -1184,7 +1354,15 @@
         "type": "talisman_consume",
         "effect_key": "prevent_teleport",
         "damage_base": 12,
-        "element": "neutral"
+        "element": "neutral",
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "neutral",
+          "talisman",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
@@ -1231,7 +1409,15 @@
         "type": "talisman_consume",
         "effect_key": "auto_resurrect_once",
         "damage_base": 12,
-        "element": "neutral"
+        "element": "neutral",
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "neutral",
+          "talisman",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
@@ -1278,7 +1464,15 @@
         "type": "talisman_consume",
         "effect_key": "temp_wall",
         "damage_base": 12,
-        "element": "neutral"
+        "element": "neutral",
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "neutral",
+          "talisman",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
@@ -1325,7 +1519,15 @@
         "type": "talisman_consume",
         "effect_key": "illusion_charm",
         "damage_base": 12,
-        "element": "neutral"
+        "element": "neutral",
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "neutral",
+          "talisman",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
@@ -1372,7 +1574,15 @@
         "type": "talisman_consume",
         "effect_key": "invisibility_short",
         "damage_base": 12,
-        "element": "neutral"
+        "element": "neutral",
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "neutral",
+          "talisman",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
@@ -1419,7 +1629,15 @@
         "type": "talisman_consume",
         "effect_key": "local_spirit_boost",
         "damage_base": 12,
-        "element": "neutral"
+        "element": "neutral",
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "neutral",
+          "talisman",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
@@ -1466,7 +1684,15 @@
         "type": "talisman_consume",
         "effect_key": "talisman_consume",
         "damage_base": 12,
-        "element": "neutral"
+        "element": "neutral",
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "neutral",
+          "talisman",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
@@ -1513,7 +1739,18 @@
         "type": "talisman_consume",
         "effect_key": "talisman_consume",
         "damage_base": 12,
-        "element": "neutral"
+        "element": "neutral",
+        "tags": [
+          "v127",
+          "star_palace",
+          "chaotic_sea",
+          "alt_seven",
+          "tianfu",
+          "v128",
+          "neutral",
+          "talisman",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
@@ -1564,7 +1801,15 @@
         "type": "talisman_consume",
         "effect_key": "talisman_consume",
         "damage_base": 12,
-        "element": "neutral"
+        "element": "neutral",
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "neutral",
+          "talisman",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
@@ -1611,7 +1856,18 @@
         "type": "talisman_consume",
         "effect_key": "talisman_consume",
         "damage_base": 12,
-        "element": "neutral"
+        "element": "neutral",
+        "tags": [
+          "v127",
+          "chaotic_sea",
+          "inverse_star",
+          "alt_seven",
+          "tianfu",
+          "v128",
+          "neutral",
+          "talisman",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
@@ -1662,7 +1918,15 @@
         "type": "talisman_consume",
         "effect_key": "talisman_consume",
         "damage_base": 12,
-        "element": "neutral"
+        "element": "neutral",
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "neutral",
+          "talisman",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
@@ -1709,7 +1973,15 @@
         "type": "talisman_consume",
         "effect_key": "talisman_consume",
         "damage_base": 12,
-        "element": "neutral"
+        "element": "neutral",
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "neutral",
+          "talisman",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
@@ -1756,7 +2028,15 @@
         "type": "talisman_consume",
         "effect_key": "talisman_consume",
         "damage_base": 12,
-        "element": "neutral"
+        "element": "neutral",
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "neutral",
+          "talisman",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
@@ -1803,7 +2083,15 @@
         "type": "talisman_consume",
         "effect_key": "talisman_consume",
         "damage_base": 12,
-        "element": "neutral"
+        "element": "neutral",
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "neutral",
+          "talisman",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
@@ -1850,7 +2138,15 @@
         "type": "talisman_consume",
         "effect_key": "talisman_consume",
         "damage_base": 12,
-        "element": "neutral"
+        "element": "neutral",
+        "tags": [
+          "alt_seven",
+          "tianfu",
+          "v127",
+          "neutral",
+          "talisman",
+          "spell"
+        ]
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
@@ -1945,7 +2241,15 @@
       "effect": {
         "type": "talisman_consume",
         "element": "fire",
-        "damage_base": 25
+        "damage_base": 25,
+        "tags": [
+          "v124",
+          "fill_zero_method",
+          "fire",
+          "talisman",
+          "neutral",
+          "spell"
+        ]
       },
       "description": "符修入门符：talisman派术法，属性倾向 fire。境界门槛 FOUNDATION，耗灵约 0。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「sect_specialty_talisman」体系解锁。",
       "setting": {

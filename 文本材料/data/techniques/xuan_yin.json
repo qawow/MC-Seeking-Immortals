@@ -13,7 +13,15 @@
         "type": "aoe_dot",
         "element": "yin",
         "damage_base": 6,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "yanyue_sect",
+          "v126",
+          "yin",
+          "neutral",
+          "spell",
+          "xuan_yin"
+        ]
       },
       "tier": "spell",
       "path_required": "ghost_cultivator",
@@ -68,7 +76,17 @@
         "type": "aoe",
         "element": "yin",
         "damage_base": 40,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "yanyue_sect",
+          "v126",
+          "yin",
+          "neutral",
+          "spell",
+          "area",
+          "xuan_yin",
+          "dao"
+        ]
       },
       "tier": "spell",
       "description": "尸爆：xuan_yin派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 20。 常随功法「xuan_yin_art」体系解锁。",
@@ -121,7 +139,17 @@
         "type": "debuff",
         "element": "yin",
         "damage_base": 28,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "yanyue_sect",
+          "v126",
+          "yin",
+          "neutral",
+          "spell",
+          "debuff",
+          "xuan_yin",
+          "dao"
+        ]
       },
       "tier": "spell",
       "path_required": "ghost_cultivator",
@@ -175,7 +203,17 @@
         "type": "dot",
         "element": "yin",
         "damage_base": 15,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "yanyue_sect",
+          "v126",
+          "yin",
+          "neutral",
+          "spell",
+          "debuff",
+          "xuan_yin",
+          "dao"
+        ]
       },
       "tier": "spell",
       "description": "污血术：xuan_yin派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 8。耗血换力。 常随功法「xuan_yin_art」体系解锁。",
@@ -228,7 +266,17 @@
         "type": "buff",
         "element": "yin",
         "damage_base": 0,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "yanyue_sect",
+          "v126",
+          "yin",
+          "neutral",
+          "spell",
+          "buff",
+          "xuan_yin",
+          "dao"
+        ]
       },
       "tier": "spell",
       "description": "炼尸甲：xuan_yin派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 12。 常随功法「xuan_yin_art」体系解锁。",
@@ -281,7 +329,16 @@
         "type": "projectile",
         "element": "yin",
         "damage_base": 38,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "yanyue_sect",
+          "v126",
+          "yin",
+          "neutral",
+          "spell",
+          "xuan_yin",
+          "dao"
+        ]
       },
       "tier": "spell",
       "description": "幽冥火：xuan_yin派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 19。凝火杀伐。 常随功法「xuan_yin_art」体系解锁。",
@@ -334,7 +391,17 @@
         "type": "dot",
         "element": "yin",
         "damage_base": 18,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "yanyue_sect",
+          "v126",
+          "yin",
+          "neutral",
+          "spell",
+          "debuff",
+          "xuan_yin",
+          "dao"
+        ]
       },
       "tier": "spell",
       "description": "阴蚀：xuan_yin派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 9。 常随功法「xuan_yin_art」体系解锁。",
@@ -387,7 +454,17 @@
         "type": "summon",
         "element": "yin",
         "damage_base": 0,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "yanyue_sect",
+          "v126",
+          "yin",
+          "neutral",
+          "spell",
+          "summon",
+          "xuan_yin",
+          "dao"
+        ]
       },
       "tier": "spell",
       "description": "鬼王召：xuan_yin派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 12。 常随功法「xuan_yin_art」体系解锁。",
@@ -440,7 +517,17 @@
         "type": "debuff",
         "element": "yin",
         "damage_base": 22,
-        "tags": []
+        "tags": [
+          "seven_sects",
+          "yanyue_sect",
+          "v126",
+          "yin",
+          "neutral",
+          "spell",
+          "debuff",
+          "xuan_yin",
+          "dao"
+        ]
       },
       "tier": "spell",
       "description": "招魂：xuan_yin派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 11。神魂手段，慎用。 常随功法「xuan_yin_art」体系解锁。",
@@ -498,7 +585,8 @@
         "element": "yin",
         "tags": [
           "stage_soul_anchor"
-        ]
+        ],
+        "damage_base": 0.0
       },
       "description": "魂锚仪式：xuan_yin派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 25。神魂手段，慎用。",
       "source": "凡人向扩充",
@@ -590,7 +678,8 @@
         "element": "yin",
         "tags": [
           "soul"
-        ]
+        ],
+        "damage_base": 8.0
       },
       "description": "夺魂牵引：xuan_yin派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 18。神魂手段，慎用。 常随功法「xuan_yin_art」体系解锁。",
       "source": "凡人向扩充",
