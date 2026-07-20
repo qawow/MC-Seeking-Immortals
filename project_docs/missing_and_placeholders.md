@@ -1,3 +1,9 @@
+## 0.2.107 渡口路由与空 method 矩阵
+
+`ferry_pass` 可执行；渡口币/票不再误作载具；14 空 method 矩阵有可执行术法。协议 26。
+
+仍未完成：真人专服 + 双客户端签字、完整实机烟测 §6.1–8、工作室级手绘 GeckoLib；可选 ring 站专属 Structure 接线、符箓/召唤保真、工站完整 BOM。
+
 ## 0.2.106 术法高层 type 映射
 
 cultivation 遗留包 cult-only 术法现推断可执行 effectType，释放不再因 blank 效果 fail-closed。协议 26。

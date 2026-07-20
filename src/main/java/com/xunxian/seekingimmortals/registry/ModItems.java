@@ -607,7 +607,13 @@ public final class ModItems {
     public static final RegistryObject<Item> CHAOTIC_SEA_TELEPORT_PERMIT = ITEMS.register("chaotic_sea_teleport_permit", () -> new Item(new Item.Properties().stacksTo(16)));
     public static final RegistryObject<Item> AUCTION_INVITE = ITEMS.register("auction_invite", () -> new Item(new Item.Properties().stacksTo(16)));
     public static final RegistryObject<Item> MULAN_PASS = ITEMS.register("mulan_pass", () -> new Item(new Item.Properties().stacksTo(16)));
-    public static final RegistryObject<Item> FERRY_PASS = ITEMS.register("ferry_pass", () -> new Item(new Item.Properties().stacksTo(16)));
+    public static final RegistryObject<Item> FERRY_PASS = ITEMS.register("ferry_pass",
+            () -> new CatalogConsumableItem(
+                    new Item.Properties().stacksTo(16),
+                    com.xunxian.seekingimmortals.item.material.MaterialCategory.SPECIAL,
+                    com.xunxian.seekingimmortals.item.material.MaterialRarity.UNCOMMON,
+                    "阴冥渡口符",
+                    BulkItemClassifier.consumable("ferry_pass").orElseThrow()));
     public static final RegistryObject<Item> VOID_PALACE_KEY_FRAGMENT = ITEMS.register("void_palace_key_fragment", () -> new Item(new Item.Properties().stacksTo(16).rarity(net.minecraft.world.item.Rarity.UNCOMMON)));
     public static final RegistryObject<Item> SPACE_RIFT_COMPASS = ITEMS.register("space_rift_compass", () -> new Item(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> BORDER_MERIT_TOKEN = ITEMS.register("border_merit_token", () -> new Item(new Item.Properties().stacksTo(64)));

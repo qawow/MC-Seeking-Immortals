@@ -2001,9 +2001,17 @@
           "layer": 1,
           "layer_name": "1层生活职/光环",
           "realm_band": "QI_REFINING",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "生活/宗门基础心法，无战斗术解锁；层数显式为 1"
+          "unlock_technique_ids": [
+            "medicine_king_pill_boost",
+            "luoyun_pill_emergency",
+            "heal_qi"
+          ],
+          "unlock_new_this_layer": [
+            "medicine_king_pill_boost",
+            "luoyun_pill_emergency",
+            "heal_qi"
+          ],
+          "note": "生活/宗门基础心法，无战斗术解锁；层数显式为 1；0.2.107 补基础可执行术法解锁"
         }
       ],
       "note": "生活/光环心法：显式 1 层（无战斗术）",
@@ -2019,9 +2027,17 @@
           "layer": 1,
           "layer_name": "1层生活职/光环",
           "realm_band": "QI_REFINING",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "生活/宗门基础心法，无战斗术解锁；层数显式为 1"
+          "unlock_technique_ids": [
+            "sect_body_intro",
+            "body_hardness",
+            "heal_qi"
+          ],
+          "unlock_new_this_layer": [
+            "sect_body_intro",
+            "body_hardness",
+            "heal_qi"
+          ],
+          "note": "生活/宗门基础心法，无战斗术解锁；层数显式为 1；0.2.107 补基础可执行术法解锁"
         }
       ],
       "note": "生活/光环心法：显式 1 层（无战斗术）",
@@ -2876,9 +2892,17 @@
           "layer": 1,
           "layer_name": "1层生活职/光环",
           "realm_band": "QI_REFINING",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "生活/宗门基础心法，无战斗术解锁；层数显式为 1"
+          "unlock_technique_ids": [
+            "fireball",
+            "dingshen_talisman_qi",
+            "spirit_shield"
+          ],
+          "unlock_new_this_layer": [
+            "fireball",
+            "dingshen_talisman_qi",
+            "spirit_shield"
+          ],
+          "note": "生活/宗门基础心法，无战斗术解锁；层数显式为 1；0.2.107 补基础可执行术法解锁"
         }
       ],
       "note": "生活/光环心法：显式 1 层（无战斗术）",
@@ -3137,9 +3161,17 @@
           "layer": 1,
           "layer_name": "1层生活职/光环",
           "realm_band": "QI_REFINING",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "生活/宗门基础心法，无战斗术解锁；层数显式为 1"
+          "unlock_technique_ids": [
+            "divine_sense_scan",
+            "spirit_recovery",
+            "fireball"
+          ],
+          "unlock_new_this_layer": [
+            "divine_sense_scan",
+            "spirit_recovery",
+            "fireball"
+          ],
+          "note": "生活/宗门基础心法，无战斗术解锁；层数显式为 1；0.2.107 补基础可执行术法解锁"
         }
       ],
       "note": "生活/光环心法：显式 1 层（无战斗术）",
@@ -3175,73 +3207,117 @@
           "layer": 1,
           "layer_name": "1层通修",
           "realm_band": "QI_REFINING",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "fireball"
+          ],
+          "unlock_new_this_layer": [
+            "fireball"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 2,
           "layer_name": "2层通修",
           "realm_band": "QI_REFINING",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "fireball"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 3,
           "layer_name": "3层通修",
           "realm_band": "QI_REFINING",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "fireball",
+            "dingshen_talisman_qi"
+          ],
+          "unlock_new_this_layer": [
+            "dingshen_talisman_qi"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 4,
           "layer_name": "4层通修",
           "realm_band": "QI_REFINING",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "fireball",
+            "dingshen_talisman_qi"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 5,
           "layer_name": "5层通修",
           "realm_band": "QI_REFINING",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "fireball",
+            "dingshen_talisman_qi",
+            "wind_ride"
+          ],
+          "unlock_new_this_layer": [
+            "wind_ride"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 6,
           "layer_name": "6层通修",
           "realm_band": "QI_REFINING",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "fireball",
+            "dingshen_talisman_qi",
+            "wind_ride"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 7,
           "layer_name": "7层通修",
           "realm_band": "QI_REFINING",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "fireball",
+            "dingshen_talisman_qi",
+            "wind_ride",
+            "heal_qi"
+          ],
+          "unlock_new_this_layer": [
+            "heal_qi"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 8,
           "layer_name": "8层通修",
           "realm_band": "QI_REFINING",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "fireball",
+            "dingshen_talisman_qi",
+            "wind_ride",
+            "heal_qi"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 9,
           "layer_name": "9层通修",
           "realm_band": "QI_REFINING",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "fireball",
+            "dingshen_talisman_qi",
+            "wind_ride",
+            "heal_qi",
+            "spirit_shield"
+          ],
+          "unlock_new_this_layer": [
+            "spirit_shield"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         }
       ],
       "note": "通修进度：显式 9 层（无专属战斗术表）",
@@ -3257,73 +3333,127 @@
           "layer": 1,
           "layer_name": "1层通修",
           "realm_band": "FOUNDATION",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "spirit_shield",
+            "heal_qi"
+          ],
+          "unlock_new_this_layer": [
+            "spirit_shield",
+            "heal_qi"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 2,
           "layer_name": "2层通修",
           "realm_band": "FOUNDATION",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "spirit_shield",
+            "heal_qi"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 3,
           "layer_name": "3层通修",
           "realm_band": "FOUNDATION",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "spirit_shield",
+            "heal_qi",
+            "wood_bind"
+          ],
+          "unlock_new_this_layer": [
+            "wood_bind"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 4,
           "layer_name": "4层通修",
           "realm_band": "FOUNDATION",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "spirit_shield",
+            "heal_qi",
+            "wood_bind"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 5,
           "layer_name": "5层通修",
           "realm_band": "FOUNDATION",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "spirit_shield",
+            "heal_qi",
+            "wood_bind",
+            "thunder_palm"
+          ],
+          "unlock_new_this_layer": [
+            "thunder_palm"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 6,
           "layer_name": "6层通修",
           "realm_band": "FOUNDATION",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "spirit_shield",
+            "heal_qi",
+            "wood_bind",
+            "thunder_palm"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 7,
           "layer_name": "7层通修",
           "realm_band": "FOUNDATION",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "spirit_shield",
+            "heal_qi",
+            "wood_bind",
+            "thunder_palm",
+            "divine_sense_scan"
+          ],
+          "unlock_new_this_layer": [
+            "divine_sense_scan"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 8,
           "layer_name": "8层通修",
           "realm_band": "FOUNDATION",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "spirit_shield",
+            "heal_qi",
+            "wood_bind",
+            "thunder_palm",
+            "divine_sense_scan"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 9,
           "layer_name": "9层通修",
           "realm_band": "FOUNDATION",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "spirit_shield",
+            "heal_qi",
+            "wood_bind",
+            "thunder_palm",
+            "divine_sense_scan",
+            "luoyan_bu"
+          ],
+          "unlock_new_this_layer": [
+            "luoyan_bu"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         }
       ],
       "note": "通修进度：显式 9 层（无专属战斗术表）",
@@ -3339,73 +3469,127 @@
           "layer": 1,
           "layer_name": "1层通修",
           "realm_band": "CORE_FORMATION",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "thunder_palm",
+            "divine_sense_scan"
+          ],
+          "unlock_new_this_layer": [
+            "thunder_palm",
+            "divine_sense_scan"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 2,
           "layer_name": "2层通修",
           "realm_band": "CORE_FORMATION",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "thunder_palm",
+            "divine_sense_scan"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 3,
           "layer_name": "3层通修",
           "realm_band": "CORE_FORMATION",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "thunder_palm",
+            "divine_sense_scan",
+            "spirit_recovery"
+          ],
+          "unlock_new_this_layer": [
+            "spirit_recovery"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 4,
           "layer_name": "4层通修",
           "realm_band": "CORE_FORMATION",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "thunder_palm",
+            "divine_sense_scan",
+            "spirit_recovery"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 5,
           "layer_name": "5层通修",
           "realm_band": "CORE_FORMATION",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "thunder_palm",
+            "divine_sense_scan",
+            "spirit_recovery",
+            "wood_bind"
+          ],
+          "unlock_new_this_layer": [
+            "wood_bind"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 6,
           "layer_name": "6层通修",
           "realm_band": "CORE_FORMATION",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "thunder_palm",
+            "divine_sense_scan",
+            "spirit_recovery",
+            "wood_bind"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 7,
           "layer_name": "7层通修",
           "realm_band": "CORE_FORMATION",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "thunder_palm",
+            "divine_sense_scan",
+            "spirit_recovery",
+            "wood_bind",
+            "group_heal"
+          ],
+          "unlock_new_this_layer": [
+            "group_heal"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 8,
           "layer_name": "8层通修",
           "realm_band": "CORE_FORMATION",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "thunder_palm",
+            "divine_sense_scan",
+            "spirit_recovery",
+            "wood_bind",
+            "group_heal"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 9,
           "layer_name": "9层通修",
           "realm_band": "CORE_FORMATION",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "thunder_palm",
+            "divine_sense_scan",
+            "spirit_recovery",
+            "wood_bind",
+            "group_heal",
+            "body_repair"
+          ],
+          "unlock_new_this_layer": [
+            "body_repair"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         }
       ],
       "note": "通修进度：显式 9 层（无专属战斗术表）",
@@ -3421,73 +3605,127 @@
           "layer": 1,
           "layer_name": "1层通修",
           "realm_band": "NASCENT_SOUL",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "divine_sense_scan",
+            "spirit_recovery"
+          ],
+          "unlock_new_this_layer": [
+            "divine_sense_scan",
+            "spirit_recovery"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 2,
           "layer_name": "2层通修",
           "realm_band": "NASCENT_SOUL",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "divine_sense_scan",
+            "spirit_recovery"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 3,
           "layer_name": "3层通修",
           "realm_band": "NASCENT_SOUL",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "divine_sense_scan",
+            "spirit_recovery",
+            "group_heal"
+          ],
+          "unlock_new_this_layer": [
+            "group_heal"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 4,
           "layer_name": "4层通修",
           "realm_band": "NASCENT_SOUL",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "divine_sense_scan",
+            "spirit_recovery",
+            "group_heal"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 5,
           "layer_name": "5层通修",
           "realm_band": "NASCENT_SOUL",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "divine_sense_scan",
+            "spirit_recovery",
+            "group_heal",
+            "soul_attack_wave"
+          ],
+          "unlock_new_this_layer": [
+            "soul_attack_wave"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 6,
           "layer_name": "6层通修",
           "realm_band": "NASCENT_SOUL",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "divine_sense_scan",
+            "spirit_recovery",
+            "group_heal",
+            "soul_attack_wave"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 7,
           "layer_name": "7层通修",
           "realm_band": "NASCENT_SOUL",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "divine_sense_scan",
+            "spirit_recovery",
+            "group_heal",
+            "soul_attack_wave",
+            "body_repair"
+          ],
+          "unlock_new_this_layer": [
+            "body_repair"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 8,
           "layer_name": "8层通修",
           "realm_band": "NASCENT_SOUL",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "divine_sense_scan",
+            "spirit_recovery",
+            "group_heal",
+            "soul_attack_wave",
+            "body_repair"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 9,
           "layer_name": "9层通修",
           "realm_band": "NASCENT_SOUL",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "divine_sense_scan",
+            "spirit_recovery",
+            "group_heal",
+            "soul_attack_wave",
+            "body_repair",
+            "revive_weak"
+          ],
+          "unlock_new_this_layer": [
+            "revive_weak"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         }
       ],
       "note": "通修进度：显式 9 层（无专属战斗术表）",
@@ -3503,73 +3741,119 @@
           "layer": 1,
           "layer_name": "1层通修",
           "realm_band": "DEITY_TRANSFORMATION",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "soul_attack_wave",
+            "spirit_recovery"
+          ],
+          "unlock_new_this_layer": [
+            "soul_attack_wave",
+            "spirit_recovery"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 2,
           "layer_name": "2层通修",
           "realm_band": "DEITY_TRANSFORMATION",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "soul_attack_wave",
+            "spirit_recovery"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 3,
           "layer_name": "3层通修",
           "realm_band": "DEITY_TRANSFORMATION",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "soul_attack_wave",
+            "spirit_recovery"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 4,
           "layer_name": "4层通修",
           "realm_band": "DEITY_TRANSFORMATION",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "soul_attack_wave",
+            "spirit_recovery"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 5,
           "layer_name": "5层通修",
           "realm_band": "DEITY_TRANSFORMATION",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "soul_attack_wave",
+            "spirit_recovery",
+            "group_heal",
+            "divine_sense_lock"
+          ],
+          "unlock_new_this_layer": [
+            "group_heal",
+            "divine_sense_lock"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 6,
           "layer_name": "6层通修",
           "realm_band": "DEITY_TRANSFORMATION",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "soul_attack_wave",
+            "spirit_recovery",
+            "group_heal",
+            "divine_sense_lock"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 7,
           "layer_name": "7层通修",
           "realm_band": "DEITY_TRANSFORMATION",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "soul_attack_wave",
+            "spirit_recovery",
+            "group_heal",
+            "divine_sense_lock"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 8,
           "layer_name": "8层通修",
           "realm_band": "DEITY_TRANSFORMATION",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "soul_attack_wave",
+            "spirit_recovery",
+            "group_heal",
+            "divine_sense_lock"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 9,
           "layer_name": "9层通修",
           "realm_band": "DEITY_TRANSFORMATION",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "soul_attack_wave",
+            "spirit_recovery",
+            "group_heal",
+            "divine_sense_lock",
+            "revive_weak"
+          ],
+          "unlock_new_this_layer": [
+            "revive_weak"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         }
       ],
       "note": "通修进度：显式 9 层（无专属战斗术表）",
@@ -3585,73 +3869,113 @@
           "layer": 1,
           "layer_name": "1层通修",
           "realm_band": "VOID_REFINING",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "divine_sense_lock",
+            "spirit_recovery"
+          ],
+          "unlock_new_this_layer": [
+            "divine_sense_lock",
+            "spirit_recovery"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 2,
           "layer_name": "2层通修",
           "realm_band": "VOID_REFINING",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "divine_sense_lock",
+            "spirit_recovery"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 3,
           "layer_name": "3层通修",
           "realm_band": "VOID_REFINING",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "divine_sense_lock",
+            "spirit_recovery"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 4,
           "layer_name": "4层通修",
           "realm_band": "VOID_REFINING",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "divine_sense_lock",
+            "spirit_recovery"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 5,
           "layer_name": "5层通修",
           "realm_band": "VOID_REFINING",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "divine_sense_lock",
+            "spirit_recovery",
+            "soul_attack_wave"
+          ],
+          "unlock_new_this_layer": [
+            "soul_attack_wave"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 6,
           "layer_name": "6层通修",
           "realm_band": "VOID_REFINING",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "divine_sense_lock",
+            "spirit_recovery",
+            "soul_attack_wave"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 7,
           "layer_name": "7层通修",
           "realm_band": "VOID_REFINING",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "divine_sense_lock",
+            "spirit_recovery",
+            "soul_attack_wave"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 8,
           "layer_name": "8层通修",
           "realm_band": "VOID_REFINING",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "divine_sense_lock",
+            "spirit_recovery",
+            "soul_attack_wave"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 9,
           "layer_name": "9层通修",
           "realm_band": "VOID_REFINING",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "divine_sense_lock",
+            "spirit_recovery",
+            "soul_attack_wave",
+            "group_heal"
+          ],
+          "unlock_new_this_layer": [
+            "group_heal"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         }
       ],
       "note": "通修进度：显式 9 层（无专属战斗术表）",
@@ -3667,73 +3991,113 @@
           "layer": 1,
           "layer_name": "1层通修",
           "realm_band": "GREAT_VEHICLE",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "group_heal",
+            "spirit_recovery"
+          ],
+          "unlock_new_this_layer": [
+            "group_heal",
+            "spirit_recovery"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 2,
           "layer_name": "2层通修",
           "realm_band": "GREAT_VEHICLE",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "group_heal",
+            "spirit_recovery"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 3,
           "layer_name": "3层通修",
           "realm_band": "GREAT_VEHICLE",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "group_heal",
+            "spirit_recovery"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 4,
           "layer_name": "4层通修",
           "realm_band": "GREAT_VEHICLE",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "group_heal",
+            "spirit_recovery"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 5,
           "layer_name": "5层通修",
           "realm_band": "GREAT_VEHICLE",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "group_heal",
+            "spirit_recovery",
+            "revive_weak"
+          ],
+          "unlock_new_this_layer": [
+            "revive_weak"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 6,
           "layer_name": "6层通修",
           "realm_band": "GREAT_VEHICLE",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "group_heal",
+            "spirit_recovery",
+            "revive_weak"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 7,
           "layer_name": "7层通修",
           "realm_band": "GREAT_VEHICLE",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "group_heal",
+            "spirit_recovery",
+            "revive_weak"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 8,
           "layer_name": "8层通修",
           "realm_band": "GREAT_VEHICLE",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "group_heal",
+            "spirit_recovery",
+            "revive_weak"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 9,
           "layer_name": "9层通修",
           "realm_band": "GREAT_VEHICLE",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "group_heal",
+            "spirit_recovery",
+            "revive_weak",
+            "divine_sense_lock"
+          ],
+          "unlock_new_this_layer": [
+            "divine_sense_lock"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         }
       ],
       "note": "通修进度：显式 9 层（无专属战斗术表）",
@@ -3749,73 +4113,113 @@
           "layer": 1,
           "layer_name": "1层通修",
           "realm_band": "SPIRIT_SEVERING",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "spirit_sever_generic_probe",
+            "soul_attack_wave"
+          ],
+          "unlock_new_this_layer": [
+            "spirit_sever_generic_probe",
+            "soul_attack_wave"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 2,
           "layer_name": "2层通修",
           "realm_band": "SPIRIT_SEVERING",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "spirit_sever_generic_probe",
+            "soul_attack_wave"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 3,
           "layer_name": "3层通修",
           "realm_band": "SPIRIT_SEVERING",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "spirit_sever_generic_probe",
+            "soul_attack_wave"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 4,
           "layer_name": "4层通修",
           "realm_band": "SPIRIT_SEVERING",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "spirit_sever_generic_probe",
+            "soul_attack_wave"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 5,
           "layer_name": "5层通修",
           "realm_band": "SPIRIT_SEVERING",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "spirit_sever_generic_probe",
+            "soul_attack_wave",
+            "divine_sense_lock"
+          ],
+          "unlock_new_this_layer": [
+            "divine_sense_lock"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 6,
           "layer_name": "6层通修",
           "realm_band": "SPIRIT_SEVERING",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "spirit_sever_generic_probe",
+            "soul_attack_wave",
+            "divine_sense_lock"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 7,
           "layer_name": "7层通修",
           "realm_band": "SPIRIT_SEVERING",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "spirit_sever_generic_probe",
+            "soul_attack_wave",
+            "divine_sense_lock"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 8,
           "layer_name": "8层通修",
           "realm_band": "SPIRIT_SEVERING",
-          "unlock_technique_ids": [],
+          "unlock_technique_ids": [
+            "spirit_sever_generic_probe",
+            "soul_attack_wave",
+            "divine_sense_lock"
+          ],
           "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         },
         {
           "layer": 9,
           "layer_name": "9层通修",
           "realm_band": "SPIRIT_SEVERING",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "通修进度层；术法由其它手册/门派授予"
+          "unlock_technique_ids": [
+            "spirit_sever_generic_probe",
+            "soul_attack_wave",
+            "divine_sense_lock",
+            "revive_weak"
+          ],
+          "unlock_new_this_layer": [
+            "revive_weak"
+          ],
+          "note": "通修进度层；术法由其它手册/门派授予；0.2.107 补基础可执行术法解锁"
         }
       ],
       "note": "通修进度：显式 9 层（无专属战斗术表）",
@@ -3931,9 +4335,17 @@
           "layer": 1,
           "layer_name": "1层生活职/光环",
           "realm_band": "QI_REFINING",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "生活/宗门基础心法，无战斗术解锁；层数显式为 1"
+          "unlock_technique_ids": [
+            "medicine_king_pill_boost",
+            "pill_soul_condense_secret",
+            "heal_qi"
+          ],
+          "unlock_new_this_layer": [
+            "medicine_king_pill_boost",
+            "pill_soul_condense_secret",
+            "heal_qi"
+          ],
+          "note": "生活/宗门基础心法，无战斗术解锁；层数显式为 1；0.2.107 补基础可执行术法解锁"
         }
       ],
       "note": "生活/光环心法：显式 1 层（无战斗术）",
@@ -4065,9 +4477,17 @@
           "layer": 1,
           "layer_name": "1层生活职/光环",
           "realm_band": "QI_REFINING",
-          "unlock_technique_ids": [],
-          "unlock_new_this_layer": [],
-          "note": "生活/宗门基础心法，无战斗术解锁；层数显式为 1"
+          "unlock_technique_ids": [
+            "fireball",
+            "heal_qi",
+            "dingshen_talisman_qi"
+          ],
+          "unlock_new_this_layer": [
+            "fireball",
+            "heal_qi",
+            "dingshen_talisman_qi"
+          ],
+          "note": "生活/宗门基础心法，无战斗术解锁；层数显式为 1；0.2.107 补基础可执行术法解锁"
         }
       ],
       "note": "生活/光环心法：显式 1 层（无战斗术）",
@@ -13368,7 +13788,8 @@
   },
   "counts": {
     "methods_tabulated": 136,
-    "techniques_indexed": 394
+    "techniques_indexed": 394,
+    "empty_method_tables_after_0_2_107": 0
   },
   "v126": {
     "qingyuan_13": true,

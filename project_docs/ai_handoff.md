@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-20: `0.2.107` 渡口物品路由与空 method 矩阵补术。`ferry_pass` 可右键渡阴冥；渡口币/票不再误登船；14 空 method 矩阵补可执行术法解锁。协议 26。见 `project_docs/updates/20260720_0.2.107_item_ferry_methods.md`。
+
 > CURRENT TRUTH 2026-07-20: `0.2.106` 术法高层 type→可执行 effectType。`cultivation/*.json` cult-only 条目加载时推断 abstract runtime effect（不再 blank fail-closed）；text_material 仍权威覆盖。协议 26。见 `project_docs/updates/20260720_0.2.106_technique_type_map.md`。
 
 > CURRENT TRUTH 2026-07-20: `0.2.105` 专服 Screen 侧加载修复 + 多人复签基建。GUI 开屏/同步处理迁入 `ClientPacketHandlers`，`network/*` 经 `ClientPacketDispatch` 反射分发，专服 CONSTRUCT 不再拉 `Screen`；`live_smoke mp` 与 `MultiplayerAuthorityRegressionTest` 落地。协议 26（字段未改）。见 `project_docs/updates/20260720_0.2.105_mp_signoff.md`。

@@ -1,3 +1,14 @@
+## 553. 2026-07-20 0.2.107 渡口路由与空 method 矩阵
+
+  Step   Status   Notes
+  ---   ---   ---
+  ferry_pass Done   CatalogConsumableItem → travel_nether_ferry。
+  Ferry fees Done   coin/token 不再 VEHICLE。
+  Method matrix Done   14 空表补可执行术法；empty=0。
+  Tests Done   ItemFerryAndPillRoutingTest + matrix 扩展。
+  Version Done   `mod_version=0.2.107`；protocol 26。
+  Handoff Done   `project_docs/updates/20260720_0.2.107_item_ferry_methods.md`。
+
 ## 552. 2026-07-20 0.2.106 术法高层 type→effectType
 
   Step   Status   Notes

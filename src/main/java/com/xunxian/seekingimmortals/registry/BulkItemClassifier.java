@@ -138,6 +138,11 @@ public final class BulkItemClassifier {
         if (key.isBlank()) {
             return false;
         }
+        // Fee/ticket tokens are inventory gates or consumables, not boardable vehicles.
+        if (key.contains("ferry_coin") || key.contains("ferry_token") || key.equals("ferry_pass")
+                || key.endsWith("_ticket") || key.endsWith("_permit") || key.endsWith("_license")) {
+            return false;
+        }
         String cat = normalize(category);
         if ("equipment".equals(cat)) {
             return true;
@@ -146,7 +151,7 @@ public final class BulkItemClassifier {
                 || key.contains("spirit_boat")
                 || key.contains("wind_feather_raft")
                 || key.contains("cloud_sedan")
-                || key.contains("ferry")
+                || (key.contains("ferry") && !key.contains("coin") && !key.contains("token") && !key.contains("pass"))
                 || key.startsWith("alchemy_furnace_g");
     }
 

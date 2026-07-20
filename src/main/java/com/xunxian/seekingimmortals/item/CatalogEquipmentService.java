@@ -59,6 +59,11 @@ public final class CatalogEquipmentService {
         if (id.startsWith("alchemy_furnace") || id.contains("furnace_g")) {
             return Mode.FURNACE;
         }
+        // Coins/tokens/passes are fare items, not vehicle keys.
+        if (id.contains("ferry_coin") || id.contains("ferry_token") || id.contains("ferry_pass")
+                || id.endsWith("_ticket") || id.endsWith("_permit") || id.endsWith("_license")) {
+            return Mode.UNKNOWN;
+        }
         if (id.contains("boat") || id.contains("raft") || id.contains("ferry")
                 || id.contains("sedan") || id.contains("cart") || id.contains("vehicle")) {
             return Mode.VEHICLE;

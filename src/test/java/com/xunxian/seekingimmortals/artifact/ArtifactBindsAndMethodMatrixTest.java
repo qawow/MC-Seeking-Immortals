@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ArtifactBindsAndMethodMatrixTest {
@@ -29,6 +30,12 @@ class ArtifactBindsAndMethodMatrixTest {
         assertEquals(1, MethodLayerTechniqueService.maxLayers("sect_specialty_alchemy"));
         assertEquals(1, MethodLayerTechniqueService.maxLayers("juvenile_sect_art"));
         assertEquals(1, MethodLayerTechniqueService.matrixTotalLayers("huangfeng_alchemy_scripture"));
+        // 0.2.107: lifestyle/generic matrices now grant executable techniques.
+        assertFalse(MethodLayerTechniqueService.techniquesForLayer("huangfeng_alchemy_scripture", 1).isEmpty());
+        assertFalse(MethodLayerTechniqueService.techniquesForLayer("qixuan_mortal_art", 1).isEmpty());
+        assertFalse(MethodLayerTechniqueService.techniquesForLayer("generic_cultivation_qi_refining", 1).isEmpty());
+        assertTrue(MethodLayerTechniqueService.techniquesForLayer("generic_cultivation_qi_refining", 9).size()
+                >= MethodLayerTechniqueService.techniquesForLayer("generic_cultivation_qi_refining", 1).size());
     }
 
     @Test
