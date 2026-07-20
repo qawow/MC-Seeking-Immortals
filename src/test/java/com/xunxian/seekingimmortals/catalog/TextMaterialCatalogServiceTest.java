@@ -42,9 +42,9 @@ class TextMaterialCatalogServiceTest {
         assertTrue(qingyuan.requiredItems().contains("flying_sword_low")
                 || qingyuan.suggestedItems().contains("flying_sword_low"));
 
-        assertEquals(9, TextMaterialCatalogService.builtin().findMethod("artifact_refining_basic")
+        assertEquals(2, TextMaterialCatalogService.builtin().findMethod("artifact_refining_basic")
                 .orElseThrow().explicitMaxLayers());
-        assertEquals(12, TextMaterialCatalogService.builtin().findMethod("treasure_appraisal_art")
+        assertEquals(2, TextMaterialCatalogService.builtin().findMethod("treasure_appraisal_art")
                 .orElseThrow().explicitMaxLayers());
     }
 }

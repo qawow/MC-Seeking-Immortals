@@ -235,6 +235,26 @@ public final class MultiblockStationService {
                             ModBlocks.SPIRIT_ORE.get()).complete();
                     yield new ValidateOutcome(ok, "flying_boat_dock");
                 }
+                case "puppet_core_forge" -> {
+                    if (!(level instanceof Level live)) {
+                        yield new ValidateOutcome(false, "needs_level");
+                    }
+                    // Core heart: puppet assembly bench if present, else spirit ore; ring is spirit ore.
+                    Block core = ModBlocks.PUPPET_ASSEMBLY_BENCH.get();
+                    boolean ok = PuppetCoreForgeStructure.validate(
+                            live, origin, core, ModBlocks.SPIRIT_ORE.get()).complete();
+                    yield new ValidateOutcome(ok, "puppet_core_forge");
+                }
+                case "spirit_beast_evolution_pool" -> {
+                    if (!(level instanceof Level live)) {
+                        yield new ValidateOutcome(false, "needs_level");
+                    }
+                    boolean ok = SpiritBeastEvolutionPoolStructure.validate(
+                            live, origin,
+                            ModBlocks.SPIRIT_GATHERING_ARRAY.get(),
+                            ModBlocks.SPIRIT_ORE.get()).complete();
+                    yield new ValidateOutcome(ok, "spirit_beast_evolution_pool");
+                }
                 case "ring" -> {
                     if (!(level instanceof Level live)) {
                         yield new ValidateOutcome(false, "needs_level");

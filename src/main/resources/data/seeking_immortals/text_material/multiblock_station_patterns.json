@@ -549,9 +549,7 @@
       "default_state": "intact",
       "max_hp": 200,
       "pattern": {
-        "validator": "ring",
-        "radius": 1,
-        "ring_role": "spirit_ore"
+        "validator": "puppet_core_forge"
       }
     },
     {
@@ -1616,9 +1614,7 @@
       "default_state": "intact",
       "max_hp": 600,
       "pattern": {
-        "validator": "ring",
-        "radius": 2,
-        "ring_role": "spirit_ore"
+        "validator": "spirit_beast_evolution_pool"
       }
     },
     {

@@ -1,3 +1,9 @@
+## 0.2.110 傀儡/化形池与渡口费
+
+专属工站校验 + 冥河 coin/token OR 门 + 生活功法层数对齐。协议 26。
+
+仍未完成：真人专服 + 双客户端签字、完整实机烟测 §6.1–8、工作室级手绘 GeckoLib；可选死 bulk 秘籍授予、选择性 currency 门控、hub→阵法核心。
+
 ## 0.2.109 结构修复台与蓝图台
 
 `structure_repair_bench` / `structure_blueprint_table` 可右键对接工站运行态。协议 26。

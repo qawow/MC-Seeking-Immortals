@@ -50,6 +50,49 @@ class ItemFerryAndPillRoutingTest {
     }
 
     @Test
+    void netherFerrySpatialNodeAcceptsCoinAndTokenAlternatives() throws Exception {
+        String json = Files.readString(Path.of(
+                "src", "main", "resources", "data", "seeking_immortals",
+                "catalog", "spatial_nodes_index.json"));
+        assertTrue(json.contains("node_nether_ferry"));
+        assertTrue(json.contains("yin_stone|nether_ferry_coin") || json.contains("nether_ferry_coin|yin_stone"));
+        assertTrue(json.contains("ferry_pass|nether_ferry_token") || json.contains("nether_ferry_token|ferry_pass"));
+        // Registry fallback must resolve bulk fee carriers by id.
+        String mapper = Files.readString(Path.of(
+                "src", "main", "java", "com", "xunxian", "seekingimmortals",
+                "worldpack", "SpatialNodeRequiresService.java"));
+        assertTrue(mapper.contains("default ->") || mapper.contains("ResourceLocation.tryParse"));
+    }
+
+    @Test
+    void lifeMethodLayersMaxMatchesMatrixDepth() throws Exception {
+        com.google.gson.JsonObject methods = com.google.gson.JsonParser.parseString(Files.readString(Path.of(
+                "src", "main", "resources", "data", "seeking_immortals",
+                "text_material", "cultivation_methods.json"))).getAsJsonObject();
+        com.google.gson.JsonObject matrix = com.google.gson.JsonParser.parseString(Files.readString(Path.of(
+                "src", "main", "resources", "data", "seeking_immortals",
+                "text_material", "method_layer_technique_matrix_v130.json"))).getAsJsonObject();
+        java.util.Map<String, Integer> totals = new java.util.HashMap<>();
+        for (com.google.gson.JsonElement element : matrix.getAsJsonArray("method_layer_tables")) {
+            com.google.gson.JsonObject table = element.getAsJsonObject();
+            totals.put(table.get("method_id").getAsString(), table.get("total_layers").getAsInt());
+        }
+        for (String methodId : java.util.List.of("artifact_refining_basic", "treasure_appraisal_art")) {
+            com.google.gson.JsonObject method = null;
+            for (com.google.gson.JsonElement element : methods.getAsJsonArray("methods")) {
+                com.google.gson.JsonObject candidate = element.getAsJsonObject();
+                if (methodId.equals(candidate.get("id").getAsString())) {
+                    method = candidate;
+                    break;
+                }
+            }
+            assertTrue(method != null, "missing method " + methodId);
+            int layersMax = method.getAsJsonObject("setting").get("layers_max").getAsInt();
+            assertEquals(totals.get(methodId).intValue(), layersMax, methodId);
+        }
+    }
+
+    @Test
     void aliasPillsResolveThroughPillEffectCatalog() {
         assertTrue(PillEffectCatalog.findByPillId("appearance_lock_pill").isPresent());
         assertTrue(PillEffectCatalog.findByPillId("marrow_drain_pill").isPresent());

@@ -136,8 +136,8 @@
       "type": "pocket_gate",
       "region": "nether_river",
       "requires": [
-        "yin_stone",
-        "ferry_pass"
+        "yin_stone|nether_ferry_coin",
+        "ferry_pass|nether_ferry_token"
       ],
       "cost_spirit_stone": 0,
       "dimension_from": "seeking_immortals:mortal_world",

@@ -3845,7 +3845,7 @@
         "combat_style": "以符箓护体、法器御敌为主，本体战力偏弱。",
         "region": "tiannan",
         "faction": "tianque_fort",
-        "layers_max": 9,
+        "layers_max": 2,
         "lore_ref": "tiannan_seven_sects"
       },
       "learn_requirements": {
@@ -3901,7 +3901,7 @@
         "combat_style": "几乎不参与斗法，情报与竞价为核心。",
         "region": "dajin",
         "faction": "wanbao_pavilion",
-        "layers_max": 12,
+        "layers_max": 2,
         "lore_ref": "dajin_factions"
       },
       "learn_requirements": {

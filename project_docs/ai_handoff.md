@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-20: `0.2.110` 傀儡核心炉/化形池专属校验；冥河渡口费 coin/token OR 门；生活功法 layers_max 对齐矩阵。协议 26。见 `project_docs/updates/20260720_0.2.110_puppet_beast_ferry.md`。
+
 > CURRENT TRUTH 2026-07-20: `0.2.109` 结构修复台/蓝图台可右键。`StructureToolService` 对接 inspect/repair/form 与建造序列展示；meta 工具不再是纯 structure token。协议 26。见 `project_docs/updates/20260720_0.2.109_structure_tools.md`。
 
 > CURRENT TRUTH 2026-07-20: `0.2.108` 工站 id 契约与飞舟泊桩专属校验。炼器委托/软炼/祭炼效率改用 `refinement_forge_g1–g6`；对话阵态改用传送阵目录 id；`flying_boat_dock` 走 `FlyingBoatDockStructure`。协议 26。见 `project_docs/updates/20260720_0.2.108_station_id_contracts.md`。

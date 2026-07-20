@@ -1,3 +1,15 @@
+## 556. 2026-07-20 0.2.110 傀儡/化形池与渡口费
+
+  Step   Status   Notes
+  ---   ---   ---
+  Puppet core forge Done   PuppetCoreForgeStructure + pattern validator。
+  Beast evo pool Done   SpiritBeastEvolutionPoolStructure + pattern。
+  Ferry OR fees Done   spatial node requires coin/token 替代。
+  Life method layers Done   refining/appraisal layers_max=2。
+  Tests Done   PuppetBeastStationStructureTest + ferry 扩展。
+  Version Done   `mod_version=0.2.110`；protocol 26。
+  Handoff Done   `project_docs/updates/20260720_0.2.110_puppet_beast_ferry.md`。
+
 ## 555. 2026-07-20 0.2.109 结构修复台与蓝图台
 
   Step   Status   Notes

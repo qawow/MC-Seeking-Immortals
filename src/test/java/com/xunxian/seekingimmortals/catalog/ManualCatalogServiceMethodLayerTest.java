@@ -47,7 +47,7 @@ class ManualCatalogServiceMethodLayerTest {
     void methodMaxLayersFollowCatalogAndMatrix() {
         assertEquals(13, ManualCatalogService.maxMethodLayer("changchun_gong"));
         assertEquals(13, ManualCatalogService.maxMethodLayer("qingyuan_sword_art"));
-        assertEquals(12, ManualCatalogService.maxMethodLayer("treasure_appraisal_art"));
+        assertEquals(2, ManualCatalogService.maxMethodLayer("treasure_appraisal_art"));
         assertEquals(1, ManualCatalogService.maxMethodLayer("huangfeng_alchemy_scripture"));
         assertEquals(1, ManualCatalogService.maxMethodLayer("unknown_method"));
     }
