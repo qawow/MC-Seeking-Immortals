@@ -60,5 +60,34 @@ class CatalogItemDescriptionServiceTest {
                 "formation_flag_post", "artifact");
         assertTrue(component.purposeKey().endsWith(".formation"));
         assertTrue(component.interactionKey().endsWith(".material"));
+
+        CatalogItemDescriptionService.Profile structureToken = CatalogItemDescriptionService.profile(
+                "time_acceleration_array", "artifact");
+        assertTrue(structureToken.detailKey().endsWith(".structure_token"));
+        assertTrue(structureToken.interactionKey().endsWith(".material"));
+
+        CatalogItemDescriptionService.Profile blueprint = CatalogItemDescriptionService.profile(
+                "array_blueprint_scroll", "manual");
+        assertTrue(blueprint.detailKey().endsWith(".array_blueprint_scroll"));
+    }
+
+    @Test
+    void structureTokenCarrierDetectionCoversHighRiskIds() {
+        assertTrue(CatalogItemDescriptionService.isStructureTokenCarrier("time_acceleration_array"));
+        assertTrue(CatalogItemDescriptionService.isStructureTokenCarrier("structure_repair_bench"));
+        assertTrue(CatalogItemDescriptionService.isStructureTokenCarrier("capture_point_obelisk"));
+        assertTrue(CatalogItemDescriptionService.isStructureTokenCarrier("immortal_teleport_grand_array"));
+        assertFalse(CatalogItemDescriptionService.isStructureTokenCarrier("spirit_gathering_array_disk"));
+        assertFalse(CatalogItemDescriptionService.isStructureTokenCarrier("array_blueprint_scroll"));
+    }
+
+    @Test
+    void catalogManualItemFallsThroughToFormationAfterStudy() throws Exception {
+        String source = java.nio.file.Files.readString(java.nio.file.Path.of(
+                "src", "main", "java", "com", "xunxian", "seekingimmortals",
+                "item", "CatalogManualItem.java"));
+        assertTrue(source.contains("FormationItemService.tryUse"));
+        assertTrue(source.contains("hasStudied"));
+        assertTrue(source.contains("FormationItemService.builtin().find(manualId).isEmpty()"));
     }
 }

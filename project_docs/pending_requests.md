@@ -1,3 +1,5 @@
+2026-07-20 0.2.99 pending update: structure-index bulk tokens now honestly state they are form/build components, and array_blueprint_scroll studies first then activates free fields. Remaining non-code: final art/GeckoLib, full live smoke, dedicated-server/two-client sign-off. Optional fidelity only: artifact binds consumption, empty method matrix layers, pill per-entry fidelity.
+
 2026-07-20 0.2.98 pending update: high-tier refinement forges G4–G6 are placeable/craftable with dedicated validators; structure index/patterns at 92 with alchemy g4/g5 parity; teleport_array_ticket boards via FlightVehicleService; aoe_control/shield techniques no longer fail-closed. Remaining non-code: final art/GeckoLib depth, full live smoke, dedicated-server/two-client multiplayer sign-off. Optional fidelity: structure-token honesty or place wiring, array_blueprint_scroll path unify, pill per-entry fidelity, artifact binds consumption, empty method matrix layers.
 
 2026-07-20 0.2.97 pending update: spirit pill voucher redeems random low-tier pills; alias pills resolve. Remaining non-code: final art/GeckoLib depth, full live smoke, dedicated-server/two-client multiplayer sign-off.

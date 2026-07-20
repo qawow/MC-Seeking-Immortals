@@ -4,12 +4,14 @@ import com.xunxian.seekingimmortals.catalog.ItemCatalogService;
 import com.xunxian.seekingimmortals.registry.BulkItemClassifier;
 import com.xunxian.seekingimmortals.registry.BulkItemKind;
 import com.xunxian.seekingimmortals.structure.FormationItemService;
+import com.xunxian.seekingimmortals.structure.MultiblockStructureCatalog;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 
 public final class CatalogItemDescriptionService {
     private CatalogItemDescriptionService() {}
@@ -101,6 +103,7 @@ public final class CatalogItemDescriptionService {
     }
 
     private static String carrierInteractionKey(String category, String purpose) {
+        // purpose ends with .formation and structure tokens share the material interaction line.
         if (isFormationComponent(category, purpose)) {
             return "tooltip.seeking_immortals.catalog_item.interaction.material";
         }
@@ -137,15 +140,57 @@ public final class CatalogItemDescriptionService {
                 .orElse("");
     }
 
+    /**
+     * Structure-index ids that ship only as bulk carriers (no placeable controller block item).
+     * They must never promise free right-click placement.
+     */
+    private static final Set<String> STRUCTURE_TOKEN_IDS = Set.of(
+            "array_maintenance_obelisk",
+            "blood_forbidden_exit_array",
+            "capture_point_obelisk",
+            "formation_flag_post",
+            "furnace_safety_array",
+            "illusion_array_hub",
+            "immortal_alchemy_cauldron",
+            "immortal_teleport_grand_array",
+            "kill_array_hub",
+            "kunwu_frost_forge",
+            "puppet_core_forge",
+            "qianzhu_control_console",
+            "spirit_field_irrigation",
+            "spirit_fire_brazier",
+            "star_palace_teleport_gate",
+            "structure_repair_bench",
+            "time_acceleration_array",
+            "war_banner_pole"
+    );
+
+    static boolean isStructureTokenCarrier(String id) {
+        String key = normalize(id);
+        if (key.isBlank()) {
+            return false;
+        }
+        if (STRUCTURE_TOKEN_IDS.contains(key)) {
+            return true;
+        }
+        // Any bulk carrier whose id matches a multiblock index entry and is not a registered
+        // formation behavior is a structure component/token, not a free placeable block.
+        return MultiblockStructureCatalog.builtin().find(key).isPresent()
+                && FormationItemService.builtin().find(key).isEmpty();
+    }
+
     private static String detailKey(String id) {
-        return switch (id) {
+        String key = normalize(id);
+        return switch (key) {
             case "sect_contribution_token", "teleport_array_ticket", "array_disk_basic",
                     "array_disk_fragment", "crystal_array_disk", "formation_flag_jade",
                     "formation_flag_low", "formation_flag_mid", "formation_flag_post",
                     "immortal_array_disk", "jade_array_disk", "platinum_array_disk",
-                    "space_array_disk", "spirit_gathering_array_disk" ->
-                    "tooltip.seeking_immortals.catalog_item.detail." + id;
-            default -> "";
+                    "space_array_disk", "spirit_gathering_array_disk", "array_blueprint_scroll" ->
+                    "tooltip.seeking_immortals.catalog_item.detail." + key;
+            default -> isStructureTokenCarrier(key)
+                    ? "tooltip.seeking_immortals.catalog_item.detail.structure_token"
+                    : "";
         };
     }
 

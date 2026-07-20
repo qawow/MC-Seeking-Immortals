@@ -5045,5 +5045,8 @@
   "message.seeking_immortals.refinement_forge_g6.no_recipe": "六品炼器阵：当前无可执行配方或材料不足。",
   "message.seeking_immortals.refinement_forge_g6.activated": "六品炼器阵启动，炼器完成。",
   "message.seeking_immortals.catalog_consumable.board_teleport_array": "传送阵令牌已激活，灵舟接驳完成。",
-  "tooltip.seeking_immortals.catalog_consumable.effect.board_teleport_array": "右键消耗灵石碎片燃料并登船；令牌本身为一次性凭证。"
+  "tooltip.seeking_immortals.catalog_consumable.effect.board_teleport_array": "右键消耗灵石碎片燃料并登船；令牌本身为一次性凭证。",
+  "tooltip.seeking_immortals.catalog_item.detail.structure_token": "多方块结构/工站组件或角点凭证：用于 form/建造/任务提交，单独右键不会放置完整建筑。",
+  "tooltip.seeking_immortals.catalog_item.detail.array_blueprint_scroll": "首次右键研读阵法知识；已研读后再次右键可消耗次数激活临时聚灵自由阵场。",
+  "tooltip.seeking_immortals.catalog_manual.formation_after_study": "已研读后可再次右键激活关联阵场。"
 }

@@ -5045,5 +5045,8 @@
   "message.seeking_immortals.refinement_forge_g6.no_recipe": "Grade-6 forge: no runnable recipe or materials.",
   "message.seeking_immortals.refinement_forge_g6.activated": "Grade-6 forge activated; refinement complete.",
   "message.seeking_immortals.catalog_consumable.board_teleport_array": "Teleport array ticket engaged; spirit boat docked.",
-  "tooltip.seeking_immortals.catalog_consumable.effect.board_teleport_array": "Right-click with spirit-stone-shard fuel to board; the ticket itself is one-shot."
+  "tooltip.seeking_immortals.catalog_consumable.effect.board_teleport_array": "Right-click with spirit-stone-shard fuel to board; the ticket itself is one-shot.",
+  "tooltip.seeking_immortals.catalog_item.detail.structure_token": "Multiblock structure/station component or corner token: used for form/build/quest turn-in. Right-click alone will not place the full structure.",
+  "tooltip.seeking_immortals.catalog_item.detail.array_blueprint_scroll": "First right-click studies array knowledge; after study, further right-clicks spend uses to activate a temporary spirit-gather free field.",
+  "tooltip.seeking_immortals.catalog_manual.formation_after_study": "After study, right-click again to activate the linked free field."
 }

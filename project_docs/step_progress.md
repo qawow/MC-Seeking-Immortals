@@ -1,3 +1,13 @@
+## 545. 2026-07-20 0.2.99 结构 token 与阵图残卷
+
+  Step   Status   Notes
+  ---   ---   ---
+  Structure tokens Done   detail.structure_token 诚实提示；材料交互。
+  Blueprint dual-path Done   CatalogManualItem study 后 tryUse 阵场。
+  Tests Done   CatalogItemDescriptionService 扩展契约；全量构建通过。
+  Version Done   `mod_version=0.2.99`；protocol 26。
+  Handoff Done   `project_docs/updates/20260720_0.2.99_structure_token.md`。
+
 ## 544. 2026-07-20 0.2.98 高阶炼器阵与传送令
 
   Step   Status   Notes

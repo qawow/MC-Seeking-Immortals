@@ -3,6 +3,7 @@ package com.xunxian.seekingimmortals.item;
 import com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts;
 import com.xunxian.seekingimmortals.catalog.ManualCatalogService;
 import com.xunxian.seekingimmortals.catalog.TextMaterialCatalogService;
+import com.xunxian.seekingimmortals.structure.FormationItemService;
 import net.minecraft.ChatFormatting;
 import net.minecraft.locale.Language;
 import net.minecraft.network.chat.Component;
@@ -18,10 +19,13 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 
 /**
  * Physical carrier for text-material manuals_catalog ids.
  * Right-click studies the catalog entry via ManualCatalogService.
+ * When a formation_item_behaviors row exists for the same id (e.g. array_blueprint_scroll),
+ * already-studied stacks fall through to FormationItemService activation.
  */
 public class CatalogManualItem extends Item {
     private final String manualId;
@@ -44,23 +48,46 @@ public class CatalogManualItem extends Item {
         if (!(player instanceof ServerPlayer serverPlayer)) {
             return InteractionResultHolder.fail(stack);
         }
-        boolean ok = ManualCatalogService.study(serverPlayer, manualId);
-        if (ok) {
-            // Wave476: also map manual id/type text into learned methods when possible.
-            ManualCatalogService.grantMethodsFromTechniqueSource(serverPlayer, manualId);
-            TextMaterialCatalogService.builtin().findManual(manualId).ifPresent(manual -> {
-                if (manual.type() != null && !manual.type().isBlank()) {
-                    ManualCatalogService.grantMethodsFromTechniqueSource(serverPlayer, manual.type());
+        // Prefer first-time study when the manuals catalog still has an unread entry.
+        boolean alreadyStudied = ManualCatalogService.hasStudied(serverPlayer, manualId);
+        if (!alreadyStudied) {
+            boolean ok = ManualCatalogService.study(serverPlayer, manualId);
+            if (ok) {
+                // Wave476: also map manual id/type text into learned methods when possible.
+                ManualCatalogService.grantMethodsFromTechniqueSource(serverPlayer, manualId);
+                TextMaterialCatalogService.builtin().findManual(manualId).ifPresent(manual -> {
+                    if (manual.type() != null && !manual.type().isBlank()) {
+                        ManualCatalogService.grantMethodsFromTechniqueSource(serverPlayer, manual.type());
+                    }
+                    if (manual.display() != null && !manual.display().isBlank()) {
+                        ManualCatalogService.grantMethodsFromTechniqueSource(serverPlayer, manual.display());
+                    }
+                });
+                // Dual-path manuals (blueprint scrolls) keep the stack after study so remaining
+                // formation uses can be spent later; pure manuals still consume on study.
+                if (!player.getAbilities().instabuild && FormationItemService.builtin().find(manualId).isEmpty()) {
+                    stack.shrink(1);
                 }
-                if (manual.display() != null && !manual.display().isBlank()) {
-                    ManualCatalogService.grantMethodsFromTechniqueSource(serverPlayer, manual.display());
-                }
-            });
-            if (!player.getAbilities().instabuild) {
-                stack.shrink(1);
+                return InteractionResultHolder.consume(stack);
+            }
+            // Study failed for a non-formation manual; surface the fail.
+            if (FormationItemService.builtin().find(manualId).isEmpty()) {
+                return InteractionResultHolder.fail(stack);
             }
         }
-        return ok ? InteractionResultHolder.consume(stack) : InteractionResultHolder.fail(stack);
+        Optional<InteractionResultHolder<ItemStack>> formationUse =
+                FormationItemService.tryUse(serverPlayer, stack);
+        if (formationUse.isPresent()) {
+            return formationUse.get();
+        }
+        // Already studied pure manual with no formation behavior.
+        if (alreadyStudied) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.manual.already_studied",
+                    resolveManualTitle(stack,
+                            TextMaterialCatalogService.builtin().findManual(manualId).orElse(null))), false);
+        }
+        return InteractionResultHolder.fail(stack);
     }
 
     @Override
@@ -97,6 +124,12 @@ public class CatalogManualItem extends Item {
         } else if (!manualId.isBlank()) {
             tooltip.add(Component.translatable("message.seeking_immortals.manual.unknown", manualId)
                     .withStyle(ChatFormatting.RED));
+        }
+        if (FormationItemService.builtin().find(manualId).isPresent()) {
+            tooltip.add(Component.translatable("tooltip.seeking_immortals.catalog_manual.formation_after_study")
+                    .withStyle(ChatFormatting.AQUA));
+            tooltip.add(Component.translatable("tooltip.seeking_immortals.catalog_item.detail.array_blueprint_scroll")
+                    .withStyle(ChatFormatting.DARK_GRAY));
         }
     }
 
