@@ -732,18 +732,11 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
     }
 
     private int row(GuiGraphics graphics, int x, int y, int width, String label, String value, int color) {
-        if (graphics != null) {
-            ImmortalUiSkin.InteractionState state = ((y / LINE_HEIGHT) & 1) == 0
-                    ? ImmortalUiSkin.InteractionState.NORMAL
-                    : ImmortalUiSkin.InteractionState.DISABLED;
-            ImmortalUiSkin.drawListRow(graphics, x, y - 1, width, LINE_HEIGHT, state);
-            int labelWidth = Math.min(68, Math.max(38, width / 3));
-            graphics.fill(x + 2, y + 3, x + 3, y + 7, ImmortalUiSkin.JOURNAL_JADE);
-            drawFit(graphics, label, x + 6, y, Math.max(8, labelWidth - 6), ImmortalUiSkin.JOURNAL_PAPER_MUTED);
-            drawFit(graphics, value, x + labelWidth + 4, y,
-                    Math.max(8, width - labelWidth - 4), color);
+        if (graphics == null) {
+            return y + LINE_HEIGHT;
         }
-        return y + LINE_HEIGHT;
+        return com.xunxian.seekingimmortals.client.ui.widget.InkRows.labeledRow(
+                graphics, font, x, y, width, LINE_HEIGHT, label, value, color, true);
     }
 
     private int progressBar(GuiGraphics graphics, int x, int y, int width, String label,

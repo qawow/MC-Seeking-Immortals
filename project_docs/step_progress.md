@@ -1,3 +1,12 @@
+## 529. 2026-07-20 0.2.79 云笈墨卷 B3a 修炼族屏迁移
+
+  Step   Status   Notes
+  ---   ---   ---
+  InkRows.labeledRow Done   共享行体；stats/meditation 委托。
+  Verify   Done   普通构建成功，全量 747 项通过。
+  Version  Done   `mod_version=0.2.79`；protocol 25。
+  Handoff  Done   `project_docs/updates/20260720_0.2.79_inkscroll_b3a.md`。
+
 ## 528. 2026-07-20 0.2.78 云笈墨卷 B2 分层与组件
 
   Step   Status   Notes

@@ -43,6 +43,26 @@ public final class InkRows {
         return y + SECTION_HEIGHT + 3;
     }
 
+    /**
+     * Journal labeled row: zebra backing, jade tick, muted label, fitted value.
+     * The shared body behind the cultivation-family {@code row(...)} helpers.
+     */
+    public static int labeledRow(GuiGraphics graphics, Font font, int x, int y, int width,
+                                 int rowHeight, String label, String value, int valueColor,
+                                 boolean zebra) {
+        ImmortalUiSkin.InteractionState state = zebra && ((y / Math.max(1, rowHeight)) & 1) != 0
+                ? ImmortalUiSkin.InteractionState.DISABLED
+                : ImmortalUiSkin.InteractionState.NORMAL;
+        ImmortalUiSkin.drawListRow(graphics, x, y - 1, width, rowHeight, state);
+        int labelWidth = Math.min(76, Math.max(38, width / 3));
+        graphics.fill(x + 2, y + 3, x + 3, y + 7, ImmortalUiSkin.JOURNAL_JADE);
+        ImmortalUiSkin.drawStringFit(font, graphics, label, x + 6, y,
+                Math.max(8, labelWidth - 6), ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
+        ImmortalUiSkin.drawStringFit(font, graphics, value, x + labelWidth + 4, y,
+                Math.max(8, width - labelWidth - 4), valueColor, false);
+        return y + rowHeight;
+    }
+
     /** Centered waiting-for-sync placeholder inside a viewport. */
     public static void syncWait(GuiGraphics graphics, Font font,
                                 int x, int y, int width, int height, Component waitingText) {

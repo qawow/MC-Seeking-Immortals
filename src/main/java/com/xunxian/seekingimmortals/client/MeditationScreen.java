@@ -210,14 +210,9 @@ public class MeditationScreen extends AbstractJournalScreen {
 
     private int row(GuiGraphics graphics, int x, int y, int width, Component label,
                     Component value, int color) {
-        ImmortalUiSkin.drawListRow(graphics, x, y, width, ROW_HEIGHT,
-                ImmortalUiSkin.InteractionState.NORMAL);
-        int labelWidth = Math.min(76, Math.max(38, width / 3));
-        ImmortalUiSkin.drawStringFit(font, graphics, label.getString(), x + 5, y + 2,
-                Math.max(1, labelWidth - 5), ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
-        ImmortalUiSkin.drawStringFit(font, graphics, value.getString(), x + labelWidth + 3, y + 2,
-                Math.max(1, width - labelWidth - 7), color, false);
-        return y + ROW_HEIGHT;
+        return com.xunxian.seekingimmortals.client.ui.widget.InkRows.labeledRow(
+                graphics, font, x, y + 2, width, ROW_HEIGHT, label.getString(),
+                value.getString(), color, false) - 2;
     }
 
     private int meter(GuiGraphics graphics, int x, int y, int width, Component label,
