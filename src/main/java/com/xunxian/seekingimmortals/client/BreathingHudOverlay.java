@@ -39,7 +39,7 @@ public final class BreathingHudOverlay {
         int padding = width >= 100 ? 6 : Math.max(2, Math.min(4, width / 12));
         int contentWidth = Math.max(1, width - padding * 2);
         int titleY = y + Math.max(2, Math.min(5, height / 7));
-        String title = ImmortalUiSkin.fitWidth(minecraft.font, "打坐吐纳", contentWidth);
+        String title = ImmortalUiSkin.fitWidth(minecraft.font, tr("title"), contentWidth);
         if (titleY + minecraft.font.lineHeight <= y + height) {
             graphics.drawString(minecraft.font, title,
                     x + Math.max(padding, (width - minecraft.font.width(title)) / 2), titleY,
@@ -56,24 +56,24 @@ public final class BreathingHudOverlay {
             int columnWidth = Math.max(1, (contentWidth - columnGap) / 2);
             int rightX = x + padding + columnWidth + columnGap;
             textY = drawLine(graphics, minecraft,
-                    "效率 " + format(data.cultivationSpeedMultiplier()) + "x",
+                    tr("efficiency_prefix") + format(data.cultivationSpeedMultiplier()) + "x",
                     x + padding, textY, columnWidth, textBottom, ImmortalUiSkin.JOURNAL_JADE_TEXT);
-            drawLine(graphics, minecraft, "灵气 " + data.auraConcentration(),
+            drawLine(graphics, minecraft, tr("aura_prefix") + data.auraConcentration(),
                     rightX, titleY + minecraft.font.lineHeight + 1, columnWidth, textBottom,
                     ImmortalUiSkin.JOURNAL_SPIRIT);
             drawLine(graphics, minecraft,
-                    "功法 " + format(data.physiqueCultivationSpeedMultiplier()) + "x",
+                    tr("method_prefix") + format(data.physiqueCultivationSpeedMultiplier()) + "x",
                     x + padding, textY, columnWidth, textBottom, ImmortalUiSkin.JOURNAL_PAPER);
             drawLine(graphics, minecraft,
-                    "灵根 " + format(data.rootCultivationSpeedCoefficient()) + "x",
+                    tr("root_prefix") + format(data.rootCultivationSpeedCoefficient()) + "x",
                     rightX, textY, columnWidth, textBottom, ImmortalUiSkin.JOURNAL_PAPER);
         } else {
             textY = drawLine(graphics, minecraft,
-                    "效率 " + format(data.cultivationSpeedMultiplier()) + "x  灵气 " + data.auraConcentration(),
+                    tr("efficiency_prefix") + format(data.cultivationSpeedMultiplier()) + tr("x_aura_prefix") + data.auraConcentration(),
                     x + padding, textY, contentWidth, textBottom, ImmortalUiSkin.JOURNAL_SPIRIT);
             drawLine(graphics, minecraft,
-                    "功法 " + format(data.physiqueCultivationSpeedMultiplier())
-                            + "x  灵根 " + format(data.rootCultivationSpeedCoefficient()) + "x",
+                    tr("method_prefix") + format(data.physiqueCultivationSpeedMultiplier())
+                            + tr("x_root_prefix") + format(data.rootCultivationSpeedCoefficient()) + "x",
                     x + padding, textY, contentWidth, textBottom, ImmortalUiSkin.JOURNAL_JADE_TEXT);
         }
         ImmortalUiSkin.drawSemanticStatusBar(graphics, x + padding, progressY,
@@ -91,6 +91,11 @@ public final class BreathingHudOverlay {
 
     private static String format(double value) {
         return com.xunxian.seekingimmortals.client.ui.NumberFmt.two(value);
+    }
+
+    private static String tr(String suffix) {
+        return net.minecraft.network.chat.Component
+                .translatable("hud.seeking_immortals.breathing." + suffix).getString();
     }
 
 }

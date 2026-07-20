@@ -49,20 +49,20 @@ public final class CultivationHudOverlay {
                                               ClientCultivationData.Snapshot data,
                                               int textX, int textY, int barWidth, int contentBottom) {
         int cursor = textY;
-        String realmLine = "境界 " + data.realm() + data.stage();
+        String realmLine = tr("realm_prefix") + data.realm() + data.stage();
         if (!canDrawText(minecraft, cursor, contentBottom)) return;
         drawFit(minecraft, graphics, realmLine, textX, cursor, barWidth, ImmortalUiSkin.JOURNAL_PAPER);
         cursor += minecraft.font.lineHeight + 1;
 
         if (cursor + minecraft.font.lineHeight + 6 > contentBottom) return;
         cursor = ImmortalUiSkin.drawMeterRow(minecraft.font, graphics, textX, cursor, barWidth,
-                "修为", shortNumber(data.cultivation()) + "/" + shortNumber(data.cultivationMax()),
+                tr("cultivation"), shortNumber(data.cultivation()) + "/" + shortNumber(data.cultivationMax()),
                 clamp01(fraction(data.cultivation(), data.cultivationMax())),
                 ImmortalUiSkin.StatusBarStyle.CULTIVATION);
 
         if (cursor + minecraft.font.lineHeight + 6 > contentBottom) return;
         cursor = ImmortalUiSkin.drawMeterRow(minecraft.font, graphics, textX, cursor, barWidth,
-                "灵力", shortNumber(data.mana()) + "/" + shortNumber(data.manaMax()),
+                tr("mana"), shortNumber(data.mana()) + "/" + shortNumber(data.manaMax()),
                 clamp01(fraction(data.mana(), data.manaMax())),
                 ImmortalUiSkin.StatusBarStyle.SPIRIT);
 
@@ -86,7 +86,7 @@ public final class CultivationHudOverlay {
         }
         if (data.tribulationActive()) {
             int seconds = Math.max(0, (int)Math.ceil(data.tribulationNextStrikeTicks() / 20.0D));
-            lines.add(new HudLine("天劫 " + data.tribulationCurrentStrike() + "/" + data.tribulationTotalStrikes() + " " + seconds + "s",
+            lines.add(new HudLine(tr("tribulation_prefix") + data.tribulationCurrentStrike() + "/" + data.tribulationTotalStrikes() + " " + seconds + "s",
                     ImmortalUiSkin.JOURNAL_CINNABAR_BRIGHT));
         }
         return lines;
@@ -94,8 +94,8 @@ public final class CultivationHudOverlay {
 
     private static String coreLine(ClientCultivationData.Snapshot data) {
         int qiRisk = data.qiDevRisk();
-        return "神识 " + shortNumber(data.divSense()) + "  走火 " + qiRisk + "%"
-                + (qiRisk >= ImmortalUiSkin.QI_DEV_DANGER_THRESHOLD ? " 高危" : "");
+        return tr("sense_prefix") + shortNumber(data.divSense()) + tr("qi_dev_prefix") + qiRisk + "%"
+                + (qiRisk >= ImmortalUiSkin.QI_DEV_DANGER_THRESHOLD ? tr("qi_dev_high") : "");
     }
 
     private static int coreLineColor(ClientCultivationData.Snapshot data) {
@@ -105,16 +105,16 @@ public final class CultivationHudOverlay {
     private static String advancementLine(ClientCultivationData.Snapshot data) {
         boolean hasGoldCore = data.goldCoreGrade() != null
                 && !data.goldCoreGrade().isBlank()
-                && !"未结丹".equals(data.goldCoreGrade())
-                && !"无".equals(data.goldCoreGrade());
+                && !tr("no_core").equals(data.goldCoreGrade())
+                && !tr("none").equals(data.goldCoreGrade());
         if (!hasGoldCore && !data.completeFiveElements()) return "";
         StringBuilder builder = new StringBuilder();
         if (hasGoldCore) {
-            builder.append("金丹 ").append(data.goldCoreGrade());
+            builder.append(tr("core_prefix")).append(data.goldCoreGrade());
         }
         if (data.completeFiveElements()) {
             if (!builder.isEmpty()) builder.append("  ");
-            builder.append("五行圆满");
+            builder.append(tr("five_complete"));
         }
         return builder.toString();
     }
@@ -153,4 +153,9 @@ public final class CultivationHudOverlay {
     }
 
     private record HudLine(String text, int color) {}
+    private static String tr(String suffix) {
+        return net.minecraft.network.chat.Component
+                .translatable("hud.seeking_immortals.cultivation." + suffix).getString();
+    }
+
 }

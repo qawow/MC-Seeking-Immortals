@@ -75,7 +75,7 @@ public final class CultivationHealthOverlay {
         // Leave room for the left cinnabar edge painted by the chrome.
         textX = Math.max(textX, chrome.x() + 5);
         int contentWidth = Math.max(1, band.right() - textX - 3);
-        String title = "气血 " + formatValue(health) + "/" + formatValue(maxHealth);
+        String title = tr("hp_prefix") + formatValue(health) + "/" + formatValue(maxHealth);
         int barHeight = band.height() >= 14
                 ? Math.max(4, Math.min(BAR_HEIGHT, band.height() / 3))
                 : Math.max(2, Math.min(BAR_HEIGHT, Math.max(1, band.height() / 3)));
@@ -87,7 +87,7 @@ public final class CultivationHealthOverlay {
             textY += TEXT_LINE_HEIGHT;
         }
         if (absorption > 0.0F && textY + minecraft.font.lineHeight <= barY) {
-            String absorptionText = "护体 +" + formatValue(absorption);
+            String absorptionText = tr("absorb_prefix") + formatValue(absorption);
             ImmortalUiSkin.drawStringFit(minecraft.font, graphics, absorptionText,
                     textX, textY, contentWidth, ImmortalUiSkin.JOURNAL_WARNING, false);
         }
@@ -141,4 +141,9 @@ public final class CultivationHealthOverlay {
         }
         return String.format(Locale.ROOT, value >= 100.0F ? "%.0f" : "%.1f", value).replace(".0", "");
     }
+    private static String tr(String suffix) {
+        return net.minecraft.network.chat.Component
+                .translatable("hud.seeking_immortals.health." + suffix).getString();
+    }
+
 }

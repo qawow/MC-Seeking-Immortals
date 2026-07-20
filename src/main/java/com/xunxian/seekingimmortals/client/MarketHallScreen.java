@@ -68,7 +68,7 @@ public class MarketHallScreen extends AbstractJournalContainerScreen<MarketHallM
 
         ImmortalButton previousShop = ImmortalButton.secondary(layout.previousShopButton().x(),
                 layout.previousShopButton().y(), layout.previousShopButton().width(),
-                layout.previousShopButton().height(), Component.literal("<店"), button -> {
+                layout.previousShopButton().height(), Component.translatable("screen.seeking_immortals.market_hall.prev_shop"), button -> {
                     shopIndex = Math.max(0, shopIndex - 1);
                     page = 0;
                     listPanel.resetScroll();
@@ -79,7 +79,7 @@ public class MarketHallScreen extends AbstractJournalContainerScreen<MarketHallM
         addRenderableWidget(previousShop);
         ImmortalButton nextShop = ImmortalButton.secondary(layout.nextShopButton().x(),
                 layout.nextShopButton().y(), layout.nextShopButton().width(),
-                layout.nextShopButton().height(), Component.literal("店>"), button -> {
+                layout.nextShopButton().height(), Component.translatable("screen.seeking_immortals.market_hall.next_shop"), button -> {
                     shopIndex = Math.min(ids.size() - 1, shopIndex + 1);
                     page = 0;
                     listPanel.resetScroll();

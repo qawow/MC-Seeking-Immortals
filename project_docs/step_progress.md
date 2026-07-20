@@ -1,3 +1,14 @@
+## 532. 2026-07-20 0.2.82 云笈墨卷 B5 文案键化
+
+  Step   Status   Notes
+  ---   ---   ---
+  Stats keys Done   109 唯一字面量 → cultivation_stats.* 双语键。
+  HUD keys   Done   hud.cultivation/breathing/health 命名空间。
+  Status vocab Done  affliction.* 参数化收拢（skin+stats 共用）。
+  Tests    Done   LangParityTest 齐平+CJK 门；全量 750 项。
+  Version  Done   `mod_version=0.2.82`；protocol 25。
+  Handoff  Done   `project_docs/updates/20260720_0.2.82_inkscroll_b5.md`。
+
 ## 531. 2026-07-20 0.2.81 云笈墨卷 B4 HUD
 
   Step   Status   Notes

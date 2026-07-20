@@ -1081,12 +1081,21 @@ public final class ImmortalUiSkin {
 
     public static String getStatusText(ClientCultivationData.Snapshot data) {
         StringBuilder builder = new StringBuilder();
-        if (data.meditating()) builder.append("打坐 ");
-        if (data.severeInjury()) builder.append("重伤 ");
-        if (data.heartDemonLevel() > 0) builder.append("心魔").append(data.heartDemonLevel()).append("层 ");
-        if (data.shatteredCore()) builder.append("碎丹 ");
-        if (data.realmFallScars() > 0) builder.append("跌境伤痕").append(data.realmFallScars()).append(" ");
-        return builder.isEmpty() ? "正常" : builder.toString().trim();
+        if (data.meditating()) builder.append(affliction("meditating")).append(' ');
+        if (data.severeInjury()) builder.append(affliction("severe")).append(' ');
+        if (data.heartDemonLevel() > 0) builder.append(net.minecraft.network.chat.Component
+                .translatable("status.seeking_immortals.affliction.heart_demon_layers",
+                        data.heartDemonLevel()).getString()).append(' ');
+        if (data.shatteredCore()) builder.append(affliction("shattered_core")).append(' ');
+        if (data.realmFallScars() > 0) builder.append(net.minecraft.network.chat.Component
+                .translatable("status.seeking_immortals.affliction.fall_scars",
+                        data.realmFallScars()).getString()).append(' ');
+        return builder.isEmpty() ? affliction("normal") : builder.toString().trim();
+    }
+
+    private static String affliction(String suffix) {
+        return net.minecraft.network.chat.Component
+                .translatable("status.seeking_immortals.affliction." + suffix).getString();
     }
 
     public static void drawStringFit(Font font, GuiGraphics graphics, String value, int x, int y,

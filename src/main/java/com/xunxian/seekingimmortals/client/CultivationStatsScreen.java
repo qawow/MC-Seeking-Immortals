@@ -31,19 +31,19 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
     // Color aliases intentionally NOT static-final: ImmortalUiSkin.JOURNAL_* rebind per climate.
 
     private static final List<LifeSkillEntry> LIFE_SKILLS = List.of(
-            new LifeSkillEntry("炼丹", SkillType.ALCHEMY),
-            new LifeSkillEntry("炼器", SkillType.ARTIFACT_REFINING),
-            new LifeSkillEntry("符箓", SkillType.TALISMAN_CRAFTING),
-            new LifeSkillEntry("阵法", SkillType.FORMATION),
-            new LifeSkillEntry("驭兽", SkillType.BEAST_TAMING),
-            new LifeSkillEntry("傀儡", SkillType.PUPPET_CONTROL));
+            new LifeSkillEntry(tr("skill.alchemy"), SkillType.ALCHEMY),
+            new LifeSkillEntry(tr("skill.refining"), SkillType.ARTIFACT_REFINING),
+            new LifeSkillEntry(tr("skill.talisman"), SkillType.TALISMAN_CRAFTING),
+            new LifeSkillEntry(tr("skill.formation"), SkillType.FORMATION),
+            new LifeSkillEntry(tr("skill.beast"), SkillType.BEAST_TAMING),
+            new LifeSkillEntry(tr("skill.puppet"), SkillType.PUPPET_CONTROL));
 
     private static final List<LifeSkillEntry> SPECIAL_SKILLS = List.of(
-            new LifeSkillEntry("御剑初解", SkillType.FLYING_SWORD_BEGINNER),
-            new LifeSkillEntry("御剑进阶", SkillType.FLYING_SWORD_ADVANCED),
-            new LifeSkillEntry("神识扩展", SkillType.DIVINE_SENSE_EXPANSION),
-            new LifeSkillEntry("阵法感知", SkillType.FORMATION_SENSE),
-            new LifeSkillEntry("分神施法", SkillType.MULTI_CASTING));
+            new LifeSkillEntry(tr("technique.sword_basic"), SkillType.FLYING_SWORD_BEGINNER),
+            new LifeSkillEntry(tr("technique.sword_adv"), SkillType.FLYING_SWORD_ADVANCED),
+            new LifeSkillEntry(tr("technique.sense_expand"), SkillType.DIVINE_SENSE_EXPANSION),
+            new LifeSkillEntry(tr("technique.formation_sense"), SkillType.FORMATION_SENSE),
+            new LifeSkillEntry(tr("technique.split_cast"), SkillType.MULTI_CASTING));
 
     private final LocalPlayer player;
     private final boolean returnToInventory;
@@ -382,49 +382,49 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
 
     private int renderRealmFoundation(GuiGraphics graphics, int x, int y, int width,
                                       ClientCultivationData.Snapshot data) {
-        y = sectionTitle(graphics, x, y, width, "境界修为");
-        y = row(graphics, x, y, width, "境界", data.realm() + data.stage(), ImmortalUiSkin.JOURNAL_JADE_TEXT);
-        y = row(graphics, x, y, width, "神识 / 肉身", shortNumber(data.divSense()) + " / " + data.bodyRef(), ImmortalUiSkin.JOURNAL_PAPER);
-        y = row(graphics, x, y, width, "寿元", data.remainingLifespanYears() + " / " + data.lifespanYears()
-                + " 年 · 年龄 " + data.ageYears(), ImmortalUiSkin.JOURNAL_PAPER);
-        y = row(graphics, x, y, width, "体质", data.specialPhysique(), ImmortalUiSkin.JOURNAL_JADE_TEXT);
-        y = progressBar(graphics, x, y + 2, width, "修为",
+        y = sectionTitle(graphics, x, y, width, tr("section.realm_cultivation"));
+        y = row(graphics, x, y, width, tr("label.realm"), data.realm() + data.stage(), ImmortalUiSkin.JOURNAL_JADE_TEXT);
+        y = row(graphics, x, y, width, tr("label.sense_body"), shortNumber(data.divSense()) + " / " + data.bodyRef(), ImmortalUiSkin.JOURNAL_PAPER);
+        y = row(graphics, x, y, width, tr("label.lifespan"), data.remainingLifespanYears() + " / " + data.lifespanYears()
+                + tr("unit.years_age") + data.ageYears(), ImmortalUiSkin.JOURNAL_PAPER);
+        y = row(graphics, x, y, width, tr("label.physique"), data.specialPhysique(), ImmortalUiSkin.JOURNAL_JADE_TEXT);
+        y = progressBar(graphics, x, y + 2, width, tr("label.cultivation"),
                 progressFraction(data.cultivation(), data.cultivationMax()),
                 shortNumber(data.cultivation()) + " / " + shortNumber(data.cultivationMax()), ImmortalUiSkin.JOURNAL_JADE);
-        y = progressBar(graphics, x, y + 2, width, "灵力",
+        y = progressBar(graphics, x, y + 2, width, tr("label.mana"),
                 fraction(data.mana(), data.manaMax()),
                 shortNumber(data.mana()) + " / " + shortNumber(data.manaMax()), ImmortalUiSkin.JOURNAL_SPIRIT);
 
         y += SECTION_GAP;
-        y = sectionTitle(graphics, x, y, width, "道途状态");
-        y = row(graphics, x, y, width, "当前状态", statusText(data), statusColor(data));
-        y = row(graphics, x, y, width, "灵力储备",
+        y = sectionTitle(graphics, x, y, width, tr("section.path_status"));
+        y = row(graphics, x, y, width, tr("label.current_status"), statusText(data), statusColor(data));
+        y = row(graphics, x, y, width, tr("label.mana_reserve"),
                 shortNumber(data.spiritualPower()) + " / " + shortNumber(data.maxSpiritualPower()), ImmortalUiSkin.JOURNAL_SPIRIT);
-        return row(graphics, x, y, width, "所学术法", data.learnedTechniqueCount() + " 门", ImmortalUiSkin.JOURNAL_PAPER);
+        return row(graphics, x, y, width, tr("section.techniques_learned"), data.learnedTechniqueCount() + tr("unit.men_count"), ImmortalUiSkin.JOURNAL_PAPER);
     }
 
     private int renderRootAndMeditation(GuiGraphics graphics, int x, int y, int width,
                                         ClientCultivationData.Snapshot data) {
-        y = sectionTitle(graphics, x, y, width, "灵根资质");
-        y = row(graphics, x, y, width, "测灵 / 觉醒",
+        y = sectionTitle(graphics, x, y, width, tr("section.root_talent"));
+        y = row(graphics, x, y, width, tr("root.test_awaken"),
                 yesNo(data.spiritualRootTested()) + " / " + yesNo(data.spiritualRootAwakened()), ImmortalUiSkin.JOURNAL_PAPER);
-        y = row(graphics, x, y, width, "灵根", data.spiritualRoot(), ImmortalUiSkin.JOURNAL_JADE_TEXT);
-        y = row(graphics, x, y, width, "属性", data.spiritualRootAttributes(), ImmortalUiSkin.JOURNAL_PAPER);
-        y = progressBar(graphics, x, y + 2, width, "灵根纯度",
+        y = row(graphics, x, y, width, tr("label.root"), data.spiritualRoot(), ImmortalUiSkin.JOURNAL_JADE_TEXT);
+        y = row(graphics, x, y, width, tr("label.attribute"), data.spiritualRootAttributes(), ImmortalUiSkin.JOURNAL_PAPER);
+        y = progressBar(graphics, x, y + 2, width, tr("label.root_purity"),
                 fraction(data.spiritualRootPurity(), 100), data.spiritualRootPurity() + "%", ImmortalUiSkin.JOURNAL_JADE);
-        y = row(graphics, x, y, width, "修炼速率", "×" + formatDouble(data.cultivationSpeedMultiplier()), ImmortalUiSkin.JOURNAL_JADE_TEXT);
-        y = row(graphics, x, y, width, "根骨加成", "灵根 ×" + formatDouble(data.rootCultivationSpeedCoefficient())
-                + " · 体质 ×" + formatDouble(data.physiqueCultivationSpeedMultiplier()), ImmortalUiSkin.JOURNAL_PAPER_MUTED);
+        y = row(graphics, x, y, width, tr("label.cultivation_rate"), "×" + formatDouble(data.cultivationSpeedMultiplier()), ImmortalUiSkin.JOURNAL_JADE_TEXT);
+        y = row(graphics, x, y, width, tr("breakthrough.bone_bonus"), tr("root.times") + formatDouble(data.rootCultivationSpeedCoefficient())
+                + tr("unit.physique_times") + formatDouble(data.physiqueCultivationSpeedMultiplier()), ImmortalUiSkin.JOURNAL_PAPER_MUTED);
 
         y += SECTION_GAP;
-        y = sectionTitle(graphics, x, y, width, "吐纳周天");
-        y = row(graphics, x, y, width, "周遭灵气", data.auraNature() + " · " + data.auraConcentration(), ImmortalUiSkin.JOURNAL_SPIRIT);
-        y = row(graphics, x, y, width, "吐纳所得", formatDouble(data.meditationTotalPerSecond()) + " / 秒", ImmortalUiSkin.JOURNAL_JADE_TEXT);
-        y = row(graphics, x, y, width, "基础 / 灵根", formatDouble(data.meditationBasePerSecond())
+        y = sectionTitle(graphics, x, y, width, tr("meditation.cycle"));
+        y = row(graphics, x, y, width, tr("label.ambient_aura"), data.auraNature() + " · " + data.auraConcentration(), ImmortalUiSkin.JOURNAL_SPIRIT);
+        y = row(graphics, x, y, width, tr("meditation.gain"), formatDouble(data.meditationTotalPerSecond()) + tr("unit.per_second"), ImmortalUiSkin.JOURNAL_JADE_TEXT);
+        y = row(graphics, x, y, width, tr("breakthrough.base_root"), formatDouble(data.meditationBasePerSecond())
                 + " / ×" + formatDouble(data.meditationRootMultiplier()), ImmortalUiSkin.JOURNAL_PAPER);
-        y = row(graphics, x, y, width, "体质 / 灵气", "×" + formatDouble(data.meditationPhysiqueMultiplier())
+        y = row(graphics, x, y, width, tr("breakthrough.physique_aura"), "×" + formatDouble(data.meditationPhysiqueMultiplier())
                 + " / ×" + formatDouble(data.meditationAuraMultiplier()), ImmortalUiSkin.JOURNAL_PAPER);
-        return row(graphics, x, y, width, "功法 / 灵石", "×" + formatDouble(data.meditationTechniqueMultiplier())
+        return row(graphics, x, y, width, tr("breakthrough.method_stone"), "×" + formatDouble(data.meditationTechniqueMultiplier())
                 + " / +" + formatDouble(data.meditationStoneBonus()), ImmortalUiSkin.JOURNAL_PAPER_MUTED);
     }
 
@@ -448,64 +448,64 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
 
     private int renderCombatFoundation(GuiGraphics graphics, int x, int y, int width,
                                        ClientCultivationData.Snapshot data) {
-        y = sectionTitle(graphics, x, y, width, "战力道基");
-        y = row(graphics, x, y, width, "攻伐 / 护体",
+        y = sectionTitle(graphics, x, y, width, tr("section.combat_base"));
+        y = row(graphics, x, y, width, tr("combat.attack_defense"),
                 formatDouble(data.baseAttack()) + " / " + formatDouble(data.baseDefense()), ImmortalUiSkin.JOURNAL_PAPER);
-        y = row(graphics, x, y, width, "会心 / 会伤",
+        y = row(graphics, x, y, width, tr("combat.crit"),
                 percent(data.critChance()) + " / " + formatDouble(data.critDamage()) + "×", ImmortalUiSkin.JOURNAL_JADE_TEXT);
-        y = row(graphics, x, y, width, "闪避 / 命中",
+        y = row(graphics, x, y, width, tr("combat.dodge_acc"),
                 percent(data.dodgeChance()) + " / " + percent(data.accuracy()), ImmortalUiSkin.JOURNAL_PAPER);
         double defenseReduction = data.baseDefense() / (data.baseDefense() + 100.0D);
-        y = row(graphics, x, y, width, "护体减伤", percent(defenseReduction), ImmortalUiSkin.JOURNAL_JADE_TEXT);
-        y = row(graphics, x, y, width, "身法运转", percent(data.movementSpeedScale()), ImmortalUiSkin.JOURNAL_SPIRIT);
-        y = row(graphics, x, y, width, "身法加成", percent(data.movementSpeedBonus()), ImmortalUiSkin.JOURNAL_PAPER_MUTED);
+        y = row(graphics, x, y, width, tr("combat.defense_cut"), percent(defenseReduction), ImmortalUiSkin.JOURNAL_JADE_TEXT);
+        y = row(graphics, x, y, width, tr("label.move_state"), percent(data.movementSpeedScale()), ImmortalUiSkin.JOURNAL_SPIRIT);
+        y = row(graphics, x, y, width, tr("label.move_bonus"), percent(data.movementSpeedBonus()), ImmortalUiSkin.JOURNAL_PAPER_MUTED);
 
         y += SECTION_GAP;
-        y = sectionTitle(graphics, x, y, width, "临敌气象");
-        y = row(graphics, x, y, width, "神识强度", shortNumber(data.divSense()), ImmortalUiSkin.JOURNAL_PAPER);
-        y = row(graphics, x, y, width, "肉身根基", Integer.toString(data.bodyRef()), ImmortalUiSkin.JOURNAL_PAPER);
-        y = row(graphics, x, y, width, "走火风险", data.qiDevRisk() + "%",
+        y = sectionTitle(graphics, x, y, width, tr("section.combat_weather"));
+        y = row(graphics, x, y, width, tr("label.div_sense"), shortNumber(data.divSense()), ImmortalUiSkin.JOURNAL_PAPER);
+        y = row(graphics, x, y, width, tr("label.body_base"), Integer.toString(data.bodyRef()), ImmortalUiSkin.JOURNAL_PAPER);
+        y = row(graphics, x, y, width, tr("label.qi_dev"), data.qiDevRisk() + "%",
                 ImmortalUiSkin.qiDevRiskColor(data.qiDevRisk()));
-        return row(graphics, x, y, width, "抗劫底蕴", data.tribRes() + "%", ImmortalUiSkin.JOURNAL_JADE_TEXT);
+        return row(graphics, x, y, width, tr("label.trib_res"), data.tribRes() + "%", ImmortalUiSkin.JOURNAL_JADE_TEXT);
     }
 
     private int renderBreakthrough(GuiGraphics graphics, int x, int y, int width,
                                    ClientCultivationData.Snapshot data) {
-        y = sectionTitle(graphics, x, y, width, "破境天劫");
-        y = row(graphics, x, y, width, "结丹品相", data.goldCoreGrade() + " · " + data.goldCoreScore() + " 分",
+        y = sectionTitle(graphics, x, y, width, tr("section.breakthrough_trib"));
+        y = row(graphics, x, y, width, tr("label.core_grade"), data.goldCoreGrade() + " · " + data.goldCoreScore() + tr("unit.points"),
                 data.goldCoreScore() > 0 ? ImmortalUiSkin.JOURNAL_JADE_TEXT : ImmortalUiSkin.JOURNAL_PAPER_MUTED);
-        y = row(graphics, x, y, width, "五行圆满", data.completeFiveElements() ? "五行合一" : "未合五行",
+        y = row(graphics, x, y, width, tr("root.five_elements_complete"), data.completeFiveElements() ? tr("root.five_elements_union") : tr("root.not_complete"),
                 data.completeFiveElements() ? ImmortalUiSkin.JOURNAL_JADE_TEXT : ImmortalUiSkin.JOURNAL_PAPER_MUTED);
-        y = row(graphics, x, y, width, "突破把握", percent(data.breakthroughChance()), ImmortalUiSkin.JOURNAL_JADE_TEXT);
-        y = row(graphics, x, y, width, "执念加成", percent(data.breakthroughObsessionBonus()), ImmortalUiSkin.JOURNAL_PAPER);
-        y = row(graphics, x, y, width, "丹药 / 灵眼", percent(data.breakthroughPillBonus())
+        y = row(graphics, x, y, width, tr("label.breakthrough_chance"), percent(data.breakthroughChance()), ImmortalUiSkin.JOURNAL_JADE_TEXT);
+        y = row(graphics, x, y, width, tr("breakthrough.obsession"), percent(data.breakthroughObsessionBonus()), ImmortalUiSkin.JOURNAL_PAPER);
+        y = row(graphics, x, y, width, tr("breakthrough.pill_eye"), percent(data.breakthroughPillBonus())
                 + " / " + percent(data.breakthroughSpiritEyeBonus()), ImmortalUiSkin.JOURNAL_PAPER_MUTED);
-        y = row(graphics, x, y, width, "功法助力", percent(data.breakthroughTechniqueQualityBonus()), ImmortalUiSkin.JOURNAL_PAPER_MUTED);
+        y = row(graphics, x, y, width, tr("breakthrough.method_bonus"), percent(data.breakthroughTechniqueQualityBonus()), ImmortalUiSkin.JOURNAL_PAPER_MUTED);
         if (data.tribulationActive()) {
-            y = row(graphics, x, y, width, "天劫",
+            y = row(graphics, x, y, width, tr("label.tribulation"),
                     data.tribulationTargetRealm() + " · " + data.tribulationCurrentStrike() + "/"
                             + data.tribulationTotalStrikes(), ImmortalUiSkin.JOURNAL_CINNABAR_BRIGHT);
-            y = row(graphics, x, y, width, "下道劫雷",
-                    Math.max(0, (int)Math.ceil(data.tribulationNextStrikeTicks() / 20.0D)) + " 秒", ImmortalUiSkin.JOURNAL_CINNABAR_BRIGHT);
+            y = row(graphics, x, y, width, tr("tribulation.next_strike"),
+                    Math.max(0, (int)Math.ceil(data.tribulationNextStrikeTicks() / 20.0D)) + tr("unit.seconds"), ImmortalUiSkin.JOURNAL_CINNABAR_BRIGHT);
         } else {
-            y = row(graphics, x, y, width, "天劫", "未临劫云", ImmortalUiSkin.JOURNAL_PAPER_MUTED);
+            y = row(graphics, x, y, width, tr("label.tribulation"), tr("tribulation.none"), ImmortalUiSkin.JOURNAL_PAPER_MUTED);
         }
-        return row(graphics, x, y, width, "失败次数", Integer.toString(data.failedBreakthroughs()),
+        return row(graphics, x, y, width, tr("breakthrough.failures"), Integer.toString(data.failedBreakthroughs()),
                 data.failedBreakthroughs() > 0 ? ImmortalUiSkin.JOURNAL_WARNING : ImmortalUiSkin.JOURNAL_PAPER_MUTED);
     }
 
     private int renderAfflictions(GuiGraphics graphics, int x, int y, int width,
                                   ClientCultivationData.Snapshot data) {
-        y = sectionTitle(graphics, x, y, width, "伤势心魔");
-        y = row(graphics, x, y, width, "总览", statusText(data), statusColor(data));
-        y = row(graphics, x, y, width, "重伤", data.severeInjury() ? "存在 · 气血恢复受损" : "无",
+        y = sectionTitle(graphics, x, y, width, tr("section.afflictions"));
+        y = row(graphics, x, y, width, tr("tab.overview"), statusText(data), statusColor(data));
+        y = row(graphics, x, y, width, tr("affliction.severe"), data.severeInjury() ? tr("affliction.severe_detail") : tr("common.none"),
                 data.severeInjury() ? ImmortalUiSkin.JOURNAL_CINNABAR_BRIGHT : ImmortalUiSkin.JOURNAL_JADE_TEXT);
-        y = row(graphics, x, y, width, "心魔 / 碎丹",
-                (data.heartDemonLevel() > 0 ? data.heartDemonLevel() + " 层" : "无")
-                        + " / " + (data.shatteredCore() ? "存在" : "无"),
+        y = row(graphics, x, y, width, tr("affliction.demon_core"),
+                (data.heartDemonLevel() > 0 ? data.heartDemonLevel() + tr("unit.layer") : tr("common.none"))
+                        + " / " + (data.shatteredCore() ? tr("common.present") : tr("common.none")),
                 data.heartDemonLevel() > 0 || data.shatteredCore() ? ImmortalUiSkin.JOURNAL_CINNABAR_BRIGHT : ImmortalUiSkin.JOURNAL_JADE_TEXT);
-        return row(graphics, x, y, width, "跌境伤痕",
-                data.realmFallScars() > 0 ? data.realmFallScars() + " 道" : "无",
+        return row(graphics, x, y, width, tr("affliction.fall_scars"),
+                data.realmFallScars() > 0 ? data.realmFallScars() + tr("unit.dao_count") : tr("common.none"),
                 data.realmFallScars() > 0 ? ImmortalUiSkin.JOURNAL_WARNING : ImmortalUiSkin.JOURNAL_JADE_TEXT);
     }
 
@@ -524,34 +524,34 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
     }
 
     private int renderMethodsAndTechniques(GuiGraphics graphics, int x, int y, int width) {
-        y = sectionTitle(graphics, x, y, width, "功法竹笺");
+        y = sectionTitle(graphics, x, y, width, tr("section.method_note"));
         if (ClientMethodData.isSynced()) {
             int learned = ClientMethodData.getLearnedMethodCount();
-            y = row(graphics, x, y, width, "已学功法", learned + " 门", learned > 0 ? ImmortalUiSkin.JOURNAL_JADE_TEXT : ImmortalUiSkin.JOURNAL_PAPER_MUTED);
+            y = row(graphics, x, y, width, tr("label.methods_learned"), learned + tr("unit.men_count"), learned > 0 ? ImmortalUiSkin.JOURNAL_JADE_TEXT : ImmortalUiSkin.JOURNAL_PAPER_MUTED);
             List<String> lines = ClientMethodData.displayLines(5);
             if (lines.isEmpty()) {
-                y = row(graphics, x, y, width, "名录", "尚未修习功法", ImmortalUiSkin.JOURNAL_PAPER_MUTED);
+                y = row(graphics, x, y, width, tr("tab.register"), tr("method.none"), ImmortalUiSkin.JOURNAL_PAPER_MUTED);
             } else {
                 for (String line : lines) {
                     y = row(graphics, x, y, width, "·", line, ImmortalUiSkin.JOURNAL_PAPER);
                 }
                 if (learned > lines.size()) {
-                    y = row(graphics, x, y, width, "余录", "+" + (learned - lines.size()) + " 门", ImmortalUiSkin.JOURNAL_JADE_TEXT);
+                    y = row(graphics, x, y, width, tr("tab.misc"), "+" + (learned - lines.size()) + tr("unit.men_count"), ImmortalUiSkin.JOURNAL_JADE_TEXT);
                 }
             }
         } else {
-            y = row(graphics, x, y, width, "功法名录", "等待服务器同步", ImmortalUiSkin.JOURNAL_PAPER_MUTED);
+            y = row(graphics, x, y, width, tr("section.method_list"), tr("common.waiting_sync"), ImmortalUiSkin.JOURNAL_PAPER_MUTED);
         }
 
         y += SECTION_GAP;
-        y = sectionTitle(graphics, x, y, width, "术法所学");
+        y = sectionTitle(graphics, x, y, width, tr("label.techniques"));
         return renderTechniqueCards(graphics, x, y, width);
     }
 
     private int renderTechniqueCards(GuiGraphics graphics, int x, int y, int width) {
         List<String> techniques = ClientTechniqueData.getLearnedTechniques();
         if (techniques.isEmpty()) {
-            return row(graphics, x, y, width, "竹笺", "暂无已同步术法", ImmortalUiSkin.JOURNAL_PAPER_MUTED);
+            return row(graphics, x, y, width, tr("tab.notes"), tr("technique.none_synced"), ImmortalUiSkin.JOURNAL_PAPER_MUTED);
         }
         int shown = Math.min(6, techniques.size());
         for (int i = 0; i < shown; i++) {
@@ -561,15 +561,15 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
             y += 25;
         }
         if (techniques.size() > shown) {
-            y = row(graphics, x, y, width, "余录", "+" + (techniques.size() - shown) + " 门 · 可在技能编辑查看", ImmortalUiSkin.JOURNAL_JADE_TEXT);
+            y = row(graphics, x, y, width, tr("tab.misc"), "+" + (techniques.size() - shown) + tr("unit.men_view_edit"), ImmortalUiSkin.JOURNAL_JADE_TEXT);
         }
         return y;
     }
 
     private int renderSkillPractice(GuiGraphics graphics, int x, int y, int width) {
-        y = sectionTitle(graphics, x, y, width, "生活百艺");
+        y = sectionTitle(graphics, x, y, width, tr("section.life_skills"));
         if (!ClientSkillData.isSynced()) {
-            y = row(graphics, x, y, width, "技能",
+            y = row(graphics, x, y, width, tr("label.skills"),
                     Component.translatable("screen.seeking_immortals.skill_tree.waiting_sync").getString(), ImmortalUiSkin.JOURNAL_PAPER_MUTED);
         } else {
             for (LifeSkillEntry entry : LIFE_SKILLS) {
@@ -580,9 +580,9 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
         }
 
         y += SECTION_GAP;
-        y = sectionTitle(graphics, x, y, width, "异术旁门");
+        y = sectionTitle(graphics, x, y, width, tr("section.exotic"));
         if (!ClientSkillData.isSynced()) {
-            return row(graphics, x, y, width, "异术",
+            return row(graphics, x, y, width, tr("skill.exotic"),
                     Component.translatable("screen.seeking_immortals.skill_tree.waiting_sync").getString(), ImmortalUiSkin.JOURNAL_PAPER_MUTED);
         }
         for (LifeSkillEntry entry : SPECIAL_SKILLS) {
@@ -621,7 +621,7 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
         } else {
             graphics.fill(iconX, iconY, iconX + 16, iconY + 16, ImmortalUiSkin.JOURNAL_CINNABAR);
             graphics.fill(iconX + 1, iconY + 1, iconX + 15, iconY + 15, ImmortalUiSkin.JOURNAL_ICON_INSET);
-            String mark = summary.name().isBlank() ? "术" : summary.name().substring(0, 1);
+            String mark = summary.name().isBlank() ? tr("badge.technique") : summary.name().substring(0, 1);
             graphics.drawCenteredString(font, mark, iconX + 8, iconY + 4, ImmortalUiSkin.JOURNAL_PAPER);
         }
         drawFit(graphics, summary.name(), x + 23, y + 3, Math.max(8, width - 27), ImmortalUiSkin.JOURNAL_JADE_TEXT);
@@ -669,7 +669,7 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
         if (rect.width() <= 0 || rect.height() <= 0) {
             return;
         }
-        String name = player == null ? "无名散修" : player.getName().getString();
+        String name = player == null ? tr("label.nameless") : player.getName().getString();
         graphics.drawCenteredString(font, fit(name, rect.width() - 12), rect.x() + rect.width() / 2,
                 rect.y() + 7, ImmortalUiSkin.JOURNAL_PAPER);
         graphics.fill(rect.x() + 9, rect.y() + 18, rect.right() - 9, rect.y() + 19, ImmortalUiSkin.JOURNAL_BORDER_DIM);
@@ -691,15 +691,15 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
                 rect.x() + rect.width() / 2, infoY, ImmortalUiSkin.JOURNAL_JADE_TEXT);
         infoY += 14;
         graphics.fill(rect.x() + 10, infoY - 3, rect.right() - 10, infoY - 2, ImmortalUiSkin.JOURNAL_BORDER_DIM);
-        infoY = profileLine(graphics, rect, infoY, "寿元", data.remainingLifespanYears() + " 年", ImmortalUiSkin.JOURNAL_PAPER);
-        infoY = profileLine(graphics, rect, infoY, "灵根", data.spiritualRoot(), ImmortalUiSkin.JOURNAL_JADE_TEXT);
-        infoY = profileLine(graphics, rect, infoY, "灵气", data.auraNature(), ImmortalUiSkin.JOURNAL_SPIRIT);
-        infoY = profileLine(graphics, rect, infoY, "状态", statusText(data), statusColor(data));
-        profileLine(graphics, rect, infoY, "修速", "×" + formatDouble(data.cultivationSpeedMultiplier()), ImmortalUiSkin.JOURNAL_JADE_TEXT);
+        infoY = profileLine(graphics, rect, infoY, tr("label.lifespan"), data.remainingLifespanYears() + tr("unit.years"), ImmortalUiSkin.JOURNAL_PAPER);
+        infoY = profileLine(graphics, rect, infoY, tr("label.root"), data.spiritualRoot(), ImmortalUiSkin.JOURNAL_JADE_TEXT);
+        infoY = profileLine(graphics, rect, infoY, tr("label.aura"), data.auraNature(), ImmortalUiSkin.JOURNAL_SPIRIT);
+        infoY = profileLine(graphics, rect, infoY, tr("label.status"), statusText(data), statusColor(data));
+        profileLine(graphics, rect, infoY, tr("label.cultivation_speed"), "×" + formatDouble(data.cultivationSpeedMultiplier()), ImmortalUiSkin.JOURNAL_JADE_TEXT);
 
         if (rect.height() >= 210) {
             drawSeal(graphics, rect.x() + rect.width() / 2 - 10, rect.bottom() - 27, 20,
-                    data.meditating() ? "定" : "修");
+                    data.meditating() ? tr("badge.stable") : tr("badge.cultivate"));
         }
     }
 
@@ -791,6 +791,11 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
         return String.format(Locale.ROOT, "%.2f", value);
     }
 
+    private static String tr(String suffix) {
+        return net.minecraft.network.chat.Component
+                .translatable("screen.seeking_immortals.cultivation_stats." + suffix).getString();
+    }
+
     private String shortNumber(long value) {
         return com.xunxian.seekingimmortals.client.ui.NumberFmt.cjk(value);
     }
@@ -809,17 +814,17 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
 
     private String statusText(ClientCultivationData.Snapshot data) {
         StringBuilder builder = new StringBuilder();
-        if (data.meditating()) builder.append("打坐 ");
-        if (data.severeInjury()) builder.append("重伤 ");
-        if (data.heartDemonLevel() > 0) builder.append("心魔").append(data.heartDemonLevel()).append("层 ");
-        if (data.shatteredCore()) builder.append("碎丹 ");
-        if (data.tribulationActive()) builder.append("天劫中 ");
-        if (data.realmFallScars() > 0) builder.append("跌境伤痕").append(data.realmFallScars()).append(' ');
-        return builder.isEmpty() ? "道基平稳" : builder.toString().trim();
+        if (data.meditating()) builder.append(tr("status.meditating"));
+        if (data.severeInjury()) builder.append(tr("status.severe"));
+        if (data.heartDemonLevel() > 0) builder.append(tr("affliction.heart_demon")).append(data.heartDemonLevel()).append(tr("unit.layer_trail"));
+        if (data.shatteredCore()) builder.append(tr("status.shattered_core"));
+        if (data.tribulationActive()) builder.append(tr("status.tribulation_active"));
+        if (data.realmFallScars() > 0) builder.append(tr("affliction.fall_scars")).append(data.realmFallScars()).append(' ');
+        return builder.isEmpty() ? tr("status.stable") : builder.toString().trim();
     }
 
     private String yesNo(boolean value) {
-        return value ? "是" : "否";
+        return value ? tr("common.yes") : tr("common.no");
     }
 
     private static double clamp01(double value) {
