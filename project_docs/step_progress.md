@@ -1,3 +1,14 @@
+## 555. 2026-07-20 0.2.109 结构修复台与蓝图台
+
+  Step   Status   Notes
+  ---   ---   ---
+  StructureToolService Done   repair_bench inspect/repair/form；blueprint 序列/启封。
+  Carrier dispatch Done   BaseMaterialItem 分发；非 structure token。
+  Lang Done   中英 message + tooltip/detail。
+  Tests Done   StructureToolServiceTest + CatalogItemDescriptionServiceTest。
+  Version Done   `mod_version=0.2.109`；protocol 26。
+  Handoff Done   `project_docs/updates/20260720_0.2.109_structure_tools.md`。
+
 ## 554. 2026-07-20 0.2.108 工站 id 契约
 
   Step   Status   Notes

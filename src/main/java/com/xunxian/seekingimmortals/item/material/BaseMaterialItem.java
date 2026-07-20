@@ -53,6 +53,11 @@ public class BaseMaterialItem extends Item {
             if (formationUse.isPresent()) {
                 return formationUse.get();
             }
+            // Meta structure tools: repair bench / blueprint table operate on nearby stations.
+            var structureToolUse = com.xunxian.seekingimmortals.structure.StructureToolService.tryUse(serverPlayer, stack);
+            if (structureToolUse.isPresent()) {
+                return structureToolUse.get();
+            }
         }
         return super.use(level, player, hand);
     }

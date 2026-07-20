@@ -4397,9 +4397,9 @@
   "item.seeking_immortals.asura_trial_ring": "Asura Trial Ring",
   "tooltip.seeking_immortals.material.asura_trial_ring": "Asura Trial Ring",
   "item.seeking_immortals.structure_repair_bench": "Structure Repair Bench",
-  "tooltip.seeking_immortals.material.structure_repair_bench": "Structure Repair Bench",
+  "tooltip.seeking_immortals.material.structure_repair_bench": "Structure Repair Bench: right-click inspects a nearby station; sneak-use repairs or commissions it.",
   "item.seeking_immortals.structure_blueprint_table": "Structure Blueprint Table",
-  "tooltip.seeking_immortals.material.structure_blueprint_table": "Structure Blueprint Table",
+  "tooltip.seeking_immortals.material.structure_blueprint_table": "Structure Blueprint Table: right-click shows build sequence; sneak-use commissions.",
   "item.seeking_immortals.array_maintenance_obelisk": "Array Maintenance Obelisk",
   "tooltip.seeking_immortals.material.array_maintenance_obelisk": "Array Maintenance Obelisk",
   "item.seeking_immortals.furnace_safety_array": "Furnace Safety Array",
@@ -5068,5 +5068,12 @@
   "tooltip.seeking_immortals.catalog_pill.effect.spirit_seed_growth": "Spirit seed: longer cultivation-speed boost with mild divine sense",
   "tooltip.seeking_immortals.catalog_pill.effect.star_sea_voyage": "Star-sea voyage: speed, night vision, water breathing, mild gains",
   "tooltip.seeking_immortals.catalog_pill.effect.sect_spirit_tonic": "Sect spirit tonic: cultivation, spirit, short cultivation boost",
-  "tooltip.seeking_immortals.catalog_pill.effect.merit_tonic": "Merit tonic: lower deviation, absorption/luck, minor Tianyuan reputation"
+  "tooltip.seeking_immortals.catalog_pill.effect.merit_tonic": "Merit tonic: lower deviation, absorption/luck, minor Tianyuan reputation",
+  "message.seeking_immortals.structure_tool.no_station": "No formed multiblock station nearby. Stand closer to the core and try again.",
+  "message.seeking_immortals.structure_tool.blueprint_hint": "Blueprint table: no formed structure nearby. Sample station ids:",
+  "message.seeking_immortals.structure_tool.blueprint_target": "Blueprint locked on %s (%s). Sneak-use to commission.",
+  "message.seeking_immortals.structure_tool.blueprint_sequence": "Build sequence %s has %s steps:",
+  "message.seeking_immortals.structure_tool.blueprint_no_sequence": "No multiplayer build sequence for this station; showing operational inspect instead.",
+  "tooltip.seeking_immortals.catalog_item.detail.structure_repair_bench": "Right-click inspects a nearby station; sneak-use repairs or commissions it (shards/materials).",
+  "tooltip.seeking_immortals.catalog_item.detail.structure_blueprint_table": "Right-click shows a nearby station build sequence; sneak-use commissions it."
 }

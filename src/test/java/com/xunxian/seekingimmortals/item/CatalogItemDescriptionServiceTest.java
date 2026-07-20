@@ -74,7 +74,8 @@ class CatalogItemDescriptionServiceTest {
     @Test
     void structureTokenCarrierDetectionCoversHighRiskIds() {
         assertTrue(CatalogItemDescriptionService.isStructureTokenCarrier("time_acceleration_array"));
-        assertTrue(CatalogItemDescriptionService.isStructureTokenCarrier("structure_repair_bench"));
+        assertFalse(CatalogItemDescriptionService.isStructureTokenCarrier("structure_repair_bench"));
+        assertFalse(CatalogItemDescriptionService.isStructureTokenCarrier("structure_blueprint_table"));
         assertTrue(CatalogItemDescriptionService.isStructureTokenCarrier("capture_point_obelisk"));
         assertTrue(CatalogItemDescriptionService.isStructureTokenCarrier("immortal_teleport_grand_array"));
         assertFalse(CatalogItemDescriptionService.isStructureTokenCarrier("spirit_gathering_array_disk"));

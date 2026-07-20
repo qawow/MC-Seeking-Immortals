@@ -4414,9 +4414,9 @@
   "item.seeking_immortals.asura_trial_ring": "地渊修罗试炼圈",
   "tooltip.seeking_immortals.material.asura_trial_ring": "地渊修罗试炼圈：血砂，八柱界壁，挑战令。",
   "item.seeking_immortals.structure_repair_bench": "结构修复台",
-  "tooltip.seeking_immortals.material.structure_repair_bench": "结构修复台：诊断阵，材料槽。服务多方块修理。",
+  "tooltip.seeking_immortals.material.structure_repair_bench": "结构修复台：右键诊断附近工站；潜行右键修理或启封。",
   "item.seeking_immortals.structure_blueprint_table": "结构蓝图台",
-  "tooltip.seeking_immortals.material.structure_blueprint_table": "结构蓝图台：全息线框，查看建造阶段。",
+  "tooltip.seeking_immortals.material.structure_blueprint_table": "结构蓝图台：右键查看附近工站建造序列；潜行右键启封。",
   "item.seeking_immortals.array_maintenance_obelisk": "阵法维稳碑",
   "tooltip.seeking_immortals.material.array_maintenance_obelisk": "阵法维稳碑：分流灵压，防大阵过载。",
   "item.seeking_immortals.furnace_safety_array": "丹炉防爆小阵",
@@ -5068,5 +5068,12 @@
   "tooltip.seeking_immortals.catalog_pill.effect.spirit_seed_growth": "灵种：埋下修炼种子，较长时间提升修炼效率",
   "tooltip.seeking_immortals.catalog_pill.effect.star_sea_voyage": "星海行舟：提速、夜视、水下呼吸并略增修为灵力",
   "tooltip.seeking_immortals.catalog_pill.effect.sect_spirit_tonic": "宗门灵丹：增长修为与灵力并短时提升修炼效率",
-  "tooltip.seeking_immortals.catalog_pill.effect.merit_tonic": "功勋丹：降走火、护体与幸运，并略记天渊声望"
+  "tooltip.seeking_immortals.catalog_pill.effect.merit_tonic": "功勋丹：降走火、护体与幸运，并略记天渊声望",
+  "message.seeking_immortals.structure_tool.no_station": "附近没有成型的多方块工站，靠近结构核心后再试。",
+  "message.seeking_immortals.structure_tool.blueprint_hint": "蓝图台：附近无成型结构。可参考以下工站 id：",
+  "message.seeking_immortals.structure_tool.blueprint_target": "蓝图锁定《%s》（%s）。潜行右键尝试启封。",
+  "message.seeking_immortals.structure_tool.blueprint_sequence": "建造序列《%s》共 %s 步：",
+  "message.seeking_immortals.structure_tool.blueprint_no_sequence": "该工站暂无多人建造序列，已改为运行态诊断。",
+  "tooltip.seeking_immortals.catalog_item.detail.structure_repair_bench": "右键诊断附近工站；潜行右键修理或启封（消耗碎片/材料）。",
+  "tooltip.seeking_immortals.catalog_item.detail.structure_blueprint_table": "右键查看附近工站建造序列；潜行右键尝试启封。"
 }

@@ -160,14 +160,17 @@ public final class CatalogItemDescriptionService {
             "spirit_field_irrigation",
             "spirit_fire_brazier",
             "star_palace_teleport_gate",
-            "structure_repair_bench",
             "time_acceleration_array",
             "war_banner_pole"
     );
 
-    static boolean isStructureTokenCarrier(String id) {
+    public static boolean isStructureTokenCarrier(String id) {
         String key = normalize(id);
         if (key.isBlank()) {
+            return false;
+        }
+        // Meta tools are right-click executable even though they share station ids.
+        if ("structure_repair_bench".equals(key) || "structure_blueprint_table".equals(key)) {
             return false;
         }
         if (STRUCTURE_TOKEN_IDS.contains(key)) {
@@ -186,7 +189,8 @@ public final class CatalogItemDescriptionService {
                     "array_disk_fragment", "crystal_array_disk", "formation_flag_jade",
                     "formation_flag_low", "formation_flag_mid", "formation_flag_post",
                     "immortal_array_disk", "jade_array_disk", "platinum_array_disk",
-                    "space_array_disk", "spirit_gathering_array_disk", "array_blueprint_scroll" ->
+                    "space_array_disk", "spirit_gathering_array_disk", "array_blueprint_scroll",
+                    "structure_repair_bench", "structure_blueprint_table" ->
                     "tooltip.seeking_immortals.catalog_item.detail." + key;
             default -> isStructureTokenCarrier(key)
                     ? "tooltip.seeking_immortals.catalog_item.detail.structure_token"

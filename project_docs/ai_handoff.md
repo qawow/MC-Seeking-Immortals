@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-20: `0.2.109` 结构修复台/蓝图台可右键。`StructureToolService` 对接 inspect/repair/form 与建造序列展示；meta 工具不再是纯 structure token。协议 26。见 `project_docs/updates/20260720_0.2.109_structure_tools.md`。
+
 > CURRENT TRUTH 2026-07-20: `0.2.108` 工站 id 契约与飞舟泊桩专属校验。炼器委托/软炼/祭炼效率改用 `refinement_forge_g1–g6`；对话阵态改用传送阵目录 id；`flying_boat_dock` 走 `FlyingBoatDockStructure`。协议 26。见 `project_docs/updates/20260720_0.2.108_station_id_contracts.md`。
 
 > CURRENT TRUTH 2026-07-20: `0.2.107` 渡口物品路由与空 method 矩阵补术。`ferry_pass` 可右键渡阴冥；渡口币/票不再误登船；14 空 method 矩阵补可执行术法解锁。协议 26。见 `project_docs/updates/20260720_0.2.107_item_ferry_methods.md`。
