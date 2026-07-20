@@ -177,9 +177,10 @@ public final class SectContributionService {
                         "message.seeking_immortals.sect.exam_passed",
                         definition.get().displayZh(),
                         SectDefinitionService.OUTER_DISCIPLE_ROLE));
-                // Wave474: outer promotion grants a starter cultivation method when available.
+                // Specialty map is the authority for rank-bound sect method grants.
                 try {
-                    com.xunxian.seekingimmortals.catalog.ManualCatalogService.grantSectStarterMethod(player, sid);
+                    com.xunxian.seekingimmortals.catalog.ManualCatalogService.grantSectSpecialtyMethods(
+                            player, sid, STAGE_OUTER_DISCIPLE);
                 } catch (Throwable ignored) {
                     // optional in tests
                 }
@@ -197,6 +198,8 @@ public final class SectContributionService {
                 }
                 progress.addSectFlag(definition.get().id() + "_foundation_dilemma");
                 progress.setSectQuestStage(STAGE_FOUNDATION_DILEMMA);
+                com.xunxian.seekingimmortals.catalog.ManualCatalogService.grantSectSpecialtyMethods(
+                        player, definition.get().id(), STAGE_FOUNDATION_DILEMMA);
                 player.sendSystemMessage(Component.translatable(
                         "message.seeking_immortals.sect.foundation_dilemma",
                         definition.get().displayZh()));
@@ -216,6 +219,8 @@ public final class SectContributionService {
                 progress.addSectFlag(definition.get().id() + "_inner_promotion");
                 progress.setSect(definition.get().id(), SectDefinitionService.INNER_DISCIPLE_ROLE);
                 progress.setSectQuestStage(STAGE_INNER_DISCIPLE);
+                com.xunxian.seekingimmortals.catalog.ManualCatalogService.grantSectSpecialtyMethods(
+                        player, definition.get().id(), STAGE_INNER_DISCIPLE);
                 player.sendSystemMessage(Component.translatable(
                         "message.seeking_immortals.sect.inner_promoted",
                         definition.get().displayZh(),
@@ -235,6 +240,8 @@ public final class SectContributionService {
                 }
                 progress.addSectFlag(definition.get().id() + "_phase10_complete");
                 progress.setSectQuestStage(STAGE_PHASE10_COMPLETE);
+                com.xunxian.seekingimmortals.catalog.ManualCatalogService.grantSectSpecialtyMethods(
+                        player, definition.get().id(), STAGE_PHASE10_COMPLETE);
                 player.sendSystemMessage(Component.translatable(
                         "message.seeking_immortals.sect.phase10_complete",
                         definition.get().displayZh()));
@@ -263,11 +270,13 @@ public final class SectContributionService {
                     definition.get().displayZh(),
                     progress.getContribution()));
             for (ShopService.Entry entry : ShopService.entries(definition.get().shopId())) {
+                int cost = SectSpecialtyGameplayService.contributionCost(
+                        definition.get().id(), definition.get().shopId(), progress.getSectQuestStage(), entry.cost());
                 player.sendSystemMessage(Component.translatable(
                         "command.seeking_immortals.sect.shop.entry",
                         entry.id(),
                         ShopService.itemName(entry),
-                        entry.cost()));
+                        cost));
             }
             syncSect(player, cultivation, false);
         }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.no_data")));
@@ -293,7 +302,7 @@ public final class SectContributionService {
                 case OUT_OF_STOCK -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.out_of_stock", entryId));
                 case NOT_ENOUGH_CURRENCY -> player.sendSystemMessage(Component.translatable(
                         "message.seeking_immortals.sect.not_enough_contribution",
-                        result.entry().cost(),
+                        result.paidCost(),
                         progress.getContribution()));
                 case RANK_TOO_LOW -> player.sendSystemMessage(Component.translatable(
                         "message.seeking_immortals.sect.rank_too_low",
@@ -304,7 +313,7 @@ public final class SectContributionService {
                     player.sendSystemMessage(Component.translatable(
                             "message.seeking_immortals.sect.buy_success",
                             ShopService.itemName(result.entry()),
-                            result.entry().cost(),
+                            result.paidCost(),
                             progress.getContribution()));
                     bought[0] = true;
                 }
@@ -344,7 +353,9 @@ public final class SectContributionService {
                 progress.setSectMission(generated.id(), day);
                 player.sendSystemMessage(Component.translatable(
                         "message.seeking_immortals.sect.mission_accepted_generated",
-                        generated.id(), generated.type(), generated.count(), generated.rewardContribution()));
+                        generated.id(), generated.type(), generated.count(),
+                        SectSpecialtyGameplayService.missionContributionReward(
+                                definition.get().id(), progress.getSectQuestStage(), generated.rewardContribution())));
             } else {
                 SectContentService.MissionDefinition mission = SectContentService.missionForDay(
                         definition.get().id(), progress.getSectQuestStage(), day);
@@ -391,9 +402,13 @@ public final class SectContributionService {
                     syncSect(player, cultivation, openScreen);
                     return;
                 }
+                int specialtyReward = SectSpecialtyGameplayService.missionContributionReward(
+                        definition.get().id(), progress.getSectQuestStage(), generated.rewardContribution());
                 int rewardContribution = WorldpackGameplayService.applySectContributionBonus(
-                        player, cultivation, generated.rewardContribution());
+                        player, cultivation, specialtyReward);
                 progress.addContribution(rewardContribution);
+                SectSpecialtyGameplayService.grantMissionPractice(
+                        player, definition.get().id(), progress.getSectQuestStage());
                 progress.completeSectMission();
                 player.sendSystemMessage(Component.translatable(
                         "message.seeking_immortals.sect.mission_completed",
@@ -421,9 +436,13 @@ public final class SectContributionService {
                 syncSect(player, cultivation, openScreen);
                 return;
             }
+            int specialtyReward = SectSpecialtyGameplayService.missionContributionReward(
+                    definition.get().id(), progress.getSectQuestStage(), mission.rewardContribution());
             int rewardContribution = WorldpackGameplayService.applySectContributionBonus(
-                    player, cultivation, mission.rewardContribution());
+                    player, cultivation, specialtyReward);
             progress.addContribution(rewardContribution);
+            SectSpecialtyGameplayService.grantMissionPractice(
+                    player, definition.get().id(), progress.getSectQuestStage());
             progress.completeSectMission();
             player.sendSystemMessage(Component.translatable(
                     "message.seeking_immortals.sect.mission_completed",
@@ -676,6 +695,11 @@ public final class SectContributionService {
     }
 
     public static void syncSect(ServerPlayer player, PlayerCultivation cultivation, boolean openScreen, String focusSectId) {
+        QuestProgress progress = cultivation.getSevenMysteriesQuest();
+        normalizeSectState(progress);
+        currentDefinition(progress).ifPresent(definition ->
+                com.xunxian.seekingimmortals.catalog.ManualCatalogService.grantSectSpecialtyMethods(
+                        player, definition.id(), progress.getSectQuestStage()));
         // Wave490: never open legacy SectScreen via packet; MenuType is opened separately.
         SyncSectDataPacket.send(player, createPacket(player, cultivation, false, focusSectId));
         if (openScreen) {
@@ -720,7 +744,8 @@ public final class SectContributionService {
                                 entry.id(),
                                 ShopService.itemDescriptionId(entry),
                                 entry.count(),
-                                entry.cost(),
+                                SectSpecialtyGameplayService.contributionCost(
+                                        definition.id(), definition.shopId(), stage, entry.cost()),
                                 entry.currency()))
                         .toList())
                 .orElse(List.of());
@@ -768,7 +793,8 @@ public final class SectContributionService {
                 mission.objectiveKey(),
                 itemDescriptionId,
                 mission.target(),
-                mission.rewardContribution(),
+                SectSpecialtyGameplayService.missionContributionReward(
+                        definition.get().id(), stage, mission.rewardContribution()),
                 progress.isSectMissionAccepted(),
                 progress.isSectMissionCompleted(),
                 canTurnIn);

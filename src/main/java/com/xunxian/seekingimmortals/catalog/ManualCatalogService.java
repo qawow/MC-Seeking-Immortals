@@ -670,25 +670,40 @@ public final class ManualCatalogService {
      * Returns method id granted, or empty if none/already known.
      */
     public static Optional<String> grantSectStarterMethod(ServerPlayer player, String sectId) {
+        return grantSectSpecialtyMethods(player, sectId, SectContributionService.STAGE_OUTER_DISCIPLE)
+                .stream().findFirst();
+    }
+
+    /**
+     * Grant all authored specialty methods unlocked at the player's current sect stage.
+     * Calling this repeatedly is safe and backfills existing members after data upgrades.
+     */
+    public static List<String> grantSectSpecialtyMethods(ServerPlayer player, String sectId, int stage) {
         if (player == null || sectId == null || sectId.isBlank()) {
-            return Optional.empty();
+            return List.of();
         }
-        String methodId = starterMethodForSect(sectId);
-        if (methodId.isBlank()) {
-            return Optional.empty();
+        com.xunxian.seekingimmortals.sect.SectMasterDataService.Specialty specialty =
+                com.xunxian.seekingimmortals.sect.SectMasterDataService.specialty(sectId).orElse(null);
+        if (specialty == null || specialty.methodGrants().isEmpty()) {
+            return List.of();
         }
-        if (hasLearnedMethod(player, methodId)) {
-            return Optional.empty();
+        List<String> granted = new ArrayList<>();
+        for (com.xunxian.seekingimmortals.sect.SectMasterDataService.MethodGrant grant
+                : specialty.methodGrants()) {
+            if (grant.stage() > stage || hasLearnedMethod(player, grant.methodId())) {
+                continue;
+            }
+            TextMaterialCatalogService.MethodEntry method = TextMaterialCatalogService.builtin()
+                    .findMethod(grant.methodId()).orElse(null);
+            if (method == null || !grantKnownMethodIfEligible(player, method)) {
+                continue;
+            }
+            String display = method.display().isBlank() ? method.id() : method.display();
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.method.sect_granted", display, specialty.display()), true);
+            granted.add(method.id());
         }
-        TextMaterialCatalogService.MethodEntry method = TextMaterialCatalogService.builtin()
-                .findMethod(methodId).orElse(null);
-        if (method == null || !grantKnownMethodIfEligible(player, method)) {
-            return Optional.empty();
-        }
-        String display = method.display().isBlank() ? method.id() : method.display();
-        player.displayClientMessage(Component.translatable(
-                "message.seeking_immortals.method.sect_granted", display, sectId), true);
-        return Optional.of(methodId);
+        return List.copyOf(granted);
     }
 
     private static int grantUnlockMethods(ServerPlayer player, java.util.List<String> unlocks) {
@@ -1037,37 +1052,6 @@ public final class ManualCatalogService {
             return "chaotic_sea_nav_art";
         }
         return "";
-    }
-
-    private static String starterMethodForSect(String sectId) {
-        String id = sectId == null ? "" : sectId.trim().toLowerCase(Locale.ROOT);
-        return switch (id) {
-            case "huangfeng_valley" -> "changchun_gong";
-            case "qinglan_sect" -> "kunwu_ice_guard_art";
-            case "yanyue_sect" -> "yanyue_illusion_art";
-            case "guiling_gate" -> "guiling_soul_art";
-            case "tianmo_sect" -> "tianmo_body_art";
-            case "xuewu_sect" -> "xuewu_blood_art";
-            case "wanhu_sect" -> "wanhu_phantom_art";
-            case "star_palace" -> "star_palace_art";
-            case "inverse_star_alliance" -> "inverse_star_art";
-            case "qingxu_gate" -> "qingxu_pure_tao_art";
-            case "qianzhu_sect" -> "qianzhu_puppet_art";
-            case "spirit_beast_mountain", "yuling_pavilion" -> "yuling_beast_puppet_art";
-            case "giant_sword_gate", "lingxiao_sword_sect" -> "qingyuan_sword_art";
-            case "hehuan_sect" -> "hehuan_mind_art";
-            case "luoyun_sect" -> "huangfeng_alchemy_scripture";
-            case "qixuan_men" -> "qixuan_mortal_art";
-            case "dajin_buddhist_temple_line" -> "dajin_clan_ancestor_art";
-            case "moyan_gate" -> "lieyan_gong";
-            case "qianhuan_sect" -> "wanhu_phantom_art";
-            case "tiansha_sect" -> "tianmo_body_art";
-            case "mulan_fashi_council" -> "mulan_wind_spirit_art";
-            case "tianlan_temple" -> "tianlan_holy_beast_art";
-            case "qingluo_sect" -> "qingluo_poison_art";
-            case "huadao_wu" -> "huadao_blade_intent";
-            default -> "";
-        };
     }
 
     private static void applyInsight(ServerPlayer player, TextMaterialCatalogService.ManualEntry manual) {

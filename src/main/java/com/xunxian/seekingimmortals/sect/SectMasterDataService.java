@@ -46,6 +46,15 @@ public final class SectMasterDataService {
     }
 
     public static Optional<Specialty> specialty(String sectId) {
+        String canonical = normalize(SectDefinitionService.canonicalizeSectId(sectId));
+        Specialty specialty = BUILTIN.specialties().get(canonical);
+        if (specialty != null) {
+            return Optional.of(specialty);
+        }
+        specialty = BUILTIN.specialties().get(normalize(sectId));
+        if (specialty != null) {
+            return Optional.of(specialty);
+        }
         return find(sectId).map(SectMaster::specialty);
     }
 
@@ -135,8 +144,26 @@ public final class SectMasterDataService {
                     if (primary.isEmpty() && o.has("specialty") && o.get("specialty").isJsonPrimitive()) {
                         primary = List.of(o.get("specialty").getAsString());
                     }
+                    JsonObject gameplay = o.has("gameplay") && o.get("gameplay").isJsonObject()
+                            ? o.getAsJsonObject("gameplay") : new JsonObject();
+                    List<MethodGrant> methodGrants = new ArrayList<>();
+                    JsonArray grants = gameplay.getAsJsonArray("method_grants");
+                    if (grants != null) {
+                        for (JsonElement grantElement : grants) {
+                            if (!grantElement.isJsonObject()) continue;
+                            JsonObject grant = grantElement.getAsJsonObject();
+                            String methodId = normalize(str(grant, "method"));
+                            if (!methodId.isBlank()) {
+                                methodGrants.add(new MethodGrant(methodId, intOr(grant, "stage", 2)));
+                            }
+                        }
+                    }
                     Specialty specialty = new Specialty(id, str(o, "display"), primary, secondary,
-                            str(o, "craft_loop_ref"), str(o, "skill_tree_ref"));
+                            str(o, "craft_loop_ref"), str(o, "skill_tree_ref"),
+                            methodGrants,
+                            intOr(gameplay, "shop_discount_percent", 0),
+                            intOr(gameplay, "mission_contribution_bonus", 0),
+                            normalize(str(gameplay, "mission_skill")));
                     specialties.put(id, specialty);
                     specialties.put(SectDefinitionService.canonicalizeSectId(id), specialty);
                 }
@@ -155,7 +182,8 @@ public final class SectMasterDataService {
                     String canonical = SectDefinitionService.canonicalizeSectId(id);
                     List<String> specialtyTags = stringList(o.get("specialty"));
                     Specialty specialty = specialties.getOrDefault(canonical,
-                            specialties.getOrDefault(id, new Specialty(canonical, str(o, "display"), specialtyTags, List.of(), "", "")));
+                            specialties.getOrDefault(id, new Specialty(canonical, str(o, "display"), specialtyTags,
+                                    List.of(), "", "", List.of(), 0, 0, "")));
                     String joinRealmMin = "";
                     String joinRoot = "";
                     String joinPath = "";
@@ -253,12 +281,41 @@ public final class SectMasterDataService {
         return "";
     }
 
+    private static int intOr(JsonObject object, String key, int fallback) {
+        if (object == null || !object.has(key) || object.get(key).isJsonNull()) {
+            return fallback;
+        }
+        try {
+            return object.get(key).getAsInt();
+        } catch (Exception ignored) {
+            return fallback;
+        }
+    }
+
     private static String normalize(String value) {
         return value == null ? "" : value.trim().toLowerCase(Locale.ROOT);
     }
 
+    public record MethodGrant(String methodId, int stage) {
+        public MethodGrant {
+            methodId = normalize(methodId);
+            stage = Math.max(SectContributionService.STAGE_OUTER_DISCIPLE,
+                    Math.min(SectContributionService.STAGE_PHASE10_COMPLETE, stage));
+        }
+    }
+
     public record Specialty(String sectId, String display, List<String> primary, List<String> secondary,
-                            String craftLoopRef, String skillTreeRef) {}
+                            String craftLoopRef, String skillTreeRef, List<MethodGrant> methodGrants,
+                            int shopDiscountPercent, int missionContributionBonus, String missionSkill) {
+        public Specialty {
+            primary = primary == null ? List.of() : List.copyOf(primary);
+            secondary = secondary == null ? List.of() : List.copyOf(secondary);
+            methodGrants = methodGrants == null ? List.of() : List.copyOf(methodGrants);
+            shopDiscountPercent = Math.max(0, Math.min(25, shopDiscountPercent));
+            missionContributionBonus = Math.max(0, Math.min(100, missionContributionBonus));
+            missionSkill = normalize(missionSkill);
+        }
+    }
 
     public record SectMaster(String id, String display, String region, String alignment, List<String> specialtyTags,
                              String joinRealmMax, String joinRealmMin, String joinRoot, String joinPath,

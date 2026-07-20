@@ -1,5 +1,7 @@
 > MASTER PLAN 2026-07-20: 全玩法实现与验证总计划见 `project_docs/master_plan.md`（固定工作流、架构速查、遗留风险、P0-P2 路线图、三层测试与实机烟测清单、完成定义）。后续 AI 每批次开工前先读该文档。
 
+> CURRENT TRUTH 2026-07-20: `0.2.86` P1 宗门专属玩法闭环。`sect_specialty_map` 现覆盖 30/30 可玩宗门，并为每宗配置唯一阶段功法、贡献堂基础折扣、任务贡献增量与专精技能实践；宗门阶位继续叠加折扣/任务增益。功法授予改为数据驱动且在宗门同步时补授旧成员，仍遵守境界、灵根、种族、阵营与冲突门禁；商店 UI/命令显示价与服务端实际扣款统一，非本宗商店不享折扣；普通/生成任务均先叠宗门增益再叠世界事件倍率。宗门候选同步上限由 8 修正为 32，可承载现有 30 宗门，协议因此 25→26。定向与域回归测试、普通构建成功，全量 756 项通过；runClient 到注册表冻结、音频与纹理图集创建后主动停止，仅见环境 flite narrator 噪声。`mod_version=0.2.86`，协议 26。见 `project_docs/updates/20260720_0.2.86_sect_specialties.md`。
+
 > CURRENT TRUTH 2026-07-20: `0.2.84` P1 秘境内容闭环。19 条作者深潜秘境现均有分层试炼、至少一个可生成命名 Boss 与非空奖励表；补齐 11 个旧缺表 Boss，并为灵缈园/七脉试炼洞新增 `garden_heart_warden` / `meridian_guardian`，共 23 个秘境 Boss 全部进入 `BossEncounterService` 路径。源语料与运行时资源对账测试已加入。定向测试与普通构建成功，全量 752 项通过；runClient 到资源重载、注册表冻结、音频和纹理图集启动后主动停止，仅见环境缺失 flite 的 narrator 噪声。`mod_version=0.2.84`，协议 25。见 `project_docs/updates/20260720_0.2.84_secret_realm_content.md`。
 
 > CURRENT TRUTH 2026-07-20: `0.2.83` 云笈墨卷 B6 收官。ui_style_guide.md 交付；6 张退役纹理删除；七批前端重构（0.2.77-0.2.83）完成。全量 750 项通过。`mod_version=0.2.83`，协议 25。见 `project_docs/ui_style_guide.md` 与 `project_docs/updates/20260720_0.2.83_inkscroll_b6.md`。

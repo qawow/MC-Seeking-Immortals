@@ -102,6 +102,54 @@
     {
       "id": "demon_gate_outer",
       "display": "外海魔宫"
+    },
+    {
+      "id": "qinglan_sect",
+      "display": "青岚宗"
+    },
+    {
+      "id": "lingxiao_sword_sect",
+      "display": "凌霄剑派"
+    },
+    {
+      "id": "danxia_valley",
+      "display": "丹霞谷"
+    },
+    {
+      "id": "wuyue_hall",
+      "display": "五岳堂"
+    },
+    {
+      "id": "cangming_isle",
+      "display": "沧溟岛"
+    },
+    {
+      "id": "qixuan_men",
+      "display": "七玄门"
+    },
+    {
+      "id": "tianlan_temple",
+      "display": "天澜圣殿"
+    },
+    {
+      "id": "tianmo_sect",
+      "display": "天魔宗"
+    },
+    {
+      "id": "qingluo_sect",
+      "display": "青罗宗"
+    },
+    {
+      "id": "wanhu_sect",
+      "display": "万狐宗"
+    },
+    {
+      "id": "xuewu_sect",
+      "display": "血巫教"
+    },
+    {
+      "id": "dajin_buddhist_temple_line",
+      "display": "大晋佛寺一脉"
     }
   ]
 }

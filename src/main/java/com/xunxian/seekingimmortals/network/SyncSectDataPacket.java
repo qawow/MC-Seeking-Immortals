@@ -19,7 +19,7 @@ public record SyncSectDataPacket(String sectId, String sectDisplay, String curre
                                  List<ShopEntryData> shopEntries, boolean openScreen) {
     private static final int MAX_TEXT = 128;
     private static final int MAX_KEY = 192;
-    private static final int MAX_CANDIDATES = 8;
+    private static final int MAX_CANDIDATES = 32;
     private static final int MAX_DIALOGUE_OPTIONS = 8;
     private static final int MAX_SHOP_ENTRIES = 64;
 

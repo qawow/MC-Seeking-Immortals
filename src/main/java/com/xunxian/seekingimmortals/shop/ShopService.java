@@ -14,6 +14,7 @@ import com.xunxian.seekingimmortals.menu.MenuAccessContext;
 import com.xunxian.seekingimmortals.network.SyncShopDataPacket;
 import com.xunxian.seekingimmortals.quest.QuestProgress;
 import com.xunxian.seekingimmortals.sect.SectContributionService;
+import com.xunxian.seekingimmortals.sect.SectSpecialtyGameplayService;
 import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -329,8 +330,11 @@ public final class ShopService {
         if (item == null || item == Items.AIR) {
             return new PurchaseResult(PurchaseStatus.BAD_ITEM, entry, null, progress.getContribution());
         }
-        if (progress.getContribution() < entry.cost()) {
-            return new PurchaseResult(PurchaseStatus.NOT_ENOUGH_CURRENCY, entry, item, progress.getContribution());
+        int adjustedCost = SectSpecialtyGameplayService.contributionCost(
+                progress.getSectId(), shopId, progress.getSectQuestStage(), entry.cost());
+        if (progress.getContribution() < adjustedCost) {
+            return new PurchaseResult(PurchaseStatus.NOT_ENOUGH_CURRENCY, entry, item,
+                    progress.getContribution(), UNLIMITED_STOCK, adjustedCost);
         }
         if (!meetsRankRequirement(entry, progress.getSectQuestStage())) {
             return new PurchaseResult(PurchaseStatus.RANK_TOO_LOW, entry, item, progress.getContribution());
@@ -342,13 +346,15 @@ public final class ShopService {
         if (stockReservation.status() != PurchaseStatus.SUCCESS) {
             return new PurchaseResult(stockReservation.status(), entry, item, progress.getContribution(), stockReservation.remainingStock());
         }
-        if (!progress.spendContribution(entry.cost())) {
+        if (!progress.spendContribution(adjustedCost)) {
             releaseStock(shopId, entry);
-            return new PurchaseResult(PurchaseStatus.NOT_ENOUGH_CURRENCY, entry, item, progress.getContribution());
+            return new PurchaseResult(PurchaseStatus.NOT_ENOUGH_CURRENCY, entry, item,
+                    progress.getContribution(), UNLIMITED_STOCK, adjustedCost);
         }
         giveItem(player, item, entry.count());
         ShopQuotaService.recordBuy(player, shopId, entryId);
-        return new PurchaseResult(PurchaseStatus.SUCCESS, entry, item, progress.getContribution(), stockReservation.remainingStock());
+        return new PurchaseResult(PurchaseStatus.SUCCESS, entry, item, progress.getContribution(),
+                stockReservation.remainingStock(), adjustedCost);
     }
 
     public static PurchaseResult buyWithItemCurrency(ServerPlayer player, String shopId, String entryId) {

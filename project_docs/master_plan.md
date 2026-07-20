@@ -9,7 +9,7 @@
 2. 选定单一批次目标（见第 4 节），范围要小到一次构建能收口。
 3. 备份将修改的文件到 `.bak/<时间戳>_<版本>_<slug>/`，保持相对路径。
 4. `gradle.properties` 的 `mod_version` 按 `0.2.X` +1（代码/资源批次；纯文档不升）。
-5. 实现最小改动；网络包字段/顺序变更必须同时升 `ModNetwork.PROTOCOL_VERSION`（当前 25）。
+5. 实现最小改动；网络包字段/顺序或不兼容通道契约变更必须同时升 `ModNetwork.PROTOCOL_VERSION`（当前 26）。
 6. 为每个新行为加测试（见第 5 节测试约定），跑 `./gradlew build --no-daemon`。
    同一批次中途返工需重建时用 `-PaiSkipVersionBumpCheck=true` 并在更新说明里写明原因。
 7. 更新 `ai_handoff.md`（顶部插一条 CURRENT TRUTH）、`step_progress.md`（顶部插一节）、
@@ -54,7 +54,7 @@
 
 ### P1 — 深度系统
 5. ~~**秘境内容充实**~~（0.2.84 完成：19 条作者深潜秘境全部具备分层 trial、至少一个可生成命名 Boss 与非空奖励表；23 个目录 Boss 全部可执行并完成源/运行时对账）。
-6. **宗门专属内容**：`SectMasterDataService.specialty` 已有数据，落实每宗门专属功法/商店折扣/任务线增量。
+6. ~~**宗门专属内容**~~（0.2.86 完成：30 个可玩宗门均有唯一的阶段功法授予、贡献堂折扣与任务贡献/专精熟练增量；既有成员同步时自动补授，源数据与运行时三链均有测试门）。
 7. **NPC 对话树扩展**：`DialogueBranchService` 按区域补充商人/执事分支（数据驱动，勿硬编码）。
 8. **灵兽/傀儡成长**：喂养经验、进化阈值（`BeastContractService` 已有 feed 入口）。
 

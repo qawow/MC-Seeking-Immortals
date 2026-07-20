@@ -6,6 +6,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -15,6 +16,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class SectPacketTest {
     @Test
     void syncSectDataRoundTrips() {
+        List<SyncSectDataPacket.CandidateData> candidates = IntStream.range(0, 30)
+                .mapToObj(index -> new SyncSectDataPacket.CandidateData(
+                        "sect_" + index, "Sect " + index, "Sect " + index,
+                        "focus_" + index, "seeking_immortals:sect_outpost_generic", true))
+                .toList();
         SyncSectDataPacket packet = new SyncSectDataPacket(
                 "qinglan_sect",
                 "Qinglan",
@@ -28,7 +34,7 @@ class SectPacketTest {
                 2,
                 "screen.stage",
                 "screen.objective",
-                List.of(new SyncSectDataPacket.CandidateData("qinglan_sect", "Qinglan", "Qinglan", "focus", "seeking_immortals:qinglan_sect_outpost", true)),
+                candidates,
                 new SyncSectDataPacket.DialogueNodeData("outer", "dialogue.title", "dialogue.text",
                         List.of(new SyncSectDataPacket.DialogueOptionData("mission", "dialogue.option", "accept_mission"))),
                 new SyncSectDataPacket.MissionData("mission_a", "mission.title", "mission.objective", "item.test",
@@ -45,8 +51,8 @@ class SectPacketTest {
         assertTrue(decoded.yueArrived());
         assertTrue(decoded.member());
         assertTrue(decoded.openScreen());
-        assertEquals(1, decoded.candidates().size());
-        assertEquals("qinglan_sect", decoded.candidates().get(0).id());
+        assertEquals(30, decoded.candidates().size());
+        assertEquals("sect_0", decoded.candidates().get(0).id());
         assertEquals("outer", decoded.dialogue().id());
         assertEquals("mission_a", decoded.mission().id());
         assertTrue(decoded.mission().canTurnIn());
@@ -75,7 +81,7 @@ class SectPacketTest {
     void syncSectDataRejectsOversizedCandidateCount() {
         FriendlyByteBuf buffer = new FriendlyByteBuf(Unpooled.buffer());
         writeMinimalSyncHeader(buffer);
-        buffer.writeVarInt(9);
+        buffer.writeVarInt(33);
 
         assertThrows(DecoderException.class, () -> SyncSectDataPacket.decode(buffer));
     }

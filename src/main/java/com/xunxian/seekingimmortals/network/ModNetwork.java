@@ -8,7 +8,7 @@ import net.minecraftforge.network.simple.SimpleChannel;
 
 public final class ModNetwork {
     // 0.2.1: dialogue screens now receive a bounded server-rendered view.
-    private static final String PROTOCOL_VERSION = "25";
+    private static final String PROTOCOL_VERSION = "26";
 
     public static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
             new ResourceLocation(SeekingImmortalsMod.MODID, "main"),

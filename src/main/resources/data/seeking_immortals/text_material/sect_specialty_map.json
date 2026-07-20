@@ -20,7 +20,18 @@
         "spell",
         "secret"
       ],
-      "layer_schema_ref": "skill_tree_layer_schema.json"
+      "layer_schema_ref": "skill_tree_layer_schema.json",
+      "gameplay": {
+        "method_grants": [
+          {
+            "method": "huangfeng_alchemy_scripture",
+            "stage": 2
+          }
+        ],
+        "shop_discount_percent": 10,
+        "mission_contribution_bonus": 6,
+        "mission_skill": "ALCHEMY"
+      }
     },
     {
       "id": "yanyue_sect",
@@ -41,7 +52,18 @@
         "spell",
         "secret"
       ],
-      "layer_schema_ref": "skill_tree_layer_schema.json"
+      "layer_schema_ref": "skill_tree_layer_schema.json",
+      "gameplay": {
+        "method_grants": [
+          {
+            "method": "yanyue_illusion_art",
+            "stage": 3
+          }
+        ],
+        "shop_discount_percent": 9,
+        "mission_contribution_bonus": 5,
+        "mission_skill": "FORMATION"
+      }
     },
     {
       "id": "lingfu_sect",
@@ -77,7 +99,19 @@
         "spell",
         "secret"
       ],
-      "layer_schema_ref": "skill_tree_layer_schema.json"
+      "layer_schema_ref": "skill_tree_layer_schema.json",
+      "craft_loop_ref": "patrol_daily_star_palace",
+      "gameplay": {
+        "method_grants": [
+          {
+            "method": "star_palace_art",
+            "stage": 3
+          }
+        ],
+        "shop_discount_percent": 10,
+        "mission_contribution_bonus": 7,
+        "mission_skill": "FORMATION"
+      }
     },
     {
       "id": "inverse_star_alliance",
@@ -93,14 +127,30 @@
         "spell",
         "secret"
       ],
-      "layer_schema_ref": "skill_tree_layer_schema.json"
+      "layer_schema_ref": "skill_tree_layer_schema.json",
+      "secondary": [
+        "trade",
+        "assassination"
+      ],
+      "craft_loop_ref": "smuggle_daily_inverse_star",
+      "gameplay": {
+        "method_grants": [
+          {
+            "method": "inverse_star_art",
+            "stage": 3
+          }
+        ],
+        "shop_discount_percent": 12,
+        "mission_contribution_bonus": 7,
+        "mission_skill": "ARTIFACT_REFINING"
+      }
     },
     {
       "id": "mulan_fashi_council",
-      "display": "慕兰法士",
+      "display": "慕兰神师府",
       "specialty": "fashi_spirit_art",
       "region": "mulan",
-      "craft_loop_ref": null,
+      "craft_loop_ref": "patrol_daily_mulan",
       "setting": {
         "lore": "草原法士灵术与护族大阵，圣禽线独立。"
       },
@@ -110,7 +160,22 @@
         "spell",
         "secret"
       ],
-      "layer_schema_ref": "skill_tree_layer_schema.json"
+      "layer_schema_ref": "skill_tree_layer_schema.json",
+      "secondary": [
+        "formation",
+        "beast"
+      ],
+      "gameplay": {
+        "method_grants": [
+          {
+            "method": "spirit_art_mulan",
+            "stage": 2
+          }
+        ],
+        "shop_discount_percent": 9,
+        "mission_contribution_bonus": 7,
+        "mission_skill": "BEAST_TAMING"
+      }
     },
     {
       "id": "wanbao_pavilion",
@@ -143,7 +208,23 @@
         "spell",
         "secret"
       ],
-      "layer_schema_ref": "skill_tree_layer_schema.json"
+      "layer_schema_ref": "skill_tree_layer_schema.json",
+      "secondary": [
+        "illusion",
+        "social"
+      ],
+      "craft_loop_ref": "ritual_daily_hehuan",
+      "gameplay": {
+        "method_grants": [
+          {
+            "method": "hehuan_mind_art",
+            "stage": 3
+          }
+        ],
+        "shop_discount_percent": 9,
+        "mission_contribution_bonus": 5,
+        "mission_skill": "TALISMAN_CRAFTING"
+      }
     },
     {
       "id": "yinluo_hall",
@@ -191,7 +272,23 @@
         "spell",
         "secret"
       ],
-      "layer_schema_ref": "skill_tree_layer_schema.json"
+      "layer_schema_ref": "skill_tree_layer_schema.json",
+      "secondary": [
+        "cloud",
+        "spirit_flame"
+      ],
+      "craft_loop_ref": "alchemy_daily_luoyun",
+      "gameplay": {
+        "method_grants": [
+          {
+            "method": "luoyun_dan_dao",
+            "stage": 3
+          }
+        ],
+        "shop_discount_percent": 11,
+        "mission_contribution_bonus": 7,
+        "mission_skill": "ALCHEMY"
+      }
     },
     {
       "id": "spirit_beast_mountain",
@@ -207,7 +304,23 @@
         "spell",
         "secret"
       ],
-      "layer_schema_ref": "skill_tree_layer_schema.json"
+      "layer_schema_ref": "skill_tree_layer_schema.json",
+      "secondary": [
+        "beast_material",
+        "contract"
+      ],
+      "craft_loop_ref": "beast_daily_lingshou",
+      "gameplay": {
+        "method_grants": [
+          {
+            "method": "lingshou_beast_mind_art",
+            "stage": 2
+          }
+        ],
+        "shop_discount_percent": 9,
+        "mission_contribution_bonus": 6,
+        "mission_skill": "BEAST_TAMING"
+      }
     },
     {
       "id": "qingxu_gate",
@@ -223,7 +336,23 @@
         "spell",
         "secret"
       ],
-      "layer_schema_ref": "skill_tree_layer_schema.json"
+      "layer_schema_ref": "skill_tree_layer_schema.json",
+      "secondary": [
+        "tao",
+        "talisman"
+      ],
+      "craft_loop_ref": "formation_daily_qingxu",
+      "gameplay": {
+        "method_grants": [
+          {
+            "method": "qingxu_pure_tao_art",
+            "stage": 2
+          }
+        ],
+        "shop_discount_percent": 9,
+        "mission_contribution_bonus": 5,
+        "mission_skill": "FORMATION"
+      }
     },
     {
       "id": "huadao_wu",
@@ -239,7 +368,23 @@
         "spell",
         "secret"
       ],
-      "layer_schema_ref": "skill_tree_layer_schema.json"
+      "layer_schema_ref": "skill_tree_layer_schema.json",
+      "secondary": [
+        "body",
+        "artifact"
+      ],
+      "craft_loop_ref": "refinement_daily_huadao",
+      "gameplay": {
+        "method_grants": [
+          {
+            "method": "huadao_blade_intent",
+            "stage": 2
+          }
+        ],
+        "shop_discount_percent": 8,
+        "mission_contribution_bonus": 5,
+        "mission_skill": "ARTIFACT_REFINING"
+      }
     },
     {
       "id": "giant_sword_gate",
@@ -255,7 +400,23 @@
         "spell",
         "secret"
       ],
-      "layer_schema_ref": "skill_tree_layer_schema.json"
+      "layer_schema_ref": "skill_tree_layer_schema.json",
+      "secondary": [
+        "artifact",
+        "metal"
+      ],
+      "craft_loop_ref": "refinement_daily_giant_sword",
+      "gameplay": {
+        "method_grants": [
+          {
+            "method": "giant_sword_art",
+            "stage": 2
+          }
+        ],
+        "shop_discount_percent": 9,
+        "mission_contribution_bonus": 5,
+        "mission_skill": "ARTIFACT_REFINING"
+      }
     },
     {
       "id": "ghost_spirit_gate",
@@ -271,7 +432,23 @@
         "spell",
         "secret"
       ],
-      "layer_schema_ref": "skill_tree_layer_schema.json"
+      "layer_schema_ref": "skill_tree_layer_schema.json",
+      "secondary": [
+        "corpse",
+        "soul"
+      ],
+      "craft_loop_ref": "ritual_daily_guiling",
+      "gameplay": {
+        "method_grants": [
+          {
+            "method": "guiling_soul_art",
+            "stage": 3
+          }
+        ],
+        "shop_discount_percent": 9,
+        "mission_contribution_bonus": 6,
+        "mission_skill": "TALISMAN_CRAFTING"
+      }
     },
     {
       "id": "moyan_gate",
@@ -287,7 +464,23 @@
         "spell",
         "secret"
       ],
-      "layer_schema_ref": "skill_tree_layer_schema.json"
+      "layer_schema_ref": "skill_tree_layer_schema.json",
+      "secondary": [
+        "artifact",
+        "assault"
+      ],
+      "craft_loop_ref": "ritual_daily_moyan",
+      "gameplay": {
+        "method_grants": [
+          {
+            "method": "lieyan_zhenjing",
+            "stage": 3
+          }
+        ],
+        "shop_discount_percent": 9,
+        "mission_contribution_bonus": 6,
+        "mission_skill": "TALISMAN_CRAFTING"
+      }
     },
     {
       "id": "tiansha_sect",
@@ -303,23 +496,55 @@
         "spell",
         "secret"
       ],
-      "layer_schema_ref": "skill_tree_layer_schema.json"
+      "layer_schema_ref": "skill_tree_layer_schema.json",
+      "secondary": [
+        "blood",
+        "stealth"
+      ],
+      "craft_loop_ref": "bounty_daily_tiansha",
+      "gameplay": {
+        "method_grants": [
+          {
+            "method": "demonic_blood_art_generic",
+            "stage": 3
+          }
+        ],
+        "shop_discount_percent": 10,
+        "mission_contribution_bonus": 7,
+        "mission_skill": "TALISMAN_CRAFTING"
+      }
     },
     {
       "id": "yuling_sect",
-      "display": "御灵宗",
+      "display": "御灵阁",
       "specialty": "beast_taming",
       "region": "tiannan",
       "setting": {
         "lore": "御灵与兽魂。"
       },
-      "skill_tree_ref": "puppet_yuling",
+      "skill_tree_ref": "tree_yuling_beast_art",
       "skill_tree_layers": [
         "method",
         "spell",
         "secret"
       ],
-      "layer_schema_ref": "skill_tree_layer_schema.json"
+      "layer_schema_ref": "skill_tree_layer_schema.json",
+      "secondary": [
+        "divine_sense",
+        "puppet"
+      ],
+      "craft_loop_ref": "beast_daily_yuling",
+      "gameplay": {
+        "method_grants": [
+          {
+            "method": "beast_taming_basic",
+            "stage": 2
+          }
+        ],
+        "shop_discount_percent": 8,
+        "mission_contribution_bonus": 5,
+        "mission_skill": "BEAST_TAMING"
+      }
     },
     {
       "id": "qianhuan_sect",
@@ -335,7 +560,23 @@
         "spell",
         "secret"
       ],
-      "layer_schema_ref": "skill_tree_layer_schema.json"
+      "layer_schema_ref": "skill_tree_layer_schema.json",
+      "secondary": [
+        "stealth",
+        "formation"
+      ],
+      "craft_loop_ref": "formation_daily_qianhuan",
+      "gameplay": {
+        "method_grants": [
+          {
+            "method": "lianxi_shu_method",
+            "stage": 2
+          }
+        ],
+        "shop_discount_percent": 9,
+        "mission_contribution_bonus": 5,
+        "mission_skill": "FORMATION"
+      }
     },
     {
       "id": "qianzhu_sect",
@@ -351,7 +592,23 @@
         "spell",
         "secret"
       ],
-      "layer_schema_ref": "skill_tree_layer_schema.json"
+      "layer_schema_ref": "skill_tree_layer_schema.json",
+      "secondary": [
+        "talisman",
+        "bamboo"
+      ],
+      "craft_loop_ref": "puppet_daily_qianzhu",
+      "gameplay": {
+        "method_grants": [
+          {
+            "method": "qianzhu_puppet_art",
+            "stage": 2
+          }
+        ],
+        "shop_discount_percent": 10,
+        "mission_contribution_bonus": 6,
+        "mission_skill": "PUPPET_CONTROL"
+      }
     },
     {
       "id": "tianque_fort",
@@ -367,7 +624,23 @@
         "spell",
         "secret"
       ],
-      "layer_schema_ref": "skill_tree_layer_schema.json"
+      "layer_schema_ref": "skill_tree_layer_schema.json",
+      "secondary": [
+        "formation",
+        "earth"
+      ],
+      "craft_loop_ref": "refinement_daily_tianque",
+      "gameplay": {
+        "method_grants": [
+          {
+            "method": "tianque_fort_art",
+            "stage": 3
+          }
+        ],
+        "shop_discount_percent": 11,
+        "mission_contribution_bonus": 6,
+        "mission_skill": "ARTIFACT_REFINING"
+      }
     },
     {
       "id": "chaotic_sea_merchant_league",
@@ -410,6 +683,378 @@
         "lore": "外海魔道据点。"
       },
       "skill_tree_ref": "tree_fallen_demon_art",
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "qinglan_sect",
+      "display": "青岚宗",
+      "specialty": "herb_alchemy",
+      "secondary": [
+        "wood",
+        "formation"
+      ],
+      "craft_loop_ref": "alchemy_daily_qinglan",
+      "skill_tree_ref": "tree_qinglan_herb_art",
+      "gameplay": {
+        "method_grants": [
+          {
+            "method": "qingmu_gong",
+            "stage": 3
+          }
+        ],
+        "shop_discount_percent": 8,
+        "mission_contribution_bonus": 5,
+        "mission_skill": "ALCHEMY"
+      },
+      "setting": {
+        "lore": "宗门专属功法、贡献堂折扣与任务增益运行时配置。"
+      },
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "lingxiao_sword_sect",
+      "display": "凌霄剑派",
+      "specialty": "sword",
+      "secondary": [
+        "wind",
+        "artifact"
+      ],
+      "craft_loop_ref": "refinement_daily_lingxiao",
+      "skill_tree_ref": "tree_lingxiao_sword_art",
+      "gameplay": {
+        "method_grants": [
+          {
+            "method": "lingyun_sword_wind_art",
+            "stage": 2
+          }
+        ],
+        "shop_discount_percent": 8,
+        "mission_contribution_bonus": 5,
+        "mission_skill": "ARTIFACT_REFINING"
+      },
+      "setting": {
+        "lore": "宗门专属功法、贡献堂折扣与任务增益运行时配置。"
+      },
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "danxia_valley",
+      "display": "丹霞谷",
+      "specialty": "alchemy_fire",
+      "secondary": [
+        "herb",
+        "fire"
+      ],
+      "craft_loop_ref": "alchemy_daily_danxia",
+      "skill_tree_ref": "tree_danxia_alchemy_art",
+      "gameplay": {
+        "method_grants": [
+          {
+            "method": "sect_specialty_alchemy",
+            "stage": 3
+          }
+        ],
+        "shop_discount_percent": 10,
+        "mission_contribution_bonus": 6,
+        "mission_skill": "ALCHEMY"
+      },
+      "setting": {
+        "lore": "宗门专属功法、贡献堂折扣与任务增益运行时配置。"
+      },
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "wuyue_hall",
+      "display": "五岳堂",
+      "specialty": "earth_defense",
+      "secondary": [
+        "formation",
+        "body"
+      ],
+      "craft_loop_ref": "formation_daily_wuyue",
+      "skill_tree_ref": "tree_wuyue_earth_art",
+      "gameplay": {
+        "method_grants": [
+          {
+            "method": "qingyan_earth_guard_art",
+            "stage": 2
+          }
+        ],
+        "shop_discount_percent": 9,
+        "mission_contribution_bonus": 5,
+        "mission_skill": "FORMATION"
+      },
+      "setting": {
+        "lore": "宗门专属功法、贡献堂折扣与任务增益运行时配置。"
+      },
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "cangming_isle",
+      "display": "沧溟岛",
+      "specialty": "water_trade",
+      "secondary": [
+        "navigation",
+        "artifact"
+      ],
+      "craft_loop_ref": "trade_daily_cangming",
+      "skill_tree_ref": "tree_cangming_water_art",
+      "gameplay": {
+        "method_grants": [
+          {
+            "method": "chaotic_sea_nav_art",
+            "stage": 3
+          }
+        ],
+        "shop_discount_percent": 10,
+        "mission_contribution_bonus": 6,
+        "mission_skill": "ARTIFACT_REFINING"
+      },
+      "setting": {
+        "lore": "宗门专属功法、贡献堂折扣与任务增益运行时配置。"
+      },
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "qixuan_men",
+      "display": "七玄门",
+      "specialty": "mortal_foundation",
+      "secondary": [
+        "medicine",
+        "martial"
+      ],
+      "craft_loop_ref": "patrol_daily_qixuan",
+      "skill_tree_ref": "tree_qixuan_mortal_art",
+      "gameplay": {
+        "method_grants": [
+          {
+            "method": "qixuan_mortal_art",
+            "stage": 2
+          }
+        ],
+        "shop_discount_percent": 7,
+        "mission_contribution_bonus": 4,
+        "mission_skill": "TALISMAN_CRAFTING"
+      },
+      "setting": {
+        "lore": "宗门专属功法、贡献堂折扣与任务增益运行时配置。"
+      },
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "tianlan_temple",
+      "display": "天澜圣殿",
+      "specialty": "holy_beast",
+      "secondary": [
+        "formation",
+        "fashi"
+      ],
+      "craft_loop_ref": "beast_daily_tianlan",
+      "skill_tree_ref": "tree_tianlan_holy_beast",
+      "gameplay": {
+        "method_grants": [
+          {
+            "method": "tianlan_beast_soul_art",
+            "stage": 2
+          }
+        ],
+        "shop_discount_percent": 9,
+        "mission_contribution_bonus": 7,
+        "mission_skill": "BEAST_TAMING"
+      },
+      "setting": {
+        "lore": "宗门专属功法、贡献堂折扣与任务增益运行时配置。"
+      },
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "tianmo_sect",
+      "display": "天魔宗",
+      "specialty": "demonic_body",
+      "secondary": [
+        "blood",
+        "body"
+      ],
+      "craft_loop_ref": "ritual_daily_tianmo",
+      "skill_tree_ref": "tree_tianmo_body_art",
+      "gameplay": {
+        "method_grants": [
+          {
+            "method": "tianmo_body_art",
+            "stage": 3
+          }
+        ],
+        "shop_discount_percent": 10,
+        "mission_contribution_bonus": 7,
+        "mission_skill": "TALISMAN_CRAFTING"
+      },
+      "setting": {
+        "lore": "宗门专属功法、贡献堂折扣与任务增益运行时配置。"
+      },
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "qingluo_sect",
+      "display": "青罗宗",
+      "specialty": "ghost_poison",
+      "secondary": [
+        "insect",
+        "curse"
+      ],
+      "craft_loop_ref": "ritual_daily_qingluo",
+      "skill_tree_ref": "tree_qingluo_poison_art",
+      "gameplay": {
+        "method_grants": [
+          {
+            "method": "qingluo_poison_art",
+            "stage": 3
+          }
+        ],
+        "shop_discount_percent": 9,
+        "mission_contribution_bonus": 6,
+        "mission_skill": "TALISMAN_CRAFTING"
+      },
+      "setting": {
+        "lore": "宗门专属功法、贡献堂折扣与任务增益运行时配置。"
+      },
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "wanhu_sect",
+      "display": "万狐宗",
+      "specialty": "illusion",
+      "secondary": [
+        "charm",
+        "transformation"
+      ],
+      "craft_loop_ref": "formation_daily_wanhu",
+      "skill_tree_ref": "tree_wanhu_phantom_art",
+      "gameplay": {
+        "method_grants": [
+          {
+            "method": "wanhu_phantom_art",
+            "stage": 3
+          }
+        ],
+        "shop_discount_percent": 9,
+        "mission_contribution_bonus": 6,
+        "mission_skill": "FORMATION"
+      },
+      "setting": {
+        "lore": "宗门专属功法、贡献堂折扣与任务增益运行时配置。"
+      },
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "xuewu_sect",
+      "display": "血巫教",
+      "specialty": "blood_curse",
+      "secondary": [
+        "ritual",
+        "poison"
+      ],
+      "craft_loop_ref": "ritual_daily_xuewu",
+      "skill_tree_ref": "tree_xuewu_blood_art",
+      "gameplay": {
+        "method_grants": [
+          {
+            "method": "xuewu_blood_art",
+            "stage": 3
+          }
+        ],
+        "shop_discount_percent": 10,
+        "mission_contribution_bonus": 7,
+        "mission_skill": "TALISMAN_CRAFTING"
+      },
+      "setting": {
+        "lore": "宗门专属功法、贡献堂折扣与任务增益运行时配置。"
+      },
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "dajin_buddhist_temple_line",
+      "display": "大晋佛寺一脉",
+      "specialty": "buddhist_vajra",
+      "secondary": [
+        "body",
+        "purification"
+      ],
+      "craft_loop_ref": "ritual_daily_dajin_buddhist",
+      "skill_tree_ref": "tree_dajin_buddhist_art",
+      "gameplay": {
+        "method_grants": [
+          {
+            "method": "buddhist_vajra_body_art",
+            "stage": 2
+          }
+        ],
+        "shop_discount_percent": 8,
+        "mission_contribution_bonus": 6,
+        "mission_skill": "TALISMAN_CRAFTING"
+      },
+      "setting": {
+        "lore": "宗门专属功法、贡献堂折扣与任务增益运行时配置。"
+      },
       "skill_tree_layers": [
         "method",
         "spell",

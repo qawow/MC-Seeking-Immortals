@@ -1,3 +1,17 @@
+## 535. 2026-07-20 0.2.86 P1 宗门专属玩法闭环
+
+  Step   Status   Notes
+  ---   ---   ---
+  Specialty coverage Done   30/30 可玩宗门；12 个缺失专精源条目补齐。
+  Exclusive methods Done   30 个唯一阶段功法；同步补授旧成员，保留全部功法门禁。
+  Shop discounts Done   本宗贡献堂基础折扣 + 阶位增量；UI/命令/实际扣款统一。
+  Mission increments Done   普通/生成任务贡献增量 + 专精技能实践，再叠世界事件倍率。
+  Candidate packet Done   同步上限 8→32，30 宗门候选可完整编码/解码。
+  Tests Done   定向、宗门/商店/功法域回归与全量 756 项通过。
+  Client smoke Done   注册表冻结、音频与纹理图集成功；主动 Ctrl-C 停止。
+  Version Done   `mod_version=0.2.86`；protocol 25→26。
+  Handoff Done   `project_docs/updates/20260720_0.2.86_sect_specialties.md`。
+
 ## 534. 2026-07-20 0.2.84 P1 秘境内容闭环
 
   Step   Status   Notes
