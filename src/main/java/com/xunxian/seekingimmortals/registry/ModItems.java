@@ -718,6 +718,29 @@ public final class ModItems {
     public static final RegistryObject<Item> MANUAL_ANCIENT_PUPPET_ART = ITEMS.register("manual_ancient_puppet_art",
             () -> new CatalogManualItem(new Item.Properties().stacksTo(16), "manual_ancient_puppet_art"));
 
+    // 傀儡与灵兽系统
+    public static final RegistryObject<Item> PUPPET_REPAIR_KIT = ITEMS.register("puppet_repair_kit",
+            () -> new CatalogConsumableItem(
+                    new Item.Properties().stacksTo(16),
+                    com.xunxian.seekingimmortals.item.material.MaterialCategory.SPECIAL,
+                    com.xunxian.seekingimmortals.item.material.MaterialRarity.COMMON,
+                    "傀儡修缮包",
+                    BulkItemClassifier.consumable("puppet_repair_kit").orElseThrow()));
+    public static final RegistryObject<Item> SPIRIT_BEAST_FEED = ITEMS.register("spirit_beast_feed",
+            () -> new CatalogConsumableItem(
+                    new Item.Properties().stacksTo(64),
+                    com.xunxian.seekingimmortals.item.material.MaterialCategory.SPECIAL,
+                    com.xunxian.seekingimmortals.item.material.MaterialRarity.COMMON,
+                    "灵兽饵",
+                    BulkItemClassifier.consumable("spirit_beast_feed").orElseThrow()));
+    public static final RegistryObject<Item> BEAST_FEED_SPIRIT = ITEMS.register("beast_feed_spirit",
+            () -> new CatalogConsumableItem(
+                    new Item.Properties().stacksTo(64),
+                    com.xunxian.seekingimmortals.item.material.MaterialCategory.SPECIAL,
+                    com.xunxian.seekingimmortals.item.material.MaterialRarity.COMMON,
+                    "灵兽饵",
+                    BulkItemClassifier.consumable("beast_feed_spirit").orElseThrow()));
+
     // 材料系统
     public static final RegistryObject<Item> SPIRIT_GRASS = registerMaterial("spirit_grass", com.xunxian.seekingimmortals.item.material.MaterialType.SPIRIT_GRASS);
     public static final RegistryObject<Item> BIYUN_GRASS = ITEMS.register("biyun_grass", () -> new Item(new Item.Properties()));

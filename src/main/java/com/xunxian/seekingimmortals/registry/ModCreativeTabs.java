@@ -492,6 +492,11 @@ public final class ModCreativeTabs {
                 output.accept(ModItems.MANUAL_DAYAN_TRUE_SOLUTION.get());
                 output.accept(ModItems.MANUAL_ANCIENT_PUPPET_ART.get());
 
+                // 傀儡与灵兽系统
+                output.accept(ModItems.PUPPET_REPAIR_KIT.get());
+                output.accept(ModItems.SPIRIT_BEAST_FEED.get());
+                output.accept(ModItems.BEAST_FEED_SPIRIT.get());
+
                 // Wave 0.1.444 bulk catalog carriers
                 for (var bulk : com.xunxian.seekingimmortals.registry.ModBulkItems.byId().values()) {
                     output.accept(bulk.get());
