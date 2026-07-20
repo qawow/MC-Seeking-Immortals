@@ -2,6 +2,7 @@ package com.xunxian.seekingimmortals.catalog;
 
 import com.xunxian.seekingimmortals.cultivation.BeastContractService;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
+import com.xunxian.seekingimmortals.beast.PuppetGrowthService;
 import com.xunxian.seekingimmortals.entity.SummonedServitorEntity;
 import com.xunxian.seekingimmortals.registry.ModEntities;
 import com.xunxian.seekingimmortals.registry.ModItems;
@@ -25,6 +26,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import java.util.UUID;
 
 /**
@@ -265,11 +268,29 @@ public final class SummonHonestMvpService {
                 return 0;
             }
         }
+        boolean coreForgeReady = puppetCoreForgeReady(player);
+        Set<String> progressed = new LinkedHashSet<>();
+        int refinements = 0;
+        boolean blocked = false;
         for (SummonedServitorEntity puppet : puppets) {
             puppet.repair(8.0F);
             puppet.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 100, 0));
+            String puppetId = PuppetGrowthService.puppetIdFromSummonId(puppet.getSummonId());
+            if (progressed.add(puppetId)) {
+                PuppetGrowthService.GrowthResult growth = PuppetGrowthService.recordRepair(
+                        player, puppetId, coreForgeReady);
+                refinements += growth.update().evolutionsGained();
+                blocked |= growth.update().evolutionBlocked();
+            }
         }
         player.displayClientMessage(Component.translatable("message.seeking_immortals.puppet.repaired", puppets.size()), true);
+        if (refinements > 0) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.puppet.refined", refinements), true);
+        } else if (blocked) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.puppet.core_forge_required"), false);
+        }
         return puppets.size();
     }
 
@@ -348,11 +369,20 @@ public final class SummonHonestMvpService {
         } else if (archetype == SummonedServitorEntity.Archetype.PUPPET) {
             scaledHealth *= 1.25D;
             scaledDamage *= 0.90D;
+            double growthMultiplier = PuppetGrowthService.statMultiplier(player, summonId);
+            scaledHealth *= growthMultiplier;
+            scaledDamage *= growthMultiplier;
         } else if (archetype == SummonedServitorEntity.Archetype.GHOST) {
             scaledHealth *= 0.90D;
             scaledDamage *= 1.20D;
         }
         servitor.configure(player, summonId, lifeTicks, scaledHealth, scaledDamage, archetype);
+        if (archetype == SummonedServitorEntity.Archetype.PUPPET) {
+            var growth = PuppetGrowthService.progress(player, summonId);
+            servitor.setCustomName(Component.translatable(
+                    "entity.seeking_immortals.summoned_servitor.growth_name",
+                    summonId, growth.level(), growth.evolutionStage()));
+        }
         servitor.setCrafted(crafted || archetype == SummonedServitorEntity.Archetype.PUPPET && summonId.startsWith("puppet_"));
         boolean added = level.addFreshEntity(servitor);
         if (added) {
@@ -364,6 +394,21 @@ public final class SummonHonestMvpService {
                     countOwnedServitors(player), MAX_ACTIVE_SERVITORS), false);
         }
         return added;
+    }
+
+    private static boolean puppetCoreForgeReady(ServerPlayer player) {
+        if (player.getAbilities().instabuild) {
+            return true;
+        }
+        String station = "puppet_core_forge";
+        if (com.xunxian.seekingimmortals.structure.MultiblockOperationalService
+                .bestNearbyEfficiency(player, station) > 0.0D) {
+            return true;
+        }
+        com.xunxian.seekingimmortals.structure.MultiblockOperationalService
+                .tryCommissionNearby(player, station);
+        return com.xunxian.seekingimmortals.structure.MultiblockOperationalService
+                .bestNearbyEfficiency(player, station) > 0.0D;
     }
 
     private static void enforceConcurrentCap(ServerPlayer player) {

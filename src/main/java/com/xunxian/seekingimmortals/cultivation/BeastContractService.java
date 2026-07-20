@@ -4,6 +4,7 @@ import com.xunxian.seekingimmortals.beast.BeastBestiaryService;
 import com.xunxian.seekingimmortals.beast.BeastCompanionService;
 import com.xunxian.seekingimmortals.beast.BeastTierService;
 import com.xunxian.seekingimmortals.beast.BestiaryUnlockService;
+import com.xunxian.seekingimmortals.beast.CompanionGrowthService;
 import com.xunxian.seekingimmortals.catalog.SummonHonestMvpService;
 import com.xunxian.seekingimmortals.registry.ModItems;
 import net.minecraft.nbt.CompoundTag;
@@ -36,14 +37,32 @@ public final class BeastContractService {
 
     private BeastContractService() {}
 
-    public record Contract(String id, int affinity, int growth) {}
+    public record Contract(String id, int affinity, int growth, int experience, int evolutionStage) {}
+
+    private enum FeedKind {
+        NURTURE_PILL(70, 8),
+        PREPARED_FEED(35, 5),
+        BEAST_CORE(45, 6),
+        SPIRIT_SHARD(15, 3),
+        CONSUMABLE(35, 5);
+
+        private final int experience;
+        private final int affinity;
+
+        FeedKind(int experience, int affinity) {
+            this.experience = experience;
+            this.affinity = affinity;
+        }
+    }
 
     public static List<Contract> list(ServerPlayer player) {
         CompoundTag root = player.getPersistentData().getCompound(ROOT);
         List<Contract> list = new ArrayList<>();
         for (String key : root.getAllKeys()) {
             CompoundTag entry = root.getCompound(key);
-            list.add(new Contract(key, entry.getInt("Affinity"), entry.getInt("Growth")));
+            CompanionGrowthService.Progress progress = readProgress(key, entry);
+            list.add(new Contract(key, entry.getInt("Affinity"), progress.level(),
+                    progress.experience(), progress.evolutionStage()));
         }
         return list;
     }
@@ -90,7 +109,9 @@ public final class BeastContractService {
         }
         CompoundTag entry = new CompoundTag();
         entry.putInt("Affinity", Math.max(1, Math.min(100, startAffinity)));
-        entry.putInt("Growth", Math.max(0, Math.min(20, startGrowth)));
+        CompanionGrowthService.Progress initial = CompanionGrowthService.legacyProgress(
+                startGrowth, BeastCompanionService.stageCount(id));
+        writeProgress(entry, initial);
         entry.putInt("Tier", beastTier);
         root.put(id, entry);
         player.getPersistentData().put(ROOT, root);
@@ -137,28 +158,59 @@ public final class BeastContractService {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.beast.missing", id), false);
             return false;
         }
+        CompoundTag entry = root.getCompound(id).copy();
+        CompanionGrowthService.Progress before = readProgress(id, entry);
+        int affinityBefore = entry.getInt("Affinity");
+        if (before.level() >= CompanionGrowthService.MAX_LEVEL && affinityBefore >= 100) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.beast.growth_max", id), false);
+            return false;
+        }
+        int stageCount = BeastCompanionService.stageCount(id);
+        boolean evolutionReady = false;
+        boolean waitingAtThreshold = CompanionGrowthService.grant(
+                before, 0, stageCount, false).evolutionBlocked();
+        if (waitingAtThreshold && affinityBefore >= 100) {
+            evolutionReady = evolutionPoolReady(player);
+            if (!evolutionReady) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.beast.evolution_pool_required"), false);
+                return false;
+            }
+        }
+        FeedKind feedKind = FeedKind.CONSUMABLE;
         if (consumeInventoryFeed && !player.getAbilities().instabuild) {
-            if (!consumeOne(player, ModItems.BEAST_CORE.get().getDefaultInstance())
-                    && !consumeOne(player, ModItems.SPIRIT_STONE_SHARD.get().getDefaultInstance())
-                    && !consumeFeedItems(player)) {
+            feedKind = consumeFeedItems(player);
+            if (feedKind == null) {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.beast.feed_missing"), false);
                 return false;
             }
         }
-        CompoundTag entry = root.getCompound(id).copy();
-        entry.putInt("Affinity", Math.min(100, entry.getInt("Affinity") + 5));
-        int growth = Math.min(20, entry.getInt("Growth") + 1);
-        entry.putInt("Growth", growth);
+        entry.putInt("Affinity", Math.min(100, affinityBefore + feedKind.affinity));
+        CompanionGrowthService.Update update = CompanionGrowthService.grant(
+                before, feedKind.experience, stageCount, evolutionReady);
+        if (update.evolutionBlocked() && evolutionPoolReady(player)) {
+            update = CompanionGrowthService.grant(before, feedKind.experience, stageCount, true);
+        }
+        writeProgress(entry, update.progress());
         root.put(id, entry);
         player.getPersistentData().put(ROOT, root);
-        // Companion stage message when stage advances.
-        Optional<BeastCompanionService.GrowthStage> stage = BeastCompanionService.stageForGrowth(id, growth);
-        if (stage.isPresent() && !stage.get().name().isBlank()) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.beast.stage",
-                    id, stage.get().name(), entry.getInt("Affinity"), growth), true);
+        if (update.evolutionsGained() > 0) {
+            String stageName = BeastCompanionService.stageForEvolution(id, update.progress().evolutionStage())
+                    .map(BeastCompanionService.GrowthStage::name).filter(value -> !value.isBlank())
+                    .orElse(Integer.toString(update.progress().evolutionStage()));
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.beast.evolved",
+                    id, stageName, update.progress().level(), entry.getInt("Affinity")), true);
         } else {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.beast.fed",
-                    id, entry.getInt("Affinity"), growth), true);
+            int needed = update.progress().level() >= CompanionGrowthService.MAX_LEVEL ? 0
+                    : CompanionGrowthService.experienceToNextLevel(update.progress().level());
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.beast.feed_progress",
+                    id, entry.getInt("Affinity"), update.progress().level(),
+                    update.progress().experience(), needed), true);
+        }
+        if (update.evolutionBlocked()) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.beast.evolution_pool_required"), false);
         }
         return true;
     }
@@ -173,17 +225,19 @@ public final class BeastContractService {
         }
         CompoundTag entry = root.getCompound(id);
         int affinity = entry.getInt("Affinity");
-        int growth = entry.getInt("Growth");
-        int tier = entry.contains("Tier") ? entry.getInt("Tier")
+        CompanionGrowthService.Progress progress = readProgress(id, entry);
+        int tier = BeastCompanionService.find(id).isPresent()
+                ? BeastCompanionService.tierForEvolution(id, progress.evolutionStage())
+                : entry.contains("Tier") ? entry.getInt("Tier")
                 : BeastBestiaryService.find(id).map(BeastBestiaryService.BeastEntry::tier).orElse(1);
         // Wave489: BEAST_TAMING skill scales summoned beast stats.
         int tameLv = com.xunxian.seekingimmortals.skill.LifeSkillService.level(player,
                 com.xunxian.seekingimmortals.skill.SkillType.BEAST_TAMING);
         BeastTierService.ScaledStats base = BeastTierService.scaleStats(tier);
-        double mult = BeastCompanionService.growthStatMultiplier(id, growth);
-        double health = (base.health() * 0.55D + affinity * 0.4D + growth * 2.0D + tameLv * 1.2D) * mult;
-        double damage = (base.damage() * 0.55D + affinity * 0.05D + growth * 0.4D + tameLv * 0.2D) * mult;
-        int life = base.lifeTicks() / 2 + 20 * (25 + growth * 2 + tameLv);
+        double mult = BeastCompanionService.growthStatMultiplier(id, progress);
+        double health = (base.health() * 0.55D + affinity * 0.4D + progress.level() * 2.0D + tameLv * 1.2D) * mult;
+        double damage = (base.damage() * 0.55D + affinity * 0.05D + progress.level() * 0.4D + tameLv * 0.2D) * mult;
+        int life = base.lifeTicks() / 2 + 20 * (25 + progress.level() * 2 + tameLv);
         boolean ok = SummonHonestMvpService.spawnConfigured(
                 player, "beast_" + id, life, health, damage,
                 com.xunxian.seekingimmortals.entity.SummonedServitorEntity.Archetype.BEAST);
@@ -191,7 +245,7 @@ public final class BeastContractService {
             com.xunxian.seekingimmortals.skill.LifeSkillService.grantPractice(player,
                     com.xunxian.seekingimmortals.skill.SkillType.BEAST_TAMING, 14, 6);
             player.displayClientMessage(Component.translatable("message.seeking_immortals.beast.summoned",
-                    id, affinity, growth), true);
+                    id, affinity, progress.level(), progress.evolutionStage()), true);
         }
         return ok;
     }
@@ -214,22 +268,36 @@ public final class BeastContractService {
         }
         CompoundTag entry = root.getCompound(id).copy();
         int affinity = entry.getInt("Affinity");
-        int growth = entry.getInt("Growth");
+        CompanionGrowthService.Progress before = readProgress(id, entry);
+        int experience = 0;
         switch (kind) {
-            case HIT -> affinity = Math.min(100, affinity + 1);
+            case HIT -> {
+                affinity = Math.min(100, affinity + 1);
+                experience = 2;
+            }
             case KILL -> {
                 affinity = Math.min(100, affinity + 3);
-                growth = Math.min(20, growth + 1);
+                experience = 12;
             }
-            case SURVIVE -> affinity = Math.min(100, affinity + 2);
+            case SURVIVE -> {
+                affinity = Math.min(100, affinity + 2);
+                experience = 6;
+            }
         }
+        CompanionGrowthService.Update update = CompanionGrowthService.grant(
+                before, experience, BeastCompanionService.stageCount(id), false);
         entry.putInt("Affinity", affinity);
-        entry.putInt("Growth", growth);
+        writeProgress(entry, update.progress());
         root.put(id, entry);
         player.getPersistentData().put(ROOT, root);
         if (kind == CreditKind.KILL || kind == CreditKind.SURVIVE) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.beast.combat_growth", id, affinity, growth), true);
+                    "message.seeking_immortals.beast.combat_growth", id, affinity,
+                    update.progress().level(), update.progress().experience()), true);
+            if (update.evolutionBlocked()) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.beast.evolution_pool_required"), false);
+            }
         }
     }
 
@@ -262,7 +330,11 @@ public final class BeastContractService {
     public static Map<String, String> snapshotLines(ServerPlayer player) {
         Map<String, String> map = new LinkedHashMap<>();
         for (Contract contract : list(player)) {
-            map.put(contract.id(), "affinity=" + contract.affinity() + ",growth=" + contract.growth());
+            int needed = contract.growth() >= CompanionGrowthService.MAX_LEVEL ? 0
+                    : CompanionGrowthService.experienceToNextLevel(contract.growth());
+            map.put(contract.id(), "affinity=" + contract.affinity() + ",level=" + contract.growth()
+                    + ",experience=" + contract.experience() + "/" + needed
+                    + ",evolution=" + contract.evolutionStage());
         }
         return map;
     }
@@ -283,21 +355,56 @@ public final class BeastContractService {
         }).orElse(0);
     }
 
-    private static boolean consumeFeedItems(ServerPlayer player) {
-        // Optional spirit-beast feed carriers when present.
+    private static FeedKind consumeFeedItems(ServerPlayer player) {
         try {
-            var feed = com.xunxian.seekingimmortals.catalog.ItemCatalogService.resolveCatalogItem("spirit_beast_feed");
-            if (feed != null && consumeOne(player, feed.getDefaultInstance())) {
-                return true;
-            }
             var nurture = com.xunxian.seekingimmortals.catalog.ItemCatalogService.resolveCatalogItem("spirit_beast_nurture_pill");
             if (nurture != null && consumeOne(player, nurture.getDefaultInstance())) {
-                return true;
+                return FeedKind.NURTURE_PILL;
+            }
+            var feed = com.xunxian.seekingimmortals.catalog.ItemCatalogService.resolveCatalogItem("spirit_beast_feed");
+            if (feed != null && consumeOne(player, feed.getDefaultInstance())) {
+                return FeedKind.PREPARED_FEED;
             }
         } catch (Throwable ignored) {
             // ignore
         }
-        return false;
+        if (consumeOne(player, ModItems.BEAST_CORE.get().getDefaultInstance())) {
+            return FeedKind.BEAST_CORE;
+        }
+        if (consumeOne(player, ModItems.SPIRIT_STONE_SHARD.get().getDefaultInstance())) {
+            return FeedKind.SPIRIT_SHARD;
+        }
+        return null;
+    }
+
+    private static CompanionGrowthService.Progress readProgress(String beastId, CompoundTag entry) {
+        int stageCount = BeastCompanionService.stageCount(beastId);
+        if (!entry.contains("GrowthExperience") && !entry.contains("EvolutionStage")) {
+            return CompanionGrowthService.legacyProgress(entry.getInt("Growth"), stageCount);
+        }
+        return new CompanionGrowthService.Progress(entry.getInt("Growth"),
+                entry.getInt("GrowthExperience"), entry.getInt("EvolutionStage"));
+    }
+
+    private static void writeProgress(CompoundTag entry, CompanionGrowthService.Progress progress) {
+        entry.putInt("Growth", progress.level());
+        entry.putInt("GrowthExperience", progress.experience());
+        entry.putInt("EvolutionStage", progress.evolutionStage());
+    }
+
+    private static boolean evolutionPoolReady(ServerPlayer player) {
+        if (player.getAbilities().instabuild) {
+            return true;
+        }
+        String station = "spirit_beast_evolution_pool";
+        if (com.xunxian.seekingimmortals.structure.MultiblockOperationalService
+                .bestNearbyEfficiency(player, station) > 0.0D) {
+            return true;
+        }
+        com.xunxian.seekingimmortals.structure.MultiblockOperationalService
+                .tryCommissionNearby(player, station);
+        return com.xunxian.seekingimmortals.structure.MultiblockOperationalService
+                .bestNearbyEfficiency(player, station) > 0.0D;
     }
 
     private static boolean consumeOne(ServerPlayer player, ItemStack sample) {

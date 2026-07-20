@@ -32,6 +32,7 @@ class PlayerPersistentDataClonePolicyTest {
             "seeking_immortals_herb_planter_cd",
             "seeking_immortals_natal_binding",
             "seeking_immortals_beast_contracts",
+            "seeking_immortals_puppet_growth",
             "seeking_immortals_auction_interest",
             "seeking_immortals_auction_personal_raises",
             "seeking_immortals_auction_won",
@@ -66,7 +67,7 @@ class PlayerPersistentDataClonePolicyTest {
 
     @Test
     void exposesExactDurableKeyAndPrefixPolicy() {
-        assertEquals(39, PlayerPersistentDataClonePolicy.durableKeys().size());
+        assertEquals(40, PlayerPersistentDataClonePolicy.durableKeys().size());
         assertEquals(EXPECTED_DURABLE_KEYS, PlayerPersistentDataClonePolicy.durableKeys());
         assertEquals(2, PlayerPersistentDataClonePolicy.durablePrefixes().size());
         assertEquals(EXPECTED_DURABLE_PREFIXES, PlayerPersistentDataClonePolicy.durablePrefixes());

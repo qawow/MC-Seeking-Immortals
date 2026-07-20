@@ -49,6 +49,11 @@ class BeastEcologyServiceTest {
         // Growth stages present for 噬金虫.
         assertTrue(BeastCompanionService.stageForGrowth("shi_jin_chong", 0).isPresent());
         assertTrue(BeastCompanionService.stageForGrowth("shi_jin_chong", 20).isPresent());
+        assertEquals(4, BeastCompanionService.stageCount("shi_jin_chong"));
+        assertEquals("异变/金色深化", BeastCompanionService.stageForEvolution(
+                "shi_jin_chong", 2).orElseThrow().name());
+        assertTrue(BeastCompanionService.tierForEvolution("shi_jin_chong", 3)
+                > BeastCompanionService.tierForEvolution("shi_jin_chong", 0));
     }
 
     @Test

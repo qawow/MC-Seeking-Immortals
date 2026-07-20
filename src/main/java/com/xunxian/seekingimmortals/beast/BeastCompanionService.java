@@ -112,12 +112,44 @@ public final class BeastCompanionService {
         return Optional.of(stages.get(Math.max(0, Math.min(stages.size() - 1, mapped))));
     }
 
+    public static int stageCount(String companionId) {
+        return find(companionId).map(def -> Math.max(1, def.stages().size())).orElse(1);
+    }
+
+    public static Optional<GrowthStage> stageForEvolution(String companionId, int evolutionStage) {
+        Optional<CompanionDef> def = find(companionId);
+        if (def.isEmpty() || def.get().stages().isEmpty()) {
+            return Optional.empty();
+        }
+        List<GrowthStage> stages = def.get().stages();
+        return Optional.of(stages.get(Math.max(0, Math.min(stages.size() - 1, evolutionStage))));
+    }
+
+    public static int tierForEvolution(String companionId, int evolutionStage) {
+        Optional<CompanionDef> optional = find(companionId);
+        if (optional.isEmpty()) {
+            return 1;
+        }
+        CompanionDef def = optional.get();
+        int maxEvolution = Math.max(1, def.stages().size() - 1);
+        double ratio = Math.max(0, Math.min(maxEvolution, evolutionStage)) / (double) maxEvolution;
+        return BeastTierService.clampTier((int) Math.round(
+                def.startTier() + (def.capTier() - def.startTier()) * ratio));
+    }
+
     public static double growthStatMultiplier(String companionId, int growth) {
         Optional<GrowthStage> stage = stageForGrowth(companionId, growth);
         if (stage.isEmpty()) {
             return 1.0D + Math.max(0, growth) * 0.05D;
         }
         return 1.0D + stage.get().stage() * 0.35D + Math.max(0, growth) * 0.03D;
+    }
+
+    public static double growthStatMultiplier(String companionId, CompanionGrowthService.Progress progress) {
+        Optional<GrowthStage> stage = stageForEvolution(companionId,
+                progress == null ? 0 : progress.evolutionStage());
+        double authored = stage.map(value -> value.stage() * 0.12D).orElse(0.0D);
+        return CompanionGrowthService.statMultiplier(progress) + authored;
     }
 
     private static Snapshot load() {

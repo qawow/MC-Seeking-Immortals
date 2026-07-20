@@ -1,3 +1,18 @@
+## 537. 2026-07-20 0.2.90 P1 灵兽/傀儡成长闭环
+
+  Step   Status   Notes
+  ---   ---   ---
+  Shared progression Done   0–20 级；升级需求 `20 + 10×当前等级`；2/3/4 阶作者数据对应 20、10/20、7/14/20 阈值。
+  Beast feeding Done   育灵丹/灵兽饵/兽核/碎片与战功提供差异经验和亲和；满级满亲和不吞料，满亲和卡阈值的无池重试也先失败。
+  Beast evolution Done   阈值由作者阶段数派生，需可运行灵兽化形池；阶段提高召唤阶位、生命、伤害与寿命。
+  Legacy migration Done   旧 `Growth` 自动映射 Level/Experience/EvolutionStage，保留既有等级和对应阶段。
+  Puppet growth Done   7/7 配方映射定义；组装/命中/击杀/修理推进玩家持久核心，7/14/20 级由傀儡核心炉淬炼。
+  Persistence Done   `seeking_immortals_puppet_growth` 加入死亡/End Clone durable keys；未来召唤应用倍率和成长名称。
+  Tests Done   新增共享公式、阈值阻塞/突破、资源映射、运行时 hook、clone 回归；全量 770 项通过。
+  Client smoke Done   注册表冻结、Sound Engine、方块/实体/JEI 纹理图集成功；主动 Ctrl-C，仅有 flite narrator 环境噪声。
+  Version Done   首次完整构建为 0.2.89；补充满亲和阈值重试的扣料前门禁后最终 `mod_version=0.2.90`。无网络变化，protocol 保持 26。
+  Handoff Done   `project_docs/updates/20260720_0.2.90_companion_growth.md`。
+
 ## 536. 2026-07-20 0.2.88 P1 区域 NPC 对话树扩展
 
   Step   Status   Notes

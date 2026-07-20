@@ -1,6 +1,7 @@
 package com.xunxian.seekingimmortals.entity;
 
 import com.xunxian.seekingimmortals.cultivation.BeastContractService;
+import com.xunxian.seekingimmortals.beast.PuppetGrowthService;
 import com.xunxian.seekingimmortals.catalog.SummonHonestMvpService;
 import com.xunxian.seekingimmortals.worldpack.ServitorRegistrySavedData;
 import net.minecraft.nbt.CompoundTag;
@@ -456,6 +457,25 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
                             BeastContractService.recordCombatCredit(serverPlayer, beastId, BeastContractService.CreditKind.KILL);
                         } else {
                             BeastContractService.recordCombatCredit(serverPlayer, beastId, BeastContractService.CreditKind.HIT);
+                        }
+                    }
+                }
+            }
+            if (archetype == Archetype.PUPPET && crafted && ownerUUID != null
+                    && level() instanceof ServerLevel serverLevel) {
+                Player owner = serverLevel.getPlayerByUUID(ownerUUID);
+                if (owner instanceof ServerPlayer serverPlayer) {
+                    PuppetGrowthService.CreditKind kind = living.isAlive()
+                            ? PuppetGrowthService.CreditKind.HIT : PuppetGrowthService.CreditKind.KILL;
+                    PuppetGrowthService.GrowthResult growth = PuppetGrowthService.recordCombatCredit(
+                            serverPlayer, summonId, kind);
+                    if (kind == PuppetGrowthService.CreditKind.KILL) {
+                        serverPlayer.displayClientMessage(Component.translatable(
+                                "message.seeking_immortals.puppet.combat_growth",
+                                growth.puppetId(), growth.after().level(), growth.after().experience()), true);
+                        if (growth.update().evolutionBlocked()) {
+                            serverPlayer.displayClientMessage(Component.translatable(
+                                    "message.seeking_immortals.puppet.core_forge_required"), false);
                         }
                     }
                 }

@@ -134,6 +134,17 @@ public final class PuppetCraftService {
                 Math.min(200, recipe.durationTicks()), recipe.resistAmp()));
         com.xunxian.seekingimmortals.skill.LifeSkillService.grantPractice(player,
                 com.xunxian.seekingimmortals.skill.SkillType.PUPPET_CONTROL, 24, 12);
+        var growth = com.xunxian.seekingimmortals.beast.PuppetGrowthService
+                .recordAssembly(player, "puppet_" + recipe.id());
+        if (growth.update().levelsGained() > 0) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.puppet.growth",
+                    growth.puppetId(), growth.after().level(), growth.after().experience()), false);
+        }
+        if (growth.update().evolutionBlocked()) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.puppet.core_forge_required"), false);
+        }
         player.displayClientMessage(Component.translatable("message.seeking_immortals.puppet.repair_hint"), false);
         return new CraftResult(true, recipe, "message.seeking_immortals.puppet_assembly_bench.activated");
     }
