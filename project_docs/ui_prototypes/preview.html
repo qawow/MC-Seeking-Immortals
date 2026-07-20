@@ -1,0 +1,186 @@
+<!doctype html><html lang="zh"><meta charset="utf-8">
+<title>寻仙问道 · 前端风格原型预览</title>
+<style>
+body{font-family:"Noto Serif SC",serif;background:#202020;color:#ddd;margin:24px}
+h1{font-weight:600} h2{margin:28px 0 10px;font-weight:600}
+.scenes{display:flex;gap:14px;flex-wrap:wrap}
+.panel{width:210px;border-radius:2px;padding:10px 12px;font-size:14px}
+.ptitle{font-weight:700;padding-bottom:5px;margin-bottom:7px}
+.row{display:flex;justify-content:space-between;padding:3px 4px;margin:2px 0}
+.bar{height:8px;margin:8px 0}
+.btn{display:inline-block;padding:3px 14px;margin-top:4px;font-size:13px}
+p.note{color:#999;max-width:70em}
+</style>
+<h1>寻仙问道 · 前端风格原型预览（六案）</h1>
+<p class="note">每案四张小样对应四个场景族。详细规范与试装步骤见同目录各 .md 文档；
+色板可用 <code>python3 scripts/expand_palette.py &lt;名称&gt;</code> 一键展开成 InkScene.java 常量块。</p>
+<section><h2>〇 云笈墨卷（现行）</h2><div class="scenes">
+<div class="panel" style="background:#E4EAE0;border:2px solid #3E6E5A;color:#262E28">
+  <div class="ptitle" style="border-bottom:1px solid #3E6E5A">静修族</div>
+  <div class="row"><span style="color:#48574C">境界</span><span>筑基中期</span></div>
+  <div class="row" style="background:#DAE0D7"><span style="color:#48574C">修为</span><span>1.2万/3万</span></div>
+  <div class="bar" style="border:1px solid #3E6E5A"><div style="width:42%;background:#3E6E5A;height:100%"></div></div>
+  <div class="btn" style="border:1px solid #3E6E5A;color:#262E28">突破</div>
+</div>
+<div class="panel" style="background:#ECE6D2;border:2px solid #9E3226;color:#2E2A22">
+  <div class="ptitle" style="border-bottom:1px solid #9E3226">行旅族(默认)</div>
+  <div class="row"><span style="color:#574F40">境界</span><span>筑基中期</span></div>
+  <div class="row" style="background:#E2DCC9"><span style="color:#574F40">修为</span><span>1.2万/3万</span></div>
+  <div class="bar" style="border:1px solid #9E3226"><div style="width:42%;background:#9E3226;height:100%"></div></div>
+  <div class="btn" style="border:1px solid #9E3226;color:#2E2A22">突破</div>
+</div>
+<div class="panel" style="background:#E6D8B4;border:2px solid #8E6420;color:#322A1E">
+  <div class="ptitle" style="border-bottom:1px solid #8E6420">交易族</div>
+  <div class="row"><span style="color:#5F4F39">境界</span><span>筑基中期</span></div>
+  <div class="row" style="background:#DCCFAC"><span style="color:#5F4F39">修为</span><span>1.2万/3万</span></div>
+  <div class="bar" style="border:1px solid #8E6420"><div style="width:42%;background:#8E6420;height:100%"></div></div>
+  <div class="btn" style="border:1px solid #8E6420;color:#322A1E">突破</div>
+</div>
+<div class="panel" style="background:#ECDCD2;border:2px solid #B03A28;color:#32241E">
+  <div class="ptitle" style="border-bottom:1px solid #B03A28">凶危强调</div>
+  <div class="row"><span style="color:#5F4439">境界</span><span>筑基中期</span></div>
+  <div class="row" style="background:#E2D3C9"><span style="color:#5F4439">修为</span><span>1.2万/3万</span></div>
+  <div class="bar" style="border:1px solid #B03A28"><div style="width:42%;background:#B03A28;height:100%"></div></div>
+  <div class="btn" style="border:1px solid #B03A28;color:#32241E">突破</div>
+</div></div></section><section><h2>一 玄夜星图</h2><div class="scenes">
+<div class="panel" style="background:#101820;border:2px solid #6FA8C8;color:#D8E4EC">
+  <div class="ptitle" style="border-bottom:1px solid #6FA8C8">静修族</div>
+  <div class="row"><span style="color:#9BA4A9">境界</span><span>筑基中期</span></div>
+  <div class="row" style="background:#121B24"><span style="color:#9BA4A9">修为</span><span>1.2万/3万</span></div>
+  <div class="bar" style="border:1px solid #6FA8C8"><div style="width:42%;background:#6FA8C8;height:100%"></div></div>
+  <div class="btn" style="border:1px solid #6FA8C8;color:#D8E4EC">突破</div>
+</div>
+<div class="panel" style="background:#12161E;border:2px solid #9AB8C0;color:#DCE0D8">
+  <div class="ptitle" style="border-bottom:1px solid #9AB8C0">行旅族(默认)</div>
+  <div class="row"><span style="color:#9EA19B">境界</span><span>筑基中期</span></div>
+  <div class="row" style="background:#141922"><span style="color:#9EA19B">修为</span><span>1.2万/3万</span></div>
+  <div class="bar" style="border:1px solid #9AB8C0"><div style="width:42%;background:#9AB8C0;height:100%"></div></div>
+  <div class="btn" style="border:1px solid #9AB8C0;color:#DCE0D8">突破</div>
+</div>
+<div class="panel" style="background:#1A141E;border:2px solid #C8A050;color:#E4D8C8">
+  <div class="ptitle" style="border-bottom:1px solid #C8A050">交易族</div>
+  <div class="row"><span style="color:#A49B90">境界</span><span>筑基中期</span></div>
+  <div class="row" style="background:#1D1722"><span style="color:#A49B90">修为</span><span>1.2万/3万</span></div>
+  <div class="bar" style="border:1px solid #C8A050"><div style="width:42%;background:#C8A050;height:100%"></div></div>
+  <div class="btn" style="border:1px solid #C8A050;color:#E4D8C8">突破</div>
+</div>
+<div class="panel" style="background:#1E1012;border:2px solid #C84838;color:#E8D0C8">
+  <div class="ptitle" style="border-bottom:1px solid #C84838">凶危强调</div>
+  <div class="row"><span style="color:#A79590">境界</span><span>筑基中期</span></div>
+  <div class="row" style="background:#221214"><span style="color:#A79590">修为</span><span>1.2万/3万</span></div>
+  <div class="bar" style="border:1px solid #C84838"><div style="width:42%;background:#C84838;height:100%"></div></div>
+  <div class="btn" style="border:1px solid #C84838;color:#E8D0C8">突破</div>
+</div></div></section><section><h2>二 青铜鼎纹</h2><div class="scenes">
+<div class="panel" style="background:#16201C;border:2px solid #5A9078;color:#E0E0D0">
+  <div class="ptitle" style="border-bottom:1px solid #5A9078">静修族</div>
+  <div class="row"><span style="color:#A1A195">境界</span><span>筑基中期</span></div>
+  <div class="row" style="background:#192420"><span style="color:#A1A195">修为</span><span>1.2万/3万</span></div>
+  <div class="bar" style="border:1px solid #5A9078"><div style="width:42%;background:#5A9078;height:100%"></div></div>
+  <div class="btn" style="border:1px solid #5A9078;color:#E0E0D0">突破</div>
+</div>
+<div class="panel" style="background:#1A1C16;border:2px solid #6E9060;color:#E2DEC8">
+  <div class="ptitle" style="border-bottom:1px solid #6E9060">行旅族(默认)</div>
+  <div class="row"><span style="color:#A29F90">境界</span><span>筑基中期</span></div>
+  <div class="row" style="background:#1D2019"><span style="color:#A29F90">修为</span><span>1.2万/3万</span></div>
+  <div class="bar" style="border:1px solid #6E9060"><div style="width:42%;background:#6E9060;height:100%"></div></div>
+  <div class="btn" style="border:1px solid #6E9060;color:#E2DEC8">突破</div>
+</div>
+<div class="panel" style="background:#201814;border:2px solid #C89848;color:#ECDEC0">
+  <div class="ptitle" style="border-bottom:1px solid #C89848">交易族</div>
+  <div class="row"><span style="color:#A99F8A">境界</span><span>筑基中期</span></div>
+  <div class="row" style="background:#241B17"><span style="color:#A99F8A">修为</span><span>1.2万/3万</span></div>
+  <div class="bar" style="border:1px solid #C89848"><div style="width:42%;background:#C89848;height:100%"></div></div>
+  <div class="btn" style="border:1px solid #C89848;color:#ECDEC0">突破</div>
+</div>
+<div class="panel" style="background:#1E1210;border:2px solid #B44030;color:#E8D4C8">
+  <div class="ptitle" style="border-bottom:1px solid #B44030">凶危强调</div>
+  <div class="row"><span style="color:#A79890">境界</span><span>筑基中期</span></div>
+  <div class="row" style="background:#221412"><span style="color:#A79890">修为</span><span>1.2万/3万</span></div>
+  <div class="bar" style="border:1px solid #B44030"><div style="width:42%;background:#B44030;height:100%"></div></div>
+  <div class="btn" style="border:1px solid #B44030;color:#E8D4C8">突破</div>
+</div></div></section><section><h2>三 洞府石刻</h2><div class="scenes">
+<div class="panel" style="background:#2A2E2C;border:2px solid #6A9070;color:#D8DCD4">
+  <div class="ptitle" style="border-bottom:1px solid #6A9070">静修族</div>
+  <div class="row"><span style="color:#9B9E98">境界</span><span>筑基中期</span></div>
+  <div class="row" style="background:#303432"><span style="color:#9B9E98">修为</span><span>1.2万/3万</span></div>
+  <div class="bar" style="border:1px solid #6A9070"><div style="width:42%;background:#6A9070;height:100%"></div></div>
+  <div class="btn" style="border:1px solid #6A9070;color:#D8DCD4">突破</div>
+</div>
+<div class="panel" style="background:#302E28;border:2px solid #A08850;color:#DCD8CC">
+  <div class="ptitle" style="border-bottom:1px solid #A08850">行旅族(默认)</div>
+  <div class="row"><span style="color:#9E9B92">境界</span><span>筑基中期</span></div>
+  <div class="row" style="background:#37342E"><span style="color:#9E9B92">修为</span><span>1.2万/3万</span></div>
+  <div class="bar" style="border:1px solid #A08850"><div style="width:42%;background:#A08850;height:100%"></div></div>
+  <div class="btn" style="border:1px solid #A08850;color:#DCD8CC">突破</div>
+</div>
+<div class="panel" style="background:#342C24;border:2px solid #C08040;color:#E4D8C4">
+  <div class="ptitle" style="border-bottom:1px solid #C08040">交易族</div>
+  <div class="row"><span style="color:#A49B8D">境界</span><span>筑基中期</span></div>
+  <div class="row" style="background:#3B3229"><span style="color:#A49B8D">修为</span><span>1.2万/3万</span></div>
+  <div class="bar" style="border:1px solid #C08040"><div style="width:42%;background:#C08040;height:100%"></div></div>
+  <div class="btn" style="border:1px solid #C08040;color:#E4D8C4">突破</div>
+</div>
+<div class="panel" style="background:#38221E;border:2px solid #C05030;color:#E6D2C6">
+  <div class="ptitle" style="border-bottom:1px solid #C05030">凶危强调</div>
+  <div class="row"><span style="color:#A5978E">境界</span><span>筑基中期</span></div>
+  <div class="row" style="background:#402722"><span style="color:#A5978E">修为</span><span>1.2万/3万</span></div>
+  <div class="bar" style="border:1px solid #C05030"><div style="width:42%;background:#C05030;height:100%"></div></div>
+  <div class="btn" style="border:1px solid #C05030;color:#E6D2C6">突破</div>
+</div></div></section><section><h2>四 符箓黄纸</h2><div class="scenes">
+<div class="panel" style="background:#EEE6C4;border:2px solid #3A5A78;color:#2A3028">
+  <div class="ptitle" style="border-bottom:1px solid #3A5A78">静修族</div>
+  <div class="row"><span style="color:#4F5B4C">境界</span><span>筑基中期</span></div>
+  <div class="row" style="background:#E4DCBC"><span style="color:#4F5B4C">修为</span><span>1.2万/3万</span></div>
+  <div class="bar" style="border:1px solid #3A5A78"><div style="width:42%;background:#3A5A78;height:100%"></div></div>
+  <div class="btn" style="border:1px solid #3A5A78;color:#2A3028">突破</div>
+</div>
+<div class="panel" style="background:#F0E4B8;border:2px solid #A83828;color:#302A20">
+  <div class="ptitle" style="border-bottom:1px solid #A83828">行旅族(默认)</div>
+  <div class="row"><span style="color:#5B4F3C">境界</span><span>筑基中期</span></div>
+  <div class="row" style="background:#E6DAB0"><span style="color:#5B4F3C">修为</span><span>1.2万/3万</span></div>
+  <div class="bar" style="border:1px solid #A83828"><div style="width:42%;background:#A83828;height:100%"></div></div>
+  <div class="btn" style="border:1px solid #A83828;color:#302A20">突破</div>
+</div>
+<div class="panel" style="background:#E8D8A0;border:2px solid #B07828;color:#342C1C">
+  <div class="ptitle" style="border-bottom:1px solid #B07828">交易族</div>
+  <div class="row"><span style="color:#625335">境界</span><span>筑基中期</span></div>
+  <div class="row" style="background:#DECF99"><span style="color:#625335">修为</span><span>1.2万/3万</span></div>
+  <div class="bar" style="border:1px solid #B07828"><div style="width:42%;background:#B07828;height:100%"></div></div>
+  <div class="btn" style="border:1px solid #B07828;color:#342C1C">突破</div>
+</div>
+<div class="panel" style="background:#ECDCB0;border:2px solid #C03020;color:#362418">
+  <div class="ptitle" style="border-bottom:1px solid #C03020">凶危强调</div>
+  <div class="row"><span style="color:#66442D">境界</span><span>筑基中期</span></div>
+  <div class="row" style="background:#E2D3A8"><span style="color:#66442D">修为</span><span>1.2万/3万</span></div>
+  <div class="bar" style="border:1px solid #C03020"><div style="width:42%;background:#C03020;height:100%"></div></div>
+  <div class="btn" style="border:1px solid #C03020;color:#362418">突破</div>
+</div></div></section><section><h2>五 水墨山水</h2><div class="scenes">
+<div class="panel" style="background:#E0EAE6;border:2px solid #4A8868;color:#28322E">
+  <div class="ptitle" style="border-bottom:1px solid #4A8868">静修族</div>
+  <div class="row"><span style="color:#4C5F57">境界</span><span>筑基中期</span></div>
+  <div class="row" style="background:#D7E0DC"><span style="color:#4C5F57">修为</span><span>1.2万/3万</span></div>
+  <div class="bar" style="border:1px solid #4A8868"><div style="width:42%;background:#4A8868;height:100%"></div></div>
+  <div class="btn" style="border:1px solid #4A8868;color:#28322E">突破</div>
+</div>
+<div class="panel" style="background:#EAE8DA;border:2px solid #3E6A88;color:#302E26">
+  <div class="ptitle" style="border-bottom:1px solid #3E6A88">行旅族(默认)</div>
+  <div class="row"><span style="color:#5B5748">境界</span><span>筑基中期</span></div>
+  <div class="row" style="background:#E0DED1"><span style="color:#5B5748">修为</span><span>1.2万/3万</span></div>
+  <div class="bar" style="border:1px solid #3E6A88"><div style="width:42%;background:#3E6A88;height:100%"></div></div>
+  <div class="btn" style="border:1px solid #3E6A88;color:#302E26">突破</div>
+</div>
+<div class="panel" style="background:#E8DFC2;border:2px solid #A87848;color:#342E20">
+  <div class="ptitle" style="border-bottom:1px solid #A87848">交易族</div>
+  <div class="row"><span style="color:#62573C">境界</span><span>筑基中期</span></div>
+  <div class="row" style="background:#DED6BA"><span style="color:#62573C">修为</span><span>1.2万/3万</span></div>
+  <div class="bar" style="border:1px solid #A87848"><div style="width:42%;background:#A87848;height:100%"></div></div>
+  <div class="btn" style="border:1px solid #A87848;color:#342E20">突破</div>
+</div>
+<div class="panel" style="background:#E6DED6;border:2px solid #A83C30;color:#342822">
+  <div class="ptitle" style="border-bottom:1px solid #A83C30">凶危强调</div>
+  <div class="row"><span style="color:#624C40">境界</span><span>筑基中期</span></div>
+  <div class="row" style="background:#DCD5CD"><span style="color:#624C40">修为</span><span>1.2万/3万</span></div>
+  <div class="bar" style="border:1px solid #A83C30"><div style="width:42%;background:#A83C30;height:100%"></div></div>
+  <div class="btn" style="border:1px solid #A83C30;color:#342822">突破</div>
+</div></div></section>
+</html>
