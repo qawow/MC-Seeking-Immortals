@@ -342,10 +342,11 @@ public final class AuctionSoftService {
             return false;
         }
 
-        // Claim settlement first so crash after delivery cannot re-open the lot.
+        // Fix TOCTOU idempotency: write persistent ledger FIRST before delivering rewards.
+        // Order: 1) markSettled + setDirty (persistent), 2) deliver rewards, 3) player NBT (soft guard).
+        // This ensures crash during delivery cannot allow duplicate settlement.
         house.markSettled(lot.id());
-        won.putBoolean(lot.id(), true);
-        player.getPersistentData().put(WON_ROOT, won);
+        house.setDirty();  // Force immediate write to disk.
 
         ItemStack reward = new ItemStack(rewardItem, rewardCountFor(lot));
         // Wave492: won auction lots arrive pre-appraised for economy honesty.
@@ -361,6 +362,10 @@ public final class AuctionSoftService {
                 break;
             }
         }
+
+        // Player NBT won flag as soft protection (secondary check, not authoritative).
+        won.putBoolean(lot.id(), true);
+        player.getPersistentData().put(WON_ROOT, won);
         ReputationService.add(player, "auction_house", 5);
         try {
             com.xunxian.seekingimmortals.phase.SoftPhaseShellService.mark(player, "phase14_tiannan_auction", false);

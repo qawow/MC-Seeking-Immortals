@@ -100,12 +100,15 @@ class AuctionSoftServiceTest {
         String settle = compact.substring(settleStart, bodyEnd + 1);
 
         int claimSettled = settle.indexOf("house.markSettled(lot.id())");
+        int setDirty = settle.indexOf("house.setDirty()");
         int claimWon = settle.indexOf("won.putBoolean(lot.id(),true)");
         int persistWon = settle.indexOf("player.getPersistentData().put(WON_ROOT,won)");
         int deliver = settle.indexOf("InventoryDeliveryService.giveOrEnqueue(player,reward");
-        assertTrue(claimSettled >= 0 && claimWon > claimSettled && persistWon > claimWon,
-                "settle must claim house + player won ledgers before delivery");
-        assertTrue(deliver > persistWon, "reward delivery must follow the settlement claim");
+        assertTrue(claimSettled >= 0 && setDirty > claimSettled,
+                "settle must markSettled and setDirty before delivery for idempotency");
+        assertTrue(deliver > setDirty, "reward delivery must follow persistent ledger write");
+        assertTrue(claimWon > deliver && persistWon > claimWon,
+                "player won NBT must be written AFTER delivery as soft guard only");
         assertTrue(settle.contains("already_won") && settle.indexOf("house.markSettled(lot.id())")
                         != settle.lastIndexOf("house.markSettled(lot.id())"),
                 "already-won drift must heal house settled flag without re-delivery");
