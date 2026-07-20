@@ -489,7 +489,7 @@
       "default_state": "intact",
       "max_hp": 200,
       "pattern": {
-        "validator": "ring",
+        "validator": "brazier",
         "radius": 1,
         "ring_role": "spirit_ore"
       }
@@ -529,7 +529,7 @@
       "default_state": "intact",
       "max_hp": 750,
       "pattern": {
-        "validator": "ring",
+        "validator": "workshop",
         "radius": 2,
         "ring_role": "spirit_ore"
       }
@@ -667,7 +667,7 @@
       "default_state": "intact",
       "max_hp": 300,
       "pattern": {
-        "validator": "ring",
+        "validator": "well",
         "radius": 1,
         "ring_role": "spirit_ore"
       }
@@ -725,7 +725,7 @@
       "default_state": "intact",
       "max_hp": 450,
       "pattern": {
-        "validator": "ring",
+        "validator": "blood_pool",
         "radius": 1,
         "ring_role": "spirit_ore"
       }
@@ -745,7 +745,7 @@
       "default_state": "intact",
       "max_hp": 450,
       "pattern": {
-        "validator": "ring",
+        "validator": "cultivation_chamber",
         "radius": 1,
         "ring_role": "spirit_ore"
       }
@@ -765,7 +765,7 @@
       "default_state": "intact",
       "max_hp": 600,
       "pattern": {
-        "validator": "ring",
+        "validator": "cultivation_chamber",
         "radius": 2,
         "ring_role": "spirit_ore"
       }
@@ -883,7 +883,7 @@
       "default_state": "intact",
       "max_hp": 300,
       "pattern": {
-        "validator": "ring",
+        "validator": "seal_pillar",
         "radius": 1,
         "ring_role": "spirit_ore"
       }
@@ -923,7 +923,7 @@
       "default_state": "intact",
       "max_hp": 450,
       "pattern": {
-        "validator": "ring",
+        "validator": "storage",
         "radius": 1,
         "ring_role": "spirit_ore"
       }
@@ -1057,7 +1057,7 @@
       "default_state": "intact",
       "max_hp": 300,
       "pattern": {
-        "validator": "ring",
+        "validator": "seal_pillar",
         "radius": 1,
         "ring_role": "spirit_ore"
       }
@@ -1097,7 +1097,7 @@
       "default_state": "intact",
       "max_hp": 750,
       "pattern": {
-        "validator": "ring",
+        "validator": "blood_pool",
         "radius": 2,
         "ring_role": "spirit_ore"
       }
@@ -1157,7 +1157,7 @@
       "default_state": "intact",
       "max_hp": 1200,
       "pattern": {
-        "validator": "ring",
+        "validator": "grand_hall",
         "radius": 4,
         "ring_role": "spirit_ore"
       }
@@ -1217,7 +1217,7 @@
       "default_state": "intact",
       "max_hp": 1050,
       "pattern": {
-        "validator": "ring",
+        "validator": "grand_hall",
         "radius": 4,
         "ring_role": "spirit_ore"
       }
@@ -1257,7 +1257,7 @@
       "default_state": "intact",
       "max_hp": 900,
       "pattern": {
-        "validator": "ring",
+        "validator": "tower",
         "radius": 3,
         "ring_role": "spirit_ore"
       }
@@ -1337,7 +1337,7 @@
       "default_state": "intact",
       "max_hp": 450,
       "pattern": {
-        "validator": "ring",
+        "validator": "tower",
         "radius": 1,
         "ring_role": "spirit_ore"
       }
@@ -1377,7 +1377,7 @@
       "default_state": "intact",
       "max_hp": 600,
       "pattern": {
-        "validator": "ring",
+        "validator": "tower",
         "radius": 2,
         "ring_role": "spirit_ore"
       }
@@ -1417,7 +1417,7 @@
       "default_state": "intact",
       "max_hp": 750,
       "pattern": {
-        "validator": "ring",
+        "validator": "greenhouse",
         "radius": 2,
         "ring_role": "spirit_ore"
       }
@@ -1476,7 +1476,7 @@
       "default_state": "intact",
       "max_hp": 750,
       "pattern": {
-        "validator": "ring",
+        "validator": "defense_wall",
         "radius": 2,
         "ring_role": "spirit_ore"
       }
@@ -1669,7 +1669,7 @@
       "default_state": "intact",
       "max_hp": 300,
       "pattern": {
-        "validator": "ring",
+        "validator": "seal_pillar",
         "radius": 1,
         "ring_role": "spirit_ore"
       }
@@ -1689,7 +1689,7 @@
       "default_state": "intact",
       "max_hp": 200,
       "pattern": {
-        "validator": "ring",
+        "validator": "workshop",
         "radius": 1,
         "ring_role": "spirit_ore"
       }
@@ -1709,7 +1709,7 @@
       "default_state": "intact",
       "max_hp": 400,
       "pattern": {
-        "validator": "ring",
+        "validator": "defense_wall",
         "radius": 1,
         "ring_role": "spirit_ore"
       }
@@ -1729,7 +1729,7 @@
       "default_state": "intact",
       "max_hp": 150,
       "pattern": {
-        "validator": "ring",
+        "validator": "seal_pillar",
         "radius": 1,
         "ring_role": "spirit_ore"
       }
