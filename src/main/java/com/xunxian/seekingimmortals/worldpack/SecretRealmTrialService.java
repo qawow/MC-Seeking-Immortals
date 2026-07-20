@@ -427,12 +427,20 @@ public final class SecretRealmTrialService {
 
     /**
      * Wave471: combat kill gates for mid/core unlocks.
+     * Security: validates that the killer is the session owner via
+     * {@link SecretRealmSessionService#claimEncounter}, which internally calls
+     * matchesEncounter to verify killer UUID matches the mob's bound OWNER_UUID.
+     * All reward delivery (unlockMid, unlockCore, direct bonuses) occurs
+     * only after this validation succeeds.
+     *
+     * @return false if killer is not the session owner or mob is not properly bound
      */
     public static boolean onTrialMobKilled(ServerPlayer killer, Mob mob) {
         if (killer == null || mob == null || !isTrialMob(mob)) {
             return false;
         }
         CompoundTag trial = mob.getPersistentData().getCompound(TRIAL_TAG);
+        // Defense: claimEncounter validates owner UUID before allowing any rewards
         if (!SecretRealmSessionService.claimEncounter(killer, trial)) {
             return false;
         }

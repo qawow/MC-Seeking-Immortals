@@ -107,11 +107,22 @@ public final class BossEncounterService {
         return mob.getPersistentData().getCompound(BOSS_TAG).getString(BOSS_ID);
     }
 
+    /**
+     * Handle boss kill event and distribute rewards.
+     * Security: validates that the killer is the session owner via
+     * {@link SecretRealmSessionService#claimEncounter}, which internally calls
+     * matchesEncounter to verify killer UUID matches the boss's bound OWNER_UUID.
+     * All reward delivery (grantBossLoot, placeBossCache, direct bonuses) occurs
+     * only after this validation succeeds.
+     *
+     * @return false if killer is not the session owner or boss is not properly bound
+     */
     public static boolean onBossKilled(ServerPlayer killer, Mob boss) {
         if (killer == null || boss == null || !isBossMob(boss)) {
             return false;
         }
         CompoundTag bossTag = boss.getPersistentData().getCompound(BOSS_TAG);
+        // Defense: claimEncounter validates owner UUID before allowing any rewards
         if (!SecretRealmSessionService.claimEncounter(killer, bossTag)) {
             return false;
         }

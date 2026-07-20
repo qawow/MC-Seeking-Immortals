@@ -261,6 +261,10 @@ public final class SecretRealmSessionService {
         String sessionId = tag.getString(SESSION_ID);
         String realmId = normalizeId(tag.getString(REALM_ID));
         if (!player.getUUID().toString().equals(ownerId)) {
+            // Security: reject non-owner access to encounter rewards
+            com.xunxian.seekingimmortals.SeekingImmortalsMod.LOGGER.warn(
+                    "Secret realm encounter owner mismatch: player {} attempted to claim encounter bound to {}",
+                    player.getUUID(), ownerId);
             return false;
         }
         return activeSession(player, realmId)
@@ -282,6 +286,22 @@ public final class SecretRealmSessionService {
         }
         return SecretRealmProgressSavedData.get(player).claimEncounter(
                 player.getUUID(), tag.getString(SESSION_ID), tag.getString(ENCOUNTER_ID));
+    }
+
+    /**
+     * Defense-in-depth: verify that the claiming player is the session owner.
+     * This check is redundant with matchesEncounter's UUID validation but provides
+     * an explicit guard for reward paths that bypass tag-based encounter binding.
+     *
+     * @param player The player attempting to claim rewards
+     * @param session The active secret-realm session
+     * @return true if player UUID matches session owner UUID
+     */
+    public static boolean isSessionOwner(ServerPlayer player, SecretRealmProgressSavedData.Session session) {
+        if (player == null || session == null) {
+            return false;
+        }
+        return player.getUUID().toString().equals(session.playerId());
     }
 
     public static String boundRealmId(CompoundTag tag) {

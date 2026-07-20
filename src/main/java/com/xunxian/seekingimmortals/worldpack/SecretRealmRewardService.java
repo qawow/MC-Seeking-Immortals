@@ -77,11 +77,23 @@ public final class SecretRealmRewardService {
         return true;
     }
 
+    /**
+     * Claim a bound secret-realm reward chest.
+     * Security: validates that the claiming player is the session owner via
+     * {@link SecretRealmSessionService#matchesEncounter}, which checks:
+     * 1. Player UUID matches the bound OWNER_UUID tag
+     * 2. Player has an active session matching the bound SESSION_ID
+     * 3. Session realm matches the bound REALM_ID
+     * 4. Session has not timed out
+     *
+     * @return ClaimResult.DENIED if owner validation fails
+     */
     public static ClaimResult claim(ServerPlayer player, BlockEntity blockEntity) {
         if (!isBoundReward(blockEntity) || !(blockEntity instanceof ChestBlockEntity chest)) {
             return ClaimResult.NOT_BOUND;
         }
         CompoundTag binding = binding(chest).copy();
+        // Defense: matchesEncounter validates owner UUID at line 263 of SecretRealmSessionService
         if (!SecretRealmSessionService.matchesEncounter(player, binding)) {
             return ClaimResult.DENIED;
         }
