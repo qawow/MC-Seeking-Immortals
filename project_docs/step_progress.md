@@ -1,3 +1,13 @@
+## 531. 2026-07-20 0.2.81 云笈墨卷 B4 HUD
+
+  Step   Status   Notes
+  ---   ---   ---
+  Formatters Done   Health/Hud/Breathing 收拢 NumberFmt。
+  Contracts Done   skill_bar_frame 零引用；HUD 布局测试原样。
+  Verify  Done   普通构建成功，全量 748 项通过。
+  Version Done   `mod_version=0.2.81`；protocol 25。
+  Handoff Done   `project_docs/updates/20260720_0.2.81_inkscroll_b4.md`。
+
 ## 530. 2026-07-20 0.2.80 云笈墨卷 B3b/c 收口
 
   Step   Status   Notes

@@ -7,7 +7,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.gui.overlay.ForgeGui;
 import net.minecraftforge.fml.common.Mod;
 
-import java.util.Locale;
 
 @Mod.EventBusSubscriber(modid = SeekingImmortalsMod.MODID, value = Dist.CLIENT)
 public final class BreathingHudOverlay {
@@ -91,7 +90,7 @@ public final class BreathingHudOverlay {
     }
 
     private static String format(double value) {
-        return String.format(Locale.ROOT, "%.2f", value);
+        return com.xunxian.seekingimmortals.client.ui.NumberFmt.two(value);
     }
 
 }

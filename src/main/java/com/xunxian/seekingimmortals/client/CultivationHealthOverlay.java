@@ -136,14 +136,9 @@ public final class CultivationHealthOverlay {
 
     private static String formatValue(float value) {
         double abs = Math.abs(value);
-        if (abs >= 100_000_000D) return unitNumber(value, 100_000_000D, "亿");
-        if (abs >= 10_000D) return unitNumber(value, 10_000D, "万");
+        if (abs >= 10_000D) {
+            return com.xunxian.seekingimmortals.client.ui.NumberFmt.cjk((long) value);
+        }
         return String.format(Locale.ROOT, value >= 100.0F ? "%.0f" : "%.1f", value).replace(".0", "");
-    }
-
-    private static String unitNumber(float value, double unit, String suffix) {
-        double scaled = value / unit;
-        String pattern = Math.abs(scaled) >= 100.0D ? "%.0f%s" : "%.1f%s";
-        return String.format(Locale.ROOT, pattern, scaled, suffix).replace(".0", "");
     }
 }

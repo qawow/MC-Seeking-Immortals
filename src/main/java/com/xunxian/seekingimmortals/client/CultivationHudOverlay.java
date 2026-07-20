@@ -145,7 +145,7 @@ public final class CultivationHudOverlay {
     }
 
     private static double clamp01(double value) {
-        return Math.max(0.0D, Math.min(1.0D, value));
+        return com.xunxian.seekingimmortals.client.ui.NumberFmt.clamp01(value);
     }
 
     private static String shortNumber(long value) {

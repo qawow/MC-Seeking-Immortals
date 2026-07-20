@@ -1,5 +1,7 @@
 > MASTER PLAN 2026-07-20: 全玩法实现与验证总计划见 `project_docs/master_plan.md`（固定工作流、架构速查、遗留风险、P0-P2 路线图、三层测试与实机烟测清单、完成定义）。后续 AI 每批次开工前先读该文档。
 
+> CURRENT TRUTH 2026-07-20: `0.2.81` 云笈墨卷 B4 HUD。HUD 数字/格式化收拢 NumberFmt；无框契约核验；场景取色自动生效。全量 748 项通过。`mod_version=0.2.81`，协议 25。见 `project_docs/updates/20260720_0.2.81_inkscroll_b4.md`。
+
 > CURRENT TRUTH 2026-07-20: `0.2.80` 云笈墨卷 B3b/c 商业与行录族收口。商业/行录族审查无剩余复制；AbstractLoreScreen 常量接 Spec.LORE 单源。全量 748 项通过。`mod_version=0.2.80`，协议 25。见 `project_docs/updates/20260720_0.2.80_inkscroll_b3bc.md`。
 
 > CURRENT TRUTH 2026-07-20: `0.2.79` 云笈墨卷 B3a 修炼族屏迁移。InkRows.labeledRow 收拢 stats/meditation 行体。全量 747 项通过。`mod_version=0.2.79`，协议 25。见 `project_docs/updates/20260720_0.2.79_inkscroll_b3a.md`。
