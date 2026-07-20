@@ -383,6 +383,7 @@
   "message.seeking_immortals.multiblock.incomplete": "incomplete",
   "message.seeking_immortals.multiblock.repair_need_form": "%s is not formed; cannot repair.",
   "message.seeking_immortals.multiblock.already_intact": "%s is already intact.",
+"message.seeking_immortals.multiblock.repair_need_commission": "%s is not commissioned; use station form (or overhaul) first.",
   "message.seeking_immortals.multiblock.repair_need_shards": "Repair needs spirit stone shards x%s.",
   "message.seeking_immortals.multiblock.repaired": "Repaired %s → %s · durability %s/%s (shards %s).",
   "message.seeking_immortals.multiblock.dismantled": "Dismantled %s; refunded spirit stone shards x%s.",

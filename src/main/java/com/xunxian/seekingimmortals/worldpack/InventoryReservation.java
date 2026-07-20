@@ -90,10 +90,12 @@ final class InventoryReservation {
         if (refunded || player == null) {
             return;
         }
-        refunded = true;
+        // Mark refunded only after every stack is handed off, so a mid-loop
+        // failure can be retried instead of silently dropping the tail.
         for (ItemStack consumedStack : consumed) {
             com.xunxian.seekingimmortals.item.InventoryDeliveryService.giveOrEnqueue(
                     player, consumedStack.copy(), "inventory_reservation_refund");
         }
+        refunded = true;
     }
 }

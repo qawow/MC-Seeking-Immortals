@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-20: `0.2.73` 代码审查修复批次。修复见闻事件大小写失配、地渊令走秘境权威、G2 炼器台结构条目缺失、repair 绕过建站、outbox 满额丢奖励、discoverLore 吞物品、refund 标志时序、请柬耐久化。全量 735 项通过。`mod_version=0.2.73`，协议 25。见 `project_docs/updates/20260720_0.2.73_review_fixes.md`。
+
 > CURRENT TRUTH 2026-07-20: `0.2.72` 剩余消耗品可执行化。船票/渡票/传送符/地渊令走 travel；聚灵阵盘部署自由阵场；凭证换声望；残图/探报/舆图接真实见闻事件。普通构建成功。`mod_version=0.2.72`，协议 25。见 `project_docs/updates/20260720_0.2.72_consumables.md`。
 
 > CURRENT TRUTH 2026-07-20: `0.2.71` 工站 form 交互提示。制符/傀儡/炼器/炼丹与软制作门禁在成型壳上自动 ensureCommissioned/tryCommissionNearby。普通构建成功。`mod_version=0.2.71`，协议 25。见 `project_docs/updates/20260720_0.2.71_form_prompts.md`。

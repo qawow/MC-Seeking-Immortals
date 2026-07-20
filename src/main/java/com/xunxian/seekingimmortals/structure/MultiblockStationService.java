@@ -113,6 +113,14 @@ public final class MultiblockStationService {
                             ModBlocks.REFINEMENT_FORGE.get(), ModBlocks.SPIRIT_ORE.get()).complete();
                     yield new ValidateOutcome(ok, "refinement_forge");
                 }
+                case "refinement_forge_g2" -> {
+                    if (!(level instanceof Level live)) {
+                        yield new ValidateOutcome(false, "needs_level");
+                    }
+                    boolean ok = RefinementForgeG2Structure.validate(live, origin,
+                            ModBlocks.REFINEMENT_FORGE_G2.get(), ModBlocks.SPIRIT_ORE.get()).complete();
+                    yield new ValidateOutcome(ok, "refinement_forge_g2");
+                }
                 case "refinement_forge_g3" -> {
                     if (!(level instanceof Level live)) {
                         yield new ValidateOutcome(false, "needs_level");

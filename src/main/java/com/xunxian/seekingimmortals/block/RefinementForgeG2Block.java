@@ -49,9 +49,7 @@ public class RefinementForgeG2Block extends Block {
             return InteractionResult.CONSUME;
         }
         if (!com.xunxian.seekingimmortals.structure.MultiblockOperationalService
-                .ensureCommissioned(serverPlayer, "refinement_forge", pos)
-                && !com.xunxian.seekingimmortals.structure.MultiblockOperationalService
-                .ensureCommissioned(serverPlayer, "refinement_forge_g1", pos)) {
+                .ensureCommissioned(serverPlayer, "refinement_forge_g2", pos)) {
             return InteractionResult.CONSUME;
         }
         RefinementForgeCraftHelper.tryCraft(serverPlayer, pos, 2,

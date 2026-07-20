@@ -1,3 +1,5 @@
+2026-07-20 0.2.73 pending update: user-directed code review batch fixed chronicle key casing, diyuan token realm-entry, G2 forge structure entry, repair-bypasses-form gate, outbox overflow loss, discoverLore fail-open, refund flag ordering, and durable auction invitation. Protocol 25. Remaining: continue review coverage (quests/combat/network domains) and live client/server/multiplayer smoke.
+
 2026-07-20 0.2.72 pending update: remaining inert catalog consumables (travel tickets, formation disk, credentials, lore maps, mortal remedies) now execute server-authoritative effects via existing travel/formation/reputation/chronicle services. Protocol 25. Remaining: user-directed code problem review batch, then live client/server/multiplayer smoke.
 
 2026-07-20 0.2.71 pending update: formed but uncommissioned stations auto-form on craft use (talisman/puppet/refinement/alchemy) and soft-craft gates tryCommissionNearby before fail-closed. Protocol 25. Remaining: deeper material-id resolve to lower form/overhaul shard tax, and live client/server/multiplayer smoke.

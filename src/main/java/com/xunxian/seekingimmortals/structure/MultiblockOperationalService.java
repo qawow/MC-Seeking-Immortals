@@ -116,6 +116,14 @@ public final class MultiblockOperationalService {
                     "message.seeking_immortals.multiblock.already_intact", entry.display()), true);
             return false;
         }
+        // Fully disabled stations (uncommissioned or destroyed) must pay structure
+        // materials via form/overhaul; shard-only repair would bypass commissioning.
+        if (state.state() == MultiblockOperationalSavedData.OpState.DISABLED
+                && !player.getAbilities().instabuild) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.multiblock.repair_need_commission", entry.display()), true);
+            return false;
+        }
 
         int cost = repairCostShards(state);
         if (!player.getAbilities().instabuild) {

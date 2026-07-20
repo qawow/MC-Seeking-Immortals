@@ -15,8 +15,8 @@ class M07FormationsMultiblockTest {
 
     @Test
     void structureIndexLoadsEightySixEntries() {
-        assertEquals(86, MultiblockStructureCatalog.builtin().size());
-        assertEquals(86, FormationApi.structureIndexSize());
+        assertEquals(87, MultiblockStructureCatalog.builtin().size());
+        assertEquals(87, FormationApi.structureIndexSize());
         assertTrue(MultiblockStructureCatalog.builtin().find("immortal_teleport_grand_array").isPresent());
         assertTrue(MultiblockStructureCatalog.builtin().find("sect_formation_hub").isPresent());
         assertTrue(MultiblockStructureCatalog.builtin().find("flying_boat_dock").isPresent());

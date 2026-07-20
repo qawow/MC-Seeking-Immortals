@@ -22,7 +22,7 @@ import java.util.UUID;
  */
 public final class DeliveryOutboxSavedData extends SavedData {
     private static final String DATA_NAME = SeekingImmortalsMod.MODID + "_delivery_outbox";
-    private static final int MAX_ENTRIES_PER_PLAYER = 64;
+    private static final int MAX_ENTRIES_PER_PLAYER = 256;
 
     private final Map<UUID, List<Entry>> byPlayer = new LinkedHashMap<>();
 
@@ -105,7 +105,19 @@ public final class DeliveryOutboxSavedData extends SavedData {
         }
         List<Entry> entries = byPlayer.computeIfAbsent(playerId, ignored -> new ArrayList<>());
         if (entries.size() >= MAX_ENTRIES_PER_PLAYER) {
-            entries.remove(0);
+            // Never silently discard an unclaimed reward: merge overflow into the newest
+            // same-item entry when possible, otherwise still append (soft cap).
+            for (int i = entries.size() - 1; i >= 0; i--) {
+                Entry existing = entries.get(i);
+                if (ItemStack.isSameItemSameTags(existing.stack(), stack)
+                        && existing.stack().getCount() + stack.getCount() <= existing.stack().getMaxStackSize()) {
+                    ItemStack merged = existing.stack().copy();
+                    merged.grow(stack.getCount());
+                    entries.set(i, new Entry(existing.reason(), merged));
+                    setDirty();
+                    return;
+                }
+            }
         }
         entries.add(new Entry(reason, stack));
         setDirty();

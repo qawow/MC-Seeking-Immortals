@@ -1,3 +1,13 @@
+## 523. 2026-07-20 0.2.73 代码审查修复批次
+
+  Step   Status   Notes
+  ---   ---   ---
+  Review  Done   多子代理审查多方块/交付/消耗品三域。
+  Fixes   Done   见闻大小写、地渊令、G2 条目、repair 门禁、outbox 满额、discoverLore、refund 时序、请柬耐久。
+  Tests   Done   新增大小写/门禁/消耗契约；全量 735 项通过。
+  Version Done   `mod_version=0.2.73`；protocol 25。
+  Handoff Done   `project_docs/updates/20260720_0.2.73_review_fixes.md`。
+
 ## 522. 2026-07-20 0.2.72 剩余消耗品可执行化
 
   Step   Status   Notes

@@ -101,7 +101,7 @@ public final class CatalogConsumableService {
                     "message.seeking_immortals.catalog_consumable.travel_nether_ferry");
             case "travel_chaotic_sea" -> travelRegion(player, "chaotic_sea",
                     "message.seeking_immortals.catalog_consumable.travel_chaotic_sea");
-            case "travel_diyuan" -> travelRegion(player, "diyuan",
+            case "travel_diyuan" -> enterRealmWithToken(player, "diyuan",
                     "message.seeking_immortals.catalog_consumable.travel_diyuan");
             case "deploy_spirit_gather_disk" -> deploySpiritGatherDisk(player);
             case "open_auction_invite" -> openAuctionInvite(player);
@@ -167,7 +167,11 @@ public final class CatalogConsumableService {
             return false;
         }
         String action = normalize(effect);
-        return !"talisman_craft_material".equals(action) && !"array_fuel".equals(action);
+        // Durable credentials/materials survive use; everything else is one-shot.
+        return !"talisman_craft_material".equals(action)
+                && !"array_fuel".equals(action)
+                && !"show_sect_identity".equals(action)
+                && !"open_auction_invite".equals(action);
     }
 
     public static int lightningWardCharges(Player player) {
@@ -466,6 +470,15 @@ public final class CatalogConsumableService {
         return ok;
     }
 
+    private static boolean enterRealmWithToken(ServerPlayer player, String realmId, String successKey) {
+        // Access tokens are physical entry credentials; entry itself stays server-authoritative.
+        boolean ok = com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService.enterSecretRealm(player, realmId);
+        if (ok && successKey != null && !successKey.isBlank()) {
+            player.displayClientMessage(Component.translatable(successKey), true);
+        }
+        return ok;
+    }
+
     private static boolean deploySpiritGatherDisk(ServerPlayer player) {
         if (!(player.level() instanceof ServerLevel level)) {
             return false;
@@ -527,8 +540,8 @@ public final class CatalogConsumableService {
         boolean discovered = com.xunxian.seekingimmortals.catalog.ChronicleTradeSoftService
                 .discoverChronicle(player, eventId);
         if (!discovered) {
-            // Unknown chronicle id still yields explorer knowledge instead of an inert use.
-            com.xunxian.seekingimmortals.worldpack.ReputationService.add(player, "secret_realm_explorer", 1);
+            // Fail-closed: unknown/failed chronicle keeps the map fragment in hand.
+            return false;
         }
         if (successKey != null && !successKey.isBlank()) {
             player.displayClientMessage(Component.translatable(successKey), true);

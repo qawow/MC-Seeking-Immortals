@@ -79,7 +79,8 @@ public final class FactionQuestCatalogService {
             JsonObject o = element.getAsJsonObject();
             String id = str(o, "id");
             if (id.isBlank()) continue;
-            map.put(id, new Entry(id, str(o, "display")));
+            // Keys are lowercased because every runtime lookup normalizes ids the same way.
+            map.put(id.toLowerCase(java.util.Locale.ROOT), new Entry(id, str(o, "display")));
         }
         return Collections.unmodifiableMap(map);
     }

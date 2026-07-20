@@ -45,6 +45,10 @@ class CatalogConsumableServiceTest {
         assertTrue(CatalogConsumableService.shouldConsumeOnSuccess("corpse_control", 0));
         assertTrue(CatalogConsumableService.shouldConsumeOnSuccess("vehicle_craft", 0));
         assertTrue(CatalogConsumableService.shouldConsumeOnSuccess("sect_contribution_redeem", 0));
+        assertFalse(CatalogConsumableService.shouldConsumeOnSuccess("show_sect_identity", 0));
+        assertFalse(CatalogConsumableService.shouldConsumeOnSuccess("open_auction_invite", 0));
+        assertTrue(CatalogConsumableService.shouldConsumeOnSuccess("travel_spirit_boat", 0));
+        assertTrue(CatalogConsumableService.shouldConsumeOnSuccess("discover_kunwu", 0));
     }
 
     @Test
@@ -84,6 +88,8 @@ class CatalogConsumableServiceTest {
         assertTrue(source.contains("\"E_ancient_demon_seal_weak\""));
         assertTrue(source.contains("\"A1_kunwu_peak\""));
         assertTrue(source.contains("WorldpackGameplayService.travel"));
+        assertTrue(source.contains("enterSecretRealm"),
+                "diyuan access token must enter the secret realm, not region-travel");
         assertTrue(source.contains("FieldKind.SPIRIT_GATHER"));
     }
 }

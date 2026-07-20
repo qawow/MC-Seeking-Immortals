@@ -230,4 +230,17 @@ class MultiblockOperationalServiceTest {
                     path + " must auto-commission before craft");
         }
     }
+
+    @Test
+    void repairRejectsUncommissionedStationsInSource() throws Exception {
+        String source = Files.readString(Path.of(
+                "src", "main", "java", "com", "xunxian", "seekingimmortals",
+                "structure", "MultiblockOperationalService.java"));
+        String compact = source.replaceAll("\\s+", "");
+        int repair = compact.indexOf("publicstaticbooleanrepair(");
+        int gate = compact.indexOf("repair_need_commission", repair);
+        int reserve = compact.indexOf("tryReserveShards(player,cost)", repair);
+        assertTrue(repair >= 0 && gate > repair && reserve > gate,
+                "repair must reject DISABLED stations before charging shards");
+    }
 }
