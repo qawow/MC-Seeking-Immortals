@@ -5,6 +5,7 @@ import com.xunxian.seekingimmortals.artifact.ArtifactStorageService;
 import com.xunxian.seekingimmortals.catalog.FlightVehicleService;
 import com.xunxian.seekingimmortals.cultivation.BeastContractService;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
+import com.xunxian.seekingimmortals.cultivation.GhostContractService;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.cultivation.Realm;
 import com.xunxian.seekingimmortals.item.alchemy.AlchemyFormulaItem;
@@ -96,7 +97,7 @@ public final class CatalogConsumableService {
             case "detox_minor" -> clearMinorPoison(player);
             case "talisman_craft_material" -> explainTalismanInk(player);
             case "array_fuel" -> explainFormationFuel(player);
-            case "corpse_control" -> SummonHonestMvpService.empowerNearestOwnedGhost(player);
+            case "corpse_control" -> corpseControl(player);
             case "vehicle_craft" -> FlightVehicleService.craftWindFeatherRaftTicket(player);
             case "sect_contribution_redeem" -> SectContributionTokenService.redeem(player);
             case "travel_spirit_boat" -> travelRegion(player, "chaotic_sea",
@@ -437,6 +438,36 @@ public final class CatalogConsumableService {
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.catalog_consumable.formation_fuel_material"), true);
         return true;
+    }
+
+    private static boolean corpseControl(ServerPlayer player) {
+        // Enhanced corpse control: support both empowering nearby ghost and remote maintenance
+        List<GhostContractService.GhostContract> contracts = GhostContractService.listContracts(player);
+
+        // Try to empower nearby ghost first (existing behavior)
+        if (SummonHonestMvpService.empowerNearestOwnedGhost(player)) {
+            return true;
+        }
+
+        // If no nearby ghost, offer remote maintenance for contracts with low stability
+        if (!contracts.isEmpty()) {
+            GhostContractService.GhostContract lowestStability = contracts.stream()
+                    .min((a, b) -> Integer.compare(a.stability(), b.stability()))
+                    .orElse(null);
+
+            if (lowestStability != null && lowestStability.stability() < 80) {
+                return GhostContractService.maintainContract(player, lowestStability.ghostId());
+            } else {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.ghost_contract.all_stable"), true);
+                return false;
+            }
+        }
+
+        // No contracts and no nearby ghost
+        player.displayClientMessage(Component.translatable(
+                "message.seeking_immortals.catalog_consumable.coffin_nail_no_ghost"), true);
+        return false;
     }
 
     private static boolean smokeScreen(ServerPlayer player) {

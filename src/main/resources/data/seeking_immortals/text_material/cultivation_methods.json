@@ -72,7 +72,69 @@
       ],
       "v138_field_fill": true,
       "v141_desc_polish": true,
-      "v142_desc_polish": true
+      "v142_desc_polish": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "fireball",
+            "dingshen_talisman_qi"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "fireball",
+            "dingshen_talisman_qi",
+            "wind_ride",
+            "wood_bind",
+            "luoyan_bu"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "fireball",
+            "dingshen_talisman_qi",
+            "wind_ride",
+            "wood_bind",
+            "luoyan_bu",
+            "wood_spirit_shield_basic",
+            "spring_wood_heal_minor",
+            "huangfeng_garden_ward"
+          ]
+        },
+        {
+          "layer": 4,
+          "techniques": [
+            "fireball",
+            "dingshen_talisman_qi",
+            "wind_ride",
+            "wood_bind",
+            "luoyan_bu",
+            "wood_spirit_shield_basic",
+            "spring_wood_heal_minor",
+            "huangfeng_garden_ward",
+            "earth_spike",
+            "lianxi_shu"
+          ]
+        },
+        {
+          "layer": 5,
+          "techniques": [
+            "fireball",
+            "dingshen_talisman_qi",
+            "wind_ride",
+            "wood_bind",
+            "luoyan_bu",
+            "wood_spirit_shield_basic",
+            "spring_wood_heal_minor",
+            "huangfeng_garden_ward",
+            "earth_spike",
+            "lianxi_shu"
+          ]
+        }
+      ]
     },
     {
       "id": "qingyuan_sword_art",
@@ -108,7 +170,8 @@
         "novel_arc": "黄枫谷-落云宗-化神前",
         "creator": "青元子",
         "lore_v141": "原著核心长线功法气质，与长春功形成「启蒙→正修」阶梯。",
-        "lore_v142": "贴原著气质精修"
+        "lore_v142": "贴原著气质精修",
+        "layers_max": 13
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -154,7 +217,233 @@
       ],
       "v138_field_fill": true,
       "v141_desc_polish": true,
-      "v142_desc_polish": true
+      "v142_desc_polish": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "qingyuan_sword_ray",
+            "sword_shield"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "qingyuan_sword_ray",
+            "sword_shield",
+            "flying_sword_strike"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "qingyuan_sword_ray",
+            "sword_shield",
+            "flying_sword_strike",
+            "sword_escape",
+            "green_bamboo_sword_qi"
+          ]
+        },
+        {
+          "layer": 4,
+          "techniques": [
+            "qingyuan_sword_ray",
+            "sword_shield",
+            "flying_sword_strike",
+            "sword_escape",
+            "green_bamboo_sword_qi",
+            "qingyuan_sword_silk",
+            "dual_sword_dance"
+          ]
+        },
+        {
+          "layer": 5,
+          "techniques": [
+            "qingyuan_sword_ray",
+            "sword_shield",
+            "flying_sword_strike",
+            "sword_escape",
+            "green_bamboo_sword_qi",
+            "qingyuan_sword_silk",
+            "dual_sword_dance",
+            "sword_formation_basic",
+            "invisible_sword",
+            "qingyuan_layer5_intent"
+          ]
+        },
+        {
+          "layer": 6,
+          "techniques": [
+            "qingyuan_sword_ray",
+            "sword_shield",
+            "flying_sword_strike",
+            "sword_escape",
+            "green_bamboo_sword_qi",
+            "qingyuan_sword_silk",
+            "dual_sword_dance",
+            "sword_formation_basic",
+            "invisible_sword",
+            "sword_merge",
+            "qingyuan_layer5_intent"
+          ]
+        },
+        {
+          "layer": 7,
+          "techniques": [
+            "qingyuan_sword_ray",
+            "sword_shield",
+            "flying_sword_strike",
+            "sword_escape",
+            "green_bamboo_sword_qi",
+            "qingyuan_sword_silk",
+            "dual_sword_dance",
+            "sword_formation_basic",
+            "invisible_sword",
+            "sword_merge",
+            "qingyuan_sword_pill_intent",
+            "qingyuan_bamboo_cloud_drive",
+            "qingyuan_layer5_intent"
+          ]
+        },
+        {
+          "layer": 8,
+          "techniques": [
+            "qingyuan_sword_ray",
+            "sword_shield",
+            "flying_sword_strike",
+            "sword_escape",
+            "green_bamboo_sword_qi",
+            "qingyuan_sword_silk",
+            "dual_sword_dance",
+            "sword_formation_basic",
+            "invisible_sword",
+            "sword_merge",
+            "qingyuan_sword_pill_intent",
+            "qingyuan_bamboo_cloud_drive",
+            "green_bamboo_sword_ray",
+            "qingyuan_layer5_intent"
+          ]
+        },
+        {
+          "layer": 9,
+          "techniques": [
+            "qingyuan_sword_ray",
+            "sword_shield",
+            "flying_sword_strike",
+            "sword_escape",
+            "green_bamboo_sword_qi",
+            "qingyuan_sword_silk",
+            "dual_sword_dance",
+            "sword_formation_basic",
+            "invisible_sword",
+            "sword_merge",
+            "qingyuan_sword_pill_intent",
+            "qingyuan_bamboo_cloud_drive",
+            "green_bamboo_sword_ray",
+            "qingyuan_sword_light_split",
+            "thousand_sword_array",
+            "qingyuan_layer5_intent",
+            "qingyuan_layer9_split_mastery"
+          ]
+        },
+        {
+          "layer": 10,
+          "techniques": [
+            "qingyuan_sword_ray",
+            "sword_shield",
+            "flying_sword_strike",
+            "sword_escape",
+            "green_bamboo_sword_qi",
+            "qingyuan_sword_silk",
+            "dual_sword_dance",
+            "sword_formation_basic",
+            "invisible_sword",
+            "sword_merge",
+            "qingyuan_sword_pill_intent",
+            "qingyuan_bamboo_cloud_drive",
+            "green_bamboo_sword_ray",
+            "qingyuan_sword_light_split",
+            "thousand_sword_array",
+            "sword_domain",
+            "qingyuan_layer5_intent",
+            "qingyuan_layer9_split_mastery"
+          ]
+        },
+        {
+          "layer": 11,
+          "techniques": [
+            "qingyuan_sword_ray",
+            "sword_shield",
+            "flying_sword_strike",
+            "sword_escape",
+            "green_bamboo_sword_qi",
+            "qingyuan_sword_silk",
+            "dual_sword_dance",
+            "sword_formation_basic",
+            "invisible_sword",
+            "sword_merge",
+            "qingyuan_sword_pill_intent",
+            "qingyuan_bamboo_cloud_drive",
+            "green_bamboo_sword_ray",
+            "qingyuan_sword_light_split",
+            "thousand_sword_array",
+            "sword_domain",
+            "wan_sword_return",
+            "qingyuan_layer5_intent",
+            "qingyuan_layer9_split_mastery"
+          ]
+        },
+        {
+          "layer": 12,
+          "techniques": [
+            "qingyuan_sword_ray",
+            "sword_shield",
+            "flying_sword_strike",
+            "sword_escape",
+            "green_bamboo_sword_qi",
+            "qingyuan_sword_silk",
+            "dual_sword_dance",
+            "sword_formation_basic",
+            "invisible_sword",
+            "sword_merge",
+            "qingyuan_sword_pill_intent",
+            "qingyuan_bamboo_cloud_drive",
+            "green_bamboo_sword_ray",
+            "qingyuan_sword_light_split",
+            "thousand_sword_array",
+            "sword_domain",
+            "wan_sword_return",
+            "pixie_thunder_sword",
+            "qingyuan_layer5_intent",
+            "qingyuan_layer9_split_mastery"
+          ]
+        },
+        {
+          "layer": 13,
+          "techniques": [
+            "qingyuan_sword_ray",
+            "sword_shield",
+            "flying_sword_strike",
+            "sword_escape",
+            "green_bamboo_sword_qi",
+            "qingyuan_sword_silk",
+            "dual_sword_dance",
+            "sword_formation_basic",
+            "invisible_sword",
+            "sword_merge",
+            "qingyuan_sword_pill_intent",
+            "qingyuan_bamboo_cloud_drive",
+            "green_bamboo_sword_ray",
+            "qingyuan_sword_light_split",
+            "thousand_sword_array",
+            "sword_domain",
+            "wan_sword_return",
+            "pixie_thunder_sword",
+            "qingyuan_layer5_intent",
+            "qingyuan_layer9_split_mastery"
+          ]
+        }
+      ]
     },
     {
       "id": "xuan_yin_art",
@@ -183,7 +472,8 @@
         "source_detail": null,
         "novel_arc": "乱星海-掩月",
         "note": "与血魔功分家",
-        "lore_v142": "贴原著气质精修"
+        "lore_v142": "贴原著气质精修",
+        "layers_max": 4
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -233,7 +523,37 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_polish": true
+      "v142_desc_polish": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "xuanyin_cold_aura",
+            "yin_corrosion"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "underworld_flame",
+            "corpse_armor"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "xuanyin_soul_thread",
+            "yin_soul_chain"
+          ]
+        },
+        {
+          "layer": 4,
+          "techniques": [
+            "soul_devouring_cloud",
+            "ghost_king_summon"
+          ]
+        }
+      ]
     },
     {
       "id": "dayan_art",
@@ -257,7 +577,8 @@
         "creator": "大衍神君",
         "dual_school": true,
         "lore_v141": "与千竹塔、傀儡、神识线绑定；完整大衍=稀有终点非刷物。",
-        "lore_v142": "贴原著气质精修"
+        "lore_v142": "贴原著气质精修",
+        "layers_max": 5
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -290,7 +611,53 @@
       ],
       "v138_field_fill": true,
       "v141_desc_polish": true,
-      "v142_desc_polish": true
+      "v142_desc_polish": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "dayan_sense_boost",
+            "dayan_eye",
+            "shishen_spike",
+            "sense_scan"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "dayan_split_mind",
+            "dayan_puppet_link",
+            "puppet_control_basic",
+            "shishen_spike"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "summon_wood_puppet",
+            "iron_puppet",
+            "puppet_swarm",
+            "shishen_spike",
+            "jingshen_spike"
+          ]
+        },
+        {
+          "layer": 4,
+          "techniques": [
+            "jingshen_spike",
+            "array_puppet",
+            "spirit_thread_control",
+            "dayan_split_mind"
+          ]
+        },
+        {
+          "layer": 5,
+          "techniques": [
+            "jingshen_spike",
+            "dayan_puppet_legion"
+          ]
+        }
+      ]
     },
     {
       "id": "lieyan_gong",
@@ -305,7 +672,8 @@
         "combat_style": "烈焰功 所属道途：mixed。",
         "structural_note": false,
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "QI_REFINING",
@@ -337,7 +705,15 @@
         "neutral",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "lieyan_true_fire_secret"
+          ]
+        }
+      ]
     },
     {
       "id": "beast_transformation_art",
@@ -348,7 +724,8 @@
       "setting": {
         "cultivation_type": "demon",
         "race": "demon_cultivator",
-        "combat_style": "化形、妖躯、血脉神通。"
+        "combat_style": "化形、妖躯、血脉神通。",
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "CORE_FORMATION",
@@ -370,7 +747,15 @@
         "qi_base",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "yao_transform_partial"
+          ]
+        }
+      ]
     },
     {
       "id": "ghost_nether_art",
@@ -386,7 +771,8 @@
         "combat_style": "阴体、驭鬼、冥河遁；怕至阳雷法。",
         "karma": "ghost_path",
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "layers_max": 4
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -415,7 +801,39 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "nether_ghost_walk"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "ghost_walk",
+            "nether_ghost_walk"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "ghost_walk",
+            "nether_ghost_walk",
+            "yin_body_condense"
+          ]
+        },
+        {
+          "layer": 4,
+          "techniques": [
+            "ghost_walk",
+            "nether_ghost_walk",
+            "yin_body_condense",
+            "yin_cluster_ghost_ultimate_secret"
+          ]
+        }
+      ]
     },
     {
       "id": "spirit_art_mulan",
@@ -428,7 +846,8 @@
         "sect_specialty": "mixed",
         "breakthrough": "门槛 QI_REFINING；具体突破条件见境界系统。",
         "combat_style": "慕兰灵术总纲 所属道途：mixed。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "QI_REFINING",
@@ -453,7 +872,15 @@
         "fashi",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "spirit_fengyuan_wind_wall"
+          ]
+        }
+      ]
     },
     {
       "id": "star_palace_art",
@@ -476,7 +903,8 @@
           "min": "star_palace_friendly"
         },
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "layers_max": 4
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -511,7 +939,53 @@
         "neutral",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "sea_lock_array",
+            "star_sea_seal_array",
+            "formation_trap_basic"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "sea_lock_array",
+            "star_sea_seal_array",
+            "formation_trap_basic",
+            "star_palace_patrol_beacon"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "sea_lock_array",
+            "star_sea_seal_array",
+            "formation_trap_basic",
+            "star_palace_patrol_beacon",
+            "star_palace_seal",
+            "star_palace_tidal_lock",
+            "star_sword_array",
+            "star_palace_star_ray"
+          ]
+        },
+        {
+          "layer": 4,
+          "techniques": [
+            "sea_lock_array",
+            "star_sea_seal_array",
+            "formation_trap_basic",
+            "star_palace_patrol_beacon",
+            "star_palace_seal",
+            "star_palace_tidal_lock",
+            "star_sword_array",
+            "star_palace_star_ray",
+            "star_palace_heaven_seal"
+          ]
+        }
+      ]
     },
     {
       "id": "inverse_star_art",
@@ -534,7 +1008,8 @@
           "conflicts": "star_palace"
         },
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "layers_max": 3
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -571,7 +1046,41 @@
         "movement",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "smuggle_rift_step",
+            "inverse_star_shadow_step",
+            "inverse_star_smuggle_route"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "smuggle_rift_step",
+            "inverse_star_shadow_step",
+            "inverse_star_smuggle_route",
+            "inverse_star_void_escape",
+            "inverse_star_chaos_brand",
+            "inverse_star_rebellion"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "smuggle_rift_step",
+            "inverse_star_shadow_step",
+            "inverse_star_smuggle_route",
+            "inverse_star_void_escape",
+            "inverse_star_chaos_brand",
+            "inverse_star_rebellion",
+            "inverse_star_covert_ultimate_secret",
+            "inverse_star_black_market_burst"
+          ]
+        }
+      ]
     },
     {
       "id": "tianfu_spirit_scripture",
@@ -587,7 +1096,8 @@
         "sect_specialty": "talisman",
         "breakthrough": "门槛 QI_REFINING；具体突破条件见境界系统。",
         "combat_style": "天符灵经 所属道途：talisman。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 4
       },
       "learn_requirements": {
         "realm_min": "QI_REFINING",
@@ -622,7 +1132,122 @@
         "neutral",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "cast_beast_contract_talisman",
+            "cast_bu_tian_talisman",
+            "cast_earth_wall_talisman",
+            "cast_fire_burst_talisman",
+            "cast_ghost_hide_talisman",
+            "cast_golden_armor_talisman",
+            "cast_ice_seal_talisman",
+            "cast_illusion_talisman",
+            "cast_inverse_star_cipher_talisman",
+            "cast_metal_blade_talisman",
+            "cast_spirit_fix_talisman",
+            "cast_spirit_gather_talisman"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "cast_beast_contract_talisman",
+            "cast_bu_tian_talisman",
+            "cast_earth_wall_talisman",
+            "cast_fire_burst_talisman",
+            "cast_ghost_hide_talisman",
+            "cast_golden_armor_talisman",
+            "cast_ice_seal_talisman",
+            "cast_illusion_talisman",
+            "cast_inverse_star_cipher_talisman",
+            "cast_metal_blade_talisman",
+            "cast_spirit_fix_talisman",
+            "cast_spirit_gather_talisman",
+            "cast_anti_demon_talisman",
+            "cast_escape_heaven_talisman",
+            "cast_invisibility_talisman",
+            "cast_mirage_heart_talisman",
+            "cast_soul_lock_talisman",
+            "cast_talisman_wooden_ox",
+            "cast_teleport_array_talisman",
+            "cast_yin_protect_talisman",
+            "golden_armor_talisman_cast",
+            "mid_grade_talisman_burst",
+            "spirit_chain_talisman_cast",
+            "tianfu_golden_chain"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "cast_beast_contract_talisman",
+            "cast_bu_tian_talisman",
+            "cast_earth_wall_talisman",
+            "cast_fire_burst_talisman",
+            "cast_ghost_hide_talisman",
+            "cast_golden_armor_talisman",
+            "cast_ice_seal_talisman",
+            "cast_illusion_talisman",
+            "cast_inverse_star_cipher_talisman",
+            "cast_metal_blade_talisman",
+            "cast_spirit_fix_talisman",
+            "cast_spirit_gather_talisman",
+            "cast_anti_demon_talisman",
+            "cast_escape_heaven_talisman",
+            "cast_invisibility_talisman",
+            "cast_mirage_heart_talisman",
+            "cast_soul_lock_talisman",
+            "cast_talisman_wooden_ox",
+            "cast_teleport_array_talisman",
+            "cast_yin_protect_talisman",
+            "golden_armor_talisman_cast",
+            "mid_grade_talisman_burst",
+            "spirit_chain_talisman_cast",
+            "tianfu_golden_chain",
+            "cast_space_anchor_talisman",
+            "cast_thunder_talisman",
+            "thunder_talisman_storm",
+            "tianfu_grade3_master_cast"
+          ]
+        },
+        {
+          "layer": 4,
+          "techniques": [
+            "cast_beast_contract_talisman",
+            "cast_bu_tian_talisman",
+            "cast_earth_wall_talisman",
+            "cast_fire_burst_talisman",
+            "cast_ghost_hide_talisman",
+            "cast_golden_armor_talisman",
+            "cast_ice_seal_talisman",
+            "cast_illusion_talisman",
+            "cast_inverse_star_cipher_talisman",
+            "cast_metal_blade_talisman",
+            "cast_spirit_fix_talisman",
+            "cast_spirit_gather_talisman",
+            "cast_anti_demon_talisman",
+            "cast_escape_heaven_talisman",
+            "cast_invisibility_talisman",
+            "cast_mirage_heart_talisman",
+            "cast_soul_lock_talisman",
+            "cast_talisman_wooden_ox",
+            "cast_teleport_array_talisman",
+            "cast_yin_protect_talisman",
+            "golden_armor_talisman_cast",
+            "mid_grade_talisman_burst",
+            "spirit_chain_talisman_cast",
+            "tianfu_golden_chain",
+            "cast_space_anchor_talisman",
+            "cast_thunder_talisman",
+            "thunder_talisman_storm",
+            "tianfu_grade3_master_cast",
+            "cast_life_save_talisman"
+          ]
+        }
+      ]
     },
     {
       "id": "yanyue_cycle_art",
@@ -638,7 +1263,8 @@
         "breakthrough": "门槛 FOUNDATION；具体突破条件见境界系统。",
         "combat_style": "素女轮回功（仿） 所属道途：dual_cultivation。",
         "structural_note": false,
-        "alignment": "yanyue"
+        "alignment": "yanyue",
+        "layers_max": 3
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -664,7 +1290,27 @@
         "demonic",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "suyu_cycle_drain"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "suyu_cycle_drain"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "suyu_cycle_drain"
+          ]
+        }
+      ]
     },
     {
       "id": "lingshou_beast_mind_art",
@@ -679,7 +1325,8 @@
         "breakthrough": "门槛 QI_REFINING；具体突破条件见境界系统。",
         "combat_style": "驭兽心法 所属道途：beast。",
         "structural_note": false,
-        "lore_v142": "贴原著气质精修"
+        "lore_v142": "贴原著气质精修",
+        "layers_max": 4
       },
       "learn_requirements": {
         "realm_min": "QI_REFINING",
@@ -704,7 +1351,43 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_polish": true
+      "v142_desc_polish": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "lingshou_call_pet",
+            "beast_tame_bond"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "lingshou_call_pet",
+            "beast_tame_bond",
+            "lingshou_shared_sense"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "lingshou_call_pet",
+            "beast_tame_bond",
+            "lingshou_shared_sense",
+            "lingshou_frenzy_command"
+          ]
+        },
+        {
+          "layer": 4,
+          "techniques": [
+            "lingshou_call_pet",
+            "beast_tame_bond",
+            "lingshou_shared_sense",
+            "lingshou_frenzy_command",
+            "lingshou_pack_hunt"
+          ]
+        }
+      ]
     },
     {
       "id": "qingxu_pure_tao_art",
@@ -718,7 +1401,8 @@
         "sect_specialty": "tao",
         "breakthrough": "门槛 QI_REFINING；具体突破条件见境界系统。",
         "combat_style": "清虚玄功 所属道途：tao。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 3
       },
       "learn_requirements": {
         "realm_min": "QI_REFINING",
@@ -745,7 +1429,35 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "qingxu_clear_mind",
+            "qingxu_wind_step"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "qingxu_clear_mind",
+            "qingxu_wind_step",
+            "qingxu_sword_clear",
+            "qingxu_seal_noise"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "qingxu_clear_mind",
+            "qingxu_wind_step",
+            "qingxu_sword_clear",
+            "qingxu_seal_noise",
+            "qingxu_cloud_sword_array"
+          ]
+        }
+      ]
     },
     {
       "id": "huadao_blade_intent",
@@ -759,7 +1471,8 @@
         "sect_specialty": "blade",
         "breakthrough": "门槛 QI_REFINING；具体突破条件见境界系统。",
         "combat_style": "化刀诀 所属道途：blade。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 3
       },
       "learn_requirements": {
         "realm_min": "QI_REFINING",
@@ -785,7 +1498,34 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "huadao_draw",
+            "huadao_intent_slash"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "huadao_draw",
+            "huadao_intent_slash",
+            "huadao_wind_blade",
+            "huadao_slash"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "huadao_draw",
+            "huadao_intent_slash",
+            "huadao_wind_blade",
+            "huadao_slash"
+          ]
+        }
+      ]
     },
     {
       "id": "mulan_wind_spirit_art",
@@ -804,7 +1544,8 @@
         "combat_style": "风灵墙、沙刃；不消耗丹田灵力而借天地灵气。",
         "region": "mulan_plains",
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "layers_max": 3
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -829,7 +1570,48 @@
         "fashi",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "spirit_art_beast_call",
+            "spirit_art_earth_wall",
+            "spirit_art_holy_light",
+            "spirit_art_wind_blade",
+            "spirit_art_wind_ride"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "mulan_earth_wall",
+            "mulan_wind_blade",
+            "spirit_art_array_anchor",
+            "spirit_art_beast_call",
+            "spirit_art_earth_wall",
+            "spirit_art_holy_light",
+            "spirit_art_sand_storm",
+            "spirit_art_wind_blade",
+            "spirit_art_wind_ride"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "mulan_earth_wall",
+            "mulan_holy_bird_call",
+            "mulan_wind_blade",
+            "spirit_art_array_anchor",
+            "spirit_art_beast_call",
+            "spirit_art_earth_wall",
+            "spirit_art_holy_light",
+            "spirit_art_sand_storm",
+            "spirit_art_wind_blade",
+            "spirit_art_wind_ride"
+          ]
+        }
+      ]
     },
     {
       "id": "tianlan_holy_beast_art",
@@ -844,7 +1626,8 @@
         "sect_specialty": "beast_spirit",
         "breakthrough": "门槛 QI_REFINING；具体突破条件见境界系统。",
         "combat_style": "天澜圣兽诀 所属道途：beast_spirit。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 3
       },
       "learn_requirements": {
         "realm_min": "QI_REFINING",
@@ -870,7 +1653,33 @@
         "beast",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "spirit_art_holy_beast_call",
+            "tianlan_beast_soul_link"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "spirit_art_holy_beast_call",
+            "tianlan_beast_soul_link",
+            "spirit_art_holy_feather_guard"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "spirit_art_holy_beast_call",
+            "tianlan_beast_soul_link",
+            "spirit_art_holy_feather_guard",
+            "tianlan_holy_descent"
+          ]
+        }
+      ]
     },
     {
       "id": "tiannan_border_guard_art",
@@ -885,7 +1694,8 @@
         "sect_specialty": "defense",
         "breakthrough": "门槛 FOUNDATION；具体突破条件见境界系统。",
         "combat_style": "天南守边诀 所属道途：defense。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -906,7 +1716,15 @@
         "body",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "border_guard_stance"
+          ]
+        }
+      ]
     },
     {
       "id": "chaotic_sea_nav_art",
@@ -920,7 +1738,8 @@
         "sect_specialty": "water",
         "breakthrough": "门槛 FOUNDATION；具体突破条件见境界系统。",
         "combat_style": "星海御浪诀 所属道途：water。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 2
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -945,7 +1764,24 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "chaotic_wave_ride",
+            "nav_tide_step"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "chaotic_wave_ride",
+            "nav_tide_step",
+            "chaotic_storm_brace"
+          ]
+        }
+      ]
     },
     {
       "id": "demonic_blood_art_generic",
@@ -964,7 +1800,8 @@
         "breakthrough": "门槛 FOUNDATION；具体突破条件见境界系统。",
         "combat_style": "血煞功（魔道） 所属道途：demonic。",
         "structural_note": false,
-        "alignment": "demonic"
+        "alignment": "demonic",
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -989,7 +1826,20 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "blood_curse_strike",
+            "blood_sword_slash",
+            "demon_armor",
+            "demon_claw",
+            "demon_contract",
+            "demon_form"
+          ]
+        }
+      ]
     },
     {
       "id": "star_palace_sea_art",
@@ -1004,7 +1854,8 @@
         "sect_specialty": "water",
         "breakthrough": "门槛 FOUNDATION；具体突破条件见境界系统。",
         "combat_style": "镇海诀 所属道途：water。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 2
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -1029,7 +1880,24 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "star_sea_wave",
+            "star_palace_tide_cut"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "star_sea_wave",
+            "star_palace_tide_cut",
+            "star_palace_whirlpool"
+          ]
+        }
+      ]
     },
     {
       "id": "inverse_star_shadow_art",
@@ -1045,7 +1913,8 @@
         "sect_specialty": "stealth",
         "breakthrough": "门槛 FOUNDATION；具体突破条件见境界系统。",
         "combat_style": "逆星潜行诀 所属道途：stealth。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 2
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -1070,7 +1939,24 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "inverse_shadow_step",
+            "inverse_star_double_feint"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "inverse_shadow_step",
+            "inverse_star_double_feint",
+            "inverse_star_veil_trace"
+          ]
+        }
+      ]
     },
     {
       "id": "dajin_clan_ancestor_art",
@@ -1085,7 +1971,8 @@
         "sect_specialty": "mixed",
         "breakthrough": "门槛 QI_REFINING；具体突破条件见境界系统。",
         "combat_style": "世家祖传诀 所属道途：mixed。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "QI_REFINING",
@@ -1110,7 +1997,16 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "dajin_clan_heritage_bolt",
+            "dajin_clan_heritage_shield"
+          ]
+        }
+      ]
     },
     {
       "id": "kunwu_ice_guard_art",
@@ -1124,7 +2020,8 @@
         "sect_specialty": "ice",
         "breakthrough": "门槛 CORE_FORMATION；具体突破条件见境界系统。",
         "combat_style": "昆吾寒罡诀 所属道途：ice。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 2
       },
       "learn_requirements": {
         "realm_min": "CORE_FORMATION",
@@ -1150,7 +2047,24 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "kunwu_frost_armor",
+            "kunwu_frost_spike"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "kunwu_frost_armor",
+            "kunwu_frost_spike",
+            "kunwu_absolute_zero_guard"
+          ]
+        }
+      ]
     },
     {
       "id": "yanyue_illusion_art",
@@ -1165,7 +2079,8 @@
         "sect_specialty": "illusion",
         "breakthrough": "门槛 见条目；具体突破条件见境界系统。",
         "combat_style": "掩月幻心诀 所属道途：illusion。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 3
       },
       "learn_requirements": {
         "faction": "yanyue_sect",
@@ -1191,7 +2106,29 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "yanyue_mirage"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "yanyue_mirage",
+            "yanyue_heart_mirror"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "yanyue_mirage",
+            "yanyue_heart_mirror"
+          ]
+        }
+      ]
     },
     {
       "id": "huangfeng_alchemy_scripture",
@@ -1232,7 +2169,17 @@
         "neutral",
         "craft_alchemy"
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "medicine_king_pill_boost",
+            "luoyun_pill_emergency",
+            "heal_qi"
+          ]
+        }
+      ]
     },
     {
       "id": "qixuan_mortal_art",
@@ -1269,7 +2216,17 @@
         "neutral",
         "mixed"
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "sect_body_intro",
+            "body_hardness",
+            "heal_qi"
+          ]
+        }
+      ]
     },
     {
       "id": "giant_sword_art",
@@ -1286,7 +2243,8 @@
         "breakthrough": "门槛 QI_REFINING；具体突破条件见境界系统。",
         "combat_style": "巨剑诀 所属道途：metal。",
         "structural_note": false,
-        "lore_v142": "贴原著气质精修"
+        "lore_v142": "贴原著气质精修",
+        "layers_max": 4
       },
       "learn_requirements": {
         "realm_min": "QI_REFINING",
@@ -1311,7 +2269,43 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_polish": true
+      "v142_desc_polish": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "giant_sword_guard",
+            "giant_sword_smash"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "giant_sword_guard",
+            "giant_sword_smash",
+            "giant_sword_cleave"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "giant_sword_guard",
+            "giant_sword_smash",
+            "giant_sword_cleave",
+            "giant_sword_throw"
+          ]
+        },
+        {
+          "layer": 4,
+          "techniques": [
+            "giant_sword_guard",
+            "giant_sword_smash",
+            "giant_sword_cleave",
+            "giant_sword_throw",
+            "giant_sword_mountain"
+          ]
+        }
+      ]
     },
     {
       "id": "qixuan_azure_pearl_art",
@@ -1326,7 +2320,8 @@
         "sect_specialty": "water",
         "breakthrough": "门槛 QI_REFINING；具体突破条件见境界系统。",
         "combat_style": "青珠诀 所属道途：water。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "QI_REFINING",
@@ -1352,7 +2347,15 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "qingzhu_water_orb"
+          ]
+        }
+      ]
     },
     {
       "id": "qianzhu_puppet_art",
@@ -1370,7 +2373,8 @@
         "breakthrough": "门槛 QI_REFINING；具体突破条件见境界系统。",
         "combat_style": "傀儡",
         "structural_note": false,
-        "novel_arc": "筑基争大衍"
+        "novel_arc": "筑基争大衍",
+        "layers_max": 3
       },
       "learn_requirements": {
         "realm_min": "QI_REFINING",
@@ -1395,7 +2399,28 @@
         "puppet",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "qianzhu_puppet_assemble"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "qianzhu_puppet_assemble",
+            "puppet_control_basic"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "puppet_qianzhu_ultimate_secret"
+          ]
+        }
+      ]
     },
     {
       "id": "yuling_beast_puppet_art",
@@ -1411,7 +2436,8 @@
         "sect_specialty": "puppet",
         "breakthrough": "门槛 FOUNDATION；具体突破条件见境界系统。",
         "combat_style": "御灵兽傀诀 所属道途：puppet。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 2
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -1433,7 +2459,22 @@
         "puppet",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "beast_soul_puppet_bind"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "beast_soul_puppet_bind",
+            "puppet_yuling_ultimate_secret"
+          ]
+        }
+      ]
     },
     {
       "id": "dayan_true_solution",
@@ -1454,7 +2495,8 @@
         "novel_arc": "结丹+",
         "prerequisite": "大衍诀入门",
         "lore_v141": "与千竹塔、傀儡、神识线绑定；完整大衍=稀有终点非刷物。",
-        "lore_v142": "贴原著气质精修"
+        "lore_v142": "贴原著气质精修",
+        "layers_max": 3
       },
       "learn_requirements": {
         "realm_min": "CORE_FORMATION",
@@ -1488,7 +2530,32 @@
       ],
       "v138_field_fill": true,
       "v141_desc_polish": true,
-      "v142_desc_polish": true
+      "v142_desc_polish": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "jingshen_spike",
+            "dayan_puppet_legion",
+            "dayan_split_mind"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "dayan_puppet_legion",
+            "puppet_swarm",
+            "jingshen_spike"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "jingshen_spike",
+            "dayan_puppet_legion"
+          ]
+        }
+      ]
     },
     {
       "id": "guiling_soul_art",
@@ -1507,7 +2574,8 @@
         "karma": "demonic_karma",
         "lore_ref": null,
         "source_detail": null,
-        "lore_v142": "贴原著气质精修"
+        "lore_v142": "贴原著气质精修",
+        "layers_max": 2
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -1541,7 +2609,24 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_polish": true
+      "v142_desc_polish": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "guiling_corpse_summon",
+            "soul_devour"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "demonic_guiling_ultimate_secret",
+            "guiling_corpse_summon",
+            "soul_devour"
+          ]
+        }
+      ]
     },
     {
       "id": "hehuan_mind_art",
@@ -1560,7 +2645,8 @@
         "lore_ref": null,
         "source_detail": null,
         "alignment": "demonic_dual",
-        "lore_v142": "贴原著气质精修"
+        "lore_v142": "贴原著气质精修",
+        "layers_max": 2
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -1589,7 +2675,26 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_polish": true
+      "v142_desc_polish": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "hehuan_charm",
+            "hehuan_charm_art",
+            "hehuan_soul_charm"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "hehuan_charm",
+            "hehuan_charm_art",
+            "hehuan_soul_charm",
+            "hehuan_soul_devour_secret"
+          ]
+        }
+      ]
     },
     {
       "id": "tianmo_body_art",
@@ -1607,7 +2712,8 @@
         "lore_ref": null,
         "source_detail": null,
         "lore_v141": "魔道体修入口，非无代价战力。",
-        "lore_v142": "贴原著气质精修"
+        "lore_v142": "贴原著气质精修",
+        "layers_max": 4
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -1640,7 +2746,71 @@
       ],
       "v138_field_fill": true,
       "v141_desc_polish": true,
-      "v142_desc_polish": true
+      "v142_desc_polish": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "body_flash",
+            "bone_crush",
+            "demon_flame",
+            "dragon_strength",
+            "iron_skin",
+            "palm_wind",
+            "qi_burst_palm",
+            "tianmo_blood_armor",
+            "vajra_body"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "body_flash",
+            "body_hardness",
+            "bone_crush",
+            "demon_flame",
+            "dragon_strength",
+            "iron_skin",
+            "palm_wind",
+            "qi_burst_palm",
+            "tianmo_blood_armor",
+            "vajra_body"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "body_flash",
+            "body_hardness",
+            "bone_crush",
+            "demon_flame",
+            "dragon_strength",
+            "iron_skin",
+            "palm_wind",
+            "qi_burst_palm",
+            "tianmo_blood_armor",
+            "tianmo_demon_body_secret",
+            "vajra_body"
+          ]
+        },
+        {
+          "layer": 4,
+          "techniques": [
+            "barbarian_roar",
+            "body_flash",
+            "body_hardness",
+            "bone_crush",
+            "demon_flame",
+            "dragon_strength",
+            "iron_skin",
+            "palm_wind",
+            "qi_burst_palm",
+            "tianmo_blood_armor",
+            "tianmo_demon_body_secret",
+            "vajra_body"
+          ]
+        }
+      ]
     },
     {
       "id": "qingluo_poison_art",
@@ -1655,7 +2825,8 @@
         "faction": "qingluo_sect",
         "combat_style": "毒虫、毒雾、持续伤害。",
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "layers_max": 2
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -1680,7 +2851,24 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "poison_mist",
+            "qingluo_poison_needle"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "poison_mist",
+            "qingluo_poison_needle",
+            "qingluo_ten_poison_seal"
+          ]
+        }
+      ]
     },
     {
       "id": "wanhu_phantom_art",
@@ -1695,7 +2883,8 @@
         "faction": "wanhu_sect",
         "combat_style": "幻境、分身、规避锁定。",
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "layers_max": 3
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -1720,7 +2909,30 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "fox_phantom_shift"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "fox_phantom_shift",
+            "wanhu_nine_illusion"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "fox_phantom_shift",
+            "wanhu_nine_illusion",
+            "wanhu_thousand_phantom_domain"
+          ]
+        }
+      ]
     },
     {
       "id": "xuewu_blood_art",
@@ -1735,7 +2947,8 @@
         "faction": "xuewu_sect",
         "combat_style": "血咒、精血换威能。",
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "layers_max": 2
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -1760,7 +2973,24 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "blood_sacrifice",
+            "xuewu_blood_curse_mark"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "blood_curse_mark",
+            "blood_sacrifice",
+            "xuewu_blood_curse_mark"
+          ]
+        }
+      ]
     },
     {
       "id": "tianlan_beast_soul_art",
@@ -1776,7 +3006,8 @@
         "sect_specialty": "beast",
         "breakthrough": "门槛 QI_REFINING；具体突破条件见境界系统。",
         "combat_style": "天澜御兽诀 所属道途：beast。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "QI_REFINING",
@@ -1797,7 +3028,15 @@
         "beast",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "tianlan_beast_soul_link"
+          ]
+        }
+      ]
     },
     {
       "id": "yin_luo_ghost_art",
@@ -1815,7 +3054,8 @@
         "breakthrough": "门槛 QI_REFINING；具体突破条件见境界系统。",
         "combat_style": "阴罗鬼诀 所属道途：ghost。",
         "structural_note": false,
-        "lore_v142": "贴原著气质精修"
+        "lore_v142": "贴原著气质精修",
+        "layers_max": 4
       },
       "learn_requirements": {
         "realm_min": "QI_REFINING",
@@ -1842,7 +3082,50 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_polish": true
+      "v142_desc_polish": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "yin_soul_devour",
+            "yinluo_banner_call"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "yin_soul_devour",
+            "yinluo_banner_call",
+            "soul_banner_wave",
+            "yin_luo_ghost_cloak"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "yin_soul_devour",
+            "yinluo_banner_call",
+            "soul_banner_wave",
+            "yin_luo_ghost_cloak",
+            "yinluo_soul_harvest",
+            "ghost_king_avatar",
+            "yinluo_nine_soul"
+          ]
+        },
+        {
+          "layer": 4,
+          "techniques": [
+            "yin_soul_devour",
+            "yinluo_banner_call",
+            "soul_banner_wave",
+            "yin_luo_ghost_cloak",
+            "yinluo_soul_harvest",
+            "ghost_king_avatar",
+            "yinluo_nine_soul",
+            "yinluo_corpse_tide"
+          ]
+        }
+      ]
     },
     {
       "id": "taixu_gong",
@@ -1858,7 +3141,8 @@
         "structural_note": false,
         "lore_ref": null,
         "source_detail": null,
-        "lore_v142": "贴原著气质精修"
+        "lore_v142": "贴原著气质精修",
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_max_practice": "FOUNDATION",
@@ -1883,7 +3167,21 @@
       ],
       "v138_field_fill": true,
       "v141_desc_polish": true,
-      "v142_desc_polish": true
+      "v142_desc_polish": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "bagua_seal",
+            "cloud_walk",
+            "dao_nature_breath",
+            "five_thunder",
+            "immortal_rope",
+            "pure_yang_sword",
+            "taoist_seal"
+          ]
+        }
+      ]
     },
     {
       "id": "jinxuan_gong",
@@ -1899,7 +3197,8 @@
         "combat_style": "金玄功 所属道途：metal。",
         "structural_note": false,
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_max_practice": "FOUNDATION",
@@ -1928,7 +3227,15 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "metal_sword_finger"
+          ]
+        }
+      ]
     },
     {
       "id": "muyuan_gong",
@@ -1944,7 +3251,8 @@
         "combat_style": "木元功 所属道途：wood。",
         "structural_note": false,
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_max_practice": "FOUNDATION",
@@ -1973,7 +3281,15 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "muyuan_wood_spike"
+          ]
+        }
+      ]
     },
     {
       "id": "shuiyuan_gong",
@@ -1989,7 +3305,8 @@
         "combat_style": "水元功 所属道途：water。",
         "structural_note": false,
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_max_practice": "FOUNDATION",
@@ -2018,7 +3335,15 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "water_mirror_reflect"
+          ]
+        }
+      ]
     },
     {
       "id": "huoyuan_gong",
@@ -2034,7 +3359,8 @@
         "combat_style": "火元功 所属道途：fire。",
         "structural_note": false,
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_max_practice": "FOUNDATION",
@@ -2063,7 +3389,15 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "huoyuan_fire_whip"
+          ]
+        }
+      ]
     },
     {
       "id": "tuyuan_gong",
@@ -2079,7 +3413,8 @@
         "combat_style": "土元功 所属道途：earth。",
         "structural_note": false,
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_max_practice": "FOUNDATION",
@@ -2108,7 +3443,15 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "earth_mountain_press"
+          ]
+        }
+      ]
     },
     {
       "id": "qingmu_gong",
@@ -2124,7 +3467,8 @@
         "combat_style": "青木诀 所属道途：wood。",
         "structural_note": false,
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -2153,7 +3497,15 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "wood_spirit_vine"
+          ]
+        }
+      ]
     },
     {
       "id": "lieyan_zhenjing",
@@ -2169,7 +3521,8 @@
         "combat_style": "烈焰真经 所属道途：fire。",
         "structural_note": false,
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -2201,7 +3554,15 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "flame_serpent_storm"
+          ]
+        }
+      ]
     },
     {
       "id": "xuanbing_zhenjing",
@@ -2217,7 +3578,8 @@
         "combat_style": "玄冰真经 所属道途：ice。",
         "structural_note": false,
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -2245,7 +3607,15 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "ice_jade_shield"
+          ]
+        }
+      ]
     },
     {
       "id": "jinyi_gong",
@@ -2259,7 +3629,8 @@
         "sect_specialty": "metal",
         "breakthrough": "门槛 FOUNDATION；具体突破条件见境界系统。",
         "combat_style": "金翼功 所属道途：metal。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -2287,7 +3658,15 @@
         "neutral",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "jinyi_blade_feather"
+          ]
+        }
+      ]
     },
     {
       "id": "yanyue_gong",
@@ -2310,7 +3689,8 @@
         "faction": "yanyue_sect",
         "region": "tiannan",
         "lore_ref": null,
-        "source_detail": "yanyue_sect"
+        "source_detail": "yanyue_sect",
+        "layers_max": 3
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -2339,7 +3719,31 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "yanyue_mirage",
+            "yanyue_moon_veil"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "yanyue_mirage",
+            "yanyue_moon_veil"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "yanyue_mirage",
+            "yanyue_moon_veil",
+            "yanyue_heart_mirror"
+          ]
+        }
+      ]
     },
     {
       "id": "luoyun_dan_dao",
@@ -2362,7 +3766,8 @@
         "faction": "luoyun_sect",
         "region": "tiannan",
         "lore_ref": null,
-        "source_detail": "luoyun_sect"
+        "source_detail": "luoyun_sect",
+        "layers_max": 3
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -2393,7 +3798,32 @@
         "neutral",
         "craft_alchemy"
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "luoyun_refine_flame_steady",
+            "luoyun_spirit_flame"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "luoyun_refine_flame_steady",
+            "luoyun_spirit_flame",
+            "luoyun_pill_emergency"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "luoyun_refine_flame_steady",
+            "luoyun_spirit_flame",
+            "luoyun_pill_emergency"
+          ]
+        }
+      ]
     },
     {
       "id": "tianfu_scripture",
@@ -2416,7 +3846,8 @@
         "faction": "tianfu_sect",
         "region": "tiannan",
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "layers_max": 3
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -2452,7 +3883,37 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "tianfu_ink_resonance",
+            "spirit_shield_talisman",
+            "seal_talisman"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "tianfu_ink_resonance",
+            "spirit_shield_talisman",
+            "seal_talisman",
+            "tianfu_golden_chain",
+            "explosion_talisman"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "tianfu_ink_resonance",
+            "spirit_shield_talisman",
+            "seal_talisman",
+            "tianfu_golden_chain",
+            "explosion_talisman"
+          ]
+        }
+      ]
     },
     {
       "id": "tiannan_seven_sect_base",
@@ -2489,7 +3950,17 @@
         "neutral",
         "mixed"
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "fireball",
+            "dingshen_talisman_qi",
+            "spirit_shield"
+          ]
+        }
+      ]
     },
     {
       "id": "dajin_buddhist_base",
@@ -2501,7 +3972,8 @@
         "cultivation_type": "qi",
         "sect_specialty": "buddhist",
         "region": "dajin",
-        "combat_style": "金刚护体、降魔杵；克魔克鬼。"
+        "combat_style": "金刚护体、降魔杵；克魔克鬼。",
+        "layers_max": 2
       },
       "learn_requirements": {
         "realm_min": "QI_REFINING",
@@ -2531,7 +4003,26 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "vajra_palm",
+            "dajin_buddhist_vajra",
+            "dajin_zen_barrier"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "vajra_palm",
+            "dajin_buddhist_vajra",
+            "dajin_zen_barrier",
+            "dajin_subdue_demon_chant"
+          ]
+        }
+      ]
     },
     {
       "id": "void_refining_scripture",
@@ -2546,7 +4037,8 @@
         "region": "spirit_world",
         "lore_ref": null,
         "source_detail": null,
-        "lore_v142": "贴原著气质精修"
+        "lore_v142": "贴原著气质精修",
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "VOID_REFINING",
@@ -2573,7 +4065,16 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_polish": true
+      "v142_desc_polish": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "void_refine_space_sense",
+            "void_rift_step"
+          ]
+        }
+      ]
     },
     {
       "id": "great_vehicle_dao",
@@ -2586,7 +4087,8 @@
         "realm_focus": "GREAT_VEHICLE",
         "combat_style": "法相、天地元气调动；大乘标志。",
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "layers_max": 2
       },
       "learn_requirements": {
         "realm_min": "GREAT_VEHICLE",
@@ -2612,7 +4114,24 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "great_vehicle_seal",
+            "great_vehicle_dao_light"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "great_vehicle_seal",
+            "great_vehicle_dao_light",
+            "great_vehicle_world_press"
+          ]
+        }
+      ]
     },
     {
       "id": "spirit_severing_art",
@@ -2626,7 +4145,8 @@
         "combat_style": "法则感悟、神魂杀伐；代价极大。",
         "lore_ref": null,
         "source_detail": null,
-        "note": "勿与 lian_shen_shu 混淆"
+        "note": "勿与 lian_shen_shu 混淆",
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "SPIRIT_SEVERING",
@@ -2649,7 +4169,15 @@
         "divine_sense",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "spirit_sever_generic_probe"
+          ]
+        }
+      ]
     },
     {
       "id": "barbarian_body_art",
@@ -2663,7 +4191,8 @@
         "region": "barbarian_wasteland",
         "combat_style": "妖血淬体、近战碾压。",
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "VOID_REFINING",
@@ -2685,7 +4214,15 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "barbarian_roar_art"
+          ]
+        }
+      ]
     },
     {
       "id": "tianyuan_guard_art",
@@ -2700,7 +4237,8 @@
         "combat_style": "合阵、守城、对妖加成。",
         "region": "tianyuan",
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "SPIRIT_SEVERING",
@@ -2728,7 +4266,16 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "tianyuan_guard_stance",
+            "tianyuan_wall_array"
+          ]
+        }
+      ]
     },
     {
       "id": "fallen_demon_art",
@@ -2742,7 +4289,8 @@
         "region": "fallen_demon_valley",
         "combat_style": "魔化变身、魔气侵蚀；心魔风险高。",
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "NASCENT_SOUL",
@@ -2767,7 +4315,15 @@
         "demonic",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "fallen_demon_mist"
+          ]
+        }
+      ]
     },
     {
       "id": "blood_demon_art",
@@ -2783,7 +4339,8 @@
         "structural_note": false,
         "lore_ref": null,
         "source_detail": null,
-        "alignment": "demonic"
+        "alignment": "demonic",
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "CORE_FORMATION",
@@ -2808,7 +4365,15 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "blood_demon_slash"
+          ]
+        }
+      ]
     },
     {
       "id": "xuantian_ice_art",
@@ -2825,7 +4390,8 @@
         "structural_note": false,
         "lore_ref": null,
         "source_detail": null,
-        "lore_v142": "贴原著气质精修"
+        "lore_v142": "贴原著气质精修",
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "CORE_FORMATION",
@@ -2853,7 +4419,15 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_polish": true
+      "v142_desc_polish": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "xuantian_ice_prison"
+          ]
+        }
+      ]
     },
     {
       "id": "wudang_sword_art",
@@ -2867,7 +4441,8 @@
         "sect_specialty": "sword",
         "breakthrough": "门槛 FOUNDATION；具体突破条件见境界系统。",
         "combat_style": "武当剑诀（仿） 所属道途：sword。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -2893,7 +4468,15 @@
       "element": "neutral",
       "school": true,
       "alignment": "neutral",
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "wudang_sword_form"
+          ]
+        }
+      ]
     },
     {
       "id": "nangong_wangzu_art",
@@ -2929,7 +4512,17 @@
         "neutral",
         "mixed"
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "divine_sense_scan",
+            "spirit_recovery",
+            "fireball"
+          ]
+        }
+      ]
     },
     {
       "id": "lingzu_pearl_art",
@@ -2943,7 +4536,8 @@
         "race": "spirit_race",
         "combat_style": "灵珠、珠光护体。",
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "SPIRIT_SEVERING",
@@ -2965,7 +4559,15 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "lingzu_pearl_barrage"
+          ]
+        }
+      ]
     },
     {
       "id": "generic_cultivation_qi_refining",
@@ -3000,7 +4602,79 @@
         "neutral",
         "mixed"
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "fireball"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "fireball"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "fireball",
+            "dingshen_talisman_qi"
+          ]
+        },
+        {
+          "layer": 4,
+          "techniques": [
+            "fireball",
+            "dingshen_talisman_qi"
+          ]
+        },
+        {
+          "layer": 5,
+          "techniques": [
+            "fireball",
+            "dingshen_talisman_qi",
+            "wind_ride"
+          ]
+        },
+        {
+          "layer": 6,
+          "techniques": [
+            "fireball",
+            "dingshen_talisman_qi",
+            "wind_ride"
+          ]
+        },
+        {
+          "layer": 7,
+          "techniques": [
+            "fireball",
+            "dingshen_talisman_qi",
+            "wind_ride",
+            "heal_qi"
+          ]
+        },
+        {
+          "layer": 8,
+          "techniques": [
+            "fireball",
+            "dingshen_talisman_qi",
+            "wind_ride",
+            "heal_qi"
+          ]
+        },
+        {
+          "layer": 9,
+          "techniques": [
+            "fireball",
+            "dingshen_talisman_qi",
+            "wind_ride",
+            "heal_qi",
+            "spirit_shield"
+          ]
+        }
+      ]
     },
     {
       "id": "generic_cultivation_foundation",
@@ -3035,7 +4709,88 @@
         "neutral",
         "mixed"
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "spirit_shield",
+            "heal_qi"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "spirit_shield",
+            "heal_qi"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "spirit_shield",
+            "heal_qi",
+            "wood_bind"
+          ]
+        },
+        {
+          "layer": 4,
+          "techniques": [
+            "spirit_shield",
+            "heal_qi",
+            "wood_bind"
+          ]
+        },
+        {
+          "layer": 5,
+          "techniques": [
+            "spirit_shield",
+            "heal_qi",
+            "wood_bind",
+            "thunder_palm"
+          ]
+        },
+        {
+          "layer": 6,
+          "techniques": [
+            "spirit_shield",
+            "heal_qi",
+            "wood_bind",
+            "thunder_palm"
+          ]
+        },
+        {
+          "layer": 7,
+          "techniques": [
+            "spirit_shield",
+            "heal_qi",
+            "wood_bind",
+            "thunder_palm",
+            "divine_sense_scan"
+          ]
+        },
+        {
+          "layer": 8,
+          "techniques": [
+            "spirit_shield",
+            "heal_qi",
+            "wood_bind",
+            "thunder_palm",
+            "divine_sense_scan"
+          ]
+        },
+        {
+          "layer": 9,
+          "techniques": [
+            "spirit_shield",
+            "heal_qi",
+            "wood_bind",
+            "thunder_palm",
+            "divine_sense_scan",
+            "luoyan_bu"
+          ]
+        }
+      ]
     },
     {
       "id": "generic_cultivation_core_formation",
@@ -3070,7 +4825,88 @@
         "neutral",
         "mixed"
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "thunder_palm",
+            "divine_sense_scan"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "thunder_palm",
+            "divine_sense_scan"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "thunder_palm",
+            "divine_sense_scan",
+            "spirit_recovery"
+          ]
+        },
+        {
+          "layer": 4,
+          "techniques": [
+            "thunder_palm",
+            "divine_sense_scan",
+            "spirit_recovery"
+          ]
+        },
+        {
+          "layer": 5,
+          "techniques": [
+            "thunder_palm",
+            "divine_sense_scan",
+            "spirit_recovery",
+            "wood_bind"
+          ]
+        },
+        {
+          "layer": 6,
+          "techniques": [
+            "thunder_palm",
+            "divine_sense_scan",
+            "spirit_recovery",
+            "wood_bind"
+          ]
+        },
+        {
+          "layer": 7,
+          "techniques": [
+            "thunder_palm",
+            "divine_sense_scan",
+            "spirit_recovery",
+            "wood_bind",
+            "group_heal"
+          ]
+        },
+        {
+          "layer": 8,
+          "techniques": [
+            "thunder_palm",
+            "divine_sense_scan",
+            "spirit_recovery",
+            "wood_bind",
+            "group_heal"
+          ]
+        },
+        {
+          "layer": 9,
+          "techniques": [
+            "thunder_palm",
+            "divine_sense_scan",
+            "spirit_recovery",
+            "wood_bind",
+            "group_heal",
+            "body_repair"
+          ]
+        }
+      ]
     },
     {
       "id": "generic_cultivation_nascent_soul",
@@ -3105,7 +4941,88 @@
         "neutral",
         "mixed"
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "divine_sense_scan",
+            "spirit_recovery"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "divine_sense_scan",
+            "spirit_recovery"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "divine_sense_scan",
+            "spirit_recovery",
+            "group_heal"
+          ]
+        },
+        {
+          "layer": 4,
+          "techniques": [
+            "divine_sense_scan",
+            "spirit_recovery",
+            "group_heal"
+          ]
+        },
+        {
+          "layer": 5,
+          "techniques": [
+            "divine_sense_scan",
+            "spirit_recovery",
+            "group_heal",
+            "soul_attack_wave"
+          ]
+        },
+        {
+          "layer": 6,
+          "techniques": [
+            "divine_sense_scan",
+            "spirit_recovery",
+            "group_heal",
+            "soul_attack_wave"
+          ]
+        },
+        {
+          "layer": 7,
+          "techniques": [
+            "divine_sense_scan",
+            "spirit_recovery",
+            "group_heal",
+            "soul_attack_wave",
+            "body_repair"
+          ]
+        },
+        {
+          "layer": 8,
+          "techniques": [
+            "divine_sense_scan",
+            "spirit_recovery",
+            "group_heal",
+            "soul_attack_wave",
+            "body_repair"
+          ]
+        },
+        {
+          "layer": 9,
+          "techniques": [
+            "divine_sense_scan",
+            "spirit_recovery",
+            "group_heal",
+            "soul_attack_wave",
+            "body_repair",
+            "revive_weak"
+          ]
+        }
+      ]
     },
     {
       "id": "generic_cultivation_deity_transformation",
@@ -3140,7 +5057,83 @@
         "neutral",
         "mixed"
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "soul_attack_wave",
+            "spirit_recovery"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "soul_attack_wave",
+            "spirit_recovery"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "soul_attack_wave",
+            "spirit_recovery"
+          ]
+        },
+        {
+          "layer": 4,
+          "techniques": [
+            "soul_attack_wave",
+            "spirit_recovery"
+          ]
+        },
+        {
+          "layer": 5,
+          "techniques": [
+            "soul_attack_wave",
+            "spirit_recovery",
+            "group_heal",
+            "divine_sense_lock"
+          ]
+        },
+        {
+          "layer": 6,
+          "techniques": [
+            "soul_attack_wave",
+            "spirit_recovery",
+            "group_heal",
+            "divine_sense_lock"
+          ]
+        },
+        {
+          "layer": 7,
+          "techniques": [
+            "soul_attack_wave",
+            "spirit_recovery",
+            "group_heal",
+            "divine_sense_lock"
+          ]
+        },
+        {
+          "layer": 8,
+          "techniques": [
+            "soul_attack_wave",
+            "spirit_recovery",
+            "group_heal",
+            "divine_sense_lock"
+          ]
+        },
+        {
+          "layer": 9,
+          "techniques": [
+            "soul_attack_wave",
+            "spirit_recovery",
+            "group_heal",
+            "divine_sense_lock",
+            "revive_weak"
+          ]
+        }
+      ]
     },
     {
       "id": "generic_cultivation_void_refining",
@@ -3177,7 +5170,78 @@
         "mixed"
       ],
       "v138_field_fill": true,
-      "v142_desc_polish": true
+      "v142_desc_polish": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "divine_sense_lock",
+            "spirit_recovery"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "divine_sense_lock",
+            "spirit_recovery"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "divine_sense_lock",
+            "spirit_recovery"
+          ]
+        },
+        {
+          "layer": 4,
+          "techniques": [
+            "divine_sense_lock",
+            "spirit_recovery"
+          ]
+        },
+        {
+          "layer": 5,
+          "techniques": [
+            "divine_sense_lock",
+            "spirit_recovery",
+            "soul_attack_wave"
+          ]
+        },
+        {
+          "layer": 6,
+          "techniques": [
+            "divine_sense_lock",
+            "spirit_recovery",
+            "soul_attack_wave"
+          ]
+        },
+        {
+          "layer": 7,
+          "techniques": [
+            "divine_sense_lock",
+            "spirit_recovery",
+            "soul_attack_wave"
+          ]
+        },
+        {
+          "layer": 8,
+          "techniques": [
+            "divine_sense_lock",
+            "spirit_recovery",
+            "soul_attack_wave"
+          ]
+        },
+        {
+          "layer": 9,
+          "techniques": [
+            "divine_sense_lock",
+            "spirit_recovery",
+            "soul_attack_wave",
+            "group_heal"
+          ]
+        }
+      ]
     },
     {
       "id": "generic_cultivation_great_vehicle",
@@ -3212,7 +5276,78 @@
         "neutral",
         "mixed"
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "group_heal",
+            "spirit_recovery"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "group_heal",
+            "spirit_recovery"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "group_heal",
+            "spirit_recovery"
+          ]
+        },
+        {
+          "layer": 4,
+          "techniques": [
+            "group_heal",
+            "spirit_recovery"
+          ]
+        },
+        {
+          "layer": 5,
+          "techniques": [
+            "group_heal",
+            "spirit_recovery",
+            "revive_weak"
+          ]
+        },
+        {
+          "layer": 6,
+          "techniques": [
+            "group_heal",
+            "spirit_recovery",
+            "revive_weak"
+          ]
+        },
+        {
+          "layer": 7,
+          "techniques": [
+            "group_heal",
+            "spirit_recovery",
+            "revive_weak"
+          ]
+        },
+        {
+          "layer": 8,
+          "techniques": [
+            "group_heal",
+            "spirit_recovery",
+            "revive_weak"
+          ]
+        },
+        {
+          "layer": 9,
+          "techniques": [
+            "group_heal",
+            "spirit_recovery",
+            "revive_weak",
+            "divine_sense_lock"
+          ]
+        }
+      ]
     },
     {
       "id": "generic_cultivation_spirit_severing",
@@ -3247,7 +5382,78 @@
         "neutral",
         "mixed"
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "spirit_sever_generic_probe",
+            "soul_attack_wave"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "spirit_sever_generic_probe",
+            "soul_attack_wave"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "spirit_sever_generic_probe",
+            "soul_attack_wave"
+          ]
+        },
+        {
+          "layer": 4,
+          "techniques": [
+            "spirit_sever_generic_probe",
+            "soul_attack_wave"
+          ]
+        },
+        {
+          "layer": 5,
+          "techniques": [
+            "spirit_sever_generic_probe",
+            "soul_attack_wave",
+            "divine_sense_lock"
+          ]
+        },
+        {
+          "layer": 6,
+          "techniques": [
+            "spirit_sever_generic_probe",
+            "soul_attack_wave",
+            "divine_sense_lock"
+          ]
+        },
+        {
+          "layer": 7,
+          "techniques": [
+            "spirit_sever_generic_probe",
+            "soul_attack_wave",
+            "divine_sense_lock"
+          ]
+        },
+        {
+          "layer": 8,
+          "techniques": [
+            "spirit_sever_generic_probe",
+            "soul_attack_wave",
+            "divine_sense_lock"
+          ]
+        },
+        {
+          "layer": 9,
+          "techniques": [
+            "spirit_sever_generic_probe",
+            "soul_attack_wave",
+            "divine_sense_lock",
+            "revive_weak"
+          ]
+        }
+      ]
     },
     {
       "id": "sect_specialty_sword",
@@ -3261,7 +5467,8 @@
         "breakthrough": "门槛 FOUNDATION；具体突破条件见境界系统。",
         "combat_style": "sword专精入门（通称） 所属道途：sword。",
         "structural_note": false,
-        "lore_v142": "贴原著气质精修"
+        "lore_v142": "贴原著气质精修",
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -3287,7 +5494,15 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_polish": true
+      "v142_desc_polish": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "sect_sword_intro_slash"
+          ]
+        }
+      ]
     },
     {
       "id": "sect_specialty_body",
@@ -3300,7 +5515,8 @@
         "sect_specialty": "body",
         "breakthrough": "门槛 FOUNDATION；具体突破条件见境界系统。",
         "combat_style": "body专精入门（通称） 所属道途：body。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -3322,7 +5538,15 @@
         "body",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "sect_body_intro"
+          ]
+        }
+      ]
     },
     {
       "id": "sect_specialty_talisman",
@@ -3335,7 +5559,8 @@
         "sect_specialty": "talisman",
         "breakthrough": "门槛 FOUNDATION；具体突破条件见境界系统。",
         "combat_style": "talisman专精入门（通称） 所属道途：talisman。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -3361,7 +5586,15 @@
         "talisman",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "sect_talisman_intro"
+          ]
+        }
+      ]
     },
     {
       "id": "sect_specialty_formation",
@@ -3374,7 +5607,8 @@
         "sect_specialty": "formation",
         "breakthrough": "门槛 FOUNDATION；具体突破条件见境界系统。",
         "combat_style": "formation专精入门（通称） 所属道途：formation。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -3396,7 +5630,15 @@
         "formation",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "sect_formation_intro"
+          ]
+        }
+      ]
     },
     {
       "id": "sect_specialty_puppet",
@@ -3409,7 +5651,8 @@
         "sect_specialty": "puppet",
         "breakthrough": "门槛 FOUNDATION；具体突破条件见境界系统。",
         "combat_style": "puppet专精入门（通称） 所属道途：puppet。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -3432,7 +5675,15 @@
         "puppet",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "sect_puppet_intro"
+          ]
+        }
+      ]
     },
     {
       "id": "sect_specialty_alchemy",
@@ -3468,7 +5719,17 @@
         "neutral",
         "craft_alchemy"
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "medicine_king_pill_boost",
+            "pill_soul_condense_secret",
+            "heal_qi"
+          ]
+        }
+      ]
     },
     {
       "id": "sect_specialty_ghost",
@@ -3481,7 +5742,8 @@
         "sect_specialty": "ghost",
         "breakthrough": "门槛 FOUNDATION；具体突破条件见境界系统。",
         "combat_style": "ghost专精入门（通称） 所属道途：ghost。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -3504,7 +5766,15 @@
         "ghost",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "sect_ghost_intro"
+          ]
+        }
+      ]
     },
     {
       "id": "sect_specialty_demonic",
@@ -3517,7 +5787,8 @@
         "sect_specialty": "demonic",
         "breakthrough": "门槛 FOUNDATION；具体突破条件见境界系统。",
         "combat_style": "demonic专精入门（通称） 所属道途：demonic。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -3539,7 +5810,15 @@
         "demonic",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "sect_demonic_intro"
+          ]
+        }
+      ]
     },
     {
       "id": "kunwu_seal_art",
@@ -3565,7 +5844,8 @@
         "combat_style": "印击、封阵、镇压；海域与山地阵势加成。",
         "region": "dajin",
         "faction": "kunwu_lineage",
-        "lore": "人界大晋顶级阵宗传承，与魔劫封印相关。"
+        "lore": "人界大晋顶级阵宗传承，与魔劫封印相关。",
+        "layers_max": 3
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -3603,7 +5883,36 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "spirit_gather_array",
+            "defense_formation",
+            "kunwu_seal_reinforce"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "spirit_gather_array",
+            "defense_formation",
+            "kunwu_seal_reinforce",
+            "kunwu_seal_strike"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "spirit_gather_array",
+            "defense_formation",
+            "kunwu_seal_reinforce",
+            "kunwu_seal_strike",
+            "kunwu_tower_bind"
+          ]
+        }
+      ]
     },
     {
       "id": "lingwu_sect_art",
@@ -3618,7 +5927,8 @@
         "sect_specialty": "body",
         "breakthrough": "门槛 FOUNDATION；具体突破条件见境界系统。",
         "combat_style": "灵武门炼体诀 所属道途：body。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -3639,7 +5949,15 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "lingwu_iron_skin"
+          ]
+        }
+      ]
     },
     {
       "id": "juvenile_sect_art",
@@ -3675,7 +5993,17 @@
         "mixed"
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "fireball",
+            "heal_qi",
+            "dingshen_talisman_qi"
+          ]
+        }
+      ]
     },
     {
       "id": "huangjin_sect_art",
@@ -3690,7 +6018,8 @@
         "sect_specialty": "metal",
         "breakthrough": "门槛 FOUNDATION；具体突破条件见境界系统。",
         "combat_style": "皇金宗金罡诀 所属道途：metal。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -3711,7 +6040,15 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "huangjin_metal_gang"
+          ]
+        }
+      ]
     },
     {
       "id": "taiyi_sect_art",
@@ -3726,7 +6063,8 @@
         "sect_specialty": "dao",
         "breakthrough": "门槛 FOUNDATION；具体突破条件见境界系统。",
         "combat_style": "太一门太玄功 所属道途：dao。",
-        "structural_note": false
+        "structural_note": false,
+        "layers_max": 1
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -3748,7 +6086,15 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "taiyi_xuan_light"
+          ]
+        }
+      ]
     },
     {
       "id": "beast_taming_basic",
@@ -3765,7 +6111,8 @@
       },
       "setting": {
         "cultivation_type": "auxiliary",
-        "sect_specialty": "beast_taming"
+        "sect_specialty": "beast_taming",
+        "layers_max": 1
       },
       "unlocks_techniques_school": "fashi",
       "path_taxonomy_v123": "beast",
@@ -3780,7 +6127,15 @@
         "beast",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "beast_soul_fusion_secret"
+          ]
+        }
+      ]
     },
     {
       "id": "buddhist_vajra_body_art",
@@ -3790,7 +6145,8 @@
       "source": "dajin_buddhist",
       "setting": {
         "lore": "佛修炼体入门，与道门炼体并行但因果不同。",
-        "compliance": "结构向"
+        "compliance": "结构向",
+        "layers_max": 1
       },
       "learn_requirements": {
         "learn": {
@@ -3819,7 +6175,15 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "vajra_body_flash"
+          ]
+        }
+      ]
     },
     {
       "id": "artifact_refining_basic",
@@ -3878,7 +6242,21 @@
         "neutral"
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "tianque_forge_focus"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "tianque_forge_focus"
+          ]
+        }
+      ]
     },
     {
       "id": "treasure_appraisal_art",
@@ -3927,7 +6305,22 @@
         "craft_appraise",
         "neutral"
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "treasure_appraisal_glimpse"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "auction_bid_insight_secret",
+            "treasure_appraisal_glimpse"
+          ]
+        }
+      ]
     },
     {
       "id": "five_elements_root_art",
@@ -3942,7 +6335,8 @@
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "elemental",
-        "note": "v123 补挂：原术法 requires 悬空"
+        "note": "v123 补挂：原术法 requires 悬空",
+        "layers_max": 1
       },
       "tags": [
         "v123_added",
@@ -3955,7 +6349,16 @@
       "element": "neutral",
       "school": true,
       "alignment": "neutral",
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "evil_ward_thunder",
+            "five_element_fusion_burst"
+          ]
+        }
+      ]
     },
     {
       "id": "huadao_slash_art",
@@ -3971,7 +6374,8 @@
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "blade",
-        "faction": "huadao_wu"
+        "faction": "huadao_wu",
+        "layers_max": 2
       },
       "tags": [
         "v123_added",
@@ -3986,7 +6390,22 @@
       "element": "neutral",
       "school": true,
       "alignment": "neutral",
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "huadao_slash"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "huadao_slash",
+            "huadao_slash_finisher"
+          ]
+        }
+      ]
     },
     {
       "id": "sanzhuan_zhongyuan_gong",
@@ -3997,7 +6416,8 @@
       "unlocks_techniques_school": "elemental",
       "description": "黄枫谷李化元一脉相关功法（金色书页线）。偏稳固灵力、再筑根基，非剑诀本体。",
       "setting": {
-        "novel_arc": "黄枫谷记名弟子"
+        "novel_arc": "黄枫谷记名弟子",
+        "layers_max": 3
       },
       "novel_canon_v124": true,
       "combat_school": true,
@@ -4011,7 +6431,27 @@
         "qi_base",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "sanzhuan_rebuild"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "sanzhuan_rebuild"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "sanzhuan_rebuild"
+          ]
+        }
+      ]
     },
     {
       "id": "nongyan_jue",
@@ -4023,7 +6463,8 @@
       "unlocks_techniques_school": "elemental",
       "description": "天南所得控火心法。辅助炼器/战斗喷焰，非主修大道功。",
       "setting": {
-        "novel_arc": "筑基中期后"
+        "novel_arc": "筑基中期后",
+        "layers_max": 2
       },
       "novel_canon_v124": true,
       "combat_school": true,
@@ -4036,7 +6477,21 @@
         "neutral",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "nongyan_flame_burst"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "nongyan_flame_burst"
+          ]
+        }
+      ]
     },
     {
       "id": "lianxi_shu_method",
@@ -4048,7 +6503,8 @@
       "description": "收敛气息、降低被神识/探查锁定概率的辅助心法。韩立常用保命手段之一。",
       "setting": {
         "novel_arc": "全程",
-        "combat_style": "隐匿"
+        "combat_style": "隐匿",
+        "layers_max": 3
       },
       "novel_canon_v124": true,
       "combat_school": true,
@@ -4060,7 +6516,27 @@
         "movement",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "lianxi_shu"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "lianxi_shu"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "lianxi_shu"
+          ]
+        }
+      ]
     },
     {
       "id": "tuotian_mogong",
@@ -4072,7 +6548,8 @@
       "description": "极阴等魔道强者相关魔功。韩立缴获后可阅，偏魔道神通与肉身/魔气。正道声望敌对。",
       "setting": {
         "novel_arc": "乱星海报仇线",
-        "alignment": "demonic"
+        "alignment": "demonic",
+        "layers_max": 2
       },
       "novel_canon_v124": true,
       "combat_school": true,
@@ -4084,7 +6561,22 @@
         "demonic",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "tuotian_devil_arm"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "tuotian_devil_arm",
+            "demon_qi_burst"
+          ]
+        }
+      ]
     },
     {
       "id": "yuanci_shenguang_art",
@@ -4098,7 +6590,8 @@
       "setting": {
         "novel_arc": "化神冲刺",
         "combat_style": "元磁",
-        "lore_v142": "贴原著气质精修"
+        "lore_v142": "贴原著气质精修",
+        "layers_max": 3
       },
       "novel_canon_v124": true,
       "combat_school": true,
@@ -4114,7 +6607,29 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_polish": true
+      "v142_desc_polish": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "magnet_control"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "magnet_control",
+            "primordial_magnet_sphere"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "magnet_control",
+            "primordial_magnet_sphere"
+          ]
+        }
+      ]
     },
     {
       "id": "mingwang_jue",
@@ -4126,7 +6641,8 @@
       "description": "明王决：neutral属性/倾向的body向功法。境界跨度约 NASCENT_SOUL–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "novel_arc": "大晋",
-        "combat_style": "肉身"
+        "combat_style": "肉身",
+        "layers_max": 3
       },
       "novel_canon_v124": true,
       "combat_school": true,
@@ -4142,7 +6658,33 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "mingwang_body_harden",
+            "mingwang_vajra_strike"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "mingwang_body_harden",
+            "mingwang_vajra_strike",
+            "mingwang_layer2"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "mingwang_body_harden",
+            "mingwang_vajra_strike",
+            "mingwang_layer2",
+            "mingwang_layer3"
+          ]
+        }
+      ]
     },
     {
       "id": "fansheng_zhenmogong",
@@ -4154,7 +6696,8 @@
       "description": "梵圣真魔功：neutral属性/倾向的body向功法。境界跨度约 VOID_REFINEMENT–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "novel_arc": "灵界",
-        "combat_style": "法体"
+        "combat_style": "法体",
+        "layers_max": 2
       },
       "novel_canon_v124": true,
       "combat_school": true,
@@ -4169,7 +6712,24 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "fansheng_golden_body",
+            "fansheng_magic_fist"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "fansheng_golden_body",
+            "fansheng_magic_fist",
+            "fansheng_nirvana_flash"
+          ]
+        }
+      ]
     },
     {
       "id": "baipulse_lianbao_jue",
@@ -4180,7 +6740,8 @@
       "unlocks_techniques_school": "body",
       "description": "百脉炼宝诀：neutral属性/倾向的body向功法。境界跨度约 VOID_REFINEMENT–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
-        "novel_arc": "灵界广寒"
+        "novel_arc": "灵界广寒",
+        "layers_max": 2
       },
       "novel_canon_v124": true,
       "combat_school": true,
@@ -4195,7 +6756,24 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "baipulse_weaponize",
+            "baipulse_sword_bone"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "baipulse_weaponize",
+            "baipulse_sword_bone",
+            "baipulse_full_armor"
+          ]
+        }
+      ]
     },
     {
       "id": "wuzang_duanyuan_gong",
@@ -4206,7 +6784,8 @@
       "unlocks_techniques_school": "body",
       "description": "五藏锻元功：neutral属性/倾向的body向功法。境界跨度约 BODY_INTEGRATION–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
-        "novel_arc": "灵界后期"
+        "novel_arc": "灵界后期",
+        "layers_max": 2
       },
       "novel_canon_v124": true,
       "combat_school": true,
@@ -4221,7 +6800,24 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "wuzang_mana_well",
+            "wuzang_overflow"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "wuzang_mana_well",
+            "wuzang_overflow",
+            "wuzang_organ_shield"
+          ]
+        }
+      ]
     },
     {
       "id": "lian_shen_shu",
@@ -4233,7 +6829,8 @@
       "description": "炼神术：neutral属性/倾向的divine_sense向功法。境界跨度约 VOID_REFINEMENT–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "novel_arc": "灵界-仙界",
-        "risk": "神识反噬"
+        "risk": "神识反噬",
+        "layers_max": 2
       },
       "novel_canon_v124": true,
       "combat_school": true,
@@ -4248,7 +6845,24 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "lian_shen_focus",
+            "lian_shen_layer2"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "lian_shen_focus",
+            "lian_shen_layer2",
+            "lian_shen_spike"
+          ]
+        }
+      ]
     },
     {
       "id": "jingzhe_shier_bian",
@@ -4259,7 +6873,8 @@
       "unlocks_techniques_school": "fashi",
       "description": "惊蛰十二变：neutral属性/倾向的beast向功法。境界跨度约 DEITY_TRANSFORMATION–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
-        "novel_arc": "灵界天鹏"
+        "novel_arc": "灵界天鹏",
+        "layers_max": 2
       },
       "novel_canon_v124": true,
       "combat_school": true,
@@ -4274,7 +6889,24 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "jingzhe_partial_change",
+            "jingzhe_second_blood"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "jingzhe_partial_change",
+            "jingzhe_second_blood",
+            "jingzhe_wing_storm"
+          ]
+        }
+      ]
     },
     {
       "id": "tiansha_zhenyu_gong",
@@ -4286,7 +6918,8 @@
       "description": "天煞镇狱功：neutral属性/倾向的body向功法。境界跨度约 BODY_INTEGRATION–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "novel_arc": "魔界",
-        "alignment": "demonic_body"
+        "alignment": "demonic_body",
+        "layers_max": 2
       },
       "novel_canon_v124": true,
       "combat_school": true,
@@ -4301,7 +6934,24 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "tiansha_prison_force",
+            "tiansha_xuanqiao_open"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "tiansha_prison_force",
+            "tiansha_xuanqiao_open",
+            "tiansha_prison_domain"
+          ]
+        }
+      ]
     },
     {
       "id": "yin_yang_lunhui_jue",
@@ -4313,7 +6963,8 @@
       "description": "阴阳轮回决：阴阳对转、生死边缘的险修。与轮回殿气质相合，反噬高，不适合无神魂根基者。",
       "setting": {
         "novel_arc": "乱星海鬼雾",
-        "lore_v142": "贴原著气质精修"
+        "lore_v142": "贴原著气质精修",
+        "layers_max": 1
       },
       "novel_canon_v124": true,
       "combat_school": true,
@@ -4327,7 +6978,15 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_polish": true
+      "v142_desc_polish": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "yinyang_cycle_balance"
+          ]
+        }
+      ]
     },
     {
       "id": "xue_lian_shenguang",
@@ -4338,7 +6997,8 @@
       "unlocks_techniques_school": "demonic",
       "description": "血炼神光修炼法：neutral属性/倾向的demonic向功法。境界跨度约 FOUNDATION–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
-        "alignment": "demonic"
+        "alignment": "demonic",
+        "layers_max": 1
       },
       "novel_canon_v124": true,
       "combat_school": true,
@@ -4351,7 +7011,15 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "blood_refine_light"
+          ]
+        }
+      ]
     },
     {
       "id": "jifeng_jiubian",
@@ -4362,7 +7030,8 @@
       "unlocks_techniques_school": "movement",
       "description": "疾风九变：neutral属性/倾向的movement向功法。境界跨度约 NASCENT_SOUL–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
-        "combat_style": "爆发身法"
+        "combat_style": "爆发身法",
+        "layers_max": 1
       },
       "novel_canon_v124": true,
       "combat_school": true,
@@ -4375,7 +7044,15 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "jifeng_burst"
+          ]
+        }
+      ]
     },
     {
       "id": "cuigu_jue",
@@ -4385,7 +7062,9 @@
       "source": "chaotic_sea",
       "unlocks_techniques_school": "body",
       "description": "淬骨决：neutral属性/倾向的body向功法。境界跨度约 DEITY_TRANSFORMATION–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
-      "setting": {},
+      "setting": {
+        "layers_max": 1
+      },
       "novel_canon_v124": true,
       "combat_school": true,
       "element": "neutral",
@@ -4397,7 +7076,15 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "cuigu_strengthen"
+          ]
+        }
+      ]
     },
     {
       "id": "tianque_fort_art",
@@ -4426,7 +7113,36 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "tianque_bastion_guard",
+            "tianque_shield_bash"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "tianque_bastion_guard",
+            "tianque_shield_bash",
+            "tianque_wall_array"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "tianque_bastion_guard",
+            "tianque_shield_bash",
+            "tianque_wall_array",
+            "tianque_fortress_domain"
+          ]
+        }
+      ],
+      "setting": {
+        "layers_max": 3
+      }
     },
     {
       "id": "luoyun_cloud_dream_art",
@@ -4453,7 +7169,48 @@
         "mixed",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "luoyun_cloud_mist_escape",
+            "luoyun_cloud_blade"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "luoyun_cloud_mist_escape",
+            "luoyun_cloud_blade",
+            "luoyun_spirit_flame_combat",
+            "luoyun_cloud_sword_assist"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "luoyun_cloud_mist_escape",
+            "luoyun_cloud_blade",
+            "luoyun_spirit_flame_combat",
+            "luoyun_cloud_sword_assist",
+            "luoyun_sect_guard_array"
+          ]
+        },
+        {
+          "layer": 4,
+          "techniques": [
+            "luoyun_cloud_mist_escape",
+            "luoyun_cloud_blade",
+            "luoyun_spirit_flame_combat",
+            "luoyun_cloud_sword_assist",
+            "luoyun_sect_guard_array"
+          ]
+        }
+      ],
+      "setting": {
+        "layers_max": 4
+      }
     },
     {
       "id": "luoyun_elder_seal_art",
@@ -4477,7 +7234,35 @@
         "formation",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "luoyun_elder_seal",
+            "luoyun_message_talisman_net"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "luoyun_elder_seal",
+            "luoyun_message_talisman_net",
+            "luoyun_grand_array_node"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "luoyun_elder_seal",
+            "luoyun_message_talisman_net",
+            "luoyun_grand_array_node"
+          ]
+        }
+      ],
+      "setting": {
+        "layers_max": 3
+      }
     },
     {
       "id": "tianlan_temple_vajra_art",
@@ -4503,7 +7288,46 @@
         "righteous",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "tianlan_vajra_body",
+            "tianlan_iron_palm"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "tianlan_vajra_body",
+            "tianlan_iron_palm",
+            "tianlan_demon_subdue"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "tianlan_vajra_body",
+            "tianlan_iron_palm",
+            "tianlan_demon_subdue",
+            "tianlan_zen_shock"
+          ]
+        },
+        {
+          "layer": 4,
+          "techniques": [
+            "tianlan_vajra_body",
+            "tianlan_iron_palm",
+            "tianlan_demon_subdue",
+            "tianlan_zen_shock",
+            "tianlan_war_front_oath"
+          ]
+        }
+      ],
+      "setting": {
+        "layers_max": 4
+      }
     },
     {
       "id": "lingyun_sword_wind_art",
@@ -4530,9 +7354,45 @@
       ],
       "v138_field_fill": true,
       "setting": {
-        "lore_v142": "贴原著气质精修"
+        "lore_v142": "贴原著气质精修",
+        "layers_max": 4
       },
-      "v142_desc_polish": true
+      "v142_desc_polish": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "lingyun_swift_thrust"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "lingyun_swift_thrust",
+            "lingyun_wind_slash",
+            "lingyun_cloud_flash"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "lingyun_swift_thrust",
+            "lingyun_wind_slash",
+            "lingyun_cloud_flash",
+            "lingyun_storm_array"
+          ]
+        },
+        {
+          "layer": 4,
+          "techniques": [
+            "lingyun_swift_thrust",
+            "lingyun_wind_slash",
+            "lingyun_cloud_flash",
+            "lingyun_storm_array",
+            "lingyun_void_step"
+          ]
+        }
+      ]
     },
     {
       "id": "qingyan_earth_guard_art",
@@ -4560,7 +7420,45 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "qingyan_stone_skin"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "qingyan_stone_skin",
+            "qingyan_earth_spike_wall",
+            "qingyan_array_stone"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "qingyan_stone_skin",
+            "qingyan_earth_spike_wall",
+            "qingyan_array_stone",
+            "qingyan_quake"
+          ]
+        },
+        {
+          "layer": 4,
+          "techniques": [
+            "qingyan_stone_skin",
+            "qingyan_earth_spike_wall",
+            "qingyan_array_stone",
+            "qingyan_quake",
+            "qingyan_border_bastion"
+          ]
+        }
+      ],
+      "setting": {
+        "layers_max": 4
+      }
     },
     {
       "id": "star_palace_law_art",
@@ -4582,7 +7480,36 @@
         "righteous",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "star_palace_register_seal",
+            "star_palace_law_bind"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "star_palace_register_seal",
+            "star_palace_law_bind",
+            "star_palace_fleet_signal"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "star_palace_register_seal",
+            "star_palace_law_bind",
+            "star_palace_fleet_signal",
+            "star_palace_heaven_seal"
+          ]
+        }
+      ],
+      "setting": {
+        "layers_max": 3
+      }
     },
     {
       "id": "miaoyin_sound_art",
@@ -4611,9 +7538,38 @@
       ],
       "v138_field_fill": true,
       "setting": {
-        "lore_v142": "贴原著气质精修"
+        "lore_v142": "贴原著气质精修",
+        "layers_max": 3
       },
-      "v142_desc_polish": true
+      "v142_desc_polish": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "miaoyin_note_pierce",
+            "miaoyin_resonance_shield",
+            "miaoyin_sense_echo"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "miaoyin_note_pierce",
+            "miaoyin_resonance_shield",
+            "miaoyin_sense_echo",
+            "miaoyin_charm_song"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "miaoyin_note_pierce",
+            "miaoyin_resonance_shield",
+            "miaoyin_sense_echo",
+            "miaoyin_charm_song"
+          ]
+        }
+      ]
     },
     {
       "id": "miaoyin_zither_secret",
@@ -4640,9 +7596,25 @@
       ],
       "v138_field_fill": true,
       "setting": {
-        "lore_v142": "贴原著气质精修"
+        "lore_v142": "贴原著气质精修",
+        "layers_max": 2
       },
-      "v142_desc_polish": true
+      "v142_desc_polish": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "miaoyin_zither_domain"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "miaoyin_zither_domain",
+            "miaoyin_finale_kill"
+          ]
+        }
+      ]
     },
     {
       "id": "dajin_ye_clan_art",
@@ -4669,7 +7641,25 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "ye_clan_bloodline_flash"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "ye_clan_bloodline_flash",
+            "ye_clan_dark_mandate"
+          ]
+        }
+      ],
+      "setting": {
+        "layers_max": 2
+      }
     },
     {
       "id": "xiaji_palace_art",
@@ -4693,7 +7683,27 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "xiaji_clear_channel",
+            "xiaji_ice_flame_aid"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "xiaji_clear_channel",
+            "xiaji_ice_flame_aid",
+            "xiaji_spirit_surge"
+          ]
+        }
+      ],
+      "setting": {
+        "layers_max": 2
+      }
     },
     {
       "id": "diyuan_asura_art",
@@ -4715,7 +7725,19 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "diyuan_asura_slash",
+            "diyuan_blood_mist"
+          ]
+        }
+      ],
+      "setting": {
+        "layers_max": 1
+      }
     },
     {
       "id": "guanghan_star_map_art",
@@ -4738,7 +7760,19 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "guanghan_star_align",
+            "guanghan_map_probe"
+          ]
+        }
+      ],
+      "setting": {
+        "layers_max": 1
+      }
     },
     {
       "id": "great_five_elements_world_art",
@@ -4768,7 +7802,58 @@
         "righteous",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "wuxing_world_seed",
+            "wuxing_metal_edge",
+            "wuxing_wood_bind_world"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "wuxing_world_seed",
+            "wuxing_metal_edge",
+            "wuxing_wood_bind_world",
+            "wuxing_water_mirror",
+            "wuxing_fire_realm",
+            "wuxing_earth_suppress",
+            "wuxing_cycle_array"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "wuxing_world_seed",
+            "wuxing_metal_edge",
+            "wuxing_wood_bind_world",
+            "wuxing_water_mirror",
+            "wuxing_fire_realm",
+            "wuxing_earth_suppress",
+            "wuxing_cycle_array",
+            "wuxing_full_world"
+          ]
+        },
+        {
+          "layer": 4,
+          "techniques": [
+            "wuxing_world_seed",
+            "wuxing_metal_edge",
+            "wuxing_wood_bind_world",
+            "wuxing_water_mirror",
+            "wuxing_fire_realm",
+            "wuxing_earth_suppress",
+            "wuxing_cycle_array",
+            "wuxing_full_world"
+          ]
+        }
+      ],
+      "setting": {
+        "layers_max": 4
+      }
     },
     {
       "id": "zhenyan_true_word_art",
@@ -4793,9 +7878,35 @@
       ],
       "v138_field_fill": true,
       "setting": {
-        "lore_v142": "贴原著气质精修"
+        "lore_v142": "贴原著气质精修",
+        "layers_max": 3
       },
-      "v142_desc_polish": true
+      "v142_desc_polish": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "zhenyan_word_bolt",
+            "zhenyan_voice_shield"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "zhenyan_word_bolt",
+            "zhenyan_voice_shield",
+            "zhenyan_command_bind"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "zhenyan_word_bolt",
+            "zhenyan_voice_shield",
+            "zhenyan_command_bind"
+          ]
+        }
+      ]
     },
     {
       "id": "zhenyan_elder_canon",
@@ -4823,9 +7934,25 @@
       ],
       "v138_field_fill": true,
       "setting": {
-        "lore_v142": "贴原著气质精修"
+        "lore_v142": "贴原著气质精修",
+        "layers_max": 2
       },
-      "v142_desc_polish": true
+      "v142_desc_polish": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "zhenyan_lesson_seal"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "zhenyan_lesson_seal",
+            "zhenyan_sect_array"
+          ]
+        }
+      ]
     },
     {
       "id": "time_law_scripture",
@@ -4856,10 +7983,40 @@
       ],
       "v138_field_fill": true,
       "setting": {
-        "lore_v142": "贴原著气质精修"
+        "lore_v142": "贴原著气质精修",
+        "layers_max": 3
       },
       "v141_desc_polish": true,
-      "v142_desc_polish": true
+      "v142_desc_polish": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "time_slow_field",
+            "time_haste_self",
+            "time_skip_step"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "time_slow_field",
+            "time_haste_self",
+            "time_skip_step",
+            "time_sense_echo"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "time_slow_field",
+            "time_haste_self",
+            "time_skip_step",
+            "time_sense_echo",
+            "time_lock_spike"
+          ]
+        }
+      ]
     },
     {
       "id": "time_reversion_fragment",
@@ -4886,9 +8043,25 @@
       ],
       "v138_field_fill": true,
       "setting": {
-        "lore_v142": "贴原著气质精修"
+        "lore_v142": "贴原著气质精修",
+        "layers_max": 2
       },
-      "v142_desc_polish": true
+      "v142_desc_polish": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "time_reversion_blink"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "time_reversion_blink",
+            "time_stasis_prison"
+          ]
+        }
+      ]
     },
     {
       "id": "reincarnation_hall_art",
@@ -4916,7 +8089,39 @@
         "divine_sense",
         true
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "reincarnation_mark",
+            "reincarnation_soul_pull",
+            "dayan_to_reincarnation_bridge"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "reincarnation_mark",
+            "reincarnation_soul_pull",
+            "dayan_to_reincarnation_bridge",
+            "reincarnation_trade_seal"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "reincarnation_mark",
+            "reincarnation_soul_pull",
+            "dayan_to_reincarnation_bridge",
+            "reincarnation_trade_seal",
+            "reincarnation_judgment"
+          ]
+        }
+      ],
+      "setting": {
+        "layers_max": 3
+      }
     },
     {
       "id": "heifeng_sea_art",
@@ -4939,7 +8144,27 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "heifeng_wind_ride",
+            "heifeng_storm_brace"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "heifeng_wind_ride",
+            "heifeng_storm_brace",
+            "heifeng_black_gale"
+          ]
+        }
+      ],
+      "setting": {
+        "layers_max": 2
+      }
     },
     {
       "id": "immortal_sword_dao_art",
@@ -4963,9 +8188,39 @@
       ],
       "v138_field_fill": true,
       "setting": {
-        "lore_v142": "贴原著气质精修"
+        "lore_v142": "贴原著气质精修",
+        "layers_max": 3
       },
-      "v142_desc_polish": true
+      "v142_desc_polish": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "immortal_sword_ray",
+            "qingyuan_to_immortal_bridge",
+            "true_immortal_sword_art"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "immortal_sword_ray",
+            "qingyuan_to_immortal_bridge",
+            "true_immortal_sword_art",
+            "immortal_sword_domain"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "immortal_sword_ray",
+            "qingyuan_to_immortal_bridge",
+            "true_immortal_sword_art",
+            "immortal_sword_domain",
+            "immortal_sword_law_cut"
+          ]
+        }
+      ]
     },
     {
       "id": "void_immortal_space_art",
@@ -4993,9 +8248,27 @@
       ],
       "v138_field_fill": true,
       "setting": {
-        "lore_v142": "贴原著气质精修"
+        "lore_v142": "贴原著气质精修",
+        "layers_max": 2
       },
-      "v142_desc_polish": true
+      "v142_desc_polish": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "void_immortal_blink",
+            "void_immortal_rift"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "void_immortal_blink",
+            "void_immortal_rift",
+            "void_immortal_fold"
+          ]
+        }
+      ]
     },
     {
       "id": "heavenly_court_law_art",
@@ -5019,7 +8292,26 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "heaven_law_bind"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "heaven_law_bind",
+            "heaven_edict",
+            "heaven_patrol_aura"
+          ]
+        }
+      ],
+      "setting": {
+        "layers_max": 2
+      }
     },
     {
       "id": "gray_realm_nether_art",
@@ -5042,7 +8334,27 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "gray_mist_veil",
+            "gray_soul_drain"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "gray_mist_veil",
+            "gray_soul_drain",
+            "gray_nether_domain"
+          ]
+        }
+      ],
+      "setting": {
+        "layers_max": 2
+      }
     },
     {
       "id": "medicine_king_immortal_art",
@@ -5062,7 +8374,19 @@
         "neutral",
         "craft_alchemy"
       ],
-      "v138_field_fill": true
+      "v138_field_fill": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "medicine_king_pill_boost",
+            "medicine_king_detox"
+          ]
+        }
+      ],
+      "setting": {
+        "layers_max": 1
+      }
     },
     {
       "id": "body_immortal_golden_art",
@@ -5084,7 +8408,33 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "immortal_body_harden"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "immortal_body_harden",
+            "immortal_body_fist"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "immortal_body_harden",
+            "immortal_body_fist",
+            "immortal_golden_avatar"
+          ]
+        }
+      ],
+      "setting": {
+        "layers_max": 3
+      }
     },
     {
       "id": "dao_ancestor_glimpse",
@@ -5108,7 +8458,19 @@
         true
       ],
       "v138_field_fill": true,
-      "v142_desc_light": true
+      "v142_desc_light": true,
+      "matrices": [
+        {
+          "layer": 1,
+          "techniques": [
+            "dao_ancestor_glimpse_domain",
+            "dao_ancestor_silence"
+          ]
+        }
+      ],
+      "setting": {
+        "layers_max": 1
+      }
     }
   ],
   "design_note": "功法=主线天赋；法术见 techniques；神通见 techniques tier secret | v123 分类修正",
