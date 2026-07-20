@@ -232,20 +232,229 @@ public final class TechniqueDataManager {
             if (!overwrite && result.containsKey(id)) continue;
             String name = getString(object, "name");
             if (name.isBlank()) name = getString(object, "display");
+            String attribute = getString(object, "attribute");
+            String highLevelType = getString(object, "type");
+            // Legacy cultivation packs only author high-level type/summary. Map them into the
+            // abstract runtime effect vocabulary so cult-only ids are not fail-closed.
+            String effectType = inferEffectType(highLevelType, id, name, attribute);
+            String effectElement = inferElement(attribute, id, name);
+            int cost = object.has("cost") && !object.get("cost").isJsonNull()
+                    ? Math.max(1, object.get("cost").getAsInt()) : 15;
+            int cooldown = getInt(object, "cooldown_ticks");
+            double damageBase = defaultDamageForEffect(effectType, highLevelType, id, name);
+            String target = defaultTargetForEffect(effectType);
+            String range = defaultRangeForEffect(effectType);
             result.put(id, new TechniqueEntry(
                     id,
                     name,
                     getString(object, "source"),
-                    getString(object, "attribute"),
+                    attribute,
                     getInt(object, "quality"),
-                    object.has("cost") ? object.get("cost").getAsInt() : 15,
+                    cost,
                     parseRealm(firstNonBlank(getString(object, "required_realm"), getString(object, "realm_min"))),
                     getString(object, "requires_method"),
-                    getString(object, "type"),
+                    highLevelType.isBlank() ? "spell" : highLevelType,
+                    effectType,
+                    effectElement,
+                    cooldown,
+                    damageBase,
                     "",
-                    "",
-                    getInt(object, "cooldown_ticks")));
+                    Set.of(),
+                    target,
+                    range));
         }
+    }
+
+    /**
+     * Maps authored high-level cultivation types (spell/defense/ghost_art/...) onto the
+     * abstract runtime effect vocabulary consumed by {@code AbstractTechniqueEffectResolver}.
+     * Public for unit tests.
+     */
+    public static String inferEffectType(String highLevelType, String id, String name, String attribute) {
+        String type = normalizeKey(highLevelType);
+        String key = normalizeKey(id + " " + name + " " + attribute + " " + highLevelType);
+        if (type.isBlank() && key.isBlank()) {
+            return "projectile";
+        }
+        // Explicit types that already match the abstract runtime vocabulary.
+        if (isRuntimeEffectType(type)) {
+            return type;
+        }
+        if (containsAny(key, "shield", "armor", "barrier", "ward", "护体", "护盾", "甲", "障")) {
+            return "shield";
+        }
+        if (containsAny(key, "heal", "recovery", "restore", "回气", "疗", "回春", "复")) {
+            return containsAny(key, "spirit", "灵力", "回气") ? "heal_spirit" : "heal";
+        }
+        if (containsAny(key, "cleanse", "detox", "解毒", "净化")) {
+            return "cleanse";
+        }
+        if (containsAny(key, "detect", "scan", "sense", "eye", "pupil", "探测", "天眼", "神识", "瞳")) {
+            return "scan";
+        }
+        if (containsAny(key, "escape", "flee", "disintegrate", "transfer", "遁", "逃", "化身碎", "移灾")) {
+            return "escape";
+        }
+        if (containsAny(key, "teleport", "earth_shrink", "缩地", "挪移")) {
+            return "teleport_short";
+        }
+        if (containsAny(key, "dash", "blink", "step", "身法", "步", "闪")) {
+            return "dash";
+        }
+        if (containsAny(key, "movement", "fly", "levitat", "wind_rid", "御风", "升空", "飞行")) {
+            return "movement";
+        }
+        if (containsAny(key, "summon", "puppet", "insect", "beast_control", "command", "驱", "御虫", "御兽", "傀儡", "召唤")) {
+            return containsAny(key, "command", "drive", "驱") ? "command" : "summon";
+        }
+        if (containsAny(key, "formation", "array", "sword_formation", "阵")) {
+            return containsAny(key, "sword", "剑") ? "field" : "buff_zone";
+        }
+        if (containsAny(key, "wall", "prison", "牢", "墙", "壁")) {
+            return "wall";
+        }
+        if (containsAny(key, "trap", "seal", "lock", "禁锢", "封", "锁")) {
+            return "control";
+        }
+        if (containsAny(key, "soul", "ghost", "curse", "drain", "魂", "鬼", "咒", "噬")) {
+            return containsAny(key, "attack", "slash", "sting", "刺", "斩", "攻") ? "soul_attack" : "debuff";
+        }
+        if (containsAny(key, "illusion", "mind", "confus", "幻", "迷", "控神", "七情")) {
+            return "debuff";
+        }
+        if (containsAny(key, "ultimate", "grand", "heaven_opening", "大咒", "开天")) {
+            return "ultimate";
+        }
+        if (containsAny(key, "secret", "supreme", "immortal_art", "秘", "无上")) {
+            return "secret_art";
+        }
+        if (containsAny(key, "talisman", "符")) {
+            return "talisman_consume";
+        }
+        if (containsAny(key, "craft", "treasure_formula", "activation_formula", "炼", "通宝", "激活")) {
+            return "craft_gate";
+        }
+        if (containsAny(key, "transform", "incarnation", "shape", "化形", "化身", "变")) {
+            return "transform";
+        }
+        if (containsAny(key, "melee", "strike", "slash", "drill", "拳", "斩", "刺", "钻")) {
+            return "melee";
+        }
+        if (containsAny(key, "beam", "ray", "光柱", "剑光", "神光")) {
+            return "beam";
+        }
+        if (containsAny(key, "aoe", "domain", "field", "storm", "雨", "域", "场", "环")) {
+            return "aoe";
+        }
+        if (containsAny(key, "buff", "body_refin", "cultivation", "passive", "inscription", "通", "炼体", "功法", "被动")) {
+            return "buff_self";
+        }
+        if (containsAny(key, "utility", "communicat", "conceal", "invis", "隐", "匿", "传音", "通讯")) {
+            return "utility";
+        }
+        if (containsAny(key, "control", "entangl", "bind", "缠", "困", "控")) {
+            return "control";
+        }
+        if (containsAny(key, "movement")) {
+            return "movement";
+        }
+        if (containsAny(key, "defense")) {
+            return "shield";
+        }
+        if (containsAny(key, "recovery")) {
+            return "heal";
+        }
+        if (containsAny(key, "detection")) {
+            return "scan";
+        }
+        if (containsAny(key, "forbidden")) {
+            return "debuff";
+        }
+        if (containsAny(key, "ghost")) {
+            return "soul_attack";
+        }
+        if (containsAny(key, "martial")) {
+            return "dash";
+        }
+        if (containsAny(key, "formation")) {
+            return "field";
+        }
+        if (containsAny(key, "spell", "divine_ability", "art", "formula", "skill", "scripture")) {
+            return "projectile";
+        }
+        return type.isBlank() ? "projectile" : "utility";
+    }
+
+    public static String inferElement(String attribute, String id, String name) {
+        String key = normalizeKey(attribute + " " + id + " " + name);
+        if (containsAny(key, "fire", "flame", "yang", "火", "炎", "焰")) return "fire";
+        if (containsAny(key, "water", "sea", "雨", "水", "海", "波")) return "water";
+        if (containsAny(key, "wood", "plant", "vine", "木", "藤", "林")) return "wood";
+        if (containsAny(key, "metal", "gold", "sword", "金", "庚", "剑")) return "metal";
+        if (containsAny(key, "earth", "rock", "stone", "土", "岩", "石")) return "earth";
+        if (containsAny(key, "wind", "cloud", "风", "云", "岚")) return "wind";
+        if (containsAny(key, "ice", "frost", "cold", "冰", "寒", "霜")) return "ice";
+        if (containsAny(key, "thunder", "lightning", "雷", "电")) return "thunder";
+        if (containsAny(key, "light", "holy", "buddha", "光", "佛", "圣")) return "light";
+        if (containsAny(key, "dark", "shadow", "yin", "阴", "暗", "影") && !containsAny(key, "yang", "阳")) return "dark";
+        if (containsAny(key, "soul", "ghost", "spirit", "魂", "鬼", "灵")) return "soul";
+        if (containsAny(key, "blood", "demon", "魔", "血", "煞")) return "blood";
+        if (containsAny(key, "void", "space", "spatial", "虚", "空", "界")) return "void";
+        if (containsAny(key, "illusion", "幻", "迷")) return "illusion";
+        return "neutral";
+    }
+
+    private static boolean isRuntimeEffectType(String type) {
+        return switch (type) {
+            case "projectile", "beam", "cone", "chain", "aoe", "aoe_control", "aoe_dot", "field", "domain",
+                    "wall", "trap", "buff_zone", "debuff", "dot", "drain", "control", "buff_self", "buff",
+                    "shield", "transform", "heal", "heal_spirit", "cleanse", "movement", "dash", "escape",
+                    "teleport_short", "melee", "strike", "ultimate", "secret_art", "soul_attack",
+                    "summon", "summon_field", "talisman_consume", "utility", "utility_combat",
+                    "scout", "scan", "inspect", "command", "craft_gate" -> true;
+            default -> false;
+        };
+    }
+
+    private static double defaultDamageForEffect(String effectType, String highLevelType, String id, String name) {
+        String key = normalizeKey(id + " " + name + " " + highLevelType);
+        return switch (normalizeKey(effectType)) {
+            case "ultimate" -> 80.0D;
+            case "secret_art" -> 64.0D;
+            case "soul_attack", "beam" -> 22.0D;
+            case "melee", "strike" -> 18.0D;
+            case "aoe", "aoe_dot", "field", "domain", "wall" -> 16.0D;
+            case "projectile", "cone", "chain" -> 12.0D;
+            case "debuff", "dot", "drain", "control", "trap" -> 8.0D;
+            case "talisman_consume", "command" -> 14.0D;
+            case "heal", "heal_spirit", "cleanse", "buff_self", "buff", "shield",
+                    "movement", "dash", "escape", "teleport_short", "utility", "scan",
+                    "scout", "inspect", "transform", "summon", "craft_gate", "buff_zone" -> 0.0D;
+            default -> containsAny(key, "attack", "slash", "fire", "sword", "攻", "斩", "火", "剑") ? 12.0D : 0.0D;
+        };
+    }
+
+    private static String defaultTargetForEffect(String effectType) {
+        return switch (normalizeKey(effectType)) {
+            case "buff_self", "heal", "heal_spirit", "cleanse", "movement", "dash", "escape",
+                    "teleport_short", "utility", "transform", "scan", "scout", "inspect" -> "self";
+            case "aoe", "aoe_dot", "field", "domain", "wall", "buff_zone", "trap", "summon_field" -> "area";
+            default -> "single";
+        };
+    }
+
+    private static String defaultRangeForEffect(String effectType) {
+        return switch (normalizeKey(effectType)) {
+            case "melee", "strike" -> "touch";
+            case "dash", "escape" -> "dash";
+            case "scan", "scout", "beam", "ultimate", "secret_art" -> "long";
+            case "buff_self", "heal", "heal_spirit", "cleanse", "utility", "transform" -> "short";
+            default -> "medium";
+        };
+    }
+
+    private static String normalizeKey(String value) {
+        return value == null ? "" : value.trim().toLowerCase(Locale.ROOT);
     }
 
     private static void loadTextMaterialEntries(BufferedReader reader, Map<String, TechniqueEntry> result, String schoolFallback) {

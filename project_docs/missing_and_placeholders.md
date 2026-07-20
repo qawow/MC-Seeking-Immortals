@@ -1,3 +1,9 @@
+## 0.2.106 术法高层 type 映射
+
+cultivation 遗留包 cult-only 术法现推断可执行 effectType，释放不再因 blank 效果 fail-closed。协议 26。
+
+仍未完成：真人专服 + 双客户端签字、完整实机单机烟测 §6.1–8、工作室级手绘 GeckoLib 精模；可选为 cult-only 补细 damage_base/effect_key。
+
 ## 0.2.105 专服 Screen 侧加载 + 多人复签基建
 
 代码侧：GUI 包 client 反射分发修复专服 CONSTRUCT；多人权威回归、`live_smoke mp`、人工清单。协议 26。

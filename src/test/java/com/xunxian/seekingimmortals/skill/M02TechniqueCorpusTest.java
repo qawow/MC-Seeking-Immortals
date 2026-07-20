@@ -7,6 +7,7 @@ import com.xunxian.seekingimmortals.skill.effect.spell.SpellEffect;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -133,6 +134,66 @@ class M02TechniqueCorpusTest {
         assertFalse(AbstractTechniqueEffectResolver.isGenericRuntimeType("unknown_effect"));
         assertFalse(AbstractTechniqueEffectResolver.requiresDedicatedImplementation("unknown_effect"));
         assertNull(AbstractTechniqueEffectResolver.resolve(null));
+    }
+
+    @Test
+    void cultOnlyHighLevelTypesMapToExecutableRuntimeEffects() {
+        Map<String, TechniqueDataManager.TechniqueEntry> techniques = TechniqueDataManager.builtinTechniques();
+
+        // Cultivation-pack-only ids (not overwritten by text_material) used to load with blank
+        // effectType and fail closed at release. They must now map into abstract runtime types.
+        TechniqueDataManager.TechniqueEntry seal = techniques.get("spirit_sealing_great_art");
+        assertNotNull(seal);
+        assertEquals("seal", seal.tier());
+        assertEquals("control", seal.effectType());
+        assertTrue(AbstractTechniqueEffectResolver.isAbstractTypeRegistered(seal.effectType()));
+
+        TechniqueDataManager.TechniqueEntry detection = techniques.get("heavenly_eye_art");
+        assertNotNull(detection);
+        assertEquals("scan", detection.effectType());
+        assertTrue(AbstractTechniqueEffectResolver.isGenericRuntimeType(detection.effectType()));
+
+        TechniqueDataManager.TechniqueEntry armor = techniques.get("frost_armor");
+        if (armor != null && "defense".equals(armor.tier())) {
+            assertEquals("shield", armor.effectType());
+        }
+
+        TechniqueDataManager.TechniqueEntry spark = techniques.get("spark_art");
+        assertNotNull(spark);
+        assertEquals("projectile", spark.effectType());
+        assertTrue(spark.damageBase() > 0.0D);
+
+        TechniqueDataManager.TechniqueEntry ghost = techniques.get("soul_condensing_art");
+        assertNotNull(ghost);
+        assertTrue(Set.of("soul_attack", "debuff", "buff_self").contains(ghost.effectType()),
+                ghost.effectType());
+
+        TechniqueDataManager.TechniqueEntry forbidden = techniques.get("mind_control_art");
+        assertNotNull(forbidden);
+        assertEquals("debuff", forbidden.effectType());
+
+        // Pure mapper unit checks — keep independent of load order.
+        assertEquals("shield", TechniqueDataManager.inferEffectType("defense", "frost_armor", "寒冰护体", "冰"));
+        assertEquals("scan", TechniqueDataManager.inferEffectType("detection", "aura_detection_art", "灵气探测", "通用"));
+        assertEquals("movement", TechniqueDataManager.inferEffectType("movement", "wind_riding_formula", "御风诀", "风"));
+        assertEquals("summon", TechniqueDataManager.inferEffectType("puppet_art", "puppet_mechanism_art", "傀儡机关术", "傀儡"));
+        assertEquals("field", TechniqueDataManager.inferEffectType("sword_formation", "great_geng_sword_formation_level_10_13", "大庚剑阵", "剑法"));
+        assertEquals("buff_self", TechniqueDataManager.inferEffectType("cultivation", "qi_guiding_art", "引气入体", "通用"));
+        assertEquals("fire", TechniqueDataManager.inferElement("火", "spark_art", "火花术"));
+
+        int blankEffect = 0;
+        int resolvableRuntime = 0;
+        for (TechniqueDataManager.TechniqueEntry entry : techniques.values()) {
+            if (entry.effectType() == null || entry.effectType().isBlank()) {
+                blankEffect++;
+            } else if (AbstractTechniqueEffectResolver.isAbstractTypeRegistered(entry.effectType())
+                    || AbstractTechniqueEffectResolver.isGenericRuntimeType(entry.effectType())
+                    || AbstractTechniqueEffectResolver.requiresDedicatedImplementation(entry.effectType())) {
+                resolvableRuntime++;
+            }
+        }
+        assertEquals(0, blankEffect, "no builtin technique should keep a blank effectType");
+        assertTrue(resolvableRuntime >= 747, "resolvableRuntime=" + resolvableRuntime);
     }
 
     @Test

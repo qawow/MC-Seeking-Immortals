@@ -1,3 +1,13 @@
+## 552. 2026-07-20 0.2.106 术法高层 type→effectType
+
+  Step   Status   Notes
+  ---   ---   ---
+  Infer map Done   loadCultivationEntries 映射 spell/defense/ghost_art 等。
+  Defaults Done   damage/target/range/element 默认值。
+  Tests Done   M02TechniqueCorpusTest 扩展；blank effectType=0。
+  Version Done   `mod_version=0.2.106`；protocol 26。
+  Handoff Done   `project_docs/updates/20260720_0.2.106_technique_type_map.md`。
+
 ## 551. 2026-07-20 0.2.105 专服 Screen 侧加载修复
 
   Step   Status   Notes

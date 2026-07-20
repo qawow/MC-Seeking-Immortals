@@ -1,3 +1,5 @@
+2026-07-20 0.2.106 pending update: cultivation-pack cult-only techniques map high-level type → abstract runtime effectType (no more blank fail-closed). Remaining non-code: human multiplayer sign-off, full live smoke §6.1–8, studio GeckoLib. Optional: richer authored damage/effect_key on cult-only rows.
+
 2026-07-20 0.2.105 pending update: dedicated-server Screen sidedness fixed (ClientPacketHandlers + reflective dispatch); multiplayer authority regression + live_smoke mp probes/sign + manual checklist. Remaining non-code: human dedicated-server + two-client sign-off (run checklist), full live smoke §6.1–8, studio-grade GeckoLib models.
 
 2026-07-20 0.2.104 pending update: multiplayer authority regression + live_smoke mp probes/sign + manual checklist (superseded by 0.2.105 dedicated-server fix).
