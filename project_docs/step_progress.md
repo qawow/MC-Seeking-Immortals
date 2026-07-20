@@ -1,3 +1,14 @@
+## 527. 2026-07-20 0.2.77 云笈墨卷 B1 主题内核
+
+  Step   Status   Notes
+  ---   ---   ---
+  InkScene Done   四场景浅纸深墨色板 + fromClimate 映射。
+  Skin rebind Done   palette()/push/init 经 InkScene 取色；纹理指向 ink/。
+  Textures Done   generate_ink_ui_textures.py 产出 5 张纸纹。
+  Tests    Done   InkPaletteTest 新增；UiClimateStackTest 重定向；全量 743 项。
+  Version  Done   `mod_version=0.2.77`；protocol 25。
+  Handoff  Done   `project_docs/updates/20260720_0.2.77_inkscroll_b1.md`。
+
 ## 526. 2026-07-20 0.2.76 术法 corpus 字段清点
 
   Step   Status   Notes

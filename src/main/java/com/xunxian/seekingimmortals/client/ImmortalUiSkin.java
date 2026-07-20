@@ -127,14 +127,17 @@ public final class ImmortalUiSkin {
         NEUTRAL
     }
 
+    // 云笈墨卷 paper tiles (scripts/generate_ink_ui_textures.py).
     private static final ResourceLocation PAPER_TEXTURE =
-            new ResourceLocation(SeekingImmortalsMod.MODID, "textures/gui/paper_texture.png");
+            new ResourceLocation(SeekingImmortalsMod.MODID, "textures/gui/ink/paper_rice.png");
     private static final ResourceLocation JADE_TEXTURE =
-            new ResourceLocation(SeekingImmortalsMod.MODID, "textures/gui/jade_texture.png");
+            new ResourceLocation(SeekingImmortalsMod.MODID, "textures/gui/ink/paper_cool.png");
     private static final ResourceLocation BAMBOO_TEXTURE =
-            new ResourceLocation(SeekingImmortalsMod.MODID, "textures/gui/bamboo_grain_texture.png");
+            new ResourceLocation(SeekingImmortalsMod.MODID, "textures/gui/ink/paper_rice.png");
     private static final ResourceLocation LACQUER_TEXTURE =
-            new ResourceLocation(SeekingImmortalsMod.MODID, "textures/gui/lacquer_grain_texture.png");
+            new ResourceLocation(SeekingImmortalsMod.MODID, "textures/gui/ink/paper_aged.png");
+    private static final ResourceLocation OMEN_TEXTURE =
+            new ResourceLocation(SeekingImmortalsMod.MODID, "textures/gui/ink/paper_dry.png");
     private static final int MATERIAL_TILE = 32;
 
     private static final java.util.Set<String> KNOWN_SKILL_ICONS = java.util.Set.of(
@@ -149,7 +152,7 @@ public final class ImmortalUiSkin {
     private static final Deque<UiClimate> CLIMATE_STACK = new ArrayDeque<>();
 
     static {
-        applyPalette(UiClimate.BAMBOO_SLIP.palette());
+        applyPalette(com.xunxian.seekingimmortals.client.ui.InkScene.FIELD_NOTES.palette());
     }
 
     private ImmortalUiSkin() {}
@@ -160,14 +163,16 @@ public final class ImmortalUiSkin {
     }
 
     public static UiClimate.Palette palette() {
-        return currentClimate().palette();
+        return com.xunxian.seekingimmortals.client.ui.InkScene
+                .fromClimate(currentClimate()).palette();
     }
 
     /** Pushes a climate and rebinds {@code JOURNAL_*} / HUD aliases. Pair with {@link #popClimate()}. */
     public static void pushClimate(UiClimate climate) {
         UiClimate next = UiClimate.safe(climate);
         CLIMATE_STACK.push(next);
-        applyPalette(next.palette());
+        applyPalette(com.xunxian.seekingimmortals.client.ui.InkScene
+                .fromClimate(next).palette());
     }
 
     public static void popClimate() {
@@ -215,7 +220,7 @@ public final class ImmortalUiSkin {
     /** Test-only: clear stack and rebind default bamboo palette. */
     static void forceResetClimateForTest() {
         CLIMATE_STACK.clear();
-        applyPalette(UiClimate.BAMBOO_SLIP.palette());
+        applyPalette(com.xunxian.seekingimmortals.client.ui.InkScene.FIELD_NOTES.palette());
     }
 
     private static void applyPalette(UiClimate.Palette p) {
@@ -286,7 +291,8 @@ public final class ImmortalUiSkin {
     private static ResourceLocation grainTexture(UiClimate.Material material) {
         return switch (material) {
             case JADE -> JADE_TEXTURE;
-            case LACQUER, SEAL -> LACQUER_TEXTURE;
+            case LACQUER -> LACQUER_TEXTURE;
+            case SEAL -> OMEN_TEXTURE;
             case BAMBOO -> BAMBOO_TEXTURE;
         };
     }
@@ -295,7 +301,8 @@ public final class ImmortalUiSkin {
         return switch (material) {
             case JADE -> JADE_TEXTURE;
             case LACQUER -> LACQUER_TEXTURE;
-            case SEAL, BAMBOO -> PAPER_TEXTURE;
+            case SEAL -> OMEN_TEXTURE;
+            case BAMBOO -> PAPER_TEXTURE;
         };
     }
 

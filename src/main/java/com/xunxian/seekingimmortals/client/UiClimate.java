@@ -1,6 +1,11 @@
 package com.xunxian.seekingimmortals.client;
 
 /**
+ * @deprecated Transitional alias for the retired four-material system. The live
+ * visual language is 云笈墨卷 {@link com.xunxian.seekingimmortals.client.ui.InkScene};
+ * palettes here are no longer bound — {@code ImmortalUiSkin} maps every climate
+ * to its InkScene replacement. Screens should migrate to {@code defaultScene()}.
+ *
  * Layered fanren journal climates for Seeking Immortals UI.
  *
  * <p>One design system, four materials chosen by screen semantics (not a player theme
@@ -12,6 +17,7 @@ package com.xunxian.seekingimmortals.client;
  *   <li>{@link #CINNABAR_SEAL} — breakthrough / qi-dev / tribulation danger overlay</li>
  * </ul>
  */
+@Deprecated
 public enum UiClimate {
     JADE_SLIP(new Palette(
             0xFF6A9A88, 0x88607868, 0xF0101816, 0xF214201C, 0xE61C2824, 0xF00E1412,

@@ -1,5 +1,6 @@
 package com.xunxian.seekingimmortals.client;
 
+import com.xunxian.seekingimmortals.client.ui.InkScene;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
@@ -21,9 +22,9 @@ class UiClimateStackTest {
     @Test
     void defaultClimateIsBambooAndPaperMatchesPalette() {
         assertSame(UiClimate.BAMBOO_SLIP, ImmortalUiSkin.currentClimate());
-        assertEquals(UiClimate.BAMBOO_SLIP.palette().paper(), ImmortalUiSkin.JOURNAL_PAPER);
-        assertEquals(UiClimate.BAMBOO_SLIP.palette().border(), ImmortalUiSkin.JOURNAL_BORDER);
-        assertEquals(UiClimate.BAMBOO_SLIP.palette().accentText(), ImmortalUiSkin.JOURNAL_JADE_TEXT);
+        assertEquals(InkScene.fromClimate(UiClimate.BAMBOO_SLIP).palette().paper(), ImmortalUiSkin.JOURNAL_PAPER);
+        assertEquals(InkScene.fromClimate(UiClimate.BAMBOO_SLIP).palette().border(), ImmortalUiSkin.JOURNAL_BORDER);
+        assertEquals(InkScene.fromClimate(UiClimate.BAMBOO_SLIP).palette().accentText(), ImmortalUiSkin.JOURNAL_JADE_TEXT);
     }
 
     @Test
@@ -34,9 +35,9 @@ class UiClimateStackTest {
         ImmortalUiSkin.pushClimate(UiClimate.JADE_SLIP);
         try {
             assertSame(UiClimate.JADE_SLIP, ImmortalUiSkin.currentClimate());
-            assertEquals(UiClimate.JADE_SLIP.palette().paper(), ImmortalUiSkin.JOURNAL_PAPER);
-            assertEquals(UiClimate.JADE_SLIP.palette().border(), ImmortalUiSkin.JOURNAL_BORDER);
-            assertEquals(UiClimate.JADE_SLIP.palette().accentText(), ImmortalUiSkin.JOURNAL_JADE_TEXT);
+            assertEquals(InkScene.fromClimate(UiClimate.JADE_SLIP).palette().paper(), ImmortalUiSkin.JOURNAL_PAPER);
+            assertEquals(InkScene.fromClimate(UiClimate.JADE_SLIP).palette().border(), ImmortalUiSkin.JOURNAL_BORDER);
+            assertEquals(InkScene.fromClimate(UiClimate.JADE_SLIP).palette().accentText(), ImmortalUiSkin.JOURNAL_JADE_TEXT);
             assertNotEquals(bambooPaper, ImmortalUiSkin.JOURNAL_PAPER);
             assertNotEquals(bambooBorder, ImmortalUiSkin.JOURNAL_BORDER);
         } finally {
@@ -55,7 +56,7 @@ class UiClimateStackTest {
         try {
             ImmortalUiSkin.withClimate(UiClimate.WARM_LACQUER, () -> {
                 assertSame(UiClimate.WARM_LACQUER, ImmortalUiSkin.currentClimate());
-                assertEquals(UiClimate.WARM_LACQUER.palette().paper(), ImmortalUiSkin.JOURNAL_PAPER);
+                assertEquals(InkScene.fromClimate(UiClimate.WARM_LACQUER).palette().paper(), ImmortalUiSkin.JOURNAL_PAPER);
                 throw new IllegalStateException("forced");
             });
         } catch (IllegalStateException ignored) {
@@ -73,14 +74,14 @@ class UiClimateStackTest {
             ImmortalUiSkin.pushClimate(UiClimate.CINNABAR_SEAL);
             try {
                 assertSame(UiClimate.CINNABAR_SEAL, ImmortalUiSkin.currentClimate());
-                assertEquals(UiClimate.CINNABAR_SEAL.palette().cinnabarBright(),
+                assertEquals(InkScene.fromClimate(UiClimate.CINNABAR_SEAL).palette().cinnabarBright(),
                         ImmortalUiSkin.JOURNAL_CINNABAR_BRIGHT);
                 assertEquals(2, ImmortalUiSkin.climateStackDepthForTest());
             } finally {
                 ImmortalUiSkin.popClimate();
             }
             assertSame(UiClimate.JADE_SLIP, ImmortalUiSkin.currentClimate());
-            assertEquals(UiClimate.JADE_SLIP.palette().paper(), ImmortalUiSkin.JOURNAL_PAPER);
+            assertEquals(InkScene.fromClimate(UiClimate.JADE_SLIP).palette().paper(), ImmortalUiSkin.JOURNAL_PAPER);
             assertEquals(1, ImmortalUiSkin.climateStackDepthForTest());
         } finally {
             ImmortalUiSkin.popClimate();
@@ -118,11 +119,11 @@ class UiClimateStackTest {
     @Test
     void lacquerClimateRebindsCompatAliases() {
         ImmortalUiSkin.withClimate(UiClimate.WARM_LACQUER, () -> {
-            assertEquals(UiClimate.WARM_LACQUER.palette().paper(), ImmortalUiSkin.COLOR_TEXT_NORMAL);
-            assertEquals(UiClimate.WARM_LACQUER.palette().paperMuted(), ImmortalUiSkin.COLOR_TEXT_MUTED);
-            assertEquals(UiClimate.WARM_LACQUER.palette().border() & 0x00FFFFFF,
+            assertEquals(InkScene.fromClimate(UiClimate.WARM_LACQUER).palette().paper(), ImmortalUiSkin.COLOR_TEXT_NORMAL);
+            assertEquals(InkScene.fromClimate(UiClimate.WARM_LACQUER).palette().paperMuted(), ImmortalUiSkin.COLOR_TEXT_MUTED);
+            assertEquals(InkScene.fromClimate(UiClimate.WARM_LACQUER).palette().border() & 0x00FFFFFF,
                     ImmortalUiSkin.PANEL_BORDER & 0x00FFFFFF);
-            assertEquals(UiClimate.WARM_LACQUER.palette().hudBorder(), ImmortalUiSkin.HUD_BORDER);
+            assertEquals(InkScene.fromClimate(UiClimate.WARM_LACQUER).palette().hudBorder(), ImmortalUiSkin.HUD_BORDER);
         });
         assertEquals(0, ImmortalUiSkin.climateStackDepthForTest());
     }
