@@ -243,4 +243,24 @@ class MultiblockOperationalServiceTest {
         assertTrue(repair >= 0 && gate > repair && reserve > gate,
                 "repair must reject DISABLED stations before charging shards");
     }
+
+    @Test
+    void highTierAlchemyStationsHaveCatalogEntries() {
+        for (String id : java.util.List.of(
+                "alchemy_furnace_g1", "alchemy_furnace_g2", "alchemy_furnace_g3",
+                "alchemy_furnace_g4", "alchemy_furnace_g5", "refinement_forge_g2")) {
+            assertTrue(MultiblockStructureCatalog.builtin().find(id).isPresent(),
+                    id + " must have a structure catalog entry");
+        }
+        String source;
+        try {
+            source = Files.readString(Path.of(
+                    "src", "main", "java", "com", "xunxian", "seekingimmortals",
+                    "block", "entity", "AlchemyFurnaceBlockEntity.java"));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        assertTrue(source.contains("Math.min(5, Math.max(1, furnaceTier))"),
+                "furnace station id must cover tiers up to 5");
+    }
 }

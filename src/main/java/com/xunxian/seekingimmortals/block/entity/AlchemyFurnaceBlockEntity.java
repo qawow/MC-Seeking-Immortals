@@ -279,7 +279,7 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
                     furnaceTier, present, required, missing), true);
             return;
         }
-        String alchemyStationId = "alchemy_furnace_g" + Math.min(3, Math.max(1, furnaceTier));
+        String alchemyStationId = "alchemy_furnace_g" + Math.min(5, Math.max(1, furnaceTier));
         if (!com.xunxian.seekingimmortals.structure.MultiblockOperationalService
                 .ensureCommissioned(player, alchemyStationId, worldPosition)) {
             return;

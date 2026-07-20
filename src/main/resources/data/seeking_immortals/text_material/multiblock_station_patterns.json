@@ -60,6 +60,44 @@
       }
     },
     {
+      "id": "alchemy_furnace_g4",
+      "display": "四品丹炉",
+      "type": "multiblock_controller",
+      "dimensions": "5×5×4（宽×深×高）",
+      "size": {
+        "w": 5,
+        "h": 4,
+        "d": 5
+      },
+      "radius": 2,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 400,
+      "pattern": {
+        "validator": "alchemy_furnace_shell",
+        "tier": 4
+      }
+    },
+    {
+      "id": "alchemy_furnace_g5",
+      "display": "五品丹炉",
+      "type": "multiblock_controller",
+      "dimensions": "5×5×4（宽×深×高）",
+      "size": {
+        "w": 5,
+        "h": 4,
+        "d": 5
+      },
+      "radius": 2,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 500,
+      "pattern": {
+        "validator": "alchemy_furnace_shell",
+        "tier": 5
+      }
+    },
+    {
       "id": "earth_fire_alchemy_room",
       "display": "地火炼丹室（结构）",
       "type": "structure",

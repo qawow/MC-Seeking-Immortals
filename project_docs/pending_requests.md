@@ -1,3 +1,5 @@
+2026-07-20 0.2.74 pending update: tier-4/5 alchemy furnaces now own dedicated operational-state entries (master_plan P0-1). Protocol 25. Remaining: master_plan P0-2 material-table audit, P0-3 explosion-durability link, then P0-4 technique corpus fields.
+
 2026-07-20 0.2.73 pending update: user-directed code review batch fixed chronicle key casing, diyuan token realm-entry, G2 forge structure entry, repair-bypasses-form gate, outbox overflow loss, discoverLore fail-open, refund flag ordering, and durable auction invitation. Protocol 25. Remaining: continue review coverage (quests/combat/network domains) and live client/server/multiplayer smoke.
 
 2026-07-20 0.2.72 pending update: remaining inert catalog consumables (travel tickets, formation disk, credentials, lore maps, mortal remedies) now execute server-authoritative effects via existing travel/formation/reputation/chronicle services. Protocol 25. Remaining: user-directed code problem review batch, then live client/server/multiplayer smoke.

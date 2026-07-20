@@ -1,3 +1,14 @@
+## 524. 2026-07-20 0.2.74 T4/T5 丹炉运行态条目
+
+  Step   Status   Notes
+  ---   ---   ---
+  Patterns Done   station_patterns 补 g4/g5（tier 4/5 壳校验）。
+  Clamp    Done   丹炉工站 id 钳制 min(3)→min(5)。
+  Tests    Done   目录计数 89 与条目/钳制契约。
+  Verify   Done   普通构建成功，全量 736 项通过。
+  Version  Done   `mod_version=0.2.74`；protocol 25。
+  Handoff  Done   `project_docs/updates/20260720_0.2.74_furnace_t45.md`。
+
 ## 523. 2026-07-20 0.2.73 代码审查修复批次
 
   Step   Status   Notes
