@@ -99,8 +99,14 @@ class ModBulkItemsTest {
                 BulkItemClassifier.classify("appearance_lock_pill", "pill"));
         assertEquals(BulkItemKind.PILL,
                 BulkItemClassifier.classify("beast_taming_pill_low", "pill"));
-        assertEquals(BulkItemKind.CARRIER,
+        assertEquals(BulkItemKind.CONSUMABLE,
                 BulkItemClassifier.classify("spirit_pill_voucher", "pill"));
+        assertEquals("redeem_spirit_pill_voucher",
+                BulkItemClassifier.consumable("spirit_pill_voucher").orElseThrow().effect());
+        assertTrue(PillEffectCatalog.findByPillId("appearance_lock_pill").isPresent());
+        assertTrue(PillEffectCatalog.findByPillId("beast_taming_pill_low").isPresent());
+        assertTrue(PillEffectCatalog.findByPillId("marrow_drain_pill").isPresent());
+        assertTrue(PillEffectCatalog.findByPillId("qingxu_pill").isPresent());
         assertEquals(BulkItemKind.MANUAL,
                 BulkItemClassifier.classify("alchemy_manual_low", "manual"));
         assertEquals(BulkItemKind.MANUAL,

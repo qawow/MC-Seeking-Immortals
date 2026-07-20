@@ -68,7 +68,8 @@ class CatalogConsumableServiceTest {
                 java.util.Map.entry("kunwu_map_scroll", "discover_kunwu"),
                 java.util.Map.entry("mortal_medicine", "restore_health"),
                 java.util.Map.entry("jade_slip_blank", "inscribe_formula"),
-                java.util.Map.entry("paper_formula_scroll", "inscribe_formula"));
+                java.util.Map.entry("paper_formula_scroll", "inscribe_formula"),
+                java.util.Map.entry("spirit_pill_voucher", "redeem_spirit_pill_voucher"));
         cases.forEach((id, effect) -> {
             var definition = com.xunxian.seekingimmortals.registry.BulkItemClassifier
                     .consumable(id);

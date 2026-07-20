@@ -119,6 +119,7 @@ public final class CatalogConsumableService {
             case "discover_kunwu" -> discoverLore(player, "A1_kunwu_peak",
                     "message.seeking_immortals.catalog_consumable.discover_kunwu");
             case "inscribe_formula" -> inscribeFormula(player, id);
+            case "redeem_spirit_pill_voucher" -> redeemSpiritPillVoucher(player);
             default -> knownIdAction(player, id);
         };
         if (success && shouldAnnounceGenericSuccess(action)) {
@@ -552,6 +553,34 @@ public final class CatalogConsumableService {
             player.displayClientMessage(Component.translatable(successKey), true);
         }
         return true;
+    }
+
+    /**
+     * Spirit pill vouchers redeem into a random low-tier restorative/cultivation pill.
+     */
+    private static boolean redeemSpiritPillVoucher(ServerPlayer player) {
+        List<String> pool = List.of(
+                "bigu_pill",
+                "qi_recovery_pill",
+                "cultivation_pill",
+                "calming_pill_low",
+                "qingxin_pill",
+                "spirit_recovery_pill",
+                "body_tempering_pill",
+                "beast_taming_pill");
+        String id = pool.get(player.getRandom().nextInt(pool.size()));
+        boolean ok = giveCatalogItem(player, id, 1);
+        if (ok) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.catalog_consumable.voucher_redeem",
+                    Component.translatable("item.seeking_immortals." + id)), true);
+            player.level().playSound(null, player.blockPosition(), SoundEvents.EXPERIENCE_ORB_PICKUP,
+                    SoundSource.PLAYERS, 0.5F, 1.1F);
+        } else {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.catalog_consumable.voucher_empty"), true);
+        }
+        return ok;
     }
 
     /**

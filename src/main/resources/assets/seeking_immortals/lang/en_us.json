@@ -5022,5 +5022,8 @@
   "tooltip.seeking_immortals.catalog_item.interaction.equipment": "Right-click to board/summon/place",
   "message.seeking_immortals.catalog_equipment.unknown": "Unknown equipment: %s",
   "message.seeking_immortals.catalog_equipment.no_space": "No free space to place the block.",
-  "message.seeking_immortals.catalog_equipment.furnace_placed": "Placed: %s"
+  "message.seeking_immortals.catalog_equipment.furnace_placed": "Placed: %s",
+  "tooltip.seeking_immortals.catalog_consumable.effect.redeem_spirit_pill_voucher": "Redeem a random low-tier pill",
+  "message.seeking_immortals.catalog_consumable.voucher_redeem": "Voucher redeemed: %s",
+  "message.seeking_immortals.catalog_consumable.voucher_empty": "Voucher redeem failed: no pill could be delivered."
 }

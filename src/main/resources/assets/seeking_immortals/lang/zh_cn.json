@@ -5022,5 +5022,8 @@
   "tooltip.seeking_immortals.catalog_item.interaction.equipment": "右键乘骑/召唤/放置",
   "message.seeking_immortals.catalog_equipment.unknown": "无法识别的装备：%s",
   "message.seeking_immortals.catalog_equipment.no_space": "附近没有可放置的空位。",
-  "message.seeking_immortals.catalog_equipment.furnace_placed": "已放置：%s"
+  "message.seeking_immortals.catalog_equipment.furnace_placed": "已放置：%s",
+  "tooltip.seeking_immortals.catalog_consumable.effect.redeem_spirit_pill_voucher": "兑换随机低阶丹药",
+  "message.seeking_immortals.catalog_consumable.voucher_redeem": "丹券兑换成功：%s",
+  "message.seeking_immortals.catalog_consumable.voucher_empty": "丹券兑换失败：没有可交付的丹药。"
 }

@@ -1,3 +1,5 @@
+2026-07-20 0.2.97 pending update: spirit pill voucher redeems random low-tier pills; alias pills resolve. Remaining non-code: final art/GeckoLib depth, full live smoke, dedicated-server/two-client multiplayer sign-off.
+
 2026-07-20 0.2.96 pending update: formation inspect-only items activate free fields; equipment bulk boards vehicles, summons puppets, places furnaces. Remaining executable depth: missing pill rows + spirit_pill_voucher redeem, final art/GeckoLib, live multiplayer smoke.
 
 2026-07-20 0.2.95 pending update: bulk talismans are now right-click executable with CAST fuel family matching. Remaining: inspect-only formation items, equipment boat/puppet right-click, missing pill rows + voucher redeem, final art/GeckoLib, live multiplayer smoke.

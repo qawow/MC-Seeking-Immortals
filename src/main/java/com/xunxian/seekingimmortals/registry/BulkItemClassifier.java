@@ -24,7 +24,7 @@ import java.util.Set;
 public final class BulkItemClassifier {
     private static final String ALCHEMY_RECIPES_RESOURCE =
             "data/seeking_immortals/text_material/alchemy_recipes.json";
-    private static final Set<String> NON_CONSUMABLE_PILL_IDS = Set.of("spirit_pill_voucher");
+    private static final Set<String> NON_CONSUMABLE_PILL_IDS = Set.of();
     private static final Set<String> EXECUTABLE_CONSUMABLE_IDS = Set.of(
             "spirit_rice_bowl",
             "spirit_wine_jar",
@@ -83,7 +83,8 @@ public final class BulkItemClassifier {
             "demon_qi_purge_pill",
             "mortal_medicine",
             "jade_slip_blank",
-            "paper_formula_scroll"
+            "paper_formula_scroll",
+            "spirit_pill_voucher"
     );
     private static final Map<String, AlchemyFormulaSource> ALCHEMY_FORMULA_SOURCES =
             loadAlchemyFormulaSources();
@@ -255,6 +256,7 @@ public final class BulkItemClassifier {
                 case "mortal_medicine" -> "restore_health";
                 case "diyuan_access_token" -> "travel_diyuan";
                 case "jade_slip_blank", "paper_formula_scroll" -> "inscribe_formula";
+                case "spirit_pill_voucher" -> "redeem_spirit_pill_voucher";
                 default -> "";
             };
             if (!synthetic.isBlank()) {

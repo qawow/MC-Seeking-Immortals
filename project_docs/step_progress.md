@@ -1,3 +1,14 @@
+## 543. 2026-07-20 0.2.97 丹券兑换与别名丹药确认
+
+  Step   Status   Notes
+  ---   ---   ---
+  Voucher Done   spirit_pill_voucher → redeem_spirit_pill_voucher。
+  Alias pills Done   appearance_lock/beast_taming_low/marrow_drain/qingxu 可解析。
+  Docs Done   master_plan 物品语义收口段。
+  Tests Done   分类/消耗契约；全量构建通过。
+  Version Done   `mod_version=0.2.97`；protocol 26。
+  Handoff Done   `project_docs/updates/20260720_0.2.97_pill_voucher.md`。
+
 ## 542. 2026-07-20 0.2.96 阵具激活与装备右键
 
   Step   Status   Notes

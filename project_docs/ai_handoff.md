@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-20: `0.2.97` 丹券兑换与别名丹药确认完成。`spirit_pill_voucher` 可兑换随机低阶丹药；四个别名丹药经 PillEffectCatalog 可执行。master_plan 标注 0.2.93–0.2.97 物品语义收口。协议 26。见 `project_docs/updates/20260720_0.2.97_pill_voucher.md`。
+
 > CURRENT TRUTH 2026-07-20: `0.2.96` 阵具激活与装备右键完成。阵具 inspect_only/空 uses 改为自由阵场激活；equipment bulk 可乘骑灵舟、召唤傀儡、放置二/三品丹炉。协议 26。见 `project_docs/updates/20260720_0.2.96_equipment_formation.md`。
 
 > CURRENT TRUTH 2026-07-20: `0.2.95` bulk 符箓右键施放完成。可执行 bulk 符注册为 `CatalogTalismanItem`，按 role/id 映射投射/护体/遁逃等模式并消耗灵力；符纸/配方纸保持材料载体；CAST 消耗策略接受同族 bulk 符。协议 26。见 `project_docs/updates/20260720_0.2.95_bulk_talisman.md`。
