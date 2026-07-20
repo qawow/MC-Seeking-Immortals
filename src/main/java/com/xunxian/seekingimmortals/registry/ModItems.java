@@ -49,8 +49,20 @@ public final class ModItems {
     public static final RegistryObject<Item> ALLIANCE_MERIT_TOKEN = ITEMS.register("alliance_merit_token", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> WAR_CONTRIBUTION_TOKEN = ITEMS.register("war_contribution_token", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> CAPTURE_JAR = ITEMS.register("capture_jar", () -> new com.xunxian.seekingimmortals.item.CaptureJarItem(new Item.Properties()));
-    public static final RegistryObject<Item> JADE_SLIP_BLANK = ITEMS.register("jade_slip_blank", () -> new Item(new Item.Properties().rarity(net.minecraft.world.item.Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> PAPER_FORMULA_SCROLL = ITEMS.register("paper_formula_scroll", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> JADE_SLIP_BLANK = ITEMS.register("jade_slip_blank",
+            () -> new CatalogConsumableItem(
+                    new Item.Properties().rarity(net.minecraft.world.item.Rarity.UNCOMMON).stacksTo(16),
+                    com.xunxian.seekingimmortals.item.material.MaterialCategory.SPECIAL,
+                    com.xunxian.seekingimmortals.item.material.MaterialRarity.UNCOMMON,
+                    "空白玉简",
+                    BulkItemClassifier.consumable("jade_slip_blank").orElseThrow()));
+    public static final RegistryObject<Item> PAPER_FORMULA_SCROLL = ITEMS.register("paper_formula_scroll",
+            () -> new CatalogConsumableItem(
+                    new Item.Properties().stacksTo(16),
+                    com.xunxian.seekingimmortals.item.material.MaterialCategory.SPECIAL,
+                    com.xunxian.seekingimmortals.item.material.MaterialRarity.COMMON,
+                    "空白纸方",
+                    BulkItemClassifier.consumable("paper_formula_scroll").orElseThrow()));
     public static final RegistryObject<Item> TALISMAN_PAPER_MORTAL = ITEMS.register("talisman_paper_mortal", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> PEARL_RAW = ITEMS.register("pearl_raw", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> IRONWOOD = ITEMS.register("ironwood",

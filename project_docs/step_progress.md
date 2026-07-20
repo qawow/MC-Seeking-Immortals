@@ -1,3 +1,15 @@
+## 540. 2026-07-20 0.2.94 空白载体铭刻与丹方/手册研读
+
+  Step   Status   Notes
+  ---   ---   ---
+  Inscribe Done   jade_slip_blank/paper_formula_scroll → inscribe_formula 随机介质丹方。
+  Formula study Done   AlchemyFormulaItem 右键记知识；炉门接受 studied 或装入。
+  Bulk manuals Done   BulkItemKind.MANUAL + soft study。
+  Clone Done   studied formulas 随 Clone 复制。
+  Tests Done   知识/分类/消耗白名单契约；全量构建通过。
+  Version Done   `mod_version=0.2.94`；protocol 26。
+  Handoff Done   `project_docs/updates/20260720_0.2.94_item_study.md`。
+
 ## 539. 2026-07-20 0.2.93 P2 Patchouli 新系统补页
 
   Step   Status   Notes

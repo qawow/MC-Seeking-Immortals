@@ -49,6 +49,7 @@ class CatalogConsumableServiceTest {
         assertFalse(CatalogConsumableService.shouldConsumeOnSuccess("open_auction_invite", 0));
         assertTrue(CatalogConsumableService.shouldConsumeOnSuccess("travel_spirit_boat", 0));
         assertTrue(CatalogConsumableService.shouldConsumeOnSuccess("discover_kunwu", 0));
+        assertTrue(CatalogConsumableService.shouldConsumeOnSuccess("inscribe_formula", 0));
     }
 
     @Test
@@ -65,7 +66,9 @@ class CatalogConsumableServiceTest {
                 java.util.Map.entry("void_palace_map_fragment", "discover_void_palace"),
                 java.util.Map.entry("fallen_demon_scout_report", "discover_fallen_demon"),
                 java.util.Map.entry("kunwu_map_scroll", "discover_kunwu"),
-                java.util.Map.entry("mortal_medicine", "restore_health"));
+                java.util.Map.entry("mortal_medicine", "restore_health"),
+                java.util.Map.entry("jade_slip_blank", "inscribe_formula"),
+                java.util.Map.entry("paper_formula_scroll", "inscribe_formula"));
         cases.forEach((id, effect) -> {
             var definition = com.xunxian.seekingimmortals.registry.BulkItemClassifier
                     .consumable(id);

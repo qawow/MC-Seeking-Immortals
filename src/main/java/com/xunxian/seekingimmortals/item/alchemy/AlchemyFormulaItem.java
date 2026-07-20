@@ -1,8 +1,13 @@
 package com.xunxian.seekingimmortals.item.alchemy;
 
+import com.xunxian.seekingimmortals.alchemy.AlchemyFormulaKnowledge;
 import com.xunxian.seekingimmortals.alchemy.AlchemyFormulaSource;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -27,6 +32,20 @@ public class AlchemyFormulaItem extends Item {
 
     public AlchemyFormulaSource source() {
         return source;
+    }
+
+    @Override
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+        ItemStack stack = player.getItemInHand(hand);
+        if (level.isClientSide) {
+            return InteractionResultHolder.success(stack);
+        }
+        if (!(player instanceof ServerPlayer serverPlayer)) {
+            return InteractionResultHolder.fail(stack);
+        }
+        // Studying does not consume the carrier — the same stack can still be installed on a furnace.
+        boolean ok = AlchemyFormulaKnowledge.study(serverPlayer, recipeId);
+        return ok ? InteractionResultHolder.success(stack) : InteractionResultHolder.fail(stack);
     }
 
     @Override

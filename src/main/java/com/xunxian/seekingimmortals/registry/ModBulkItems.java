@@ -7,6 +7,7 @@ import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.item.CatalogCarrierItem;
 import com.xunxian.seekingimmortals.item.CatalogConsumableItem;
+import com.xunxian.seekingimmortals.item.CatalogManualItem;
 import com.xunxian.seekingimmortals.item.ArtifactCatalogItem;
 import com.xunxian.seekingimmortals.item.alchemy.AlchemyFormulaItem;
 import com.xunxian.seekingimmortals.item.material.MaterialCategory;
@@ -210,6 +211,7 @@ public final class ModBulkItems {
                 yield new BulkPillItem(props, materialCategory, materialRarity, description,
                         id, quality);
             }
+            case MANUAL -> new CatalogManualItem(props.stacksTo(16), id);
             case CARRIER -> new CatalogCarrierItem(props, materialCategory, materialRarity, description, id, grade);
         };
     }

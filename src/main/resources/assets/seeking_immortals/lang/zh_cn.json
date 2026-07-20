@@ -580,7 +580,7 @@
   "tooltip.seeking_immortals.alchemy_formula.source.paper": "来源：纸方，野路成功率较低。",
   "tooltip.seeking_immortals.alchemy_formula.source.jade": "来源：玉简，较稳定的丹方载体。",
   "tooltip.seeking_immortals.alchemy_formula.source.sect_secret": "来源：宗门秘卷，适合管控丹药。",
-  "tooltip.seeking_immortals.alchemy_formula.use": "右键丹炉装入丹方。",
+  "tooltip.seeking_immortals.alchemy_formula.use": "右键研读并记住丹方；也可对丹炉使用以装入丹方。",
   "message.seeking_immortals.alchemy_furnace.no_formula": "丹炉未装入 %s 的丹方，不能开炉。",
   "message.seeking_immortals.alchemy_furnace.no_lid": "炉顶尚未安放丹炉盖，不能开炉。",
   "message.seeking_immortals.alchemy_furnace.no_fire": "丹炉尚无丹火，不能开炉。",
@@ -4692,7 +4692,7 @@
   "tooltip.seeking_immortals.catalog_item.purpose.currency": "商店、宗门、拍卖或旅行结算货币",
   "tooltip.seeking_immortals.catalog_item.interaction.consume": "右键执行已注册效果；失败时不消耗",
   "tooltip.seeking_immortals.catalog_item.interaction.pill": "服用前由服务端校验境界、目标与实际收益",
-  "tooltip.seeking_immortals.catalog_item.interaction.formula": "右键研读并解锁对应炼丹配方",
+  "tooltip.seeking_immortals.catalog_item.interaction.formula": "右键研读并解锁对应炼丹配方；亦可装入丹炉",
   "tooltip.seeking_immortals.catalog_item.interaction.artifact": "由法宝认主、完整性和主动能力系统管理",
   "tooltip.seeking_immortals.catalog_item.interaction.currency": "由对应交易或费用接口扣除，无通用右键效果",
   "tooltip.seeking_immortals.catalog_item.interaction.access": "在对应旅行、任务或区域入口提交，无通用右键效果",
@@ -4991,5 +4991,11 @@
   "status.seeking_immortals.affliction.tribulation": "天劫中",
   "status.seeking_immortals.affliction.stable": "道基平稳",
   "screen.seeking_immortals.market_hall.prev_shop": "<店",
-  "screen.seeking_immortals.market_hall.next_shop": "店>"
+  "screen.seeking_immortals.market_hall.next_shop": "店>",
+  "message.seeking_immortals.alchemy_formula.studied": "研读完成：已掌握丹方「%s」。此后即使未装入丹方也可开炉。",
+  "message.seeking_immortals.alchemy_formula.already_studied": "你已掌握丹方「%s」。",
+  "tooltip.seeking_immortals.catalog_consumable.effect.inscribe_formula": "铭刻随机对应介质的炼丹丹方",
+  "message.seeking_immortals.catalog_consumable.inscribe_success": "空白载体铭刻成功，得到：%s",
+  "message.seeking_immortals.catalog_consumable.inscribe_empty": "当前没有可铭刻的丹方模板。",
+  "tooltip.seeking_immortals.catalog_item.interaction.manual": "右键研读，写入已学典籍并尝试授予相关功法"
 }

@@ -284,7 +284,7 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
                 .ensureCommissioned(player, alchemyStationId, worldPosition)) {
             return;
         }
-        if (!hasInstalledFormula(recipe)) {
+        if (!hasInstalledFormula(player, recipe)) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.alchemy_furnace.no_formula", recipe.displayName()), true);
             return;
         }
@@ -576,8 +576,15 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
                 .orElse(recipeId);
     }
 
-    private boolean hasInstalledFormula(AlchemyRecipe recipe) {
-        return !knownFormulaId.isBlank() && knownFormulaId.equals(recipe.id());
+    private boolean hasInstalledFormula(ServerPlayer player, AlchemyRecipe recipe) {
+        if (recipe == null) {
+            return false;
+        }
+        if (!knownFormulaId.isBlank() && knownFormulaId.equals(recipe.id())) {
+            return true;
+        }
+        // Studied formula knowledge satisfies the install gate without consuming the carrier.
+        return com.xunxian.seekingimmortals.alchemy.AlchemyFormulaKnowledge.hasStudied(player, recipe.id());
     }
 
     private java.util.Optional<AlchemyRecipe> findRecipeForHeldItem(ItemStack held) {

@@ -570,7 +570,7 @@
   "tooltip.seeking_immortals.alchemy_formula.source.paper": "Source: paper formula, low wild success chance.",
   "tooltip.seeking_immortals.alchemy_formula.source.jade": "Source: jade slip, a steadier formula carrier.",
   "tooltip.seeking_immortals.alchemy_formula.source.sect_secret": "Source: sect secret, suited for controlled pills.",
-  "tooltip.seeking_immortals.alchemy_formula.use": "Use on an alchemy furnace to install this formula.",
+  "tooltip.seeking_immortals.alchemy_formula.use": "Right-click to study and remember this formula, or use it on a furnace to install it.",
   "message.seeking_immortals.alchemy_furnace.no_formula": "The furnace has no formula for %s.",
   "message.seeking_immortals.alchemy_furnace.no_lid": "No alchemy lid on furnace top; cannot start.",
   "message.seeking_immortals.alchemy_furnace.no_fire": "The furnace has no dan fire.",
@@ -4692,7 +4692,7 @@
   "tooltip.seeking_immortals.catalog_item.purpose.currency": "Currency for shops, sects, auctions, or travel",
   "tooltip.seeking_immortals.catalog_item.interaction.consume": "Right-click executes its registered effect; failures do not consume it",
   "tooltip.seeking_immortals.catalog_item.interaction.pill": "The server validates realm, target, and real benefit before consumption",
-  "tooltip.seeking_immortals.catalog_item.interaction.formula": "Right-click to study and unlock the linked alchemy formula",
+  "tooltip.seeking_immortals.catalog_item.interaction.formula": "Right-click to study and unlock the recipe; can also install into a furnace",
   "tooltip.seeking_immortals.catalog_item.interaction.artifact": "Managed by artifact binding, integrity, and active-ability systems",
   "tooltip.seeking_immortals.catalog_item.interaction.currency": "Consumed by the relevant trade or fee authority; no generic right-click effect",
   "tooltip.seeking_immortals.catalog_item.interaction.access": "Submitted at the relevant travel, quest, or region authority; no generic right-click effect",
@@ -4991,5 +4991,11 @@
   "status.seeking_immortals.affliction.tribulation": "Tribulation",
   "status.seeking_immortals.affliction.stable": "Foundation Stable",
   "screen.seeking_immortals.market_hall.prev_shop": "<Shop",
-  "screen.seeking_immortals.market_hall.next_shop": "Shop>"
+  "screen.seeking_immortals.market_hall.next_shop": "Shop>",
+  "message.seeking_immortals.alchemy_formula.studied": "Studied formula: %s. You may brew it without installing the carrier.",
+  "message.seeking_immortals.alchemy_formula.already_studied": "You already know formula: %s.",
+  "tooltip.seeking_immortals.catalog_consumable.effect.inscribe_formula": "Inscribe a random alchemy formula of matching media",
+  "message.seeking_immortals.catalog_consumable.inscribe_success": "Inscription complete: %s",
+  "message.seeking_immortals.catalog_consumable.inscribe_empty": "No formula templates are available to inscribe.",
+  "tooltip.seeking_immortals.catalog_item.interaction.manual": "Right-click to study, mark the manual known, and try granting related methods"
 }

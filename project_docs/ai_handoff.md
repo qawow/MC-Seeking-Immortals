@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-20: `0.2.94` 空白玉简/纸方铭刻、丹方研读知识与 bulk 手册研读完成。`inscribe_formula` 按介质随机产出权威丹方；`AlchemyFormulaKnowledge` 持久化已学丹方并让丹炉无需装入也可开炉；27 条 bulk 手册注册为 `CatalogManualItem` 并可 soft study。无网络变化，协议 26。见 `project_docs/updates/20260720_0.2.94_item_study.md`。
+
 > CURRENT TRUTH 2026-07-20: `0.2.93` P2 Patchouli 新系统补页完成。指南新增工站运行态、交付信箱、消耗品语义、灵兽傀儡成长、JEI 权威配方、宗门专属与秘境试炼 7 组双语条目（94/94），并改写多处仍写“未落地”的过期页；`book.json` version 3。无网络变化，协议保持 26。定向 Patchouli/资源解析测试通过。见 `project_docs/updates/20260720_0.2.93_patchouli_systems.md`。
 
 > MASTER PLAN 2026-07-20: 全玩法实现与验证总计划见 `project_docs/master_plan.md`（固定工作流、架构速查、遗留风险、P0-P2 路线图、三层测试与实机烟测清单、完成定义）。后续 AI 每批次开工前先读该文档。

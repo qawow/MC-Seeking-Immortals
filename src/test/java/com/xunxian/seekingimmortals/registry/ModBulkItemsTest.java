@@ -101,6 +101,13 @@ class ModBulkItemsTest {
                 BulkItemClassifier.classify("beast_taming_pill_low", "pill"));
         assertEquals(BulkItemKind.CARRIER,
                 BulkItemClassifier.classify("spirit_pill_voucher", "pill"));
+        assertEquals(BulkItemKind.MANUAL,
+                BulkItemClassifier.classify("alchemy_manual_low", "manual"));
+        assertEquals(BulkItemKind.MANUAL,
+                BulkItemClassifier.classify("beast_taming_manual", "manual"));
+        assertEquals(BulkItemKind.CONSUMABLE,
+                BulkItemClassifier.classify("jade_slip_blank", "craft"));
+
         assertEquals(BulkItemKind.CARRIER,
                 BulkItemClassifier.classify("recipe_binding_talisman", "talisman"));
         assertEquals(BulkItemKind.CARRIER,

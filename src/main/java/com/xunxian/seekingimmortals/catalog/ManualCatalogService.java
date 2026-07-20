@@ -94,8 +94,9 @@ public final class ManualCatalogService {
         Optional<TextMaterialCatalogService.ManualEntry> optional =
                 TextMaterialCatalogService.builtin().findManual(manualId);
         if (optional.isEmpty()) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.manual.unknown", manualId), false);
-            return false;
+            // Bulk manuals without a manuals_catalog row still leave a durable studied mark
+            // and try source→method grants from the carrier id itself.
+            return studySoftManual(player, manualId);
         }
         TextMaterialCatalogService.ManualEntry manual = optional.get();
         boolean[] ok = {false};
@@ -143,6 +144,54 @@ public final class ManualCatalogService {
             ok[0] = true;
         });
         return ok[0];
+    }
+
+    /**
+     * Soft study for bulk knowledge carriers that lack a manuals_catalog entry.
+     * Marks studied + attempts source→method mapping; never invents forge grades.
+     */
+    private static boolean studySoftManual(ServerPlayer player, String manualId) {
+        if (player == null || manualId == null || manualId.isBlank()) {
+            return false;
+        }
+        String id = manualId.trim().toLowerCase(Locale.ROOT);
+        if (hasStudied(player, id)) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.manual.already_studied",
+                    Component.translatable("item.seeking_immortals." + id)), false);
+            return false;
+        }
+        markStudied(player, id);
+        int granted = grantMethodsFromTechniqueSource(player, id);
+        player.displayClientMessage(Component.translatable(
+                "message.seeking_immortals.manual.studied",
+                Component.translatable("item.seeking_immortals." + id),
+                typeDisplay(guessSoftManualType(id))), true);
+        if (granted > 0) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.manual.methods_granted", granted), false);
+        }
+        return true;
+    }
+
+    private static String guessSoftManualType(String id) {
+        String key = id == null ? "" : id.toLowerCase(Locale.ROOT);
+        if (key.contains("alchemy") || key.startsWith("recipe_")) {
+            return "alchemy";
+        }
+        if (key.contains("refine") || key.contains("artifact") || key.contains("forge")) {
+            return "refinement";
+        }
+        if (key.contains("talisman") || key.contains("fu")) {
+            return "talisman";
+        }
+        if (key.contains("formation") || key.contains("array")) {
+            return "formation";
+        }
+        if (key.contains("puppet")) {
+            return "puppet";
+        }
+        return "cultivation_path";
     }
 
     public static Component typeDisplay(String typeCode) {

@@ -53,6 +53,7 @@ public final class CatalogItemDescriptionService {
                         case CONSUMABLE -> "tooltip.seeking_immortals.catalog_item.interaction.consume";
                         case PILL -> "tooltip.seeking_immortals.catalog_item.interaction.pill";
                         case FORMULA -> "tooltip.seeking_immortals.catalog_item.interaction.formula";
+                        case MANUAL -> "tooltip.seeking_immortals.catalog_item.interaction.manual";
                         case ARTIFACT -> "tooltip.seeking_immortals.catalog_item.interaction.artifact";
                         case CARRIER -> carrierInteractionKey(normalizedCategory, purpose);
                     };

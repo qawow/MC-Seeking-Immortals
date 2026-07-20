@@ -1,11 +1,13 @@
 package com.xunxian.seekingimmortals.item;
 
+import com.xunxian.seekingimmortals.alchemy.AlchemyFormulaSource;
 import com.xunxian.seekingimmortals.artifact.ArtifactStorageService;
 import com.xunxian.seekingimmortals.catalog.FlightVehicleService;
 import com.xunxian.seekingimmortals.cultivation.BeastContractService;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.cultivation.Realm;
+import com.xunxian.seekingimmortals.item.alchemy.AlchemyFormulaItem;
 import com.xunxian.seekingimmortals.item.pill.CatalogPillItem;
 import com.xunxian.seekingimmortals.item.pill.PillEffectCatalog;
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
@@ -30,7 +32,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -114,6 +118,7 @@ public final class CatalogConsumableService {
                     "message.seeking_immortals.catalog_consumable.discover_fallen_demon");
             case "discover_kunwu" -> discoverLore(player, "A1_kunwu_peak",
                     "message.seeking_immortals.catalog_consumable.discover_kunwu");
+            case "inscribe_formula" -> inscribeFormula(player, id);
             default -> knownIdAction(player, id);
         };
         if (success && shouldAnnounceGenericSuccess(action)) {
@@ -546,6 +551,48 @@ public final class CatalogConsumableService {
         if (successKey != null && !successKey.isBlank()) {
             player.displayClientMessage(Component.translatable(successKey), true);
         }
+        return true;
+    }
+
+    /**
+     * Blank jade slips and paper formula scrolls inscribe a random dedicated formula carrier
+     * of matching media (jade/paper). Sect secrets are never rolled from blanks.
+     */
+    private static boolean inscribeFormula(ServerPlayer player, String blankId) {
+        AlchemyFormulaSource preferred = "jade_slip_blank".equals(normalize(blankId))
+                ? AlchemyFormulaSource.JADE
+                : AlchemyFormulaSource.PAPER;
+        List<Item> pool = new ArrayList<>();
+        for (Item item : ForgeRegistries.ITEMS) {
+            if (item instanceof AlchemyFormulaItem formula
+                    && formula.source() == preferred
+                    && formula.recipeId() != null
+                    && !formula.recipeId().isBlank()) {
+                pool.add(item);
+            }
+        }
+        if (pool.isEmpty()) {
+            // Fallback: any non-sect formula if preferred media is missing on this client/datapack.
+            for (Item item : ForgeRegistries.ITEMS) {
+                if (item instanceof AlchemyFormulaItem formula
+                        && formula.source() != AlchemyFormulaSource.SECT_SECRET) {
+                    pool.add(item);
+                }
+            }
+        }
+        if (pool.isEmpty()) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.catalog_consumable.inscribe_empty"), true);
+            return false;
+        }
+        Item chosen = pool.get(player.getRandom().nextInt(pool.size()));
+        ItemStack product = new ItemStack(chosen, 1);
+        InventoryDeliveryService.giveOrEnqueue(player, product, "inscribe_formula:" + normalize(blankId));
+        player.displayClientMessage(Component.translatable(
+                "message.seeking_immortals.catalog_consumable.inscribe_success",
+                product.getHoverName()), true);
+        player.level().playSound(null, player.blockPosition(), SoundEvents.ENCHANTMENT_TABLE_USE,
+                SoundSource.PLAYERS, 0.55F, 1.15F);
         return true;
     }
 

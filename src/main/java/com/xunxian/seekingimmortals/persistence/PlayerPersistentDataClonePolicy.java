@@ -76,6 +76,7 @@ public final class PlayerPersistentDataClonePolicy {
             return;
         }
         ManualCatalogService.copyProgressionData(source, target);
+        com.xunxian.seekingimmortals.alchemy.AlchemyFormulaKnowledge.copyProgressionData(source, target);
         MethodLayoutService.copyLayoutData(source, target);
         GardenLiquidService.copyPersistentData(source, target);
         NewGamePlusEconomyService.copyPersistentData(source, target);

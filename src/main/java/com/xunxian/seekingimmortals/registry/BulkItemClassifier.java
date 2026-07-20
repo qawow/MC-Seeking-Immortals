@@ -7,6 +7,7 @@ import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.artifact.ArtifactDataService;
 import com.xunxian.seekingimmortals.alchemy.AlchemyFormulaSource;
 import com.xunxian.seekingimmortals.catalog.ExtendedCatalogService;
+import com.xunxian.seekingimmortals.catalog.TextMaterialCatalogService;
 import com.xunxian.seekingimmortals.item.pill.PillEffectCatalog;
 
 import java.io.IOException;
@@ -80,7 +81,9 @@ public final class BulkItemClassifier {
             "fallen_demon_scout_report",
             "kunwu_map_scroll",
             "demon_qi_purge_pill",
-            "mortal_medicine"
+            "mortal_medicine",
+            "jade_slip_blank",
+            "paper_formula_scroll"
     );
     private static final Map<String, AlchemyFormulaSource> ALCHEMY_FORMULA_SOURCES =
             loadAlchemyFormulaSources();
@@ -116,7 +119,39 @@ public final class BulkItemClassifier {
         if (consumable(key).isPresent()) {
             return BulkItemKind.CONSUMABLE;
         }
+        if (isCatalogManual(key, category)) {
+            return BulkItemKind.MANUAL;
+        }
         return BulkItemKind.CARRIER;
+    }
+
+    /** Bulk manuals that can study via ManualCatalogService even without a manuals_catalog row. */
+    public static boolean isCatalogManual(String id, String category) {
+        String key = normalize(id);
+        if (key.isBlank()) {
+            return false;
+        }
+        if (TextMaterialCatalogService.builtin().findManual(key).isPresent()) {
+            return true;
+        }
+        String cat = normalize(category);
+        if ("manual".equals(cat) || "technique".equals(cat)) {
+            return true;
+        }
+        return key.contains("manual")
+                || key.endsWith("_art_page")
+                || key.endsWith("_art_fragment")
+                || key.endsWith("_art_scroll")
+                || key.endsWith("_cipher")
+                || "talisman_recipe".equals(key)
+                || "talisman_recipe_mid".equals(key)
+                || "talisman_recipe_high_bundle".equals(key)
+                || "array_blueprint_scroll".equals(key)
+                || "illusion_scroll".equals(key)
+                || "shape_shift_scroll".equals(key)
+                || "void_palace_intel_scroll".equals(key)
+                || "artifact_identify_scroll".equals(key)
+                || "silver_giant_sword_blueprint".equals(key);
     }
 
     public static Optional<String> recipeOutput(String id) {
@@ -153,6 +188,7 @@ public final class BulkItemClassifier {
                 // Bulk carriers without catalog rows still get executable semantics.
                 case "mortal_medicine" -> "restore_health";
                 case "diyuan_access_token" -> "travel_diyuan";
+                case "jade_slip_blank", "paper_formula_scroll" -> "inscribe_formula";
                 default -> "";
             };
             if (!synthetic.isBlank()) {
