@@ -1,3 +1,13 @@
+## 525. 2026-07-20 0.2.75 炼丹爆炸联动工站耐久
+
+  Step   Status   Notes
+  ---   ---   ---
+  Wear hooks Done   爆炸 80 / 掀盖 30 / 炼败 8 → applyDamage。
+  P0-2 audit Done   245 材料 id 全部可解析，零改动收口。
+  Tests    Done   源码契约 + 全量 737 项通过。
+  Version  Done   `mod_version=0.2.75`；protocol 25。
+  Handoff  Done   `project_docs/updates/20260720_0.2.75_explosion_durability.md`。
+
 ## 524. 2026-07-20 0.2.74 T4/T5 丹炉运行态条目
 
   Step   Status   Notes

@@ -47,9 +47,9 @@
 每项 = 一个或几个批次。完成一项就在本文档勾掉并在 handoff 记录。
 
 ### P0 — 玩法闭环缺口
-1. **T4/T5 丹炉运行态条目**（小批次：station_patterns g4/g5 + validator + AlchemyFurnaceBlockEntity 去钳制）。
-2. **工站材料表补全**：`MultiblockMaterialCatalog` 覆盖 86 结构中有材料的 86 项，但 form/overhaul 只对"玩家常用工站"验证过；逐站抽查 `unresolvedShardTax`，为高频站补别名降税。
-3. **炼丹爆炸链与工站耐久联动**：炼丹失败/爆炸应 `applyDamage` 到工站运行态（现在只有 inspect 会漂移损伤），形成损耗→修理循环。
+1. ~~**T4/T5 丹炉运行态条目**~~（0.2.74 完成）（小批次：station_patterns g4/g5 + validator + AlchemyFurnaceBlockEntity 去钳制）。
+2. ~~**工站材料表补全**~~（0.2.75 审计收口：245 材料 id 全部可解析）：`MultiblockMaterialCatalog` 覆盖 86 结构中有材料的 86 项，但 form/overhaul 只对"玩家常用工站"验证过；逐站抽查 `unresolvedShardTax`，为高频站补别名降税。
+3. ~~**炼丹爆炸链与工站耐久联动**~~（0.2.75 完成）：炼丹失败/爆炸应 `applyDamage` 到工站运行态（现在只有 inspect 会漂移损伤），形成损耗→修理循环。
 4. **术法 corpus 未消费字段清点**：`data/seeking_immortals/cultivation/` 中 `effect_key/tags` 仍有未映射值的术法逐条落实（用第 5.3 节的 corpus 对账测试模式）。
 
 ### P1 — 深度系统

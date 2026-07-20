@@ -488,6 +488,8 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
         }
         double roll = serverLevel.random.nextDouble();
         if (roll < explosionChance) {
+            // Explosion also wears the operational station before the block is destroyed.
+            damageStationState(serverLevel, 80);
             discardStoredContents();
             serverLevel.destroyBlock(worldPosition, false);
             serverLevel.explode(null, worldPosition.getX() + 0.5D, worldPosition.getY() + 0.5D, worldPosition.getZ() + 0.5D,
@@ -504,6 +506,8 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
             ItemStack waste = new ItemStack(ModItems.WASTE_PILL.get());
             storedOutput = waste.copy();
             items.setStackInSlot(SLOT_OUTPUT, waste);
+            // Failed brews scorch the furnace lightly, feeding the repair loop.
+            damageStationState(serverLevel, 8);
             serverLevel.playSound(null, worldPosition, SoundEvents.FIRE_EXTINGUISH, SoundSource.BLOCKS, 0.6F, 0.8F);
         }
         progressTicks = 0;
@@ -513,9 +517,17 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
         setChanged();
     }
 
+
+    private void damageStationState(ServerLevel serverLevel, int amount) {
+        String stationId = "alchemy_furnace_g" + Math.min(5, Math.max(1, getFurnaceTier()));
+        com.xunxian.seekingimmortals.structure.MultiblockOperationalService
+                .applyDamage(serverLevel, stationId, worldPosition, amount, false);
+    }
+
     private void explodeFurnace(ServerLevel serverLevel, ServerPlayer player) {
         int furnaceTier = getFurnaceTier();
         player.displayClientMessage(Component.translatable("message.seeking_immortals.alchemy_furnace.explode_furnace", fireTier, furnaceTier), false);
+        damageStationState(serverLevel, 80);
         discardStoredContents();
         serverLevel.destroyBlock(worldPosition, false);
         serverLevel.explode(null, worldPosition.getX() + 0.5D, worldPosition.getY() + 0.5D, worldPosition.getZ() + 0.5D,
@@ -529,6 +541,7 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
         if (lidState.getBlock() instanceof AlchemyLidBlock) {
             serverLevel.destroyBlock(lidPos, false);
         }
+        damageStationState(serverLevel, 30);
         items.setStackInSlot(SLOT_LID, ItemStack.EMPTY);
         lidTier = 0;
         refreshFormedState(serverLevel, false);

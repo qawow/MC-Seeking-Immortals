@@ -263,4 +263,21 @@ class MultiblockOperationalServiceTest {
         assertTrue(source.contains("Math.min(5, Math.max(1, furnaceTier))"),
                 "furnace station id must cover tiers up to 5");
     }
+
+    @Test
+    void alchemyFailuresWearStationInSource() throws Exception {
+        String source = Files.readString(Path.of(
+                "src", "main", "java", "com", "xunxian", "seekingimmortals",
+                "block", "entity", "AlchemyFurnaceBlockEntity.java"));
+        String compact = source.replaceAll("\\s+", "");
+        assertTrue(compact.contains("damageStationState(serverLevel,80)"),
+                "explosions must heavily damage the operational station");
+        assertTrue(compact.contains("damageStationState(serverLevel,30)"),
+                "blown lids must moderately damage the station");
+        assertTrue(compact.contains("damageStationState(serverLevel,8)"),
+                "failed brews must lightly wear the station");
+        assertTrue(compact.contains("MultiblockOperationalService.applyDamage")
+                        || compact.contains(".applyDamage(serverLevel,stationId,worldPosition"),
+                "wear must route through MultiblockOperationalService.applyDamage");
+    }
 }
