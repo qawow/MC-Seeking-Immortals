@@ -213,7 +213,10 @@ public final class MultiblockOperationalService {
         }
 
         List<Item> materials = MultiblockMaterialCatalog.resolveItems(stationId);
-        int shardCost = Math.max(repairCostShards(state) * 2, 12);
+        int priceFallback = MultiblockMaterialCatalog.shardFallbackCost(stationId);
+        // Prefer concrete materials when resolvable; otherwise tax by authored price band.
+        int shardCost = Math.max(repairCostShards(state) * 2, 12)
+                + (materials.isEmpty() ? priceFallback : 0);
         if (!player.getAbilities().instabuild) {
             List<ItemStack> reserved = tryReserveMaterials(player, materials, 1);
             if (reserved == null) {

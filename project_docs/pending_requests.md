@@ -1,3 +1,5 @@
+2026-07-20 0.2.67 pending update: multiblock overhaul taxes unresolved structure materials via authored price-band shard fallback (capped 128). Protocol 25. Remaining: deeper material-id/alias resolution polish and live client/server/multiplayer smoke.
+
 2026-07-20 0.2.66 pending update: multiblock overhaul reserves structure-sample materials plus shard surcharge before forceIntact, with refund-on-failure. Protocol 25. Remaining: unresolved material-id item mapping polish and live client/server/multiplayer smoke.
 
 2026-07-20 0.2.65 pending update: multiblock stations now persist operational states with efficiency gates, repair reserves spirit shards with refund-on-failure, and soft craft rejects disabled stations. Protocol 25. Remaining: structure-specific build material form/overhaul tables and live client/server/multiplayer smoke.

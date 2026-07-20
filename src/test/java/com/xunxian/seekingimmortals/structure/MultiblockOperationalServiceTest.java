@@ -94,5 +94,16 @@ class MultiblockOperationalServiceTest {
         assertTrue(mats >= 0 && shards > mats && force > shards,
                 "overhaul must reserve structure materials then shards before forceIntact");
         assertTrue(compact.contains("refundStacks(player,reserved)"));
+        assertTrue(compact.contains("shardFallbackCost(stationId)"),
+                "overhaul must tax unresolved materials via price-band shard fallback");
+    }
+
+    @Test
+    void shardFallbackUsesAuthoredPriceBand() {
+        int alchemy = MultiblockMaterialCatalog.shardFallbackCost("alchemy_furnace_g1");
+        int unknown = MultiblockMaterialCatalog.shardFallbackCost("not_a_real_station");
+        assertTrue(alchemy > 0, "authored structure materials should yield a positive fallback tax");
+        assertTrue(alchemy <= 128, "fallback tax must remain capped");
+        assertEquals(0, unknown);
     }
 }

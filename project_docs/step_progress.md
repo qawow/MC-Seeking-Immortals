@@ -1,3 +1,14 @@
+## 517. 2026-07-20 0.2.67 多方块材料价带碎片回退
+
+  Step   Status   Notes
+  ---   ---   ---
+  Fallback Done   shardFallbackCost 按 minPrice 汇总并封顶 128。
+  Overhaul Done   无可解析材料时加价带税。
+  Tests    Done   价带回退与源码契约。
+  Verify   Done   普通构建成功，全量 724 项通过。
+  Version  Done   `mod_version=0.2.67`；protocol 25。
+  Handoff  Done   `project_docs/updates/20260720_0.2.67_material_fallback.md`。
+
 ## 516. 2026-07-20 0.2.66 多方块结构材料大修事务
 
   Step   Status   Notes

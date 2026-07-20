@@ -66,6 +66,24 @@ public final class MultiblockMaterialCatalog {
         return List.copyOf(items);
     }
 
+    /**
+     * When concrete items cannot be resolved (or none are authored), convert the
+     * structure material price band into a spirit-shard overhaul surcharge.
+     */
+    public static int shardFallbackCost(String stationId) {
+        List<MaterialRef> refs = BUILTIN.materialsFor(stationId);
+        if (refs.isEmpty()) {
+            return 0;
+        }
+        int total = 0;
+        for (MaterialRef ref : refs) {
+            // Use the low-band minimum as a conservative overhaul tax per component.
+            total += Math.max(1, ref.minPrice());
+        }
+        // Cap so high-component stations remain playable.
+        return Math.max(0, Math.min(128, total));
+    }
+
     private static Snapshot loadBuiltin() {
         Map<String, List<MaterialRef>> map = new LinkedHashMap<>();
         JsonObject root = readJson("data/" + SeekingImmortalsMod.MODID
