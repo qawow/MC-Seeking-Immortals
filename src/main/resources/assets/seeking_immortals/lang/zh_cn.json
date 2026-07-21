@@ -925,6 +925,8 @@
   "screen.seeking_immortals.technique_edit.waiting_sync": "等待服务端同步技能数据...",
   "screen.seeking_immortals.technique_edit.empty_learned": "暂无已学技能。",
   "screen.seeking_immortals.technique_edit.dragging": "拖拽绑定：《%s》 -> 释放到左侧槽位",
+  "screen.seeking_immortals.technique_edit.search_hint": "输入搜索...",
+  "screen.seeking_immortals.technique_edit.no_results": "无匹配技能",
   "command.seeking_immortals.market.header": "坊市店铺：%s。使用 /seeking_immortals market buy [shopId] <entry> 购买。",
   "command.seeking_immortals.market.entry": "- %s：%s x%s，消耗 %s x %s，库存 %s",
   "command.seeking_immortals.market.stock.unlimited": "不限",

@@ -915,6 +915,8 @@
   "screen.seeking_immortals.technique_edit.waiting_sync": "Waiting for server technique data...",
   "screen.seeking_immortals.technique_edit.empty_learned": "No learned techniques.",
   "screen.seeking_immortals.technique_edit.dragging": "Binding: <%s> -> release onto a left slot",
+  "screen.seeking_immortals.technique_edit.search_hint": "Type to search...",
+  "screen.seeking_immortals.technique_edit.no_results": "No matching techniques",
   "command.seeking_immortals.market.header": "Market shop: %s. Use /seeking_immortals market buy [shopId] <entry>.",
   "command.seeking_immortals.market.entry": "- %s: %s x%s, costs %s x %s, stock %s",
   "command.seeking_immortals.market.stock.unlimited": "unlimited",

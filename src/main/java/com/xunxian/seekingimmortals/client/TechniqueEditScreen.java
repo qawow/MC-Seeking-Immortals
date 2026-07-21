@@ -20,6 +20,10 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
 
     private String draggingTechniqueId = "";
     private int learnedScrollOffset = 0;
+    private String searchQuery = "";
+    private boolean isDraggingScrollbar = false;
+    private double scrollbarDragStartY = 0;
+    private int scrollOffsetAtDragStart = 0;
 
 
     @Override
@@ -102,8 +106,14 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
             }
 
             if (button == 0) {
+                if (isInsideLearnedList(mouseX, mouseY)) {
+                    isDraggingScrollbar = true;
+                    scrollbarDragStartY = mouseY;
+                    scrollOffsetAtDragStart = learnedScrollOffset;
+                }
+
                 int learnedIndex = hoveredLearnedIndex(mouseX, mouseY);
-                List<String> techniques = ClientTechniqueData.getLearnedTechniques();
+                List<String> techniques = filterTechniques(ClientTechniqueData.getLearnedTechniques());
                 if (learnedIndex >= 0 && learnedIndex < techniques.size()) {
                     draggingTechniqueId = techniques.get(learnedIndex);
                     return true;
@@ -115,18 +125,37 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
 
     @Override
     public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
+        if (button == 0 && isDraggingScrollbar && ClientTechniqueData.isSynced()) {
+            List<String> techniques = filterTechniques(ClientTechniqueData.getLearnedTechniques());
+            Layout layout = calculateLayout(width, height);
+            int maxRows = maxLearnedRows(layout);
+            int maxScroll = maxLearnedScroll(techniques.size(), maxRows);
+
+            if (maxScroll > 0) {
+                Rect viewport = learnedViewport(layout);
+                double dragDistance = mouseY - scrollbarDragStartY;
+                int rowsToScroll = (int) (dragDistance / LINE_HEIGHT);
+                learnedScrollOffset = Mth.clamp(scrollOffsetAtDragStart + rowsToScroll, 0, maxScroll);
+                return true;
+            }
+        }
         return !draggingTechniqueId.isBlank() || super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
     }
 
     @Override
     public boolean mouseReleased(double mouseX, double mouseY, int button) {
-        if (button == 0 && !draggingTechniqueId.isBlank()) {
-            int slot = hoveredSlot(mouseX, mouseY);
-            if (slot >= 0) {
-                ModNetwork.CHANNEL.sendToServer(new SetTechniqueSlotPacket(slot, draggingTechniqueId));
+        if (button == 0) {
+            isDraggingScrollbar = false;
+            scrollbarDragStartY = 0;
+
+            if (!draggingTechniqueId.isBlank()) {
+                int slot = hoveredSlot(mouseX, mouseY);
+                if (slot >= 0) {
+                    ModNetwork.CHANNEL.sendToServer(new SetTechniqueSlotPacket(slot, draggingTechniqueId));
+                }
+                draggingTechniqueId = "";
+                return true;
             }
-            draggingTechniqueId = "";
-            return true;
         }
         return super.mouseReleased(mouseX, mouseY, button);
     }
@@ -134,7 +163,7 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
     @Override
     public boolean mouseScrolled(double mouseX, double mouseY, double delta) {
         if (ClientTechniqueData.isSynced() && isInsideLearnedList(mouseX, mouseY)) {
-            List<String> techniques = ClientTechniqueData.getLearnedTechniques();
+            List<String> techniques = filterTechniques(ClientTechniqueData.getLearnedTechniques());
             int maxRows = maxLearnedRows(calculateLayout(width, height));
             int maxScroll = maxLearnedScroll(techniques.size(), maxRows);
             if (maxScroll > 0) {
@@ -144,6 +173,36 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
             }
         }
         return super.mouseScrolled(mouseX, mouseY, delta);
+    }
+
+    @Override
+    public boolean charTyped(char codePoint, int modifiers) {
+        if (Character.isLetterOrDigit(codePoint) || Character.isWhitespace(codePoint) || isPunctuation(codePoint)) {
+            searchQuery += codePoint;
+            learnedScrollOffset = 0;
+            return true;
+        }
+        return super.charTyped(codePoint, modifiers);
+    }
+
+    @Override
+    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+        if (keyCode == 259) { // BACKSPACE
+            if (!searchQuery.isEmpty()) {
+                searchQuery = searchQuery.substring(0, searchQuery.length() - 1);
+                learnedScrollOffset = 0;
+                return true;
+            }
+        } else if (keyCode == 257 || keyCode == 335) { // ENTER or NUMPAD_ENTER
+            searchQuery = "";
+            learnedScrollOffset = 0;
+            return true;
+        }
+        return super.keyPressed(keyCode, scanCode, modifiers);
+    }
+
+    private boolean isPunctuation(char c) {
+        return c == '/' || c == '-' || c == '_' || c == '.' || c == '(' || c == ')' || c == '[' || c == ']';
     }
 
     private void renderSlots(GuiGraphics graphics, Layout layout, List<String> slots, int mouseX, int mouseY) {
@@ -213,12 +272,22 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
     private void renderLearnedList(GuiGraphics graphics, Layout layout, List<String> techniques,
                                    int mouseX, int mouseY) {
         Rect pane = layout.learnedPane();
-        if (pane.height() >= 28) {
+        int headerY = pane.y() + 4;
+
+        if (pane.height() >= 48) {
             ImmortalUiSkin.drawStringFit(font, graphics,
                     Component.translatable("screen.seeking_immortals.technique_edit.learned").getString(),
-                    pane.x() + 5, pane.y() + 4, Math.max(1, pane.width() - 10),
+                    pane.x() + 5, headerY, Math.max(1, pane.width() - 10),
+                    ImmortalUiSkin.JOURNAL_PAPER, false);
+            headerY += 12;
+            renderSearchBox(graphics, pane.x() + 5, headerY, pane.width() - 10, 14);
+        } else if (pane.height() >= 28) {
+            ImmortalUiSkin.drawStringFit(font, graphics,
+                    Component.translatable("screen.seeking_immortals.technique_edit.learned").getString(),
+                    pane.x() + 5, headerY, Math.max(1, pane.width() - 10),
                     ImmortalUiSkin.JOURNAL_PAPER, false);
         }
+
         Rect viewport = learnedViewport(layout);
         if (!ClientTechniqueData.isSynced()) {
             ImmortalUiSkin.drawStringFit(font, graphics,
@@ -226,15 +295,19 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
                     viewport.x(), viewport.y(), viewport.width(), ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
             return;
         }
-        if (techniques.isEmpty()) {
-            ImmortalUiSkin.drawStringFit(font, graphics,
-                    Component.translatable("screen.seeking_immortals.technique_edit.empty_learned").getString(),
+
+        List<String> filteredTechniques = filterTechniques(techniques);
+        if (filteredTechniques.isEmpty()) {
+            String emptyMessage = searchQuery.isEmpty()
+                ? Component.translatable("screen.seeking_immortals.technique_edit.empty_learned").getString()
+                : Component.translatable("screen.seeking_immortals.technique_edit.no_results").getString();
+            ImmortalUiSkin.drawStringFit(font, graphics, emptyMessage,
                     viewport.x(), viewport.y(), viewport.width(), ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
             return;
         }
 
         int maxRows = maxLearnedRows(layout);
-        renderScrollableLearnedRows(graphics, layout, viewport, maxRows, techniques, mouseX, mouseY);
+        renderScrollableLearnedRows(graphics, layout, viewport, maxRows, filteredTechniques, mouseX, mouseY);
     }
 
     private void renderScrollableLearnedRows(GuiGraphics graphics, Layout layout, Rect viewport,
@@ -262,6 +335,35 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
                 viewport.height(), learnedScrollOffset * LINE_HEIGHT);
     }
 
+    private void renderSearchBox(GuiGraphics graphics, int x, int y, int width, int height) {
+        graphics.fill(x, y, x + width, y + height, ImmortalUiSkin.JOURNAL_BORDER_DIM);
+        graphics.fill(x + 1, y + 1, x + width - 1, y + height - 1, ImmortalUiSkin.JOURNAL_INNER);
+
+        String displayText = searchQuery.isEmpty()
+            ? Component.translatable("screen.seeking_immortals.technique_edit.search_hint").getString()
+            : searchQuery;
+        int textColor = searchQuery.isEmpty() ? ImmortalUiSkin.JOURNAL_PAPER_MUTED : ImmortalUiSkin.JOURNAL_PAPER;
+
+        ImmortalUiSkin.drawStringFit(font, graphics, displayText, x + 4, y + 3,
+                Math.max(1, width - 8), textColor, false);
+    }
+
+    private List<String> filterTechniques(List<String> techniques) {
+        if (searchQuery.isEmpty()) {
+            return techniques;
+        }
+        String lowerQuery = searchQuery.toLowerCase();
+        return techniques.stream()
+                .filter(id -> {
+                    ClientTechniqueData.TechniqueSummary summary = ClientTechniqueData.getTechniqueSummary(id);
+                    return summary.name().toLowerCase().contains(lowerQuery)
+                            || summary.source().toLowerCase().contains(lowerQuery)
+                            || summary.attribute().toLowerCase().contains(lowerQuery)
+                            || id.toLowerCase().contains(lowerQuery);
+                })
+                .toList();
+    }
+
     private void renderDraggedTechnique(GuiGraphics graphics, int mouseX, int mouseY) {
         if (draggingTechniqueId.isBlank()) return;
         ClientTechniqueData.TechniqueSummary summary = ClientTechniqueData.getTechniqueSummary(draggingTechniqueId);
@@ -286,7 +388,7 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
 
     private int hoveredLearnedIndex(double mouseX, double mouseY) {
         if (!ClientTechniqueData.isSynced()) return -1;
-        List<String> techniques = ClientTechniqueData.getLearnedTechniques();
+        List<String> techniques = filterTechniques(ClientTechniqueData.getLearnedTechniques());
         if (techniques.isEmpty()) return -1;
 
         Layout layout = calculateLayout(width, height);
