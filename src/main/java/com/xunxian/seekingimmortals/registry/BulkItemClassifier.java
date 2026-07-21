@@ -55,6 +55,7 @@ public final class BulkItemClassifier {
             "ice_shard_talisman",
             "golden_armor_talisman",
             "beast_feed_spirit",
+            "puppet_repair_kit",
             "storage_bag_low",
             "storage_bag_high",
             "spirit_water_flask",
@@ -264,6 +265,7 @@ public final class BulkItemClassifier {
                 case "jade_slip_blank", "paper_formula_scroll" -> "inscribe_formula";
                 case "spirit_pill_voucher" -> "redeem_spirit_pill_voucher";
                 case "teleport_array_ticket" -> "board_teleport_array";
+                case "puppet_repair_kit" -> "puppet_repair";
                 default -> "";
             };
             if (!synthetic.isBlank()) {
@@ -302,6 +304,7 @@ public final class BulkItemClassifier {
             case "talisman_ink_bottle" -> "talisman_craft_material";
             case "spirit_sand_pouch" -> "array_fuel";
             case "yin_coffin_nail" -> "corpse_control";
+            case "puppet_repair_kit" -> "puppet_repair";
             case "wind_feather_raft_blueprint" -> "vehicle_craft";
             case "sect_contribution_token" -> "sect_contribution_redeem";
             case "spirit_boat_ticket" -> "travel_spirit_boat";

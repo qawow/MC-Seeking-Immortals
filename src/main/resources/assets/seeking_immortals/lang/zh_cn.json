@@ -4677,6 +4677,7 @@
   "tooltip.seeking_immortals.catalog_consumable.effect.talisman_craft_material": "每次制符需要一瓶符墨；仅在正式制符事务中消耗",
   "tooltip.seeking_immortals.catalog_consumable.effect.array_fuel": "成功激活自由阵场时自动消耗一袋，并将持续时间从 90 秒延长至 150 秒",
   "tooltip.seeking_immortals.catalog_consumable.effect.corpse_control": "强化十六格内最近的自有鬼仆，疗伤、延寿并令其镇守当前位置",
+  "tooltip.seeking_immortals.catalog_consumable.effect.puppet_repair": "修理全部自有傀儡并给予短暂减伤；修缮包在修理时消耗",
   "tooltip.seeking_immortals.catalog_consumable.effect.vehicle_craft": "在成型飞舟船坞消耗风羽、灵蚕丝、昆吾铜与灵石碎片，制作一张风羽舟票",
   "tooltip.seeking_immortals.catalog_consumable.effect.sect_contribution_redeem": "仅限已有宗门归属的修士兑换，每枚增加 1 点当前宗门贡献",
   "tooltip.seeking_immortals.catalog_item.purpose": "定位：%s",

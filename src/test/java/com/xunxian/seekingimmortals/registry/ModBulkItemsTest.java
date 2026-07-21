@@ -89,6 +89,14 @@ class ModBulkItemsTest {
                 BulkItemClassifier.consumable("spirit_sand_pouch").orElseThrow().effect());
         assertEquals("corpse_control",
                 BulkItemClassifier.consumable("yin_coffin_nail").orElseThrow().effect());
+        // ModItems startup registration calls orElseThrow() on these three; a missing
+        // definition crashes the game during item registry events (2026-07-21 crash).
+        assertEquals("puppet_repair",
+                BulkItemClassifier.consumable("puppet_repair_kit").orElseThrow().effect());
+        assertEquals("pet_loyalty_plus",
+                BulkItemClassifier.consumable("spirit_beast_feed").orElseThrow().effect());
+        assertEquals("pet_loyalty_plus",
+                BulkItemClassifier.consumable("beast_feed_spirit").orElseThrow().effect());
         assertEquals("vehicle_craft",
                 BulkItemClassifier.consumable("wind_feather_raft_blueprint").orElseThrow().effect());
         assertEquals(BulkItemKind.CONSUMABLE,

@@ -122,6 +122,7 @@ public final class CatalogConsumableService {
             case "inscribe_formula" -> inscribeFormula(player, id);
             case "redeem_spirit_pill_voucher" -> redeemSpiritPillVoucher(player);
             case "board_teleport_array" -> FlightVehicleService.board(player, "teleport_array_ticket");
+            case "puppet_repair" -> SummonHonestMvpService.repairOwnedPuppets(player) > 0;
             default -> knownIdAction(player, id);
         };
         if (success && shouldAnnounceGenericSuccess(action)) {
@@ -176,10 +177,12 @@ public final class CatalogConsumableService {
         }
         String action = normalize(effect);
         // Durable credentials/materials survive use; everything else is one-shot.
+        // puppet_repair consumes its own kit inside repairOwnedPuppets, so skip the outer shrink.
         return !"talisman_craft_material".equals(action)
                 && !"array_fuel".equals(action)
                 && !"show_sect_identity".equals(action)
-                && !"open_auction_invite".equals(action);
+                && !"open_auction_invite".equals(action)
+                && !"puppet_repair".equals(action);
     }
 
     public static int lightningWardCharges(Player player) {

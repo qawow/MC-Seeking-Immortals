@@ -4677,6 +4677,7 @@
   "tooltip.seeking_immortals.catalog_consumable.effect.talisman_craft_material": "Each talisman crafting attempt requires one bottle; it is consumed only by the crafting transaction",
   "tooltip.seeking_immortals.catalog_consumable.effect.array_fuel": "A successful free-field activation consumes one pouch and extends duration from 90 to 150 seconds",
   "tooltip.seeking_immortals.catalog_consumable.effect.corpse_control": "Empowers the nearest owned ghost within 16 blocks, healing it, extending life, and ordering it to guard",
+  "tooltip.seeking_immortals.catalog_consumable.effect.puppet_repair": "Repairs all owned puppets and grants brief damage resistance; the kit is consumed on repair",
   "tooltip.seeking_immortals.catalog_consumable.effect.vehicle_craft": "At a formed flying-boat dock, consumes Wind Feathers, Spirit Silk, Kunwu Copper, and spirit shards to craft a ticket",
   "tooltip.seeking_immortals.catalog_consumable.effect.sect_contribution_redeem": "Only members of a registered sect may redeem it; each token grants 1 contribution point to the current sect",
   "tooltip.seeking_immortals.catalog_item.purpose": "Role: %s",
