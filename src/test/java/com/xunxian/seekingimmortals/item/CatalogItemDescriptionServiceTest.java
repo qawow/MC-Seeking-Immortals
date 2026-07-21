@@ -39,8 +39,8 @@ class CatalogItemDescriptionServiceTest {
                 count++;
             }
         }
-        assertTrue(count >= 1190, "count=" + count);
-        assertTrue(placeholders >= 800, "placeholders=" + placeholders);
+        assertTrue(count >= 1186, "count=" + count);
+        assertTrue(placeholders >= 796, "placeholders=" + placeholders);
     }
 
     @Test

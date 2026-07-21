@@ -3032,12 +3032,6 @@
       "description": "目录载体：拍卖请柬"
     },
     {
-      "id": "beast_feed_spirit",
-      "category": "consumable",
-      "rarity": "common",
-      "description": "目录载体：灵兽饵"
-    },
-    {
       "id": "beast_meat_jerky",
       "category": "consumable",
       "rarity": "common",
@@ -3168,12 +3162,6 @@
       "category": "consumable",
       "rarity": "common",
       "description": "目录载体：传音符"
-    },
-    {
-      "id": "spirit_beast_feed",
-      "category": "consumable",
-      "rarity": "common",
-      "description": "目录载体：灵兽饵"
     },
     {
       "id": "spirit_boat_ticket",
@@ -3324,12 +3312,6 @@
       "category": "consumable",
       "rarity": "common",
       "description": "目录载体：掩月熏香"
-    },
-    {
-      "id": "yin_coffin_nail",
-      "category": "consumable",
-      "rarity": "common",
-      "description": "目录载体：镇尸钉"
     },
     {
       "id": "high_spirit_stone",
@@ -3719,12 +3701,6 @@
       "category": "artifact",
       "rarity": "uncommon",
       "description": "目录载体：铁制傀儡肢"
-    },
-    {
-      "id": "puppet_repair_kit",
-      "category": "artifact",
-      "rarity": "uncommon",
-      "description": "目录载体：傀儡修缮包"
     },
     {
       "id": "purple_bamboo_shoot",
