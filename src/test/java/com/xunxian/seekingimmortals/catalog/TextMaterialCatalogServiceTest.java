@@ -2,6 +2,8 @@ package com.xunxian.seekingimmortals.catalog;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Set;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -29,12 +31,14 @@ class TextMaterialCatalogServiceTest {
                 .findMethod("changchun_gong").orElseThrow();
         assertEquals(13, changchun.explicitMaxLayers());
         assertEquals("QI_REFINING", changchun.realmMaxLearn());
+        assertEquals("elemental", changchun.school());
         assertTrue(changchun.requiredSpiritRoots().contains("wood"));
         assertEquals("huangfeng_valley", changchun.requiredFaction());
         assertEquals("FOUNDATION", changchun.mustConvertAfter());
 
         TextMaterialCatalogService.MethodEntry qingyuan = TextMaterialCatalogService.builtin()
                 .findMethod("qingyuan_sword_art").orElseThrow();
+        assertEquals("sword", qingyuan.school());
         assertTrue(qingyuan.prerequisiteMethods().contains("changchun_gong"));
         assertEquals(13, qingyuan.prerequisiteMethodLayers().get("changchun_gong"));
         assertTrue(qingyuan.requiredSpiritRoots().contains("metal")
@@ -46,5 +50,15 @@ class TextMaterialCatalogServiceTest {
                 .orElseThrow().explicitMaxLayers());
         assertEquals(2, TextMaterialCatalogService.builtin().findMethod("treasure_appraisal_art")
                 .orElseThrow().explicitMaxLayers());
+    }
+
+    @Test
+    void methodSchoolsIgnoreBooleanAuthoringMarkers() {
+        var methods = TextMaterialCatalogService.builtin().methods().values();
+        assertEquals(136, methods.size());
+        assertTrue(methods.stream().noneMatch(method -> Set.of("true", "false").contains(method.school())),
+                "boolean authoring markers must not become player-facing method schools");
+        assertTrue(methods.stream().map(TextMaterialCatalogService.MethodEntry::school).distinct().count() >= 12,
+                "method tree should retain its authored school diversity");
     }
 }

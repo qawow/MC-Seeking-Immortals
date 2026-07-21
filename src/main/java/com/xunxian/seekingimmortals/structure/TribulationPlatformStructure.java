@@ -24,16 +24,18 @@ public final class TribulationPlatformStructure {
     private TribulationPlatformStructure() {}
 
     /**
-     * @param center 平台中心
+     * @param center 平台中心祭坛
      * @param metalBlock 金属方块（地基）
+     * @param controllerBlock 中心祭坛方块
      * @param lightningRodBlock 避雷针方块
      * @param runeBlock 防护符石
      * @return 验证结果
      */
     public static CheckResult validate(Level level, BlockPos center, Block metalBlock,
-                                      Block lightningRodBlock, Block runeBlock) {
+                                      Block controllerBlock, Block lightningRodBlock, Block runeBlock) {
         // 检查高度
         boolean heightRequirement = center.getY() >= MIN_HEIGHT;
+        boolean controllerPresent = level.getBlockState(center).is(controllerBlock);
 
         // 检查平台地基
         int missingPlatform = 0;
@@ -73,10 +75,10 @@ public final class TribulationPlatformStructure {
                             level.getBlockState(center.above(2)).isAir() &&
                             level.getBlockState(center.above(3)).isAir();
 
-        boolean fullyActive = heightRequirement && missingPlatform == 0 &&
+        boolean fullyActive = heightRequirement && controllerPresent && missingPlatform == 0 &&
                             completeRods == 4 && missingRunes == 0 && centerClear;
 
-        return new CheckResult(heightRequirement, missingPlatform, completeRods,
+        return new CheckResult(heightRequirement, controllerPresent, missingPlatform, completeRods,
                              missingRunes, centerClear, fullyActive);
     }
 
@@ -85,6 +87,9 @@ public final class TribulationPlatformStructure {
         // 9×9 平台
         for (int x = -PLATFORM_RADIUS; x <= PLATFORM_RADIUS; x++) {
             for (int z = -PLATFORM_RADIUS; z <= PLATFORM_RADIUS; z++) {
+                if (x == 0 && z == 0) {
+                    continue;
+                }
                 offsets.add(new BlockPos(x, 0, z));
             }
         }
@@ -116,7 +121,8 @@ public final class TribulationPlatformStructure {
         return List.copyOf(offsets);
     }
 
-    public record CheckResult(boolean heightRequirement, int missingPlatform, int completeRods,
+    public record CheckResult(boolean heightRequirement, boolean controllerPresent,
+                             int missingPlatform, int completeRods,
                              int missingRunes, boolean centerClear, boolean fullyActive) {
         public boolean complete() {
             return fullyActive;

@@ -5,6 +5,7 @@ import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
 import com.xunxian.seekingimmortals.registry.ModItems;
 import com.xunxian.seekingimmortals.structure.ThunderTribulationAltarStructure;
+import com.xunxian.seekingimmortals.structure.TribulationPlatformStructure;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
@@ -22,6 +23,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -70,7 +72,14 @@ public class ThunderTribulationAltarBlock extends Block {
                 pos,
                 ModBlocks.THUNDER_TRIBULATION_ALTAR.get(),
                 ModBlocks.SPIRIT_ORE.get());
-        if (!check.complete()) {
+        TribulationPlatformStructure.CheckResult platform = TribulationPlatformStructure.validate(
+                level,
+                pos,
+                ModBlocks.SPIRIT_ORE.get(),
+                ModBlocks.THUNDER_TRIBULATION_ALTAR.get(),
+                Blocks.LIGHTNING_ROD,
+                ModBlocks.SPIRIT_GATHERING_ARRAY.get());
+        if (!check.complete() && !platform.complete()) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.thunder_tribulation_altar.incomplete",
                     check.missingRing(),

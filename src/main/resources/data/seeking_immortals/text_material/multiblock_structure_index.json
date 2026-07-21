@@ -837,7 +837,7 @@
       "id": "tribulation_platform",
       "display": "渡劫台",
       "type": "structure",
-      "dimensions": "7×7×1",
+      "dimensions": "9×9×6",
       "build_mode": "handcrafted",
       "default_state": "intact",
       "max_hp": 900,

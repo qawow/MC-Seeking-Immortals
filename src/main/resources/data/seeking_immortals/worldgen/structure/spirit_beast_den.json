@@ -1,0 +1,7 @@
+{
+  "type": "seeking_immortals:spirit_beast_den",
+  "biomes": "#seeking_immortals:has_structure/spirit_beast_den",
+  "step": "surface_structures",
+  "terrain_adaptation": "beard_thin",
+  "spawn_overrides": {}
+}

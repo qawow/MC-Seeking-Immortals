@@ -3,12 +3,11 @@ package com.xunxian.seekingimmortals.skill.effect.spell;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.skill.CultivationSkill;
 import com.xunxian.seekingimmortals.skill.effect.SkillContext;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
@@ -28,8 +27,12 @@ public class EarthEscapeStepSpell extends SpellEffect {
         for (double distance = 4.0D; distance >= 1.5D; distance -= 0.5D) {
             Vec3 target = origin.add(flat.scale(distance));
             if (canStandAt(level, BlockPos.containing(target)) && isPathClear(level, origin, target)) {
+                TechniqueVfxPalette.Profile vfx = TechniqueVfxPalette.profile("earth");
+                vfx.castAt(level, player);
+                vfx.path(level, origin.add(0.0D, 0.35D, 0.0D), target.add(0.0D, 0.35D, 0.0D),
+                        Math.max(10, (int) Math.ceil(distance * 5.0D)));
                 player.teleportTo(target.x, target.y, target.z);
-                level.playSound(null, player.blockPosition(), SoundEvents.ENDERMAN_TELEPORT, SoundSource.PLAYERS, 0.7F, 1.3F);
+                vfx.impactAt(level, target);
                 player.displayClientMessage(Component.literal("土遁步穿行数步。"), true);
                 return true;
             }

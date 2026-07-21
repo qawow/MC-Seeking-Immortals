@@ -13,21 +13,28 @@ import java.util.List;
  * 功能：炼制高级法宝、武器淬炼、器灵觉醒
  */
 public final class RefinementFurnaceStructure {
+    public static final int SIZE = 3;
     public static final int RADIUS = 1;
     public static final int HEIGHT = 3;
+    public static final int SMOKESTACK_CLEARANCE = 3;
 
     private static final List<BlockPos> WALL_OFFSETS = buildWallOffsets();
     private static final List<BlockPos> INNER_OFFSETS = buildInnerOffsets();
+    private static final List<BlockPos> SMOKESTACK_OFFSETS = buildSmokestackOffsets();
 
     private RefinementFurnaceStructure() {}
 
     /**
-     * @param center 中心工作位置（玩家站立处）
+     * @param center 炼器台控制器位置
+     * @param controllerBlock 炼器台控制器
      * @param brickBlock 耐火砖方块
      * @param lavaBlock 熔岩方块
      * @return 验证结果
      */
-    public static CheckResult validate(Level level, BlockPos center, Block brickBlock, Block lavaBlock) {
+    public static CheckResult validate(Level level, BlockPos center, Block controllerBlock,
+                                       Block brickBlock, Block lavaBlock) {
+        boolean controllerPresent = level.getBlockState(center).is(controllerBlock);
+
         // 检查外墙
         int missingWalls = 0;
         for (BlockPos offset : WALL_OFFSETS) {
@@ -47,64 +54,61 @@ public final class RefinementFurnaceStructure {
         // 检查底部熔岩
         boolean hasLava = level.getBlockState(center.below()).is(lavaBlock);
 
-        // 检查顶部烟囱（向上3格应为空）
+        // 三层实体结构上方的烟道需要额外净空。
         boolean hasSmokestack = true;
-        for (int y = HEIGHT; y < HEIGHT + 3; y++) {
-            if (!level.getBlockState(center.above(y)).isAir()) {
+        for (BlockPos offset : SMOKESTACK_OFFSETS) {
+            if (!level.getBlockState(center.offset(offset)).isAir()) {
                 hasSmokestack = false;
                 break;
             }
         }
 
-        boolean fullyActive = missingWalls == 0 && blockedInner == 0 && hasLava && hasSmokestack;
-        return new CheckResult(missingWalls, blockedInner, hasLava, hasSmokestack, fullyActive);
+        boolean fullyActive = controllerPresent && missingWalls == 0 && blockedInner == 0
+                && hasLava && hasSmokestack;
+        return new CheckResult(controllerPresent ? 0 : 1, missingWalls, blockedInner,
+                hasLava, hasSmokestack, fullyActive);
     }
 
     private static List<BlockPos> buildWallOffsets() {
         List<BlockPos> offsets = new ArrayList<>();
-        // 底层（y=-1）
-        for (int x = -RADIUS; x <= RADIUS; x++) {
-            for (int z = -RADIUS; z <= RADIUS; z++) {
-                if (x != 0 || z != 0) { // 排除中心（熔岩位置）
-                    offsets.add(new BlockPos(x, -1, z));
-                }
-            }
-        }
-
-        // 中间层和顶层的四周墙壁
-        for (int y = 0; y < HEIGHT; y++) {
+        // y=-1..1 构成真实的 3x3x3 炉体；三层中心依次为熔岩、控制器和烟口。
+        for (int y = -1; y <= 1; y++) {
             for (int x = -RADIUS; x <= RADIUS; x++) {
                 for (int z = -RADIUS; z <= RADIUS; z++) {
-                    // 只要边缘
                     if (Math.abs(x) == RADIUS || Math.abs(z) == RADIUS) {
                         offsets.add(new BlockPos(x, y, z));
                     }
                 }
             }
         }
-
-        // 顶部封闭（除中心烟囱）
-        for (int x = -RADIUS; x <= RADIUS; x++) {
-            for (int z = -RADIUS; z <= RADIUS; z++) {
-                if (Math.abs(x) == RADIUS || Math.abs(z) == RADIUS) {
-                    offsets.add(new BlockPos(x, HEIGHT, z));
-                }
-            }
-        }
-
         return List.copyOf(offsets);
     }
 
     private static List<BlockPos> buildInnerOffsets() {
+        return List.of(new BlockPos(0, 1, 0));
+    }
+
+    private static List<BlockPos> buildSmokestackOffsets() {
         List<BlockPos> offsets = new ArrayList<>();
-        // 内部空间（不包括边缘墙壁）
-        for (int y = 0; y < HEIGHT; y++) {
-            offsets.add(new BlockPos(0, y, 0)); // 中心
+        for (int y = 2; y < 2 + SMOKESTACK_CLEARANCE; y++) {
+            offsets.add(new BlockPos(0, y, 0));
         }
         return List.copyOf(offsets);
     }
 
-    public record CheckResult(int missingWalls, int blockedInner, boolean hasLava,
+    static List<BlockPos> wallOffsets() {
+        return WALL_OFFSETS;
+    }
+
+    static List<BlockPos> innerOffsets() {
+        return INNER_OFFSETS;
+    }
+
+    static List<BlockPos> smokestackOffsets() {
+        return SMOKESTACK_OFFSETS;
+    }
+
+    public record CheckResult(int missingController, int missingWalls, int blockedInner, boolean hasLava,
                              boolean hasSmokestack, boolean fullyActive) {
         public boolean complete() {
             return fullyActive;

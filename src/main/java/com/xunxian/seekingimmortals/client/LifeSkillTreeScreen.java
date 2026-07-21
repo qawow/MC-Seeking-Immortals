@@ -116,15 +116,44 @@ public class LifeSkillTreeScreen extends AbstractJournalScreen {
 
     @Override
     public boolean mouseScrolled(double mouseX, double mouseY, double delta) {
+        prepareListPanel();
+        if (listPanel.mouseScrolled(mouseX, mouseY, delta)) {
+            return true;
+        }
+        return super.mouseScrolled(mouseX, mouseY, delta);
+    }
+
+    @Override
+    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        prepareListPanel();
+        if (listPanel.mouseClicked(mouseX, mouseY, button)) {
+            return true;
+        }
+        return super.mouseClicked(mouseX, mouseY, button);
+    }
+
+    @Override
+    public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
+        if (listPanel.mouseDragged(mouseX, mouseY, button, dragX, dragY)) {
+            return true;
+        }
+        return super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
+    }
+
+    @Override
+    public boolean mouseReleased(double mouseX, double mouseY, int button) {
+        if (listPanel.mouseReleased(mouseX, mouseY, button)) {
+            return true;
+        }
+        return super.mouseReleased(mouseX, mouseY, button);
+    }
+
+    private void prepareListPanel() {
         SkillTreeLayout layout = calculateLayout(width, height);
         UiRect viewport = layout.viewport();
         int contentHeight = ClientSkillData.isSynced()
                 ? calculateContentHeight(layout.columns()) : viewport.height();
         listPanel.setBounds(viewport).setContentHeight(contentHeight);
-        if (listPanel.mouseScrolled(mouseX, mouseY, delta)) {
-            return true;
-        }
-        return super.mouseScrolled(mouseX, mouseY, delta);
     }
 
     @Override

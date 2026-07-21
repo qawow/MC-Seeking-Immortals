@@ -28,10 +28,17 @@ public final class FormationFieldSavedData extends SavedData {
             int radius,
             int auraBonus,
             String effect,
-            boolean freeField
+            boolean freeField,
+            String coreBlockId
     ) {
         public StoredField(String dimensionId, BlockPos corePos, String kind, int remainingTicks) {
-            this(dimensionId, corePos, kind, remainingTicks, kind == null ? "" : kind.toLowerCase(Locale.ROOT), 2, 0, "", false);
+            this(dimensionId, corePos, kind, remainingTicks,
+                    kind == null ? "" : kind.toLowerCase(Locale.ROOT), 2, 0, "", false, "");
+        }
+
+        public StoredField(String dimensionId, BlockPos corePos, String kind, int remainingTicks,
+                           String formationId, int radius, int auraBonus, String effect, boolean freeField) {
+            this(dimensionId, corePos, kind, remainingTicks, formationId, radius, auraBonus, effect, freeField, "");
         }
     }
 
@@ -54,11 +61,18 @@ public final class FormationFieldSavedData extends SavedData {
     }
 
     public void upsert(String dimensionId, BlockPos corePos, String kind, int remainingTicks) {
-        upsert(dimensionId, corePos, kind, remainingTicks, kind == null ? "" : kind.toLowerCase(Locale.ROOT), 2, 0, "", false);
+        upsert(dimensionId, corePos, kind, remainingTicks,
+                kind == null ? "" : kind.toLowerCase(Locale.ROOT), 2, 0, "", false, "");
     }
 
     public void upsert(String dimensionId, BlockPos corePos, String kind, int remainingTicks,
                        String formationId, int radius, int auraBonus, String effect, boolean freeField) {
+        upsert(dimensionId, corePos, kind, remainingTicks, formationId, radius, auraBonus, effect, freeField, "");
+    }
+
+    public void upsert(String dimensionId, BlockPos corePos, String kind, int remainingTicks,
+                       String formationId, int radius, int auraBonus, String effect, boolean freeField,
+                       String coreBlockId) {
         fields.removeIf(f -> f.dimensionId().equals(dimensionId) && f.corePos().asLong() == corePos.asLong());
         fields.add(new StoredField(
                 dimensionId,
@@ -69,7 +83,8 @@ public final class FormationFieldSavedData extends SavedData {
                 Math.max(1, radius),
                 Math.max(0, auraBonus),
                 effect == null ? "" : effect,
-                freeField));
+                freeField,
+                coreBlockId == null ? "" : coreBlockId));
         setDirty();
     }
 
@@ -92,7 +107,8 @@ public final class FormationFieldSavedData extends SavedData {
                     entry.contains("Radius") ? Math.max(1, entry.getInt("Radius")) : 2,
                     entry.contains("AuraBonus") ? Math.max(0, entry.getInt("AuraBonus")) : 0,
                     entry.contains("Effect") ? entry.getString("Effect") : "",
-                    entry.contains("Free") && entry.getBoolean("Free")));
+                    entry.contains("Free") && entry.getBoolean("Free"),
+                    entry.contains("CoreBlock") ? entry.getString("CoreBlock") : ""));
         }
         return data;
     }
@@ -111,6 +127,7 @@ public final class FormationFieldSavedData extends SavedData {
             entry.putInt("AuraBonus", field.auraBonus());
             entry.putString("Effect", field.effect() == null ? "" : field.effect());
             entry.putBoolean("Free", field.freeField());
+            entry.putString("CoreBlock", field.coreBlockId() == null ? "" : field.coreBlockId());
             list.add(entry);
         }
         tag.put("Fields", list);

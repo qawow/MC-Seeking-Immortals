@@ -628,7 +628,7 @@
       "max_hp": 337,
       "pattern": {
         "validator": "array_hub",
-        "radius": 2,
+        "radius": 1,
         "ring_role": "spirit_ore"
       }
     },
@@ -648,7 +648,7 @@
       "max_hp": 337,
       "pattern": {
         "validator": "array_hub",
-        "radius": 2,
+        "radius": 1,
         "ring_role": "spirit_gathering_array"
       }
     },
@@ -1621,13 +1621,13 @@
       "id": "tribulation_platform",
       "display": "渡劫台",
       "type": "structure",
-      "dimensions": "7×7×1",
+      "dimensions": "9×9×6",
       "size": {
-        "w": 7,
-        "h": 1,
-        "d": 7
+        "w": 9,
+        "h": 6,
+        "d": 9
       },
-      "radius": 3,
+      "radius": 4,
       "large": false,
       "default_state": "intact",
       "max_hp": 900,

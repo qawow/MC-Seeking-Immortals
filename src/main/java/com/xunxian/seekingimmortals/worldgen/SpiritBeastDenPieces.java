@@ -1,8 +1,11 @@
 package com.xunxian.seekingimmortals.worldgen;
 
+import com.xunxian.seekingimmortals.SeekingImmortalsMod;
+import com.xunxian.seekingimmortals.registry.ModBlocks;
 import com.xunxian.seekingimmortals.registry.ModStructures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.StructureManager;
@@ -18,20 +21,37 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSeriali
  * 灵兽巢穴结构片段
  */
 public final class SpiritBeastDenPieces {
+    private static final ResourceLocation DEN_LOOT = new ResourceLocation(
+            SeekingImmortalsMod.MODID, "chests/spirit_beast_den");
+
     private SpiritBeastDenPieces() {}
 
     public static class Piece extends StructurePiece {
+        private static final long DEN_FLOOR_SALT = 0x44454E464C4F4F52L;
+        private static final long DEN_LOOT_SALT = 0x44454E4C4F4F5421L;
+        private static final long DEN_HERB_SALT = 0x44454E4845524253L;
+        private static final long DEN_DECOR_SALT = 0x44454E4445434F52L;
+
         private final int beastTier;
+        private final long seed;
 
         public Piece(BlockPos origin, int beastTier) {
+            this(origin, beastTier, origin.asLong() ^ (long) beastTier * 31L);
+        }
+
+        public Piece(BlockPos origin, int beastTier, long seed) {
             super(ModStructures.SPIRIT_BEAST_DEN_PIECE.get(), 0, makeBox(origin, beastTier));
             this.beastTier = beastTier;
+            this.seed = seed;
             setOrientation(null);
         }
 
         public Piece(CompoundTag tag) {
             super(ModStructures.SPIRIT_BEAST_DEN_PIECE.get(), tag);
             this.beastTier = tag.getInt("BeastTier");
+            this.seed = tag.contains("Seed")
+                    ? tag.getLong("Seed")
+                    : boundingBox.getCenter().asLong() ^ (long) beastTier * 31L;
         }
 
         private static BoundingBox makeBox(BlockPos origin, int beastTier) {
@@ -44,6 +64,7 @@ public final class SpiritBeastDenPieces {
         @Override
         protected void addAdditionalSaveData(StructurePieceSerializationContext context, CompoundTag tag) {
             tag.putInt("BeastTier", beastTier);
+            tag.putLong("Seed", seed);
         }
 
         @Override
@@ -55,22 +76,26 @@ public final class SpiritBeastDenPieces {
                     (boundingBox.minZ() + boundingBox.maxZ()) / 2);
 
             // 挖掘巢穴空间
-            excavateDen(level, random, box, center);
+            excavateDen(level, box, center);
 
             // 放置巢穴地板（苔石和泥土）
-            placeFloor(level, random, box, center);
+            placeFloor(level, phaseRandom(DEN_FLOOR_SALT), box, center);
 
-            // 放置灵兽蛋/宝箱
-            placeEggsAndTreasure(level, random, box, center);
+            // 放置带专用战利品表的巢穴宝箱
+            placeNestTreasure(level, phaseRandom(DEN_LOOT_SALT), box, center);
 
             // 种植灵草
-            plantSpiritHerbs(level, random, box, center);
+            plantSpiritHerbs(level, phaseRandom(DEN_HERB_SALT), box, center);
 
             // 添加装饰性骨骼和石块
-            addDecorations(level, random, box, center);
+            addDecorations(level, phaseRandom(DEN_DECOR_SALT), box, center);
         }
 
-        private void excavateDen(WorldGenLevel level, RandomSource random, BoundingBox box, BlockPos center) {
+        private RandomSource phaseRandom(long salt) {
+            return RandomSource.create(seed ^ salt);
+        }
+
+        private void excavateDen(WorldGenLevel level, BoundingBox box, BlockPos center) {
             int radius = (boundingBox.maxX() - boundingBox.minX()) / 2;
 
             for (int y = -2; y <= 4; y++) {
@@ -106,12 +131,20 @@ public final class SpiritBeastDenPieces {
             }
         }
 
-        private void placeEggsAndTreasure(WorldGenLevel level, RandomSource random, BoundingBox box, BlockPos center) {
-            // 中心放置灵兽蛋（用龙蛋代替）或宝箱
-            BlockState centerBlock = random.nextFloat() < 0.3f ?
-                    Blocks.DRAGON_EGG.defaultBlockState() :
-                    Blocks.CHEST.defaultBlockState();
-            placeIfInside(level, centerBlock, center.offset(0, -2, 0), box);
+        private void placeNestTreasure(WorldGenLevel level, RandomSource random, BoundingBox box, BlockPos center) {
+            BlockPos centerChest = center.offset(0, -2, 0);
+            long centerLootSeed = random.nextLong();
+            createChest(level, box, RandomSource.create(centerLootSeed), centerChest,
+                    DEN_LOOT, Blocks.CHEST.defaultBlockState());
+
+            // 灵性阵基标识巢穴核心，不再借用末影龙蛋占位。
+            for (BlockPos offset : new BlockPos[] {
+                    new BlockPos(1, -2, 0), new BlockPos(-1, -2, 0),
+                    new BlockPos(0, -2, 1), new BlockPos(0, -2, -1)
+            }) {
+                placeIfInside(level, ModBlocks.SPIRIT_GATHERING_ARRAY.get().defaultBlockState(),
+                        center.offset(offset), box);
+            }
 
             // 周围随机放置 1-2 个额外宝箱
             int extraChests = beastTier >= 2 ? random.nextInt(2) + 1 : random.nextInt(2);
@@ -122,7 +155,9 @@ public final class SpiritBeastDenPieces {
                 int x = (int) (distance * Math.cos(rad));
                 int z = (int) (distance * Math.sin(rad));
                 BlockPos chestPos = center.offset(x, -2, z);
-                placeIfInside(level, Blocks.CHEST.defaultBlockState(), chestPos, box);
+                long lootSeed = random.nextLong();
+                createChest(level, box, RandomSource.create(lootSeed), chestPos,
+                        DEN_LOOT, Blocks.CHEST.defaultBlockState());
             }
         }
 
@@ -135,16 +170,19 @@ public final class SpiritBeastDenPieces {
                 int z = random.nextInt(radius * 2) - radius;
                 BlockPos herbPos = center.offset(x, -2, z);
                 BlockPos groundPos = herbPos.below();
+                BlockState plantState = switch (random.nextInt(4)) {
+                    case 0 -> Blocks.FERN.defaultBlockState();
+                    case 1 -> Blocks.DANDELION.defaultBlockState();
+                    case 2 -> Blocks.GRASS.defaultBlockState();
+                    default -> Blocks.FLOWERING_AZALEA.defaultBlockState();
+                };
 
-                if (level.getBlockState(groundPos).isSolid()) {
-                    // 随机放置各种植物
-                    BlockState plantState = switch (random.nextInt(4)) {
-                        case 0 -> Blocks.FERN.defaultBlockState();
-                        case 1 -> Blocks.TALL_GRASS.defaultBlockState();
-                        case 2 -> Blocks.GRASS.defaultBlockState();
-                        default -> Blocks.FLOWERING_AZALEA.defaultBlockState();
-                    };
-                    placeIfInside(level, plantState, herbPos, box);
+                if (box.isInside(herbPos)
+                        && level.getBlockState(herbPos).isAir()
+                        && level.getBlockState(groundPos).isSolid()) {
+                    if (plantState.canSurvive(level, herbPos)) {
+                        placeIfInside(level, plantState, herbPos, box);
+                    }
                 }
             }
         }
@@ -158,11 +196,11 @@ public final class SpiritBeastDenPieces {
                 int z = random.nextInt(radius * 2) - radius;
                 int y = random.nextInt(4) - 2;
                 BlockPos decorPos = center.offset(x, y, z);
+                BlockState decorState = random.nextFloat() < 0.6f
+                        ? Blocks.COBBLESTONE.defaultBlockState()
+                        : Blocks.BONE_BLOCK.defaultBlockState();
 
-                if (level.getBlockState(decorPos).isAir()) {
-                    BlockState decorState = random.nextFloat() < 0.6f ?
-                            Blocks.COBBLESTONE.defaultBlockState() :
-                            Blocks.BONE_BLOCK.defaultBlockState();
+                if (box.isInside(decorPos) && level.getBlockState(decorPos).isAir()) {
                     placeIfInside(level, decorState, decorPos, box);
                 }
             }

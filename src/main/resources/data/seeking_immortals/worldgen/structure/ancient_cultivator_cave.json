@@ -1,0 +1,7 @@
+{
+  "type": "seeking_immortals:ancient_cultivator_cave",
+  "biomes": "#seeking_immortals:has_structure/ancient_cultivator_cave",
+  "step": "underground_structures",
+  "terrain_adaptation": "bury",
+  "spawn_overrides": {}
+}

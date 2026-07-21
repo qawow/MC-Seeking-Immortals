@@ -1,8 +1,10 @@
 package com.xunxian.seekingimmortals.structure;
 
+import com.xunxian.seekingimmortals.block.CatalogFormationCoreBlock;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
 import com.xunxian.seekingimmortals.sect.SectMissionGenerator;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -99,7 +101,8 @@ public final class FormationFieldService {
             return false;
         }
         FormationFieldCatalog.FieldParams params = resolveParams(formationId, kind);
-        if (!ringIntact(level, corePos, kind, params.radius())) {
+        String coreBlockId = coreBlockId(level, corePos);
+        if (!ringIntact(level, corePos, kind, params.radius(), coreBlockId)) {
             return false;
         }
         int duration = scaledDuration(deployer, params.durationTicks() > 0 ? params.durationTicks() : DEFAULT_DURATION_TICKS);
@@ -112,7 +115,8 @@ public final class FormationFieldService {
                 params.id(),
                 params.radius(),
                 params.auraBonus(),
-                params.effect());
+                params.effect(),
+                coreBlockId);
         ACTIVE.put(key, field);
         persistField(level, field);
         grantFormationPractice(deployer, true);
@@ -145,7 +149,8 @@ public final class FormationFieldService {
                 params.id(),
                 params.radius(),
                 params.auraBonus(),
-                params.effect());
+                params.effect(),
+                "");
         field.freeField = true;
         ACTIVE.put(key, field);
         persistField(level, field);
@@ -260,6 +265,13 @@ public final class FormationFieldService {
                     : stored.formationId();
             FormationFieldCatalog.FieldParams params = resolveParams(formationId, kind);
             int radius = stored.radius() > 0 ? stored.radius() : params.radius();
+            String coreBlockId = stored.coreBlockId() == null || stored.coreBlockId().isBlank()
+                    ? coreBlockId(level, stored.corePos())
+                    : stored.coreBlockId();
+            if (!stored.freeField() && !ringIntact(level, stored.corePos(), kind, radius, coreBlockId)) {
+                FormationFieldSavedData.get(level).remove(dim, stored.corePos());
+                continue;
+            }
             FieldKey key = new FieldKey(dim, stored.corePos().asLong());
             ActiveField field = new ActiveField(
                     dim,
@@ -269,8 +281,9 @@ public final class FormationFieldService {
                     formationId,
                     radius,
                     stored.auraBonus() >= 0 ? stored.auraBonus() : params.auraBonus(),
-                    stored.effect() == null || stored.effect().isBlank() ? params.effect() : stored.effect());
-            field.freeField = stored.freeField() || !ringIntact(level, stored.corePos(), kind, radius);
+                    stored.effect() == null || stored.effect().isBlank() ? params.effect() : stored.effect(),
+                    coreBlockId);
+            field.freeField = stored.freeField();
             ACTIVE.put(key, field);
         }
     }
@@ -291,7 +304,7 @@ public final class FormationFieldService {
             // M07: large/any ring integrity checked on interval (dirty-friendly), not every tick.
             boolean ringBroken = false;
             if (!field.freeField && field.remainingTicks % RING_CHECK_INTERVAL == 0) {
-                ringBroken = !ringIntact(level, field.corePos, field.kind, field.radius);
+                ringBroken = !ringIntact(level, field.corePos, field.kind, field.radius, field.coreBlockId);
             }
             if (field.remainingTicks <= 0 || ringBroken) {
                 it.remove();
@@ -323,7 +336,8 @@ public final class FormationFieldService {
                 field.radius,
                 field.auraBonus,
                 field.effect,
-                field.freeField);
+                field.freeField,
+                field.coreBlockId);
     }
 
     private static boolean ringIntact(Level level, BlockPos corePos, FieldKind kind) {
@@ -331,11 +345,52 @@ public final class FormationFieldService {
     }
 
     private static boolean ringIntact(Level level, BlockPos corePos, FieldKind kind, int radius) {
+        return ringIntact(level, corePos, kind, radius, coreBlockId(level, corePos));
+    }
+
+    private static boolean ringIntact(Level level, BlockPos corePos, FieldKind kind, int radius,
+                                      String expectedCoreBlockId) {
+        Block coreBlock = level.getBlockState(corePos).getBlock();
+        if (!isFormationCoreBlock(coreBlock)
+                || expectedCoreBlockId == null
+                || expectedCoreBlockId.isBlank()
+                || !expectedCoreBlockId.equals(coreBlockId(level, corePos))) {
+            return false;
+        }
+        if (coreBlock == ModBlocks.KILL_SWORD_FORMATION_CORE.get()) {
+            return ArrayHubStructure.validateKillHub(level, corePos).complete();
+        }
+        if (coreBlock == ModBlocks.ILLUSION_MAZE_FORMATION_CORE.get()) {
+            return ArrayHubStructure.validateIllusionHub(level, corePos).complete();
+        }
+        if (coreBlock == ModBlocks.SPIRIT_GATHERING_FORMATION_CORE.get()) {
+            boolean standard = SpiritGatheringFormationStructure.validate(
+                    level, corePos, ModBlocks.SPIRIT_GATHERING_ARRAY.get()).complete();
+            boolean advanced = AdvancedSpiritGatheringArrayStructure.validate(
+                    level,
+                    corePos,
+                    ModBlocks.SPIRIT_ORE.get(),
+                    ModBlocks.SPIRIT_GATHERING_FORMATION_CORE.get()).complete();
+            return standard || advanced;
+        }
         Block ringBlock = kind.usesSpiritGatheringRing()
                 ? ModBlocks.SPIRIT_GATHERING_ARRAY.get()
                 : ModBlocks.SPIRIT_ORE.get();
         int r = Math.max(1, radius);
         return RingFormationStructure.validate(level, corePos, ringBlock, r).complete();
+    }
+
+    private static boolean isFormationCoreBlock(Block block) {
+        return block == ModBlocks.SPIRIT_GATHERING_FORMATION_CORE.get()
+                || block == ModBlocks.DEFENSE_FORMATION_CORE.get()
+                || block == ModBlocks.SEAL_DEMON_FORMATION_CORE.get()
+                || block == ModBlocks.KILL_SWORD_FORMATION_CORE.get()
+                || block == ModBlocks.ILLUSION_MAZE_FORMATION_CORE.get()
+                || block instanceof CatalogFormationCoreBlock;
+    }
+
+    private static String coreBlockId(Level level, BlockPos corePos) {
+        return BuiltInRegistries.BLOCK.getKey(level.getBlockState(corePos).getBlock()).toString();
     }
 
     private static void applyFieldPulse(ServerLevel level, ActiveField field) {
@@ -424,9 +479,10 @@ public final class FormationFieldService {
         private final int radius;
         private final int auraBonus;
         private final String effect;
+        private final String coreBlockId;
 
         private ActiveField(String dimensionId, BlockPos corePos, FieldKind kind, int remainingTicks,
-                            String formationId, int radius, int auraBonus, String effect) {
+                            String formationId, int radius, int auraBonus, String effect, String coreBlockId) {
             this.dimensionId = dimensionId;
             this.corePos = corePos;
             this.kind = kind;
@@ -435,6 +491,7 @@ public final class FormationFieldService {
             this.radius = Math.max(1, radius);
             this.auraBonus = Math.max(0, auraBonus);
             this.effect = effect == null ? "" : effect;
+            this.coreBlockId = coreBlockId == null ? "" : coreBlockId;
         }
 
         private FieldEffect asEffect() {

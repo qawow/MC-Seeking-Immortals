@@ -163,8 +163,8 @@ public final class ClientTechniqueData {
                         if (id.isBlank()) continue;
                         summaries.put(id, new TechniqueSummary(
                                 id,
-                                valueOrFallback(getString(object, "name"), id),
-                                valueOrFallback(getString(object, "source"), "unknown_source"),
+                                valueOrFallback(getString(object, "name"), ""),
+                                valueOrFallback(getString(object, "source"), ""),
                                 valueOrFallback(getString(object, "attribute"), "common"),
                                 getInt(object, "cost", configuredCost(id, getString(object, "type"), getString(object, "attribute"))),
                                 getInt(object, "cooldown_ticks", getInt(object, "cooldown", configuredCooldown(id)))));
@@ -191,7 +191,6 @@ public final class ClientTechniqueData {
                         if (display.isBlank()) display = getString(object, "name");
                         String source = getString(object, "source");
                         if (source.isBlank()) source = getString(object, "school");
-                        if (source.isBlank()) source = stem;
                         String attribute = getString(object, "element");
                         if (attribute.isBlank()) attribute = getString(object, "school");
                         int cost = getInt(object, "spirit_cost_base",
@@ -200,8 +199,8 @@ public final class ClientTechniqueData {
                         // Corpus overwrites legacy cultivation summaries.
                         summaries.put(id, new TechniqueSummary(
                                 id,
-                                valueOrFallback(display, id),
-                                valueOrFallback(source, stem),
+                                valueOrFallback(display, ""),
+                                valueOrFallback(source, ""),
                                 valueOrFallback(attribute, "common"),
                                 Math.max(1, cost),
                                 Math.max(20, cooldown)));
@@ -263,7 +262,7 @@ public final class ClientTechniqueData {
     public record TechniqueSummary(String id, String name, String source, String attribute, int cost, int cooldownTicks) {
         public static TechniqueSummary fallback(String id) {
             String safeId = id == null || id.isBlank() ? "unknown" : id;
-            return new TechniqueSummary(safeId, safeId, "unknown_source", "unknown", 15, 100);
+            return new TechniqueSummary(safeId, "", "", "", 15, 100);
         }
     }
 }

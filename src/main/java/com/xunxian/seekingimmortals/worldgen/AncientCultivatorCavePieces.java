@@ -1,15 +1,16 @@
 package com.xunxian.seekingimmortals.worldgen;
 
+import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
 import com.xunxian.seekingimmortals.registry.ModStructures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.ChestBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
@@ -20,9 +21,16 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSeriali
  * 古修士洞府遗迹结构片段
  */
 public final class AncientCultivatorCavePieces {
+    private static final ResourceLocation CAVE_LOOT = new ResourceLocation(
+            SeekingImmortalsMod.MODID, "chests/ancient_cultivator_cave");
+
     private AncientCultivatorCavePieces() {}
 
     public static class Piece extends StructurePiece {
+        private static final long CAVE_SHELL_SALT = 0x434156455348454CL;
+        private static final long CAVE_LOOT_SALT = 0x434156454C4F4F54L;
+        private static final long CAVE_ORE_SALT = 0x434156454F524521L;
+
         private final int variant;
         private final long seed;
 
@@ -66,7 +74,7 @@ public final class AncientCultivatorCavePieces {
                     (boundingBox.minZ() + boundingBox.maxZ()) / 2);
 
             // 生成洞穴空间
-            generateCaveSpace(level, random, box, center);
+            generateCaveSpace(level, phaseRandom(CAVE_SHELL_SALT), box, center);
 
             // 放置破损的聚灵阵（中心）
             if (variant >= 1) {
@@ -75,16 +83,21 @@ public final class AncientCultivatorCavePieces {
             }
 
             // 放置宝箱（含丹药和材料）
-            placeChests(level, random, box, center);
+            placeChests(level, phaseRandom(CAVE_LOOT_SALT), box, center);
 
-            // 放置残破的炼丹炉（如果是大型洞府）
+            // 大型洞府保留破损丹炉阵节点，避免生成可直接工作的原版熔炉。
             if (variant >= 2) {
                 BlockPos furnacePos = center.offset(4, 1, 4);
-                placeIfInside(level, Blocks.BLAST_FURNACE.defaultBlockState(), furnacePos, box);
+                placeIfInside(level, ModBlocks.ALCHEMY_FURNACE_ARRAY_NODE.get().defaultBlockState(), furnacePos, box);
+                placeIfInside(level, Blocks.CRACKED_STONE_BRICKS.defaultBlockState(), furnacePos.below(), box);
             }
 
             // 放置灵石矿脉
-            placeSpiritOreVeins(level, random, box, center);
+            placeSpiritOreVeins(level, phaseRandom(CAVE_ORE_SALT), box, center);
+        }
+
+        private RandomSource phaseRandom(long salt) {
+            return RandomSource.create(seed ^ salt);
         }
 
         private void generateCaveSpace(WorldGenLevel level, RandomSource random, BoundingBox box, BlockPos center) {
@@ -136,8 +149,9 @@ public final class AncientCultivatorCavePieces {
                 int x = (int) (radius * Math.cos(rad));
                 int z = (int) (radius * Math.sin(rad));
                 BlockPos chestPos = center.offset(x, 1, z);
-                placeIfInside(level, Blocks.CHEST.defaultBlockState(), chestPos, box);
-                // TODO: 填充战利品表
+                long lootSeed = random.nextLong();
+                createChest(level, box, RandomSource.create(lootSeed), chestPos,
+                        CAVE_LOOT, Blocks.CHEST.defaultBlockState());
             }
         }
 
@@ -148,7 +162,9 @@ public final class AncientCultivatorCavePieces {
                 int y = random.nextInt(boundingBox.maxY() - boundingBox.minY()) + boundingBox.minY() - center.getY();
                 int z = random.nextInt(boundingBox.maxZ() - boundingBox.minZ()) + boundingBox.minZ() - center.getZ();
                 BlockPos orePos = center.offset(x, y, z);
-                if (level.getBlockState(orePos).is(Blocks.STONE) || level.getBlockState(orePos).is(Blocks.STONE_BRICKS)) {
+                if (box.isInside(orePos)
+                        && (level.getBlockState(orePos).is(Blocks.STONE)
+                        || level.getBlockState(orePos).is(Blocks.STONE_BRICKS))) {
                     placeIfInside(level, ModBlocks.SPIRIT_ORE.get().defaultBlockState(), orePos, box);
                 }
             }

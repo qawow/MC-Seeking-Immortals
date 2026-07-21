@@ -33,11 +33,6 @@ import org.lwjgl.glfw.GLFW;
 
 @Mod.EventBusSubscriber(modid = SeekingImmortalsMod.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public final class ClientEvents {
-    public static final KeyMapping MEDITATE_KEY = new KeyMapping(
-            "key.seeking_immortals.meditate",
-            InputConstants.Type.KEYSYM,
-            GLFW.GLFW_KEY_V,
-            "key.categories.seeking_immortals");
     public static final KeyMapping OPEN_TECHNIQUE_EDIT_KEY = new KeyMapping(
             "key.seeking_immortals.open_technique_edit",
             InputConstants.Type.KEYSYM,
@@ -107,7 +102,6 @@ public final class ClientEvents {
 
     @SubscribeEvent
     public static void registerKeyMappings(RegisterKeyMappingsEvent event) {
-        event.register(MEDITATE_KEY);
         event.register(OPEN_TECHNIQUE_EDIT_KEY);
         event.register(OPEN_CULTIVATION_STATS_KEY);
         event.register(OPEN_QUEST_TRACKER_KEY);
@@ -124,7 +118,6 @@ public final class ClientEvents {
     public static void registerGuiOverlays(RegisterGuiOverlaysEvent event) {
         event.registerAboveAll("cultivation_health", CultivationHealthOverlay::renderOverlay);
         event.registerAboveAll("technique_skill_bar", TechniqueSkillBarOverlay::renderOverlay);
-        event.registerAboveAll("breathing_hud", BreathingHudOverlay::renderOverlay);
         event.registerAboveAll("cultivation_hud", CultivationHudOverlay::renderOverlay);
     }
 
@@ -166,11 +159,6 @@ public final class ClientEvents {
             if (minecraft.screen != null) {
                 drainTechniqueKeyClicks();
                 return;
-            }
-            while (MEDITATE_KEY.consumeClick()) {
-                boolean targetMeditating = !ClientCultivationData.effectiveMeditating();
-                ClientCultivationData.setPendingMeditating(targetMeditating);
-                ModNetwork.CHANNEL.sendToServer(new SetMeditatingPacket(targetMeditating));
             }
             while (BREAKTHROUGH_KEY.consumeClick()) {
                 ModNetwork.CHANNEL.sendToServer(new AttemptBreakthroughPacket());
@@ -258,7 +246,6 @@ public final class ClientEvents {
         }
 
         private static void drainTechniqueKeyClicks() {
-            MEDITATE_KEY.consumeClick();
             OPEN_TECHNIQUE_EDIT_KEY.consumeClick();
             OPEN_CULTIVATION_STATS_KEY.consumeClick();
             OPEN_QUEST_TRACKER_KEY.consumeClick();
@@ -274,15 +261,36 @@ public final class ClientEvents {
         @SubscribeEvent
         public static void onScreenInit(ScreenEvent.Init.Post event) {
             if (event.getScreen().getClass() != InventoryScreen.class) return;
-            int x = event.getScreen().width / 2 - 88;
-            int y = event.getScreen().height / 2 - 104;
-            event.addListener(ImmortalButton.secondary(x, y, 42, 18,
+            InventoryEntryLayout layout = inventoryEntryLayout(
+                    event.getScreen().width, event.getScreen().height);
+            event.addListener(ImmortalButton.secondary(layout.x(), layout.y(), layout.width(), layout.height(),
                     Component.translatable("screen.seeking_immortals.cultivation_stats.tab"), button -> {
                         Minecraft minecraft = Minecraft.getInstance();
                         if (minecraft.player != null) {
                             minecraft.setScreen(new CultivationStatsScreen(minecraft.player, true));
                         }
                     }));
+        }
+    }
+
+    static InventoryEntryLayout inventoryEntryLayout(int screenWidth, int screenHeight) {
+        int margin = 2;
+        int buttonWidth = Math.min(42, Math.max(1, screenWidth - margin * 2));
+        int buttonHeight = Math.min(18, Math.max(1, screenHeight - margin * 2));
+        int maxX = Math.max(margin, screenWidth - buttonWidth - margin);
+        int maxY = Math.max(margin, screenHeight - buttonHeight - margin);
+        int x = Math.max(margin, Math.min(screenWidth / 2 - 88, maxX));
+        int y = Math.max(margin, Math.min(screenHeight / 2 - 104, maxY));
+        return new InventoryEntryLayout(x, y, buttonWidth, buttonHeight);
+    }
+
+    record InventoryEntryLayout(int x, int y, int width, int height) {
+        int right() {
+            return x + width;
+        }
+
+        int bottom() {
+            return y + height;
         }
     }
 }

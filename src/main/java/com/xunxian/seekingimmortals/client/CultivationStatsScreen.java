@@ -31,19 +31,19 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
     // Color aliases intentionally NOT static-final: ImmortalUiSkin.JOURNAL_* rebind per climate.
 
     private static final List<LifeSkillEntry> LIFE_SKILLS = List.of(
-            new LifeSkillEntry(tr("skill.alchemy"), SkillType.ALCHEMY),
-            new LifeSkillEntry(tr("skill.refining"), SkillType.ARTIFACT_REFINING),
-            new LifeSkillEntry(tr("skill.talisman"), SkillType.TALISMAN_CRAFTING),
-            new LifeSkillEntry(tr("skill.formation"), SkillType.FORMATION),
-            new LifeSkillEntry(tr("skill.beast"), SkillType.BEAST_TAMING),
-            new LifeSkillEntry(tr("skill.puppet"), SkillType.PUPPET_CONTROL));
+            new LifeSkillEntry("skill.alchemy", SkillType.ALCHEMY),
+            new LifeSkillEntry("skill.refining", SkillType.ARTIFACT_REFINING),
+            new LifeSkillEntry("skill.talisman", SkillType.TALISMAN_CRAFTING),
+            new LifeSkillEntry("skill.formation", SkillType.FORMATION),
+            new LifeSkillEntry("skill.beast", SkillType.BEAST_TAMING),
+            new LifeSkillEntry("skill.puppet", SkillType.PUPPET_CONTROL));
 
     private static final List<LifeSkillEntry> SPECIAL_SKILLS = List.of(
-            new LifeSkillEntry(tr("technique.sword_basic"), SkillType.FLYING_SWORD_BEGINNER),
-            new LifeSkillEntry(tr("technique.sword_adv"), SkillType.FLYING_SWORD_ADVANCED),
-            new LifeSkillEntry(tr("technique.sense_expand"), SkillType.DIVINE_SENSE_EXPANSION),
-            new LifeSkillEntry(tr("technique.formation_sense"), SkillType.FORMATION_SENSE),
-            new LifeSkillEntry(tr("technique.split_cast"), SkillType.MULTI_CASTING));
+            new LifeSkillEntry("technique.sword_basic", SkillType.FLYING_SWORD_BEGINNER),
+            new LifeSkillEntry("technique.sword_adv", SkillType.FLYING_SWORD_ADVANCED),
+            new LifeSkillEntry("technique.sense_expand", SkillType.DIVINE_SENSE_EXPANSION),
+            new LifeSkillEntry("technique.formation_sense", SkillType.FORMATION_SENSE),
+            new LifeSkillEntry("technique.split_cast", SkillType.MULTI_CASTING));
 
     private final LocalPlayer player;
     private final boolean returnToInventory;
@@ -441,8 +441,6 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
         y = progressBar(graphics, x, y + 2, width, tr("label.root_purity"),
                 fraction(data.spiritualRootPurity(), 100), data.spiritualRootPurity() + "%", ImmortalUiSkin.JOURNAL_JADE);
         y = row(graphics, x, y, width, tr("label.cultivation_rate"), "×" + formatDouble(data.cultivationSpeedMultiplier()), ImmortalUiSkin.JOURNAL_JADE_TEXT);
-        y = row(graphics, x, y, width, tr("breakthrough.bone_bonus"), tr("root.times") + formatDouble(data.rootCultivationSpeedCoefficient())
-                + tr("unit.physique_times") + formatDouble(data.physiqueCultivationSpeedMultiplier()), ImmortalUiSkin.JOURNAL_PAPER_MUTED);
 
         y += SECTION_GAP;
         y = sectionTitle(graphics, x, y, width, tr("meditation.cycle"));
@@ -640,6 +638,7 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
         if (graphics == null) {
             return;
         }
+        String techniqueName = CultivationDisplayTexts.techniqueName(summary);
         graphics.fill(x, y, x + width, y + 22, ImmortalUiSkin.JOURNAL_BORDER_DIM);
         graphics.fill(x + 1, y + 1, x + width - 1, y + 21, ImmortalUiSkin.JOURNAL_INNER);
         int iconX = x + 3;
@@ -649,11 +648,15 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
         } else {
             graphics.fill(iconX, iconY, iconX + 16, iconY + 16, ImmortalUiSkin.JOURNAL_CINNABAR);
             graphics.fill(iconX + 1, iconY + 1, iconX + 15, iconY + 15, ImmortalUiSkin.JOURNAL_ICON_INSET);
-            String mark = summary.name().isBlank() ? tr("badge.technique") : summary.name().substring(0, 1);
+            String mark = techniqueName.isBlank() ? tr("badge.technique") : techniqueName.substring(0, 1);
             graphics.drawCenteredString(font, mark, iconX + 8, iconY + 4, ImmortalUiSkin.JOURNAL_PAPER);
         }
-        drawFit(graphics, summary.name(), x + 23, y + 3, Math.max(8, width - 27), ImmortalUiSkin.JOURNAL_JADE_TEXT);
-        drawFit(graphics, summary.source() + " · " + summary.attribute(), x + 23, y + 12,
+        drawFit(graphics, techniqueName, x + 23, y + 3,
+                Math.max(8, width - 27), ImmortalUiSkin.JOURNAL_JADE_TEXT);
+        String source = CultivationDisplayTexts.visibleSourceText(summary.source());
+        String attribute = CultivationDisplayTexts.attributeText(summary.attribute());
+        String metadata = source.isBlank() ? attribute : source + " · " + attribute;
+        drawFit(graphics, metadata, x + 23, y + 12,
                 Math.max(8, width - 27), ImmortalUiSkin.JOURNAL_PAPER_MUTED);
     }
 
@@ -924,7 +927,11 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
         }
     }
 
-    private record LifeSkillEntry(String label, SkillType type) {}
+    private record LifeSkillEntry(String labelSuffix, SkillType type) {
+        String label() {
+            return tr(labelSuffix);
+        }
+    }
 
 
     private static final class MovementSpeedSlider extends AbstractSliderButton {

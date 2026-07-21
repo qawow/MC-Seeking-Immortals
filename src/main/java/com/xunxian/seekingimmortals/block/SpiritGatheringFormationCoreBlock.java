@@ -3,6 +3,7 @@ package com.xunxian.seekingimmortals.block;
 import com.xunxian.seekingimmortals.block.entity.FormationCoreBlockEntity;
 import com.xunxian.seekingimmortals.registry.ModBlockEntities;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
+import com.xunxian.seekingimmortals.structure.AdvancedSpiritGatheringArrayStructure;
 import com.xunxian.seekingimmortals.structure.FormationFieldService;
 import com.xunxian.seekingimmortals.structure.SpiritGatheringFormationStructure;
 import net.minecraft.core.BlockPos;
@@ -85,10 +86,16 @@ public class SpiritGatheringFormationCoreBlock extends BaseEntityBlock {
                 level,
                 pos,
                 ModBlocks.SPIRIT_GATHERING_ARRAY.get());
-        if (!check.complete()) {
+        AdvancedSpiritGatheringArrayStructure.CheckResult advanced =
+                AdvancedSpiritGatheringArrayStructure.validate(
+                        level,
+                        pos,
+                        ModBlocks.SPIRIT_ORE.get(),
+                        ModBlocks.SPIRIT_GATHERING_FORMATION_CORE.get());
+        if (!check.complete() && !advanced.complete()) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.spirit_gathering_formation_core.incomplete",
-                    check.missingRing()), false);
+                    Math.min(check.missingRing(), advanced.missingTotal())), false);
             return InteractionResult.CONSUME;
         }
 

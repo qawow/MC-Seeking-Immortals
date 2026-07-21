@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "seeking_immortals:spirit_beast_den",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 42,
+    "separation": 16,
+    "salt": 17042132
+  }
+}

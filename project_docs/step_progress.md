@@ -1,3 +1,18 @@
+## 559. 2026-07-21 0.2.135 UI、结构与术法反馈收口
+
+  Step   Status   Notes
+  ---   ---   ---
+  Meditation/UI   Done   删除独立打坐界面、按键和呼吸 HUD；蒲团进入及移动取消保留，唯一收益信息并入属性「道基」页；入口、属性页、技能页和技能栏显示完成响应式/本地化清理。
+  Skill interaction   Done   技能编辑支持可见搜索框、无结果态、滚轮和左键拖动滚动，并区分列表滚动与技能拖拽绑定。
+  Method authority   Done   普通界面不再发送学习动作；功法仅由秘籍/卷轴等权威来源学习，功法树只对已入门功法提供精进，管理员兼容学习路径保留。
+  Natural structures   Done   新增 `ancient_cultivator_cave` 与 `spirit_beast_den` 的 structure/structure_set/biome tag/loot 资源，piece seed 持久且巢穴植被不覆盖容器或阵基。
+  Player multiblocks   Done   多种阵法/工站接入专用几何或显式失败关闭；阵场持久化精确核心方块，核心拆换后会失效；阵法枢纽与渡劫台作者尺寸已对齐。
+  Spell feedback   Done   十五元素 VFX 扩展到通用施法、beam/cone、飞剑和低反馈术法；补真实 beam/cone 命中，压低逐实体重复音效及轨迹/扫描广播密度。
+  Static verification   Done   新增或扩充 UI 布局/拖动、语言、结构资源与术法契约；新增 JSON 已严格解析通过。
+  Gradle verification   Done   UI/目录/结构/术法/权限/JSON 定向测试通过；首次全量构建只暴露新增 beam/cone 后伤害来源计数基线 47→49，更新契约后最终 `./gradlew build` `BUILD SUCCESSFUL in 1m 12s`，857 项测试无失败，`aiPreflight` 记录 `mod_version=0.2.135`。
+  Version/protocol   Done   `mod_version=0.2.135`；未改网络包字段、顺序、类型或频道行为，protocol 保持 `26`。
+  Backup/handoff   Done   主备份位于 `.bak/20260721-ui/`、`.bak/20260721-structures/`、`.bak/20260721-spells/` 及 follow-up 目录；最终几何、目录、紧凑拖拽、伤害契约与文档备份位于 `.bak/20260721-refinement-geometry/`、`.bak/20260722-structure-catalog-fix/`、`.bak/20260722-ui-compact-drag/`、`.bak/20260722-damage-authority-test/`、`.bak/20260722-docs-build-success/`，完成记录见 `project_docs/updates/20260721_ui_refactor_plan.md`。
+
 ## 558. 2026-07-21 0.2.112 速赢 currency token 效果
 
   Step   Status   Notes

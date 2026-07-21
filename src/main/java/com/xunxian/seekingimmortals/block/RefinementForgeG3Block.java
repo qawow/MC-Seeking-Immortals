@@ -2,6 +2,7 @@ package com.xunxian.seekingimmortals.block;
 
 import com.xunxian.seekingimmortals.craft.RefinementForgeCraftHelper;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
+import com.xunxian.seekingimmortals.structure.RefinementFurnaceStructure;
 import com.xunxian.seekingimmortals.structure.RefinementForgeG3Structure;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -12,6 +13,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -46,7 +48,13 @@ public class RefinementForgeG3Block extends Block {
         }
         RefinementForgeG3Structure.CheckResult check = RefinementForgeG3Structure.validate(
                 level, pos, ModBlocks.REFINEMENT_FORGE_G3.get(), ModBlocks.SPIRIT_ORE.get());
-        if (!check.complete()) {
+        RefinementFurnaceStructure.CheckResult furnace = RefinementFurnaceStructure.validate(
+                level,
+                pos,
+                ModBlocks.REFINEMENT_FORGE_G3.get(),
+                ModBlocks.SPIRIT_ORE.get(),
+                Blocks.LAVA);
+        if (!check.complete() && !furnace.complete()) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.refinement_forge_g3.incomplete",
                     check.missingRing(),

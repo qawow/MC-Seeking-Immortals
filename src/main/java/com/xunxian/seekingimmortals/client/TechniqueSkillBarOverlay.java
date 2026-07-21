@@ -8,6 +8,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.gui.overlay.ForgeGui;
 import net.minecraftforge.fml.common.Mod;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -133,19 +134,25 @@ public final class TechniqueSkillBarOverlay {
         ClientTechniqueData.TechniqueSummary summary = ClientTechniqueData.getTechniqueSummary(techniqueId);
         boolean canRelease = ClientTechniqueData.canRelease(techniqueId, data);
         int cooldownSeconds = (int)Math.ceil(ClientTechniqueData.getCooldownRemainingTicks(techniqueId) / 20.0D);
-        List<String> lines = List.of(
-                Component.translatable("screen.seeking_immortals.technique.tooltip.name", summary.name()).getString(),
-                Component.translatable("screen.seeking_immortals.technique.tooltip.source", summary.source()).getString(),
-                Component.translatable("screen.seeking_immortals.technique.tooltip.attribute", summary.attribute()).getString(),
-                Component.translatable("screen.seeking_immortals.technique.tooltip.cost", summary.cost()).getString(),
-                Component.translatable("screen.seeking_immortals.technique.tooltip.cooldown",
-                        cooldownSeconds > 0
-                                ? Component.translatable("screen.seeking_immortals.technique.tooltip.seconds", cooldownSeconds).getString()
-                                : Component.translatable("screen.seeking_immortals.technique.tooltip.ready").getString()).getString(),
-                Component.translatable("screen.seeking_immortals.technique.tooltip.releasable",
-                        Component.translatable(canRelease
-                                ? "screen.seeking_immortals.technique.tooltip.yes"
-                                : "screen.seeking_immortals.technique.tooltip.no").getString()).getString());
+        List<String> lines = new ArrayList<>();
+        lines.add(Component.translatable("screen.seeking_immortals.technique.tooltip.name",
+                CultivationDisplayTexts.techniqueName(summary)).getString());
+        String source = CultivationDisplayTexts.visibleSourceText(summary.source());
+        if (!source.isBlank()) {
+            lines.add(Component.translatable("screen.seeking_immortals.technique.tooltip.source", source).getString());
+        }
+        lines.add(Component.translatable("screen.seeking_immortals.technique.tooltip.attribute",
+                CultivationDisplayTexts.attributeText(summary.attribute())).getString());
+        int costLine = lines.size();
+        lines.add(Component.translatable("screen.seeking_immortals.technique.tooltip.cost", summary.cost()).getString());
+        lines.add(Component.translatable("screen.seeking_immortals.technique.tooltip.cooldown",
+                cooldownSeconds > 0
+                        ? Component.translatable("screen.seeking_immortals.technique.tooltip.seconds", cooldownSeconds).getString()
+                        : Component.translatable("screen.seeking_immortals.technique.tooltip.ready").getString()).getString());
+        lines.add(Component.translatable("screen.seeking_immortals.technique.tooltip.releasable",
+                Component.translatable(canRelease
+                        ? "screen.seeking_immortals.technique.tooltip.yes"
+                        : "screen.seeking_immortals.technique.tooltip.no").getString()).getString());
 
         int widestLine = 1;
         for (String line : lines) {
@@ -169,7 +176,7 @@ public final class TechniqueSkillBarOverlay {
             }
             int color = i == lines.size() - 1
                     ? (canRelease ? ImmortalUiSkin.JOURNAL_JADE_TEXT : ImmortalUiSkin.JOURNAL_CINNABAR_BRIGHT)
-                    : i == 3 ? ImmortalUiSkin.JOURNAL_SPIRIT : ImmortalUiSkin.JOURNAL_PAPER;
+                    : i == costLine ? ImmortalUiSkin.JOURNAL_SPIRIT : ImmortalUiSkin.JOURNAL_PAPER;
             ImmortalUiSkin.drawStringFit(minecraft.font, graphics, lines.get(i),
                     textX, textY, textWidth, color, false);
             textY += minecraft.font.lineHeight + 2;
@@ -255,7 +262,7 @@ public final class TechniqueSkillBarOverlay {
                     Math.max(1, size - backingInset * 2), Math.max(1, size - backingInset * 2), fillColor);
         }
         ClientTechniqueData.TechniqueSummary summary = ClientTechniqueData.getTechniqueSummary(techniqueId);
-        String initial = getInitial(summary.name());
+        String initial = getInitial(CultivationDisplayTexts.techniqueName(summary));
         if (size >= minecraft.font.lineHeight + 2 && minecraft.font.width(initial) <= size - 2) {
             graphics.drawString(minecraft.font, initial,
                     x + Math.max(1, size - minecraft.font.width(initial) - 1),

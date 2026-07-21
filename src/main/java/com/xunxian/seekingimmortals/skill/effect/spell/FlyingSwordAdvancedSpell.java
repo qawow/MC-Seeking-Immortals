@@ -5,7 +5,7 @@ import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.cultivation.Realm;
 import com.xunxian.seekingimmortals.skill.CultivationSkill;
 import com.xunxian.seekingimmortals.skill.effect.SkillContext;
-import net.minecraft.core.particles.ParticleTypes;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -42,6 +42,9 @@ public class FlyingSwordAdvancedSpell extends SpellEffect {
         }
         data.putBoolean(ACTIVE_KEY, true);
         FlyingAuthority.grant(player, FlyingAuthority.SOURCE_FOUNDATION_FLYING, SPEED);
+        TechniqueVfxPalette.Profile vfx = TechniqueVfxPalette.profile("metal");
+        vfx.castAt(player.serverLevel(), player);
+        vfx.auraAt(player.serverLevel(), player, 1.15D, 32);
         player.displayClientMessage(Component.literal("进阶御剑飞行启动，每秒消耗3点灵力。三柄护体飞剑环绕。"), true);
         spawnGuardSwordVisuals(player);
         return true;
@@ -51,6 +54,9 @@ public class FlyingSwordAdvancedSpell extends SpellEffect {
         CompoundTag data = player.getPersistentData();
         if (!data.getBoolean(ACTIVE_KEY)) return;
         data.remove(ACTIVE_KEY);
+        if (player.level() instanceof ServerLevel level) {
+            TechniqueVfxPalette.profile("metal").impactAt(level, player.position().add(0.0D, 0.45D, 0.0D));
+        }
         FlyingAuthority.revoke(player, FlyingAuthority.SOURCE_FOUNDATION_FLYING, null, 0.0F);
         player.displayClientMessage(Component.literal(message), true);
     }
@@ -63,7 +69,7 @@ public class FlyingSwordAdvancedSpell extends SpellEffect {
         if (!player.getPersistentData().getBoolean(ACTIVE_KEY)) {
             return;
         }
-        if (player.tickCount % 5 != 0) {
+        if (player.tickCount % 10 != 0) {
             return;
         }
         spawnGuardSwordVisuals(player);
@@ -76,19 +82,18 @@ public class FlyingSwordAdvancedSpell extends SpellEffect {
         double baseAngle = (player.tickCount % 360) * Math.PI / 180.0D;
         double radius = 1.15D;
         double y = player.getY() + 1.0D;
+        TechniqueVfxPalette.Profile vfx = TechniqueVfxPalette.profile("metal");
         for (int i = 0; i < GUARD_SWORD_COUNT; i++) {
             double angle = baseAngle + (Math.PI * 2.0D * i / GUARD_SWORD_COUNT);
             double x = player.getX() + Math.cos(angle) * radius;
             double z = player.getZ() + Math.sin(angle) * radius;
-            level.sendParticles(ParticleTypes.END_ROD, x, y, z, 2, 0.02D, 0.08D, 0.02D, 0.0D);
-            level.sendParticles(ParticleTypes.CRIT, x, y + 0.15D, z, 1, 0.01D, 0.02D, 0.01D, 0.0D);
+            vfx.trailAt(level, new Vec3(x, y, z),
+                    new Vec3(-Math.sin(angle) * 0.45D, 0.08D, Math.cos(angle) * 0.45D));
         }
         // Trail near body when flying.
         if (player.getAbilities().flying) {
             Vec3 look = player.getLookAngle().scale(-0.4D);
-            level.sendParticles(ParticleTypes.ENCHANT,
-                    player.getX() + look.x, player.getY() + 0.4D, player.getZ() + look.z,
-                    3, 0.15D, 0.08D, 0.15D, 0.0D);
+            vfx.trailAt(level, player.position().add(look.x, 0.45D, look.z), player.getDeltaMovement());
         }
     }
 }

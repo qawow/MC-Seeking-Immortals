@@ -4,6 +4,7 @@ import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.entity.SwordProjectileEntity;
 import com.xunxian.seekingimmortals.skill.CultivationSkill;
 import com.xunxian.seekingimmortals.skill.effect.SkillContext;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.phys.Vec3;
@@ -19,6 +20,7 @@ public class SwordProjectileSpell extends SpellEffect {
     @Override
     public boolean execute(ServerPlayer player, PlayerCultivation cultivation, CultivationSkill skill, SkillContext context) {
         Vec3 look = player.getLookAngle();
+        TechniqueVfxPalette.profile("metal").castAt(player.serverLevel(), player);
         Vec3 up = new Vec3(0.0D, 1.0D, 0.0D);
         Vec3 side = look.cross(up);
         if (side.lengthSqr() < 0.001D) {

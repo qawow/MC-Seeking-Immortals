@@ -20,14 +20,15 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Wave478: interactive cultivation method tree / learn UI.
+ * Interactive cultivation method tree and refinement UI.
  * Wave481: cultivate button for catalog-defined method layers.
  * Wave483: node-link layer chain + school adjacency graph in the detail pane.
  * Wave484: freer multi-node school graph with clickable peers (up to 6).
  * Wave485: freeform drag layout for school-graph nodes (client offsets).
  * Wave486: layout offsets server-persisted via MethodLayoutService / protocol 17.
  * Reuses TextMaterialCatalogService method index + ClientMethodData learned mirror.
- * Learn/cultivate/sync go through MethodActionPacket → ManualCatalogService (server authority).
+ * Refinement goes through MethodActionPacket -> ManualCatalogService (server authority).
+ * Unlearned methods are intentionally read-only here and must be acquired from a manual or scroll.
  *
  * <p>Chrome shell uses {@link AbstractJournalScreen}; graph drag / dual-scroll contracts stay local.</p>
  */
@@ -38,6 +39,7 @@ public class MethodTreeScreen extends AbstractJournalScreen {
     private static final int WIDE_LAYOUT_WIDTH = 380;
     private static final int LINE = 12;
     private static final int NODE = 12;
+    private static final int SCROLL_DRAG_THRESHOLD = 4;
     // Node/link colors read live from ImmortalUiSkin so JADE_SLIP climate rebinds apply.
     private static final int GRAPH_COLS = 3;
     private static final int GRAPH_MAX = 6;
@@ -54,6 +56,7 @@ public class MethodTreeScreen extends AbstractJournalScreen {
     private ImmortalButton cultivateButton;
     private ImmortalButton prevSchoolButton;
     private ImmortalButton nextSchoolButton;
+    private ImmortalButton resetLayoutButton;
     /** Wave484/485/486: interactive school-graph nodes (screen coords) + method ids. */
     private final List<GraphHit> graphHits = new ArrayList<>();
     /** Wave485/486: freeform layout offsets (server-synced via ClientMethodLayoutData). */
@@ -70,6 +73,17 @@ public class MethodTreeScreen extends AbstractJournalScreen {
     private int graphGapY = 4;
     private int graphNodeWidth = 42;
     private int graphNodeHeight = 16;
+    private ScrollDragTarget scrollDragTarget = ScrollDragTarget.NONE;
+    private int pendingListIndex = -1;
+    private double scrollDragStartY;
+    private int scrollAtDragStart;
+
+    private enum ScrollDragTarget {
+        NONE,
+        LIST_PENDING,
+        LIST,
+        DETAIL
+    }
 
     private record GraphHit(int x, int y, int w, int h, String methodId) {
         boolean contains(double mx, double my) {
@@ -95,6 +109,7 @@ public class MethodTreeScreen extends AbstractJournalScreen {
     @Override
     protected void init() {
         super.init();
+        resetPointerDrag();
         reloadCatalog();
         Layout layout = calculateLayout(width, height);
 
@@ -125,7 +140,20 @@ public class MethodTreeScreen extends AbstractJournalScreen {
         addRenderableWidget(prevSchoolButton);
         addRenderableWidget(nextSchoolButton);
 
+        resetLayoutButton = ImmortalButton.secondary(layout.resetLayoutButton().x(), layout.resetLayoutButton().y(),
+                layout.resetLayoutButton().width(), layout.resetLayoutButton().height(),
+                Component.translatable("screen.seeking_immortals.method_tree.reset_layout"), b -> resetLayout());
+        addRenderableWidget(resetLayoutButton);
+
         hydrateLayoutFromClientMirror();
+        updateCultivateButton();
+    }
+
+    private void resetLayout() {
+        layoutOffsets.clear();
+        ClientMethodLayoutData.set(Map.of());
+        resetPointerDrag();
+        ModNetwork.CHANNEL.sendToServer(new MethodLayoutActionPacket("clear"));
         updateCultivateButton();
     }
 
@@ -151,8 +179,8 @@ public class MethodTreeScreen extends AbstractJournalScreen {
             if (c != 0) {
                 return c;
             }
-            String da = a.display() == null || a.display().isBlank() ? a.id() : a.display();
-            String db = b.display() == null || b.display().isBlank() ? b.id() : b.display();
+            String da = CultivationDisplayTexts.methodName(a);
+            String db = CultivationDisplayTexts.methodName(b);
             return da.compareToIgnoreCase(db);
         });
         allMethods = List.copyOf(list);
@@ -251,6 +279,9 @@ public class MethodTreeScreen extends AbstractJournalScreen {
                 }
             }
         }
+        if (resetLayoutButton != null) {
+            resetLayoutButton.active = !layoutOffsets.isEmpty();
+        }
     }
 
     static int calculatePanelWidth(int screenWidth) {
@@ -267,14 +298,18 @@ public class MethodTreeScreen extends AbstractJournalScreen {
         int left = Math.max(0, (screenWidth - panelWidth) / 2);
         int top = Math.max(0, (screenHeight - panelHeight) / 2);
         int padding = panelWidth >= 220 ? 10 : 5;
+        int innerX = left + padding;
+        int innerWidth = Math.max(1, panelWidth - padding * 2);
         int headerHeight = panelHeight >= 220 ? 40 : panelHeight >= 140 ? 30 : 20;
         int buttonHeight = panelHeight >= 140 ? 18 : panelHeight >= 100 ? 16 : 14;
         int footerInset = panelHeight >= 140 ? 7 : 4;
-        int footerY = top + panelHeight - buttonHeight - footerInset;
+        int buttonGap = innerWidth >= 56 ? 3 : innerWidth >= 28 ? 1 : 0;
+        boolean stackedActions = innerWidth < 180;
+        int actionRowGap = stackedActions ? 2 : 0;
+        int footerHeight = buttonHeight * (stackedActions ? 2 : 1) + actionRowGap;
+        int footerY = top + panelHeight - footerHeight - footerInset;
         int contentTop = top + headerHeight + 4;
         int contentBottom = Math.max(contentTop + 1, footerY - 5);
-        int innerX = left + padding;
-        int innerWidth = Math.max(1, panelWidth - padding * 2);
         int contentHeight = Math.max(1, contentBottom - contentTop);
         boolean wide = panelWidth >= WIDE_LAYOUT_WIDTH && contentHeight >= 96;
 
@@ -297,17 +332,39 @@ public class MethodTreeScreen extends AbstractJournalScreen {
                     Math.max(1, contentBottom - list.bottom() - gap));
         }
 
-        int buttonGap = innerWidth >= 56 ? 3 : innerWidth >= 28 ? 1 : 0;
-        int buttonWidth = Math.max(1, (innerWidth - buttonGap * 3) / 4);
-        int totalButtonsWidth = buttonWidth * 4 + buttonGap * 3;
-        int buttonX = innerX + Math.max(0, (innerWidth - totalButtonsWidth) / 2);
-        Rect[] actions = new Rect[4];
-        for (int i = 0; i < actions.length; i++) {
-            actions[i] = new Rect(buttonX + i * (buttonWidth + buttonGap), footerY,
-                    buttonWidth, buttonHeight);
+        Rect cultivate;
+        Rect previous;
+        Rect next;
+        Rect reset;
+        Rect done;
+        if (stackedActions) {
+            int topWidth = Math.max(1, (innerWidth - buttonGap) / 2);
+            cultivate = new Rect(innerX, footerY, topWidth, buttonHeight);
+            reset = new Rect(innerX + topWidth + buttonGap, footerY,
+                    Math.max(1, innerWidth - topWidth - buttonGap), buttonHeight);
+            int secondY = footerY + buttonHeight + actionRowGap;
+            int navWidth = Math.max(1, Math.min(22, (innerWidth - buttonGap * 2) / 4));
+            previous = new Rect(innerX, secondY, navWidth, buttonHeight);
+            next = new Rect(previous.right() + buttonGap, secondY, navWidth, buttonHeight);
+            done = new Rect(next.right() + buttonGap, secondY,
+                    Math.max(1, innerX + innerWidth - next.right() - buttonGap), buttonHeight);
+        } else {
+            int buttonWidth = Math.max(1, (innerWidth - buttonGap * 4) / 5);
+            int totalButtonsWidth = buttonWidth * 5 + buttonGap * 4;
+            int buttonX = innerX + Math.max(0, (innerWidth - totalButtonsWidth) / 2);
+            Rect[] actions = new Rect[5];
+            for (int i = 0; i < actions.length; i++) {
+                actions[i] = new Rect(buttonX + i * (buttonWidth + buttonGap), footerY,
+                        buttonWidth, buttonHeight);
+            }
+            cultivate = actions[0];
+            previous = actions[1];
+            next = actions[2];
+            reset = actions[3];
+            done = actions[4];
         }
         return new Layout(left, top, panelWidth, panelHeight, wide, header, list, detail,
-                actions[0], actions[1], actions[2], actions[3]);
+                cultivate, previous, next, reset, done);
     }
 
     static int visibleListRows(Layout layout) {
@@ -315,7 +372,11 @@ public class MethodTreeScreen extends AbstractJournalScreen {
     }
 
     private int maxDetailScroll(Layout layout) {
-        return maxDetailScroll(renderedDetailHeight, layout.detail().height());
+        return maxDetailScroll(renderedDetailHeight, detailViewportHeight(layout));
+    }
+
+    static int detailViewportHeight(Layout layout) {
+        return Math.max(1, layout.detail().height() - 6);
     }
 
     /** Package-visible for dual-scroll tests: detail pane max offset in pixels. */
@@ -336,6 +397,22 @@ public class MethodTreeScreen extends AbstractJournalScreen {
     static int scrollDetailBy(int current, int direction, int contentHeight, int viewportHeight, int step) {
         int max = maxDetailScroll(contentHeight, viewportHeight);
         return Mth.clamp(current - direction * Math.max(1, step), 0, max);
+    }
+
+    static int dragListScroll(int startScroll, double startY, double currentY,
+                              int itemCount, int visibleRows) {
+        int rowDelta = (int)Math.round((startY - currentY) / LINE);
+        return Mth.clamp(startScroll + rowDelta, 0, maxListScroll(itemCount, visibleRows));
+    }
+
+    static int dragDetailScroll(int startScroll, double startY, double currentY,
+                                int contentHeight, int viewportHeight) {
+        int pixelDelta = (int)Math.round(startY - currentY);
+        return Mth.clamp(startScroll + pixelDelta, 0, maxDetailScroll(contentHeight, viewportHeight));
+    }
+
+    static boolean crossedScrollDragThreshold(double startY, double currentY) {
+        return Math.abs(currentY - startY) >= SCROLL_DRAG_THRESHOLD;
     }
 
     /**
@@ -445,10 +522,9 @@ public class MethodTreeScreen extends AbstractJournalScreen {
                         : ImmortalUiSkin.InteractionState.NORMAL;
                 ImmortalUiSkin.drawListRow(graphics, viewport.x(), rowY, viewport.width(), LINE, state);
                 String mark = learned ? "◆ " : "◇ ";
-                String name = method.display() == null || method.display().isBlank()
-                        ? method.id() : method.display();
+                String name = CultivationDisplayTexts.methodName(method);
                 if (learned) {
-                    name += " L" + layer;
+                    name += " · " + CultivationDisplayTexts.level(layer).getString();
                 }
                 int color = learned ? ImmortalUiSkin.JOURNAL_JADE_TEXT
                         : selected ? ImmortalUiSkin.JOURNAL_JADE_TEXT : ImmortalUiSkin.JOURNAL_PAPER;
@@ -463,7 +539,7 @@ public class MethodTreeScreen extends AbstractJournalScreen {
     private void renderMethodDetail(GuiGraphics graphics, Layout layout) {
         Rect detail = layout.detail();
         Rect viewport = new Rect(detail.x() + 4, detail.y() + 3,
-                Math.max(1, detail.width() - 11), Math.max(1, detail.height() - 6));
+                Math.max(1, detail.width() - 11), detailViewportHeight(layout));
         detailScroll = Mth.clamp(detailScroll, 0, maxDetailScroll(layout));
         int startY = viewport.y() - detailScroll;
         graphHits.clear();
@@ -488,24 +564,23 @@ public class MethodTreeScreen extends AbstractJournalScreen {
         boolean learned = ClientMethodData.hasLearned(selected.id());
         int layer = ClientMethodData.getLayer(selected.id());
         int maxLayer = ManualCatalogService.maxMethodLayer(selected.id());
-        String name = selected.display() == null || selected.display().isBlank()
-                ? selected.id() : selected.display();
+        String name = CultivationDisplayTexts.methodName(selected);
         ImmortalUiSkin.drawStringFit(font, graphics, name, detailX, detailY, detailW,
                 ImmortalUiSkin.JOURNAL_PAPER, false);
         int y = detailY + LINE + 2;
-        y = detailLine(graphics, detailX, y, detailW, "id", selected.id());
         y = detailLine(graphics, detailX, y, detailW, "school",
-                selected.school() == null || selected.school().isBlank() ? "-" : selected.school());
+                CultivationDisplayTexts.schoolText(selected.school()));
         y = detailLine(graphics, detailX, y, detailW, "realm",
-                selected.realmMin() == null || selected.realmMin().isBlank() ? "-" : selected.realmMin());
+                CultivationDisplayTexts.realmText(selected.realmMin()));
         y = detailLine(graphics, detailX, y, detailW, "attr",
-                selected.attribute() == null || selected.attribute().isBlank() ? "-" : selected.attribute());
+                CultivationDisplayTexts.attributeText(selected.attribute()));
         if (learned) {
             y = detailLine(graphics, detailX, y, detailW, "layer",
                     layer + " / " + maxLayer);
             String layerName = MethodLayerTechniqueService.layerNameForLayer(selected.id(), layer);
             if (!layerName.isBlank()) {
-                y = detailLine(graphics, detailX, y, detailW, "layer_name", layerName);
+                y = detailLine(graphics, detailX, y, detailW, "layer_name",
+                        CultivationDisplayTexts.safeText(layerName));
             }
             if (layer < maxLayer) {
                 y = detailLine(graphics, detailX, y, detailW, "cost_sp",
@@ -736,11 +811,9 @@ public class MethodTreeScreen extends AbstractJournalScreen {
         if (w > 2 && h > 2) {
             graphics.fill(x + 1, y + 1, x + w - 1, y + h - 1, ImmortalUiSkin.JOURNAL_CONTROL);
         }
-        String label = present
-                ? (method.display() == null || method.display().isBlank() ? method.id() : method.display())
-                : "·";
+        String label = present ? CultivationDisplayTexts.methodName(method) : "·";
         if (present && learned) {
-            label = label + " L" + ClientMethodData.getLayer(method.id());
+            label = label + " · " + CultivationDisplayTexts.level(ClientMethodData.getLayer(method.id())).getString();
         }
         ImmortalUiSkin.drawStringFit(font, graphics, label, x + 3, y + Math.max(2, (h - 8) / 2),
                 Math.max(1, w - 6), focus ? ImmortalUiSkin.JOURNAL_PAPER
@@ -755,7 +828,7 @@ public class MethodTreeScreen extends AbstractJournalScreen {
         if ("misc".equals(school)) {
             return Component.translatable("screen.seeking_immortals.method_tree.school_misc").getString();
         }
-        return school;
+        return CultivationDisplayTexts.schoolText(school);
     }
 
     @Override
@@ -768,6 +841,7 @@ public class MethodTreeScreen extends AbstractJournalScreen {
                     if (hit.contains(mouseX, mouseY) && hit.methodId() != null && !hit.methodId().isBlank()) {
                         selectMethodById(hit.methodId());
                         draggingMethodId = hit.methodId();
+                        scrollDragTarget = ScrollDragTarget.NONE;
                         dragGrabX = mouseX - hit.x();
                         dragGrabY = mouseY - hit.y();
                         return true;
@@ -775,14 +849,32 @@ public class MethodTreeScreen extends AbstractJournalScreen {
                 }
             }
             int index = hoveredListIndex(layout, mouseX, mouseY);
-            if (index >= 0) {
-                selectedIndex = index;
-                detailScroll = 0;
-                updateCultivateButton();
+            if (layout.list().contains(mouseX, mouseY)) {
+                pendingListIndex = index;
+                beginScrollDrag(ScrollDragTarget.LIST_PENDING, mouseY, scroll);
+                return true;
+            }
+            if (layout.detail().contains(mouseX, mouseY)) {
+                beginScrollDrag(ScrollDragTarget.DETAIL, mouseY, detailScroll);
                 return true;
             }
         }
+        resetPointerDrag();
         return super.mouseClicked(mouseX, mouseY, button);
+    }
+
+    private void beginScrollDrag(ScrollDragTarget target, double mouseY, int currentScroll) {
+        scrollDragTarget = target;
+        scrollDragStartY = mouseY;
+        scrollAtDragStart = currentScroll;
+    }
+
+    private void resetPointerDrag() {
+        scrollDragTarget = ScrollDragTarget.NONE;
+        pendingListIndex = -1;
+        draggingMethodId = "";
+        scrollDragStartY = 0.0D;
+        scrollAtDragStart = 0;
     }
 
     private int hoveredListIndex(Layout layout, double mouseX, double mouseY) {
@@ -828,6 +920,24 @@ public class MethodTreeScreen extends AbstractJournalScreen {
             }
             return true;
         }
+        if (button == 0 && scrollDragTarget != ScrollDragTarget.NONE) {
+            Layout layout = calculateLayout(width, height);
+            if (scrollDragTarget == ScrollDragTarget.LIST_PENDING) {
+                if (!crossedScrollDragThreshold(scrollDragStartY, mouseY)) {
+                    return true;
+                }
+                scrollDragTarget = ScrollDragTarget.LIST;
+                pendingListIndex = -1;
+            }
+            if (scrollDragTarget == ScrollDragTarget.LIST) {
+                scroll = dragListScroll(scrollAtDragStart, scrollDragStartY, mouseY,
+                        filtered.size(), visibleListRows(layout));
+            } else {
+                detailScroll = dragDetailScroll(scrollAtDragStart, scrollDragStartY, mouseY,
+                        renderedDetailHeight, detailViewportHeight(layout));
+            }
+            return true;
+        }
         return super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
     }
 
@@ -840,7 +950,18 @@ public class MethodTreeScreen extends AbstractJournalScreen {
             int y = off == null ? 0 : off[1];
             ModNetwork.CHANNEL.sendToServer(new MethodLayoutActionPacket(
                     "set:" + draggingMethodId + ":" + x + ":" + y));
-            draggingMethodId = "";
+            resetPointerDrag();
+            updateCultivateButton();
+            return true;
+        }
+        if (button == 0 && scrollDragTarget != ScrollDragTarget.NONE) {
+            int clickedIndex = scrollDragTarget == ScrollDragTarget.LIST_PENDING ? pendingListIndex : -1;
+            resetPointerDrag();
+            if (clickedIndex >= 0 && clickedIndex < filtered.size()) {
+                selectedIndex = clickedIndex;
+                detailScroll = 0;
+                updateCultivateButton();
+            }
             return true;
         }
         return super.mouseReleased(mouseX, mouseY, button);
@@ -933,7 +1054,7 @@ public class MethodTreeScreen extends AbstractJournalScreen {
         }
         if (direction != 0 && layout.detail().contains(mouseX, mouseY)) {
             detailScroll = scrollDetailBy(detailScroll, direction,
-                    renderedDetailHeight, layout.detail().height(), LINE);
+                    renderedDetailHeight, detailViewportHeight(layout), LINE);
             return true;
         }
         return super.mouseScrolled(mouseX, mouseY, delta);
@@ -964,6 +1085,7 @@ public class MethodTreeScreen extends AbstractJournalScreen {
 
     record Layout(int left, int top, int panelWidth, int panelHeight, boolean wide,
                   Rect header, Rect list, Rect detail, Rect cultivateButton,
-                  Rect prevSchoolButton, Rect nextSchoolButton, Rect doneButton) {
+                  Rect prevSchoolButton, Rect nextSchoolButton, Rect resetLayoutButton,
+                  Rect doneButton) {
     }
 }

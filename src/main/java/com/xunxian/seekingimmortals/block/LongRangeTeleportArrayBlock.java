@@ -2,6 +2,7 @@ package com.xunxian.seekingimmortals.block;
 
 import com.xunxian.seekingimmortals.registry.ModBlocks;
 import com.xunxian.seekingimmortals.structure.LongRangeTeleportArrayStructure;
+import com.xunxian.seekingimmortals.structure.TeleportationArrayStructure;
 import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -51,7 +52,14 @@ public class LongRangeTeleportArrayBlock extends Block {
         }
         LongRangeTeleportArrayStructure.CheckResult check = LongRangeTeleportArrayStructure.validate(
                 level, pos, ModBlocks.LONG_RANGE_TELEPORT_ARRAY.get(), ModBlocks.SPIRIT_ORE.get());
-        if (!check.complete()) {
+        TeleportationArrayStructure.CheckResult layered = TeleportationArrayStructure.validate(
+                level,
+                pos,
+                ModBlocks.SPIRIT_ORE.get(),
+                ModBlocks.SPIRIT_GATHERING_ARRAY.get(),
+                ModBlocks.LONG_RANGE_TELEPORT_ARRAY.get(),
+                ModBlocks.TELEPORT_ARRAY_PEDESTAL.get());
+        if (!check.complete() && !layered.complete()) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.long_range_teleport_array.incomplete",
                     check.missingRing(),

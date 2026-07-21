@@ -16,12 +16,12 @@
     {
       "type": "patchouli:text",
       "title": "Step 2: Obtain Spiritual Power",
-      "text": "Cultivation requires $(l)spiritual power$().$(br2)Ways to obtain spiritual power:$(li)Right-click with spirit stone to activate absorption$(li)Use Qi Recovery Pills for quick restoration$(li)Meditate in high-aura environments or spirit gathering arrays$(li)Wear Spirit Charm in curios slot$(br2)Max spiritual power increases with realm."
+      "text": "Cultivation requires $(l)spiritual power$().$(br2)Ways to obtain spiritual power:$(li)Right-click with a spirit stone to activate absorption$(li)Use Qi Recovery Pills for quick restoration$(li)Meditate on a cushion in a high-aura environment or spirit gathering array$(li)Wear a Spirit Charm in a Curios slot$(br2)Maximum spiritual power increases with realm."
     },
     {
       "type": "patchouli:text",
       "title": "Step 3: Meditate and Cultivate",
-      "text": "Press $(l)V key$() (default) to enter meditation.$(br2)During meditation:$(li)Taking damage interrupts meditation$(li)Moving or jumping interrupts meditation$(li)Consumes spiritual power to gain cultivation experience$(li)Meditating on cushion increases efficiency$(br2)After accumulating enough experience, you can attempt realm breakthrough."
+      "text": "Right-click a $(l)Meditation Cushion$() and remain seated to begin breathing cultivation; no separate key binding is required.$(br2)Taking damage, moving, jumping, or leaving the cushion interrupts meditation. Aura, spiritual root, physique, method, and spirit stones determine the gain.$(br2)Open the $(l)Cultivation$() page from your inventory to inspect the gain per second and its factors."
     },
     {
       "type": "patchouli:text",
@@ -31,7 +31,7 @@
     {
       "type": "patchouli:text",
       "title": "Step 5: Learn Techniques",
-      "text": "Right-click $(l)Technique Manual$() to learn cultivation methods.$(br2)Press $(l)Technique Edit Key$() (bind in controls) to configure 7 technique slots, then bind keys to release techniques.$(br2)Techniques consume spiritual power and have cooldowns."
+      "text": "Right-click a $(l)method manual or inheritance scroll$() to learn methods and techniques; the method tree only inspects and refines methods already learned.$(br2)Press the $(l)Technique Edit Key$() (bind it in Controls) to search learned techniques and configure 7 slots, then bind their release keys.$(br2)Techniques consume spiritual power and have cooldowns."
     },
     {
       "type": "patchouli:text",

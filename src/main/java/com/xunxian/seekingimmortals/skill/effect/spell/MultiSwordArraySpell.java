@@ -4,13 +4,12 @@ import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.entity.SwordProjectileEntity;
 import com.xunxian.seekingimmortals.skill.CultivationSkill;
 import com.xunxian.seekingimmortals.skill.effect.SkillContext;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.phys.Vec3;
 
 public class MultiSwordArraySpell extends SpellEffect {
@@ -40,6 +39,7 @@ public class MultiSwordArraySpell extends SpellEffect {
         data.putInt(VOLLEY_KEY, 0);
         data.putDouble(DAMAGE_KEY, calculateDamage(skill.getLevel(), skill.getProficiency()));
         data.putInt(COUNT_KEY, Math.max(1, count));
+        TechniqueVfxPalette.profile("metal").castAt(player.serverLevel(), player);
         tickActive(player);
         player.displayClientMessage(Component.literal(message), true);
         return true;
@@ -110,6 +110,5 @@ public class MultiSwordArraySpell extends SpellEffect {
         level.sendParticles(ParticleTypes.END_ROD,
                 player.getX(), player.getY() + 1.1D, player.getZ(),
                 6, 0.4D, 0.35D, 0.4D, 0.01D);
-        level.playSound(null, player.blockPosition(), SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 0.35F, 1.4F);
     }
 }

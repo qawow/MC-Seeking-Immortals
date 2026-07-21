@@ -94,7 +94,6 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import top.theillusivec4.curios.api.CuriosApi;
 
-import java.util.Comparator;
 import java.util.Locale;
 import java.util.UUID;
 
@@ -223,8 +222,9 @@ public final class ModEvents {
             ItemStack bonusStone = getBestHeldSpiritStone(event.player, cultivation);
             int stoneBonus = getMatchingPassiveBonus(bonusStone, cultivation);
             if (cultivation.isMeditating() && onCushion) {
-                MeditationTechniqueBonus techniqueBonus = getBestMeditationTechniqueBonus(event.player, cultivation);
-                MeditationFormula.Breakdown meditation = MeditationFormula.calculate(cultivation, auraInfo, true, techniqueBonus.multiplier(), bonusStone, stoneBonus);
+                double techniqueMultiplier = getBestMeditationTechniqueMultiplier(event.player, cultivation);
+                MeditationFormula.Breakdown meditation = MeditationFormula.calculate(
+                        cultivation, auraInfo, true, techniqueMultiplier, bonusStone, stoneBonus);
                 cultivation.addMeditationCultivation(meditation);
             }
             if (event.player instanceof ServerPlayer serverPlayer) {
@@ -848,16 +848,16 @@ public final class ModEvents {
         return SpiritStoneItem.getMatchingPassiveBonus(stack, cultivation.getSpiritualRootAttribute());
     }
 
-    private static MeditationTechniqueBonus getBestMeditationTechniqueBonus(Player player, PlayerCultivation cultivation) {
+    public static double getBestMeditationTechniqueMultiplier(Player player, PlayerCultivation cultivation) {
         if (!(player.level() instanceof ServerLevel serverLevel) || cultivation.getLearnedTechniques().isEmpty()) {
-            return new MeditationTechniqueBonus("No main cultivation technique", 1.0D);
+            return 1.0D;
         }
         return cultivation.getLearnedTechniques().stream()
                 .map(id -> TechniqueDataManager.getTechnique(serverLevel.getServer(), id).orElse(null))
                 .filter(java.util.Objects::nonNull)
-                .map(technique -> new MeditationTechniqueBonus(technique.name().isBlank() ? technique.id() : technique.name(), getMeditationTechniqueMultiplier(cultivation, technique)))
-                .max(Comparator.comparingDouble(MeditationTechniqueBonus::multiplier))
-                .orElse(new MeditationTechniqueBonus("No main cultivation technique", 1.0D));
+                .mapToDouble(technique -> getMeditationTechniqueMultiplier(cultivation, technique))
+                .max()
+                .orElse(1.0D);
     }
 
     private static double getMeditationTechniqueMultiplier(PlayerCultivation cultivation, TechniqueDataManager.TechniqueEntry technique) {
@@ -1444,8 +1444,6 @@ public final class ModEvents {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.spirit_stone.depleted"), true);
         }
     }
-
-    private record MeditationTechniqueBonus(String name, double multiplier) {}
 
     @Deprecated
     private static boolean tryExchange(Player player, Item input, Item output) {

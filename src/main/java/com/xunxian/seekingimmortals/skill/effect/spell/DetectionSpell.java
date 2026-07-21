@@ -3,6 +3,7 @@ package com.xunxian.seekingimmortals.skill.effect.spell;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.skill.CultivationSkill;
 import com.xunxian.seekingimmortals.skill.effect.SkillContext;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -22,7 +23,9 @@ import java.util.List;
 public class DetectionSpell extends SpellEffect {
     private static final int ENTITY_HIGHLIGHT_TICKS = 10 * 20;
     private static final int MAX_ENTITY_HIGHLIGHTS = 64;
+    private static final int MAX_ENTITY_PARTICLE_MARKERS = 12;
     private static final int MAX_BLOCK_MATCHES = 32;
+    private static final int MAX_BLOCK_PARTICLE_MARKERS = 12;
 
     public DetectionSpell() {
         super(5, 200, 0);
@@ -38,6 +41,9 @@ public class DetectionSpell extends SpellEffect {
         AABB area = new AABB(player.blockPosition()).inflate(range);
 
         if (context.getLevel() instanceof ServerLevel serverLevel) {
+            TechniqueVfxPalette.Profile vfx = TechniqueVfxPalette.profile("soul");
+            vfx.castAt(serverLevel, player);
+            vfx.scanAt(serverLevel, player.position(), Math.min(16.0D, range), 36);
             List<LivingEntity> entities = serverLevel.getEntitiesOfClass(LivingEntity.class, area,
                     entity -> entity != player && entity.isAlive() && !entity.isSpectator());
             entities.sort(Comparator.comparingDouble(entity -> player.distanceToSqr(entity)));
@@ -57,7 +63,7 @@ public class DetectionSpell extends SpellEffect {
                         if (state.is(Blocks.AIR)) continue;
                         String path = BuiltInRegistries.BLOCK.getKey(state.getBlock()).getPath();
                         if (path.contains("spirit") || path.contains("ore") || path.contains("grass") || path.contains("mushroom")) {
-                            if (highlightedBlocks < MAX_BLOCK_MATCHES) {
+                            if (highlightedBlocks < MAX_BLOCK_PARTICLE_MARKERS) {
                                 serverLevel.sendParticles(ParticleTypes.HAPPY_VILLAGER,
                                         pos.getX() + 0.5D, pos.getY() + 0.8D, pos.getZ() + 0.5D,
                                         1, 0.25D, 0.25D, 0.25D, 0.01D);
@@ -87,9 +93,11 @@ public class DetectionSpell extends SpellEffect {
         for (LivingEntity entity : entities) {
             if (highlighted >= MAX_ENTITY_HIGHLIGHTS) break;
             entity.addEffect(new MobEffectInstance(MobEffects.GLOWING, ENTITY_HIGHLIGHT_TICKS, 0, false, true));
-            level.sendParticles(ParticleTypes.END_ROD,
-                    entity.getX(), entity.getY() + entity.getBbHeight() / 2.0D, entity.getZ(),
-                    8, 0.35D, 0.45D, 0.35D, 0.025D);
+            if (highlighted < MAX_ENTITY_PARTICLE_MARKERS) {
+                level.sendParticles(ParticleTypes.END_ROD,
+                        entity.getX(), entity.getY() + entity.getBbHeight() / 2.0D, entity.getZ(),
+                        4, 0.28D, 0.38D, 0.28D, 0.02D);
+            }
             highlighted++;
         }
         return highlighted;

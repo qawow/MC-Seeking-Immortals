@@ -3,10 +3,12 @@ package com.xunxian.seekingimmortals.client;
 import com.xunxian.seekingimmortals.network.ModNetwork;
 import com.xunxian.seekingimmortals.network.SetTechniqueSlotPacket;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
 
 import java.util.List;
+import java.util.Locale;
 
 public class TechniqueEditScreen extends AbstractJournalScreen {
     private static final int PANEL_WIDTH = 420;
@@ -17,13 +19,24 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
     private static final int SLOT_COUNT = 7;
     private static final int LINE_HEIGHT = 14;
     private static final int WIDE_SLOT_ROW_HEIGHT = 22;
+    private static final int DRAG_THRESHOLD = 4;
 
     private String draggingTechniqueId = "";
+    private String pressedTechniqueId = "";
     private int learnedScrollOffset = 0;
-    private String searchQuery = "";
-    private boolean isDraggingScrollbar = false;
-    private double scrollbarDragStartY = 0;
-    private int scrollOffsetAtDragStart = 0;
+    private String retainedSearchValue = "";
+    private EditBox searchBox;
+    private DragIntent dragIntent = DragIntent.NONE;
+    private double dragStartX;
+    private double dragStartY;
+    private int scrollOffsetAtDragStart;
+
+    private enum DragIntent {
+        NONE,
+        PENDING,
+        SCROLLING,
+        TECHNIQUE
+    }
 
 
     @Override
@@ -37,8 +50,34 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
 
     @Override
     protected void init() {
+        if (searchBox != null) {
+            retainedSearchValue = searchBox.getValue();
+        }
         super.init();
         Layout layout = calculateLayout(width, height);
+        String visibleSearchValue = searchValueForLayout(layout, retainedSearchValue);
+        if (!visibleSearchValue.equals(retainedSearchValue)) {
+            retainedSearchValue = visibleSearchValue;
+            learnedScrollOffset = 0;
+        }
+        if (hasSearchBox(layout)) {
+            Rect search = searchBoxRect(layout);
+            searchBox = new EditBox(font, search.x() + 3, search.y() + 2,
+                    Math.max(1, search.width() - 6), Math.max(1, search.height() - 4),
+                    Component.translatable("screen.seeking_immortals.technique_edit.search"));
+            searchBox.setBordered(false);
+            searchBox.setMaxLength(80);
+            searchBox.setHint(Component.translatable("screen.seeking_immortals.technique_edit.search_hint"));
+            searchBox.setValue(retainedSearchValue);
+            searchBox.setResponder(value -> {
+                retainedSearchValue = value;
+                learnedScrollOffset = 0;
+                resetDragGesture();
+            });
+            addRenderableWidget(searchBox);
+        } else {
+            searchBox = null;
+        }
         addRenderableWidget(ImmortalButton.secondary(layout.closeButton().x(), layout.closeButton().y(),
                 layout.closeButton().width(), layout.closeButton().height(),
                 Component.translatable("screen.seeking_immortals.cultivation_stats.close"), button -> onClose()));
@@ -95,67 +134,70 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
                     ModNetwork.CHANNEL.sendToServer(new SetTechniqueSlotPacket(slot, ""));
                     return true;
                 }
-                if (button == 0) {
-                    List<String> techniques = ClientTechniqueData.getLearnedTechniques();
-                    String techniqueId = slot < techniques.size() ? techniques.get(slot) : "";
-                    if (!techniqueId.isBlank()) {
-                        ModNetwork.CHANNEL.sendToServer(new SetTechniqueSlotPacket(slot, techniqueId));
-                        return true;
-                    }
-                }
             }
 
-            if (button == 0) {
-                if (isInsideLearnedList(mouseX, mouseY)) {
-                    isDraggingScrollbar = true;
-                    scrollbarDragStartY = mouseY;
-                    scrollOffsetAtDragStart = learnedScrollOffset;
+            if (button == 0 && isInsideLearnedList(mouseX, mouseY)) {
+                if (searchBox != null) {
+                    searchBox.setFocused(false);
                 }
-
                 int learnedIndex = hoveredLearnedIndex(mouseX, mouseY);
                 List<String> techniques = filterTechniques(ClientTechniqueData.getLearnedTechniques());
-                if (learnedIndex >= 0 && learnedIndex < techniques.size()) {
-                    draggingTechniqueId = techniques.get(learnedIndex);
-                    return true;
-                }
+                pressedTechniqueId = learnedIndex >= 0 && learnedIndex < techniques.size()
+                        ? techniques.get(learnedIndex) : "";
+                dragIntent = DragIntent.PENDING;
+                dragStartX = mouseX;
+                dragStartY = mouseY;
+                scrollOffsetAtDragStart = learnedScrollOffset;
+                return true;
             }
         }
+        resetDragGesture();
         return super.mouseClicked(mouseX, mouseY, button);
     }
 
     @Override
     public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
-        if (button == 0 && isDraggingScrollbar && ClientTechniqueData.isSynced()) {
+        if (button == 0 && dragIntent != DragIntent.NONE && ClientTechniqueData.isSynced()) {
             List<String> techniques = filterTechniques(ClientTechniqueData.getLearnedTechniques());
             Layout layout = calculateLayout(width, height);
             int maxRows = maxLearnedRows(layout);
             int maxScroll = maxLearnedScroll(techniques.size(), maxRows);
-
-            if (maxScroll > 0) {
-                Rect viewport = learnedViewport(layout);
-                double dragDistance = mouseY - scrollbarDragStartY;
-                int rowsToScroll = (int) (dragDistance / LINE_HEIGHT);
-                learnedScrollOffset = Mth.clamp(scrollOffsetAtDragStart + rowsToScroll, 0, maxScroll);
-                return true;
+            double distanceX = mouseX - dragStartX;
+            double distanceY = mouseY - dragStartY;
+            boolean crossedThreshold = crossedDragThreshold(distanceX, distanceY);
+            if (dragIntent != DragIntent.TECHNIQUE && shouldPromoteTechniqueDrag(
+                    layout, mouseX, mouseY, crossedThreshold, !pressedTechniqueId.isBlank())) {
+                dragIntent = DragIntent.TECHNIQUE;
+                draggingTechniqueId = pressedTechniqueId;
+            } else if (dragIntent == DragIntent.PENDING && crossedThreshold) {
+                boolean verticalPan = shouldPanLearnedList(
+                        distanceX, distanceY, maxScroll > 0, !pressedTechniqueId.isBlank());
+                dragIntent = verticalPan ? DragIntent.SCROLLING : DragIntent.TECHNIQUE;
+                if (dragIntent == DragIntent.TECHNIQUE) {
+                    draggingTechniqueId = pressedTechniqueId;
+                }
             }
+            if (dragIntent == DragIntent.SCROLLING) {
+                int rowsToScroll = (int)Math.round((dragStartY - mouseY) / LINE_HEIGHT);
+                learnedScrollOffset = Mth.clamp(scrollOffsetAtDragStart + rowsToScroll, 0, maxScroll);
+            }
+            return true;
         }
-        return !draggingTechniqueId.isBlank() || super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
+        return super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
     }
 
     @Override
     public boolean mouseReleased(double mouseX, double mouseY, int button) {
-        if (button == 0) {
-            isDraggingScrollbar = false;
-            scrollbarDragStartY = 0;
-
-            if (!draggingTechniqueId.isBlank()) {
+        if (button == 0 && dragIntent != DragIntent.NONE) {
+            boolean wasTechniqueDrag = dragIntent == DragIntent.TECHNIQUE && !draggingTechniqueId.isBlank();
+            if (wasTechniqueDrag) {
                 int slot = hoveredSlot(mouseX, mouseY);
-                if (slot >= 0) {
+                if (shouldBindOnRelease(slot, draggingTechniqueId)) {
                     ModNetwork.CHANNEL.sendToServer(new SetTechniqueSlotPacket(slot, draggingTechniqueId));
                 }
-                draggingTechniqueId = "";
-                return true;
             }
+            resetDragGesture();
+            return true;
         }
         return super.mouseReleased(mouseX, mouseY, button);
     }
@@ -173,36 +215,6 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
             }
         }
         return super.mouseScrolled(mouseX, mouseY, delta);
-    }
-
-    @Override
-    public boolean charTyped(char codePoint, int modifiers) {
-        if (Character.isLetterOrDigit(codePoint) || Character.isWhitespace(codePoint) || isPunctuation(codePoint)) {
-            searchQuery += codePoint;
-            learnedScrollOffset = 0;
-            return true;
-        }
-        return super.charTyped(codePoint, modifiers);
-    }
-
-    @Override
-    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
-        if (keyCode == 259) { // BACKSPACE
-            if (!searchQuery.isEmpty()) {
-                searchQuery = searchQuery.substring(0, searchQuery.length() - 1);
-                learnedScrollOffset = 0;
-                return true;
-            }
-        } else if (keyCode == 257 || keyCode == 335) { // ENTER or NUMPAD_ENTER
-            searchQuery = "";
-            learnedScrollOffset = 0;
-            return true;
-        }
-        return super.keyPressed(keyCode, scanCode, modifiers);
-    }
-
-    private boolean isPunctuation(char c) {
-        return c == '/' || c == '-' || c == '_' || c == '.' || c == '(' || c == ')' || c == '[' || c == ']';
     }
 
     private void renderSlots(GuiGraphics graphics, Layout layout, List<String> slots, int mouseX, int mouseY) {
@@ -258,7 +270,7 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
                 String text = summary == null
                         ? Component.translatable("screen.seeking_immortals.technique_edit.empty_slot").getString()
                         : Component.translatable("screen.seeking_immortals.technique_edit.slot_summary",
-                        summary.name(), summary.cost()).getString() + cooldownText;
+                        CultivationDisplayTexts.techniqueName(summary), summary.cost()).getString() + cooldownText;
                 int color = summary == null ? ImmortalUiSkin.JOURNAL_PAPER_MUTED
                         : canRelease ? ImmortalUiSkin.JOURNAL_PAPER : ImmortalUiSkin.JOURNAL_CINNABAR_BRIGHT;
                 ImmortalUiSkin.drawStringFit(font, graphics,
@@ -274,13 +286,13 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
         Rect pane = layout.learnedPane();
         int headerY = pane.y() + 4;
 
-        if (pane.height() >= 48) {
+        if (hasSearchBox(layout)) {
             ImmortalUiSkin.drawStringFit(font, graphics,
                     Component.translatable("screen.seeking_immortals.technique_edit.learned").getString(),
                     pane.x() + 5, headerY, Math.max(1, pane.width() - 10),
                     ImmortalUiSkin.JOURNAL_PAPER, false);
-            headerY += 12;
-            renderSearchBox(graphics, pane.x() + 5, headerY, pane.width() - 10, 14);
+            Rect search = searchBoxRect(layout);
+            renderSearchBox(graphics, search.x(), search.y(), search.width(), search.height());
         } else if (pane.height() >= 28) {
             ImmortalUiSkin.drawStringFit(font, graphics,
                     Component.translatable("screen.seeking_immortals.technique_edit.learned").getString(),
@@ -298,7 +310,7 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
 
         List<String> filteredTechniques = filterTechniques(techniques);
         if (filteredTechniques.isEmpty()) {
-            String emptyMessage = searchQuery.isEmpty()
+            String emptyMessage = searchValue().isBlank()
                 ? Component.translatable("screen.seeking_immortals.technique_edit.empty_learned").getString()
                 : Component.translatable("screen.seeking_immortals.technique_edit.no_results").getString();
             ImmortalUiSkin.drawStringFit(font, graphics, emptyMessage,
@@ -325,7 +337,8 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
                         hoveredIndex == techniqueIndex ? ImmortalUiSkin.InteractionState.HOVERED
                                 : ImmortalUiSkin.InteractionState.NORMAL);
                 ImmortalUiSkin.drawStringFit(font, graphics,
-                        (techniqueIndex + 1) + ". " + summary.name() + " / " + summary.attribute(),
+                        (techniqueIndex + 1) + ". " + CultivationDisplayTexts.techniqueName(summary)
+                                + " / " + CultivationDisplayTexts.attributeText(summary.attribute()),
                         viewport.x() + 4, rowY + 2, Math.max(1, viewport.width() - 9),
                         ImmortalUiSkin.JOURNAL_PAPER, false);
             }
@@ -338,28 +351,23 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
     private void renderSearchBox(GuiGraphics graphics, int x, int y, int width, int height) {
         graphics.fill(x, y, x + width, y + height, ImmortalUiSkin.JOURNAL_BORDER_DIM);
         graphics.fill(x + 1, y + 1, x + width - 1, y + height - 1, ImmortalUiSkin.JOURNAL_INNER);
-
-        String displayText = searchQuery.isEmpty()
-            ? Component.translatable("screen.seeking_immortals.technique_edit.search_hint").getString()
-            : searchQuery;
-        int textColor = searchQuery.isEmpty() ? ImmortalUiSkin.JOURNAL_PAPER_MUTED : ImmortalUiSkin.JOURNAL_PAPER;
-
-        ImmortalUiSkin.drawStringFit(font, graphics, displayText, x + 4, y + 3,
-                Math.max(1, width - 8), textColor, false);
     }
 
     private List<String> filterTechniques(List<String> techniques) {
-        if (searchQuery.isEmpty()) {
+        String query = searchValue().trim();
+        if (query.isEmpty()) {
             return techniques;
         }
-        String lowerQuery = searchQuery.toLowerCase();
+        String lowerQuery = query.toLowerCase(Locale.ROOT);
         return techniques.stream()
                 .filter(id -> {
                     ClientTechniqueData.TechniqueSummary summary = ClientTechniqueData.getTechniqueSummary(id);
-                    return summary.name().toLowerCase().contains(lowerQuery)
-                            || summary.source().toLowerCase().contains(lowerQuery)
-                            || summary.attribute().toLowerCase().contains(lowerQuery)
-                            || id.toLowerCase().contains(lowerQuery);
+                    String visibleSource = CultivationDisplayTexts.visibleSourceText(summary.source());
+                    return CultivationDisplayTexts.techniqueName(summary).toLowerCase(Locale.ROOT).contains(lowerQuery)
+                            || (!visibleSource.isBlank()
+                            && visibleSource.toLowerCase(Locale.ROOT).contains(lowerQuery))
+                            || CultivationDisplayTexts.attributeText(summary.attribute()).toLowerCase(Locale.ROOT).contains(lowerQuery)
+                            || id.toLowerCase(Locale.ROOT).contains(lowerQuery);
                 })
                 .toList();
     }
@@ -367,7 +375,8 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
     private void renderDraggedTechnique(GuiGraphics graphics, int mouseX, int mouseY) {
         if (draggingTechniqueId.isBlank()) return;
         ClientTechniqueData.TechniqueSummary summary = ClientTechniqueData.getTechniqueSummary(draggingTechniqueId);
-        String text = Component.translatable("screen.seeking_immortals.technique_edit.dragging", summary.name()).getString();
+        String text = Component.translatable("screen.seeking_immortals.technique_edit.dragging",
+                CultivationDisplayTexts.techniqueName(summary)).getString();
         int boxWidth = Math.max(1, Math.min(Math.max(1, width - 4), font.width(text) + 12));
         int x = Math.max(0, Math.min(mouseX + 10, width - boxWidth - 4));
         int y = Math.max(0, Math.min(mouseY + 10, height - 20));
@@ -410,8 +419,35 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
         return learnedViewport(calculateLayout(width, height)).contains(mouseX, mouseY);
     }
 
+    private String searchValue() {
+        return searchBox == null ? retainedSearchValue : searchBox.getValue();
+    }
+
+    private void resetDragGesture() {
+        dragIntent = DragIntent.NONE;
+        pressedTechniqueId = "";
+        draggingTechniqueId = "";
+        dragStartX = 0.0D;
+        dragStartY = 0.0D;
+    }
+
     static int maxLearnedScroll(int totalRows, int visibleRows) {
         return Math.max(0, totalRows - Math.max(1, visibleRows));
+    }
+
+    static boolean crossedDragThreshold(double distanceX, double distanceY) {
+        return Math.hypot(distanceX, distanceY) >= DRAG_THRESHOLD;
+    }
+
+    static boolean shouldPanLearnedList(double distanceX, double distanceY,
+                                        boolean canScroll, boolean hasTechnique) {
+        return canScroll && (!hasTechnique || Math.abs(distanceY) > Math.abs(distanceX));
+    }
+
+    static boolean shouldPromoteTechniqueDrag(Layout layout, double mouseX, double mouseY,
+                                              boolean crossedThreshold, boolean hasTechnique) {
+        return crossedThreshold && hasTechnique && layout != null
+                && layout.slotPane().contains(mouseX, mouseY);
     }
 
     /** Package-visible: learned-list wheel step used by drag-source pane. */
@@ -512,9 +548,23 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
         return new Rect(hit.x() + 2, hit.y() + Math.max(0, (hit.height() - size) / 2), size, size);
     }
 
-    private static Rect learnedViewport(Layout layout) {
+    static boolean hasSearchBox(Layout layout) {
+        return layout != null && layout.learnedPane().height() >= 48;
+    }
+
+    static String searchValueForLayout(Layout layout, String value) {
+        return hasSearchBox(layout) && value != null ? value : "";
+    }
+
+    static Rect searchBoxRect(Layout layout) {
         Rect pane = layout.learnedPane();
-        int header = pane.height() >= 28 ? 18 : 2;
+        return new Rect(pane.x() + 5, pane.y() + 16,
+                Math.max(1, pane.width() - 10), 16);
+    }
+
+    static Rect learnedViewport(Layout layout) {
+        Rect pane = layout.learnedPane();
+        int header = hasSearchBox(layout) ? 35 : pane.height() >= 28 ? 18 : 2;
         return new Rect(pane.x() + 4, pane.y() + header, Math.max(1, pane.width() - 10),
                 Math.max(1, pane.height() - header - 3));
     }

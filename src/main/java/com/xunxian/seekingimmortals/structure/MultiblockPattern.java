@@ -92,9 +92,10 @@ public final class MultiblockPattern {
         return List.copyOf(list);
     }
 
-    /** Data-driven single solid core check (non-air). */
-    public static List<BlockRequirement> singleCoreRequirements() {
-        return List.of(new BlockRequirement(BlockPos.ZERO, state -> !state.isAir()));
+    /** Data-driven single core check bound to one exact registered block. */
+    public static List<BlockRequirement> singleCoreRequirements(Supplier<? extends Block> coreBlock) {
+        Objects.requireNonNull(coreBlock);
+        return List.of(require(0, 0, 0, coreBlock));
     }
 
     /**
@@ -117,7 +118,9 @@ public final class MultiblockPattern {
                 int radius = pattern.radius() > 0 ? pattern.radius() : Math.max(1, entry.radius());
                 yield ringRequirements(radius, ring);
             }
-            case "single_core" -> singleCoreRequirements();
+            // This helper has no registry resolver for station ids, so it must not
+            // turn single_core into an arbitrary non-air match.
+            case "single_core" -> List.of();
             default -> List.of();
         };
     }

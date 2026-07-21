@@ -97,6 +97,10 @@ public final class AdvancedSpiritGatheringArrayStructure {
             return fullyActive;
         }
 
+        public int missingTotal() {
+            return Math.max(0, missingBase) + Math.max(0, missingPillars);
+        }
+
         public double efficiency() {
             if (fullyActive) return 1.0;
             // 部分完成也能提供一定效率

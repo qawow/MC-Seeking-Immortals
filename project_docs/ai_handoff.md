@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-21: `0.2.135` UI、结构与术法反馈收口。删除独立打坐界面、打坐按键和呼吸 HUD，但保留蒲团进入打坐与移动取消；唯一的打坐收益因子已并入修仙属性「道基」页。修仙入口与主要页面使用响应式布局，属性/技能显示去除原始英文或代码 id，技能编辑支持搜索、滚轮和左键拖动；功法只能由秘籍/卷轴等权威来源学习，界面只允许对已入门功法「精进」。新增自然生成的 `ancient_cultivator_cave`、`spirit_beast_den` 及专属战利品，并扩充玩家搭建阵法/多方块的专用几何、失效检查和精确核心持久化。术法侧扩展十五元素族通用 VFX、真实 beam/cone 命中、飞剑轨迹/命中及弱反馈术法表现，并限制重复广播。最终 `./gradlew build` 已 `BUILD SUCCESSFUL in 1m 12s`，全量 857 项测试通过，`aiPreflight` 记录 `mod_version=0.2.135`；实机结构外观与粒子/音效密度仍待签字。数据包字段/顺序/类型与频道行为未改，协议保持 `26`。见 `project_docs/updates/20260721_ui_refactor_plan.md`。
+
 > CURRENT TRUTH 2026-07-21: `0.2.112` 八项速赢 currency token 效果接线。spirit_boat_ticket/void_palace_map_fragment/fallen_demon_scout_report/kunwu_map_scroll/teleport_talisman_chaotic_sea/star_palace_patrol_seal/auction_invitation/sect_identity_token 填入已有 handler 对应 effect 字段。协议 26。见 `project_docs/updates/20260721_0.2.112_currency_tokens.md`。
 
 > CURRENT TRUTH 2026-07-20: `0.2.111` 软秘籍/炼器册显式授予。bulk 秘籍 study 映射功法；软炼器册升 forge grade；recipe_* 研读丹方；manuals_catalog 空 unlocks 补齐高价值行。协议 26。见 `project_docs/updates/20260720_0.2.111_soft_manual_grants.md`。

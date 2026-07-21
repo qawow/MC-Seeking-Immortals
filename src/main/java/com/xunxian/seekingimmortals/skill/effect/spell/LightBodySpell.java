@@ -3,6 +3,8 @@ package com.xunxian.seekingimmortals.skill.effect.spell;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.skill.CultivationSkill;
 import com.xunxian.seekingimmortals.skill.effect.SkillContext;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -23,6 +25,11 @@ public class LightBodySpell extends SpellEffect {
 
         player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, duration, amplifier));
         player.addEffect(new MobEffectInstance(MobEffects.JUMP, duration, amplifier));
+        if (context.getLevel() instanceof ServerLevel level) {
+            TechniqueVfxPalette.Profile vfx = TechniqueVfxPalette.profile("wind");
+            vfx.castAt(level, player);
+            vfx.auraAt(level, player, 0.85D, 24);
+        }
 
         player.displayClientMessage(
             net.minecraft.network.chat.Component.literal("轻身术！提升速度和跳跃" + (duration / 20) + "秒"),

@@ -2,6 +2,7 @@ package com.xunxian.seekingimmortals.client;
 
 import com.xunxian.seekingimmortals.catalog.ManualCatalogService;
 import com.xunxian.seekingimmortals.catalog.TextMaterialCatalogService;
+import net.minecraft.network.chat.Component;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -101,10 +102,10 @@ public final class ClientMethodData {
             }
             String id = entry.getKey();
             String display = TextMaterialCatalogService.builtin().findMethod(id)
-                    .map(TextMaterialCatalogService.MethodEntry::display)
-                    .filter(s -> s != null && !s.isBlank())
-                    .orElse(id);
-            lines.add(display + " · Lv." + entry.getValue());
+                    .map(CultivationDisplayTexts::methodName)
+                    .orElse(CultivationDisplayTexts.unknown().getString());
+            lines.add(Component.translatable(CultivationDisplayTexts.METHOD_LEVEL_KEY,
+                    display, entry.getValue()).getString());
             shown++;
         }
         return lines;

@@ -1,6 +1,7 @@
 package com.xunxian.seekingimmortals.block;
 
 import com.xunxian.seekingimmortals.registry.ModBlocks;
+import com.xunxian.seekingimmortals.structure.FormationFieldCatalog;
 import com.xunxian.seekingimmortals.structure.FormationFieldService;
 import com.xunxian.seekingimmortals.structure.RingFormationStructure;
 import net.minecraft.core.BlockPos;
@@ -61,22 +62,35 @@ public class CatalogFormationCoreBlock extends Block {
             return InteractionResult.CONSUME;
         }
 
-        Block ringBlock = kind.usesSpiritGatheringRing()
+        FormationFieldCatalog.FieldParams params = FormationFieldCatalog.builtin()
+                .find(kind.formationId())
+                .orElse(null);
+        if (params == null || !kind.formationId().equals(params.id())) {
+            player.displayClientMessage(Component.translatable(kind.incompleteKey(), 0), false);
+            return InteractionResult.CONSUME;
+        }
+        Block ringBlock = params.usesSpiritGatheringRing()
                 ? ModBlocks.SPIRIT_GATHERING_ARRAY.get()
                 : ModBlocks.SPIRIT_ORE.get();
-        RingFormationStructure.CheckResult check = RingFormationStructure.validate(level, pos, ringBlock, kind.radius());
+        RingFormationStructure.CheckResult check = RingFormationStructure.validate(level, pos, ringBlock, params.radius());
         if (!check.complete()) {
             player.displayClientMessage(Component.translatable(kind.incompleteKey(), check.missingRing()), false);
             return InteractionResult.CONSUME;
         }
 
+        if (!FormationFieldService.activate(
+                serverPlayer.serverLevel(),
+                pos,
+                params.kind(),
+                serverPlayer,
+                params.id())) {
+            RingFormationStructure.CheckResult retry = RingFormationStructure.validate(level, pos, ringBlock, params.radius());
+            player.displayClientMessage(Component.translatable(kind.incompleteKey(), retry.missingRing()), false);
+            return InteractionResult.CONSUME;
+        }
         for (MobEffectInstance effect : kind.effects()) {
             serverPlayer.addEffect(effect);
         }
-        FormationFieldService.FieldKind fieldKind = kind.usesSpiritGatheringRing()
-                ? FormationFieldService.FieldKind.SPIRIT_GATHER
-                : FormationFieldService.FieldKind.CATALOG_GENERIC;
-        FormationFieldService.activate(serverPlayer.serverLevel(), pos, fieldKind, serverPlayer);
         ServerLevel serverLevel = serverPlayer.serverLevel();
         serverLevel.sendParticles(kind.particle(), pos.getX() + 0.5D, pos.getY() + 1.0D, pos.getZ() + 0.5D,
                 36, 0.75D, 0.45D, 0.75D, 0.03D);
@@ -87,69 +101,67 @@ public class CatalogFormationCoreBlock extends Block {
 
     public enum FormationKind {
         FIVE_ELEMENTS_MOUNTAIN(
-                2, false,
+                "five_elements_mountain",
                 new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 220, 1),
                 new MobEffectInstance(MobEffects.ABSORPTION, 180, 0),
                 ParticleTypes.POOF, SoundEvents.STONE_PLACE, 0.85F),
         NINE_DRAGON_FLAME_BARRIER(
-                2, false,
+                "nine_dragon_flame_barrier",
                 new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 240, 0),
                 new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 200, 0),
                 ParticleTypes.FLAME, SoundEvents.FIRECHARGE_USE, 1.1F),
         INVERTED_FIVE_ELEMENTS(
-                2, true,
+                "inverted_five_elements_array",
                 new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 0),
                 new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 100, 0),
                 ParticleTypes.REVERSE_PORTAL, SoundEvents.ENDERMAN_TELEPORT, 0.9F),
         VAJRA_PRISON(
-                2, false,
+                "vajra_prison_array",
                 new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 240, 1),
                 new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 160, 0),
                 ParticleTypes.CRIT, SoundEvents.ANVIL_LAND, 1.0F),
         MULAN_WIND_RIDE(
-                2, true,
+                "mulan_wind_ride_array",
                 new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 220, 1),
                 new MobEffectInstance(MobEffects.SLOW_FALLING, 220, 0),
                 ParticleTypes.CLOUD, SoundEvents.ELYTRA_FLYING, 1.2F),
         BARRIER_SECT_PROTECTION(
-                3, false,
+                "barrier_sect_protection",
                 new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 260, 1),
                 new MobEffectInstance(MobEffects.ABSORPTION, 220, 1),
                 ParticleTypes.END_ROD, SoundEvents.BEACON_ACTIVATE, 1.0F),
         SPIRIT_GATHERING_MINOR(
-                1, true,
+                "spirit_gathering_minor",
                 new MobEffectInstance(MobEffects.REGENERATION, 160, 0),
                 new MobEffectInstance(MobEffects.ABSORPTION, 120, 0),
                 ParticleTypes.HAPPY_VILLAGER, SoundEvents.AMETHYST_BLOCK_CHIME, 1.15F),
         DEMON_SEAL_PILLAR(
-                2, false,
+                "demon_seal_pillar_array",
                 new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 240, 1),
                 new MobEffectInstance(MobEffects.GLOWING, 200, 0),
                 ParticleTypes.SOUL, SoundEvents.WARDEN_HEARTBEAT, 0.85F),
         SWORD_ARRAY_BAGUA(
-                2, false,
+                "sword_array_bagua",
                 new MobEffectInstance(MobEffects.DAMAGE_BOOST, 220, 1),
                 new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 0),
                 ParticleTypes.CRIT, SoundEvents.TRIDENT_RETURN, 1.05F),
         THUNDER_TRIBULATION_ARRAY(
-                2, false,
+                "thunder_tribulation_array",
                 new MobEffectInstance(MobEffects.ABSORPTION, 240, 1),
                 new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 200, 0),
                 ParticleTypes.ELECTRIC_SPARK, SoundEvents.LIGHTNING_BOLT_THUNDER, 1.2F);
 
-        private final int radius;
-        private final boolean spiritGatheringRing;
+        private final String formationId;
         private final MobEffectInstance primary;
         private final MobEffectInstance secondary;
         private final ParticleOptions particle;
         private final SoundEvent sound;
         private final float soundPitch;
 
-        FormationKind(int radius, boolean spiritGatheringRing,
+        FormationKind(String formationId,
                       MobEffectInstance primary, MobEffectInstance secondary,
                       ParticleOptions particle, SoundEvent sound, float soundPitch) {
-            this.radius = radius;
-            this.spiritGatheringRing = spiritGatheringRing;
+            this.formationId = formationId;
             this.primary = primary;
             this.secondary = secondary;
             this.particle = particle;
@@ -158,11 +170,19 @@ public class CatalogFormationCoreBlock extends Block {
         }
 
         public int radius() {
-            return radius;
+            return FormationFieldCatalog.builtin().find(formationId)
+                    .map(FormationFieldCatalog.FieldParams::radius)
+                    .orElse(1);
         }
 
         public boolean usesSpiritGatheringRing() {
-            return spiritGatheringRing;
+            return FormationFieldCatalog.builtin().find(formationId)
+                    .map(FormationFieldCatalog.FieldParams::usesSpiritGatheringRing)
+                    .orElse(false);
+        }
+
+        public String formationId() {
+            return formationId;
         }
 
         public MobEffectInstance[] effects() {

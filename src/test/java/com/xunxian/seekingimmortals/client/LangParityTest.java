@@ -24,18 +24,26 @@ class LangParityTest {
     void hudAndStatusNamespacesExistInBothLanguages() throws Exception {
         Set<String> zh = keys("zh_cn");
         Set<String> en = keys("en_us");
-        for (String prefix : new String[]{
+        String[] bilingualPrefixes = {
                 "hud.seeking_immortals.cultivation.",
-                "hud.seeking_immortals.breathing.",
                 "hud.seeking_immortals.health.",
                 "status.seeking_immortals.affliction.",
                 "screen.seeking_immortals.cultivation_stats.label.",
-        }) {
+                "screen.seeking_immortals.technique_edit.",
+                "screen.seeking_immortals.display."
+        };
+        for (String prefix : bilingualPrefixes) {
             long zhCount = zh.stream().filter(k -> k.startsWith(prefix)).count();
             long enCount = en.stream().filter(k -> k.startsWith(prefix)).count();
             assertTrue(zhCount > 0, prefix + " must exist in zh_cn");
             assertTrue(zhCount == enCount,
                     prefix + " must be bilingual: zh=" + zhCount + " en=" + enCount);
+            for (String key : zh.stream().filter(k -> k.startsWith(prefix)).toList()) {
+                assertTrue(en.contains(key), key + " missing in en_us");
+            }
+            for (String key : en.stream().filter(k -> k.startsWith(prefix)).toList()) {
+                assertTrue(zh.contains(key), key + " missing in zh_cn");
+            }
         }
         // Every zh key in the new namespaces must exist in en (and vice versa).
         for (String key : zh) {
@@ -54,7 +62,8 @@ class LangParityTest {
     void hudOverlaysAndStatsScreenHaveNoHardcodedCjk() throws Exception {
         for (String path : new String[]{
                 "CultivationStatsScreen.java", "CultivationHudOverlay.java",
-                "BreathingHudOverlay.java", "CultivationHealthOverlay.java"}) {
+                "CultivationHealthOverlay.java", "TechniqueEditScreen.java",
+                "MethodTreeScreen.java"}) {
             String source = Files.readString(Path.of(
                     "src", "main", "java", "com", "xunxian", "seekingimmortals", "client", path));
             // Strip comments before scanning for CJK string literals.

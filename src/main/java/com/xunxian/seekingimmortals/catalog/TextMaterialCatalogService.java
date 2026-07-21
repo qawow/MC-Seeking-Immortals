@@ -216,13 +216,16 @@ public final class TextMaterialCatalogService {
                 if (realmMin.isBlank() && o.has("learn_requirements") && o.get("learn_requirements").isJsonObject()) {
                     realmMin = str(o.getAsJsonObject("learn_requirements"), "realm_min");
                 }
-                String school = str(o, "school");
-                if (school.isBlank()) school = str(o, "combat_school");
-                if (school.isBlank()) school = str(o, "unlocks_techniques_school");
-                String attribute = str(o, "element");
-                if (attribute.isBlank()) attribute = str(o, "element_required");
                 JsonObject learn = object(o, "learn_requirements");
                 JsonObject setting = object(o, "setting");
+                String school = firstNonBlank(
+                        stringPrimitive(o, "school"),
+                        stringPrimitive(o, "combat_school"),
+                        stringPrimitive(o, "unlocks_techniques_school"),
+                        stringPrimitive(o, "path"),
+                        stringPrimitive(setting, "sect_specialty"));
+                String attribute = str(o, "element");
+                if (attribute.isBlank()) attribute = str(o, "element_required");
                 String realmMaxLearn = str(learn, "realm_max_learn");
                 int explicitMaxLayers = positiveInt(setting, "layers_max");
                 if (explicitMaxLayers <= 0) {
@@ -401,6 +404,14 @@ public final class TextMaterialCatalogService {
         } catch (Exception ignored) {
             return String.valueOf(object.get(key));
         }
+    }
+
+    private static String stringPrimitive(JsonObject object, String key) {
+        if (object == null || !object.has(key) || !object.get(key).isJsonPrimitive()
+                || !object.getAsJsonPrimitive(key).isString()) {
+            return "";
+        }
+        return object.getAsJsonPrimitive(key).getAsString().trim();
     }
 
     private static List<String> stringList(JsonElement element) {

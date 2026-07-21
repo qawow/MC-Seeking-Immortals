@@ -5,6 +5,7 @@ import com.xunxian.seekingimmortals.skill.CultivationSkill;
 import com.xunxian.seekingimmortals.skill.LifeSkillService;
 import com.xunxian.seekingimmortals.skill.SkillType;
 import com.xunxian.seekingimmortals.skill.effect.SkillContext;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -31,6 +32,9 @@ public class DivineSenseExpansionPassive extends SpellEffect {
         player.getPersistentData().putLong(TAG_UNTIL, until);
         player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, duration, 0, false, false, true));
         player.addEffect(new MobEffectInstance(MobEffects.GLOWING, Math.min(duration, 20 * 8), 0, false, true, true));
+        TechniqueVfxPalette.Profile vfx = TechniqueVfxPalette.profile("soul");
+        vfx.castAt(player.serverLevel(), player);
+        vfx.auraAt(player.serverLevel(), player, 1.35D, 24);
         LifeSkillService.grantPractice(player, SkillType.DIVINE_SENSE_EXPANSION, 10, 4);
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.spell.divine_sense_expansion.active",

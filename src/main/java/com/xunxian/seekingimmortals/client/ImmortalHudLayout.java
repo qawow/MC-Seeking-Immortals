@@ -1,12 +1,12 @@
 package com.xunxian.seekingimmortals.client;
 
 /**
- * Shared safe-area layout for the four cultivation HUD overlays.
+ * Shared safe-area layout for the cultivation HUD overlays.
  *
  * <p>Left-stack layout: left-top status strip (气血 band over 修为/灵力 band),
- * left skill rail vertically centered in the remaining height under the strip,
- * and bottom-center breathing tablet. Compact/rail mode densifies sizes but
- * keeps the same left-stack anchors whenever panels can still separate.</p>
+ * and left skill rail vertically centered in the remaining height under the strip.
+ * Compact/rail mode densifies sizes but keeps the same anchors whenever the two
+ * surfaces can still separate.</p>
  */
 final class ImmortalHudLayout {
     static final int WIDE_MARGIN = 6;
@@ -19,9 +19,6 @@ final class ImmortalHudLayout {
     private static final int STATUS_STRIP_HEIGHT = 108;
     private static final int HEALTH_BAND_HEIGHT = 30;
     private static final int HEALTH_ONLY_HEIGHT = 38;
-    private static final int BREATHING_WIDTH = 222;
-    private static final int BREATHING_HEIGHT = 46;
-    private static final int BOTTOM_SAFE_GAP = 50;
     private static final int SLOT_COUNT = 7;
 
     private ImmortalHudLayout() {}
@@ -86,15 +83,10 @@ final class ImmortalHudLayout {
         return calculate(screenWidth, screenHeight).techniques();
     }
 
-    static Rect breathingRect(int screenWidth, int screenHeight) {
-        return calculate(screenWidth, screenHeight).breathing();
-    }
-
     private static Layout regularLayout(int width, int height, int margin, int gap,
                                         int left, int top, int right, int bottom,
                                         int innerWidth, int innerHeight) {
-        int breathingHeight = Math.min(BREATHING_HEIGHT, Math.max(1, innerHeight - gap));
-        int stripMaxHeight = Math.max(1, innerHeight - breathingHeight - gap);
+        int stripMaxHeight = Math.max(1, innerHeight - gap - SLOT_COUNT);
         int stripHeight = Math.min(STATUS_STRIP_HEIGHT, stripMaxHeight);
         int stripWidth = Math.min(STATUS_STRIP_WIDTH, Math.max(1, innerWidth));
         Rect statusStrip = fit(new Rect(left, top, stripWidth, stripHeight), width, height);
@@ -109,55 +101,34 @@ final class ImmortalHudLayout {
         techniqueY = clamp(techniqueY, techniqueTop, Math.max(techniqueTop, bottom - metrics.height()));
         Rect techniques = fit(new Rect(left, techniqueY, metrics.width(), metrics.height()), width, height);
 
-        int breathingWidth = Math.min(BREATHING_WIDTH, innerWidth);
-        int breathingX = left + Math.max(0, (innerWidth - breathingWidth) / 2);
-        int breathingMinY = Math.min(bottom - breathingHeight,
-                Math.max(techniques.bottom() + gap, statusStrip.bottom() + gap));
-        int breathingTargetY = height - breathingHeight - BOTTOM_SAFE_GAP;
-        int breathingY = clamp(breathingTargetY, breathingMinY, Math.max(breathingMinY, bottom - breathingHeight));
-        Rect breathing = fit(new Rect(breathingX, breathingY, breathingWidth, breathingHeight), width, height);
-
         return new Layout(width, height, margin, gap, false,
                 statusStrip, bands.healthBand(), bands.cultivationBand(), healthOnlyStrip,
-                techniques, breathing,
+                techniques,
                 metrics.slotSize(), metrics.slotGap(), metrics.padding());
     }
 
     private static Layout compactLayout(int width, int height, int margin, int gap,
                                         int left, int top, int right, int bottom,
                                         int innerWidth, int innerHeight) {
-        int breathingHeight = Math.min(36, Math.max(12, innerHeight / 3));
-        int stripHeight = Math.min(STATUS_STRIP_HEIGHT, Math.max(1, innerHeight - gap - breathingHeight));
-        if (stripHeight < 18 && innerHeight >= 30) {
-            stripHeight = 18;
-            breathingHeight = Math.max(1, innerHeight - gap - stripHeight);
-        }
+        int minimumTechniqueHeight = Math.min(SLOT_COUNT, Math.max(1, innerHeight / 3));
+        int stripHeight = Math.min(STATUS_STRIP_HEIGHT,
+                Math.max(1, innerHeight - gap - minimumTechniqueHeight));
         int stripWidth = Math.min(STATUS_STRIP_WIDTH, Math.max(1, innerWidth));
         Rect statusStrip = fit(new Rect(left, top, stripWidth, stripHeight), width, height);
         BandPair bands = bandsInside(statusStrip);
         Rect healthOnlyStrip = healthOnlyFromStrip(statusStrip, bands.healthBand());
 
         int techniqueTop = Math.min(bottom, statusStrip.bottom() + gap);
-        int remainingHeight = Math.max(1, bottom - techniqueTop - breathingHeight - gap);
-        if (remainingHeight < 8) {
-            remainingHeight = Math.max(1, bottom - techniqueTop);
-        }
+        int remainingHeight = Math.max(1, bottom - techniqueTop);
         TechniqueMetrics metrics = techniqueMetrics(remainingHeight, innerWidth, true);
         int techniqueY = techniqueTop + Math.max(0, (remainingHeight - metrics.height()) / 2);
         techniqueY = clamp(techniqueY, techniqueTop, Math.max(techniqueTop, bottom - metrics.height()));
         Rect techniques = fit(new Rect(left, techniqueY, metrics.width(), metrics.height()), width, height);
 
-        int breathingWidth = Math.min(Math.max(1, innerWidth), Math.max(stripWidth, metrics.width()));
-        int breathingX = left;
-        int breathingMinY = Math.min(bottom - breathingHeight,
-                Math.max(techniques.bottom() + gap, statusStrip.bottom() + gap));
-        int breathingY = clamp(breathingMinY, top, Math.max(top, bottom - breathingHeight));
-        Rect breathing = fit(new Rect(breathingX, breathingY, breathingWidth, breathingHeight), width, height);
-
         // Pathological tiny screens: if left-stack collides, fall back to left rail + content column.
         Layout stacked = new Layout(width, height, margin, gap, true,
                 statusStrip, bands.healthBand(), bands.cultivationBand(), healthOnlyStrip,
-                techniques, breathing,
+                techniques,
                 metrics.slotSize(), metrics.slotGap(), metrics.padding());
         if (stacked.panelsSeparated() && stacked.allInside() && stacked.bandsValid()) {
             return stacked;
@@ -168,20 +139,12 @@ final class ImmortalHudLayout {
         Rect railTechniques = fit(new Rect(left, railY, railMetrics.width(), railMetrics.height()), width, height);
         int contentLeft = Math.min(right - 1, railTechniques.right() + gap);
         int contentWidth = Math.max(1, right - contentLeft);
-        int fallbackBreathingHeight = Math.min(36, Math.max(12, innerHeight / 2));
-        int fallbackStripHeight = Math.max(1, innerHeight - gap - fallbackBreathingHeight);
-        if (fallbackStripHeight < 18 && innerHeight >= 30) {
-            fallbackStripHeight = 18;
-            fallbackBreathingHeight = Math.max(1, innerHeight - gap - fallbackStripHeight);
-        }
-        Rect fallbackStrip = fit(new Rect(contentLeft, top, contentWidth, fallbackStripHeight), width, height);
+        Rect fallbackStrip = fit(new Rect(contentLeft, top, contentWidth, innerHeight), width, height);
         BandPair fallbackBands = bandsInside(fallbackStrip);
         Rect fallbackHealthOnly = healthOnlyFromStrip(fallbackStrip, fallbackBands.healthBand());
-        Rect fallbackBreathing = fit(new Rect(contentLeft, top + fallbackStripHeight + gap,
-                contentWidth, fallbackBreathingHeight), width, height);
         return new Layout(width, height, margin, gap, true,
                 fallbackStrip, fallbackBands.healthBand(), fallbackBands.cultivationBand(), fallbackHealthOnly,
-                railTechniques, fallbackBreathing,
+                railTechniques,
                 railMetrics.slotSize(), railMetrics.slotGap(), railMetrics.padding());
     }
 
@@ -278,7 +241,7 @@ final class ImmortalHudLayout {
 
     record Layout(int screenWidth, int screenHeight, int margin, int gap, boolean railMode,
                   Rect statusStrip, Rect healthBand, Rect cultivationBand, Rect healthOnlyStrip,
-                  Rect techniques, Rect breathing,
+                  Rect techniques,
                   int techniqueSlotSize, int techniqueSlotGap, int techniquePadding) {
         /** Nested health band — alias for tests that still ask for "health". */
         Rect health() {
@@ -293,26 +256,17 @@ final class ImmortalHudLayout {
         boolean allInside() {
             return statusStrip.inside(screenWidth, screenHeight)
                     && techniques.inside(screenWidth, screenHeight)
-                    && breathing.inside(screenWidth, screenHeight)
                     && healthBand.inside(screenWidth, screenHeight)
                     && cultivationBand.inside(screenWidth, screenHeight)
                     && healthOnlyStrip.inside(screenWidth, screenHeight);
         }
 
         /**
-         * Collision peers are the three free-floating surfaces only.
+         * Collision peers are the two free-floating surfaces only.
          * Health/cultivation bands nest inside the status strip and are not peers.
          */
         boolean panelsSeparated() {
-            Rect[] panels = { statusStrip, techniques, breathing };
-            for (int i = 0; i < panels.length; i++) {
-                for (int j = i + 1; j < panels.length; j++) {
-                    if (panels[i].intersects(panels[j])) {
-                        return false;
-                    }
-                }
-            }
-            return true;
+            return !statusStrip.intersects(techniques);
         }
 
         boolean bandsValid() {

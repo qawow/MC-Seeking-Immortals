@@ -1,16 +1,20 @@
 package com.xunxian.seekingimmortals.structure;
 
+import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
 import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -22,6 +26,69 @@ public final class MultiblockStationService {
     private static final long LARGE_TTL_TICKS = 40L;
 
     private static final Map<CacheKey, CacheEntry> CACHE = new ConcurrentHashMap<>();
+    private static final Map<String, ResourceLocation> SINGLE_CORE_BLOCK_IDS = Map.of(
+            "low_spirit_iron_ore", new ResourceLocation(SeekingImmortalsMod.MODID, "low_spirit_iron_ore"),
+            "yin_essence_ore_block", new ResourceLocation(SeekingImmortalsMod.MODID, "yin_essence_ore"));
+    private static final Set<String> IMPLEMENTED_VALIDATORS = Set.of(
+            "alchemy_furnace_shell",
+            "altar",
+            "array_hub",
+            "blood_sacrifice_altar",
+            "fixed_teleport_array",
+            "flying_boat_dock",
+            "long_range_teleport_array",
+            "platform",
+            "puppet_assembly_bench",
+            "puppet_core_forge",
+            "refinement_forge",
+            "refinement_forge_g2",
+            "refinement_forge_g3",
+            "refinement_forge_g4",
+            "refinement_forge_g5",
+            "refinement_forge_g6",
+            "ring",
+            "sect_earth_fire_room",
+            "single_core",
+            "spirit_beast_evolution_pool",
+            "spirit_gathering_formation",
+            "spirit_herb_planter",
+            "talisman_table",
+            "teleport_gate",
+            "thunder_tribulation_altar");
+    private static final Set<String> FAIL_CLOSED_VALIDATORS = Set.of(
+            "blood_pool",
+            "brazier",
+            "cultivation_chamber",
+            "defense_wall",
+            "furnace_safety_array",
+            "grand_hall",
+            "greenhouse",
+            "immortal_alchemy_cauldron",
+            "infant_fire_alchemy_room",
+            "kunwu_frost_forge",
+            "pedestal",
+            "rift_core_small",
+            "rift_large",
+            "rift_world_seed",
+            "seal_pillar",
+            "secret_realm_gate",
+            "sect_formation_hub",
+            "small_array_3x3",
+            "small_array_post",
+            "small_array_single",
+            "small_control_2x2",
+            "small_control_post",
+            "small_control_trading",
+            "spirit_beast_pen",
+            "storage",
+            "time_acceleration_array",
+            "tower",
+            "trap_corridor",
+            "trial_ring",
+            "warehouse_loading_bay",
+            "well",
+            "workshop");
+    private static final Set<String> SUPPORTED_VALIDATORS = mergeValidators();
 
     private MultiblockStationService() {}
 
@@ -91,9 +158,27 @@ public final class MultiblockStationService {
         return MultiblockStructureCatalog.builtin().size();
     }
 
+    /** Every validator authored by the shipped station-pattern catalog. */
+    public static Set<String> supportedValidators() {
+        return SUPPORTED_VALIDATORS;
+    }
+
+    /** Validators backed by a concrete geometry check. */
+    public static Set<String> implementedValidators() {
+        return IMPLEMENTED_VALIDATORS;
+    }
+
+    /** Recognized authored validators that deliberately reject until implemented. */
+    public static Set<String> failClosedValidators() {
+        return FAIL_CLOSED_VALIDATORS;
+    }
+
     private static ValidateOutcome validateLive(LevelReader level, MultiblockStructureCatalog.StructureEntry entry, BlockPos origin) {
         MultiblockStructureCatalog.StationPattern pattern = entry.pattern();
         String validator = pattern.validator();
+        if (FAIL_CLOSED_VALIDATORS.contains(validator)) {
+            return new ValidateOutcome(false, "unsupported_validator:" + validator);
+        }
         try {
             return switch (validator) {
                 case "alchemy_furnace_shell" -> {
@@ -125,9 +210,12 @@ public final class MultiblockStationService {
                     if (!(level instanceof Level live)) {
                         yield new ValidateOutcome(false, "needs_level");
                     }
-                    boolean ok = RefinementForgeG3Structure.validate(live, origin,
+                    boolean legacy = RefinementForgeG3Structure.validate(live, origin,
                             ModBlocks.REFINEMENT_FORGE_G3.get(), ModBlocks.SPIRIT_ORE.get()).complete();
-                    yield new ValidateOutcome(ok, "refinement_forge_g3");
+                    boolean furnace = RefinementFurnaceStructure.validate(live, origin,
+                            ModBlocks.REFINEMENT_FORGE_G3.get(), ModBlocks.SPIRIT_ORE.get(), Blocks.LAVA).complete();
+                    yield new ValidateOutcome(legacy || furnace,
+                            furnace ? "refinement_furnace" : "refinement_forge_g3");
                 }
                 case "refinement_forge_g4" -> {
                     if (!(level instanceof Level live)) {
@@ -182,10 +270,16 @@ public final class MultiblockStationService {
                         yield new ValidateOutcome(false, "needs_level");
                     }
                     int radius = pattern.radius() > 0 ? pattern.radius() : 2;
-                    boolean ok = radius == SpiritGatheringFormationStructure.RING_RADIUS
+                    boolean standard = radius == SpiritGatheringFormationStructure.RING_RADIUS
                             ? SpiritGatheringFormationStructure.validate(live, origin, ModBlocks.SPIRIT_GATHERING_ARRAY.get()).complete()
                             : RingFormationStructure.validate(live, origin, ModBlocks.SPIRIT_GATHERING_ARRAY.get(), radius).complete();
-                    yield new ValidateOutcome(ok, "spirit_gather_r" + radius);
+                    boolean advanced = AdvancedSpiritGatheringArrayStructure.validate(
+                            live,
+                            origin,
+                            ModBlocks.SPIRIT_ORE.get(),
+                            ModBlocks.SPIRIT_GATHERING_FORMATION_CORE.get()).complete();
+                    yield new ValidateOutcome(standard || advanced,
+                            advanced ? "spirit_gather_advanced" : "spirit_gather_r" + radius);
                 }
                 case "fixed_teleport_array" -> {
                     if (!(level instanceof Level live)) {
@@ -198,10 +292,20 @@ public final class MultiblockStationService {
                     if (!(level instanceof Level live)) {
                         yield new ValidateOutcome(false, "needs_level");
                     }
-                    Block ring = ModBlocks.LONG_RANGE_TELEPORT_ARRAY.get();
-                    Block frame = ModBlocks.SPIRIT_ORE.get();
-                    boolean ok = LongRangeTeleportArrayStructure.validate(live, origin, ring, frame).complete();
-                    yield new ValidateOutcome(ok, "long_range_teleport");
+                    boolean legacy = LongRangeTeleportArrayStructure.validate(
+                            live,
+                            origin,
+                            ModBlocks.LONG_RANGE_TELEPORT_ARRAY.get(),
+                            ModBlocks.SPIRIT_ORE.get()).complete();
+                    boolean layered = TeleportationArrayStructure.validate(
+                            live,
+                            origin,
+                            ModBlocks.SPIRIT_ORE.get(),
+                            ModBlocks.SPIRIT_GATHERING_ARRAY.get(),
+                            ModBlocks.LONG_RANGE_TELEPORT_ARRAY.get(),
+                            ModBlocks.TELEPORT_ARRAY_PEDESTAL.get()).complete();
+                    yield new ValidateOutcome(legacy || layered,
+                            layered ? "teleportation_array_layered" : "long_range_teleport");
                 }
                 case "blood_sacrifice_altar" -> {
                     if (!(level instanceof Level live)) {
@@ -215,14 +319,44 @@ public final class MultiblockStationService {
                     if (!(level instanceof Level live)) {
                         yield new ValidateOutcome(false, "needs_level");
                     }
-                    boolean ok = ThunderTribulationAltarStructure.validate(live, origin,
+                    boolean altar = ThunderTribulationAltarStructure.validate(live, origin,
                             ModBlocks.THUNDER_TRIBULATION_ALTAR.get(), ModBlocks.SPIRIT_ORE.get()).complete();
-                    yield new ValidateOutcome(ok, "thunder_altar");
+                    boolean platform = TribulationPlatformStructure.validate(
+                            live,
+                            origin,
+                            ModBlocks.SPIRIT_ORE.get(),
+                            ModBlocks.THUNDER_TRIBULATION_ALTAR.get(),
+                            Blocks.LIGHTNING_ROD,
+                            ModBlocks.SPIRIT_GATHERING_ARRAY.get()).complete();
+                    yield new ValidateOutcome(altar || platform,
+                            platform ? "tribulation_platform" : "thunder_altar");
                 }
                 case "single_core" -> {
-                    BlockState state = level.getBlockState(origin);
-                    boolean ok = !state.isAir() && state.getBlock() != Blocks.CAVE_AIR && state.getBlock() != Blocks.VOID_AIR;
-                    yield new ValidateOutcome(ok, "single_core");
+                    Optional<ResourceLocation> blockIdOpt = singleCoreBlockId(entry.id());
+                    if (blockIdOpt.isEmpty()) {
+                        yield new ValidateOutcome(false, "missing_core_mapping:" + entry.id());
+                    }
+                    ResourceLocation blockId = blockIdOpt.get();
+                    if (!ForgeRegistries.BLOCKS.containsKey(blockId)) {
+                        yield new ValidateOutcome(false, "missing_core_block:" + blockId);
+                    }
+                    Block expected = ForgeRegistries.BLOCKS.getValue(blockId);
+                    boolean ok = expected != null && level.getBlockState(origin).is(expected);
+                    yield new ValidateOutcome(ok, "single_core:" + blockId);
+                }
+                case "array_hub" -> {
+                    if (!(level instanceof Level live)) {
+                        yield new ValidateOutcome(false, "needs_level");
+                    }
+                    if ("kill_array_hub".equals(entry.id())) {
+                        boolean ok = ArrayHubStructure.validateKillHub(live, origin).complete();
+                        yield new ValidateOutcome(ok, "array_hub:kill");
+                    }
+                    if ("illusion_array_hub".equals(entry.id())) {
+                        boolean ok = ArrayHubStructure.validateIllusionHub(live, origin).complete();
+                        yield new ValidateOutcome(ok, "array_hub:illusion");
+                    }
+                    yield new ValidateOutcome(false, "unsupported_array_hub:" + entry.id());
                 }
                 case "flying_boat_dock" -> {
                     if (!(level instanceof Level live)) {
@@ -292,13 +426,7 @@ public final class MultiblockStationService {
                     yield new ValidateOutcome(ok, "ring_r" + radius + ":" + pattern.ringRole());
                 }
                 default -> {
-                    // Conservative fallback: ring of spirit ore at catalog radius (capped).
-                    if (!(level instanceof Level live)) {
-                        yield new ValidateOutcome(false, "needs_level");
-                    }
-                    int radius = Math.min(4, Math.max(1, entry.radius()));
-                    boolean ok = RingFormationStructure.validate(live, origin, ModBlocks.SPIRIT_ORE.get(), radius).complete();
-                    yield new ValidateOutcome(ok, "fallback_ring_r" + radius);
+                    yield new ValidateOutcome(false, "unrecognized_validator:" + validator);
                 }
             };
         } catch (Throwable t) {
@@ -329,6 +457,19 @@ public final class MultiblockStationService {
             return ModBlocks.SPIRIT_GATHERING_ARRAY.get();
         }
         return ModBlocks.SPIRIT_ORE.get();
+    }
+
+    static Optional<ResourceLocation> singleCoreBlockId(String stationId) {
+        if (stationId == null || stationId.isBlank()) {
+            return Optional.empty();
+        }
+        return Optional.ofNullable(SINGLE_CORE_BLOCK_IDS.get(stationId));
+    }
+
+    private static Set<String> mergeValidators() {
+        Set<String> validators = new HashSet<>(IMPLEMENTED_VALIDATORS);
+        validators.addAll(FAIL_CLOSED_VALIDATORS);
+        return Set.copyOf(validators);
     }
 
     public record StationCheckResult(

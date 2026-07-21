@@ -6,6 +6,9 @@ import com.xunxian.seekingimmortals.catalog.SummonHonestMvpService;
 import com.xunxian.seekingimmortals.worldpack.ServitorRegistrySavedData;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -59,6 +62,8 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
     private static final String TAG_GUARD_Y = "GuardY";
     private static final String TAG_GUARD_Z = "GuardZ";
     private static final String TAG_MAX_LIFE = "MaxLifeTicks";
+    private static final EntityDataAccessor<Integer> DATA_ARCHETYPE = SynchedEntityData.defineId(
+            SummonedServitorEntity.class, EntityDataSerializers.INT);
 
     public enum Archetype {
         BEAST,
@@ -93,6 +98,12 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
         setPersistenceRequired();
     }
 
+    @Override
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        entityData.define(DATA_ARCHETYPE, Archetype.GENERIC.ordinal());
+    }
+
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 28.0D)
@@ -112,7 +123,7 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
         this.summonId = summonId == null || summonId.isBlank() ? "summon" : summonId;
         this.lifeTicks = Math.max(20 * 8, lifeTicks);
         this.maxLifeTicks = this.lifeTicks;
-        this.archetype = archetype == null ? Archetype.GENERIC : archetype;
+        setArchetype(archetype);
         this.stance = Stance.FOLLOW;
         this.guardX = owner.getX();
         this.guardY = owner.getY();
@@ -133,7 +144,7 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
         this.summonId = shellId == null || shellId.isBlank() ? "trial_shell" : shellId;
         this.lifeTicks = Math.max(20 * 60 * 10, lifeTicks);
         this.maxLifeTicks = this.lifeTicks;
-        this.archetype = archetype == null ? Archetype.GENERIC : archetype;
+        setArchetype(archetype);
         this.stance = Stance.AGGRESSIVE;
         this.guardX = getX();
         this.guardY = getY();
@@ -205,7 +216,22 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
     }
 
     public Archetype getArchetype() {
-        return archetype;
+        int ordinal = entityData.get(DATA_ARCHETYPE);
+        Archetype[] values = Archetype.values();
+        return ordinal >= 0 && ordinal < values.length ? values[ordinal] : Archetype.GENERIC;
+    }
+
+    private void setArchetype(Archetype archetype) {
+        this.archetype = archetype == null ? Archetype.GENERIC : archetype;
+        entityData.set(DATA_ARCHETYPE, this.archetype.ordinal());
+    }
+
+    @Override
+    public void onSyncedDataUpdated(EntityDataAccessor<?> key) {
+        super.onSyncedDataUpdated(key);
+        if (DATA_ARCHETYPE.equals(key)) {
+            this.archetype = getArchetype();
+        }
     }
 
     public Stance getStance() {
@@ -513,7 +539,7 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
         tag.putString(TAG_SUMMON_ID, summonId);
         tag.putInt(TAG_LIFE, lifeTicks);
         tag.putInt(TAG_MAX_LIFE, maxLifeTicks);
-        tag.putString(TAG_ARCHETYPE, archetype.name());
+        tag.putString(TAG_ARCHETYPE, getArchetype().name());
         tag.putString(TAG_STANCE, stance.name());
         tag.putBoolean(TAG_CRAFTED, crafted);
         tag.putBoolean(TAG_HOSTILE, hostileTrial);
@@ -537,9 +563,9 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
         lifeTicks = Math.max(0, tag.getInt(TAG_LIFE));
         maxLifeTicks = Math.max(lifeTicks, tag.getInt(TAG_MAX_LIFE));
         try {
-            archetype = Archetype.valueOf(tag.getString(TAG_ARCHETYPE));
+            setArchetype(Archetype.valueOf(tag.getString(TAG_ARCHETYPE)));
         } catch (RuntimeException ignored) {
-            archetype = Archetype.GENERIC;
+            setArchetype(Archetype.GENERIC);
         }
         try {
             stance = Stance.valueOf(tag.getString(TAG_STANCE));

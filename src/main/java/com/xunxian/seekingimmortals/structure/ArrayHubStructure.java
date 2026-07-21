@@ -1,5 +1,6 @@
 package com.xunxian.seekingimmortals.structure;
 
+import com.xunxian.seekingimmortals.registry.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -19,6 +20,24 @@ public final class ArrayHubStructure {
     private static final BlockPos CENTER = BlockPos.ZERO;
 
     private ArrayHubStructure() {}
+
+    public static CheckResult validateKillHub(Level level, BlockPos center) {
+        return validate(
+                level,
+                center,
+                ModBlocks.SPIRIT_ORE.get(),
+                ModBlocks.SPIRIT_GATHERING_ARRAY.get(),
+                ModBlocks.KILL_SWORD_FORMATION_CORE.get());
+    }
+
+    public static CheckResult validateIllusionHub(Level level, BlockPos center) {
+        return validate(
+                level,
+                center,
+                ModBlocks.SPIRIT_GATHERING_ARRAY.get(),
+                ModBlocks.SPIRIT_ORE.get(),
+                ModBlocks.ILLUSION_MAZE_FORMATION_CORE.get());
+    }
 
     /**
      * 验证阵法枢纽结构
@@ -48,6 +67,14 @@ public final class ArrayHubStructure {
         return new CheckResult(missingCorners, missingEdges, corePresent ? 0 : 1);
     }
 
+    public static List<BlockPos> cornerOffsets() {
+        return CORNER_OFFSETS;
+    }
+
+    public static List<BlockPos> edgeOffsets() {
+        return EDGE_OFFSETS;
+    }
+
     private static List<BlockPos> buildCornerOffsets() {
         List<BlockPos> offsets = new ArrayList<>();
         // 四角能量节点
@@ -73,6 +100,10 @@ public final class ArrayHubStructure {
     public record CheckResult(int missingCorners, int missingEdges, int missingCore) {
         public boolean complete() {
             return missingCorners <= 0 && missingEdges <= 0 && missingCore <= 0;
+        }
+
+        public int missingTotal() {
+            return Math.max(0, missingCorners) + Math.max(0, missingEdges) + Math.max(0, missingCore);
         }
     }
 }

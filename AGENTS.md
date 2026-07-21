@@ -272,7 +272,7 @@ Current packets registered in `ModNetwork`:
 - `ReleaseTechniquePacket`
 - `SetTechniqueSlotPacket`
 
-`ModNetwork.PROTOCOL_VERSION` is currently `24`. If packet fields/order or incompatible channel behavior change, bump the protocol version to prevent mismatched clients/servers from decoding stale packet formats.
+`ModNetwork.PROTOCOL_VERSION` is currently `26`. If packet fields/order or incompatible channel behavior change, bump the protocol version to prevent mismatched clients/servers from decoding stale packet formats.
 
 Client state mirrors:
 
@@ -290,19 +290,17 @@ Client-only code lives under `client/` and is registered through `ClientEvents` 
   - Resets client sync state on login/logout/respawn/local join
 - `CultivationStatsScreen`
   - Independent screen, returns to inventory when opened from inventory
-  - Renders single-page sections: 基础状态, 战斗属性, 灵根信息, 功法信息, 负面状态
+  - Renders responsive 道基, 战斗, and 修习 pages; unique meditation yield factors live on 道基
 - `TechniqueSkillBarOverlay`
   - Left-side 7-slot HUD
-- `BreathingHudOverlay`
-  - Meditation/breathing HUD and progress bar
 - `TechniqueEditScreen`
-  - Technique slot editor with drag/drop binding and right-click clear
+  - Searchable technique slot editor with drag/drop binding, drag scrolling, and right-click clear
 - `ImmortalUiSkin`
   - Shared native Minecraft/Forge UI drawing helpers
 
 Default key behavior:
 
-- Meditation key: `V`
+- Meditation has no key mapping; using a meditation cushion starts it and movement cancels it
 - Technique edit key: unbound by default
 - 7 technique release keys: unbound by default
 

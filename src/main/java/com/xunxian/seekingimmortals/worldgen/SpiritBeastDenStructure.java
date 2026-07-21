@@ -38,12 +38,13 @@ public class SpiritBeastDenStructure extends Structure {
         BlockPos origin = new BlockPos(x, surfaceY, z);
         int beastTier = 1 + context.random().nextInt(3); // 1-3阶妖兽
 
+        long pieceSeed = context.random().nextLong();
         return Optional.of(new GenerationStub(origin, builder ->
-                generatePieces(builder, origin, beastTier)));
+                generatePieces(builder, origin, beastTier, pieceSeed)));
     }
 
-    private static void generatePieces(StructurePiecesBuilder builder, BlockPos origin, int beastTier) {
-        builder.addPiece(new SpiritBeastDenPieces.Piece(origin, beastTier));
+    private static void generatePieces(StructurePiecesBuilder builder, BlockPos origin, int beastTier, long seed) {
+        builder.addPiece(new SpiritBeastDenPieces.Piece(origin, beastTier, seed));
     }
 
     @Override

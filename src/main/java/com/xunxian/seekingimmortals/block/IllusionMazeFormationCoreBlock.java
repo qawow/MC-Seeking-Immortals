@@ -1,8 +1,7 @@
 package com.xunxian.seekingimmortals.block;
 
-import com.xunxian.seekingimmortals.registry.ModBlocks;
+import com.xunxian.seekingimmortals.structure.ArrayHubStructure;
 import com.xunxian.seekingimmortals.structure.FormationFieldService;
-import com.xunxian.seekingimmortals.structure.RingFormationStructure;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
@@ -48,15 +47,25 @@ public class IllusionMazeFormationCoreBlock extends Block {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.illusion_maze_formation_core.info"), false);
             return InteractionResult.CONSUME;
         }
-        RingFormationStructure.CheckResult check = RingFormationStructure.validate(level, pos, ModBlocks.SPIRIT_GATHERING_ARRAY.get(), 2);
+        ArrayHubStructure.CheckResult check = ArrayHubStructure.validateIllusionHub(level, pos);
         if (!check.complete()) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.illusion_maze_formation_core.incomplete", check.missingRing()), false);
+                    "message.seeking_immortals.illusion_maze_formation_core.incomplete", check.missingTotal()), false);
+            return InteractionResult.CONSUME;
+        }
+        if (!FormationFieldService.activate(
+                serverPlayer.serverLevel(),
+                pos,
+                FormationFieldService.FieldKind.ILLUSION_MAZE,
+                serverPlayer,
+                "illusion_maze")) {
+            ArrayHubStructure.CheckResult retry = ArrayHubStructure.validateIllusionHub(level, pos);
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.illusion_maze_formation_core.incomplete", retry.missingTotal()), false);
             return InteractionResult.CONSUME;
         }
         serverPlayer.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 160, 0));
         serverPlayer.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 200, 0));
-        FormationFieldService.activate(serverPlayer.serverLevel(), pos, FormationFieldService.FieldKind.ILLUSION_MAZE, serverPlayer);
         ServerLevel serverLevel = serverPlayer.serverLevel();
         serverLevel.sendParticles(ParticleTypes.CLOUD, pos.getX() + 0.5D, pos.getY() + 1.0D, pos.getZ() + 0.5D,
                 36, 0.8D, 0.4D, 0.8D, 0.02D);

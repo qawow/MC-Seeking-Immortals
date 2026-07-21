@@ -36,19 +36,12 @@ class ScreenLayoutTest {
         assertSkillTreeLayoutFits(120, 90);
         assertSkillTreeLayoutFits(320, 180);
         assertSkillTreeLayoutFits(854, 480);
-        assertMeditationLayoutFits(120, 90);
-        assertMeditationLayoutFits(320, 180);
-        assertMeditationLayoutFits(854, 480);
 
         assertTrue(LifeSkillTreeScreen.calculateContentHeight(false)
                         >= LifeSkillTreeScreen.calculateContentHeight(true),
                 "single-column skill content should be at least as tall as two-column content");
-        assertTrue(MeditationScreen.calculateContentHeight(false)
-                        >= MeditationScreen.calculateContentHeight(true),
-                "single-column meditation content should be at least as tall as two-column content");
         assertEquals(0, LifeSkillTreeScreen.clampScroll(-10, 200, 80));
         assertEquals(120, LifeSkillTreeScreen.clampScroll(999, 200, 80));
-        assertEquals(120, MeditationScreen.clampScroll(999, 200, 80));
     }
 
     @Test
@@ -67,6 +60,17 @@ class ScreenLayoutTest {
         assertTechniqueEditorLayout(120, 90);
         assertTechniqueEditorLayout(320, 180);
         assertTechniqueEditorLayout(854, 480);
+    }
+
+    @Test
+    void inventoryCultivationEntryStaysOnScreen() {
+        for (int[] size : new int[][]{{120, 90}, {320, 180}, {854, 480}}) {
+            ClientEvents.InventoryEntryLayout layout = ClientEvents.inventoryEntryLayout(size[0], size[1]);
+            assertTrue(layout.x() >= 0 && layout.y() >= 0);
+            assertTrue(layout.width() > 0 && layout.height() > 0);
+            assertTrue(layout.right() <= size[0]);
+            assertTrue(layout.bottom() <= size[1]);
+        }
     }
 
     @Test
@@ -284,16 +288,6 @@ class ScreenLayoutTest {
                 "skill viewport must leave room for its close button");
     }
 
-    private static void assertMeditationLayoutFits(int screenWidth, int screenHeight) {
-        MeditationScreen.MeditationLayout layout = MeditationScreen.calculateLayout(screenWidth, screenHeight);
-        assertPanelFits(screenWidth, screenHeight, layout.panelWidth(), layout.panelHeight());
-        assertTrue(layout.header().x() >= 0 && layout.header().right() <= screenWidth);
-        assertTrue(layout.viewport().y() >= 0 && layout.viewport().bottom() <= screenHeight);
-        assertTrue(layout.closeButton().x() >= 0 && layout.closeButton().right() <= screenWidth);
-        assertFalse(layout.viewport().intersects(layout.closeButton()),
-                "meditation viewport must leave room for its close button");
-    }
-
     private static void assertSharedHudLayout(int screenWidth, int screenHeight) {
         ImmortalHudLayout.Layout layout = ImmortalHudLayout.calculate(screenWidth, screenHeight);
         assertTrue(layout.allInside(), "all cultivation HUD panels must stay inside the screen");
@@ -311,10 +305,28 @@ class ScreenLayoutTest {
         assertMethodRectInside(screenWidth, screenHeight, layout.cultivateButton());
         assertMethodRectInside(screenWidth, screenHeight, layout.prevSchoolButton());
         assertMethodRectInside(screenWidth, screenHeight, layout.nextSchoolButton());
+        assertMethodRectInside(screenWidth, screenHeight, layout.resetLayoutButton());
         assertMethodRectInside(screenWidth, screenHeight, layout.doneButton());
         assertTrue(layout.list().bottom() <= layout.detail().y()
                         || layout.list().right() <= layout.detail().x(),
                 "method list and detail panes must not overlap");
+        MethodTreeScreen.Rect[] actions = {
+                layout.cultivateButton(), layout.prevSchoolButton(), layout.nextSchoolButton(),
+                layout.resetLayoutButton(), layout.doneButton()
+        };
+        for (int i = 0; i < actions.length; i++) {
+            for (int j = i + 1; j < actions.length; j++) {
+                assertFalse(intersects(actions[i], actions[j]), "method tree actions must not overlap");
+            }
+        }
+        int firstActionY = java.util.Arrays.stream(actions).mapToInt(MethodTreeScreen.Rect::y).min().orElse(0);
+        assertTrue(layout.list().bottom() <= firstActionY && layout.detail().bottom() <= firstActionY,
+                "method panes must leave room for every footer action row");
+    }
+
+    private static boolean intersects(MethodTreeScreen.Rect first, MethodTreeScreen.Rect second) {
+        return first.x() < second.right() && first.right() > second.x()
+                && first.y() < second.bottom() && first.bottom() > second.y();
     }
 
     private static void assertTechniqueEditorLayout(int screenWidth, int screenHeight) {
@@ -328,6 +340,14 @@ class ScreenLayoutTest {
                         || layout.slotPane().right() <= layout.learnedPane().x(),
                 "technique slot and learned panes must not overlap");
         assertTrue(layout.slotSize() > 0, "technique slot size must remain positive");
+        TechniqueEditScreen.Rect viewport = TechniqueEditScreen.learnedViewport(layout);
+        assertTechniqueRectInside(screenWidth, screenHeight, viewport);
+        if (TechniqueEditScreen.hasSearchBox(layout)) {
+            TechniqueEditScreen.Rect search = TechniqueEditScreen.searchBoxRect(layout);
+            assertTechniqueRectInside(screenWidth, screenHeight, search);
+            assertTrue(search.bottom() <= viewport.y(),
+                    "technique search field must stay above learned result rows");
+        }
     }
 
     private static void assertMethodRectInside(int width, int height, MethodTreeScreen.Rect rect) {
@@ -502,7 +522,7 @@ class ScreenLayoutTest {
         assertFalse(strip.intersects(techniques),
                 "merged status strip must not overlap the left skill rail");
         assertTrue(layout.panelsSeparated(),
-                "status strip, skill rail and breathing tablet must stay separated");
+                "status strip and skill rail must stay separated");
         if (!layout.railMode()) {
             assertTrue(techniques.y() >= strip.bottom() || strip.x() >= techniques.right(),
                     "regular layout stacks skill rail under the left-top strip or keeps them x-separated");

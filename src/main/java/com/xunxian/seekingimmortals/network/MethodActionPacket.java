@@ -13,7 +13,7 @@ import java.util.function.Supplier;
  * Wave481: cultivate:<methodId> raises method layer.
  * action encodings (single UTF, no field reordering on other packets):
  *   sync
- *   learn:<methodId>
+ *   learn:<methodId> (operator-only compatibility/debug path; normal players use manuals)
  *   cultivate:<methodId>
  * Server authority via ManualCatalogService; always re-sync learned methods/layers.
  */

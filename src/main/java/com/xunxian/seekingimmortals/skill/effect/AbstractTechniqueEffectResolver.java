@@ -7,6 +7,8 @@ import com.xunxian.seekingimmortals.skill.CultivationSkill;
 import com.xunxian.seekingimmortals.skill.SkillType;
 import com.xunxian.seekingimmortals.skill.effect.spell.AreaDebuffSpell;
 import com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell;
+import com.xunxian.seekingimmortals.skill.effect.spell.ElementalBeamSpell;
+import com.xunxian.seekingimmortals.skill.effect.spell.ElementalConeSpell;
 import com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell;
 import com.xunxian.seekingimmortals.skill.effect.spell.HonestSummonSpell;
 import com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell;
@@ -67,13 +69,16 @@ public final class AbstractTechniqueEffectResolver {
         if (typed != null) {
             SkillEffect registered = safeGet(typed);
             if (registered != null) {
-                // Simple registry shapes still lose to authored damage/range/effect_key.
-                SkillEffect preferred = preferAuthoredRuntime(technique, registered);
-                SkillEffect chosen = preferred != null ? preferred : registered;
-                if (preferred != null && !techniqueId.isBlank()) {
-                    BY_TECHNIQUE_ID.put(techniqueId, chosen);
+                // Generic legacy aliases must not override authored type/element/tag semantics.
+                if (shouldPreferAuthoredRuntime(technique, registered)) {
+                    SkillEffect preferred = createForTechnique(technique);
+                    if (preferred != null && !techniqueId.isBlank()) {
+                        BY_TECHNIQUE_ID.put(techniqueId, preferred);
+                    }
+                    // Fail closed instead of executing a semantically unrelated registry alias.
+                    return preferred;
                 }
-                return chosen;
+                return registered;
             }
         }
         SkillEffect created = createForTechnique(technique);
@@ -85,32 +90,30 @@ public final class AbstractTechniqueEffectResolver {
 
     /**
      * When the SkillType registry only provides a generic-shaped spell, rebuild from corpus
-     * RuntimeSpec so authored damage_base / range / effect_key win over hardcoded library stats.
+     * RuntimeSpec so authored type / element / tags and numeric fields win over aliases.
      * Bespoke multi-form library spells (Dao/Illusion/Buddhist/...) keep their registry entry.
      */
-    private static SkillEffect preferAuthoredRuntime(TechniqueDataManager.TechniqueEntry technique,
-                                                     SkillEffect registered) {
-        if (technique == null || registered == null || !hasAuthoredRuntimeFields(technique)) {
-            return null;
-        }
-        if (!isGenericShapedRegistryEffect(registered)) {
-            return null;
-        }
-        try {
-            return createForTechnique(technique);
-        } catch (Throwable ignored) {
-            return null;
-        }
+    private static boolean shouldPreferAuthoredRuntime(TechniqueDataManager.TechniqueEntry technique,
+                                                       SkillEffect registered) {
+        return technique != null
+                && registered != null
+                && isGenericShapedRegistryEffect(registered)
+                && hasAuthoredRuntimeSemantics(technique);
     }
 
-    private static boolean hasAuthoredRuntimeFields(TechniqueDataManager.TechniqueEntry technique) {
-        return technique.damageBase() > 0.0D
+    private static boolean hasAuthoredRuntimeSemantics(TechniqueDataManager.TechniqueEntry technique) {
+        return (technique.effectType() != null && !technique.effectType().isBlank())
+                || (technique.effectElement() != null && !technique.effectElement().isBlank())
+                || (technique.tags() != null && !technique.tags().isEmpty())
+                || technique.damageBase() > 0.0D
                 || (technique.range() != null && !technique.range().isBlank())
                 || (technique.effectKey() != null && !technique.effectKey().isBlank());
     }
 
     private static boolean isGenericShapedRegistryEffect(SkillEffect effect) {
         return effect instanceof ElementalProjectileSpell
+                || effect instanceof ElementalBeamSpell
+                || effect instanceof ElementalConeSpell
                 || effect instanceof ElementalAreaSpell
                 || effect instanceof TargetedDebuffSpell
                 || effect instanceof AreaDebuffSpell
@@ -180,8 +183,16 @@ public final class AbstractTechniqueEffectResolver {
     private static SkillEffect createGenericEffect(TechniqueDataManager.TechniqueEntry technique,
                                                    RuntimeSpec spec, int cost, int cooldown) {
         return switch (spec.type()) {
-            case "projectile", "beam", "cone" -> new ElementalProjectileSpell(
+            case "projectile" -> new ElementalProjectileSpell(
                     cost, cooldown, spec.damage(), projectileSpeed(spec.type()), projectileElement(spec.element()),
+                    "message.seeking_immortals.spell.generic_projectile.success");
+            case "beam" -> new ElementalBeamSpell(
+                    cost, cooldown, spec.damage(), spec.range(),
+                    Math.max(0.4D, Math.min(1.5D, spec.radius() * 0.45D)), spec.element(),
+                    "message.seeking_immortals.spell.generic_projectile.success");
+            case "cone" -> new ElementalConeSpell(
+                    cost, cooldown, spec.damage(), spec.range(),
+                    Math.max(3.0D, Math.min(8.0D, spec.radius() * 1.75D)), spec.element(),
                     "message.seeking_immortals.spell.generic_projectile.success");
             case "chain", "aoe", "aoe_control", "aoe_dot", "field", "domain" -> new ElementalAreaSpell(
                     cost, cooldown, spec.damage(), spec.range(), spec.radius(), areaElement(spec.element()),
@@ -266,22 +277,7 @@ public final class AbstractTechniqueEffectResolver {
     }
 
     private static SkillEffect createBuff(RuntimeSpec spec, int cost, int cooldown) {
-        TechniqueVfxPalette.Profile vfx = TechniqueVfxPalette.profile(spec.element());
-        MobEffect primary = switch (spec.type()) {
-            case "scan", "scout", "inspect" -> safeGetEffect("conceal_qi");
-            case "shield" -> safeGetEffect("shield");
-            default -> vfx.buffPrimary();
-        };
-        MobEffect secondary = switch (spec.type()) {
-            case "scan", "scout", "inspect" -> vfx.buffSecondary();
-            case "shield" -> safeGetEffect("heal_hot");
-            default -> vfx.buffSecondary();
-        };
-        return new SelfBuffSpell(
-                cost, cooldown,
-                primary != null ? primary : safeGetEffect("shield"), 160, "shield".equals(spec.type()) ? 1 : 0,
-                secondary != null ? secondary : safeGetEffect("heal_hot"), 140, 0,
-                vfx.core(), vfx.castSound(),
+        return new SelfBuffSpell(cost, cooldown, spec.type(), spec.element(),
                 "message.seeking_immortals.spell.generic_buff.success");
     }
 

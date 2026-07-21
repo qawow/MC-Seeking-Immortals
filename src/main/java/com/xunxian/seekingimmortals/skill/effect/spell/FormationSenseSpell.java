@@ -4,6 +4,7 @@ import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
 import com.xunxian.seekingimmortals.skill.CultivationSkill;
 import com.xunxian.seekingimmortals.skill.effect.SkillContext;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -27,6 +28,9 @@ public class FormationSenseSpell extends SpellEffect {
         int matches = 0;
         int maxMatches = 48;
         BlockPos origin = player.blockPosition();
+        TechniqueVfxPalette.Profile vfx = TechniqueVfxPalette.profile("illusion");
+        vfx.castAt(level, player);
+        vfx.scanAt(level, player.position(), Math.min(16.0D, range), 72);
 
         outer:
         for (int x = -range; x <= range; x++) {

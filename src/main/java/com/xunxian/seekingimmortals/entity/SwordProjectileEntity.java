@@ -1,9 +1,11 @@
 package com.xunxian.seekingimmortals.entity;
 
 import com.xunxian.seekingimmortals.registry.ModEntities;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -47,12 +49,18 @@ public class SwordProjectileEntity extends Projectile {
         HitResult hit = ProjectileUtil.getHitResultOnMoveVector(this, this::canHitEntity);
         if (hit.getType() != HitResult.Type.MISS) {
             onHit(hit);
+            if (isRemoved()) {
+                return;
+            }
         }
 
         Vec3 movement = getDeltaMovement();
         move(MoverType.SELF, movement);
         setPos(getX(), getY(), getZ());
         ProjectileUtil.rotateTowardsMovement(this, 0.2F);
+        if (!level().isClientSide && life % 4 == 0 && level() instanceof ServerLevel serverLevel) {
+            TechniqueVfxPalette.profile("metal").trailAt(serverLevel, position(), movement);
+        }
 
         if (++life > 80 || !level().isLoaded(blockPosition())) {
             discard();
@@ -69,6 +77,7 @@ public class SwordProjectileEntity extends Projectile {
         if (damaged && slowsTarget && target instanceof LivingEntity living) {
             living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 1));
         }
+        spawnImpactVisual(result.getLocation());
         discard();
     }
 
@@ -76,7 +85,14 @@ public class SwordProjectileEntity extends Projectile {
     protected void onHit(HitResult result) {
         super.onHit(result);
         if (result.getType() != HitResult.Type.ENTITY) {
+            spawnImpactVisual(result.getLocation());
             discard();
+        }
+    }
+
+    private void spawnImpactVisual(Vec3 position) {
+        if (level() instanceof ServerLevel serverLevel) {
+            TechniqueVfxPalette.profile("metal").impactAt(serverLevel, position);
         }
     }
 

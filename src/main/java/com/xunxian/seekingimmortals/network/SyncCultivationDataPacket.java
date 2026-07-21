@@ -6,6 +6,7 @@ import com.xunxian.seekingimmortals.cultivation.BreakthroughService;
 import com.xunxian.seekingimmortals.cultivation.MeditationFormula;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.entity.CushionSeatEntity;
+import com.xunxian.seekingimmortals.event.ModEvents;
 import com.xunxian.seekingimmortals.item.SpiritStoneItem;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
 import com.xunxian.seekingimmortals.spiritual.SpiritualAuraManager;
@@ -112,7 +113,9 @@ public record SyncCultivationDataPacket(
         ItemStack bonusStone = getMatchingPassiveBonus(player.getMainHandItem(), cultivation) >= getMatchingPassiveBonus(player.getOffhandItem(), cultivation)
                 ? player.getMainHandItem()
                 : player.getOffhandItem();
-        MeditationFormula.Breakdown meditation = MeditationFormula.calculate(cultivation, auraInfo, isSittingOnMeditationCushion(player), cultivation.getPhysiqueCultivationSpeedMultiplier(), bonusStone, stoneBonus);
+        MeditationFormula.Breakdown meditation = MeditationFormula.calculate(
+                cultivation, auraInfo, isSittingOnMeditationCushion(player),
+                ModEvents.getBestMeditationTechniqueMultiplier(player, cultivation), bonusStone, stoneBonus);
         return new SyncCultivationDataPacket(
                 cultivation.getRealm().getDisplayName(),
                 cultivation.getStage().getDisplayName(),

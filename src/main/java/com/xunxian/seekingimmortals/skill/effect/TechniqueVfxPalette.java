@@ -71,11 +71,130 @@ public final class TechniqueVfxPalette {
                 return;
             }
             Vec3 eye = caster.getEyePosition();
-            Vec3 look = caster.getLookAngle().normalize();
+            Vec3 look = caster.getLookAngle();
+            look = look.lengthSqr() < 0.001D ? new Vec3(0.0D, 0.0D, 1.0D) : look.normalize();
             Vec3 origin = eye.add(look.scale(0.55D));
             level.sendParticles(core, origin.x, origin.y, origin.z, 10, 0.08D, 0.08D, 0.08D, 0.01D);
             level.sendParticles(accent, origin.x, origin.y, origin.z, 4, 0.05D, 0.05D, 0.05D, 0.01D);
+            ring(level, caster.position().add(0.0D, 0.12D, 0.0D), 0.72D, 16, edge);
             level.playSound(null, caster.blockPosition(), castSound, SoundSource.PLAYERS, 0.55F, castPitch);
+        }
+
+        public void path(ServerLevel level, Vec3 start, Vec3 end, int density) {
+            if (level == null || start == null || end == null) {
+                return;
+            }
+            int points = Math.max(4, Math.min(64, density));
+            Vec3 step = end.subtract(start).scale(1.0D / points);
+            for (int i = 0; i <= points; i++) {
+                Vec3 point = start.add(step.scale(i));
+                ParticleOptions particle = i % 3 == 0 ? edge : core;
+                level.sendParticles(particle, point.x, point.y, point.z,
+                        1, 0.025D, 0.025D, 0.025D, 0.0D);
+                if (i % 6 == 0) {
+                    level.sendParticles(accent, point.x, point.y, point.z,
+                            1, 0.015D, 0.015D, 0.015D, 0.0D);
+                }
+            }
+        }
+
+        public void trailAt(ServerLevel level, Vec3 center, Vec3 movement) {
+            if (level == null || center == null) {
+                return;
+            }
+            Vec3 motion = movement == null ? Vec3.ZERO : movement;
+            if (motion.lengthSqr() < 0.001D) {
+                level.sendParticles(core, center.x, center.y, center.z,
+                        2, 0.035D, 0.035D, 0.035D, 0.0D);
+                return;
+            }
+            double length = Math.max(0.35D, Math.min(1.15D, motion.length()));
+            Vec3 tail = center.subtract(motion.normalize().scale(length));
+            Vec3 middle = tail.lerp(center, 0.5D);
+            level.sendParticles(core, center.x, center.y, center.z,
+                    2, 0.045D, 0.045D, 0.045D, 0.0D);
+            level.sendParticles(edge, middle.x, middle.y, middle.z,
+                    2, length * 0.18D, length * 0.08D, length * 0.18D, 0.0D);
+        }
+
+        public void auraAt(ServerLevel level, LivingEntity entity, double radius, int density) {
+            if (level == null || entity == null) {
+                return;
+            }
+            int points = Math.max(12, Math.min(64, density));
+            double safeRadius = Math.max(0.45D, radius);
+            Vec3 base = entity.position().add(0.0D, 0.12D, 0.0D);
+            ring(level, base, safeRadius, points, core);
+            for (int i = 0; i < Math.max(8, points / 2); i++) {
+                double angle = i * 2.399963229728653D;
+                double height = 0.18D + entity.getBbHeight() * (i % 9) / 9.0D;
+                double spiralRadius = safeRadius * (0.45D + (i % 4) * 0.12D);
+                level.sendParticles(i % 4 == 0 ? accent : edge,
+                        entity.getX() + Math.cos(angle) * spiralRadius,
+                        entity.getY() + height,
+                        entity.getZ() + Math.sin(angle) * spiralRadius,
+                        1, 0.02D, 0.025D, 0.02D, 0.0D);
+            }
+        }
+
+        public void scanAt(ServerLevel level, Vec3 center, double radius, int density) {
+            if (level == null || center == null) {
+                return;
+            }
+            double safeRadius = Math.max(1.0D, radius);
+            int points = Math.max(20, Math.min(64, density));
+            level.sendParticles(core, center.x, center.y + 0.12D, center.z,
+                    points / 2, safeRadius * 0.22D, 0.025D, safeRadius * 0.22D, 0.0D);
+            level.sendParticles(edge, center.x, center.y + 0.18D, center.z,
+                    points, safeRadius * 0.48D, 0.035D, safeRadius * 0.48D, 0.0D);
+            level.sendParticles(core, center.x, center.y + 0.24D, center.z,
+                    points, safeRadius * 0.70D, 0.045D, safeRadius * 0.70D, 0.0D);
+            for (int i = 0; i < 8; i++) {
+                double angle = Math.PI * 2.0D * i / 8.0D;
+                level.sendParticles(edge,
+                        center.x + Math.cos(angle) * safeRadius,
+                        center.y + 0.24D,
+                        center.z + Math.sin(angle) * safeRadius,
+                        2, 0.04D, 0.02D, 0.04D, 0.0D);
+            }
+            level.sendParticles(accent, center.x, center.y + 0.65D, center.z,
+                    Math.max(8, points / 6), safeRadius * 0.2D, 0.3D, safeRadius * 0.2D, 0.01D);
+        }
+
+        public void beamAt(ServerLevel level, Vec3 start, Vec3 end, double radius) {
+            if (level == null || start == null || end == null || start.distanceToSqr(end) < 0.001D) {
+                return;
+            }
+            int points = Math.max(8, Math.min(28, (int) Math.ceil(start.distanceTo(end) * 1.4D)));
+            Vec3 step = end.subtract(start).scale(1.0D / points);
+            double spread = Math.max(0.025D, Math.min(0.18D, radius * 0.12D));
+            for (int i = 0; i <= points; i++) {
+                Vec3 point = start.add(step.scale(i));
+                level.sendParticles(i % 4 == 0 ? edge : core, point.x, point.y, point.z,
+                        i % 4 == 0 ? 2 : 1, spread, spread, spread, 0.0D);
+            }
+            level.sendParticles(accent, end.x, end.y, end.z,
+                    10, Math.max(0.12D, radius * 0.35D), 0.15D, Math.max(0.12D, radius * 0.35D), 0.01D);
+        }
+
+        public void coneAt(ServerLevel level, Vec3 start, Vec3 direction, double range, double endRadius) {
+            if (level == null || start == null || direction == null || direction.lengthSqr() < 0.001D) {
+                return;
+            }
+            Vec3 normalized = direction.normalize();
+            double safeRange = Math.max(1.0D, range);
+            double safeRadius = Math.max(0.75D, endRadius);
+            for (int slice = 1; slice <= 6; slice++) {
+                double progress = slice / 6.0D;
+                Vec3 center = start.add(normalized.scale(safeRange * progress));
+                double spread = safeRadius * progress;
+                level.sendParticles(slice % 2 == 0 ? edge : core,
+                        center.x, center.y, center.z,
+                        4 + slice * 2, spread * 0.45D, spread * 0.34D, spread * 0.45D, 0.01D);
+            }
+            Vec3 end = start.add(normalized.scale(safeRange));
+            level.sendParticles(accent, end.x, end.y, end.z,
+                    12, safeRadius * 0.55D, safeRadius * 0.38D, safeRadius * 0.55D, 0.015D);
         }
 
         public void impactAt(ServerLevel level, Vec3 center) {
@@ -84,7 +203,20 @@ public final class TechniqueVfxPalette {
             }
             level.sendParticles(core, center.x, center.y + 0.2D, center.z, 18, 0.25D, 0.2D, 0.25D, 0.02D);
             level.sendParticles(accent, center.x, center.y + 0.25D, center.z, 8, 0.15D, 0.15D, 0.15D, 0.01D);
+            ring(level, center.add(0.0D, 0.08D, 0.0D), 0.72D, 20, edge);
             level.playSound(null, center.x, center.y, center.z, impactSound, SoundSource.PLAYERS, 0.7F, impactPitch);
+        }
+
+        private void ring(ServerLevel level, Vec3 center, double radius, int points, ParticleOptions particle) {
+            int count = Math.max(8, Math.min(96, points));
+            for (int i = 0; i < count; i++) {
+                double angle = Math.PI * 2.0D * i / count;
+                level.sendParticles(particle,
+                        center.x + Math.cos(angle) * radius,
+                        center.y,
+                        center.z + Math.sin(angle) * radius,
+                        1, 0.012D, 0.012D, 0.012D, 0.0D);
+            }
         }
     }
 
