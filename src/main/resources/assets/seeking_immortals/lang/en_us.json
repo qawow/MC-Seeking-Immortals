@@ -5103,5 +5103,9 @@
   "tooltip.seeking_immortals.armor_talisman.desc": "Protective golden light, damage reduction, duration and effect boosted by Earth/Metal/Ice affinity",
   "tooltip.seeking_immortals.talisman.qi_cost": "§9Qi Cost: %s",
   "tooltip.seeking_immortals.talisman.affinity": "§6Root Affinity: %s",
-  "tooltip.seeking_immortals.talisman.use": "§aRight-click to activate"
+  "tooltip.seeking_immortals.talisman.use": "§aRight-click to activate",
+  "curios.identifier.charm": "Charm",
+  "curios.modifiers.charm": "When equipped in Charm slot:",
+  "curios.identifier.artifact": "Artifact",
+  "curios.modifiers.artifact": "When equipped in Artifact slot:"
 }

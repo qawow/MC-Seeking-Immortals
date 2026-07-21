@@ -5159,5 +5159,9 @@
   "tooltip.seeking_immortals.armor_talisman.desc": "提供护体金光，减免伤害，持续时间与效果受土/金/冰灵根加成",
   "tooltip.seeking_immortals.talisman.qi_cost": "§9消耗灵力：%s",
   "tooltip.seeking_immortals.talisman.affinity": "§6灵根加成：%s",
-  "tooltip.seeking_immortals.talisman.use": "§a右键使用激活符箓"
+  "tooltip.seeking_immortals.talisman.use": "§a右键使用激活符箓",
+  "curios.identifier.charm": "护符",
+  "curios.modifiers.charm": "装备于护符栏时：",
+  "curios.identifier.artifact": "法宝",
+  "curios.modifiers.artifact": "装备于法宝栏时："
 }
