@@ -267,6 +267,7 @@
   "screen.seeking_immortals.method_tree.select_hint": "Select a method on the left.",
   "screen.seeking_immortals.method_tree.learn": "Learn",
   "screen.seeking_immortals.method_tree.cultivate": "Cultivate",
+  "screen.seeking_immortals.method_tree.not_learned": "Not Learned (Use Method Scroll)",
   "screen.seeking_immortals.method_tree.sync": "Sync",
   "screen.seeking_immortals.method_tree.id": "Id",
   "screen.seeking_immortals.method_tree.school": "School",

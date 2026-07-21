@@ -48,11 +48,6 @@ public final class ClientEvents {
             InputConstants.Type.KEYSYM,
             InputConstants.UNKNOWN.getValue(),
             "key.categories.seeking_immortals");
-    public static final KeyMapping OPEN_MEDITATION_KEY = new KeyMapping(
-            "key.seeking_immortals.open_meditation",
-            InputConstants.Type.KEYSYM,
-            GLFW.GLFW_KEY_B,
-            "key.categories.seeking_immortals");
     public static final KeyMapping OPEN_QUEST_TRACKER_KEY = new KeyMapping(
             "key.seeking_immortals.open_quest_tracker",
             InputConstants.Type.KEYSYM,
@@ -115,7 +110,6 @@ public final class ClientEvents {
         event.register(MEDITATE_KEY);
         event.register(OPEN_TECHNIQUE_EDIT_KEY);
         event.register(OPEN_CULTIVATION_STATS_KEY);
-        event.register(OPEN_MEDITATION_KEY);
         event.register(OPEN_QUEST_TRACKER_KEY);
         event.register(OPEN_LORE_COMPENDIUM_KEY);
         event.register(OPEN_BESTIARY_KEY);
@@ -184,11 +178,6 @@ public final class ClientEvents {
             while (OPEN_CULTIVATION_STATS_KEY.consumeClick()) {
                 if (player != null && minecraft.screen == null) {
                     minecraft.setScreen(new CultivationStatsScreen(player, false));
-                }
-            }
-            while (OPEN_MEDITATION_KEY.consumeClick()) {
-                if (player != null && minecraft.screen == null) {
-                    minecraft.setScreen(new MeditationScreen());
                 }
             }
             while (OPEN_QUEST_TRACKER_KEY.consumeClick()) {
@@ -272,7 +261,6 @@ public final class ClientEvents {
             MEDITATE_KEY.consumeClick();
             OPEN_TECHNIQUE_EDIT_KEY.consumeClick();
             OPEN_CULTIVATION_STATS_KEY.consumeClick();
-            OPEN_MEDITATION_KEY.consumeClick();
             OPEN_QUEST_TRACKER_KEY.consumeClick();
             OPEN_LORE_COMPENDIUM_KEY.consumeClick();
             OPEN_BESTIARY_KEY.consumeClick();

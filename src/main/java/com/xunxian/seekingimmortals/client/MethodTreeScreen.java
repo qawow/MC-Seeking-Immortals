@@ -108,11 +108,8 @@ public class MethodTreeScreen extends AbstractJournalScreen {
             TextMaterialCatalogService.MethodEntry selected = selectedMethod();
             if (selected != null) {
                 int currentLayer = ClientMethodData.getLayer(selected.id());
-                if (currentLayer == 0) {
-                    // 未修习，自动修习
-                    ModNetwork.CHANNEL.sendToServer(new MethodActionPacket("learn:" + selected.id()));
-                } else {
-                    // 已修习，精进
+                if (currentLayer > 0) {
+                    // 仅精进已学功法
                     ModNetwork.CHANNEL.sendToServer(new MethodActionPacket("cultivate:" + selected.id()));
                 }
             }
@@ -240,9 +237,9 @@ public class MethodTreeScreen extends AbstractJournalScreen {
                 int maxLayer = ManualCatalogService.maxMethodLayer(selected.id());
 
                 if (!learned || layer == 0) {
-                    // 未修习状态
-                    cultivateButton.active = true;
-                    cultivateButton.setMessage(Component.translatable("screen.seeking_immortals.method_tree.learn"));
+                    // 未修习状态 - 禁用按钮，提示需要使用卷轴学习
+                    cultivateButton.active = false;
+                    cultivateButton.setMessage(Component.translatable("screen.seeking_immortals.method_tree.not_learned"));
                 } else if (layer >= maxLayer) {
                     // 已满层
                     cultivateButton.active = false;

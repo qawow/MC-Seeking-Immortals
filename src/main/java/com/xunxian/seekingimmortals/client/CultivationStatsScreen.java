@@ -173,6 +173,34 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
     }
 
     @Override
+    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        PanelLayout layout = calculateLayout(width, height);
+        UiRect viewport = layout.pageViewport(activeTab);
+        listPanel.setBounds(toSharedRect(viewport))
+                .setContentHeight(renderedContentHeight);
+        if (listPanel.mouseClicked(mouseX, mouseY, button)) {
+            return true;
+        }
+        return super.mouseClicked(mouseX, mouseY, button);
+    }
+
+    @Override
+    public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
+        if (listPanel.mouseDragged(mouseX, mouseY, button, dragX, dragY)) {
+            return true;
+        }
+        return super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
+    }
+
+    @Override
+    public boolean mouseReleased(double mouseX, double mouseY, int button) {
+        if (listPanel.mouseReleased(mouseX, mouseY, button)) {
+            return true;
+        }
+        return super.mouseReleased(mouseX, mouseY, button);
+    }
+
+    @Override
     public void onClose() {
         if (returnToInventory && player != null && minecraft != null) {
             minecraft.setScreen(new InventoryScreen(player));

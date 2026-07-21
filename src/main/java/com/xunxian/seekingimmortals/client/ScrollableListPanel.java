@@ -48,6 +48,9 @@ public final class ScrollableListPanel {
     private int scrollbarTrackBottomInset;
     private int rowHeight = 26;
     private int rowGap = 0;
+    private boolean isDragging = false;
+    private double dragStartY = 0;
+    private int scrollOffsetAtDragStart = 0;
 
     public ScrollableListPanel() {
     }
@@ -228,6 +231,39 @@ public final class ScrollableListPanel {
         }
         scrollOffset = next;
         return true;
+    }
+
+    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        if (button == 0 && contains(mouseX, mouseY)) {
+            int viewportHeight = scrollViewportHeight();
+            if (contentHeight > viewportHeight) {
+                isDragging = true;
+                dragStartY = mouseY;
+                scrollOffsetAtDragStart = scrollOffset;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
+        if (button == 0 && isDragging) {
+            double dragDistance = dragStartY - mouseY;
+            int pixelsToScroll = (int) dragDistance;
+            int viewportHeight = scrollViewportHeight();
+            scrollOffset = clampScroll(scrollOffsetAtDragStart + pixelsToScroll, contentHeight, viewportHeight);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean mouseReleased(double mouseX, double mouseY, int button) {
+        if (button == 0 && isDragging) {
+            isDragging = false;
+            dragStartY = 0;
+            return true;
+        }
+        return false;
     }
 
     /** Pixel-step scroll used by row lists that step by one row per notch. */

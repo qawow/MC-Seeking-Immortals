@@ -271,6 +271,7 @@
   "screen.seeking_immortals.method_tree.select_hint": "左侧点选功法查看详情。",
   "screen.seeking_immortals.method_tree.learn": "修习",
   "screen.seeking_immortals.method_tree.cultivate": "精进",
+  "screen.seeking_immortals.method_tree.not_learned": "未学习（需使用功法卷轴）",
   "screen.seeking_immortals.method_tree.sync": "同步",
   "screen.seeking_immortals.method_tree.id": "编号",
   "screen.seeking_immortals.method_tree.school": "流派",
