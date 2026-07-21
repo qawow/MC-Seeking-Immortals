@@ -291,6 +291,7 @@
   "screen.seeking_immortals.method_tree.school_graph_hint": "拖拽节点自由排布；点击切换功法。",
   "screen.seeking_immortals.method_tree.reset_layout": "复位",
   "screen.seeking_immortals.method_tree.waiting_sync": "等待已学功法同步…可点「同步」。",
+  "screen.seeking_immortals.method_tree.max_layer": "圆满",
   "message.seeking_immortals.sect_war.ai_pulse": "战场压力：%s 侧袭来 %s 道战阵壳。",
   "entity.seeking_immortals.war_shell.name": "战阵壳·%s",
   "tooltip.seeking_immortals.spirit_charm.curios": "可装备于 Curios 护符/法宝槽。",

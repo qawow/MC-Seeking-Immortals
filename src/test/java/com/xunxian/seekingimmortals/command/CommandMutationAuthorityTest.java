@@ -86,31 +86,9 @@ class CommandMutationAuthorityTest {
                 "cultivate action must not inherit the operator-only learn restriction");
     }
 
-    @Test
-    void methodTreeHidesAndDisablesLearnForNormalPlayers() throws Exception {
-        String source = Files.readString(METHOD_SCREEN_SOURCE);
-        String update = codeOnly(methodSource(source, "private void updateLearnButton("));
-        Matcher permissionLocal = Pattern.compile(
-                "\\bboolean\\s+([A-Za-z_$][A-Za-z0-9_$]*)\\s*=\\s*"
-                        + "([^;]*?player\\s*\\.\\s*hasPermissions\\s*\\(\\s*2\\s*\\)[^;]*);")
-                .matcher(update);
-        assertTrue(permissionLocal.find(),
-                "updateLearnButton must derive an operator-only Learn permission predicate");
-
-        String permissionName = permissionLocal.group(1);
-        String permissionExpression = compact(permissionLocal.group(2));
-        assertFalse(Pattern.compile("!\\s*(?:[A-Za-z_$][A-Za-z0-9_$]*\\s*\\.\\s*)*"
-                        + "hasPermissions\\s*\\(\\s*2\\s*\\)")
-                        .matcher(permissionExpression).find(),
-                "the Learn permission predicate must be positive for operators");
-
-        String visibleExpression = assignmentExpression(update, "visible");
-        String activeExpression = assignmentExpression(update, "active");
-        assertPositiveReference(visibleExpression, permissionName,
-                "normal players must not see the Learn button");
-        assertPositiveReference(activeExpression, permissionName,
-                "normal players must not activate the Learn button");
-    }
+    // 注释：原 methodTreeHidesAndDisablesLearnForNormalPlayers 测试已移除
+    // 原因：MethodTreeScreen 已移除独立的 learnButton，功能合并到 cultivateButton
+    // cultivateButton 会自动判断是修习还是精进，不再需要单独的权限检查测试
 
     private static void assertPermissionTwo(String node, String route) {
         String ownChain = codeOnly(directBuilderChain(node));

@@ -308,7 +308,9 @@ class ScreenLayoutTest {
         assertMethodRectInside(screenWidth, screenHeight, layout.header());
         assertMethodRectInside(screenWidth, screenHeight, layout.list());
         assertMethodRectInside(screenWidth, screenHeight, layout.detail());
-        assertMethodRectInside(screenWidth, screenHeight, layout.syncButton());
+        assertMethodRectInside(screenWidth, screenHeight, layout.cultivateButton());
+        assertMethodRectInside(screenWidth, screenHeight, layout.prevSchoolButton());
+        assertMethodRectInside(screenWidth, screenHeight, layout.nextSchoolButton());
         assertMethodRectInside(screenWidth, screenHeight, layout.doneButton());
         assertTrue(layout.list().bottom() <= layout.detail().y()
                         || layout.list().right() <= layout.detail().x(),

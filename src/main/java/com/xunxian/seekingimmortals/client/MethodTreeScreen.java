@@ -51,7 +51,6 @@ public class MethodTreeScreen extends AbstractJournalScreen {
     private int detailScroll;
     private int renderedDetailHeight;
     private int selectedIndex = -1;
-    private ImmortalButton learnButton;
     private ImmortalButton cultivateButton;
     private ImmortalButton prevSchoolButton;
     private ImmortalButton nextSchoolButton;
@@ -102,25 +101,20 @@ public class MethodTreeScreen extends AbstractJournalScreen {
         addRenderableWidget(ImmortalButton.secondary(layout.doneButton().x(), layout.doneButton().y(),
                 layout.doneButton().width(), layout.doneButton().height(),
                 Component.translatable("gui.done"), b -> onClose()));
-        addRenderableWidget(ImmortalButton.secondary(layout.syncButton().x(), layout.syncButton().y(),
-                layout.syncButton().width(), layout.syncButton().height(),
-                Component.translatable("screen.seeking_immortals.method_tree.sync"), b ->
-                        ModNetwork.CHANNEL.sendToServer(new MethodActionPacket("sync"))));
-        learnButton = ImmortalButton.primary(layout.learnButton().x(), layout.learnButton().y(),
-                layout.learnButton().width(), layout.learnButton().height(),
-                Component.translatable("screen.seeking_immortals.method_tree.learn"), b -> {
-            TextMaterialCatalogService.MethodEntry selected = selectedMethod();
-            if (selected != null) {
-                ModNetwork.CHANNEL.sendToServer(new MethodActionPacket("learn:" + selected.id()));
-            }
-        });
-        addRenderableWidget(learnButton);
+
         cultivateButton = ImmortalButton.primary(layout.cultivateButton().x(), layout.cultivateButton().y(),
                 layout.cultivateButton().width(), layout.cultivateButton().height(),
                 Component.translatable("screen.seeking_immortals.method_tree.cultivate"), b -> {
             TextMaterialCatalogService.MethodEntry selected = selectedMethod();
             if (selected != null) {
-                ModNetwork.CHANNEL.sendToServer(new MethodActionPacket("cultivate:" + selected.id()));
+                int currentLayer = ClientMethodData.getLayer(selected.id());
+                if (currentLayer == 0) {
+                    // 未修习，自动修习
+                    ModNetwork.CHANNEL.sendToServer(new MethodActionPacket("learn:" + selected.id()));
+                } else {
+                    // 已修习，精进
+                    ModNetwork.CHANNEL.sendToServer(new MethodActionPacket("cultivate:" + selected.id()));
+                }
             }
         });
         addRenderableWidget(cultivateButton);
@@ -133,16 +127,9 @@ public class MethodTreeScreen extends AbstractJournalScreen {
                 Component.literal(">"), b -> cycleSchool(1));
         addRenderableWidget(prevSchoolButton);
         addRenderableWidget(nextSchoolButton);
-        addRenderableWidget(ImmortalButton.secondary(layout.resetButton().x(), layout.resetButton().y(),
-                layout.resetButton().width(), layout.resetButton().height(),
-                Component.translatable("screen.seeking_immortals.method_tree.reset_layout"), b -> {
-            layoutOffsets.clear();
-            draggingMethodId = "";
-            ModNetwork.CHANNEL.sendToServer(new MethodLayoutActionPacket("clear"));
-        }));
 
         hydrateLayoutFromClientMirror();
-        updateLearnButton();
+        updateCultivateButton();
     }
 
     private void hydrateLayoutFromClientMirror() {
@@ -211,7 +198,7 @@ public class MethodTreeScreen extends AbstractJournalScreen {
         if (selectedIndex < 0 && !filtered.isEmpty()) {
             selectedIndex = 0;
         }
-        updateLearnButton();
+        updateCultivateButton();
     }
 
     private void cycleSchool(int delta) {
@@ -240,21 +227,32 @@ public class MethodTreeScreen extends AbstractJournalScreen {
         return filtered.get(selectedIndex);
     }
 
-    private void updateLearnButton() {
+    private void updateCultivateButton() {
         TextMaterialCatalogService.MethodEntry selected = selectedMethod();
         boolean hasSelection = selected != null;
-        boolean learned = hasSelection && ClientMethodData.hasLearned(selected.id());
-        int layer = hasSelection ? ClientMethodData.getLayer(selected.id()) : 0;
-        int maxLayer = hasSelection ? ManualCatalogService.maxMethodLayer(selected.id()) : 1;
-        if (learnButton != null) {
-            boolean canUseDiagnosticLearn = minecraft != null
-                    && minecraft.player != null
-                    && minecraft.player.hasPermissions(2);
-            learnButton.visible = canUseDiagnosticLearn;
-            learnButton.active = canUseDiagnosticLearn && hasSelection && !learned;
-        }
         if (cultivateButton != null) {
-            cultivateButton.active = learned && layer > 0 && layer < maxLayer;
+            if (!hasSelection) {
+                cultivateButton.active = false;
+                cultivateButton.setMessage(Component.translatable("screen.seeking_immortals.method_tree.cultivate"));
+            } else {
+                boolean learned = ClientMethodData.hasLearned(selected.id());
+                int layer = ClientMethodData.getLayer(selected.id());
+                int maxLayer = ManualCatalogService.maxMethodLayer(selected.id());
+
+                if (!learned || layer == 0) {
+                    // 未修习状态
+                    cultivateButton.active = true;
+                    cultivateButton.setMessage(Component.translatable("screen.seeking_immortals.method_tree.learn"));
+                } else if (layer >= maxLayer) {
+                    // 已满层
+                    cultivateButton.active = false;
+                    cultivateButton.setMessage(Component.translatable("screen.seeking_immortals.method_tree.max_layer"));
+                } else {
+                    // 可精进
+                    cultivateButton.active = true;
+                    cultivateButton.setMessage(Component.translatable("screen.seeking_immortals.method_tree.cultivate"));
+                }
+            }
         }
     }
 
@@ -303,16 +301,16 @@ public class MethodTreeScreen extends AbstractJournalScreen {
         }
 
         int buttonGap = innerWidth >= 56 ? 3 : innerWidth >= 28 ? 1 : 0;
-        int buttonWidth = Math.max(1, (innerWidth - buttonGap * 6) / 7);
-        int totalButtonsWidth = buttonWidth * 7 + buttonGap * 6;
+        int buttonWidth = Math.max(1, (innerWidth - buttonGap * 3) / 4);
+        int totalButtonsWidth = buttonWidth * 4 + buttonGap * 3;
         int buttonX = innerX + Math.max(0, (innerWidth - totalButtonsWidth) / 2);
-        Rect[] actions = new Rect[7];
+        Rect[] actions = new Rect[4];
         for (int i = 0; i < actions.length; i++) {
             actions[i] = new Rect(buttonX + i * (buttonWidth + buttonGap), footerY,
                     buttonWidth, buttonHeight);
         }
         return new Layout(left, top, panelWidth, panelHeight, wide, header, list, detail,
-                actions[0], actions[1], actions[2], actions[3], actions[4], actions[5], actions[6]);
+                actions[0], actions[1], actions[2], actions[3]);
     }
 
     static int visibleListRows(Layout layout) {
@@ -415,7 +413,7 @@ public class MethodTreeScreen extends AbstractJournalScreen {
                 layout.detail().width(), layout.detail().height());
         renderMethodList(graphics, layout, mouseX, mouseY);
         renderMethodDetail(graphics, layout);
-        updateLearnButton();
+        updateCultivateButton();
     }
 
     private static UiRect toUi(Rect rect) {
@@ -783,7 +781,7 @@ public class MethodTreeScreen extends AbstractJournalScreen {
             if (index >= 0) {
                 selectedIndex = index;
                 detailScroll = 0;
-                updateLearnButton();
+                updateCultivateButton();
                 return true;
             }
         }
@@ -895,7 +893,7 @@ public class MethodTreeScreen extends AbstractJournalScreen {
                     scroll = selectedIndex - visibleRows + 1;
                 }
                 detailScroll = 0;
-                updateLearnButton();
+                updateCultivateButton();
                 return;
             }
         }
@@ -925,7 +923,7 @@ public class MethodTreeScreen extends AbstractJournalScreen {
                 break;
             }
         }
-        updateLearnButton();
+        updateCultivateButton();
     }
 
     @Override
@@ -968,8 +966,7 @@ public class MethodTreeScreen extends AbstractJournalScreen {
     }
 
     record Layout(int left, int top, int panelWidth, int panelHeight, boolean wide,
-                  Rect header, Rect list, Rect detail, Rect syncButton, Rect learnButton,
-                  Rect cultivateButton, Rect prevSchoolButton, Rect nextSchoolButton,
-                  Rect resetButton, Rect doneButton) {
+                  Rect header, Rect list, Rect detail, Rect cultivateButton,
+                  Rect prevSchoolButton, Rect nextSchoolButton, Rect doneButton) {
     }
 }

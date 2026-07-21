@@ -287,6 +287,7 @@
   "screen.seeking_immortals.method_tree.school_graph_hint": "Drag nodes freely; click to switch methods.",
   "screen.seeking_immortals.method_tree.reset_layout": "Reset",
   "screen.seeking_immortals.method_tree.waiting_sync": "Waiting for learned-method sync… use Sync.",
+  "screen.seeking_immortals.method_tree.max_layer": "Perfected",
   "message.seeking_immortals.sect_war.ai_pulse": "Battlefield pressure: %s side shells x%s.",
   "entity.seeking_immortals.war_shell.name": "War Shell · %s",
   "tooltip.seeking_immortals.spirit_charm.curios": "Equippable in Curios charm/artifact slots.",
