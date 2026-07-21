@@ -1,8 +1,12 @@
 package com.xunxian.seekingimmortals.registry;
 
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
+import com.xunxian.seekingimmortals.worldgen.AncientCultivatorCavePieces;
+import com.xunxian.seekingimmortals.worldgen.AncientCultivatorCaveStructure;
 import com.xunxian.seekingimmortals.worldgen.LeylineVeinPieces;
 import com.xunxian.seekingimmortals.worldgen.LeylineVeinStructure;
+import com.xunxian.seekingimmortals.worldgen.SpiritBeastDenPieces;
+import com.xunxian.seekingimmortals.worldgen.SpiritBeastDenStructure;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureType;
@@ -26,6 +30,18 @@ public final class ModStructures {
 
     public static final RegistryObject<StructurePieceType> LEYLINE_VEIN_PIECE =
             STRUCTURE_PIECES.register("leyline_vein", () -> (StructurePieceType.ContextlessType) LeylineVeinPieces.Piece::new);
+
+    public static final RegistryObject<StructureType<AncientCultivatorCaveStructure>> ANCIENT_CULTIVATOR_CAVE =
+            STRUCTURE_TYPES.register("ancient_cultivator_cave", () -> explicitType(AncientCultivatorCaveStructure.CODEC));
+
+    public static final RegistryObject<StructurePieceType> ANCIENT_CULTIVATOR_CAVE_PIECE =
+            STRUCTURE_PIECES.register("ancient_cultivator_cave", () -> (StructurePieceType.ContextlessType) AncientCultivatorCavePieces.Piece::new);
+
+    public static final RegistryObject<StructureType<SpiritBeastDenStructure>> SPIRIT_BEAST_DEN =
+            STRUCTURE_TYPES.register("spirit_beast_den", () -> explicitType(SpiritBeastDenStructure.CODEC));
+
+    public static final RegistryObject<StructurePieceType> SPIRIT_BEAST_DEN_PIECE =
+            STRUCTURE_PIECES.register("spirit_beast_den", () -> (StructurePieceType.ContextlessType) SpiritBeastDenPieces.Piece::new);
 
     private ModStructures() {}
 
