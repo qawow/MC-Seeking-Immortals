@@ -26,6 +26,7 @@ import com.xunxian.seekingimmortals.entity.SummonedServitorEntity;
 import com.xunxian.seekingimmortals.catalog.SpiritStoneLadderService;
 import com.xunxian.seekingimmortals.item.ArtifactCatalogItem;
 import com.xunxian.seekingimmortals.item.CatalogConsumableService;
+import com.xunxian.seekingimmortals.item.MysticVialItem;
 import com.xunxian.seekingimmortals.item.SpiritStoneItem;
 import com.xunxian.seekingimmortals.item.pill.CatalogPillItem;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
@@ -502,6 +503,19 @@ public final class ModEvents {
             mob.getPersistentData().putUUID("SeekingImmortalsGhostContractKiller", killer.getUUID());
         }
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
+
+        // Prevent MysticVial from dropping on death
+        event.getDrops().removeIf(itemEntity -> {
+            if (itemEntity.getItem().getItem() instanceof MysticVialItem) {
+                // Return the vial to player inventory on respawn via persistent data
+                net.minecraft.nbt.CompoundTag vialData = new net.minecraft.nbt.CompoundTag();
+                itemEntity.getItem().save(vialData);
+                player.getPersistentData().put("SeekingImmortalsMysticVialRespawn", vialData);
+                return true;
+            }
+            return false;
+        });
+
         player.getPersistentData().remove(FlyingSwordBeginnerSpell.ACTIVE_KEY);
         player.getPersistentData().remove(FlyingSwordAdvancedSpell.ACTIVE_KEY);
         player.getPersistentData().remove(AuraBodyShieldSpell.ACTIVE_KEY);
@@ -522,6 +536,18 @@ public final class ModEvents {
         FlyingAuthority.clearAll(player);
         BreakthroughService.restorePreservedOnRespawn(player);
         SectMissionGenerator.restartEscortAfterRespawn(player);
+
+        // 返还死亡时保存的神秘小瓶
+        if (player.getPersistentData().contains("SeekingImmortalsMysticVialRespawn")) {
+            net.minecraft.nbt.CompoundTag vialData = player.getPersistentData()
+                    .getCompound("SeekingImmortalsMysticVialRespawn");
+            ItemStack vialStack = ItemStack.of(vialData);
+            if (!vialStack.isEmpty()) {
+                player.getInventory().add(vialStack);
+            }
+            player.getPersistentData().remove("SeekingImmortalsMysticVialRespawn");
+        }
+
         CultivationHelper.get(player).ifPresent(cultivation -> {
             refreshCultivationAttributeState(player, cultivation);
             syncClientMirrors(player, cultivation);
@@ -1424,5 +1450,33 @@ public final class ModEvents {
     @Deprecated
     private static boolean tryExchange(Player player, Item input, Item output) {
         return SpiritStoneLadderService.exchange(player, input, output, SpiritStoneLadderService.ratioPerTier());
+    }
+
+    /**
+     * 阻止神秘小瓶被拖出背包或按 Q 键丢弃
+     */
+    @SubscribeEvent
+    public static void onPlayerDropItem(net.minecraftforge.event.entity.item.ItemTossEvent event) {
+        ItemStack stack = event.getEntity().getItem();
+        if (stack.getItem() == ModItems.MYSTIC_VIAL.get()) {
+            Player player = event.getPlayer();
+            if (player != null) {
+                event.setCanceled(true);
+                player.displayClientMessage(
+                    Component.translatable("message.seeking_immortals.mystic_vial.cannot_discard"),
+                    true
+                );
+                // 将物品返回玩家背包
+                if (!player.getInventory().add(stack)) {
+                    // 如果背包满了，强制放入第一个空槽位
+                    for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
+                        if (player.getInventory().getItem(i).isEmpty()) {
+                            player.getInventory().setItem(i, stack);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

@@ -548,6 +548,7 @@
   "message.seeking_immortals.mystic_vial.used": "灵液滋养植物，剩余：%s / %s。",
   "message.seeking_immortals.mystic_vial.granted": "一只神秘小瓶出现在你手中。",
   "message.seeking_immortals.mystic_vial.cannot_drop": "神秘小瓶无法丢弃。",
+  "message.seeking_immortals.mystic_vial.cannot_discard": "神秘小瓶无法丢弃或放入容器。",
   "item.seeking_immortals.alchemy_lid_low": "一阶丹炉盖",
   "item.seeking_immortals.alchemy_lid_mid": "二阶丹炉盖",
   "item.seeking_immortals.alchemy_lid_high": "三阶丹炉盖",
