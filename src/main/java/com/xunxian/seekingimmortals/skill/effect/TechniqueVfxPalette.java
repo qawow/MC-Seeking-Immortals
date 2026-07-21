@@ -35,12 +35,23 @@ public final class TechniqueVfxPalette {
             SoundEvent castSound,
             float castPitch,
             SoundEvent impactSound,
-            float impactPitch,
-            MobEffect primaryDebuff,
-            MobEffect secondaryDebuff,
-            MobEffect buffPrimary,
-            MobEffect buffSecondary
+            float impactPitch
     ) {
+        public MobEffect primaryDebuff() {
+            return TechniqueStatusMapper.forFamily(family).primaryDebuff();
+        }
+
+        public MobEffect secondaryDebuff() {
+            return TechniqueStatusMapper.forFamily(family).secondaryDebuff();
+        }
+
+        public MobEffect buffPrimary() {
+            return TechniqueStatusMapper.forFamily(family).primaryBuff();
+        }
+
+        public MobEffect buffSecondary() {
+            return TechniqueStatusMapper.forFamily(family).secondaryBuff();
+        }
         public void burst(ServerLevel level, Vec3 center, double radius, int density) {
             if (level == null || center == null) {
                 return;
@@ -133,118 +144,85 @@ public final class TechniqueVfxPalette {
                     Family.FIRE,
                     dust(1.00F, 0.28F, 0.05F, 0.95F), dust(1.00F, 0.78F, 0.18F, 0.55F),
                     ParticleTypes.FLAME, SoundEvents.BLAZE_SHOOT, 1.15F,
-                    SoundEvents.GENERIC_EXPLODE, 1.25F,
-                    MobEffects.WEAKNESS, MobEffects.MOVEMENT_SLOWDOWN,
-                    MobEffects.DAMAGE_BOOST, MobEffects.FIRE_RESISTANCE);
+                    SoundEvents.GENERIC_EXPLODE, 1.25F);
             case WATER -> profile(
                     Family.WATER,
                     dust(0.20F, 0.55F, 1.00F, 0.72F), dust(0.78F, 0.92F, 1.00F, 0.40F),
                     ParticleTypes.SPLASH, SoundEvents.BUCKET_EMPTY, 1.25F,
-                    SoundEvents.TRIDENT_HIT, 1.15F,
-                    MobEffects.MOVEMENT_SLOWDOWN, MobEffects.WEAKNESS,
-                    MobEffects.DOLPHINS_GRACE, MobEffects.REGENERATION);
+                    SoundEvents.TRIDENT_HIT, 1.15F);
             case METAL -> profile(
                     Family.METAL,
                     dust(0.78F, 0.84F, 0.96F, 0.80F), dust(1.00F, 1.00F, 1.00F, 0.42F),
                     ParticleTypes.CRIT, SoundEvents.ANVIL_LAND, 1.55F,
-                    SoundEvents.ARROW_HIT_PLAYER, 1.40F,
-                    MobEffects.WEAKNESS, MobEffects.DIG_SLOWDOWN,
-                    MobEffects.DAMAGE_BOOST, MobEffects.DAMAGE_RESISTANCE);
+                    SoundEvents.ARROW_HIT_PLAYER, 1.40F);
             case WOOD -> profile(
                     Family.WOOD,
                     dust(0.22F, 0.72F, 0.28F, 0.78F), dust(0.62F, 0.95F, 0.48F, 0.42F),
                     ParticleTypes.HAPPY_VILLAGER, SoundEvents.GRASS_BREAK, 1.20F,
-                    SoundEvents.AZALEA_LEAVES_BREAK, 1.05F,
-                    MobEffects.POISON, MobEffects.MOVEMENT_SLOWDOWN,
-                    MobEffects.REGENERATION, MobEffects.ABSORPTION);
+                    SoundEvents.AZALEA_LEAVES_BREAK, 1.05F);
             case EARTH -> profile(
                     Family.EARTH,
                     dust(0.62F, 0.42F, 0.18F, 0.82F), dust(0.90F, 0.74F, 0.38F, 0.48F),
                     ParticleTypes.CLOUD, SoundEvents.STONE_BREAK, 0.85F,
-                    SoundEvents.GRAVEL_BREAK, 0.90F,
-                    MobEffects.MOVEMENT_SLOWDOWN, MobEffects.DIG_SLOWDOWN,
-                    MobEffects.DAMAGE_RESISTANCE, MobEffects.ABSORPTION);
+                    SoundEvents.GRAVEL_BREAK, 0.90F);
             case WIND -> profile(
                     Family.WIND,
                     dust(0.70F, 0.95F, 0.86F, 0.68F), dust(0.92F, 1.00F, 0.96F, 0.36F),
                     ParticleTypes.CLOUD, SoundEvents.TRIDENT_RIPTIDE_1, 1.55F,
-                    SoundEvents.ELYTRA_FLYING, 1.35F,
-                    MobEffects.MOVEMENT_SLOWDOWN, MobEffects.WEAKNESS,
-                    MobEffects.MOVEMENT_SPEED, MobEffects.JUMP);
+                    SoundEvents.ELYTRA_FLYING, 1.35F);
             case ICE -> profile(
                     Family.ICE,
                     dust(0.52F, 0.86F, 1.00F, 0.72F), dust(0.92F, 0.98F, 1.00F, 0.40F),
                     ParticleTypes.SNOWFLAKE, SoundEvents.GLASS_BREAK, 1.45F,
-                    SoundEvents.PLAYER_HURT_FREEZE, 1.20F,
-                    MobEffects.MOVEMENT_SLOWDOWN, MobEffects.DIG_SLOWDOWN,
-                    MobEffects.DAMAGE_RESISTANCE, MobEffects.ABSORPTION);
+                    SoundEvents.PLAYER_HURT_FREEZE, 1.20F);
             case THUNDER -> profile(
                     Family.THUNDER,
                     dust(0.70F, 0.90F, 1.00F, 0.82F), dust(0.30F, 0.48F, 1.00F, 0.48F),
                     ParticleTypes.ELECTRIC_SPARK, SoundEvents.LIGHTNING_BOLT_THUNDER, 1.65F,
-                    SoundEvents.TRIDENT_THUNDER, 1.40F,
-                    MobEffects.MOVEMENT_SLOWDOWN, MobEffects.WEAKNESS,
-                    MobEffects.DAMAGE_BOOST, MobEffects.MOVEMENT_SPEED);
+                    SoundEvents.TRIDENT_THUNDER, 1.40F);
             case LIGHT -> profile(
                     Family.LIGHT,
                     dust(1.00F, 0.90F, 0.35F, 0.80F), dust(1.00F, 1.00F, 0.88F, 0.42F),
                     ParticleTypes.END_ROD, SoundEvents.AMETHYST_BLOCK_CHIME, 1.45F,
-                    SoundEvents.BEACON_ACTIVATE, 1.25F,
-                    MobEffects.GLOWING, MobEffects.WEAKNESS,
-                    MobEffects.DAMAGE_RESISTANCE, MobEffects.REGENERATION);
+                    SoundEvents.BEACON_ACTIVATE, 1.25F);
             case DARK -> profile(
                     Family.DARK,
                     dust(0.18F, 0.04F, 0.28F, 0.82F), dust(0.58F, 0.12F, 0.82F, 0.46F),
                     ParticleTypes.SMOKE, SoundEvents.SCULK_SHRIEKER_SHRIEK, 0.95F,
-                    SoundEvents.WARDEN_HEARTBEAT, 0.90F,
-                    MobEffects.WITHER, MobEffects.BLINDNESS,
-                    MobEffects.DAMAGE_RESISTANCE, MobEffects.NIGHT_VISION);
+                    SoundEvents.WARDEN_HEARTBEAT, 0.90F);
             case SOUL -> profile(
                     Family.SOUL,
                     dust(0.20F, 0.82F, 0.86F, 0.78F), dust(0.08F, 0.42F, 0.48F, 0.44F),
                     ParticleTypes.SOUL, SoundEvents.SOUL_ESCAPE, 1.10F,
-                    SoundEvents.WARDEN_HEARTBEAT, 1.00F,
-                    MobEffects.WITHER, MobEffects.WEAKNESS,
-                    MobEffects.NIGHT_VISION, MobEffects.ABSORPTION);
+                    SoundEvents.WARDEN_HEARTBEAT, 1.00F);
             case BLOOD -> profile(
                     Family.BLOOD,
                     dust(0.72F, 0.05F, 0.08F, 0.88F), dust(0.42F, 0.02F, 0.04F, 0.50F),
                     ParticleTypes.CRIMSON_SPORE, SoundEvents.WARDEN_HEARTBEAT, 0.85F,
-                    SoundEvents.RAVAGER_ROAR, 0.95F,
-                    MobEffects.WITHER, MobEffects.HUNGER,
-                    MobEffects.DAMAGE_BOOST, MobEffects.ABSORPTION);
+                    SoundEvents.RAVAGER_ROAR, 0.95F);
             case VOID -> profile(
                     Family.VOID,
                     dust(0.34F, 0.08F, 0.58F, 0.86F), dust(0.72F, 0.42F, 1.00F, 0.48F),
                     ParticleTypes.PORTAL, SoundEvents.ENDERMAN_TELEPORT, 0.80F,
-                    SoundEvents.END_PORTAL_FRAME_FILL, 0.90F,
-                    MobEffects.LEVITATION, MobEffects.BLINDNESS,
-                    MobEffects.SLOW_FALLING, MobEffects.NIGHT_VISION);
+                    SoundEvents.END_PORTAL_FRAME_FILL, 0.90F);
             case ILLUSION -> profile(
                     Family.ILLUSION,
                     dust(0.78F, 0.42F, 0.96F, 0.72F), dust(0.96F, 0.78F, 1.00F, 0.40F),
                     ParticleTypes.ENCHANT, SoundEvents.ILLUSIONER_CAST_SPELL, 1.25F,
-                    SoundEvents.ILLUSIONER_MIRROR_MOVE, 1.15F,
-                    MobEffects.CONFUSION, MobEffects.BLINDNESS,
-                    MobEffects.INVISIBILITY, MobEffects.MOVEMENT_SPEED);
+                    SoundEvents.ILLUSIONER_MIRROR_MOVE, 1.15F);
             case NEUTRAL -> profile(
                     Family.NEUTRAL,
                     dust(0.72F, 0.62F, 0.92F, 0.70F), dust(0.92F, 0.88F, 1.00F, 0.38F),
                     ParticleTypes.ENCHANT, SoundEvents.ENCHANTMENT_TABLE_USE, 1.15F,
-                    SoundEvents.AMETHYST_BLOCK_CHIME, 1.05F,
-                    MobEffects.MOVEMENT_SLOWDOWN, MobEffects.WEAKNESS,
-                    MobEffects.DAMAGE_RESISTANCE, MobEffects.ABSORPTION);
+                    SoundEvents.AMETHYST_BLOCK_CHIME, 1.05F);
         };
     }
 
     private static Profile profile(Family family,
                                    DustParticleOptions core, DustParticleOptions edge, ParticleOptions accent,
                                    SoundEvent castSound, float castPitch,
-                                   SoundEvent impactSound, float impactPitch,
-                                   MobEffect primaryDebuff, MobEffect secondaryDebuff,
-                                   MobEffect buffPrimary, MobEffect buffSecondary) {
-        return new Profile(family, core, edge, accent, castSound, castPitch, impactSound, impactPitch,
-                primaryDebuff, secondaryDebuff, buffPrimary, buffSecondary);
+                                   SoundEvent impactSound, float impactPitch) {
+        return new Profile(family, core, edge, accent, castSound, castPitch, impactSound, impactPitch);
     }
 
     private static DustParticleOptions dust(float r, float g, float b, float scale) {

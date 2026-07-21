@@ -2,6 +2,7 @@ package com.xunxian.seekingimmortals.skill.effect;
 
 import com.xunxian.seekingimmortals.cultivation.TechniqueDataManager;
 import com.xunxian.seekingimmortals.entity.CultivationFireballEntity;
+import com.xunxian.seekingimmortals.registry.ModMobEffects;
 import com.xunxian.seekingimmortals.skill.CultivationSkill;
 import com.xunxian.seekingimmortals.skill.SkillType;
 import com.xunxian.seekingimmortals.skill.effect.spell.AreaDebuffSpell;
@@ -22,7 +23,7 @@ import com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.effect.MobEffects;
+import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Locale;
 import java.util.Map;
@@ -212,10 +213,12 @@ public final class AbstractTechniqueEffectResolver {
                     recoveryForm(spec.type()), "message.seeking_immortals.spell.generic_heal.success");
             case "movement", "dash", "escape", "teleport_short" -> {
                 TechniqueVfxPalette.Profile vfx = TechniqueVfxPalette.profile(spec.element());
+                MobEffect primaryBuff = vfx.buffPrimary();
+                MobEffect secondaryBuff = vfx.buffSecondary();
                 yield new SelfBuffSpell(
                         cost, cooldown,
-                        MobEffects.MOVEMENT_SPEED, movementDuration(spec), 1,
-                        MobEffects.JUMP, movementDuration(spec), 0,
+                        primaryBuff != null ? primaryBuff : safeGetEffect("berserk"), movementDuration(spec), 1,
+                        secondaryBuff != null ? secondaryBuff : safeGetEffect("shield"), movementDuration(spec), 0,
                         vfx.accent(), vfx.castSound(),
                         "message.seeking_immortals.spell.generic_movement.success");
             }
@@ -265,21 +268,26 @@ public final class AbstractTechniqueEffectResolver {
     private static SkillEffect createBuff(RuntimeSpec spec, int cost, int cooldown) {
         TechniqueVfxPalette.Profile vfx = TechniqueVfxPalette.profile(spec.element());
         MobEffect primary = switch (spec.type()) {
-            case "scan", "scout", "inspect" -> MobEffects.NIGHT_VISION;
-            case "shield" -> MobEffects.DAMAGE_RESISTANCE;
+            case "scan", "scout", "inspect" -> safeGetEffect("conceal_qi");
+            case "shield" -> safeGetEffect("shield");
             default -> vfx.buffPrimary();
         };
         MobEffect secondary = switch (spec.type()) {
-            case "scan", "scout", "inspect" -> MobEffects.MOVEMENT_SPEED;
-            case "shield" -> MobEffects.ABSORPTION;
+            case "scan", "scout", "inspect" -> vfx.buffSecondary();
+            case "shield" -> safeGetEffect("heal_hot");
             default -> vfx.buffSecondary();
         };
         return new SelfBuffSpell(
                 cost, cooldown,
-                primary, 160, "shield".equals(spec.type()) ? 1 : 0,
-                secondary, 140, 0,
+                primary != null ? primary : safeGetEffect("shield"), 160, "shield".equals(spec.type()) ? 1 : 0,
+                secondary != null ? secondary : safeGetEffect("heal_hot"), 140, 0,
                 vfx.core(), vfx.castSound(),
                 "message.seeking_immortals.spell.generic_buff.success");
+    }
+
+    private static MobEffect safeGetEffect(String statusId) {
+        RegistryObject<MobEffect> obj = ModMobEffects.get(statusId);
+        return obj != null ? obj.get() : null;
     }
 
     private static CultivationFireballEntity.SpellElement projectileElement(String element) {
