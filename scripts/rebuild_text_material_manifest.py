@@ -79,6 +79,7 @@ def main() -> None:
     manifest["technique_files"] = technique_files
     manifest["total_files"] = len(entries)
     manifest["files"] = entries
+    manifest["total_entries"] = sum(entry["entries"] for entry in entries)
     MANIFEST_PATH.write_text(
         json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",

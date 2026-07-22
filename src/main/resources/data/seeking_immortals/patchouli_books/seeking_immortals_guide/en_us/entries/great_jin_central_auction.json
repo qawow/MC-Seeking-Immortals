@@ -27,7 +27,7 @@
     {
       "type": "patchouli:text",
       "title": "Planned Content",
-      "text": "A full Wanbao Pavilion schedule, invitations, bidding UI, lot tables, ancient-treasure appraisal, clan reputation, cross-region array fees, refinement-hall services, NPCs, and an FTB Quests chapter are not yet implemented. This page describes only existing region and event hooks."
+      "text": "A full Wanbao Pavilion schedule, invitations, bidding UI, lot tables, ancient-treasure appraisal, clan reputation, cross-region array fees, refinement-hall services, and NPCs are not yet implemented. The corresponding native route is projected in the FTB Quests chapter 'Great Jin and Kunwu Mountain'; native progress remains authoritative. This page describes only existing region and event hooks."
     }
   ]
 }

@@ -1,0 +1,81 @@
+{
+  "name": "慕兰天澜与魔道六宗",
+  "category": "seeking_immortals:quests",
+  "icon": "seeking_immortals:mortal_quest_token",
+  "sortnum": 34,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "投影说明",
+      "text": "本卷对应 FTB Quests 章节“慕兰天澜与魔道六宗”，收录 8 条原生任务线。阶段顺序来自原生任务资料，完成与奖励仍以服务器账本为准。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "任务线索引 1/2",
+      "text": "$(l:quest_native_mulan_demonic#chain_mulan_war_campaign)慕兰天澜战役$()$(br)$(l:quest_native_mulan_demonic#chain_mulan_tianlan_war)慕兰天澜战线$()$(br)$(l:quest_native_mulan_demonic#chain_mulan_fashi_path)慕兰法士道途$()$(br)$(l:quest_native_mulan_demonic#chain_tianlan_defense_line)天澜御兽线$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "任务线索引 2/2",
+      "text": "$(l:quest_native_mulan_demonic#chain_wutu_mulan_feud_line)突兀慕兰世仇$()$(br)$(l:quest_native_mulan_demonic#chain_chain_mulan_war_campaign)慕兰大战战役$()$(br)$(l:quest_native_mulan_demonic#chain_demonic_six_path)魔道六宗线$()$(br)$(l:quest_native_mulan_demonic#chain_demonic_six_expanded)魔道六宗深入线$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "慕兰天澜战役 1/2",
+      "anchor": "chain_mulan_war_campaign",
+      "text": "1. 边境遭遇$(br)2. 慕兰边军$(br)3. 天南动员"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "慕兰天澜战役 2/2",
+      "text": "4. 法士护阵$(br)5. 圣禽祝福$(br)6. 停战谈判"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "慕兰天澜战线",
+      "anchor": "chain_mulan_tianlan_war",
+      "text": "1. 慕兰边军$(br)2. 兽潮守城$(br)3. 草原斥候交锋"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "慕兰法士道途",
+      "anchor": "chain_mulan_fashi_path",
+      "text": "1. 法士入门$(br)2. 圣禽祭坛参拜$(br)3. 天狐灵兽驯服"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "天澜御兽线",
+      "anchor": "chain_tianlan_defense_line",
+      "text": "1. 天澜誓约$(br)2. 天澜兽魂召唤训练$(br)3. 慕兰战争战役"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "突兀慕兰世仇",
+      "anchor": "chain_wutu_mulan_feud_line",
+      "text": "1. 突兀袭击慕兰营地$(br)2. 慕兰反猎$(br)3. 世仇停战斡旋"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "慕兰大战战役",
+      "anchor": "chain_chain_mulan_war_campaign",
+      "text": "1. 边境遭遇$(br)2. 法士大阵$(br)3. 圣禽祝福$(br)4. 停战"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "魔道六宗线 1/2",
+      "anchor": "chain_demonic_six_path",
+      "text": "1. 北迁传闻$(br)2. 鬼灵门招募$(br)3. 合欢试心"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "魔道六宗线 2/2",
+      "text": "4. 天魔血祭$(br)5. 正道悬赏反噬"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "魔道六宗深入线",
+      "anchor": "chain_demonic_six_expanded",
+      "text": "1. 北迁与边境悬赏$(br)2. 六宗择一入门$(br)3. 正道围剿压力$(br)4. 荒原古冢夺宝"
+    }
+  ]
+}

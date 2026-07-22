@@ -1,0 +1,65 @@
+{
+  "name": "Tiannan's Seven Sects and the Hundred Crafts",
+  "category": "seeking_immortals:quests",
+  "icon": "seeking_immortals:mortal_quest_token",
+  "sortnum": 36,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Projection Notes",
+      "text": "This volume matches the FTB Quests chapter 'Tiannan's Seven Sects and the Hundred Crafts' and contains 7 native quest lines. Stage order comes from native quest data; completion and rewards remain server-authoritative."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Quest Line Index 1/2",
+      "text": "$(l:quest_native_tiannan_seven_sects#chain_craft_master)Master of the Hundred Crafts$()$(br)$(l:quest_native_tiannan_seven_sects#chain_huadao_blade_path)Blade Transformation Sect Path$()$(br)$(l:quest_native_tiannan_seven_sects#chain_giant_sword_gate_path)Giant Sword Sect Legacy$()$(br)$(l:quest_native_tiannan_seven_sects#chain_qianzhu_puppet_path)Thousand Bamboo Puppet Path$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Quest Line Index 2/2",
+      "text": "$(l:quest_native_tiannan_seven_sects#chain_yuling_puppet_path)Spirit Beast Puppet Path$()$(br)$(l:quest_native_tiannan_seven_sects#chain_yanyue_illusion_path)Veiled Moon Illusion Path$()$(br)$(l:quest_native_tiannan_seven_sects#chain_tianfu_talisman_path)Heavenly Talisman Crafting Path$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Master of the Hundred Crafts",
+      "anchor": "chain_craft_master",
+      "text": "1. Alchemy Apprentice$(br)2. Puppet Maintain$(br)3. Kunwu Seal Research$(br)4. Sect Fire Room"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Blade Transformation Sect Path",
+      "anchor": "chain_huadao_blade_path",
+      "text": "1. Huadao Entry$(br)2. Huadao Forge Contract$(br)3. Huadao Duel Trial"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Giant Sword Sect Legacy",
+      "anchor": "chain_giant_sword_gate_path",
+      "text": "1. Giant Sword Entry$(br)2. Blood Forbidden Run$(br)3. Giant Sword Relic Restore"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Thousand Bamboo Puppet Path",
+      "anchor": "chain_qianzhu_puppet_path",
+      "text": "1. Thousand Bamboo Puppet Apprentice$(br)2. Thousand Bamboo Tower Run$(br)3. Dayan Fragment Quest$(br)4. Puppet Maintain"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Spirit Beast Puppet Path",
+      "anchor": "chain_yuling_puppet_path",
+      "text": "1. Spirit Beast Secret Contact$(br)2. Beast Soul Bind Puppet$(br)3. Lingshou Contract Beast"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Veiled Moon Illusion Path",
+      "anchor": "chain_yanyue_illusion_path",
+      "text": "1. Veiled Moon Entry Trial$(br)2. Illusion Array Practice$(br)3. Seven Sect Tournament$(br)4. Inner Veil Secret"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Heavenly Talisman Crafting Path",
+      "anchor": "chain_tianfu_talisman_path",
+      "text": "1. Heavenly Talisman Paper Grind$(br)2. Low Talisman Cert$(br)3. Mid Talisman Inner$(br)4. High Talisman Secret"
+    }
+  ]
+}

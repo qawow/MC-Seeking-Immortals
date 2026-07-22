@@ -1,0 +1,3710 @@
+{
+  "schema_version": 1,
+  "chain_count": 62,
+  "stage_count": 241,
+  "chapter_count": 9,
+  "quest_node_count": 215,
+  "authority": "native_player_ledger",
+  "stages": [
+    {
+      "chain": "huangfeng_cultivation_path",
+      "stage": 1,
+      "chapter": "seeking_immortals_main",
+      "guide_entry": "seeking_immortals:quest_native_main",
+      "guide_anchor": "chain_huangfeng_cultivation_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_main",
+          "quest_id": "1000000000000201",
+          "task_id": "3200000000000001"
+        }
+      ],
+      "write_quest_id": "1000000000000201"
+    },
+    {
+      "chain": "huangfeng_cultivation_path",
+      "stage": 2,
+      "chapter": "seeking_immortals_main",
+      "guide_entry": "seeking_immortals:quest_native_main",
+      "guide_anchor": "chain_huangfeng_cultivation_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_main",
+          "quest_id": "1000000000000202",
+          "task_id": "3200000000000002"
+        }
+      ],
+      "write_quest_id": "1000000000000202"
+    },
+    {
+      "chain": "huangfeng_cultivation_path",
+      "stage": 3,
+      "chapter": "seeking_immortals_main",
+      "guide_entry": "seeking_immortals:quest_native_main",
+      "guide_anchor": "chain_huangfeng_cultivation_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_main",
+          "quest_id": "1000000000000203",
+          "task_id": "1000000000001203"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "huangfeng_cultivation_path",
+      "stage": 4,
+      "chapter": "seeking_immortals_main",
+      "guide_entry": "seeking_immortals:quest_native_main",
+      "guide_anchor": "chain_huangfeng_cultivation_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_main",
+          "quest_id": "1000000000000204",
+          "task_id": "1000000000001204"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "huangfeng_cultivation_path",
+      "stage": 5,
+      "chapter": "seeking_immortals_main",
+      "guide_entry": "seeking_immortals:quest_native_main",
+      "guide_anchor": "chain_huangfeng_cultivation_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_main",
+          "quest_id": "1000000000000205",
+          "task_id": "1000000000001205"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chaotic_sea_politics",
+      "stage": 1,
+      "chapter": "seeking_immortals_chaotic_sea",
+      "guide_entry": "seeking_immortals:quest_native_chaotic_sea",
+      "guide_anchor": "chain_chaotic_sea_politics",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_chaotic_sea",
+          "quest_id": "1000000000000503",
+          "task_id": "3200000000000006"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chaotic_sea_politics",
+      "stage": 2,
+      "chapter": "seeking_immortals_chaotic_sea",
+      "guide_entry": "seeking_immortals:quest_native_chaotic_sea",
+      "guide_anchor": "chain_chaotic_sea_politics",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_chaotic_sea",
+          "quest_id": "1000000000000504",
+          "task_id": "1000000000001504"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chaotic_sea_politics",
+      "stage": 3,
+      "chapter": "seeking_immortals_chaotic_sea",
+      "guide_entry": "seeking_immortals:quest_native_chaotic_sea",
+      "guide_anchor": "chain_chaotic_sea_politics",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_chaotic_sea",
+          "quest_id": "1000000000000503",
+          "task_id": "3200000000000008"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chaotic_sea_politics",
+      "stage": 4,
+      "chapter": "seeking_immortals_chaotic_sea",
+      "guide_entry": "seeking_immortals:quest_native_chaotic_sea",
+      "guide_anchor": "chain_chaotic_sea_politics",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_chaotic_sea",
+          "quest_id": "1000000000000503",
+          "task_id": "3200000000000009"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chaotic_sea_politics",
+      "stage": 5,
+      "chapter": "seeking_immortals_chaotic_sea",
+      "guide_entry": "seeking_immortals:quest_native_chaotic_sea",
+      "guide_anchor": "chain_chaotic_sea_politics",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_chaotic_sea",
+          "quest_id": "1000000000000503",
+          "task_id": "3200000000000010"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chaotic_sea_politics",
+      "stage": 6,
+      "chapter": "seeking_immortals_chaotic_sea",
+      "guide_entry": "seeking_immortals:quest_native_chaotic_sea",
+      "guide_anchor": "chain_chaotic_sea_politics",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_chaotic_sea",
+          "quest_id": "1000000000000503",
+          "task_id": "3200000000000011"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "mulan_tianlan_war",
+      "stage": 1,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_mulan_tianlan_war",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000802",
+          "task_id": "1000000000001802"
+        }
+      ],
+      "write_quest_id": "1000000000000801"
+    },
+    {
+      "chain": "mulan_tianlan_war",
+      "stage": 2,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_mulan_tianlan_war",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000804",
+          "task_id": "3200000000000013"
+        }
+      ],
+      "write_quest_id": "1000000000000805"
+    },
+    {
+      "chain": "mulan_tianlan_war",
+      "stage": 3,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_mulan_tianlan_war",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000808",
+          "task_id": "2000000000001808"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "ghost_path",
+      "stage": 1,
+      "chapter": "seeking_immortals_fallen_demon_yin",
+      "guide_entry": "seeking_immortals:quest_native_fallen_demon_yin",
+      "guide_anchor": "chain_ghost_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_fallen_demon_yin",
+          "quest_id": "1000000000000708",
+          "task_id": "3200000000000015"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "ghost_path",
+      "stage": 2,
+      "chapter": "seeking_immortals_fallen_demon_yin",
+      "guide_entry": "seeking_immortals:quest_native_fallen_demon_yin",
+      "guide_anchor": "chain_ghost_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_fallen_demon_yin",
+          "quest_id": "1000000000000708",
+          "task_id": "3200000000000016"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "ghost_path",
+      "stage": 3,
+      "chapter": "seeking_immortals_fallen_demon_yin",
+      "guide_entry": "seeking_immortals:quest_native_fallen_demon_yin",
+      "guide_anchor": "chain_ghost_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_fallen_demon_yin",
+          "quest_id": "1000000000000708",
+          "task_id": "3200000000000017"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "ghost_path",
+      "stage": 4,
+      "chapter": "seeking_immortals_fallen_demon_yin",
+      "guide_entry": "seeking_immortals:quest_native_fallen_demon_yin",
+      "guide_anchor": "chain_ghost_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_fallen_demon_yin",
+          "quest_id": "1000000000000708",
+          "task_id": "3200000000000018"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "ghost_path",
+      "stage": 5,
+      "chapter": "seeking_immortals_fallen_demon_yin",
+      "guide_entry": "seeking_immortals:quest_native_fallen_demon_yin",
+      "guide_anchor": "chain_ghost_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_fallen_demon_yin",
+          "quest_id": "1000000000000708",
+          "task_id": "3200000000000019"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "ghost_path",
+      "stage": 6,
+      "chapter": "seeking_immortals_fallen_demon_yin",
+      "guide_entry": "seeking_immortals:quest_native_fallen_demon_yin",
+      "guide_anchor": "chain_ghost_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_fallen_demon_yin",
+          "quest_id": "1000000000000708",
+          "task_id": "3200000000000020"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "high_realm_endgame",
+      "stage": 1,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_high_realm_endgame",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001201",
+          "task_id": "3200000000000021"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "high_realm_endgame",
+      "stage": 2,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_high_realm_endgame",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001201",
+          "task_id": "3200000000000022"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "high_realm_endgame",
+      "stage": 3,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_high_realm_endgame",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001201",
+          "task_id": "3200000000000023"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "high_realm_endgame",
+      "stage": 4,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_high_realm_endgame",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001201",
+          "task_id": "2000000000002201"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "spirit_realm_rise",
+      "stage": 1,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_spirit_realm_rise",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000903",
+          "task_id": "1000000000001903"
+        }
+      ],
+      "write_quest_id": "1000000000000401"
+    },
+    {
+      "chain": "spirit_realm_rise",
+      "stage": 2,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_spirit_realm_rise",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_main",
+          "quest_id": "1000000000000402",
+          "task_id": "1000000000001402"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "spirit_realm_rise",
+      "stage": 3,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_spirit_realm_rise",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_main",
+          "quest_id": "1000000000000403",
+          "task_id": "1000000000001403"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "spirit_realm_rise",
+      "stage": 4,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_spirit_realm_rise",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_main",
+          "quest_id": "1000000000000404",
+          "task_id": "1000000000001404"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "spirit_realm_rise",
+      "stage": 5,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_spirit_realm_rise",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000903",
+          "task_id": "3200000000000029"
+        }
+      ],
+      "write_quest_id": "1000000000000405"
+    },
+    {
+      "chain": "spirit_realm_rise",
+      "stage": 6,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_spirit_realm_rise",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_main",
+          "quest_id": "1000000000000406",
+          "task_id": "1000000000001406"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "craft_master",
+      "stage": 1,
+      "chapter": "seeking_immortals_tiannan_seven_sects",
+      "guide_entry": "seeking_immortals:quest_native_tiannan_seven_sects",
+      "guide_anchor": "chain_craft_master",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_tiannan_seven_sects",
+          "quest_id": "1000000000001023",
+          "task_id": "1000000000002023"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "craft_master",
+      "stage": 2,
+      "chapter": "seeking_immortals_tiannan_seven_sects",
+      "guide_entry": "seeking_immortals:quest_native_tiannan_seven_sects",
+      "guide_anchor": "chain_craft_master",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_tiannan_seven_sects",
+          "quest_id": "1000000000001025",
+          "task_id": "1000000000002025"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "craft_master",
+      "stage": 3,
+      "chapter": "seeking_immortals_tiannan_seven_sects",
+      "guide_entry": "seeking_immortals:quest_native_tiannan_seven_sects",
+      "guide_anchor": "chain_craft_master",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_tiannan_seven_sects",
+          "quest_id": "1000000000001026",
+          "task_id": "1000000000002026"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "craft_master",
+      "stage": 4,
+      "chapter": "seeking_immortals_tiannan_seven_sects",
+      "guide_entry": "seeking_immortals:quest_native_tiannan_seven_sects",
+      "guide_anchor": "chain_craft_master",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_tiannan_seven_sects",
+          "quest_id": "1000000000001027",
+          "task_id": "1000000000002027"
+        },
+        {
+          "chapter": "seeking_immortals_tiannan_seven_sects",
+          "quest_id": "1000000000001028",
+          "task_id": "1000000000002028"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "dajin_kunwu_line",
+      "stage": 1,
+      "chapter": "seeking_immortals_dajin_kunwu",
+      "guide_entry": "seeking_immortals:quest_native_dajin_kunwu",
+      "guide_anchor": "chain_dajin_kunwu_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_dajin_kunwu",
+          "quest_id": "1000000000000607",
+          "task_id": "3200000000000035"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "dajin_kunwu_line",
+      "stage": 2,
+      "chapter": "seeking_immortals_dajin_kunwu",
+      "guide_entry": "seeking_immortals:quest_native_dajin_kunwu",
+      "guide_anchor": "chain_dajin_kunwu_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_dajin_kunwu",
+          "quest_id": "1000000000000607",
+          "task_id": "3200000000000036"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "dajin_kunwu_line",
+      "stage": 3,
+      "chapter": "seeking_immortals_dajin_kunwu",
+      "guide_entry": "seeking_immortals:quest_native_dajin_kunwu",
+      "guide_anchor": "chain_dajin_kunwu_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_dajin_kunwu",
+          "quest_id": "1000000000000613",
+          "task_id": "3200000000000037"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "dajin_kunwu_line",
+      "stage": 4,
+      "chapter": "seeking_immortals_dajin_kunwu",
+      "guide_entry": "seeking_immortals:quest_native_dajin_kunwu",
+      "guide_anchor": "chain_dajin_kunwu_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_dajin_kunwu",
+          "quest_id": "1000000000000613",
+          "task_id": "3200000000000038"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "ancient_demon_line",
+      "stage": 1,
+      "chapter": "seeking_immortals_fallen_demon_yin",
+      "guide_entry": "seeking_immortals:quest_native_fallen_demon_yin",
+      "guide_anchor": "chain_ancient_demon_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_fallen_demon_yin",
+          "quest_id": "1000000000000705",
+          "task_id": "3200000000000039"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "ancient_demon_line",
+      "stage": 2,
+      "chapter": "seeking_immortals_fallen_demon_yin",
+      "guide_entry": "seeking_immortals:quest_native_fallen_demon_yin",
+      "guide_anchor": "chain_ancient_demon_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_fallen_demon_yin",
+          "quest_id": "1000000000000705",
+          "task_id": "3200000000000040"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "ancient_demon_line",
+      "stage": 3,
+      "chapter": "seeking_immortals_fallen_demon_yin",
+      "guide_entry": "seeking_immortals:quest_native_fallen_demon_yin",
+      "guide_anchor": "chain_ancient_demon_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_fallen_demon_yin",
+          "quest_id": "1000000000000705",
+          "task_id": "3200000000000041"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "ancient_demon_line",
+      "stage": 4,
+      "chapter": "seeking_immortals_fallen_demon_yin",
+      "guide_entry": "seeking_immortals:quest_native_fallen_demon_yin",
+      "guide_anchor": "chain_ancient_demon_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_fallen_demon_yin",
+          "quest_id": "1000000000000705",
+          "task_id": "3200000000000042"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "qixuan_mortal_path",
+      "stage": 1,
+      "chapter": "seeking_immortals_main",
+      "guide_entry": "seeking_immortals:quest_native_main",
+      "guide_anchor": "chain_qixuan_mortal_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_main",
+          "quest_id": "1000000000000101",
+          "task_id": "3200000000000043"
+        }
+      ],
+      "write_quest_id": "1000000000000101"
+    },
+    {
+      "chain": "qixuan_mortal_path",
+      "stage": 2,
+      "chapter": "seeking_immortals_main",
+      "guide_entry": "seeking_immortals:quest_native_main",
+      "guide_anchor": "chain_qixuan_mortal_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_main",
+          "quest_id": "1000000000000102",
+          "task_id": "3200000000000044"
+        }
+      ],
+      "write_quest_id": "1000000000000102"
+    },
+    {
+      "chain": "qixuan_mortal_path",
+      "stage": 3,
+      "chapter": "seeking_immortals_main",
+      "guide_entry": "seeking_immortals:quest_native_main",
+      "guide_anchor": "chain_qixuan_mortal_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_main",
+          "quest_id": "1000000000000103",
+          "task_id": "3200000000000045"
+        }
+      ],
+      "write_quest_id": "1000000000000103"
+    },
+    {
+      "chain": "qixuan_mortal_path",
+      "stage": 4,
+      "chapter": "seeking_immortals_main",
+      "guide_entry": "seeking_immortals:quest_native_main",
+      "guide_anchor": "chain_qixuan_mortal_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_main",
+          "quest_id": "1000000000000104",
+          "task_id": "3200000000000046"
+        }
+      ],
+      "write_quest_id": "1000000000000104"
+    },
+    {
+      "chain": "huadao_blade_path",
+      "stage": 1,
+      "chapter": "seeking_immortals_tiannan_seven_sects",
+      "guide_entry": "seeking_immortals:quest_native_tiannan_seven_sects",
+      "guide_anchor": "chain_huadao_blade_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_tiannan_seven_sects",
+          "quest_id": "1000000000001002",
+          "task_id": "1000000000002002"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "huadao_blade_path",
+      "stage": 2,
+      "chapter": "seeking_immortals_tiannan_seven_sects",
+      "guide_entry": "seeking_immortals:quest_native_tiannan_seven_sects",
+      "guide_anchor": "chain_huadao_blade_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_tiannan_seven_sects",
+          "quest_id": "1000000000001002",
+          "task_id": "3200000000000048"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "huadao_blade_path",
+      "stage": 3,
+      "chapter": "seeking_immortals_tiannan_seven_sects",
+      "guide_entry": "seeking_immortals:quest_native_tiannan_seven_sects",
+      "guide_anchor": "chain_huadao_blade_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_tiannan_seven_sects",
+          "quest_id": "1000000000001004",
+          "task_id": "1000000000002004"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "giant_sword_gate_path",
+      "stage": 1,
+      "chapter": "seeking_immortals_tiannan_seven_sects",
+      "guide_entry": "seeking_immortals:quest_native_tiannan_seven_sects",
+      "guide_anchor": "chain_giant_sword_gate_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_tiannan_seven_sects",
+          "quest_id": "1000000000001005",
+          "task_id": "1000000000002005"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "giant_sword_gate_path",
+      "stage": 2,
+      "chapter": "seeking_immortals_tiannan_seven_sects",
+      "guide_entry": "seeking_immortals:quest_native_tiannan_seven_sects",
+      "guide_anchor": "chain_giant_sword_gate_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_tiannan_seven_sects",
+          "quest_id": "1000000000001006",
+          "task_id": "1000000000002006"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "giant_sword_gate_path",
+      "stage": 3,
+      "chapter": "seeking_immortals_tiannan_seven_sects",
+      "guide_entry": "seeking_immortals:quest_native_tiannan_seven_sects",
+      "guide_anchor": "chain_giant_sword_gate_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_tiannan_seven_sects",
+          "quest_id": "1000000000001006",
+          "task_id": "3200000000000052"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "qianzhu_puppet_path",
+      "stage": 1,
+      "chapter": "seeking_immortals_tiannan_seven_sects",
+      "guide_entry": "seeking_immortals:quest_native_tiannan_seven_sects",
+      "guide_anchor": "chain_qianzhu_puppet_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_tiannan_seven_sects",
+          "quest_id": "1000000000001008",
+          "task_id": "3200000000000053"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "qianzhu_puppet_path",
+      "stage": 2,
+      "chapter": "seeking_immortals_tiannan_seven_sects",
+      "guide_entry": "seeking_immortals:quest_native_tiannan_seven_sects",
+      "guide_anchor": "chain_qianzhu_puppet_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_tiannan_seven_sects",
+          "quest_id": "1000000000001009",
+          "task_id": "1000000000002009"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "qianzhu_puppet_path",
+      "stage": 3,
+      "chapter": "seeking_immortals_tiannan_seven_sects",
+      "guide_entry": "seeking_immortals:quest_native_tiannan_seven_sects",
+      "guide_anchor": "chain_qianzhu_puppet_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_tiannan_seven_sects",
+          "quest_id": "1000000000001010",
+          "task_id": "1000000000002010"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "qianzhu_puppet_path",
+      "stage": 4,
+      "chapter": "seeking_immortals_tiannan_seven_sects",
+      "guide_entry": "seeking_immortals:quest_native_tiannan_seven_sects",
+      "guide_anchor": "chain_qianzhu_puppet_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_tiannan_seven_sects",
+          "quest_id": "1000000000001025",
+          "task_id": "3200000000000056"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "yuling_puppet_path",
+      "stage": 1,
+      "chapter": "seeking_immortals_tiannan_seven_sects",
+      "guide_entry": "seeking_immortals:quest_native_tiannan_seven_sects",
+      "guide_anchor": "chain_yuling_puppet_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_tiannan_seven_sects",
+          "quest_id": "1000000000001012",
+          "task_id": "1000000000002012"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "yuling_puppet_path",
+      "stage": 2,
+      "chapter": "seeking_immortals_tiannan_seven_sects",
+      "guide_entry": "seeking_immortals:quest_native_tiannan_seven_sects",
+      "guide_anchor": "chain_yuling_puppet_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_tiannan_seven_sects",
+          "quest_id": "1000000000001012",
+          "task_id": "3200000000000058"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "yuling_puppet_path",
+      "stage": 3,
+      "chapter": "seeking_immortals_tiannan_seven_sects",
+      "guide_entry": "seeking_immortals:quest_native_tiannan_seven_sects",
+      "guide_anchor": "chain_yuling_puppet_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_tiannan_seven_sects",
+          "quest_id": "1000000000001012",
+          "task_id": "3200000000000059"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "dajin_clan_line",
+      "stage": 1,
+      "chapter": "seeking_immortals_dajin_kunwu",
+      "guide_entry": "seeking_immortals:quest_native_dajin_kunwu",
+      "guide_anchor": "chain_dajin_clan_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_dajin_kunwu",
+          "quest_id": "1000000000000603",
+          "task_id": "1000000000001603"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "dajin_clan_line",
+      "stage": 2,
+      "chapter": "seeking_immortals_dajin_kunwu",
+      "guide_entry": "seeking_immortals:quest_native_dajin_kunwu",
+      "guide_anchor": "chain_dajin_clan_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_dajin_kunwu",
+          "quest_id": "1000000000000603",
+          "task_id": "3200000000000061"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "dajin_clan_line",
+      "stage": 3,
+      "chapter": "seeking_immortals_dajin_kunwu",
+      "guide_entry": "seeking_immortals:quest_native_dajin_kunwu",
+      "guide_anchor": "chain_dajin_clan_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_dajin_kunwu",
+          "quest_id": "1000000000000603",
+          "task_id": "3200000000000062"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "dajin_clan_line",
+      "stage": 4,
+      "chapter": "seeking_immortals_dajin_kunwu",
+      "guide_entry": "seeking_immortals:quest_native_dajin_kunwu",
+      "guide_anchor": "chain_dajin_clan_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_dajin_kunwu",
+          "quest_id": "1000000000000603",
+          "task_id": "3200000000000063"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "demonic_six_path",
+      "stage": 1,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_demonic_six_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000818",
+          "task_id": "1000000000001818"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "demonic_six_path",
+      "stage": 2,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_demonic_six_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000819",
+          "task_id": "1000000000001819"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "demonic_six_path",
+      "stage": 3,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_demonic_six_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000821",
+          "task_id": "1000000000001821"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "demonic_six_path",
+      "stage": 4,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_demonic_six_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000818",
+          "task_id": "3200000000000067"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "demonic_six_path",
+      "stage": 5,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_demonic_six_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000818",
+          "task_id": "3200000000000068"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "yin_cluster_pilgrim",
+      "stage": 1,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_yin_cluster_pilgrim",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001210",
+          "task_id": "3200000000000069"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "yin_cluster_pilgrim",
+      "stage": 2,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_yin_cluster_pilgrim",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001210",
+          "task_id": "3200000000000070"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "yin_cluster_pilgrim",
+      "stage": 3,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_yin_cluster_pilgrim",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001210",
+          "task_id": "1000000000002210"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "barbarian_kings_line",
+      "stage": 1,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_barbarian_kings_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000931",
+          "task_id": "3200000000000072"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "barbarian_kings_line",
+      "stage": 2,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_barbarian_kings_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000931",
+          "task_id": "1000000000001931"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "barbarian_kings_line",
+      "stage": 3,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_barbarian_kings_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000933",
+          "task_id": "1000000000001933"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "barbarian_kings_line",
+      "stage": 4,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_barbarian_kings_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000935",
+          "task_id": "1000000000001935"
+        },
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000936",
+          "task_id": "1000000000001936"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "spirit_eighteen_clans",
+      "stage": 1,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_spirit_eighteen_clans",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000918",
+          "task_id": "1000000000001918"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "spirit_eighteen_clans",
+      "stage": 2,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_spirit_eighteen_clans",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000919",
+          "task_id": "1000000000001919"
+        },
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000920",
+          "task_id": "1000000000001920"
+        },
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000921",
+          "task_id": "1000000000001921"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "spirit_eighteen_clans",
+      "stage": 3,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_spirit_eighteen_clans",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000922",
+          "task_id": "1000000000001922"
+        },
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000924",
+          "task_id": "1000000000001924"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "spirit_eighteen_clans",
+      "stage": 4,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_spirit_eighteen_clans",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000925",
+          "task_id": "1000000000001925"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "star_palace_internal_politics",
+      "stage": 1,
+      "chapter": "seeking_immortals_star_palace_inverse",
+      "guide_entry": "seeking_immortals:quest_native_star_palace_inverse",
+      "guide_anchor": "chain_star_palace_internal_politics",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_star_palace_inverse",
+          "quest_id": "1000000000001101",
+          "task_id": "1000000000002101"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "star_palace_internal_politics",
+      "stage": 2,
+      "chapter": "seeking_immortals_star_palace_inverse",
+      "guide_entry": "seeking_immortals:quest_native_star_palace_inverse",
+      "guide_anchor": "chain_star_palace_internal_politics",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_star_palace_inverse",
+          "quest_id": "1000000000001102",
+          "task_id": "1000000000002102"
+        },
+        {
+          "chapter": "seeking_immortals_star_palace_inverse",
+          "quest_id": "1000000000001103",
+          "task_id": "1000000000002103"
+        },
+        {
+          "chapter": "seeking_immortals_star_palace_inverse",
+          "quest_id": "1000000000001105",
+          "task_id": "1000000000002105"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "star_palace_internal_politics",
+      "stage": 3,
+      "chapter": "seeking_immortals_star_palace_inverse",
+      "guide_entry": "seeking_immortals:quest_native_star_palace_inverse",
+      "guide_anchor": "chain_star_palace_internal_politics",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_star_palace_inverse",
+          "quest_id": "1000000000001107",
+          "task_id": "1000000000002107"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "star_palace_internal_politics",
+      "stage": 4,
+      "chapter": "seeking_immortals_star_palace_inverse",
+      "guide_entry": "seeking_immortals:quest_native_star_palace_inverse",
+      "guide_anchor": "chain_star_palace_internal_politics",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_star_palace_inverse",
+          "quest_id": "1000000000001109",
+          "task_id": "1000000000002109"
+        },
+        {
+          "chapter": "seeking_immortals_star_palace_inverse",
+          "quest_id": "1000000000001110",
+          "task_id": "1000000000002110"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "mulan_war_campaign",
+      "stage": 1,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_mulan_war_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000801",
+          "task_id": "3200000000000084"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "mulan_war_campaign",
+      "stage": 2,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_mulan_war_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000801",
+          "task_id": "3200000000000085"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "mulan_war_campaign",
+      "stage": 3,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_mulan_war_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000801",
+          "task_id": "3200000000000086"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "mulan_war_campaign",
+      "stage": 4,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_mulan_war_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000809",
+          "task_id": "3200000000000087"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "mulan_war_campaign",
+      "stage": 5,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_mulan_war_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000809",
+          "task_id": "3200000000000088"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "mulan_war_campaign",
+      "stage": 6,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_mulan_war_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000809",
+          "task_id": "3200000000000089"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "mulan_fashi_path",
+      "stage": 1,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_mulan_fashi_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000810",
+          "task_id": "1000000000001810"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "mulan_fashi_path",
+      "stage": 2,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_mulan_fashi_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000811",
+          "task_id": "1000000000001811"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "mulan_fashi_path",
+      "stage": 3,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_mulan_fashi_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000812",
+          "task_id": "3200000000000092"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "tianlan_defense_line",
+      "stage": 1,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_tianlan_defense_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000804",
+          "task_id": "1000000000001804"
+        },
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000813",
+          "task_id": "1000000000001813"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "tianlan_defense_line",
+      "stage": 2,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_tianlan_defense_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000813",
+          "task_id": "3200000000000094"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "tianlan_defense_line",
+      "stage": 3,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_tianlan_defense_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000814",
+          "task_id": "3200000000000095"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "wutu_mulan_feud_line",
+      "stage": 1,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_wutu_mulan_feud_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000815",
+          "task_id": "1000000000001815"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "wutu_mulan_feud_line",
+      "stage": 2,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_wutu_mulan_feud_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000816",
+          "task_id": "1000000000001816"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "wutu_mulan_feud_line",
+      "stage": 3,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_wutu_mulan_feud_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000817",
+          "task_id": "1000000000001817"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "fallen_demon_expedition",
+      "stage": 1,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_fallen_demon_expedition",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001207",
+          "task_id": "1000000000002207"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "fallen_demon_expedition",
+      "stage": 2,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_fallen_demon_expedition",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001208",
+          "task_id": "1000000000002208"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "fallen_demon_expedition",
+      "stage": 3,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_fallen_demon_expedition",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001208",
+          "task_id": "3200000000000101"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "fallen_demon_expedition",
+      "stage": 4,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_fallen_demon_expedition",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001206",
+          "task_id": "1000000000002206"
+        },
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001209",
+          "task_id": "1000000000002209"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "dajin_wanbao_route",
+      "stage": 1,
+      "chapter": "seeking_immortals_dajin_kunwu",
+      "guide_entry": "seeking_immortals:quest_native_dajin_kunwu",
+      "guide_anchor": "chain_dajin_wanbao_route",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_dajin_kunwu",
+          "quest_id": "1000000000000602",
+          "task_id": "3200000000000103"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "dajin_wanbao_route",
+      "stage": 2,
+      "chapter": "seeking_immortals_dajin_kunwu",
+      "guide_entry": "seeking_immortals:quest_native_dajin_kunwu",
+      "guide_anchor": "chain_dajin_wanbao_route",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_dajin_kunwu",
+          "quest_id": "1000000000000602",
+          "task_id": "3200000000000104"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "dajin_wanbao_route",
+      "stage": 3,
+      "chapter": "seeking_immortals_dajin_kunwu",
+      "guide_entry": "seeking_immortals:quest_native_dajin_kunwu",
+      "guide_anchor": "chain_dajin_wanbao_route",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_dajin_kunwu",
+          "quest_id": "1000000000000602",
+          "task_id": "3200000000000105"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "yin_luo_ghost_sect",
+      "stage": 1,
+      "chapter": "seeking_immortals_fallen_demon_yin",
+      "guide_entry": "seeking_immortals:quest_native_fallen_demon_yin",
+      "guide_anchor": "chain_yin_luo_ghost_sect",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_fallen_demon_yin",
+          "quest_id": "1000000000000710",
+          "task_id": "3200000000000106"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "yin_luo_ghost_sect",
+      "stage": 2,
+      "chapter": "seeking_immortals_fallen_demon_yin",
+      "guide_entry": "seeking_immortals:quest_native_fallen_demon_yin",
+      "guide_anchor": "chain_yin_luo_ghost_sect",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_fallen_demon_yin",
+          "quest_id": "1000000000000710",
+          "task_id": "3200000000000107"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "yin_luo_ghost_sect",
+      "stage": 3,
+      "chapter": "seeking_immortals_fallen_demon_yin",
+      "guide_entry": "seeking_immortals:quest_native_fallen_demon_yin",
+      "guide_anchor": "chain_yin_luo_ghost_sect",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_fallen_demon_yin",
+          "quest_id": "1000000000000710",
+          "task_id": "3200000000000108"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "kunwu_mountain_expedition",
+      "stage": 1,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_kunwu_mountain_expedition",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001202",
+          "task_id": "3200000000000109"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "kunwu_mountain_expedition",
+      "stage": 2,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_kunwu_mountain_expedition",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001203",
+          "task_id": "1000000000002203"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "kunwu_mountain_expedition",
+      "stage": 3,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_kunwu_mountain_expedition",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001204",
+          "task_id": "1000000000002204"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "kunwu_mountain_expedition",
+      "stage": 4,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_kunwu_mountain_expedition",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001202",
+          "task_id": "2000000000002202"
+        },
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001205",
+          "task_id": "1000000000002205"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "tianyuan_merit_path",
+      "stage": 1,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_tianyuan_merit_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000902",
+          "task_id": "3200000000000113"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "tianyuan_merit_path",
+      "stage": 2,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_tianyuan_merit_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000902",
+          "task_id": "3200000000000114"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "tianyuan_merit_path",
+      "stage": 3,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_tianyuan_merit_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000908",
+          "task_id": "1000000000001908"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "spirit_realm_border",
+      "stage": 1,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_spirit_realm_border",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001223",
+          "task_id": "3200000000000116"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "spirit_realm_border",
+      "stage": 2,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_spirit_realm_border",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001225",
+          "task_id": "1000000000002225"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "ghost_sect_ban_arc",
+      "stage": 1,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_ghost_sect_ban_arc",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001213",
+          "task_id": "1000000000002213"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "ghost_sect_ban_arc",
+      "stage": 2,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_ghost_sect_ban_arc",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001214",
+          "task_id": "1000000000002214"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "ghost_sect_ban_arc",
+      "stage": 3,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_ghost_sect_ban_arc",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001212",
+          "task_id": "1000000000002212"
+        },
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001215",
+          "task_id": "1000000000002215"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "fengyuan_explorer",
+      "stage": 1,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_fengyuan_explorer",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000910",
+          "task_id": "3200000000000121"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "fengyuan_explorer",
+      "stage": 2,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_fengyuan_explorer",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000910",
+          "task_id": "3200000000000122"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "fengyuan_explorer",
+      "stage": 3,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_fengyuan_explorer",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000910",
+          "task_id": "3200000000000123"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "barbarian_king_hunt",
+      "stage": 1,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_barbarian_king_hunt",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000931",
+          "task_id": "3200000000000124"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "barbarian_king_hunt",
+      "stage": 2,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_barbarian_king_hunt",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000931",
+          "task_id": "3200000000000125"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "barbarian_king_hunt",
+      "stage": 3,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_barbarian_king_hunt",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000934",
+          "task_id": "1000000000001934"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "human_clan_neutral_intro",
+      "stage": 1,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_human_clan_neutral_intro",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000911",
+          "task_id": "3200000000000127"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "human_clan_neutral_intro",
+      "stage": 2,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_human_clan_neutral_intro",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000912",
+          "task_id": "3200000000000128"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "clan_array_mo_line",
+      "stage": 1,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_clan_array_mo_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000913",
+          "task_id": "1000000000001913"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "clan_array_mo_line",
+      "stage": 2,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_clan_array_mo_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000913",
+          "task_id": "3200000000000130"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "clan_array_mo_line",
+      "stage": 3,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_clan_array_mo_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000913",
+          "task_id": "3200000000000131"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "clan_refinement_yu_line",
+      "stage": 1,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_clan_refinement_yu_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000914",
+          "task_id": "1000000000001914"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "clan_refinement_yu_line",
+      "stage": 2,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_clan_refinement_yu_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000914",
+          "task_id": "3200000000000133"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "clan_refinement_yu_line",
+      "stage": 3,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_clan_refinement_yu_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000914",
+          "task_id": "3200000000000134"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "clan_alchemy_gu_line",
+      "stage": 1,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_clan_alchemy_gu_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000915",
+          "task_id": "3200000000000135"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "clan_alchemy_gu_line",
+      "stage": 2,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_clan_alchemy_gu_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000915",
+          "task_id": "3200000000000136"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "clan_alchemy_gu_line",
+      "stage": 3,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_clan_alchemy_gu_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000915",
+          "task_id": "3200000000000137"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "clan_talisman_ning_line",
+      "stage": 1,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_clan_talisman_ning_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000916",
+          "task_id": "3200000000000138"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "clan_talisman_ning_line",
+      "stage": 2,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_clan_talisman_ning_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000916",
+          "task_id": "3200000000000139"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "clan_talisman_ning_line",
+      "stage": 3,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_clan_talisman_ning_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000916",
+          "task_id": "3200000000000140"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "human_clan_league_hub",
+      "stage": 1,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_human_clan_league_hub",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000911",
+          "task_id": "1000000000001911"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "human_clan_league_hub",
+      "stage": 2,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_human_clan_league_hub",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000912",
+          "task_id": "1000000000001912"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "human_clan_league_hub",
+      "stage": 3,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_human_clan_league_hub",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000917",
+          "task_id": "1000000000001917"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "spirit_eighteen_pilgrimage",
+      "stage": 1,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_spirit_eighteen_pilgrimage",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000918",
+          "task_id": "3200000000000144"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "spirit_eighteen_pilgrimage",
+      "stage": 2,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_spirit_eighteen_pilgrimage",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000918",
+          "task_id": "3200000000000145"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "spirit_eighteen_pilgrimage",
+      "stage": 3,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_spirit_eighteen_pilgrimage",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000918",
+          "task_id": "3200000000000146"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "void_great_cultivation_arc",
+      "stage": 1,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_void_great_cultivation_arc",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001227",
+          "task_id": "1000000000002227"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "void_great_cultivation_arc",
+      "stage": 2,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_void_great_cultivation_arc",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001226",
+          "task_id": "3200000000000148"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "void_great_cultivation_arc",
+      "stage": 3,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_void_great_cultivation_arc",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001230",
+          "task_id": "1000000000002230"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "void_great_cultivation_arc",
+      "stage": 4,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_void_great_cultivation_arc",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001226",
+          "task_id": "1000000000002226"
+        },
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001231",
+          "task_id": "1000000000002231"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "diyuan_depth_delve",
+      "stage": 1,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_diyuan_depth_delve",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001228",
+          "task_id": "3200000000000151"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "diyuan_depth_delve",
+      "stage": 2,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_diyuan_depth_delve",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001228",
+          "task_id": "3200000000000152"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "diyuan_depth_delve",
+      "stage": 3,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_diyuan_depth_delve",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001228",
+          "task_id": "3200000000000153"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "diyuan_depth_delve",
+      "stage": 4,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_diyuan_depth_delve",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001228",
+          "task_id": "2000000000002228"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "mortal_to_spirit_bridge",
+      "stage": 1,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_mortal_to_spirit_bridge",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001220",
+          "task_id": "3200000000000155"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "mortal_to_spirit_bridge",
+      "stage": 2,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_mortal_to_spirit_bridge",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001220",
+          "task_id": "3200000000000156"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "mortal_to_spirit_bridge",
+      "stage": 3,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_mortal_to_spirit_bridge",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001220",
+          "task_id": "1000000000002220"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "inverse_star_recruit",
+      "stage": 1,
+      "chapter": "seeking_immortals_chaotic_sea",
+      "guide_entry": "seeking_immortals:quest_native_chaotic_sea",
+      "guide_anchor": "chain_inverse_star_recruit",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_star_palace_inverse",
+          "quest_id": "1000000000001111",
+          "task_id": "1000000000002111"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "inverse_star_recruit",
+      "stage": 2,
+      "chapter": "seeking_immortals_chaotic_sea",
+      "guide_entry": "seeking_immortals:quest_native_chaotic_sea",
+      "guide_anchor": "chain_inverse_star_recruit",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_star_palace_inverse",
+          "quest_id": "1000000000001112",
+          "task_id": "1000000000002112"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "inverse_star_recruit",
+      "stage": 3,
+      "chapter": "seeking_immortals_chaotic_sea",
+      "guide_entry": "seeking_immortals:quest_native_chaotic_sea",
+      "guide_anchor": "chain_inverse_star_recruit",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_chaotic_sea",
+          "quest_id": "1000000000000506",
+          "task_id": "1000000000001506"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "inverse_star_smuggle_arc",
+      "stage": 1,
+      "chapter": "seeking_immortals_chaotic_sea",
+      "guide_entry": "seeking_immortals:quest_native_chaotic_sea",
+      "guide_anchor": "chain_inverse_star_smuggle_arc",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_star_palace_inverse",
+          "quest_id": "1000000000001113",
+          "task_id": "1000000000002113"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "inverse_star_smuggle_arc",
+      "stage": 2,
+      "chapter": "seeking_immortals_chaotic_sea",
+      "guide_entry": "seeking_immortals:quest_native_chaotic_sea",
+      "guide_anchor": "chain_inverse_star_smuggle_arc",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_star_palace_inverse",
+          "quest_id": "1000000000001115",
+          "task_id": "1000000000002115"
+        },
+        {
+          "chapter": "seeking_immortals_star_palace_inverse",
+          "quest_id": "1000000000001116",
+          "task_id": "1000000000002116"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "inverse_star_smuggle_arc",
+      "stage": 3,
+      "chapter": "seeking_immortals_chaotic_sea",
+      "guide_entry": "seeking_immortals:quest_native_chaotic_sea",
+      "guide_anchor": "chain_inverse_star_smuggle_arc",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_chaotic_sea",
+          "quest_id": "1000000000000508",
+          "task_id": "1000000000001508"
+        },
+        {
+          "chapter": "seeking_immortals_star_palace_inverse",
+          "quest_id": "1000000000001117",
+          "task_id": "1000000000002117"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "inverse_star_void_heist",
+      "stage": 1,
+      "chapter": "seeking_immortals_star_palace_inverse",
+      "guide_entry": "seeking_immortals:quest_native_star_palace_inverse",
+      "guide_anchor": "chain_inverse_star_void_heist",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_star_palace_inverse",
+          "quest_id": "1000000000001121",
+          "task_id": "1000000000002121"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "inverse_star_void_heist",
+      "stage": 2,
+      "chapter": "seeking_immortals_star_palace_inverse",
+      "guide_entry": "seeking_immortals:quest_native_star_palace_inverse",
+      "guide_anchor": "chain_inverse_star_void_heist",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_star_palace_inverse",
+          "quest_id": "1000000000001118",
+          "task_id": "3200000000000165"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "inverse_star_void_heist",
+      "stage": 3,
+      "chapter": "seeking_immortals_star_palace_inverse",
+      "guide_entry": "seeking_immortals:quest_native_star_palace_inverse",
+      "guide_anchor": "chain_inverse_star_void_heist",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_star_palace_inverse",
+          "quest_id": "1000000000001123",
+          "task_id": "1000000000002123"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chaotic_sea_civil_war",
+      "stage": 1,
+      "chapter": "seeking_immortals_chaotic_sea",
+      "guide_entry": "seeking_immortals:quest_native_chaotic_sea",
+      "guide_anchor": "chain_chaotic_sea_civil_war",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_chaotic_sea",
+          "quest_id": "1000000000000516",
+          "task_id": "1000000000001516"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chaotic_sea_civil_war",
+      "stage": 2,
+      "chapter": "seeking_immortals_chaotic_sea",
+      "guide_entry": "seeking_immortals:quest_native_chaotic_sea",
+      "guide_anchor": "chain_chaotic_sea_civil_war",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_chaotic_sea",
+          "quest_id": "1000000000000516",
+          "task_id": "3200000000000168"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chaotic_sea_civil_war",
+      "stage": 3,
+      "chapter": "seeking_immortals_chaotic_sea",
+      "guide_entry": "seeking_immortals:quest_native_chaotic_sea",
+      "guide_anchor": "chain_chaotic_sea_civil_war",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_star_palace_inverse",
+          "quest_id": "1000000000001119",
+          "task_id": "1000000000002119"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chaotic_sea_civil_war",
+      "stage": 4,
+      "chapter": "seeking_immortals_chaotic_sea",
+      "guide_entry": "seeking_immortals:quest_native_chaotic_sea",
+      "guide_anchor": "chain_chaotic_sea_civil_war",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_chaotic_sea",
+          "quest_id": "1000000000000516",
+          "task_id": "3200000000000170"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chaotic_sea_civil_war",
+      "stage": 5,
+      "chapter": "seeking_immortals_chaotic_sea",
+      "guide_entry": "seeking_immortals:quest_native_chaotic_sea",
+      "guide_anchor": "chain_chaotic_sea_civil_war",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_chaotic_sea",
+          "quest_id": "1000000000000518",
+          "task_id": "1000000000001518"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chain_seven_sect_outer_to_inner",
+      "stage": 1,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_chain_seven_sect_outer_to_inner",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_tiannan_seven_sects",
+          "quest_id": "1000000000001001",
+          "task_id": "1000000000002001"
+        },
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001216",
+          "task_id": "1000000000002216"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chain_seven_sect_outer_to_inner",
+      "stage": 2,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_chain_seven_sect_outer_to_inner",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001218",
+          "task_id": "1000000000002218"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chain_seven_sect_outer_to_inner",
+      "stage": 3,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_chain_seven_sect_outer_to_inner",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001219",
+          "task_id": "1000000000002219"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chain_mulan_war_campaign",
+      "stage": 1,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_chain_mulan_war_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000801",
+          "task_id": "3200000000000175"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chain_mulan_war_campaign",
+      "stage": 2,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_chain_mulan_war_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000806",
+          "task_id": "1000000000001806"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chain_mulan_war_campaign",
+      "stage": 3,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_chain_mulan_war_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000807",
+          "task_id": "1000000000001807"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chain_mulan_war_campaign",
+      "stage": 4,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_chain_mulan_war_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000809",
+          "task_id": "3200000000000178"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chain_void_palace_expedition",
+      "stage": 1,
+      "chapter": "seeking_immortals_star_palace_inverse",
+      "guide_entry": "seeking_immortals:quest_native_star_palace_inverse",
+      "guide_anchor": "chain_chain_void_palace_expedition",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_star_palace_inverse",
+          "quest_id": "1000000000001121",
+          "task_id": "3200000000000179"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chain_void_palace_expedition",
+      "stage": 2,
+      "chapter": "seeking_immortals_star_palace_inverse",
+      "guide_entry": "seeking_immortals:quest_native_star_palace_inverse",
+      "guide_anchor": "chain_chain_void_palace_expedition",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_star_palace_inverse",
+          "quest_id": "1000000000001121",
+          "task_id": "3200000000000180"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chain_void_palace_expedition",
+      "stage": 3,
+      "chapter": "seeking_immortals_star_palace_inverse",
+      "guide_entry": "seeking_immortals:quest_native_star_palace_inverse",
+      "guide_anchor": "chain_chain_void_palace_expedition",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_star_palace_inverse",
+          "quest_id": "1000000000001123",
+          "task_id": "3200000000000181"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chain_void_palace_expedition",
+      "stage": 4,
+      "chapter": "seeking_immortals_star_palace_inverse",
+      "guide_entry": "seeking_immortals:quest_native_star_palace_inverse",
+      "guide_anchor": "chain_chain_void_palace_expedition",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_star_palace_inverse",
+          "quest_id": "1000000000001123",
+          "task_id": "3200000000000182"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chain_ascension_spirit_world",
+      "stage": 1,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_chain_ascension_spirit_world",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001221",
+          "task_id": "1000000000002221"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chain_ascension_spirit_world",
+      "stage": 2,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_chain_ascension_spirit_world",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001221",
+          "task_id": "3200000000000184"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chain_ascension_spirit_world",
+      "stage": 3,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_chain_ascension_spirit_world",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001221",
+          "task_id": "3200000000000185"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chain_ascension_spirit_world",
+      "stage": 4,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_chain_ascension_spirit_world",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001221",
+          "task_id": "3200000000000186"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chain_ascension_spirit_world",
+      "stage": 5,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_chain_ascension_spirit_world",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001221",
+          "task_id": "3200000000000187"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chain_ascension_spirit_world",
+      "stage": 6,
+      "chapter": "seeking_immortals_ascension_border",
+      "guide_entry": "seeking_immortals:quest_native_ascension_border",
+      "guide_anchor": "chain_chain_ascension_spirit_world",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_ascension_border",
+          "quest_id": "1000000000001221",
+          "task_id": "3200000000000188"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chain_tianyuan_enlist",
+      "stage": 1,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_chain_tianyuan_enlist",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000902",
+          "task_id": "3200000000000189"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chain_tianyuan_enlist",
+      "stage": 2,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_chain_tianyuan_enlist",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000906",
+          "task_id": "1000000000001906"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chain_tianyuan_enlist",
+      "stage": 3,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_chain_tianyuan_enlist",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000902",
+          "task_id": "3200000000000191"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "chain_tianyuan_enlist",
+      "stage": 4,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_chain_tianyuan_enlist",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000902",
+          "task_id": "3200000000000192"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "blood_forbidden_campaign",
+      "stage": 1,
+      "chapter": "seeking_immortals_main",
+      "guide_entry": "seeking_immortals:quest_native_main",
+      "guide_anchor": "chain_blood_forbidden_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_main",
+          "quest_id": "1000000000000204",
+          "task_id": "3200000000000193"
+        }
+      ],
+      "write_quest_id": "1000000000000301"
+    },
+    {
+      "chain": "blood_forbidden_campaign",
+      "stage": 2,
+      "chapter": "seeking_immortals_main",
+      "guide_entry": "seeking_immortals:quest_native_main",
+      "guide_anchor": "chain_blood_forbidden_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_main",
+          "quest_id": "1000000000000302",
+          "task_id": "1000000000001302"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "blood_forbidden_campaign",
+      "stage": 3,
+      "chapter": "seeking_immortals_main",
+      "guide_entry": "seeking_immortals:quest_native_main",
+      "guide_anchor": "chain_blood_forbidden_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_main",
+          "quest_id": "1000000000000303",
+          "task_id": "1000000000001303"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "blood_forbidden_campaign",
+      "stage": 4,
+      "chapter": "seeking_immortals_main",
+      "guide_entry": "seeking_immortals:quest_native_main",
+      "guide_anchor": "chain_blood_forbidden_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_main",
+          "quest_id": "1000000000000304",
+          "task_id": "1000000000001304"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "blood_forbidden_campaign",
+      "stage": 5,
+      "chapter": "seeking_immortals_main",
+      "guide_entry": "seeking_immortals:quest_native_main",
+      "guide_anchor": "chain_blood_forbidden_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_main",
+          "quest_id": "1000000000000305",
+          "task_id": "1000000000001305"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "blood_forbidden_campaign",
+      "stage": 6,
+      "chapter": "seeking_immortals_main",
+      "guide_entry": "seeking_immortals:quest_native_main",
+      "guide_anchor": "chain_blood_forbidden_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_main",
+          "quest_id": "1000000000000305",
+          "task_id": "3200000000000198"
+        }
+      ],
+      "write_quest_id": "1000000000000306"
+    },
+    {
+      "chain": "void_palace_campaign",
+      "stage": 1,
+      "chapter": "seeking_immortals_chaotic_sea",
+      "guide_entry": "seeking_immortals:quest_native_chaotic_sea",
+      "guide_anchor": "chain_void_palace_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_chaotic_sea",
+          "quest_id": "1000000000000510",
+          "task_id": "3200000000000199"
+        }
+      ],
+      "write_quest_id": "1000000000000510"
+    },
+    {
+      "chain": "void_palace_campaign",
+      "stage": 2,
+      "chapter": "seeking_immortals_chaotic_sea",
+      "guide_entry": "seeking_immortals:quest_native_chaotic_sea",
+      "guide_anchor": "chain_void_palace_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_chaotic_sea",
+          "quest_id": "1000000000000511",
+          "task_id": "3200000000000200"
+        }
+      ],
+      "write_quest_id": "1000000000000511"
+    },
+    {
+      "chain": "void_palace_campaign",
+      "stage": 3,
+      "chapter": "seeking_immortals_chaotic_sea",
+      "guide_entry": "seeking_immortals:quest_native_chaotic_sea",
+      "guide_anchor": "chain_void_palace_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_chaotic_sea",
+          "quest_id": "1000000000000512",
+          "task_id": "1000000000001512"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "void_palace_campaign",
+      "stage": 4,
+      "chapter": "seeking_immortals_chaotic_sea",
+      "guide_entry": "seeking_immortals:quest_native_chaotic_sea",
+      "guide_anchor": "chain_void_palace_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_chaotic_sea",
+          "quest_id": "1000000000000513",
+          "task_id": "1000000000001513"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "void_palace_campaign",
+      "stage": 5,
+      "chapter": "seeking_immortals_chaotic_sea",
+      "guide_entry": "seeking_immortals:quest_native_chaotic_sea",
+      "guide_anchor": "chain_void_palace_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_chaotic_sea",
+          "quest_id": "1000000000000514",
+          "task_id": "3200000000000203"
+        }
+      ],
+      "write_quest_id": "1000000000000514"
+    },
+    {
+      "chain": "void_palace_campaign",
+      "stage": 6,
+      "chapter": "seeking_immortals_chaotic_sea",
+      "guide_entry": "seeking_immortals:quest_native_chaotic_sea",
+      "guide_anchor": "chain_void_palace_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_chaotic_sea",
+          "quest_id": "1000000000000515",
+          "task_id": "1000000000001515"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "fallen_demon_campaign",
+      "stage": 1,
+      "chapter": "seeking_immortals_fallen_demon_yin",
+      "guide_entry": "seeking_immortals:quest_native_fallen_demon_yin",
+      "guide_anchor": "chain_fallen_demon_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_fallen_demon_yin",
+          "quest_id": "1000000000000701",
+          "task_id": "1000000000001701"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "fallen_demon_campaign",
+      "stage": 2,
+      "chapter": "seeking_immortals_fallen_demon_yin",
+      "guide_entry": "seeking_immortals:quest_native_fallen_demon_yin",
+      "guide_anchor": "chain_fallen_demon_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_fallen_demon_yin",
+          "quest_id": "1000000000000701",
+          "task_id": "3200000000000206"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "fallen_demon_campaign",
+      "stage": 3,
+      "chapter": "seeking_immortals_fallen_demon_yin",
+      "guide_entry": "seeking_immortals:quest_native_fallen_demon_yin",
+      "guide_anchor": "chain_fallen_demon_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_fallen_demon_yin",
+          "quest_id": "1000000000000703",
+          "task_id": "1000000000001703"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "fallen_demon_campaign",
+      "stage": 4,
+      "chapter": "seeking_immortals_fallen_demon_yin",
+      "guide_entry": "seeking_immortals:quest_native_fallen_demon_yin",
+      "guide_anchor": "chain_fallen_demon_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_fallen_demon_yin",
+          "quest_id": "1000000000000705",
+          "task_id": "3200000000000208"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "fallen_demon_campaign",
+      "stage": 5,
+      "chapter": "seeking_immortals_fallen_demon_yin",
+      "guide_entry": "seeking_immortals:quest_native_fallen_demon_yin",
+      "guide_anchor": "chain_fallen_demon_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_fallen_demon_yin",
+          "quest_id": "1000000000000707",
+          "task_id": "1000000000001707"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "kunwu_mountain_campaign",
+      "stage": 1,
+      "chapter": "seeking_immortals_dajin_kunwu",
+      "guide_entry": "seeking_immortals:quest_native_dajin_kunwu",
+      "guide_anchor": "chain_kunwu_mountain_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_dajin_kunwu",
+          "quest_id": "1000000000000607",
+          "task_id": "3200000000000210"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "kunwu_mountain_campaign",
+      "stage": 2,
+      "chapter": "seeking_immortals_dajin_kunwu",
+      "guide_entry": "seeking_immortals:quest_native_dajin_kunwu",
+      "guide_anchor": "chain_kunwu_mountain_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_dajin_kunwu",
+          "quest_id": "1000000000000608",
+          "task_id": "3200000000000211"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "kunwu_mountain_campaign",
+      "stage": 3,
+      "chapter": "seeking_immortals_dajin_kunwu",
+      "guide_entry": "seeking_immortals:quest_native_dajin_kunwu",
+      "guide_anchor": "chain_kunwu_mountain_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_dajin_kunwu",
+          "quest_id": "1000000000000609",
+          "task_id": "3200000000000212"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "kunwu_mountain_campaign",
+      "stage": 4,
+      "chapter": "seeking_immortals_dajin_kunwu",
+      "guide_entry": "seeking_immortals:quest_native_dajin_kunwu",
+      "guide_anchor": "chain_kunwu_mountain_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_dajin_kunwu",
+          "quest_id": "1000000000000611",
+          "task_id": "3200000000000213"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "kunwu_mountain_campaign",
+      "stage": 5,
+      "chapter": "seeking_immortals_dajin_kunwu",
+      "guide_entry": "seeking_immortals:quest_native_dajin_kunwu",
+      "guide_anchor": "chain_kunwu_mountain_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_dajin_kunwu",
+          "quest_id": "1000000000000612",
+          "task_id": "3200000000000214"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "nether_river_campaign",
+      "stage": 1,
+      "chapter": "seeking_immortals_fallen_demon_yin",
+      "guide_entry": "seeking_immortals:quest_native_fallen_demon_yin",
+      "guide_anchor": "chain_nether_river_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_fallen_demon_yin",
+          "quest_id": "1000000000000712",
+          "task_id": "3200000000000215"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "nether_river_campaign",
+      "stage": 2,
+      "chapter": "seeking_immortals_fallen_demon_yin",
+      "guide_entry": "seeking_immortals:quest_native_fallen_demon_yin",
+      "guide_anchor": "chain_nether_river_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_fallen_demon_yin",
+          "quest_id": "1000000000000712",
+          "task_id": "3200000000000216"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "nether_river_campaign",
+      "stage": 3,
+      "chapter": "seeking_immortals_fallen_demon_yin",
+      "guide_entry": "seeking_immortals:quest_native_fallen_demon_yin",
+      "guide_anchor": "chain_nether_river_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_fallen_demon_yin",
+          "quest_id": "1000000000000712",
+          "task_id": "3200000000000217"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "nether_river_campaign",
+      "stage": 4,
+      "chapter": "seeking_immortals_fallen_demon_yin",
+      "guide_entry": "seeking_immortals:quest_native_fallen_demon_yin",
+      "guide_anchor": "chain_nether_river_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_fallen_demon_yin",
+          "quest_id": "1000000000000717",
+          "task_id": "3200000000000218"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "nether_river_campaign",
+      "stage": 5,
+      "chapter": "seeking_immortals_fallen_demon_yin",
+      "guide_entry": "seeking_immortals:quest_native_fallen_demon_yin",
+      "guide_anchor": "chain_nether_river_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_fallen_demon_yin",
+          "quest_id": "1000000000000717",
+          "task_id": "3200000000000219"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "diyuan_campaign",
+      "stage": 1,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_diyuan_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000926",
+          "task_id": "3200000000000220"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "diyuan_campaign",
+      "stage": 2,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_diyuan_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000927",
+          "task_id": "3200000000000221"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "diyuan_campaign",
+      "stage": 3,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_diyuan_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000928",
+          "task_id": "1000000000001928"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "diyuan_campaign",
+      "stage": 4,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_diyuan_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000929",
+          "task_id": "3200000000000223"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "diyuan_campaign",
+      "stage": 5,
+      "chapter": "seeking_immortals_spirit_realm_service",
+      "guide_entry": "seeking_immortals:quest_native_spirit_realm_service",
+      "guide_anchor": "chain_diyuan_campaign",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_spirit_realm_service",
+          "quest_id": "1000000000000930",
+          "task_id": "1000000000001930"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "dajin_righteous_demon_line",
+      "stage": 1,
+      "chapter": "seeking_immortals_dajin_kunwu",
+      "guide_entry": "seeking_immortals:quest_native_dajin_kunwu",
+      "guide_anchor": "chain_dajin_righteous_demon_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_dajin_kunwu",
+          "quest_id": "1000000000000601",
+          "task_id": "1000000000001601"
+        },
+        {
+          "chapter": "seeking_immortals_dajin_kunwu",
+          "quest_id": "1000000000000604",
+          "task_id": "1000000000001604"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "dajin_righteous_demon_line",
+      "stage": 2,
+      "chapter": "seeking_immortals_dajin_kunwu",
+      "guide_entry": "seeking_immortals:quest_native_dajin_kunwu",
+      "guide_anchor": "chain_dajin_righteous_demon_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_dajin_kunwu",
+          "quest_id": "1000000000000604",
+          "task_id": "3200000000000226"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "dajin_righteous_demon_line",
+      "stage": 3,
+      "chapter": "seeking_immortals_dajin_kunwu",
+      "guide_entry": "seeking_immortals:quest_native_dajin_kunwu",
+      "guide_anchor": "chain_dajin_righteous_demon_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_dajin_kunwu",
+          "quest_id": "1000000000000606",
+          "task_id": "1000000000001606"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "dajin_righteous_demon_line",
+      "stage": 4,
+      "chapter": "seeking_immortals_dajin_kunwu",
+      "guide_entry": "seeking_immortals:quest_native_dajin_kunwu",
+      "guide_anchor": "chain_dajin_righteous_demon_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_dajin_kunwu",
+          "quest_id": "1000000000000604",
+          "task_id": "3200000000000228"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "dajin_righteous_demon_line",
+      "stage": 5,
+      "chapter": "seeking_immortals_dajin_kunwu",
+      "guide_entry": "seeking_immortals:quest_native_dajin_kunwu",
+      "guide_anchor": "chain_dajin_righteous_demon_line",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_dajin_kunwu",
+          "quest_id": "1000000000000604",
+          "task_id": "3200000000000229"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "yanyue_illusion_path",
+      "stage": 1,
+      "chapter": "seeking_immortals_tiannan_seven_sects",
+      "guide_entry": "seeking_immortals:quest_native_tiannan_seven_sects",
+      "guide_anchor": "chain_yanyue_illusion_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_tiannan_seven_sects",
+          "quest_id": "1000000000001015",
+          "task_id": "1000000000002015"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "yanyue_illusion_path",
+      "stage": 2,
+      "chapter": "seeking_immortals_tiannan_seven_sects",
+      "guide_entry": "seeking_immortals:quest_native_tiannan_seven_sects",
+      "guide_anchor": "chain_yanyue_illusion_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_tiannan_seven_sects",
+          "quest_id": "1000000000001016",
+          "task_id": "1000000000002016"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "yanyue_illusion_path",
+      "stage": 3,
+      "chapter": "seeking_immortals_tiannan_seven_sects",
+      "guide_entry": "seeking_immortals:quest_native_tiannan_seven_sects",
+      "guide_anchor": "chain_yanyue_illusion_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_tiannan_seven_sects",
+          "quest_id": "1000000000001017",
+          "task_id": "1000000000002017"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "yanyue_illusion_path",
+      "stage": 4,
+      "chapter": "seeking_immortals_tiannan_seven_sects",
+      "guide_entry": "seeking_immortals:quest_native_tiannan_seven_sects",
+      "guide_anchor": "chain_yanyue_illusion_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_tiannan_seven_sects",
+          "quest_id": "1000000000001018",
+          "task_id": "1000000000002018"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "tianfu_talisman_path",
+      "stage": 1,
+      "chapter": "seeking_immortals_tiannan_seven_sects",
+      "guide_entry": "seeking_immortals:quest_native_tiannan_seven_sects",
+      "guide_anchor": "chain_tianfu_talisman_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_tiannan_seven_sects",
+          "quest_id": "1000000000001019",
+          "task_id": "3200000000000234"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "tianfu_talisman_path",
+      "stage": 2,
+      "chapter": "seeking_immortals_tiannan_seven_sects",
+      "guide_entry": "seeking_immortals:quest_native_tiannan_seven_sects",
+      "guide_anchor": "chain_tianfu_talisman_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_tiannan_seven_sects",
+          "quest_id": "1000000000001020",
+          "task_id": "3200000000000235"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "tianfu_talisman_path",
+      "stage": 3,
+      "chapter": "seeking_immortals_tiannan_seven_sects",
+      "guide_entry": "seeking_immortals:quest_native_tiannan_seven_sects",
+      "guide_anchor": "chain_tianfu_talisman_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_tiannan_seven_sects",
+          "quest_id": "1000000000001021",
+          "task_id": "1000000000002021"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "tianfu_talisman_path",
+      "stage": 4,
+      "chapter": "seeking_immortals_tiannan_seven_sects",
+      "guide_entry": "seeking_immortals:quest_native_tiannan_seven_sects",
+      "guide_anchor": "chain_tianfu_talisman_path",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_tiannan_seven_sects",
+          "quest_id": "1000000000001022",
+          "task_id": "1000000000002022"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "demonic_six_expanded",
+      "stage": 1,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_demonic_six_expanded",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000818",
+          "task_id": "3200000000000238"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "demonic_six_expanded",
+      "stage": 2,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_demonic_six_expanded",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000818",
+          "task_id": "3200000000000239"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "demonic_six_expanded",
+      "stage": 3,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_demonic_six_expanded",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000819",
+          "task_id": "3200000000000240"
+        }
+      ],
+      "write_quest_id": null
+    },
+    {
+      "chain": "demonic_six_expanded",
+      "stage": 4,
+      "chapter": "seeking_immortals_mulan_demonic",
+      "guide_entry": "seeking_immortals:quest_native_mulan_demonic",
+      "guide_anchor": "chain_demonic_six_expanded",
+      "mirrors": [
+        {
+          "chapter": "seeking_immortals_mulan_demonic",
+          "quest_id": "1000000000000823",
+          "task_id": "1000000000001823"
+        }
+      ],
+      "write_quest_id": null
+    }
+  ]
+}

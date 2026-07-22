@@ -1,0 +1,36 @@
+{
+  "name": "Chapter 5: Deity Transformation Tribulation",
+  "category": "seeking_immortals:quests",
+  "icon": "minecraft:writable_book",
+  "sortnum": 15,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Chapter Overview",
+      "text": "Gather Fallen Demon Valley resources, complete the fire-prison route, and prepare for tribulation and ascension.$(br2)This chapter contains 3 authored quest lines. The index describes routes and does not replace server progress."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Quest Line Index",
+      "text": "$(l:quest_story_chapter_5_deity_transformation#line_zhuimo_token)Fallen Demon Token$()$(br)$(l:quest_story_chapter_5_deity_transformation#line_lingzhu_fruit_run)Spirit Candle Fruit Contest$()$(br)$(l:quest_story_chapter_5_deity_transformation#line_deity_huoyu_path)Deity Transformation: Fire-Prison Preparations$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Fallen Demon Token",
+      "anchor": "line_zhuimo_token",
+      "text": "A token grants entry, but entering without fire resistance buys only a grave."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Spirit Candle Fruit Contest",
+      "anchor": "line_lingzhu_fruit_run",
+      "text": "There is one fruit tree, and its once-per-life fortune is not an infinite trade good."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Deity Transformation: Fire-Prison Preparations",
+      "anchor": "line_deity_huoyu_path",
+      "text": "Balance cold flame, gather limited essence fire, and prepare a unique return-to-yang route before ascension."
+    }
+  ]
+}

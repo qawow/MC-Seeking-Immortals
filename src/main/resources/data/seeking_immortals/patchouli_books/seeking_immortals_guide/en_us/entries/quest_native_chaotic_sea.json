@@ -1,0 +1,68 @@
+{
+  "name": "Chaotic Sea and Void Heaven Palace",
+  "category": "seeking_immortals:quests",
+  "icon": "seeking_immortals:mortal_quest_token",
+  "sortnum": 31,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Projection Notes",
+      "text": "This volume matches the FTB Quests chapter 'Chaotic Sea and Void Heaven Palace' and contains 5 native quest lines. Stage order comes from native quest data; completion and rewards remain server-authoritative."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Quest Line Index 1/2",
+      "text": "$(l:quest_native_chaotic_sea#chain_chaotic_sea_politics)Chaotic Sea Politics$()$(br)$(l:quest_native_chaotic_sea#chain_void_palace_campaign)Void Heaven Palace Treasure Hunt$()$(br)$(l:quest_native_chaotic_sea#chain_inverse_star_recruit)Join the Inverse Star Alliance$()$(br)$(l:quest_native_chaotic_sea#chain_inverse_star_smuggle_arc)Smuggling Supply Route$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Quest Line Index 2/2",
+      "text": "$(l:quest_native_chaotic_sea#chain_chaotic_sea_civil_war)Star Palace-Inverse Star Conflict$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Chaotic Sea Politics 1/2",
+      "anchor": "chain_chaotic_sea_politics",
+      "text": "1. Star Palace Patrol$(br)2. Inverse Star Contact$(br)3. Stolen Jade Slip"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Chaotic Sea Politics 2/2",
+      "text": "4. Inverse Star Sabotage$(br)5. Pirate Bounty$(br)6. Void Palace Key"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Void Heaven Palace Treasure Hunt 1/2",
+      "anchor": "chain_void_palace_campaign",
+      "text": "1. Void Palace Cycle Notice$(br)2. Void Key Fragment Hunt$(br)3. Void Palace Outer Hall"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Void Heaven Palace Treasure Hunt 2/2",
+      "text": "4. Void Palace Herb Garden$(br)5. Void Palace Cold Jade Hall$(br)6. Void Palace Treasury"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Join the Inverse Star Alliance",
+      "anchor": "chain_inverse_star_recruit",
+      "text": "1. Inverse Star Contact Rumor$(br)2. Inverse Star Cipher Trial$(br)3. Inverse Star Oath"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Smuggling Supply Route",
+      "anchor": "chain_inverse_star_smuggle_arc",
+      "text": "1. Inverse Star Smuggler Pack$(br)2. Star Palace Patrol Dodge$(br)3. Void Palace Intel Sell"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Star Palace-Inverse Star Conflict 1/2",
+      "anchor": "chain_chaotic_sea_civil_war",
+      "text": "1. Star Palace Patrol Quest$(br)2. Inverse Star Ambush Event$(br)3. Star Palace Enforcement Raid"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Star Palace-Inverse Star Conflict 2/2",
+      "text": "4. Inverse Star Smuggle Run$(br)5. Chaotic Sea Neutral Ending Optional"
+    }
+  ]
+}

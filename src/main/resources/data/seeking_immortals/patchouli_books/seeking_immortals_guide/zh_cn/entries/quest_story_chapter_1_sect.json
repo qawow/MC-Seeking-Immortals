@@ -1,0 +1,48 @@
+{
+  "name": "第1章 · 宗门修行",
+  "category": "seeking_immortals:quests",
+  "icon": "minecraft:writable_book",
+  "sortnum": 11,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "章节概览",
+      "text": "黄枫谷式外门：采药、丹童、贡献点换资源。$(br2)本章收录 5 条已撰写剧情线；索引只说明路线，不替代服务器进度。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "剧情线索引",
+      "text": "$(l:quest_story_chapter_1_sect#line_huangfeng_blood_quota)黄枫谷·血色禁地配额$()$(br)$(l:quest_story_chapter_1_sect#line_mulan_tiannan_war_campaign)慕兰—天南战争战役$()$(br)$(l:quest_story_chapter_1_sect#line_mulan_scout_clash)草原斥候$()$(br)$(l:quest_story_chapter_1_sect#line_fashi_soul_array_battle)法士护族阵$()$(br)$(l:quest_story_chapter_1_sect#line_holy_bird_blessing_quest)圣禽祈福$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "黄枫谷·血色禁地配额",
+      "anchor": "line_huangfeng_blood_quota",
+      "text": "贡献堆出来的入场券，不是人情求来的。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "慕兰—天南战争战役",
+      "anchor": "line_mulan_tiannan_war_campaign",
+      "text": "风砂里的军功与符火。边关一锁，配额与传送都要让路。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "草原斥候",
+      "anchor": "line_mulan_scout_clash",
+      "text": "慕兰战役子链。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "法士护族阵",
+      "anchor": "line_fashi_soul_array_battle",
+      "text": "慕兰战役子链。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "圣禽祈福",
+      "anchor": "line_holy_bird_blessing_quest",
+      "text": "慕兰战役子链。"
+    }
+  ]
+}

@@ -5,15 +5,29 @@ import com.xunxian.seekingimmortals.compat.ModCompat;
 import com.xunxian.seekingimmortals.sect.SectWarService;
 import com.xunxian.seekingimmortals.worldpack.ReputationService;
 import dev.architectury.event.EventResult;
+import dev.ftb.mods.ftblibrary.ui.CustomClickEvent;
 import dev.ftb.mods.ftbquests.events.CustomTaskEvent;
 import dev.ftb.mods.ftbquests.events.ObjectCompletedEvent;
+import dev.ftb.mods.ftbquests.quest.Quest;
+import dev.ftb.mods.ftbquests.quest.TeamData;
 import dev.ftb.mods.ftbquests.quest.task.CustomTask;
+import dev.ftb.mods.ftbquests.quest.task.Task;
+import dev.ftb.mods.ftbteams.api.FTBTeamsAPI;
+import dev.ftb.mods.ftbteams.api.Team;
+import dev.ftb.mods.ftbteams.api.TeamManager;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 import java.util.Set;
+import java.util.UUID;
 
 /**
  * Wave488: FTB CustomTaskEvent hooks for Seeking Immortals authority checks.
@@ -23,12 +37,26 @@ import java.util.Set;
  *   <li>{@code si_war_active} — complete while a sect war window is open</li>
  *   <li>{@code si_rep_<faction>_<min>} — require ReputationService.get(player, faction) &gt;= min</li>
  *   <li>{@code si_native_<chain>_<stage>} — mirror authoritative native text-quest progress</li>
+ *   <li>{@code si_native_ready_<chain>_<stage>} — transactionally apply one explicit native transition</li>
  * </ul>
  * Multiple tags are AND-combined. Unknown {@code si_*} tags fail closed.
  */
 public final class FtbCustomTaskHooks {
     public static final String TAG_WAR_ACTIVE = "si_war_active";
     public static final String TAG_REP_PREFIX = "si_rep_";
+    private static final ResourceLocation GUIDE_BOOK = new ResourceLocation(
+            SeekingImmortalsMod.MODID, "seeking_immortals_guide");
+    private static final Set<String> GUIDE_ENTRIES = Set.of(
+            "quest_native_main",
+            "quest_native_chaotic_sea",
+            "quest_native_dajin_kunwu",
+            "quest_native_fallen_demon_yin",
+            "quest_native_mulan_demonic",
+            "quest_native_spirit_realm_service",
+            "quest_native_tiannan_seven_sects",
+            "quest_native_star_palace_inverse",
+            "quest_native_ascension_border"
+    );
 
     private static boolean registered;
 
@@ -49,29 +77,60 @@ public final class FtbCustomTaskHooks {
             }
             task.setCheckTimer(20); // once per second while incomplete
             task.setMaxProgress(1L);
-            task.setCheck((data, player) -> {
-                if (player == null || data == null) {
-                    return;
-                }
-                if (evaluate(player, specs)) {
-                    data.setProgress(1L);
-                }
-            });
+            task.setCheck((data, player) -> checkCustomTask(data, player, specs));
             SeekingImmortalsMod.LOGGER.debug("Bound FTB custom task {} with {} SI specs",
                     task.getCodeString(), specs.size());
             return EventResult.pass();
         });
         ObjectCompletedEvent.QUEST.register(event -> {
-            List<FtbNativeQuestSync.Target> targets = FtbNativeQuestSync.writeTargets(event.getQuest().getTags());
-            if (targets.size() != 1) {
+            FtbNativeQuestSync.WriteIntentValidation validation =
+                    FtbNativeQuestSync.validateWriteIntent(event.getQuest().getTags());
+            if (validation.status() == FtbNativeQuestSync.WriteIntentStatus.NO_WRITE_TAG) {
                 return EventResult.pass();
             }
-            FtbNativeQuestSync.singleOnlineMember(event.getOnlineMembers())
-                    .ifPresent(player -> FtbNativeQuestSync.applyWrite(player, targets.get(0)));
+            if (!validation.valid() || !isAuthoritySafeQuest(event.getQuest())) {
+                SeekingImmortalsMod.LOGGER.warn("Rejected unsafe FTB native write fallback for quest {} ({})",
+                        event.getQuest().getCodeString(), validation.status());
+                return EventResult.pass();
+            }
+            singleAuthorityPlayer(event.getData(), event.getOnlineMembers()).ifPresent(player -> {
+                FtbNativeQuestSync.Target target = validation.intent().target();
+                if (!FtbNativeQuestSync.applyWrite(player, target)) {
+                    SeekingImmortalsMod.LOGGER.warn("Rejected FTB native write fallback {}:{} for {}",
+                            target.chainId(), target.stage(), player.getGameProfile().getName());
+                }
+            });
             return EventResult.pass();
         });
+        if (FMLEnvironment.dist == Dist.CLIENT && ModCompat.PATCHOULI_LOADED) {
+            CustomClickEvent.EVENT.register(FtbCustomTaskHooks::openPatchouliGuide);
+        }
         registered = true;
         SeekingImmortalsMod.LOGGER.info("Registered FTB custom-task and native quest-sync hooks for Seeking Immortals");
+    }
+
+    private static EventResult openPatchouliGuide(CustomClickEvent event) {
+        if (event == null || !isGuideEntry(event.id())) {
+            return EventResult.pass();
+        }
+        try {
+            Class<?> apiClass = Class.forName("vazkii.patchouli.api.PatchouliAPI");
+            Class<?> apiInterface = Class.forName("vazkii.patchouli.api.PatchouliAPI$IPatchouliAPI");
+            Object api = apiClass.getMethod("get").invoke(null);
+            Method openEntry = apiInterface.getMethod("openBookEntry",
+                    ResourceLocation.class, ResourceLocation.class, int.class);
+            openEntry.invoke(api, GUIDE_BOOK, event.id(), 0);
+            return EventResult.interruptTrue();
+        } catch (ReflectiveOperationException | RuntimeException | LinkageError exception) {
+            SeekingImmortalsMod.LOGGER.error("Failed to open Patchouli entry {} from FTB Quests",
+                    event.id(), exception);
+            return EventResult.pass();
+        }
+    }
+
+    static boolean isGuideEntry(ResourceLocation id) {
+        return id != null && SeekingImmortalsMod.MODID.equals(id.getNamespace())
+                && GUIDE_ENTRIES.contains(id.getPath());
     }
 
     /** Pure evaluation used by runtime checks and unit tests. */
@@ -85,6 +144,82 @@ public final class FtbCustomTaskHooks {
             }
         }
         return true;
+    }
+
+    private static void checkCustomTask(CustomTask.Data data, ServerPlayer player, List<Spec> specs) {
+        if (player == null || data == null || specs == null || specs.isEmpty() || !evaluate(player, specs)) {
+            return;
+        }
+        List<Spec.NativeReady> ready = specs.stream()
+                .filter(Spec.NativeReady.class::isInstance)
+                .map(Spec.NativeReady.class::cast)
+                .toList();
+        if (ready.isEmpty()) {
+            data.setProgress(1L);
+            return;
+        }
+        if (ready.size() != 1 || !isAuthoritySafeQuest(data.task().getQuest())) {
+            return;
+        }
+        FtbNativeQuestSync.Target readyTarget = new FtbNativeQuestSync.Target(
+                ready.get(0).chainId(), ready.get(0).stage());
+        FtbNativeQuestSync.WriteIntentValidation validation =
+                FtbNativeQuestSync.validateWriteIntent(data.task().getQuest().getTags());
+        if (!validation.valid() || !validation.intent().target().equals(readyTarget)) {
+            return;
+        }
+        Optional<ServerPlayer> authority = singleAuthorityPlayer(
+                data.teamData(), data.teamData().getOnlineMembers());
+        if (authority.isEmpty() || !authority.get().getUUID().equals(player.getUUID())) {
+            return;
+        }
+        if (FtbNativeQuestSync.applyWrite(player, readyTarget)) {
+            data.setProgress(1L);
+        }
+    }
+
+    private static boolean isAuthoritySafeQuest(Quest quest) {
+        return quest != null && quest.getRewards().isEmpty()
+                && quest.getTasks().stream().noneMatch(Task::consumesResources);
+    }
+
+    private static Optional<ServerPlayer> singleAuthorityPlayer(TeamData data,
+                                                                 Collection<ServerPlayer> reportedOnline) {
+        if (data == null || reportedOnline == null || data.getTeamId() == null) {
+            return Optional.empty();
+        }
+        try {
+            if (!FTBTeamsAPI.api().isManagerLoaded()) {
+                return Optional.empty();
+            }
+            TeamManager manager = FTBTeamsAPI.api().getManager();
+            Optional<Team> optionalTeam = manager.getTeamByID(data.getTeamId());
+            if (optionalTeam.isEmpty()) {
+                return Optional.empty();
+            }
+            Team team = optionalTeam.get();
+            if (!data.getTeamId().equals(team.getId()) || !team.isValid()
+                    || (!team.isPlayerTeam() && !team.isPartyTeam())) {
+                return Optional.empty();
+            }
+            List<ServerPlayer> online = reportedOnline.stream()
+                    .filter(java.util.Objects::nonNull)
+                    .toList();
+            UUID implicitMember = team.isPlayerTeam() ? team.getId() : team.getOwner();
+            Optional<UUID> authority = FtbNativeQuestSync.singleAuthorityMember(
+                    team.getMembers(), implicitMember,
+                    online.stream().map(ServerPlayer::getUUID).toList());
+            if (authority.isEmpty()) {
+                return Optional.empty();
+            }
+            ServerPlayer player = online.get(0);
+            return manager.getTeamForPlayer(player)
+                    .filter(effective -> effective.getId().equals(team.getId()))
+                    .map(ignored -> player);
+        } catch (RuntimeException | LinkageError exception) {
+            SeekingImmortalsMod.LOGGER.error("FTB team authority lookup failed; native write rejected", exception);
+            return Optional.empty();
+        }
     }
 
     public static List<Spec> specsOf(Set<String> tags) {
@@ -130,6 +265,11 @@ public final class FtbCustomTaskHooks {
                 return Spec.unknown(tag);
             }
         }
+        if (tag.startsWith(FtbNativeQuestSync.READY_PREFIX)) {
+            return FtbNativeQuestSync.parseReadyTag(tag)
+                    .<Spec>map(target -> Spec.nativeReady(target.chainId(), target.stage()))
+                    .orElseGet(() -> Spec.unknown(tag));
+        }
         if (tag.startsWith(FtbNativeQuestSync.MIRROR_PREFIX)) {
             return FtbNativeQuestSync.parseMirrorTag(tag)
                     .<Spec>map(target -> Spec.nativeStage(target.chainId(), target.stage()))
@@ -157,6 +297,10 @@ public final class FtbCustomTaskHooks {
             return new NativeStage(chainId, stage);
         }
 
+        static Spec nativeReady(String chainId, int stage) {
+            return new NativeReady(chainId, stage);
+        }
+
         static Spec unknown(String tag) {
             return new Unknown(tag);
         }
@@ -179,6 +323,14 @@ public final class FtbCustomTaskHooks {
             @Override
             public boolean matches(ServerPlayer player) {
                 return FtbNativeQuestSync.isSatisfied(player, new FtbNativeQuestSync.Target(chainId, stage));
+            }
+        }
+
+        record NativeReady(String chainId, int stage) implements Spec {
+            @Override
+            public boolean matches(ServerPlayer player) {
+                return FtbNativeQuestSync.isWriteReady(
+                        player, new FtbNativeQuestSync.Target(chainId, stage));
             }
         }
 

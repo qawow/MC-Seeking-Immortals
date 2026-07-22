@@ -1,0 +1,36 @@
+{
+  "name": "第5章 · 化神天劫",
+  "category": "seeking_immortals:quests",
+  "icon": "minecraft:writable_book",
+  "sortnum": 15,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "章节概览",
+      "text": "人界顶阶突破走天劫小/大结构，非刷概率。$(br2)本章收录 3 条已撰写剧情线；索引只说明路线，不替代服务器进度。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "剧情线索引",
+      "text": "$(l:quest_story_chapter_5_deity_transformation#line_zhuimo_token)坠魔令获取$()$(br)$(l:quest_story_chapter_5_deity_transformation#line_lingzhu_fruit_run)灵烛果争夺$()$(br)$(l:quest_story_chapter_5_deity_transformation#line_deity_huoyu_path)化神·火狱准备链$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "坠魔令获取",
+      "anchor": "line_zhuimo_token",
+      "text": "令在手，火在前。无抗火，等于买了个殉葬名额。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "灵烛果争夺",
+      "anchor": "line_lingzhu_fruit_run",
+      "text": "果只有那一树。造化一生一次，倒卖不是正途。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "化神·火狱准备链",
+      "anchor": "line_deity_huoyu_path",
+      "text": "寒焰对冲，精火限次，回阳不二。化神，从来不是点满技能就成。"
+    }
+  ]
+}

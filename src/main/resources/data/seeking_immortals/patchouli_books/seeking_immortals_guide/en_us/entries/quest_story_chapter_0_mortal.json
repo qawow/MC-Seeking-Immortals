@@ -1,0 +1,24 @@
+{
+  "name": "Chapter 0: Mortal Beginnings",
+  "category": "seeking_immortals:quests",
+  "icon": "minecraft:writable_book",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Chapter Overview",
+      "text": "A mortal seeks immortality, tests their spiritual root, and enters an outer sect.$(br2)This chapter contains 1 authored quest lines. The index describes routes and does not replace server progress."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Quest Line Index",
+      "text": "$(l:quest_story_chapter_0_mortal#line_mortal_qixuan_entry)Mortal Beginnings at Qixuan$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Mortal Beginnings at Qixuan",
+      "anchor": "line_mortal_qixuan_entry",
+      "text": "Spiritual roots come before immortal cultivation. The Changchun Art is only the first step toward survival."
+    }
+  ]
+}

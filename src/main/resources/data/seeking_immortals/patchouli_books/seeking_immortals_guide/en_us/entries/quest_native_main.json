@@ -1,0 +1,46 @@
+{
+  "name": "Main Quest Lines",
+  "category": "seeking_immortals:quests",
+  "icon": "seeking_immortals:mortal_quest_token",
+  "sortnum": 30,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Projection Notes",
+      "text": "This volume matches the FTB Quests chapter 'Main Quest Lines' and contains 3 native quest lines. Stage order comes from native quest data; completion and rewards remain server-authoritative."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Quest Line Index",
+      "text": "$(l:quest_native_main#chain_huangfeng_cultivation_path)Yellow Maple Cultivation Path$()$(br)$(l:quest_native_main#chain_qixuan_mortal_path)Qixuan Mortal Path$()$(br)$(l:quest_native_main#chain_blood_forbidden_campaign)Blood Forbidden Land Campaign$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Yellow Maple Cultivation Path 1/2",
+      "anchor": "chain_huangfeng_cultivation_path",
+      "text": "1. Yellow Maple Entry$(br)2. Alchemy Apprentice$(br)3. Herb Gather Contract"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Yellow Maple Cultivation Path 2/2",
+      "text": "4. Blood Forbidden Run$(br)5. Sect Fire Room"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Qixuan Mortal Path",
+      "anchor": "chain_qixuan_mortal_path",
+      "text": "1. Qixuan Village Intro$(br)2. Qixuan Herb Errand$(br)3. Qixuan Sect Trial$(br)4. Qixuan Decline Legacy"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Blood Forbidden Land Campaign 1/2",
+      "anchor": "chain_blood_forbidden_campaign",
+      "text": "1. Blood Forbidden Rumor$(br)2. Blood Forbidden Ticket$(br)3. Blood Forbidden Entry Scar"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Blood Forbidden Land Campaign 2/2",
+      "text": "4. Blood Forbidden Outer Layer$(br)5. Blood Forbidden Inner Layer$(br)6. Blood Jiao Guardian"
+    }
+  ]
+}

@@ -13,13 +13,16 @@
       subtitle: "古魔遗患",
       x: 0.0d,
       y: 0.0d,
+      guide_page: "seeking_immortals:quest_native_fallen_demon_yin",
       description: [
         "来源：fallen_demon_campaign / fallen_demon_seal_weaken。",
         "昆吾封魔阵残卷指向坠魔谷：封印削弱、魔气外溢，元婴以上方可深入。"
       ],
       dependencies: ["1000000000000613"],
       tags: ["seeking_immortals", "fallen_demon_valley", "chapter_5_deity_transformation"],
-      tasks: [{id: "1000000000001701", type: "custom", title: "确认封印松动", tags: ["si_native_fallen_demon_campaign_1"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001701", type: "custom", title: "确认封印松动", tags: ["si_native_fallen_demon_campaign_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000206", type: "custom", title: "同步原生任务阶段 2/5", tags: ["si_native_fallen_demon_campaign_2"], check_timer: 20, max_progress: 1L}
+      ]
     },
     {
       id: "1000000000000702",
@@ -27,14 +30,14 @@
       subtitle: "丹药与辟邪符",
       x: 2.0d,
       y: 0.0d,
+      guide_page: "seeking_immortals:quest_native_fallen_demon_yin",
       description: [
         "来源：demon_qi_purge_prep / demon_qi_purge_side。",
-        "入谷前准备驱魔丹、辟邪符和魔气净化手段；当前 FTB 物品任务检查 1 张驱魔符等价的火球符并消耗。"
+        "入谷前准备驱魔丹、辟邪符和魔气净化手段；当前 FTB 物品任务检查 1 张驱魔符等价的火球符但不消耗；原生任务账本负责实际上交。"
       ],
       dependencies: ["1000000000000701"],
       tags: ["seeking_immortals", "fallen_demon_valley", "demon_qi"],
-      tasks: [{id: "1000000000001702", type: "item", title: "持有驱魔符", item: "seeking_immortals:fire_talisman", count: 1L, consume_items: true, match_nbt: false}],
-      rewards: [{id: "9000000000001702", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
+      tasks: [{id: "1000000000001702", type: "item", title: "持有驱魔符", item: "seeking_immortals:fire_talisman", count: 1L, consume_items: false, match_nbt: false}]
     },
     {
       id: "1000000000000703",
@@ -42,6 +45,7 @@
       subtitle: "魔雾峡口",
       x: 4.0d,
       y: 0.0d,
+      guide_page: "seeking_immortals:quest_native_fallen_demon_yin",
       description: [
         "来源：fallen_demon_outer_gorge。",
         "外谷魔雾用于承接魔化风险、魔气样本和后续环境 debuff 设计。"
@@ -56,14 +60,14 @@
       subtitle: "空间裂隙",
       x: 6.0d,
       y: 0.0d,
+      guide_page: "seeking_immortals:quest_native_fallen_demon_yin",
       description: [
         "来源：fallen_demon_campaign#fallen_demon_rift_layer。",
-        "裂隙层表现空间不稳与心魔触发；当前 FTB 物品任务检查 1 枚虚空晶作为空间裂隙稳定物并消耗。"
+        "裂隙层表现空间不稳与心魔触发；当前 FTB 物品任务检查 1 枚虚空晶作为空间裂隙稳定物但不消耗；原生任务账本负责实际上交。"
       ],
       dependencies: ["1000000000000703"],
       tags: ["seeking_immortals", "fallen_demon_valley", "heart_demon", "spatial_rift"],
-      tasks: [{id: "1000000000001704", type: "item", title: "持有虚空晶", item: "seeking_immortals:void_crystal", count: 1L, consume_items: true, match_nbt: false}],
-      rewards: [{id: "9000000000001704", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
+      tasks: [{id: "1000000000001704", type: "item", title: "持有虚空晶", item: "seeking_immortals:void_crystal", count: 1L, consume_items: false, match_nbt: false}]
     },
     {
       id: "1000000000000705",
@@ -71,14 +75,20 @@
       subtitle: "投影 boss",
       x: 8.0d,
       y: 0.0d,
+      guide_page: "seeking_immortals:quest_native_fallen_demon_yin",
       description: [
         "来源：fallen_demon_campaign#ancient_demon_projection。",
         "古魔投影是坠魔谷战役 boss 节点；当前以原版击杀任务承接 boss 节点（可击杀指定实体完成）。"
       ],
       dependencies: ["1000000000000704"],
       tags: ["seeking_immortals", "fallen_demon_valley", "ancient_demon_line", "boss_design"],
-      tasks: [{id: "1000000000001705", type: "kill", entity: "minecraft:wither_skeleton", value: 1L, title: "击退古魔投影"}],
-      rewards: [{id: "9000000000001705", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
+      tasks: [{id: "1000000000001705", type: "kill", entity: "minecraft:wither_skeleton", value: 1L, title: "击退古魔投影"},
+        {id: "3200000000000039", type: "custom", title: "同步原生任务阶段 1/4", tags: ["si_native_ancient_demon_line_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000040", type: "custom", title: "同步原生任务阶段 2/4", tags: ["si_native_ancient_demon_line_2"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000041", type: "custom", title: "同步原生任务阶段 3/4", tags: ["si_native_ancient_demon_line_3"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000042", type: "custom", title: "同步原生任务阶段 4/4", tags: ["si_native_ancient_demon_line_4"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000208", type: "custom", title: "同步原生任务阶段 4/5", tags: ["si_native_fallen_demon_campaign_4"], check_timer: 20, max_progress: 1L}
+      ]
     },
     {
       id: "1000000000000706",
@@ -86,14 +96,14 @@
       subtitle: "封印加固",
       x: 10.0d,
       y: 0.0d,
+      guide_page: "seeking_immortals:quest_native_fallen_demon_yin",
       description: [
         "来源：quest_hooks#demon_rift_closure。",
-        "将古魔投影后续收束为封印加固线；当前 FTB 物品任务检查 1 个镇魔符宝坯并消耗。"
+        "将古魔投影后续收束为封印加固线；当前 FTB 物品任务检查 1 个镇魔符宝坯但不消耗；原生任务账本负责实际上交。"
       ],
       dependencies: ["1000000000000705"],
       tags: ["seeking_immortals", "fallen_demon_valley", "demon_rift"],
-      tasks: [{id: "1000000000001706", type: "item", title: "持有镇魔符宝坯", item: "seeking_immortals:demon_suppress_talisman_blank", count: 1L, consume_items: true, match_nbt: false}],
-      rewards: [{id: "9000000000001706", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
+      tasks: [{id: "1000000000001706", type: "item", title: "持有镇魔符宝坯", item: "seeking_immortals:demon_suppress_talisman_blank", count: 1L, consume_items: false, match_nbt: false}]
     },
     {
       id: "1000000000000707",
@@ -101,6 +111,7 @@
       subtitle: "残箱与罗盘",
       x: 12.0d,
       y: 0.0d,
+      guide_page: "seeking_immortals:quest_native_fallen_demon_yin",
       description: [
         "来源：fallen_demon_campaign#rewards_finale。",
         "源设定奖励包含 demon_qi_purge_pill、space_rift_compass 与 fallen_demon_chest；当前只写入说明，不授予奖励。"
@@ -116,13 +127,21 @@
       x: 0.0d,
       y: 3.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_fallen_demon_yin",
       description: [
         "来源：ghost_path / yinming_escape / ghost_cultivation_path#unlock。",
         "死亡状态、阴冥逃脱与玄阴残页开启鬼修道途；当前不写入死亡或阵营状态。"
       ],
       dependencies: ["1000000000000104"],
       tags: ["seeking_immortals", "yin_underworld", "ghost_cultivator", "optional"],
-      tasks: [{id: "1000000000001708", type: "dimension", dimension: "seeking_immortals:yin_ming_pocket", title: "踏入阴冥秘境"}]
+      tasks: [{id: "1000000000001708", type: "dimension", dimension: "seeking_immortals:yin_ming_pocket", title: "踏入阴冥秘境"},
+        {id: "3200000000000015", type: "custom", title: "同步原生任务阶段 1/6", tags: ["si_native_ghost_path_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000016", type: "custom", title: "同步原生任务阶段 2/6", tags: ["si_native_ghost_path_2"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000017", type: "custom", title: "同步原生任务阶段 3/6", tags: ["si_native_ghost_path_3"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000018", type: "custom", title: "同步原生任务阶段 4/6", tags: ["si_native_ghost_path_4"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000019", type: "custom", title: "同步原生任务阶段 5/6", tags: ["si_native_ghost_path_5"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000020", type: "custom", title: "同步原生任务阶段 6/6", tags: ["si_native_ghost_path_6"], check_timer: 20, max_progress: 1L}
+      ]
     },
     {
       id: "1000000000000709",
@@ -131,14 +150,14 @@
       x: 2.0d,
       y: 3.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_fallen_demon_yin",
       description: [
         "来源：hook_ghost_yin_body / ghost_cultivation_path#yin_body。",
-        "阴体凝形对应鬼道炼气等阶，并引出阴石、避阴符和正道排斥风险。当前 FTB 物品任务检查 8 枚阴石并消耗。"
+        "阴体凝形对应鬼道炼气等阶，并引出阴石、避阴符和正道排斥风险。当前 FTB 物品任务检查 8 枚阴石但不消耗；原生任务账本负责实际上交。"
       ],
       dependencies: ["1000000000000708"],
       tags: ["seeking_immortals", "yin_underworld", "ghost_cultivator", "optional"],
-      tasks: [{id: "1000000000001709", type: "item", title: "备齐阴石", item: "seeking_immortals:yin_stone", count: 8L, consume_items: true, match_nbt: false}],
-      rewards: [{id: "9000000000001709", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
+      tasks: [{id: "1000000000001709", type: "item", title: "备齐阴石", item: "seeking_immortals:yin_stone", count: 8L, consume_items: false, match_nbt: false}]
     },
     {
       id: "1000000000000710",
@@ -147,14 +166,18 @@
       x: 4.0d,
       y: 2.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_fallen_demon_yin",
       description: [
         "来源：yin_luo_ghost_sect / yin_luo_initiation / yin_underworld_cluster#yin_luo_hall。",
-        "阴罗殿作为阴司侧魔道宗门 archetype，后续可接入声望、身份遮掩与鬼道商店。当前 FTB 物品任务检查 8 枚阴石作为入门供奉并消耗。"
+        "阴罗殿作为阴司侧魔道宗门 archetype，后续可接入声望、身份遮掩与鬼道商店。当前 FTB 物品任务检查 8 枚阴石作为入门供奉但不消耗；原生任务账本负责实际上交。"
       ],
       dependencies: ["1000000000000709"],
       tags: ["seeking_immortals", "yin_luo_hall", "ghost_cultivator", "optional"],
-      tasks: [{id: "1000000000001710", type: "item", title: "备齐阴罗入门供奉", item: "seeking_immortals:yin_stone", count: 8L, consume_items: true, match_nbt: false}],
-      rewards: [{id: "9000000000001710", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
+      tasks: [{id: "1000000000001710", type: "item", title: "备齐阴罗入门供奉", item: "seeking_immortals:yin_stone", count: 8L, consume_items: false, match_nbt: false},
+        {id: "3200000000000106", type: "custom", title: "同步原生任务阶段 1/3", tags: ["si_native_yin_luo_ghost_sect_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000107", type: "custom", title: "同步原生任务阶段 2/3", tags: ["si_native_yin_luo_ghost_sect_2"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000108", type: "custom", title: "同步原生任务阶段 3/3", tags: ["si_native_yin_luo_ghost_sect_3"], check_timer: 20, max_progress: 1L}
+      ]
     },
     {
       id: "1000000000000711",
@@ -163,14 +186,14 @@
       x: 6.0d,
       y: 2.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_fallen_demon_yin",
       description: [
         "来源：soul_banner_quest / ghost_cultivation_path#artifacts_synergy。",
-        "魂幡残片用于表现鬼道法器协同；当前 FTB 物品任务检查 1 份魂魄残片并消耗。"
+        "魂幡残片用于表现鬼道法器协同；当前 FTB 物品任务检查 1 份魂魄残片但不消耗；原生任务账本负责实际上交。"
       ],
       dependencies: ["1000000000000710"],
       tags: ["seeking_immortals", "yin_luo_hall", "ghost_artifact", "optional"],
-      tasks: [{id: "1000000000001711", type: "item", title: "持有魂魄残片", item: "seeking_immortals:soul_fragment", count: 1L, consume_items: true, match_nbt: false}],
-      rewards: [{id: "9000000000001711", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
+      tasks: [{id: "1000000000001711", type: "item", title: "持有魂魄残片", item: "seeking_immortals:soul_fragment", count: 1L, consume_items: false, match_nbt: false}]
     },
     {
       id: "1000000000000712",
@@ -179,14 +202,18 @@
       x: 4.0d,
       y: 4.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_fallen_demon_yin",
       description: [
         "来源：nether_river_campaign#nether_ferry_ticket / yin_cluster_ferry_toll。",
-        "冥河摆渡消耗阴石的实际路由已存在，FTB 节点先把渡费路线清晰呈现。当前 FTB 物品任务检查 30 枚阴石并消耗。"
+        "冥河摆渡消耗阴石的实际路由已存在，FTB 节点先把渡费路线清晰呈现。当前 FTB 物品任务检查 30 枚阴石但不消耗；原生任务账本负责实际上交。"
       ],
       dependencies: ["1000000000000709"],
       tags: ["seeking_immortals", "nether_river", "yin_stone", "optional"],
-      tasks: [{id: "1000000000001712", type: "item", title: "备齐冥河渡费", item: "seeking_immortals:yin_stone", count: 30L, consume_items: true, match_nbt: false}],
-      rewards: [{id: "9000000000001712", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
+      tasks: [{id: "1000000000001712", type: "item", title: "备齐冥河渡费", item: "seeking_immortals:yin_stone", count: 30L, consume_items: false, match_nbt: false},
+        {id: "3200000000000215", type: "custom", title: "同步原生任务阶段 1/5", tags: ["si_native_nether_river_campaign_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000216", type: "custom", title: "同步原生任务阶段 2/5", tags: ["si_native_nether_river_campaign_2"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000217", type: "custom", title: "同步原生任务阶段 3/5", tags: ["si_native_nether_river_campaign_3"], check_timer: 20, max_progress: 1L}
+      ]
     },
     {
       id: "1000000000000713",
@@ -195,14 +222,14 @@
       x: 6.0d,
       y: 4.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_fallen_demon_yin",
       description: [
         "来源：nether_river_fog_entry / yin_underworld_cluster#environment_global。",
-        "阴雾、白日 debuff 与纯阳克制规则已作为阴冥生态的后续扩展点；当前 FTB 物品任务检查 1 张避阴符并消耗。"
+        "阴雾、白日 debuff 与纯阳克制规则已作为阴冥生态的后续扩展点；当前 FTB 物品任务检查 1 张避阴符但不消耗；原生任务账本负责实际上交。"
       ],
       dependencies: ["1000000000000712"],
       tags: ["seeking_immortals", "nether_river", "yin_hazard", "optional"],
-      tasks: [{id: "1000000000001713", type: "item", title: "持有避阴符", item: "seeking_immortals:yin_body_protection_charm", count: 1L, consume_items: true, match_nbt: false}],
-      rewards: [{id: "9000000000001713", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
+      tasks: [{id: "1000000000001713", type: "item", title: "持有避阴符", item: "seeking_immortals:yin_body_protection_charm", count: 1L, consume_items: false, match_nbt: false}]
     },
     {
       id: "1000000000000714",
@@ -211,14 +238,14 @@
       x: 8.0d,
       y: 4.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_fallen_demon_yin",
       description: [
         "来源：nether_soul_shoal。",
-        "魂滩产出 soul_gathering_stone，已和现有聚魂石物品/炼器映射形成后续接点。当前 FTB 物品任务检查 1 枚聚魂石并消耗。"
+        "魂滩产出 soul_gathering_stone，已和现有聚魂石物品/炼器映射形成后续接点。当前 FTB 物品任务检查 1 枚聚魂石但不消耗；原生任务账本负责实际上交。"
       ],
       dependencies: ["1000000000000713"],
       tags: ["seeking_immortals", "nether_river", "soul_gathering_stone", "optional"],
-      tasks: [{id: "1000000000001714", type: "item", title: "交验聚魂石", item: "seeking_immortals:soul_gathering_stone", count: 1L, consume_items: true, match_nbt: false}],
-      rewards: [{id: "9000000000001714", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
+      tasks: [{id: "1000000000001714", type: "item", title: "交验聚魂石", item: "seeking_immortals:soul_gathering_stone", count: 1L, consume_items: false, match_nbt: false}]
     },
     {
       id: "1000000000000715",
@@ -227,14 +254,14 @@
       x: 10.0d,
       y: 4.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_fallen_demon_yin",
       description: [
         "来源：hook_ghost_soul_anchor / ghost_cultivation_path#soul_anchor。",
-        "魂锚稳固要求聚魂石，表示鬼道筑基等阶和叛宗风险。当前 FTB 物品任务检查 1 枚聚魂石并消耗。"
+        "魂锚稳固要求聚魂石，表示鬼道筑基等阶和叛宗风险。当前 FTB 物品任务检查 1 枚聚魂石但不消耗；原生任务账本负责实际上交。"
       ],
       dependencies: ["1000000000000714"],
       tags: ["seeking_immortals", "ghost_cultivator", "soul_anchor", "optional"],
-      tasks: [{id: "1000000000001715", type: "item", title: "持有聚魂石", item: "seeking_immortals:soul_gathering_stone", count: 1L, consume_items: true, match_nbt: false}],
-      rewards: [{id: "9000000000001715", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
+      tasks: [{id: "1000000000001715", type: "item", title: "持有聚魂石", item: "seeking_immortals:soul_gathering_stone", count: 1L, consume_items: false, match_nbt: false}]
     },
     {
       id: "1000000000000716",
@@ -243,14 +270,14 @@
       x: 12.0d,
       y: 4.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_fallen_demon_yin",
       description: [
         "来源：hook_ghost_nether_core / ghost_cultivation_path#nether_core。",
-        "冥核结成在冥河秘境完成，对应鬼道结丹等阶和冥河核心试炼。当前 FTB 物品任务检查 2 份魂魄残片作为冥核凝聚代理并消耗。"
+        "冥核结成在冥河秘境完成，对应鬼道结丹等阶和冥河核心试炼。当前 FTB 物品任务检查 2 份魂魄残片作为冥核凝聚代理但不消耗；原生任务账本负责实际上交。"
       ],
       dependencies: ["1000000000000715"],
       tags: ["seeking_immortals", "ghost_cultivator", "nether_core", "optional"],
-      tasks: [{id: "1000000000001716", type: "item", title: "备齐冥核魂材", item: "seeking_immortals:soul_fragment", count: 2L, consume_items: true, match_nbt: false}],
-      rewards: [{id: "9000000000001716", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
+      tasks: [{id: "1000000000001716", type: "item", title: "备齐冥核魂材", item: "seeking_immortals:soul_fragment", count: 2L, consume_items: false, match_nbt: false}]
     },
     {
       id: "1000000000000717",
@@ -259,13 +286,17 @@
       x: 14.0d,
       y: 4.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_fallen_demon_yin",
       description: [
         "来源：nether_river_campaign#nether_ghost_hall。",
         "冥殿鬼修作为冥河深层 NPC/敌对势力占位，后续可接鬼修交易、审判或战斗。"
       ],
       dependencies: ["1000000000000716"],
       tags: ["seeking_immortals", "nether_river", "ghost_npc_design", "optional"],
-      tasks: [{id: "1000000000001717", type: "dimension", dimension: "seeking_immortals:nether_river_pocket", title: "进入冥河秘境"}]
+      tasks: [{id: "1000000000001717", type: "dimension", dimension: "seeking_immortals:nether_river_pocket", title: "进入冥河秘境"},
+        {id: "3200000000000218", type: "custom", title: "同步原生任务阶段 4/5", tags: ["si_native_nether_river_campaign_4"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000219", type: "custom", title: "同步原生任务阶段 5/5", tags: ["si_native_nether_river_campaign_5"], check_timer: 20, max_progress: 1L}
+      ]
     },
     {
       id: "1000000000000718",
@@ -274,14 +305,14 @@
       x: 16.0d,
       y: 4.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_fallen_demon_yin",
       description: [
         "来源：nether_river_guardian / ghost_cultivation_path#yin_soul。",
         "冥河守关是鬼道阴婴门槛；源设定奖励包括 yin_soul_burst_unlock 与 ghost_cultivation_manual。"
       ],
       dependencies: ["1000000000000717"],
       tags: ["seeking_immortals", "nether_river", "ghost_cultivator", "boss_design", "optional"],
-      tasks: [{id: "1000000000001718", type: "kill", entity: "minecraft:skeleton", value: 3L, title: "通过冥河守关"}],
-      rewards: [{id: "9000000000001718", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
-    }
+      tasks: [{id: "1000000000001718", type: "kill", entity: "minecraft:skeleton", value: 3L, title: "通过冥河守关"}]
+}
   ]
 }

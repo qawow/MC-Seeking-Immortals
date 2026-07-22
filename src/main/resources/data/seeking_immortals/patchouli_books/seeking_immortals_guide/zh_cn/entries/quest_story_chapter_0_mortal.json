@@ -1,0 +1,24 @@
+{
+  "name": "第0章 · 凡人入世",
+  "category": "seeking_immortals:quests",
+  "icon": "minecraft:writable_book",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "章节概览",
+      "text": "七玄门式入门弧：凡人求仙、测灵根、入外门。$(br2)本章收录 1 条已撰写剧情线；索引只说明路线，不替代服务器进度。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "剧情线索引",
+      "text": "$(l:quest_story_chapter_0_mortal#line_mortal_qixuan_entry)凡人·七玄入世（开局）$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "凡人·七玄入世（开局）",
+      "anchor": "line_mortal_qixuan_entry",
+      "text": "先有灵根，再有仙途。长春功只是稳活的第一步。"
+    }
+  ]
+}

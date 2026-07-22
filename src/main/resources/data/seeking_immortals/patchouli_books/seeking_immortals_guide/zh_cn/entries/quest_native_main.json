@@ -1,0 +1,46 @@
+{
+  "name": "主线任务",
+  "category": "seeking_immortals:quests",
+  "icon": "seeking_immortals:mortal_quest_token",
+  "sortnum": 30,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "投影说明",
+      "text": "本卷对应 FTB Quests 章节“主线任务”，收录 3 条原生任务线。阶段顺序来自原生任务资料，完成与奖励仍以服务器账本为准。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "任务线索引",
+      "text": "$(l:quest_native_main#chain_huangfeng_cultivation_path)黄枫谷修行线$()$(br)$(l:quest_native_main#chain_qixuan_mortal_path)七玄门凡俗线$()$(br)$(l:quest_native_main#chain_blood_forbidden_campaign)血色禁地历练$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "黄枫谷修行线 1/2",
+      "anchor": "chain_huangfeng_cultivation_path",
+      "text": "1. 入门测灵根$(br)2. 丹童与辟谷丹$(br)3. 外门灵草任务"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "黄枫谷修行线 2/2",
+      "text": "4. 血色禁地历练$(br)5. 结丹后地火室"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "七玄门凡俗线",
+      "anchor": "chain_qixuan_mortal_path",
+      "text": "1. 山村与墨大夫传闻$(br)2. 采药杂役$(br)3. 测灵根入外门$(br)4. 门派衰落遗册"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "血色禁地历练 1/2",
+      "anchor": "chain_blood_forbidden_campaign",
+      "text": "1. 传闻与名额$(br)2. 争取入场令$(br)3. 穿越禁制入口"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "血色禁地历练 2/2",
+      "text": "4. 外层猎妖取药$(br)5. 内层结伴破禁$(br)6. 守关妖蛟"
+    }
+  ]
+}

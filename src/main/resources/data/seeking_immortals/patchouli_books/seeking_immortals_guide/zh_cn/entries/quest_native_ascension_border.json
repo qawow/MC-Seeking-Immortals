@@ -1,0 +1,99 @@
+{
+  "name": "飞升边境与终局劫线",
+  "category": "seeking_immortals:quests",
+  "icon": "seeking_immortals:mortal_quest_token",
+  "sortnum": 38,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "投影说明",
+      "text": "本卷对应 FTB Quests 章节“飞升边境与终局劫线”，收录 11 条原生任务线。阶段顺序来自原生任务资料，完成与奖励仍以服务器账本为准。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "任务线索引 1/3",
+      "text": "$(l:quest_native_ascension_border#chain_high_realm_endgame)高境界终局$()$(br)$(l:quest_native_ascension_border#chain_void_great_cultivation_arc)炼虚大乘道途$()$(br)$(l:quest_native_ascension_border#chain_diyuan_depth_delve)地渊深层$()$(br)$(l:quest_native_ascension_border#chain_mortal_to_spirit_bridge)人界化神·赴灵界$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "任务线索引 2/3",
+      "text": "$(l:quest_native_ascension_border#chain_chain_ascension_spirit_world)飞升灵界前置$()$(br)$(l:quest_native_ascension_border#chain_yin_cluster_pilgrim)阴司朝圣线$()$(br)$(l:quest_native_ascension_border#chain_fallen_demon_expedition)坠魔谷探谷$()$(br)$(l:quest_native_ascension_border#chain_kunwu_mountain_expedition)昆吾山探山$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "任务线索引 3/3",
+      "text": "$(l:quest_native_ascension_border#chain_spirit_realm_border)灵界边境$()$(br)$(l:quest_native_ascension_border#chain_ghost_sect_ban_arc)鬼修禁入正道$()$(br)$(l:quest_native_ascension_border#chain_chain_seven_sect_outer_to_inner)七派外门晋升内门$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "高境界终局",
+      "anchor": "chain_high_realm_endgame",
+      "text": "1. 昆吾远征$(br)2. 封魔阵残卷$(br)3. 坠魔谷前哨$(br)4. 天渊城征召"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "炼虚大乘道途",
+      "anchor": "chain_void_great_cultivation_arc",
+      "text": "1. 虚空裂隙潮$(br)2. 地渊核心探测$(br)3. 大乘道悟$(br)4. 劫云汇聚"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "地渊深层",
+      "anchor": "chain_diyuan_depth_delve",
+      "text": "1. 地渊通行令申请$(br)2. 地渊灵压潮$(br)3. 地渊核心探测$(br)4. 地渊核心晶兽"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "人界化神·赴灵界",
+      "anchor": "chain_mortal_to_spirit_bridge",
+      "text": "1. 人界境界极限感悟$(br)2. 飞升界门传闻$(br)3. 灵界界门凭证"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "飞升灵界前置 1/2",
+      "anchor": "chain_chain_ascension_spirit_world",
+      "text": "1. 触及人界化神极限$(br)2. 准备抗劫与飞升物资$(br)3. 渡过心魔与天劫"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "飞升灵界前置 2/2",
+      "text": "4. 定位稳定空间节点$(br)5. 穿越飞升光门$(br)6. 在灵界天渊登记"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "阴司朝圣线",
+      "anchor": "chain_yin_cluster_pilgrim",
+      "text": "1. 阴冥脱困$(br)2. 冥河朝圣$(br)3. 冥河雾散"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "坠魔谷探谷",
+      "anchor": "chain_fallen_demon_expedition",
+      "text": "1. 坠魔谷前哨$(br)2. 封印衰弱事件$(br)3. 魔气净化支线$(br)4. 古魔投影决战"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "昆吾山探山",
+      "anchor": "chain_kunwu_mountain_expedition",
+      "text": "1. 昆吾情报$(br)2. 昆吾残图上交$(br)3. 昆吾寒潮求生$(br)4. 昆吾傀儡王"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "灵界边境",
+      "anchor": "chain_spirit_realm_border",
+      "text": "1. 蛮荒兽群$(br)2. 空间裂隙震荡求生"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "鬼修禁入正道",
+      "anchor": "chain_ghost_sect_ban_arc",
+      "text": "1. 鬼修身份暴露$(br)2. 正道追魂$(br)3. 洗髓改息"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "七派外门晋升内门",
+      "anchor": "chain_chain_seven_sect_outer_to_inner",
+      "text": "1. 累积宗门贡献$(br)2. 通过境界与师门考核$(br)3. 晋升内门并领取传承"
+    }
+  ]
+}

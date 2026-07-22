@@ -1,0 +1,112 @@
+{
+  "name": "Chapter 6: Spirit Realm Ascension",
+  "category": "seeking_immortals:quests",
+  "icon": "minecraft:writable_book",
+  "sortnum": 16,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Chapter Overview",
+      "text": "Register at Tianyuan, earn passage through service, and follow the higher-realm paths beyond Fengyuan.$(br2)This chapter contains 14 authored quest lines. The index describes routes and does not replace server progress."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Quest Line Index 1/3",
+      "text": "$(l:quest_story_chapter_6_spirit_realm#line_tianyuan_landing_register)Tianyuan Arrival Registration$()$(br)$(l:quest_story_chapter_6_spirit_realm#line_tianyuan_to_fengyuan_gate)Passage into Fengyuan$()$(br)$(l:quest_story_chapter_6_spirit_realm#line_zhenyan_outer_lesson)True Word Outer-Sect Lesson$()$(br)$(l:quest_story_chapter_6_spirit_realm#line_wuxing_intro)Great Five Elements Illusory World$()$(br)$(l:quest_story_chapter_6_spirit_realm#line_reincarnation_intro)Reincarnation Hall Introduction$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Quest Line Index 2/3",
+      "text": "$(l:quest_story_chapter_6_spirit_realm#line_court_hunt_gray)Heavenly Court Gray-Realm Hunt$()$(br)$(l:quest_story_chapter_6_spirit_realm#line_heifeng_gray_sail)Black Wind Sea Passage$()$(br)$(l:quest_story_chapter_6_spirit_realm#line_guanghan_endgame_path)Guanghan Endgame Path$()$(br)$(l:quest_story_chapter_6_spirit_realm#line_xianjie_ascension_path)Ascension into the Immortal Realm$()$(br)$(l:quest_story_chapter_6_spirit_realm#line_zhenyan_men_path)True Word Sect Cultivation Path$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Quest Line Index 3/3",
+      "text": "$(l:quest_story_chapter_6_spirit_realm#line_time_law_path)Law of Time Path$()$(br)$(l:quest_story_chapter_6_spirit_realm#line_reincarnation_hall_path)Reincarnation Hall Path$()$(br)$(l:quest_story_chapter_6_spirit_realm#line_heifeng_and_gray)Black Wind Sea and the Gray Realm$()$(br)$(l:quest_story_chapter_6_spirit_realm#line_xianjie_endgame_glimpse)A Glimpse of the Immortal Endgame$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Tianyuan Arrival Registration",
+      "anchor": "line_tianyuan_landing_register",
+      "text": "Old mortal-realm status means little here; register first and adapt to Spirit Realm qi."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Passage into Fengyuan",
+      "anchor": "line_tianyuan_to_fengyuan_gate",
+      "text": "The controlled gate opens for merit, and not one point less."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "True Word Outer-Sect Lesson",
+      "anchor": "line_zhenyan_outer_lesson",
+      "text": "Words carry law here; outer disciples may listen before they are allowed to ask."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Great Five Elements Illusory World",
+      "anchor": "line_wuxing_intro",
+      "text": "The Illusory World seed is not a toy, and contemplation requires earned standing."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Reincarnation Hall Introduction",
+      "anchor": "line_reincarnation_intro",
+      "text": "Read the backlash terms before signing a contract for forbidden goods."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Heavenly Court Gray-Realm Hunt",
+      "anchor": "line_court_hunt_gray",
+      "text": "Choose whether to kill or capture the Gray Realm agents named on the warrant."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Black Wind Sea Passage",
+      "anchor": "line_heifeng_gray_sail",
+      "text": "Follow the flag, wind, and helmsman; favored agents of the Court are refused passage."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Guanghan Endgame Path",
+      "anchor": "line_guanghan_endgame_path",
+      "text": "The Spirit Refinement Art is unique, and a True Immortal's pressure is not a farmable boss encounter."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Ascension into the Immortal Realm",
+      "anchor": "line_xianjie_ascension_path",
+      "text": "Tribulation is only the admission token; arrival begins an entirely new path."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "True Word Sect Cultivation Path",
+      "anchor": "line_zhenyan_men_path",
+      "text": "The True Word Sect is a ladder of qualifications from lectures to the Illusory World."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Law of Time Path",
+      "anchor": "line_time_law_path",
+      "text": "The law of time is not idle acceleration, and reversal carries heavenly consequences."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Reincarnation Hall Path",
+      "anchor": "line_reincarnation_hall_path",
+      "text": "A long route from introductions to deeper contracts, forbidden goods, and debts."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Black Wind Sea and the Gray Realm",
+      "anchor": "line_heifeng_and_gray",
+      "text": "Black Wind is the road and the Gray Realm is the fog, with no sign pointing back."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "A Glimpse of the Immortal Endgame",
+      "anchor": "line_xianjie_endgame_glimpse",
+      "text": "The endgame offers distant hooks, not a guaranteed path to final victory."
+    }
+  ]
+}

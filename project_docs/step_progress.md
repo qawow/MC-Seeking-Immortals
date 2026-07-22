@@ -1,3 +1,18 @@
+## 567. 2026-07-22 0.2.146 完整任务手册与原生/FTB 同步加固
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   任务、FTB、Patchouli 与文本清单既有文件备份于 `.bak/20260722_quest_ftb_completion/`；并发 VFX、NPC、实体、贴图和 worldgen 改动未编辑、未纳入本批。
+  Native authority   Done   `TextQuestChainService` 提供静默精确预检与单阶段事务入口，仍由原生 `start/advance` 唯一处理成本、分支、声望、奖励和同步；作者 NPC hook 不被 FTB 重放。
+  FTB projection   Done   确定性生成器保持 9 章/215 节点并覆盖 62 链/241 阶段；15 个回写节点使用顺序 readiness task，物品任务全部 `consume_items:false`，FTB 奖励全部移除。
+  Writeback safety   Done   回写要求唯一有效 write target、唯一匹配链标签、无奖励/消耗任务，以及包含离线成员在内恰好一个玩家的 FTB 队伍；损坏、跨链、跳阶段、多人队伍均失败关闭。
+  Default-pack migration   Done   revision `20260722_2` 支持规范化 SHA-256、四代已知默认升级、状态所有权、定制/删除保留、pending 候选、升级备份与回滚；FTB 缺失零写入，managed/pending/backups/staging/state 符号链接均拒绝跟随。
+  Handbook   Done   Patchouli version 5、zh/en 各 120 条目；新增 quests 分类和 17 组生成条目（任务总览、7 主线章、9 原生/FTB 章），覆盖 35 作者线、62 链、241 阶段并提供真实 entry/anchor 链接。
+  Generators/manifest   Done   两个任务生成器 `--check` 通过；文本材料 manifest 对齐 290 文件（269 catalog + 21 technique）和 12,327 条目，重建器现同步重算 `total_entries`。
+  Tests/build   Done   定向任务/FTB/Patchouli/迁移测试通过；普通 `./gradlew build` `BUILD SUCCESSFUL in 1m19s`。并发 VFX 后续改动触发指纹门后，`./gradlew cleanTest test` 强制执行 216 套件/987 项，0 failure/error/skipped。
+  Version/protocol   Done   `mod_version=0.2.146`；未改包字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION` 保持 `28`。
+  Live smoke   Pending   仍需真实客户端逐页检查长文本排版、FTB `guide_page` 点击、可选 Patchouli 缺失启动，以及真实旧默认/定制服务器包迁移；多人 FTB 队伍回写按设计禁用。
+
 ## 566. 2026-07-22 0.2.143 全量非物品贴图重绘
 
   Step   Status   Notes

@@ -1,0 +1,59 @@
+{
+  "name": "第3章 · 乱星海",
+  "category": "seeking_immortals:quests",
+  "icon": "minecraft:writable_book",
+  "sortnum": 13,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "章节概览",
+      "text": "入星海需舟与身份，星宫征税清剿逆星。$(br2)本章收录 6 条已撰写剧情线；索引只说明路线，不替代服务器进度。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "剧情线索引 1/2",
+      "text": "$(l:quest_story_chapter_3_chaotic_sea#line_star_palace_register)星宫登记$()$(br)$(l:quest_story_chapter_3_chaotic_sea#line_inverse_star_intro)逆星接头$()$(br)$(l:quest_story_chapter_3_chaotic_sea#line_xutian_window_prepare)虚天殿窗口筹备$()$(br)$(l:quest_story_chapter_3_chaotic_sea#line_qianzhu_tower_trial)千竹机关塔试炼$()$(br)$(l:quest_story_chapter_3_chaotic_sea#line_dayan_clue)大衍残篇线索$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "剧情线索引 2/2",
+      "text": "$(l:quest_story_chapter_3_chaotic_sea#line_xutian_palace_run)虚天殿入殿行$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "星宫登记",
+      "anchor": "line_star_palace_register",
+      "text": "乱星海的规矩，星宫说了算。先登记，再谈航线。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "逆星接头",
+      "anchor": "line_inverse_star_intro",
+      "text": "暗号对了再说话。星宫的走狗，海葬。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "虚天殿窗口筹备",
+      "anchor": "line_xutian_window_prepare",
+      "text": "残图拼起来，只是入场券。鼎只有一座。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "千竹机关塔试炼",
+      "anchor": "line_qianzhu_tower_trial",
+      "text": "停轮，破核，夺总控。蛮力是给石灵傀送的祭品。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "大衍残篇线索",
+      "anchor": "line_dayan_clue",
+      "text": "一页一页拼。完整的那本，不卖，也不保底。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "虚天殿入殿行",
+      "anchor": "line_xutian_palace_run",
+      "text": "筹备结束。殿门内，unique 只认活着的手。"
+    }
+  ]
+}

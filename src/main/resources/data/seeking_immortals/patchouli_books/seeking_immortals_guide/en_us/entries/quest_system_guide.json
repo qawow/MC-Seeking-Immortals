@@ -1,67 +1,43 @@
 {
   "name": "Quest System Guide",
-  "category": "seeking_immortals:basics",
-  "icon": "minecraft:writable_book",
-  "sortnum": 2,
+  "category": "seeking_immortals:quests",
+  "icon": "seeking_immortals:mortal_quest_token",
+  "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Seeking Immortals uses the $(l)native quest progress$() as its sole authoritative ledger. The server validates start requirements, current stages, turn-ins, branches, and rewards. The tracker, commands, and FTB Quests only read that state or submit actions; they do not maintain conflicting copies."
+      "title": "Authority and Navigation",
+      "text": "Native quest progress is the sole authoritative ledger. The server validates acceptance, the current stage, turn-ins, branches, and rewards; Patchouli, the tracker, commands, and FTB Quests provide indexes, displays, or validated action requests."
     },
     {
       "type": "patchouli:text",
-      "title": "Starting and Progressing",
-      "text": "Interact with the required character, block, secret realm, kill, or crafting objective to advance the current stage. Starting checks realm, faction, and region requirements; advancing checks the current stage again and consumes any listed turn-in.$(br2)Use $(l)/seeking_immortals quest$() for Seven Mysteries progress and $(l)/seeking_immortals quest text list$() for native quest lines."
+      "title": "Seven-Chapter Story 1/2",
+      "text": "$(l:quest_story_chapter_0_mortal)Chapter 0: Mortal Beginnings$()$(br)$(l:quest_story_chapter_1_sect)Chapter 1: Sect Cultivation$()$(br)$(l:quest_story_chapter_2_foundation_secret)Chapter 2: Foundation Secret Realm$()$(br)$(l:quest_story_chapter_3_chaotic_sea)Chapter 3: Chaotic Sea$()"
     },
     {
       "type": "patchouli:text",
-      "title": "FTB Synchronization",
-      "text": "With FTB Quests installed, nine chapters present the mod's sixty-two native quest lines. Native mirror nodes light only after the matching stage is complete. Explicit write-back nodes may request only the $(l)next current stage$() and must still pass native validation. Without FTB Quests, native quests, NPCs, tracking, and rewards continue normally."
+      "title": "Story Index 2/2",
+      "text": "$(l:quest_story_chapter_4_great_jin)Chapter 4: Across Great Jin$()$(br)$(l:quest_story_chapter_5_deity_transformation)Chapter 5: Deity Transformation Tribulation$()$(br)$(l:quest_story_chapter_6_spirit_realm)Chapter 6: Spirit Realm Ascension$()"
     },
     {
       "type": "patchouli:text",
-      "title": "Reward Ownership",
-      "text": "The native quest ledger grants stage and finale rewards and records a one-time receipt against duplicates. FTB item turn-ins consume the listed amount, while mirror nodes never duplicate a native finale reward. Full inventories use the mod's shared delivery rules; client-side completion displays never authorize payment."
+      "title": "Nine Native Volumes 1/2",
+      "text": "$(l:quest_native_main)Main Quest Lines$()$(br)$(l:quest_native_chaotic_sea)Chaotic Sea and Void Heaven Palace$()$(br)$(l:quest_native_dajin_kunwu)Great Jin and Kunwu Mountain$()$(br)$(l:quest_native_fallen_demon_yin)Fallen Demon Valley and Yin Paths$()$(br)$(l:quest_native_mulan_demonic)Mulan-Tianlan and the Six Demonic Sects$()"
     },
     {
       "type": "patchouli:text",
-      "title": "Branches and Locks",
-      "text": "Some lines split between righteous, neutral, and demonic positions or specific story choices. The Seven Mysteries evidence event offers report, silence, or blackmail; Star Palace versus Inverse Star and Mulan versus Tianlan also contain exclusive nodes. A non-neutral choice locks the branch, and later NPCs, costs, and rewards use the server record."
+      "title": "Native Volumes 2/2",
+      "text": "$(l:quest_native_spirit_realm_service)Spirit Realm: Tianyuan and the Fengyuan Clans$()$(br)$(l:quest_native_tiannan_seven_sects)Tiannan's Seven Sects and the Hundred Crafts$()$(br)$(l:quest_native_star_palace_inverse)Star Palace and the Inverse Star Underground$()$(br)$(l:quest_native_ascension_border)Ascension Frontier and Final Tribulations$()"
     },
     {
       "type": "patchouli:text",
-      "title": "Chapters Zero and One",
-      "text": "$(l)Chapter 0: Mortal Beginnings$(): test your spiritual root, enter Seven Mysteries Sect, and reach Qi Refining.$(br2)$(l)Chapter 1: Sect Cultivation$(): complete outer-sect work, herb gathering, alchemy, and Foundation preparation across Tiannan and the Seven Sects."
+      "title": "FTB Projection Boundary",
+      "text": "Every native quest line is listed in server stage order. With FTB Quests installed, matching chapters project these sixty-two lines. Mirror nodes neither store separate progress nor duplicate rewards, and write-back nodes may request only the currently valid next stage."
     },
     {
       "type": "patchouli:text",
-      "title": "Chapters Two and Three",
-      "text": "$(l)Chapter 2: Foundation Secret Realm$(): earn a Blood Forbidden Land place and secure Foundation resources during its timed opening.$(br2)$(l)Chapter 3: Chaotic Sea$(): prepare a spirit boat and identity, choose between Star Palace order and the Inverse Star underground, and prepare for Void Heaven Palace."
-    },
-    {
-      "type": "patchouli:text",
-      "title": "Chapters Four and Five",
-      "text": "$(l)Chapter 4: Great Jin$(): pursue Kunwu Mountain, Yin-Yang Cavern, and Void Heaven relics among clan and righteous-demonic conflicts.$(br2)$(l)Chapter 5: Deity Tribulation$(): delve into Fallen Demon Valley, follow creation and fire-prison clues, then face inner demons, tribulation, and ascension preparation."
-    },
-    {
-      "type": "patchouli:text",
-      "title": "Chapter Six: Spirit Realm",
-      "text": "After crossing the realm boundary, register at Tianyuan and exchange service and merit for Spirit Realm resources. This chapter connects Diyuan delves, Fengyuan clans, barbarian kings, and higher-realm cultivation. Region, realm, permit, and merit requirements are validated one stage at a time."
-    },
-    {
-      "type": "patchouli:text",
-      "title": "Sects and Crafts",
-      "text": "Yellow Maple Valley emphasizes alchemy and secret-realm training. Blade Transformation, Giant Sword, Veiled Moon, Heavenly Talisman, and Thousand Bamboo extend blade, sword, illusion, formation, talisman, and puppet paths. Craft quests join gathering, turn-ins, crafting, formation deployment, and sect examinations into native progress."
-    },
-    {
-      "type": "patchouli:text",
-      "title": "Factions and Realms",
-      "text": "Chaotic Sea, Mulan-Tianlan, the Six Demonic Sects, Great Jin clans, Yinming ghost paths, Tianyuan, and Fengyuan clans have separate or intersecting lines. Blood Forbidden Land, Void Heaven Palace, Kunwu Mountain, Fallen Demon Valley, Nether River, and Diyuan check tickets, opening windows, session ownership, and kill results."
-    },
-    {
-      "type": "patchouli:text",
-      "title": "When Progress Stalls",
-      "text": "Check the tracker for the current stage, NPC, branch, and turn-in cost. An unlit mirror node usually means the native condition is unfinished. If an FTB node completes without advancing native progress, it is display-only or the current-stage validation failed. Logging in again resynchronizes from the server ledger; no quest reset is needed."
+      "title": "Troubleshooting",
+      "text": "When progress does not change, check the current stage, character, region, realm, branch, and turn-in cost. Logging in again synchronizes from the server ledger. Native quests, NPCs, tracking, and rewards still work when FTB Quests is absent."
     }
   ]
 }

@@ -27,7 +27,7 @@
     {
       "type": "patchouli:text",
       "title": "Planned Content",
-      "text": "Star Palace reputation gates, monthly or per-player limits, auction schedules, patrol quests, teleport permits, Void Palace map fragments, Star Palace NPCs, sea-event rewards, and an FTB Quests chapter are not yet implemented. This page describes only existing region and contribution-shop hooks."
+      "text": "Star Palace reputation gates, monthly or per-player limits, auction schedules, patrol quests, teleport permits, Void Palace map fragments, Star Palace NPCs, and sea-event rewards are not yet implemented. The corresponding native routes are projected in the FTB Quests chapter 'Star Palace and the Inverse Star Underground'; native progress remains authoritative. This page describes only existing region and contribution-shop hooks."
     }
   ]
 }

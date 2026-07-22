@@ -1,7 +1,11 @@
 package com.xunxian.seekingimmortals.quest;
 
+import net.minecraft.resources.ResourceLocation;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.List;
 import java.util.Set;
 
@@ -46,9 +50,21 @@ class FtbCustomTaskHooksTest {
     }
 
     @Test
+    void parseNativeReadyTagAsTransactionalTask() {
+        FtbCustomTaskHooks.Spec spec = FtbCustomTaskHooks.parseTag(
+                "si_native_ready_void_palace_campaign_5");
+        assertInstanceOf(FtbCustomTaskHooks.Spec.NativeReady.class, spec);
+        FtbCustomTaskHooks.Spec.NativeReady ready = (FtbCustomTaskHooks.Spec.NativeReady) spec;
+        assertEquals("void_palace_campaign", ready.chainId());
+        assertEquals(5, ready.stage());
+    }
+
+    @Test
     void malformedOrWriteOnlyNativeTagFailsClosedAsCustomTask() {
         assertInstanceOf(FtbCustomTaskHooks.Spec.Unknown.class,
                 FtbCustomTaskHooks.parseTag("si_native_huangfeng_cultivation_path_99"));
+        assertInstanceOf(FtbCustomTaskHooks.Spec.Unknown.class,
+                FtbCustomTaskHooks.parseTag("si_native_ready_huangfeng_cultivation_path_99"));
         assertInstanceOf(FtbCustomTaskHooks.Spec.Unknown.class,
                 FtbCustomTaskHooks.parseTag("si_native_write_huangfeng_cultivation_path_1"));
     }
@@ -73,11 +89,41 @@ class FtbCustomTaskHooksTest {
                 "si_war_active",
                 "si_rep_dajin_10",
                 "si_native_qixuan_mortal_path_4",
+                "si_native_ready_qixuan_mortal_path_4",
                 "optional"
         ));
-        assertEquals(3, specs.size());
+        assertEquals(4, specs.size());
         assertTrue(specs.stream().anyMatch(s -> s instanceof FtbCustomTaskHooks.Spec.WarActive));
         assertTrue(specs.stream().anyMatch(s -> s instanceof FtbCustomTaskHooks.Spec.ReputationGate));
         assertTrue(specs.stream().anyMatch(s -> s instanceof FtbCustomTaskHooks.Spec.NativeStage));
+        assertTrue(specs.stream().anyMatch(s -> s instanceof FtbCustomTaskHooks.Spec.NativeReady));
+    }
+
+    @Test
+    void ftbGuidePagesOnlyAcceptGeneratedPatchouliEntries() {
+        assertTrue(FtbCustomTaskHooks.isGuideEntry(new ResourceLocation(
+                "seeking_immortals", "quest_native_main")));
+        assertTrue(FtbCustomTaskHooks.isGuideEntry(new ResourceLocation(
+                "seeking_immortals", "quest_native_ascension_border")));
+        assertFalse(FtbCustomTaskHooks.isGuideEntry(new ResourceLocation(
+                "minecraft", "quest_native_main")));
+        assertFalse(FtbCustomTaskHooks.isGuideEntry(new ResourceLocation(
+                "seeking_immortals", "quest_native_missing")));
+    }
+
+    @Test
+    void readyTaskCommitsNativeTransitionBeforeFtbProgress() throws IOException {
+        String source = Files.readString(Path.of(
+                "src/main/java/com/xunxian/seekingimmortals/quest/FtbCustomTaskHooks.java"));
+
+        assertTrue(source.contains("validateWriteIntent(data.task().getQuest().getTags())"));
+        assertTrue(source.contains("singleAuthorityPlayer("));
+        assertTrue(source.contains("team.getMembers()"));
+        assertTrue(source.contains("if (FtbNativeQuestSync.applyWrite(player, readyTarget)) {\n"
+                + "            data.setProgress(1L);\n"
+                + "        }"));
+        assertTrue(source.contains("CustomClickEvent.EVENT.register(FtbCustomTaskHooks::openPatchouliGuide)"));
+        assertTrue(source.contains("PatchouliAPI$IPatchouliAPI"));
+        assertFalse(source.contains("import vazkii.patchouli"));
     }
 }

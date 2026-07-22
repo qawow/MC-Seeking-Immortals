@@ -1,18 +1,18 @@
 {
-  "name": "\u4e03\u7384\u6751\u8d27\u644a",
+  "name": "Qixuan Village Stall",
   "category": "seeking_immortals:basics",
   "icon": "seeking_immortals:technique_manual_mortal_martial",
   "sortnum": 12,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "\u4e03\u7384\u6751\u8d27\u644a",
-      "text": "\u4e03\u7384\u6751\u8d27\u644a\u662f\u51e1\u4eba\u8def\u5f84\u65e9\u671f\u80fd\u63a5\u89e6\u5230\u7684\u4f4e\u9636\u8865\u7ed9\u70b9\u3002\u5f53\u524d\u7248\u672c\u901a\u8fc7\u5df2\u6709\u574a\u5e02\u7cfb\u7edf\u63a5\u5165\uff0c\u4e0d\u65b0\u589e\u72ec\u7acb\u5546\u4eba\u6216\u52a0\u8f7d\u5668\uff0c\u4f7f\u7528\u4e0b\u54c1\u91d1\u7075\u77f3\u7ed3\u7b97\u3002"
+      "title": "Qixuan Village Stall",
+      "text": "The Qixuan Village stall is an early low-tier supply point on the mortal path. The current version exposes it through the existing market system rather than adding a separate merchant or loader, and prices goods in low-grade metal spirit stones."
     },
     {
       "type": "patchouli:text",
-      "title": "\u5f53\u524d\u8d27\u54c1",
-      "text": "\u5df2\u63a5\u5165\u7684\u8d27\u54c1\u5305\u62ec\u4f4e\u9636\u836f\u8349\u5305\u3001\u51e1\u4fd7\u4f24\u836f\u548c\u4e03\u7384\u95e8\u5165\u95e8\u6b66\u5b66\u5377\u3002\u5b83\u4eec\u5206\u522b\u590d\u7528\u7075\u8349\u3001\u4e0b\u54c1\u7597\u4f24\u4e39\u548c\u51e1\u4fd7\u6b66\u5b66\u624b\u518c\u4f5c\u4e3a\u73b0\u6709\u8f7d\u4f53\uff1b\u66f4\u4e25\u683c\u7684\u4e03\u7384\u95e8\u4efb\u52a1\u95e8\u69db\u4e0e\u6751\u4e2d NPC \u6446\u653e\u4ecd\u7559\u5f85\u540e\u7eed\u3002"
+      "title": "Current Stock",
+      "text": "Current stock includes a low-tier herb bundle, mortal wound medicine, and a Qixuan entry-level martial manual. They reuse an existing spirit herb, low-grade healing pill, and mortal martial manual as their carriers. Stricter Qixuan quest requirements and an in-village NPC placement remain future work."
     }
   ]
 }

@@ -1,0 +1,112 @@
+{
+  "name": "第6章 · 灵界飞升",
+  "category": "seeking_immortals:quests",
+  "icon": "minecraft:writable_book",
+  "sortnum": 16,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "章节概览",
+      "text": "飞升天渊登记，灵气倍率与功勋换资源。$(br2)本章收录 14 条已撰写剧情线；索引只说明路线，不替代服务器进度。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "剧情线索引 1/3",
+      "text": "$(l:quest_story_chapter_6_spirit_realm#line_tianyuan_landing_register)天渊落地登记$()$(br)$(l:quest_story_chapter_6_spirit_realm#line_tianyuan_to_fengyuan_gate)界门入风元$()$(br)$(l:quest_story_chapter_6_spirit_realm#line_zhenyan_outer_lesson)真言外门听法$()$(br)$(l:quest_story_chapter_6_spirit_realm#line_wuxing_intro)大五行幻世入门$()$(br)$(l:quest_story_chapter_6_spirit_realm#line_reincarnation_intro)轮回殿引见$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "剧情线索引 2/3",
+      "text": "$(l:quest_story_chapter_6_spirit_realm#line_court_hunt_gray)天庭缉灰$()$(br)$(l:quest_story_chapter_6_spirit_realm#line_heifeng_gray_sail)黑风海接灰界$()$(br)$(l:quest_story_chapter_6_spirit_realm#line_guanghan_endgame_path)广寒终局路$()$(br)$(l:quest_story_chapter_6_spirit_realm#line_xianjie_ascension_path)飞升入仙$()$(br)$(l:quest_story_chapter_6_spirit_realm#line_zhenyan_men_path)真言门修行线$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "剧情线索引 3/3",
+      "text": "$(l:quest_story_chapter_6_spirit_realm#line_time_law_path)时间法则线$()$(br)$(l:quest_story_chapter_6_spirit_realm#line_reincarnation_hall_path)轮回殿线$()$(br)$(l:quest_story_chapter_6_spirit_realm#line_heifeng_and_gray)黑风海与灰界$()$(br)$(l:quest_story_chapter_6_spirit_realm#line_xianjie_endgame_glimpse)仙界终局窥影$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "天渊落地登记",
+      "anchor": "line_tianyuan_landing_register",
+      "text": "人界的名头到了灵界，只是个记号。先登记，再适应灵气。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "界门入风元",
+      "anchor": "line_tianyuan_to_fengyuan_gate",
+      "text": "五百贡献，少一文，门不开。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "真言外门听法",
+      "anchor": "line_zhenyan_outer_lesson",
+      "text": "口舌即法。外门只许听，不许问尽。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "大五行幻世入门",
+      "anchor": "line_wuxing_intro",
+      "text": "幻世种子不是玩具。资格够了，才许观想。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "轮回殿引见",
+      "anchor": "line_reincarnation_intro",
+      "text": "契约在先，货物在后。反噬条请读完。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "天庭缉灰",
+      "anchor": "line_court_hunt_gray",
+      "text": "名册上的灰界走卒，格杀或绑回，由你选。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "黑风海接灰界",
+      "anchor": "line_heifeng_gray_sail",
+      "text": "听旗、听风、听舵主。天庭红人，本船不载。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "广寒终局路",
+      "anchor": "line_guanghan_endgame_path",
+      "text": "炼神术只有那一部。真仙威压，不是野怪表。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "飞升入仙",
+      "anchor": "line_xianjie_ascension_path",
+      "text": "渡劫只是门票。落地，才是另一场开局。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "真言门修行线",
+      "anchor": "line_zhenyan_men_path",
+      "text": "从听法到幻世，真言门是一条资格阶梯。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "时间法则线",
+      "anchor": "line_time_law_path",
+      "text": "时间法则不是加速挂机。逆转有天条。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "轮回殿线",
+      "anchor": "line_reincarnation_hall_path",
+      "text": "轮回殿长线：从引见到禁忌货与债。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "黑风海与灰界",
+      "anchor": "line_heifeng_and_gray",
+      "text": "黑风是路，灰界是雾。雾里没有回头路标。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "仙界终局窥影",
+      "anchor": "line_xianjie_endgame_glimpse",
+      "text": "终局只给窥影，不给通关保证。"
+    }
+  ]
+}

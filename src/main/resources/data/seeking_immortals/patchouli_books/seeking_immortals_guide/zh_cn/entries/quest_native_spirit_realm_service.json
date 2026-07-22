@@ -1,0 +1,133 @@
+{
+  "name": "灵界天渊与风元百族",
+  "category": "seeking_immortals:quests",
+  "icon": "seeking_immortals:mortal_quest_token",
+  "sortnum": 35,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "投影说明",
+      "text": "本卷对应 FTB Quests 章节“灵界天渊与风元百族”，收录 15 条原生任务线。阶段顺序来自原生任务资料，完成与奖励仍以服务器账本为准。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "任务线索引 1/4",
+      "text": "$(l:quest_native_spirit_realm_service#chain_spirit_realm_rise)灵界上升线$()$(br)$(l:quest_native_spirit_realm_service#chain_tianyuan_merit_path)天渊功勋线$()$(br)$(l:quest_native_spirit_realm_service#chain_chain_tianyuan_enlist)天渊城服役$()$(br)$(l:quest_native_spirit_realm_service#chain_diyuan_campaign)地渊探脉$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "任务线索引 2/4",
+      "text": "$(l:quest_native_spirit_realm_service#chain_human_clan_neutral_intro)世家引荐$()$(br)$(l:quest_native_spirit_realm_service#chain_spirit_eighteen_clans)灵界十八族巡礼$()$(br)$(l:quest_native_spirit_realm_service#chain_spirit_eighteen_pilgrimage)灵界十八族巡礼$()$(br)$(l:quest_native_spirit_realm_service#chain_fengyuan_explorer)风元探索$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "任务线索引 3/4",
+      "text": "$(l:quest_native_spirit_realm_service#chain_clan_array_mo_line)莫家阵法线$()$(br)$(l:quest_native_spirit_realm_service#chain_clan_refinement_yu_line)俞家炼器线$()$(br)$(l:quest_native_spirit_realm_service#chain_clan_alchemy_gu_line)谷家丹道线$()$(br)$(l:quest_native_spirit_realm_service#chain_clan_talisman_ning_line)宁家符箓线$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "任务线索引 4/4",
+      "text": "$(l:quest_native_spirit_realm_service#chain_human_clan_league_hub)世家联盟总线$()$(br)$(l:quest_native_spirit_realm_service#chain_barbarian_kings_line)蛮荒妖王线$()$(br)$(l:quest_native_spirit_realm_service#chain_barbarian_king_hunt)蛮荒妖王线$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "灵界上升线 1/2",
+      "anchor": "chain_spirit_realm_rise",
+      "text": "1. 天渊诛魔契约$(br)2. 万宝大会请柬$(br)3. 地渊侦察"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "灵界上升线 2/2",
+      "text": "4. 修罗试炼$(br)5. 九仙闭关许可$(br)6. 天渊入伍"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "天渊功勋线",
+      "anchor": "chain_tianyuan_merit_path",
+      "text": "1. 天渊功勋征召$(br)2. 妖兽攻城防守$(br)3. 地渊通行令申请"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "天渊城服役",
+      "anchor": "chain_chain_tianyuan_enlist",
+      "text": "1. 天渊城登记入伍$(br)2. 完成边境守卫任务$(br)3. 累积天渊功勋$(br)4. 换取灵界资源与通行资格"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "地渊探脉 1/2",
+      "anchor": "chain_diyuan_campaign",
+      "text": "1. 天渊功勋换地渊令$(br)2. 裂隙口重压$(br)3. 浅矿灵脉"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "地渊探脉 2/2",
+      "text": "4. 重压带$(br)5. 古兽守脉"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "世家引荐",
+      "anchor": "chain_human_clan_neutral_intro",
+      "text": "1. 风元世家引荐$(br)2. 世家客卿登记"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "灵界十八族巡礼",
+      "anchor": "chain_spirit_eighteen_clans",
+      "text": "1. 天渊入伍$(br)2. 异族朝贡$(br)3. 万宝大会请柬$(br)4. 修罗试炼"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "灵界十八族巡礼",
+      "anchor": "chain_spirit_eighteen_pilgrimage",
+      "text": "1. 风元世家引荐$(br)2. 十八族巡礼$(br)3. 天渊城征召"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "风元探索",
+      "anchor": "chain_fengyuan_explorer",
+      "text": "1. 风元世家引荐$(br)2. 风元边境巡防$(br)3. 蛮荒传闻"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "莫家阵法线",
+      "anchor": "chain_clan_array_mo_line",
+      "text": "1. 阵盘委托$(br)2. 莫家阵法试炼$(br)3. 世家纷争调停"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "俞家炼器线",
+      "anchor": "chain_clan_refinement_yu_line",
+      "text": "1. 灵矿押运$(br)2. 俞家炼器学徒$(br)3. 法宝鉴定委托"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "谷家丹道线",
+      "anchor": "chain_clan_alchemy_gu_line",
+      "text": "1. 谷家灵草贡纳$(br)2. 炼丹炉使用资格$(br)3. 丹药品阶考核"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "宁家符箓线",
+      "anchor": "chain_clan_talisman_ning_line",
+      "text": "1. 空白符纸订单$(br)2. 符箓铭刻课$(br)3. 宁家御敌"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "世家联盟总线",
+      "anchor": "chain_human_clan_league_hub",
+      "text": "1. 风元世家引荐$(br)2. 世家客卿登记$(br)3. 大晋世家争端"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "蛮荒妖王线",
+      "anchor": "chain_barbarian_kings_line",
+      "text": "1. 地渊侦察$(br)2. 蛮荒边境接触$(br)3. 任选妖王朝贡/试炼$(br)4. 空间裂缝脱险"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "蛮荒妖王线",
+      "anchor": "chain_barbarian_king_hunt",
+      "text": "1. 蛮荒边境接触$(br)2. 蛮荒兽潮求生$(br)3. 妖王信物狩猎"
+    }
+  ]
+}

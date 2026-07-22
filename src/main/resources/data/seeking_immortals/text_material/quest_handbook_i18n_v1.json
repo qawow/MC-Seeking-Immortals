@@ -1,0 +1,518 @@
+{
+  "schema_version": 1,
+  "ftb_chapters": [
+    {
+      "id": "seeking_immortals_main",
+      "entry": "quest_native_main",
+      "title_zh": "主线任务",
+      "title_en": "Main Quest Lines",
+      "chains": [
+        "huangfeng_cultivation_path",
+        "qixuan_mortal_path",
+        "blood_forbidden_campaign"
+      ]
+    },
+    {
+      "id": "seeking_immortals_chaotic_sea",
+      "entry": "quest_native_chaotic_sea",
+      "title_zh": "乱星海与虚天殿",
+      "title_en": "Chaotic Sea and Void Heaven Palace",
+      "chains": [
+        "chaotic_sea_politics",
+        "void_palace_campaign",
+        "inverse_star_recruit",
+        "inverse_star_smuggle_arc",
+        "chaotic_sea_civil_war"
+      ]
+    },
+    {
+      "id": "seeking_immortals_dajin_kunwu",
+      "entry": "quest_native_dajin_kunwu",
+      "title_zh": "大晋与昆吾山",
+      "title_en": "Great Jin and Kunwu Mountain",
+      "chains": [
+        "dajin_kunwu_line",
+        "kunwu_mountain_campaign",
+        "dajin_wanbao_route",
+        "dajin_clan_line",
+        "dajin_righteous_demon_line"
+      ]
+    },
+    {
+      "id": "seeking_immortals_fallen_demon_yin",
+      "entry": "quest_native_fallen_demon_yin",
+      "title_zh": "坠魔谷与阴司鬼道",
+      "title_en": "Fallen Demon Valley and Yin Paths",
+      "chains": [
+        "ghost_path",
+        "yin_luo_ghost_sect",
+        "fallen_demon_campaign",
+        "ancient_demon_line",
+        "nether_river_campaign"
+      ]
+    },
+    {
+      "id": "seeking_immortals_mulan_demonic",
+      "entry": "quest_native_mulan_demonic",
+      "title_zh": "慕兰天澜与魔道六宗",
+      "title_en": "Mulan-Tianlan and the Six Demonic Sects",
+      "chains": [
+        "mulan_war_campaign",
+        "mulan_tianlan_war",
+        "mulan_fashi_path",
+        "tianlan_defense_line",
+        "wutu_mulan_feud_line",
+        "chain_mulan_war_campaign",
+        "demonic_six_path",
+        "demonic_six_expanded"
+      ]
+    },
+    {
+      "id": "seeking_immortals_spirit_realm_service",
+      "entry": "quest_native_spirit_realm_service",
+      "title_zh": "灵界天渊与风元百族",
+      "title_en": "Spirit Realm: Tianyuan and the Fengyuan Clans",
+      "chains": [
+        "spirit_realm_rise",
+        "tianyuan_merit_path",
+        "chain_tianyuan_enlist",
+        "diyuan_campaign",
+        "human_clan_neutral_intro",
+        "spirit_eighteen_clans",
+        "spirit_eighteen_pilgrimage",
+        "fengyuan_explorer",
+        "clan_array_mo_line",
+        "clan_refinement_yu_line",
+        "clan_alchemy_gu_line",
+        "clan_talisman_ning_line",
+        "human_clan_league_hub",
+        "barbarian_kings_line",
+        "barbarian_king_hunt"
+      ]
+    },
+    {
+      "id": "seeking_immortals_tiannan_seven_sects",
+      "entry": "quest_native_tiannan_seven_sects",
+      "title_zh": "天南七派与百艺旁支",
+      "title_en": "Tiannan's Seven Sects and the Hundred Crafts",
+      "chains": [
+        "craft_master",
+        "huadao_blade_path",
+        "giant_sword_gate_path",
+        "qianzhu_puppet_path",
+        "yuling_puppet_path",
+        "yanyue_illusion_path",
+        "tianfu_talisman_path"
+      ]
+    },
+    {
+      "id": "seeking_immortals_star_palace_inverse",
+      "entry": "quest_native_star_palace_inverse",
+      "title_zh": "星宫派系与逆星暗线",
+      "title_en": "Star Palace and the Inverse Star Underground",
+      "chains": [
+        "star_palace_internal_politics",
+        "inverse_star_void_heist",
+        "chain_void_palace_expedition"
+      ]
+    },
+    {
+      "id": "seeking_immortals_ascension_border",
+      "entry": "quest_native_ascension_border",
+      "title_zh": "飞升边境与终局劫线",
+      "title_en": "Ascension Frontier and Final Tribulations",
+      "chains": [
+        "high_realm_endgame",
+        "void_great_cultivation_arc",
+        "diyuan_depth_delve",
+        "mortal_to_spirit_bridge",
+        "chain_ascension_spirit_world",
+        "yin_cluster_pilgrim",
+        "fallen_demon_expedition",
+        "kunwu_mountain_expedition",
+        "spirit_realm_border",
+        "ghost_sect_ban_arc",
+        "chain_seven_sect_outer_to_inner"
+      ]
+    }
+  ],
+  "story_chapters": [
+    {
+      "id": "chapter_0_mortal",
+      "entry": "quest_story_chapter_0_mortal",
+      "title_en": "Mortal Beginnings",
+      "summary_en": "A mortal seeks immortality, tests their spiritual root, and enters an outer sect.",
+      "lines": [
+        "mortal_qixuan_entry"
+      ]
+    },
+    {
+      "id": "chapter_1_sect",
+      "entry": "quest_story_chapter_1_sect",
+      "title_en": "Sect Cultivation",
+      "summary_en": "Outer-sect work, contribution, crafts, and border war prepare a cultivator for Foundation Establishment.",
+      "lines": [
+        "huangfeng_blood_quota",
+        "mulan_tiannan_war_campaign",
+        "mulan_scout_clash",
+        "fashi_soul_array_battle",
+        "holy_bird_blessing_quest"
+      ]
+    },
+    {
+      "id": "chapter_2_foundation_secret",
+      "entry": "quest_story_chapter_2_foundation_secret",
+      "title_en": "Foundation Secret Realm",
+      "summary_en": "Secure a sect quota, enter the timed Blood Forbidden Land, and return with Foundation resources.",
+      "lines": [
+        "blood_forbidden_run",
+        "nangong_wan_weight_optional"
+      ]
+    },
+    {
+      "id": "chapter_3_chaotic_sea",
+      "entry": "quest_story_chapter_3_chaotic_sea",
+      "title_en": "Chaotic Sea",
+      "summary_en": "Register under Star Palace rule or enter the Inverse Star underground while preparing for Void Heaven Palace.",
+      "lines": [
+        "star_palace_register",
+        "inverse_star_intro",
+        "xutian_window_prepare",
+        "qianzhu_tower_trial",
+        "dayan_clue",
+        "xutian_palace_run"
+      ]
+    },
+    {
+      "id": "chapter_4_great_jin",
+      "entry": "quest_story_chapter_4_great_jin",
+      "title_en": "Across Great Jin",
+      "summary_en": "Assemble Kunwu clues, prepare for hostile caverns, and contest the mountain's sealed treasures.",
+      "lines": [
+        "kunwu_clue_assemble",
+        "yinyang_ku_intel",
+        "peiying_material_hunt",
+        "kunwu_expedition_run"
+      ]
+    },
+    {
+      "id": "chapter_5_deity_transformation",
+      "entry": "quest_story_chapter_5_deity_transformation",
+      "title_en": "Deity Transformation Tribulation",
+      "summary_en": "Gather Fallen Demon Valley resources, complete the fire-prison route, and prepare for tribulation and ascension.",
+      "lines": [
+        "zhuimo_token",
+        "lingzhu_fruit_run",
+        "deity_huoyu_path"
+      ]
+    },
+    {
+      "id": "chapter_6_spirit_realm",
+      "entry": "quest_story_chapter_6_spirit_realm",
+      "title_en": "Spirit Realm Ascension",
+      "summary_en": "Register at Tianyuan, earn passage through service, and follow the higher-realm paths beyond Fengyuan.",
+      "lines": [
+        "tianyuan_landing_register",
+        "tianyuan_to_fengyuan_gate",
+        "zhenyan_outer_lesson",
+        "wuxing_intro",
+        "reincarnation_intro",
+        "court_hunt_gray",
+        "heifeng_gray_sail",
+        "guanghan_endgame_path",
+        "xianjie_ascension_path",
+        "zhenyan_men_path",
+        "time_law_path",
+        "reincarnation_hall_path",
+        "heifeng_and_gray",
+        "xianjie_endgame_glimpse"
+      ]
+    }
+  ],
+  "chain_titles_en": {
+    "huangfeng_cultivation_path": "Yellow Maple Cultivation Path",
+    "chaotic_sea_politics": "Chaotic Sea Politics",
+    "mulan_tianlan_war": "Mulan-Tianlan Front",
+    "ghost_path": "Ghost Cultivation Path",
+    "high_realm_endgame": "High-Realm Endgame",
+    "spirit_realm_rise": "Spirit Realm Ascent",
+    "craft_master": "Master of the Hundred Crafts",
+    "dajin_kunwu_line": "Great Jin and Kunwu",
+    "ancient_demon_line": "Ancient Demon Seal",
+    "qixuan_mortal_path": "Qixuan Mortal Path",
+    "huadao_blade_path": "Blade Transformation Sect Path",
+    "giant_sword_gate_path": "Giant Sword Sect Legacy",
+    "qianzhu_puppet_path": "Thousand Bamboo Puppet Path",
+    "yuling_puppet_path": "Spirit Beast Puppet Path",
+    "dajin_clan_line": "Great Jin Clan Path",
+    "demonic_six_path": "Six Demonic Sects",
+    "yin_cluster_pilgrim": "Yin Realm Pilgrimage",
+    "barbarian_kings_line": "Wilds Demon Kings",
+    "spirit_eighteen_clans": "Eighteen Spirit Realm Clans",
+    "star_palace_internal_politics": "Star Palace Factions",
+    "mulan_war_campaign": "Mulan-Tianlan Campaign",
+    "mulan_fashi_path": "Mulan Spell-Warrior Path",
+    "tianlan_defense_line": "Tianlan Beast Defense",
+    "wutu_mulan_feud_line": "Wutu-Mulan Blood Feud",
+    "fallen_demon_expedition": "Fallen Demon Valley Expedition",
+    "dajin_wanbao_route": "Great Jin Trade Route",
+    "yin_luo_ghost_sect": "Yinluo Hall Path",
+    "kunwu_mountain_expedition": "Kunwu Mountain Expedition",
+    "tianyuan_merit_path": "Tianyuan Merit Path",
+    "spirit_realm_border": "Spirit Realm Frontier",
+    "ghost_sect_ban_arc": "Righteous Sect Ban on Ghost Cultivators",
+    "fengyuan_explorer": "Fengyuan Exploration",
+    "barbarian_king_hunt": "Wilds Demon King Hunt",
+    "human_clan_neutral_intro": "Human Clan Introduction",
+    "clan_array_mo_line": "Mo Clan Formation Path",
+    "clan_refinement_yu_line": "Yu Clan Artifact Refinement Path",
+    "clan_alchemy_gu_line": "Gu Clan Alchemy Path",
+    "clan_talisman_ning_line": "Ning Clan Talisman Path",
+    "human_clan_league_hub": "Human Clan League",
+    "spirit_eighteen_pilgrimage": "Eighteen Clans Pilgrimage",
+    "void_great_cultivation_arc": "Void Refinement to Grand Ascension",
+    "diyuan_depth_delve": "Deep Diyuan Delve",
+    "mortal_to_spirit_bridge": "Mortal Realm to Spirit Realm",
+    "inverse_star_recruit": "Join the Inverse Star Alliance",
+    "inverse_star_smuggle_arc": "Smuggling Supply Route",
+    "inverse_star_void_heist": "Void Heaven Intelligence Heist",
+    "chaotic_sea_civil_war": "Star Palace-Inverse Star Conflict",
+    "chain_seven_sect_outer_to_inner": "Seven Sects Outer-to-Inner Promotion",
+    "chain_mulan_war_campaign": "Mulan Grand War Campaign",
+    "chain_void_palace_expedition": "Void Heaven Palace Expedition",
+    "chain_ascension_spirit_world": "Spirit Realm Ascension Prerequisites",
+    "chain_tianyuan_enlist": "Tianyuan Service",
+    "blood_forbidden_campaign": "Blood Forbidden Land Campaign",
+    "void_palace_campaign": "Void Heaven Palace Treasure Hunt",
+    "fallen_demon_campaign": "Fallen Demon Valley Campaign",
+    "kunwu_mountain_campaign": "Kunwu Mountain Treasure Hunt",
+    "nether_river_campaign": "Nether River Journey",
+    "diyuan_campaign": "Diyuan Leyline Survey",
+    "dajin_righteous_demon_line": "Great Jin Righteous-Demonic Frontier",
+    "yanyue_illusion_path": "Veiled Moon Illusion Path",
+    "tianfu_talisman_path": "Heavenly Talisman Crafting Path",
+    "demonic_six_expanded": "Six Demonic Sects: Deep Route"
+  },
+  "line_titles_en": {
+    "mortal_qixuan_entry": "Mortal Beginnings at Qixuan",
+    "huangfeng_blood_quota": "Yellow Maple: Blood Forbidden Quota",
+    "blood_forbidden_run": "Blood Forbidden Land Trial",
+    "nangong_wan_weight_optional": "Ink Jiao Pool Event (Optional)",
+    "star_palace_register": "Star Palace Registration",
+    "inverse_star_intro": "Inverse Star Contact",
+    "tianyuan_landing_register": "Tianyuan Arrival Registration",
+    "tianyuan_to_fengyuan_gate": "Passage into Fengyuan",
+    "zhenyan_outer_lesson": "True Word Outer-Sect Lesson",
+    "wuxing_intro": "Great Five Elements Illusory World",
+    "reincarnation_intro": "Reincarnation Hall Introduction",
+    "court_hunt_gray": "Heavenly Court Gray-Realm Hunt",
+    "heifeng_gray_sail": "Black Wind Sea Passage",
+    "xutian_window_prepare": "Void Heaven Palace Preparation",
+    "kunwu_clue_assemble": "Assembling the Kunwu Clues",
+    "zhuimo_token": "Fallen Demon Token",
+    "lingzhu_fruit_run": "Spirit Candle Fruit Contest",
+    "yinyang_ku_intel": "Yin-Yang Cavern Intelligence",
+    "peiying_material_hunt": "Nascent-Soul Material: Yin Zhi Horse",
+    "qianzhu_tower_trial": "Thousand Bamboo Mechanism Tower",
+    "dayan_clue": "Great Development Art Fragments",
+    "guanghan_endgame_path": "Guanghan Endgame Path",
+    "deity_huoyu_path": "Deity Transformation: Fire-Prison Preparations",
+    "mulan_tiannan_war_campaign": "Mulan-Tiannan War Campaign",
+    "mulan_scout_clash": "Grassland Scout Clash",
+    "fashi_soul_array_battle": "Spell-Warrior Ancestral Formation",
+    "holy_bird_blessing_quest": "Sacred Bird Blessing",
+    "xianjie_ascension_path": "Ascension into the Immortal Realm",
+    "zhenyan_men_path": "True Word Sect Cultivation Path",
+    "time_law_path": "Law of Time Path",
+    "reincarnation_hall_path": "Reincarnation Hall Path",
+    "heifeng_and_gray": "Black Wind Sea and the Gray Realm",
+    "xianjie_endgame_glimpse": "A Glimpse of the Immortal Endgame",
+    "xutian_palace_run": "Void Heaven Palace Expedition",
+    "kunwu_expedition_run": "Kunwu Mountain Expedition"
+  },
+  "line_summaries_en": {
+    "mortal_qixuan_entry": "Spiritual roots come before immortal cultivation. The Changchun Art is only the first step toward survival.",
+    "huangfeng_blood_quota": "This entrance token is earned through contribution, not personal favors.",
+    "blood_forbidden_run": "Gather medicine, judge rivals, and escape before the secret-realm window closes.",
+    "nangong_wan_weight_optional": "A jiao waits underwater and another disciple waits ashore; hunt, help, or leave.",
+    "star_palace_register": "Star Palace sets the rules of the Chaotic Sea: register before seeking legal passage.",
+    "inverse_star_intro": "Give the correct countersign before speaking, and keep Star Palace agents away.",
+    "tianyuan_landing_register": "Old mortal-realm status means little here; register first and adapt to Spirit Realm qi.",
+    "tianyuan_to_fengyuan_gate": "The controlled gate opens for merit, and not one point less.",
+    "zhenyan_outer_lesson": "Words carry law here; outer disciples may listen before they are allowed to ask.",
+    "wuxing_intro": "The Illusory World seed is not a toy, and contemplation requires earned standing.",
+    "reincarnation_intro": "Read the backlash terms before signing a contract for forbidden goods.",
+    "court_hunt_gray": "Choose whether to kill or capture the Gray Realm agents named on the warrant.",
+    "heifeng_gray_sail": "Follow the flag, wind, and helmsman; favored agents of the Court are refused passage.",
+    "xutian_window_prepare": "A completed map only grants entry; there is still only one supreme cauldron.",
+    "kunwu_clue_assemble": "Kunwu does not wait open: without every clue, its gate remains sealed.",
+    "zhuimo_token": "A token grants entry, but entering without fire resistance buys only a grave.",
+    "lingzhu_fruit_run": "There is one fruit tree, and its once-per-life fortune is not an infinite trade good.",
+    "yinyang_ku_intel": "In a cavern steeped in yin poison, buy survival before buying directions.",
+    "peiying_material_hunt": "The alchemical ingredient must be captured alive; a corpse is worth far less.",
+    "qianzhu_tower_trial": "Stop the mechanisms, break the control cores, and seize the tower instead of relying on force.",
+    "dayan_clue": "Assemble the inheritance page by page; the complete art is neither sold nor guaranteed.",
+    "guanghan_endgame_path": "The Spirit Refinement Art is unique, and a True Immortal's pressure is not a farmable boss encounter.",
+    "deity_huoyu_path": "Balance cold flame, gather limited essence fire, and prepare a unique return-to-yang route before ascension.",
+    "mulan_tiannan_war_campaign": "War merit and talisman fire rule the sandstorm while closed borders override ordinary travel.",
+    "mulan_scout_clash": "A grassland scouting branch within the Mulan campaign.",
+    "fashi_soul_array_battle": "A spell-warrior formation branch within the Mulan campaign.",
+    "holy_bird_blessing_quest": "A sacred-bird blessing branch within the Mulan campaign.",
+    "xianjie_ascension_path": "Tribulation is only the admission token; arrival begins an entirely new path.",
+    "zhenyan_men_path": "The True Word Sect is a ladder of qualifications from lectures to the Illusory World.",
+    "time_law_path": "The law of time is not idle acceleration, and reversal carries heavenly consequences.",
+    "reincarnation_hall_path": "A long route from introductions to deeper contracts, forbidden goods, and debts.",
+    "heifeng_and_gray": "Black Wind is the road and the Gray Realm is the fog, with no sign pointing back.",
+    "xianjie_endgame_glimpse": "The endgame offers distant hooks, not a guaranteed path to final victory.",
+    "xutian_palace_run": "Preparation is over; unique treasures belong only to those who leave the palace alive.",
+    "kunwu_expedition_run": "With every clue assembled, enter the mountain where sealed fire and demons wait."
+  },
+  "hook_labels_zh": {
+    "alchemy_furnace_access": "炼丹炉使用资格",
+    "ancient_demon_projection_boss": "古魔投影决战",
+    "array_disk_commission": "阵盘委托",
+    "artifact_appraisal_quest": "法宝鉴定委托",
+    "ascension_gate_rumor": "飞升界门传闻",
+    "auction_invite_dajin": "大晋拍卖请柬",
+    "barbarian_beast_tide_survive": "蛮荒兽潮求生",
+    "barbarian_king_token_hunt": "妖王信物狩猎",
+    "clan_feud_mediation_optional": "世家纷争调停",
+    "clan_guest_register": "世家客卿登记",
+    "clan_raid_defense_ning": "宁家御敌",
+    "dajin_clan_feud": "大晋世家争端",
+    "dajin_clan_feud_choice": "世家争端抉择",
+    "demon_beast_siege_defense": "妖兽攻城防守",
+    "demon_qi_purge_side": "魔气净化支线",
+    "diyuan_core_crystal_boss": "地渊核心晶兽",
+    "diyuan_core_probe": "地渊核心探测",
+    "diyuan_permit_apply": "地渊通行令申请",
+    "diyuan_pressure_wave": "地渊灵压潮",
+    "fengyuan_clan_intro": "风元世家引荐",
+    "feud_truce_broker": "世仇停战斡旋",
+    "formation_trial_mo": "莫家阵法试炼",
+    "great_vehicle_insight": "大乘道悟",
+    "herb_tribute_gu": "谷家灵草贡纳",
+    "holy_bird_altar_visit": "圣禽祭坛参拜",
+    "internal_tax_vote": "星宫内部税议",
+    "inverse_star_ambush_event": "逆星伏击",
+    "inverse_star_black_market_buy": "逆星黑市购货",
+    "inverse_star_cipher_trial": "逆星暗号试炼",
+    "inverse_star_contact_rumor": "逆星接头传闻",
+    "inverse_star_oath": "逆星盟誓",
+    "inverse_star_smuggler_pack": "逆星走私补给",
+    "kunwu_cold_snap_survive": "昆吾寒潮求生",
+    "kunwu_map_fragment_turnin": "昆吾残图上交",
+    "kunwu_puppet_king": "昆吾傀儡王",
+    "kunwu_rumor": "昆吾山传闻",
+    "mortal_realm_cap_insight": "人界境界极限感悟",
+    "mulan_counter_hunt": "慕兰反猎",
+    "mulan_scout_clash": "草原斥候交锋",
+    "mulan_war_campaign": "慕兰战争战役",
+    "nether_ferry_pass": "冥河渡船凭证",
+    "pill_quality_audit": "丹药品阶考核",
+    "refinement_apprentice_yu": "俞家炼器学徒",
+    "seal_weak_event": "封印衰弱事件",
+    "soul_banner_quest": "魂幡委托",
+    "spatial_rift_flutter_survive": "空间裂隙震荡求生",
+    "spirit_fengyuan_border_patrol": "风元边境巡防",
+    "spirit_ore_escort": "灵矿押运",
+    "spirit_realm_gate_voucher": "灵界界门凭证",
+    "star_palace_branch_commerce": "星宫商贸派任务",
+    "star_palace_branch_enforcement": "星宫执法派任务",
+    "star_palace_enforcement_raid": "星宫执法突袭",
+    "star_palace_patrol_dodge": "躲避星宫巡防",
+    "star_palace_spy_expose_optional": "星宫密探揭露",
+    "talisman_blank_order": "空白符纸订单",
+    "talisman_inscription_lesson": "符箓铭刻课",
+    "tianhu_beast_tame_optional": "天狐灵兽驯服",
+    "tianlan_beast_soul_call_training": "天澜兽魂召唤训练",
+    "tianyuan_merit_enlist": "天渊功勋征召",
+    "tribulation_cloud_gather": "劫云汇聚",
+    "void_key_fragment_rumor": "虚天钥匙残片传闻",
+    "void_palace_intel_sell": "虚天殿情报出售",
+    "void_rift_surge": "虚空裂隙潮",
+    "wanbao_auction_lead": "万宝阁拍卖线索",
+    "wild_land_beast_horde": "蛮荒兽群",
+    "wild_land_rumor": "蛮荒传闻",
+    "wutu_raid_mulan_camp": "突兀袭击慕兰营地",
+    "yin_luo_initiation": "阴罗殿入门"
+  },
+  "numeric_stage_labels": {
+    "chain_seven_sect_outer_to_inner": [
+      {
+        "zh": "累积宗门贡献",
+        "en": "Accumulate Sect Contribution"
+      },
+      {
+        "zh": "通过境界与师门考核",
+        "en": "Pass Realm and Sect Assessments"
+      },
+      {
+        "zh": "晋升内门并领取传承",
+        "en": "Enter the Inner Sect and Claim the Legacy"
+      }
+    ],
+    "chain_void_palace_expedition": [
+      {
+        "zh": "收集虚天残图",
+        "en": "Gather Void Heaven Map Fragments"
+      },
+      {
+        "zh": "换取入殿钥令",
+        "en": "Obtain a Palace Key"
+      },
+      {
+        "zh": "探索多层殿宇",
+        "en": "Explore the Palace Layers"
+      },
+      {
+        "zh": "夺取宝物并安全撤离",
+        "en": "Claim Treasure and Escape Safely"
+      }
+    ],
+    "chain_ascension_spirit_world": [
+      {
+        "zh": "触及人界化神极限",
+        "en": "Reach the Mortal Realm Deity Transformation Limit"
+      },
+      {
+        "zh": "准备抗劫与飞升物资",
+        "en": "Prepare Tribulation and Ascension Supplies"
+      },
+      {
+        "zh": "渡过心魔与天劫",
+        "en": "Survive the Inner Demon and Heavenly Tribulation"
+      },
+      {
+        "zh": "定位稳定空间节点",
+        "en": "Locate a Stable Spatial Node"
+      },
+      {
+        "zh": "穿越飞升光门",
+        "en": "Cross the Ascension Gate"
+      },
+      {
+        "zh": "在灵界天渊登记",
+        "en": "Register at Tianyuan in the Spirit Realm"
+      }
+    ],
+    "chain_tianyuan_enlist": [
+      {
+        "zh": "天渊城登记入伍",
+        "en": "Enlist at Tianyuan City"
+      },
+      {
+        "zh": "完成边境守卫任务",
+        "en": "Complete a Frontier Defense"
+      },
+      {
+        "zh": "累积天渊功勋",
+        "en": "Earn Tianyuan Merit"
+      },
+      {
+        "zh": "换取灵界资源与通行资格",
+        "en": "Exchange Merit for Resources and Passage"
+      }
+    ]
+  }
+}

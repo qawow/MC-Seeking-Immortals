@@ -1,0 +1,65 @@
+{
+  "name": "天南七派与百艺旁支",
+  "category": "seeking_immortals:quests",
+  "icon": "seeking_immortals:mortal_quest_token",
+  "sortnum": 36,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "投影说明",
+      "text": "本卷对应 FTB Quests 章节“天南七派与百艺旁支”，收录 7 条原生任务线。阶段顺序来自原生任务资料，完成与奖励仍以服务器账本为准。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "任务线索引 1/2",
+      "text": "$(l:quest_native_tiannan_seven_sects#chain_craft_master)百艺精通$()$(br)$(l:quest_native_tiannan_seven_sects#chain_huadao_blade_path)化刀坞刀道$()$(br)$(l:quest_native_tiannan_seven_sects#chain_giant_sword_gate_path)巨剑门传承$()$(br)$(l:quest_native_tiannan_seven_sects#chain_qianzhu_puppet_path)千竹傀儡线$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "任务线索引 2/2",
+      "text": "$(l:quest_native_tiannan_seven_sects#chain_yuling_puppet_path)御灵兽傀线$()$(br)$(l:quest_native_tiannan_seven_sects#chain_yanyue_illusion_path)掩月宗幻媚线$()$(br)$(l:quest_native_tiannan_seven_sects#chain_tianfu_talisman_path)天符门制符线$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "百艺精通",
+      "anchor": "chain_craft_master",
+      "text": "1. 丹童试炼$(br)2. 傀儡检修$(br)3. 阵法进阶$(br)4. 炼器地火"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "化刀坞刀道",
+      "anchor": "chain_huadao_blade_path",
+      "text": "1. 刀坞试刀$(br)2. 铸刀委托$(br)3. 刀意对决"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "巨剑门传承",
+      "anchor": "chain_giant_sword_gate_path",
+      "text": "1. 巨剑入门$(br)2. 血色禁地银巨剑线索$(br)3. 古剑残片重铸"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "千竹傀儡线",
+      "anchor": "chain_qianzhu_puppet_path",
+      "text": "1. 傀儡童工$(br)2. 千竹塔历练$(br)3. 大衍残页$(br)4. 维护高阶傀"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "御灵兽傀线",
+      "anchor": "chain_yuling_puppet_path",
+      "text": "1. 灵兽山暗线$(br)2. 兽魂封傀$(br)3. 灵兽契约"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "掩月宗幻媚线",
+      "anchor": "chain_yanyue_illusion_path",
+      "text": "1. 神识心性试炼$(br)2. 幻阵双修课业$(br)3. 七派大比（可选）$(br)4. 内门媚术秘传"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "天符门制符线",
+      "anchor": "chain_tianfu_talisman_path",
+      "text": "1. 符纸灵墨基础$(br)2. 低阶符考核$(br)3. 筑基后中阶符室$(br)4. 结丹秘传符（可选分支）"
+    }
+  ]
+}

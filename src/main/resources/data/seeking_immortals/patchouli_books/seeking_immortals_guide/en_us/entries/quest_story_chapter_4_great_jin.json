@@ -1,0 +1,42 @@
+{
+  "name": "Chapter 4: Across Great Jin",
+  "category": "seeking_immortals:quests",
+  "icon": "minecraft:writable_book",
+  "sortnum": 14,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Chapter Overview",
+      "text": "Assemble Kunwu clues, prepare for hostile caverns, and contest the mountain's sealed treasures.$(br2)This chapter contains 4 authored quest lines. The index describes routes and does not replace server progress."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Quest Line Index",
+      "text": "$(l:quest_story_chapter_4_great_jin#line_kunwu_clue_assemble)Assembling the Kunwu Clues$()$(br)$(l:quest_story_chapter_4_great_jin#line_yinyang_ku_intel)Yin-Yang Cavern Intelligence$()$(br)$(l:quest_story_chapter_4_great_jin#line_peiying_material_hunt)Nascent-Soul Material: Yin Zhi Horse$()$(br)$(l:quest_story_chapter_4_great_jin#line_kunwu_expedition_run)Kunwu Mountain Expedition$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Assembling the Kunwu Clues",
+      "anchor": "line_kunwu_clue_assemble",
+      "text": "Kunwu does not wait open: without every clue, its gate remains sealed."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Yin-Yang Cavern Intelligence",
+      "anchor": "line_yinyang_ku_intel",
+      "text": "In a cavern steeped in yin poison, buy survival before buying directions."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Nascent-Soul Material: Yin Zhi Horse",
+      "anchor": "line_peiying_material_hunt",
+      "text": "The alchemical ingredient must be captured alive; a corpse is worth far less."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Kunwu Mountain Expedition",
+      "anchor": "line_kunwu_expedition_run",
+      "text": "With every clue assembled, enter the mountain where sealed fire and demons wait."
+    }
+  ]
+}

@@ -13,6 +13,7 @@
       subtitle: "昆吾、坠魔、天渊串联",
       x: 0.0d,
       y: 0.0d,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：quest_chains#high_realm_endgame。",
         "高境界终局把昆吾封印、坠魔前哨和天渊征召合并为人界后期到灵界前线的总纲；当前仅作安全呈现。"
@@ -21,7 +22,10 @@
       tags: ["seeking_immortals", "high_realm_endgame", "endgame_bridge"],
       tasks: [
         {id: "1000000000002201", type: "advancement", advancement: "minecraft:end/root", title: "整理高境终局纲领"},
-        {id: "2000000000002201", type: "custom", title: "同步原生高境终局完成状态", tags: ["si_native_high_realm_endgame_4"], check_timer: 20, max_progress: 1L}
+        {id: "2000000000002201", type: "custom", title: "同步原生高境终局完成状态", tags: ["si_native_high_realm_endgame_4"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000021", type: "custom", title: "同步原生任务阶段 1/4", tags: ["si_native_high_realm_endgame_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000022", type: "custom", title: "同步原生任务阶段 2/4", tags: ["si_native_high_realm_endgame_2"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000023", type: "custom", title: "同步原生任务阶段 3/4", tags: ["si_native_high_realm_endgame_3"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
@@ -30,6 +34,7 @@
       subtitle: "探山链路补档",
       x: 2.0d,
       y: -2.0d,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：quest_chains#kunwu_mountain_expedition。",
         "昆吾山探山从情报、地图残片和寒潮准备推进到傀儡王；真实许可、冷害与波次仍后续实现。"
@@ -38,7 +43,8 @@
       tags: ["seeking_immortals", "kunwu_mountain_expedition", "kunwu"],
       tasks: [
         {id: "1000000000002202", type: "advancement", advancement: "minecraft:adventure/root", title: "复核昆吾远征线"},
-        {id: "2000000000002202", type: "custom", title: "同步原生昆吾远征完成状态", tags: ["si_native_kunwu_mountain_expedition_4"], check_timer: 20, max_progress: 1L}
+        {id: "2000000000002202", type: "custom", title: "同步原生昆吾远征完成状态", tags: ["si_native_kunwu_mountain_expedition_4"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000109", type: "custom", title: "同步原生任务阶段 1/4", tags: ["si_native_kunwu_mountain_expedition_1"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
@@ -47,6 +53,7 @@
       subtitle: "入山许可",
       x: 4.0d,
       y: -2.0d,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：quest_hooks#kunwu_map_fragment_turnin。",
         "大晋地图残片换取昆吾入山资格，后续可接真实残片、世家担保和入山冷害检查。"
@@ -61,6 +68,7 @@
       subtitle: "寒禁试炼",
       x: 6.0d,
       y: -2.0d,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：quest_hooks#kunwu_cold_snap_survive。",
         "昆吾寒潮用于表现上古禁制和抗寒准备；当前不施加冷害，只提示后续冷抗符或丹药接点。"
@@ -75,6 +83,7 @@
       subtitle: "探山终点",
       x: 8.0d,
       y: -2.0d,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：quest_hooks#kunwu_puppet_king / beast_boss_tier_secret_realm_map.json。",
         "傀儡王是昆吾探山终点，源设定奖励含 kunwu_layer_chest 与 kunwu_puppet_core；当前不生成 boss 或奖励。"
@@ -89,6 +98,7 @@
       subtitle: "探谷链路补档",
       x: 2.0d,
       y: 0.0d,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：quest_chains#fallen_demon_expedition。",
         "坠魔谷探谷从前哨、封印削弱、驱魔准备推进到古魔投影；现有章节已有主段，本节点补齐链路名。"
@@ -103,6 +113,7 @@
       subtitle: "魔气侦察",
       x: 4.0d,
       y: 0.0d,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：quest_hooks#fallen_demon_scout / daily_random_events#fallen_demon_miasma。",
         "前哨报告确认魔气外溢与封印风险，后续可接侦察报告物品、魔气样本和巡逻 NPC。"
@@ -117,13 +128,16 @@
       subtitle: "古魔封印",
       x: 6.0d,
       y: 0.0d,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：fallen_demon_expedition#seal_weak_event。",
         "封印削弱事件承接昆吾残卷和坠魔裂隙，当前不改世界事件，只记录任务意图。"
       ],
       dependencies: ["1000000000001207"],
       tags: ["seeking_immortals", "fallen_demon_valley", "seal_weak_event"],
-      tasks: [{id: "1000000000002208", type: "custom", title: "巡察削弱封印", tags: ["si_native_fallen_demon_expedition_2"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000002208", type: "custom", title: "巡察削弱封印", tags: ["si_native_fallen_demon_expedition_2"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000101", type: "custom", title: "同步原生任务阶段 3/4", tags: ["si_native_fallen_demon_expedition_3"], check_timer: 20, max_progress: 1L}
+      ]
     },
     {
       id: "1000000000001209",
@@ -131,6 +145,7 @@
       subtitle: "探谷结算",
       x: 8.0d,
       y: 0.0d,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：fallen_demon_expedition#ancient_demon_projection_boss。",
         "古魔投影是坠魔远征收束点；真实 boss、掉落与魔界裂隙状态仍留给后续系统。"
@@ -146,13 +161,17 @@
       x: 2.0d,
       y: 3.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：quest_chains#yin_cluster_pilgrim。",
         "阴司朝圣连接阴冥脱身、冥河朝圣与冥河阴雾日常，作为鬼修路线的长线支架。"
       ],
       dependencies: ["1000000000000718"],
       tags: ["seeking_immortals", "yin_cluster_pilgrim", "ghost_cultivator", "optional"],
-      tasks: [{id: "1000000000002210", type: "custom", title: "同步原生阴司朝圣完成状态", tags: ["si_native_yin_cluster_pilgrim_3"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000002210", type: "custom", title: "同步原生阴司朝圣完成状态", tags: ["si_native_yin_cluster_pilgrim_3"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000069", type: "custom", title: "同步原生任务阶段 1/3", tags: ["si_native_yin_cluster_pilgrim_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000070", type: "custom", title: "同步原生任务阶段 2/3", tags: ["si_native_yin_cluster_pilgrim_2"], check_timer: 20, max_progress: 1L}
+      ]
     },
     {
       id: "1000000000001211",
@@ -161,6 +180,7 @@
       x: 4.0d,
       y: 3.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：quest_hooks#nether_river_pilgrim。",
         "冥河朝圣可产阴司地图和避阴符批量线索；当前并消耗阴石、不发放地图。"
@@ -176,6 +196,7 @@
       x: 2.0d,
       y: 5.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：quest_chains#ghost_sect_ban_arc / ghost_sect_ban_rules.json。",
         "鬼修在正道宗门暴露后会触发追捕与禁入，当前只做 FTB 呈现，不写宗门黑名单。"
@@ -191,6 +212,7 @@
       x: 4.0d,
       y: 5.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：daily_random_events#ghost_expose_rumor / ghost_sect_ban_arc#ghost_expose_event。",
         "鬼修踪迹传闻会引出正道搜捕，后续可接坊市 NPC、悬赏榜和伪装道具。"
@@ -206,6 +228,7 @@
       x: 6.0d,
       y: 5.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：quest_hooks#righteous_sect_ghost_hunt。",
         "正道追魂有死亡或拘捕风险，当前不生成追兵，只作为未来禁入/追捕状态的任务锚点。"
@@ -221,6 +244,7 @@
       x: 8.0d,
       y: 5.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：quest_hooks#sect_ban_lift_rare_quest。",
         "洗髓改息可临时解除宗门禁入，后续应接稀有任务、状态时限和声望代价。"
@@ -236,6 +260,7 @@
       x: 2.0d,
       y: 8.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：quest_chains#chain_seven_sect_outer_to_inner。",
         "七派晋升链强调贡献、境界与师门考核；当前不写入弟子阶级，只补齐 FTB 任务线入口。"
@@ -251,6 +276,7 @@
       x: 4.0d,
       y: 8.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：chain_seven_sect_outer_to_inner#steps=3。",
         "贡献簿对应外门任务累计，后续可接 sect contribution、采购限制与职位晋升。"
@@ -266,6 +292,7 @@
       x: 6.0d,
       y: 8.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：chain_seven_sect_outer_to_inner#setting。",
         "内门考核可结合境界、师门任务和技能试炼，当前不强制检测境界或派系。"
@@ -281,6 +308,7 @@
       x: 8.0d,
       y: 8.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：chain_seven_sect_outer_to_inner#rewards=inner_manual_slot。",
         "内门功法位可在后续接手册栏位、宗门功法兑换和锁定理由 UI；当前不授予奖励。"
@@ -295,13 +323,17 @@
       subtitle: "赴灵界前置",
       x: 11.0d,
       y: 0.0d,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：quest_chains#mortal_to_spirit_bridge / daily_random_events#mortal_realm_cap_insight。",
         "化神巅峰感到人界上限，触发飞升压力、心魔和空间节点寻找；当前不触发真实飞升。"
       ],
       dependencies: ["1000000000001201", "1000000000000901"],
       tags: ["seeking_immortals", "mortal_to_spirit_bridge", "deity_transformation"],
-      tasks: [{id: "1000000000002220", type: "custom", title: "同步原生人界飞升桥完成状态", tags: ["si_native_mortal_to_spirit_bridge_3"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000002220", type: "custom", title: "同步原生人界飞升桥完成状态", tags: ["si_native_mortal_to_spirit_bridge_3"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000155", type: "custom", title: "同步原生任务阶段 1/3", tags: ["si_native_mortal_to_spirit_bridge_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000156", type: "custom", title: "同步原生任务阶段 2/3", tags: ["si_native_mortal_to_spirit_bridge_2"], check_timer: 20, max_progress: 1L}
+      ]
     },
     {
       id: "1000000000001221",
@@ -309,13 +341,20 @@
       subtitle: "界面之力",
       x: 13.0d,
       y: 0.0d,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：quest_chains#chain_ascension_spirit_world / quest_hooks#ascension_gate_rumor。",
         "飞升前置包含界面之力、心魔和空间节点；乱星海灵界共鸣可产 ascension_map_fragment。"
       ],
       dependencies: ["1000000000001220"],
       tags: ["seeking_immortals", "chain_ascension_spirit_world", "ascension_gate_rumor"],
-      tasks: [{id: "1000000000002221", type: "custom", title: "追查飞升通道传闻", tags: ["si_native_chain_ascension_spirit_world_1"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000002221", type: "custom", title: "追查飞升通道传闻", tags: ["si_native_chain_ascension_spirit_world_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000184", type: "custom", title: "同步原生任务阶段 2/6", tags: ["si_native_chain_ascension_spirit_world_2"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000185", type: "custom", title: "同步原生任务阶段 3/6", tags: ["si_native_chain_ascension_spirit_world_3"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000186", type: "custom", title: "同步原生任务阶段 4/6", tags: ["si_native_chain_ascension_spirit_world_4"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000187", type: "custom", title: "同步原生任务阶段 5/6", tags: ["si_native_chain_ascension_spirit_world_5"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000188", type: "custom", title: "同步原生任务阶段 6/6", tags: ["si_native_chain_ascension_spirit_world_6"], check_timer: 20, max_progress: 1L}
+      ]
     },
     {
       id: "1000000000001222",
@@ -323,14 +362,14 @@
       subtitle: "天渊准入凭证",
       x: 15.0d,
       y: 0.0d,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：quest_chains#mortal_to_spirit_bridge#spirit_realm_gate_voucher / economy_contribution_exchange.json。",
-        "灵界门券结构成本为 500 功勋且要求化神以上；当前 FTB 物品任务检查 1 枚功勋令并消耗，不授予真实凭证。"
+        "灵界门券结构成本为 500 功勋且要求化神以上；当前 FTB 物品任务检查 1 枚功勋令但不消耗，原生任务账本负责实际上交，不授予真实凭证。"
       ],
       dependencies: ["1000000000001221"],
       tags: ["seeking_immortals", "spirit_realm_gate_voucher", "ascension_bridge"],
-      tasks: [{id: "1000000000002222", type: "item", title: "持有功勋令", item: "seeking_immortals:alliance_merit_token", count: 1L, consume_items: true, match_nbt: false}],
-      rewards: [{id: "9000000000002222", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
+      tasks: [{id: "1000000000002222", type: "item", title: "持有功勋令", item: "seeking_immortals:alliance_merit_token", count: 1L, consume_items: false, match_nbt: false}]
     },
     {
       id: "1000000000001223",
@@ -338,14 +377,16 @@
       subtitle: "天渊外缘",
       x: 11.0d,
       y: 3.0d,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：quest_chains#spirit_realm_border / region_cards/spirit_realm_border.json。",
-        "灵界边境荒原连接天渊与荒原，灵气约 1.3 倍，日常风险包括荒原兽群和空间裂隙；当前 FTB 物品任务检查 1 张风羽舟票并消耗。"
+        "灵界边境荒原连接天渊与荒原，灵气约 1.3 倍，日常风险包括荒原兽群和空间裂隙；当前 FTB 物品任务检查 1 张风羽舟票但不消耗；原生任务账本负责实际上交。"
       ],
       dependencies: ["1000000000000902"],
       tags: ["seeking_immortals", "spirit_realm_border", "spirit_realm"],
-      tasks: [{id: "1000000000002223", type: "item", title: "持有风羽舟票", item: "seeking_immortals:wind_feather_raft_ticket", count: 1L, consume_items: true, match_nbt: false}],
-      rewards: [{id: "9000000000002223", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
+      tasks: [{id: "1000000000002223", type: "item", title: "持有风羽舟票", item: "seeking_immortals:wind_feather_raft_ticket", count: 1L, consume_items: false, match_nbt: false},
+        {id: "3200000000000116", type: "custom", title: "同步原生任务阶段 1/2", tags: ["si_native_spirit_realm_border_1"], check_timer: 20, max_progress: 1L}
+      ]
     },
     {
       id: "1000000000001224",
@@ -353,14 +394,14 @@
       subtitle: "边境功勋",
       x: 13.0d,
       y: 3.0d,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：daily_random_events#wild_land_beast_horde。",
-        "荒原兽群迁徙可成为边境功勋来源，后续可接兽潮波次、狩猎榜和天渊军功；当前 FTB 物品任务检查 1 枚妖兽内丹并消耗。"
+        "荒原兽群迁徙可成为边境功勋来源，后续可接兽潮波次、狩猎榜和天渊军功；当前 FTB 物品任务检查 1 枚妖兽内丹但不消耗；原生任务账本负责实际上交。"
       ],
       dependencies: ["1000000000001223"],
       tags: ["seeking_immortals", "spirit_realm_border", "wild_land_beast_horde"],
-      tasks: [{id: "1000000000002224", type: "item", title: "持有妖兽内丹", item: "seeking_immortals:beast_core", count: 1L, consume_items: true, match_nbt: false}],
-      rewards: [{id: "9000000000002224", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
+      tasks: [{id: "1000000000002224", type: "item", title: "持有妖兽内丹", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false}]
     },
     {
       id: "1000000000001225",
@@ -368,6 +409,7 @@
       subtitle: "边境脱险",
       x: 15.0d,
       y: 3.0d,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：quest_chains#spirit_realm_border#spatial_rift_flutter_survive / region_cards#spatial_rift_flutter。",
         "空间裂隙飘闪要求修士在边境脱险，后续可接空间伤害、锚定符和随机位移。"
@@ -382,13 +424,16 @@
       subtitle: "高阶灵界线",
       x: 11.0d,
       y: 6.0d,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：quest_chains#void_great_cultivation_arc。",
         "炼虚到大乘的主轴包括虚空裂隙、地渊核心、大乘感悟和天劫云聚；当前只做任务图谱。"
       ],
       dependencies: ["1000000000000926", "1000000000001225"],
       tags: ["seeking_immortals", "void_great_cultivation_arc", "void_refining"],
-      tasks: [{id: "1000000000002226", type: "custom", title: "同步原生炼虚大乘完成状态", tags: ["si_native_void_great_cultivation_arc_4"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000002226", type: "custom", title: "同步原生炼虚大乘完成状态", tags: ["si_native_void_great_cultivation_arc_4"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000148", type: "custom", title: "同步原生任务阶段 2/4", tags: ["si_native_void_great_cultivation_arc_2"], check_timer: 20, max_progress: 1L}
+      ]
     },
     {
       id: "1000000000001227",
@@ -396,6 +441,7 @@
       subtitle: "炼虚风险",
       x: 13.0d,
       y: 6.0d,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：daily_random_events#void_rift_surge。",
         "灵界边境虚空裂隙涌动有空间伤害风险，源设定要求炼虚修士方敢近前探查。"
@@ -410,17 +456,20 @@
       subtitle: "地渊深层补档",
       x: 15.0d,
       y: 6.0d,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：quest_chains#diyuan_depth_delve / quest_hooks#diyuan_core_probe。",
-        "地渊核心探针承接地渊令、重压带和深层晶核；当前 FTB 物品任务检查 1 枚地渊令并消耗，真实压力抗性仍留给后续系统。"
+        "地渊核心探针承接地渊令、重压带和深层晶核；当前 FTB 物品任务检查 1 枚地渊令但不消耗，原生任务账本负责实际上交，真实压力抗性仍留给后续系统。"
       ],
       dependencies: ["1000000000001227", "1000000000000929"],
       tags: ["seeking_immortals", "diyuan_depth_delve", "diyuan_core_probe"],
       tasks: [
-        {id: "1000000000002228", type: "item", title: "持有地渊令", item: "seeking_immortals:diyuan_permit", count: 1L, consume_items: true, match_nbt: false},
-        {id: "2000000000002228", type: "custom", title: "同步原生地渊深探完成状态", tags: ["si_native_diyuan_depth_delve_4"], check_timer: 20, max_progress: 1L}
-      ],
-      rewards: [{id: "9000000000002228", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
+        {id: "1000000000002228", type: "item", title: "持有地渊令", item: "seeking_immortals:diyuan_permit", count: 1L, consume_items: false, match_nbt: false},
+        {id: "2000000000002228", type: "custom", title: "同步原生地渊深探完成状态", tags: ["si_native_diyuan_depth_delve_4"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000151", type: "custom", title: "同步原生任务阶段 1/4", tags: ["si_native_diyuan_depth_delve_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000152", type: "custom", title: "同步原生任务阶段 2/4", tags: ["si_native_diyuan_depth_delve_2"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000153", type: "custom", title: "同步原生任务阶段 3/4", tags: ["si_native_diyuan_depth_delve_3"], check_timer: 20, max_progress: 1L}
+      ]
     },
     {
       id: "1000000000001229",
@@ -428,14 +477,14 @@
       subtitle: "核心晶 boss",
       x: 17.0d,
       y: 6.0d,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：quest_hooks#diyuan_core_crystal_boss。",
-        "地渊核心晶守关可产 diyuan_core_crystal，后续应接古兽 boss、晶核掉落和炼器材料；当前 FTB 物品任务先检查 1 张抗压符并消耗。"
+        "地渊核心晶守关可产 diyuan_core_crystal，后续应接古兽 boss、晶核掉落和炼器材料；当前 FTB 物品任务先检查 1 张抗压符但不消耗；原生任务账本负责实际上交。"
       ],
       dependencies: ["1000000000001228"],
       tags: ["seeking_immortals", "diyuan", "diyuan_core_crystal_boss", "boss_design"],
-      tasks: [{id: "1000000000002229", type: "item", title: "持有抗压符", item: "seeking_immortals:pressure_resist_charm", count: 1L, consume_items: true, match_nbt: false}],
-      rewards: [{id: "9000000000002229", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
+      tasks: [{id: "1000000000002229", type: "item", title: "持有抗压符", item: "seeking_immortals:pressure_resist_charm", count: 1L, consume_items: false, match_nbt: false}]
     },
     {
       id: "1000000000001230",
@@ -443,6 +492,7 @@
       subtitle: "大道余韵",
       x: 19.0d,
       y: 6.0d,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：daily_random_events#great_vehicle_insight。",
         "大乘修士讲道余韵引动天地，旁听者可悟一丝大道；当前不发放修炼 buff。"
@@ -457,6 +507,7 @@
       subtitle: "大乘前兆",
       x: 21.0d,
       y: 6.0d,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：daily_random_events#tribulation_cloud_gather / tribulation_rules.json。",
         "天劫云聚预示大乘与飞升前兆劫，后续可接护劫阵、天劫波次和失败惩罚。"
@@ -471,6 +522,7 @@
       subtitle: "远期仙界",
       x: 23.0d,
       y: 6.0d,
+      guide_page: "seeking_immortals:quest_native_ascension_border",
       description: [
         "来源：ascension_flow#great_vehicle_ascension / dimensions_catalog#immortal_realm / tribulation_rules#final_ascension。",
         "大乘飞升仙界保留为远期 DLC 结构，当前只把仙劫和 immortal_realm 占位呈现在任务线末端。"

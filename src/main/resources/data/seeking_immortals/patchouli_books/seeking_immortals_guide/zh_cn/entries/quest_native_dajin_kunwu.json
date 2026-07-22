@@ -1,0 +1,63 @@
+{
+  "name": "大晋与昆吾山",
+  "category": "seeking_immortals:quests",
+  "icon": "seeking_immortals:mortal_quest_token",
+  "sortnum": 32,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "投影说明",
+      "text": "本卷对应 FTB Quests 章节“大晋与昆吾山”，收录 5 条原生任务线。阶段顺序来自原生任务资料，完成与奖励仍以服务器账本为准。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "任务线索引 1/2",
+      "text": "$(l:quest_native_dajin_kunwu#chain_dajin_kunwu_line)大晋昆吾线$()$(br)$(l:quest_native_dajin_kunwu#chain_kunwu_mountain_campaign)昆吾山夺宝$()$(br)$(l:quest_native_dajin_kunwu#chain_dajin_wanbao_route)大晋商路$()$(br)$(l:quest_native_dajin_kunwu#chain_dajin_clan_line)大晋世家线$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "任务线索引 2/2",
+      "text": "$(l:quest_native_dajin_kunwu#chain_dajin_righteous_demon_line)大晋正魔边境线$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "大晋昆吾线",
+      "anchor": "chain_dajin_kunwu_line",
+      "text": "1. 大晋拍卖预览$(br)2. 昆吾情报$(br)3. 昆吾远征$(br)4. 封魔阵残卷"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "昆吾山夺宝 1/2",
+      "anchor": "chain_kunwu_mountain_campaign",
+      "text": "1. 入山许可$(br)2. 外阵破禁$(br)3. 矿脉傀儡"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "昆吾山夺宝 2/2",
+      "text": "4. 傀儡殿$(br)5. 峰顶封印"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "大晋商路",
+      "anchor": "chain_dajin_wanbao_route",
+      "text": "1. 大晋拍卖请柬$(br)2. 世家争端抉择$(br)3. 昆吾山传闻"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "大晋世家线",
+      "anchor": "chain_dajin_clan_line",
+      "text": "1. 世家领地巡护$(br)2. 大晋拍卖预览$(br)3. 祖传诀试炼$(br)4. 昆吾远征"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "大晋正魔边境线 1/2",
+      "anchor": "chain_dajin_righteous_demon_line",
+      "text": "1. 边境传闻$(br)2. 正道巡边$(br)3. 魔道渗透"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "大晋正魔边境线 2/2",
+      "text": "4. 万宝阁拍卖线索$(br)5. 昆吾远征"
+    }
+  ]
+}

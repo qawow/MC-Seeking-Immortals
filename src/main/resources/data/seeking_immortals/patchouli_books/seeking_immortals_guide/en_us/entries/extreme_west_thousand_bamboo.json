@@ -22,7 +22,7 @@
     {
       "type": "patchouli:text",
       "title": "Planned Content",
-      "text": "Actual puppet entities, GeckoLib animations, the puppet-crafting UI, ironwood resource nodes, puppet spirit-core items, blueprint drops, Thousand Bamboo Sect NPCs, an FTB Quests chapter, tower structure generation, and reward tables are not yet implemented. This page describes only existing world-data and guide hooks."
+      "text": "Actual puppet entities, GeckoLib animations, the puppet-crafting UI, ironwood resource nodes, puppet spirit-core items, blueprint drops, Thousand Bamboo Sect NPCs, tower structure generation, and reward tables are not yet implemented. The corresponding native route is projected in the FTB Quests chapter 'Tiannan's Seven Sects and the Hundred Crafts'; native progress remains authoritative. This page describes only existing world-data and guide hooks."
     }
   ]
 }

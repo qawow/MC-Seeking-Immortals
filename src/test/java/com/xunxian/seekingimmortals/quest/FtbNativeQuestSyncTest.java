@@ -2,9 +2,12 @@ package com.xunxian.seekingimmortals.quest;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
+import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -17,6 +20,8 @@ class FtbNativeQuestSyncTest {
                 FtbNativeQuestSync.parseMirrorTag("si_native_void_palace_campaign_6").orElseThrow());
         assertEquals(new FtbNativeQuestSync.Target("blood_forbidden_campaign", 1),
                 FtbNativeQuestSync.parseWriteTag("si_native_write_blood_forbidden_campaign_1").orElseThrow());
+        assertEquals(new FtbNativeQuestSync.Target("qixuan_mortal_path", 3),
+                FtbNativeQuestSync.parseReadyTag("si_native_ready_qixuan_mortal_path_3").orElseThrow());
     }
 
     @Test
@@ -31,6 +36,8 @@ class FtbNativeQuestSyncTest {
     void mirrorTagNeverParsesAsWriteTagOrViceVersa() {
         assertTrue(FtbNativeQuestSync.parseMirrorTag(
                 "si_native_write_qixuan_mortal_path_1").isEmpty());
+        assertTrue(FtbNativeQuestSync.parseMirrorTag(
+                "si_native_ready_qixuan_mortal_path_1").isEmpty());
         assertTrue(FtbNativeQuestSync.parseWriteTag(
                 "si_native_qixuan_mortal_path_1").isEmpty());
     }
@@ -55,10 +62,61 @@ class FtbNativeQuestSyncTest {
     }
 
     @Test
-    void teamWritebackRequiresExactlyOneOnlineMember() {
-        assertEquals("solo", FtbNativeQuestSync.singleOnlineMember(List.of("solo")).orElseThrow());
-        assertTrue(FtbNativeQuestSync.singleOnlineMember(List.<String>of()).isEmpty());
-        assertTrue(FtbNativeQuestSync.singleOnlineMember(List.of("one", "two")).isEmpty());
+    void writeIntentRequiresOneMatchingNativeChainTag() {
+        FtbNativeQuestSync.WriteIntentValidation valid = FtbNativeQuestSync.validateWriteIntent(Set.of(
+                "seeking_immortals",
+                "qixuan_mortal_path",
+                "si_native_write_qixuan_mortal_path_2"));
+        assertTrue(valid.valid());
+        assertEquals(FtbNativeQuestSync.WriteIntentStatus.VALID, valid.status());
+        assertEquals(new FtbNativeQuestSync.Target("qixuan_mortal_path", 2), valid.intent().target());
+
+        assertEquals(FtbNativeQuestSync.WriteIntentStatus.MISSING_CHAIN_TAG,
+                FtbNativeQuestSync.validateWriteIntent(Set.of(
+                        "si_native_write_qixuan_mortal_path_2")).status());
+        assertEquals(FtbNativeQuestSync.WriteIntentStatus.CHAIN_MISMATCH,
+                FtbNativeQuestSync.validateWriteIntent(Set.of(
+                        "huangfeng_cultivation_path",
+                        "si_native_write_qixuan_mortal_path_2")).status());
+        assertEquals(FtbNativeQuestSync.WriteIntentStatus.MULTIPLE_CHAIN_TAGS,
+                FtbNativeQuestSync.validateWriteIntent(Set.of(
+                        "qixuan_mortal_path",
+                        "huangfeng_cultivation_path",
+                        "si_native_write_qixuan_mortal_path_2")).status());
+    }
+
+    @Test
+    void structuredWriteIntentRejectsMissingMalformedAndMultipleTargets() {
+        assertEquals(FtbNativeQuestSync.WriteIntentStatus.NO_WRITE_TAG,
+                FtbNativeQuestSync.validateWriteIntent(Set.of("qixuan_mortal_path")).status());
+        assertEquals(FtbNativeQuestSync.WriteIntentStatus.MALFORMED_WRITE_TAG,
+                FtbNativeQuestSync.validateWriteIntent(Set.of(
+                        "qixuan_mortal_path", "si_native_write_missing_chain_1")).status());
+        assertEquals(FtbNativeQuestSync.WriteIntentStatus.MULTIPLE_WRITE_TARGETS,
+                FtbNativeQuestSync.validateWriteIntent(Set.of(
+                        "qixuan_mortal_path",
+                        "si_native_write_qixuan_mortal_path_1",
+                        "si_native_write_qixuan_mortal_path_2")).status());
+    }
+
+    @Test
+    void teamWritebackRequiresOneFullMemberAndTheSameSoleOnlineMember() {
+        UUID solo = UUID.randomUUID();
+        UUID other = UUID.randomUUID();
+
+        assertEquals(solo, FtbNativeQuestSync.singleAuthorityMember(
+                Set.of(), solo, List.of(solo)).orElseThrow(),
+                "a personal team exposes its owner through the team id, not getMembers()");
+        assertEquals(solo, FtbNativeQuestSync.singleAuthorityMember(
+                Set.of(solo), solo, List.of(solo)).orElseThrow());
+        assertTrue(FtbNativeQuestSync.singleAuthorityMember(Set.of(solo), solo, List.of()).isEmpty());
+        assertTrue(FtbNativeQuestSync.singleAuthorityMember(
+                Set.of(solo), solo, List.of(other)).isEmpty());
+        assertTrue(FtbNativeQuestSync.singleAuthorityMember(
+                Set.of(other), solo, List.of(solo)).isEmpty(),
+                "an offline second team member must still reject native writeback");
+        assertTrue(FtbNativeQuestSync.singleAuthorityMember(
+                Set.of(solo, other), solo, List.of(solo, other)).isEmpty());
     }
 
     @Test
@@ -99,17 +157,12 @@ class FtbNativeQuestSyncTest {
     }
 
     @Test
-    void pureGateDecisionKeepsNativeAuthorityRequirements() {
-        assertEquals(FtbNativeQuestSync.GateRequirement.REJECT,
-                FtbNativeQuestSync.gateRequirement(FtbNativeQuestSync.WriteAction.REJECT, Optional.empty()));
-        assertEquals(FtbNativeQuestSync.GateRequirement.NONE,
-                FtbNativeQuestSync.gateRequirement(FtbNativeQuestSync.WriteAction.SATISFIED, Optional.empty()));
-        assertEquals(FtbNativeQuestSync.GateRequirement.BOUND_NPC,
-                FtbNativeQuestSync.gateRequirement(FtbNativeQuestSync.WriteAction.START, Optional.of("ignored")));
-        assertEquals(FtbNativeQuestSync.GateRequirement.REJECT,
-                FtbNativeQuestSync.gateRequirement(FtbNativeQuestSync.WriteAction.ADVANCE,
-                        Optional.of("kunwu_map_fragment_turnin")));
-        assertEquals(FtbNativeQuestSync.GateRequirement.BOUND_NPC,
-                FtbNativeQuestSync.gateRequirement(FtbNativeQuestSync.WriteAction.ADVANCE, Optional.empty()));
+    void explicitWritePathDoesNotReplayHooksOrRequireNpcProximity() throws IOException {
+        String source = Files.readString(Path.of(
+                "src/main/java/com/xunxian/seekingimmortals/quest/FtbNativeQuestSync.java"));
+
+        assertFalse(source.contains("QuestHookRuntime"));
+        assertFalse(source.contains("TextQuestNpcHookService"));
+        assertTrue(source.contains("TextQuestChainService.transitionExact("));
     }
 }

@@ -1,0 +1,36 @@
+{
+  "name": "星宫派系与逆星暗线",
+  "category": "seeking_immortals:quests",
+  "icon": "seeking_immortals:mortal_quest_token",
+  "sortnum": 37,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "投影说明",
+      "text": "本卷对应 FTB Quests 章节“星宫派系与逆星暗线”，收录 3 条原生任务线。阶段顺序来自原生任务资料，完成与奖励仍以服务器账本为准。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "任务线索引",
+      "text": "$(l:quest_native_star_palace_inverse#chain_star_palace_internal_politics)星宫派系线$()$(br)$(l:quest_native_star_palace_inverse#chain_inverse_star_void_heist)虚天情报战$()$(br)$(l:quest_native_star_palace_inverse#chain_chain_void_palace_expedition)虚天殿探险链$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "星宫派系线",
+      "anchor": "chain_star_palace_internal_politics",
+      "text": "1. 星宫巡防$(br)2. 星宫执法派任务$(br)3. 星宫商贸派任务$(br)4. 星宫内部税议"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "虚天情报战",
+      "anchor": "chain_inverse_star_void_heist",
+      "text": "1. 虚天钥匙残片传闻$(br)2. 逆星黑市购货$(br)3. 星宫密探揭露"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "虚天殿探险链",
+      "anchor": "chain_chain_void_palace_expedition",
+      "text": "1. 收集虚天残图$(br)2. 换取入殿钥令$(br)3. 探索多层殿宇$(br)4. 夺取宝物并安全撤离"
+    }
+  ]
+}

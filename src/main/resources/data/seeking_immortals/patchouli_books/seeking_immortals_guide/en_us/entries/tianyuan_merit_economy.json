@@ -22,7 +22,7 @@
                   {
                       "type":  "patchouli:text",
                       "title":  "Next Work",
-                      "text":  "The full Tianyuan merit system still needs server-authoritative alliance merit accounts, merit missions, exchange UI, monthly and realm gates, Diyuan quest checks, NPC services, and FTB Quests chapter routing. This is only the first item-currency exchange entry point."
+                      "text":  "The full Tianyuan merit system still needs server-authoritative alliance merit accounts, merit missions, exchange UI, monthly and realm gates, Diyuan quest checks, and NPC services. The corresponding native routes are projected in the FTB Quests chapter 'Spirit Realm: Tianyuan and the Fengyuan Clans'; native progress remains authoritative. This is only the first item-currency exchange entry point."
                   }
               ]
 }

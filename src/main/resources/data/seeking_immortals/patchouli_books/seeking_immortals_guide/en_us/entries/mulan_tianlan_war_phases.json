@@ -17,7 +17,7 @@
     {
       "type": "patchouli:text",
       "title": "Planned Content",
-      "text": "Choosing sides, Mulan/Tianlan/Tiannan reputation, grand spell-warrior formation objectives, sacred bird trials, war-merit rewards, battlefield NPCs, and an FTB Quests chapter are not yet implemented. This guide documents existing hooks without presenting unavailable rewards or faction consequences as finished gameplay."
+      "text": "Choosing sides, Mulan/Tianlan/Tiannan reputation, grand spell-warrior formation objectives, sacred bird trials, war-merit rewards, and battlefield NPCs are not yet implemented. The corresponding native routes are projected in the FTB Quests chapter 'Mulan-Tianlan and the Six Demonic Sects'; native progress remains authoritative. This guide documents existing hooks without presenting unavailable rewards or faction consequences as finished gameplay."
     }
   ]
 }

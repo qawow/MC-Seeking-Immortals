@@ -1,0 +1,63 @@
+{
+  "name": "Great Jin and Kunwu Mountain",
+  "category": "seeking_immortals:quests",
+  "icon": "seeking_immortals:mortal_quest_token",
+  "sortnum": 32,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Projection Notes",
+      "text": "This volume matches the FTB Quests chapter 'Great Jin and Kunwu Mountain' and contains 5 native quest lines. Stage order comes from native quest data; completion and rewards remain server-authoritative."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Quest Line Index 1/2",
+      "text": "$(l:quest_native_dajin_kunwu#chain_dajin_kunwu_line)Great Jin and Kunwu$()$(br)$(l:quest_native_dajin_kunwu#chain_kunwu_mountain_campaign)Kunwu Mountain Treasure Hunt$()$(br)$(l:quest_native_dajin_kunwu#chain_dajin_wanbao_route)Great Jin Trade Route$()$(br)$(l:quest_native_dajin_kunwu#chain_dajin_clan_line)Great Jin Clan Path$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Quest Line Index 2/2",
+      "text": "$(l:quest_native_dajin_kunwu#chain_dajin_righteous_demon_line)Great Jin Righteous-Demonic Frontier$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Great Jin and Kunwu",
+      "anchor": "chain_dajin_kunwu_line",
+      "text": "1. Great Jin Auction Preview$(br)2. Kunwu Intel$(br)3. Kunwu Expedition$(br)4. Kunwu Seal Research"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Kunwu Mountain Treasure Hunt 1/2",
+      "anchor": "chain_kunwu_mountain_campaign",
+      "text": "1. Kunwu Open Permit$(br)2. Kunwu Outer Array$(br)3. Kunwu Mine Tunnel"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Kunwu Mountain Treasure Hunt 2/2",
+      "text": "4. Kunwu Puppet Hall$(br)5. Kunwu Peak Seal"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Great Jin Trade Route",
+      "anchor": "chain_dajin_wanbao_route",
+      "text": "1. Auction Invite Great Jin$(br)2. Great Jin Clan Feud Choice$(br)3. Kunwu Rumor"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Great Jin Clan Path",
+      "anchor": "chain_dajin_clan_line",
+      "text": "1. Clan Territory Patrol$(br)2. Great Jin Auction Preview$(br)3. Clan Ancestor Trial$(br)4. Kunwu Expedition"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Great Jin Righteous-Demonic Frontier 1/2",
+      "anchor": "chain_dajin_righteous_demon_line",
+      "text": "1. Great Jin Border Rumor$(br)2. Great Jin Righteous Patrol$(br)3. Great Jin Demon Infiltrate"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Great Jin Righteous-Demonic Frontier 2/2",
+      "text": "4. Wanbao Auction Lead$(br)5. Kunwu Expedition"
+    }
+  ]
+}

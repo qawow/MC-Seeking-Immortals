@@ -1,0 +1,48 @@
+{
+  "name": "Chapter 1: Sect Cultivation",
+  "category": "seeking_immortals:quests",
+  "icon": "minecraft:writable_book",
+  "sortnum": 11,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Chapter Overview",
+      "text": "Outer-sect work, contribution, crafts, and border war prepare a cultivator for Foundation Establishment.$(br2)This chapter contains 5 authored quest lines. The index describes routes and does not replace server progress."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Quest Line Index",
+      "text": "$(l:quest_story_chapter_1_sect#line_huangfeng_blood_quota)Yellow Maple: Blood Forbidden Quota$()$(br)$(l:quest_story_chapter_1_sect#line_mulan_tiannan_war_campaign)Mulan-Tiannan War Campaign$()$(br)$(l:quest_story_chapter_1_sect#line_mulan_scout_clash)Grassland Scout Clash$()$(br)$(l:quest_story_chapter_1_sect#line_fashi_soul_array_battle)Spell-Warrior Ancestral Formation$()$(br)$(l:quest_story_chapter_1_sect#line_holy_bird_blessing_quest)Sacred Bird Blessing$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Yellow Maple: Blood Forbidden Quota",
+      "anchor": "line_huangfeng_blood_quota",
+      "text": "This entrance token is earned through contribution, not personal favors."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Mulan-Tiannan War Campaign",
+      "anchor": "line_mulan_tiannan_war_campaign",
+      "text": "War merit and talisman fire rule the sandstorm while closed borders override ordinary travel."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Grassland Scout Clash",
+      "anchor": "line_mulan_scout_clash",
+      "text": "A grassland scouting branch within the Mulan campaign."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Spell-Warrior Ancestral Formation",
+      "anchor": "line_fashi_soul_array_battle",
+      "text": "A spell-warrior formation branch within the Mulan campaign."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Sacred Bird Blessing",
+      "anchor": "line_holy_bird_blessing_quest",
+      "text": "A sacred-bird blessing branch within the Mulan campaign."
+    }
+  ]
+}

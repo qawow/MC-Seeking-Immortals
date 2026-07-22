@@ -1,0 +1,68 @@
+{
+  "name": "坠魔谷与阴司鬼道",
+  "category": "seeking_immortals:quests",
+  "icon": "seeking_immortals:mortal_quest_token",
+  "sortnum": 33,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "投影说明",
+      "text": "本卷对应 FTB Quests 章节“坠魔谷与阴司鬼道”，收录 5 条原生任务线。阶段顺序来自原生任务资料，完成与奖励仍以服务器账本为准。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "任务线索引 1/2",
+      "text": "$(l:quest_native_fallen_demon_yin#chain_ghost_path)鬼道线$()$(br)$(l:quest_native_fallen_demon_yin#chain_yin_luo_ghost_sect)阴罗殿线$()$(br)$(l:quest_native_fallen_demon_yin#chain_fallen_demon_campaign)坠魔谷探秘$()$(br)$(l:quest_native_fallen_demon_yin#chain_ancient_demon_line)古魔封印线$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "任务线索引 2/2",
+      "text": "$(l:quest_native_fallen_demon_yin#chain_nether_river_campaign)冥河之地行$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "鬼道线 1/2",
+      "anchor": "chain_ghost_path",
+      "text": "1. 阴冥脱困得玄阴残卷$(br)2. 敛魂符阴体$(br)3. 冥河朝圣换阴石"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "鬼道线 2/2",
+      "text": "4. 聚魂石魂锚$(br)5. 冥河地结冥核$(br)6. 阴婴门槛"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "阴罗殿线",
+      "anchor": "chain_yin_luo_ghost_sect",
+      "text": "1. 阴罗殿入门$(br)2. 魂幡委托$(br)3. 冥河渡船凭证"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "坠魔谷探秘 1/2",
+      "anchor": "chain_fallen_demon_campaign",
+      "text": "1. 封印松动传闻$(br)2. 备驱魔丹与辟邪物$(br)3. 外谷魔雾"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "坠魔谷探秘 2/2",
+      "text": "4. 裂隙层心魔$(br)5. 古魔投影"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "古魔封印线",
+      "anchor": "chain_ancient_demon_line",
+      "text": "1. 坠魔谷侦察$(br)2. 封印残片（可并行昆吾线）$(br)3. 血色禁地周期$(br)4. 协助稳固裂隙"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "冥河之地行 1/2",
+      "anchor": "chain_nether_river_campaign",
+      "text": "1. 冥河渡费$(br)2. 阴雾入界$(br)3. 魂滩采集"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "冥河之地行 2/2",
+      "text": "4. 冥殿鬼修$(br)5. 守关"
+    }
+  ]
+}

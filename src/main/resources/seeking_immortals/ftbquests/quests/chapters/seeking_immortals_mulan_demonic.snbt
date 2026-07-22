@@ -13,13 +13,21 @@
       subtitle: "慕兰边境遭遇",
       x: 0.0d,
       y: 0.0d,
+      guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
         "来源：mulan_war_campaign / chain_mulan_war_campaign / mulan_faction_quests#mulan_scout_clash。",
         "天南与慕兰草原边境摩擦，低阶修士与法士斥候先行交锋。"
       ],
       dependencies: ["1000000000000203"],
       tags: ["seeking_immortals", "mulan_tianlan_war", "mulan_border", "si_native_write_mulan_tianlan_war_1"],
-      tasks: [{id: "1000000000001801", type: "custom", title: "完成边境遭遇", tags: ["si_war_active"], check_timer: 20, max_progress: 1L}]
+      require_sequential_tasks: true,
+      tasks: [{id: "1000000000001801", type: "custom", title: "完成边境遭遇", tags: ["si_war_active"], check_timer: 20, max_progress: 1L},
+        {id: "3100000000000012", type: "custom", title: "提交原生任务阶段 1", tags: ["si_native_ready_mulan_tianlan_war_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000084", type: "custom", title: "同步原生任务阶段 1/6", tags: ["si_native_mulan_war_campaign_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000085", type: "custom", title: "同步原生任务阶段 2/6", tags: ["si_native_mulan_war_campaign_2"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000086", type: "custom", title: "同步原生任务阶段 3/6", tags: ["si_native_mulan_war_campaign_3"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000175", type: "custom", title: "同步原生任务阶段 1/4", tags: ["si_native_chain_mulan_war_campaign_1"], check_timer: 20, max_progress: 1L}
+      ]
     },
     {
       id: "1000000000000802",
@@ -27,6 +35,7 @@
       subtitle: "黄枫与联军",
       x: 2.0d,
       y: -1.0d,
+      guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
         "来源：tiannan_defense_mobilize / mulan_tianlan_war#phase_border_skirmish。",
         "天南宗门动员应对慕兰游骑；后续可接入战功、宗门令和动态战场。"
@@ -42,6 +51,7 @@
       x: 2.0d,
       y: 1.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
         "来源：quest_hooks#mulan_side。",
         "选择慕兰边军会与天澜/天南路线形成阵营张力；当前只做可见分支，不写互斥状态。"
@@ -57,13 +67,16 @@
       x: 2.0d,
       y: 3.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
         "来源：quest_hooks#tianlan_side。",
         "天澜圣印用于展示天澜御兽与圣殿支线；后续可接入声望和御兽契约。"
       ],
       dependencies: ["1000000000000801"],
       tags: ["seeking_immortals", "mulan_tianlan_war", "tianlan_temple", "branch_design"],
-      tasks: [{id: "1000000000001804", type: "custom", title: "接触天澜圣印", tags: ["si_native_tianlan_defense_line_1"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001804", type: "custom", title: "接触天澜圣印", tags: ["si_native_tianlan_defense_line_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000013", type: "custom", title: "同步原生任务阶段 2/3", tags: ["si_native_mulan_tianlan_war_2"], check_timer: 20, max_progress: 1L}
+      ]
     },
     {
       id: "1000000000000805",
@@ -71,14 +84,17 @@
       subtitle: "护阵破阵",
       x: 4.0d,
       y: -1.0d,
+      guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
         "来源：mulan_tianlan_war#phase_fashi_array / fashi_soul_array_battle。",
         "慕兰法士灵术大阵对天南宗门阵法，战场进入筑基到结丹阶段。"
       ],
       dependencies: ["1000000000000802"],
       tags: ["seeking_immortals", "mulan_tianlan_war", "formation", "si_native_write_mulan_tianlan_war_2"],
-      tasks: [{id: "1000000000001805", type: "kill", entity: "minecraft:pillager", value: 3L, title: "完成护阵破阵"}],
-      rewards: [{id: "9000000000001805", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
+      require_sequential_tasks: true,
+      tasks: [{id: "1000000000001805", type: "kill", entity: "minecraft:pillager", value: 3L, title: "完成护阵破阵"},
+        {id: "3100000000000013", type: "custom", title: "提交原生任务阶段 2", tags: ["si_native_ready_mulan_tianlan_war_2"], check_timer: 20, max_progress: 1L}
+      ]
     },
     {
       id: "1000000000000806",
@@ -87,6 +103,7 @@
       x: 6.0d,
       y: -2.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
         "来源：quest_hooks#yanyue_formation_support。",
         "燕乐宗常担破阵支援，连接现有阵法指南和宗门贡献路线。"
@@ -102,6 +119,7 @@
       x: 6.0d,
       y: 0.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
         "来源：mulan_tianlan_war#phase_holy_bird / holy_bird_blessing_quest。",
         "慕兰圣禽临凡影响士气与停战筹码，是可选支线而非必胜剧情。"
@@ -116,6 +134,7 @@
       subtitle: "战役收束",
       x: 8.0d,
       y: -1.0d,
+      guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
         "来源：mulan_tianlan_war#phase_ceasefire / war_ceasefire_negotiation。",
         "资源枯竭与双方损耗后谈判，玩家功勋后续可影响兑换与声望。"
@@ -133,14 +152,19 @@
       subtitle: "战役代币占位",
       x: 10.0d,
       y: -1.0d,
+      guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
         "来源：mulan_war_campaign#rewards_finale / chain_mulan_war_campaign#rewards。",
         "源设定奖励包含 war_campaign_token、war_merit 与 mulan_spoil；当前仅写入说明，不发放奖励。"
       ],
       dependencies: ["1000000000000808"],
       tags: ["seeking_immortals", "mulan_tianlan_war", "reward_bridge_deferred"],
-      tasks: [{id: "1000000000001809", type: "item", title: "持有战勋牌", item: "seeking_immortals:war_contribution_token", count: 1L, consume_items: true, match_nbt: false}],
-      rewards: [{id: "9000000000001809", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
+      tasks: [{id: "1000000000001809", type: "item", title: "持有战勋牌", item: "seeking_immortals:war_contribution_token", count: 1L, consume_items: false, match_nbt: false},
+        {id: "3200000000000087", type: "custom", title: "同步原生任务阶段 4/6", tags: ["si_native_mulan_war_campaign_4"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000088", type: "custom", title: "同步原生任务阶段 5/6", tags: ["si_native_mulan_war_campaign_5"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000089", type: "custom", title: "同步原生任务阶段 6/6", tags: ["si_native_mulan_war_campaign_6"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000178", type: "custom", title: "同步原生任务阶段 4/4", tags: ["si_native_chain_mulan_war_campaign_4"], check_timer: 20, max_progress: 1L}
+      ]
     },
     {
       id: "1000000000000810",
@@ -149,6 +173,7 @@
       x: 4.0d,
       y: 1.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
         "来源：mulan_fashi_path / mulan_fashi_initiation。",
         "慕兰法士入门连接风灵术页、法士技能树和圣禽祭坛。"
@@ -164,6 +189,7 @@
       x: 6.0d,
       y: 1.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
         "来源：mulan_fashi_path#holy_bird_altar_visit。",
         "祭坛拜访承接圣禽祝福与法士身份，后续可接入祭品、buff 或声望条件。"
@@ -179,14 +205,16 @@
       x: 8.0d,
       y: 1.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
         "来源：mulan_fashi_path#tianhu_beast_tame_optional。",
         "天虎驯兽作为法士可选兽契路线，真实契约/驯兽状态留待后续。"
       ],
       dependencies: ["1000000000000811"],
       tags: ["seeking_immortals", "mulan_fashi", "beast_taming", "optional"],
-      tasks: [{id: "1000000000001812", type: "item", title: "持有妖兽内丹", item: "seeking_immortals:beast_core", count: 1L, consume_items: true, match_nbt: false}],
-      rewards: [{id: "9000000000001812", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
+      tasks: [{id: "1000000000001812", type: "item", title: "持有妖兽内丹", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false},
+        {id: "3200000000000092", type: "custom", title: "同步原生任务阶段 3/3", tags: ["si_native_mulan_fashi_path_3"], check_timer: 20, max_progress: 1L}
+      ]
     },
     {
       id: "1000000000000813",
@@ -195,13 +223,16 @@
       x: 4.0d,
       y: 3.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
         "来源：tianlan_defense_line / tianlan_oath_renew。",
         "天澜誓约表现御兽宗门立场，后续可接入兽魂契约提示和天澜声望。"
       ],
       dependencies: ["1000000000000804"],
       tags: ["seeking_immortals", "tianlan_temple", "beast_taming", "optional"],
-      tasks: [{id: "1000000000001813", type: "custom", title: "重立天澜誓约", tags: ["si_native_tianlan_defense_line_1"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001813", type: "custom", title: "重立天澜誓约", tags: ["si_native_tianlan_defense_line_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000094", type: "custom", title: "同步原生任务阶段 2/3", tags: ["si_native_tianlan_defense_line_2"], check_timer: 20, max_progress: 1L}
+      ]
     },
     {
       id: "1000000000000814",
@@ -210,14 +241,16 @@
       x: 6.0d,
       y: 3.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
         "来源：tianlan_defense_line#tianlan_beast_soul_call_training。",
         "兽魂唤灵训练作为天澜御兽成长节点，暂不授予技能或契约。"
       ],
       dependencies: ["1000000000000813"],
       tags: ["seeking_immortals", "tianlan_temple", "beast_taming", "optional"],
-      tasks: [{id: "1000000000001814", type: "item", title: "持有妖兽内丹", item: "seeking_immortals:beast_core", count: 1L, consume_items: true, match_nbt: false}],
-      rewards: [{id: "9000000000001814", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
+      tasks: [{id: "1000000000001814", type: "item", title: "持有妖兽内丹", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false},
+        {id: "3200000000000095", type: "custom", title: "同步原生任务阶段 3/3", tags: ["si_native_tianlan_defense_line_3"], check_timer: 20, max_progress: 1L}
+      ]
     },
     {
       id: "1000000000000815",
@@ -226,6 +259,7 @@
       x: 4.0d,
       y: 5.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
         "来源：wutu_mulan_feud_line / wutu_raid_mulan_camp。",
         "突兀袭营表现慕兰与突兀世仇，后续可接入边境事件、狼皮掉落和声望。"
@@ -241,6 +275,7 @@
       x: 6.0d,
       y: 5.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
         "来源：mulan_counter_hunt。",
         "慕兰反猎承接突兀袭营，真实战斗、声望和战利品留待后续。"
@@ -256,6 +291,7 @@
       x: 8.0d,
       y: 5.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
         "来源：feud_truce_broker。",
         "为中立玩家保留双声望调停空间；真实停战令与声望锁后续实现。"
@@ -271,13 +307,19 @@
       x: 0.0d,
       y: 8.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
         "来源：demonic_six_path / demonic_six_expanded / demonic_north_rumor。",
         "鬼灵、合欢、天魔、青罗、万狐、血巫六宗北迁，入魔会恶化七派关系。"
       ],
       dependencies: ["1000000000000201"],
       tags: ["seeking_immortals", "demonic_six", "tiannan_north_waste", "optional"],
-      tasks: [{id: "1000000000001818", type: "custom", title: "听闻魔道北迁", tags: ["si_native_demonic_six_path_1"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001818", type: "custom", title: "听闻魔道北迁", tags: ["si_native_demonic_six_path_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000067", type: "custom", title: "同步原生任务阶段 4/5", tags: ["si_native_demonic_six_path_4"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000068", type: "custom", title: "同步原生任务阶段 5/5", tags: ["si_native_demonic_six_path_5"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000238", type: "custom", title: "同步原生任务阶段 1/4", tags: ["si_native_demonic_six_expanded_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000239", type: "custom", title: "同步原生任务阶段 2/4", tags: ["si_native_demonic_six_expanded_2"], check_timer: 20, max_progress: 1L}
+      ]
     },
     {
       id: "1000000000000819",
@@ -286,13 +328,16 @@
       x: 2.0d,
       y: 8.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
         "来源：hook_demonic_six_recruit / demonic_six_expanded#sect_branch_choice。",
         "六宗招揽需要考虑正道内门身份、魔道因果与未来悬赏风险；当前不写阵营状态。"
       ],
       dependencies: ["1000000000000818"],
       tags: ["seeking_immortals", "demonic_six", "branch_design", "optional"],
-      tasks: [{id: "1000000000001819", type: "custom", title: "记录六宗招揽", tags: ["si_native_demonic_six_path_2"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001819", type: "custom", title: "记录六宗招揽", tags: ["si_native_demonic_six_path_2"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000240", type: "custom", title: "同步原生任务阶段 3/4", tags: ["si_native_demonic_six_expanded_3"], check_timer: 20, max_progress: 1L}
+      ]
     },
     {
       id: "1000000000000820",
@@ -301,14 +346,14 @@
       x: 4.0d,
       y: 7.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
         "来源：guiling_gate_recruit / demonic_six_sects#guiling_gate。",
         "鬼灵门专长摄魂、炼尸与阴火，和鬼修/玄阴系有天然交汇。"
       ],
       dependencies: ["1000000000000819"],
       tags: ["seeking_immortals", "demonic_six", "guiling_gate", "optional"],
-      tasks: [{id: "1000000000001820", type: "item", title: "持有魂魄碎片", item: "seeking_immortals:soul_fragment", count: 1L, consume_items: true, match_nbt: false}],
-      rewards: [{id: "9000000000001820", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
+      tasks: [{id: "1000000000001820", type: "item", title: "持有魂魄碎片", item: "seeking_immortals:soul_fragment", count: 1L, consume_items: false, match_nbt: false}]
     },
     {
       id: "1000000000000821",
@@ -317,6 +362,7 @@
       x: 4.0d,
       y: 8.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
         "来源：hehuan_sect_trial / demonic_six_sects#hehuan_sect。",
         "合欢宗以媚术、双修、幻惑为标签；当前仅呈现路线与心性试炼。"
@@ -332,14 +378,14 @@
       x: 4.0d,
       y: 9.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
         "来源：tianmo_blood_rite / demonic_six_sects#tianmo_sect。",
         "天魔宗要求更高风险的血祭和魔体修行，源设定建议筑基以上接触。"
       ],
       dependencies: ["1000000000000819"],
       tags: ["seeking_immortals", "demonic_six", "tianmo_sect", "optional"],
-      tasks: [{id: "1000000000001822", type: "item", title: "持有魔血珊瑚", item: "seeking_immortals:demonic_blood_coral", count: 1L, consume_items: true, match_nbt: false}],
-      rewards: [{id: "9000000000001822", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
+      tasks: [{id: "1000000000001822", type: "item", title: "持有魔血珊瑚", item: "seeking_immortals:demonic_blood_coral", count: 1L, consume_items: false, match_nbt: false}]
     },
     {
       id: "1000000000000823",
@@ -348,6 +394,7 @@
       x: 6.0d,
       y: 8.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
         "来源：demonic_six_sects#qingluo_sect / #wanhu_sect / #xuewu_sect。",
         "青罗毒虫、万狐幻兽、血巫血咒目前缺少完整技能树，先作为 FTB 可见支路。"
@@ -363,6 +410,7 @@
       x: 8.0d,
       y: 8.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
         "来源：righteous_bounty_hunt / demonic_six_sects#karma。",
         "入魔会触发正道悬赏与宗门排斥；当前不扣声望，只展示风险节点。"
@@ -378,14 +426,14 @@
       x: 10.0d,
       y: 8.0d,
       optional: true,
+      guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
         "来源：demonic_six_expanded#north_waste_ruin。",
         "北荒古冢夺宝是魔道深入线收束节点；源设定奖励：demonic_core_material 与 sect_method_scroll。"
       ],
       dependencies: ["1000000000000824"],
       tags: ["seeking_immortals", "demonic_six", "tiannan_north_waste", "reward_bridge_deferred", "optional"],
-      tasks: [{id: "1000000000001825", type: "item", title: "持有妖兽内丹", item: "seeking_immortals:beast_core", count: 1L, consume_items: true, match_nbt: false}],
-      rewards: [{id: "9000000000001825", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
-    }
+      tasks: [{id: "1000000000001825", type: "item", title: "持有妖兽内丹", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false}]
+}
   ]
 }

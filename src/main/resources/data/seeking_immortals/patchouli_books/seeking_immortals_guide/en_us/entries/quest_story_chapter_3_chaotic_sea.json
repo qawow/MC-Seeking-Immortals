@@ -1,0 +1,59 @@
+{
+  "name": "Chapter 3: Chaotic Sea",
+  "category": "seeking_immortals:quests",
+  "icon": "minecraft:writable_book",
+  "sortnum": 13,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Chapter Overview",
+      "text": "Register under Star Palace rule or enter the Inverse Star underground while preparing for Void Heaven Palace.$(br2)This chapter contains 6 authored quest lines. The index describes routes and does not replace server progress."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Quest Line Index 1/2",
+      "text": "$(l:quest_story_chapter_3_chaotic_sea#line_star_palace_register)Star Palace Registration$()$(br)$(l:quest_story_chapter_3_chaotic_sea#line_inverse_star_intro)Inverse Star Contact$()$(br)$(l:quest_story_chapter_3_chaotic_sea#line_xutian_window_prepare)Void Heaven Palace Preparation$()$(br)$(l:quest_story_chapter_3_chaotic_sea#line_qianzhu_tower_trial)Thousand Bamboo Mechanism Tower$()$(br)$(l:quest_story_chapter_3_chaotic_sea#line_dayan_clue)Great Development Art Fragments$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Quest Line Index 2/2",
+      "text": "$(l:quest_story_chapter_3_chaotic_sea#line_xutian_palace_run)Void Heaven Palace Expedition$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Star Palace Registration",
+      "anchor": "line_star_palace_register",
+      "text": "Star Palace sets the rules of the Chaotic Sea: register before seeking legal passage."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Inverse Star Contact",
+      "anchor": "line_inverse_star_intro",
+      "text": "Give the correct countersign before speaking, and keep Star Palace agents away."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Void Heaven Palace Preparation",
+      "anchor": "line_xutian_window_prepare",
+      "text": "A completed map only grants entry; there is still only one supreme cauldron."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Thousand Bamboo Mechanism Tower",
+      "anchor": "line_qianzhu_tower_trial",
+      "text": "Stop the mechanisms, break the control cores, and seize the tower instead of relying on force."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Great Development Art Fragments",
+      "anchor": "line_dayan_clue",
+      "text": "Assemble the inheritance page by page; the complete art is neither sold nor guaranteed."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Void Heaven Palace Expedition",
+      "anchor": "line_xutian_palace_run",
+      "text": "Preparation is over; unique treasures belong only to those who leave the palace alive."
+    }
+  ]
+}

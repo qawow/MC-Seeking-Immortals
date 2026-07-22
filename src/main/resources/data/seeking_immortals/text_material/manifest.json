@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "source": "文本材料/data",
-  "catalog_files": 268,
+  "catalog_files": 269,
   "technique_files": 21,
-  "total_files": 289,
+  "total_files": 290,
   "files": [
     {
       "id": "alchemy_recipes",
@@ -128,7 +128,7 @@
     {
       "id": "block_items_catalog",
       "file": "block_items_catalog.json",
-      "entries": 14,
+      "entries": 18,
       "primary_key": "blocks"
     },
     {
@@ -140,7 +140,7 @@
     {
       "id": "boss_loot_tables",
       "file": "boss_loot_tables.json",
-      "entries": 14,
+      "entries": 27,
       "primary_key": "tables"
     },
     {
@@ -674,7 +674,7 @@
     {
       "id": "pills_catalog",
       "file": "pills_catalog.json",
-      "entries": 114,
+      "entries": 113,
       "primary_key": "pills"
     },
     {
@@ -764,7 +764,7 @@
     {
       "id": "sect_specialty_map",
       "file": "sect_specialty_map.json",
-      "entries": 25,
+      "entries": 37,
       "primary_key": "sects"
     },
     {
@@ -1388,7 +1388,7 @@
     {
       "id": "formation_item_behaviors",
       "file": "formation_item_behaviors.json",
-      "entries": 13,
+      "entries": 14,
       "primary_key": "items"
     },
     {
@@ -1514,13 +1514,13 @@
     {
       "id": "multiblock_station_patterns",
       "file": "multiblock_station_patterns.json",
-      "entries": 86,
+      "entries": 92,
       "primary_key": "stations"
     },
     {
       "id": "multiblock_structure_index",
       "file": "multiblock_structure_index.json",
-      "entries": 86,
+      "entries": 92,
       "primary_key": "entries"
     },
     {
@@ -1580,7 +1580,7 @@
     {
       "id": "npc_dialogue_branches_v139",
       "file": "npc_dialogue_branches_v139.json",
-      "entries": 12,
+      "entries": 24,
       "primary_key": "trees"
     },
     {
@@ -1738,7 +1738,13 @@
       "file": "xianjie_reputation_and_gates_v130.json",
       "entries": 7,
       "primary_key": "gates"
+    },
+    {
+      "id": "quest_handbook_i18n_v1",
+      "file": "quest_handbook_i18n_v1.json",
+      "entries": 68,
+      "primary_key": "hook_labels_zh"
     }
   ],
-  "total_entries": 3985
+  "total_entries": 12327
 }

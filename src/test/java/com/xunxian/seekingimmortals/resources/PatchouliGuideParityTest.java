@@ -1,6 +1,7 @@
 package com.xunxian.seekingimmortals.resources;
 
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import org.junit.jupiter.api.Test;
@@ -10,7 +11,13 @@ import java.io.Reader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
+import java.util.function.BiConsumer;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -23,6 +30,7 @@ class PatchouliGuideParityTest {
             "src/main/resources/data/seeking_immortals/patchouli_books/seeking_immortals_guide");
     private static final Path ITEM_MODEL_ROOT = Path.of(
             "src/main/resources/assets/seeking_immortals/models/item");
+    private static final Pattern INTERNAL_LINK = Pattern.compile("\\$\\(l:([^)]+)\\)");
 
     @Test
     void zhAndEnEntryParityAndCategoriesExpanded() throws IOException {
@@ -55,6 +63,7 @@ class PatchouliGuideParityTest {
         assertTrue(zhCategories.contains("techniques"));
         assertTrue(zhCategories.contains("beasts_puppets"));
         assertTrue(zhCategories.contains("reference"));
+        assertTrue(zhCategories.contains("quests"));
         assertTrue(zhCategories.size() >= 6);
 
         for (String stem : zhCategories) {
@@ -70,6 +79,7 @@ class PatchouliGuideParityTest {
                     "English category name still contains Han characters: " + stem);
             assertFalse(containsHan(requiredString(en, "description", stem)),
                     "English category description still contains Han characters: " + stem);
+            assertNoHan(en, "en_us category " + stem);
         }
 
         for (String stem : zhEntries) {
@@ -93,11 +103,18 @@ class PatchouliGuideParityTest {
                 assertEquals(requiredString(zhPage, "type", stem + " page " + i),
                         requiredString(enPage, "type", stem + " page " + i),
                         "page type parity: " + stem + " page " + i);
+                assertEquals(optionalString(zhPage, "anchor", stem + " page " + i),
+                        optionalString(enPage, "anchor", stem + " page " + i),
+                        "page anchor parity: " + stem + " page " + i);
             }
+            assertNoHan(en, "en_us entry " + stem);
         }
 
+        validateInternalLinks(zhEntries, "zh_cn");
+        validateInternalLinks(enEntries, "en_us");
+
         JsonObject book = readJson(BOOK_ROOT.resolve("book.json"));
-        assertTrue(book.get("version").getAsInt() >= 4,
+        assertTrue(book.get("version").getAsInt() >= 5,
                 "book version should track the runtime-handbook audit");
     }
 
@@ -153,6 +170,81 @@ class PatchouliGuideParityTest {
         String value = root.get(key).getAsString();
         assertFalse(value.isBlank(), "nonblank " + key + " required: " + context);
         return value;
+    }
+
+    private static String optionalString(JsonObject root, String key, String context) {
+        if (!root.has(key)) {
+            return null;
+        }
+        return requiredString(root, key, context);
+    }
+
+    private static void assertNoHan(JsonElement root, String context) {
+        walkStrings(root, "$", (path, value) -> assertFalse(containsHan(value),
+                "English Patchouli string contains Han characters: " + context + " " + path + " = " + value));
+    }
+
+    private static void validateInternalLinks(Set<String> entries, String language) throws IOException {
+        Map<String, Set<String>> anchors = new HashMap<>();
+        Map<String, JsonObject> roots = new HashMap<>();
+        for (String stem : entries) {
+            JsonObject root = readJson(BOOK_ROOT.resolve(language + "/entries/" + stem + ".json"));
+            roots.put(stem, root);
+            Set<String> entryAnchors = new HashSet<>();
+            for (JsonElement pageElement : root.getAsJsonArray("pages")) {
+                JsonObject page = pageElement.getAsJsonObject();
+                if (!page.has("anchor")) {
+                    continue;
+                }
+                String anchor = requiredString(page, "anchor", language + " entry " + stem);
+                assertTrue(entryAnchors.add(anchor),
+                        "duplicate Patchouli anchor: " + language + " " + stem + "#" + anchor);
+            }
+            anchors.put(stem, entryAnchors);
+        }
+
+        for (Map.Entry<String, JsonObject> source : roots.entrySet()) {
+            walkStrings(source.getValue(), "$", (path, value) -> {
+                Matcher matcher = INTERNAL_LINK.matcher(value);
+                while (matcher.find()) {
+                    String target = matcher.group(1);
+                    if (target.contains("://")) {
+                        continue;
+                    }
+                    int hash = target.indexOf('#');
+                    String entry = hash >= 0 ? target.substring(0, hash) : target;
+                    String anchor = hash >= 0 ? target.substring(hash + 1) : "";
+                    int namespace = entry.indexOf(':');
+                    if (namespace >= 0) {
+                        entry = entry.substring(namespace + 1);
+                    }
+                    assertTrue(entries.contains(entry), "missing internal Patchouli link target: "
+                            + language + " " + source.getKey() + " " + path + " -> " + target);
+                    if (!anchor.isEmpty()) {
+                        assertTrue(anchors.get(entry).contains(anchor), "missing internal Patchouli anchor: "
+                                + language + " " + source.getKey() + " " + path + " -> " + target);
+                    }
+                }
+            });
+        }
+    }
+
+    private static void walkStrings(JsonElement element, String path, BiConsumer<String, String> consumer) {
+        if (element.isJsonPrimitive() && element.getAsJsonPrimitive().isString()) {
+            consumer.accept(path, element.getAsString());
+            return;
+        }
+        if (element.isJsonArray()) {
+            for (int index = 0; index < element.getAsJsonArray().size(); index++) {
+                walkStrings(element.getAsJsonArray().get(index), path + "[" + index + "]", consumer);
+            }
+            return;
+        }
+        if (element.isJsonObject()) {
+            for (Map.Entry<String, JsonElement> child : element.getAsJsonObject().entrySet()) {
+                walkStrings(child.getValue(), path + "." + child.getKey(), consumer);
+            }
+        }
     }
 
     private static boolean containsHan(String value) {

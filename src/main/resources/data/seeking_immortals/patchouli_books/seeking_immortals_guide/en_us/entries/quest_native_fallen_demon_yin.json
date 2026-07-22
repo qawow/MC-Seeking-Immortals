@@ -1,0 +1,68 @@
+{
+  "name": "Fallen Demon Valley and Yin Paths",
+  "category": "seeking_immortals:quests",
+  "icon": "seeking_immortals:mortal_quest_token",
+  "sortnum": 33,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Projection Notes",
+      "text": "This volume matches the FTB Quests chapter 'Fallen Demon Valley and Yin Paths' and contains 5 native quest lines. Stage order comes from native quest data; completion and rewards remain server-authoritative."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Quest Line Index 1/2",
+      "text": "$(l:quest_native_fallen_demon_yin#chain_ghost_path)Ghost Cultivation Path$()$(br)$(l:quest_native_fallen_demon_yin#chain_yin_luo_ghost_sect)Yinluo Hall Path$()$(br)$(l:quest_native_fallen_demon_yin#chain_fallen_demon_campaign)Fallen Demon Valley Campaign$()$(br)$(l:quest_native_fallen_demon_yin#chain_ancient_demon_line)Ancient Demon Seal$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Quest Line Index 2/2",
+      "text": "$(l:quest_native_fallen_demon_yin#chain_nether_river_campaign)Nether River Journey$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Ghost Cultivation Path 1/2",
+      "anchor": "chain_ghost_path",
+      "text": "1. Yinming Escape$(br)2. Ghost Yin Body$(br)3. Nether River Pilgrim"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Ghost Cultivation Path 2/2",
+      "text": "4. Ghost Soul Anchor$(br)5. Ghost Nether Core$(br)6. Nether River Guardian"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Yinluo Hall Path",
+      "anchor": "chain_yin_luo_ghost_sect",
+      "text": "1. Yin Luo Initiation$(br)2. Soul Banner Quest$(br)3. Nether Ferry Pass"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Fallen Demon Valley Campaign 1/2",
+      "anchor": "chain_fallen_demon_campaign",
+      "text": "1. Fallen Demon Seal Weaken$(br)2. Demon Qi Purge Prep$(br)3. Fallen Demon Outer Gorge"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Fallen Demon Valley Campaign 2/2",
+      "text": "4. Fallen Demon Rift Layer$(br)5. Ancient Demon Projection"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Ancient Demon Seal",
+      "anchor": "chain_ancient_demon_line",
+      "text": "1. Fallen Demon Scout$(br)2. Kunwu Seal Research$(br)3. Blood Forbidden Run$(br)4. Demon Rift Closure"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Nether River Journey 1/2",
+      "anchor": "chain_nether_river_campaign",
+      "text": "1. Nether Ferry Ticket$(br)2. Nether River Fog Entry$(br)3. Nether Soul Shoal"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Nether River Journey 2/2",
+      "text": "4. Nether Ghost Hall$(br)5. Nether River Guardian"
+    }
+  ]
+}

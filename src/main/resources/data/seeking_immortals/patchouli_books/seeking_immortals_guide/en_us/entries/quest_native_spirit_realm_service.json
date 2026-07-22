@@ -1,0 +1,133 @@
+{
+  "name": "Spirit Realm: Tianyuan and the Fengyuan Clans",
+  "category": "seeking_immortals:quests",
+  "icon": "seeking_immortals:mortal_quest_token",
+  "sortnum": 35,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Projection Notes",
+      "text": "This volume matches the FTB Quests chapter 'Spirit Realm: Tianyuan and the Fengyuan Clans' and contains 15 native quest lines. Stage order comes from native quest data; completion and rewards remain server-authoritative."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Quest Line Index 1/4",
+      "text": "$(l:quest_native_spirit_realm_service#chain_spirit_realm_rise)Spirit Realm Ascent$()$(br)$(l:quest_native_spirit_realm_service#chain_tianyuan_merit_path)Tianyuan Merit Path$()$(br)$(l:quest_native_spirit_realm_service#chain_chain_tianyuan_enlist)Tianyuan Service$()$(br)$(l:quest_native_spirit_realm_service#chain_diyuan_campaign)Diyuan Leyline Survey$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Quest Line Index 2/4",
+      "text": "$(l:quest_native_spirit_realm_service#chain_human_clan_neutral_intro)Human Clan Introduction$()$(br)$(l:quest_native_spirit_realm_service#chain_spirit_eighteen_clans)Eighteen Spirit Realm Clans$()$(br)$(l:quest_native_spirit_realm_service#chain_spirit_eighteen_pilgrimage)Eighteen Clans Pilgrimage$()$(br)$(l:quest_native_spirit_realm_service#chain_fengyuan_explorer)Fengyuan Exploration$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Quest Line Index 3/4",
+      "text": "$(l:quest_native_spirit_realm_service#chain_clan_array_mo_line)Mo Clan Formation Path$()$(br)$(l:quest_native_spirit_realm_service#chain_clan_refinement_yu_line)Yu Clan Artifact Refinement Path$()$(br)$(l:quest_native_spirit_realm_service#chain_clan_alchemy_gu_line)Gu Clan Alchemy Path$()$(br)$(l:quest_native_spirit_realm_service#chain_clan_talisman_ning_line)Ning Clan Talisman Path$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Quest Line Index 4/4",
+      "text": "$(l:quest_native_spirit_realm_service#chain_human_clan_league_hub)Human Clan League$()$(br)$(l:quest_native_spirit_realm_service#chain_barbarian_kings_line)Wilds Demon Kings$()$(br)$(l:quest_native_spirit_realm_service#chain_barbarian_king_hunt)Wilds Demon King Hunt$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Spirit Realm Ascent 1/2",
+      "anchor": "chain_spirit_realm_rise",
+      "text": "1. Tianyuan Demon Contract$(br)2. Treasure Fair Invite$(br)3. Diyuan Scout"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Spirit Realm Ascent 2/2",
+      "text": "4. Asura Trial$(br)5. Jiuxian Seclusion Permit$(br)6. Tianyuan Enlist"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Tianyuan Merit Path",
+      "anchor": "chain_tianyuan_merit_path",
+      "text": "1. Tianyuan Merit Enlist$(br)2. Demon Beast Siege Defense$(br)3. Diyuan Permit Apply"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Tianyuan Service",
+      "anchor": "chain_chain_tianyuan_enlist",
+      "text": "1. Enlist at Tianyuan City$(br)2. Complete a Frontier Defense$(br)3. Earn Tianyuan Merit$(br)4. Exchange Merit for Resources and Passage"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Diyuan Leyline Survey 1/2",
+      "anchor": "chain_diyuan_campaign",
+      "text": "1. Diyuan Permit Apply$(br)2. Diyuan Rift Mouth$(br)3. Diyuan Shallow Mine"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Diyuan Leyline Survey 2/2",
+      "text": "4. Diyuan Pressure Zone$(br)5. Diyuan Ancient Beast"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Human Clan Introduction",
+      "anchor": "chain_human_clan_neutral_intro",
+      "text": "1. Fengyuan Clan Intro$(br)2. Clan Guest Register"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Eighteen Spirit Realm Clans",
+      "anchor": "chain_spirit_eighteen_clans",
+      "text": "1. Tianyuan Enlist$(br)2. Clan Generic Tribute$(br)3. Treasure Fair Invite$(br)4. Asura Trial"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Eighteen Clans Pilgrimage",
+      "anchor": "chain_spirit_eighteen_pilgrimage",
+      "text": "1. Fengyuan Clan Intro$(br)2. Spirit Eighteen Pilgrimage$(br)3. Tianyuan Enlist"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Fengyuan Exploration",
+      "anchor": "chain_fengyuan_explorer",
+      "text": "1. Fengyuan Clan Intro$(br)2. Spirit Fengyuan Border Patrol$(br)3. Wild Land Rumor"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Mo Clan Formation Path",
+      "anchor": "chain_clan_array_mo_line",
+      "text": "1. Array Disk Commission$(br)2. Formation Trial Mo$(br)3. Clan Feud Mediation Optional"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Yu Clan Artifact Refinement Path",
+      "anchor": "chain_clan_refinement_yu_line",
+      "text": "1. Spirit Ore Escort$(br)2. Refinement Apprentice Yu$(br)3. Artifact Appraisal Quest"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Gu Clan Alchemy Path",
+      "anchor": "chain_clan_alchemy_gu_line",
+      "text": "1. Herb Tribute Gu$(br)2. Alchemy Furnace Access$(br)3. Pill Quality Audit"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Ning Clan Talisman Path",
+      "anchor": "chain_clan_talisman_ning_line",
+      "text": "1. Talisman Blank Order$(br)2. Talisman Inscription Lesson$(br)3. Clan Raid Defense Ning"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Human Clan League",
+      "anchor": "chain_human_clan_league_hub",
+      "text": "1. Fengyuan Clan Intro$(br)2. Clan Guest Register$(br)3. Great Jin Clan Feud"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Wilds Demon Kings",
+      "anchor": "chain_barbarian_kings_line",
+      "text": "1. Diyuan Scout$(br)2. Barbarian Border Contact$(br)3. King Tribute Quest$(br)4. Spatial Rift Escape"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Wilds Demon King Hunt",
+      "anchor": "chain_barbarian_king_hunt",
+      "text": "1. Barbarian Border Contact$(br)2. Barbarian Beast Tide Survive$(br)3. Barbarian King Token Hunt"
+    }
+  ]
+}

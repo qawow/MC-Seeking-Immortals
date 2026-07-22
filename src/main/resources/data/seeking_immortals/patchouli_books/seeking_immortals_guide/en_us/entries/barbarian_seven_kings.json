@@ -22,7 +22,7 @@
     {
       "type": "patchouli:text",
       "title": "Planned Content",
-      "text": "Unique drops, Demon King tokens, the three-token audience with the Wilds Council, tribute trade, territory quests, actual bosses, GeckoLib animations, structure generation, and an FTB Quests chapter are not yet implemented. This page describes only the existing data hooks."
+      "text": "Unique drops, Demon King tokens, the three-token audience with the Wilds Council, tribute trade, territory quests, actual bosses, GeckoLib animations, and structure generation are not yet implemented. The corresponding native routes are projected in the FTB Quests chapter 'Spirit Realm: Tianyuan and the Fengyuan Clans'; native progress remains authoritative. This page describes only the existing data hooks."
     }
   ]
 }

@@ -1,0 +1,99 @@
+{
+  "name": "Ascension Frontier and Final Tribulations",
+  "category": "seeking_immortals:quests",
+  "icon": "seeking_immortals:mortal_quest_token",
+  "sortnum": 38,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Projection Notes",
+      "text": "This volume matches the FTB Quests chapter 'Ascension Frontier and Final Tribulations' and contains 11 native quest lines. Stage order comes from native quest data; completion and rewards remain server-authoritative."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Quest Line Index 1/3",
+      "text": "$(l:quest_native_ascension_border#chain_high_realm_endgame)High-Realm Endgame$()$(br)$(l:quest_native_ascension_border#chain_void_great_cultivation_arc)Void Refinement to Grand Ascension$()$(br)$(l:quest_native_ascension_border#chain_diyuan_depth_delve)Deep Diyuan Delve$()$(br)$(l:quest_native_ascension_border#chain_mortal_to_spirit_bridge)Mortal Realm to Spirit Realm$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Quest Line Index 2/3",
+      "text": "$(l:quest_native_ascension_border#chain_chain_ascension_spirit_world)Spirit Realm Ascension Prerequisites$()$(br)$(l:quest_native_ascension_border#chain_yin_cluster_pilgrim)Yin Realm Pilgrimage$()$(br)$(l:quest_native_ascension_border#chain_fallen_demon_expedition)Fallen Demon Valley Expedition$()$(br)$(l:quest_native_ascension_border#chain_kunwu_mountain_expedition)Kunwu Mountain Expedition$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Quest Line Index 3/3",
+      "text": "$(l:quest_native_ascension_border#chain_spirit_realm_border)Spirit Realm Frontier$()$(br)$(l:quest_native_ascension_border#chain_ghost_sect_ban_arc)Righteous Sect Ban on Ghost Cultivators$()$(br)$(l:quest_native_ascension_border#chain_chain_seven_sect_outer_to_inner)Seven Sects Outer-to-Inner Promotion$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "High-Realm Endgame",
+      "anchor": "chain_high_realm_endgame",
+      "text": "1. Kunwu Expedition$(br)2. Kunwu Seal Research$(br)3. Fallen Demon Scout$(br)4. Tianyuan Enlist"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Void Refinement to Grand Ascension",
+      "anchor": "chain_void_great_cultivation_arc",
+      "text": "1. Void Rift Surge$(br)2. Diyuan Core Probe$(br)3. Great Vehicle Insight$(br)4. Tribulation Cloud Gather"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Deep Diyuan Delve",
+      "anchor": "chain_diyuan_depth_delve",
+      "text": "1. Diyuan Permit Apply$(br)2. Diyuan Pressure Wave$(br)3. Diyuan Core Probe$(br)4. Diyuan Core Crystal Boss"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Mortal Realm to Spirit Realm",
+      "anchor": "chain_mortal_to_spirit_bridge",
+      "text": "1. Mortal Realm Cap Insight$(br)2. Ascension Gate Rumor$(br)3. Spirit Realm Gate Voucher"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Spirit Realm Ascension Prerequisites 1/2",
+      "anchor": "chain_chain_ascension_spirit_world",
+      "text": "1. Reach the Mortal Realm Deity Transformation Limit$(br)2. Prepare Tribulation and Ascension Supplies$(br)3. Survive the Inner Demon and Heavenly Tribulation"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Spirit Realm Ascension Prerequisites 2/2",
+      "text": "4. Locate a Stable Spatial Node$(br)5. Cross the Ascension Gate$(br)6. Register at Tianyuan in the Spirit Realm"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Yin Realm Pilgrimage",
+      "anchor": "chain_yin_cluster_pilgrim",
+      "text": "1. Yinming Escape$(br)2. Nether River Pilgrim$(br)3. Nether River Fog Event"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Fallen Demon Valley Expedition",
+      "anchor": "chain_fallen_demon_expedition",
+      "text": "1. Fallen Demon Scout$(br)2. Seal Weak Event$(br)3. Demon Qi Purge Side$(br)4. Ancient Demon Projection Boss"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Kunwu Mountain Expedition",
+      "anchor": "chain_kunwu_mountain_expedition",
+      "text": "1. Kunwu Intel$(br)2. Kunwu Map Fragment Turnin$(br)3. Kunwu Cold Snap Survive$(br)4. Kunwu Puppet King"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Spirit Realm Frontier",
+      "anchor": "chain_spirit_realm_border",
+      "text": "1. Wild Land Beast Horde$(br)2. Spatial Rift Flutter Survive"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Righteous Sect Ban on Ghost Cultivators",
+      "anchor": "chain_ghost_sect_ban_arc",
+      "text": "1. Ghost Expose Event$(br)2. Righteous Sect Ghost Hunt$(br)3. Sect Ban Lift Rare Quest"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Seven Sects Outer-to-Inner Promotion",
+      "anchor": "chain_chain_seven_sect_outer_to_inner",
+      "text": "1. Accumulate Sect Contribution$(br)2. Pass Realm and Sect Assessments$(br)3. Enter the Inner Sect and Claim the Legacy"
+    }
+  ]
+}

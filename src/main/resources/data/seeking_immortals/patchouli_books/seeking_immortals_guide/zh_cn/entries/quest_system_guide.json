@@ -1,67 +1,43 @@
 {
   "name": "任务系统指南",
-  "category": "seeking_immortals:basics",
-  "icon": "minecraft:writable_book",
-  "sortnum": 2,
+  "category": "seeking_immortals:quests",
+  "icon": "seeking_immortals:mortal_quest_token",
+  "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "寻仙问道以$(l)模组原生任务进度$()为唯一权威账本。服务器负责校验接取条件、当前阶段、上交物、分支与奖励；任务追踪界面、命令和 FTB Quests 只是读取或提交行动，不会各自保存一套相互冲突的进度。"
+      "title": "任务权威与导航",
+      "text": "模组原生任务进度是唯一权威账本。服务器校验接取、当前阶段、上交物、分支与奖励；Patchouli、追踪界面、命令和 FTB Quests 只提供索引、展示或受校验的行动入口。"
     },
     {
       "type": "patchouli:text",
-      "title": "接取与推进",
-      "text": "与指定人物、方块、秘境、击杀或制作目标互动可推进当前阶段。开始任务时会检查境界、势力与区域；推进时会再次检查当前阶段并扣除明确标注的上交物。$(br2)$(l)/seeking_immortals quest$() 查看七玄门主线；$(l)/seeking_immortals quest text list$() 查看原生任务线。"
+      "title": "七章剧情索引 1/2",
+      "text": "$(l:quest_story_chapter_0_mortal)第0章 · 凡人入世$()$(br)$(l:quest_story_chapter_1_sect)第1章 · 宗门修行$()$(br)$(l:quest_story_chapter_2_foundation_secret)第2章 · 筑基秘境$()$(br)$(l:quest_story_chapter_3_chaotic_sea)第3章 · 乱星海$()"
     },
     {
       "type": "patchouli:text",
-      "title": "FTB 同步",
-      "text": "安装 FTB Quests 后，九个任务章节会展示模组的六十二条原生任务线。原生镜像节点只在对应阶段已经完成时点亮；明确支持回写的 FTB 节点也只能请求推进$(l)当前下一阶段$()，仍须通过原生校验。未安装 FTB Quests 时，原生任务、NPC、追踪与奖励照常运行。"
+      "title": "剧情索引 2/2",
+      "text": "$(l:quest_story_chapter_4_great_jin)第4章 · 大晋纵横$()$(br)$(l:quest_story_chapter_5_deity_transformation)第5章 · 化神天劫$()$(br)$(l:quest_story_chapter_6_spirit_realm)第6章 · 灵界飞升$()"
     },
     {
       "type": "patchouli:text",
-      "title": "奖励归属",
-      "text": "阶段与终章奖励由原生任务账本发放，并以一次性凭证防止重复领取。FTB 中要求提交物品的节点会真实消耗标注数量；镜像节点不会再复制一份终章奖励。背包已满时，奖励遵循模组统一交付规则，不以客户端显示作为发奖依据。"
+      "title": "九卷原生任务 1/2",
+      "text": "$(l:quest_native_main)主线任务$()$(br)$(l:quest_native_chaotic_sea)乱星海与虚天殿$()$(br)$(l:quest_native_dajin_kunwu)大晋与昆吾山$()$(br)$(l:quest_native_fallen_demon_yin)坠魔谷与阴司鬼道$()$(br)$(l:quest_native_mulan_demonic)慕兰天澜与魔道六宗$()"
     },
     {
       "type": "patchouli:text",
-      "title": "分支与互斥",
-      "text": "部分任务会在正道、中立与魔道立场，或具体剧情选择之间分流。七玄门证据事件可选择上报、沉默或勒索；星宫与逆星、慕兰与天澜等路线也有互斥节点。作出非中立选择后会锁定分支，后续 NPC、代价和奖励按服务器记录结算。"
+      "title": "原生任务 2/2",
+      "text": "$(l:quest_native_spirit_realm_service)灵界天渊与风元百族$()$(br)$(l:quest_native_tiannan_seven_sects)天南七派与百艺旁支$()$(br)$(l:quest_native_star_palace_inverse)星宫派系与逆星暗线$()$(br)$(l:quest_native_ascension_border)飞升边境与终局劫线$()"
     },
     {
       "type": "patchouli:text",
-      "title": "第零至第一章",
-      "text": "$(l)第零章·凡人入世$()：测灵根、拜入七玄门并踏入炼气。$(br2)$(l)第一章·宗门修行$()：在天南完成外门委托、采药炼丹与筑基准备，并逐步接触黄枫谷及七派支线。"
+      "title": "FTB 投影边界",
+      "text": "每条原生任务线均按服务器阶段顺序列出。安装 FTB Quests 后，同名章节投影这六十二条任务线；镜像节点不会另存进度或重复发奖，允许回写的节点也只能请求推进当前下一阶段。"
     },
     {
       "type": "patchouli:text",
-      "title": "第二至第三章",
-      "text": "$(l)第二章·筑基秘境$()：争取血色禁地名额，在周期开放的秘境中取得筑基资源。$(br2)$(l)第三章·乱星海$()：准备灵舟与身份，在星宫秩序和逆星暗线间选择，并为虚天殿开启做准备。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "第四至第五章",
-      "text": "$(l)第四章·大晋纵横$()：追查昆吾山、阴阳窟与虚天遗宝，在世家和正魔势力间周旋。$(br2)$(l)第五章·化神天劫$()：深入坠魔谷，处理造化与火狱线索，完成心魔、劫数和飞升准备。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "第六章·灵界飞升",
-      "text": "通过界面关隘后在天渊登记，以服役和功勋换取灵界资源。此章衔接地渊探脉、风元百族、蛮荒妖王与更高境界道途；区域、境界、许可和功勋条件都由服务器逐步校验。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "宗门与百艺",
-      "text": "黄枫谷偏向炼丹与禁地历练；化刀坞、巨剑门、掩月宗、天符门和千竹教分别延伸刀剑、幻阵、制符与傀儡路线。百艺任务会把采集、上交、制作、阵法部署和师门考核串入同一原生进度。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "势力与秘境",
-      "text": "乱星海、慕兰天澜、魔道六宗、大晋世家、阴冥鬼道、天渊与风元百族均有独立或交叉任务线。血色禁地、虚天殿、昆吾山、坠魔谷、冥河和地渊等秘境会检查门票、开放窗口、会话归属与击杀结果。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "进度未变化时",
-      "text": "先查看追踪器中的当前阶段、NPC、分支和上交代价。镜像节点未点亮通常表示原生条件尚未完成；FTB 节点完成但原生任务未推进，则说明该节点只用于展示，或当前阶段校验未通过。重新登录会从服务器权威账本同步，不需要重置任务。"
+      "title": "排查进度",
+      "text": "若进度未变化，先检查当前阶段、人物、区域、境界、分支与上交代价。重新登录会从服务器账本同步；未安装 FTB Quests 时，原生任务、NPC、追踪与奖励仍照常运行。"
     }
   ]
 }

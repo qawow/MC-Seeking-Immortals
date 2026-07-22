@@ -1,0 +1,36 @@
+{
+  "name": "Star Palace and the Inverse Star Underground",
+  "category": "seeking_immortals:quests",
+  "icon": "seeking_immortals:mortal_quest_token",
+  "sortnum": 37,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Projection Notes",
+      "text": "This volume matches the FTB Quests chapter 'Star Palace and the Inverse Star Underground' and contains 3 native quest lines. Stage order comes from native quest data; completion and rewards remain server-authoritative."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Quest Line Index",
+      "text": "$(l:quest_native_star_palace_inverse#chain_star_palace_internal_politics)Star Palace Factions$()$(br)$(l:quest_native_star_palace_inverse#chain_inverse_star_void_heist)Void Heaven Intelligence Heist$()$(br)$(l:quest_native_star_palace_inverse#chain_chain_void_palace_expedition)Void Heaven Palace Expedition$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Star Palace Factions",
+      "anchor": "chain_star_palace_internal_politics",
+      "text": "1. Star Palace Patrol$(br)2. Star Palace Branch Enforcement$(br)3. Star Palace Branch Commerce$(br)4. Internal Tax Vote"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Void Heaven Intelligence Heist",
+      "anchor": "chain_inverse_star_void_heist",
+      "text": "1. Void Key Fragment Rumor$(br)2. Inverse Star Black Market Buy$(br)3. Star Palace Spy Expose Optional"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Void Heaven Palace Expedition",
+      "anchor": "chain_chain_void_palace_expedition",
+      "text": "1. Gather Void Heaven Map Fragments$(br)2. Obtain a Palace Key$(br)3. Explore the Palace Layers$(br)4. Claim Treasure and Escape Safely"
+    }
+  ]
+}

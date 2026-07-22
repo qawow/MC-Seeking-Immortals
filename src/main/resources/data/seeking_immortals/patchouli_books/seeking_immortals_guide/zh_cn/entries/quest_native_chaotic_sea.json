@@ -1,0 +1,68 @@
+{
+  "name": "乱星海与虚天殿",
+  "category": "seeking_immortals:quests",
+  "icon": "seeking_immortals:mortal_quest_token",
+  "sortnum": 31,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "投影说明",
+      "text": "本卷对应 FTB Quests 章节“乱星海与虚天殿”，收录 5 条原生任务线。阶段顺序来自原生任务资料，完成与奖励仍以服务器账本为准。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "任务线索引 1/2",
+      "text": "$(l:quest_native_chaotic_sea#chain_chaotic_sea_politics)乱星海势力线$()$(br)$(l:quest_native_chaotic_sea#chain_void_palace_campaign)虚天殿探宝$()$(br)$(l:quest_native_chaotic_sea#chain_inverse_star_recruit)逆星入盟$()$(br)$(l:quest_native_chaotic_sea#chain_inverse_star_smuggle_arc)走私补给线$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "任务线索引 2/2",
+      "text": "$(l:quest_native_chaotic_sea#chain_chaotic_sea_civil_war)星宫逆星对峙$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "乱星海势力线 1/2",
+      "anchor": "chain_chaotic_sea_politics",
+      "text": "1. 星宫巡防$(br)2. 逆星盟接触$(br)3. 失窃玉简"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "乱星海势力线 2/2",
+      "text": "4. 逆星暗线$(br)5. 海盗悬赏$(br)6. 虚天殿钥终章"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "虚天殿探宝 1/2",
+      "anchor": "chain_void_palace_campaign",
+      "text": "1. 三百年周期预告$(br)2. 搜集虚天钥碎片$(br)3. 外殿傀儡战"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "虚天殿探宝 2/2",
+      "text": "4. 灵药园采集$(br)5. 寒玉殿极寒$(br)6. 核心宝库"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "逆星入盟",
+      "anchor": "chain_inverse_star_recruit",
+      "text": "1. 逆星接头传闻$(br)2. 逆星暗号试炼$(br)3. 逆星盟誓"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "走私补给线",
+      "anchor": "chain_inverse_star_smuggle_arc",
+      "text": "1. 逆星走私补给$(br)2. 躲避星宫巡防$(br)3. 虚天殿情报出售"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "星宫逆星对峙 1/2",
+      "anchor": "chain_chaotic_sea_civil_war",
+      "text": "1. 星宫巡防任务$(br)2. 逆星伏击$(br)3. 星宫执法突袭"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "星宫逆星对峙 2/2",
+      "text": "4. 逆星走私线$(br)5. 乱星海中立"
+    }
+  ]
+}

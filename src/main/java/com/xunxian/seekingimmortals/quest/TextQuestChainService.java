@@ -149,6 +149,49 @@ public final class TextQuestChainService {
         return meetsStartRequirements(player, optional.get(), true);
     }
 
+    /**
+     * Silent authority preflight for an explicitly targeted one-stage transition.
+     * This does not evaluate or replay authored hooks; the caller must provide its
+     * own server-side proof for the requested target stage.
+     */
+    static boolean canTransitionExact(ServerPlayer player, String chainId, int targetStage) {
+        if (player == null) {
+            return false;
+        }
+        Optional<ExtendedCatalogService.QuestChain> optional = find(chainId);
+        if (optional.isEmpty()) {
+            return false;
+        }
+        ExtendedCatalogService.QuestChain chain = optional.get();
+        if (targetStage <= 0 || targetStage > chain.stepCount()) {
+            return false;
+        }
+        ChainProgress progress = progressOf(player, chain.id());
+        if (progress.complete() || progress.stage() + 1 != targetStage) {
+            return false;
+        }
+        if (targetStage == 1) {
+            return progress.stage() == 0 && meetsStartRequirements(player, chain, false);
+        }
+        Optional<StageCost> cost = stageCostFor(chain.id(), targetStage, chain.stepCount());
+        return cost.isEmpty() || player.getAbilities().instabuild
+                || countOwned(player, cost.get()) >= cost.get().count();
+    }
+
+    /**
+     * Applies exactly one preflighted native transition and verifies its final
+     * stage. Normal start/advance code remains the only owner of costs, rewards,
+     * reputation, branch setup, and tracker synchronization.
+     */
+    static boolean transitionExact(ServerPlayer player, String chainId, int targetStage) {
+        if (!canTransitionExact(player, chainId, targetStage)) {
+            return false;
+        }
+        String id = normalize(chainId);
+        boolean accepted = targetStage == 1 ? start(player, id) : advance(player, id);
+        return accepted && progressOf(player, id).stage() == targetStage;
+    }
+
     private static boolean meetsStartRequirements(ServerPlayer player,
                                                   ExtendedCatalogService.QuestChain chain,
                                                   boolean warn) {

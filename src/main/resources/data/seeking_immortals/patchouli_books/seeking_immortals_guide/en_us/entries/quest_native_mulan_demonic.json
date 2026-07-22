@@ -1,0 +1,81 @@
+{
+  "name": "Mulan-Tianlan and the Six Demonic Sects",
+  "category": "seeking_immortals:quests",
+  "icon": "seeking_immortals:mortal_quest_token",
+  "sortnum": 34,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Projection Notes",
+      "text": "This volume matches the FTB Quests chapter 'Mulan-Tianlan and the Six Demonic Sects' and contains 8 native quest lines. Stage order comes from native quest data; completion and rewards remain server-authoritative."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Quest Line Index 1/2",
+      "text": "$(l:quest_native_mulan_demonic#chain_mulan_war_campaign)Mulan-Tianlan Campaign$()$(br)$(l:quest_native_mulan_demonic#chain_mulan_tianlan_war)Mulan-Tianlan Front$()$(br)$(l:quest_native_mulan_demonic#chain_mulan_fashi_path)Mulan Spell-Warrior Path$()$(br)$(l:quest_native_mulan_demonic#chain_tianlan_defense_line)Tianlan Beast Defense$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Quest Line Index 2/2",
+      "text": "$(l:quest_native_mulan_demonic#chain_wutu_mulan_feud_line)Wutu-Mulan Blood Feud$()$(br)$(l:quest_native_mulan_demonic#chain_chain_mulan_war_campaign)Mulan Grand War Campaign$()$(br)$(l:quest_native_mulan_demonic#chain_demonic_six_path)Six Demonic Sects$()$(br)$(l:quest_native_mulan_demonic#chain_demonic_six_expanded)Six Demonic Sects: Deep Route$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Mulan-Tianlan Campaign 1/2",
+      "anchor": "chain_mulan_war_campaign",
+      "text": "1. Mulan Scout Clash$(br)2. Mulan Side$(br)3. Tiannan Defense Mobilize"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Mulan-Tianlan Campaign 2/2",
+      "text": "4. Spell-Warrior Soul Array Battle$(br)5. Holy Bird Blessing Quest$(br)6. War Ceasefire Negotiation"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Mulan-Tianlan Front",
+      "anchor": "chain_mulan_tianlan_war",
+      "text": "1. Mulan Side$(br)2. Beast Tide Defense$(br)3. Mulan Scout Clash"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Mulan Spell-Warrior Path",
+      "anchor": "chain_mulan_fashi_path",
+      "text": "1. Mulan Spell-Warrior Initiation$(br)2. Holy Bird Altar Visit$(br)3. Tianhu Beast Tame Optional"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Tianlan Beast Defense",
+      "anchor": "chain_tianlan_defense_line",
+      "text": "1. Tianlan Oath Renew$(br)2. Tianlan Beast Soul Call Training$(br)3. Mulan War Campaign"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Wutu-Mulan Blood Feud",
+      "anchor": "chain_wutu_mulan_feud_line",
+      "text": "1. Wutu Raid Mulan Camp$(br)2. Mulan Counter Hunt$(br)3. Feud Truce Broker"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Mulan Grand War Campaign",
+      "anchor": "chain_chain_mulan_war_campaign",
+      "text": "1. Mulan Scout Clash$(br)2. Spell-Warrior Soul Array Battle$(br)3. Holy Bird Blessing Quest$(br)4. War Ceasefire Negotiation"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Six Demonic Sects 1/2",
+      "anchor": "chain_demonic_six_path",
+      "text": "1. Demonic North Rumor$(br)2. Guiling Gate Recruit$(br)3. Hehuan Sect Trial"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Six Demonic Sects 2/2",
+      "text": "4. Tianmo Blood Rite$(br)5. Righteous Bounty Hunt"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Six Demonic Sects: Deep Route",
+      "anchor": "chain_demonic_six_expanded",
+      "text": "1. Demonic North Rumor$(br)2. Sect Branch Choice$(br)3. Righteous Bounty Hunt$(br)4. North Waste Ruin"
+    }
+  ]
+}

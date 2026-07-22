@@ -1,0 +1,42 @@
+{
+  "name": "第4章 · 大晋纵横",
+  "category": "seeking_immortals:quests",
+  "icon": "minecraft:writable_book",
+  "sortnum": 14,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "章节概览",
+      "text": "大晋世家与蛮荒并存，虚天殿三百年一现。$(br2)本章收录 4 条已撰写剧情线；索引只说明路线，不替代服务器进度。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "剧情线索引",
+      "text": "$(l:quest_story_chapter_4_great_jin#line_kunwu_clue_assemble)昆吾线索拼合$()$(br)$(l:quest_story_chapter_4_great_jin#line_yinyang_ku_intel)阴阳窟情报$()$(br)$(l:quest_story_chapter_4_great_jin#line_peiying_material_hunt)培婴材料·阴芝马$()$(br)$(l:quest_story_chapter_4_great_jin#line_kunwu_expedition_run)昆吾入山行$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "昆吾线索拼合",
+      "anchor": "line_kunwu_clue_assemble",
+      "text": "山不是开着等人的。线索不齐，门就是死的。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "阴阳窟情报",
+      "anchor": "line_yinyang_ku_intel",
+      "text": "阴毒之地，先买命，再买路。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "培婴材料·阴芝马",
+      "anchor": "line_peiying_material_hunt",
+      "text": "活的才是丹。死的，只是一堆打折的肉。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "昆吾入山行",
+      "anchor": "line_kunwu_expedition_run",
+      "text": "线索齐了。火与魔，都在山里等你。"
+    }
+  ]
+}

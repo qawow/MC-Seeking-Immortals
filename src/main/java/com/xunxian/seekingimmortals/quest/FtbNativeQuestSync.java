@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
+import java.util.UUID;
 
 /**
  * Native quest progress is authoritative. FTB custom tasks may mirror it, while
@@ -16,10 +17,29 @@ import java.util.Set;
 public final class FtbNativeQuestSync {
     public static final String MIRROR_PREFIX = "si_native_";
     public static final String WRITE_PREFIX = "si_native_write_";
+    public static final String READY_PREFIX = "si_native_ready_";
 
     private FtbNativeQuestSync() {}
 
     public record Target(String chainId, int stage) {}
+
+    public record WriteIntent(Target target) {}
+
+    public enum WriteIntentStatus {
+        VALID,
+        NO_WRITE_TAG,
+        MALFORMED_WRITE_TAG,
+        MULTIPLE_WRITE_TARGETS,
+        MISSING_CHAIN_TAG,
+        MULTIPLE_CHAIN_TAGS,
+        CHAIN_MISMATCH
+    }
+
+    public record WriteIntentValidation(WriteIntentStatus status, WriteIntent intent) {
+        public boolean valid() {
+            return status == WriteIntentStatus.VALID && intent != null;
+        }
+    }
 
     enum WriteAction {
         REJECT,
@@ -28,15 +48,9 @@ public final class FtbNativeQuestSync {
         ADVANCE
     }
 
-    enum GateRequirement {
-        REJECT,
-        NONE,
-        BOUND_NPC
-    }
-
     public static Optional<Target> parseMirrorTag(String raw) {
         String tag = normalize(raw);
-        if (tag.startsWith(WRITE_PREFIX)) {
+        if (tag.startsWith(WRITE_PREFIX) || tag.startsWith(READY_PREFIX)) {
             return Optional.empty();
         }
         return parseTarget(tag, MIRROR_PREFIX);
@@ -44,6 +58,10 @@ public final class FtbNativeQuestSync {
 
     public static Optional<Target> parseWriteTag(String raw) {
         return parseTarget(normalize(raw), WRITE_PREFIX);
+    }
+
+    public static Optional<Target> parseReadyTag(String raw) {
+        return parseTarget(normalize(raw), READY_PREFIX);
     }
 
     public static List<Target> writeTargets(Set<String> tags) {
@@ -65,11 +83,73 @@ public final class FtbNativeQuestSync {
         return targets.size() == 1 ? List.copyOf(targets) : List.of();
     }
 
-    static <T> Optional<T> singleOnlineMember(List<T> members) {
-        if (members == null || members.size() != 1) {
+    /**
+     * Validates both the explicit write tag and the ordinary native-chain tag on
+     * the containing FTB quest. A mismatched or ambiguous projection fails closed.
+     */
+    public static WriteIntentValidation validateWriteIntent(Set<String> tags) {
+        if (tags == null || tags.isEmpty()) {
+            return invalid(WriteIntentStatus.NO_WRITE_TAG);
+        }
+        boolean sawWriteTag = false;
+        LinkedHashSet<Target> targets = new LinkedHashSet<>();
+        for (String raw : tags) {
+            String tag = normalize(raw);
+            if (!tag.startsWith(WRITE_PREFIX)) {
+                continue;
+            }
+            sawWriteTag = true;
+            Optional<Target> target = parseWriteTag(tag);
+            if (target.isEmpty()) {
+                return invalid(WriteIntentStatus.MALFORMED_WRITE_TAG);
+            }
+            targets.add(target.get());
+        }
+        if (!sawWriteTag) {
+            return invalid(WriteIntentStatus.NO_WRITE_TAG);
+        }
+        if (targets.size() != 1) {
+            return invalid(WriteIntentStatus.MULTIPLE_WRITE_TARGETS);
+        }
+
+        Set<String> registeredChains = FtbQuestBridgeService.builtin().registeredChainIds();
+        LinkedHashSet<String> chainTags = new LinkedHashSet<>();
+        for (String raw : tags) {
+            String tag = normalize(raw);
+            if (registeredChains.contains(tag)) {
+                chainTags.add(tag);
+            }
+        }
+        if (chainTags.isEmpty()) {
+            return invalid(WriteIntentStatus.MISSING_CHAIN_TAG);
+        }
+        if (chainTags.size() != 1) {
+            return invalid(WriteIntentStatus.MULTIPLE_CHAIN_TAGS);
+        }
+        Target target = targets.iterator().next();
+        if (!chainTags.iterator().next().equals(target.chainId())) {
+            return invalid(WriteIntentStatus.CHAIN_MISMATCH);
+        }
+        return new WriteIntentValidation(WriteIntentStatus.VALID, new WriteIntent(target));
+    }
+
+    /** Requires one full team member and that same member to be the sole online member. */
+    static Optional<UUID> singleAuthorityMember(Set<UUID> teamMembers, UUID implicitMember,
+                                                 List<UUID> onlineMembers) {
+        LinkedHashSet<UUID> fullMembers = new LinkedHashSet<>();
+        if (teamMembers != null) {
+            fullMembers.addAll(teamMembers);
+        }
+        if (implicitMember != null) {
+            fullMembers.add(implicitMember);
+        }
+        fullMembers.remove(null);
+        if (fullMembers.size() != 1 || onlineMembers == null || onlineMembers.size() != 1) {
             return Optional.empty();
         }
-        return Optional.ofNullable(members.get(0));
+        UUID member = fullMembers.iterator().next();
+        UUID online = onlineMembers.get(0);
+        return member.equals(online) ? Optional.of(member) : Optional.empty();
     }
 
     public static boolean isSatisfied(ServerPlayer player, Target target) {
@@ -105,37 +185,16 @@ public final class FtbNativeQuestSync {
         return WriteAction.REJECT;
     }
 
-    static GateRequirement gateRequirement(WriteAction action, Optional<String> expectedHook) {
-        if (action == null) {
-            return GateRequirement.REJECT;
-        }
-        return switch (action) {
-            case REJECT -> GateRequirement.REJECT;
-            case SATISFIED -> GateRequirement.NONE;
-            case START -> GateRequirement.BOUND_NPC;
-            // Authored hooks are advanced by QuestHookRuntime; FTB may only observe
-            // the resulting native stage and must never replay a persistent hook flag.
-            case ADVANCE -> expectedHook != null && expectedHook.filter(hook -> !hook.isBlank()).isPresent()
-                    ? GateRequirement.REJECT
-                    : GateRequirement.BOUND_NPC;
-        };
-    }
-
-    private static boolean hasNativeGate(ServerPlayer player, Target target, WriteAction action) {
-        if (player == null) {
+    /** Pure readiness check used by the transactional FTB custom task. */
+    public static boolean isWriteReady(ServerPlayer player, Target target) {
+        if (player == null || target == null) {
             return false;
         }
-        Optional<String> expectedHook = Optional.empty();
-        if (action == WriteAction.ADVANCE) {
-            TextQuestChainService.ChainProgress progress =
-                    TextQuestChainService.progressOf(player, target.chainId());
-            expectedHook = TextQuestChainService.expectedHookForStage(target.chainId(), progress.stage());
-        }
-        return switch (gateRequirement(action, expectedHook)) {
-            case REJECT -> false;
-            case NONE -> true;
-            case BOUND_NPC -> TextQuestNpcHookService.isNearBoundNpc(player, target.chainId());
-        };
+        TextQuestChainService.ChainProgress progress = TextQuestChainService.progressOf(player, target.chainId());
+        WriteAction action = writeAction(progress, target);
+        return action == WriteAction.SATISFIED
+                || (action != WriteAction.REJECT
+                && TextQuestChainService.canTransitionExact(player, target.chainId(), target.stage()));
     }
 
     /**
@@ -148,16 +207,17 @@ public final class FtbNativeQuestSync {
         }
         TextQuestChainService.ChainProgress progress = TextQuestChainService.progressOf(player, target.chainId());
         WriteAction action = writeAction(progress, target);
-        if (!hasNativeGate(player, target, action)) {
-            return action == WriteAction.SATISFIED;
-        }
         boolean accepted = switch (action) {
             case SATISFIED -> true;
-            case START -> TextQuestChainService.start(player, target.chainId());
-            case ADVANCE -> TextQuestChainService.advance(player, target.chainId());
+            case START, ADVANCE -> TextQuestChainService.transitionExact(
+                    player, target.chainId(), target.stage());
             case REJECT -> false;
         };
         return accepted && isSatisfied(TextQuestChainService.progressOf(player, target.chainId()), target);
+    }
+
+    private static WriteIntentValidation invalid(WriteIntentStatus status) {
+        return new WriteIntentValidation(status, null);
     }
 
     private static Optional<Target> parseTarget(String tag, String prefix) {
