@@ -1,18 +1,21 @@
 package com.xunxian.seekingimmortals.npc;
 
+import com.xunxian.seekingimmortals.entity.CultivatorNpcEntity;
 import com.xunxian.seekingimmortals.entity.MarketTraderEntity;
+import com.xunxian.seekingimmortals.entity.QuestNpcEntity;
 import com.xunxian.seekingimmortals.entity.SectStewardEntity;
 import com.xunxian.seekingimmortals.region.RegionRegistry;
 import com.xunxian.seekingimmortals.registry.ModEntities;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.AABB;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * M12 region-based named NPC placement helpers.
@@ -20,6 +23,19 @@ import java.util.Optional;
  */
 public final class NpcSpawnService {
     private static final int NEARBY_RADIUS = 48;
+    private static final int SAFE_SPAWN_RADIUS = 4;
+    private static final Set<String> STEWARD_ROLES = Set.of(
+            "sect_master",
+            "great_elder",
+            "alchemy_elder",
+            "outer_deacon",
+            "patrol_captain");
+
+    public enum NpcKind {
+        STEWARD,
+        MERCHANT,
+        QUEST
+    }
 
     private NpcSpawnService() {}
 
@@ -32,17 +48,19 @@ public final class NpcSpawnService {
         if (steward == null) {
             return Optional.empty();
         }
-        steward.moveTo(pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D, 0.0F, 0.0F);
-        steward.setHomePos(pos.immutable());
         npc.ifPresent(steward::applyNamedNpc);
         if (npc.isEmpty() && namedNpcId != null && !namedNpcId.isBlank()) {
             steward.setNamedNpcId(namedNpcId);
         }
-        if (steward.getRegionId().isBlank()) {
-            steward.setRegionId(RegionRegistry.resolveRegionId(level, pos));
+        if (!positionForSpawn(level, steward, pos, 0.0F)) {
+            return Optional.empty();
         }
-        level.addFreshEntity(steward);
-        return Optional.of(steward);
+        BlockPos spawnPos = steward.blockPosition().immutable();
+        steward.setHomePos(spawnPos);
+        if (steward.getRegionId().isBlank()) {
+            steward.setRegionId(RegionRegistry.resolveRegionId(level, spawnPos));
+        }
+        return level.addFreshEntity(steward) ? Optional.of(steward) : Optional.empty();
     }
 
     public static Optional<MarketTraderEntity> spawnTrader(ServerLevel level, BlockPos pos, String namedNpcId) {
@@ -54,17 +72,73 @@ public final class NpcSpawnService {
         if (trader == null) {
             return Optional.empty();
         }
-        trader.moveTo(pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D, 0.0F, 0.0F);
-        trader.setStallPos(pos.immutable());
         npc.ifPresent(trader::applyNamedNpc);
         if (npc.isEmpty() && namedNpcId != null && !namedNpcId.isBlank()) {
             trader.setNamedNpcId(namedNpcId);
         }
-        if (trader.getRegionId().isBlank()) {
-            trader.setRegionId(RegionRegistry.resolveRegionId(level, pos));
+        if (!positionForSpawn(level, trader, pos, 0.0F)) {
+            return Optional.empty();
         }
-        level.addFreshEntity(trader);
-        return Optional.of(trader);
+        BlockPos spawnPos = trader.blockPosition().immutable();
+        trader.setStallPos(spawnPos);
+        if (trader.getRegionId().isBlank()) {
+            trader.setRegionId(RegionRegistry.resolveRegionId(level, spawnPos));
+        }
+        return level.addFreshEntity(trader) ? Optional.of(trader) : Optional.empty();
+    }
+
+    public static Optional<QuestNpcEntity> spawnQuestNpc(ServerLevel level, BlockPos pos, String namedNpcId) {
+        return spawnQuestNpc(level, pos, namedNpcId, "", 0.0F);
+    }
+
+    public static Optional<QuestNpcEntity> spawnQuestNpc(
+            ServerLevel level, BlockPos pos, String namedNpcId, String fallbackDisplayName, float yRot) {
+        if (level == null || pos == null) {
+            return Optional.empty();
+        }
+        Optional<NamedNpcRegistry.NamedNpc> npc = NamedNpcRegistry.find(namedNpcId);
+        QuestNpcEntity questNpc = ModEntities.QUEST_NPC.get().create(level);
+        if (questNpc == null) {
+            return Optional.empty();
+        }
+        npc.ifPresent(questNpc::applyNamedNpc);
+        if (npc.isEmpty() && namedNpcId != null && !namedNpcId.isBlank()) {
+            questNpc.setNamedNpcId(namedNpcId);
+        }
+        if (npc.isEmpty() && fallbackDisplayName != null && !fallbackDisplayName.isBlank()) {
+            questNpc.setStoryIdentity(fallbackDisplayName);
+        }
+        if (!positionForSpawn(level, questNpc, pos, yRot)) {
+            return Optional.empty();
+        }
+        BlockPos spawnPos = questNpc.blockPosition().immutable();
+        questNpc.setHomePos(spawnPos);
+        if (questNpc.getRegionId().isBlank()) {
+            questNpc.setRegionId(RegionRegistry.resolveRegionId(level, spawnPos));
+        }
+        return level.addFreshEntity(questNpc) ? Optional.of(questNpc) : Optional.empty();
+    }
+
+    /** Route every named NPC through one role/archetype authority. */
+    public static Optional<CultivatorNpcEntity> spawnNamed(
+            ServerLevel level, BlockPos pos, String namedNpcId) {
+        NamedNpcRegistry.NamedNpc npc = NamedNpcRegistry.find(namedNpcId).orElse(null);
+        return switch (kindFor(npc)) {
+            case STEWARD -> spawnSteward(level, pos, namedNpcId).map(CultivatorNpcEntity.class::cast);
+            case MERCHANT -> spawnTrader(level, pos, namedNpcId).map(CultivatorNpcEntity.class::cast);
+            case QUEST -> spawnQuestNpc(level, pos, namedNpcId).map(CultivatorNpcEntity.class::cast);
+        };
+    }
+
+    /** Classify the full named-NPC roster before selecting its dedicated entity type. */
+    public static NpcKind kindFor(NamedNpcRegistry.NamedNpc npc) {
+        if (isStewardRole(npc)) {
+            return NpcKind.STEWARD;
+        }
+        if (isMerchantRole(npc)) {
+            return NpcKind.MERCHANT;
+        }
+        return NpcKind.QUEST;
     }
 
     /**
@@ -100,10 +174,7 @@ public final class NpcSpawnService {
             }
             BlockPos at = origin.offset((index % 5) - 2, 0, (index / 5) - 2);
             index++;
-            boolean merchant = isMerchantRole(npc);
-            Optional<? extends Entity> entity = merchant
-                    ? spawnTrader(level, at, npc.id()).map(e -> e)
-                    : spawnSteward(level, at, npc.id()).map(e -> e);
+            Optional<CultivatorNpcEntity> entity = spawnNamed(level, at, npc.id());
             if (entity.isPresent()) {
                 spawned.add(npc.id());
             }
@@ -117,13 +188,8 @@ public final class NpcSpawnService {
         }
         String id = namedNpcId.trim().toLowerCase(Locale.ROOT);
         AABB box = new AABB(origin).inflate(NEARBY_RADIUS);
-        for (SectStewardEntity steward : level.getEntitiesOfClass(SectStewardEntity.class, box)) {
-            if (id.equals(steward.getNamedNpcId())) {
-                return true;
-            }
-        }
-        for (MarketTraderEntity trader : level.getEntitiesOfClass(MarketTraderEntity.class, box)) {
-            if (id.equals(trader.getNamedNpcId())) {
+        for (CultivatorNpcEntity npc : level.getEntitiesOfClass(CultivatorNpcEntity.class, box)) {
+            if (id.equals(npc.getNamedNpcId())) {
                 return true;
             }
         }
@@ -142,5 +208,56 @@ public final class NpcSpawnService {
                 || archetype.contains("inverse")
                 || archetype.contains("vendor")
                 || (!npc.shopId().isBlank() && !npc.shopId().contains("contribution"));
+    }
+
+    private static boolean isStewardRole(NamedNpcRegistry.NamedNpc npc) {
+        if (npc == null) {
+            return false;
+        }
+        String id = npc.id() == null ? "" : npc.id();
+        String role = npc.role() == null ? "" : npc.role();
+        String archetype = npc.archetype() == null ? "" : npc.archetype();
+        return STEWARD_ROLES.contains(role)
+                || id.endsWith("_steward")
+                || role.contains("steward")
+                || role.contains("deacon")
+                || role.contains("contribution")
+                || role.contains("recruit")
+                || role.contains("patrol_captain")
+                || archetype.contains("contribution");
+    }
+
+    private static boolean positionForSpawn(
+            ServerLevel level, CultivatorNpcEntity npc, BlockPos preferred, float yRot) {
+        for (int radius = 0; radius <= SAFE_SPAWN_RADIUS; radius++) {
+            for (int dx = -radius; dx <= radius; dx++) {
+                for (int dz = -radius; dz <= radius; dz++) {
+                    if (radius > 0 && Math.max(Math.abs(dx), Math.abs(dz)) != radius) {
+                        continue;
+                    }
+                    for (int dy = 3; dy >= -4; dy--) {
+                        BlockPos feet = preferred.offset(dx, dy, dz);
+                        if (!level.isInWorldBounds(feet)
+                                || !level.isInWorldBounds(feet.above())
+                                || !level.isInWorldBounds(feet.below())) {
+                            continue;
+                        }
+                        boolean clear = level.getFluidState(feet).isEmpty()
+                                && level.getFluidState(feet.above()).isEmpty()
+                                && level.getBlockState(feet).getCollisionShape(level, feet).isEmpty()
+                                && level.getBlockState(feet.above()).getCollisionShape(level, feet.above()).isEmpty();
+                        if (!clear || !level.getBlockState(feet.below())
+                                .isFaceSturdy(level, feet.below(), Direction.UP)) {
+                            continue;
+                        }
+                        npc.moveTo(feet.getX() + 0.5D, feet.getY(), feet.getZ() + 0.5D, yRot, 0.0F);
+                        if (level.noCollision(npc)) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
     }
 }

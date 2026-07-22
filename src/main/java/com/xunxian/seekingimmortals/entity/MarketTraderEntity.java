@@ -10,7 +10,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
-import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
@@ -20,7 +19,7 @@ import java.util.Locale;
  * M12 market trader: stall leash + trading hours + optional named-NPC dialogue / shop.
  * Shop shelves remain owned by M05 {@link ShopService}.
  */
-public class MarketTraderEntity extends Villager {
+public class MarketTraderEntity extends CultivatorNpcEntity {
     private static final String TAG_STALL = "MarketStallPos";
     private static final String TAG_NAMED_NPC = "NamedNpcId";
     private static final String TAG_REGION = "RegionId";
@@ -34,8 +33,7 @@ public class MarketTraderEntity extends Villager {
     private String dialogueTreeId = "";
 
     public MarketTraderEntity(EntityType<? extends MarketTraderEntity> type, Level level) {
-        super(type, level);
-        setPersistenceRequired();
+        super(type, level, VisualRole.TRADER);
     }
 
     @Override
@@ -61,7 +59,8 @@ public class MarketTraderEntity extends Villager {
         }
         if (stallPos != null) {
             double dist = distanceToSqr(stallPos.getX() + 0.5D, stallPos.getY(), stallPos.getZ() + 0.5D);
-            if (dist > 36.0D || !isTradingHours()) {
+            double returnDistanceSqr = isTradingHours() ? 36.0D : 4.0D;
+            if (dist > returnDistanceSqr && tickCount % 20 == 0 && getNavigation().isDone()) {
                 getNavigation().moveTo(stallPos.getX() + 0.5D, stallPos.getY(), stallPos.getZ() + 0.5D, 0.6D);
             }
         }

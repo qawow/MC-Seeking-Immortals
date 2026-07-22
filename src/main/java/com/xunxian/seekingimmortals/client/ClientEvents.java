@@ -11,7 +11,6 @@ import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.client.player.LocalPlayer;
-import net.minecraft.client.renderer.entity.VillagerRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ClientPlayerNetworkEvent;
@@ -129,9 +128,11 @@ public final class ClientEvents {
         event.registerEntityRenderer(ModEntities.CUSHION_SEAT.get(), EmptyEntityRenderer::new);
         event.registerEntityRenderer(ModEntities.SWORD_PROJECTILE.get(), SwordProjectileRenderer::new);
         event.registerEntityRenderer(ModEntities.CULTIVATION_FIREBALL.get(), CultivationFireballRenderer::new);
-        event.registerEntityRenderer(ModEntities.SECT_STEWARD.get(), VillagerRenderer::new);
-        event.registerEntityRenderer(ModEntities.MARKET_TRADER.get(), VillagerRenderer::new);
-        event.registerEntityRenderer(ModEntities.SPIRIT_STONE_BANKER.get(), VillagerRenderer::new);
+        event.registerEntityRenderer(ModEntities.SECT_STEWARD.get(), CultivatorNpcRenderer::new);
+        event.registerEntityRenderer(ModEntities.MARKET_TRADER.get(), CultivatorNpcRenderer::new);
+        event.registerEntityRenderer(ModEntities.SPIRIT_STONE_BANKER.get(), CultivatorNpcRenderer::new);
+        event.registerEntityRenderer(ModEntities.QUEST_NPC.get(), CultivatorNpcRenderer::new);
+        event.registerEntityRenderer(ModEntities.CULTIVATION_BEAST.get(), CultivationBeastRenderer::new);
         event.registerEntityRenderer(ModEntities.SUMMONED_SERVITOR.get(), SummonedServitorRenderer::new);
         event.registerEntityRenderer(ModEntities.SPIRIT_BOAT.get(), SpiritBoatRenderer::new);
     }

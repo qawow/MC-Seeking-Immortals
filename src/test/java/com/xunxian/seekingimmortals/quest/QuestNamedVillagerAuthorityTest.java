@@ -13,47 +13,58 @@ class QuestNamedVillagerAuthorityTest {
             "src", "main", "java", "com", "xunxian", "seekingimmortals");
 
     @Test
-    void namedVanillaVillagersCannotEnterSectMenus() throws Exception {
+    void dedicatedQuestNpcsCannotEnterSectMenus() throws Exception {
         String source = Files.readString(JAVA_ROOT.resolve(Path.of("quest", "QuestService.java")));
         String interaction = compact(methodSource(source,
-                "public static boolean handleNamedVillagerInteraction("));
+                "public static boolean handleNamedNpcInteraction("));
 
         assertFalse(interaction.contains("SectContributionService"),
-                "ordinary villagers must not reach sect services through a custom name");
+                "quest NPCs must not reach sect services through a custom name");
         assertFalse(interaction.contains("handleStewardInteraction("),
-                "ordinary villagers must not use an entity-free steward entry");
+                "quest NPCs must not use an entity-free steward entry");
+        assertTrue(interaction.contains("CultivatorNpcEntitynpc"),
+                "quest authority must accept the dedicated NPC hierarchy");
     }
 
     @Test
-    void legitimateNamedQuestVillagersRemainAvailable() throws Exception {
+    void legacyNamedQuestVillagersRemainAvailableForExistingWorlds() throws Exception {
         String source = Files.readString(JAVA_ROOT.resolve(Path.of("quest", "QuestService.java")));
         String interaction = compact(methodSource(source,
-                "public static boolean handleNamedVillagerInteraction("));
+                "public static boolean handleLegacyNamedVillagerInteraction("));
 
-        assertTrue(interaction.contains("SevenMysteriesQuest.NPC_MO_LAO.equals(name)"),
-                "Mo Lao must remain a valid Seven Mysteries quest NPC");
-        assertTrue(interaction.contains("SevenMysteriesQuest.NPC_STEWARD.equals(name)"),
-                "the Seven Mysteries quest steward must remain available");
-        assertTrue(interaction.contains(
-                        "returnTextQuestNpcHookService.handleNamedVillagerInteraction(player,villager);"),
-                "other named quest villagers must still reach the text-quest hook");
+        assertTrue(interaction.contains("handleSevenMysteriesNpc(player,name)"),
+                "legacy Mo Lao/steward names must remain usable after upgrading a world");
+        assertTrue(interaction.contains("handleLegacyNamedVillagerInteraction(player,villager)"),
+                "legacy text-quest villagers must reach only the explicit compatibility hook");
     }
 
     @Test
-    void realSectStewardsUseTheEntityBoundEntryFirst() throws Exception {
+    void dedicatedNpcTypesRunBeforeTheLegacyVillagerBranch() throws Exception {
         String source = Files.readString(JAVA_ROOT.resolve(Path.of("event", "ModEvents.java")));
         String interaction = compact(methodSource(source,
-                "public static void onVillagerExchange("));
+                "public static void onNpcInteract("));
 
-        int stewardTypeGate = interaction.indexOf("villagerinstanceofSectStewardEntitysteward");
-        int entityBoundEntry = interaction.indexOf(
-                "SectContributionService.handleStewardInteraction(serverPlayer,steward)");
-        int genericVillagerEntry = interaction.indexOf(
-                "QuestService.handleNamedVillagerInteraction(serverPlayer,villager)");
+        int traderGate = interaction.indexOf("targetinstanceofMarketTraderEntitytrader");
+        int stewardGate = interaction.indexOf("targetinstanceofSectStewardEntitysteward");
+        int questGate = interaction.indexOf("targetinstanceofQuestNpcEntityquestNpc");
+        int legacyGate = interaction.indexOf("targetinstanceofVillagervillager");
 
-        assertTrue(stewardTypeGate >= 0, "real sect stewards must be identified by entity type");
-        assertTrue(entityBoundEntry > stewardTypeGate && entityBoundEntry < genericVillagerEntry,
-                "the entity-bound sect entry must run before generic named-villager handling");
+        assertTrue(traderGate >= 0 && stewardGate > traderGate && questGate > stewardGate,
+                "dedicated NPC roles must be dispatched by entity type");
+        assertTrue(legacyGate > questGate,
+                "the vanilla villager compatibility path must run after dedicated NPCs");
+    }
+
+    @Test
+    void newQuestNpcSpawnsNeverCreateVanillaVillagers() throws Exception {
+        String source = Files.readString(JAVA_ROOT.resolve(Path.of("quest", "QuestService.java")));
+        String spawn = compact(methodSource(source,
+                "public static boolean spawnQuestNpc(ServerPlayer player, String name, String namedNpcId)"));
+        assertTrue(spawn.contains("NpcSpawnService.spawnQuestNpc("),
+                "quest spawns must use the shared collision-checked NPC path");
+        assertFalse(spawn.contains("ModEntities.QUEST_NPC"));
+        assertFalse(spawn.contains("addFreshEntity("));
+        assertFalse(source.contains("EntityType.VILLAGER.create"));
     }
 
     private static String methodSource(String source, String declaration) {

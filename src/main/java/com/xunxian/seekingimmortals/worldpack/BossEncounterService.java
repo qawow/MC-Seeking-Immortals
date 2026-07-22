@@ -13,6 +13,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Mob;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
@@ -53,8 +54,11 @@ public final class BossEncounterService {
         if (!(player.level() instanceof ServerLevel level)) {
             return false;
         }
-        // M10: prefer catalog boss (tier-scaled + phase skills) when known.
-        if (BeastBossService.find(id).isPresent()) {
+        if (level.getDifficulty() == Difficulty.PEACEFUL) {
+            return false;
+        }
+        // Only ids proven to be beasts may use the dedicated beast boss entity.
+        if (TrialCombatShellService.isExplicitBeastId(id) && BeastBossService.find(id).isPresent()) {
             Mob catalogBoss = BeastBossService.spawnCatalogBoss(player, id);
             if (catalogBoss != null) {
                 catalogBoss.setCustomName(Component.translatable("entity.seeking_immortals.boss.name",

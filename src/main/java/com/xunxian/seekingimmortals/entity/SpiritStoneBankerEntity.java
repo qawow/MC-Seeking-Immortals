@@ -5,19 +5,17 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
-import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
 /**
  * Original spirit-stone banker NPC (M05). Handles ladder upgrades; not a vanilla villager.
  */
-public class SpiritStoneBankerEntity extends Villager {
+public class SpiritStoneBankerEntity extends CultivatorNpcEntity {
     private BlockPos deskPos;
 
     public SpiritStoneBankerEntity(EntityType<? extends SpiritStoneBankerEntity> type, Level level) {
-        super(type, level);
-        setPersistenceRequired();
+        super(type, level, VisualRole.BANKER);
     }
 
     @Override
@@ -36,7 +34,8 @@ public class SpiritStoneBankerEntity extends Villager {
         if (deskPos == null) {
             deskPos = blockPosition().immutable();
         }
-        if (deskPos != null && distanceToSqr(deskPos.getX() + 0.5D, deskPos.getY(), deskPos.getZ() + 0.5D) > 36.0D) {
+        double dist = distanceToSqr(deskPos.getX() + 0.5D, deskPos.getY(), deskPos.getZ() + 0.5D);
+        if (dist > 36.0D && tickCount % 20 == 0 && getNavigation().isDone()) {
             getNavigation().moveTo(deskPos.getX() + 0.5D, deskPos.getY(), deskPos.getZ() + 0.5D, 0.55D);
         }
     }

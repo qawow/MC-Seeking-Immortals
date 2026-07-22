@@ -8,16 +8,20 @@ import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.beast.BeastBestiaryService;
 import com.xunxian.seekingimmortals.beast.BeastCompanionService;
 import com.xunxian.seekingimmortals.beast.BeastTierService;
-import com.xunxian.seekingimmortals.catalog.SummonHonestMvpService;
-import com.xunxian.seekingimmortals.entity.SummonedServitorEntity;
+import com.xunxian.seekingimmortals.entity.CultivationBeastEntity;
+import com.xunxian.seekingimmortals.registry.ModEntities;
 import com.xunxian.seekingimmortals.spiritual.SpiritualAuraManager;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.AABB;
 
 import java.io.InputStream;
@@ -33,7 +37,7 @@ import java.util.Optional;
 
 /**
  * M10: runtime consumer of spawn_tables.json + region_spawn_tables_v98.
- * Spawns SummonedServitor beast proxies weighted by region/biome; denser on leyline clusters.
+ * Spawns real data-driven beasts weighted by region/biome; denser on leyline clusters.
  * Red lines: true-spirit / companion beasts never enter daily tables; per-chunk cap + dedupe.
  */
 public final class BeastSpawnTableService {
@@ -118,6 +122,22 @@ public final class BeastSpawnTableService {
         return Optional.empty();
     }
 
+    public static Optional<Weight> rollFor(ServerLevel level, BlockPos pos, RandomSource random) {
+        if (level == null || pos == null || random == null) {
+            return Optional.empty();
+        }
+        String region = com.xunxian.seekingimmortals.region.RegionRegistry.resolveRegionId(level, pos);
+        String biome = level.getBiome(pos).unwrapKey()
+                .map(key -> key.location().getPath())
+                .orElse("");
+        boolean cluster = SpiritualAuraManager.isLeylineCluster(level, new ChunkPos(pos));
+        Optional<Table> table = findTable(region, biome);
+        if (table.isEmpty()) {
+            table = findTable("tiannan", "forest");
+        }
+        return table.flatMap(value -> roll(value, random, cluster));
+    }
+
     public static boolean isBanned(String beastId) {
         if (beastId == null || beastId.isBlank()) {
             return true;
@@ -143,10 +163,13 @@ public final class BeastSpawnTableService {
     }
 
     /**
-     * Spawn 1-N beast proxies near player from a matching table.
+     * Spawn 1-N wild beasts near player from a matching table.
      */
     public static int spawnNearPlayer(ServerPlayer player, String regionHint, int count) {
         if (player == null || !(player.level() instanceof ServerLevel level)) {
+            return 0;
+        }
+        if (level.getDifficulty() == Difficulty.PEACEFUL) {
             return 0;
         }
         BlockPos pos = player.blockPosition();
@@ -196,20 +219,7 @@ public final class BeastSpawnTableService {
             if (prior >= 2 && table.get().weights().size() > 2) {
                 continue;
             }
-            BeastTierService.ScaledStats stats = BeastTierService.scaleStats(weight.tier());
-            boolean ok = SummonHonestMvpService.spawnConfigured(
-                    player,
-                    "ecology_" + weight.beastId(),
-                    stats.lifeTicks(),
-                    stats.health(),
-                    stats.damage(),
-                    SummonedServitorEntity.Archetype.BEAST);
-            if (!ok) {
-                if (spawnWildProxy(level, player, weight, spawned) > 0) {
-                    spawned++;
-                    seen.put(weight.beastId(), prior + 1);
-                }
-            } else {
+            if (spawnWildBeast(level, player, weight, spawned, random)) {
                 spawned++;
                 seen.put(weight.beastId(), prior + 1);
             }
@@ -238,21 +248,81 @@ public final class BeastSpawnTableService {
         return count;
     }
 
-    private static int spawnWildProxy(ServerLevel level, ServerPlayer player, Weight weight, int index) {
-        SummonedServitorEntity entity = com.xunxian.seekingimmortals.registry.ModEntities.SUMMONED_SERVITOR.get().create(level);
+    private static boolean spawnWildBeast(ServerLevel level, ServerPlayer player, Weight weight,
+                                          int index, RandomSource random) {
+        CultivationBeastEntity entity = ModEntities.CULTIVATION_BEAST.get().create(level);
         if (entity == null) {
-            return 0;
+            return false;
         }
-        entity.moveTo(player.getX() + (index - 1) * 1.4D, player.getY(), player.getZ() + 1.8D + index * 0.3D,
-                player.getYRot(), 0.0F);
-        BeastTierService.ScaledStats stats = BeastTierService.scaleStats(weight.tier());
-        entity.configureHostileTrial("ecology_" + weight.beastId(), stats.lifeTicks(),
-                stats.health(), stats.damage(), SummonedServitorEntity.Archetype.BEAST);
-        entity.getPersistentData().putBoolean("seeking_immortals_ecology_beast", true);
-        entity.getPersistentData().putString("seeking_immortals_beast_id", weight.beastId());
-        entity.getPersistentData().putInt("seeking_immortals_beast_tier", weight.tier());
-        level.addFreshEntity(entity);
-        return 1;
+        entity.configureWild(weight.beastId(), weight.tier());
+        BlockPos spawnPos = findSpawnPosition(
+                level, player.blockPosition(), random, index, entity.getBodyPlan());
+        entity.moveTo(spawnPos.getX() + 0.5D, spawnPos.getY(), spawnPos.getZ() + 0.5D,
+                random.nextFloat() * 360.0F, 0.0F);
+        if (!level.noCollision(entity)) {
+            entity.moveTo(entity.getX(), entity.getY() + 1.0D, entity.getZ(), entity.getYRot(), 0.0F);
+        }
+        if (!level.noCollision(entity) || !level.addFreshEntity(entity)) {
+            return false;
+        }
+        if (!player.isCreative() && !player.isSpectator()) {
+            entity.setTarget(player);
+        }
+        return true;
+    }
+
+    private static BlockPos findSpawnPosition(ServerLevel level, BlockPos origin, RandomSource random, int index,
+                                              CultivationBeastEntity.BodyPlan bodyPlan) {
+        if (bodyPlan == CultivationBeastEntity.BodyPlan.AQUATIC) {
+            Optional<BlockPos> water = findWaterSpawnPosition(level, origin, random, index);
+            if (water.isPresent()) {
+                return water.get();
+            }
+        }
+        return findAmphibiousLandSpawnPosition(level, origin, random, index);
+    }
+
+    private static Optional<BlockPos> findWaterSpawnPosition(ServerLevel level, BlockPos origin,
+                                                              RandomSource random, int index) {
+        for (int attempt = 0; attempt < 16; attempt++) {
+            double angle = random.nextDouble() * Math.PI * 2.0D;
+            int radius = 9 + random.nextInt(10) + index;
+            int x = origin.getX() + (int) Math.round(Math.cos(angle) * radius);
+            int z = origin.getZ() + (int) Math.round(Math.sin(angle) * radius);
+            BlockPos horizontal = new BlockPos(x, origin.getY(), z);
+            for (int offset = 7; offset >= -9; offset--) {
+                BlockPos water = horizontal.offset(0, offset, 0);
+                if (level.getFluidState(water).is(FluidTags.WATER)
+                        && level.getFluidState(water.above()).is(FluidTags.WATER)) {
+                    return Optional.of(water);
+                }
+            }
+        }
+        return Optional.empty();
+    }
+
+    private static BlockPos findAmphibiousLandSpawnPosition(ServerLevel level, BlockPos origin,
+                                                             RandomSource random, int index) {
+        for (int attempt = 0; attempt < 12; attempt++) {
+            double angle = random.nextDouble() * Math.PI * 2.0D;
+            int radius = 9 + random.nextInt(10) + index;
+            int x = origin.getX() + (int) Math.round(Math.cos(angle) * radius);
+            int z = origin.getZ() + (int) Math.round(Math.sin(angle) * radius);
+            BlockPos horizontal = new BlockPos(x, origin.getY(), z);
+            for (int offset = 5; offset >= -7; offset--) {
+                BlockPos feet = horizontal.offset(0, offset, 0);
+                if (level.getBlockState(feet).getCollisionShape(level, feet).isEmpty()
+                        && level.getBlockState(feet.above()).getCollisionShape(level, feet.above()).isEmpty()
+                        && level.getBlockState(feet.below()).isFaceSturdy(level, feet.below(), Direction.UP)) {
+                    return feet;
+                }
+            }
+            BlockPos surface = level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, horizontal);
+            if (Math.abs(surface.getY() - origin.getY()) <= 16) {
+                return surface;
+            }
+        }
+        return origin.offset(3 + index, 0, 3);
     }
 
     private static List<Table> loadTables() {
@@ -308,7 +378,9 @@ public final class BeastSpawnTableService {
                             }
                             int tier = weightObject.has("tier") ? weightObject.get("tier").getAsInt() : 1;
                             int weight = weightObject.has("weight") ? weightObject.get("weight").getAsInt() : 1;
-                            weights.add(new Weight(beastId, Math.max(1, tier), Math.max(1, weight)));
+                            if (weight > 0) {
+                                weights.add(new Weight(beastId, Math.max(1, tier), weight));
+                            }
                         }
                     }
                     if (!weights.isEmpty()) {
@@ -354,8 +426,11 @@ public final class BeastSpawnTableService {
                                 continue;
                             }
                             int weight = spawn.has("weight") ? spawn.get("weight").getAsInt() : 10;
+                            if (weight <= 0) {
+                                continue;
+                            }
                             int tier = parseTier(spawn);
-                            weights.add(new Weight(beastId, BeastTierService.clampTier(tier), Math.max(1, weight)));
+                            weights.add(new Weight(beastId, BeastTierService.clampTier(tier), weight));
                         }
                     }
                     if (!weights.isEmpty()) {

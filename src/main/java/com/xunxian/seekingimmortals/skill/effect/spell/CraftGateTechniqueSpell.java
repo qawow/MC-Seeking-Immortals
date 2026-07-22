@@ -1,6 +1,7 @@
 package com.xunxian.seekingimmortals.skill.effect.spell;
 
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
+import com.xunxian.seekingimmortals.entity.CultivationBeastEntity;
 import com.xunxian.seekingimmortals.entity.SummonedServitorEntity;
 import com.xunxian.seekingimmortals.skill.CultivationSkill;
 import com.xunxian.seekingimmortals.skill.effect.SkillContext;
@@ -18,7 +19,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.phys.AABB;
 
 /**
- * Dedicated craft_gate family: short crafting assist + reinforce nearby owned puppets.
+ * Dedicated craft_gate family: short crafting assist + reinforce nearby owned puppets and beasts.
  * Always succeeds with a clear message even without nearby targets.
  */
 public class CraftGateTechniqueSpell extends SpellEffect {
@@ -51,6 +52,9 @@ public class CraftGateTechniqueSpell extends SpellEffect {
         List<SummonedServitorEntity> owned = level.getEntitiesOfClass(SummonedServitorEntity.class, area,
                 entity -> entity.isAlive()
                         && entity.getOwnerUUID().map(id -> id.equals(player.getUUID())).orElse(false));
+        List<CultivationBeastEntity> ownedBeasts = level.getEntitiesOfClass(CultivationBeastEntity.class, area,
+                entity -> entity.isAlive() && entity.isCompanion()
+                        && entity.getOwnerUUID().map(id -> id.equals(player.getUUID())).orElse(false));
 
         int duration = 140 + skill.getLevel() * 8;
         int bound = 0;
@@ -66,6 +70,12 @@ public class CraftGateTechniqueSpell extends SpellEffect {
             servitor.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, duration, 1, false, true));
             servitor.addEffect(new MobEffectInstance(MobEffects.REGENERATION, duration, 0, false, true));
             servitor.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, duration, 0, false, true));
+            bound++;
+        }
+        for (CultivationBeastEntity beast : ownedBeasts) {
+            beast.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, duration, 1, false, true));
+            beast.addEffect(new MobEffectInstance(MobEffects.REGENERATION, duration, 0, false, true));
+            beast.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, duration, 0, false, true));
             bound++;
         }
 

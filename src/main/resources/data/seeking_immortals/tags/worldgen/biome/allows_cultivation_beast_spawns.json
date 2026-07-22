@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:is_overworld",
+    "seeking_immortals:secret_mist_cave",
+    "seeking_immortals:secret_fallen_demon",
+    "seeking_immortals:secret_void_palace",
+    "seeking_immortals:secret_blood_forbidden"
+  ]
+}

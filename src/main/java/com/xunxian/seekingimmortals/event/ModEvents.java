@@ -19,7 +19,9 @@ import com.xunxian.seekingimmortals.cultivation.SpiritualRootAttribute;
 import com.xunxian.seekingimmortals.cultivation.TechniqueDataManager;
 import com.xunxian.seekingimmortals.cultivation.TribulationService;
 import com.xunxian.seekingimmortals.entity.CushionSeatEntity;
+import com.xunxian.seekingimmortals.entity.CultivationBeastEntity;
 import com.xunxian.seekingimmortals.entity.MarketTraderEntity;
+import com.xunxian.seekingimmortals.entity.QuestNpcEntity;
 import com.xunxian.seekingimmortals.entity.SectStewardEntity;
 import com.xunxian.seekingimmortals.entity.SpiritStoneBankerEntity;
 import com.xunxian.seekingimmortals.entity.SummonedServitorEntity;
@@ -35,9 +37,9 @@ import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
 import com.xunxian.seekingimmortals.network.SyncLearnedTechniquesPacket;
 import com.xunxian.seekingimmortals.network.SyncSkillDataPacket;
 import com.xunxian.seekingimmortals.persistence.PlayerPersistentDataClonePolicy;
+import com.xunxian.seekingimmortals.npc.NpcSettlementService;
 import com.xunxian.seekingimmortals.quest.QuestService;
 import com.xunxian.seekingimmortals.quest.TextQuestChainService;
-import com.xunxian.seekingimmortals.quest.TextQuestNpcHookService;
 import com.xunxian.seekingimmortals.registry.ModItems;
 import com.xunxian.seekingimmortals.sect.SectContributionService;
 import com.xunxian.seekingimmortals.sect.EscortMissionService;
@@ -375,16 +377,8 @@ public final class ModEvents {
                         com.xunxian.seekingimmortals.worldpack.BossEncounterService.BOSS_TAG);
             }
             Entity authoritySource = event.getSource().getEntity();
-            ServerPlayer authorityPlayer = authoritySource instanceof ServerPlayer player
-                    ? player
-                    : authoritySource instanceof SummonedServitorEntity servitor
-                    ? servitor.getOwnerUUID()
-                            .map(uuid -> event.getEntity().getServer() == null ? null
-                                    : event.getEntity().getServer().getPlayerList().getPlayer(uuid))
-                            .orElse(null)
-                    : null;
-            boolean playerControlled = authoritySource instanceof ServerPlayer
-                    || authoritySource instanceof SummonedServitorEntity;
+            ServerPlayer authorityPlayer = resolveCombatAuthorityPlayer(authoritySource);
+            boolean playerControlled = isPlayerControlledCombatSource(authoritySource);
             if (com.xunxian.seekingimmortals.worldpack.SecretRealmSessionService
                     .hasEncounterBinding(binding) && playerControlled
                     && (authorityPlayer == null
@@ -508,8 +502,12 @@ public final class ModEvents {
         }
         // Wave471: secret-realm kill gates (patrol/guardian/boss).
         // Wave485: sect-war battlefield shell kills score for the killer's side.
-        if (event.getEntity() instanceof net.minecraft.world.entity.Mob mob
-                && event.getSource().getEntity() instanceof ServerPlayer killer) {
+        ServerPlayer combatOwner = resolveCombatAuthorityPlayer(event.getSource().getEntity());
+        if (combatOwner == null) {
+            combatOwner = CultivationBeastEntity.recentCompanionDamageOwner(event.getEntity()).orElse(null);
+        }
+        if (event.getEntity() instanceof net.minecraft.world.entity.Mob mob && combatOwner != null) {
+            ServerPlayer killer = combatOwner;
             if (com.xunxian.seekingimmortals.worldpack.SecretRealmTrialService.isTrialMob(mob)) {
                 boolean accepted = com.xunxian.seekingimmortals.worldpack.SecretRealmTrialService
                         .onTrialMobKilled(killer, mob);
@@ -565,6 +563,27 @@ public final class ModEvents {
         CultivationHelper.get(player).ifPresent(cultivation -> TribulationService.handleDeath(player, cultivation));
     }
 
+    private static boolean isPlayerControlledCombatSource(Entity source) {
+        return source instanceof ServerPlayer
+                || source instanceof SummonedServitorEntity
+                || source instanceof CultivationBeastEntity beast && beast.isCompanion();
+    }
+
+    private static ServerPlayer resolveCombatAuthorityPlayer(Entity source) {
+        if (source instanceof ServerPlayer player) {
+            return player;
+        }
+        java.util.Optional<java.util.UUID> ownerId = source instanceof SummonedServitorEntity servitor
+                ? servitor.getOwnerUUID()
+                : source instanceof CultivationBeastEntity beast && beast.isCompanion()
+                ? beast.getOwnerUUID()
+                : java.util.Optional.empty();
+        if (ownerId.isEmpty() || source == null || source.getServer() == null) {
+            return null;
+        }
+        return source.getServer().getPlayerList().getPlayer(ownerId.get());
+    }
+
     @SubscribeEvent
     public static void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
@@ -618,18 +637,19 @@ public final class ModEvents {
     }
 
     @SubscribeEvent
-    public static void onVillagerExchange(PlayerInteractEvent.EntityInteract event) {
-        if (event.getLevel().isClientSide || !(event.getTarget() instanceof Villager villager)) return;
+    public static void onNpcInteract(PlayerInteractEvent.EntityInteract event) {
+        if (event.getLevel().isClientSide) return;
 
         Player player = event.getEntity();
-        if (player instanceof ServerPlayer serverPlayer && villager instanceof MarketTraderEntity trader) {
+        Entity target = event.getTarget();
+        if (player instanceof ServerPlayer serverPlayer && target instanceof MarketTraderEntity trader) {
             // M12: named trader opens dialogue/shop via MarketTraderEntity; shelves still M05.
             trader.openFor(serverPlayer);
             event.setCancellationResult(InteractionResult.SUCCESS);
             event.setCanceled(true);
             return;
         }
-        if (player instanceof ServerPlayer serverPlayer && villager instanceof SectStewardEntity steward) {
+        if (player instanceof ServerPlayer serverPlayer && target instanceof SectStewardEntity steward) {
             // Wave489: steward interaction also marks escort-proxy daily progress.
             com.xunxian.seekingimmortals.sect.SectMissionGenerator.onStewardEscortMark(serverPlayer, steward);
             // M12: try named-NPC dialogue first; fall back to M08 sect hall business.
@@ -641,25 +661,21 @@ public final class ModEvents {
             return;
         }
         // M05: spirit stone ladder upgrades only on original banker NPC (not vanilla villagers).
-        if (player instanceof ServerPlayer serverPlayer && villager instanceof SpiritStoneBankerEntity) {
+        if (player instanceof ServerPlayer serverPlayer && target instanceof SpiritStoneBankerEntity) {
             handleSpiritStoneBankerExchange(serverPlayer, event);
             return;
         }
-        if (player instanceof ServerPlayer serverPlayer && QuestService.handleNamedVillagerInteraction(serverPlayer, villager)) {
+        if (player instanceof ServerPlayer serverPlayer && target instanceof QuestNpcEntity questNpc
+                && questNpc.openFor(serverPlayer)) {
             event.setCancellationResult(InteractionResult.SUCCESS);
             event.setCanceled(true);
             return;
         }
-        // Wave55 defensive path: text-quest NPC hook if QuestService did not claim the villager.
-        if (player instanceof ServerPlayer serverPlayer
-                && TextQuestNpcHookService.handleNamedVillagerInteraction(serverPlayer, villager)) {
-            event.setCancellationResult(InteractionResult.SUCCESS);
-            event.setCanceled(true);
-            return;
-        }
-        // Compatibility fallback until banker NPCs have a survival spawn path.
-        if (player instanceof ServerPlayer serverPlayer && player.isShiftKeyDown()) {
-            handleSpiritStoneBankerExchange(serverPlayer, event);
+        if (player instanceof ServerPlayer serverPlayer && target instanceof Villager villager) {
+            if (QuestService.handleLegacyNamedVillagerInteraction(serverPlayer, villager)) {
+                event.setCancellationResult(InteractionResult.SUCCESS);
+                event.setCanceled(true);
+            }
         }
     }
 
@@ -731,6 +747,7 @@ public final class ModEvents {
             WorldHazardVfxService.clear(serverPlayer);
             TechniqueLifecycleVfxService.restoreSelfBuffs(serverPlayer);
             MultiSwordArraySpell.clear(serverPlayer, false);
+            NpcSettlementService.ensureStarterHub(serverPlayer);
         }
         CultivationHelper.get(event.getEntity()).ifPresent(cultivation -> {
             cultivation.ensureRootInitialized(event.getEntity().getRandom());

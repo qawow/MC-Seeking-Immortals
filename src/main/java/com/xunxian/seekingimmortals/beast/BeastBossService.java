@@ -6,12 +6,13 @@ import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.combat.status.StatusCatalogService;
 import com.xunxian.seekingimmortals.combat.status.StatusRegistry;
-import com.xunxian.seekingimmortals.entity.SummonedServitorEntity;
+import com.xunxian.seekingimmortals.entity.CultivationBeastEntity;
+import com.xunxian.seekingimmortals.registry.ModEntities;
 import com.xunxian.seekingimmortals.skill.effect.AbstractTechniqueEffectResolver;
 import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import com.xunxian.seekingimmortals.worldpack.BossEncounterService;
-import com.xunxian.seekingimmortals.worldpack.TrialCombatShellService;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -20,6 +21,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
+import net.minecraft.world.Difficulty;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -34,7 +36,7 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
- * M10: secret-realm boss supply — entity registration via SummonedServitor shells + phased skills.
+ * M10: secret-realm boss supply via dedicated cultivation beasts + phased skills.
  * Skill effect types reference M02 abstract effect ids; status application is routed through M14.
  */
 public final class BeastBossService {
@@ -94,6 +96,9 @@ public final class BeastBossService {
      * Spawn a catalog boss with tier-scaled stats. Tags for loot/phase AI.
      */
     public static Mob spawnBoss(ServerLevel level, BlockPos pos, float yRot, String bossId) {
+        if (level == null || pos == null || level.getDifficulty() == Difficulty.PEACEFUL) {
+            return null;
+        }
         Optional<BossDef> defOpt = find(bossId);
         String id = bossId == null ? "unknown_boss" : bossId.trim().toLowerCase(Locale.ROOT);
         int tier = defOpt.map(BossDef::beastTier).orElse(7);
@@ -104,29 +109,59 @@ public final class BeastBossService {
         // Bosses are denser than wild ecology shells.
         double health = stats.health() * 2.4D;
         double damage = stats.damage() * 1.6D;
-        SummonedServitorEntity.Archetype archetype = TrialCombatShellService.archetypeFor(id);
-        if (defOpt.isPresent() && id.contains("puppet")) {
-            archetype = SummonedServitorEntity.Archetype.PUPPET;
-        }
-        SummonedServitorEntity shell = TrialCombatShellService.spawnHostile(
-                level, pos, yRot, "boss_" + id, health, damage, archetype);
-        if (shell == null) {
+        CultivationBeastEntity boss = ModEntities.CULTIVATION_BEAST.get().create(level);
+        if (boss == null) {
             return null;
         }
-        CompoundTag tag = shell.getPersistentData().getCompound(BossEncounterService.BOSS_TAG).copy();
+        boss.configureBoss(id, tier, health, damage);
+        if (!positionForSpawn(level, boss, pos, yRot)) {
+            return null;
+        }
+        CompoundTag tag = boss.getPersistentData().getCompound(BossEncounterService.BOSS_TAG).copy();
         tag.putString(BossEncounterService.BOSS_ID, id);
         tag.putInt("BeastTier", tier);
         tag.putString("LootBand", defOpt.map(BossDef::lootBand).orElse(BeastTierService.lootBandFor(tier)));
-        shell.getPersistentData().put(BossEncounterService.BOSS_TAG, tag);
-        shell.getPersistentData().putString("seeking_immortals_beast_id", id);
-        shell.getPersistentData().putInt("seeking_immortals_beast_tier", tier);
-        shell.getPersistentData().putBoolean("seeking_immortals_ecology_beast", false);
-        shell.getPersistentData().putInt(PHASE_TAG, 0);
-        shell.getPersistentData().putInt(PHASE_TICK, 0);
-        shell.setCustomName(Component.translatable("entity.seeking_immortals.boss.name",
+        boss.getPersistentData().put(BossEncounterService.BOSS_TAG, tag);
+        boss.getPersistentData().putBoolean(CultivationBeastEntity.TAG_ECOLOGY, false);
+        boss.getPersistentData().putInt(PHASE_TAG, 0);
+        boss.getPersistentData().putInt(PHASE_TICK, 0);
+        boss.setCustomName(Component.translatable("entity.seeking_immortals.boss.name",
                 displayName(defOpt.orElse(null))));
-        shell.setCustomNameVisible(true);
-        return shell;
+        boss.setCustomNameVisible(true);
+        return level.addFreshEntity(boss) ? boss : null;
+    }
+
+    private static boolean positionForSpawn(ServerLevel level, CultivationBeastEntity boss,
+                                            BlockPos preferred, float yRot) {
+        for (int radius = 0; radius <= 4; radius++) {
+            for (int dx = -radius; dx <= radius; dx++) {
+                for (int dz = -radius; dz <= radius; dz++) {
+                    if (radius > 0 && Math.max(Math.abs(dx), Math.abs(dz)) != radius) {
+                        continue;
+                    }
+                    for (int dy = 3; dy >= -4; dy--) {
+                        BlockPos feet = preferred.offset(dx, dy, dz);
+                        if (!level.isInWorldBounds(feet)) {
+                            continue;
+                        }
+                        boolean water = boss.getBodyPlan() == CultivationBeastEntity.BodyPlan.AQUATIC
+                                && level.getFluidState(feet).is(net.minecraft.tags.FluidTags.WATER)
+                                && level.getFluidState(feet.above()).is(net.minecraft.tags.FluidTags.WATER);
+                        boolean ground = level.getBlockState(feet).getCollisionShape(level, feet).isEmpty()
+                                && level.getBlockState(feet.above()).getCollisionShape(level, feet.above()).isEmpty()
+                                && level.getBlockState(feet.below()).isFaceSturdy(level, feet.below(), Direction.UP);
+                        if (!water && !ground) {
+                            continue;
+                        }
+                        boss.moveTo(feet.getX() + 0.5D, feet.getY(), feet.getZ() + 0.5D, yRot, 0.0F);
+                        if (level.noCollision(boss)) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     /**

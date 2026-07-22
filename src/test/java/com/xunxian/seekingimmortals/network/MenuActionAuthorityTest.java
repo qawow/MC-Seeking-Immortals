@@ -104,11 +104,15 @@ class MenuActionAuthorityTest {
 
         String rawSteward = Files.readString(JAVA_ROOT.resolve(Path.of("entity", "SectStewardEntity.java")));
         String steward = compact(rawSteward);
-        assertTrue(steward.contains("startDialogue(player,namedNpcId,dialogueTreeId,this)"));
+        assertTrue(steward.contains("startDialogue(player,npcId,treeId,this)"));
         String stewardDialogue = compact(methodSource(rawSteward,
                 "public boolean openDialogue(ServerPlayer player)"));
-        assertOrdered(stewardDialogue, "authorizeStewardInteraction(player,sectId)",
-                "startDialogue(player,namedNpcId,dialogueTreeId,this)");
+        assertFalse(stewardDialogue.contains("authorizeStewardInteraction("),
+                "named-NPC dialogue conditions must run before sect business authorization");
+        assertTrue(stewardDialogue.contains("return!treeId.isBlank()&&NpcDialogueApi.startDialogue("),
+                "a missing authored tree must fall back to sect business instead of a dialogue template");
+        assertOrdered(stewardDialogue, "StringnpcId=namedNpcId",
+                "startDialogue(player,npcId,treeId,this)");
 
         String dialogue = compact(Files.readString(JAVA_ROOT.resolve(
                 Path.of("npc", "NpcDialogueApi.java"))));

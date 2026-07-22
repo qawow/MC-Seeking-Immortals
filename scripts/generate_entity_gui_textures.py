@@ -61,6 +61,10 @@ def _blend(base: tuple[int, int, int], amount: int) -> tuple[int, int, int, int]
     return tuple(max(0, min(255, channel + amount)) for channel in base) + (255,)
 
 
+def _mix_rgb(first: tuple[int, int, int], second: tuple[int, int, int], amount: float) -> tuple[int, int, int]:
+    return tuple(round(first[index] * (1.0 - amount) + second[index] * amount) for index in range(3))
+
+
 def _paint_uv_box(
     draw: ImageDraw.ImageDraw,
     image: Image.Image,
@@ -220,6 +224,191 @@ def _servitor_texture(kind: str) -> Image.Image:
             left, top, right, bottom = front
             draw.line(((left + right - 1) // 2, top + 2, (left + right - 1) // 2, bottom - 2),
                       fill=palette["accent"], width=1)
+    return image
+
+
+NPC_ROLES = ("steward", "trader", "banker", "quest")
+BEAST_BODY_PLANS = ("quadruped", "serpent", "insect", "avian", "aquatic", "humanoid")
+BEAST_ELEMENTS = ("neutral", "fire", "ice", "water", "thunder", "poison",
+                  "wood", "earth", "metal", "wind", "soul", "blood",
+                  "illusion", "mixed", "void")
+
+
+def _npc_texture(role: str) -> Image.Image:
+    palettes = {
+        "steward": ((206, 166, 119), (42, 35, 35), (39, 91, 81), (210, 170, 72), (18, 48, 46)),
+        "trader": ((218, 174, 122), (57, 35, 26), (111, 50, 39), (224, 166, 61), (44, 80, 78)),
+        "banker": ((201, 157, 113), (46, 31, 28), (43, 67, 92), (218, 187, 92), (31, 46, 62)),
+        "quest": ((212, 170, 128), (35, 31, 43), (71, 58, 91), (114, 199, 177), (38, 44, 61)),
+    }
+    skin_rgb, hair_rgb, robe_rgb, accent_rgb, dark_rgb = palettes[role]
+    skin, hair, robe = skin_rgb + (255,), hair_rgb + (255,), robe_rgb + (255,)
+    accent, dark = accent_rgb + (255,), dark_rgb + (255,)
+    image = _rgba((128, 64))
+    draw = ImageDraw.Draw(image)
+    head = _paint_uv_box(draw, image, 0, 0, 8, 8, 8, skin, hair)
+    _draw_head_face(draw, head, skin, hair, (231, 235, 207, 255), accent)
+    body = _paint_uv_box(draw, image, 16, 16, 8, 12, 4, robe, accent, ("front",))
+    left_arm = _paint_uv_box(draw, image, 40, 16, 4, 12, 4, robe, accent, ("front",))
+    right_arm = _paint_uv_box(draw, image, 32, 48, 4, 12, 4, robe, accent, ("front",))
+    left_leg = _paint_uv_box(draw, image, 16, 48, 4, 12, 4, dark, accent, ("front",))
+    right_leg = _paint_uv_box(draw, image, 0, 16, 4, 12, 4, dark, accent, ("front",))
+    hair_cap = _paint_uv_box(draw, image, 64, 0, 9, 5, 9, hair, accent, ("front",))
+    hat = _paint_uv_box(draw, image, 64, 16, 10, 2, 10, dark, accent, ("front", "top"))
+    robe_skirt = _paint_uv_box(draw, image, 96, 32, 10, 7, 6, robe, accent, ("front",))
+
+    for regions in (body, left_arm, right_arm, robe_skirt):
+        front = regions["front"]
+        left, top, right, bottom = front
+        draw.line((left, top + max(2, (bottom - top) * 2 // 3), right - 1,
+                   top + max(2, (bottom - top) * 2 // 3)), fill=accent)
+    for regions in (left_leg, right_leg):
+        left, top, right, _ = regions["front"]
+        draw.line((left, top + 2, right - 1, top + 2), fill=accent)
+
+    front = body["front"]
+    left, top, right, bottom = front
+    center = (left + right - 1) // 2
+    if role == "steward":
+        draw.rectangle((center - 1, top + 2, center + 1, top + 5), outline=accent)
+        draw.line((left + 1, bottom - 3, right - 2, bottom - 3), fill=dark)
+    elif role == "trader":
+        draw.line((left + 1, top + 2, right - 2, bottom - 3), fill=accent)
+        draw.line((right - 2, top + 2, left + 1, bottom - 3), fill=accent)
+    elif role == "banker":
+        draw.ellipse((center - 2, top + 2, center + 2, top + 6), outline=accent)
+        draw.point((center, top + 4), fill=dark)
+    else:
+        draw.line((center, top + 1, center, bottom - 2), fill=accent)
+        draw.point((center - 2, top + 3), fill=accent)
+        draw.point((center + 2, top + 3), fill=accent)
+
+    for regions in (hair_cap, hat):
+        left, top, right, bottom = regions["front"]
+        draw.line((left + 1, bottom - 2, right - 2, bottom - 2), fill=accent)
+    return image
+
+
+BEAST_UV_BOXES: dict[str, tuple[tuple[str, int, int, int, int, int], ...]] = {
+    "quadruped": (
+        ("body", 0, 0, 10, 8, 16), ("head", 0, 24, 8, 7, 7),
+        ("jaw", 32, 24, 6, 4, 5), ("limb", 0, 40, 3, 9, 3),
+        ("tail", 18, 40, 3, 3, 8), ("tail_tip", 42, 40, 2, 2, 5),
+    ),
+    "serpent": (
+        ("body", 0, 0, 9, 6, 12), ("head", 0, 20, 9, 7, 8),
+        ("jaw", 36, 20, 7, 3, 6), ("tail", 0, 38, 7, 5, 10),
+        ("tail_tip", 36, 38, 5, 4, 9),
+    ),
+    "insect": (
+        ("body", 0, 0, 10, 8, 12), ("head", 0, 22, 7, 6, 6),
+        ("jaw", 28, 22, 7, 2, 4), ("limb", 0, 38, 2, 2, 7),
+        ("wing", 20, 38, 9, 1, 12),
+    ),
+    "avian": (
+        ("body", 0, 0, 8, 10, 8), ("head", 34, 0, 7, 7, 7),
+        ("jaw", 0, 20, 6, 3, 6), ("wing", 26, 20, 3, 10, 12),
+        ("limb", 0, 44, 3, 8, 3), ("tail", 14, 44, 8, 2, 8),
+    ),
+    "aquatic": (
+        ("body", 0, 0, 10, 8, 16), ("head", 0, 26, 8, 7, 8),
+        ("jaw", 34, 26, 7, 3, 7), ("wing", 0, 44, 2, 7, 10),
+        ("tail", 26, 44, 3, 8, 8), ("tail_tip", 50, 44, 2, 6, 5),
+    ),
+    "humanoid": (
+        ("head", 0, 0, 8, 8, 8), ("body", 16, 16, 8, 12, 4),
+        ("left_arm", 40, 16, 4, 12, 4), ("right_arm", 32, 48, 4, 12, 4),
+        ("left_leg", 16, 48, 4, 12, 4), ("right_leg", 0, 16, 4, 12, 4),
+    ),
+}
+
+
+BEAST_ELEMENT_PALETTES = {
+    "neutral": ((112, 106, 91), (72, 65, 58), (214, 178, 88), (245, 226, 142)),
+    "fire": ((151, 58, 31), (84, 29, 24), (244, 151, 48), (255, 235, 120)),
+    "ice": ((126, 178, 197), (68, 109, 141), (213, 241, 239), (251, 255, 255)),
+    "water": ((47, 112, 151), (28, 63, 105), (86, 205, 211), (203, 252, 244)),
+    "thunder": ((91, 70, 149), (47, 38, 91), (224, 196, 76), (255, 248, 168)),
+    "poison": ((92, 124, 51), (49, 69, 35), (171, 207, 71), (230, 255, 153)),
+    "wood": ((54, 116, 70), (31, 69, 43), (145, 195, 91), (218, 247, 155)),
+    "earth": ((132, 94, 55), (73, 55, 39), (207, 169, 87), (246, 224, 151)),
+    "metal": ((127, 139, 145), (66, 75, 82), (207, 200, 151), (242, 244, 222)),
+    "wind": ((66, 141, 133), (37, 78, 79), (164, 224, 193), (231, 255, 226)),
+    "soul": ((79, 79, 148), (42, 38, 91), (136, 216, 218), (226, 255, 246)),
+    "blood": ((130, 37, 45), (65, 23, 35), (213, 89, 72), (255, 195, 136)),
+    "illusion": ((102, 63, 141), (47, 34, 77), (221, 120, 215), (175, 252, 241)),
+    "mixed": ((83, 103, 107), (45, 55, 65), (232, 150, 70), (242, 243, 200)),
+    "void": ((36, 33, 52), (16, 18, 31), (113, 82, 164), (196, 175, 244)),
+}
+
+
+def _beast_texture(body_plan: str, element: str) -> Image.Image:
+    base_rgb, secondary_rgb, accent_rgb, eye_rgb = BEAST_ELEMENT_PALETTES[element]
+    plan_tints = {
+        "quadruped": (117, 78, 50), "serpent": (55, 89, 68),
+        "insect": (67, 54, 73), "avian": (158, 139, 105),
+        "aquatic": (45, 91, 116), "humanoid": (75, 58, 68),
+    }
+    tint = plan_tints[body_plan]
+    base = _mix_rgb(base_rgb, tint, 0.18) + (255,)
+    secondary = _mix_rgb(secondary_rgb, tint, 0.12) + (255,)
+    accent = accent_rgb + (255,)
+    eye = eye_rgb + (255,)
+    image = _rgba((64, 64))
+    draw = ImageDraw.Draw(image)
+    painted: dict[str, dict[str, tuple[int, int, int, int]]] = {}
+    for index, (name, u, v, width, height, depth) in enumerate(BEAST_UV_BOXES[body_plan]):
+        if name in {"jaw", "limb", "left_leg", "right_leg", "tail", "tail_tip"}:
+            fill = secondary
+        elif name == "wing":
+            fill = _mix_rgb(base[:3], accent[:3], 0.36) + (230,)
+        else:
+            fill = base if index % 2 == 0 else _mix_rgb(base[:3], secondary[:3], 0.22) + (255,)
+        painted[name] = _paint_uv_box(
+            draw, image, u, v, width, height, depth, fill, accent, ("front", "top")
+        )
+
+    head = painted.get("head")
+    if head:
+        left, top, right, bottom = head["front"]
+        eye_y = top + max(1, (bottom - top) // 3)
+        draw.point((left + max(1, (right - left) // 4), eye_y), fill=eye)
+        draw.point((right - 1 - max(1, (right - left) // 4), eye_y), fill=eye)
+        if bottom - top >= 4:
+            draw.line((left + 1, bottom - 2, right - 2, bottom - 2), fill=secondary)
+
+    body = painted.get("body")
+    if body:
+        left, top, right, bottom = body["front"]
+        center = (left + right - 1) // 2
+        if body_plan == "quadruped":
+            for y in range(top + 2, bottom - 1, 3):
+                draw.line((left + 1, y, right - 2, y), fill=secondary)
+        elif body_plan == "serpent":
+            for x in range(left + 1, right - 1, 2):
+                draw.point((x, top + (x - left) % max(2, bottom - top - 1)), fill=accent)
+        elif body_plan == "insect":
+            draw.line((center, top + 1, center, bottom - 2), fill=accent)
+            for y in range(top + 2, bottom - 1, 3):
+                draw.point((center - 2, y), fill=secondary)
+                draw.point((center + 2, y), fill=secondary)
+        elif body_plan == "avian":
+            draw.line((left + 1, top + 1, center, bottom - 2, right - 2, top + 1), fill=accent)
+        elif body_plan == "aquatic":
+            for y in range(top + 2, bottom - 1, 3):
+                for x in range(left + 1 + y % 2, right - 1, 2):
+                    draw.point((x, y), fill=accent)
+        else:
+            draw.line((center, top + 1, center, bottom - 2), fill=accent)
+            draw.line((left + 1, top + 3, center, top + 6, right - 2, top + 3), fill=secondary)
+
+    for name in ("wing", "tail", "tail_tip"):
+        regions = painted.get(name)
+        if not regions:
+            continue
+        left, top, right, bottom = regions["top"]
+        if right - left >= 3 and bottom - top >= 2:
+            draw.line((left + 1, top + 1, right - 2, bottom - 1), fill=eye)
     return image
 
 
@@ -429,6 +618,21 @@ FACTORIES: dict[str, TextureFactory] = {
     "textures/gui/empty_charm_slot.png": lambda: _slot_texture("charm"),
 }
 
+for npc_role in NPC_ROLES:
+    FACTORIES[f"textures/entity/cultivator_npc_{npc_role}.png"] = (
+        lambda role=npc_role: _npc_texture(role)
+    )
+for beast_body_plan in BEAST_BODY_PLANS:
+    FACTORIES[f"textures/entity/cultivation_beast_{beast_body_plan}.png"] = (
+        lambda body_plan=beast_body_plan: _beast_texture(body_plan, "neutral")
+    )
+    for beast_element in BEAST_ELEMENTS:
+        if beast_element == "neutral":
+            continue
+        FACTORIES[f"textures/entity/cultivation_beast/{beast_body_plan}_{beast_element}.png"] = (
+            lambda body_plan=beast_body_plan, element=beast_element: _beast_texture(body_plan, element)
+        )
+
 
 EXPECTED_SIZES = {
     "textures/entity/spirit_boat.png": (128, 64),
@@ -437,6 +641,11 @@ EXPECTED_SIZES = {
     "textures/entity/summoned_servitor_beast.png": (64, 64),
     "textures/entity/summoned_servitor_puppet.png": (64, 64),
     "textures/entity/summoned_servitor_ghost.png": (64, 64),
+    **{f"textures/entity/cultivator_npc_{role}.png": (128, 64) for role in NPC_ROLES},
+    **{f"textures/entity/cultivation_beast_{body_plan}.png": (64, 64)
+       for body_plan in BEAST_BODY_PLANS},
+    **{f"textures/entity/cultivation_beast/{body_plan}_{element}.png": (64, 64)
+       for body_plan in BEAST_BODY_PLANS for element in BEAST_ELEMENTS if element != "neutral"},
     **{f"textures/gui/dialogue/portrait_{name}.png": (72, 88)
        for name in ("default", "mo_lao", "mulan", "yinluo", "star_broker", "kunwu")},
     **{f"textures/gui/ink/{name}.png": (32, 32)
@@ -456,6 +665,16 @@ TRANSPARENT_BACKGROUND = {
     "textures/gui/empty_artifact_slot.png",
     "textures/gui/empty_charm_slot.png",
 }
+TRANSPARENT_BACKGROUND.update(
+    f"textures/entity/cultivator_npc_{role}.png" for role in NPC_ROLES
+)
+TRANSPARENT_BACKGROUND.update(
+    f"textures/entity/cultivation_beast_{body_plan}.png" for body_plan in BEAST_BODY_PLANS
+)
+TRANSPARENT_BACKGROUND.update(
+    f"textures/entity/cultivation_beast/{body_plan}_{element}.png"
+    for body_plan in BEAST_BODY_PLANS for element in BEAST_ELEMENTS if element != "neutral"
+)
 
 FULL_RECTANGLE = set(EXPECTED_SIZES) - TRANSPARENT_BACKGROUND
 

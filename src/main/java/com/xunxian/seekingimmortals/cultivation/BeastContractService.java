@@ -241,9 +241,8 @@ public final class BeastContractService {
         double health = (base.health() * 0.55D + affinity * 0.4D + progress.level() * 2.0D + tameLv * 1.2D) * mult;
         double damage = (base.damage() * 0.55D + affinity * 0.05D + progress.level() * 0.4D + tameLv * 0.2D) * mult;
         int life = base.lifeTicks() / 2 + 20 * (25 + progress.level() * 2 + tameLv);
-        boolean ok = SummonHonestMvpService.spawnConfigured(
-                player, "beast_" + id, life, health, damage,
-                com.xunxian.seekingimmortals.entity.SummonedServitorEntity.Archetype.BEAST);
+        boolean ok = SummonHonestMvpService.spawnBeastConfigured(
+                player, id, tier, life, health, damage);
         if (ok) {
             com.xunxian.seekingimmortals.skill.LifeSkillService.grantPractice(player,
                     com.xunxian.seekingimmortals.skill.SkillType.BEAST_TAMING, 14, 6);

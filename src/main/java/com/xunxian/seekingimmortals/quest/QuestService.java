@@ -4,9 +4,11 @@ import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.item.LingGenTestStoneItem;
 import com.xunxian.seekingimmortals.item.MysticVialItem;
+import com.xunxian.seekingimmortals.entity.CultivatorNpcEntity;
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
 import com.xunxian.seekingimmortals.network.SyncLearnedTechniquesPacket;
 import com.xunxian.seekingimmortals.network.SyncSkillDataPacket;
+import com.xunxian.seekingimmortals.npc.NpcSpawnService;
 import com.xunxian.seekingimmortals.registry.ModItems;
 import com.xunxian.seekingimmortals.skill.SkillType;
 import net.minecraft.ChatFormatting;
@@ -16,7 +18,6 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.RelativeMovement;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.item.Item;
@@ -85,8 +86,29 @@ public final class QuestService {
         });
     }
 
-    public static boolean handleNamedVillagerInteraction(ServerPlayer player, Villager villager) {
+    public static boolean handleNamedNpcInteraction(ServerPlayer player, CultivatorNpcEntity npc) {
+        if (player == null || npc == null) {
+            return false;
+        }
+        String name = npc.getCustomName() == null ? "" : npc.getCustomName().getString();
+        if (handleSevenMysteriesNpc(player, name)) {
+            return true;
+        }
+        return TextQuestNpcHookService.handleNamedNpcInteraction(player, npc);
+    }
+
+    public static boolean handleLegacyNamedVillagerInteraction(ServerPlayer player, Villager villager) {
+        if (player == null || villager == null) {
+            return false;
+        }
         String name = villager.getCustomName() == null ? "" : villager.getCustomName().getString();
+        if (handleSevenMysteriesNpc(player, name)) {
+            return true;
+        }
+        return TextQuestNpcHookService.handleLegacyNamedVillagerInteraction(player, villager);
+    }
+
+    private static boolean handleSevenMysteriesNpc(ServerPlayer player, String name) {
         if (SevenMysteriesQuest.NPC_MO_LAO.equals(name)) {
             start(player);
             LingGenTestStoneItem.testPlayer(player.serverLevel(), player, player, ItemStack.EMPTY, false, false);
@@ -96,8 +118,7 @@ public final class QuestService {
             check(player);
             return true;
         }
-        // Wave55: text-quest named NPC authority entry (after seven-mysteries).
-        return TextQuestNpcHookService.handleNamedVillagerInteraction(player, villager);
+        return false;
     }
 
     public static boolean handleBlockInteraction(ServerPlayer player, ServerLevel level, BlockPos pos, InteractionHand hand) {
@@ -167,16 +188,24 @@ public final class QuestService {
         return true;
     }
 
-    public static void spawnQuestVillager(ServerPlayer player, String name) {
+    public static boolean spawnQuestNpc(ServerPlayer player, String name) {
+        return spawnQuestNpc(player, name, "");
+    }
+
+    public static boolean spawnQuestNpc(ServerPlayer player, String name, String namedNpcId) {
+        if (player == null) {
+            return false;
+        }
         ServerLevel level = player.serverLevel();
-        Villager villager = EntityType.VILLAGER.create(level);
-        if (villager == null) return;
-        villager.moveTo(player.getX() + 1.5D, player.getY(), player.getZ() + 1.5D, player.getYRot(), 0.0F);
-        villager.setCustomName(Component.literal(name));
-        villager.setCustomNameVisible(true);
-        villager.setPersistenceRequired();
-        level.addFreshEntity(villager);
+        String identity = namedNpcId == null ? "" : namedNpcId.trim();
+        BlockPos preferred = BlockPos.containing(
+                player.getX() + 1.5D, player.getY(), player.getZ() + 1.5D);
+        if (NpcSpawnService.spawnQuestNpc(
+                level, preferred, identity, name, player.getYRot()).isEmpty()) {
+            return false;
+        }
         player.sendSystemMessage(Component.translatable("message.seeking_immortals.quest.spawned_npc", name));
+        return true;
     }
 
     private static Component branchDisplay(String branch) {

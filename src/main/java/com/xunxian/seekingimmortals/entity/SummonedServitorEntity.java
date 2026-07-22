@@ -351,6 +351,10 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
                 discard();
                 return;
             }
+            if (!hostileTrial && ownerUUID != null && level() instanceof ServerLevel serverLevel
+                    && applyRegistryState(serverLevel)) {
+                return;
+            }
             if (isAlive() && !terminalVfxSent && Math.floorMod(tickCount + getId(), 40) == 0) {
                 TechniqueLifecycleVfxService.servitorStatus(this);
             }
@@ -361,9 +365,6 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
                 return;
             }
             if (ownerUUID != null && level() instanceof ServerLevel serverLevel) {
-                if (applyRegistryState(serverLevel)) {
-                    return;
-                }
                 ServerPlayer owner = serverLevel.getServer().getPlayerList().getPlayer(ownerUUID);
                 if (owner != null && owner.serverLevel() == serverLevel) {
                     applyStanceBehavior(owner);

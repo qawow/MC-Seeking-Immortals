@@ -3,7 +3,10 @@ package com.xunxian.seekingimmortals.catalog;
 import com.xunxian.seekingimmortals.cultivation.BeastContractService;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.GhostContractService;
+import com.xunxian.seekingimmortals.beast.BeastBestiaryService;
+import com.xunxian.seekingimmortals.beast.BeastTierService;
 import com.xunxian.seekingimmortals.beast.PuppetGrowthService;
+import com.xunxian.seekingimmortals.entity.CultivationBeastEntity;
 import com.xunxian.seekingimmortals.entity.SummonedServitorEntity;
 import com.xunxian.seekingimmortals.registry.ModEntities;
 import com.xunxian.seekingimmortals.registry.ModItems;
@@ -16,6 +19,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
@@ -122,35 +126,51 @@ public final class SummonHonestMvpService {
                 }
             }
 
-            // Wave472: small shard cost for free catalog summons (not creative).
+            // Wave472: reserve the shard cost until the real entity has been created.
             int shardCost = 1 + Math.min(2, amp);
-            if (!player.getAbilities().instabuild && !consumeShards(player, shardCost)) {
+            List<ShardReservation> reservation = player.getAbilities().instabuild
+                    ? List.of()
+                    : reserveShards(player, shardCost).orElse(null);
+            if (reservation == null) {
                 player.displayClientMessage(Component.translatable(
                         "message.seeking_immortals.summon.missing_shards", shardCost), true);
                 return;
             }
 
-            player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, Math.min(duration, 100), Math.min(1, amp)));
-
             boolean spawned = spawnConfigured(player, id, duration, health, damage, archetype);
             Component display = summonDisplay(id, puppet, archetype);
-            if (spawned) {
-                player.displayClientMessage(Component.translatable("message.seeking_immortals.summon.entity_spawned", display), true);
+            if (!spawned) {
+                refundShards(player, reservation);
                 player.displayClientMessage(Component.translatable(
-                        "message.seeking_immortals.summon.archetype", archetypeDisplay(archetype)), false);
-            } else {
-                player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, duration, amp));
-                player.displayClientMessage(Component.translatable("message.seeking_immortals.summon.honest_mvp", display), true);
-                player.displayClientMessage(Component.translatable("message.seeking_immortals.summon.entity_pending"), false);
+                        "message.seeking_immortals.summon.entity_failed", display), true);
+                return;
             }
+            player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, Math.min(duration, 100), Math.min(1, amp)));
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.summon.entity_spawned", display), true);
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.summon.archetype", archetypeDisplay(archetype)), false);
             ok[0] = true;
         });
         return ok[0];
     }
 
-    private static boolean consumeShards(ServerPlayer player, int count) {
+    private record ShardReservation(int slot, int count) {}
+
+    private static Optional<List<ShardReservation>> reserveShards(ServerPlayer player, int count) {
         var shard = ModItems.SPIRIT_STONE_SHARD.get();
-        int remaining = Math.max(1, count);
+        int required = Math.max(1, count);
+        int available = 0;
+        for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
+            ItemStack stack = player.getInventory().getItem(i);
+            if (stack.is(shard)) {
+                available += stack.getCount();
+            }
+        }
+        if (available < required) {
+            return Optional.empty();
+        }
+        List<ShardReservation> reservations = new ArrayList<>();
+        int remaining = required;
         for (int i = 0; i < player.getInventory().getContainerSize() && remaining > 0; i++) {
             ItemStack stack = player.getInventory().getItem(i);
             if (!stack.is(shard)) {
@@ -158,9 +178,29 @@ public final class SummonHonestMvpService {
             }
             int take = Math.min(remaining, stack.getCount());
             stack.shrink(take);
+            reservations.add(new ShardReservation(i, take));
             remaining -= take;
         }
-        return remaining <= 0;
+        player.containerMenu.broadcastChanges();
+        return Optional.of(List.copyOf(reservations));
+    }
+
+    private static void refundShards(ServerPlayer player, List<ShardReservation> reservations) {
+        if (player == null || reservations == null || reservations.isEmpty()) {
+            return;
+        }
+        var shard = ModItems.SPIRIT_STONE_SHARD.get();
+        for (ShardReservation reservation : reservations) {
+            ItemStack stack = player.getInventory().getItem(reservation.slot());
+            if (stack.isEmpty()) {
+                player.getInventory().setItem(reservation.slot(), new ItemStack(shard, reservation.count()));
+            } else if (stack.is(shard) && stack.getCount() + reservation.count() <= stack.getMaxStackSize()) {
+                stack.grow(reservation.count());
+            } else {
+                player.getInventory().placeItemBackInInventory(new ItemStack(shard, reservation.count()));
+            }
+        }
+        player.containerMenu.broadcastChanges();
     }
 
     public static boolean spawnConfigured(ServerPlayer player, String summonId, int lifeTicks, double health, double damage) {
@@ -174,7 +214,28 @@ public final class SummonHonestMvpService {
 
     public static boolean spawnConfigured(ServerPlayer player, String summonId, int lifeTicks, double health, double damage,
                                           SummonedServitorEntity.Archetype archetype, boolean crafted) {
+        Optional<String> realBeastId = resolveRealBeastId(player, summonId, archetype);
+        if (realBeastId.isPresent()) {
+            int tier = BeastBestiaryService.find(realBeastId.get())
+                    .map(BeastBestiaryService.BeastEntry::tier).orElse(1);
+            return spawnBeastConfigured(player, realBeastId.get(), tier, lifeTicks, health, damage);
+        }
         return spawnServitor(player, summonId, lifeTicks, health, damage, archetype, crafted);
+    }
+
+    public static boolean spawnBeastConfigured(ServerPlayer player, String beastId, int tier, int lifeTicks,
+                                               double health, double damage) {
+        if (player == null) {
+            return false;
+        }
+        String normalized = beastId == null ? "" : beastId.trim().toLowerCase(Locale.ROOT);
+        if (normalized.isBlank()) {
+            return false;
+        }
+        String canonical = BeastBestiaryService.find(normalized)
+                .map(BeastBestiaryService.BeastEntry::id).orElse(normalized);
+        return spawnCompanionBeast(player, canonical, BeastTierService.clampTier(tier),
+                lifeTicks, health, damage);
     }
 
     public static List<SummonedServitorEntity> listOwnedServitors(ServerPlayer player) {
@@ -187,6 +248,21 @@ public final class SummonHonestMvpService {
             SummonedServitorEntity servitor = loadedServitor(player, state);
             if (servitor != null && servitor.isAlive()) {
                 list.add(servitor);
+            }
+        }
+        return list;
+    }
+
+    public static List<CultivationBeastEntity> listOwnedCompanionBeasts(ServerPlayer player) {
+        List<CultivationBeastEntity> list = new ArrayList<>();
+        if (player == null || player.getServer() == null) {
+            return list;
+        }
+        ServitorRegistrySavedData registry = ServitorRegistrySavedData.get(player.getServer());
+        for (ServitorRegistrySavedData.State state : registry.activeFor(player.getUUID())) {
+            CultivationBeastEntity beast = loadedCompanionBeast(player, state);
+            if (beast != null && beast.isAlive()) {
+                list.add(beast);
             }
         }
         return list;
@@ -208,6 +284,9 @@ public final class SummonHonestMvpService {
         for (SummonedServitorEntity servitor : listOwnedServitors(player)) {
             servitor.setStance(stance);
         }
+        for (CultivationBeastEntity beast : listOwnedCompanionBeasts(player)) {
+            beast.setStance(stance);
+        }
         if (count > 0) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.summon.stance_all",
@@ -223,11 +302,14 @@ public final class SummonHonestMvpService {
         ServitorRegistrySavedData registry = ServitorRegistrySavedData.get(player.getServer());
         List<ServitorRegistrySavedData.State> dismissed = registry.dismissAll(player.getUUID());
         for (ServitorRegistrySavedData.State state : dismissed) {
-            SummonedServitorEntity servitor = loadedServitor(player, state);
-            if (servitor == null) {
+            net.minecraft.world.entity.Entity entity = loadedOwnedEntity(player, state);
+            if (entity == null) {
                 continue;
             }
-            if (servitor.getArchetype() == SummonedServitorEntity.Archetype.BEAST) {
+            if (entity instanceof CultivationBeastEntity beast) {
+                beast.recordDismissCredit();
+            } else if (entity instanceof SummonedServitorEntity servitor
+                    && servitor.getArchetype() == SummonedServitorEntity.Archetype.BEAST) {
                 String beastId = BeastContractService.beastIdFromSummonId(servitor.getSummonId());
                 if (!beastId.isBlank()) {
                     float frac = servitor.getMaxLifeTicks() <= 0 ? 0.0F
@@ -236,7 +318,7 @@ public final class SummonHonestMvpService {
                             frac >= 0.5F ? BeastContractService.CreditKind.SURVIVE : BeastContractService.CreditKind.HIT);
                 }
             }
-            servitor.discard();
+            entity.discard();
         }
         int count = dismissed.size();
         if (count > 0) {
@@ -253,6 +335,11 @@ public final class SummonHonestMvpService {
         for (SummonedServitorEntity servitor : listOwnedServitors(player)) {
             servitor.setTarget(target);
             count++;
+        }
+        for (CultivationBeastEntity beast : listOwnedCompanionBeasts(player)) {
+            if (beast.trySetCommandTarget(target)) {
+                count++;
+            }
         }
         return count;
     }
@@ -352,12 +439,79 @@ public final class SummonHonestMvpService {
         return false;
     }
 
+    private static boolean spawnCompanionBeast(ServerPlayer player, String beastId, int tier, int lifeTicks,
+                                               double health, double damage) {
+        if (!(player.level() instanceof ServerLevel level)) {
+            return false;
+        }
+        CultivationBeastEntity beast = ModEntities.CULTIVATION_BEAST.get().create(level);
+        if (beast == null) {
+            return false;
+        }
+        beast.configureCompanion(player, beastId, tier, lifeTicks, health * 1.10D, damage * 1.15D);
+        Vec3 spawn = preferredCompanionBeastSpawn(level, player, beast.getBodyPlan());
+        beast.moveTo(spawn.x, spawn.y, spawn.z, player.getYRot(), 0.0F);
+        if (!level.noCollision(beast)) {
+            Vec3 fallback = forwardSpawn(player);
+            beast.moveTo(fallback.x, fallback.y, fallback.z, player.getYRot(), 0.0F);
+        }
+        if (!level.noCollision(beast)) {
+            return false;
+        }
+        boolean added = level.addFreshEntity(beast);
+        if (added) {
+            enforceConcurrentCap(player);
+            ServitorRegistrySavedData.get(level).register(
+                    player.getUUID(), beast.getUUID(), level.dimension().location().toString(),
+                    beast.getStance().name(), MAX_ACTIVE_SERVITORS);
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.summon.cap_status",
+                    countOwnedServitors(player), MAX_ACTIVE_SERVITORS), false);
+        }
+        return added;
+    }
+
+    private static Vec3 preferredCompanionBeastSpawn(ServerLevel level, ServerPlayer player,
+                                                       CultivationBeastEntity.BodyPlan bodyPlan) {
+        if (bodyPlan == CultivationBeastEntity.BodyPlan.AQUATIC) {
+            BlockPos origin = player.blockPosition();
+            BlockPos best = null;
+            double bestDistance = Double.MAX_VALUE;
+            for (int dx = -6; dx <= 6; dx++) {
+                for (int dz = -6; dz <= 6; dz++) {
+                    for (int dy = -4; dy <= 3; dy++) {
+                        BlockPos candidate = origin.offset(dx, dy, dz);
+                        if (!level.getFluidState(candidate).is(FluidTags.WATER)
+                                || !level.getFluidState(candidate.above()).is(FluidTags.WATER)) {
+                            continue;
+                        }
+                        double distance = candidate.distSqr(origin);
+                        if (distance < bestDistance) {
+                            best = candidate;
+                            bestDistance = distance;
+                        }
+                    }
+                }
+            }
+            if (best != null) {
+                return Vec3.atBottomCenterOf(best).add(0.0D, 0.1D, 0.0D);
+            }
+        }
+        return forwardSpawn(player);
+    }
+
+    private static Vec3 forwardSpawn(ServerPlayer player) {
+        Vec3 look = player.getLookAngle();
+        BlockPos spawnPos = player.blockPosition().offset((int) Math.round(look.x * 1.5D), 0,
+                (int) Math.round(look.z * 1.5D));
+        return new Vec3(spawnPos.getX() + 0.5D, player.getY(), spawnPos.getZ() + 0.5D);
+    }
+
     private static boolean spawnServitor(ServerPlayer player, String summonId, int lifeTicks, double health, double damage,
                                          SummonedServitorEntity.Archetype forcedArchetype, boolean crafted) {
         if (!(player.level() instanceof ServerLevel level)) {
             return false;
         }
-        enforceConcurrentCap(player);
         SummonedServitorEntity servitor = ModEntities.SUMMONED_SERVITOR.get().create(level);
         if (servitor == null) {
             return false;
@@ -395,6 +549,7 @@ public final class SummonHonestMvpService {
         servitor.setCrafted(crafted || archetype == SummonedServitorEntity.Archetype.PUPPET && summonId.startsWith("puppet_"));
         boolean added = level.addFreshEntity(servitor);
         if (added) {
+            enforceConcurrentCap(player);
             ServitorRegistrySavedData.get(level).register(
                     player.getUUID(), servitor.getUUID(), level.dimension().location().toString(),
                     servitor.getStance().name(), MAX_ACTIVE_SERVITORS);
@@ -463,9 +618,12 @@ public final class SummonHonestMvpService {
         }
         List<ServitorRegistrySavedData.State> dismissed = registry.dismissOldest(player.getUUID(), overflow);
         for (ServitorRegistrySavedData.State state : dismissed) {
-            SummonedServitorEntity servitor = loadedServitor(player, state);
-            if (servitor != null) {
-                servitor.discard();
+            net.minecraft.world.entity.Entity entity = loadedOwnedEntity(player, state);
+            if (entity instanceof CultivationBeastEntity beast) {
+                beast.recordDismissCredit();
+            }
+            if (entity != null) {
+                entity.discard();
             }
         }
         player.displayClientMessage(Component.translatable(
@@ -474,6 +632,19 @@ public final class SummonHonestMvpService {
 
     private static SummonedServitorEntity loadedServitor(ServerPlayer player,
                                                           ServitorRegistrySavedData.State state) {
+        net.minecraft.world.entity.Entity entity = loadedOwnedEntity(player, state);
+        return entity instanceof SummonedServitorEntity servitor ? servitor : null;
+    }
+
+    private static CultivationBeastEntity loadedCompanionBeast(ServerPlayer player,
+                                                                ServitorRegistrySavedData.State state) {
+        net.minecraft.world.entity.Entity entity = loadedOwnedEntity(player, state);
+        return entity instanceof CultivationBeastEntity beast && beast.isCompanion()
+                && beast.getOwnerUUID().filter(state.ownerId()::equals).isPresent() ? beast : null;
+    }
+
+    private static net.minecraft.world.entity.Entity loadedOwnedEntity(ServerPlayer player,
+                                                                       ServitorRegistrySavedData.State state) {
         if (player == null || state == null || player.getServer() == null) {
             return null;
         }
@@ -487,7 +658,33 @@ public final class SummonHonestMvpService {
             return null;
         }
         net.minecraft.world.entity.Entity entity = level.getEntity(state.entityId());
-        return entity instanceof SummonedServitorEntity servitor ? servitor : null;
+        if (entity instanceof SummonedServitorEntity servitor
+                && servitor.getOwnerUUID().filter(state.ownerId()::equals).isPresent()) {
+            return servitor;
+        }
+        if (entity instanceof CultivationBeastEntity beast && beast.isCompanion()
+                && beast.getOwnerUUID().filter(state.ownerId()::equals).isPresent()) {
+            return beast;
+        }
+        return null;
+    }
+
+    static Optional<String> resolveRealBeastId(ServerPlayer player, String summonId,
+                                               SummonedServitorEntity.Archetype archetype) {
+        if (archetype != SummonedServitorEntity.Archetype.BEAST || summonId == null) {
+            return Optional.empty();
+        }
+        String normalized = summonId.trim().toLowerCase(Locale.ROOT);
+        String prefixed = BeastContractService.beastIdFromSummonId(normalized);
+        String candidate = prefixed.isBlank() ? normalized : prefixed;
+        Optional<BeastBestiaryService.BeastEntry> entry = BeastBestiaryService.find(candidate);
+        if (entry.isPresent()) {
+            return Optional.of(entry.get().id());
+        }
+        if (!prefixed.isBlank() && player != null && BeastContractService.hasContract(player, candidate)) {
+            return Optional.of(candidate);
+        }
+        return Optional.empty();
     }
 
     public static SummonedServitorEntity.Archetype archetypeOf(String summonId) {

@@ -8,8 +8,10 @@ public class ModCompat {
     public static final boolean PATCHOULI_LOADED = ModList.get().isLoaded("patchouli");
     public static final boolean FTB_QUESTS_LOADED = ModList.get().isLoaded("ftbquests");
 
-    // 以下模组需要玩家手动安装，代码已预留兼容性接口
+    // 可选兼容性检测。
     public static final boolean JADE_LOADED = ModList.get().isLoaded("jade");
+
+    // 必需运行时依赖；保留该标记用于诊断。
     public static final boolean GECKOLIB_LOADED = ModList.get().isLoaded("geckolib");
 
     private ModCompat() {}

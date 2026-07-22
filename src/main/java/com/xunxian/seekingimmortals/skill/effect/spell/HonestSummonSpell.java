@@ -16,8 +16,8 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 
 /**
- * Summon spell base: spawns a real SummonedServitorEntity (archetype-aware).
- * Wave455: entity-first; self-buff is only a short fail-safe ward when spawn fails.
+ * Summon spell base: spawns a real servitor or dedicated cultivation beast.
+ * A failed entity insertion is a failed cast; it never turns into a player buff.
  */
 public class HonestSummonSpell extends SpellEffect {
     private final String summonId;
@@ -50,29 +50,21 @@ public class HonestSummonSpell extends SpellEffect {
         boolean spawned = SummonHonestMvpService.spawnConfigured(
                 player, summonId, scaledDuration, health, damage, archetype);
 
+        if (!spawned) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.summon.entity_failed", summonDisplay(archetype)), true);
+            return false;
+        }
         if (player.level() instanceof ServerLevel level) {
             level.sendParticles(ParticleTypes.SOUL, player.getX(), player.getY() + 1.0D, player.getZ(),
                     24, 0.5D, 0.4D, 0.5D, 0.02D);
             level.playSound(null, player.blockPosition(), SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.PLAYERS, 0.7F, 0.9F);
         }
-
-        if (spawned) {
-            // Brief focus buff only; combat authority is the servitor entity.
-            player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 40, 0, false, true));
-            player.displayClientMessage(Component.translatable(successKey, summonDisplay(archetype)), true);
-            player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.summon.archetype", archetypeDisplay(archetype)), false);
-        } else {
-            // Fail-safe: temporary combat proxy if entity cannot spawn.
-            player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, scaledDuration, scaledStrength, false, true));
-            player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, scaledDuration, scaledResist, false, true));
-            if (scaledStrength >= 1) {
-                player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, scaledDuration, 0, false, true));
-            }
-            player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.summon.honest_mvp", summonDisplay(archetype)), true);
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.summon.entity_pending"), false);
-        }
+        // Brief focus buff only after a real entity exists; combat authority remains the entity.
+        player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 40, 0, false, true));
+        player.displayClientMessage(Component.translatable(successKey, summonDisplay(archetype)), true);
+        player.displayClientMessage(Component.translatable(
+                "message.seeking_immortals.summon.archetype", archetypeDisplay(archetype)), false);
         return true;
     }
 

@@ -10,7 +10,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
-import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
@@ -20,7 +19,7 @@ import java.util.Locale;
  * M12 sect steward: station leash + day/night schedule + named-NPC dialogue entry.
  * Sect business still delegates to {@link SectContributionService} (M08).
  */
-public class SectStewardEntity extends Villager {
+public class SectStewardEntity extends CultivatorNpcEntity {
     public static final String NPC_TYPE_RECRUITER = "recruiter";
     public static final String NPC_TYPE_CONTRIBUTION = "contribution_clerk";
     public static final String NPC_TYPE_DIALOGUE = "dialogue";
@@ -42,8 +41,7 @@ public class SectStewardEntity extends Villager {
     private net.minecraft.core.BlockPos homePos;
 
     public SectStewardEntity(EntityType<? extends SectStewardEntity> type, Level level) {
-        super(type, level);
-        setPersistenceRequired();
+        super(type, level, VisualRole.STEWARD);
     }
 
     @Override
@@ -68,10 +66,11 @@ public class SectStewardEntity extends Villager {
         if (homePos == null) {
             homePos = blockPosition().immutable();
         }
-        // Soft leash: return to office when too far, or after hours.
+        // Soft leash: after hours, settle closer to the office without overriding active goals.
         if (homePos != null) {
             double dist = distanceToSqr(homePos.getX() + 0.5D, homePos.getY(), homePos.getZ() + 0.5D);
-            if (dist > 64.0D || !isOnDuty()) {
+            double returnDistanceSqr = isOnDuty() ? 64.0D : 4.0D;
+            if (dist > returnDistanceSqr && tickCount % 20 == 0 && getNavigation().isDone()) {
                 getNavigation().moveTo(homePos.getX() + 0.5D, homePos.getY(), homePos.getZ() + 0.5D, 0.7D);
             }
         }
@@ -89,19 +88,24 @@ public class SectStewardEntity extends Villager {
         if (player == null) {
             return false;
         }
-        if (!SectContributionService.authorizeStewardInteraction(player, sectId)) {
-            return true;
+        String npcId = namedNpcId;
+        if (npcId.isBlank()) {
+            npcId = resolveNamedNpcId();
+            if (!npcId.isBlank()) {
+                setNamedNpcId(npcId);
+            }
         }
-        if (!namedNpcId.isBlank()) {
-            return NpcDialogueApi.startDialogue(player, namedNpcId, dialogueTreeId, this);
+        if (npcId.isBlank()) {
+            return false;
         }
-        // Resolve a named NPC for this sect/role when possible.
-        String resolved = resolveNamedNpcId();
-        if (!resolved.isBlank()) {
-            setNamedNpcId(resolved);
-            return NpcDialogueApi.startDialogue(player, resolved, dialogueTreeId, this);
+        String treeId = dialogueTreeId;
+        if (treeId.isBlank()) {
+            treeId = NamedNpcRegistry.find(npcId)
+                    .map(NamedNpcRegistry.NamedNpc::dialogueTreeId)
+                    .orElse("");
+            setDialogueTreeId(treeId);
         }
-        return false;
+        return !treeId.isBlank() && NpcDialogueApi.startDialogue(player, npcId, treeId, this);
     }
 
     private String resolveNamedNpcId() {

@@ -335,6 +335,7 @@ public final class SecretRealmTrialService {
         // Wave480: typed GeckoLib combat shells instead of bare vanilla zombies/skeletons.
         SummonedServitorEntity.Archetype archetype = TrialCombatShellService.archetypeFor(realmId);
         int count = realmId.contains("king") || realmId.contains("void") ? 3 : 2;
+        int spawned = 0;
         for (int i = 0; i < count; i++) {
             BlockPos spawn = midCenter.offset((i % 2 == 0 ? 2 : -2), 1, (i < 2 ? 1 : -1));
             Mob patrol = TrialCombatShellService.spawnHostile(
@@ -347,11 +348,15 @@ public final class SecretRealmTrialService {
             patrol.setCustomNameVisible(true);
             patrol.setTarget(player);
             tagTrial(patrol, player, session, KIND_PATROL, realmId, ENCOUNTER_MID);
+            spawned++;
+        }
+        if (spawned <= 0) {
+            return;
         }
         root.putBoolean(sessionKey, true);
         player.getPersistentData().put(MID_ENCOUNTER_ROOT, root);
         player.sendSystemMessage(Component.translatable(
-                "message.seeking_immortals.worldpack.trial_mid_patrol", realmDisplay(realmId), count));
+                "message.seeking_immortals.worldpack.trial_mid_patrol", realmDisplay(realmId), spawned));
     }
 
     /**

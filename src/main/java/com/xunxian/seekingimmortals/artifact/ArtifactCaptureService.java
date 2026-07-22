@@ -6,6 +6,7 @@ import com.xunxian.seekingimmortals.beast.BestiaryUnlockService;
 import com.xunxian.seekingimmortals.catalog.SummonHonestMvpService;
 import com.xunxian.seekingimmortals.cultivation.BeastContractService;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
+import com.xunxian.seekingimmortals.entity.CultivationBeastEntity;
 import com.xunxian.seekingimmortals.entity.SummonedServitorEntity;
 import com.xunxian.seekingimmortals.worldpack.BossEncounterService;
 import com.xunxian.seekingimmortals.worldpack.SecretRealmTrialService;
@@ -141,6 +142,9 @@ public final class ArtifactCaptureService {
     }
 
     private static String beastIdOf(LivingEntity living) {
+        if (living instanceof CultivationBeastEntity beast) {
+            return beast.getBeastId();
+        }
         String id = living.getPersistentData().getString("seeking_immortals_beast_id");
         if (id == null || id.isBlank()) {
             id = living.getType().toShortString();
@@ -149,6 +153,9 @@ public final class ArtifactCaptureService {
     }
 
     private static int resolveTier(LivingEntity living) {
+        if (living instanceof CultivationBeastEntity beast) {
+            return beast.getBeastTier();
+        }
         if (living instanceof SummonedServitorEntity servitor) {
             String sid = servitor.getSummonId();
             String beastId = BeastContractService.beastIdFromSummonId(sid);
@@ -199,8 +206,8 @@ public final class ArtifactCaptureService {
                 }
             }
         }
-        boolean ok = SummonHonestMvpService.spawnConfigured(
-                player, "beast_" + stored, life, health, damage, SummonedServitorEntity.Archetype.BEAST);
+        boolean ok = SummonHonestMvpService.spawnBeastConfigured(
+                player, stored, tier, life, health, damage);
         if (ok) {
             jar.getOrCreateTag().remove(TAG);
             jar.getOrCreateTag().remove(TAG_TIER);

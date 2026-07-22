@@ -1,6 +1,7 @@
 package com.xunxian.seekingimmortals.quest;
 
 import com.xunxian.seekingimmortals.catalog.ExtendedCatalogService;
+import com.xunxian.seekingimmortals.entity.CultivatorNpcEntity;
 import com.xunxian.seekingimmortals.network.OpenDialogueScreenPacket;
 import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.network.chat.Component;
@@ -15,7 +16,7 @@ import java.util.Optional;
 
 /**
  * Wave55: world NPC authority entry for text quest chains.
- * Named villagers matching npc ids / display aliases open dialogue and can start chains.
+ * Dedicated cultivator NPCs matching npc ids / display aliases open dialogue and can start chains.
  */
 public final class TextQuestNpcHookService {
     private static final double INTERACT_RANGE = 6.0D;
@@ -84,20 +85,30 @@ public final class TextQuestNpcHookService {
         return Optional.ofNullable(active != null ? active : fallback);
     }
 
-    public static boolean handleNamedVillagerInteraction(ServerPlayer player, Villager villager) {
-        if (player == null || villager == null) {
+    public static boolean handleNamedNpcInteraction(ServerPlayer player, CultivatorNpcEntity npc) {
+        if (player == null || npc == null) {
             return false;
         }
-        String name = villager.getCustomName() == null ? "" : villager.getCustomName().getString();
-        Optional<String> chain = chainForNpcId(player, name);
+        Optional<String> chain = chainForNpcId(player, npc.getNamedNpcId());
         if (chain.isEmpty()) {
-            // Also accept exact npc id as custom name.
-            chain = chainForNpcId(player, normalize(name));
+            String name = npc.getCustomName() == null ? "" : npc.getCustomName().getString();
+            chain = chainForNpcId(player, name);
         }
         if (chain.isEmpty()) {
             return false;
         }
         return openDialogue(player, chain.get(), true);
+    }
+
+    public static boolean handleLegacyNamedVillagerInteraction(ServerPlayer player, Villager villager) {
+        if (player == null || villager == null) {
+            return false;
+        }
+        String name = villager.getCustomName() == null ? "" : villager.getCustomName().getString();
+        Optional<String> chain = chainForNpcId(player, name);
+        return chain.filter(id -> !id.isBlank())
+                .map(id -> openDialogue(player, id, true))
+                .orElse(false);
     }
 
     public static boolean openDialogue(ServerPlayer player, String chainId, boolean autoStart) {
@@ -133,6 +144,18 @@ public final class TextQuestNpcHookService {
         }
         String expectedNorm = normalize(expected);
         AABB box = player.getBoundingBox().inflate(INTERACT_RANGE);
+        for (CultivatorNpcEntity npc : player.serverLevel().getEntitiesOfClass(CultivatorNpcEntity.class, box)) {
+            String npcId = normalize(npc.getNamedNpcId());
+            if (expectedNorm.equals(npcId)) {
+                return true;
+            }
+            String name = npc.getCustomName() == null ? "" : npc.getCustomName().getString();
+            String nameNorm = normalize(name);
+            String alias = DISPLAY_ALIASES.getOrDefault(nameNorm, nameNorm);
+            if (expectedNorm.equals(nameNorm) || expectedNorm.equals(alias) || alias.equals(expectedNorm)) {
+                return true;
+            }
+        }
         for (Villager villager : player.serverLevel().getEntitiesOfClass(Villager.class, box)) {
             String name = villager.getCustomName() == null ? "" : villager.getCustomName().getString();
             String nameNorm = normalize(name);

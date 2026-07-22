@@ -835,13 +835,7 @@ public final class SeekingImmortalsCommand {
 
     private static int npcSpawn(CommandSourceStack source, String id) throws CommandSyntaxException {
         ServerPlayer player = source.getPlayerOrException();
-        var npc = NamedNpcRegistry.find(id);
-        boolean merchant = npc.map(n -> n.role().contains("black_market")
-                || n.archetype().contains("market")
-                || n.archetype().contains("vendor")).orElse(false);
-        var spawned = merchant
-                ? NpcSpawnService.spawnTrader(player.serverLevel(), player.blockPosition(), id)
-                : NpcSpawnService.spawnSteward(player.serverLevel(), player.blockPosition(), id);
+        var spawned = NpcSpawnService.spawnNamed(player.serverLevel(), player.blockPosition(), id);
         if (spawned.isEmpty()) {
             source.sendFailure(Component.literal("无法生成该角色。"));
             return 0;
@@ -910,7 +904,10 @@ public final class SeekingImmortalsCommand {
         ServerPlayer player = source.getPlayerOrException();
         String npcId = TextQuestChainService.npcFor(chainId);
         String display = TextQuestNpcHookService.displayNameForNpc(npcId);
-        QuestService.spawnQuestVillager(player, display);
+        if (!QuestService.spawnQuestNpc(player, display, npcId)) {
+            source.sendFailure(Component.literal("任务角色生成失败。"));
+            return 0;
+        }
         source.sendSuccess(() -> Component.literal("已生成任务角色：")
                 .append(safeText(display, "text.seeking_immortals.quest_guide"))
                 .append("｜对应任务：").append(questDisplay(chainId)), true);
@@ -973,8 +970,7 @@ public final class SeekingImmortalsCommand {
     }
 
     private static int questSpawn(CommandSourceStack source, String npcName) throws CommandSyntaxException {
-        QuestService.spawnQuestVillager(source.getPlayerOrException(), npcName);
-        return 1;
+        return QuestService.spawnQuestNpc(source.getPlayerOrException(), npcName) ? 1 : 0;
     }
 
     private static int questPlaceSecretRoom(CommandSourceStack source) throws CommandSyntaxException {

@@ -1,0 +1,47 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:geometry": [{
+    "description": {
+      "identifier": "geometry.seeking_immortals.cultivation_beast.quadruped",
+      "texture_width": 64,
+      "texture_height": 64,
+      "visible_bounds_width": 3.2,
+      "visible_bounds_height": 2.2,
+      "visible_bounds_offset": [0, 0.8, 0]
+    },
+    "bones": [
+      { "name": "root", "pivot": [0, 0, 0] },
+      { "name": "body", "parent": "root", "pivot": [0, 10, 0], "cubes": [
+        { "origin": [-5, 8, -8], "size": [10, 8, 16], "uv": [0, 0] }
+      ] },
+      { "name": "head", "parent": "body", "pivot": [0, 13, -7], "cubes": [
+        { "origin": [-4, 9, -14], "size": [8, 7, 7], "uv": [0, 24] }
+      ] },
+      { "name": "jaw", "parent": "head", "pivot": [0, 10, -13], "cubes": [
+        { "origin": [-3, 8, -18], "size": [6, 4, 5], "uv": [32, 24] }
+      ] },
+      { "name": "left_arm", "parent": "body", "pivot": [3.5, 9, -5], "cubes": [
+        { "origin": [2, 0, -7], "size": [3, 9, 3], "uv": [0, 40] }
+      ] },
+      { "name": "right_arm", "parent": "body", "pivot": [-3.5, 9, -5], "cubes": [
+        { "origin": [-5, 0, -7], "size": [3, 9, 3], "uv": [0, 40], "mirror": true }
+      ] },
+      { "name": "left_leg", "parent": "body", "pivot": [3.5, 9, 5], "cubes": [
+        { "origin": [2, 0, 4], "size": [3, 9, 3], "uv": [0, 40] }
+      ] },
+      { "name": "right_leg", "parent": "body", "pivot": [-3.5, 9, 5], "cubes": [
+        { "origin": [-5, 0, 4], "size": [3, 9, 3], "uv": [0, 40], "mirror": true }
+      ] },
+      { "name": "rear_left_leg", "parent": "body", "pivot": [0, 10, 0] },
+      { "name": "rear_right_leg", "parent": "body", "pivot": [0, 10, 0] },
+      { "name": "left_wing", "parent": "body", "pivot": [0, 12, 0] },
+      { "name": "right_wing", "parent": "body", "pivot": [0, 12, 0] },
+      { "name": "tail", "parent": "body", "pivot": [0, 12, 7], "rotation": [-18, 0, 0], "cubes": [
+        { "origin": [-1.5, 10, 7], "size": [3, 3, 8], "uv": [18, 40] }
+      ] },
+      { "name": "tail_tip", "parent": "tail", "pivot": [0, 11, 14], "rotation": [-12, 0, 0], "cubes": [
+        { "origin": [-1, 9, 14], "size": [2, 2, 5], "uv": [42, 40] }
+      ] }
+    ]
+  }]
+}

@@ -1,3 +1,18 @@
+## 569. 2026-07-23 0.2.148 灵兽与专用 NPC 实体层
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   主回滚位于 `.bak/20260722_180000_beast_npc_entity_layer/`；NBT、元素、运行时审查及收尾备份分别位于 `.bak/20260723_002350_beast_nbt_restore/`、`.bak/20260723_005042_beast_elements/`、`.bak/20260723_010100_entity_runtime_review_fixes/`、`.bak/20260723_015745_beast_npc_finalize/`。矿物、方块模型和其他共享工作树改动不属于本批。
+  Beast entity   Done   `CultivationBeastEntity` + GeckoLib 覆盖完整图鉴、六体型、13 阶、15 元素、陆水空移动、元素状态、Boss/试炼/事件/自然生成、捕获契约与伴生兽姿态；普通野生兽保持可卸载，生态上限不统计 Boss/伴生兽。
+  Spawn authority   Done   自然生态、Boss、试炼与每日事件拒绝和平模式新建；地面/水体候选检查净空与 `noCollision`，`addFreshEntity` 失败返回失败；中层巡逻、核心守卫和每日灵兽事件仅在真实生成后写一次性闩锁。
+  Companion transactions   Done   伴生兽元素 DoT 记录短期主人并用于死亡归属；召唤灵石碎片先全库存预检再按槽位保留，实体插入失败退款；catalog 与术法入口均不再把失败伪装为玩家增益成功。
+  NPC layer   Done   商人、执事、钱庄与任务 NPC 统一继承 `CultivatorNpcEntity extends PathfinderMob`；179 条命名 NPC 通过 `NpcKind` 矩阵确定路由，宗主/长老/执事优先 steward，其他路由 merchant/quest，生产源码不新建或继承 Villager。
+  NPC behavior   Done   三类命名 NPC 生成统一搜索四格内坚固地面、两格净空并校验碰撞；四种 NPC 返岗仅在超距、每 20 tick 且导航空闲时触发；执事先启动数据树，失败才回退宗门业务授权，异宗 `not_member` 分支可达。
+  Resources/dependency   Done   GeckoLib `4.8.4` 改为必需依赖；7 个 Geo、2 个 animation、6 个基础灵兽 atlas、84 个体型/元素 atlas 和 4 个 NPC atlas 接入渲染。实体/GUI 生成器检查 113 文件、确定性差异 0、重复组 0。
+  Tests/build   Done   NPC 路由/行为与灵兽运行时定向测试通过；`./gradlew cleanTest test --no-daemon --max-workers=1` 强制执行 1,000 项测试并全部通过。普通 `./gradlew build --no-daemon --max-workers=1` 在 `1m 33s` 内成功，`aiPreflight` 记录 `mod_version=0.2.148`。
+  Version/protocol   Done   代码/资源/依赖批次从 `0.2.147` 升至 `mod_version=0.2.148`；无网络字段、顺序、类型、注册或频道行为变化，`ModNetwork.PROTOCOL_VERSION=28` 保持不变。
+  Live QA   Pending   仍需真实客户端/专服/双客户端验证 GeckoLib UV、陆水空导航、自然刷怪密度、Boss/试炼碰撞、伴生兽跨维度/区块卸载、179 NPC 聚落分布与旧 Villager 存档迁移；旧档兼容入口仍按名称识别历史任务 Villager，未扩大为新生成路径。
+
 ## 568. 2026-07-22 0.2.147 Lodestone 全域 VFX 深化
 
   Step   Status   Notes
