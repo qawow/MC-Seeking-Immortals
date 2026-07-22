@@ -36,6 +36,10 @@ class StructureToolServiceTest {
         int structure = source.indexOf("StructureToolService.tryUse");
         assertTrue(formation >= 0 && structure > formation,
                 "structure tools should run after formation item dispatch");
+        int useOn = source.indexOf("InteractionResult useOn(UseOnContext context)");
+        int structureUseOn = source.indexOf("StructureToolService", useOn);
+        assertTrue(useOn >= 0 && structureUseOn > useOn,
+                "structure tools must also dispatch from the block-use path");
     }
 
     @Test

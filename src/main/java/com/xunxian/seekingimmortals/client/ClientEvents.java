@@ -28,6 +28,7 @@ import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.client.gui.overlay.VanillaGuiOverlay;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.EntityLeaveLevelEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -217,7 +218,18 @@ public final class ClientEvents {
         public static void onClientTick(TickEvent.ClientTickEvent event) {
             if (event.phase == TickEvent.Phase.END) {
                 LodestoneTechniqueVfx.tickProjectiles();
+                MultiblockProjectionRenderer.tick();
             }
+        }
+
+        @SubscribeEvent
+        public static void onMouseScroll(InputEvent.MouseScrollingEvent event) {
+            MultiblockProjectionRenderer.onMouseScroll(event);
+        }
+
+        @SubscribeEvent
+        public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
+            MultiblockProjectionRenderer.onRightClickBlock(event);
         }
 
         @SubscribeEvent
@@ -257,6 +269,7 @@ public final class ClientEvents {
         public static void onRenderLevelStage(RenderLevelStageEvent event) {
             if (event.getStage() == RenderLevelStageEvent.Stage.AFTER_PARTICLES) {
                 LodestoneTechniqueVfx.renderWorldGeometry(event);
+                MultiblockProjectionRenderer.render(event);
             }
         }
 
@@ -273,6 +286,7 @@ public final class ClientEvents {
             ClientAuctionLadderData.reset();
             ClientLoreData.reset();
             LodestoneTechniqueVfx.reset();
+            MultiblockProjectionRenderer.reset();
         }
 
         private static void drainTechniqueKeyClicks() {

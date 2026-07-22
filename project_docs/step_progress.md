@@ -8882,3 +8882,26 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Verification   Done   生成一致性检查、定向 VFX/协议/多人测试及 `./gradlew build --no-daemon --max-workers=1` 全部通过。
   Backup   Done   既有目标文件备份至 `.bak/20260723_authored_vfx/`；新生成器、档案、加载器、测试和更新说明无旧文件。
   Follow-up   Pending   继续把法宝、丹药/消耗品、灵兽、药草/材料、区域与 BOSS 视觉表接入同一档案管线并做客户端实机取证。
+
+## 565. 2026-07-23 0.2.151 多方块模型与建造投影
+
+  Step   Status   Notes
+  ---   ---   ---
+  Model gap fix   Done   丹炉共享模板炉颈延伸到方块上界 Y=16，Java 选择/碰撞形状同步为三段联合形状；丹炉盖从上方方块 Y=0 接续，资源契约锁定无世界空间间隙。
+  Projection catalog   Done   新增客户端中立的 `MultiblockProjectionCatalog`，覆盖 43 个真实可放置多方块控制器，包括五阶丹炉、灵草圃、13×13 聚灵界门、炼器台、阵心、传送阵、界门和祭坛；实体方块、兼容方块及必须为空气的孔位均有明确匹配规则和相对层索引。
+  Client projection   Done   手持控制器显示实时预览；结构蓝图台右键控制器可锁定/关闭投影，客户端不取消原版方块交互，服务端 `BaseMaterialItem.useOn` 承接潜行方块使用，潜行滚轮切换全部层/单层；缺件显示半透明青色模型，正确/错误/被占空气孔显示绿/红框。幽灵方块与线框分批提交，避免交错切换渲染目标。渲染在客户端事件中接入，并在登录、登出、重生和跨维度时清理。
+  Tests   Done   `MultiblockProjectionCatalogTest` 覆盖 43 个 ID、唯一坐标/层、丹炉壳体、代表性框架/空气孔、聚灵界门和灵草圃；`StructureToolServiceTest` 覆盖 `useOn` 路由；与 `BlockAssetContractTest` 的定向测试通过。
+  Version/protocol   Done   `mod_version` 升至 `0.2.151`；本批未改变网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION` 保持 `29`。
+  Backup   Done   本批备份位于 `.bak/20260723_0.2.151_multiblock_projection_finalize/`、`.bak/20260723_0.2.151_projection_interaction_finalize/`、`.bak/20260723_0.2.151_multiblock_projection_useon/`，前置实现备份位于 `.bak/20260723_031823_multiblock_projection/`。
+  Verification   Done   定向 `StructureToolServiceTest`、`MultiblockProjectionCatalogTest`、`BlockAssetContractTest` 与客户端编译通过；`HEAD + 0.2.151` 隔离快照执行 `bash gradlew build --no-daemon --max-workers=1` 成功，1,014 项测试全部通过。共享工作树普通构建仍记录两处并行域失败：先是 FTB 映射断言，后是 `0.2.152` 法宝 VFX 契约唯一失败；本批未修改两处失败域。75 秒客户端烟测完成客户端事件订阅和方块/粒子/JEI 图集加载，无投影类崩溃，仅有环境 flite/ALSA 噪声并按 timeout 终止。
+  Follow-up   Pending   备用合法 validator 布局尚未生成变体投影；Fabulous/Fast 透明线框和大型结构的 240 单元显示预算仍需真实世界视觉签字；普通完整构建需在共享法宝 VFX 契约修复后重跑。
+
+## 566. 2026-07-23 0.2.153 多方块投影最终协调
+
+  Step   Status   Notes
+  ---   ---   ---
+  Version reconciliation   Done   独立法宝视觉批次先以 `0.2.152` 提交，本批顺延并将 `mod_version` 升至 `0.2.153`；未改变网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION` 保持 `29`。
+  Interaction contract   Done   蓝图台右键受支持控制器时锁定/清除投影并消费该次客户端交互，避免丹炉等控制器同时处理点击；对空气潜行右键保留原启封事务，`BaseMaterialItem.useOn` 覆盖未被投影手势接管的方块使用路径。
+  Verification   Done   三组定向契约与客户端编译通过；当前树普通 `./gradlew build --no-daemon --max-workers=1` 在 1 分 24 秒内完成编译、资源、打包、重映射、生成一致性检查和全量测试，结果为 `BUILD SUCCESSFUL`，`aiPreflight` 记录 `0.2.153`。
+  Backup   Done   最终协调备份位于 `.bak/20260723_042350_multiblock_projection_finalize/`；前置实现备份继续保留。
+  Follow-up   Pending   备用 validator 布局、未来模组 Dirt 标签扩展、240 单元显示预算及 Fabulous/Fast/多人真实视觉仍需后续实机签字。

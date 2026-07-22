@@ -5,11 +5,13 @@ import net.minecraft.locale.Language;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import com.xunxian.seekingimmortals.item.CatalogItemDescriptionService;
 import com.xunxian.seekingimmortals.util.PlayerDisplayText;
@@ -61,6 +63,18 @@ public class BaseMaterialItem extends Item {
             }
         }
         return super.use(level, player, hand);
+    }
+
+    @Override
+    public InteractionResult useOn(UseOnContext context) {
+        if (!context.getLevel().isClientSide && context.getPlayer() instanceof ServerPlayer serverPlayer) {
+            var structureToolUse = com.xunxian.seekingimmortals.structure.StructureToolService
+                    .tryUse(serverPlayer, context.getItemInHand());
+            if (structureToolUse.isPresent()) {
+                return structureToolUse.get().getResult();
+            }
+        }
+        return super.useOn(context);
     }
 
     @Override

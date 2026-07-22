@@ -29,12 +29,16 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
 public class AlchemyFurnaceBlock extends BaseEntityBlock {
     public static final BooleanProperty FORMED = BooleanProperty.create("formed");
-    private static final VoxelShape SHAPE = box(1.0D, 0.0D, 1.0D, 15.0D, 14.0D, 15.0D);
+    private static final VoxelShape SHAPE = Shapes.or(
+            box(2.0D, 0.0D, 2.0D, 14.0D, 3.0D, 14.0D),
+            box(1.0D, 3.0D, 1.0D, 15.0D, 11.0D, 15.0D),
+            box(3.0D, 11.0D, 3.0D, 13.0D, 16.0D, 13.0D));
     private final int tier;
 
     public AlchemyFurnaceBlock(Properties properties) {
@@ -64,6 +68,11 @@ public class AlchemyFurnaceBlock extends BaseEntityBlock {
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        return SHAPE;
+    }
+
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return SHAPE;
     }
 

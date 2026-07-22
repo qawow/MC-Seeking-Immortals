@@ -30,7 +30,7 @@ class BlockAssetContractTest {
     private static final Path BLOCK_TEXTURES = ASSETS.resolve("textures/block");
 
     private static final Map<String, Integer> TEMPLATE_HEIGHTS = Map.of(
-            "alchemy_furnace", 14,
+            "alchemy_furnace", 16,
             "alchemy_lid", 4,
             "formation_core", 8,
             "refinement_forge", 12,
@@ -163,6 +163,18 @@ class BlockAssetContractTest {
     }
 
     @Test
+    void alchemyFurnaceNeckMeetsTheLidWithoutAWorldSpaceGap() throws Exception {
+        JsonObject furnace = read(BLOCK_MODELS.resolve("templates/alchemy_furnace.json")).getAsJsonObject();
+        JsonObject lid = read(BLOCK_MODELS.resolve("templates/alchemy_lid.json")).getAsJsonObject();
+        double furnaceTop = modelBound(furnace, "to", 1, true);
+        double lidBottom = modelBound(lid, "from", 1, false);
+
+        assertEquals(16.0D, furnaceTop, 0.0D, "the furnace neck must reach its block boundary");
+        assertEquals(furnaceTop, 16.0D + lidBottom, 0.0D,
+                "the lid in the block above must start exactly where the furnace ends");
+    }
+
+    @Test
     void spiritOreBlockItemsAreThreeDimensionalAndPlayerVisible() throws Exception {
         Set<String> oreIds = Set.of(
                 "spirit_ore", "metal_spirit_ore", "wood_spirit_ore", "water_spirit_ore",
@@ -195,6 +207,15 @@ class BlockAssetContractTest {
 
     private static Path localModelPath(String modelId) {
         return BLOCK_MODELS.resolve(modelId.substring("seeking_immortals:block/".length()) + ".json");
+    }
+
+    private static double modelBound(JsonObject model, String vectorName, int axis, boolean maximum) {
+        double bound = maximum ? Double.NEGATIVE_INFINITY : Double.POSITIVE_INFINITY;
+        for (JsonElement element : model.getAsJsonArray("elements")) {
+            double value = element.getAsJsonObject().getAsJsonArray(vectorName).get(axis).getAsDouble();
+            bound = maximum ? Math.max(bound, value) : Math.min(bound, value);
+        }
+        return bound;
     }
 
     private static void collectNamedStrings(JsonElement element, String key, Set<String> output) {
