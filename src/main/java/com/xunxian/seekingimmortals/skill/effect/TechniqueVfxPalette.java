@@ -1,5 +1,6 @@
 package com.xunxian.seekingimmortals.skill.effect;
 
+import com.xunxian.seekingimmortals.network.TechniqueVfxPacket;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
@@ -64,6 +65,7 @@ public final class TechniqueVfxPalette {
                     count / 3, spread * 0.45D, 0.4D, spread * 0.45D, 0.01D);
             level.sendParticles(accent, center.x, center.y + 0.35D, center.z,
                     Math.max(4, count / 6), spread * 0.25D, 0.3D, spread * 0.25D, 0.02D);
+            emit(level, TechniqueVfxPacket.Kind.BURST, center, center, spread, count);
         }
 
         public void castAt(ServerLevel level, LivingEntity caster) {
@@ -77,6 +79,7 @@ public final class TechniqueVfxPalette {
             level.sendParticles(core, origin.x, origin.y, origin.z, 10, 0.08D, 0.08D, 0.08D, 0.01D);
             level.sendParticles(accent, origin.x, origin.y, origin.z, 4, 0.05D, 0.05D, 0.05D, 0.01D);
             ring(level, caster.position().add(0.0D, 0.12D, 0.0D), 0.72D, 16, edge);
+            emit(level, TechniqueVfxPacket.Kind.CAST, origin, origin.add(look.scale(1.4D)), 0.72D, 28);
             level.playSound(null, caster.blockPosition(), castSound, SoundSource.PLAYERS, 0.55F, castPitch);
         }
 
@@ -96,6 +99,7 @@ public final class TechniqueVfxPalette {
                             1, 0.015D, 0.015D, 0.015D, 0.0D);
                 }
             }
+            emit(level, TechniqueVfxPacket.Kind.PATH, start, end, 0.18D, points);
         }
 
         public void trailAt(ServerLevel level, Vec3 center, Vec3 movement) {
@@ -135,6 +139,8 @@ public final class TechniqueVfxPalette {
                         entity.getZ() + Math.sin(angle) * spiralRadius,
                         1, 0.02D, 0.025D, 0.02D, 0.0D);
             }
+            emit(level, TechniqueVfxPacket.Kind.AURA, base, base.add(0.0D, entity.getBbHeight(), 0.0D),
+                    safeRadius, points);
         }
 
         public void scanAt(ServerLevel level, Vec3 center, double radius, int density) {
@@ -159,6 +165,7 @@ public final class TechniqueVfxPalette {
             }
             level.sendParticles(accent, center.x, center.y + 0.65D, center.z,
                     Math.max(8, points / 6), safeRadius * 0.2D, 0.3D, safeRadius * 0.2D, 0.01D);
+            emit(level, TechniqueVfxPacket.Kind.SCAN, center, center, safeRadius, points);
         }
 
         public void beamAt(ServerLevel level, Vec3 start, Vec3 end, double radius) {
@@ -175,6 +182,7 @@ public final class TechniqueVfxPalette {
             }
             level.sendParticles(accent, end.x, end.y, end.z,
                     10, Math.max(0.12D, radius * 0.35D), 0.15D, Math.max(0.12D, radius * 0.35D), 0.01D);
+            emit(level, TechniqueVfxPacket.Kind.BEAM, start, end, Math.max(0.12D, radius), points * 2);
         }
 
         public void coneAt(ServerLevel level, Vec3 start, Vec3 direction, double range, double endRadius) {
@@ -195,6 +203,7 @@ public final class TechniqueVfxPalette {
             Vec3 end = start.add(normalized.scale(safeRange));
             level.sendParticles(accent, end.x, end.y, end.z,
                     12, safeRadius * 0.55D, safeRadius * 0.38D, safeRadius * 0.55D, 0.015D);
+            emit(level, TechniqueVfxPacket.Kind.CONE, start, end, safeRadius, 42);
         }
 
         public void impactAt(ServerLevel level, Vec3 center) {
@@ -204,7 +213,17 @@ public final class TechniqueVfxPalette {
             level.sendParticles(core, center.x, center.y + 0.2D, center.z, 18, 0.25D, 0.2D, 0.25D, 0.02D);
             level.sendParticles(accent, center.x, center.y + 0.25D, center.z, 8, 0.15D, 0.15D, 0.15D, 0.01D);
             ring(level, center.add(0.0D, 0.08D, 0.0D), 0.72D, 20, edge);
+            emit(level, TechniqueVfxPacket.Kind.IMPACT, center, center, 0.82D, 36);
             level.playSound(null, center.x, center.y, center.z, impactSound, SoundSource.PLAYERS, 0.7F, impactPitch);
+        }
+
+        private void emit(ServerLevel level, TechniqueVfxPacket.Kind kind, Vec3 start, Vec3 end,
+                          double radius, int intensity) {
+            long seed = level.getGameTime() * 31L
+                    ^ Double.doubleToLongBits(start.x * 0.73D + start.y * 0.37D + start.z)
+                    ^ ((long) family.ordinal() << 48)
+                    ^ kind.ordinal();
+            TechniqueVfxPacket.send(level, kind, family, start, end, radius, intensity, seed);
         }
 
         private void ring(ServerLevel level, Vec3 center, double radius, int points, ParticleOptions particle) {

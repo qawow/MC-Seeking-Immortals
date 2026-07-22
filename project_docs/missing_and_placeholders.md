@@ -1819,3 +1819,6 @@ The five upgraded Tiannan seven-sects FTB tasks are intentionally non-consuming 
 本批未新增占位模型、纹理、物品/方块/实体/网络 id 或持久 schema。747 条术法加载路径现在保留 `damage_base`、`effect_key`、顶层/效果 `tags`、`setting.target` 和 `setting.range`；已有 `SkillType` 专用实现优先，通用投射、范围、减益、控制、增益、恢复、移动、近战和召唤按结构字段执行。无专用实现的 `ultimate`、`secret_art`、`talisman_consume`、`command`、`craft_gate`、`wall`、`buff_zone` 明确失败，禁止旧式静默降级。普通全量构建 696 项通过，协议保持 25。
 
 仍未完成：`effect_key` 目前主要作为后续精确效果标识保留，除元素标签外的大量状态/行为标签尚未逐键消费；通用实现仍共享类别级持续时间、半径、投射速度和 vanilla 状态，需要继续按术法逐 ID 提升高保真。上述七类失败关闭术法需要专用事务、结构、符箓消耗或命令权限实现。功法仍缺灵根/体质、宗门/阵营、声望、来源、环境、转修、个性化成本/风险、生活熟练度与旧 NBT 清理。法宝倍率、储物持续授权、持久交付 outbox、多方块和真实客户端/专服/多人烟测继续保留。
+## 0.2.139 Lodestone VFX 接入说明
+
+本批不新增自有粒子贴图或 shader；使用必需的 Lodestone `1.20.1-1.6.4.1` 内置粒子资源，并由客户端重建颜色、缩放、透明度、旋转和寿命。服务端通过 `TechniqueVfxPacket` 发送受限视觉意图，原版粒子保留为兼容降级。阵法持续视觉已覆盖 `SPIRIT_GATHER`、`DEFENSE`、`KILL_SWORD`、`SEAL_DEMON`、`ILLUSION_MAZE` 与 `CATALOG_GENERIC`，但尚未完成真实专服/双客户端粒子密度、透明排序、低配设置和跨维度实机签字；这些仍是发布前风险。

@@ -7,8 +7,8 @@ import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 
 public final class ModNetwork {
-    // 0.2.1: dialogue screens now receive a bounded server-rendered view.
-    private static final String PROTOCOL_VERSION = "26";
+    // 0.2.138: append bounded server-to-client Lodestone VFX intents.
+    private static final String PROTOCOL_VERSION = "27";
 
     public static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
             new ResourceLocation(SeekingImmortalsMod.MODID, "main"),
@@ -187,6 +187,11 @@ public final class ModNetwork {
                 .encoder(LoreScreenActionPacket::encode)
                 .decoder(LoreScreenActionPacket::decode)
                 .consumerMainThread(LoreScreenActionPacket::handle)
+                .add();
+        CHANNEL.messageBuilder(TechniqueVfxPacket.class, id++, NetworkDirection.PLAY_TO_CLIENT)
+                .encoder(TechniqueVfxPacket::encode)
+                .decoder(TechniqueVfxPacket::decode)
+                .consumerMainThread(TechniqueVfxPacket::handle)
                 .add();
     }
 }

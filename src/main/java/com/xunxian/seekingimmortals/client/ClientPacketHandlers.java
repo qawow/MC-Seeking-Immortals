@@ -10,6 +10,7 @@ import com.xunxian.seekingimmortals.network.SyncQuestTrackerPacket;
 import com.xunxian.seekingimmortals.network.SyncSectDataPacket;
 import com.xunxian.seekingimmortals.network.SyncShopDataPacket;
 import com.xunxian.seekingimmortals.network.SyncWorldpackDataPacket;
+import com.xunxian.seekingimmortals.network.TechniqueVfxPacket;
 import net.minecraft.client.Minecraft;
 
 import java.util.Locale;
@@ -160,5 +161,9 @@ public final class ClientPacketHandlers {
 
     public static void handleOpenRefinePlan(OpenRefinePlanPacket packet) {
         Minecraft.getInstance().setScreen(new RefinementPlanScreen(packet.lines()));
+    }
+
+    public static void handleTechniqueVfx(TechniqueVfxPacket packet) {
+        LodestoneTechniqueVfx.handle(packet);
     }
 }

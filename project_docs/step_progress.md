@@ -8749,3 +8749,15 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Tests   Done   `M02TechniqueCorpusTest` 覆盖字段解析、运行参数、专用映射与高风险类型失败关闭。
   Build   Done   普通 `./gradlew build --no-daemon` BUILD SUCCESSFUL；全量 696 项测试，0 failures/errors/skipped。
   Protocol   Done   未改网络字段、顺序、类型、注册、方向或通道行为，协议保持 `25`。
+## 563. 2026-07-22 0.2.139 Lodestone 高保真 VFX 首批接入
+
+  Step   Status   Notes
+  ---   ---   ---
+  Lodestone dependency   Done   增加 Modrinth Maven 仓库、`lodestonelib=1.20.1-1.6.4.1` 必需前置与 `mod_version=0.2.139`。
+  VFX intent packet   Done   新增有界 `TechniqueVfxPacket`，仅发送事件意图；客户端通过反射桥在 Dist.CLIENT 重建 Lodestone 粒子。
+  Technique visuals   Done   统一 palette 覆盖施法、爆发、路径、光环、扫描、beam、cone、命中；火球/飞剑加入平滑客户端轨迹。
+  Formation visuals   Done   六类阵场及 `CATALOG_GENERIC` 每 20 tick 发送半径/元素 profile 脉冲，客户端绘制旋转环、节点和灵柱。
+  Performance/authority   Done   客户端按距离、粒子设置和每 tick 预算降级；服务端仍权威决定事件和阵场状态。
+  Tests/build   Done   `compileJava`、定向网络/协议/客户端隔离测试通过；贴图批次独立提交后，普通 `./gradlew build --no-daemon` `BUILD SUCCESSFUL in 1m 19s`，`aiPreflight` 正常记录 `mod_version=0.2.139`；开发客户端已加载 Lodestone 与资源后按超时停止，无崩溃。
+  Version/protocol   Done   `mod_version=0.2.139`；新增 S2C 包改变频道消息表，`ModNetwork.PROTOCOL_VERSION=27`。
+  Backup   Done   初始实现备份位于 `.bak/20260722_0.2.138_vfx/`；版本协调备份位于 `.bak/20260722_0.2.139_vfx_rebase/`。

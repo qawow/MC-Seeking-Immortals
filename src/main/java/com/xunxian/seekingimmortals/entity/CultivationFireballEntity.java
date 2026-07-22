@@ -1,6 +1,8 @@
 package com.xunxian.seekingimmortals.entity;
 
+import com.xunxian.seekingimmortals.network.TechniqueVfxPacket;
 import com.xunxian.seekingimmortals.registry.ModEntities;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
@@ -144,6 +146,16 @@ public class CultivationFireballEntity extends Projectile {
             serverLevel.sendParticles(element.spark(0.75F),
                     position.x, position.y, position.z,
                     Math.max(6, element.impactParticles / 2), 0.28D, 0.22D, 0.28D, 0.02D);
+            TechniqueVfxPalette.Family family = TechniqueVfxPalette.familyOf(element.name());
+            TechniqueVfxPacket.send(
+                    serverLevel,
+                    TechniqueVfxPacket.Kind.IMPACT,
+                    family,
+                    position,
+                    position,
+                    Math.max(0.8D, element.splashRadius),
+                    Math.min(72, element.impactParticles + 18),
+                    serverLevel.getGameTime() * 31L ^ getId() * 131L ^ element.id);
             serverLevel.playSound(null, blockPosition(), element.impactSound, SoundSource.PLAYERS, 0.55F, element.impactPitch);
         }
         discard();

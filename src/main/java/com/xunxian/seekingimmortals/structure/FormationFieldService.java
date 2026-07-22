@@ -1,8 +1,10 @@
 package com.xunxian.seekingimmortals.structure;
 
 import com.xunxian.seekingimmortals.block.CatalogFormationCoreBlock;
+import com.xunxian.seekingimmortals.network.TechniqueVfxPacket;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
 import com.xunxian.seekingimmortals.sect.SectMissionGenerator;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.particles.ParticleTypes;
@@ -15,6 +17,7 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -461,6 +464,35 @@ public final class FormationFieldService {
                 }
             }
         }
+        emitFormationVfx(level, field);
+    }
+
+    private static void emitFormationVfx(ServerLevel level, ActiveField field) {
+        String semantic = field.formationId + " " + field.effect;
+        TechniqueVfxPalette.Family family = TechniqueVfxPalette.familyOf(semantic);
+        if (family == TechniqueVfxPalette.Family.NEUTRAL) {
+            family = switch (field.kind) {
+                case SPIRIT_GATHER -> TechniqueVfxPalette.Family.SOUL;
+                case DEFENSE -> TechniqueVfxPalette.Family.EARTH;
+                case KILL_SWORD -> TechniqueVfxPalette.Family.METAL;
+                case SEAL_DEMON -> TechniqueVfxPalette.Family.BLOOD;
+                case ILLUSION_MAZE -> TechniqueVfxPalette.Family.ILLUSION;
+                case CATALOG_GENERIC -> TechniqueVfxPalette.Family.NEUTRAL;
+            };
+        }
+        Vec3 center = Vec3.atCenterOf(field.corePos).add(0.0D, -0.32D, 0.0D);
+        long seed = field.corePos.asLong()
+                ^ ((long) field.formationId.hashCode() << 19)
+                ^ level.getGameTime() / TICK_INTERVAL;
+        TechniqueVfxPacket.send(
+                level,
+                TechniqueVfxPacket.Kind.FORMATION,
+                family,
+                center,
+                center,
+                field.radius,
+                Math.min(72, 28 + field.radius * 2),
+                seed);
     }
 
     private record FieldKey(String dimensionId, long packedPos) {

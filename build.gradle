@@ -53,6 +53,7 @@ repositories {
     maven { name = 'GeckoLib'; url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
     maven { name = 'Architectury'; url = 'https://maven.architectury.dev/' }
     maven { name = 'FTB'; url = 'https://maven.ftb.dev/releases' }
+    maven { name = 'Modrinth'; url = 'https://api.modrinth.com/maven' }
     mavenCentral()
 }
 
@@ -78,6 +79,9 @@ dependencies {
     implementation fg.deobf("dev.ftb.mods:ftb-library-forge:${ftb_library_version}")
     implementation fg.deobf("dev.ftb.mods:ftb-teams-forge:${ftb_teams_version}")
     implementation fg.deobf("dev.ftb.mods:ftb-quests-forge:${ftb_quests_version}")
+
+    // Lodestone supplies client-side additive particles and easing data for the VFX event layer.
+    implementation fg.deobf("maven.modrinth:lodestonelib:${lodestone_version}")
 
     testImplementation platform('org.junit:junit-bom:5.10.2')
     testImplementation 'org.junit.jupiter:junit-jupiter'
