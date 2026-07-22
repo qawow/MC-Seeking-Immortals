@@ -13,6 +13,7 @@ import java.util.UUID;
  * <p>与 M01 {@code ImmortalAffliction} 分离：本类仅承载可被 {@link StatusRegistry} 按字符串 id 引用的短时效果。</p>
  */
 public class SeekingStatusEffect extends MobEffect {
+    private static final int AMBIENT_VFX_INTERVAL_TICKS = 60;
     private final String statusId;
     private final double tickDamage;
     private final double tickHeal;
@@ -101,13 +102,13 @@ public class SeekingStatusEffect extends MobEffect {
         if (tickHeal > 0.0D && entity.getHealth() < entity.getMaxHealth()) {
             entity.heal((float) (tickHeal * (1.0D + amp * 0.25D)));
         }
+        StatusVfxService.emitPulse(entity, this, amp);
     }
 
     @Override
     public boolean isDurationEffectTick(int duration, int amplifier) {
-        if (tickDamage <= 0.0D && tickHeal <= 0.0D) {
-            return false;
-        }
-        return duration % tickInterval == 0;
+        return duration % (tickDamage > 0.0D || tickHeal > 0.0D
+                ? tickInterval
+                : AMBIENT_VFX_INTERVAL_TICKS) == 0;
     }
 }

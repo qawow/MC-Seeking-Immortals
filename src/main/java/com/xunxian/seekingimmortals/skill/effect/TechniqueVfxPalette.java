@@ -244,46 +244,47 @@ public final class TechniqueVfxPalette {
         if (key.isBlank() || "neutral".equals(key) || "elemental".equals(key)) {
             return Family.NEUTRAL;
         }
-        if (contains(key, "fire", "flame", "lava", "yang")) {
+        if (contains(key, "fire", "flame", "lava", "yang", "火", "炎", "焰", "阳")) {
             return Family.FIRE;
         }
-        if (contains(key, "water", "rain", "mist", "ocean")) {
-            return Family.WATER;
-        }
-        if (contains(key, "metal", "gold", "sword", "blade")) {
-            return Family.METAL;
-        }
-        if (contains(key, "wood", "plant", "poison", "vine")) {
-            return Family.WOOD;
-        }
-        if (contains(key, "earth", "sand", "stone", "rock")) {
-            return Family.EARTH;
-        }
-        if (contains(key, "wind", "air", "gale", "cloud")) {
-            return Family.WIND;
-        }
-        if (contains(key, "ice", "frost", "snow", "cold")) {
+        if (contains(key, "ice", "frost", "snow", "cold", "冰", "霜", "雪", "寒")) {
             return Family.ICE;
         }
-        if (contains(key, "thunder", "lightning", "bolt")) {
+        if (contains(key, "water", "rain", "mist", "ocean", "水", "雨", "雾", "海", "潮")) {
+            return Family.WATER;
+        }
+        if (contains(key, "metal", "gold", "sword", "blade", "金", "剑", "刀", "刃", "锋", "元磁")) {
+            return Family.METAL;
+        }
+        if (contains(key, "wood", "plant", "poison", "vine", "木", "草", "藤", "毒", "生机")) {
+            return Family.WOOD;
+        }
+        if (contains(key, "earth", "sand", "stone", "rock", "土", "地", "岩", "山", "石", "砂")) {
+            return Family.EARTH;
+        }
+        if (contains(key, "wind", "air", "gale", "cloud", "风", "气流", "云", "飓")) {
+            return Family.WIND;
+        }
+        if (contains(key, "thunder", "lightning", "bolt", "雷", "电", "劫")) {
             return Family.THUNDER;
         }
-        if (contains(key, "light", "holy", "buddha", "radiant")) {
+        if (contains(key, "light", "holy", "buddha", "radiant", "光", "佛", "圣", "正气", "浩然")) {
             return Family.LIGHT;
         }
-        if (contains(key, "dark", "shadow", "night", "yin") && !contains(key, "yang")) {
+        if (contains(key, "dark", "shadow", "night", "yin", "暗", "影", "夜", "阴")
+                && !contains(key, "yang", "阴阳")) {
             return Family.DARK;
         }
-        if (contains(key, "soul", "spirit", "ghost", "wraith")) {
+        if (contains(key, "soul", "spirit", "ghost", "wraith", "灵魂", "魂", "魄", "鬼", "神识", "神念")) {
             return Family.SOUL;
         }
-        if (contains(key, "blood", "demon", "demonic", "curse", "flesh")) {
+        if (contains(key, "blood", "demon", "demonic", "curse", "flesh", "血", "魔", "咒", "煞", "尸")) {
             return Family.BLOOD;
         }
-        if (contains(key, "void", "space", "spatial", "time", "rift")) {
+        if (contains(key, "void", "space", "spatial", "time", "rift", "空间", "虚空", "时空", "裂隙", "传送")) {
             return Family.VOID;
         }
-        if (contains(key, "illusion", "mirage", "dream", "phantasm")) {
+        if (contains(key, "illusion", "mirage", "dream", "phantasm", "幻", "梦", "蜃")) {
             return Family.ILLUSION;
         }
         return Family.NEUTRAL;

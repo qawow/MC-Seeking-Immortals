@@ -6,6 +6,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class TechniqueVfxPacketTest {
@@ -14,6 +15,7 @@ class TechniqueVfxPacketTest {
         TechniqueVfxPacket original = new TechniqueVfxPacket(
                 TechniqueVfxPacket.Kind.FORMATION,
                 TechniqueVfxPalette.Family.THUNDER,
+                TechniqueVfxPacket.Motif.FORMATION,
                 1.25D, 64.5D, -3.75D,
                 8.0D, 66.0D, 12.0D,
                 9.5F, 72, 0x1234ABCDL);
@@ -30,12 +32,14 @@ class TechniqueVfxPacketTest {
         TechniqueVfxPacket packet = new TechniqueVfxPacket(
                 null,
                 null,
+                null,
                 Double.NaN, Double.POSITIVE_INFINITY, -80_000_000.0D,
                 90_000_000.0D, 12.0D, Double.NEGATIVE_INFINITY,
                 Float.POSITIVE_INFINITY, Integer.MAX_VALUE, 7L);
 
         assertEquals(TechniqueVfxPacket.Kind.BURST, packet.kind());
         assertEquals(TechniqueVfxPalette.Family.NEUTRAL, packet.family());
+        assertEquals(TechniqueVfxPacket.Motif.GENERIC, packet.motif());
         assertEquals(0.0D, packet.x());
         assertEquals(0.0D, packet.y());
         assertEquals(-30_000_000.0D, packet.z());
@@ -50,6 +54,7 @@ class TechniqueVfxPacketTest {
         FriendlyByteBuf buffer = new FriendlyByteBuf(Unpooled.buffer());
         buffer.writeByte(255);
         buffer.writeByte(255);
+        buffer.writeByte(255);
         for (int i = 0; i < 6; i++) {
             buffer.writeDouble(0.0D);
         }
@@ -61,6 +66,45 @@ class TechniqueVfxPacketTest {
 
         assertEquals(TechniqueVfxPacket.Kind.BURST, decoded.kind());
         assertEquals(TechniqueVfxPalette.Family.NEUTRAL, decoded.family());
+        assertEquals(TechniqueVfxPacket.Motif.GENERIC, decoded.motif());
         assertTrue(decoded.radius() > 0.0F);
+    }
+
+    @Test
+    void synchronousCaptureScopesAreNestableAndIdempotent() {
+        TechniqueVfxPacket.CaptureScope outer = TechniqueVfxPacket.captureSynchronousIntents();
+        TechniqueVfxPacket.CaptureScope inner = TechniqueVfxPacket.captureSynchronousIntents();
+
+        inner.close();
+        inner.close();
+        outer.close();
+
+        assertTrue(inner.packets().isEmpty());
+        assertTrue(outer.packets().isEmpty());
+    }
+
+    @Test
+    void captureCandidatesIncludeFormationActivationButNotStatusLifecycle() {
+        TechniqueVfxPacket genericBeam = packet(
+                TechniqueVfxPacket.Kind.BEAM, TechniqueVfxPacket.Motif.GENERIC);
+        TechniqueVfxPacket formationCast = packet(
+                TechniqueVfxPacket.Kind.CAST, TechniqueVfxPacket.Motif.FORMATION);
+        TechniqueVfxPacket formationField = packet(
+                TechniqueVfxPacket.Kind.FORMATION, TechniqueVfxPacket.Motif.FORMATION);
+        TechniqueVfxPacket formationStatus = packet(
+                TechniqueVfxPacket.Kind.STATUS, TechniqueVfxPacket.Motif.FORMATION);
+
+        assertTrue(TechniqueVfxPacket.isCaptureCandidate(genericBeam));
+        assertTrue(TechniqueVfxPacket.isCaptureCandidate(formationCast));
+        assertTrue(TechniqueVfxPacket.isCaptureCandidate(formationField));
+        assertFalse(TechniqueVfxPacket.isCaptureCandidate(formationStatus));
+    }
+
+    private static TechniqueVfxPacket packet(TechniqueVfxPacket.Kind kind, TechniqueVfxPacket.Motif motif) {
+        return new TechniqueVfxPacket(
+                kind, TechniqueVfxPalette.Family.NEUTRAL, motif,
+                0.0D, 64.0D, 0.0D,
+                1.0D, 64.0D, 0.0D,
+                1.0F, 16, 1L);
     }
 }

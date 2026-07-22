@@ -10,10 +10,12 @@ import com.xunxian.seekingimmortals.skill.TalismanConsumePolicy;
 import com.xunxian.seekingimmortals.skill.TechniqueGateService;
 import com.xunxian.seekingimmortals.skill.effect.SkillContext;
 import com.xunxian.seekingimmortals.skill.effect.SkillEffect;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxOrchestrator;
 import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;
@@ -156,7 +158,15 @@ public record ReleaseTechniquePacket(int slot) {
                             .position(player.position())
                             .lookDirection(player.getLookAngle())
                             .build();
-                    if (!effect.execute(player, cultivation, skill, ctx)) {
+                    Vec3 beforeCast = player.position();
+                    TechniqueVfxPacket.CaptureScope vfxCapture = TechniqueVfxPacket.captureSynchronousIntents();
+                    boolean executed;
+                    try {
+                        executed = effect.execute(player, cultivation, skill, ctx);
+                    } finally {
+                        vfxCapture.close();
+                    }
+                    if (!executed) {
                         talismanReservation.refund(player);
                         player.displayClientMessage(
                                 Component.translatable("message.seeking_immortals.technique_release.effect_failed"), true);
@@ -168,6 +178,8 @@ public record ReleaseTechniquePacket(int slot) {
                     if (!cultivation.consumeSpiritualPower(cost)) {
                         return;
                     }
+                    TechniqueVfxOrchestrator.emitSuccessfulCast(
+                            player, technique, skillType, beforeCast, vfxCapture.packets(), false);
                     if (skillType != null) {
                         cultivation.addSkillProficiency(skillType, 10);
                     }
@@ -274,7 +286,15 @@ public record ReleaseTechniquePacket(int slot) {
                     .position(player.position())
                     .lookDirection(player.getLookAngle())
                     .build();
-            if (!effect.execute(player, cultivation, skill, ctx)) {
+            Vec3 beforeCast = player.position();
+            TechniqueVfxPacket.CaptureScope vfxCapture = TechniqueVfxPacket.captureSynchronousIntents();
+            boolean executed;
+            try {
+                executed = effect.execute(player, cultivation, skill, ctx);
+            } finally {
+                vfxCapture.close();
+            }
+            if (!executed) {
                 talismanReservation.refund(player);
                 continue;
             }
@@ -282,6 +302,8 @@ public record ReleaseTechniquePacket(int slot) {
             if (!cultivation.consumeSpiritualPower(cost)) {
                 continue;
             }
+            TechniqueVfxOrchestrator.emitSuccessfulCast(
+                    player, technique, skillType, beforeCast, vfxCapture.packets(), true);
             int cooldownTicks = effect.getCooldownTicks(skill.getLevel());
             if (multiScale < 0.999D) {
                 cooldownTicks = Math.max(5, (int) Math.round(cooldownTicks * multiScale));

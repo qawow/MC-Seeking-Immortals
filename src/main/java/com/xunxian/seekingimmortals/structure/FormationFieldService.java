@@ -123,6 +123,7 @@ public final class FormationFieldService {
         ACTIVE.put(key, field);
         persistField(level, field);
         grantFormationPractice(deployer, true);
+        emitActivationVfx(level, field);
         return true;
     }
 
@@ -158,6 +159,7 @@ public final class FormationFieldService {
         ACTIVE.put(key, field);
         persistField(level, field);
         grantFormationPractice(deployer, false);
+        emitActivationVfx(level, field);
         return true;
     }
 
@@ -288,6 +290,7 @@ public final class FormationFieldService {
                     coreBlockId);
             field.freeField = stored.freeField();
             ACTIVE.put(key, field);
+            emitStatusVfx(level, field);
         }
     }
 
@@ -310,6 +313,7 @@ public final class FormationFieldService {
                 ringBroken = !ringIntact(level, field.corePos, field.kind, field.radius, field.coreBlockId);
             }
             if (field.remainingTicks <= 0 || ringBroken) {
+                emitDissipateVfx(level, field, ringBroken);
                 it.remove();
                 FormationFieldSavedData.get(level).remove(field.dimensionId, field.corePos);
                 continue;
@@ -327,6 +331,14 @@ public final class FormationFieldService {
 
     public static void clearAll() {
         ACTIVE.clear();
+    }
+
+    public static void unload(ServerLevel level) {
+        if (level == null) {
+            return;
+        }
+        String dimensionId = level.dimension().location().toString();
+        ACTIVE.keySet().removeIf(key -> dimensionId.equals(key.dimensionId));
     }
 
     private static void persistField(ServerLevel level, ActiveField field) {
@@ -467,32 +479,98 @@ public final class FormationFieldService {
         emitFormationVfx(level, field);
     }
 
-    private static void emitFormationVfx(ServerLevel level, ActiveField field) {
-        String semantic = field.formationId + " " + field.effect;
-        TechniqueVfxPalette.Family family = TechniqueVfxPalette.familyOf(semantic);
-        if (family == TechniqueVfxPalette.Family.NEUTRAL) {
-            family = switch (field.kind) {
-                case SPIRIT_GATHER -> TechniqueVfxPalette.Family.SOUL;
-                case DEFENSE -> TechniqueVfxPalette.Family.EARTH;
-                case KILL_SWORD -> TechniqueVfxPalette.Family.METAL;
-                case SEAL_DEMON -> TechniqueVfxPalette.Family.BLOOD;
-                case ILLUSION_MAZE -> TechniqueVfxPalette.Family.ILLUSION;
-                case CATALOG_GENERIC -> TechniqueVfxPalette.Family.NEUTRAL;
-            };
-        }
-        Vec3 center = Vec3.atCenterOf(field.corePos).add(0.0D, -0.32D, 0.0D);
-        long seed = field.corePos.asLong()
-                ^ ((long) field.formationId.hashCode() << 19)
-                ^ level.getGameTime() / TICK_INTERVAL;
+    private static void emitActivationVfx(ServerLevel level, ActiveField field) {
+        TechniqueVfxPalette.Family family = familyFor(field);
+        Vec3 center = vfxCenter(field);
+        long seed = vfxSeed(level, field, TechniqueVfxPacket.Kind.FORMATION);
         TechniqueVfxPacket.send(
                 level,
                 TechniqueVfxPacket.Kind.FORMATION,
                 family,
+                TechniqueVfxPacket.Motif.FORMATION,
                 center,
                 center,
                 field.radius,
-                Math.min(72, 28 + field.radius * 2),
+                Math.min(96, 72 + field.radius * 4),
                 seed);
+        Vec3 castStart = center.add(0.0D, 0.12D, 0.0D);
+        Vec3 castEnd = center.add(0.0D, 1.25D + field.radius * 0.18D, 0.0D);
+        TechniqueVfxPacket.send(
+                level,
+                TechniqueVfxPacket.Kind.CAST,
+                family,
+                TechniqueVfxPacket.Motif.FORMATION,
+                castStart,
+                castEnd,
+                Math.max(0.65D, field.radius * 0.35D),
+                Math.min(72, 44 + field.radius * 3),
+                seed ^ 0x4f1bbcdcL);
+    }
+
+    private static void emitStatusVfx(ServerLevel level, ActiveField field) {
+        emitFormationVfx(level, field, TechniqueVfxPacket.Kind.STATUS,
+                TechniqueVfxPacket.Motif.FORMATION, Math.min(24, 8 + field.radius * 2));
+    }
+
+    private static void emitDissipateVfx(ServerLevel level, ActiveField field, boolean ringBroken) {
+        emitFormationVfx(level, field, TechniqueVfxPacket.Kind.DISSIPATE,
+                TechniqueVfxPacket.Motif.FORMATION,
+                ringBroken ? Math.min(96, 76 + field.radius * 4) : Math.min(30, 20 + field.radius * 2));
+    }
+
+    private static void emitFormationVfx(ServerLevel level, ActiveField field,
+                                         TechniqueVfxPacket.Kind kind,
+                                         TechniqueVfxPacket.Motif motif,
+                                         int intensity) {
+        TechniqueVfxPalette.Family family = familyFor(field);
+        Vec3 center = vfxCenter(field);
+        long seed = vfxSeed(level, field, kind);
+        TechniqueVfxPacket.send(
+                level,
+                kind,
+                family,
+                motif,
+                center,
+                center,
+                field.radius,
+                intensity,
+                seed);
+    }
+
+    private static void emitFormationVfx(ServerLevel level, ActiveField field) {
+        emitFormationVfx(level, field, TechniqueVfxPacket.Kind.FORMATION,
+                TechniqueVfxPacket.Motif.FORMATION, Math.min(72, 28 + field.radius * 2));
+    }
+
+    private static TechniqueVfxPalette.Family familyFor(ActiveField field) {
+        return familyFor(field.formationId, field.effect, field.kind);
+    }
+
+    static TechniqueVfxPalette.Family familyFor(String formationId, String effect, FieldKind kind) {
+        TechniqueVfxPalette.Family semanticFamily = TechniqueVfxPalette.familyOf(
+                (formationId == null ? "" : formationId) + " " + (effect == null ? "" : effect));
+        if (semanticFamily != TechniqueVfxPalette.Family.NEUTRAL) {
+            return semanticFamily;
+        }
+        return switch (kind == null ? FieldKind.CATALOG_GENERIC : kind) {
+            case SPIRIT_GATHER -> TechniqueVfxPalette.Family.SOUL;
+            case DEFENSE -> TechniqueVfxPalette.Family.EARTH;
+            case KILL_SWORD -> TechniqueVfxPalette.Family.METAL;
+            case SEAL_DEMON -> TechniqueVfxPalette.Family.BLOOD;
+            case ILLUSION_MAZE -> TechniqueVfxPalette.Family.ILLUSION;
+            case CATALOG_GENERIC -> TechniqueVfxPalette.Family.NEUTRAL;
+        };
+    }
+
+    private static Vec3 vfxCenter(ActiveField field) {
+        return Vec3.atCenterOf(field.corePos).add(0.0D, -0.32D, 0.0D);
+    }
+
+    private static long vfxSeed(ServerLevel level, ActiveField field, TechniqueVfxPacket.Kind kind) {
+        return field.corePos.asLong()
+                ^ ((long) field.formationId.hashCode() << 19)
+                ^ (level.getGameTime() / TICK_INTERVAL)
+                ^ ((long) kind.ordinal() << 52);
     }
 
     private record FieldKey(String dimensionId, long packedPos) {

@@ -10,7 +10,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 /**
  * Persistent formation core BE (Wave54).
- * Stores kind + remaining ticks and rehydrates FormationFieldService on load/tick.
+ * Stores legacy core metadata; FormationFieldService and its SavedData remain authoritative.
  * M07: also stores formationId for catalog-aligned field params.
  */
 public class FormationCoreBlockEntity extends BlockEntity {
@@ -33,13 +33,6 @@ public class FormationCoreBlockEntity extends BlockEntity {
         this.remainingTicks = Math.max(20, durationTicks);
         this.freeField = free;
         setChanged();
-        if (level != null && !level.isClientSide && level instanceof net.minecraft.server.level.ServerLevel serverLevel) {
-            if (free) {
-                FormationFieldService.activateFreeField(serverLevel, worldPosition, fieldKind, remainingTicks, null, this.formationId);
-            } else {
-                FormationFieldService.activate(serverLevel, worldPosition, fieldKind, null, this.formationId);
-            }
-        }
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, FormationCoreBlockEntity be) {
@@ -52,17 +45,6 @@ public class FormationCoreBlockEntity extends BlockEntity {
         }
         if (be.remainingTicks <= 0) {
             be.setChanged();
-        } else if (level instanceof net.minecraft.server.level.ServerLevel serverLevel && be.remainingTicks % 100 == 0) {
-            // periodic rehydrate in case memory map was cleared
-            try {
-                FormationFieldService.FieldKind fieldKind = FormationFieldService.FieldKind.valueOf(be.kind);
-                if (be.freeField) {
-                    FormationFieldService.activateFreeField(serverLevel, pos, fieldKind, be.remainingTicks, null, be.formationId);
-                } else {
-                    FormationFieldService.activate(serverLevel, pos, fieldKind, null, be.formationId);
-                }
-            } catch (RuntimeException ignored) {
-            }
         }
     }
 

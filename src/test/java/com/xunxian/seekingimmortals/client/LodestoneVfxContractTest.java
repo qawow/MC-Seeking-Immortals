@@ -34,6 +34,19 @@ class LodestoneVfxContractTest {
         assertTrue(renderer.contains("lodScale("));
         assertTrue(renderer.contains("tickProjectiles("));
         assertTrue(renderer.contains("WorldParticleBuilder.create"));
+        assertTrue(renderer.contains("LUMITRANSPARENT.withDepthFade()"));
+        assertTrue(renderer.contains("LodestoneWorldParticleRenderType.ADDITIVE"));
+        assertTrue(renderer.contains("ExtrudingSparkBehaviorComponent"));
+        assertTrue(renderer.contains("PositionedScreenshakeInstance"));
+        assertTrue(renderer.contains("getBoundingBox().inflate(64.0D)"));
+        assertTrue(renderer.contains("MAX_SHAKES_PER_TICK"));
+        assertTrue(renderer.contains("COLOR_CACHE"));
+        assertTrue(renderer.contains("0.74F"));
+        assertTrue(renderer.contains("8.0F, 32.0F"));
+        assertTrue(renderer.contains("setIntensity(strength, 0.0F)"));
+        assertTrue(renderer.contains("Math.min(intensity, 35)"));
+        assertTrue(renderer.indexOf("embellish(level, packet.kind()")
+                < renderer.indexOf("switch (packet.kind())"));
     }
 
     @Test
@@ -51,15 +64,43 @@ class LodestoneVfxContractTest {
     }
 
     @Test
-    void buildDeclaresMandatoryLodestoneAndProtocolTwentySeven() throws Exception {
+    void buildDeclaresMandatoryLodestoneAndProtocolTwentyEight() throws Exception {
         String build = Files.readString(Path.of("build.gradle"));
         String mods = Files.readString(Path.of("src", "main", "resources", "META-INF", "mods.toml"));
         String network = read(JAVA_ROOT.resolve(Path.of("network", "ModNetwork.java")));
         assertTrue(build.contains("maven.modrinth:lodestonelib:${lodestone_version}"));
         assertTrue(mods.contains("modId=\"lodestone\""));
         assertTrue(mods.contains("mandatory=true"));
-        assertTrue(network.contains("PROTOCOL_VERSION = \"27\""));
+        assertTrue(network.contains("PROTOCOL_VERSION = \"28\""));
         assertTrue(network.contains("TechniqueVfxPacket.class"));
+    }
+
+    @Test
+    void allSuccessfulTechniquePathsUseSemanticOrchestrator() throws Exception {
+        String release = read(JAVA_ROOT.resolve(Path.of("network", "ReleaseTechniquePacket.java")));
+        assertEquals(2, occurrences(release, "TechniqueVfxOrchestrator.emitSuccessfulCast("));
+        assertEquals(2, occurrences(release, "TechniqueVfxPacket.captureSynchronousIntents()"));
+        assertTrue(release.contains("vfxCapture.packets(), false"));
+        assertTrue(release.contains("vfxCapture.packets(), true"));
+
+        String artifact = read(JAVA_ROOT.resolve(Path.of("artifact", "ArtifactActiveSkillService.java")));
+        assertTrue(artifact.contains("TechniqueVfxPacket.captureSynchronousIntents()"));
+        assertTrue(artifact.contains("vfxCapture.packets()"));
+
+        String packet = read(JAVA_ROOT.resolve(Path.of("network", "TechniqueVfxPacket.java")));
+        assertTrue(packet.contains("STATUS"));
+        assertTrue(packet.contains("DISSIPATE"));
+        for (String motif : List.of("BLADE", "SHIELD", "DOMAIN", "TELEPORT", "SUMMON",
+                "WALL", "CHAIN", "RAIN", "HEAL", "SEAL", "FORMATION", "ILLUSION")) {
+            assertTrue(packet.contains(motif), motif);
+        }
+        assertTrue(packet.contains("isCaptureCandidate(packet)"));
+        assertTrue(packet.contains("catch (RuntimeException ignored)"));
+
+        String orchestrator = read(JAVA_ROOT.resolve(Path.of(
+                "skill", "effect", "TechniqueVfxOrchestrator.java")));
+        assertTrue(orchestrator.contains("capturedIntents"));
+        assertTrue(orchestrator.contains("selectSemantic"));
     }
 
     private static String read(Path path) {
@@ -68,5 +109,15 @@ class LodestoneVfxContractTest {
         } catch (Exception exception) {
             throw new IllegalStateException(path.toString(), exception);
         }
+    }
+
+    private static int occurrences(String source, String needle) {
+        int count = 0;
+        int cursor = 0;
+        while ((cursor = source.indexOf(needle, cursor)) >= 0) {
+            count++;
+            cursor += needle.length();
+        }
+        return count;
     }
 }

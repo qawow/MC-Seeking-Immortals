@@ -39,6 +39,15 @@ class TechniqueVfxPaletteTest {
         assertEquals(TechniqueVfxPalette.Family.DARK, TechniqueVfxPalette.familyOf("dark"));
         assertEquals(TechniqueVfxPalette.Family.BLOOD, TechniqueVfxPalette.familyOf("demonic"));
         assertEquals(TechniqueVfxPalette.Family.VOID, TechniqueVfxPalette.familyOf("space"));
+        assertEquals(TechniqueVfxPalette.Family.FIRE, TechniqueVfxPalette.familyOf("烈焰真火"));
+        assertEquals(TechniqueVfxPalette.Family.ICE, TechniqueVfxPalette.familyOf("水/玄冰"));
+        assertEquals(TechniqueVfxPalette.Family.METAL, TechniqueVfxPalette.familyOf("青元剑诀"));
+        assertEquals(TechniqueVfxPalette.Family.WOOD, TechniqueVfxPalette.familyOf("木灵藤蔓"));
+        assertEquals(TechniqueVfxPalette.Family.EARTH, TechniqueVfxPalette.familyOf("山岳土元"));
+        assertEquals(TechniqueVfxPalette.Family.THUNDER, TechniqueVfxPalette.familyOf("雷劫"));
+        assertEquals(TechniqueVfxPalette.Family.SOUL, TechniqueVfxPalette.familyOf("神识魂魄"));
+        assertEquals(TechniqueVfxPalette.Family.VOID, TechniqueVfxPalette.familyOf("空间裂隙"));
+        assertEquals(TechniqueVfxPalette.Family.ILLUSION, TechniqueVfxPalette.familyOf("幻梦"));
     }
 
     @Test

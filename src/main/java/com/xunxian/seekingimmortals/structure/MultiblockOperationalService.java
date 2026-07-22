@@ -2,7 +2,9 @@ package com.xunxian.seekingimmortals.structure;
 
 import com.xunxian.seekingimmortals.catalog.ItemCatalogService;
 import com.xunxian.seekingimmortals.item.InventoryDeliveryService;
+import com.xunxian.seekingimmortals.network.TechniqueVfxPacket;
 import com.xunxian.seekingimmortals.registry.ModItems;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
 import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -11,6 +13,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -196,6 +199,7 @@ public final class MultiblockOperationalService {
             return false;
         }
         MultiblockOperationalSavedData.StationState state = ensureState(level, stationId, origin);
+        boolean transitioned = state.state() != MultiblockOperationalSavedData.OpState.DISABLED || state.hp() > 0;
         // Partial refund based on remaining integrity.
         int refund = Math.max(0, (int) Math.floor(repairCostShards(state) * state.efficiency()));
         MultiblockOperationalSavedData data = MultiblockOperationalSavedData.get(level);
@@ -203,6 +207,10 @@ public final class MultiblockOperationalService {
                 state.dimensionId(), state.stationId(), state.packedOrigin(),
                 MultiblockOperationalSavedData.OpState.DISABLED, 0, state.maxHp()));
         MultiblockStationService.markDirty(level, origin);
+        if (transitioned) {
+            emitStationVfx(level, stationId, origin, TechniqueVfxPacket.Kind.DISSIPATE,
+                    stationMotif(stationId), 48);
+        }
         if (refund > 0) {
             InventoryDeliveryService.giveOrEnqueue(player,
                     new ItemStack(ModItems.SPIRIT_STONE_SHARD.get(), refund),
@@ -387,6 +395,9 @@ public final class MultiblockOperationalService {
                 MultiblockOperationalSavedData.OpState.INTACT, state.maxHp(), state.maxHp());
         MultiblockOperationalSavedData.get(level).upsert(next);
         MultiblockStationService.markDirty(level, origin);
+        TechniqueVfxPacket.Motif motif = stationMotif(stationId);
+        emitStationVfx(level, stationId, origin, TechniqueVfxPacket.Kind.FORMATION, motif, 64);
+        emitStationVfx(level, stationId, origin, TechniqueVfxPacket.Kind.CAST, motif, 34);
         return next;
     }
 
@@ -449,10 +460,18 @@ public final class MultiblockOperationalService {
         }
         int hp = Math.max(0, state.hp() - amount);
         MultiblockOperationalSavedData.OpState nextState = stateFromHp(hp, state.maxHp());
+        boolean disabledNow = nextState == MultiblockOperationalSavedData.OpState.DISABLED
+                && state.state() != MultiblockOperationalSavedData.OpState.DISABLED;
         MultiblockOperationalSavedData.StationState next = new MultiblockOperationalSavedData.StationState(
                 state.dimensionId(), state.stationId(), state.packedOrigin(), nextState, hp, state.maxHp());
         MultiblockOperationalSavedData.get(level).upsert(next);
         MultiblockStationService.markDirty(level, origin);
+        emitStationVfx(level, stationId, origin, TechniqueVfxPacket.Kind.IMPACT,
+                stationMotif(stationId), disabledNow ? 52 : 30);
+        if (disabledNow) {
+            emitStationVfx(level, stationId, origin, TechniqueVfxPacket.Kind.DISSIPATE,
+                    stationMotif(stationId), 58);
+        }
         return next;
     }
 
@@ -469,7 +488,86 @@ public final class MultiblockOperationalService {
                 state.dimensionId(), state.stationId(), state.packedOrigin(), nextState, hp, state.maxHp());
         MultiblockOperationalSavedData.get(level).upsert(next);
         MultiblockStationService.markDirty(level, origin);
+        emitStationVfx(level, stationId, origin, TechniqueVfxPacket.Kind.STATUS,
+                TechniqueVfxPacket.Motif.CLEANSE, 30);
         return next;
+    }
+
+    private static void emitStationVfx(ServerLevel level, String stationId, BlockPos origin,
+                                       TechniqueVfxPacket.Kind kind, TechniqueVfxPacket.Motif motif,
+                                       int intensity) {
+        if (level == null || origin == null || kind == null) {
+            return;
+        }
+        MultiblockStructureCatalog.StructureEntry entry = MultiblockStructureCatalog.builtin()
+                .find(stationId).orElse(null);
+        String semantic = stationId == null ? "" : stationId;
+        if (entry != null) {
+            semantic = semantic + " " + entry.type() + " " + entry.display();
+        }
+        TechniqueVfxPalette.Family family = stationFamily(semantic);
+        double radius = entry == null ? 2.0D : Math.max(1.5D, Math.min(10.0D, entry.radius()));
+        Vec3 center = Vec3.atCenterOf(origin).add(0.0D, 0.08D, 0.0D);
+        Vec3 end = kind == TechniqueVfxPacket.Kind.CAST
+                ? center.add(0.0D, Math.max(1.2D, Math.min(4.0D, radius * 0.6D)), 0.0D)
+                : center;
+        long seed = origin.asLong()
+                ^ ((long) semantic.hashCode() << 17)
+                ^ ((long) kind.ordinal() << 52)
+                ^ level.getGameTime();
+        TechniqueVfxPacket.send(level, kind, family,
+                motif == null ? TechniqueVfxPacket.Motif.DOMAIN : motif,
+                center, end, radius, intensity, seed);
+    }
+
+    static TechniqueVfxPacket.Motif stationMotif(String stationId) {
+        String key = stationId == null ? "" : stationId.trim().toLowerCase(Locale.ROOT);
+        if (containsAny(key, "gate", "rift", "teleport", "ferry", "portal", "cycle")) {
+            return TechniqueVfxPacket.Motif.TELEPORT;
+        }
+        if (containsAny(key, "array", "formation")) {
+            return TechniqueVfxPacket.Motif.FORMATION;
+        }
+        if (containsAny(key, "altar", "seal", "suppress")) {
+            return TechniqueVfxPacket.Motif.SEAL;
+        }
+        if (containsAny(key, "furnace", "forge", "alchemy", "refine", "craft")) {
+            return TechniqueVfxPacket.Motif.CHANNEL;
+        }
+        if (containsAny(key, "shield", "ward", "defense")) {
+            return TechniqueVfxPacket.Motif.SHIELD;
+        }
+        if (containsAny(key, "garden", "planter", "herb", "spring")) {
+            return TechniqueVfxPacket.Motif.HEAL;
+        }
+        return TechniqueVfxPacket.Motif.DOMAIN;
+    }
+
+    static TechniqueVfxPalette.Family stationFamily(String semantic) {
+        String key = semantic == null ? "" : semantic.trim().toLowerCase(Locale.ROOT);
+        TechniqueVfxPalette.Family family = TechniqueVfxPalette.familyOf(key);
+        if (family != TechniqueVfxPalette.Family.NEUTRAL) {
+            return family;
+        }
+        if (containsAny(key, "furnace", "forge", "alchemy", "refine")) {
+            return TechniqueVfxPalette.Family.FIRE;
+        }
+        if (containsAny(key, "garden", "planter", "herb", "pill")) {
+            return TechniqueVfxPalette.Family.WOOD;
+        }
+        if (containsAny(key, "gate", "rift", "teleport", "ferry", "portal", "cycle")) {
+            return TechniqueVfxPalette.Family.VOID;
+        }
+        return TechniqueVfxPalette.Family.NEUTRAL;
+    }
+
+    private static boolean containsAny(String value, String... tokens) {
+        for (String token : tokens) {
+            if (value.contains(token)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private static MultiblockOperationalSavedData.OpState stateFromHp(int hp, int maxHp) {

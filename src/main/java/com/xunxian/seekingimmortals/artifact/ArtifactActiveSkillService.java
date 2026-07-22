@@ -1,13 +1,17 @@
 package com.xunxian.seekingimmortals.artifact;
 
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
+import com.xunxian.seekingimmortals.cultivation.TechniqueDataManager;
 import com.xunxian.seekingimmortals.skill.CultivationSkill;
 import com.xunxian.seekingimmortals.skill.SkillType;
 import com.xunxian.seekingimmortals.skill.effect.SkillContext;
 import com.xunxian.seekingimmortals.skill.effect.SkillEffect;
 import com.xunxian.seekingimmortals.skill.effect.SkillEffectRegistry;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxOrchestrator;
+import com.xunxian.seekingimmortals.network.TechniqueVfxPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.phys.Vec3;
 
 import java.util.LinkedHashMap;
 import java.util.Locale;
@@ -134,6 +138,8 @@ public final class ArtifactActiveSkillService {
                 .build();
 
         boolean ok;
+        Vec3 beforeCast = player.position();
+        TechniqueVfxPacket.CaptureScope vfxCapture = TechniqueVfxPacket.captureSynchronousIntents();
         try {
             // Push scale so all SpellEffect.calculateDamage call sites honor over-tier suppression.
             com.xunxian.seekingimmortals.skill.effect.spell.SpellEffect.pushPowerScale(powerScale);
@@ -142,6 +148,7 @@ public final class ArtifactActiveSkillService {
             return CastResult.DENIED;
         } finally {
             com.xunxian.seekingimmortals.skill.effect.spell.SpellEffect.clearPowerScale();
+            vfxCapture.close();
         }
         if (!ok) {
             return CastResult.DENIED;
@@ -149,6 +156,13 @@ public final class ArtifactActiveSkillService {
         if (!cultivation.consumeSpiritualPower(cost)) {
             return CastResult.DENIED;
         }
+        TechniqueVfxOrchestrator.emitSuccessfulCast(
+                player,
+                TechniqueDataManager.getTechnique(player.getServer(), skill.techniqueId()).orElse(null),
+                skill.skillType(),
+                beforeCast,
+                vfxCapture.packets(),
+                false);
         player.getCooldowns().addCooldown(stack.getItem(), cooldown);
         // 本命成长
         if (def.id().equals(NatalBindingService.boundId(player))) {

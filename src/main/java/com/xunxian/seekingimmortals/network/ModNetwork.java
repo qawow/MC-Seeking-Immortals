@@ -7,8 +7,8 @@ import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 
 public final class ModNetwork {
-    // 0.2.138: append bounded server-to-client Lodestone VFX intents.
-    private static final String PROTOCOL_VERSION = "27";
+    // 0.2.141: extend bounded Lodestone intents with semantic motifs and lifecycle phases.
+    private static final String PROTOCOL_VERSION = "28";
 
     public static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
             new ResourceLocation(SeekingImmortalsMod.MODID, "main"),

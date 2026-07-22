@@ -53,6 +53,7 @@ import com.xunxian.seekingimmortals.structure.FormationFieldService;
 import com.xunxian.seekingimmortals.worldpack.DemonRiftHazard;
 import com.xunxian.seekingimmortals.worldpack.SecretRealmRewardService;
 import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
+import com.xunxian.seekingimmortals.worldpack.WorldHazardVfxService;
 import com.xunxian.seekingimmortals.worldpack.YinUnderworldHazard;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -159,6 +160,13 @@ public final class ModEvents {
     public static void onLevelLoad(net.minecraftforge.event.level.LevelEvent.Load event) {
         if (event.getLevel() instanceof ServerLevel serverLevel && !serverLevel.isClientSide()) {
             FormationFieldService.loadFromSavedData(serverLevel);
+        }
+    }
+
+    @SubscribeEvent
+    public static void onLevelUnload(net.minecraftforge.event.level.LevelEvent.Unload event) {
+        if (event.getLevel() instanceof ServerLevel serverLevel && !serverLevel.isClientSide()) {
+            FormationFieldService.unload(serverLevel);
         }
     }
 
@@ -530,6 +538,7 @@ public final class ModEvents {
     @SubscribeEvent
     public static void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
+        WorldHazardVfxService.clear(player);
         player.getPersistentData().remove(FlyingSwordBeginnerSpell.ACTIVE_KEY);
         player.getPersistentData().remove(FlyingSwordAdvancedSpell.ACTIVE_KEY);
         player.getPersistentData().remove(AuraBodyShieldSpell.ACTIVE_KEY);
@@ -558,6 +567,7 @@ public final class ModEvents {
     @SubscribeEvent
     public static void onPlayerChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
+        WorldHazardVfxService.clear(player);
         player.getPersistentData().remove(FlyingSwordBeginnerSpell.ACTIVE_KEY);
         player.getPersistentData().remove(FlyingSwordAdvancedSpell.ACTIVE_KEY);
         player.getPersistentData().remove(AuraBodyShieldSpell.ACTIVE_KEY);
@@ -684,6 +694,9 @@ public final class ModEvents {
 
     @SubscribeEvent
     public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
+        if (event.getEntity() instanceof ServerPlayer serverPlayer) {
+            WorldHazardVfxService.clear(serverPlayer);
+        }
         CultivationHelper.get(event.getEntity()).ifPresent(cultivation -> {
             cultivation.ensureRootInitialized(event.getEntity().getRandom());
             if (event.getEntity() instanceof ServerPlayer serverPlayer) {
@@ -707,6 +720,13 @@ public final class ModEvents {
                 syncClientMirrors(serverPlayer, cultivation);
             }
         });
+    }
+
+    @SubscribeEvent
+    public static void onPlayerLogout(PlayerEvent.PlayerLoggedOutEvent event) {
+        if (event.getEntity() instanceof ServerPlayer player) {
+            WorldHazardVfxService.clear(player);
+        }
     }
 
     private static void syncClientMirrors(ServerPlayer player, PlayerCultivation cultivation) {
@@ -917,14 +937,20 @@ public final class ModEvents {
     }
 
     private static void handleDiyuanPressure(ServerPlayer player, PlayerCultivation cultivation) {
-        if (player.isCreative() || player.isSpectator()
-                || !DIYUAN_SECRET_REALM_ID.equals(cultivation.getWorldpackActiveSecretRealmId())) {
+        boolean active = !player.isCreative() && !player.isSpectator()
+                && DIYUAN_SECRET_REALM_ID.equals(cultivation.getWorldpackActiveSecretRealmId());
+        boolean protectedByPill = active && CatalogPillItem.hasPressureResist(player);
+        WorldHazardVfxService.transition(
+                player, WorldHazardVfxService.Hazard.DIYUAN, active, protectedByPill);
+        if (!active) {
             return;
         }
-        if (CatalogPillItem.hasPressureResist(player)) {
+        if (protectedByPill) {
             if (player.tickCount % DIYUAN_PRESSURE_INTERVAL_TICKS == 0) {
                 player.removeEffect(MobEffects.MOVEMENT_SLOWDOWN);
                 player.removeEffect(MobEffects.CONFUSION);
+                WorldHazardVfxService.pulse(
+                        player, WorldHazardVfxService.Hazard.DIYUAN, true, 0.0F, 0);
             }
             return;
         }
@@ -935,9 +961,13 @@ public final class ModEvents {
         player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, DIYUAN_PRESSURE_INTERVAL_TICKS + 40, 1, false, true));
         player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 120, 0, false, true));
         cultivation.addDivineConsciousness(-1);
+        float damage = 0.0F;
         if (player.getHealth() > 6.0F) {
-            player.hurt(player.damageSources().magic(), 1.0F);
+            damage = 1.0F;
+            player.hurt(player.damageSources().magic(), damage);
         }
+        WorldHazardVfxService.pulse(
+                player, WorldHazardVfxService.Hazard.DIYUAN, false, damage, 2);
         if (player.tickCount % DIYUAN_PRESSURE_MESSAGE_INTERVAL_TICKS == 0) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.worldpack.diyuan_pressure"), true);
         }
@@ -945,6 +975,8 @@ public final class ModEvents {
 
     private static void handleYinUnderworldHazard(ServerPlayer player, PlayerCultivation cultivation) {
         if (player.isCreative() || player.isSpectator()) {
+            WorldHazardVfxService.transition(
+                    player, WorldHazardVfxService.Hazard.YIN_UNDERWORLD, false, false);
             return;
         }
         YinUnderworldHazard.Profile profile = YinUnderworldHazard.profile(
@@ -953,6 +985,8 @@ public final class ModEvents {
                 player.level().dimension().location().toString(),
                 cultivation.getWorldpackActiveDailyEventId());
         boolean hasYinProtection = CatalogPillItem.hasYinProtection(player);
+        WorldHazardVfxService.transition(
+                player, WorldHazardVfxService.Hazard.YIN_UNDERWORLD, profile.active(), hasYinProtection);
         if (!profile.active()) {
             return;
         }
@@ -988,6 +1022,11 @@ public final class ModEvents {
         if (damage > 0.0F) {
             player.hurt(player.damageSources().magic(), damage);
         }
+        int severity = Math.max(1, profile.divineConsciousnessDrain()
+                + Math.max(0, profile.slownessAmplifier())
+                + Math.max(0, profile.weaknessAmplifier()));
+        WorldHazardVfxService.pulse(
+                player, WorldHazardVfxService.Hazard.YIN_UNDERWORLD, hasYinProtection, damage, severity);
         if (profile.shouldMessage(player.tickCount)) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.worldpack.yin_underworld_hazard"), true);
         }
@@ -995,6 +1034,8 @@ public final class ModEvents {
 
     private static void handleDemonRiftHazard(ServerPlayer player, PlayerCultivation cultivation) {
         if (player.isCreative() || player.isSpectator()) {
+            WorldHazardVfxService.transition(
+                    player, WorldHazardVfxService.Hazard.DEMON_RIFT, false, false);
             return;
         }
         DemonRiftHazard.Profile profile = DemonRiftHazard.profile(
@@ -1002,6 +1043,8 @@ public final class ModEvents {
                 cultivation.getWorldpackActiveSecretRealmId(),
                 player.level().dimension().location().toString(),
                 cultivation.getWorldpackActiveDailyEventId());
+        WorldHazardVfxService.transition(
+                player, WorldHazardVfxService.Hazard.DEMON_RIFT, profile.active(), false);
         if (!profile.active() || !profile.shouldApply(player.tickCount)) {
             return;
         }
@@ -1030,6 +1073,9 @@ public final class ModEvents {
         if (damage > 0.0F) {
             player.hurt(player.damageSources().magic(), damage);
         }
+        int severity = Math.max(1, profile.qiDeviationRisk() + profile.divineConsciousnessDrain());
+        WorldHazardVfxService.pulse(
+                player, WorldHazardVfxService.Hazard.DEMON_RIFT, false, damage, severity);
         if (profile.shouldMessage(player.tickCount)) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.worldpack.demon_rift_hazard"), true);
         }
