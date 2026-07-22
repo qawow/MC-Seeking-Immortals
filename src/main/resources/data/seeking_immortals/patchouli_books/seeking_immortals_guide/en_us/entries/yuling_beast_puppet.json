@@ -1,13 +1,13 @@
 {
-  "name": "御灵兽傀",
+  "name": "Spirit-Taming Beasts and Puppets",
   "category": "seeking_immortals:beasts_puppets",
   "icon": "seeking_immortals:spirit_beast_bridle",
   "sortnum": 14,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "见 patchouli_item_book 分类索引条目 yuling_beast_puppet。游戏内百科与命令可进一步检索。",
-      "title": "御灵兽傀"
+      "text": "This path combines spirit-beast contracts, feeding, transformation, and growth through puppet-core furnaces. Begin with capture jars and blueprints, then advance the stage of a spirit beast or puppet. Source index: patchouli_item_book category entry yuling_beast_puppet.",
+      "title": "Spirit-Taming Beasts and Puppets"
     }
   ]
 }

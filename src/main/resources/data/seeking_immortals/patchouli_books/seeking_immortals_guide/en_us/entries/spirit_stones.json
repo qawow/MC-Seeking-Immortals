@@ -1,23 +1,23 @@
 {
-  "name": "灵石",
+  "name": "Spirit Stones",
   "category": "seeking_immortals:basics",
   "icon": "seeking_immortals:metal_spirit_stone",
   "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "灵石",
-      "text": "灵石是凝结灵力的基础资源。开采灵石矿可获得下品灵石，使用后可吸收灵力，为修炼、突破和施展符箓提供支撑。"
+      "title": "Spirit Stones",
+      "text": "Spirit stones are condensed spiritual power. Mining spirit ore yields low-grade stones, whose power can support cultivation, breakthroughs, and talisman use."
     },
     {
       "type": "patchouli:crafting",
       "recipe": "seeking_immortals:spirit_charm",
-      "text": "灵石也会参与护符、符箓与丹药等配方。安装 JEI 后，现有原版合成配方会自动显示。"
+      "text": "Spirit stones are also used in charm, talisman, and pill recipes. With JEI installed, available crafting recipes are displayed automatically."
     },
     {
       "type": "patchouli:text",
-      "title": "五行灵石",
-      "text": "金、木、水、火、土五行灵石均分为下品、中品、上品、极品。玩家通过手持灵石获得增幅时，必须使用与自身灵根属性一致的五行灵石；通用灵石仍可用于基础灵力吸收。"
+      "title": "Five-Element Spirit Stones",
+      "text": "Metal, wood, water, fire, and earth spirit stones each come in low, middle, high, and supreme grades. A held stone grants its bonus only when its element matches the player's spiritual-root attribute; neutral stones still support basic spiritual power absorption."
     }
   ]
 }

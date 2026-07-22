@@ -1,28 +1,28 @@
 {
-  "name": "功法术法分册",
+  "name": "Methods and Techniques Compendium",
   "category": "seeking_immortals:techniques",
   "icon": "seeking_immortals:technique_manual_common",
   "sortnum": 5,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "作者侧功法 747、心法 136、技能树 90。学习受境界/宗门/冲突矩阵约束。",
-      "title": "功法分册"
+      "text": "The authored corpus contains 747 techniques, 136 cultivation methods, and 90 skill trees. Learning is constrained by realm, sect, and the conflict matrix.",
+      "title": "Method Compendium"
     },
     {
       "type": "patchouli:text",
-      "text": "客户端槽位 → ReleaseTechniquePacket → 服务端校验槽位/已学/冷却/灵力 → 同步。",
-      "title": "释放流程"
+      "text": "Client slot -> ReleaseTechniquePacket -> server validates slot, learned state, cooldown, and spiritual power -> synchronized result.",
+      "title": "Release Flow"
     },
     {
       "type": "patchouli:text",
-      "text": "MethodLayerTechniqueService 在修炼层推进时授予映射术法。",
-      "title": "层数解锁"
+      "text": "MethodLayerTechniqueService grants mapped techniques as a cultivation method advances through its layers.",
+      "title": "Layer Unlocks"
     },
     {
       "type": "patchouli:text",
-      "text": "ManualConflictMatrixService 在学习心法时拦截互斥组合。",
-      "title": "冲突矩阵"
+      "text": "ManualConflictMatrixService rejects mutually exclusive combinations when a cultivation method is learned.",
+      "title": "Conflict Matrix"
     }
   ]
 }

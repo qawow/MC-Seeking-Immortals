@@ -1,22 +1,22 @@
 {
-  "name": "外海散修摊",
+  "name": "Outer Sea Rogue Cultivator Stall",
   "category": "seeking_immortals:basics",
   "icon": "seeking_immortals:pearl_raw",
   "sortnum": 15,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "外海散修摊",
-      "text": "外海散修摊对应文本材料 merchant_shops.json#outer_sea_public_stall 与 region_cards/outer_sea_market.json。当前版本通过已有坊市系统接入，不新增独立摊位 NPC、珍珠税 UI 或额外加载器，仍使用下品金灵石作为物品货币。"
+      "title": "Outer Sea Public Stall",
+      "text": "The stall follows merchant_shops.json#outer_sea_public_stall and region_cards/outer_sea_market.json. It uses the existing market system without adding a dedicated vendor NPC, pearl-tax UI, or extra loader, and trades in low-grade metal spirit stones."
     },
     {
       "type": "patchouli:text",
-      "title": "当前货品",
+      "title": "Current Stock",
       "text": "Current stock now includes spirit_stone_shard, pearl_raw, and herb_bundle_low. One low-grade metal spirit stone buys 10 shards, stock 999; Raw Sea Pearl costs 8 low-grade metal spirit stones, stock 50; the herb bundle grants 4 Spirit Grass for 12, stock 30. All refresh every 24000 ticks."
     },
     {
       "type": "patchouli:text",
-      "title": "延后内容",
+      "title": "Planned Content",
       "text": "Pearl taxes, stall rules, ferry tasks, and tax-ticket quests still need economy loops plus merchant or quest presentation. Raw Sea Pearl is currently an item and stall good only; refined coral pearls, reverse exchange, and pearl-specific economy UI remain deferred."
     }
   ]

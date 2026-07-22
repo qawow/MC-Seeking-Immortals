@@ -1,27 +1,27 @@
 {
-  "name": "灵石与经济阶梯",
+  "name": "Spirit Stones and Economic Tiers",
   "category": "seeking_immortals:basics",
   "icon": "seeking_immortals:metal_spirit_stone",
   "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "文本材料把灵石经济分成下品、中品、上品、极品四级。当前模组已经用灵石承担修炼吸收、坊市交易、票据兑换和部分跨区域门槛，是后续宗门贡献、星宫税契、天渊功勋和拍卖系统的底座。"
+      "text": "The corpus divides the spirit-stone economy into low, middle, high, and supreme grades. Spirit stones already support cultivation absorption, market trade, voucher exchange, and some cross-region gates, forming the basis for sect contribution, Star Palace tax contracts, Tianyuan merit, and auctions."
     },
     {
       "type": "patchouli:text",
-      "title": "四级灵石",
-      "text": "下品灵石偏炼气到筑基日常，中品灵石服务结丹流通，上品灵石用于元婴以上大宗交易，极品灵石定位为拍卖行和高阶结算资源。文本材料按 100:1 设计层级兑换。"
+      "title": "Four Grades of Spirit Stone",
+      "text": "Low-grade stones serve everyday Qi Refining and Foundation Establishment trade. Middle-grade stones circulate at Core Formation, high-grade stones support major transactions from Nascent Soul onward, and supreme-grade stones are reserved for auctions and elite settlements. The designed exchange ratio is 100:1 between adjacent grades."
     },
     {
       "type": "patchouli:text",
-      "title": "当前载体",
-      "text": "当前低阶市场主要使用已注册的五行下品灵石；更高阶交易已逐步接入中品、上品和极品灵石载体。宗门贡献、天渊功勋与区域票据会在具体商店或世界包条目中说明。"
+      "title": "Current Currency Items",
+      "text": "Low-level markets primarily use the registered Five-Element low-grade spirit stones. Middle-, high-, and supreme-grade stone items are gradually entering higher-tier trade. Sect contribution, Tianyuan merit, and regional vouchers are documented by their respective shops or world-data entries."
     },
     {
       "type": "patchouli:text",
-      "title": "区域经济",
-      "text": "乱星海、大晋和天渊城是文本材料中的重点拍卖/大宗交易区域。星宫税契、逆星盟黑市、天渊功勋和宗门贡献不是同一种货币，后续会继续分拆成专页。"
+      "title": "Regional Economies",
+      "text": "The Chaotic Star Sea, Great Jin, and Tianyuan City are the corpus's major auction and wholesale centers. Star Palace tax contracts, Anti-Star black-market credit, Tianyuan merit, and sect contribution are distinct currencies and will be documented separately."
     }
   ]
 }

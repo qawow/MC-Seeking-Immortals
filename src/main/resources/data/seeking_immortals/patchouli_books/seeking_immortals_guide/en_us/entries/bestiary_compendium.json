@@ -1,28 +1,28 @@
 {
-  "name": "妖兽图鉴导读",
+  "name": "Bestiary Primer",
   "category": "seeking_immortals:beasts_puppets",
   "icon": "seeking_immortals:beast_core",
   "sortnum": 5,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "M10 图鉴约 1800+ 条目；击杀/契约/见闻写入解锁记录。未解锁条目在图鉴屏以锁态显示。",
-      "title": "妖兽图鉴"
+      "text": "The M10 bestiary contains more than 1,800 entries. Kills, contracts, and encounters can unlock records; undiscovered entries appear locked in the bestiary screen.",
+      "title": "Demon Beast Bestiary"
     },
     {
       "type": "patchouli:text",
-      "text": "威胁与阶位见 beast_thirteen_tier_map / BeastTierService。越高阶掉落与契约门槛越严。",
-      "title": "十三阶"
+      "text": "Threat and tier data come from beast_thirteen_tier_map and BeastTierService. Higher tiers have better drops and stricter contract requirements.",
+      "title": "Thirteen Tiers"
     },
     {
       "type": "patchouli:text",
-      "text": "真灵与 companion_only 不进入日常刷怪；契约另有阶位/境界门槛。",
-      "title": "真灵与禁令"
+      "text": "True Spirits and companion_only creatures never enter ordinary spawn pools. Contracts also enforce beast-tier and player-realm requirements.",
+      "title": "True Spirits and Restrictions"
     },
     {
       "type": "patchouli:text",
-      "text": "命令 /seeking_immortals lore bestiary 或绑定图鉴快捷键。纯展示，不写玩法状态。",
-      "title": "打开方式"
+      "text": "Use /seeking_immortals lore bestiary or bind the bestiary key. This screen is read-only and never changes gameplay state.",
+      "title": "Opening the Bestiary"
     }
   ]
 }

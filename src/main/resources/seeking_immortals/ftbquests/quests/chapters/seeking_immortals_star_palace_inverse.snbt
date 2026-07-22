@@ -19,7 +19,7 @@
       ],
       dependencies: ["1000000000000502"],
       tags: ["seeking_immortals", "chaotic_sea", "star_palace", "internal_politics"],
-      tasks: [{id: "1000000000002101", type: "checkmark", title: "复核天星城阵枢"}]
+      tasks: [{id: "1000000000002101", type: "custom", title: "复核天星城阵枢", tags: ["si_native_star_palace_internal_politics_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001102",
@@ -33,7 +33,7 @@
       ],
       dependencies: ["1000000000001101"],
       tags: ["seeking_immortals", "chaotic_sea", "star_palace", "council"],
-      tasks: [{id: "1000000000002102", type: "checkmark", title: "旁听长老会内议"}]
+      tasks: [{id: "1000000000002102", type: "custom", title: "旁听长老会内议", tags: ["si_native_star_palace_internal_politics_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001103",
@@ -48,7 +48,7 @@
       ],
       dependencies: ["1000000000001102", "1000000000000503"],
       tags: ["seeking_immortals", "chaotic_sea", "star_palace_enforcement", "optional"],
-      tasks: [{id: "1000000000002103", type: "checkmark", title: "领取执法派简报"}]
+      tasks: [{id: "1000000000002103", type: "custom", title: "领取执法派简报", tags: ["si_native_star_palace_internal_politics_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001104",
@@ -79,7 +79,7 @@
       ],
       dependencies: ["1000000000001104"],
       tags: ["seeking_immortals", "chaotic_sea", "star_palace_enforcement", "reward_bridge_deferred", "optional"],
-      tasks: [{id: "1000000000002105", type: "checkmark", title: "登记巡功"}]
+      tasks: [{id: "1000000000002105", type: "custom", title: "登记巡功", tags: ["si_native_star_palace_internal_politics_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001106",
@@ -110,7 +110,7 @@
       ],
       dependencies: ["1000000000001106"],
       tags: ["seeking_immortals", "chaotic_sea", "star_palace_commerce", "teleport_array", "optional"],
-      tasks: [{id: "1000000000002107", type: "checkmark", title: "记录阵费减免议案"}]
+      tasks: [{id: "1000000000002107", type: "custom", title: "记录阵费减免议案", tags: ["si_native_star_palace_internal_politics_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001108",
@@ -141,7 +141,7 @@
       ],
       dependencies: ["1000000000001102"],
       tags: ["seeking_immortals", "chaotic_sea", "star_palace_council_neutral", "optional"],
-      tasks: [{id: "1000000000002109", type: "checkmark", title: "接下调停差事"}]
+      tasks: [{id: "1000000000002109", type: "custom", title: "接下调停差事", tags: ["si_native_star_palace_internal_politics_4"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001110",
@@ -156,7 +156,7 @@
       ],
       dependencies: ["1000000000001105", "1000000000001108", "1000000000001109"],
       tags: ["seeking_immortals", "chaotic_sea", "star_palace", "internal_tax_vote", "optional"],
-      tasks: [{id: "1000000000002110", type: "checkmark", title: "参与内税投票"}]
+      tasks: [{id: "1000000000002110", type: "custom", title: "参与内税投票", tags: ["si_native_star_palace_internal_politics_4"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001111",
@@ -171,7 +171,7 @@
       ],
       dependencies: ["1000000000000506"],
       tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "hidden_smuggle_cove", "optional"],
-      tasks: [{id: "1000000000002111", type: "checkmark", title: "重返暗礁港"}]
+      tasks: [{id: "1000000000002111", type: "custom", title: "重返暗礁港", tags: ["si_native_inverse_star_recruit_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001112",
@@ -186,7 +186,7 @@
       ],
       dependencies: ["1000000000001111"],
       tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "bounty", "optional"],
-      tasks: [{id: "1000000000002112", type: "checkmark", title: "查阅星宫通缉榜"}]
+      tasks: [{id: "1000000000002112", type: "custom", title: "查阅星宫通缉榜", tags: ["si_native_inverse_star_recruit_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001113",
@@ -201,7 +201,7 @@
       ],
       dependencies: ["1000000000001112"],
       tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "smuggle", "optional"],
-      tasks: [{id: "1000000000002113", type: "checkmark", title: "完成走私标记"}]
+      tasks: [{id: "1000000000002113", type: "custom", title: "完成走私标记", tags: ["si_native_inverse_star_smuggle_arc_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001114",
@@ -232,7 +232,7 @@
       ],
       dependencies: ["1000000000001111"],
       tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "teleport_array", "optional"],
-      tasks: [{id: "1000000000002115", type: "checkmark", title: "侦察传送阵节点"}]
+      tasks: [{id: "1000000000002115", type: "custom", title: "侦察传送阵节点", tags: ["si_native_inverse_star_smuggle_arc_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001116",
@@ -247,7 +247,7 @@
       ],
       dependencies: ["1000000000001115"],
       tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "sabotage", "optional"],
-      tasks: [{id: "1000000000002116", type: "checkmark", title: "交付破阵器材"}]
+      tasks: [{id: "1000000000002116", type: "custom", title: "交付破阵器材", tags: ["si_native_inverse_star_smuggle_arc_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001117",
@@ -262,7 +262,7 @@
       ],
       dependencies: ["1000000000001116"],
       tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "sabotage", "optional"],
-      tasks: [{id: "1000000000002117", type: "checkmark", title: "趁巡窗撤离"}]
+      tasks: [{id: "1000000000002117", type: "custom", title: "趁巡窗撤离", tags: ["si_native_inverse_star_smuggle_arc_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001118",
@@ -293,7 +293,7 @@
       ],
       dependencies: ["1000000000001118"],
       tags: ["seeking_immortals", "chaotic_sea", "spy", "branch_design", "optional"],
-      tasks: [{id: "1000000000002119", type: "checkmark", title: "处理星宫密探"}]
+      tasks: [{id: "1000000000002119", type: "custom", title: "处理星宫密探", tags: ["si_native_chaotic_sea_civil_war_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001120",
@@ -324,7 +324,7 @@
       ],
       dependencies: ["1000000000001118", "1000000000000511"],
       tags: ["seeking_immortals", "chaotic_sea", "void_palace", "key_fragment", "optional"],
-      tasks: [{id: "1000000000002121", type: "checkmark", title: "登记虚天钥残片"}]
+      tasks: [{id: "1000000000002121", type: "custom", title: "登记虚天钥残片", tags: ["si_native_inverse_star_void_heist_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001122",
@@ -355,7 +355,7 @@
       ],
       dependencies: ["1000000000001122", "1000000000000512"],
       tags: ["seeking_immortals", "chaotic_sea", "void_palace", "chain_void_palace_expedition", "optional"],
-      tasks: [{id: "1000000000002123", type: "checkmark", title: "绘制多层殿宇路线"}]
+      tasks: [{id: "1000000000002123", type: "custom", title: "绘制多层殿宇路线", tags: ["si_native_inverse_star_void_heist_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001124",

@@ -1,23 +1,23 @@
 {
-  "name": "星宫巡防补给",
+  "name": "Star Palace Patrol Supplies",
   "category": "seeking_immortals:basics",
   "icon": "seeking_immortals:armor_talisman",
   "sortnum": 19,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "巡防补给",
-      "text": "本条目对应文本材料 merchant_shops.json#star_palace_patrol_supply。当前版本通过已有坊市系统和物品货币流程接入，不新增巡防声望界面、巡防令 UI、独立商人加载器或额外网络包。"
+      "title": "Patrol Supplies",
+      "text": "This entry follows merchant_shops.json#star_palace_patrol_supply and uses the existing market and item-currency flow. It adds no patrol reputation screen, patrol-order UI, merchant loader, or extra network packet."
     },
     {
       "type": "patchouli:text",
-      "title": "当前货品",
-      "text": "已接入 body_guard_talisman 与 anti_demon_talisman：前者复用护身符，价格 25 下品金灵石，库存 10；后者复用火符，价格 55 下品金灵石，库存 5。两者当前刷新周期均为 48000 tick。"
+      "title": "Current Stock",
+      "text": "Available listings are body_guard_talisman and anti_demon_talisman. The first reuses a protection talisman for 25 low-grade metal spirit stones, stock 10; the second reuses a fire talisman for 55, stock 5. Both currently restock every 48000 ticks."
     },
     {
       "type": "patchouli:text",
-      "title": "延后内容",
-      "text": "文本材料中的 bu_tian_pill、星宫声望 100 门槛、巡防板任务、月度/个人配额、精确反魔规则和巡防奖励仍未实装。现阶段指南只说明已存在的商店数据钩子。"
+      "title": "Planned Content",
+      "text": "bu_tian_pill, the Star Palace reputation-100 gate, patrol-board quests, monthly or personal quotas, exact anti-demon rules, and patrol rewards are not yet implemented. This page describes only existing shop-data hooks."
     }
   ]
 }

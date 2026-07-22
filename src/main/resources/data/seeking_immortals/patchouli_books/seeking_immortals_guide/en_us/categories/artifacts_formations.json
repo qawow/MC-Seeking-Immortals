@@ -1,6 +1,6 @@
 {
-  "name": "法宝与阵法",
-  "description": "法宝品阶、器灵、祭炼与阵法部署。",
+  "name": "Artifacts and Formations",
+  "description": "Artifact tiers, spirit awakening, refinement, and formation deployment.",
   "icon": "seeking_immortals:flying_sword_low",
   "sortnum": 30
 }

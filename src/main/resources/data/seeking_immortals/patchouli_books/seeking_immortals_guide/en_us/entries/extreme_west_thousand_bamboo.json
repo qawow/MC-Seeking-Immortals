@@ -1,28 +1,28 @@
 {
-  "name": "极西千竹",
+  "name": "Thousand Bamboo of the Far West",
   "category": "seeking_immortals:basics",
   "icon": "seeking_immortals:technique_manual_thousand_bamboo_heritage",
   "sortnum": 24,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "傀儡之地",
-      "text": "本条目对应文本材料 region_cards/extreme_west_thousand_bamboo.json、puppet_definitions.json、puppet_parts_catalog.json 与 secret_realms.json#thousand_bamboo_puppet_tower。当前世界包已接入 extreme_west 区域，门槛为筑基，旅行锚点为 extreme_west_anchor。"
+      "title": "Land of Puppets",
+      "text": "This entry follows region_cards/extreme_west_thousand_bamboo.json, puppet_definitions.json, puppet_parts_catalog.json, and secret_realms.json#thousand_bamboo_puppet_tower. The extreme_west region is available in the current world data, requires Foundation Establishment, and uses extreme_west_anchor for travel."
     },
     {
       "type": "patchouli:text",
-      "title": "当前数据",
-      "text": "极西千竹在世界包中拥有 1.0 灵气倍率，并带有 extreme_west、thousand_bamboo、puppet、mechanism、ironwood、puppet_core_blank 标签。文本材料中的铁木、傀儡灵核与千竹教服务目前作为数据标签和后续制作钩子保留。"
+      "title": "Current Data",
+      "text": "Thousand Bamboo of the Far West has a 1.0 aura multiplier and the tags extreme_west, thousand_bamboo, puppet, mechanism, ironwood, and puppet_core_blank. Ironwood, puppet spirit cores, and Thousand Bamboo Sect services remain data tags and hooks for future crafting."
     },
     {
       "type": "patchouli:text",
-      "title": "机关塔",
-      "text": "千竹机关塔已作为 worldpack 秘境 thousand_bamboo_puppet_tower 存在，归属 extreme_west_thousand_bamboo，门槛为筑基，门票复用中品土灵石，冷却为 160000 tick。机关市和机关塔低鸣事件也已接入日常事件列表。"
+      "title": "Mechanism Tower",
+      "text": "The Thousand Bamboo Mechanism Tower exists as the world-data secret realm thousand_bamboo_puppet_tower under extreme_west_thousand_bamboo. It requires Foundation Establishment, consumes a middle-grade earth spirit stone, and has a 160000-tick cooldown. The Mechanism Market and Tower Humming events are also in the daily event pool."
     },
     {
       "type": "patchouli:text",
-      "title": "延后内容",
-      "text": "真实傀儡实体、GeckoLib 动画、傀儡制作 UI、铁木资源节点、傀儡灵核物品、图纸掉落、千竹教 NPC、FTB Quests 章节、机关塔结构生成与奖励表仍未实装。本页只说明已存在的世界包与指南钩子。"
+      "title": "Planned Content",
+      "text": "Actual puppet entities, GeckoLib animations, the puppet-crafting UI, ironwood resource nodes, puppet spirit-core items, blueprint drops, Thousand Bamboo Sect NPCs, an FTB Quests chapter, tower structure generation, and reward tables are not yet implemented. This page describes only existing world-data and guide hooks."
     }
   ]
 }

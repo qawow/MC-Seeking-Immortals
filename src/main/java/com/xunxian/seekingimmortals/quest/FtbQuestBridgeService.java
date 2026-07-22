@@ -57,47 +57,7 @@ public final class FtbQuestBridgeService {
         if (id.isBlank()) {
             return Optional.empty();
         }
-        String direct = BUILTIN.chainToChapter().get(id);
-        if (direct != null) {
-            return Optional.of(direct);
-        }
-        // Keyword fallback aligned with FTB chapter themes.
-        if (id.contains("huangfeng") || id.contains("qixuan") || id.contains("mortal") || id.contains("craft")) {
-            return Optional.of("seeking_immortals_main");
-        }
-        if (id.contains("chaotic") || id.contains("void") || id.contains("xutian")) {
-            return Optional.of("seeking_immortals_chaotic_sea");
-        }
-        if (id.contains("dajin") || id.contains("kunwu") || id.contains("wanbao")) {
-            return Optional.of("seeking_immortals_dajin_kunwu");
-        }
-        if (id.contains("ghost") || id.contains("yin") || id.contains("fallen") || id.contains("demon")) {
-            return Optional.of("seeking_immortals_fallen_demon_yin");
-        }
-        if (id.contains("mulan") || id.contains("tianlan") || id.contains("war")) {
-            return Optional.of("seeking_immortals_mulan_demonic");
-        }
-        if (id.contains("spirit") || id.contains("tianyuan") || id.contains("fengyuan") || id.contains("clan")) {
-            return Optional.of("seeking_immortals_spirit_realm_service");
-        }
-        if (id.contains("tiannan") || id.contains("sect") || id.contains("seven")) {
-            return Optional.of("seeking_immortals_tiannan_seven_sects");
-        }
-        if (id.contains("star") || id.contains("inverse")) {
-            return Optional.of("seeking_immortals_star_palace_inverse");
-        }
-        if (id.contains("ascension") || id.contains("guanghan") || id.contains("huoyu") || id.contains("xianjie")
-                || id.contains("endgame") || id.contains("border")) {
-            return Optional.of("seeking_immortals_ascension_border");
-        }
-        if (id.contains("blood") || id.contains("nether") || id.contains("diyuan") || id.contains("barbarian")
-                || id.contains("blade") || id.contains("sword") || id.contains("puppet") || id.contains("talisman")
-                || id.contains("illusion") || id.contains("yanyue") || id.contains("tianfu") || id.contains("qianzhu")
-                || id.contains("yuling") || id.contains("huadao") || id.contains("giant")) {
-            return Optional.of("seeking_immortals_tiannan_seven_sects");
-        }
-        // Final fallback: main chapter so every catalog chain is mapped.
-        return Optional.of("seeking_immortals_main");
+        return Optional.ofNullable(BUILTIN.chainToChapter().get(id));
     }
 
     public static List<String> sampleMappings(int limit) {
@@ -146,27 +106,41 @@ public final class FtbQuestBridgeService {
                 "seeking_immortals_ascension_border", "寻仙问道：飞升边境与终局劫线"));
 
         Map<String, String> chainToChapter = new LinkedHashMap<>();
-        // Explicit mainline from main_story_chapters refs.
+        // Every native chain is assigned to the chapter that carries its authored SNBT tag.
         putAll(chainToChapter, "seeking_immortals_main",
-                "huangfeng_cultivation_path", "qixuan_mortal_path", "craft_master");
+                "huangfeng_cultivation_path", "qixuan_mortal_path", "blood_forbidden_campaign");
         putAll(chainToChapter, "seeking_immortals_mulan_demonic",
-                "mulan_war_campaign", "mulan_tianlan_war", "tianlan_defense_line");
+                "mulan_war_campaign", "mulan_tianlan_war", "mulan_fashi_path",
+                "tianlan_defense_line", "wutu_mulan_feud_line", "chain_mulan_war_campaign",
+                "demonic_six_path",
+                "demonic_six_expanded");
         putAll(chainToChapter, "seeking_immortals_fallen_demon_yin",
-                "ghost_path", "yin_luo_ghost_sect", "yin_cluster_pilgrim",
-                "fallen_demon_campaign", "fallen_demon_expedition", "ancient_demon_line");
+                "ghost_path", "yin_luo_ghost_sect", "fallen_demon_campaign",
+                "ancient_demon_line", "nether_river_campaign");
         putAll(chainToChapter, "seeking_immortals_chaotic_sea",
-                "chaotic_sea_politics", "void_palace_campaign", "void_great_cultivation_arc");
+                "chaotic_sea_politics", "void_palace_campaign", "inverse_star_recruit",
+                "inverse_star_smuggle_arc", "chaotic_sea_civil_war");
         putAll(chainToChapter, "seeking_immortals_dajin_kunwu",
-                "dajin_kunwu_line", "kunwu_mountain_campaign", "kunwu_mountain_expedition", "dajin_wanbao_route");
+                "dajin_kunwu_line", "kunwu_mountain_campaign",
+                "dajin_wanbao_route", "dajin_clan_line", "dajin_righteous_demon_line");
         putAll(chainToChapter, "seeking_immortals_spirit_realm_service",
-                "spirit_realm_rise", "spirit_realm_border", "tianyuan_merit_path",
-                "human_clan_neutral_intro", "spirit_eighteen_clans", "barbarian_kings_line");
+                "spirit_realm_rise", "tianyuan_merit_path", "chain_tianyuan_enlist", "diyuan_campaign",
+                "human_clan_neutral_intro", "spirit_eighteen_clans", "spirit_eighteen_pilgrimage",
+                "fengyuan_explorer", "clan_array_mo_line", "clan_refinement_yu_line",
+                "clan_alchemy_gu_line", "clan_talisman_ning_line", "human_clan_league_hub",
+                "barbarian_kings_line", "barbarian_king_hunt");
         putAll(chainToChapter, "seeking_immortals_tiannan_seven_sects",
-                "chain_seven_sect_outer_to_inner", "blood_forbidden_campaign");
+                "craft_master", "huadao_blade_path", "giant_sword_gate_path",
+                "qianzhu_puppet_path", "yuling_puppet_path", "yanyue_illusion_path",
+                "tianfu_talisman_path");
         putAll(chainToChapter, "seeking_immortals_star_palace_inverse",
-                "star_palace_internal_politics", "inverse_star_recruit");
+                "star_palace_internal_politics", "inverse_star_void_heist",
+                "chain_void_palace_expedition");
         putAll(chainToChapter, "seeking_immortals_ascension_border",
-                "chain_ascension_spirit_world", "diyuan_campaign", "nether_river_campaign");
+                "high_realm_endgame", "void_great_cultivation_arc", "diyuan_depth_delve",
+                "mortal_to_spirit_bridge", "chain_ascension_spirit_world",
+                "yin_cluster_pilgrim", "fallen_demon_expedition", "kunwu_mountain_expedition",
+                "spirit_realm_border", "ghost_sect_ban_arc", "chain_seven_sect_outer_to_inner");
 
         Set<String> registered = new LinkedHashSet<>(chainToChapter.keySet());
         return new Snapshot(List.copyOf(chapters), Collections.unmodifiableMap(chainToChapter),

@@ -1,13 +1,13 @@
 {
-  "name": "乱星海势力",
+  "name": "Factions of the Chaotic Star Sea",
   "category": "seeking_immortals:sects_factions",
   "icon": "seeking_immortals:leyline_compass",
   "sortnum": 8,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "见 patchouli_item_book 分类索引条目 chaotic_sea_factions。游戏内百科与命令可进一步检索。",
-      "title": "乱星海势力"
+      "text": "The major powers of the Chaotic Star Sea are the Star Palace, the Anti-Star Alliance, and the neutral Merchant Alliance. Consult the in-game codex for their positions, quests, and trade relations. Source index: patchouli_item_book category entry chaotic_sea_factions.",
+      "title": "Chaotic Star Sea Factions"
     }
   ]
 }

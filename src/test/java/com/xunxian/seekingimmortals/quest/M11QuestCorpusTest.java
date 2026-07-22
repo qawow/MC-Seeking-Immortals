@@ -1,6 +1,7 @@
 package com.xunxian.seekingimmortals.quest;
 
 import com.xunxian.seekingimmortals.catalog.ExtendedCatalogService;
+import com.xunxian.seekingimmortals.region.RegionRegistry;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -24,8 +25,10 @@ class M11QuestCorpusTest {
         for (ExtendedCatalogService.QuestChain chain : ExtendedCatalogService.builtin().questChains().values()) {
             assertFalse(chain.id().isBlank(), "blank id");
             assertFalse(chain.region().isBlank(), "region blank for " + chain.id());
+            assertTrue(RegionRegistry.find(chain.region()).isPresent(),
+                    "unknown region " + chain.region() + " for " + chain.id());
             assertFalse(chain.realmSpan().isBlank(), "realm_span blank for " + chain.id());
-            assertTrue(chain.stepCount() >= 0, "step_count for " + chain.id());
+            assertTrue(chain.stepCount() > 0, "step_count for " + chain.id());
         }
     }
 
@@ -34,8 +37,10 @@ class M11QuestCorpusTest {
         assertEquals(35, QuestLineService.lineCount());
         assertTrue(QuestLineService.find("mortal_qixuan_entry").isPresent());
         assertFalse(QuestLineService.linesForChapter("chapter_0_mortal").isEmpty());
-        assertTrue(QuestLineService.crossRefsResolvable()
-                || QuestLineService.builtin().unresolvedChainRefs().size() < 20);
+        assertTrue(QuestLineService.crossRefsResolvable(),
+                () -> "unresolved quest-line refs: chains="
+                        + QuestLineService.builtin().unresolvedChainRefs()
+                        + ", chapters=" + QuestLineService.builtin().unresolvedChapterRefs());
     }
 
     @Test
@@ -50,12 +55,12 @@ class M11QuestCorpusTest {
     }
 
     @Test
-    void crossRefsBetweenChainsLinesAndStoryAreMostlyResolvable() {
+    void crossRefsBetweenChainsLinesAndStoryAreResolvable() {
         // 62 chains all present
         assertEquals(62, ExtendedCatalogService.builtin().questChains().size());
         // 35 lines present
         assertEquals(35, QuestLineService.lineCount());
-        // every chapter has at least one chain ref that exists in catalog OR is playable soft
+        // Every story chapter resolves to at least one authoritative native chain.
         for (int i = 0; i <= 6; i++) {
             String chapterId = switch (i) {
                 case 0 -> "chapter_0_mortal";
@@ -66,7 +71,12 @@ class M11QuestCorpusTest {
                 case 5 -> "chapter_5_deity_transformation";
                 default -> "chapter_6_spirit_realm";
             };
-            assertFalse(MainStorySoftService.chainsForChapter(chapterId).isEmpty(), chapterId);
+            var chainIds = MainStorySoftService.chainsForChapter(chapterId);
+            assertFalse(chainIds.isEmpty(), chapterId);
+            for (String chainId : chainIds) {
+                assertTrue(TextQuestChainService.find(chainId).isPresent(),
+                        chapterId + " has unresolved chain " + chainId);
+            }
         }
     }
 

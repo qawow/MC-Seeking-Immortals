@@ -1,13 +1,13 @@
 {
-  "name": "大晋与昆吾",
+  "name": "Great Jin and Kunwu",
   "category": "seeking_immortals:world_realms",
   "icon": "seeking_immortals:immortal_jade",
   "sortnum": 12,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "见 patchouli_item_book 分类索引条目 dajin_kunwu。游戏内百科与命令可进一步检索。",
-      "title": "大晋与昆吾"
+      "text": "Great Jin draws high-level cultivators, ancient clans, and Wanbao Pavilion traders, while Mount Kunwu is bound to an ancient seal. Consult the in-game codex for regional, faction, and secret-realm clues. Source index: patchouli_item_book category entry dajin_kunwu.",
+      "title": "Great Jin and Kunwu"
     }
   ]
 }

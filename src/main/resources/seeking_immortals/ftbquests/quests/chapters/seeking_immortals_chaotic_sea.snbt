@@ -64,7 +64,7 @@
       ],
       dependencies: ["1000000000000502"],
       tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "branch_rebel"],
-      tasks: [{id: "1000000000001504", type: "checkmark", title: "听取逆星暗号"}]
+      tasks: [{id: "1000000000001504", type: "custom", title: "听取逆星暗号", tags: ["si_native_chaotic_sea_politics_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000505",
@@ -93,7 +93,7 @@
       ],
       dependencies: ["1000000000000505"],
       tags: ["seeking_immortals", "chaotic_sea", "inverse_star"],
-      tasks: [{id: "1000000000001506", type: "checkmark", title: "立下逆星盟誓"}]
+      tasks: [{id: "1000000000001506", type: "custom", title: "立下逆星盟誓", tags: ["si_native_inverse_star_recruit_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000507",
@@ -122,7 +122,7 @@
       ],
       dependencies: ["1000000000000507"],
       tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "smuggle"],
-      tasks: [{id: "1000000000001508", type: "checkmark", title: "绕开巡防"}]
+      tasks: [{id: "1000000000001508", type: "custom", title: "绕开巡防", tags: ["si_native_inverse_star_smuggle_arc_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000509",
@@ -150,8 +150,8 @@
         "虚天殿三百年周期、空间异象和钥碎片传闻在此合流。"
       ],
       dependencies: ["1000000000000503", "1000000000000509"],
-      tags: ["seeking_immortals", "chaotic_sea", "void_palace_campaign"],
-      tasks: [{id: "1000000000001510", type: "checkmark", title: "记录虚天异象"}]
+      tags: ["seeking_immortals", "chaotic_sea", "void_palace_campaign", "si_native_write_void_palace_campaign_1"],
+      tasks: [{id: "1000000000001510", type: "advancement", advancement: "minecraft:adventure/root", title: "记录虚天异象"}]
     },
     {
       id: "1000000000000511",
@@ -164,7 +164,7 @@
         "钥碎片散落于遗迹与海兽巢；后续可替换为物品收集或秘境进度任务。当前 FTB 物品任务检查 1 块虚空结晶并消耗，作为虚天钥碎片代理。"
       ],
       dependencies: ["1000000000000510"],
-      tags: ["seeking_immortals", "chaotic_sea", "void_palace_campaign"],
+      tags: ["seeking_immortals", "chaotic_sea", "void_palace_campaign", "si_native_write_void_palace_campaign_2"],
       tasks: [{id: "1000000000001511", type: "item", title: "持有虚天钥碎片", item: "seeking_immortals:void_crystal", count: 1L, consume_items: true, match_nbt: false}],
       rewards: [{id: "9000000000001511", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
@@ -180,7 +180,7 @@
       ],
       dependencies: ["1000000000000511"],
       tags: ["seeking_immortals", "chaotic_sea", "void_palace_campaign", "puppet_design"],
-      tasks: [{id: "1000000000001512", type: "checkmark", title: "突破虚天外殿"}]
+      tasks: [{id: "1000000000001512", type: "custom", title: "同步原生任务第三阶段", tags: ["si_native_void_palace_campaign_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000513",
@@ -194,7 +194,7 @@
       ],
       dependencies: ["1000000000000512"],
       tags: ["seeking_immortals", "chaotic_sea", "void_palace_campaign", "alchemy"],
-      tasks: [{id: "1000000000001513", type: "checkmark", title: "完成灵药园采集"}]
+      tasks: [{id: "1000000000001513", type: "custom", title: "同步原生任务第四阶段", tags: ["si_native_void_palace_campaign_4"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000514",
@@ -207,7 +207,7 @@
         "寒玉殿对应极寒环境和寒玉资源；后续可接入冷抗、场景伤害或材料掉落。当前 FTB 物品任务检查 2 块寒玉并消耗。"
       ],
       dependencies: ["1000000000000513"],
-      tags: ["seeking_immortals", "chaotic_sea", "void_palace_campaign"],
+      tags: ["seeking_immortals", "chaotic_sea", "void_palace_campaign", "si_native_write_void_palace_campaign_5"],
       tasks: [{id: "1000000000001514", type: "item", title: "持有寒玉", item: "seeking_immortals:cold_jade", count: 2L, consume_items: true, match_nbt: false}],
       rewards: [{id: "9000000000001514", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
@@ -223,7 +223,7 @@
       ],
       dependencies: ["1000000000000514"],
       tags: ["seeking_immortals", "chaotic_sea", "void_palace_campaign", "boss_design"],
-      tasks: [{id: "1000000000001515", type: "checkmark", title: "开启核心宝库"}]
+      tasks: [{id: "1000000000001515", type: "custom", title: "同步原生任务完成状态", tags: ["si_native_void_palace_campaign_6"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000516",
@@ -237,7 +237,7 @@
       ],
       dependencies: ["1000000000000503", "1000000000000506"],
       tags: ["seeking_immortals", "chaotic_sea", "branch_design"],
-      tasks: [{id: "1000000000001516", type: "checkmark", title: "确认对峙局势"}]
+      tasks: [{id: "1000000000001516", type: "custom", title: "确认对峙局势", tags: ["si_native_chaotic_sea_civil_war_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000517",
@@ -268,7 +268,7 @@
       ],
       dependencies: ["1000000000000516"],
       tags: ["seeking_immortals", "chaotic_sea", "optional"],
-      tasks: [{id: "1000000000001518", type: "checkmark", title: "保留中立身份"}]
+      tasks: [{id: "1000000000001518", type: "custom", title: "保留中立身份", tags: ["si_native_chaotic_sea_civil_war_5"], check_timer: 20, max_progress: 1L}]
     }
   ]
 }

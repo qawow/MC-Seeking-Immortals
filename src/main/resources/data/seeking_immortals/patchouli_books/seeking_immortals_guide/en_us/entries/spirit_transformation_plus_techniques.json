@@ -1,33 +1,33 @@
 {
-  "name": "化神期及以上术法",
+  "name": "Deity Transformation and Higher Techniques",
   "category": "seeking_immortals:basics",
   "icon": "seeking_immortals:spirit_charm",
   "sortnum": 11,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "规则定位",
-      "text": "化神期及以上术法进入法则、跨界、真灵、古魔、仙界与终局神通层级。当前为规则数据，覆盖空间裂缝、跨界神念、魔化、真魔甲、五行擒拿、混沌封印、真灵变化、雷法本源和顶阶炼体。"
+      "title": "Role in Progression",
+      "text": "From Deity Transformation onward, techniques reach laws, cross-realm power, True Spirits, ancient demons, the Immortal Realm, and endgame divine arts. Current rules data covers spatial rifts, cross-realm divine thought, demonization, True Demon Armor, Five-Element capture, chaos seals, True Spirit transformations, primordial thunder arts, and supreme body cultivation."
     },
     {
       "type": "patchouli:text",
-      "title": "空间与跨界",
-      "text": "幻妙天象可将敌人封入临时空间裂缝；缩地术一步千里，是高阶赶路神通；垮空神念大法可跨界投射神念；混沌开天能开辟混沌空间封印敌人，均适合后续接入空间与界面规则。"
+      "title": "Space and Cross-Realm Arts",
+      "text": "Illusory Celestial Phenomenon seals enemies in a temporary spatial rift. Shrinking Earth crosses a thousand li in one step; Cross-Void Divine Thought Grand Art projects divine thought between realms; and Chaos Sundering Heaven opens a chaotic space to imprison foes. All suit future spatial and realm-boundary systems."
     },
     {
       "type": "patchouli:text",
-      "title": "古魔、佛门与妖族",
-      "text": "天轮化魔大法通过真魔气转化魔族，真魔甲凝聚防护魔甲；六极真魔功可化身六臂真魔；明王诀可由魔入佛；三梵圣功完整篇包含炼体、幻化和神通三大体系。"
+      "title": "Ancient Demons, Buddhism, and Demon Clans",
+      "text": "Heavenly Wheel Demon Transformation Grand Art uses true demonic qi to transform its wielder, while True Demon Armor condenses protective demonic plate. Six Extremes True Demon Art creates a six-armed demon form; Radiant King Art turns from demon to Buddha; and the complete Three Brahma Sacred Art unites body cultivation, transformation, and divine arts."
     },
     {
       "type": "patchouli:text",
-      "title": "五行、光焰与真灵",
-      "text": "大五行擒仙手以五行巨手擒拿强敌；北极元光偏穿透与追踪；金磁重光叠加重力和磁场；修罗圣火融合多种异火；惊蛰诀融合十二种真灵血脉，可幻化真灵形态。"
+      "title": "Five Elements, Radiance, and True Spirits",
+      "text": "Great Five Elements Immortal-Capturing Hand seizes mighty foes with an elemental hand. Northern Polar Origin Light pierces and tracks; Golden Magnetic Heavy Light combines gravity and magnetism; Asura Sacred Flame fuses several exotic fires; and Awakening of Insects Art blends twelve True Spirit bloodlines to assume their forms."
     },
     {
       "type": "patchouli:text",
-      "title": "仙界与法则功法",
-      "text": "五雷正法真经是仙界雷法本源总纲；天煞镇狱功和大力金刚诀代表顶阶炼体路线；九幽魔瞳可破幻破禁；大五行幻世诀创造五行幻境世界；碧海天波功领悟潮汐法则；玄煞暝灵功以煞气冲击仙窍。"
+      "title": "Immortal-Realm and Law Methods",
+      "text": "The Five Thunder Orthodox Dharma Scripture is the Immortal Realm's root canon of thunder. Heavenly Baleful Prison-Suppressing Art and Great Strength Vajra Art are supreme body paths; Nine Nether Demon Eyes pierce illusions and restrictions; Great Five Elements Illusory World Art creates an elemental illusion realm; Azure Sea Heavenly Wave Art comprehends tidal law; and Profound Baleful Nether-Spirit Art drives baleful qi against immortal apertures."
     }
   ]
 }

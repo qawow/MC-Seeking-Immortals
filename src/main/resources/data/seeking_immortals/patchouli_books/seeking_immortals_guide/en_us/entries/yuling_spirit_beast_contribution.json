@@ -1,28 +1,28 @@
 {
-  "name": "御灵阁灵兽供给",
+  "name": "Yuling Pavilion Beast Supplies",
   "category": "seeking_immortals:basics",
   "icon": "seeking_immortals:beast_core",
   "sortnum": 21,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "灵兽山供给",
-      "text": "本条目对应文本材料 sect_contribution_shop.json#spirit_beast_mountain，并串联当前已实现的御灵阁贡献商店。现阶段不新增独立灵兽商店或运行时养成系统，而是复用已有 ShopService 贡献兑换与 Patchouli 指南。"
+      "title": "Spirit Beast Mountain Supplies",
+      "text": "This entry follows sect_contribution_shop.json#spirit_beast_mountain and the existing Yuling Pavilion contribution shop. It reuses ShopService contribution exchanges and Patchouli guidance without adding a separate beast shop or runtime growth system."
     },
     {
       "type": "patchouli:text",
-      "title": "当前接入",
-      "text": "御灵阁贡献商店 yuling_pavilion_contribution_hall 已接入 spirit_beast_feed 与 beast_soul_essence。前者暂以 4 份灵草承载，消耗 15 贡献；后者暂以兽核承载，消耗 200 贡献。"
+      "title": "Current Listings",
+      "text": "The Yuling Pavilion contribution shop yuling_pavilion_contribution_hall offers spirit_beast_feed and beast_soul_essence. The first currently uses 4 spirit herbs as its item form and costs 15 contribution; the second uses a beast core and costs 200 contribution."
     },
     {
       "type": "patchouli:text",
-      "title": "相邻入口",
-      "text": "同一商店还提供基础御灵术、兽核与灵兽骨，作为现有御灵/灵兽材料入口。它们仍是数据层供给，不会自动生成灵兽、契约界面、喂养循环或专属战斗 AI。"
+      "title": "Related Listings",
+      "text": "The same shop also offers a basic Spirit-Taming Art, beast cores, and spirit-beast bones as current entry points to taming materials. These supplies do not automatically create beasts, a contract interface, a feeding loop, or dedicated combat AI."
     },
     {
       "type": "patchouli:text",
-      "title": "延后内容",
-      "text": "文本材料中的 spirit_beast_nurture_pill、专属饲料、灵兽契约、亲密度、资质成长、灵兽实体、GeckoLib 动画、掉落来源和 FTB Quests 引导仍未实装。本页只说明已存在的贡献兑换钩子。"
+      "title": "Planned Content",
+      "text": "spirit_beast_nurture_pill, dedicated feed, beast contracts, affinity, aptitude growth, beast entities, GeckoLib animations, drop sources, and FTB Quests guidance are not yet implemented. This page describes only existing contribution-exchange hooks."
     }
   ]
 }

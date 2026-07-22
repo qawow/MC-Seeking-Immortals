@@ -6,42 +6,62 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Seeking Immortals contains multiple quest lines spanning the complete cultivation journey from mortal to ascension. Quest lines include $(l)main quests$(), $(l)sect quests$(), $(l)faction quests$(), and $(l)side quests$()."
+      "text": "Seeking Immortals uses the $(l)native quest progress$() as its sole authoritative ledger. The server validates start requirements, current stages, turn-ins, branches, and rewards. The tracker, commands, and FTB Quests only read that state or submit actions; they do not maintain conflicting copies."
     },
     {
       "type": "patchouli:text",
-      "title": "Seven Mysteries Sect Tutorial",
-      "text": "The $(l)Seven Mysteries Sect quest line$() is the beginner tutorial, starting from the mortal stage.$(br2)Quest flow:$(li)Talk to $(l)Elder Mo$() and complete spiritual root test$(li)Join Seven Mysteries Sect, receive Yellow Dragon Manual$(li)Complete labor, submit 10 spiritual herbs$(li)Learn basic alchemy$(li)Discover the sect secret"
+      "title": "Starting and Progressing",
+      "text": "Interact with the required character, block, secret realm, kill, or crafting objective to advance the current stage. Starting checks realm, faction, and region requirements; advancing checks the current stage again and consumes any listed turn-in.$(br2)Use $(l)/seeking_immortals quest$() for Seven Mysteries progress and $(l)/seeking_immortals quest text list$() for native quest lines."
     },
     {
       "type": "patchouli:text",
-      "title": "Seven Mysteries Quest (cont.)",
-      "text": "$(li)Investigate the secret room, obtain mysterious vial$(li)Use spirit liquid to ripen crops and report back$(li)Obtain evidence of elder corruption$(li)Choose branch: report, stay silent, or blackmail$(li)Escape during Heavenly Gang Alliance attack$(li)Head to Yue Nation to unlock follow-up sect lines$(br2)Use command $(l)/seeking_immortals quest$() to check progress."
+      "title": "FTB Synchronization",
+      "text": "With FTB Quests installed, nine chapters present the mod's sixty-two native quest lines. Native mirror nodes light only after the matching stage is complete. Explicit write-back nodes may request only the $(l)next current stage$() and must still pass native validation. Without FTB Quests, native quests, NPCs, tracking, and rewards continue normally."
     },
     {
       "type": "patchouli:text",
-      "title": "Main Story Chapters",
-      "text": "After Seven Mysteries, the main story has 6 chapters:$(br)$(l)Chapter 1: Sect Cultivation$() (Qi Refining → Foundation)$(br)$(l)Chapter 2: Foundation Secret Realm$() (Blood Forbidden Land)$(br)$(l)Chapter 3: Chaotic Sea$() (Foundation → Core Formation)$(br)$(l)Chapter 4: Great Jin$() (Core → Nascent Soul)$(br)$(l)Chapter 5: Deity Tribulation$() (Nascent → Deity)$(br)$(l)Chapter 6: Spirit Realm Ascension$() (Deity → Void+)"
+      "title": "Reward Ownership",
+      "text": "The native quest ledger grants stage and finale rewards and records a one-time receipt against duplicates. FTB item turn-ins consume the listed amount, while mirror nodes never duplicate a native finale reward. Full inventories use the mod's shared delivery rules; client-side completion displays never authorize payment."
     },
     {
       "type": "patchouli:text",
-      "title": "Sect Quest Lines",
-      "text": "Each sect offers exclusive quests:$(li)$(l)Yellow Maple Valley$(): Alchemy and Blood Forbidden training$(li)$(l)Blade Transformation Workshop$(): Blade dao and intent$(li)$(l)Giant Sword Sect$(): Giant sword art and relic restoration$(li)$(l)Veiled Moon Sect$(): Illusion art and formation practice$(li)$(l)Heavenly Talisman Gate$(): Talisman mastery$(li)$(l)Thousand Bamboo Sect$(): Puppet art and Dayan technique"
+      "title": "Branches and Locks",
+      "text": "Some lines split between righteous, neutral, and demonic positions or specific story choices. The Seven Mysteries evidence event offers report, silence, or blackmail; Star Palace versus Inverse Star and Mulan versus Tianlan also contain exclusive nodes. A non-neutral choice locks the branch, and later NPCs, costs, and rewards use the server record."
     },
     {
       "type": "patchouli:text",
-      "title": "Faction Quest Lines",
-      "text": "Different regions offer unique faction quests:$(li)$(l)Mulan-Tianlan War$(): Spell Masters vs Beast Tamers$(li)$(l)Star Palace Faction$(): Chaotic Sea patrols and enforcement$(li)$(l)Inverse Star Alliance$(): Smuggling, intelligence, resistance$(li)$(l)Six Demonic Sects$(): Ghost Spirit Gate, Hehuan Sect, etc.$(li)$(l)Great Jin Clans$(): Clan disputes and Kunwu treasures$(li)$(l)Tianyuan City$(): Merit system and Diyuan delving"
+      "title": "Chapters Zero and One",
+      "text": "$(l)Chapter 0: Mortal Beginnings$(): test your spiritual root, enter Seven Mysteries Sect, and reach Qi Refining.$(br2)$(l)Chapter 1: Sect Cultivation$(): complete outer-sect work, herb gathering, alchemy, and Foundation preparation across Tiannan and the Seven Sects."
     },
     {
       "type": "patchouli:text",
-      "title": "Secret Realm Quests",
-      "text": "19 explorable secret realms, each with quest chains:$(li)$(l)Blood Forbidden Land$(): Foundation materials, Blood Jiao guardian$(li)$(l)Void Heaven Palace$(): Void key and ancient spirit treasures$(li)$(l)Kunwu Mountain$(): Seal fragments and puppet mechanisms$(li)$(l)Fallen Demon Valley$(): Demon qi purification, spatial rifts$(li)$(l)Nether River$(): Soul stones, ghost cultivation$(li)$(l)Diyuan Depths$(): Spirit vein shards, pressure trials"
+      "title": "Chapters Two and Three",
+      "text": "$(l)Chapter 2: Foundation Secret Realm$(): earn a Blood Forbidden Land place and secure Foundation resources during its timed opening.$(br2)$(l)Chapter 3: Chaotic Sea$(): prepare a spirit boat and identity, choose between Star Palace order and the Inverse Star underground, and prepare for Void Heaven Palace."
     },
     {
       "type": "patchouli:text",
-      "title": "Side & Special Quests",
-      "text": "Rich side quests beyond main story:$(li)$(l)Craft Mastery$(): Alchemy, refining, talisman, formation mastery$(li)$(l)Ghost Path$(): Underworld pilgrimage, ghost cultivation taboo$(li)$(l)Spirit Beast Puppet$(): Beast contracts and puppet furnace$(li)$(l)Eighteen Clan Pilgrimage$(): Fengyuan world exploration$(li)$(l)Barbarian King Hunt$(): King tokens and ancient beast cores$(br2)Each quest line offers unique rewards and story."
+      "title": "Chapters Four and Five",
+      "text": "$(l)Chapter 4: Great Jin$(): pursue Kunwu Mountain, Yin-Yang Cavern, and Void Heaven relics among clan and righteous-demonic conflicts.$(br2)$(l)Chapter 5: Deity Tribulation$(): delve into Fallen Demon Valley, follow creation and fire-prison clues, then face inner demons, tribulation, and ascension preparation."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Chapter Six: Spirit Realm",
+      "text": "After crossing the realm boundary, register at Tianyuan and exchange service and merit for Spirit Realm resources. This chapter connects Diyuan delves, Fengyuan clans, barbarian kings, and higher-realm cultivation. Region, realm, permit, and merit requirements are validated one stage at a time."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Sects and Crafts",
+      "text": "Yellow Maple Valley emphasizes alchemy and secret-realm training. Blade Transformation, Giant Sword, Veiled Moon, Heavenly Talisman, and Thousand Bamboo extend blade, sword, illusion, formation, talisman, and puppet paths. Craft quests join gathering, turn-ins, crafting, formation deployment, and sect examinations into native progress."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Factions and Realms",
+      "text": "Chaotic Sea, Mulan-Tianlan, the Six Demonic Sects, Great Jin clans, Yinming ghost paths, Tianyuan, and Fengyuan clans have separate or intersecting lines. Blood Forbidden Land, Void Heaven Palace, Kunwu Mountain, Fallen Demon Valley, Nether River, and Diyuan check tickets, opening windows, session ownership, and kill results."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "When Progress Stalls",
+      "text": "Check the tracker for the current stage, NPC, branch, and turn-in cost. An unlit mirror node usually means the native condition is unfinished. If an FTB node completes without advancing native progress, it is display-only or the current-stage validation failed. Logging in again resynchronizes from the server ledger; no quest reset is needed."
     }
   ]
 }

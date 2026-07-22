@@ -1,28 +1,28 @@
 {
-  "name": "风元大陆",
+  "name": "Fengyuan Continent",
   "category": "seeking_immortals:basics",
   "icon": "seeking_immortals:spirit_grass",
   "sortnum": 22,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "灵界主陆",
-      "text": "本条目对应文本材料 patchouli_static_entries.json#spirit_fengyuan、region_cards/spirit_fengyuan.json 与 human_clan_league.json。当前世界包已接入 spirit_fengyuan 区域，门槛为化神，旅行锚点为 fengyuan_anchor。"
+      "title": "Spirit Realm Continent",
+      "text": "This entry follows patchouli_static_entries.json#spirit_fengyuan, region_cards/spirit_fengyuan.json, and human_clan_league.json. The spirit_fengyuan region is available in current world data, requires Deity Transformation, and uses fengyuan_anchor for travel."
     },
     {
       "type": "patchouli:text",
-      "title": "当前数据",
-      "text": "风元大陆在世界包中拥有 1.8 灵气倍率，并带有 spirit_realm、clans、treasure_fair 标签。文本材料中的人族世家联盟、妖族并存、北接蛮荒等内容目前作为指南说明与后续任务钩子保留。"
+      "title": "Current Data",
+      "text": "Fengyuan Continent has a 1.8 aura multiplier and the tags spirit_realm, clans, and treasure_fair. Its Human Clan League, coexistence with demon clans, and northern border with the Wilds remain guide context and future quest hooks."
     },
     {
       "type": "patchouli:text",
-      "title": "世家与秘境",
-      "text": "文本材料将阵法莫家、炼器俞家、炼丹谷家、制符宁家归入风元人族世家联盟。当前版本已有关联秘境钩子：地渊、魔金山脉、小修罗界与九仙山闭关地。"
+      "title": "Clans and Secret Realms",
+      "text": "The Fengyuan Human Clan League includes the formation-specialist Mo Clan, refinement-specialist Yu Clan, alchemy-specialist Gu Clan, and talisman-specialist Ning Clan. Existing secret-realm hooks include the Earth Abyss, Devil-Gold Mountains, Lesser Asura Realm, and Nine Immortals Mountain retreat."
     },
     {
       "type": "patchouli:text",
-      "title": "延后内容",
-      "text": "真实世家 NPC、世家声望、联盟任务网、宝会竞价、蛮荒边界通行、专精商店、风元探索线与 FTB Quests 章节仍未实装。本页只说明已存在的区域、秘境和事件线索。"
+      "title": "Planned Content",
+      "text": "Clan NPCs, clan reputation, the league quest network, treasure-fair bidding, Wilds border access, specialty shops, the Fengyuan exploration route, and an FTB Quests chapter are not yet implemented. This page describes only existing region, secret-realm, and event clues."
     }
   ]
 }

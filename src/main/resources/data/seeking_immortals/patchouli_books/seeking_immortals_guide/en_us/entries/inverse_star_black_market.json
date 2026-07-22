@@ -1,23 +1,23 @@
 {
-  "name": "逆星盟黑市",
+  "name": "Anti-Star Black Market",
   "category": "seeking_immortals:basics",
   "icon": "seeking_immortals:beast_core",
   "sortnum": 16,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "逆星盟黑市",
-      "text": "逆星盟黑市对应文本材料 merchant_shops.json#inverse_star_black_market。当前版本通过已有坊市系统接入，不新增独立黑市 UI、声望界面、赃物流通加载器或额外网络包，仍使用下品金灵石作为物品货币。"
+      "title": "Anti-Star Black Market",
+      "text": "The Anti-Star black market follows merchant_shops.json#inverse_star_black_market and uses the existing market system. It adds no separate black-market UI, reputation screen, contraband loader, or network packet, and trades in low-grade metal spirit stones."
     },
     {
       "type": "patchouli:text",
-      "title": "当前货品",
-      "text": "已接入 demon_core_mid、demon_heart_pill 与 recipe_demon_heart。当前分别复用兽核、低阶清心/宁神类丹药、清心丹玉简丹方作为实现载体，价格为 90、180、350 下品金灵石；默认刷新为 48000 tick。"
+      "title": "Current Stock",
+      "text": "Available listings are demon_core_mid, demon_heart_pill, and recipe_demon_heart. They currently reuse a beast core, a low-tier mind-clearing pill, and a Qingxin Pill jade-slip formula as their item forms, priced at 90, 180, and 350 low-grade metal spirit stones. Default restock time is 48000 ticks."
     },
     {
       "type": "patchouli:text",
-      "title": "延后内容",
-      "text": "文本材料中的 stolen_jade_slip、island_deed_gray、contraband_spirit_stone、pirate_loot_bundle、逆星联络信物、密令与走私包仍需要声望、赃物风险、任务和 NPC 表现承接，暂不通过通用物品强行替代。"
+      "title": "Planned Stock",
+      "text": "stolen_jade_slip, island_deed_gray, contraband_spirit_stone, pirate_loot_bundle, Anti-Star contact tokens, secret orders, and smuggling bundles still require reputation, contraband risk, quests, and NPC support. They are not being forced onto generic substitute items."
     }
   ]
 }

@@ -1,13 +1,13 @@
 {
-  "name": "鬼修路径",
+  "name": "Ghost Cultivation Path",
   "category": "seeking_immortals:techniques",
   "icon": "seeking_immortals:yin_stone",
   "sortnum": 20,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "见 patchouli_item_book 分类索引条目 ghost_path_summary。游戏内百科与命令可进一步检索。",
-      "title": "鬼修路径"
+      "text": "Ghost cultivation centers on yin souls, divine sense, and yin-aligned spells. After entering the path, seek quests, methods, and unique materials around Yinming and the Nether River. Source index: patchouli_item_book category entry ghost_path_summary.",
+      "title": "Ghost Cultivation Path"
     }
   ]
 }

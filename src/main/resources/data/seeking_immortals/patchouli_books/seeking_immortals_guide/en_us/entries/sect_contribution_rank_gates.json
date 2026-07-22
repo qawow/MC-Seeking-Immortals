@@ -7,7 +7,7 @@
     {
       "type": "patchouli:text",
       "title": "Source Basis",
-      "text": "This page follows 文本材料/data/sect_contribution_shop.json rank_min and nested exchange gates. The current implementation reuses ShopService contribution exchanges, QuestProgress sect stages, and Patchouli guidance without adding a separate NPC, shop UI, quest loader, or network packet."
+      "text": "This page follows rank_min and nested exchange gates in source-corpus data/sect_contribution_shop.json. The current implementation reuses ShopService contribution exchanges, QuestProgress sect stages, and Patchouli guidance without adding a separate NPC, shop UI, quest loader, or network packet."
     },
     {
       "type": "patchouli:text",

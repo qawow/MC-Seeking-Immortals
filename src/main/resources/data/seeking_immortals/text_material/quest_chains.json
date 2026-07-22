@@ -134,6 +134,7 @@
     {
       "id": "ghost_path",
       "display": "鬼道线",
+      "region": "yinming",
       "path_ref": "ghost_cultivation_path.json",
       "steps": [
         {
@@ -173,13 +174,14 @@
         "start": {
           "realm_min": "QI_REFINING",
           "faction": null,
-          "region": null
+          "region": "yinming"
         }
       }
     },
     {
       "id": "high_realm_endgame",
       "display": "高境界终局",
+      "region": "tianyuan",
       "realm_span": [
         "CORE_FORMATION",
         "DEITY_TRANSFORMATION"
@@ -205,7 +207,7 @@
         "start": {
           "realm_min": "QI_REFINING",
           "faction": null,
-          "region": null
+          "region": "tianyuan"
         }
       }
     },
@@ -259,6 +261,7 @@
     {
       "id": "craft_master",
       "display": "百艺精通",
+      "region": "tiannan",
       "steps": [
         {
           "hook": "alchemy_apprentice"
@@ -292,7 +295,7 @@
         "start": {
           "realm_min": "QI_REFINING",
           "faction": null,
-          "region": null
+          "region": "tiannan"
         }
       }
     },
@@ -659,7 +662,7 @@
     {
       "id": "yin_cluster_pilgrim",
       "display": "阴司朝圣线",
-      "region": "yin_underworld",
+      "region": "yinming",
       "path_optional": "ghost_cultivator",
       "steps": [
         {
@@ -684,7 +687,7 @@
         "start": {
           "realm_min": "QI_REFINING",
           "faction": null,
-          "region": "yin_underworld"
+          "region": "yinming"
         }
       }
     },
@@ -1113,6 +1116,7 @@
     {
       "id": "ghost_sect_ban_arc",
       "display": "鬼修禁入正道",
+      "region": "yinming",
       "requires": "ghost_cultivator",
       "steps": [
         {
@@ -1133,7 +1137,7 @@
         "start": {
           "realm_min": "QI_REFINING",
           "faction": null,
-          "region": null
+          "region": "yinming"
         }
       }
     },
@@ -1353,6 +1357,7 @@
     {
       "id": "void_great_cultivation_arc",
       "display": "炼虚大乘道途",
+      "region": "spirit_realm_border",
       "realm_span": [
         "VOID_REFINING",
         "TRIBULATION"
@@ -1379,14 +1384,14 @@
         "start": {
           "realm_min": "QI_REFINING",
           "faction": null,
-          "region": null
+          "region": "spirit_realm_border"
         }
       }
     },
     {
       "id": "diyuan_depth_delve",
       "display": "地渊深层",
-      "region": "diyuan",
+      "region": "tianyuan",
       "realm_min": "VOID_REFINING",
       "steps": [
         {
@@ -1410,13 +1415,14 @@
         "start": {
           "realm_min": "VOID_REFINING",
           "faction": null,
-          "region": "diyuan"
+          "region": "tianyuan"
         }
       }
     },
     {
       "id": "mortal_to_spirit_bridge",
       "display": "人界化神·赴灵界",
+      "region": "tianyuan",
       "realm_min": "DEITY_TRANSFORMATION",
       "steps": [
         {
@@ -1436,7 +1442,7 @@
         "start": {
           "realm_min": "DEITY_TRANSFORMATION",
           "faction": null,
-          "region": null
+          "region": "tianyuan"
         }
       }
     },
@@ -1551,6 +1557,7 @@
     {
       "id": "chain_seven_sect_outer_to_inner",
       "display": "七派外门晋升内门",
+      "region": "tiannan",
       "steps": 3,
       "faction": "tiannan_seven",
       "rewards": [
@@ -1563,7 +1570,7 @@
         "start": {
           "realm_min": "QI_REFINING",
           "faction": "tiannan_seven",
-          "region": null
+          "region": "tiannan"
         }
       }
     },
@@ -1588,7 +1595,7 @@
           "summary": "停战"
         }
       ],
-      "region": "mulan_border",
+      "region": "mulan",
       "rewards": [
         "war_merit",
         "mulan_spoil"
@@ -1600,7 +1607,7 @@
         "start": {
           "realm_min": "QI_REFINING",
           "faction": null,
-          "region": "mulan_border"
+          "region": "mulan"
         }
       },
       "war_events_ref": "mulan_tianlan_war.json",
@@ -1609,6 +1616,7 @@
     {
       "id": "chain_void_palace_expedition",
       "display": "虚天殿探险链",
+      "region": "chaotic_sea",
       "steps": 4,
       "realm_min": "CORE_FORMATION",
       "rewards": [
@@ -1622,13 +1630,14 @@
         "start": {
           "realm_min": "CORE_FORMATION",
           "faction": null,
-          "region": null
+          "region": "chaotic_sea"
         }
       }
     },
     {
       "id": "chain_ascension_spirit_world",
       "display": "飞升灵界前置",
+      "region": "tianyuan",
       "steps": 6,
       "realm_min": "DEITY_TRANSFORMATION",
       "rewards": [
@@ -1641,7 +1650,7 @@
         "start": {
           "realm_min": "DEITY_TRANSFORMATION",
           "faction": null,
-          "region": null
+          "region": "tianyuan"
         }
       }
     },
@@ -1649,7 +1658,7 @@
       "id": "chain_tianyuan_enlist",
       "display": "天渊城服役",
       "steps": 4,
-      "region": "spirit_world",
+      "region": "tianyuan",
       "rewards": [
         "tianyuan_contribution"
       ],
@@ -1660,7 +1669,7 @@
         "start": {
           "realm_min": "QI_REFINING",
           "faction": null,
-          "region": "spirit_world"
+          "region": "tianyuan"
         }
       }
     },
@@ -1939,7 +1948,7 @@
     {
       "id": "diyuan_campaign",
       "display": "地渊探脉",
-      "region": "diyuan",
+      "region": "tianyuan",
       "realm_span": [
         "VOID_REFINEMENT",
         "BODY_FUSION"
@@ -1981,7 +1990,7 @@
       "learn_requirements": {
         "start": {
           "realm_min": "VOID_REFINEMENT",
-          "region": "diyuan"
+          "region": "tianyuan"
         }
       }
     },

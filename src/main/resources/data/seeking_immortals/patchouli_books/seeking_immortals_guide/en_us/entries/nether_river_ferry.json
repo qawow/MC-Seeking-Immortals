@@ -1,28 +1,28 @@
 {
-  "name": "冥河摆渡",
+  "name": "Nether River Ferry",
   "category": "seeking_immortals:basics",
   "icon": "seeking_immortals:yin_stone",
   "sortnum": 27,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "渡口位置",
-      "text": "本页对应 trade_routes.json#nether_river_ferry、yin_underworld_cluster.json 与 secret_realms.json#nether_river_land。冥河摆渡连接冥河与阴冥，是阴司集群中的口袋维/秘境入口，而不是普通陆路商线。"
+      "title": "Ferry Location",
+      "text": "This page follows trade_routes.json#nether_river_ferry, yin_underworld_cluster.json, and secret_realms.json#nether_river_land. The ferry links the Nether River and Yinming as a pocket-dimension and secret-realm entrance in the Netherworld cluster, not as an ordinary overland trade route."
     },
     {
       "type": "patchouli:text",
-      "title": "费用与门槛",
-      "text": "文本材料设定摆渡交通为 ghost_boat，费用为 30 阴石，并限制在筑基以内的鬼道早期阶段使用。当前版本已经有 seeking_immortals:yin_stone 物品载体和冥河/阴冥口袋维度锚点，真实扣费与船票服务仍待后续。"
+      "title": "Fare and Requirements",
+      "text": "The corpus defines the transport as ghost_boat with a fare of 30 yin stones, intended for early ghost-path cultivators up through Foundation Establishment. seeking_immortals:yin_stone and the Nether River/Yinming pocket-dimension anchors already exist; actual fare collection and ticket service remain future work."
     },
     {
       "type": "patchouli:text",
-      "title": "冥河之地",
-      "text": "冥河秘境门槛为筑基，推荐鬼修道途或完成鬼道任务。探索结构是渡口、魂滩、冥殿、守关，奖励方向包括阴性材料、鬼修功法、冥河宝箱和阴障丹。"
+      "title": "Land of the Nether River",
+      "text": "The Nether River secret realm requires Foundation Establishment and recommends the ghost-cultivation path or completion of ghost-path quests. Its planned route passes the Ferry, Soul Shore, Nether Hall, and Gatekeeper; rewards include yin materials, ghost methods, Nether River chests, and Yin-Barrier Pills."
     },
     {
       "type": "patchouli:text",
-      "title": "风险与后续",
-      "text": "冥河环境带有阴雾减阳伤、白日 debuff 和纯阳伤害加成等设定，也可作为阴属性天劫减伤区。后续仍需要摆渡 NPC、阴石扣费、敛魂符、鬼物规则、任务引导和专属地貌/结构。"
+      "title": "Risks and Future Work",
+      "text": "Nether River yin mist reduces yang damage, daylight weakens ghost cultivators, and pure-yang attacks gain power; the region can also mitigate yin-aligned tribulations. Ferry NPCs, yin-stone payment, Soul-Gathering Talismans, ghost rules, quest guidance, and unique terrain and structures are still needed."
     }
   ]
 }

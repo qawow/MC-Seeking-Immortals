@@ -130,7 +130,7 @@ public final class QuestLineService {
             }
             for (String lead : leads) {
                 String lid = normalize(lead);
-                if (lid.isBlank()) {
+                if (!isReferenceId(lid)) {
                     continue;
                 }
                 // lead_to may point to another line or a chain/playable id.
@@ -260,5 +260,18 @@ public final class QuestLineService {
 
     private static String normalize(String id) {
         return id == null ? "" : id.trim().toLowerCase(Locale.ROOT);
+    }
+
+    private static boolean isReferenceId(String value) {
+        if (value == null || value.isBlank()) {
+            return false;
+        }
+        for (int i = 0; i < value.length(); i++) {
+            char c = value.charAt(i);
+            if ((c < 'a' || c > 'z') && (c < '0' || c > '9') && c != '_') {
+                return false;
+            }
+        }
+        return true;
     }
 }

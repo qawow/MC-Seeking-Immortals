@@ -1,0 +1,33 @@
+{
+  "name": "多方块工站建造与检修",
+  "category": "seeking_immortals:artifacts_formations",
+  "icon": "seeking_immortals:structure_blueprint_table",
+  "sortnum": 38,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "九十二种结构",
+      "text": "多方块结构目录目前收录 92 个结构条目，另有 83 个带步骤展示的序列。丹炉、炼器台、阵基、傀儡台、飞舟泊桩和战时工站都以目录 id 作为运行契约。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "专用校验",
+      "text": "成型由 station pattern 的 validator 决定。高阶丹炉与炼器台使用专用几何校验，已知但尚未实现的 validator 会 fail-closed；不要把所有结构都理解成通用灵石环，也不要以名称推断已经成型。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "蓝图台",
+      "text": "结构蓝图台是可携带的目录载体。对附近已成型工站使用时，普通右键预览目标与步骤，潜行右键尝试正式成型；附近没有工站时会列出可追踪的目录提示。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "检修台",
+      "text": "结构检修台普通右键检查最近工站，潜行右键在可运行工站上维修，在尚未启用的已成型工站上尝试启用。运行状态会记录为完好、受损、危急或停摆，并持久化生命值。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "材料与退款",
+      "text": "正式成型与大修由服务端预留目录材料和灵石碎片；预留后若状态写入失败会退回已预留物。结构壳体成型、运行效率和检修费用各自独立，目录中 fail-closed 的条目在对应校验实现前会明确拒绝。"
+    }
+  ]
+}

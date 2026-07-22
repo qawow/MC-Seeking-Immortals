@@ -47,7 +47,7 @@
       ],
       dependencies: ["1000000000000902"],
       tags: ["seeking_immortals", "tianyuan", "demon_hunt", "reward_bridge_deferred"],
-      tasks: [{id: "1000000000001903", type: "checkmark", title: "签阅诛魔契约"}]
+      tasks: [{id: "1000000000001903", type: "custom", title: "签阅诛魔契约", tags: ["si_native_spirit_realm_rise_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000904",
@@ -92,7 +92,7 @@
       ],
       dependencies: ["1000000000000903"],
       tags: ["seeking_immortals", "tianyuan", "diplomacy", "optional"],
-      tasks: [{id: "1000000000001906", type: "checkmark", title: "接待妖族使者"}]
+      tasks: [{id: "1000000000001906", type: "custom", title: "接待妖族使者", tags: ["si_native_chain_tianyuan_enlist_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000907",
@@ -121,7 +121,7 @@
       ],
       dependencies: ["1000000000000904"],
       tags: ["seeking_immortals", "tianyuan", "diyuan", "permit"],
-      tasks: [{id: "1000000000001908", type: "checkmark", title: "查看地渊名额"}]
+      tasks: [{id: "1000000000001908", type: "custom", title: "查看地渊名额", tags: ["si_native_tianyuan_merit_path_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000909",
@@ -164,7 +164,7 @@
       ],
       dependencies: ["1000000000000910"],
       tags: ["seeking_immortals", "human_clan_league", "spirit_fengyuan"],
-      tasks: [{id: "1000000000001911", type: "checkmark", title: "取得世家引荐"}]
+      tasks: [{id: "1000000000001911", type: "custom", title: "取得世家引荐", tags: ["si_native_human_clan_league_hub_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000912",
@@ -178,7 +178,7 @@
       ],
       dependencies: ["1000000000000911"],
       tags: ["seeking_immortals", "human_clan_league", "guest_register"],
-      tasks: [{id: "1000000000001912", type: "checkmark", title: "登记世家客卿"}]
+      tasks: [{id: "1000000000001912", type: "custom", title: "登记世家客卿", tags: ["si_native_human_clan_league_hub_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000913",
@@ -193,7 +193,7 @@
       ],
       dependencies: ["1000000000000912"],
       tags: ["seeking_immortals", "human_clan_league", "formation", "optional"],
-      tasks: [{id: "1000000000001913", type: "checkmark", title: "完成莫家委托"}]
+      tasks: [{id: "1000000000001913", type: "custom", title: "完成莫家委托", tags: ["si_native_clan_array_mo_line_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000914",
@@ -208,7 +208,7 @@
       ],
       dependencies: ["1000000000000912"],
       tags: ["seeking_immortals", "human_clan_league", "refinement", "optional"],
-      tasks: [{id: "1000000000001914", type: "checkmark", title: "护送俞家灵矿"}]
+      tasks: [{id: "1000000000001914", type: "custom", title: "护送俞家灵矿", tags: ["si_native_clan_refinement_yu_line_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000915",
@@ -255,7 +255,7 @@
       ],
       dependencies: ["1000000000000912"],
       tags: ["seeking_immortals", "human_clan_league", "clan_feud", "optional"],
-      tasks: [{id: "1000000000001917", type: "checkmark", title: "调停世家纷争"}]
+      tasks: [{id: "1000000000001917", type: "custom", title: "调停世家纷争", tags: ["si_native_human_clan_league_hub_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000918",
@@ -269,7 +269,7 @@
       ],
       dependencies: ["1000000000000910"],
       tags: ["seeking_immortals", "spirit_eighteen_clans", "spirit_fengyuan"],
-      tasks: [{id: "1000000000001918", type: "checkmark", title: "领取十八族巡礼册"}]
+      tasks: [{id: "1000000000001918", type: "custom", title: "领取十八族巡礼册", tags: ["si_native_spirit_eighteen_clans_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000919",
@@ -284,7 +284,7 @@
       ],
       dependencies: ["1000000000000918"],
       tags: ["seeking_immortals", "spirit_eighteen_clans", "tianhu", "optional"],
-      tasks: [{id: "1000000000001919", type: "checkmark", title: "完成天狐幻境"}]
+      tasks: [{id: "1000000000001919", type: "custom", title: "完成天狐幻境", tags: ["si_native_spirit_eighteen_clans_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000920",
@@ -299,7 +299,7 @@
       ],
       dependencies: ["1000000000000918"],
       tags: ["seeking_immortals", "spirit_eighteen_clans", "shuyao", "optional"],
-      tasks: [{id: "1000000000001920", type: "checkmark", title: "修补树妖根网"}]
+      tasks: [{id: "1000000000001920", type: "custom", title: "修补树妖根网", tags: ["si_native_spirit_eighteen_clans_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000921",
@@ -314,7 +314,7 @@
       ],
       dependencies: ["1000000000000918"],
       tags: ["seeking_immortals", "spirit_eighteen_clans", "shiren", "optional"],
-      tasks: [{id: "1000000000001921", type: "checkmark", title: "巡护石人地脉"}]
+      tasks: [{id: "1000000000001921", type: "custom", title: "巡护石人地脉", tags: ["si_native_spirit_eighteen_clans_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000922",
@@ -329,7 +329,7 @@
       ],
       dependencies: ["1000000000000918"],
       tags: ["seeking_immortals", "spirit_eighteen_clans", "feiling", "jinyi", "optional"],
-      tasks: [{id: "1000000000001922", type: "checkmark", title: "完成天风骑猎"}]
+      tasks: [{id: "1000000000001922", type: "custom", title: "完成天风骑猎", tags: ["si_native_spirit_eighteen_clans_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000923",
@@ -359,7 +359,7 @@
       ],
       dependencies: ["1000000000000918"],
       tags: ["seeking_immortals", "spirit_eighteen_clans", "water_court", "air_island", "optional"],
-      tasks: [{id: "1000000000001924", type: "checkmark", title: "完成水府空岛巡礼"}]
+      tasks: [{id: "1000000000001924", type: "custom", title: "完成水府空岛巡礼", tags: ["si_native_spirit_eighteen_clans_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000925",
@@ -373,7 +373,7 @@
       ],
       dependencies: ["1000000000000918"],
       tags: ["seeking_immortals", "spirit_eighteen_clans", "reward_bridge_deferred"],
-      tasks: [{id: "1000000000001925", type: "checkmark", title: "汇总异族朝贡"}]
+      tasks: [{id: "1000000000001925", type: "custom", title: "汇总异族朝贡", tags: ["si_native_spirit_eighteen_clans_4"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000926",
@@ -416,7 +416,7 @@
       ],
       dependencies: ["1000000000000927"],
       tags: ["seeking_immortals", "diyuan", "spirit_vein", "reward_bridge_deferred"],
-      tasks: [{id: "1000000000001928", type: "checkmark", title: "完成浅矿取样"}]
+      tasks: [{id: "1000000000001928", type: "custom", title: "完成浅矿取样", tags: ["si_native_diyuan_campaign_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000929",
@@ -445,7 +445,7 @@
       ],
       dependencies: ["1000000000000929"],
       tags: ["seeking_immortals", "diyuan", "ancient_beast", "reward_bridge_deferred"],
-      tasks: [{id: "1000000000001930", type: "checkmark", title: "记录古兽守脉"}]
+      tasks: [{id: "1000000000001930", type: "custom", title: "记录古兽守脉", tags: ["si_native_diyuan_campaign_5"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000931",
@@ -459,7 +459,7 @@
       ],
       dependencies: ["1000000000000910"],
       tags: ["seeking_immortals", "barbarian_wasteland", "barbarian_council"],
-      tasks: [{id: "1000000000001931", type: "checkmark", title: "接触蛮荒边境"}]
+      tasks: [{id: "1000000000001931", type: "custom", title: "接触蛮荒边境", tags: ["si_native_barbarian_kings_line_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000932",
@@ -488,7 +488,7 @@
       ],
       dependencies: ["1000000000000932"],
       tags: ["seeking_immortals", "barbarian_wasteland", "tribute", "reward_bridge_deferred"],
-      tasks: [{id: "1000000000001933", type: "checkmark", title: "完成妖王朝贡"}]
+      tasks: [{id: "1000000000001933", type: "custom", title: "完成妖王朝贡", tags: ["si_native_barbarian_kings_line_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000934",
@@ -502,7 +502,7 @@
       ],
       dependencies: ["1000000000000933"],
       tags: ["seeking_immortals", "barbarian_wasteland", "king_token"],
-      tasks: [{id: "1000000000001934", type: "checkmark", title: "记录七王令牌"}]
+      tasks: [{id: "1000000000001934", type: "custom", title: "记录七王令牌", tags: ["si_native_barbarian_king_hunt_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000935",
@@ -517,7 +517,7 @@
       ],
       dependencies: ["1000000000000933"],
       tags: ["seeking_immortals", "barbarian_wasteland", "spatial_rift", "optional"],
-      tasks: [{id: "1000000000001935", type: "checkmark", title: "脱离空间裂缝"}]
+      tasks: [{id: "1000000000001935", type: "custom", title: "脱离空间裂缝", tags: ["si_native_barbarian_kings_line_4"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000936",
@@ -531,7 +531,7 @@
       ],
       dependencies: ["1000000000000934"],
       tags: ["seeking_immortals", "barbarian_wasteland", "barbarian_council", "reward_bridge_deferred"],
-      tasks: [{id: "1000000000001936", type: "checkmark", title: "觐见妖王议会"}]
+      tasks: [{id: "1000000000001936", type: "custom", title: "觐见妖王议会", tags: ["si_native_barbarian_kings_line_4"], check_timer: 20, max_progress: 1L}]
     }
   ]
 }

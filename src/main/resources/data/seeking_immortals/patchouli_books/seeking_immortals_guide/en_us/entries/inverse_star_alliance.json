@@ -1,18 +1,18 @@
 {
-  "name": "逆星盟",
+  "name": "Anti-Star Alliance",
   "category": "seeking_immortals:sects_factions",
   "icon": "seeking_immortals:technique_manual_demonic",
   "sortnum": 25,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "与星宫对立的黑市割据势力。任务网 inverse_star_quest_network.json。",
-      "title": "逆星盟"
+      "text": "The Anti-Star Alliance is a black-market coalition opposed to the Star Palace, specializing in smuggling, intelligence, and pirate contacts. Its quest network is defined in inverse_star_quest_network.json.",
+      "title": "Anti-Star Alliance"
     },
     {
       "type": "patchouli:text",
-      "text": "入盟链 inverse_star_recruit；走私 inverse_star_smuggle_arc；虚天情报 inverse_star_void_heist。",
-      "title": "续 1"
+      "text": "Its principal routes are recruitment through inverse_star_recruit, smuggling through inverse_star_smuggle_arc, and the Void Palace intelligence heist inverse_star_void_heist. These choices affect relations with the Star Palace.",
+      "title": "Alliance Routes"
     }
   ]
 }

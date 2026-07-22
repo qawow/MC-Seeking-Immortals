@@ -1,18 +1,18 @@
 {
-  "name": "坊市商人",
+  "name": "Market Merchants",
   "category": "seeking_immortals:sects_factions",
   "icon": "seeking_immortals:metal_spirit_stone",
   "sortnum": 30,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "坊市 merchant_shops.json、贡献堂 sect_contribution_shop.json",
-      "title": "坊市商人"
+      "text": "Markets defined in merchant_shops.json and sect contribution halls defined in sect_contribution_shop.json share authoritative server-side trading rules. Stock and prices vary by region and faction.",
+      "title": "Market Merchants"
     },
     {
       "type": "patchouli:text",
-      "text": "语料 patchouli_item_book.static_entries.merchants",
-      "title": "来源"
+      "text": "Before trading, check your realm, faction relations, and available currency. A failed transaction will not consume key items. Source index: patchouli_item_book.static_entries.merchants.",
+      "title": "Trading Requirements"
     }
   ]
 }

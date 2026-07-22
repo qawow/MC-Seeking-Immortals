@@ -36,6 +36,24 @@ class FtbCustomTaskHooksTest {
     }
 
     @Test
+    void parseNativeQuestStageTag() {
+        FtbCustomTaskHooks.Spec spec = FtbCustomTaskHooks.parseTag(
+                "si_native_huangfeng_cultivation_path_5");
+        assertInstanceOf(FtbCustomTaskHooks.Spec.NativeStage.class, spec);
+        FtbCustomTaskHooks.Spec.NativeStage nativeStage = (FtbCustomTaskHooks.Spec.NativeStage) spec;
+        assertEquals("huangfeng_cultivation_path", nativeStage.chainId());
+        assertEquals(5, nativeStage.stage());
+    }
+
+    @Test
+    void malformedOrWriteOnlyNativeTagFailsClosedAsCustomTask() {
+        assertInstanceOf(FtbCustomTaskHooks.Spec.Unknown.class,
+                FtbCustomTaskHooks.parseTag("si_native_huangfeng_cultivation_path_99"));
+        assertInstanceOf(FtbCustomTaskHooks.Spec.Unknown.class,
+                FtbCustomTaskHooks.parseTag("si_native_write_huangfeng_cultivation_path_1"));
+    }
+
+    @Test
     void unknownSiTagFailsClosed() {
         FtbCustomTaskHooks.Spec spec = FtbCustomTaskHooks.parseTag("si_not_a_real_rule");
         assertInstanceOf(FtbCustomTaskHooks.Spec.Unknown.class, spec);
@@ -54,10 +72,12 @@ class FtbCustomTaskHooksTest {
                 "seeking_immortals",
                 "si_war_active",
                 "si_rep_dajin_10",
+                "si_native_qixuan_mortal_path_4",
                 "optional"
         ));
-        assertEquals(2, specs.size());
+        assertEquals(3, specs.size());
         assertTrue(specs.stream().anyMatch(s -> s instanceof FtbCustomTaskHooks.Spec.WarActive));
         assertTrue(specs.stream().anyMatch(s -> s instanceof FtbCustomTaskHooks.Spec.ReputationGate));
+        assertTrue(specs.stream().anyMatch(s -> s instanceof FtbCustomTaskHooks.Spec.NativeStage));
     }
 }

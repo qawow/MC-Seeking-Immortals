@@ -6,33 +6,33 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "来源",
-      "text": "本页说明功法与术法的学习条件。玩家需要通过功法秘籍、传承卷轴或其他权威来源入门，再把已学术法放入七个技能槽释放。"
+      "title": "入门窗口",
+      "text": "本页对照 novel_cultivation_learn_requirements_waves.json、cultivation_methods.json 与 manuals_catalog.json。功法目录会在服务端检查 realm_min 和 realm_max_learn；超过最高窗口只会阻止从该传承入门，无效境界 id 则直接拒绝。"
     },
     {
       "type": "patchouli:text",
-      "title": "门槛类型",
-      "text": "学习门槛包括：最低与最高境界、前置功法和层数、必需或禁忌灵根，以及宗门、关系、声望、因果、指定物品和神识要求。"
+      "title": "前置与层数",
+      "text": "prerequisite_methods 与 prerequisite_realm_layers 已是硬门槛，layers_required 则参与功法自身层数上限。缺少前置或层数不足都会返回具体失败原因；学习成功后从第一层开始，并按当前层动态解锁术法。"
     },
     {
       "type": "patchouli:text",
-      "title": "当前实现",
-      "text": "传承卷轴会按照其来源学习对应术法，服务端还会根据术法属性与玩家灵根匹配。只有已学术法才能放入 7 个技能槽；释放时会校验槽位、冷却、灵力、效果与执行条件。高出当前境界过多的术法会增加走火风险。"
+      "title": "根骨身份",
+      "text": "已接入的扩展门槛包括 spirit_roots.required_any（如 metal、wood）、constitution/physique、race_required，以及 must_convert_after。faction 与 faction_relation_min 会在玩家已有宗门身份时检查宗门和外门、内门等最低阶段。"
     },
     {
       "type": "patchouli:text",
-      "title": "当前边界",
-      "text": "宗门身份、贡献来源、声望、物品消耗、功法层数、性别倾向、禁忌体质和神识阈值目前主要保留在文本材料与说明中，尚未全部作为学习硬门槛。手册因此先把它们作为路线提示，后续应接入服务端任务、宗门、声望、物品和功法层数校验。"
+      "title": "冲突矩阵",
+      "text": "通过目录门槛后仍要检查功法冲突矩阵。互斥的路线不会因为手持秘籍而绕过；最终学习、持久标记、层数初始化和随层术法授予都由服务端完成。"
     },
     {
       "type": "patchouli:text",
-      "title": "例子",
-      "text": "长春功是炼气期木属性入门，黄枫谷外门或师承来源更合理；青元剑诀偏金/木，文本要求筑基、长春功圆满、内门或贡献来源；玄阴诀属于魔道阴属性路线，会牵涉正道声望和禁忌体质；炼器、傀儡、鬼修等手册则多以玉简研读和秘境/宗门来源解锁。"
+      "title": "术法学习与释放",
+      "text": "术法会检查所需境界、来源宗门提示与 requires_method。释放时还会复查已学状态、技能槽、冷却、灵力与效果，并对已标注的高阶术法附加声望、区域或秘境限制；封婴等阻术状态同样会拒绝释放。"
     },
     {
       "type": "patchouli:text",
-      "title": "后续方向",
-      "text": "后续切片应把这些门槛拆进真实玩法：学习前预览锁定原因、消耗指定手册或物品、检查宗门阶段和声望、校验前置功法层数、显示灵根适配倍率，并把失败反馈保持在服务端权威路径。"
+      "title": "诚实边界",
+      "text": "并非语料中的每个字段都是统一硬门槛。空宗门身份会保留传统秘籍路线；learn_source、items_suggested、requires_items、性别倾向、divine_sense_min、因果与部分社会关系仍可能只是说明，或由任务、宗门、声望等独立服务处理。"
     }
   ]
 }

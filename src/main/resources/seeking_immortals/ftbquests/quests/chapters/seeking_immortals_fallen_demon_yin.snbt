@@ -19,7 +19,7 @@
       ],
       dependencies: ["1000000000000613"],
       tags: ["seeking_immortals", "fallen_demon_valley", "chapter_5_deity_transformation"],
-      tasks: [{id: "1000000000001701", type: "checkmark", title: "确认封印松动"}]
+      tasks: [{id: "1000000000001701", type: "custom", title: "确认封印松动", tags: ["si_native_fallen_demon_campaign_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000702",
@@ -48,7 +48,7 @@
       ],
       dependencies: ["1000000000000702"],
       tags: ["seeking_immortals", "fallen_demon_valley", "miasma"],
-      tasks: [{id: "1000000000001703", type: "checkmark", title: "穿过坠魔外谷"}]
+      tasks: [{id: "1000000000001703", type: "custom", title: "穿过坠魔外谷", tags: ["si_native_fallen_demon_campaign_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000704",
@@ -107,7 +107,7 @@
       ],
       dependencies: ["1000000000000706"],
       tags: ["seeking_immortals", "fallen_demon_valley", "reward_bridge_deferred"],
-      tasks: [{id: "1000000000001707", type: "checkmark", title: "整理坠魔谷残获"}]
+      tasks: [{id: "1000000000001707", type: "custom", title: "整理坠魔谷残获", tags: ["si_native_fallen_demon_campaign_5"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000708",

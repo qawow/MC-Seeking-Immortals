@@ -1,28 +1,28 @@
 {
-  "name": "法宝与器灵分册",
+  "name": "Artifacts and Artifact Spirits",
   "category": "seeking_immortals:artifacts_formations",
   "icon": "seeking_immortals:flying_sword_low",
   "sortnum": 5,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "M15 语料 217 件法宝 + 十一阶品阶。认主 UUID、祭炼层数、器灵觉醒（本命+层≥5+结丹）。",
-      "title": "法宝分册"
+      "text": "The M15 corpus records 217 artifacts across eleven tiers. Artifacts track their bound owner UUID, refinement level, and awakened spirit. Awakening requires a bonded artifact refined to level 5 or higher and an owner in the Core Formation realm.",
+      "title": "Artifact Compendium"
     },
     {
       "type": "patchouli:text",
-      "text": "主动技映射术法效果注册表；协同经 LivingHurt 倍率，不绕过伤害管线。",
-      "title": "主动与协同"
+      "text": "Active abilities map to the technique effect registry. Synergy damage is applied through the LivingHurt multiplier and never bypasses the normal damage pipeline.",
+      "title": "Active Skills and Synergy"
     },
     {
       "type": "patchouli:text",
-      "text": "realm_power_scale 对 cost/CD/damage 做越阶压制。",
-      "title": "越阶压制"
+      "text": "realm_power_scale adjusts spiritual power cost, cooldown, and damage when an artifact is used beyond the wielder's realm.",
+      "title": "Realm-Gap Suppression"
     },
     {
       "type": "patchouli:text",
-      "text": "可飞行法宝接入 FlyingAuthority 数据判定。",
-      "title": "飞行法宝"
+      "text": "Flying artifacts use FlyingAuthority for server-side eligibility checks and remain subject to no-fly regions and current artifact state.",
+      "title": "Flying Artifacts"
     }
   ]
 }

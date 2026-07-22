@@ -18,7 +18,7 @@
         "天南与慕兰草原边境摩擦，低阶修士与法士斥候先行交锋。"
       ],
       dependencies: ["1000000000000203"],
-      tags: ["seeking_immortals", "mulan_tianlan_war", "mulan_border"],
+      tags: ["seeking_immortals", "mulan_tianlan_war", "mulan_border", "si_native_write_mulan_tianlan_war_1"],
       tasks: [{id: "1000000000001801", type: "custom", title: "完成边境遭遇", tags: ["si_war_active"], check_timer: 20, max_progress: 1L}]
     },
     {
@@ -33,7 +33,7 @@
       ],
       dependencies: ["1000000000000801"],
       tags: ["seeking_immortals", "mulan_tianlan_war", "tiannan_alliance"],
-      tasks: [{id: "1000000000001802", type: "checkmark", title: "响应天南动员"}]
+      tasks: [{id: "1000000000001802", type: "custom", title: "同步原生任务接取状态", tags: ["si_native_mulan_tianlan_war_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000803",
@@ -63,7 +63,7 @@
       ],
       dependencies: ["1000000000000801"],
       tags: ["seeking_immortals", "mulan_tianlan_war", "tianlan_temple", "branch_design"],
-      tasks: [{id: "1000000000001804", type: "checkmark", title: "接触天澜圣印"}]
+      tasks: [{id: "1000000000001804", type: "custom", title: "接触天澜圣印", tags: ["si_native_tianlan_defense_line_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000805",
@@ -76,7 +76,7 @@
         "慕兰法士灵术大阵对天南宗门阵法，战场进入筑基到结丹阶段。"
       ],
       dependencies: ["1000000000000802"],
-      tags: ["seeking_immortals", "mulan_tianlan_war", "formation"],
+      tags: ["seeking_immortals", "mulan_tianlan_war", "formation", "si_native_write_mulan_tianlan_war_2"],
       tasks: [{id: "1000000000001805", type: "kill", entity: "minecraft:pillager", value: 3L, title: "完成护阵破阵"}],
       rewards: [{id: "9000000000001805", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
@@ -93,7 +93,7 @@
       ],
       dependencies: ["1000000000000805"],
       tags: ["seeking_immortals", "mulan_tianlan_war", "yanyue_sect", "optional"],
-      tasks: [{id: "1000000000001806", type: "checkmark", title: "完成破阵支援"}]
+      tasks: [{id: "1000000000001806", type: "custom", title: "完成破阵支援", tags: ["si_native_chain_mulan_war_campaign_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000807",
@@ -108,7 +108,7 @@
       ],
       dependencies: ["1000000000000805"],
       tags: ["seeking_immortals", "mulan_tianlan_war", "holy_bird", "optional"],
-      tasks: [{id: "1000000000001807", type: "checkmark", title: "完成圣禽祈福"}]
+      tasks: [{id: "1000000000001807", type: "custom", title: "完成圣禽祈福", tags: ["si_native_chain_mulan_war_campaign_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000808",
@@ -122,7 +122,10 @@
       ],
       dependencies: ["1000000000000805"],
       tags: ["seeking_immortals", "mulan_tianlan_war", "ceasefire"],
-      tasks: [{id: "1000000000001808", type: "custom", title: "促成停战谈判", tags: ["si_war_active", "si_rep_mulan_10"], check_timer: 20, max_progress: 1L}]
+      tasks: [
+        {id: "1000000000001808", type: "custom", title: "促成停战谈判", tags: ["si_war_active", "si_rep_mulan_10"], check_timer: 20, max_progress: 1L},
+        {id: "2000000000001808", type: "custom", title: "同步原生任务完成状态", tags: ["si_native_mulan_tianlan_war_3"], check_timer: 20, max_progress: 1L}
+      ]
     },
     {
       id: "1000000000000809",
@@ -152,7 +155,7 @@
       ],
       dependencies: ["1000000000000803"],
       tags: ["seeking_immortals", "mulan_fashi", "optional"],
-      tasks: [{id: "1000000000001810", type: "checkmark", title: "完成法士入门"}]
+      tasks: [{id: "1000000000001810", type: "custom", title: "完成法士入门", tags: ["si_native_mulan_fashi_path_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000811",
@@ -167,7 +170,7 @@
       ],
       dependencies: ["1000000000000810"],
       tags: ["seeking_immortals", "mulan_fashi", "holy_bird", "optional"],
-      tasks: [{id: "1000000000001811", type: "checkmark", title: "拜访圣禽祭坛"}]
+      tasks: [{id: "1000000000001811", type: "custom", title: "拜访圣禽祭坛", tags: ["si_native_mulan_fashi_path_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000812",
@@ -198,7 +201,7 @@
       ],
       dependencies: ["1000000000000804"],
       tags: ["seeking_immortals", "tianlan_temple", "beast_taming", "optional"],
-      tasks: [{id: "1000000000001813", type: "checkmark", title: "重立天澜誓约"}]
+      tasks: [{id: "1000000000001813", type: "custom", title: "重立天澜誓约", tags: ["si_native_tianlan_defense_line_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000814",
@@ -229,7 +232,7 @@
       ],
       dependencies: ["1000000000000801"],
       tags: ["seeking_immortals", "mulan", "wutu_feud", "optional"],
-      tasks: [{id: "1000000000001815", type: "checkmark", title: "处理突兀袭营"}]
+      tasks: [{id: "1000000000001815", type: "custom", title: "处理突兀袭营", tags: ["si_native_wutu_mulan_feud_line_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000816",
@@ -244,7 +247,7 @@
       ],
       dependencies: ["1000000000000815"],
       tags: ["seeking_immortals", "mulan", "wutu_feud", "optional"],
-      tasks: [{id: "1000000000001816", type: "checkmark", title: "完成慕兰反猎"}]
+      tasks: [{id: "1000000000001816", type: "custom", title: "完成慕兰反猎", tags: ["si_native_wutu_mulan_feud_line_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000817",
@@ -259,7 +262,7 @@
       ],
       dependencies: ["1000000000000816"],
       tags: ["seeking_immortals", "mulan", "wutu_feud", "optional"],
-      tasks: [{id: "1000000000001817", type: "checkmark", title: "促成世仇调停"}]
+      tasks: [{id: "1000000000001817", type: "custom", title: "促成世仇调停", tags: ["si_native_wutu_mulan_feud_line_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000818",
@@ -274,7 +277,7 @@
       ],
       dependencies: ["1000000000000201"],
       tags: ["seeking_immortals", "demonic_six", "tiannan_north_waste", "optional"],
-      tasks: [{id: "1000000000001818", type: "checkmark", title: "听闻魔道北迁"}]
+      tasks: [{id: "1000000000001818", type: "custom", title: "听闻魔道北迁", tags: ["si_native_demonic_six_path_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000819",
@@ -289,7 +292,7 @@
       ],
       dependencies: ["1000000000000818"],
       tags: ["seeking_immortals", "demonic_six", "branch_design", "optional"],
-      tasks: [{id: "1000000000001819", type: "checkmark", title: "记录六宗招揽"}]
+      tasks: [{id: "1000000000001819", type: "custom", title: "记录六宗招揽", tags: ["si_native_demonic_six_path_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000820",
@@ -320,7 +323,7 @@
       ],
       dependencies: ["1000000000000819"],
       tags: ["seeking_immortals", "demonic_six", "hehuan_sect", "optional"],
-      tasks: [{id: "1000000000001821", type: "checkmark", title: "完成合欢试心"}]
+      tasks: [{id: "1000000000001821", type: "custom", title: "完成合欢试心", tags: ["si_native_demonic_six_path_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000822",
@@ -351,7 +354,7 @@
       ],
       dependencies: ["1000000000000819"],
       tags: ["seeking_immortals", "demonic_six", "missing_tree", "optional"],
-      tasks: [{id: "1000000000001823", type: "checkmark", title: "记录六宗余脉"}]
+      tasks: [{id: "1000000000001823", type: "custom", title: "记录六宗余脉", tags: ["si_native_demonic_six_expanded_4"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000824",

@@ -1,18 +1,18 @@
 {
-  "name": "灵界十八族",
+  "name": "Eighteen Clans of the Spirit Realm",
   "category": "seeking_immortals:sects_factions",
   "icon": "seeking_immortals:spirit_charm",
   "sortnum": 20,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "spirit_realm_clan_quests.json 每族双任务钩。",
-      "title": "灵界十八族"
+      "text": "spirit_realm_clan_quests.json provides two quest hooks for each of the eighteen Spirit Realm clans, encountered through pilgrimage and regional events.",
+      "title": "Eighteen Spirit Realm Clans"
     },
     {
       "type": "patchouli:text",
-      "text": "巡礼链 spirit_eighteen_pilgrimage；与蛮荒妖王 affinity 见 barbarian_faction_affinity_map。",
-      "title": "续 1"
+      "text": "The pilgrimage route is spirit_eighteen_pilgrimage. Clan relations and affinity with the Demon Kings of the Wilds can alter events and trade; see barbarian_faction_affinity_map.",
+      "title": "Pilgrimage and Affinity"
     }
   ]
 }

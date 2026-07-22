@@ -1,0 +1,33 @@
+{
+  "name": "Formula Study and Inscription",
+  "category": "seeking_immortals:alchemy_pills",
+  "icon": "seeking_immortals:jade_slip_blank",
+  "sortnum": 28,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Blank Carriers",
+      "text": "Blank jade slips and paper formula scrolls carry formula knowledge rather than finished pills. Both media can use the catalog consumable path to inscribe a matching formula carrier."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Inscription Sources",
+      "text": "Using a blank jade slip or paper formula scroll rolls a registered non-sect formula carrier for that medium. Sect-secret formulas are never rolled from blanks; inscription fails when no matching carrier is registered."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Study Knowledge",
+      "text": "Use a dedicated formula item to record persistent formula knowledge on the server. Studying does not consume the carrier, and a duplicate study is rejected while leaving the original item available for furnace installation."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Knowledge at the Furnace",
+      "text": "An alchemy furnace accepts either an installed formula item or the same formula already studied by its owner. Formula media adjust controlled success and explosion risk; study only satisfies the formula gate and does not bypass the shell, lid, fire, realm, skill, ingredient, or earth-fire-room checks."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Persistence and Limits",
+      "text": "Study records live in the player's persistent data and copy with player cloning, while legacy aliases normalize to the current recipe id. Recipe contents remain server data-pack authority; client text cannot invent formula knowledge."
+    }
+  ]
+}

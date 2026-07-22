@@ -19,7 +19,7 @@
       ],
       dependencies: ["1000000000000515"],
       tags: ["seeking_immortals", "dajin", "chapter_4_great_jin"],
-      tasks: [{id: "1000000000001601", type: "checkmark", title: "抵达大晋"}]
+      tasks: [{id: "1000000000001601", type: "custom", title: "抵达大晋", tags: ["si_native_dajin_righteous_demon_line_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000602",
@@ -48,7 +48,7 @@
       ],
       dependencies: ["1000000000000601"],
       tags: ["seeking_immortals", "dajin", "clan"],
-      tasks: [{id: "1000000000001603", type: "checkmark", title: "完成世家巡护"}]
+      tasks: [{id: "1000000000001603", type: "custom", title: "完成世家巡护", tags: ["si_native_dajin_clan_line_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000604",
@@ -62,7 +62,7 @@
       ],
       dependencies: ["1000000000000601"],
       tags: ["seeking_immortals", "dajin", "branch_design"],
-      tasks: [{id: "1000000000001604", type: "checkmark", title: "听闻边境摩擦"}]
+      tasks: [{id: "1000000000001604", type: "custom", title: "听闻边境摩擦", tags: ["si_native_dajin_righteous_demon_line_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000605",
@@ -90,7 +90,7 @@
       ],
       dependencies: ["1000000000000604"],
       tags: ["seeking_immortals", "dajin", "branch_demonic"],
-      tasks: [{id: "1000000000001606", type: "checkmark", title: "完成魔道渗透"}]
+      tasks: [{id: "1000000000001606", type: "custom", title: "完成魔道渗透", tags: ["si_native_dajin_righteous_demon_line_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000607",

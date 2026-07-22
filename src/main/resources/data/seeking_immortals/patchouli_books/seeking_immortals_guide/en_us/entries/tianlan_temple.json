@@ -1,13 +1,13 @@
 {
-  "name": "天澜圣殿",
+  "name": "Tianlan Sacred Temple",
   "category": "seeking_immortals:sects_factions",
   "icon": "seeking_immortals:qingxin_pill",
   "sortnum": 23,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "见 patchouli_item_book 分类索引条目 tianlan_temple。游戏内百科与命令可进一步检索。",
-      "title": "天澜圣殿"
+      "text": "The Tianlan Sacred Temple is a major orthodox stronghold offering sacred-beast inheritances, guardian missions, and clues to advanced methods. Consult the in-game codex for its regional relationships. Source index: patchouli_item_book category entry tianlan_temple.",
+      "title": "Tianlan Sacred Temple"
     }
   ]
 }

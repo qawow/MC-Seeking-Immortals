@@ -1,13 +1,13 @@
 {
-  "name": "千竹傀儡循环",
+  "name": "Thousand Bamboo Puppet Loop",
   "category": "seeking_immortals:beasts_puppets",
   "icon": "seeking_immortals:beast_core",
   "sortnum": 12,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "见 patchouli_item_book 分类索引条目 qianzhu_puppet_loop。游戏内百科与命令可进一步检索。",
-      "title": "千竹傀儡循环"
+      "text": "The Thousand Bamboo Mechanism Tower centers on puppet assembly, mechanism exploration, and core tempering. Once you reach Foundation Establishment, travel to the Far West to seek its entrance and blueprints. Source index: patchouli_item_book category entry qianzhu_puppet_loop.",
+      "title": "Thousand Bamboo Puppet Loop"
     }
   ]
 }

@@ -6,6 +6,7 @@ import com.xunxian.seekingimmortals.sect.SectWarService;
 import com.xunxian.seekingimmortals.worldpack.ReputationService;
 import dev.architectury.event.EventResult;
 import dev.ftb.mods.ftbquests.events.CustomTaskEvent;
+import dev.ftb.mods.ftbquests.events.ObjectCompletedEvent;
 import dev.ftb.mods.ftbquests.quest.task.CustomTask;
 import net.minecraft.server.level.ServerPlayer;
 
@@ -21,6 +22,7 @@ import java.util.Set;
  * <ul>
  *   <li>{@code si_war_active} — complete while a sect war window is open</li>
  *   <li>{@code si_rep_<faction>_<min>} — require ReputationService.get(player, faction) &gt;= min</li>
+ *   <li>{@code si_native_<chain>_<stage>} — mirror authoritative native text-quest progress</li>
  * </ul>
  * Multiple tags are AND-combined. Unknown {@code si_*} tags fail closed.
  */
@@ -59,8 +61,17 @@ public final class FtbCustomTaskHooks {
                     task.getCodeString(), specs.size());
             return EventResult.pass();
         });
+        ObjectCompletedEvent.QUEST.register(event -> {
+            List<FtbNativeQuestSync.Target> targets = FtbNativeQuestSync.writeTargets(event.getQuest().getTags());
+            if (targets.size() != 1) {
+                return EventResult.pass();
+            }
+            FtbNativeQuestSync.singleOnlineMember(event.getOnlineMembers())
+                    .ifPresent(player -> FtbNativeQuestSync.applyWrite(player, targets.get(0)));
+            return EventResult.pass();
+        });
         registered = true;
-        SeekingImmortalsMod.LOGGER.info("Registered FTB CustomTaskEvent hooks for Seeking Immortals");
+        SeekingImmortalsMod.LOGGER.info("Registered FTB custom-task and native quest-sync hooks for Seeking Immortals");
     }
 
     /** Pure evaluation used by runtime checks and unit tests. */
@@ -119,6 +130,11 @@ public final class FtbCustomTaskHooks {
                 return Spec.unknown(tag);
             }
         }
+        if (tag.startsWith(FtbNativeQuestSync.MIRROR_PREFIX)) {
+            return FtbNativeQuestSync.parseMirrorTag(tag)
+                    .<Spec>map(target -> Spec.nativeStage(target.chainId(), target.stage()))
+                    .orElseGet(() -> Spec.unknown(tag));
+        }
         // Non-SI tags are ignored so packs can still use ordinary FTB tags.
         if (tag.startsWith("si_")) {
             return Spec.unknown(tag);
@@ -137,6 +153,10 @@ public final class FtbCustomTaskHooks {
             return new ReputationGate(faction, min);
         }
 
+        static Spec nativeStage(String chainId, int stage) {
+            return new NativeStage(chainId, stage);
+        }
+
         static Spec unknown(String tag) {
             return new Unknown(tag);
         }
@@ -152,6 +172,13 @@ public final class FtbCustomTaskHooks {
             @Override
             public boolean matches(ServerPlayer player) {
                 return player != null && ReputationService.get(player, faction) >= min;
+            }
+        }
+
+        record NativeStage(String chainId, int stage) implements Spec {
+            @Override
+            public boolean matches(ServerPlayer player) {
+                return FtbNativeQuestSync.isSatisfied(player, new FtbNativeQuestSync.Target(chainId, stage));
             }
         }
 

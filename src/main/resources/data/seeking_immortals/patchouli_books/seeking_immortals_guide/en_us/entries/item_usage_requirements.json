@@ -1,0 +1,33 @@
+{
+  "name": "Item Usage Requirements",
+  "category": "seeking_immortals:reference",
+  "icon": "seeking_immortals:armor_talisman",
+  "sortnum": 73,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Gate Fields",
+      "text": "The shared item gate can combine a minimum realm, any matching spirit root, learned methods, sect and stage, cultivation path, and race. An empty field means no gate for that field; root and method sets use any-match semantics."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Server Authority",
+      "text": "Actual item use is checked on the server, which returns the first failed requirement. Creative test players bypass the gate; a normal client cannot submit its own realm, root, or eligibility result."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Current Integrations",
+      "text": "Standard and catalog talismans, quality pills, and catalog artifacts display and enforce the realm gates currently wired to them. Manuals, techniques, and some specialized items have their own learning or release gates. A tooltip does not imply that every catalog field is enabled on every item."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Preview versus Result",
+      "text": "An item tooltip previews the requirements declared for that item; it is not the authority. Roots require any match, methods require any learned match, and sect stage, path, and race are checked against current capability and quest state. Failure feedback comes from the server."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Honest Boundary",
+      "text": "Reputation, location, gender affinity, divine-sense thresholds, source items, and social relations may remain guide hints or be handled by a separate technique, sect, or quest service. Do not infer a global hard gate from a single tooltip."
+    }
+  ]
+}

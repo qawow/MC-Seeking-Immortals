@@ -1,28 +1,28 @@
 {
-  "name": "人族世家联盟",
+  "name": "Human Clan League",
   "category": "seeking_immortals:basics",
   "icon": "seeking_immortals:spirit_grass",
   "sortnum": 23,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "风元世家",
-      "text": "本条目对应文本材料 patchouli_static_entries.json#human_clan_league、human_clan_league.json 与 human_clan_quest_network.json。当前版本复用已接入的 spirit_fengyuan 世界包区域作为世家联盟的可见承载。"
+      "title": "Fengyuan Clans",
+      "text": "This entry follows patchouli_static_entries.json#human_clan_league, human_clan_league.json, and human_clan_quest_network.json. The current version uses the existing spirit_fengyuan region as the visible home of the clan league."
     },
     {
       "type": "patchouli:text",
-      "title": "四类专精",
-      "text": "文本材料将风元人族世家按功能标签区分：莫家偏阵法、俞家偏炼器、谷家偏炼丹、宁家偏制符。大晋叶家与南陇侯世家也保留在同一联盟资料中，作为后续跨区域世家钩子。"
+      "title": "Four Specializations",
+      "text": "The Fengyuan clans are divided by specialty: the Mo Clan favors formations, the Yu Clan artifact refinement, the Gu Clan alchemy, and the Ning Clan talismans. The Ye Clan of Great Jin and Marquis Nanlong's clan also remain in the league corpus as future cross-region hooks."
     },
     {
       "type": "patchouli:text",
-      "title": "任务网络",
-      "text": "human_clan_quest_network.json 定义了世家引荐、莫家阵法线、俞家炼器线、谷家丹道线和宁家符箓线，并预留 dajin_clan_feud_mirror_fengyuan 跨世家事件。当前尚未接入真实任务或声望系统。"
+      "title": "Quest Network",
+      "text": "human_clan_quest_network.json defines clan introductions, the Mo formation route, Yu refinement route, Gu alchemy route, and Ning talisman route, and reserves dajin_clan_feud_mirror_fengyuan as an inter-clan event. Actual quests and reputation are not yet integrated."
     },
     {
       "type": "patchouli:text",
-      "title": "延后内容",
-      "text": "真实世家 NPC、世家声望、外姓盟约或联姻门槛、专精商店、委托任务、世家争端、大晋镜像联动与 FTB Quests 章节仍未实装。本页只说明已存在的文本材料和风元区域钩子。"
+      "title": "Planned Content",
+      "text": "Clan NPCs, clan reputation, outsider alliances or marriage requirements, specialty shops, commissions, clan disputes, the Great Jin mirror event, and an FTB Quests chapter are not yet implemented. This page describes only the existing corpus and Fengyuan hooks."
     }
   ]
 }

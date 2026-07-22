@@ -1,0 +1,33 @@
+{
+  "name": "Combat Statuses and Poisons",
+  "category": "seeking_immortals:reference",
+  "icon": "seeking_immortals:spirit_charm",
+  "sortnum": 74,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Short Combat Table",
+      "text": "The M14 status table defines 22 short combat statuses with canonical ids, families, durations, stacking rules, and combat modifiers. Burn, frozen, soul shock, illusion, bleed, and stun are common harmful examples; shield, conceal qi, berserk, healing over time, and sword intent are beneficial examples."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Status Families",
+      "text": "Statuses are grouped into elemental, soul, mind, demonic, cultivation, body, seal, control, defense, and stealth families. Seal nascent blocks technique release; conceal qi hides the realm and can break under heavy combat or a strong divine-sense probe."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Poisons and Antidotes",
+      "text": "The ten-poisons corpus maps poison_variant values onto canonical poison, burn, frozen, demonic qi, or soul wound statuses. Poison families can stack into greater danger; a general antidote covers only its declared low or middle families, while ancient demonic qi, gu poison, and soul poison need matching purification, extraction, or soul-care methods."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Resistance and Consumers",
+      "text": "Hit chance depends on caster and target realm delta, target debuff resistance, and constitution, then clamps to 0.05 through 0.95. Combat consumers read canonical seal nascent, conceal qi, berserk, and sword intent states; aliases normalize before lookup."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Separate Long-Term Afflictions",
+      "text": "Heart demon, severe injury, shattered core, and realm fall belong to the M01 ImmortalAffliction system rather than the M14 short-status table. The id spaces intentionally do not overlap, so a single combat-status cleanse cannot remove a long-term affliction."
+    }
+  ]
+}

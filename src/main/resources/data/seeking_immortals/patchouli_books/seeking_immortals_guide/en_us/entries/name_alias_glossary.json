@@ -1,53 +1,53 @@
 {
-  "name": "术语对照表",
+  "name": "Name and Alias Glossary",
   "category": "seeking_immortals:reference",
   "icon": "seeking_immortals:spirit_charm",
   "sortnum": 10,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "推荐显示名以 primary 为准；别名用于检索。与物品别名解析（ItemCatalogService）交叉校验，一物多名时勿硬编码口语名。",
-      "title": "术语对照"
+      "text": "Use primary as the preferred display name and aliases for search. Cross-check ItemCatalogService when resolving item aliases; never hard-code a colloquial name when several names refer to the same item.",
+      "title": "Terminology"
     },
     {
       "type": "patchouli:text",
-      "text": "$(l)掌天瓶$()（palm_bottle / unique）别名：小瓶、绿液瓶、神秘小瓶$(br)$(l)绿液$()（green_liquid / catalyst）别名：瓶中绿液、催熟液$(br)$(l)韩立$()（han_li / person）别名：寒立、厉飞雨、散修韩$(br)$(l)南宫婉$()（nangong_wan / person）别名：婉儿、掩月宗宗主$(br)$(l)筑基丹$()（zhu_ji_dan / pill）别名：筑基灵丹$(br)$(l)降尘丹$()（jiang_chen_dan / pill）别名：结丹丹",
-      "title": "术语摘录 1"
+      "text": "$(l)Palm Heaven Bottle$() (palm_bottle / unique), aliases: Little Bottle, Green Liquid Bottle, Mysterious Little Bottle$(br)$(l)Green Liquid$() (green_liquid / catalyst), aliases: Bottled Green Liquid, Growth Liquid$(br)$(l)Han Li$() (han_li / person), aliases: Han Li, Li Feiyu, Rogue Cultivator Han$(br)$(l)Nangong Wan$() (nangong_wan / person), aliases: Wan'er, Masked Moon Sect Master$(br)$(l)Foundation Establishment Pill$() (zhu_ji_dan / pill), alias: Foundation Spirit Pill$(br)$(l)Dustfall Pill$() (jiang_chen_dan / pill), alias: Core Formation Pill",
+      "title": "Glossary Excerpt 1"
     },
     {
       "type": "patchouli:text",
-      "text": "$(l)定灵丹$()（ding_ling_dan / pill）别名：安魂丹$(br)$(l)九曲灵参丹$()（jiu_qu_ling_shen_dan / pill）别名：灵参丹$(br)$(l)培婴丹$()（pei_ying_dan / pill）别名：绿色上古丹$(br)$(l)造化丹$()（zao_hua_dan / pill）别名：造化灵丹$(br)$(l)补天丹$()（bu_tian_dan / pill）别名：无$(br)$(l)魔元丹$()（mo_yuan_dan / pill）别名：无",
-      "title": "术语摘录 2"
+      "text": "$(l)Spirit-Stabilizing Pill$() (ding_ling_dan / pill), alias: Soul-Soothing Pill$(br)$(l)Nine-Curves Spirit Ginseng Pill$() (jiu_qu_ling_shen_dan / pill), alias: Spirit Ginseng Pill$(br)$(l)Nascent-Nurturing Pill$() (pei_ying_dan / pill), alias: Green Ancient Pill$(br)$(l)Creation Pill$() (zao_hua_dan / pill), alias: Creation Spirit Pill$(br)$(l)Heaven-Mending Pill$() (bu_tian_dan / pill), aliases: none$(br)$(l)Demon Essence Pill$() (mo_yuan_dan / pill), aliases: none",
+      "title": "Glossary Excerpt 2"
     },
     {
       "type": "patchouli:text",
-      "text": "$(l)虚灵丹$()（xu_ling_dan / pill）别名：太虚妙灵丹$(br)$(l)回阳真水$()（hui_yang_zhen_shui / elixir）别名：回阳水$(br)$(l)玉髓芝$()（yu_sui_zhi / herb）别名：无$(br)$(l)紫猴花$()（zi_hou_hua / herb）别名：无$(br)$(l)天灵果$()（tian_ling_guo / fruit）别名：无$(br)$(l)千年灵草$()（qian_nian_ling_cao / herb）别名：千年药",
-      "title": "术语摘录 3"
+      "text": "$(l)Void Spirit Pill$() (xu_ling_dan / pill), alias: Grand Void Wondrous Spirit Pill$(br)$(l)Return-Yang True Water$() (hui_yang_zhen_shui / elixir), alias: Return-Yang Water$(br)$(l)Jade Marrow Fungus$() (yu_sui_zhi / herb), aliases: none$(br)$(l)Violet Monkey Flower$() (zi_hou_hua / herb), aliases: none$(br)$(l)Heaven Spirit Fruit$() (tian_ling_guo / fruit), aliases: none$(br)$(l)Thousand-Year Spirit Herb$() (qian_nian_ling_cao / herb), alias: Thousand-Year Medicine",
+      "title": "Glossary Excerpt 3"
     },
     {
       "type": "patchouli:text",
-      "text": "$(l)九曲灵参$()（jiu_qu_ling_shen / herb_living）别名：活参、曲儿原型$(br)$(l)曲儿$()（qu_er / companion）别名：人参果童子结构、灵参化形$(br)$(l)灵烛果$()（ling_zhu_guo / fruit）别名：无$(br)$(l)霓裳草$()（ni_chang_cao / herb）别名：无$(br)$(l)伴妖草$()（ban_yao_cao / herb）别名：无$(br)$(l)养魂木$()（yang_hun_mu / wood）别名：神木",
-      "title": "术语摘录 4"
+      "text": "$(l)Nine-Curves Spirit Ginseng$() (jiu_qu_ling_shen / herb_living), aliases: Living Ginseng, Qu'er Prototype$(br)$(l)Qu'er$() (qu_er / companion), aliases: Ginseng-Fruit Child, Transformed Spirit Ginseng$(br)$(l)Spirit Candle Fruit$() (ling_zhu_guo / fruit), aliases: none$(br)$(l)Rainbow Skirt Grass$() (ni_chang_cao / herb), aliases: none$(br)$(l)Demon-Companion Grass$() (ban_yao_cao / herb), aliases: none$(br)$(l)Soul-Nurturing Wood$() (yang_hun_mu / wood), alias: Divine Wood",
+      "title": "Glossary Excerpt 4"
     },
     {
       "type": "patchouli:text",
-      "text": "$(l)玄天仙藤$()（xuan_tian_teng / living）别名：玄天藤、织纤原型$(br)$(l)织纤$()（zhi_xian / companion）别名：玄天生物$(br)$(l)庚精$()（geng_jing / material）别名：庚金之精$(br)$(l)金雷竹$()（jin_lei_zhu / wood）别名：无$(br)$(l)青竹蜂云剑$()（qing_zhu_feng_yun_jian / fabao_set）别名：青竹剑、蜂云剑组、七十二飞剑$(br)$(l)大庚剑阵$()（da_geng_jian_zhen / array）别名：庚金剑阵",
-      "title": "术语摘录 5"
+      "text": "$(l)Profound Heaven Immortal Vine$() (xuan_tian_teng / living), aliases: Profound Heaven Vine, Zhixian Prototype$(br)$(l)Zhixian$() (zhi_xian / companion), alias: Profound Heaven Lifeform$(br)$(l)Geng Essence$() (geng_jing / material), alias: Essence of Geng Metal$(br)$(l)Golden Lightning Bamboo$() (jin_lei_zhu / wood), aliases: none$(br)$(l)Green Bamboo Cloud-Swarm Swords$() (qing_zhu_feng_yun_jian / fabao_set), aliases: Green Bamboo Swords, Cloud-Swarm Sword Set, Seventy-Two Flying Swords$(br)$(l)Great Geng Sword Formation$() (da_geng_jian_zhen / array), alias: Geng-Metal Sword Formation",
+      "title": "Glossary Excerpt 5"
     },
     {
       "type": "patchouli:text",
-      "text": "$(l)虚天鼎$()（xutian_ding / tongtian）别名：小鼎、通天灵宝鼎$(br)$(l)乾蓝冰焰$()（qian_lan_bing_yan / flame）别名：乾蓝焰$(br)$(l)八灵尺$()（ba_ling_chi / tongtian）别名：八灵宝尺$(br)$(l)风雷翅$()（feng_lei_chi / escape）别名：风雷双翅$(br)$(l)元磁神山$()（yuan_ci_shen_shan / gubao）别名：神山$(br)$(l)元磁神光$()（yuan_ci_shen_guang / manual）别名：元磁功法",
-      "title": "术语摘录 6"
+      "text": "$(l)Void Heaven Cauldron$() (xutian_ding / tongtian), aliases: Little Cauldron, Divine Spirit-Treasure Cauldron$(br)$(l)Qianlan Ice Flame$() (qian_lan_bing_yan / flame), alias: Qianlan Flame$(br)$(l)Eight-Spirit Ruler$() (ba_ling_chi / tongtian), alias: Eight-Spirit Treasure Ruler$(br)$(l)Wind and Thunder Wings$() (feng_lei_chi / escape), alias: Twin Wind-Thunder Wings$(br)$(l)Magnetic Origin Divine Mountain$() (yuan_ci_shen_shan / gubao), alias: Divine Mountain$(br)$(l)Magnetic Origin Divine Light$() (yuan_ci_shen_guang / manual), alias: Magnetic Origin Method",
+      "title": "Glossary Excerpt 6"
     },
     {
       "type": "patchouli:text",
-      "text": "$(l)五子同心魔$()（wu_zi_tong_xin_mo / gubao）别名：五子魔$(br)$(l)鬼罗幡$()（gui_luo_fan / fabao）别名：无$(br)$(l)赤魂幡$()（chi_hun_fan / fabao）别名：无$(br)$(l)黑风旗$()（hei_feng_qi / tongtian_damaged）别名：黑风旗残",
-      "title": "术语摘录 7"
+      "text": "$(l)Five United Devils$() (wu_zi_tong_xin_mo / gubao), alias: Five Devils$(br)$(l)Ghost Luo Banner$() (gui_luo_fan / fabao), aliases: none$(br)$(l)Crimson Soul Banner$() (chi_hun_fan / fabao), aliases: none$(br)$(l)Black Wind Flag$() (hei_feng_qi / tongtian_damaged), alias: Damaged Black Wind Flag",
+      "title": "Glossary Excerpt 7"
     },
     {
       "type": "patchouli:text",
-      "text": "UI 显示用 primary$(br)搜索匹配 aliases + primary + id$(br)type 可做图鉴分页",
-      "title": "检索提示"
+      "text": "The UI displays primary.$(br)Search matches aliases + primary + id.$(br)type can be used to group codex pages.",
+      "title": "Search Tips"
     }
   ]
 }

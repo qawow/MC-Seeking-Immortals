@@ -1,23 +1,23 @@
 {
-  "name": "天南魔市",
+  "name": "Tiannan Demonic Market",
   "category": "seeking_immortals:basics",
   "icon": "seeking_immortals:heqi_pill",
   "sortnum": 14,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "天南魔市",
-      "text": "天南魔市对应文本材料 merchant_shops.json#tiannan_demonic_dual_market。当前版本通过已有坊市系统接入，不新增独立商人、阵营声望界面或加载器，仍使用下品金灵石作为物品货币。"
+      "title": "Tiannan Demonic Market",
+      "text": "The Tiannan Demonic Market follows merchant_shops.json#tiannan_demonic_dual_market and uses the existing market system. It adds no separate merchant, faction-reputation screen, or loader, and trades in low-grade metal spirit stones."
     },
     {
       "type": "patchouli:text",
-      "title": "当前货品",
+      "title": "Current Stock",
       "text": "The current listing is the dedicated Heqi Pill. It provides a dual-cultivation-compatible cultivation boost for 40 low-grade metal spirit stones, with stock 6 and a 48000-tick refresh."
     },
     {
       "type": "patchouli:text",
-      "title": "延后货品",
-      "text": "文本材料还列出 dual_harmony_pill、demonic_yang_gather_pill 与 demonic_blood_coral。它们需要专属丹药、魔道材料、访问风险和声望/因果规则，暂不通过现有通用物品强行替代。"
+      "title": "Planned Stock",
+      "text": "The corpus also lists dual_harmony_pill, demonic_yang_gather_pill, and demonic_blood_coral. They require dedicated pills, demonic materials, access risks, and reputation or karma rules, so they are not being forced onto generic substitute items."
     }
   ]
 }

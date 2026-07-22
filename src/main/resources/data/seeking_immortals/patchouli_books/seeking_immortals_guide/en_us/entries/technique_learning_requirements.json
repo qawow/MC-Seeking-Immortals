@@ -6,33 +6,33 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "Source Basis",
-      "text": "This page follows 文本材料/data/novel_cultivation_learn_requirements_waves.json, cultivation_methods.json, manuals_catalog.json, and the techniques/ data files. The current implementation reuses technique manuals, TechniqueDataManager, the seven-slot release flow, and Patchouli guidance without adding a separate learning UI, quest loader, or network packet."
+      "title": "Learning Window",
+      "text": "This page follows novel_cultivation_learn_requirements_waves.json, cultivation_methods.json, and manuals_catalog.json. The method catalog checks realm_min and realm_max_learn on the server. Passing the maximum only closes entry through that inheritance, while an invalid realm id is rejected."
     },
     {
       "type": "patchouli:text",
-      "title": "Gate Types",
-      "text": "The source material layers learning gates: realm_min and realm_max_learn define realm windows; prerequisite_methods and layers_required define method prerequisites; spirit_roots records required, bonus, or forbidden roots; faction, relation, reputation, karma, items_suggested, and divine_sense_min cover sect access, reputation, karmic risk, items, and divine-sense requirements."
+      "title": "Prerequisites and Layers",
+      "text": "prerequisite_methods and prerequisite_realm_layers are active hard gates, while layers_required contributes to the method's own layer cap. A missing method or insufficient layer returns a specific failure. Learning starts at layer one and authored techniques unlock as it advances."
     },
     {
       "type": "patchouli:text",
-      "title": "Current Runtime",
-      "text": "Registered technique manuals learn techniques by source from current data-pack entries, with server-side attribute matching against the player's spiritual roots. Only learned techniques can be bound to the seven slots. Release still checks slot bounds, learned state, cooldown, spiritual power, registered effects, and executable state on the server. Far over-tier techniques currently add qi-deviation risk."
+      "title": "Roots and Identity",
+      "text": "Active extended gates include spirit_roots.required_any tokens such as metal or wood, constitution or physique, race_required, and must_convert_after. faction and faction_relation_min check sect identity and outer, inner, or higher rank when the player already has membership."
     },
     {
       "type": "patchouli:text",
-      "title": "Current Limits",
-      "text": "Sect rank, contribution source, reputation, item costs, method layers, gender affinity, forbidden physiques, and divine-sense thresholds mostly remain in the text material and guide layer for now rather than strict learning gates. They should later plug into server-authoritative quest, sect, reputation, item, and method-layer checks."
+      "title": "Conflict Matrix",
+      "text": "Passing catalog gates is followed by the method conflict matrix. Holding a manual cannot bypass mutually exclusive paths. Final learning, persistent flags, initial layer, and layer-based technique grants all remain server-authoritative."
     },
     {
       "type": "patchouli:text",
-      "title": "Examples",
-      "text": "Changchun Gong is a Qi Refining wood starter tied to Huangfeng outer disciples or a master grant. Qingyuan Sword Art favors metal/wood, expects Foundation Establishment, completed Changchun Gong, and inner-hall or contribution access. Xuan Yin Art is a demonic yin route with righteous-reputation and forbidden-physique risks. Refinement, puppet, and ghost manuals are usually jade-slip or secret-realm unlocks."
+      "title": "Technique Learn and Cast",
+      "text": "A technique checks its required realm, inferred sect hint, and requires_method. Casting also rechecks learned state, slot, cooldown, spiritual power, and executable effect, then applies authored high-tier reputation, region, or secret-realm gates. Technique-blocking statuses such as seal nascent also deny release."
     },
     {
       "type": "patchouli:text",
-      "title": "Next Steps",
-      "text": "Future slices should turn these gates into play: preview locked reasons before learning, consume specific manuals or items, check sect stage and reputation, validate prerequisite method layers, display root-affinity multipliers, and keep failure feedback on the server-authoritative path."
+      "title": "Honest Boundary",
+      "text": "Not every source field is one universal hard gate. Empty sect membership keeps the legacy manual path open. learn_source, items_suggested, requires_items, gender affinity, divine_sense_min, karma, and some social relations may remain descriptive or be handled by separate quest, sect, or reputation services."
     }
   ]
 }

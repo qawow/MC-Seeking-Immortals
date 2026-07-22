@@ -1,18 +1,18 @@
 {
-  "name": "合规说明",
+  "name": "Artifact Availability Note",
   "category": "seeking_immortals:reference",
   "icon": "seeking_immortals:spirit_charm",
   "sortnum": 60,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "专属古宝以残片、仿制品、模板形式出现，见 artifacts_catalog.note",
-      "title": "合规说明"
+      "text": "Some unique ancient treasures appear only as fragments, replicas, or crafting templates rather than dropping as complete artifacts. See artifacts_catalog.note.",
+      "title": "Availability Note"
     },
     {
       "type": "patchouli:text",
-      "text": "语料 patchouli_item_book.static_entries.compliance_note",
-      "title": "来源"
+      "text": "Check an item's description to determine whether it is a complete artifact, a fragment, a replica, or a crafting template. Source index: patchouli_item_book.static_entries.compliance_note.",
+      "title": "Identifying the Form"
     }
   ]
 }

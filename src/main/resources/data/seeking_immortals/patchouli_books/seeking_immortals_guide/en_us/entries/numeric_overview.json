@@ -1,38 +1,38 @@
 {
-  "name": "数值速查",
+  "name": "Numeric Quick Reference",
   "category": "seeking_immortals:reference",
   "icon": "seeking_immortals:metal_spirit_stone",
   "sortnum": 20,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "本页为只读速查，数据引用境界/灵石/妖兽十三阶等权威表，不在此改写玩法数值。",
-      "title": "数值总览"
+      "text": "This is a read-only quick reference. It cites authoritative realm, spirit-stone, and thirteen-tier beast tables without redefining gameplay values.",
+      "title": "Numeric Overview"
     },
     {
       "type": "patchouli:text",
       "text": "low_stone: 1$(br)mid_stone: 100$(br)high_stone: 10000$(br)top_stone: 1000000$(br)isolated: ['tiannan_merit', 'tianyuan_merit', 'sect_contrib']",
-      "title": "灵石阶梯"
+      "title": "Spirit-Stone Tiers"
     },
     {
       "type": "patchouli:text",
       "text": "qi_to_foundation: 0.35$(br)foundation_to_core: 0.2$(br)core_to_nascent: 0.15$(br)nascent_to_deity: 0.08$(br)deity_to_void: 0.12$(br)void_to_integration: 0.1$(br)integration_to_great: 0.06$(br)great_to_true_immortal: 0.03",
-      "title": "突破基础成功率"
+      "title": "Base Breakthrough Chances"
     },
     {
       "type": "patchouli:text",
       "text": "hostile: [-100, -40]$(br)unfriendly: [-39, -10]$(br)neutral: [-9, 20]$(br)friendly: [21, 50]$(br)honored: [51, 80]$(br)exalted: [81, 100]",
-      "title": "声望档位"
+      "title": "Reputation Bands"
     },
     {
       "type": "patchouli:text",
-      "text": "妖兽扩充 1848；物品描述 10182。$(br)宗门 28；任务链 62；编年 56。",
-      "title": "内容快照"
+      "text": "Demon-beast entries: 1848; item descriptions: 10182.$(br)Sects: 28; quest chains: 62; chronicle events: 56.",
+      "title": "Content Snapshot"
     },
     {
       "type": "patchouli:text",
-      "text": "威胁1: 凡人~炼气前$(br)威胁2: 炼气中后$(br)威胁3: 筑基$(br)威胁4: 筑基后~结丹前$(br)威胁5: 结丹$(br)威胁6: 结丹后~元婴前$(br)威胁7: 元婴$(br)威胁8: 元婴后期$(br)威胁9: 化神关",
-      "title": "十三阶威胁"
+      "text": "Threat 1: mortal to early Qi Refining$(br)Threat 2: middle to late Qi Refining$(br)Threat 3: Foundation Establishment$(br)Threat 4: late Foundation to pre-Core Formation$(br)Threat 5: Core Formation$(br)Threat 6: late Core to pre-Nascent Soul$(br)Threat 7: Nascent Soul$(br)Threat 8: late Nascent Soul$(br)Threat 9: Deity Transformation threshold",
+      "title": "Thirteen-Tier Threat Scale"
     }
   ]
 }

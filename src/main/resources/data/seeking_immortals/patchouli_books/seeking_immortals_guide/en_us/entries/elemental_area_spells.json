@@ -7,7 +7,7 @@
     {
       "type": "patchouli:text",
       "title": "Source Basis",
-      "text": "This page follows 文本材料/data/techniques/elemental.json entries lava_burst, mist_rain, sand_storm, blizzard, cyclone, and chain_lightning. The current implementation reuses technique data, the seven-slot release flow, and ElementalAreaSpell without adding spell entities, GUI, packet format changes, or a runtime loader."
+      "text": "This page follows the entries lava_burst, mist_rain, sand_storm, blizzard, cyclone, and chain_lightning in source-corpus data/techniques/elemental.json. The current implementation reuses technique data, the seven-slot release flow, and ElementalAreaSpell without adding spell entities, GUI, packet format changes, or a runtime loader."
     },
     {
       "type": "patchouli:text",

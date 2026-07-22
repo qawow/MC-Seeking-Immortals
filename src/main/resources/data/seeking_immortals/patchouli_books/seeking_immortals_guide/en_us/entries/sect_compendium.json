@@ -1,23 +1,23 @@
 {
-  "name": "宗门势力分册",
+  "name": "Sect and Faction Compendium",
   "category": "seeking_immortals:sects_factions",
   "icon": "seeking_immortals:immortal_jade",
   "sortnum": 5,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "可玩宗门任务/商店/对话包齐全；贡献商店禁止无限贡献换灵石。",
-      "title": "宗门分册"
+      "text": "Playable sects include quest, shop, and dialogue data. Contribution shops prohibit unlimited exchanges of contribution for spirit stones.",
+      "title": "Sect Compendium"
     },
     {
       "type": "patchouli:text",
-      "text": "ReputationUnlockService 阈值查询；势力冲突接区域日事件。",
-      "title": "声望解锁"
+      "text": "ReputationUnlockService checks thresholds for methods, goods, and regional daily events tied to faction conflict.",
+      "title": "Reputation Unlocks"
     },
     {
       "type": "patchouli:text",
-      "text": "GhostSectBanService 限制鬼修路径入门。",
-      "title": "鬼修禁令"
+      "text": "GhostSectBanService restricts entry to the ghost-cultivation path for incompatible sects. Check your path and a sect's position before joining.",
+      "title": "Ghost-Path Restrictions"
     }
   ]
 }

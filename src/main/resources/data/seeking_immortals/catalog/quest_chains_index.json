@@ -69,7 +69,7 @@
     {
       "id": "ghost_path",
       "display": "鬼道线",
-      "region": "unknown",
+      "region": "yinming",
       "realm_span": [
         "QI_REFINING"
       ],
@@ -93,7 +93,7 @@
     {
       "id": "high_realm_endgame",
       "display": "高境界终局",
-      "region": "unknown",
+      "region": "tianyuan",
       "realm_span": [
         "CORE_FORMATION",
         "DEITY_TRANSFORMATION"
@@ -135,7 +135,7 @@
     {
       "id": "craft_master",
       "display": "百艺精通",
-      "region": "unknown",
+      "region": "tiannan",
       "realm_span": [
         "QI_REFINING"
       ],
@@ -361,7 +361,7 @@
     {
       "id": "yin_cluster_pilgrim",
       "display": "阴司朝圣线",
-      "region": "yin_underworld",
+      "region": "yinming",
       "realm_span": [
         "QI_REFINING"
       ],
@@ -638,7 +638,7 @@
     {
       "id": "ghost_sect_ban_arc",
       "display": "鬼修禁入正道",
-      "region": "unknown",
+      "region": "yinming",
       "realm_span": [
         "QI_REFINING"
       ],
@@ -798,7 +798,7 @@
     {
       "id": "void_great_cultivation_arc",
       "display": "炼虚大乘道途",
-      "region": "unknown",
+      "region": "spirit_realm_border",
       "realm_span": [
         "VOID_REFINING",
         "TRIBULATION"
@@ -818,7 +818,7 @@
     {
       "id": "diyuan_depth_delve",
       "display": "地渊深层",
-      "region": "diyuan",
+      "region": "tianyuan",
       "realm_span": [
         "QI_REFINING"
       ],
@@ -837,7 +837,7 @@
     {
       "id": "mortal_to_spirit_bridge",
       "display": "人界化神·赴灵界",
-      "region": "unknown",
+      "region": "tianyuan",
       "realm_span": [
         "QI_REFINING"
       ],
@@ -917,7 +917,7 @@
     {
       "id": "chain_seven_sect_outer_to_inner",
       "display": "七派外门晋升内门",
-      "region": "unknown",
+      "region": "tiannan",
       "realm_span": [
         "QI_REFINING"
       ],
@@ -931,7 +931,7 @@
     {
       "id": "chain_mulan_war_campaign",
       "display": "慕兰大战战役",
-      "region": "mulan_border",
+      "region": "mulan",
       "realm_span": [
         "QI_REFINING"
       ],
@@ -950,7 +950,7 @@
     {
       "id": "chain_void_palace_expedition",
       "display": "虚天殿探险链",
-      "region": "unknown",
+      "region": "chaotic_sea",
       "realm_span": [
         "QI_REFINING"
       ],
@@ -964,7 +964,7 @@
     {
       "id": "chain_ascension_spirit_world",
       "display": "飞升灵界前置",
-      "region": "unknown",
+      "region": "tianyuan",
       "realm_span": [
         "QI_REFINING"
       ],
@@ -978,7 +978,7 @@
     {
       "id": "chain_tianyuan_enlist",
       "display": "天渊城服役",
-      "region": "spirit_world",
+      "region": "tianyuan",
       "realm_span": [
         "QI_REFINING"
       ],
@@ -1119,7 +1119,7 @@
     {
       "id": "diyuan_campaign",
       "display": "地渊探脉",
-      "region": "diyuan",
+      "region": "tianyuan",
       "realm_span": [
         "VOID_REFINEMENT",
         "BODY_FUSION"

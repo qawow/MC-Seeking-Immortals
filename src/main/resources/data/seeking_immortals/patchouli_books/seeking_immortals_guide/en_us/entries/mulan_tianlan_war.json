@@ -1,13 +1,13 @@
 {
-  "name": "慕兰天澜战事",
+  "name": "Mulan-Tianlan War",
   "category": "seeking_immortals:sects_factions",
   "icon": "seeking_immortals:armor_talisman",
   "sortnum": 22,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "见 patchouli_item_book 分类索引条目 mulan_tianlan_war。游戏内百科与命令可进一步检索。",
-      "title": "慕兰天澜战事"
+      "text": "The border war between Mulan and Tianlan revolves around the grasslands, grand formations, and sacred birds. Consult the in-game codex for campaign phases and related quest clues. Source index: patchouli_item_book category entry mulan_tianlan_war.",
+      "title": "Mulan-Tianlan War"
     }
   ]
 }

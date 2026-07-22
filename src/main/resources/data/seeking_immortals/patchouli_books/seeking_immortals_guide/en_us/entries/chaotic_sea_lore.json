@@ -1,28 +1,28 @@
 {
-  "name": "乱星海志",
+  "name": "Chronicle of the Chaotic Star Sea",
   "category": "seeking_immortals:world_realms",
   "icon": "seeking_immortals:leyline_compass",
   "sortnum": 8,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "汇编 乱星海地理与势力；结构向非逐句原著",
-      "title": "乱星海百科"
+      "text": "A structured compendium of the Chaotic Star Sea's geography and factions, not a line-by-line retelling of the source material.",
+      "title": "Chaotic Star Sea Compendium"
     },
     {
       "type": "patchouli:text",
-      "text": "inner_sea: 内星海：星宫直控，双圣坐镇，传送阵与补天丹配额垄断叙事。$(br)outer_sea: 外星海：岛屿林立，海盗与散修，登记征税与逆星暗线并存。$(br)abyss: 深渊裂隙：高阶海兽与走私航线，对应秘境 chaotic_sea_abyss_rift。$(br)void_palace_node: 虚天殿周期开放，钥碎片为星宫、逆星、商盟共同筹码。",
-      "title": "地理"
+      "text": "inner_sea: The Inner Star Sea is ruled directly by the Star Palace and guarded by the Twin Sages, who control teleportation arrays and Heaven-Mending Pill quotas.$(br)outer_sea: The island-dotted Outer Star Sea harbors pirates and rogue cultivators, with registration taxes and Anti-Star operations both in play.$(br)abyss: The Abyssal Rift holds high-tier sea beasts and smuggling routes, represented by the chaotic_sea_abyss_rift secret realm.$(br)void_palace_node: The Void Palace opens periodically, and its key fragments are prized by the Star Palace, Anti-Star Alliance, and Merchant Alliance alike.",
+      "title": "Geography"
     },
     {
       "type": "patchouli:text",
-      "text": "$(l)星宫$() — 乱星海名义秩序：外海登记、岛税、清剿海盗与逆星。双圣闭关，长老会与执法队实际主事；执法派要铁腕，贸易派重拍卖与坊市税。玩家忠诚线：巡逻功勋、清剿悬赏、虚天殿情报上缴。$(br)$(l)逆星盟$() — 对抗星宫割据：密语入盟、走私玉简、策应海盗。暗线可窃钥、破坏巡防，终章仍可能与虚天殿钥任务交汇。$(br)$(l)乱星海商盟$() — 中立贸易：星宫与逆星夹缝跑货，航海术与走私标签；可倒卖虚天殿情报两边通吃。$(br)$(l)蓬莱派$() — 乱星海剑修大派，水剑与遁术；不必然绑星宫，可接外海猎妖与秘境组队。$(br)$(l)外海魔宫$() — 外海魔道据点，与逆星时有合作；入魔修玩家可选，正道声望恶化。",
-      "title": "势力志"
+      "text": "$(l)Star Palace$() - The nominal authority of the Chaotic Star Sea, overseeing Outer Sea registration, island taxes, and campaigns against pirates and Anti-Star cells. With the Twin Sages in seclusion, the Elder Council and enforcers hold real power. Its loyalty route covers patrol merit, bounties, and Void Palace intelligence.$(br)$(l)Anti-Star Alliance$() - A coalition resisting Star Palace rule through coded recruitment, smuggled jade slips, and pirate support. Its covert route includes stealing keys and sabotaging patrols before converging on the Void Palace quest.$(br)$(l)Chaotic Star Sea Merchant Alliance$() - Neutral traders who move goods between both sides, using sailing and smuggling access to sell intelligence to either camp.$(br)$(l)Penglai Sect$() - A major sword sect specializing in water blades and escape arts. It is not bound to the Star Palace and offers Outer Sea hunts and secret-realm parties.$(br)$(l)Outer Sea Demon Palace$() - A demonic stronghold that sometimes cooperates with Anti-Star forces. Demonic cultivators may join, at the cost of orthodox reputation.",
+      "title": "Faction Record"
     },
     {
       "type": "patchouli:text",
-      "text": "星宫忠诚线: quest_chains.json#chaotic_sea_politics: star_palace_patrol → pirate_bounty → void_palace_key$(br)逆星暗线: inverse_star_contact → stolen_jade_slip → inverse_star_sabotage → void_palace_key$(br)商盟中立: None",
-      "title": "玩家路径"
+      "text": "Star Palace loyalty route: quest_chains.json#chaotic_sea_politics: star_palace_patrol -> pirate_bounty -> void_palace_key$(br)Anti-Star covert route: inverse_star_contact -> stolen_jade_slip -> inverse_star_sabotage -> void_palace_key$(br)Merchant Alliance neutral route: not yet available",
+      "title": "Player Routes"
     }
   ]
 }

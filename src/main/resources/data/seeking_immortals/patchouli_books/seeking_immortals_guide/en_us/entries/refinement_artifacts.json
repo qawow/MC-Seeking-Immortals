@@ -1,13 +1,13 @@
 {
-  "name": "炼器法宝索引",
+  "name": "Artifact Refinement Index",
   "category": "seeking_immortals:artifacts_formations",
   "icon": "seeking_immortals:flying_sword_low",
   "sortnum": 12,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "见 patchouli_item_book 分类索引条目 refinement_artifacts。游戏内百科与命令可进一步检索。",
-      "title": "炼器法宝索引"
+      "text": "Artifacts must be crafted in a complete, unsealed refinement furnace. Recipes validate realm, furnace tier, materials, and success chance; failure may consume materials and leave wreckage. Source index: patchouli_item_book category entry refinement_artifacts.",
+      "title": "Artifact Refinement Index"
     }
   ]
 }

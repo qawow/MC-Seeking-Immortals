@@ -1,28 +1,28 @@
 {
-  "name": "魔道六宗",
+  "name": "Six Demonic Sects",
   "category": "seeking_immortals:basics",
   "icon": "seeking_immortals:technique_manual_demonic",
   "sortnum": 15,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "北迁魔道",
-      "text": "本页对应文本材料 demonic_six_sects.json。六宗主区域为 tiannan_north_waste，当前世界包已用天南荒原（魔道）承载入口标签；本页先作为宗门、功法和因果路线索引。"
+      "title": "Demonic Migration North",
+      "text": "This page follows demonic_six_sects.json. The six sects are centered on tiannan_north_waste, represented in the current world data by the demonic Tiannan Wasteland entrance tag. For now, this entry indexes their sects, methods, and karmic routes."
     },
     {
       "type": "patchouli:text",
-      "title": "六宗分支",
-      "text": "鬼灵门偏摄魂、炼尸、阴火；合欢宗偏媚术、双修、幻惑；天魔宗偏魔体、狂战、血祭；青罗宗偏毒术与虫傀；万狐宗偏幻术与妖狐；血巫教偏血咒与巫术。"
+      "title": "The Six Branches",
+      "text": "The Ghost Spirit Sect practices soul seizure, corpse refinement, and yin fire; the Harmonious Joy Sect favors charm arts, paired cultivation, and deception; the Heavenly Demon Sect cultivates demonic bodies, frenzy, and blood sacrifice; the Azure Net Sect specializes in poison and insect puppets; the Myriad Fox Sect uses illusions and fox demons; and the Blood Shaman Cult wields blood curses and shamanic arts."
     },
     {
       "type": "patchouli:text",
-      "title": "功法门槛",
-      "text": "文本材料列出玄阴功、鬼灵摄魂功、合欢心法、天魔炼体诀、青罗毒功、万狐幻法、血巫血咒等根法。当前手册只说明设定关系，具体拜入、功法掉落、正道通缉和分支技能树还未全量接入。"
+      "title": "Method Requirements",
+      "text": "The source corpus lists root methods such as the Profound Yin Art, Ghost Spirit Soul-Seizing Art, Harmonious Joy Heart Art, Heavenly Demon Body-Tempering Art, Azure Net Poison Art, Myriad Fox Illusion Art, and Blood Shaman Curse. This guide currently describes their lore relationships; sect admission, method drops, orthodox bounties, and branch skill trees are not yet fully integrated."
     },
     {
       "type": "patchouli:text",
-      "title": "因果风险",
-      "text": "魔道路线带有 demonic_karma 设计，并会与黄枫谷、天澜寺等正道势力产生禁入或敌对风险。当前版本尚未实现完整魔道声望/禁入系统，后续应复用服务端声望、任务和功法学习门槛，而不是信任客户端选择。"
+      "title": "Karmic Risks",
+      "text": "Demonic routes are designed around demonic_karma and may trigger denial of entry or hostility from orthodox powers such as Yellow Maple Valley and Tianlan Temple. The full demonic reputation and exclusion system is not yet implemented; future gates must reuse server-side reputation, quest, and method-learning checks rather than trusting client choices."
     }
   ]
 }

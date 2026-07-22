@@ -1,18 +1,18 @@
 {
-  "name": "天渊功勋兑换",
+  "name": "Tianyuan Merit Exchange",
   "category": "seeking_immortals:sects_factions",
   "icon": "seeking_immortals:immortal_jade",
   "sortnum": 15,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "spirit_realm_gate_voucher、diyuan_access_token、tianyuan_spirit_pill 等为结构兑换项。",
-      "title": "天渊功勋阁"
+      "text": "Structural merit rewards include spirit_realm_gate_voucher, diyuan_access_token, and tianyuan_spirit_pill.",
+      "title": "Tianyuan Merit Hall"
     },
     {
       "type": "patchouli:text",
-      "text": "声望 tier 解锁地渊许可与通道优先权。",
-      "title": "续 1"
+      "text": "Higher reputation tiers unlock Earth Abyss permits and priority access to cross-realm passages.",
+      "title": "Reputation Unlocks"
     }
   ]
 }

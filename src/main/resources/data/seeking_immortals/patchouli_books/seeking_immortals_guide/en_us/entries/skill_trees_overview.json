@@ -1,13 +1,13 @@
 {
-  "name": "技能树总览",
+  "name": "Skill Tree Overview",
   "category": "seeking_immortals:techniques",
   "icon": "seeking_immortals:technique_manual_common",
   "sortnum": 15,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "见 patchouli_item_book 分类索引条目 skill_trees_overview。游戏内百科与命令可进一步检索。",
-      "title": "技能树总览"
+      "text": "Skill trees show prerequisites, layer counts, and advancement routes for learned methods. You must first learn a method from a manual or inheritance scroll; the interface never grants an unlearned method directly. Source index: patchouli_item_book category entry skill_trees_overview.",
+      "title": "Skill Tree Overview"
     }
   ]
 }

@@ -19,7 +19,10 @@
       ],
       dependencies: ["1000000000000613", "1000000000000707"],
       tags: ["seeking_immortals", "high_realm_endgame", "endgame_bridge"],
-      tasks: [{id: "1000000000002201", type: "advancement", advancement: "minecraft:end/root", title: "整理高境终局纲领"}]
+      tasks: [
+        {id: "1000000000002201", type: "advancement", advancement: "minecraft:end/root", title: "整理高境终局纲领"},
+        {id: "2000000000002201", type: "custom", title: "同步原生高境终局完成状态", tags: ["si_native_high_realm_endgame_4"], check_timer: 20, max_progress: 1L}
+      ]
     },
     {
       id: "1000000000001202",
@@ -33,7 +36,10 @@
       ],
       dependencies: ["1000000000001201"],
       tags: ["seeking_immortals", "kunwu_mountain_expedition", "kunwu"],
-      tasks: [{id: "1000000000002202", type: "advancement", advancement: "minecraft:adventure/root", title: "复核昆吾远征线"}]
+      tasks: [
+        {id: "1000000000002202", type: "advancement", advancement: "minecraft:adventure/root", title: "复核昆吾远征线"},
+        {id: "2000000000002202", type: "custom", title: "同步原生昆吾远征完成状态", tags: ["si_native_kunwu_mountain_expedition_4"], check_timer: 20, max_progress: 1L}
+      ]
     },
     {
       id: "1000000000001203",
@@ -47,7 +53,7 @@
       ],
       dependencies: ["1000000000001202"],
       tags: ["seeking_immortals", "kunwu", "map_fragment", "permit_deferred"],
-      tasks: [{id: "1000000000002203", type: "checkmark", title: "缴验昆吾地图残片"}]
+      tasks: [{id: "1000000000002203", type: "custom", title: "缴验昆吾地图残片", tags: ["si_native_kunwu_mountain_expedition_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001204",
@@ -61,7 +67,7 @@
       ],
       dependencies: ["1000000000001203"],
       tags: ["seeking_immortals", "kunwu", "cold_snap", "hazard_deferred"],
-      tasks: [{id: "1000000000002204", type: "checkmark", title: "挺过昆吾寒潮"}]
+      tasks: [{id: "1000000000002204", type: "custom", title: "挺过昆吾寒潮", tags: ["si_native_kunwu_mountain_expedition_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001205",
@@ -75,7 +81,7 @@
       ],
       dependencies: ["1000000000001204"],
       tags: ["seeking_immortals", "kunwu", "kunwu_puppet_king", "boss_design"],
-      tasks: [{id: "1000000000002205", type: "checkmark", title: "记录昆吾傀儡王"}]
+      tasks: [{id: "1000000000002205", type: "custom", title: "记录昆吾傀儡王", tags: ["si_native_kunwu_mountain_expedition_4"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001206",
@@ -89,7 +95,7 @@
       ],
       dependencies: ["1000000000001201"],
       tags: ["seeking_immortals", "fallen_demon_expedition", "fallen_demon_valley"],
-      tasks: [{id: "1000000000002206", type: "checkmark", title: "复核坠魔远征线"}]
+      tasks: [{id: "1000000000002206", type: "custom", title: "同步原生坠魔远征完成状态", tags: ["si_native_fallen_demon_expedition_4"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001207",
@@ -103,7 +109,7 @@
       ],
       dependencies: ["1000000000001206"],
       tags: ["seeking_immortals", "fallen_demon_valley", "fallen_demon_scout"],
-      tasks: [{id: "1000000000002207", type: "checkmark", title: "提交坠魔前哨报告"}]
+      tasks: [{id: "1000000000002207", type: "custom", title: "提交坠魔前哨报告", tags: ["si_native_fallen_demon_expedition_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001208",
@@ -117,7 +123,7 @@
       ],
       dependencies: ["1000000000001207"],
       tags: ["seeking_immortals", "fallen_demon_valley", "seal_weak_event"],
-      tasks: [{id: "1000000000002208", type: "checkmark", title: "巡察削弱封印"}]
+      tasks: [{id: "1000000000002208", type: "custom", title: "巡察削弱封印", tags: ["si_native_fallen_demon_expedition_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001209",
@@ -131,7 +137,7 @@
       ],
       dependencies: ["1000000000001208"],
       tags: ["seeking_immortals", "fallen_demon_valley", "ancient_demon_projection_boss"],
-      tasks: [{id: "1000000000002209", type: "checkmark", title: "归档古魔投影账册"}]
+      tasks: [{id: "1000000000002209", type: "custom", title: "归档古魔投影账册", tags: ["si_native_fallen_demon_expedition_4"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001210",
@@ -146,7 +152,7 @@
       ],
       dependencies: ["1000000000000718"],
       tags: ["seeking_immortals", "yin_cluster_pilgrim", "ghost_cultivator", "optional"],
-      tasks: [{id: "1000000000002210", type: "checkmark", title: "登记阴司朝圣线"}]
+      tasks: [{id: "1000000000002210", type: "custom", title: "同步原生阴司朝圣完成状态", tags: ["si_native_yin_cluster_pilgrim_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001211",
@@ -176,7 +182,7 @@
       ],
       dependencies: ["1000000000000710"],
       tags: ["seeking_immortals", "ghost_sect_ban_arc", "ghost_cultivator", "optional"],
-      tasks: [{id: "1000000000002212", type: "checkmark", title: "标注鬼修禁入规则"}]
+      tasks: [{id: "1000000000002212", type: "custom", title: "同步原生鬼修禁入完成状态", tags: ["si_native_ghost_sect_ban_arc_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001213",
@@ -191,7 +197,7 @@
       ],
       dependencies: ["1000000000001212"],
       tags: ["seeking_immortals", "ghost_expose_event", "ghost_hunt", "optional"],
-      tasks: [{id: "1000000000002213", type: "checkmark", title: "处理鬼修暴露传闻"}]
+      tasks: [{id: "1000000000002213", type: "custom", title: "处理鬼修暴露传闻", tags: ["si_native_ghost_sect_ban_arc_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001214",
@@ -206,7 +212,7 @@
       ],
       dependencies: ["1000000000001213"],
       tags: ["seeking_immortals", "righteous_sect_ghost_hunt", "ghost_hunt", "optional"],
-      tasks: [{id: "1000000000002214", type: "checkmark", title: "避开正道追魂"}]
+      tasks: [{id: "1000000000002214", type: "custom", title: "避开正道追魂", tags: ["si_native_ghost_sect_ban_arc_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001215",
@@ -221,7 +227,7 @@
       ],
       dependencies: ["1000000000001214"],
       tags: ["seeking_immortals", "sect_ban_lift_rare_quest", "optional"],
-      tasks: [{id: "1000000000002215", type: "checkmark", title: "完成洗髓改息"}]
+      tasks: [{id: "1000000000002215", type: "custom", title: "完成洗髓改息", tags: ["si_native_ghost_sect_ban_arc_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001216",
@@ -236,7 +242,7 @@
       ],
       dependencies: ["1000000000001001"],
       tags: ["seeking_immortals", "chain_seven_sect_outer_to_inner", "tiannan_seven", "optional"],
-      tasks: [{id: "1000000000002216", type: "checkmark", title: "开启七派晋升链"}]
+      tasks: [{id: "1000000000002216", type: "custom", title: "开启七派晋升链", tags: ["si_native_chain_seven_sect_outer_to_inner_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001217",
@@ -266,7 +272,7 @@
       ],
       dependencies: ["1000000000001217"],
       tags: ["seeking_immortals", "tiannan_seven", "inner_exam", "optional"],
-      tasks: [{id: "1000000000002218", type: "checkmark", title: "完成内门考核"}]
+      tasks: [{id: "1000000000002218", type: "custom", title: "完成内门考核", tags: ["si_native_chain_seven_sect_outer_to_inner_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001219",
@@ -281,7 +287,7 @@
       ],
       dependencies: ["1000000000001218"],
       tags: ["seeking_immortals", "tiannan_seven", "inner_manual_slot", "reward_bridge_deferred", "optional"],
-      tasks: [{id: "1000000000002219", type: "checkmark", title: "记录内门功法位"}]
+      tasks: [{id: "1000000000002219", type: "custom", title: "记录内门功法位", tags: ["si_native_chain_seven_sect_outer_to_inner_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001220",
@@ -295,7 +301,7 @@
       ],
       dependencies: ["1000000000001201", "1000000000000901"],
       tags: ["seeking_immortals", "mortal_to_spirit_bridge", "deity_transformation"],
-      tasks: [{id: "1000000000002220", type: "checkmark", title: "参悟人界化神瓶颈"}]
+      tasks: [{id: "1000000000002220", type: "custom", title: "同步原生人界飞升桥完成状态", tags: ["si_native_mortal_to_spirit_bridge_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001221",
@@ -309,7 +315,7 @@
       ],
       dependencies: ["1000000000001220"],
       tags: ["seeking_immortals", "chain_ascension_spirit_world", "ascension_gate_rumor"],
-      tasks: [{id: "1000000000002221", type: "checkmark", title: "追查飞升通道传闻"}]
+      tasks: [{id: "1000000000002221", type: "custom", title: "追查飞升通道传闻", tags: ["si_native_chain_ascension_spirit_world_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001222",
@@ -368,7 +374,7 @@
       ],
       dependencies: ["1000000000001224"],
       tags: ["seeking_immortals", "spirit_realm_border", "spatial_rift_flutter_survive"],
-      tasks: [{id: "1000000000002225", type: "checkmark", title: "脱离空间裂隙飘闪"}]
+      tasks: [{id: "1000000000002225", type: "custom", title: "同步原生灵界边境完成状态", tags: ["si_native_spirit_realm_border_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001226",
@@ -382,7 +388,7 @@
       ],
       dependencies: ["1000000000000926", "1000000000001225"],
       tags: ["seeking_immortals", "void_great_cultivation_arc", "void_refining"],
-      tasks: [{id: "1000000000002226", type: "checkmark", title: "开启炼虚大乘道途"}]
+      tasks: [{id: "1000000000002226", type: "custom", title: "同步原生炼虚大乘完成状态", tags: ["si_native_void_great_cultivation_arc_4"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001227",
@@ -396,7 +402,7 @@
       ],
       dependencies: ["1000000000001226"],
       tags: ["seeking_immortals", "void_rift_surge", "spatial_rift"],
-      tasks: [{id: "1000000000002227", type: "checkmark", title: "观测虚空裂隙涌动"}]
+      tasks: [{id: "1000000000002227", type: "custom", title: "观测虚空裂隙涌动", tags: ["si_native_void_great_cultivation_arc_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001228",
@@ -410,7 +416,10 @@
       ],
       dependencies: ["1000000000001227", "1000000000000929"],
       tags: ["seeking_immortals", "diyuan_depth_delve", "diyuan_core_probe"],
-      tasks: [{id: "1000000000002228", type: "item", title: "持有地渊令", item: "seeking_immortals:diyuan_permit", count: 1L, consume_items: true, match_nbt: false}],
+      tasks: [
+        {id: "1000000000002228", type: "item", title: "持有地渊令", item: "seeking_immortals:diyuan_permit", count: 1L, consume_items: true, match_nbt: false},
+        {id: "2000000000002228", type: "custom", title: "同步原生地渊深探完成状态", tags: ["si_native_diyuan_depth_delve_4"], check_timer: 20, max_progress: 1L}
+      ],
       rewards: [{id: "9000000000002228", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
@@ -440,7 +449,7 @@
       ],
       dependencies: ["1000000000001229"],
       tags: ["seeking_immortals", "great_vehicle_insight", "great_vehicle"],
-      tasks: [{id: "1000000000002230", type: "checkmark", title: "参悟大乘异象"}]
+      tasks: [{id: "1000000000002230", type: "custom", title: "参悟大乘异象", tags: ["si_native_void_great_cultivation_arc_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001231",
@@ -454,7 +463,7 @@
       ],
       dependencies: ["1000000000001230"],
       tags: ["seeking_immortals", "tribulation_cloud_gather", "tribulation"],
-      tasks: [{id: "1000000000002231", type: "checkmark", title: "观察天劫云聚"}]
+      tasks: [{id: "1000000000002231", type: "custom", title: "观察天劫云聚", tags: ["si_native_void_great_cultivation_arc_4"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001232",

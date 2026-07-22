@@ -1,13 +1,13 @@
 {
-  "name": "飞升流程",
+  "name": "Ascension Process",
   "category": "seeking_immortals:world_realms",
   "icon": "seeking_immortals:leyline_compass",
   "sortnum": 20,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "见 patchouli_item_book 分类索引条目 ascension_flow。游戏内百科与命令可进一步检索。",
-      "title": "飞升流程"
+      "text": "Ascension requires the proper realm, quest progress, and tribulation conditions, as well as a final check of which carried items will be retained. Consult the in-game codex for cross-realm routes and preparation details. Source index: patchouli_item_book category entry ascension_flow.",
+      "title": "Ascension Process"
     }
   ]
 }

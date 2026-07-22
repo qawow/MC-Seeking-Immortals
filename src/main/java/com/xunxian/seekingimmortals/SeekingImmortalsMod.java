@@ -3,7 +3,7 @@ package com.xunxian.seekingimmortals;
 import com.mojang.logging.LogUtils;
 import com.xunxian.seekingimmortals.combat.AttributeLimitUnlocker;
 import com.xunxian.seekingimmortals.network.ModNetwork;
-import com.xunxian.seekingimmortals.quest.FtbCustomTaskHooks;
+import com.xunxian.seekingimmortals.quest.FtbQuestCompatBootstrap;
 import com.xunxian.seekingimmortals.quest.FtbQuestDefaults;
 import com.xunxian.seekingimmortals.quest.QuestHookRuntime;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
@@ -43,8 +43,8 @@ public class SeekingImmortalsMod {
         ModCreativeTabs.register(modBus);
         ModNetwork.register();
         FtbQuestDefaults.bootstrapDefaultPack();
-        // Wave488: bind FTB custom tasks to sect-war / reputation authority checks.
-        FtbCustomTaskHooks.register();
+        // Keep optional FTB API classes isolated from common entrypoint loading.
+        FtbQuestCompatBootstrap.registerIfPresent();
         // M11: native quest hooks (dialogue / kill / craft / daily / secret-realm).
         QuestHookRuntime.register();
     }

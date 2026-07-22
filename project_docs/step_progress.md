@@ -1,3 +1,14 @@
+## 563. 2026-07-22 0.2.142 任务手册与原生/FTB 同步
+
+  Step   Status   Notes
+  ---   ---   ---
+  Quest corpus audit   Done   62 条原生链、35 条作者任务线、7 个主线章节的阶段数、区域、起始区域与跨引用严格对账；14 个运行时/文本材料区域纠偏完成。
+  Native/FTB mapping   Done   9 个 FTB 章节的 215 个节点全部使用真实任务类型；123 个原生镜像、15 个显式单步回写，未知链/阶段及多重或损坏回写标签失败关闭。
+  Handbook   Done   Patchouli 双语条目从 100 扩至 104，书籍版本 4；英文条目无 CJK 残留，类别、页数、页类型和图标引用对等。
+  Tests/build   Done   定向任务/FTB/Patchouli 测试、全资源 JSON/SNBT 静态审计均通过；最终普通 `./gradlew build` 在 `1m11s` 内 `BUILD SUCCESSFUL`，`aiPreflight` 通过。
+  Version/protocol   Done   `mod_version=0.2.142`；任务/资源改动未改变网络包字段、顺序、类型或频道行为，沿用共享树 `ModNetwork.PROTOCOL_VERSION=28`。
+  Backup   Done   任务源与文档备份位于 `.bak/20260722_quest_manual_sync/`；Patchouli 既有文件见 `.bak/20260722_094500_patchouli_audit/`，英文清理见 `.bak/20260722_handbook_en_cjk_cleanup/`，FTB 章节补充见 `.bak/20260722_140302_ftb_native_quest_sync/`。
+
 ## 565. 2026-07-22 0.2.141 Lodestone 全量语义 VFX
 
   Step   Status   Notes

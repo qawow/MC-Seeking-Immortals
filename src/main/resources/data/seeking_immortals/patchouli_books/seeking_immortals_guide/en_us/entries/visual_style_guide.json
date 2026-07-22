@@ -1,33 +1,33 @@
 {
-  "name": "视觉与排版规范",
+  "name": "Visual and Layout Guide",
   "category": "seeking_immortals:reference",
   "icon": "seeking_immortals:leyline_compass",
   "sortnum": 30,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "图鉴排版遵循 VISUAL_BIBLE（v118 样式 / v120 效果表 / v122 外貌卡）。本页为结构展示，不替换业务 UI。",
-      "title": "视觉规范"
+      "text": "Codex layout follows VISUAL_BIBLE: v118 styles, v120 effect tables, and v122 appearance cards. This page demonstrates structure without replacing gameplay interfaces.",
+      "title": "Visual Standards"
     },
     {
       "type": "patchouli:text",
       "text": "qi: #C8E7FF$(br)fire: #FF6A3D$(br)water: #4DB7FF$(br)wood: #3DCF7A$(br)metal: #E8D48B$(br)earth: #C2A37A$(br)thunder: #B388FF$(br)yin: #6B4E9B$(br)heal: #8CFFB0$(br)poison: #5CFF3D$(br)soul: #A78BFA",
-      "title": "元素色板"
+      "title": "Element Palette"
     },
     {
       "type": "patchouli:text",
       "text": "pills: 114$(br)herbs: 79$(br)materials: 221$(br)artifacts: 217$(br)consumables: 57$(br)techniques: 346$(br)methods: 91$(br)beasts: 42$(br)npcs: 168$(br)total_item_entries: 1351",
-      "title": "条目体量"
+      "title": "Entry Counts"
     },
     {
       "type": "patchouli:text",
-      "text": "appearance: 静态外貌$(br)idle_vfx: 静置/认主特效$(br)active_vfx: 使用/催动特效$(br)cast_vfx: 术法施放$(br)effect_text: 规则效果+表现$(br)style_tags: 美术标签",
-      "title": "字段 schema"
+      "text": "appearance: static appearance$(br)idle_vfx: idle and bonding effects$(br)active_vfx: use and activation effects$(br)cast_vfx: technique-casting effects$(br)effect_text: rules and presentation$(br)style_tags: art-direction tags",
+      "title": "Field Schema"
     },
     {
       "type": "patchouli:text",
-      "text": "ASSET_TEXTURE_STYLE + asset_texture_batches/job_map/pill_queue 描述贴图任务分批；占位贴图在未替换前保留。",
-      "title": "贴图队列"
+      "text": "ASSET_TEXTURE_STYLE and asset_texture_batches/job_map/pill_queue define texture-work batches. Placeholder textures remain until their replacements are ready.",
+      "title": "Texture Queue"
     }
   ]
 }

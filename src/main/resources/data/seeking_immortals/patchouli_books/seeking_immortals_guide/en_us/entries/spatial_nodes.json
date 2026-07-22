@@ -1,28 +1,28 @@
 {
-  "name": "空间节点与传送",
+  "name": "Spatial Nodes and Teleportation",
   "category": "seeking_immortals:basics",
   "icon": "seeking_immortals:leyline_compass",
   "sortnum": 25,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "节点总览",
-      "text": "本页对应 spatial_nodes_catalog.json。文本材料把跨域移动分成固定传送阵、古裂隙、宗门门阵、飞升天门和魔界裂隙事件。当前手册先说明门槛，实际旅行仍以已接入的世界包锚点、区域和服务器校验为准。"
+      "title": "Node Overview",
+      "text": "This page follows spatial_nodes_catalog.json. Cross-region travel is divided among fixed teleportation arrays, ancient rifts, sect gates, ascension gates, and Demon Realm rift events. The guide explains requirements, while actual travel follows available anchors, regions, and server validation."
     },
     {
       "type": "patchouli:text",
-      "title": "凡界路线",
-      "text": "天南黄枫谷、掩月宗、清虚门、天南边境、慕兰草原、大晋万宝楼和乱星海枢纽都在目录中有节点设定。常见消耗是灵石、宗门许可、声望或传送凭证；这些内容会逐步转为物品票据、贡献商店或任务解锁。"
+      "title": "Mortal Realm Routes",
+      "text": "The catalog defines nodes for Yellow Maple Valley, Masked Moon Sect, Clear Void Sect, the Tiannan border, Mulan Grasslands, Wanbao Pavilion in Great Jin, and the Chaotic Star Sea hub. Common costs are spirit stones, sect permits, reputation, or travel credentials, gradually represented through tickets, contribution shops, and quest unlocks."
     },
     {
       "type": "patchouli:text",
-      "title": "跨界门槛",
-      "text": "飞升天门从凡界通往天渊，文本条件为化神巅峰并成功渡劫；天渊至风元门阵要求边境功勋令和炼虚许可；冥河渡口要求阴石与船票。当前版本已存在天渊、风元、阴冥与冥河口袋维度的部分锚点和引导。"
+      "title": "Cross-Realm Requirements",
+      "text": "The Ascension Gate leads from the Mortal Realm to Tianyuan and requires peak Deity Transformation plus a successful tribulation. The Tianyuan-Fengyuan gate requires a border merit token and Void Refinement permission; the Nether River ferry requires yin stones and a ticket. Some anchors and guidance already exist for Tianyuan, Fengyuan, Yinming, and the Nether River pocket realms."
     },
     {
       "type": "patchouli:text",
-      "title": "裂隙风险",
-      "text": "坠魔谷裂隙、虚空裂缝和周期性虚天殿入口不是稳定交通点，文本中带有魔化、随机坠落、隐藏可见性、周期开放或罗盘定位等风险。后续实现应继续保持服务端判定，客户端只负责请求和显示。"
+      "title": "Rift Hazards",
+      "text": "The Devilfall Valley rift, void fissures, and periodic Void Palace entrance are not stable transit points. Their risks include demonic corruption, random arrival, hidden visibility, scheduled openings, and compass tracking. Travel decisions remain server-authoritative; the client only requests and displays them."
     }
   ]
 }

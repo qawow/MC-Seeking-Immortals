@@ -7,12 +7,42 @@
     {
       "type": "patchouli:text",
       "title": "Spiritual Power",
-      "text": "Spiritual power is the foundation of cultivation. Absorbing spirit stones or using pills restores or builds your reserve, while techniques and breakthroughs consume it."
+      "text": "$(l)Spiritual power$() fuels techniques and many cultivation actions. Your maximum reserve rises with realm, stage, roots, physique, and other progression bonuses. The cultivation screen shows both the current amount and the server-calculated maximum."
     },
     {
       "type": "patchouli:text",
-      "title": "Realms",
-      "text": "A realm represents your current stage of cultivation. After gathering enough spiritual power and experience, you can attempt a breakthrough. The Jiangchen Pill and other matching breakthrough aids can help, but basic requirements still apply."
+      "title": "Recovery",
+      "text": "Restore spiritual power through compatible spirit stones, recovery pills, passive regeneration, meditation on a cushion, and aura-rich environments. A recovery pill is not consumed when it would have no effect. Active spirit-stone absorption is handled one stack at a time and stops when the stored power is exhausted."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Cultivation Progress",
+      "text": "Meditation builds cultivation progress until the current stage cap. The realm sequence is: $(br)Qi Refining → Foundation Establishment → Core Formation → Nascent Soul → Deity Transformation → Void Refinement → Body Integration → Great Vehicle → Tribulation → True Immortal."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Breakthroughs",
+      "text": "Use $(l)/seeking_immortals breakthrough$() after reaching the current stage cap. The server evaluates roots, physique, age and lifespan pressure, aura, injuries, qi-deviation risk, breakthrough aids, and realm-specific requirements. Failure loses part of the current-stage progress and may trigger qi deviation."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Stages and Layers",
+      "text": "Qi Refining has thirteen layers. Foundation Establishment uses early, middle, late, and peak stages; later realms use their authored stage counts, while Tribulation has a single land stage. Each stage advances independently and can impose its own technique or method-layer gate."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Age and Lifespan",
+      "text": "Age advances in server time and every realm has a lifespan limit. A successful major-realm advance raises the minimum lifespan to that realm's value. Longevity effects can add years, but they do not replace progression; reaching the limit is fatal unless another rule prevents it."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Aura and Meditation",
+      "text": "Meditation yield depends on local aura, leyline conditions, dimension and region modifiers, a valid meditation cushion, formations, roots, physique, methods, and temporary boosts. Movement, hunger, nearby hostile creatures, or being attacked can interrupt meditation."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Viewing Your State",
+      "text": "Open the inventory and select the $(l)Cultivation$() button for realm, roots, combat attributes, study progress, and meditation yield factors. Commands $(l)/seeking_immortals lingli$(), $(l)realm$(), and $(l)root$() provide compact server-authoritative summaries."
     }
   ]
 }

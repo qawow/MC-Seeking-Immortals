@@ -1,28 +1,28 @@
 {
-  "name": "图鉴百科入口",
+  "name": "Codex and Bestiary Hub",
   "category": "seeking_immortals:reference",
   "icon": "seeking_immortals:spirit_charm",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "本手册与游戏内百科屏共同构成只读展示层：Patchouli 词条 + 妖兽图鉴 + 编年史 + 术语/数值速查。",
-      "title": "图鉴与百科"
+      "text": "This handbook and the in-game codex form a read-only reference layer: Patchouli entries, the demon-beast bestiary, the chronicle, and quick references for terms and values.",
+      "title": "Codex and Bestiary"
     },
     {
       "type": "patchouli:text",
-      "text": "命令：$(br)/seeking_immortals lore bestiary$(br)/seeking_immortals lore chronicle$(br)/seeking_immortals lore compendium$(br)亦可绑定快捷键。",
-      "title": "打开入口"
+      "text": "Commands:$(br)/seeking_immortals lore bestiary$(br)/seeking_immortals lore chronicle$(br)/seeking_immortals lore compendium$(br)You can also bind the relevant keys.",
+      "title": "Opening the Codex"
     },
     {
       "type": "patchouli:text",
-      "text": "本模块不写入玩法状态；仅读取图鉴解锁与编年发现记录。",
-      "title": "纯展示原则"
+      "text": "This module never changes gameplay state. It only reads bestiary unlocks and chronicle discovery records.",
+      "title": "Read-Only Design"
     },
     {
       "type": "patchouli:text",
-      "text": "Patchouli 为可选依赖；缺失时引导手册不发放且不崩溃。",
-      "title": "依赖"
+      "text": "Patchouli is optional. When it is absent, the guidebook is not granted and the mod continues without crashing.",
+      "title": "Dependency"
     }
   ]
 }

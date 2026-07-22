@@ -1,0 +1,33 @@
+{
+  "name": "Multiblock Building and Maintenance",
+  "category": "seeking_immortals:artifacts_formations",
+  "icon": "seeking_immortals:structure_blueprint_table",
+  "sortnum": 38,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Ninety-Two Structures",
+      "text": "The multiblock structure index currently contains 92 entries, with 83 sequence records available for step display. Furnaces, forges, arrays, puppet benches, flight docks, and war stations use the catalog id as their runtime contract."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Dedicated Validation",
+      "text": "Formation is decided by the validator in the station pattern. Higher-tier furnaces and forges use dedicated geometry checks, while known but unimplemented validators fail closed. A structure should not be treated as a generic spirit-stone ring or considered formed from its name alone."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Blueprint Table",
+      "text": "The structure blueprint table is a portable catalog carrier. Use it near a formed station for a normal-click target and sequence preview; sneak-use attempts formal commissioning. With no nearby station it reports a short list of catalog targets to pursue."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Repair Bench",
+      "text": "Use the structure repair bench normally to inspect the nearest station. Sneak-use repairs an operational station, or attempts commissioning when a formed shell has not been enabled. Operational state is persisted as intact, damaged, critical, or disabled with tracked hit points."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Materials and Refunds",
+      "text": "Formal commissioning and overhaul reserve catalog materials and spirit-stone shards on the server. If state persistence fails after reservation, reserved stacks are refunded. Shell formation, operational efficiency, and repair cost are separate checks; fail-closed entries remain unavailable until their validator is implemented."
+    }
+  ]
+}
