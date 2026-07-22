@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "seeking_immortals:item/essence_condensing_pill"
+    "layer0": "seeking_immortals:item/spirit_realm_condense_pill"
   }
 }

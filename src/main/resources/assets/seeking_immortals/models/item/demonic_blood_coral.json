@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "seeking_immortals:item/poison_dragon_pearl"
+    "layer0": "seeking_immortals:item/demonic_blood_coral"
   }
 }

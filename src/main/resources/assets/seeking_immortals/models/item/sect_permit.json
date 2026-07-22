@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "seeking_immortals:item/spirit_stone_shard"
+    "layer0": "seeking_immortals:item/sect_permit"
   }
 }

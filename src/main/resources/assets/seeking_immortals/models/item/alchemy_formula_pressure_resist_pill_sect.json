@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "seeking_immortals:item/alchemy_formula_return_yang_true_water_sect"
+    "layer0": "seeking_immortals:item/alchemy_formula_pressure_resist_pill_sect"
   }
 }

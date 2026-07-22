@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "seeking_immortals:item/armor_talisman"
+    "layer0": "seeking_immortals:item/pressure_resist_charm"
   }
 }

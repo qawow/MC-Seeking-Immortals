@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "seeking_immortals:item/marrow_cleansing_pill_supreme"
+    "layer0": "seeking_immortals:item/body_tempering_pill_supreme"
   }
 }

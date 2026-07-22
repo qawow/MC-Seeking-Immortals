@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "seeking_immortals:item/alchemy_formula_cultivation_pill_paper"
+    "layer0": "seeking_immortals:item/diyuan_permit"
   }
 }

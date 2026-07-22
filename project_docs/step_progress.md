@@ -1,3 +1,16 @@
+## 562. 2026-07-22 0.2.138 全量物品贴图重绘与模型审计
+
+  Step   Status   Notes
+  ---   ---   ---
+  Style/source review   Done   依据 v118/v120/v122 视觉规范与当前物品目录建立类别、元素、稀有度和特殊语义映射。
+  Backup   Done   原 1,702 张 item PNG、1,644 个模型及公共文档备份于 `.bak/20260722_115714_full_item_texture_redraw/`；语义/文档补充备份见 `.bak/20260722_123000_item_texture_semantic_followup/` 与 `.bak/20260722_131500_full_item_texture_docs/`。
+  Texture renderer   Done   `scripts/generate_item_textures.py` 确定性生成 1,704 张 16x16 RGBA 透明图标；掌天瓶、绿液、阵盘、坛、门、钟、剑和罗盘使用显式语义轮廓。
+  Model routing   Done   1,590 个直接模型全部引用同名 `layer0`；36 个历史共享别名解除，54 个 block-parent 保持方块模型。
+  Static audit   Done   PNG 坏图/透明角异常/重复像素组均为 0，覆盖率 0.363-0.754，确定性重渲染差异 0；1,644 个模型 JSON 全可解析且引用缺口为 0。
+  Tests/build   Done   共享树首次构建暴露并行 VFX 的两个旧测试基线；方向/协议契约对齐后普通 `./gradlew build` `BUILD SUCCESSFUL in 1m 31s`，871 项测试无失败。提交前因并行批次复用 `0.2.138` 导致 fingerprint 冲突，明确使用手工共享树例外 `./gradlew cleanTest build --no-daemon -PaiSkipVersionBumpCheck=true`，清理残留测试报告后 `BUILD SUCCESSFUL in 1m 11s`。
+  Version/protocol   Done   `mod_version=0.2.138`；物品批次未改包字段、顺序、类型或频道行为，提交内 protocol 保持 `26`。
+  Live visual QA   Pending   仍需 inventory、不同 GUI scale 与第三方资源包实机抽检；丹药、典籍、符箓等同族轮廓仍可继续手工精修。
+
 ## 561. 2026-07-22 0.2.137 玩家可见目录索引与最终验证
 
   Step   Status   Notes
