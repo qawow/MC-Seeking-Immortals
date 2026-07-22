@@ -1,3 +1,18 @@
+## 565. 2026-07-22 0.2.141 Lodestone 全量语义 VFX
+
+  Step   Status   Notes
+  ---   ---   ---
+  Motif coverage   Done   21 种 Lodestone motif 覆盖 81 个术法、双重施法和法宝主动技形态；元素/流派/动作语义由 `TechniqueVfxOrchestrator` 统一选择。
+  Cast geometry   Done   同步 GENERIC VFX 在施法作用域内捕获，成功后按服务端 raycast/碰撞几何重放并去重；异步投射物命中保持原路径。
+  Formation/multiblock   Done   阵法激活、恢复、脉冲、自然消散、破阵及多方块成型、维修、受损、停用、拆除均有专用生命周期视觉。
+  Status/hazard   Done   自定义状态首次施加、周期、移除/过期和地渊/阴冥/魔隙进入、伤害、保护、退出视觉已接线；状态脉冲与危害状态有服务端限流和清理。
+  Client quality   Done   使用 additive/lumitransparent depth-fade、extruding spark、距离 LOD、粒子预算与有限位置震屏，普通视觉 8–32 格衰减。
+  Authority   Done   视觉发送异常与玩法事务隔离；世界卸载清理阵法运行态，破阵方块实体不再复活旧阵场。
+  Tests/build   Done   VFX/多人权威/协议/客户端隔离/阵法/多方块/状态/世界危害定向测试通过；最终 `./gradlew build --no-daemon` `BUILD SUCCESSFUL`，全量测试无失败；客户端烟测无新增崩溃。
+  Version/protocol   Done   `mod_version=0.2.141`；新增 motif 及 STATUS/DISSIPATE 字段改变网络格式，`ModNetwork.PROTOCOL_VERSION=28`。
+  Live visual QA   Pending   仍需真人世界中检查不同粒子质量、资源包、遮挡/透明排序、多人密集阵场和长时间状态脉冲的视觉密度。
+  Backup   Done   `.bak/20260722_0.2.140_full_vfx/`、`.bak/20260722_0.2.140_full_vfx_finalize/`、`.bak/20260722_0.2.140_full_vfx_finalize_current/` 与 `.bak/20260722_0.2.141_full_vfx_version_gate/` 保存本批修改前文件。
+
 ## 562. 2026-07-22 0.2.138 全量物品贴图重绘与模型审计
 
   Step   Status   Notes
