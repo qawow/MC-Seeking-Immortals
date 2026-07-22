@@ -7,22 +7,22 @@
     {
       "type": "patchouli:text",
       "title": "七王领地",
-      "text": "本条目对应文本材料 patchouli_static_entries.json#barbarian_seven_kings、barbarian_demon_kings.json 与 secret_realm_template.json#barbarian_king_territories。当前版本已把七王领地接入世界包秘境列表。"
+      "text": "蛮荒七王各据一方，其领地已经列入可探索秘境。达到炼虚境后，可准备相应门票寻找领地入口。"
     },
     {
       "type": "patchouli:text",
       "title": "当前接入",
-      "text": "七个已接入领地为 king_bear_mountain、king_fox_mist、king_pine_ancient、king_roc_sky、king_snake_swamp、king_tiger_jungle、king_turtle_depth。它们归属 barbarian_wasteland，门槛为炼虚，门票复用 immortal_jade，冷却为 600000 tick。"
+      "text": "七处领地分别为熊王山、狐王迷雾、古松遗境、鹏王天域、蛇王沼泽、虎王密林与玄龟深潭。它们都位于蛮荒，进入门槛为炼虚境，使用仙玉作为门票，重入间隔为 600000 游戏刻。"
     },
     {
       "type": "patchouli:text",
       "title": "功能标签",
-      "text": "现有世界包只表达入口、门槛和标签：熊王偏 strength_earth，狐王偏 illusion_wind，古松偏 wood_array，鹏王偏 wind_flight，蛇王偏 poison_water，虎王偏 melee_hunt，玄龟偏 defense_array。"
+      "text": "各领地特色不同：熊王偏力量与厚土，狐王偏幻术与风法，古松偏木行阵法，鹏王偏御风飞行，蛇王偏毒与水法，虎王偏近战追猎，玄龟偏守御阵法。"
     },
     {
       "type": "patchouli:text",
       "title": "延后内容",
-      "text": "文本材料中的专属掉落、妖王信物、三枚信物觐见蛮荒议会、朝贡贸易、领地任务、真实 boss、GeckoLib 动画、结构生成和 FTB Quests 章节仍未实装。本页只说明已存在的数据钩子。"
+      "text": "专属掉落、妖王信物、三枚信物觐见蛮荒议会、朝贡贸易、领地任务、实体首领、专属动画、完整结构生成和任务章节仍待补全。本页只说明当前可用的入口与门槛。"
     }
   ]
 }

@@ -3,6 +3,7 @@ package com.xunxian.seekingimmortals.artifact;
 import com.xunxian.seekingimmortals.cultivation.ProgressionGateApi;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.cultivation.Realm;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
@@ -39,14 +40,15 @@ public final class ArtifactOwnershipService {
                 .findArtifact(artifactId).orElse(null);
         if (def == null) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.artifact.claim.unknown", artifactId), true);
+                    "message.seeking_immortals.artifact.claim.unknown",
+                    displayName(stack, null, artifactId)), true);
             return false;
         }
         if (!meetsClaimRealm(player, def)) {
             Realm required = Realm.fromDesignIdOrMortal(def.realmMin());
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.artifact.claim.realm_too_low",
-                    def.display(), required.getDisplayName()), true);
+                    displayName(stack, def, artifactId), required.getDisplayName()), true);
             return false;
         }
         Optional<UUID> existing = ownerUuid(stack);
@@ -69,7 +71,8 @@ public final class ArtifactOwnershipService {
             NatalBindingService.bind(player, stack);
         }
         player.displayClientMessage(Component.translatable(
-                "message.seeking_immortals.artifact.claim.success", def.display()), true);
+                "message.seeking_immortals.artifact.claim.success",
+                displayName(stack, def, artifactId)), true);
         return true;
     }
 
@@ -114,7 +117,7 @@ public final class ArtifactOwnershipService {
         if (requiresClaim(def)) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.artifact.claim.required",
-                    def.display()), true);
+                    displayName(stack, def, artifactId)), true);
             return false;
         }
         return true;
@@ -200,7 +203,8 @@ public final class ArtifactOwnershipService {
         }
         stack.getOrCreateTag().putBoolean(SPIRIT_AWAKENED_TAG, true);
         player.displayClientMessage(Component.translatable(
-                "message.seeking_immortals.artifact.spirit.awakened", artifactId), true);
+                "message.seeking_immortals.artifact.spirit.awakened",
+                displayName(stack, ArtifactDataService.builtin().findArtifact(artifactId).orElse(null), artifactId)), true);
         return true;
     }
 
@@ -244,7 +248,7 @@ public final class ArtifactOwnershipService {
         if (owner.isPresent()) {
             String name = ownerName(stack);
             tooltip.add(Component.translatable("tooltip.seeking_immortals.artifact.owner",
-                    name == null || name.isBlank() ? owner.get().toString() : name)
+                    name == null || name.isBlank() ? "未知修士" : name)
                     .withStyle(net.minecraft.ChatFormatting.GOLD));
         } else {
             tooltip.add(Component.translatable("tooltip.seeking_immortals.artifact.owner.none")
@@ -259,5 +263,21 @@ public final class ArtifactOwnershipService {
             tooltip.add(Component.translatable("tooltip.seeking_immortals.artifact.spirit.awake")
                     .withStyle(net.minecraft.ChatFormatting.LIGHT_PURPLE));
         }
+    }
+
+    private static Component displayName(ItemStack stack, ArtifactDataService.ArtifactDefinition definition,
+                                         String artifactId) {
+        String id = PlayerDisplayText.normalizeId(definition == null ? artifactId : definition.id());
+        String itemKey = "item.seeking_immortals." + id;
+        if (!id.isBlank() && PlayerDisplayText.hasTranslation(itemKey)) {
+            return Component.translatable(itemKey);
+        }
+        if (definition != null && PlayerDisplayText.isSafe(definition.display())) {
+            return Component.literal(definition.display().trim());
+        }
+        if (stack != null && !stack.isEmpty() && stack.hasCustomHoverName()) {
+            return stack.getHoverName();
+        }
+        return Component.literal("未知法宝");
     }
 }

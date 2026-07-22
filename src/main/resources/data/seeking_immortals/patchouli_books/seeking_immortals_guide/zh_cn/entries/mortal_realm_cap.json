@@ -1,12 +1,12 @@
 {
   "name": "人界瓶颈",
   "category": "seeking_immortals:basics",
-  "icon": "seeking_immortals:qi_recovery_pill",
+  "icon": "seeking_immortals:spirit_recovery_pill",
   "sortnum": 50,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "化神结构上限与 mortal_to_spirit_bridge 任务链。",
+      "text": "人界通常以化神境为阶段上限；完成通往灵界的任务路线后，才能继续探索更高境界。",
       "title": "人界境界上限"
     }
   ]

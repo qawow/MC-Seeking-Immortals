@@ -5,6 +5,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import com.xunxian.seekingimmortals.worldpack.ReputationService;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -88,8 +89,23 @@ public final class FactionConflictEventService {
         player.getPersistentData().put(ROOT, root);
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.faction_conflict.daily_trigger",
-                matched.display().isBlank() ? matched.id() : matched.display(),
-                matched.id()), true);
+                PlayerDisplayText.safeLiteral(
+                        matched.display(), "text.seeking_immortals.unknown_event"),
+                eventTypeDisplay(matched.type())), true);
+    }
+
+    private static Component eventTypeDisplay(String type) {
+        return switch (normalize(type)) {
+            case "rivalry" -> Component.literal("势力摩擦");
+            case "war", "regional_war" -> Component.literal("区域战事");
+            case "blockade" -> Component.literal("封锁");
+            case "alliance" -> Component.literal("结盟");
+            case "trade" -> Component.literal("商贸变动");
+            case "ritual" -> Component.literal("大型仪式");
+            case "world_cycle" -> Component.literal("天地周期");
+            case "world_event" -> Component.literal("天地异象");
+            default -> Component.translatable("text.seeking_immortals.unknown_event");
+        };
     }
 
     public static Optional<String> activeConflictId(ServerPlayer player) {

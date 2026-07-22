@@ -87,7 +87,8 @@ public final class ArtifactStorageService {
         Realm minRealm = realmFromDesignId(artifact.realmMin());
         if (minRealm == null) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.artifact.unknown_realm", artifact.realmMin()), true);
+                    "message.seeking_immortals.artifact.unknown_realm",
+                    ArtifactDisplayTexts.realm(artifact.realmMin())), true);
             return false;
         }
         if (cultivation.getRealm().ordinal() < minRealm.ordinal()) {
@@ -135,7 +136,7 @@ public final class ArtifactStorageService {
         if (required == null) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.artifact.unknown_realm",
-                    portable.portableStorageRealmMin()), true);
+                    ArtifactDisplayTexts.realm(portable.portableStorageRealmMin())), true);
             return false;
         }
         if (CultivationHelper.get(player)

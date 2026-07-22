@@ -3,6 +3,7 @@ package com.xunxian.seekingimmortals.item;
 import com.xunxian.seekingimmortals.catalog.FlightVehicleService;
 import com.xunxian.seekingimmortals.catalog.SummonHonestMvpService;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -82,7 +83,8 @@ public final class CatalogEquipmentService {
             case FURNACE -> placeFurnace(player, placeAt, catalogId);
             case UNKNOWN -> {
                 player.displayClientMessage(Component.translatable(
-                        "message.seeking_immortals.catalog_equipment.unknown", normalize(catalogId)), true);
+                        "message.seeking_immortals.catalog_equipment.unknown",
+                        PlayerDisplayText.itemName(catalogId)), true);
                 yield false;
             }
         };
@@ -115,7 +117,7 @@ public final class CatalogEquipmentService {
         level.setBlock(target, state, 3);
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.catalog_equipment.furnace_placed",
-                Component.translatable("item.seeking_immortals." + normalize(catalogId))), true);
+                PlayerDisplayText.itemName(catalogId)), true);
         return true;
     }
 

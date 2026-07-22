@@ -11,12 +11,12 @@
     },
     {
       "type": "patchouli:text",
-      "text": "ReputationUnlockService 阈值查询；势力冲突接区域日事件。",
+      "text": "宗门声望达到相应档位后会解锁功法、商品与区域日事件。",
       "title": "声望解锁"
     },
     {
       "type": "patchouli:text",
-      "text": "GhostSectBanService 限制鬼修路径入门。",
+      "text": "部分宗门会限制鬼修路径入门，加入前请确认自身道途与宗门立场。",
       "title": "鬼修禁令"
     }
   ]

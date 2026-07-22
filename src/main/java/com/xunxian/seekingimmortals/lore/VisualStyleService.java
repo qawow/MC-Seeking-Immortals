@@ -4,6 +4,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
+import net.minecraft.network.chat.Component;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -19,6 +21,28 @@ import java.util.Map;
  * M16: visual style bible summary (v118 palette + v122 look-card counts) for encyclopedia pages.
  */
 public final class VisualStyleService {
+    private static final Map<String, String> PALETTE_TONES = Map.ofEntries(
+            Map.entry("qi", "清透冰青"),
+            Map.entry("fire", "赤焰"),
+            Map.entry("water", "澄蓝"),
+            Map.entry("wood", "青碧"),
+            Map.entry("metal", "淡金"),
+            Map.entry("earth", "岩褐"),
+            Map.entry("thunder", "紫电"),
+            Map.entry("yin", "幽紫"),
+            Map.entry("heal", "翠青"),
+            Map.entry("poison", "碧绿"),
+            Map.entry("soul", "淡紫"));
+    private static final Map<String, String> DISPLAY_COUNT_KEYS = Map.of(
+            "pills", "pills",
+            "herbs", "herbs",
+            "materials", "materials",
+            "artifacts", "artifacts",
+            "consumables", "consumables",
+            "techniques", "techniques",
+            "methods", "methods",
+            "beasts", "beasts",
+            "npcs", "npcs");
     private static final Snapshot BUILTIN = loadBuiltin();
 
     private VisualStyleService() {}
@@ -33,15 +57,54 @@ public final class VisualStyleService {
             boolean present) {
         public List<String> paletteLines() {
             List<String> lines = new ArrayList<>();
-            palette.forEach((k, v) -> lines.add(k + ": " + v));
+            palette.forEach((key, value) -> lines.add(Component.translatable(
+                    "screen.seeking_immortals.compendium.visual.palette_entry",
+                    PlayerDisplayText.translatedOr(
+                            "screen.seeking_immortals.compendium.visual.palette." + key,
+                            "screen.seeking_immortals.compendium.visual.unknown_category"),
+                    PALETTE_TONES.getOrDefault(key, "")).getString()));
             return lines;
         }
 
         public List<String> countLines() {
             List<String> lines = new ArrayList<>();
-            styleCounts.forEach((k, v) -> lines.add("style." + k + "=" + v));
-            lookCardCounts.forEach((k, v) -> lines.add("look." + k + "=" + v));
+            Map<String, Integer> merged = new LinkedHashMap<>();
+            mergeKnownCounts(merged, styleCounts);
+            mergeKnownCounts(merged, lookCardCounts);
+            for (Map.Entry<String, Integer> entry : merged.entrySet()) {
+                lines.add(countLine(entry.getKey(), entry.getValue()));
+            }
+            int total = Math.max(value(styleCounts, "total_item_entries"), value(lookCardCounts, "entries"));
+            if (total > 0) {
+                lines.add(countLine("total_item_entries", total));
+            }
             return lines;
+        }
+
+        /** Authored descriptions may contain file names and version markers; hide those from players. */
+        public String displayDescription() {
+            return safeChinese(description) ? description.trim() : "";
+        }
+
+        private static void mergeKnownCounts(Map<String, Integer> target, Map<String, Integer> source) {
+            for (Map.Entry<String, Integer> entry : source.entrySet()) {
+                if (DISPLAY_COUNT_KEYS.containsKey(entry.getKey())) {
+                    target.merge(entry.getKey(), Math.max(0, entry.getValue()), Math::max);
+                }
+            }
+        }
+
+        private static int value(Map<String, Integer> values, String key) {
+            return values == null ? 0 : Math.max(0, values.getOrDefault(key, 0));
+        }
+
+        private static String countLine(String key, int value) {
+            return Component.translatable(
+                    "screen.seeking_immortals.compendium.visual.style_count",
+                    PlayerDisplayText.translatedOr(
+                            "screen.seeking_immortals.compendium.visual.count." + key,
+                            "screen.seeking_immortals.compendium.visual.unknown_category"),
+                    Math.max(0, value)).getString();
         }
     }
 
@@ -51,6 +114,20 @@ public final class VisualStyleService {
 
     public static boolean present() {
         return BUILTIN.present();
+    }
+
+    private static boolean safeChinese(String raw) {
+        if (raw == null || raw.isBlank()) {
+            return false;
+        }
+        boolean hasHan = false;
+        for (int i = 0; i < raw.length(); i++) {
+            if (Character.UnicodeScript.of(raw.charAt(i)) == Character.UnicodeScript.HAN) {
+                hasHan = true;
+                break;
+            }
+        }
+        return hasHan && !raw.matches(".*[A-Za-z_][A-Za-z0-9_.:/-]*.*");
     }
 
     private static Snapshot loadBuiltin() {

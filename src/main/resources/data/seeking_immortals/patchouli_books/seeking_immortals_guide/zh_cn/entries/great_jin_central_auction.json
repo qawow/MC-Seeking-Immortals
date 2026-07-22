@@ -7,27 +7,27 @@
     {
       "type": "patchouli:text",
       "title": "大晋枢纽",
-      "text": "本条目对应文本材料 region_cards/great_jin_central.json 与 daily_random_events.json#great_jin_auction_week。当前版本复用已有世界包区域与日常事件数据，不新增拍卖 UI、万宝楼 NPC、竞价系统、任务加载器或额外网络包。"
+      "text": "大晋中心是高阶修士、世家与万宝楼汇聚的经济枢纽，区域与拍卖周事件已经接入。当前拍卖仍沿用已有坊市与事件流程。"
     },
     {
       "type": "patchouli:text",
       "title": "当前区域",
-      "text": "大晋中心已作为 great_jin_central 区域接入世界包：灵气倍率 1.5，进入门槛为结丹，旅行锚点为 great_jin_central_anchor，并带有 dajin、great_jin_clans、wanbao_pavilion、refinement_halls、cross_region_array、ancient_artifact 标签。"
+      "text": "大晋中心的灵气倍率为 1.5，进入门槛为结丹境。区域设有大晋世家、万宝楼、炼器堂与跨域阵法等地点，并保留上古法宝线索。"
     },
     {
       "type": "patchouli:text",
       "title": "拍卖周钩子",
-      "text": "万宝楼拍卖周已作为 great_jin_auction_week 日常事件接入 great_jin_central：权重 4，持续 24000 tick，当前使用 secret_realm_ticket_hint 与 rare_loot_hint 效果提示。文本材料中的珍稀丹方、古宝鉴定与世家竞价仍是后续系统目标。"
+      "text": "万宝楼拍卖周会在大晋中心周期出现，权重为 4，持续 24000 游戏刻，并提示秘境门票或稀有战利品线索。珍稀丹方、古宝鉴定与世家竞价仍在继续扩充。"
     },
     {
       "type": "patchouli:text",
       "title": "关联资料",
-      "text": "文本材料将大晋中心定位为元婴、化神修士聚集的高阶经济区域，关联 great_jin_clans、wanbao_pavilion、refinement_halls、cross_region_array、kunwu_copper 与 ancient_artifact_fragment。当前运行时只公开区域、标签和事件提示。"
+      "text": "大晋中心主要面向元婴、化神修士，能够接触世家交易、万宝楼、炼器堂、跨域阵法、昆吾铜与上古法宝残片等线索。"
     },
     {
       "type": "patchouli:text",
       "title": "延后内容",
-      "text": "真实万宝楼拍卖排期、入场请柬、竞价 UI、拍品表、古宝鉴定、世家声望、跨域传送阵费用、炼器堂服务、NPC 与 FTB Quests 章节仍未实装。本页只说明已经存在的世界包区域与事件钩子。"
+      "text": "完整的拍卖排期、入场请柬、竞价界面、拍品表、古宝鉴定、世家声望、跨域费用、炼器堂服务、人物互动与任务章节仍待补全。本页只说明当前可用的区域与事件入口。"
     }
   ]
 }

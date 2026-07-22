@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "见 ITEMS_EXPANSION_v57.md 与 novel_items_master_index.json",
+      "text": "新增物品均已按用途、来源与可执行效果整理进图鉴；玩家可直接通过物品说明和相关条目了解获取方式。",
       "title": "物品与合规"
     }
   ]

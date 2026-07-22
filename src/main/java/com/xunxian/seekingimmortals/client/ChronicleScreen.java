@@ -1,7 +1,9 @@
 package com.xunxian.seekingimmortals.client;
 
 import com.xunxian.seekingimmortals.catalog.FactionQuestCatalogService;
+import com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts;
 import com.xunxian.seekingimmortals.quest.TimelineChronicleService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
@@ -111,12 +113,14 @@ public class ChronicleScreen extends AbstractLoreScreen {
                         if (tab == Tab.EVENTS) {
                             FactionQuestCatalogService.Entry entry = events.get(index);
                             boolean unlocked = ClientLoreData.isChronicleDiscovered(entry.id());
-                            label = unlocked ? entry.display() : Component.translatable("screen.seeking_immortals.chronicle.locked").getString();
+                            label = unlocked ? eventDisplay(entry).getString()
+                                    : Component.translatable("screen.seeking_immortals.chronicle.locked").getString();
                             color = unlocked ? ImmortalUiSkin.JOURNAL_PAPER : ImmortalUiSkin.JOURNAL_PAPER_MUTED;
                         } else {
                             TimelineChronicleService.TimelinePhase phase = phases.get(index);
                             boolean unlocked = ClientLoreData.hasTimelinePhase(phase.phase());
-                            label = (unlocked ? "● " : "○ ") + phase.phase() + " / " + phase.realm();
+                            label = (unlocked ? "● " : "○ ") + phaseDisplay(phase).getString()
+                                    + " / " + ArtifactDisplayTexts.realm(phase.realm()).getString();
                             color = unlocked ? ImmortalUiSkin.JOURNAL_JADE_TEXT : ImmortalUiSkin.JOURNAL_PAPER_MUTED;
                         }
                         ImmortalUiSkin.drawStringFit(font, graphics, label,
@@ -139,7 +143,7 @@ public class ChronicleScreen extends AbstractLoreScreen {
             } else {
                 FactionQuestCatalogService.Entry entry = events.get(selected);
                 boolean unlocked = ClientLoreData.isChronicleDiscovered(entry.id());
-                lines.add(entry.display() + " [" + entry.id() + "]");
+                lines.add(eventDisplay(entry).getString());
                 lines.add(unlocked
                         ? Component.translatable("screen.seeking_immortals.chronicle.discovered").getString()
                         : Component.translatable("screen.seeking_immortals.chronicle.undiscovered").getString());
@@ -151,22 +155,31 @@ public class ChronicleScreen extends AbstractLoreScreen {
             } else {
                 TimelineChronicleService.TimelinePhase phase = phases.get(selected);
                 boolean unlocked = ClientLoreData.hasTimelinePhase(phase.phase());
-                lines.add(phase.phase());
-                lines.add("realm=" + phase.realm() + " nodes=" + phase.nodeCount());
+                lines.add(phaseDisplay(phase).getString());
+                lines.add(Component.translatable("screen.seeking_immortals.chronicle.phase_summary",
+                        ArtifactDisplayTexts.realm(phase.realm()), phase.nodeCount()).getString());
                 lines.add(unlocked
                         ? Component.translatable("screen.seeking_immortals.chronicle.phase_unlocked").getString()
                         : Component.translatable("screen.seeking_immortals.chronicle.phase_locked").getString());
                 List<String> mainline = TimelineChronicleService.builtin().mainlineOrder();
                 if (!mainline.isEmpty()) {
-                    lines.add("mainline:");
-                    for (int i = 0; i < Math.min(8, mainline.size()); i++) {
-                        lines.add("  - " + mainline.get(i));
-                    }
+                    lines.add(Component.translatable(
+                            "screen.seeking_immortals.chronicle.mainline_count", mainline.size()).getString());
                 }
             }
         }
         renderWrappedDetail(graphics, layout.detail().x(), layout.detail().y(),
                 layout.detail().w(), layout.detail().h(), lines);
+    }
+
+    private static Component eventDisplay(FactionQuestCatalogService.Entry entry) {
+        return PlayerDisplayText.safeLiteral(entry == null ? "" : entry.display(),
+                "text.seeking_immortals.unknown_chronicle");
+    }
+
+    private static Component phaseDisplay(TimelineChronicleService.TimelinePhase phase) {
+        return PlayerDisplayText.safeLiteral(phase == null ? "" : phase.phase(),
+                "text.seeking_immortals.unknown_phase");
     }
 
     @Override

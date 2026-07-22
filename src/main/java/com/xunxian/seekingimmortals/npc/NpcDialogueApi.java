@@ -2,6 +2,7 @@ package com.xunxian.seekingimmortals.npc;
 
 import com.xunxian.seekingimmortals.network.OpenDialogueScreenPacket;
 import com.xunxian.seekingimmortals.quest.TextQuestDialogueService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -63,7 +64,8 @@ public final class NpcDialogueApi {
         }
         Optional<DialogueBranchService.Tree> treeOpt = DialogueBranchService.findTree(tree);
         if (treeOpt.isEmpty()) {
-            player.displayClientMessage(Component.literal("[对话] 未找到对话树：" + tree), false);
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.dialogue.unavailable"), false);
             return false;
         }
         Optional<DialogueBranchService.Node> root = DialogueBranchService.resolveRoot(player, npc, treeOpt.get());
@@ -137,7 +139,8 @@ public final class NpcDialogueApi {
                 player, session.npcId(), tree, current);
         boolean stillAllowed = eligible.stream().anyMatch(node -> node.id().equals(target.id()));
         if (!stillAllowed || !DialogueBranchService.matches(player, session.npcId(), target.when())) {
-            player.displayClientMessage(Component.literal("[对话] 条件不足，无法选择该分支。"), false);
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.dialogue.choice_denied"), false);
             refresh(player, context);
             return false;
         }
@@ -282,12 +285,16 @@ public final class NpcDialogueApi {
                 terminal = DialogueActionExecutor.hasTerminalEffect(node.effects());
             }
             for (String line : node.lines()) {
-                player.displayClientMessage(Component.literal(displayName(npcId) + "：" + line), false);
+                player.displayClientMessage(Component.literal(displayName(npcId) + "：")
+                        .append(PlayerDisplayText.safeLiteral(line,
+                                "message.seeking_immortals.dialogue.line_unavailable")), false);
             }
         } else if (runEffects) {
             // Re-entry after claim: show chat lines only, never re-run effects/rewards/favor.
             for (String line : node.lines()) {
-                player.displayClientMessage(Component.literal(displayName(npcId) + "：" + line), false);
+                player.displayClientMessage(Component.literal(displayName(npcId) + "：")
+                        .append(PlayerDisplayText.safeLiteral(line,
+                                "message.seeking_immortals.dialogue.line_unavailable")), false);
             }
             terminal = DialogueActionExecutor.hasTerminalEffect(node.effects());
         }
@@ -317,8 +324,8 @@ public final class NpcDialogueApi {
                                   DialogueBranchService.Tree tree, DialogueBranchService.Node node) {
         List<Component> lines = node.lines().stream()
                 .limit(OpenDialogueScreenPacket.MAX_LINES)
-                .map(Component::literal)
-                .map(Component.class::cast)
+                .map(line -> PlayerDisplayText.safeLiteral(line,
+                        "message.seeking_immortals.dialogue.line_unavailable"))
                 .toList();
         List<OpenDialogueScreenPacket.Choice> choices = new ArrayList<>();
         for (DialogueBranchService.Node target : DialogueBranchService.availableNext(player, npcId, tree, node)) {
@@ -326,8 +333,9 @@ public final class NpcDialogueApi {
                 break;
             }
             Component label = target.lines().isEmpty()
-                    ? Component.literal(target.id())
-                    : Component.literal(target.lines().get(0));
+                    ? Component.translatable("screen.seeking_immortals.dialogue.choice.continue")
+                    : PlayerDisplayText.safeLiteral(target.lines().get(0),
+                            "screen.seeking_immortals.dialogue.choice.continue");
             choices.add(new OpenDialogueScreenPacket.Choice(target.id(), label));
         }
         for (int index = 0; index < node.effects().size()
@@ -363,7 +371,8 @@ public final class NpcDialogueApi {
             NpcFavorService.add(player, npcId, 1);
             NamedNpcRewardService.markClaimed(player, claimKey);
             for (Component line : view.lines()) {
-                player.displayClientMessage(Component.literal(displayName(npcId) + "：").append(line), false);
+                player.displayClientMessage(Component.literal(displayName(npcId) + "：")
+                        .append(line), false);
             }
         }
         Session live = getSession(player).orElse(null);
@@ -387,8 +396,8 @@ public final class NpcDialogueApi {
         }
         List<Component> lines = raw.stream()
                 .limit(OpenDialogueScreenPacket.MAX_LINES)
-                .map(Component::literal)
-                .map(Component.class::cast)
+                .map(line -> PlayerDisplayText.safeLiteral(line,
+                        "message.seeking_immortals.dialogue.line_unavailable"))
                 .toList();
         return new View(context, npcId, treeId, "greeting", Component.literal(displayName(npcId)),
                 lines, List.of());
@@ -511,8 +520,9 @@ public final class NpcDialogueApi {
     private static String displayName(String npcId) {
         return NamedNpcRegistry.find(npcId)
                 .map(NamedNpcRegistry.NamedNpc::display)
-                .filter(value -> value != null && !value.isBlank())
-                .orElse(npcId == null || npcId.isBlank() ? "NPC" : npcId);
+                .map(value -> PlayerDisplayText.sanitizeCatalogText(value))
+                .filter(value -> !value.isBlank())
+                .orElse("无名角色");
     }
 
     private static String normalize(String value) {

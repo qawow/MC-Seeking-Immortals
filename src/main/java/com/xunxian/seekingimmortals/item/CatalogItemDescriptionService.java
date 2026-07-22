@@ -5,6 +5,7 @@ import com.xunxian.seekingimmortals.registry.BulkItemClassifier;
 import com.xunxian.seekingimmortals.registry.BulkItemKind;
 import com.xunxian.seekingimmortals.structure.FormationItemService;
 import com.xunxian.seekingimmortals.structure.MultiblockStructureCatalog;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
@@ -28,8 +29,9 @@ public final class CatalogItemDescriptionService {
             return false;
         }
         String explicit = description == null ? "" : description.trim();
-        if (!isPlaceholder(explicit)) {
-            tooltip.add(Component.literal(explicit).withStyle(ChatFormatting.DARK_GRAY));
+        String descriptionKey = "tooltip.seeking_immortals.catalog_item.description." + meta.id();
+        if (PlayerDisplayText.hasTranslation(descriptionKey)) {
+            tooltip.add(Component.translatable(descriptionKey).withStyle(ChatFormatting.DARK_GRAY));
         }
         Profile profile = profile(meta.id(), meta.category());
         tooltip.add(Component.translatable("tooltip.seeking_immortals.catalog_item.purpose",
@@ -190,6 +192,7 @@ public final class CatalogItemDescriptionService {
                     "formation_flag_low", "formation_flag_mid", "formation_flag_post",
                     "immortal_array_disk", "jade_array_disk", "platinum_array_disk",
                     "space_array_disk", "spirit_gathering_array_disk", "array_blueprint_scroll",
+                    "sect_identity_token", "sect_token",
                     "structure_repair_bench", "structure_blueprint_table" ->
                     "tooltip.seeking_immortals.catalog_item.detail." + key;
             default -> isStructureTokenCarrier(key)

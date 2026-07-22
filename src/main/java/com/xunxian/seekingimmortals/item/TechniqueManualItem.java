@@ -6,6 +6,7 @@ import com.xunxian.seekingimmortals.cultivation.TechniqueDataManager;
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
 import com.xunxian.seekingimmortals.network.SyncLearnedTechniquesPacket;
 import com.xunxian.seekingimmortals.skill.TechniqueGateService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -35,6 +36,7 @@ public class TechniqueManualItem extends Item {
         if (!(player instanceof ServerPlayer serverPlayer) || serverPlayer.getServer() == null) {
             return InteractionResultHolder.fail(stack);
         }
+        Component manualName = PlayerDisplayText.itemName(stack.getItem());
 
         CultivationHelper.get(player).ifPresentOrElse(cultivation -> {
             List<TechniqueDataManager.TechniqueEntry> techniques = TechniqueDataManager.getTechniquesBySource(serverPlayer.getServer(), source);
@@ -58,7 +60,8 @@ public class TechniqueManualItem extends Item {
                 }
             }
             if (techniques.isEmpty()) {
-                player.displayClientMessage(Component.translatable("message.seeking_immortals.technique_manual.empty", source), false);
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.technique_manual.empty", manualName), false);
                 return;
             }
             // Source methods are a consequence of a successful technique learn, never a gate bypass.
@@ -67,7 +70,8 @@ public class TechniqueManualItem extends Item {
                     : 0;
             if (learned > 0 || methodsGranted > 0) {
                 if (learned > 0) {
-                    player.displayClientMessage(Component.translatable("message.seeking_immortals.technique_manual.learned", source, learned), false);
+                    player.displayClientMessage(Component.translatable(
+                            "message.seeking_immortals.technique_manual.learned", manualName, learned), false);
                 }
                 if (methodsGranted > 0) {
                     player.displayClientMessage(Component.translatable(
@@ -79,9 +83,11 @@ public class TechniqueManualItem extends Item {
                     stack.shrink(1);
                 }
             } else if (blocked > 0) {
-                player.displayClientMessage(Component.translatable("message.seeking_immortals.technique_manual.condition_failed", source), false);
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.technique_manual.condition_failed", manualName), false);
             } else {
-                player.displayClientMessage(Component.translatable("message.seeking_immortals.technique_manual.already_known", source), false);
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.technique_manual.already_known", manualName), false);
             }
         }, () -> player.displayClientMessage(Component.translatable("message.seeking_immortals.technique_manual.no_data"), false));
         return InteractionResultHolder.consume(stack);
@@ -89,7 +95,10 @@ public class TechniqueManualItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
-        tooltip.add(Component.translatable("tooltip.seeking_immortals.technique_manual.source", source).withStyle(ChatFormatting.GOLD));
+        tooltip.add(Component.translatable(
+                "tooltip.seeking_immortals.technique_manual.source",
+                PlayerDisplayText.itemName(stack.getItem()))
+                .withStyle(ChatFormatting.GOLD));
         tooltip.add(Component.translatable("tooltip.seeking_immortals.technique_manual.condition", TechniqueDataManager.describeConditions(source)).withStyle(ChatFormatting.GRAY));
         tooltip.add(Component.translatable("tooltip.seeking_immortals.technique_manual.learn", TechniqueDataManager.describeTechniqueNames(source)).withStyle(ChatFormatting.DARK_AQUA));
 

@@ -6,12 +6,12 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "与星宫对立的黑市割据势力。任务网 inverse_star_quest_network.json。",
+      "text": "逆星盟是与星宫对立的黑市割据势力，擅长走私、情报与海盗联络。",
       "title": "逆星盟"
     },
     {
       "type": "patchouli:text",
-      "text": "入盟链 inverse_star_recruit；走私 inverse_star_smuggle_arc；虚天情报 inverse_star_void_heist。",
+      "text": "主要路线包括入盟、走私交易与虚天殿情报争夺，选择不同路线会影响星宫关系。",
       "title": "续 1"
     }
   ]

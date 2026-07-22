@@ -4,6 +4,7 @@ import com.xunxian.seekingimmortals.catalog.ItemCatalogService;
 import com.xunxian.seekingimmortals.catalog.SummonHonestMvpService;
 import com.xunxian.seekingimmortals.item.InventoryDeliveryService;
 import com.xunxian.seekingimmortals.registry.ModItems;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
@@ -139,7 +140,8 @@ public final class PuppetCraftService {
         if (growth.update().levelsGained() > 0) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.puppet.growth",
-                    growth.puppetId(), growth.after().level(), growth.after().experience()), false);
+                    PlayerDisplayText.safeLiteral(recipe.display(), "text.seeking_immortals.unknown_puppet"),
+                    growth.after().level(), growth.after().experience()), false);
         }
         if (growth.update().evolutionBlocked()) {
             player.displayClientMessage(Component.translatable(

@@ -1,6 +1,7 @@
 package com.xunxian.seekingimmortals.phase;
 
 import com.xunxian.seekingimmortals.quest.TextQuestChainService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 
@@ -37,7 +38,8 @@ public final class SoftPhaseShellService {
         tag.putBoolean(id, true);
         player.getPersistentData().put(ROOT, tag);
         if (!already) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.soft_phase.marked", id), true);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.soft_phase.marked",
+                    phaseDisplay(id)), true);
         }
         if (startPackage) {
             enterPackage(player, id);
@@ -78,20 +80,42 @@ public final class SoftPhaseShellService {
             return true;
         }
         if (TextQuestChainService.find(chain).isEmpty()) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.soft_phase.no_chain", phaseId), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.soft_phase.no_chain",
+                    phaseDisplay(phaseId)), false);
             return false;
         }
         TextQuestChainService.ChainProgress progress = TextQuestChainService.progressOf(player, chain);
         if (progress.complete()) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.soft_phase.chain_done", phaseId, chain), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.soft_phase.chain_done",
+                    phaseDisplay(phaseId), chainDisplay(chain)), false);
             return true;
         }
         if (progress.stage() <= 0) {
             return TextQuestChainService.start(player, chain);
         }
         player.displayClientMessage(Component.translatable("message.seeking_immortals.soft_phase.chain_active",
-                phaseId, chain, progress.stage(), progress.stepCount()), false);
+                phaseDisplay(phaseId), chainDisplay(chain), progress.stage(), progress.stepCount()), false);
         return true;
+    }
+
+    private static Component phaseDisplay(String phaseId) {
+        String id = phaseId == null ? "" : phaseId.trim().toLowerCase(Locale.ROOT);
+        return switch (id) {
+            case "phase12_south_sea" -> Component.translatable("text.seeking_immortals.soft_phase.phase.south_sea");
+            case "phase13_refinement_full" -> Component.translatable("text.seeking_immortals.soft_phase.phase.refinement");
+            case "phase14_tiannan_auction" -> Component.translatable("text.seeking_immortals.soft_phase.phase.auction");
+            case "phase15_nascent_tree" -> Component.translatable("text.seeking_immortals.soft_phase.phase.void_palace");
+            case "phase16_sect_war_arc" -> Component.translatable("text.seeking_immortals.soft_phase.phase.sect_war");
+            case "phase17_spirit_entry" -> Component.translatable("text.seeking_immortals.soft_phase.phase.spirit_entry");
+            case "phase18_spirit_seven" -> Component.translatable("text.seeking_immortals.soft_phase.phase.spirit_seven");
+            default -> Component.translatable("text.seeking_immortals.unknown_phase");
+        };
+    }
+
+    private static Component chainDisplay(String chainId) {
+        return TextQuestChainService.find(chainId)
+                .map(chain -> PlayerDisplayText.safeLiteral(chain.display(), "text.seeking_immortals.unknown_quest"))
+                .orElseGet(() -> Component.translatable("text.seeking_immortals.unknown_quest"));
     }
 
     private static Map<String, String> buildPhaseChains() {

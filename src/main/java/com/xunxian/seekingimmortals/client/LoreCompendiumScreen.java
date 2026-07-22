@@ -4,6 +4,7 @@ import com.xunxian.seekingimmortals.lore.LoreCompendiumService;
 import com.xunxian.seekingimmortals.lore.NameAliasGlossaryService;
 import com.xunxian.seekingimmortals.lore.NumericOverviewService;
 import com.xunxian.seekingimmortals.lore.VisualStyleService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.FormattedCharSequence;
@@ -126,20 +127,27 @@ public class LoreCompendiumScreen extends AbstractLoreScreen {
                 out.addAll(hub.lines());
                 out.add("");
                 out.add(Component.translatable("screen.seeking_immortals.compendium.progress").getString());
-                out.add("bestiary " + ClientLoreData.bestiaryUnlockedCount());
-                out.add("chronicle " + ClientLoreData.chronicleDiscoveredCount());
-                out.add("timeline " + ClientLoreData.timelinePhaseCount());
+                out.add(Component.translatable("screen.seeking_immortals.compendium.progress_bestiary",
+                        ClientLoreData.bestiaryUnlockedCount()).getString());
+                out.add(Component.translatable("screen.seeking_immortals.compendium.progress_chronicle",
+                        ClientLoreData.chronicleDiscoveredCount()).getString());
+                out.add(Component.translatable("screen.seeking_immortals.compendium.progress_timeline",
+                        ClientLoreData.timelinePhaseCount()).getString());
             }
             case GLOSSARY -> {
                 out.add(Component.translatable("screen.seeking_immortals.compendium.glossary_header",
                         NameAliasGlossaryService.size()).getString());
                 for (String tip : NameAliasGlossaryService.builtin().searchTips()) {
-                    out.add("* " + tip);
+                    if (PlayerDisplayText.isSafe(tip)) {
+                        out.add(tip);
+                    }
                 }
                 int n = 0;
                 for (NameAliasGlossaryService.GlossaryEntry entry : NameAliasGlossaryService.all()) {
-                    String aliases = entry.aliases().isEmpty() ? "-" : String.join("/", entry.aliases());
-                    out.add(entry.primary() + " [" + entry.id() + "/" + entry.type() + "] " + aliases);
+                    if (!PlayerDisplayText.isSafe(entry.primary())) {
+                        continue;
+                    }
+                    out.add(entry.primary());
                     if (++n >= 120) {
                         out.add("...");
                         break;
@@ -152,13 +160,13 @@ public class LoreCompendiumScreen extends AbstractLoreScreen {
                     out.add(Component.translatable("screen.seeking_immortals.compendium.missing_numeric").getString());
                 } else {
                     out.add(Component.translatable("screen.seeking_immortals.compendium.numeric_header").getString());
-                    out.add("-- currency --");
+                    out.add(Component.translatable("screen.seeking_immortals.compendium.section.currency").getString());
                     out.addAll(snap.currencyLines());
-                    out.add("-- breakthrough --");
+                    out.add(Component.translatable("screen.seeking_immortals.compendium.section.breakthrough").getString());
                     out.addAll(snap.breakthroughLines());
-                    out.add("-- threat --");
+                    out.add(Component.translatable("screen.seeking_immortals.compendium.section.threat").getString());
                     out.addAll(snap.threatLines());
-                    out.add("-- snapshot --");
+                    out.add(Component.translatable("screen.seeking_immortals.compendium.section.snapshot").getString());
                     out.addAll(snap.summaryLines());
                 }
             }
@@ -167,14 +175,14 @@ public class LoreCompendiumScreen extends AbstractLoreScreen {
                 if (!snap.present()) {
                     out.add(Component.translatable("screen.seeking_immortals.compendium.missing_visual").getString());
                 } else {
-                    out.add(Component.translatable("screen.seeking_immortals.compendium.visual_header",
-                            snap.styleGuideId()).getString());
-                    if (!snap.description().isBlank()) {
-                        out.add(snap.description());
+                    out.add(Component.translatable("screen.seeking_immortals.compendium.visual_header").getString());
+                    String description = snap.displayDescription();
+                    if (!description.isBlank()) {
+                        out.add(description);
                     }
-                    out.add("-- palette --");
+                    out.add(Component.translatable("screen.seeking_immortals.compendium.section.palette").getString());
                     out.addAll(snap.paletteLines());
-                    out.add("-- counts --");
+                    out.add(Component.translatable("screen.seeking_immortals.compendium.section.counts").getString());
                     out.addAll(snap.countLines());
                 }
             }

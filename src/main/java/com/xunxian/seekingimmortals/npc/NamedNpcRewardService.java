@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.catalog.ItemCatalogService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -106,8 +107,11 @@ public final class NamedNpcRewardService {
         }
         markClaimed(player, id);
         if (granted > 0) {
-            player.displayClientMessage(Component.literal(
-                    "[NPC奖励] " + entry.get().display() + " ×" + granted), false);
+            Component rewardDisplay = PlayerDisplayText.safeCatalogLiteral(
+                    entry.get().display(), "未知奖励");
+            player.displayClientMessage(Component.literal("[角色奖励] ")
+                    .append(rewardDisplay)
+                    .append(" ×" + granted), false);
         }
         return granted;
     }

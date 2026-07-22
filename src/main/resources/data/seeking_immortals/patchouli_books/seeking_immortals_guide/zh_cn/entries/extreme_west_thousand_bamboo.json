@@ -7,22 +7,22 @@
     {
       "type": "patchouli:text",
       "title": "傀儡之地",
-      "text": "本条目对应文本材料 region_cards/extreme_west_thousand_bamboo.json、puppet_definitions.json、puppet_parts_catalog.json 与 secret_realms.json#thousand_bamboo_puppet_tower。当前世界包已接入 extreme_west 区域，门槛为筑基，旅行锚点为 extreme_west_anchor。"
+      "text": "极西千竹是机关傀儡与铁木资源的边境区域。当前已接入区域入口，进入门槛为筑基境，可从当地旅行锚点前往。"
     },
     {
       "type": "patchouli:text",
       "title": "当前数据",
-      "text": "极西千竹在世界包中拥有 1.0 灵气倍率，并带有 extreme_west、thousand_bamboo、puppet、mechanism、ironwood、puppet_core_blank 标签。文本材料中的铁木、傀儡灵核与千竹教服务目前作为数据标签和后续制作钩子保留。"
+      "text": "极西千竹的灵气倍率为 1.0，特色包括千竹、机关、傀儡与铁木。铁木、傀儡灵核和千竹教相关服务目前作为后续制作与探索线索保留。"
     },
     {
       "type": "patchouli:text",
       "title": "机关塔",
-      "text": "千竹机关塔已作为 worldpack 秘境 thousand_bamboo_puppet_tower 存在，归属 extreme_west_thousand_bamboo，门槛为筑基，门票复用中品土灵石，冷却为 160000 tick。机关市和机关塔低鸣事件也已接入日常事件列表。"
+      "text": "千竹机关塔是一处筑基境即可尝试的秘境，门票为中品土灵石，重入间隔为 160000 游戏刻。机关市与机关塔低鸣事件也会出现在日常事件中。"
     },
     {
       "type": "patchouli:text",
       "title": "延后内容",
-      "text": "真实傀儡实体、GeckoLib 动画、傀儡制作 UI、铁木资源节点、傀儡灵核物品、图纸掉落、千竹教 NPC、FTB Quests 章节、机关塔结构生成与奖励表仍未实装。本页只说明已存在的世界包与指南钩子。"
+      "text": "完整傀儡实体、专属动画、傀儡制作界面、铁木资源节点、灵核物品、图纸掉落、千竹教人物、任务章节、机关塔结构生成与完整奖励表仍待补全。本页只说明当前可用的区域与秘境入口。"
     }
   ]
 }

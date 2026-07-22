@@ -154,9 +154,6 @@ public final class ModCreativeTabs {
                 output.accept(ModItems.YIN_BODY_PROTECTION_CHARM.get());
 
                 // 丹药
-                output.accept(ModItems.QI_RECOVERY_PILL.get());
-                output.accept(ModItems.CULTIVATION_PILL.get());
-                output.accept(ModItems.BREAKTHROUGH_PILL.get());
                 output.accept(ModItems.WASTE_PILL.get());
                 output.accept(ModItems.REJUVENATION_PILL_LOW.get());
                 output.accept(ModItems.FOUNDATION_BUILDING_PILL_LOW.get());

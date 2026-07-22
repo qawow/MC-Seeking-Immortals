@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "见 patchouli_item_book 分类索引条目 refinement_artifacts。游戏内百科与命令可进一步检索。",
+      "text": "炼器法宝需要在成型并启封的炼器炉中制作。配方会根据境界、炉阶、材料和成功率结算，失败可能产生损耗与残骸。",
       "title": "炼器法宝索引"
     }
   ]

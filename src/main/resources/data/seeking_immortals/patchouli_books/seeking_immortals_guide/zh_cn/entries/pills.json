@@ -1,18 +1,25 @@
 {
   "name": "丹药",
   "category": "seeking_immortals:basics",
-  "icon": "seeking_immortals:qi_recovery_pill",
+  "icon": "seeking_immortals:spirit_recovery_pill",
   "sortnum": 3,
   "pages": [
     {
       "type": "patchouli:text",
       "title": "回灵丹与凝气丹",
-      "text": "回灵丹偏向快速恢复灵力；凝气丹用于增加修为积累。合理搭配灵石与丹药，可以更稳定地推进境界。"
+      "text": "回灵丹服用后恢复一半灵力；凝气丹增加少量修为，并在一小时内提高修炼速度。两者均需通过丹炉和对应丹方炼制。"
     },
     {
-      "type": "patchouli:crafting",
-      "recipe": "seeking_immortals:qi_recovery_pill",
-      "recipe2": "seeking_immortals:cultivation_pill"
+      "type": "patchouli:spotlight",
+      "item": "seeking_immortals:spirit_recovery_pill",
+      "title": "回灵丹",
+      "text": "服用后恢复一半灵力；灵力已满时不会消耗，适合斗法或连续施术后使用。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "seeking_immortals:cultivate_speed_pill",
+      "title": "凝气丹",
+      "text": "服用后获得少量修为，并在一小时内提高修炼速度。"
     }
   ]
 }

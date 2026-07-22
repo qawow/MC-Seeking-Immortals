@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.catalog.ItemCatalogService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -85,13 +86,43 @@ public final class NameAliasGlossaryService {
         List<String> out = new ArrayList<>();
         int n = 0;
         for (GlossaryEntry entry : BUILTIN.byId().values()) {
-            String aliases = entry.aliases().isEmpty() ? "-" : String.join("/", entry.aliases());
-            out.add(entry.primary() + " [" + entry.id() + "] " + aliases);
+            String primary = playerDisplayName(entry);
+            if (primary.isBlank()) {
+                continue;
+            }
+            List<String> aliases = playerDisplayAliases(entry);
+            out.add(aliases.isEmpty() ? primary : primary + " / " + String.join(" / ", aliases));
             if (++n >= Math.max(1, limit)) {
                 break;
             }
         }
         return out;
+    }
+
+    /** Returns the localized, player-safe primary name without exposing the registry id. */
+    public static String playerDisplayName(GlossaryEntry entry) {
+        if (entry == null) {
+            return "";
+        }
+        String value = entry.primary() == null ? "" : entry.primary().trim();
+        return PlayerDisplayText.isSafe(value) ? value : "";
+    }
+
+    /** Returns only human-authored aliases; implementation ids and English tokens are omitted. */
+    public static List<String> playerDisplayAliases(GlossaryEntry entry) {
+        if (entry == null || entry.aliases().isEmpty()) {
+            return List.of();
+        }
+        String primary = playerDisplayName(entry);
+        List<String> visible = new ArrayList<>();
+        for (String raw : entry.aliases()) {
+            String alias = raw == null ? "" : raw.trim();
+            if (!alias.isBlank() && PlayerDisplayText.isSafe(alias)
+                    && !alias.equals(primary) && !visible.contains(alias)) {
+                visible.add(alias);
+            }
+        }
+        return List.copyOf(visible);
     }
 
     /**

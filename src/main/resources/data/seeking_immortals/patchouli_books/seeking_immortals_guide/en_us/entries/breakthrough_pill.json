@@ -1,17 +1,19 @@
 {
-  "name": "破境丹",
+  "name": "Jiangchen Pill",
   "category": "seeking_immortals:basics",
-  "icon": "seeking_immortals:breakthrough_pill",
+  "icon": "seeking_immortals:jiangchen_pill",
   "sortnum": 4,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "辅助突破",
-      "text": "破境丹能护持下一次突破尝试。它不是无条件晋升，仍需要足够的灵力、修为与瓶颈条件。"
+      "title": "Breakthrough Aid",
+      "text": "The Jiangchen Pill supports the next ordinary breakthrough attempt. It cannot advance cultivation unconditionally: cultivation must already be at its bottleneck, and major-realm breakthroughs still require their dedicated pill or resource."
     },
     {
-      "type": "patchouli:crafting",
-      "recipe": "seeking_immortals:breakthrough_pill"
+      "type": "patchouli:spotlight",
+      "item": "seeking_immortals:jiangchen_pill",
+      "title": "Jiangchen Pill",
+      "text": "Weaker than a Foundation Building Pill and intended for ordinary stage breakthroughs."
     }
   ]
 }

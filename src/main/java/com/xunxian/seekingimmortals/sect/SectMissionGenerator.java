@@ -28,6 +28,20 @@ public final class SectMissionGenerator {
 
     public record Mission(String id, String type, String target, int count, int rewardContribution) {}
 
+    public static Component displayName(Mission mission) {
+        if (mission == null) {
+            return Component.literal("宗门任务");
+        }
+        return Component.literal(switch (mission.type() == null ? "" : mission.type().toLowerCase(Locale.ROOT)) {
+            case "gather" -> "灵材采集";
+            case "kill" -> "清剿妖邪";
+            case "escort" -> "护送执事";
+            case "beast" -> "灵兽巡查";
+            case "formation" -> "阵法演练";
+            default -> "宗门任务";
+        });
+    }
+
     public static Mission generate(String sectId) {
         int roll = ThreadLocalRandom.current().nextInt(5);
         String sid = sectId == null ? "qinglan" : sectId.toLowerCase(Locale.ROOT);
@@ -274,7 +288,7 @@ public final class SectMissionGenerator {
         player.getPersistentData().put(PROGRESS_ROOT, root);
         LifeSkillService.grantPractice(player, SkillType.TALISMAN_CRAFTING, 6, 2);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.sect_mission.complete",
-                mission.id(), mission.rewardContribution()), true);
+                displayName(mission), mission.rewardContribution()), true);
         clearGenerated(player);
         return true;
     }

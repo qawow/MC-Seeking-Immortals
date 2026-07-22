@@ -5,7 +5,12 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
+import com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts;
+import com.xunxian.seekingimmortals.cultivation.Realm;
+import com.xunxian.seekingimmortals.region.RegionRegistry;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.server.level.ServerPlayer;
 
 import java.io.InputStream;
@@ -56,15 +61,16 @@ public final class SpatialNodeCatalogService {
     public static boolean preview(ServerPlayer player, String id) {
         Optional<Node> optional = builtin().find(id);
         if (optional.isEmpty()) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.spatial_node.unknown", id), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.spatial_node.unknown",
+                    Component.translatable("text.seeking_immortals.unknown_spatial_node")), false);
             return false;
         }
         Node node = optional.get();
         player.displayClientMessage(Component.translatable("message.seeking_immortals.spatial_node.preview",
-                node.display(), node.type(), node.region(), node.costSpiritStone()), false);
+                nodeDisplay(node), typeDisplay(node.type()), regionDisplay(node.region()), node.costSpiritStone()), false);
         if (!node.requires().isEmpty()) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.spatial_node.requires",
-                    String.join(", ", node.requires())), false);
+                    requirementsDisplay(node.requires())), false);
         }
         player.displayClientMessage(Component.translatable("message.seeking_immortals.spatial_node.travel_hint"), false);
         return true;
@@ -77,7 +83,8 @@ public final class SpatialNodeCatalogService {
     public static boolean travel(ServerPlayer player, String id) {
         Optional<Node> optional = builtin().find(id);
         if (optional.isEmpty()) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.spatial_node.unknown", id), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.spatial_node.unknown",
+                    Component.translatable("text.seeking_immortals.unknown_spatial_node")), false);
             return false;
         }
         Node node = optional.get();
@@ -85,7 +92,7 @@ public final class SpatialNodeCatalogService {
         if (!sourceDimensionMatches(currentDimension, node)) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.spatial_node.wrong_dimension",
-                    DimensionRegistryService.toMinecraftDimensionId(node.dimensionFrom()), currentDimension), true);
+                    dimensionDisplay(node.dimensionFrom()), dimensionDisplay(currentDimension)), true);
             return false;
         }
         SpatialNodeRequiresService.Reservation reservation = SpatialNodeRequiresService.reserve(player, node);
@@ -100,7 +107,7 @@ public final class SpatialNodeCatalogService {
         }
         registerNetworkNode(player, node);
         player.displayClientMessage(Component.translatable(
-                "message.seeking_immortals.spatial_node.travel_ok", node.display(), type), true);
+                "message.seeking_immortals.spatial_node.travel_ok", nodeDisplay(node), typeDisplay(type)), true);
         return true;
     }
 
@@ -215,5 +222,80 @@ public final class SpatialNodeCatalogService {
     private static String str(JsonObject o, String key) {
         if (o == null || !o.has(key) || o.get(key).isJsonNull()) return "";
         try { return o.get(key).getAsString(); } catch (Exception ignored) { return String.valueOf(o.get(key)); }
+    }
+
+    private static Component nodeDisplay(Node node) {
+        return node == null
+                ? Component.translatable("text.seeking_immortals.unknown_spatial_node")
+                : PlayerDisplayText.safeLiteral(node.display(), "text.seeking_immortals.unknown_spatial_node");
+    }
+
+    private static Component typeDisplay(String rawType) {
+        String type = rawType == null ? "" : rawType.trim().toLowerCase(Locale.ROOT);
+        return switch (type) {
+            case "fixed_teleport_array" -> Component.translatable("text.seeking_immortals.spatial_type.fixed_array");
+            case "ancient_rift" -> Component.translatable("text.seeking_immortals.spatial_type.ancient_rift");
+            case "sect_gate" -> Component.translatable("text.seeking_immortals.spatial_type.sect_gate");
+            case "ascension_gate" -> Component.translatable("text.seeking_immortals.spatial_type.ascension_gate");
+            case "demon_rift_event" -> Component.translatable("text.seeking_immortals.spatial_type.demon_rift");
+            case "pocket_gate" -> Component.translatable("text.seeking_immortals.spatial_type.pocket_gate");
+            case "cycle_gate" -> Component.translatable("text.seeking_immortals.spatial_type.cycle_gate");
+            case "hidden_rift" -> Component.translatable("text.seeking_immortals.spatial_type.hidden_rift");
+            case "king_territory" -> Component.translatable("text.seeking_immortals.spatial_type.king_territory");
+            default -> Component.translatable("text.seeking_immortals.unknown_spatial_type");
+        };
+    }
+
+    private static Component regionDisplay(String rawRegion) {
+        return RegionRegistry.find(rawRegion)
+                .map(region -> PlayerDisplayText.safeLiteral(region.display(), "text.seeking_immortals.unknown_region"))
+                .orElse(Component.translatable("text.seeking_immortals.unknown_region"));
+    }
+
+    private static Component requirementsDisplay(List<String> requirements) {
+        MutableComponent result = Component.empty();
+        boolean first = true;
+        for (String requirement : requirements == null ? List.<String>of() : requirements) {
+            if (!first) {
+                result.append(", ");
+            }
+            result.append(requirementDisplay(requirement));
+            first = false;
+        }
+        return result;
+    }
+
+    private static Component requirementDisplay(String rawRequirement) {
+        String requirement = rawRequirement == null ? "" : rawRequirement.trim();
+        String normalized = requirement.toLowerCase(Locale.ROOT);
+        Component named = switch (normalized) {
+            case "sect_permit_or_contribution" -> Component.translatable("text.seeking_immortals.requirement.sect_permit");
+            case "auction_invite_or_reputation" -> Component.translatable("text.seeking_immortals.requirement.auction_access");
+            case "realm_gate" -> Component.translatable("text.seeking_immortals.requirement.realm_gate");
+            default -> null;
+        };
+        if (named != null) {
+            return named;
+        }
+        String itemKey = "item.seeking_immortals." + PlayerDisplayText.normalizeId(requirement);
+        if (PlayerDisplayText.hasTranslation(itemKey)) {
+            return PlayerDisplayText.itemName(requirement);
+        }
+        Realm realm = Realm.fromDesignId(requirement);
+        if (realm != null) {
+            return ArtifactDisplayTexts.realm(requirement);
+        }
+        return PlayerDisplayText.safeLiteral(requirement, "text.seeking_immortals.unknown_requirement");
+    }
+
+    private static Component dimensionDisplay(String rawDimension) {
+        String id = rawDimension == null ? "" : rawDimension.trim();
+        if (id.isBlank() || "minecraft:overworld".equalsIgnoreCase(id)
+                || "overworld".equalsIgnoreCase(id)) {
+            return Component.translatable("text.seeking_immortals.dimension.mortal");
+        }
+        return DimensionRegistryService.find(id)
+                .map(def -> PlayerDisplayText.safeLiteral(def.display(), "text.seeking_immortals.unknown_dimension"))
+                .orElse(Component.translatable("text.seeking_immortals.unknown_dimension"));
     }
 }

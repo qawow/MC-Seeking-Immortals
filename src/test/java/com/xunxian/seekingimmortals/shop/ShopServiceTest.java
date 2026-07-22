@@ -129,17 +129,17 @@ class ShopServiceTest {
         assertEntry(shop, "fire_burst_talisman", "seeking_immortals:fire_talisman");
         assertEntry(shop, "body_guard_talisman", "seeking_immortals:armor_talisman");
         assertEntry(shop, "demon_core_fragment", "seeking_immortals:beast_core");
-        assertEntry(shop, "jiangchen_pill", "seeking_immortals:foundation_building_pill_low");
-        assertEntry(shop, "recipe_jiangchen", "seeking_immortals:alchemy_formula_foundation_building_pill_paper");
+        assertEntry(shop, "jiangchen_pill", "seeking_immortals:jiangchen_pill");
+        assertEntry(shop, "recipe_jiangchen", "seeking_immortals:recipe_jiangchen");
         assertEntry(shop, "yellow_essence", "seeking_immortals:spirit_grass");
         assertEntry(shop, "ginseng_spirit", "seeking_immortals:immortal_ginseng");
         assertEntry(shop, "fire_sparrow_fruit", "seeking_immortals:phoenix_feather_flower");
-        assertEntry(shop, "spirit_recovery_pill", "seeking_immortals:qi_recovery_pill");
-        assertEntry(shop, "cultivate_speed_pill", "seeking_immortals:cultivation_pill");
+        assertEntry(shop, "spirit_recovery_pill", "seeking_immortals:spirit_recovery_pill");
+        assertEntry(shop, "cultivate_speed_pill", "seeking_immortals:cultivate_speed_pill");
         assertEntry(shop, "body_tempering_pill", "seeking_immortals:body_tempering_pill");
-        assertEntry(shop, "huanglong_pill", "seeking_immortals:cultivation_pill");
-        assertEntry(shop, "recipe_huanglong", "seeking_immortals:alchemy_formula_cultivation_pill_paper");
-        assertEntry(shop, "heqi_pill", "seeking_immortals:cultivation_pill");
+        assertEntry(shop, "huanglong_pill", "seeking_immortals:huanglong_pill");
+        assertEntry(shop, "recipe_huanglong", "seeking_immortals:recipe_huanglong");
+        assertEntry(shop, "heqi_pill", "seeking_immortals:heqi_pill");
 
         ShopService.Entry jiangchen = shop.find("jiangchen_pill")
                 .orElseThrow(() -> new AssertionError("Missing shop entry jiangchen_pill"));
@@ -197,7 +197,7 @@ class ShopServiceTest {
             assertEquals(ShopService.CURRENCY_ITEM, entry.currency());
             assertEquals("seeking_immortals:metal_spirit_stone", entry.currencyItemId());
         }
-        assertEntry(demonicDual, "heqi_pill", "seeking_immortals:cultivation_pill");
+        assertEntry(demonicDual, "heqi_pill", "seeking_immortals:heqi_pill");
 
         ShopService.Entry demonicHeqi = demonicDual.find("heqi_pill")
                 .orElseThrow(() -> new AssertionError("Missing shop entry heqi_pill"));
@@ -213,7 +213,7 @@ class ShopServiceTest {
             assertEquals(ShopService.CURRENCY_ITEM, entry.currency());
             assertEquals("seeking_immortals:metal_spirit_stone", entry.currencyItemId());
         }
-        assertEntry(islandGeneral, "spirit_recovery_pill", "seeking_immortals:qi_recovery_pill");
+        assertEntry(islandGeneral, "spirit_recovery_pill", "seeking_immortals:spirit_recovery_pill");
         assertEntry(islandGeneral, "soul_gathering_pill", "seeking_immortals:soul_gathering_pill");
         assertEntry(islandGeneral, "ningshen_pill", "seeking_immortals:calming_pill_low");
         assertEntry(islandGeneral, "yanghun_pill", "seeking_immortals:soul_gathering_pill");
@@ -442,13 +442,13 @@ class ShopServiceTest {
         assertEntry(shop, "recipe_spirit_condense", "seeking_immortals:alchemy_formula_spirit_gathering_pill_paper");
         assertEntry(shop, "recipe_bigu", "seeking_immortals:alchemy_formula_fasting_pill_paper");
         assertEntry(shop, "recipe_calm_spirit", "seeking_immortals:alchemy_formula_clear_void_pill_paper");
-        assertEntry(shop, "recipe_jiangchen", "seeking_immortals:alchemy_formula_foundation_building_pill_paper");
-        assertEntry(shop, "recipe_huanglong", "seeking_immortals:alchemy_formula_cultivation_pill_paper");
+        assertEntry(shop, "recipe_jiangchen", "seeking_immortals:recipe_jiangchen");
+        assertEntry(shop, "recipe_huanglong", "seeking_immortals:recipe_huanglong");
         assertEntry(shop, "recipe_ningshen", "seeking_immortals:alchemy_formula_calming_pill_jade");
         assertEntry(shop, "alchemy_furnace_g2", "seeking_immortals:alchemy_furnace_tier_2");
         assertEntry(shop, "spirit_herb_bundle", "seeking_immortals:spirit_grass");
         assertEntry(shop, "sect_herb_garden_seed_pack", "seeking_immortals:spirit_grass");
-        assertEntry(shop, "spirit_recovery_pill", "seeking_immortals:qi_recovery_pill");
+        assertEntry(shop, "spirit_recovery_pill", "seeking_immortals:spirit_recovery_pill");
         assertEntry(shop, "body_guard_talisman", "seeking_immortals:armor_talisman");
         assertEntry(shop, "flying_sword_low", "seeking_immortals:flying_sword_low");
         assertEntry(shop, "artifact_repair_kit", "seeking_immortals:artifact_repair_kit");
@@ -514,15 +514,15 @@ class ShopServiceTest {
         assertEntry(shop, "recipe_spirit_condense", "seeking_immortals:alchemy_formula_spirit_gathering_pill_paper");
         assertEntry(shop, "recipe_bigu", "seeking_immortals:alchemy_formula_fasting_pill_paper");
         assertEntry(shop, "recipe_calm_spirit", "seeking_immortals:alchemy_formula_clear_void_pill_paper");
-        assertEntry(shop, "recipe_jiangchen", "seeking_immortals:alchemy_formula_foundation_building_pill_paper");
-        assertEntry(shop, "recipe_huanglong", "seeking_immortals:alchemy_formula_cultivation_pill_paper");
+        assertEntry(shop, "recipe_jiangchen", "seeking_immortals:recipe_jiangchen");
+        assertEntry(shop, "recipe_huanglong", "seeking_immortals:recipe_huanglong");
         assertEntry(shop, "recipe_ningshen", "seeking_immortals:alchemy_formula_calming_pill_jade");
         assertEntry(shop, "recipe_pressure_resist", "seeking_immortals:alchemy_formula_pressure_resist_pill_sect");
         assertEntry(shop, "recipe_spirit_realm_condense", "seeking_immortals:alchemy_formula_spirit_realm_condense_pill_sect");
         assertEntry(shop, "alchemy_furnace_g2", "seeking_immortals:alchemy_furnace_tier_2");
         assertEntry(shop, "spirit_herb_bundle", "seeking_immortals:spirit_grass");
         assertEntry(shop, "sect_herb_garden_seed_pack", "seeking_immortals:spirit_grass");
-        assertEntry(shop, "spirit_recovery_pill", "seeking_immortals:qi_recovery_pill");
+        assertEntry(shop, "spirit_recovery_pill", "seeking_immortals:spirit_recovery_pill");
         assertEntry(shop, "body_guard_talisman", "seeking_immortals:armor_talisman");
         assertEntry(shop, "flying_sword_low", "seeking_immortals:flying_sword_low");
         assertEntry(shop, "artifact_repair_kit", "seeking_immortals:artifact_repair_kit");
@@ -759,7 +759,7 @@ class ShopServiceTest {
         }
         assertEntry(shop, "foundation_pill", "seeking_immortals:foundation_building_pill_low");
         assertEntry(shop, "calm_spirit_pill", "seeking_immortals:clear_void_pill");
-        assertEntry(shop, "recipe_heqi", "seeking_immortals:alchemy_formula_cultivation_pill_paper");
+        assertEntry(shop, "recipe_heqi", "seeking_immortals:recipe_heqi");
         assertEntry(shop, "ningshen_pill", "seeking_immortals:calming_pill_low");
         assertEntry(shop, "recipe_clear_void", "seeking_immortals:alchemy_formula_clear_void_pill_paper");
         assertEntry(shop, "recipe_body_tempering", "seeking_immortals:alchemy_formula_body_tempering_pill_jade");

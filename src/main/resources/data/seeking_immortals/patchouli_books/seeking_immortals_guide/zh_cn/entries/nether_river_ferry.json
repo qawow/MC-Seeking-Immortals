@@ -7,12 +7,12 @@
     {
       "type": "patchouli:text",
       "title": "渡口位置",
-      "text": "本页对应 trade_routes.json#nether_river_ferry、yin_underworld_cluster.json 与 secret_realms.json#nether_river_land。冥河摆渡连接冥河与阴冥，是阴司集群中的口袋维/秘境入口，而不是普通陆路商线。"
+      "text": "冥河摆渡连接冥河与阴冥，是阴司集群中的口袋维度和秘境入口，并非普通陆路商线。"
     },
     {
       "type": "patchouli:text",
       "title": "费用与门槛",
-      "text": "文本材料设定摆渡交通为 ghost_boat，费用为 30 阴石，并限制在筑基以内的鬼道早期阶段使用。当前版本已经有 seeking_immortals:yin_stone 物品载体和冥河/阴冥口袋维度锚点，真实扣费与船票服务仍待后续。"
+      "text": "摆渡船票费用为 30 枚阴石，主要供筑基以内的鬼道早期修士使用。冥河与阴冥的入口已经接入，真实扣费与专属船票服务仍在扩充。"
     },
     {
       "type": "patchouli:text",
@@ -22,7 +22,7 @@
     {
       "type": "patchouli:text",
       "title": "风险与后续",
-      "text": "冥河环境带有阴雾减阳伤、白日 debuff 和纯阳伤害加成等设定，也可作为阴属性天劫减伤区。后续仍需要摆渡 NPC、阴石扣费、敛魂符、鬼物规则、任务引导和专属地貌/结构。"
+      "text": "冥河阴雾可减轻阳属性伤害，白日会削弱鬼修，纯阳攻击则更有效；这里也能作为阴属性天劫的减伤区。摆渡人物、阴石扣费、敛魂符、鬼物规则、任务引导和专属地貌仍待补全。"
     }
   ]
 }

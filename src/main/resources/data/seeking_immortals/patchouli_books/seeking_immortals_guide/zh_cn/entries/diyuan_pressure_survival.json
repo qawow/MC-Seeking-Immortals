@@ -7,22 +7,22 @@
     {
       "type": "patchouli:text",
       "title": "压力来源",
-      "text": "本页对应 secret_realms.json#diyuan、pills_catalog.json#pressure_resist_pill 与 spirit_herbs_catalog.json#diyuan_pressure_moss。地渊环境写有灵气紊乱、重压 debuff、高阶妖兽和空间褶皱。"
+      "text": "地渊存在灵气紊乱、重压负面状态、高阶妖兽和空间褶皱。进入前应准备抗压丹或抗压符，并留足神识与恢复物资。"
     },
     {
       "type": "patchouli:text",
       "title": "当前规则",
-      "text": "当前版本已有第一版服务端压力循环：玩家处于 active secret realm diyuan 且没有抗压计时时，会周期性受到缓慢、反胃、神识流失和非致命魔法压力伤害。地渊仍会压制普通飞行来源。"
+      "text": "玩家身处地渊且没有抗压保护时，会周期性受到缓慢、反胃、神识流失和非致命的法术压力伤害。地渊也会压制普通飞行来源。"
     },
     {
       "type": "patchouli:text",
       "title": "抗压丹",
-      "text": "seeking_immortals:pressure_resist_pill 已从被动载体升级为可右键使用的丹药。它要求炼虚境界，服用后写入抗压计时，清理地渊压力负面效果，并在计时期间抵消第一版地渊压力循环。"
+      "text": "抗压丹可右键服用，要求炼虚境界。服用后会获得持续一段时间的抗压保护，清理地渊压力造成的负面效果，并在保护期间抵消环境压力。"
     },
     {
       "type": "patchouli:text",
       "title": "丹符双线",
-      "text": "抗压丹配方已经走现有炼丹数据：2 个 seeking_immortals:diyuan_pressure_moss 炼成一枚抗压丹，丹方也已通过丹霞贡献商店接入。抗压符现在可用重压苔、金甲符和中品金灵石合成，或从天渊功勋兑换获得；抗压苔真实采集、层级压力和地渊任务还在后续。"
+      "text": "两份地渊重压苔可炼成一枚抗压丹，丹方也能从丹霞贡献商店取得。抗压符可用重压苔、金甲符和中品金灵石合成，或通过天渊功勋兑换；重压苔的自然采集、分层压力与地渊任务仍待补全。"
     }
   ]
 }

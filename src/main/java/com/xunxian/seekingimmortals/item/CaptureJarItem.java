@@ -1,6 +1,7 @@
 package com.xunxian.seekingimmortals.item;
 
 import com.xunxian.seekingimmortals.artifact.ArtifactCaptureService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -39,8 +40,17 @@ public class CaptureJarItem extends Item {
         if (id == null || id.isBlank()) {
             tooltip.add(Component.translatable("tooltip.seeking_immortals.capture_jar.empty"));
         } else {
-            tooltip.add(Component.translatable("tooltip.seeking_immortals.capture_jar.stored", id));
+            // Stored ids are persistence keys; resolve them before putting them in a tooltip.
+            tooltip.add(Component.translatable("tooltip.seeking_immortals.capture_jar.stored",
+                    PlayerDisplayText.safeLiteral(resolveStoredDisplay(id), "text.seeking_immortals.unknown_item")));
             tooltip.add(Component.translatable("tooltip.seeking_immortals.capture_jar.seal_hint"));
         }
+    }
+
+    private static String resolveStoredDisplay(String id) {
+        return com.xunxian.seekingimmortals.beast.BeastBestiaryService.find(id)
+                .map(com.xunxian.seekingimmortals.beast.BeastBestiaryService.BeastEntry::display)
+                .filter(PlayerDisplayText::isSafe)
+                .orElse("");
     }
 }

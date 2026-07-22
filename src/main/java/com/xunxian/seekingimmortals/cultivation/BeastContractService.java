@@ -7,6 +7,7 @@ import com.xunxian.seekingimmortals.beast.BestiaryUnlockService;
 import com.xunxian.seekingimmortals.beast.CompanionGrowthService;
 import com.xunxian.seekingimmortals.catalog.SummonHonestMvpService;
 import com.xunxian.seekingimmortals.registry.ModItems;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -100,7 +101,8 @@ public final class BeastContractService {
 
         CompoundTag root = player.getPersistentData().getCompound(ROOT).copy();
         if (root.contains(id)) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.beast.already", id), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.beast.already",
+                    displayName(id)), false);
             return false;
         }
         if (root.getAllKeys().size() >= MAX_SLOTS) {
@@ -129,7 +131,8 @@ public final class BeastContractService {
         com.xunxian.seekingimmortals.skill.LifeSkillService.grantPractice(player,
                 com.xunxian.seekingimmortals.skill.SkillType.BEAST_TAMING, 18, 8);
         BestiaryUnlockService.unlock(player, id, BestiaryUnlockService.UnlockKind.CONTRACT);
-        player.displayClientMessage(Component.translatable("message.seeking_immortals.beast.contracted", id), true);
+        player.displayClientMessage(Component.translatable("message.seeking_immortals.beast.contracted",
+                displayName(id)), true);
         return true;
     }
 
@@ -155,7 +158,8 @@ public final class BeastContractService {
         id = BeastBestiaryService.find(id).map(BeastBestiaryService.BeastEntry::id).orElse(id);
         CompoundTag root = player.getPersistentData().getCompound(ROOT).copy();
         if (!root.contains(id)) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.beast.missing", id), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.beast.missing",
+                    displayName(id)), false);
             return false;
         }
         CompoundTag entry = root.getCompound(id).copy();
@@ -163,7 +167,7 @@ public final class BeastContractService {
         int affinityBefore = entry.getInt("Affinity");
         if (before.level() >= CompanionGrowthService.MAX_LEVEL && affinityBefore >= 100) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.beast.growth_max", id), false);
+                    "message.seeking_immortals.beast.growth_max", displayName(id)), false);
             return false;
         }
         int stageCount = BeastCompanionService.stageCount(id);
@@ -196,16 +200,14 @@ public final class BeastContractService {
         root.put(id, entry);
         player.getPersistentData().put(ROOT, root);
         if (update.evolutionsGained() > 0) {
-            String stageName = BeastCompanionService.stageForEvolution(id, update.progress().evolutionStage())
-                    .map(BeastCompanionService.GrowthStage::name).filter(value -> !value.isBlank())
-                    .orElse(Integer.toString(update.progress().evolutionStage()));
+            Component stageName = stageDisplayName(id, update.progress().evolutionStage());
             player.displayClientMessage(Component.translatable("message.seeking_immortals.beast.evolved",
-                    id, stageName, update.progress().level(), entry.getInt("Affinity")), true);
+                    displayName(id), stageName, update.progress().level(), entry.getInt("Affinity")), true);
         } else {
             int needed = update.progress().level() >= CompanionGrowthService.MAX_LEVEL ? 0
                     : CompanionGrowthService.experienceToNextLevel(update.progress().level());
             player.displayClientMessage(Component.translatable("message.seeking_immortals.beast.feed_progress",
-                    id, entry.getInt("Affinity"), update.progress().level(),
+                    displayName(id), entry.getInt("Affinity"), update.progress().level(),
                     update.progress().experience(), needed), true);
         }
         if (update.evolutionBlocked()) {
@@ -220,7 +222,8 @@ public final class BeastContractService {
         id = BeastBestiaryService.find(id).map(BeastBestiaryService.BeastEntry::id).orElse(id);
         CompoundTag root = player.getPersistentData().getCompound(ROOT);
         if (!root.contains(id)) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.beast.missing", id), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.beast.missing",
+                    displayName(id)), false);
             return false;
         }
         CompoundTag entry = root.getCompound(id);
@@ -245,7 +248,7 @@ public final class BeastContractService {
             com.xunxian.seekingimmortals.skill.LifeSkillService.grantPractice(player,
                     com.xunxian.seekingimmortals.skill.SkillType.BEAST_TAMING, 14, 6);
             player.displayClientMessage(Component.translatable("message.seeking_immortals.beast.summoned",
-                    id, affinity, progress.level(), progress.evolutionStage()), true);
+                    displayName(id), affinity, progress.level(), progress.evolutionStage()), true);
         }
         return ok;
     }
@@ -292,7 +295,7 @@ public final class BeastContractService {
         player.getPersistentData().put(ROOT, root);
         if (kind == CreditKind.KILL || kind == CreditKind.SURVIVE) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.beast.combat_growth", id, affinity,
+                    "message.seeking_immortals.beast.combat_growth", displayName(id), affinity,
                     update.progress().level(), update.progress().experience()), true);
             if (update.evolutionBlocked()) {
                 player.displayClientMessage(Component.translatable(
@@ -417,6 +420,25 @@ public final class BeastContractService {
             }
         }
         return false;
+    }
+
+    /** Resolve a contract id only for display; the canonical id remains the persistence key. */
+    private static Component displayName(String beastId) {
+        return BeastBestiaryService.find(beastId)
+                .map(BeastBestiaryService.BeastEntry::display)
+                .filter(PlayerDisplayText::isSafe)
+                .map(Component::literal)
+                .orElseGet(() -> Component.literal("未知灵兽"));
+    }
+
+    private static Component stageDisplayName(String beastId, int evolutionStage) {
+        return BeastCompanionService.stageForEvolution(beastId, evolutionStage)
+                .map(BeastCompanionService.GrowthStage::name)
+                .filter(PlayerDisplayText::isSafe)
+                .map(Component::literal)
+                .orElseGet(() -> evolutionStage <= 0
+                        ? Component.literal("初始形态")
+                        : Component.literal("第" + evolutionStage + "阶段"));
     }
 
     private static String normalize(String id) {

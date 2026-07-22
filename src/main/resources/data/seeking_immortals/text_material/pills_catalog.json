@@ -657,7 +657,7 @@
       "display": "降尘丹",
       "category": "breakthrough",
       "realm_target": "FOUNDATION",
-      "effect": "foundation_breakthrough_bonus",
+      "effect": "jiangchen_breakthrough_aid",
       "note": "天南低阶修士常用破境丹，效力弱于筑基丹",
       "setting": {
         "lore": "降尘丹",
@@ -1209,13 +1209,13 @@
     },
     {
       "id": "spirit_recovery_pill_high",
-      "display": "回灵丹（中）",
-      "tier": "mid",
+      "display": "回灵丹（上品）",
+      "tier": "high",
       "effect": "restore_mana",
       "realm_min": "FOUNDATION",
       "setting": {
-        "lore": "回灵丹（中）",
-        "tier": "mid"
+        "lore": "回灵丹（上品）",
+        "tier": "high"
       },
       "learn_requirements": {
         "craft": {
@@ -1842,28 +1842,6 @@
       ],
       "setting": {
         "lore": "解毒丹",
-        "tier": null
-      },
-      "learn_requirements": {
-        "craft": {
-          "realm_min": "QI_REFINING",
-          "learn_source": [
-            "alchemy_manual",
-            "pill_recipe"
-          ],
-          "note": "需丹方与丹炉火候；服用亦受境界限制。"
-        },
-        "consume": {
-          "realm_min": "QI_REFINING"
-        }
-      }
-    },
-    {
-      "id": "jiangying_pill",
-      "display": "降尘丹",
-      "category": "cultivation",
-      "setting": {
-        "lore": "降尘丹",
         "tier": null
       },
       "learn_requirements": {

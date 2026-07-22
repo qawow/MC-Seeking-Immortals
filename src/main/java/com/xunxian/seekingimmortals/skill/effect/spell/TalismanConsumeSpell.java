@@ -97,7 +97,7 @@ public class TalismanConsumeSpell extends SpellEffect {
         CultivationFireballEntity projectile = new CultivationFireballEntity(
                 player.level(), player, player.getLookAngle(), damage, 1.2D, spellElement);
         player.level().addFreshEntity(projectile);
-        player.displayClientMessage(Component.translatable(successKey, "projectile",
+        player.displayClientMessage(Component.translatable(successKey, modeDisplay("projectile"),
                 String.format(Locale.ROOT, "%.1f", damage)), true);
         return true;
     }
@@ -130,7 +130,7 @@ public class TalismanConsumeSpell extends SpellEffect {
         level.sendParticles(ParticleTypes.FLAME, center.x, center.y + 0.2D, center.z,
                 40, radius * 0.4D, 0.3D, radius * 0.4D, 0.02D);
         level.playSound(null, player.blockPosition(), SoundEvents.FIRECHARGE_USE, SoundSource.PLAYERS, 0.8F, 1.0F);
-        player.displayClientMessage(Component.translatable(successKey, "aoe", hit), true);
+        player.displayClientMessage(Component.translatable(successKey, modeDisplay("aoe"), hit), true);
         return true;
     }
 
@@ -158,7 +158,7 @@ public class TalismanConsumeSpell extends SpellEffect {
         level.sendParticles(ParticleTypes.ENCHANT, player.getX(), player.getY() + 1.0D, player.getZ(),
                 28, 0.4D, 0.5D, 0.4D, 0.0D);
         level.playSound(null, player.blockPosition(), SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.PLAYERS, 0.7F, 1.2F);
-        player.displayClientMessage(Component.translatable(successKey, "buff", 1), true);
+        player.displayClientMessage(Component.translatable(successKey, modeDisplay("buff"), 1), true);
         return true;
     }
 
@@ -180,7 +180,7 @@ public class TalismanConsumeSpell extends SpellEffect {
         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 60, 0, false, true));
         level.sendParticles(ParticleTypes.SOUL, center.x, center.y + 0.3D, center.z, 24, 0.4D, 0.3D, 0.4D, 0.01D);
         level.playSound(null, player.blockPosition(), SoundEvents.SCULK_SHRIEKER_SHRIEK, SoundSource.PLAYERS, 0.55F, 1.3F);
-        player.displayClientMessage(Component.translatable(successKey, "control", hit), true);
+        player.displayClientMessage(Component.translatable(successKey, modeDisplay("control"), hit), true);
         return true;
     }
 
@@ -202,8 +202,17 @@ public class TalismanConsumeSpell extends SpellEffect {
         level.sendParticles(ParticleTypes.CLOUD, player.getX(), player.getY() + 0.2D, player.getZ(),
                 24, 0.4D, 0.2D, 0.4D, 0.02D);
         level.playSound(null, player.blockPosition(), SoundEvents.ENDERMAN_TELEPORT, SoundSource.PLAYERS, 0.6F, 1.35F);
-        player.displayClientMessage(Component.translatable(successKey, "movement", 1), true);
+        player.displayClientMessage(Component.translatable(successKey, modeDisplay("movement"), 1), true);
         return true;
+    }
+
+    private static Component modeDisplay(String mode) {
+        String normalized = mode == null ? "" : mode.trim().toLowerCase(Locale.ROOT);
+        return switch (normalized) {
+            case "projectile", "aoe", "buff", "control", "movement" ->
+                    Component.translatable("tooltip.seeking_immortals.catalog_talisman.mode." + normalized);
+            default -> Component.literal("未知模式");
+        };
     }
 
     private Vec3 findImpact(ServerLevel level, ServerPlayer player) {

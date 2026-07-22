@@ -5,9 +5,11 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
+import com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.ProgressionGateApi;
 import com.xunxian.seekingimmortals.region.RegionRegistry;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -130,13 +132,13 @@ public final class DimensionTravelService {
         if (optional.isEmpty()) {
             // also accept method+matrix style: method id alone is rejected without explicit route
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.dim_travel.unknown_route", routeId == null ? "" : routeId), false);
+                    "message.seeking_immortals.dim_travel.unknown_route", Component.literal("未知路线")), false);
             return false;
         }
         RouteDef route = optional.get();
         if (!isDirectRouteImplemented(route)) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.dim_travel.not_allowed", route.id()), false);
+                    "message.seeking_immortals.dim_travel.not_allowed", routeDisplay(route)), false);
             return false;
         }
         int contributionCost = contributionCost(route.id());
@@ -180,13 +182,13 @@ public final class DimensionTravelService {
         Optional<TravelMatrixEdge> edge = findMatrixEdge(from, targetDimensionId);
         if (edge.isEmpty()) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.dim_travel.not_allowed", to), false);
+                    "message.seeking_immortals.dim_travel.not_allowed", dimensionDisplay(targetDimensionId)), false);
             return false;
         }
         TravelMatrixEdge matrix = edge.get();
         if (isForbidden(matrix.allowed())) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.dim_travel.forbidden", matrix.allowed()), false);
+                    "message.seeking_immortals.dim_travel.forbidden", Component.literal("通行条件未满足")), false);
             return false;
         }
         String method = firstNonBlank(methodHint, methodFromAllowed(matrix.allowed()), matrix.gate());
@@ -219,13 +221,13 @@ public final class DimensionTravelService {
         if (fromDim == null || fromDim.isBlank() || toDim == null || toDim.isBlank()
                 || toDim.trim().toLowerCase(Locale.ROOT).startsWith("instance:")) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.dim_travel.not_allowed", routeKey), false);
+                    "message.seeking_immortals.dim_travel.not_allowed", dimensionDisplay(toDim)), false);
             return false;
         }
         String currentDimension = normalizeDimToken(player.level().dimension().location().toString());
         if (!currentDimension.equals(normalizeDimToken(fromDim))) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.dim_travel.not_allowed", routeKey), false);
+                    "message.seeking_immortals.dim_travel.not_allowed", dimensionDisplay(toDim)), false);
             return false;
         }
         if (isOnCooldown(player, routeKey)) {
@@ -236,19 +238,20 @@ public final class DimensionTravelService {
         String targetId = DimensionRegistryService.toMinecraftDimensionId(toDim);
         if (ResourceLocation.tryParse(targetId) == null) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.dim_travel.not_allowed", routeKey), false);
+                    "message.seeking_immortals.dim_travel.not_allowed", dimensionDisplay(toDim)), false);
             return false;
         }
         Optional<DimensionRegistryService.DimensionDef> def = DimensionRegistryService.find(toDim);
         if (def.isPresent() && def.get().isDeferred()) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.dim_travel.deferred", def.get().display(), def.get().note()), false);
+                    "message.seeking_immortals.dim_travel.deferred", dimensionDisplay(toDim),
+                    PlayerDisplayText.safeLiteral(def.get().note(), "screen.seeking_immortals.display.unknown")), false);
             return false;
         }
         String minRealm = firstNonBlank(realmMin, DimensionRegistryService.minRealmOf(toDim));
         if (!minRealm.isBlank() && !ProgressionGateApi.meetsRealm(player, minRealm)) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.dim_travel.realm_too_low", minRealm), false);
+                    "message.seeking_immortals.dim_travel.realm_too_low", ArtifactDisplayTexts.realm(minRealm)), false);
             return false;
         }
         if (METHOD_ASCENSION.equalsIgnoreCase(method) || "ascension".equalsIgnoreCase(method)
@@ -259,7 +262,7 @@ public final class DimensionTravelService {
         if (!DimensionRegistryService.meetsEntryRealm(player, toDim)) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.dim_travel.realm_too_low",
-                    DimensionRegistryService.minRealmOf(toDim)), false);
+                    ArtifactDisplayTexts.realm(DimensionRegistryService.minRealmOf(toDim))), false);
             return false;
         }
         // yin cluster path rules
@@ -286,7 +289,7 @@ public final class DimensionTravelService {
                 return WorldpackGameplayService.travel(player, "nether_river");
             }
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.dim_travel.missing_level", targetId), false);
+                    "message.seeking_immortals.dim_travel.missing_level", dimensionDisplay(toDim)), false);
             return false;
         }
         ServerLevel target = targetOpt.get();
@@ -305,7 +308,7 @@ public final class DimensionTravelService {
         player.teleportTo(target, x + 0.5D, y, z + 0.5D, player.getYRot(), player.getXRot());
         if (player.level() != target) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.dim_travel.teleport_failed", targetId), false);
+                    "message.seeking_immortals.dim_travel.teleport_failed", dimensionDisplay(toDim)), false);
             return false;
         }
         ensurePlatform(target, new BlockPos(x, y - 1, z));
@@ -319,8 +322,28 @@ public final class DimensionTravelService {
         RegionRegistry.resolveAndSync(player);
         FlyingAuthorityPolicy.onDimensionChanged(player, targetId);
         player.displayClientMessage(Component.translatable(
-                "message.seeking_immortals.dim_travel.success", targetId, method == null ? "" : method), true);
+                "message.seeking_immortals.dim_travel.success", dimensionDisplay(toDim), methodDisplay(method)), true);
         return true;
+    }
+
+    private static Component routeDisplay(RouteDef route) {
+        return route == null ? Component.literal("未知路线") : dimensionDisplay(route.toDimension());
+    }
+
+    private static Component dimensionDisplay(String dimensionId) {
+        return DimensionRegistryService.find(dimensionId)
+                .map(DimensionRegistryService.DimensionDef::display)
+                .filter(PlayerDisplayText::isSafe)
+                .map(value -> Component.literal(value.trim()))
+                .orElseGet(() -> Component.literal("未知界域"));
+    }
+
+    private static Component methodDisplay(String methodId) {
+        return findMethod(methodId)
+                .map(MethodDef::display)
+                .filter(PlayerDisplayText::isSafe)
+                .map(value -> Component.literal(value.trim()))
+                .orElseGet(() -> Component.literal("界域通行"));
     }
 
     private static long cooldownFor(String method) {

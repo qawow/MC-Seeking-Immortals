@@ -5,9 +5,13 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
+import com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts;
 import com.xunxian.seekingimmortals.catalog.ExtendedCatalogService;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
+import com.xunxian.seekingimmortals.region.RegionRegistry;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import com.xunxian.seekingimmortals.worldpack.ReputationService;
+import com.xunxian.seekingimmortals.worldpack.SecretRealmCatalogService;
 import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -78,7 +82,8 @@ public final class MainStorySoftService {
         Optional<ExtendedCatalogService.StoryChapter> optional = findChapter(chapterId);
         if (optional.isEmpty()) {
             if (loud) {
-                player.displayClientMessage(Component.translatable("message.seeking_immortals.main_story.unknown", chapterId), false);
+                player.displayClientMessage(Component.translatable("message.seeking_immortals.main_story.unknown",
+                        chapterDisplay(chapterId)), false);
             }
             return false;
         }
@@ -90,16 +95,17 @@ public final class MainStorySoftService {
         if (root.getBoolean(chapter.id())) {
             if (loud) {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.main_story.already",
-                        chapter.display()), false);
+                        chapterDisplay(chapter)), false);
             }
             return false;
         }
         root.putBoolean(chapter.id(), true);
         player.getPersistentData().put(ROOT, root);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.main_story.completed",
-                chapter.display()), true);
+                chapterDisplay(chapter)), true);
         if (chapter.summary() != null && !chapter.summary().isBlank() && loud) {
-            player.displayClientMessage(Component.literal(chapter.summary()), false);
+            player.displayClientMessage(PlayerDisplayText.safeLiteral(chapter.summary(),
+                    "message.seeking_immortals.main_story.summary_unavailable"), false);
         }
         TimelineChronicleService.onChronicleDiscovered(player, chapter.id());
         if (startLinked) {
@@ -115,12 +121,13 @@ public final class MainStorySoftService {
     public static boolean startChapter(ServerPlayer player, String chapterId) {
         Optional<ExtendedCatalogService.StoryChapter> optional = findChapter(chapterId);
         if (optional.isEmpty()) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.main_story.unknown", chapterId), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.main_story.unknown",
+                    chapterDisplay(chapterId)), false);
             return false;
         }
         if (isComplete(player, optional.get().id())) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.main_story.already",
-                    optional.get().display()), false);
+                    chapterDisplay(optional.get())), false);
             return false;
         }
         if (!meetsUnlock(player, optional.get().id(), true)) {
@@ -128,7 +135,7 @@ public final class MainStorySoftService {
         }
         List<String> started = startLinkedChains(player, optional.get().id());
         player.displayClientMessage(Component.translatable("message.seeking_immortals.main_story.started",
-                optional.get().display(), started.size()), true);
+                chapterDisplay(optional.get()), started.size()), true);
         return true;
     }
 
@@ -150,7 +157,8 @@ public final class MainStorySoftService {
                 if (warn) {
                     player.displayClientMessage(Component.translatable(
                             "message.seeking_immortals.main_story.realm_locked",
-                            chapterId, gate.realmMin(), cultivation.getRealm().name()), true);
+                            chapterDisplay(chapterId), ArtifactDisplayTexts.realm(gate.realmMin()),
+                            ArtifactDisplayTexts.realm(cultivation.getRealm().name())), true);
                 }
                 ok[0] = false;
                 return;
@@ -161,7 +169,8 @@ public final class MainStorySoftService {
                     if (warn) {
                         player.displayClientMessage(Component.translatable(
                                 "message.seeking_immortals.main_story.region_locked",
-                                chapterId, gate.region(), current), true);
+                                chapterDisplay(chapterId), regionDisplay(gate.region()),
+                                regionDisplay(current)), true);
                     }
                     ok[0] = false;
                     return;
@@ -173,7 +182,8 @@ public final class MainStorySoftService {
                     if (warn) {
                         player.displayClientMessage(Component.translatable(
                                 "message.seeking_immortals.main_story.rep_locked",
-                                chapterId, gate.reputationFaction(), gate.reputationMin(), rep), true);
+                                chapterDisplay(chapterId), factionDisplay(gate.reputationFaction()),
+                                gate.reputationMin(), rep), true);
                     }
                     ok[0] = false;
                     return;
@@ -187,7 +197,7 @@ public final class MainStorySoftService {
                     if (warn) {
                         player.displayClientMessage(Component.translatable(
                                 "message.seeking_immortals.main_story.secret_locked",
-                                chapterId, realm), true);
+                                chapterDisplay(chapterId), secretRealmDisplay(realm)), true);
                     }
                     ok[0] = false;
                     return;
@@ -199,8 +209,8 @@ public final class MainStorySoftService {
                         .getBoolean(gate.ticketFlag())) {
                     // Soft: do not hard-block chapter_2 if ticket missing; warn only.
                     if (warn) {
-                        player.displayClientMessage(Component.literal(
-                                "[主线] 缺少票据标记：" + gate.ticketFlag() + "（仍可推进）"), false);
+                        player.displayClientMessage(Component.translatable(
+                                "message.seeking_immortals.main_story.ticket_missing"), false);
                     }
                 }
             }
@@ -248,13 +258,16 @@ public final class MainStorySoftService {
     }
 
     private static Optional<ExtendedCatalogService.StoryChapter> findChapter(String chapterId) {
+        if (chapterId == null || chapterId.isBlank()) {
+            return Optional.empty();
+        }
         Optional<ExtendedCatalogService.StoryChapter> optional =
                 Optional.ofNullable(ExtendedCatalogService.builtin().chapters().get(normalize(chapterId)));
         if (optional.isPresent()) {
             return optional;
         }
         for (ExtendedCatalogService.StoryChapter chapter : ExtendedCatalogService.builtin().chapters().values()) {
-            if (chapter.id().equalsIgnoreCase(chapterId)) {
+            if (chapter != null && chapter.id() != null && chapter.id().equalsIgnoreCase(chapterId)) {
                 return Optional.of(chapter);
             }
         }
@@ -406,6 +419,47 @@ public final class MainStorySoftService {
             }
         }
         return List.copyOf(list);
+    }
+
+    private static Component chapterDisplay(String chapterId) {
+        return findChapter(chapterId)
+                .map(MainStorySoftService::chapterDisplay)
+                .orElseGet(() -> Component.translatable("text.seeking_immortals.unknown_chapter"));
+    }
+
+    private static Component chapterDisplay(ExtendedCatalogService.StoryChapter chapter) {
+        return chapter == null
+                ? Component.translatable("text.seeking_immortals.unknown_chapter")
+                : PlayerDisplayText.safeLiteral(chapter.display(), "text.seeking_immortals.unknown_chapter");
+    }
+
+    private static Component regionDisplay(String regionId) {
+        return RegionRegistry.find(regionId)
+                .map(region -> PlayerDisplayText.safeLiteral(
+                        region.display(), "text.seeking_immortals.unknown_region"))
+                .orElseGet(() -> Component.translatable("text.seeking_immortals.unknown_region"));
+    }
+
+    private static Component factionDisplay(String factionId) {
+        String id = normalize(factionId);
+        return switch (id) {
+            case "mortal_realm" -> Component.translatable("text.seeking_immortals.faction.mortal_realm");
+            case "chaotic_sea" -> Component.translatable("text.seeking_immortals.faction.chaotic_sea");
+            case "dajin" -> Component.translatable("text.seeking_immortals.faction.dajin");
+            case "demonic_path" -> Component.translatable("text.seeking_immortals.faction.demonic_path");
+            case "tianyuan" -> Component.translatable("text.seeking_immortals.faction.tianyuan");
+            case "mulan" -> Component.translatable("text.seeking_immortals.faction.mulan");
+            case "righteous_alliance" -> Component.translatable("text.seeking_immortals.faction.righteous_alliance");
+            case "merchant_guild" -> Component.translatable("text.seeking_immortals.faction.merchant_guild");
+            default -> Component.translatable("text.seeking_immortals.unknown_faction");
+        };
+    }
+
+    private static Component secretRealmDisplay(String realmId) {
+        return SecretRealmCatalogService.find(realmId)
+                .map(realm -> PlayerDisplayText.safeLiteral(
+                        realm.display(), "text.seeking_immortals.unknown_secret_realm"))
+                .orElseGet(() -> Component.translatable("text.seeking_immortals.unknown_secret_realm"));
     }
 
     private static String normalize(String id) {

@@ -5,6 +5,7 @@ import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.xunxian.seekingimmortals.artifact.ArtifactDataService;
+import com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts;
 import com.xunxian.seekingimmortals.artifact.ArtifactRefinementService;
 import com.xunxian.seekingimmortals.catalog.AuctionInterestService;
 import com.xunxian.seekingimmortals.catalog.AuctionSoftService;
@@ -21,6 +22,7 @@ import com.xunxian.seekingimmortals.catalog.SummonHonestMvpService;
 import com.xunxian.seekingimmortals.catalog.TextMaterialCatalogService;
 import com.xunxian.seekingimmortals.catalog.TextMaterialManifestService;
 import com.xunxian.seekingimmortals.cultivation.BreakthroughService;
+import com.xunxian.seekingimmortals.beast.BeastBestiaryService;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.cultivation.Realm;
@@ -58,9 +60,11 @@ import com.xunxian.seekingimmortals.worldpack.SpatialNodeCatalogService;
 import com.xunxian.seekingimmortals.worldpack.ReputationService;
 import com.xunxian.seekingimmortals.worldpack.WorldpackDataService;
 import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.server.level.ServerPlayer;
 
 import java.util.List;
@@ -639,9 +643,14 @@ public final class SeekingImmortalsCommand {
                 TextQuestChainService.chainCount()), false);
         int shown = 0;
         for (TextQuestChainService.ChainProgress progress : TextQuestChainService.listProgress(player)) {
-            String line = progress.id() + " | stage=" + progress.stage() + "/" + progress.stepCount()
-                    + (progress.complete() ? " | DONE" : "");
-            source.sendSuccess(() -> Component.literal(line), false);
+            MutableComponent line = Component.empty()
+                    .append(questDisplay(progress.id()))
+                    .append("｜进度 ")
+                    .append(Integer.toString(progress.stage()))
+                    .append("/")
+                    .append(Integer.toString(progress.stepCount()))
+                    .append(progress.complete() ? "｜已完成" : "｜进行中");
+            source.sendSuccess(() -> line, false);
             if (++shown >= 20) {
                 int remaining = TextQuestChainService.chainCount() - shown;
                 source.sendSuccess(() -> Component.translatable("command.seeking_immortals.catalog.methods.truncated", remaining), false);
@@ -663,10 +672,11 @@ public final class SeekingImmortalsCommand {
         ServerPlayer player = source.getPlayerOrException();
         TextQuestChainService.ChainProgress progress = TextQuestChainService.progressOf(player, id);
         source.sendSuccess(() -> Component.translatable("command.seeking_immortals.text_quest.status",
-                progress.id(), progress.stage(), progress.stepCount(),
-                progress.complete() ? "DONE" : "ACTIVE"), false);
+                questDisplay(progress.id()), progress.stage(), progress.stepCount(),
+                Component.literal(progress.complete() ? "已完成" : "进行中")), false);
         source.sendSuccess(() -> Component.translatable("command.seeking_immortals.text_quest.branch_status",
-                TextQuestChainService.getBranch(player, id), TextQuestChainService.getNpc(player, id)), false);
+                branchDisplay(TextQuestChainService.getBranch(player, id)),
+                npcDisplay(TextQuestChainService.getNpc(player, id))), false);
         previewQuestCost(source, player, progress);
         return 1;
     }
@@ -696,7 +706,7 @@ public final class SeekingImmortalsCommand {
         TextQuestChainService.StageCost stageCost = cost.get();
         int owned = TextQuestChainService.countOwned(player, stageCost);
         source.sendSuccess(() -> Component.translatable("message.seeking_immortals.text_quest.cost_preview",
-                stageCost.displayKey(), stageCost.count(), owned), false);
+                itemDisplay(stageCost.itemId()), stageCost.count(), owned), false);
     }
 
     private static int textQuestBranch(CommandSourceStack source, String id, String choice) throws CommandSyntaxException {
@@ -709,7 +719,7 @@ public final class SeekingImmortalsCommand {
         String id = com.xunxian.seekingimmortals.artifact.NatalBindingService.boundId(player);
         int growth = com.xunxian.seekingimmortals.artifact.NatalBindingService.growth(player);
         source.sendSuccess(() -> Component.translatable("command.seeking_immortals.natal.status",
-                id.isBlank() ? "-" : id, growth), false);
+                id.isBlank() ? Component.literal("未绑定") : artifactDisplay(id), growth), false);
         return 1;
     }
 
@@ -726,18 +736,24 @@ public final class SeekingImmortalsCommand {
         source.getPlayerOrException();
         ArtifactDataService.RefinementRecipe recipe = ArtifactDataService.builtin().findRecipe(recipeId).orElse(null);
         if (recipe == null) {
-            source.sendFailure(Component.translatable("message.seeking_immortals.artifact.refine.unknown_recipe", recipeId));
+            source.sendFailure(Component.translatable("message.seeking_immortals.artifact.refine.unknown_recipe",
+                    Component.literal("未收录配方")));
             return 0;
         }
-        String materials = recipe.materials().stream()
-                .map(m -> m.id() + "x" + m.count())
-                .collect(Collectors.joining(", "));
+        MutableComponent materials = Component.empty();
+        for (int i = 0; i < recipe.materials().size(); i++) {
+            ArtifactDataService.MaterialRequirement material = recipe.materials().get(i);
+            if (i > 0) {
+                materials.append("、");
+            }
+            materials.append(itemDisplay(material.id())).append(" x").append(Integer.toString(material.count()));
+        }
         source.sendSuccess(() -> Component.translatable("message.seeking_immortals.artifact.refine.plan",
-                recipe.id(),
-                recipe.realmMin() == null ? "?" : recipe.realmMin(),
+                safeText(recipe.display(), "text.seeking_immortals.unknown_item"),
+                realmDisplay(recipe.realmMin()),
                 String.format(Locale.ROOT, "%.0f%%", Math.max(0.0D, Math.min(1.0D, recipe.baseSuccessRate())) * 100.0D),
-                materials.isBlank() ? "-" : materials), false);
-        source.sendSuccess(() -> Component.translatable("message.seeking_immortals.artifact.refine.plan_ready", recipe.id()), false);
+                recipe.materials().isEmpty() ? Component.literal("无") : materials), false);
+        source.sendSuccess(() -> Component.literal("材料齐备后，可在对应炼器工位继续炼制。"), false);
         return 1;
     }
 
@@ -746,49 +762,50 @@ public final class SeekingImmortalsCommand {
     }
 
     private static int npcSummary(CommandSourceStack source) {
-        source.sendSuccess(() -> Component.literal("[M12] named_npcs=" + NamedNpcRegistry.count()
-                + " trees=" + DialogueBranchService.treeCount()
-                + " archetypes=" + DialogueTemplateService.archetypeCount()
-                + " rewards=" + NamedNpcRewardService.entryCount()), false);
+        source.sendSuccess(() -> Component.literal("命名角色：" + NamedNpcRegistry.count()
+                + "，对话树：" + DialogueBranchService.treeCount()
+                + "，角色模板：" + DialogueTemplateService.archetypeCount()
+                + "，奖励条目：" + NamedNpcRewardService.entryCount()), false);
         int shown = 0;
         for (NamedNpcRegistry.NamedNpc npc : NamedNpcRegistry.all()) {
             if (shown++ >= 8) {
                 break;
             }
-            String line = npc.id() + " | " + npc.display() + " | " + npc.regionId()
-                    + " | tree=" + npc.dialogueTreeId() + " | shop=" + npc.shopId();
-            source.sendSuccess(() -> Component.literal(line), false);
+            MutableComponent line = Component.empty()
+                    .append(npcDisplay(npc.id()))
+                    .append("｜")
+                    .append(regionDisplay(npc.regionId()));
+            source.sendSuccess(() -> line, false);
         }
         return 1;
     }
 
     private static int npcListRegion(CommandSourceStack source, String region) {
         List<NamedNpcRegistry.NamedNpc> list = NamedNpcRegistry.byRegion(region);
-        source.sendSuccess(() -> Component.literal("[M12] region " + region + " npcs=" + list.size()), false);
+        source.sendSuccess(() -> Component.literal("区域 ").append(regionDisplay(region))
+                .append("，角色 ").append(Integer.toString(list.size())), false);
         int shown = 0;
         for (NamedNpcRegistry.NamedNpc npc : list) {
             if (shown++ >= 12) {
                 break;
             }
-            source.sendSuccess(() -> Component.literal(npc.id() + " / " + npc.role() + " / " + npc.dialogueTreeId()), false);
+            source.sendSuccess(() -> npcDisplay(npc.id()), false);
         }
         return list.isEmpty() ? 0 : 1;
     }
 
     private static int npcInfo(CommandSourceStack source, String id) {
         return NamedNpcRegistry.find(id).map(npc -> {
-            source.sendSuccess(() -> Component.literal("[NPC] " + npc.id() + " " + npc.display()), false);
-            source.sendSuccess(() -> Component.literal("sect=" + npc.sectId()
-                    + " faction=" + npc.factionId()
-                    + " region=" + npc.regionId()
-                    + " role=" + npc.role()), false);
-            source.sendSuccess(() -> Component.literal("archetype=" + npc.archetype()
-                    + " tree=" + npc.dialogueTreeId()
-                    + " shop=" + npc.shopId()
-                    + " rep=" + npc.reputationTrack()), false);
+            source.sendSuccess(() -> Component.literal("角色：").append(npcDisplay(npc.id())), false);
+            source.sendSuccess(() -> Component.literal("所属宗门：").append(factionDisplay(npc.sectId()))
+                    .append("｜势力：").append(factionDisplay(npc.factionId()))
+                    .append("｜区域：").append(regionDisplay(npc.regionId())), false);
+            if (PlayerDisplayText.isSafe(npc.description())) {
+                source.sendSuccess(() -> Component.literal("简介：").append(npc.description()), false);
+            }
             return 1;
         }).orElseGet(() -> {
-            source.sendFailure(Component.literal("unknown npc: " + id));
+            source.sendFailure(Component.translatable("text.seeking_immortals.unknown_affiliation"));
             return 0;
         });
     }
@@ -796,21 +813,23 @@ public final class SeekingImmortalsCommand {
     private static int npcTalk(CommandSourceStack source, String id, String tree) throws CommandSyntaxException {
         ServerPlayer player = source.getPlayerOrException();
         boolean ok = NpcDialogueApi.startDialogue(player, id, tree);
-        source.sendSuccess(() -> Component.literal(ok ? "[M12] dialogue started: " + id : "[M12] dialogue failed: " + id), false);
+        source.sendSuccess(() -> Component.literal(ok ? "已开始对话：" : "无法开始对话：")
+                .append(npcDisplay(id)), false);
         return ok ? 1 : 0;
     }
 
     private static int npcAct(CommandSourceStack source, String choice) throws CommandSyntaxException {
         ServerPlayer player = source.getPlayerOrException();
         boolean ok = NpcDialogueApi.selectNext(player, choice);
-        source.sendSuccess(() -> Component.literal(ok ? "[M12] choice ok: " + choice : "[M12] choice failed: " + choice), false);
+        source.sendSuccess(() -> Component.literal(ok ? "对话选项已执行。" : "当前对话选项不可用。"), false);
         return ok ? 1 : 0;
     }
 
     private static int npcFavor(CommandSourceStack source, String id) throws CommandSyntaxException {
         ServerPlayer player = source.getPlayerOrException();
         int value = NpcFavorService.get(player, id);
-        source.sendSuccess(() -> Component.literal("[M12] favor " + id + "=" + value), false);
+        source.sendSuccess(() -> Component.literal("对").append(npcDisplay(id))
+                .append("的好感：").append(Integer.toString(value)), false);
         return 1;
     }
 
@@ -824,18 +843,18 @@ public final class SeekingImmortalsCommand {
                 ? NpcSpawnService.spawnTrader(player.serverLevel(), player.blockPosition(), id)
                 : NpcSpawnService.spawnSteward(player.serverLevel(), player.blockPosition(), id);
         if (spawned.isEmpty()) {
-            source.sendFailure(Component.literal("spawn failed: " + id));
+            source.sendFailure(Component.literal("无法生成该角色。"));
             return 0;
         }
-        source.sendSuccess(() -> Component.literal("[M12] spawned " + id), true);
+        source.sendSuccess(() -> Component.literal("已生成角色：").append(npcDisplay(id)), true);
         return 1;
     }
 
     private static int npcEnsureRegion(CommandSourceStack source, String region, int limit) throws CommandSyntaxException {
         ServerPlayer player = source.getPlayerOrException();
         List<String> spawned = NpcSpawnService.ensureRegionNpcs(player.serverLevel(), player.blockPosition(), region, limit);
-        source.sendSuccess(() -> Component.literal("[M12] ensure_region " + region + " spawned=" + spawned.size()
-                + " " + String.join(",", spawned)), true);
+        source.sendSuccess(() -> Component.literal("已在 ").append(regionDisplay(region))
+                .append("安排角色：").append(Integer.toString(spawned.size())), true);
         return spawned.size();
     }
 
@@ -848,21 +867,39 @@ public final class SeekingImmortalsCommand {
         com.xunxian.seekingimmortals.network.OpenDialogueScreenPacket.send(player, id);
         // Also push current dialogue lines to chat for immediate feedback.
         TextQuestDialogueService.talk(player, id);
-        source.sendSuccess(() -> Component.translatable("command.seeking_immortals.text_quest.gui_opened", id), false);
+        source.sendSuccess(() -> Component.translatable("command.seeking_immortals.text_quest.gui_opened",
+                questDisplay(id)), false);
         return 1;
     }
 
     private static int textQuestHooks(CommandSourceStack source) {
         source.sendSuccess(() -> Component.translatable("command.seeking_immortals.text_quest.hooks.header",
                 QuestHookSoftService.hookCount()), false);
-        for (String line : QuestHookSoftService.sampleHooks(20)) {
-            source.sendSuccess(() -> Component.literal(line), false);
+        int shown = 0;
+        for (var entry : FactionQuestCatalogService.builtin().questHooks().values()) {
+            MutableComponent line = safeText(entry.display(), "text.seeking_immortals.unknown_quest").copy();
+            QuestHookSoftService.mappedChainId(entry.id()).ifPresent(chain ->
+                    line.append("｜对应任务：").append(questDisplay(chain)));
+            source.sendSuccess(() -> line, false);
+            if (++shown >= 20) {
+                break;
+            }
         }
         return 1;
     }
 
     private static int textQuestHookPreview(CommandSourceStack source, String id) throws CommandSyntaxException {
-        return QuestHookSoftService.preview(source.getPlayerOrException(), id) ? 1 : 0;
+        var entry = FactionQuestCatalogService.builtin().questHooks()
+                .get(id == null ? "" : id.trim().toLowerCase(Locale.ROOT));
+        if (entry == null) {
+            source.sendFailure(Component.literal("未找到该任务线索。"));
+            return 0;
+        }
+        source.sendSuccess(() -> Component.literal("任务线索：")
+                .append(safeText(entry.display(), "text.seeking_immortals.unknown_quest")), false);
+        QuestHookSoftService.mappedChainId(entry.id()).ifPresent(chain ->
+                source.sendSuccess(() -> Component.literal("对应任务：").append(questDisplay(chain)), false));
+        return 1;
     }
 
     private static int textQuestHookAccept(CommandSourceStack source, String id) throws CommandSyntaxException {
@@ -874,8 +911,9 @@ public final class SeekingImmortalsCommand {
         String npcId = TextQuestChainService.npcFor(chainId);
         String display = TextQuestNpcHookService.displayNameForNpc(npcId);
         QuestService.spawnQuestVillager(player, display);
-        source.sendSuccess(() -> Component.translatable("command.seeking_immortals.text_quest.spawn_npc",
-                chainId, display, npcId), true);
+        source.sendSuccess(() -> Component.literal("已生成任务角色：")
+                .append(safeText(display, "text.seeking_immortals.quest_guide"))
+                .append("｜对应任务：").append(questDisplay(chainId)), true);
         return 1;
     }
 
@@ -884,7 +922,8 @@ public final class SeekingImmortalsCommand {
         return TextQuestNpcHookService.chainForNpcId(player, npc)
                 .map(chainId -> TextQuestNpcHookService.openDialogue(player, chainId, true) ? 1 : 0)
                 .orElseGet(() -> {
-                    player.displayClientMessage(Component.translatable("message.seeking_immortals.quest_hook.unknown", npc), false);
+                    player.displayClientMessage(Component.translatable("message.seeking_immortals.quest_hook.unknown",
+                            npcDisplay(npc)), false);
                     return 0;
                 });
     }
@@ -893,8 +932,10 @@ public final class SeekingImmortalsCommand {
         ServerPlayer player = source.getPlayerOrException();
         source.sendSuccess(() -> Component.translatable("command.seeking_immortals.main_story.header",
                 MainStorySoftService.chapterCount(), MainStorySoftService.completedCount(player)), false);
-        for (String line : MainStorySoftService.list(player)) {
-            source.sendSuccess(() -> Component.literal(line), false);
+        for (ExtendedCatalogService.StoryChapter chapter : ExtendedCatalogService.builtin().chapters().values()) {
+            source.sendSuccess(() -> Component.literal("章节：")
+                    .append(safeText(chapter.display(), "text.seeking_immortals.unknown_chapter"))
+                    .append(MainStorySoftService.isComplete(player, chapter.id()) ? "｜已完成" : "｜未完成"), false);
         }
         return 1;
     }
@@ -959,13 +1000,12 @@ public final class SeekingImmortalsCommand {
     private static int artifactCatalog(CommandSourceStack source) {
         ArtifactDataService.Snapshot snapshot = ArtifactDataService.builtin();
         source.sendSuccess(() -> Component.literal(String.format(Locale.ROOT,
-                "Artifact catalog: %d artifacts, %d refinement recipes, %d flight vehicles, %d talisman templates.",
+                "法宝目录：%d 件法宝、%d 条炼器配方、%d 种飞行载具、%d 种符宝模板。",
                 snapshot.artifacts().size(),
                 snapshot.refinementRecipes().size(),
                 snapshot.flightVehicles().size(),
                 snapshot.talismanTreasureTemplates().size())), false);
-        source.sendSuccess(() -> Component.literal(
-                "Use /seeking_immortals artifact p0, info <id>, recipe <artifact_id>, or files."), false);
+        source.sendSuccess(() -> Component.literal("可查看首批法宝、法宝详情或炼器材料计划。"), false);
         return artifactPriority(source, "P0_launch");
     }
 
@@ -973,8 +1013,7 @@ public final class SeekingImmortalsCommand {
         ArtifactDataService.Snapshot snapshot = ArtifactDataService.builtin();
         List<ArtifactDataService.ArtifactDefinition> artifacts = snapshot.priorityArtifacts(priorityTier);
         source.sendSuccess(() -> Component.literal(String.format(Locale.ROOT,
-                "Artifact priority %s: %d resolved entries from %d ids.",
-                priorityTier,
+                "首批法宝：%d 件（目录共 %d 件）。",
                 artifacts.size(),
                 snapshot.priorityIds(priorityTier).size())), false);
         for (ArtifactDataService.ArtifactDefinition artifact : artifacts) {
@@ -987,12 +1026,12 @@ public final class SeekingImmortalsCommand {
         ArtifactDataService.Snapshot snapshot = ArtifactDataService.builtin();
         ArtifactDataService.ArtifactDefinition artifact = snapshot.findArtifact(artifactId).orElse(null);
         if (artifact == null) {
-            source.sendFailure(Component.literal("Unknown artifact id: " + artifactId));
+            source.sendFailure(Component.translatable("text.seeking_immortals.unknown_item"));
             return 0;
         }
         source.sendSuccess(() -> artifactLine(snapshot, artifact), false);
         if (!artifact.tags().isEmpty()) {
-            source.sendSuccess(() -> Component.literal("tags=" + String.join(",", artifact.tags())), false);
+            source.sendSuccess(() -> Component.literal("标签：").append(ArtifactDisplayTexts.tagsJoined(artifact.tags())), false);
         }
         snapshot.findRecipeByArtifact(artifact.id())
                 .ifPresent(recipe -> source.sendSuccess(() -> artifactRecipeLine(snapshot, recipe), false));
@@ -1006,7 +1045,7 @@ public final class SeekingImmortalsCommand {
             recipe = snapshot.findRecipe(artifactOrRecipeId);
         }
         if (recipe.isEmpty()) {
-            source.sendFailure(Component.literal("Unknown artifact/refinement recipe id: " + artifactOrRecipeId));
+            source.sendFailure(Component.literal("未找到对应的法宝或炼器配方。"));
             return 0;
         }
         ArtifactDataService.RefinementRecipe foundRecipe = recipe.get();
@@ -1021,37 +1060,42 @@ public final class SeekingImmortalsCommand {
     private static int artifactFiles(CommandSourceStack source) {
         ArtifactDataService.Snapshot snapshot = ArtifactDataService.builtin();
         source.sendSuccess(() -> Component.literal(String.format(Locale.ROOT,
-                "Artifact data files: %d", ArtifactDataService.sourceFiles().size())), false);
-        snapshot.sourceFileEntryCounts().forEach((file, count) ->
-                source.sendSuccess(() -> Component.literal(file + " entries=" + count), false));
+                "法宝数据文件：%d 个。", ArtifactDataService.sourceFiles().size())), false);
+        if (source.hasPermission(2)) {
+            snapshot.sourceFileEntryCounts().forEach((file, count) ->
+                    source.sendSuccess(() -> Component.literal("内部数据文件：" + file + "，条目 " + count), false));
+        }
         return 1;
     }
 
     private static Component artifactLine(ArtifactDataService.Snapshot snapshot,
             ArtifactDataService.ArtifactDefinition artifact) {
-        return Component.literal(String.format(Locale.ROOT,
-                "- %s | %s | tier=%s (%s) | realm=%s | type=%s | gameTier=%d",
-                artifact.id(),
-                artifact.display(),
-                artifact.tier(),
-                snapshot.tierDisplay(artifact.tier()),
-                artifact.realmMin(),
-                artifact.type(),
-                artifact.gameTier()));
+        return Component.literal("法宝：")
+                .append(safeText(artifact.display(), "text.seeking_immortals.unknown_item"))
+                .append("｜品阶：")
+                .append(safeText(snapshot.tierDisplay(artifact.tier()), "text.seeking_immortals.unknown_item"))
+                .append("｜境界：")
+                .append(realmDisplay(artifact.realmMin()))
+                .append("｜类型：")
+                .append(ArtifactDisplayTexts.type(artifact.type()))
+                .append("｜等级：")
+                .append(Integer.toString(artifact.gameTier()));
     }
 
     private static Component artifactRecipeLine(ArtifactDataService.Snapshot snapshot,
             ArtifactDataService.RefinementRecipe recipe) {
-        return Component.literal(String.format(Locale.ROOT,
-                "Recipe %s -> %s | %s | tier=%s (%s) | realm=%s | forgeGrade=%d | success=%s",
-                recipe.id(),
-                recipe.artifactId(),
-                recipe.display(),
-                recipe.tier(),
-                snapshot.tierDisplay(recipe.tier()),
-                recipe.realmMin(),
-                recipe.forgeGrade(),
-                successPercent(recipe.baseSuccessRate())));
+        return Component.literal("炼器配方：")
+                .append(safeText(recipe.display(), "text.seeking_immortals.unknown_item"))
+                .append("｜产出：")
+                .append(artifactDisplay(recipe.artifactId()))
+                .append("｜品阶：")
+                .append(safeText(snapshot.tierDisplay(recipe.tier()), "text.seeking_immortals.unknown_item"))
+                .append("｜境界：")
+                .append(realmDisplay(recipe.realmMin()))
+                .append("｜工艺等级：")
+                .append(Integer.toString(recipe.forgeGrade()))
+                .append("｜成功率：")
+                .append(successPercent(recipe.baseSuccessRate()));
     }
 
     private static String successPercent(double rate) {
@@ -1065,7 +1109,7 @@ public final class SeekingImmortalsCommand {
     private static int marketOpen(CommandSourceStack source, String shopId) throws CommandSyntaxException {
         String normalizedShopId = ShopService.canonicalMarketShopId(shopId);
         if (normalizedShopId.isBlank()) {
-            source.sendFailure(Component.translatable("message.seeking_immortals.market.unknown_shop", shopId));
+            source.sendFailure(Component.translatable("message.seeking_immortals.market.unknown_shop_generic"));
             return 0;
         }
         ShopService.openMarket(source.getPlayerOrException(), normalizedShopId);
@@ -1079,25 +1123,21 @@ public final class SeekingImmortalsCommand {
     private static int marketList(CommandSourceStack source, String shopId) {
         String normalizedShopId = ShopService.canonicalMarketShopId(shopId);
         if (normalizedShopId.isBlank()) {
-            source.sendFailure(Component.translatable("message.seeking_immortals.market.unknown_shop", shopId));
+            source.sendFailure(Component.translatable("message.seeking_immortals.market.unknown_shop_generic"));
             return 0;
         }
         ShopService.CostModifier modifier = source.getEntity() instanceof ServerPlayer player
                 ? WorldpackGameplayService.marketCostModifier(player)
                 : ShopService.CostModifier.NONE;
-        source.sendSuccess(() -> Component.translatable(
-                "command.seeking_immortals.market.header",
-                normalizedShopId), false);
+        source.sendSuccess(() -> Component.literal("坊市店铺：").append(shopDisplay(normalizedShopId)), false);
         for (ShopService.Entry entry : ShopService.entries(normalizedShopId)) {
             int cost = ShopService.adjustedCost(normalizedShopId, entry, modifier);
-            source.sendSuccess(() -> Component.translatable(
-                    "command.seeking_immortals.market.entry",
-                    entry.id(),
-                    ShopService.itemName(entry),
-                    entry.count(),
-                    cost,
-                    entry.currencyItemId(),
-                    stockText(entry)), false);
+            source.sendSuccess(() -> Component.literal("- ")
+                    .append(ShopService.itemName(entry))
+                    .append(" x").append(Integer.toString(entry.count()))
+                    .append("，消耗 ").append(Integer.toString(cost)).append(" x ")
+                    .append(currencyDisplay(entry))
+                    .append("，库存 ").append(stockText(entry)), false);
         }
         return 1;
     }
@@ -1105,7 +1145,7 @@ public final class SeekingImmortalsCommand {
     private static int marketBuy(CommandSourceStack source, String shopId, String entry) throws CommandSyntaxException {
         String normalizedShopId = ShopService.canonicalMarketShopId(shopId);
         if (normalizedShopId.isBlank()) {
-            source.sendFailure(Component.translatable("message.seeking_immortals.market.unknown_shop", shopId));
+            source.sendFailure(Component.translatable("message.seeking_immortals.market.unknown_shop_generic"));
             return 0;
         }
         ServerPlayer player = source.getPlayerOrException();
@@ -1118,19 +1158,19 @@ public final class SeekingImmortalsCommand {
                         result.entry().count(),
                         ShopService.itemName(result.entry()),
                         result.paidCost(),
-                        result.entry().currencyItemId(),
+                        currencyDisplay(result.entry()),
                         stockText(result.remainingStock())));
                 return 1;
             }
-            case UNKNOWN_ENTRY -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.market.unknown_entry", entry));
-            case UNSUPPORTED_CURRENCY -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.market.unsupported_currency", entry));
-            case BAD_ITEM -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.market.bad_shop_item", entry));
-            case BAD_CURRENCY_ITEM -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.market.bad_currency_item", entry));
+            case UNKNOWN_ENTRY -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.market.unknown_entry_generic"));
+            case UNSUPPORTED_CURRENCY -> player.sendSystemMessage(Component.literal("该商品暂不支持当前货币。"));
+            case BAD_ITEM -> player.sendSystemMessage(Component.translatable("text.seeking_immortals.unknown_item"));
+            case BAD_CURRENCY_ITEM -> player.sendSystemMessage(Component.translatable("text.seeking_immortals.unknown_currency"));
             case NOT_ENOUGH_CURRENCY -> player.sendSystemMessage(Component.translatable(
                     "message.seeking_immortals.market.not_enough_currency",
                     result.paidCost(),
-                    result.entry() == null ? "-" : result.entry().currencyItemId()));
-            case OUT_OF_STOCK -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.market.out_of_stock", entry));
+                    result.entry() == null ? Component.translatable("text.seeking_immortals.unknown_currency") : currencyDisplay(result.entry())));
+            case OUT_OF_STOCK -> player.sendSystemMessage(Component.literal("该商品已经售罄。"));
         }
         return 0;
     }
@@ -1192,14 +1232,11 @@ public final class SeekingImmortalsCommand {
         WorldpackDataService.Snapshot snapshot = WorldpackDataService.builtin();
         source.sendSuccess(() -> Component.translatable("command.seeking_immortals.worldpack.regions.header", snapshot.regions().size()), false);
         for (WorldpackDataService.RegionCard region : snapshot.regions()) {
-            source.sendSuccess(() -> Component.translatable(
-                    "command.seeking_immortals.worldpack.region.entry",
-                    region.id(),
-                    region.displayZh(),
-                    region.displayEn(),
-                    region.minRealm(),
-                    String.format(Locale.ROOT, "%.2f", region.auraMultiplier()),
-                    region.travelAnchor()), false);
+            source.sendSuccess(() -> Component.literal("- ")
+                    .append(safeText(region.displayZh(), "text.seeking_immortals.unknown_region"))
+                    .append("｜最低境界 ").append(realmDisplay(region.minRealm()))
+                    .append("｜灵气倍率 ")
+                    .append(String.format(Locale.ROOT, "%.2f", region.auraMultiplier())), false);
         }
         return 1;
     }
@@ -1208,15 +1245,13 @@ public final class SeekingImmortalsCommand {
         WorldpackDataService.Snapshot snapshot = WorldpackDataService.builtin();
         source.sendSuccess(() -> Component.translatable("command.seeking_immortals.worldpack.realms.header", snapshot.secretRealms().size()), false);
         for (WorldpackDataService.SecretRealm realm : snapshot.secretRealms()) {
-            source.sendSuccess(() -> Component.translatable(
-                    "command.seeking_immortals.worldpack.realm.entry",
-                    realm.id(),
-                    realm.displayZh(),
-                    realm.displayEn(),
-                    realm.regionId(),
-                    realm.minRealm(),
-                    realm.ticketItem(),
-                    realm.cooldownTicks()), false);
+            source.sendSuccess(() -> Component.literal("- ")
+                    .append(safeText(realm.displayZh(), "text.seeking_immortals.unknown_secret_realm"))
+                    .append("｜区域 ").append(regionDisplay(realm.regionId()))
+                    .append("｜最低境界 ").append(realmDisplay(realm.minRealm()))
+                    .append("｜凭证 ").append(itemDisplay(realm.ticketItem()))
+                    .append("｜冷却 ").append(Integer.toString(Math.max(0, realm.cooldownTicks() / 20)))
+                    .append(" 秒"), false);
         }
         return 1;
     }
@@ -1225,14 +1260,12 @@ public final class SeekingImmortalsCommand {
         WorldpackDataService.Snapshot snapshot = WorldpackDataService.builtin();
         source.sendSuccess(() -> Component.translatable("command.seeking_immortals.worldpack.events.header", snapshot.dailyEvents().size()), false);
         for (WorldpackDataService.DailyEvent event : snapshot.dailyEvents()) {
-            source.sendSuccess(() -> Component.translatable(
-                    "command.seeking_immortals.worldpack.event.entry",
-                    event.id(),
-                    event.displayZh(),
-                    event.displayEn(),
-                    event.regionId(),
-                    event.weight(),
-                    event.durationTicks()), false);
+            source.sendSuccess(() -> Component.literal("- ")
+                    .append(safeText(event.displayZh(), "text.seeking_immortals.unknown_event"))
+                    .append("｜区域 ").append(regionDisplay(event.regionId()))
+                    .append("｜权重 ").append(Integer.toString(event.weight()))
+                    .append("｜持续 ").append(Integer.toString(Math.max(0, event.durationTicks() / 20)))
+                    .append(" 秒"), false);
         }
         return 1;
     }
@@ -1240,7 +1273,7 @@ public final class SeekingImmortalsCommand {
     private static int regionDailyEventsStatus(CommandSourceStack source) {
         source.sendSuccess(() -> Component.translatable(
                 "command.seeking_immortals.region.daily_events.status",
-                RegionEventConfig.isDailyEventsEnabled(),
+                Component.literal(RegionEventConfig.isDailyEventsEnabled() ? "启用" : "停用"),
                 DailyEventScheduler.expandedEventCount(),
                 DailyEventScheduler.hookCount()), false);
         return 1;
@@ -1249,7 +1282,8 @@ public final class SeekingImmortalsCommand {
     private static int regionDailyEventsToggle(CommandSourceStack source, boolean enabled) {
         RegionEventConfig.setDailyEventsEnabled(enabled);
         source.sendSuccess(() -> Component.translatable(
-                "command.seeking_immortals.region.daily_events.toggle", enabled), true);
+                "command.seeking_immortals.region.daily_events.toggle",
+                Component.literal(enabled ? "启用" : "停用")), true);
         return 1;
     }
 
@@ -1268,12 +1302,13 @@ public final class SeekingImmortalsCommand {
         net.minecraft.server.level.ServerPlayer player = source.getPlayerOrException();
         String regionId = RegionRegistry.resolveAndSync(player);
         var definition = RegionRegistry.find(regionId);
-        source.sendSuccess(() -> Component.translatable(
-                "command.seeking_immortals.region.here",
-                regionId,
-                definition.map(region -> region.display()).orElse(regionId),
-                definition.map(region -> String.format(Locale.ROOT, "%.2f", region.auraMultiplier())).orElse("1.00"),
-                definition.map(region -> region.dimensionId()).orElse("")), false);
+        source.sendSuccess(() -> Component.literal("当前区域：")
+                .append(regionDisplay(regionId))
+                .append("｜灵气倍率 ")
+                .append(definition.map(region -> String.format(Locale.ROOT, "%.2f", region.auraMultiplier())).orElse("1.00"))
+                .append("｜维度 ")
+                .append(definition.map(region -> dimensionDisplay(region.dimensionId()))
+                        .orElseGet(() -> Component.translatable("text.seeking_immortals.unknown_dimension"))), false);
         return 1;
     }
 
@@ -1284,13 +1319,12 @@ public final class SeekingImmortalsCommand {
                 snapshot.size(),
                 snapshot.cardCount()), false);
         for (var region : snapshot.cards()) {
-            source.sendSuccess(() -> Component.translatable(
-                    "command.seeking_immortals.region.list.entry",
-                    region.id(),
-                    region.display(),
-                    String.format(Locale.ROOT, "%.2f", region.auraMultiplier()),
-                    region.dimensionId(),
-                    region.hasWorldpack()), false);
+            source.sendSuccess(() -> Component.literal("- ")
+                    .append(regionDisplay(region.id()))
+                    .append("｜灵气 ")
+                    .append(String.format(Locale.ROOT, "%.2f", region.auraMultiplier()))
+                    .append("｜维度 ").append(dimensionDisplay(region.dimensionId()))
+                    .append("｜世界包 ").append(region.hasWorldpack() ? "有" : "无"), false);
         }
         return 1;
     }
@@ -1298,15 +1332,16 @@ public final class SeekingImmortalsCommand {
     private static int regionItems(CommandSourceStack source, String regionId) {
         var items = RegionItemsService.itemsForRegion(regionId);
         source.sendSuccess(() -> Component.translatable(
-                "command.seeking_immortals.region.items.header", regionId, items.size()), false);
+                "command.seeking_immortals.region.items.header", regionDisplay(regionId), items.size()), false);
         int shown = 0;
         for (var item : items) {
             if (shown++ >= 20) {
                 break;
             }
-            source.sendSuccess(() -> Component.translatable(
-                    "command.seeking_immortals.region.items.entry",
-                    item.id(), item.display(), item.category(), item.rarity()), false);
+            source.sendSuccess(() -> Component.literal("- ")
+                    .append(safeText(item.display(), "text.seeking_immortals.unknown_item"))
+                    .append("｜").append(categoryDisplay(item.category()))
+                    .append("｜").append(rarityDisplay(item.rarity())), false);
         }
         return 1;
     }
@@ -1314,12 +1349,15 @@ public final class SeekingImmortalsCommand {
     private static int regionRoutes(CommandSourceStack source, String from, String to) {
         var routes = TravelRouteGraph.builtin().routesBetween(from, to);
         boolean connected = TravelRouteGraph.builtin().isConnected(from, to);
-        source.sendSuccess(() -> Component.translatable(
-                "command.seeking_immortals.region.routes.header", from, to, routes.size(), connected), false);
+        source.sendSuccess(() -> Component.literal("路线 ").append(regionDisplay(from)).append(" → ")
+                .append(regionDisplay(to)).append("：直接路线 ").append(Integer.toString(routes.size()))
+                .append("，连通 ").append(connected ? "是" : "否"), false);
         for (var route : routes) {
-            source.sendSuccess(() -> Component.translatable(
-                    "command.seeking_immortals.region.routes.entry",
-                    route.id(), route.from(), route.to(), route.minDays(), route.maxDays(), route.feeLowStone()), false);
+            source.sendSuccess(() -> Component.literal("- ")
+                    .append(regionDisplay(route.from())).append(" → ").append(regionDisplay(route.to()))
+                    .append("｜耗时 ").append(Integer.toString(route.minDays())).append("-")
+                    .append(Integer.toString(route.maxDays())).append(" 天｜费用 ")
+                    .append(Integer.toString(route.feeLowStone())), false);
         }
         return 1;
     }
@@ -1361,8 +1399,12 @@ public final class SeekingImmortalsCommand {
                 manifest.totalFiles(), manifest.totalEntries()), false);
         int shown = 0;
         for (TextMaterialManifestService.FileEntry entry : manifest.files().values()) {
-            String line = entry.id() + " | entries=" + entry.entries() + " | key=" + entry.primaryKey();
-            source.sendSuccess(() -> Component.literal(line), false);
+            MutableComponent line = Component.literal("目录文件 ").append(Integer.toString(shown + 1))
+                    .append("｜条目 ").append(Integer.toString(entry.entries()));
+            if (source.hasPermission(2)) {
+                line.append("｜").append(adminId(entry.id()));
+            }
+            source.sendSuccess(() -> line, false);
             if (++shown >= 30) {
                 int remaining = manifest.totalFiles() - shown;
                 source.sendSuccess(() -> Component.translatable("command.seeking_immortals.catalog.methods.truncated", remaining), false);
@@ -1380,12 +1422,12 @@ public final class SeekingImmortalsCommand {
                 hub.loreCatalogTotal()), false);
         for (String line : hub.lines()) {
             String copy = line;
-            source.sendSuccess(() -> Component.literal(copy), false);
+            source.sendSuccess(() -> safeText(copy, "text.seeking_immortals.unknown_requirement"), false);
         }
         if (source.getEntity() instanceof net.minecraft.server.level.ServerPlayer player) {
             for (String line : com.xunxian.seekingimmortals.lore.LoreCompendiumService.playerProgressLines(player)) {
                 String copy = line;
-                source.sendSuccess(() -> Component.literal(copy), false);
+                source.sendSuccess(() -> safeText(copy, "text.seeking_immortals.unknown_requirement"), false);
             }
         }
         return 1;
@@ -1397,7 +1439,12 @@ public final class SeekingImmortalsCommand {
             return 0;
         }
         com.xunxian.seekingimmortals.lore.LoreSyncService.syncAndOpen(player, screen);
-        source.sendSuccess(() -> Component.translatable("command.seeking_immortals.lore.opened", screen), false);
+        String screenName = switch (screen == null ? "" : screen.trim().toLowerCase(Locale.ROOT)) {
+            case "bestiary" -> "妖兽图鉴";
+            case "chronicle" -> "编年见闻";
+            default -> "百科总览";
+        };
+        source.sendSuccess(() -> Component.translatable("command.seeking_immortals.lore.opened", screenName), false);
         return 1;
     }
 
@@ -1407,19 +1454,24 @@ public final class SeekingImmortalsCommand {
                     com.xunxian.seekingimmortals.lore.NameAliasGlossaryService.size()), false);
             for (String line : com.xunxian.seekingimmortals.lore.NameAliasGlossaryService.sampleLines(12)) {
                 String copy = line;
-                source.sendSuccess(() -> Component.literal(copy), false);
+                source.sendSuccess(() -> safeText(copy, "text.seeking_immortals.unknown_requirement"), false);
             }
             return 1;
         }
         return com.xunxian.seekingimmortals.lore.NameAliasGlossaryService.find(query)
                 .map(entry -> {
-                    String aliases = entry.aliases().isEmpty() ? "-" : String.join("/", entry.aliases());
-                    source.sendSuccess(() -> Component.translatable("command.seeking_immortals.lore.glossary.entry",
-                            entry.primary(), entry.id(), entry.type(), aliases), false);
+                    String primary = com.xunxian.seekingimmortals.lore.NameAliasGlossaryService
+                            .playerDisplayName(entry);
+                    List<String> visibleAliases = com.xunxian.seekingimmortals.lore.NameAliasGlossaryService
+                            .playerDisplayAliases(entry);
+                    String aliases = visibleAliases.isEmpty() ? "无" : String.join("、", visibleAliases);
+                    source.sendSuccess(() -> Component.literal("术语：").append(safeText(primary,
+                                    "text.seeking_immortals.unknown_requirement"))
+                            .append("｜别名：").append(safeText(aliases, "text.seeking_immortals.unknown_requirement")), false);
                     return 1;
                 })
                 .orElseGet(() -> {
-                    source.sendFailure(Component.translatable("command.seeking_immortals.lore.glossary.missing", query));
+                    source.sendFailure(Component.literal("未找到该术语。"));
                     return 0;
                 });
     }
@@ -1432,7 +1484,7 @@ public final class SeekingImmortalsCommand {
         source.sendSuccess(() -> Component.translatable("command.seeking_immortals.lore.numeric.header"), false);
         for (String line : com.xunxian.seekingimmortals.lore.NumericOverviewService.sampleLines(20)) {
             String copy = line;
-            source.sendSuccess(() -> Component.literal(copy), false);
+            source.sendSuccess(() -> safeText(copy, "text.seeking_immortals.unknown_requirement"), false);
         }
         return 1;
     }
@@ -1445,10 +1497,10 @@ public final class SeekingImmortalsCommand {
             return 0;
         }
         source.sendSuccess(() -> Component.translatable("command.seeking_immortals.lore.visual.header",
-                snap.styleGuideId()), false);
+                Component.literal("视觉规范")), false);
         for (String line : snap.paletteLines()) {
             String copy = line;
-            source.sendSuccess(() -> Component.literal(copy), false);
+            source.sendSuccess(() -> safeText(copy, "text.seeking_immortals.unknown_requirement"), false);
         }
         return 1;
     }
@@ -1471,8 +1523,8 @@ public final class SeekingImmortalsCommand {
             if (!missing) {
                 ok++;
             }
-            String status = missing ? "MISSING" : "ok";
-            source.sendSuccess(() -> Component.literal(status + " " + key), false);
+            String status = missing ? "缺失" : "正常";
+            source.sendSuccess(() -> Component.literal(status), false);
         }
         int finalOk = ok;
         source.sendSuccess(() -> Component.translatable("command.seeking_immortals.lore.lang.summary",
@@ -1524,11 +1576,25 @@ public final class SeekingImmortalsCommand {
         source.sendSuccess(() -> Component.translatable("command.seeking_immortals.catalog.auction.summary",
                 snapshot.venueCount(), snapshot.lotCount(), snapshot.minIncrementPct()), false);
         for (AuctionSoftService.Venue venue : snapshot.venues()) {
-            source.sendSuccess(() -> Component.literal("venue " + venue.id() + " | " + venue.region() + " | " + venue.faction()), false);
+            Component visible = Component.translatable("message.seeking_immortals.auction.venue",
+                    AuctionSoftService.playerVenueDisplay(venue),
+                    AuctionSoftService.playerRegionDisplay(venue.region()),
+                    AuctionSoftService.playerFactionDisplay(venue.faction()));
+            if (source.hasPermission(2)) {
+                visible = Component.literal("内部标识「" + venue.id() + "」｜").append(visible);
+            }
+            Component line = visible;
+            source.sendSuccess(() -> line, false);
         }
         int shown = 0;
         for (AuctionSoftService.Lot lot : snapshot.lots()) {
-            source.sendSuccess(() -> Component.literal("lot " + lot.id() + " | " + lot.display() + " | " + lot.minEquiv() + "-" + lot.maxEquiv()), false);
+            Component visible = Component.translatable("message.seeking_immortals.auction.lot",
+                    AuctionSoftService.playerLotDisplay(lot), lot.minEquiv(), lot.maxEquiv());
+            if (source.hasPermission(2)) {
+                visible = Component.literal("内部标识「" + lot.id() + "」｜").append(visible);
+            }
+            Component line = visible;
+            source.sendSuccess(() -> line, false);
             if (++shown >= 10) break;
         }
         return 1;
@@ -1576,24 +1642,25 @@ public final class SeekingImmortalsCommand {
 
     private static int catalogDimensions(CommandSourceStack source) {
         var snap = com.xunxian.seekingimmortals.worldpack.DimensionRegistryService.snapshot();
-        source.sendSuccess(() -> Component.literal("M13 dimensions: " + snap.size()
-                + " (playable=" + snap.playable().size()
-                + ", deferred=" + snap.deferredIds().size()
-                + ", auraCovered=" + com.xunxian.seekingimmortals.worldpack.DimensionRegistryService.coversAuraKnownDimensions()
-                + ", methods=" + com.xunxian.seekingimmortals.worldpack.DimensionTravelService.methodCount()
-                + ", routes=" + com.xunxian.seekingimmortals.worldpack.DimensionTravelService.routeCount()
-                + ", gates=" + com.xunxian.seekingimmortals.worldpack.SpiritRealmInterfaceService.gateCount()
-                + ", yinRegions=" + com.xunxian.seekingimmortals.worldpack.YinUnderworldClusterService.snapshot().regionCount()
-                + ")"), false);
+        source.sendSuccess(() -> Component.literal("维度目录：共 ").append(Integer.toString(snap.size()))
+                .append(" 个，可进入 ").append(Integer.toString(snap.playable().size()))
+                .append(" 个，待实现 ").append(Integer.toString(snap.deferredIds().size()))
+                .append(" 个"), false);
         int shown = 0;
         for (var def : snap.playable()) {
-            String line = def.id() + " | " + def.display() + " | " + def.cosmology()
-                    + " | min=" + def.minRealm() + (def.isDeferred() ? " | DEFERRED" : "");
-            source.sendSuccess(() -> Component.literal(line), false);
+            MutableComponent line = Component.literal("- ").append(dimensionDisplay(def.id()))
+                    .append("｜最低境界 ").append(realmDisplay(def.minRealm()))
+                    .append("｜状态 ").append(def.isDeferred() ? "待实现" : "可进入");
+            if (source.hasPermission(2)) {
+                line.append("｜").append(adminId(def.id()));
+            }
+            source.sendSuccess(() -> line, false);
             if (++shown >= 16) break;
         }
-        for (String deferred : snap.deferredIds()) {
-            source.sendSuccess(() -> Component.literal("deferred: " + deferred), false);
+        if (source.hasPermission(2)) {
+            for (String deferred : snap.deferredIds()) {
+                source.sendSuccess(() -> Component.literal("待实现：").append(adminId(deferred)), false);
+            }
         }
         return 1;
     }
@@ -1601,24 +1668,28 @@ public final class SeekingImmortalsCommand {
     private static int catalogDimensionGet(CommandSourceStack source, String id) {
         var optional = com.xunxian.seekingimmortals.worldpack.DimensionRegistryService.find(id);
         if (optional.isEmpty()) {
-            source.sendFailure(Component.literal("unknown dimension: " + id));
+            source.sendFailure(Component.translatable("text.seeking_immortals.unknown_dimension"));
             return 0;
         }
         var def = optional.get();
-        source.sendSuccess(() -> Component.literal(def.id() + " display=" + def.display()
-                + " cosmology=" + def.cosmology()
-                + " minRealm=" + def.minRealm()
-                + " cap=" + def.realmCap()
-                + " mc=" + def.effectiveMinecraftId()
-                + " status=" + def.status()
-                + " note=" + def.note()), false);
+        MutableComponent line = Component.literal("维度：").append(dimensionDisplay(def.id()))
+                .append("｜最低境界 ").append(realmDisplay(def.minRealm()))
+                .append("｜境界上限 ").append(realmDisplay(def.realmCap()))
+                .append("｜状态 ").append(def.isDeferred() ? "待实现" : "可进入");
+        if (PlayerDisplayText.isSafe(def.note()) && !def.note().isBlank()) {
+            line.append("｜说明 ").append(def.note());
+        }
+        if (source.hasPermission(2)) {
+            line.append("｜").append(adminId(def.id()));
+        }
+        source.sendSuccess(() -> line, false);
         return 1;
     }
 
     private static int catalogDimensionTravel(CommandSourceStack source, String route) throws CommandSyntaxException {
         ServerPlayer player = source.getPlayerOrException();
         boolean ok = com.xunxian.seekingimmortals.worldpack.DimensionTravelService.travelByRoute(player, route);
-        source.sendSuccess(() -> Component.literal(ok ? "travel ok: " + route : "travel failed: " + route), false);
+        source.sendSuccess(() -> Component.literal(ok ? "跨界传送已完成。" : "跨界传送未完成。"), false);
         return ok ? 1 : 0;
     }
 
@@ -1627,11 +1698,20 @@ public final class SeekingImmortalsCommand {
         var missing = com.xunxian.seekingimmortals.worldpack.AscensionService.missingRequirements(player);
         boolean can = com.xunxian.seekingimmortals.worldpack.AscensionService.canAscend(player);
         boolean pending = com.xunxian.seekingimmortals.worldpack.AscensionService.hasPendingConfirmation(player);
-        source.sendSuccess(() -> Component.literal("ascension can=" + can
-                + " pending=" + pending
-                + " stage=" + com.xunxian.seekingimmortals.worldpack.AscensionService.currentStage(player)
-                + " stages=" + com.xunxian.seekingimmortals.worldpack.AscensionService.stageCount()
-                + " missing=" + missing), false);
+        MutableComponent line = Component.literal("飞升资格：").append(can ? "满足" : "不足")
+                .append("｜待确认：").append(pending ? "是" : "否")
+                .append("｜当前阶段：").append(ascensionStageDisplay(
+                        com.xunxian.seekingimmortals.worldpack.AscensionService.currentStage(player)))
+                .append("｜缺少条件：");
+        if (missing.isEmpty()) {
+            line.append("无");
+        } else {
+            for (int i = 0; i < missing.size(); i++) {
+                if (i > 0) line.append("、");
+                line.append(ascensionRequirementDisplay(missing.get(i)));
+            }
+        }
+        source.sendSuccess(() -> line, false);
         return 1;
     }
 
@@ -1640,7 +1720,7 @@ public final class SeekingImmortalsCommand {
         boolean ok = confirm
                 ? com.xunxian.seekingimmortals.worldpack.AscensionService.confirmLoadoutAndAscend(player)
                 : com.xunxian.seekingimmortals.worldpack.AscensionService.attemptAscension(player, false);
-        source.sendSuccess(() -> Component.literal(ok ? "ascension executed" : "ascension not completed"), false);
+        source.sendSuccess(() -> Component.literal(ok ? "飞升已执行。" : "飞升尚未完成。"), false);
         return ok ? 1 : 0;
     }
 
@@ -1656,19 +1736,28 @@ public final class SeekingImmortalsCommand {
      */
     private static int catalogAscensionRestore(CommandSourceStack source) throws CommandSyntaxException {
         ServerPlayer player = source.getPlayerOrException();
-        source.sendSuccess(() -> Component.literal(
-                "admin restore diagnostic (not a player reclaim path); hasBackup="
-                        + com.xunxian.seekingimmortals.worldpack.AscensionService.hasBackup(player)), false);
+        source.sendSuccess(() -> Component.literal("管理员回滚诊断：临时备份 "
+                + (com.xunxian.seekingimmortals.worldpack.AscensionService.hasBackup(player) ? "存在" : "不存在")), false);
         boolean ok = com.xunxian.seekingimmortals.worldpack.AscensionService.restoreBackup(player);
-        source.sendSuccess(() -> Component.literal(ok ? "admin restore applied" : "admin restore no_backup"), false);
+        source.sendSuccess(() -> Component.literal(ok ? "管理员回滚已应用。" : "没有可回滚的备份。"), false);
         return ok ? 1 : 0;
     }
 
     private static int catalogSpatialList(CommandSourceStack source) {
         source.sendSuccess(() -> Component.translatable("command.seeking_immortals.catalog.spatial.header",
                 SpatialNodeCatalogService.builtin().size()), false);
-        for (String line : SpatialNodeCatalogService.builtin().sample(20)) {
-            source.sendSuccess(() -> Component.literal(line), false);
+        int shown = 0;
+        for (SpatialNodeCatalogService.Node node : SpatialNodeCatalogService.builtin().nodes().values()) {
+            MutableComponent line = Component.literal("- ")
+                    .append(safeText(node.display(), "text.seeking_immortals.unknown_spatial_node"))
+                    .append("｜类型 ").append(spatialTypeDisplay(node.type()))
+                    .append("｜区域 ").append(regionDisplay(node.region()))
+                    .append("｜费用 ").append(Integer.toString(node.costSpiritStone()));
+            if (source.hasPermission(2)) {
+                line.append("｜").append(adminId(node.id()));
+            }
+            source.sendSuccess(() -> line, false);
+            if (++shown >= 20) break;
         }
         return 1;
     }
@@ -1680,7 +1769,7 @@ public final class SeekingImmortalsCommand {
     private static int catalogSpatialTravel(CommandSourceStack source, String id) throws CommandSyntaxException {
         boolean ok = SpatialNodeCatalogService.travel(source.getPlayerOrException(), id);
         if (ok) {
-            source.sendSuccess(() -> Component.translatable("command.seeking_immortals.catalog.spatial.travel_ok", id), false);
+            source.sendSuccess(() -> Component.literal("空间节点传送完成。"), false);
         }
         return ok ? 1 : 0;
     }
@@ -1695,7 +1784,8 @@ public final class SeekingImmortalsCommand {
             return 1;
         }
         for (var entry : snapshot.entrySet()) {
-            source.sendSuccess(() -> Component.literal(entry.getKey() + " = " + entry.getValue()), false);
+            source.sendSuccess(() -> Component.literal("声望·").append(factionDisplay(entry.getKey()))
+                    .append("：").append(Integer.toString(entry.getValue())), false);
         }
         return 1;
     }
@@ -1704,7 +1794,7 @@ public final class SeekingImmortalsCommand {
         ServerPlayer player = source.getPlayerOrException();
         int value = ReputationService.get(player, faction);
         source.sendSuccess(() -> Component.translatable("command.seeking_immortals.catalog.reputation.value",
-                faction, value), false);
+                factionDisplay(faction), value), false);
         return 1;
     }
 
@@ -1713,7 +1803,7 @@ public final class SeekingImmortalsCommand {
         double mult = ReputationService.shopDiscountMultiplier(player, shopId);
         String label = ReputationService.discountLabel(player, shopId);
         source.sendSuccess(() -> Component.translatable("command.seeking_immortals.catalog.reputation.discount",
-                shopId, label, mult), false);
+                shopDisplay(shopId), discountDisplay(label), mult), false);
         return 1;
     }
 
@@ -1721,7 +1811,7 @@ public final class SeekingImmortalsCommand {
         ServerPlayer player = source.getPlayerOrException();
         int next = ReputationService.add(player, faction, delta);
         source.sendSuccess(() -> Component.translatable("command.seeking_immortals.catalog.reputation.added",
-                faction, delta, next), true);
+                factionDisplay(faction), delta, next), true);
         return 1;
     }
 
@@ -1750,8 +1840,15 @@ public final class SeekingImmortalsCommand {
         BulkCatalogIndexService.Snapshot snapshot = BulkCatalogIndexService.builtin();
         source.sendSuccess(() -> Component.translatable("command.seeking_immortals.catalog.bulk.header",
                 snapshot.fileCount(), snapshot.totalEntries()), false);
-        for (String line : snapshot.sampleFiles(30)) {
-            source.sendSuccess(() -> Component.literal(line), false);
+        int shown = 0;
+        for (BulkCatalogIndexService.IndexFile file : snapshot.indexes().values()) {
+            MutableComponent line = Component.literal("目录文件 ").append(Integer.toString(shown + 1))
+                    .append("｜条目 ").append(Integer.toString(file.size()));
+            if (source.hasPermission(2)) {
+                line.append("｜").append(adminId(file.file()));
+            }
+            source.sendSuccess(() -> line, false);
+            if (++shown >= 30) break;
         }
         return 1;
     }
@@ -1759,15 +1856,23 @@ public final class SeekingImmortalsCommand {
     private static int catalogBulkShow(CommandSourceStack source, String name) {
         var optional = BulkCatalogIndexService.builtin().find(name);
         if (optional.isEmpty()) {
-            source.sendFailure(Component.translatable("command.seeking_immortals.catalog.bulk.unknown", name));
+            source.sendFailure(Component.literal("未找到该目录。"));
             return 0;
         }
         BulkCatalogIndexService.IndexFile file = optional.get();
-        source.sendSuccess(() -> Component.translatable("command.seeking_immortals.catalog.bulk.show",
-                file.file(), file.size(), file.primaryKey()), false);
+        MutableComponent header = Component.literal("目录条目：").append(Integer.toString(file.size()));
+        if (source.hasPermission(2)) {
+            header.append("｜").append(adminId(file.file()));
+        }
+        source.sendSuccess(() -> header, false);
         int shown = 0;
         for (BulkCatalogIndexService.Entry entry : file.entries().values()) {
-            source.sendSuccess(() -> Component.literal(entry.id() + " | " + entry.display()), false);
+            MutableComponent line = Component.literal("- ")
+                    .append(safeText(entry.display(), "text.seeking_immortals.unknown_requirement"));
+            if (source.hasPermission(2)) {
+                line.append("｜").append(adminId(entry.id()));
+            }
+            source.sendSuccess(() -> line, false);
             if (++shown >= 20) {
                 int remaining = file.size() - shown;
                 source.sendSuccess(() -> Component.translatable("command.seeking_immortals.catalog.methods.truncated", remaining), false);
@@ -1928,9 +2033,9 @@ public final class SeekingImmortalsCommand {
         int count = SummonHonestMvpService.countOwnedServitors(player);
         source.sendSuccess(() -> Component.translatable("command.seeking_immortals.catalog.summon.header", count), false);
         SummonHonestMvpService.listOwnedServitors(player).forEach(servitor ->
-                source.sendSuccess(() -> Component.literal(servitor.getSummonId() + " | "
-                        + servitor.getArchetype().name().toLowerCase() + " | "
-                        + servitor.getStance().name().toLowerCase()), false));
+                source.sendSuccess(() -> Component.literal("侍灵：")
+                        .append(summonArchetypeDisplay(servitor.getArchetype()))
+                        .append("｜姿态：").append(summonStanceDisplay(servitor.getStance())), false));
         return 1;
     }
 
@@ -1956,7 +2061,10 @@ public final class SeekingImmortalsCommand {
         ServerPlayer player = source.getPlayerOrException();
         var lines = com.xunxian.seekingimmortals.cultivation.BeastContractService.snapshotLines(player);
         source.sendSuccess(() -> Component.translatable("command.seeking_immortals.beast.header", lines.size()), false);
-        lines.forEach((id, info) -> source.sendSuccess(() -> Component.literal(id + " | " + info), false));
+        lines.forEach((id, info) -> source.sendSuccess(() -> Component.literal("灵兽：")
+                .append(beastDisplay(id)).append("｜").append(safeText(info.replace("affinity=", "亲和=")
+                        .replace(",level=", "，等级=").replace(",experience=", "，经验=")
+                        .replace(",evolution=", "，进化="), "text.seeking_immortals.unknown_beast")), false));
         return 1;
     }
 
@@ -1978,8 +2086,8 @@ public final class SeekingImmortalsCommand {
     }
 
     private static int phaseStatus(CommandSourceStack source) throws CommandSyntaxException {
-        String status = com.xunxian.seekingimmortals.phase.SoftPhaseShellService.status(source.getPlayerOrException());
-        source.sendSuccess(() -> Component.literal(status), false);
+        com.xunxian.seekingimmortals.phase.SoftPhaseShellService.status(source.getPlayerOrException());
+        source.sendSuccess(() -> Component.literal("阶段进度已读取。"), false);
         return 1;
     }
 
@@ -2003,7 +2111,8 @@ public final class SeekingImmortalsCommand {
 
     private static int warStatus(CommandSourceStack source) {
         String status = com.xunxian.seekingimmortals.sect.SectWarService.status(source.getServer());
-        source.sendSuccess(() -> Component.translatable("command.seeking_immortals.war.status", status), false);
+        source.sendSuccess(() -> Component.translatable("command.seeking_immortals.war.status",
+                safeText(status, "text.seeking_immortals.unknown_event")), false);
         return 1;
     }
 
@@ -2018,11 +2127,7 @@ public final class SeekingImmortalsCommand {
     private static int catalogHas(CommandSourceStack source, String id) {
         TextMaterialManifestService.Snapshot manifest = TextMaterialManifestService.builtin();
         boolean present = manifest.contains(id);
-        source.sendSuccess(() -> Component.translatable(present
-                        ? "command.seeking_immortals.catalog.has.yes"
-                        : "command.seeking_immortals.catalog.has.no",
-                id,
-                present ? manifest.find(id).map(TextMaterialManifestService.FileEntry::entries).orElse(0) : 0), false);
+        source.sendSuccess(() -> Component.literal(present ? "目录已收录该内容。" : "目录未收录该内容。"), false);
         return present ? 1 : 0;
     }
 
@@ -2042,8 +2147,16 @@ public final class SeekingImmortalsCommand {
         source.sendSuccess(() -> Component.translatable("command.seeking_immortals.catalog.methods.header", total), false);
         int shown = 0;
         for (TextMaterialCatalogService.MethodEntry method : snapshot.methods().values()) {
-            String line = method.id() + " | " + method.display() + " | " + method.realmMin() + " | " + method.school();
-            source.sendSuccess(() -> Component.literal(line), false);
+            MutableComponent line = Component.literal("- ")
+                    .append(safeText(method.display(), "text.seeking_immortals.unknown_technique"))
+                    .append("｜最低境界 ").append(realmDisplay(method.realmMin()));
+            if (PlayerDisplayText.isSafe(method.school()) && !method.school().isBlank()) {
+                line.append("｜门类 ").append(method.school());
+            }
+            if (source.hasPermission(2)) {
+                line.append("｜").append(adminId(method.id()));
+            }
+            source.sendSuccess(() -> line, false);
             if (++shown >= 20) {
                 int remaining = total - shown;
                 source.sendSuccess(() -> Component.translatable("command.seeking_immortals.catalog.methods.truncated", remaining), false);
@@ -2067,13 +2180,13 @@ public final class SeekingImmortalsCommand {
             if (!tag.getBoolean(key)) {
                 continue;
             }
-            String line = key;
+            Component line = Component.translatable("text.seeking_immortals.unknown_technique");
             var optional = TextMaterialCatalogService.builtin().findMethod(key);
             if (optional.isPresent()) {
-                line = optional.get().id() + " | " + optional.get().display();
+                line = safeText(optional.get().display(), "text.seeking_immortals.unknown_technique");
             }
-            String finalLine = line;
-            source.sendSuccess(() -> Component.literal(finalLine), false);
+            Component finalLine = line;
+            source.sendSuccess(() -> finalLine, false);
             if (++shown >= 30) {
                 break;
             }
@@ -2086,8 +2199,12 @@ public final class SeekingImmortalsCommand {
         source.sendSuccess(() -> Component.translatable("command.seeking_immortals.catalog.realms.header",
                 snapshot.secretRealmFlavors().size()), false);
         for (TextMaterialCatalogService.SecretRealmFlavor flavor : snapshot.secretRealmFlavors().values()) {
-            source.sendSuccess(() -> Component.literal(flavor.id() + " | " + flavor.openCondition()
-                    + " | " + flavor.environment()), false);
+            MutableComponent line = Component.literal("秘境风貌：")
+                    .append(safeText(flavor.environment(), "text.seeking_immortals.unknown_secret_realm"));
+            if (PlayerDisplayText.isSafe(flavor.openCondition()) && !flavor.openCondition().isBlank()) {
+                line.append("｜开启条件 ").append(flavor.openCondition());
+            }
+            source.sendSuccess(() -> line, false);
         }
         return 1;
     }
@@ -2098,8 +2215,10 @@ public final class SeekingImmortalsCommand {
                 snapshot.questChains().size()), false);
         int shown = 0;
         for (ExtendedCatalogService.QuestChain chain : snapshot.questChains().values()) {
-            String line = chain.id() + " | " + chain.display() + " | steps=" + chain.stepCount() + " | " + chain.region();
-            source.sendSuccess(() -> Component.literal(line), false);
+            source.sendSuccess(() -> Component.literal("- ")
+                    .append(questDisplay(chain.id()))
+                    .append("｜步骤 ").append(Integer.toString(chain.stepCount()))
+                    .append("｜区域 ").append(regionDisplay(chain.region())), false);
             if (++shown >= 20) {
                 int remaining = snapshot.questChains().size() - shown;
                 source.sendSuccess(() -> Component.translatable("command.seeking_immortals.catalog.methods.truncated", remaining), false);
@@ -2114,8 +2233,10 @@ public final class SeekingImmortalsCommand {
         source.sendSuccess(() -> Component.translatable("command.seeking_immortals.catalog.sects.header",
                 snapshot.sects().size()), false);
         for (ExtendedCatalogService.SectEntry sect : snapshot.sects().values()) {
-            source.sendSuccess(() -> Component.literal(sect.id() + " | " + sect.display() + " | " + sect.region()
-                    + " | " + sect.alignment()), false);
+            source.sendSuccess(() -> Component.literal("- ")
+                    .append(factionDisplay(sect.id()))
+                    .append("｜区域 ").append(regionDisplay(sect.region()))
+                    .append("｜立场 ").append(alignmentDisplay(sect.alignment())), false);
         }
         return 1;
     }
@@ -2125,8 +2246,9 @@ public final class SeekingImmortalsCommand {
         source.sendSuccess(() -> Component.translatable("command.seeking_immortals.catalog.bands.header",
                 snapshot.priceBands().size()), false);
         for (ExtendedCatalogService.PriceBand band : snapshot.priceBands().values()) {
-            source.sendSuccess(() -> Component.literal(band.id() + " | min=" + band.min() + " max=" + band.max()
-                    + " suggested=" + band.suggested()), false);
+            source.sendSuccess(() -> Component.literal("价格范围：")
+                    .append(Integer.toString(band.min())).append("-").append(Integer.toString(band.max()))
+                    .append("，建议 ").append(Integer.toString(band.suggested())), false);
         }
         return 1;
     }
@@ -2136,7 +2258,9 @@ public final class SeekingImmortalsCommand {
         source.sendSuccess(() -> Component.translatable("command.seeking_immortals.catalog.chapters.header",
                 snapshot.chapters().size()), false);
         for (ExtendedCatalogService.StoryChapter chapter : snapshot.chapters().values()) {
-            source.sendSuccess(() -> Component.literal(chapter.id() + " | " + chapter.display() + " | " + chapter.region()), false);
+            source.sendSuccess(() -> Component.literal("- ")
+                    .append(safeText(chapter.display(), "text.seeking_immortals.unknown_chapter"))
+                    .append("｜区域 ").append(regionDisplay(chapter.region())), false);
         }
         return 1;
     }
@@ -2166,12 +2290,10 @@ public final class SeekingImmortalsCommand {
             }
             player.sendSystemMessage(Component.translatable("command.seeking_immortals.sect.candidates.header", candidates.size()));
             for (SectDefinitionService.SectDefinition definition : candidates) {
-                player.sendSystemMessage(Component.translatable(
-                        "command.seeking_immortals.sect.candidate",
-                        definition.id(),
-                        definition.displayZh(),
-                        definition.displayEn(),
-                        definition.focusZh()));
+                player.sendSystemMessage(Component.literal("- ")
+                        .append(safeText(definition.displayZh(), "text.seeking_immortals.unknown_faction"))
+                        .append("：")
+                        .append(safeText(definition.focusZh(), "text.seeking_immortals.unknown_requirement")));
             }
         }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.no_data")));
         return 1;
@@ -2291,7 +2413,7 @@ public final class SeekingImmortalsCommand {
             SyncCultivationDataPacket.send(player, cultivation);
             SyncLearnedTechniquesPacket.send(player, cultivation);
             source.sendSuccess(() -> Component.literal(String.format(
-                    "Set cultivation=%d -> %s %s, stage progress %d/%d, mana cap %d.",
+                    "修为已设为%d → %s %s，阶段进度%d/%d，灵力上限%d。",
                     cultivation.getCultivation(),
                     cultivation.getRealm().getDisplayName(),
                     cultivation.getStage().getDisplayName(),
@@ -2308,7 +2430,7 @@ public final class SeekingImmortalsCommand {
             cultivation.setMana(cultivation.getManaMax());
             SyncCultivationDataPacket.send(player, cultivation);
             source.sendSuccess(() -> Component.literal(String.format(
-                    "Filled mana to %d/%d.",
+                    "灵力已充满：%d/%d。",
                     cultivation.getMana(),
                     cultivation.getManaMax())), true);
         });
@@ -2355,8 +2477,8 @@ public final class SeekingImmortalsCommand {
                     .map(SkillType::getDisplayName)
                     .collect(Collectors.joining(", "));
             source.sendSuccess(() -> Component.literal(unlocked.isEmpty()
-                    ? "No new skills unlocked for current realm; learned technique sync refreshed."
-                    : String.format("Unlocked %d skill(s): %s", unlocked.size(), names)), true);
+                    ? "当前境界没有新的技能解锁，已刷新功法同步。"
+                    : String.format("已解锁%d项技能：%s", unlocked.size(), names)), true);
         });
         return 1;
     }
@@ -2396,4 +2518,232 @@ public final class SeekingImmortalsCommand {
                 ? Component.translatable("command.seeking_immortals.market.stock.unlimited")
                 : Component.literal(Integer.toString(Math.max(0, stock)));
     }
+
+    /*
+     * Command output is also a player-facing surface.  Catalog ids and enum names are
+     * intentionally kept inside the command arguments, but never echoed back to a
+     * normal player when a Chinese display name is available.
+     */
+    private static Component safeText(String value, String fallbackKey) {
+        return PlayerDisplayText.safeLiteral(value, fallbackKey);
+    }
+
+    private static Component questDisplay(String id) {
+        return ExtendedCatalogService.builtin().findQuest(id)
+                .map(chain -> safeText(chain.display(), "text.seeking_immortals.unknown_quest"))
+                .orElseGet(() -> Component.translatable("text.seeking_immortals.unknown_quest"));
+    }
+
+    private static Component npcDisplay(String id) {
+        return NamedNpcRegistry.find(id)
+                .map(npc -> safeText(npc.display(), "text.seeking_immortals.unknown_affiliation"))
+                .orElseGet(() -> Component.translatable("text.seeking_immortals.unknown_affiliation"));
+    }
+
+    private static Component regionDisplay(String id) {
+        return RegionRegistry.find(id)
+                .map(region -> safeText(region.display(), "text.seeking_immortals.unknown_region"))
+                .orElseGet(() -> WorldpackDataService.builtin().findRegion(id)
+                        .map(region -> safeText(region.displayZh(), "text.seeking_immortals.unknown_region"))
+                        .orElseGet(() -> Component.translatable("text.seeking_immortals.unknown_region")));
+    }
+
+    private static Component realmDisplay(String id) {
+        return ArtifactDisplayTexts.realm(id);
+    }
+
+    private static Component itemDisplay(String id) {
+        return PlayerDisplayText.itemName(id);
+    }
+
+    private static Component artifactDisplay(String id) {
+        return ArtifactDataService.builtin().findArtifact(id)
+                .map(artifact -> safeText(artifact.display(), "text.seeking_immortals.unknown_item"))
+                .orElseGet(() -> Component.translatable("text.seeking_immortals.unknown_item"));
+    }
+
+    private static Component beastDisplay(String id) {
+        return BeastBestiaryService.find(id)
+                .map(entry -> safeText(entry.display(), "text.seeking_immortals.unknown_beast"))
+                .orElseGet(() -> Component.translatable("text.seeking_immortals.unknown_beast"));
+    }
+
+    private static Component summonArchetypeDisplay(
+            com.xunxian.seekingimmortals.entity.SummonedServitorEntity.Archetype archetype) {
+        if (archetype == null) {
+            return Component.translatable("message.seeking_immortals.summon.archetype.generic");
+        }
+        return Component.translatable(switch (archetype) {
+            case BEAST -> "message.seeking_immortals.summon.archetype.beast";
+            case PUPPET -> "message.seeking_immortals.summon.archetype.puppet";
+            case GHOST -> "message.seeking_immortals.summon.archetype.ghost";
+            default -> "message.seeking_immortals.summon.archetype.generic";
+        });
+    }
+
+    private static Component summonStanceDisplay(
+            com.xunxian.seekingimmortals.entity.SummonedServitorEntity.Stance stance) {
+        if (stance == null) {
+            return Component.translatable("message.seeking_immortals.summon.stance.follow");
+        }
+        return Component.translatable(switch (stance) {
+            case GUARD -> "message.seeking_immortals.summon.stance.guard";
+            case AGGRESSIVE -> "message.seeking_immortals.summon.stance.aggressive";
+            case STAY -> "message.seeking_immortals.summon.stance.stay";
+            default -> "message.seeking_immortals.summon.stance.follow";
+        });
+    }
+
+    private static Component currencyDisplay(ShopService.Entry entry) {
+        if (entry == null) {
+            return Component.translatable("text.seeking_immortals.unknown_currency");
+        }
+        if (ShopService.CURRENCY_SECT_CONTRIBUTION.equals(entry.currency())) {
+            return Component.translatable("screen.seeking_immortals.shop.currency.sect_contribution");
+        }
+        return itemDisplay(entry.currencyItemId());
+    }
+
+    private static Component factionDisplay(String id) {
+        String normalized = id == null ? "" : id.trim().toLowerCase(Locale.ROOT);
+        var sect = SectDefinitionService.find(normalized);
+        if (sect.isPresent()) {
+            return safeText(sect.get().displayZh(), "text.seeking_immortals.unknown_faction");
+        }
+        var catalog = ExtendedCatalogService.builtin().findSect(normalized);
+        if (catalog.isPresent()) {
+            return safeText(catalog.get().display(), "text.seeking_immortals.unknown_faction");
+        }
+        String key = "text.seeking_immortals.faction." + PlayerDisplayText.normalizeId(normalized);
+        if (PlayerDisplayText.hasTranslation(key)) {
+            return Component.translatable(key);
+        }
+        return Component.translatable("text.seeking_immortals.unknown_faction");
+    }
+
+    private static Component shopDisplay(String id) {
+        String normalized = id == null ? "" : id.trim().toLowerCase(Locale.ROOT);
+        // Shop ids are internal, so use a known faction/market label or a neutral fallback.
+        if (ShopService.isMarketShop(normalized)) {
+            return Component.literal("坊市");
+        }
+        String faction = normalized.replace("_contribution_hall", "")
+                .replace("_merit_hall", "").replace("_shop", "");
+        Component factionName = factionDisplay(faction);
+        String rendered = factionName.getString();
+        return PlayerDisplayText.isSafe(rendered)
+                ? Component.literal(rendered + "坊市")
+                : Component.literal("未知坊市");
+    }
+
+    private static Component dimensionDisplay(String id) {
+        return com.xunxian.seekingimmortals.worldpack.DimensionRegistryService.find(id)
+                .map(def -> safeText(def.display(), "text.seeking_immortals.unknown_dimension"))
+                .orElseGet(() -> Component.translatable("text.seeking_immortals.unknown_dimension"));
+    }
+
+    private static Component branchDisplay(String id) {
+        String normalized = id == null ? "" : id.trim().toLowerCase(Locale.ROOT);
+        return switch (normalized) {
+            case "righteous" -> Component.literal("正道");
+            case "demonic" -> Component.literal("魔道");
+            case "neutral" -> Component.literal("中立");
+            default -> Component.translatable("text.seeking_immortals.unknown_branch");
+        };
+    }
+
+    private static Component statusDisplay(boolean value) {
+        return Component.literal(value ? "是" : "否");
+    }
+
+    private static Component categoryDisplay(String value) {
+        String normalized = value == null ? "" : value.trim().toLowerCase(Locale.ROOT);
+        return Component.literal(switch (normalized) {
+            case "herb" -> "灵草";
+            case "ore", "mineral" -> "矿材";
+            case "material" -> "材料";
+            case "artifact" -> "法宝";
+            case "pill" -> "丹药";
+            case "talisman" -> "符箓";
+            case "secret_realm_drop" -> "秘境产物";
+            default -> "其他";
+        });
+    }
+
+    private static Component rarityDisplay(String value) {
+        String normalized = value == null ? "" : value.trim().toLowerCase(Locale.ROOT);
+        return Component.literal(switch (normalized) {
+            case "common" -> "常见";
+            case "uncommon" -> "少见";
+            case "rare" -> "稀有";
+            case "epic" -> "珍奇";
+            case "legendary" -> "传说";
+            case "regional" -> "地域特产";
+            default -> "未定品阶";
+        });
+    }
+
+    private static Component alignmentDisplay(String value) {
+        String normalized = value == null ? "" : value.trim().toLowerCase(Locale.ROOT);
+        return Component.literal(switch (normalized) {
+            case "righteous", "lawful", "good" -> "正道";
+            case "demonic", "evil" -> "魔道";
+            case "neutral" -> "中立";
+            default -> "立场未明";
+        });
+    }
+
+    private static Component discountDisplay(String value) {
+        String normalized = value == null ? "" : value.trim().toLowerCase(Locale.ROOT);
+        return Component.literal(switch (normalized) {
+            case "honored-20%" -> "敬重八折";
+            case "friendly-5%" -> "友善九五折";
+            default -> "暂无优惠";
+        });
+    }
+
+    private static Component spatialTypeDisplay(String value) {
+        String normalized = value == null ? "" : value.trim().toLowerCase(Locale.ROOT);
+        return switch (normalized) {
+            case "fixed_teleport_array" -> Component.translatable("text.seeking_immortals.spatial_type.fixed_array");
+            case "ancient_rift" -> Component.translatable("text.seeking_immortals.spatial_type.ancient_rift");
+            case "sect_gate" -> Component.translatable("text.seeking_immortals.spatial_type.sect_gate");
+            case "ascension_gate" -> Component.translatable("text.seeking_immortals.spatial_type.ascension_gate");
+            case "demon_rift_event" -> Component.translatable("text.seeking_immortals.spatial_type.demon_rift");
+            case "pocket_gate" -> Component.translatable("text.seeking_immortals.spatial_type.pocket_gate");
+            case "cycle_gate" -> Component.translatable("text.seeking_immortals.spatial_type.cycle_gate");
+            case "hidden_rift" -> Component.translatable("text.seeking_immortals.spatial_type.hidden_rift");
+            case "king_territory" -> Component.translatable("text.seeking_immortals.spatial_type.king_territory");
+            default -> Component.translatable("text.seeking_immortals.unknown_spatial_type");
+        };
+    }
+
+    private static Component ascensionStageDisplay(String id) {
+        return com.xunxian.seekingimmortals.worldpack.AscensionService.snapshot().findStage(id)
+                .map(stage -> safeText(stage.display(), "text.seeking_immortals.unknown_phase"))
+                .orElseGet(() -> Component.translatable("text.seeking_immortals.unknown_phase"));
+    }
+
+    private static Component ascensionRequirementDisplay(String value) {
+        String normalized = value == null ? "" : value.trim().toLowerCase(Locale.ROOT);
+        if (normalized.startsWith("realm_")) {
+            return Component.literal("境界达到").append(realmDisplay(normalized.substring("realm_".length())));
+        }
+        if (normalized.startsWith("quest_flag_soft")) {
+            return Component.literal("完成飞升引导任务");
+        }
+        return Component.literal(switch (normalized) {
+            case "no_player" -> "缺少玩家数据";
+            case "no_cultivation" -> "缺少修炼数据";
+            case "realm_peak" -> "境界尚未圆满";
+            case "tribulation_success" -> "尚未渡过天劫";
+            default -> "未知条件";
+        });
+    }
+
+    private static Component adminId(String id) {
+        String value = id == null ? "" : id.trim();
+        return value.isBlank() ? Component.empty() : Component.literal("内部标识「" + value + "」");
+    }
+
 }

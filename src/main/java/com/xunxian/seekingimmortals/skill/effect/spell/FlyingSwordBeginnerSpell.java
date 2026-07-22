@@ -5,6 +5,7 @@ import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.skill.CultivationSkill;
 import com.xunxian.seekingimmortals.skill.effect.SkillContext;
 import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -47,6 +48,6 @@ public class FlyingSwordBeginnerSpell extends SpellEffect {
             TechniqueVfxPalette.profile("metal").impactAt(level, player.position().add(0.0D, 0.35D, 0.0D));
         }
         FlyingAuthority.revoke(player, FlyingAuthority.SOURCE_QI_FLYING, null, 0.0F);
-        player.displayClientMessage(Component.literal(message), true);
+        player.displayClientMessage(PlayerDisplayText.safeCatalogLiteral(message, "御剑飞行已停止。"), true);
     }
 }

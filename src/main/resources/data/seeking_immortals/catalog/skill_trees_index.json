@@ -119,27 +119,27 @@
     },
     {
       "id": "hehuan_dual",
-      "display": "hehuan_sect道途",
+      "display": "合欢宗道途",
       "layer": ""
     },
     {
       "id": "tianmo_body",
-      "display": "tianmo_sect道途",
+      "display": "天魔宗道途",
       "layer": ""
     },
     {
       "id": "qingluo_poison",
-      "display": "qingluo_sect道途",
+      "display": "青罗宗道途",
       "layer": ""
     },
     {
       "id": "wanhu_phantom",
-      "display": "wanhu_sect道途",
+      "display": "万狐宗道途",
       "layer": ""
     },
     {
       "id": "xuewu_blood",
-      "display": "xuewu_sect道途",
+      "display": "血巫教道途",
       "layer": ""
     },
     {
@@ -364,82 +364,82 @@
     },
     {
       "id": "tree_generic_cultivation_qi_refining",
-      "display": "QI_REFINING通修诀（通称）道途",
+      "display": "炼气通修诀（通称）道途",
       "layer": ""
     },
     {
       "id": "tree_generic_cultivation_foundation",
-      "display": "FOUNDATION通修诀（通称）道途",
+      "display": "筑基通修诀（通称）道途",
       "layer": ""
     },
     {
       "id": "tree_generic_cultivation_core_formation",
-      "display": "CORE_FORMATION通修诀（通称）道途",
+      "display": "结丹通修诀（通称）道途",
       "layer": ""
     },
     {
       "id": "tree_generic_cultivation_nascent_soul",
-      "display": "NASCENT_SOUL通修诀（通称）道途",
+      "display": "元婴通修诀（通称）道途",
       "layer": ""
     },
     {
       "id": "tree_generic_cultivation_deity_transformation",
-      "display": "DEITY_TRANSFORMATION通修诀（通称）道途",
+      "display": "化神通修诀（通称）道途",
       "layer": ""
     },
     {
       "id": "tree_generic_cultivation_void_refining",
-      "display": "VOID_REFINING通修诀（通称）道途",
+      "display": "炼虚通修诀（通称）道途",
       "layer": ""
     },
     {
       "id": "tree_generic_cultivation_great_vehicle",
-      "display": "GREAT_VEHICLE通修诀（通称）道途",
+      "display": "大乘通修诀（通称）道途",
       "layer": ""
     },
     {
       "id": "tree_generic_cultivation_spirit_severing",
-      "display": "SPIRIT_SEVERING通修诀（通称）道途",
+      "display": "合体通修诀（通称）道途",
       "layer": ""
     },
     {
       "id": "tree_sect_specialty_sword",
-      "display": "sword专精入门（通称）道途",
+      "display": "剑修专精入门（通称）道途",
       "layer": ""
     },
     {
       "id": "tree_sect_specialty_body",
-      "display": "body专精入门（通称）道途",
+      "display": "体修专精入门（通称）道途",
       "layer": ""
     },
     {
       "id": "tree_sect_specialty_talisman",
-      "display": "talisman专精入门（通称）道途",
+      "display": "符箓专精入门（通称）道途",
       "layer": ""
     },
     {
       "id": "tree_sect_specialty_formation",
-      "display": "formation专精入门（通称）道途",
+      "display": "阵法专精入门（通称）道途",
       "layer": ""
     },
     {
       "id": "tree_sect_specialty_puppet",
-      "display": "puppet专精入门（通称）道途",
+      "display": "傀儡专精入门（通称）道途",
       "layer": ""
     },
     {
       "id": "tree_sect_specialty_alchemy",
-      "display": "alchemy专精入门（通称）道途",
+      "display": "炼丹专精入门（通称）道途",
       "layer": ""
     },
     {
       "id": "tree_sect_specialty_ghost",
-      "display": "ghost专精入门（通称）道途",
+      "display": "鬼道专精入门（通称）道途",
       "layer": ""
     },
     {
       "id": "tree_sect_specialty_demonic",
-      "display": "demonic专精入门（通称）道途",
+      "display": "魔道专精入门（通称）道途",
       "layer": ""
     },
     {

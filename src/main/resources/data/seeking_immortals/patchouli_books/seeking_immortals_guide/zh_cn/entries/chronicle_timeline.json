@@ -11,17 +11,17 @@
     },
     {
       "type": "patchouli:text",
-      "text": "炼气: 子阶 13 / 寿元 120$(br)筑基: 子阶 4 / 寿元 250$(br)结丹: 子阶 3 / 寿元 600$(br)元婴: 子阶 3 / 寿元 1200$(br)化神: 子阶 3 / 寿元 2500$(br)炼虚: 子阶 3 / 寿元 5000$(br)合体: 子阶 3 / 寿元 10000$(br)大乘: 子阶 3 / 寿元 100000$(br)渡劫期: 子阶 1 / 寿元 None",
+      "text": "炼气：十三层，寿元 120$(br)筑基：四期，寿元 250$(br)结丹：三期，寿元 600$(br)元婴：三期，寿元 1200$(br)化神：三期，寿元 2500$(br)炼虚：三期，寿元 5000$(br)合体：三期，寿元 10000$(br)大乘：三期，寿元 100000$(br)渡劫期：单一阶段，寿元不设固定上限",
       "title": "境界寿元表"
     },
     {
       "type": "patchouli:text",
-      "text": "tl_mengmei_five_realms$(br)tl_tiannan_qi_entry$(br)tl_foundation_blood$(br)tl_core_void_palace$(br)tl_chaotic_sea$(br)tl_nascent_yin_yang$(br)tl_dajin_mulan$(br)tl_diyuan_tianyuan$(br)tl_ascend_spirit$(br)tl_spirit_void_asura$(br)tl_guanghan_end",
+      "text": "蒙昧五域初开$(br)天南炼气入道$(br)筑基血色试炼$(br)结丹探寻虚天殿$(br)乱星海风云$(br)元婴阴阳劫变$(br)大晋与慕兰纷争$(br)地渊与天渊城$(br)飞升灵界$(br)灵界、虚域与修罗界$(br)广寒终局",
       "title": "主线顺序（摘）"
     },
     {
       "type": "patchouli:text",
-      "text": "FOUNDATION: pill_or_sect_resource$(br)CORE_FORMATION: pill_and_demon_core$(br)DEITY_TRANSFORMATION: tribulation_and_spirit_density$(br)VOID_REFINEMENT: artificial_root_or_rare_manual",
+      "text": "筑基：筑基丹或宗门资源$(br)结丹：结丹灵药与妖丹$(br)化神：渡劫准备与充足灵气$(br)炼虚：后天灵根机缘或稀有功法",
       "title": "瓶颈"
     },
     {

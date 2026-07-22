@@ -7,17 +7,17 @@
     {
       "type": "patchouli:text",
       "title": "逆星盟黑市",
-      "text": "逆星盟黑市对应文本材料 merchant_shops.json#inverse_star_black_market。当前版本通过已有坊市系统接入，不新增独立黑市 UI、声望界面、赃物流通加载器或额外网络包，仍使用下品金灵石作为物品货币。"
+      "text": "逆星盟黑市沿用现有坊市系统，使用下品金灵石交易。黑市货物往往伴随声望与赃物风险，购买前请确认自身立场。"
     },
     {
       "type": "patchouli:text",
       "title": "当前货品",
-      "text": "已接入 demon_core_mid、demon_heart_pill 与 recipe_demon_heart。当前分别复用兽核、低阶清心/宁神类丹药、清心丹玉简丹方作为实现载体，价格为 90、180、350 下品金灵石；默认刷新为 48000 tick。"
+      "text": "当前货品包括中阶兽核、魔心丹与魔心丹方，分别以兽核、低阶清心或宁神类丹药、清心丹方作为交易载体，价格为 90、180、350 枚下品金灵石；默认刷新间隔为 48000 游戏刻。"
     },
     {
       "type": "patchouli:text",
       "title": "延后内容",
-      "text": "文本材料中的 stolen_jade_slip、island_deed_gray、contraband_spirit_stone、pirate_loot_bundle、逆星联络信物、密令与走私包仍需要声望、赃物风险、任务和 NPC 表现承接，暂不通过通用物品强行替代。"
+      "text": "失窃玉简、灰岛地契、违禁灵石、海盗战利品包、逆星联络信物、密令与走私包仍需要专属声望、赃物风险、任务和人物互动支持，暂不以通用物品替代。"
     }
   ]
 }

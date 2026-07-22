@@ -5,13 +5,19 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
+import com.xunxian.seekingimmortals.catalog.TextMaterialCatalogService;
 import com.xunxian.seekingimmortals.combat.status.StatusRegistry;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.cultivation.Realm;
 import com.xunxian.seekingimmortals.cultivation.TechniqueDataManager;
 import com.xunxian.seekingimmortals.quest.QuestProgress;
+import com.xunxian.seekingimmortals.region.RegionRegistry;
 import com.xunxian.seekingimmortals.sect.SectContributionService;
+import com.xunxian.seekingimmortals.sect.SectDefinitionService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import com.xunxian.seekingimmortals.worldpack.ReputationService;
+import com.xunxian.seekingimmortals.worldpack.WorldpackDataService;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 
 import java.io.BufferedReader;
@@ -136,9 +142,9 @@ public final class TechniqueGateService {
             return GateResult.ok();
         }
         return GateResult.deny("message.seeking_immortals.technique_gate.region",
-                technique.name().isBlank() ? technique.id() : technique.name(),
-                need,
-                summarizeLocation(where));
+                techniqueDisplay(technique),
+                requiredRegionDisplay(need),
+                currentLocationDisplay(player, cultivation));
     }
 
     private static String inferRegionTag(String blob) {
@@ -185,14 +191,6 @@ public final class TechniqueGateService {
         };
     }
 
-    private static String summarizeLocation(String where) {
-        String trimmed = where == null ? "" : where.trim().replaceAll("\\s+", " ");
-        if (trimmed.isBlank()) {
-            return "-";
-        }
-        return trimmed.length() > 48 ? trimmed.substring(0, 48) + "…" : trimmed;
-    }
-
     private static boolean containsAny(String text, String... tokens) {
         if (text == null || text.isBlank()) {
             return false;
@@ -209,12 +207,12 @@ public final class TechniqueGateService {
         Realm required = technique.requiredRealm();
         if (required == null) {
             return GateResult.deny("message.seeking_immortals.technique_gate.realm_unsupported",
-                    technique.name().isBlank() ? technique.id() : technique.name());
+                    techniqueDisplay(technique));
         }
         Realm current = cultivation.getRealm();
         if (current.ordinal() < required.ordinal()) {
             return GateResult.deny("message.seeking_immortals.technique_gate.realm",
-                    technique.name().isBlank() ? technique.id() : technique.name(),
+                    techniqueDisplay(technique),
                     required.getDisplayName(),
                     current.getDisplayName());
         }
@@ -233,9 +231,9 @@ public final class TechniqueGateService {
         }
         if (!current.equals(requiredSect.get()) && !current.contains(requiredSect.get()) && !requiredSect.get().contains(current)) {
             return GateResult.deny("message.seeking_immortals.technique_gate.sect",
-                    technique.name().isBlank() ? technique.id() : technique.name(),
-                    requiredSect.get(),
-                    current);
+                    techniqueDisplay(technique),
+                    sectDisplay(requiredSect.get()),
+                    sectDisplay(current));
         }
         return GateResult.ok();
     }
@@ -300,8 +298,8 @@ public final class TechniqueGateService {
             }
         }
         return GateResult.deny("message.seeking_immortals.technique_gate.method",
-                technique.name().isBlank() ? technique.id() : technique.name(),
-                method);
+                techniqueDisplay(technique),
+                methodDisplay(method));
     }
 
     /**
@@ -344,10 +342,79 @@ public final class TechniqueGateService {
         int have = ReputationService.get(player, faction);
         if (have < need) {
             return GateResult.deny("message.seeking_immortals.technique_gate.rep",
-                    technique.name().isBlank() ? technique.id() : technique.name(),
-                    faction, need, have);
+                    techniqueDisplay(technique),
+                    factionDisplay(faction), need, have);
         }
         return GateResult.ok();
+    }
+
+    private static Component techniqueDisplay(TechniqueDataManager.TechniqueEntry technique) {
+        return PlayerDisplayText.safeLiteral(
+                technique == null ? "" : technique.name(),
+                "text.seeking_immortals.unknown_technique");
+    }
+
+    private static Component methodDisplay(String methodId) {
+        return TextMaterialCatalogService.builtin().findMethod(normalize(methodId))
+                .map(method -> PlayerDisplayText.safeLiteral(
+                        method.display(), "text.seeking_immortals.unknown_requirement"))
+                .orElseGet(() -> Component.translatable("text.seeking_immortals.unknown_requirement"));
+    }
+
+    private static Component sectDisplay(String sectId) {
+        return SectDefinitionService.find(normalize(sectId))
+                .map(sect -> PlayerDisplayText.safeLiteral(
+                        sect.displayZh(), "text.seeking_immortals.unknown_faction"))
+                .orElseGet(() -> Component.translatable("text.seeking_immortals.unknown_faction"));
+    }
+
+    private static Component factionDisplay(String factionId) {
+        return switch (normalize(factionId)) {
+            case "chaotic_sea" -> Component.translatable("text.seeking_immortals.faction.chaotic_sea");
+            case "dajin" -> Component.translatable("text.seeking_immortals.faction.dajin");
+            case "demonic_path" -> Component.translatable("text.seeking_immortals.faction.demonic_path");
+            default -> Component.translatable("text.seeking_immortals.unknown_faction");
+        };
+    }
+
+    private static Component requiredRegionDisplay(String regionTag) {
+        return switch (normalize(regionTag)) {
+            case "yin_underworld" -> Component.literal("阴冥之地");
+            case "demon_rift" -> Component.literal("魔渊");
+            case "chaotic_void" -> Component.literal("乱星海虚空");
+            case "diyuan_kunwu" -> Component.literal("地渊或昆吾");
+            case "spirit_realm" -> Component.literal("灵界");
+            default -> Component.translatable("text.seeking_immortals.unknown_region");
+        };
+    }
+
+    private static Component currentLocationDisplay(ServerPlayer player, PlayerCultivation cultivation) {
+        String secretRealmId = cultivation == null ? ""
+                : normalize(cultivation.getWorldpackActiveSecretRealmId());
+        Optional<Component> secretRealm = WorldpackDataService.builtin().findSecretRealm(secretRealmId)
+                .filter(realm -> PlayerDisplayText.isSafe(realm.displayZh()))
+                .map(realm -> (Component) Component.literal(realm.displayZh().trim()));
+        if (secretRealm.isPresent()) {
+            return secretRealm.get();
+        }
+
+        String regionId = cultivation == null ? "" : normalize(cultivation.getWorldpackCurrentRegionId());
+        Optional<Component> region = RegionRegistry.find(regionId)
+                .filter(definition -> PlayerDisplayText.isSafe(definition.display()))
+                .map(definition -> (Component) Component.literal(definition.display().trim()));
+        if (region.isPresent()) {
+            return region.get();
+        }
+
+        String dimensionId = player != null && player.level() != null && player.level().dimension() != null
+                ? player.level().dimension().location().toString()
+                : "";
+        return switch (dimensionId) {
+            case "minecraft:overworld" -> Component.literal("主世界");
+            case "minecraft:the_nether" -> Component.literal("下界");
+            case "minecraft:the_end" -> Component.literal("末地");
+            default -> Component.translatable("text.seeking_immortals.unknown_region");
+        };
     }
 
     private static String inferMethodFromBlob(TechniqueDataManager.TechniqueEntry technique) {

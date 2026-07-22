@@ -1,8 +1,10 @@
 package com.xunxian.seekingimmortals.block;
 
 import com.xunxian.seekingimmortals.craft.RefinementForgeCraftHelper;
+import com.xunxian.seekingimmortals.cultivation.Realm;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
 import com.xunxian.seekingimmortals.structure.RefinementForgeStructure;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -54,8 +56,11 @@ public class RefinementForgeBlock extends Block {
                 if (recipe == null) {
                     continue;
                 }
-                lines.add(recipe.id() + " | " + recipe.display() + " | "
-                        + (recipe.realmMin() == null ? "?" : recipe.realmMin()) + " | "
+                Realm requiredRealm = Realm.fromDesignId(recipe.realmMin());
+                String recipeName = PlayerDisplayText.isSafe(recipe.display())
+                        ? recipe.display().trim() : "未知炼器配方";
+                String realmName = requiredRealm == null ? "未知境界" : requiredRealm.getDisplayName();
+                lines.add(recipeName + " | " + realmName + " | "
                         + String.format(java.util.Locale.ROOT, "%.0f%%",
                         Math.max(0.0D, Math.min(1.0D, recipe.baseSuccessRate())) * 100.0D));
                 if (++n >= 16) {

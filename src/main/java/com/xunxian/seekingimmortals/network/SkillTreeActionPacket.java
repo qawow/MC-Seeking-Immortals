@@ -3,6 +3,8 @@ package com.xunxian.seekingimmortals.network;
 import com.xunxian.seekingimmortals.skill.LifeSkillService;
 import com.xunxian.seekingimmortals.skill.SkillTreeCatalogService;
 import com.xunxian.seekingimmortals.skill.SkillType;
+import com.xunxian.seekingimmortals.catalog.TextMaterialCatalogService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -52,8 +54,8 @@ public record SkillTreeActionPacket(String action, String skillId) {
                     SkillTreeCatalogService.Tree t = tree.get();
                     player.displayClientMessage(Component.translatable(
                             "message.seeking_immortals.skill_tree.tree_info",
-                            t.display(),
-                            t.methodRoot().isBlank() ? "-" : t.methodRoot(),
+                            displayName(t.display(), "未知技能树"),
+                            methodDisplay(t.methodRoot()),
                             t.spells().size(),
                             t.secrets().size()), false);
                     return;
@@ -61,17 +63,19 @@ public record SkillTreeActionPacket(String action, String skillId) {
                 SkillType type = resolve(packet.skillId);
                 if (type == null) {
                     player.displayClientMessage(Component.translatable(
-                            "message.seeking_immortals.skill_tree.unknown", packet.skillId()), true);
+                            "message.seeking_immortals.skill_tree.unknown",
+                            displayName(packet.skillId(), "未知技能")), true);
                     return;
                 }
                 int level = LifeSkillService.level(player, type);
                 player.displayClientMessage(Component.translatable(
                         "message.seeking_immortals.skill_tree.info",
-                        type.getDisplayName(), level, type.getRequiredRealm().getDisplayName()), false);
+                        skillDisplay(type), level, realmDisplay(type)), false);
                 return;
             }
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.skill_tree.unknown_action", action), true);
+                    "message.seeking_immortals.skill_tree.unknown_action",
+                    actionDisplay(action)), true);
         });
         context.setPacketHandled(true);
     }
@@ -89,5 +93,39 @@ public record SkillTreeActionPacket(String action, String skillId) {
             }
         }
         return null;
+    }
+
+    private static Component displayName(String value, String fallback) {
+        return PlayerDisplayText.safeCatalogLiteral(value, fallback);
+    }
+
+    private static Component methodDisplay(String methodId) {
+        if (methodId == null || methodId.isBlank()) {
+            return Component.literal("未设主功法");
+        }
+        return TextMaterialCatalogService.builtin().findMethod(methodId)
+                .map(TextMaterialCatalogService.MethodEntry::display)
+                .map(value -> PlayerDisplayText.safeCatalogLiteral(value, "未知功法"))
+                .orElseGet(() -> Component.literal("未知功法"));
+    }
+
+    private static Component skillDisplay(SkillType type) {
+        return PlayerDisplayText.safeCatalogLiteral(
+                type == null ? "" : type.getDisplayName(), "未知技能");
+    }
+
+    private static Component realmDisplay(SkillType type) {
+        return PlayerDisplayText.safeCatalogLiteral(
+                type == null || type.getRequiredRealm() == null
+                        ? "" : type.getRequiredRealm().getDisplayName(),
+                "未知境界");
+    }
+
+    private static String actionDisplay(String action) {
+        return switch (action == null ? "" : action) {
+            case ACTION_PRACTICE -> "修习";
+            case ACTION_INFO -> "查看详情";
+            default -> "未识别操作";
+        };
     }
 }

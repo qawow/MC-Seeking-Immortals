@@ -6,12 +6,12 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "星宫：功勋殿、传送许可、税契、巡防令；乱星海物价偏高见 economy_contribution_exchange",
+      "text": "星宫掌管功勋殿、传送许可、税契与巡防令；乱星海物价偏高，购买前应准备足够灵石与贡献。",
       "title": "星宫治理"
     },
     {
       "type": "patchouli:text",
-      "text": "语料 patchouli_item_book.static_entries.star_palace_governance",
+      "text": "星宫的贡献与通行规则会随区域和声望变化，具体结果以服务端结算为准。",
       "title": "来源"
     }
   ]

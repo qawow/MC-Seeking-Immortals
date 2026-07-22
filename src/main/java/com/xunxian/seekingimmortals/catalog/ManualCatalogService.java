@@ -1,6 +1,7 @@
 package com.xunxian.seekingimmortals.catalog;
 
 import com.xunxian.seekingimmortals.alchemy.AlchemyFormulaKnowledge;
+import com.xunxian.seekingimmortals.alchemy.AlchemyDisplayTexts;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.cultivation.ProgressionGateApi;
@@ -10,6 +11,7 @@ import com.xunxian.seekingimmortals.quest.QuestProgress;
 import com.xunxian.seekingimmortals.sect.SectContributionService;
 import com.xunxian.seekingimmortals.sect.SectDefinitionService;
 import com.xunxian.seekingimmortals.skill.MethodLayerTechniqueService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -125,7 +127,7 @@ public final class ManualCatalogService {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.manual.studied",
                     displayName(manual), typeDisplay(manual.type())), true);
             if (!manual.note().isBlank() && !manual.note().equals(manual.display())
-                    && !looksLikeCode(manual.note())) {
+                    && PlayerDisplayText.isSafe(manual.note())) {
                 player.displayClientMessage(Component.literal(manual.note()), false);
             }
             if (!manual.unlocks().isEmpty()) {
@@ -161,7 +163,7 @@ public final class ManualCatalogService {
         if (hasStudied(player, id)) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.manual.already_studied",
-                    Component.translatable("item.seeking_immortals." + id)), false);
+                    PlayerDisplayText.itemName(id)), false);
             return false;
         }
         markStudied(player, id);
@@ -186,7 +188,7 @@ public final class ManualCatalogService {
         }
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.manual.studied",
-                Component.translatable("item.seeking_immortals." + id),
+                PlayerDisplayText.itemName(id),
                 typeDisplay(guessSoftManualType(id))), true);
         if (granted > 0) {
             player.displayClientMessage(Component.translatable(
@@ -229,7 +231,7 @@ public final class ManualCatalogService {
         if (language != null && language.has(key)) {
             return Component.translatable(key);
         }
-        return Component.literal(switch (code) {
+        String known = switch (code) {
             case "alchemy" -> "炼丹";
             case "refinement" -> "炼器";
             case "talisman" -> "符箓";
@@ -237,8 +239,10 @@ public final class ManualCatalogService {
             case "puppet" -> "傀儡";
             case "cultivation_path" -> "修炼道路";
             case "quest" -> "任务";
-            default -> code;
-        });
+            default -> "";
+        };
+        return known.isBlank() ? Component.translatable("manual.type.seeking_immortals.unknown")
+                : Component.literal(known);
     }
 
     public static Component recipeDisplay(String recipeId) {
@@ -255,28 +259,32 @@ public final class ManualCatalogService {
         if (language != null && language.has(alchemyKey)) {
             return Component.translatable(alchemyKey);
         }
+        Component resolved = AlchemyDisplayTexts.recipe(id);
+        if (!resolved.getString().equals(Component.translatable("text.seeking_immortals.unknown_formula").getString())) {
+            return resolved;
+        }
         // Prefer catalog manual display when recipe id equals a manual carrier.
         Optional<TextMaterialCatalogService.ManualEntry> manual =
                 TextMaterialCatalogService.builtin().findManual(id);
         if (manual.isPresent() && manual.get().display() != null && !manual.get().display().isBlank()) {
-            return Component.literal(manual.get().display());
+            return PlayerDisplayText.safeLiteral(manual.get().display(), "text.seeking_immortals.unknown_formula");
         }
-        return Component.literal(id);
+        return Component.translatable("text.seeking_immortals.unknown_formula");
     }
 
     public static Component displayName(TextMaterialCatalogService.ManualEntry manual) {
         if (manual == null) {
-            return Component.literal("未知典籍");
-        }
-        if (manual.display() != null && !manual.display().isBlank() && !looksLikeCode(manual.display())) {
-            return Component.literal(manual.display());
+            return Component.translatable("text.seeking_immortals.unknown_manual");
         }
         net.minecraft.locale.Language language = net.minecraft.locale.Language.getInstance();
         String itemKey = "item.seeking_immortals." + manual.id();
         if (language != null && language.has(itemKey)) {
             return Component.translatable(itemKey);
         }
-        return Component.literal(manual.id());
+        if (PlayerDisplayText.isSafe(manual.display())) {
+            return Component.literal(manual.display());
+        }
+        return Component.translatable("text.seeking_immortals.unknown_manual");
     }
 
     private static String unlocksDisplay(List<String> unlocks) {
@@ -291,7 +299,7 @@ public final class ManualCatalogService {
             Optional<TextMaterialCatalogService.MethodEntry> method =
                     TextMaterialCatalogService.builtin().findMethod(unlock);
             if (method.isPresent() && method.get().display() != null && !method.get().display().isBlank()
-                    && !looksLikeCode(method.get().display())) {
+                    && PlayerDisplayText.isSafe(method.get().display())) {
                 parts.add(method.get().display());
                 continue;
             }
@@ -300,23 +308,14 @@ public final class ManualCatalogService {
             if (language != null && language.has(itemKey)) {
                 parts.add(language.getOrDefault(itemKey));
             } else {
-                parts.add(unlock);
+                String unlockKey = "manual.unlock.seeking_immortals." + unlock;
+                parts.add(language != null && language.has(unlockKey)
+                        ? language.getOrDefault(unlockKey)
+                        : language == null ? "未收录内容"
+                        : language.getOrDefault("text.seeking_immortals.unknown_unlock"));
             }
         }
         return String.join("、", parts);
-    }
-
-    private static boolean looksLikeCode(String text) {
-        if (text == null || text.isBlank()) {
-            return true;
-        }
-        for (int i = 0; i < text.length(); i++) {
-            if (Character.UnicodeScript.of(text.charAt(i)) == Character.UnicodeScript.HAN) {
-                return false;
-            }
-        }
-        String lower = text.toLowerCase(Locale.ROOT);
-        return lower.contains("_") || lower.matches("[a-z0-9\\-./: ]+");
     }
 
     public static boolean hasStudied(ServerPlayer player, String manualId) {
@@ -376,13 +375,14 @@ public final class ManualCatalogService {
         Optional<TextMaterialCatalogService.MethodEntry> optional =
                 TextMaterialCatalogService.builtin().findMethod(methodId);
         if (optional.isEmpty()) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.method.unknown", methodId), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.method.unknown",
+                    methodDisplay(methodId)), false);
             return false;
         }
         TextMaterialCatalogService.MethodEntry method = optional.get();
         if (hasLearnedMethod(player, method.id())) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.method.already_learned",
-                    method.display()), false);
+                    methodDisplay(method)), false);
             return false;
         }
         boolean[] ok = {false};
@@ -410,7 +410,7 @@ public final class ManualCatalogService {
             player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 20 * 30, 0));
             player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 20 * 60, 0));
             player.displayClientMessage(Component.translatable("message.seeking_immortals.method.learned",
-                    method.display(), method.school().isBlank() ? "-" : method.school()), true);
+                    methodDisplay(method), schoolDisplay(method.school())), true);
             if (techniquesGranted > 0) {
                 player.displayClientMessage(Component.translatable(
                         "message.seeking_immortals.method.techniques_granted", techniquesGranted), false);
@@ -428,20 +428,21 @@ public final class ManualCatalogService {
         Optional<TextMaterialCatalogService.MethodEntry> optional =
                 TextMaterialCatalogService.builtin().findMethod(methodId);
         if (optional.isEmpty()) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.method.unknown", methodId), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.method.unknown",
+                    methodDisplay(methodId)), false);
             return false;
         }
         TextMaterialCatalogService.MethodEntry method = optional.get();
         if (!hasLearnedMethod(player, method.id())) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.method.not_learned",
-                    method.display()), false);
+                    methodDisplay(method)), false);
             return false;
         }
         int layer = getMethodLayer(player, method.id());
         int maxLayer = maxMethodLayer(method.id());
         if (layer >= maxLayer) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.method.layer_max",
-                    method.display(), maxLayer), false);
+                    methodDisplay(method), maxLayer), false);
             return false;
         }
         boolean[] ok = {false};
@@ -452,7 +453,7 @@ public final class ManualCatalogService {
                     && !WorldpackGameplayService.meetsMinRealm(cultivation.getRealm(), requiredRealm)) {
                 player.displayClientMessage(Component.translatable(
                         "message.seeking_immortals.method.layer_realm_too_low",
-                        method.display(), nextLayer,
+                        methodDisplay(method), nextLayer,
                         com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts.realm(requiredRealm)), false);
                 return;
             }
@@ -482,7 +483,7 @@ public final class ManualCatalogService {
             SyncLearnedMethodsPacket.send(player);
             player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 20 * 15, 0));
             player.displayClientMessage(Component.translatable("message.seeking_immortals.method.cultivated",
-                    method.display(), nextLayer, maxLayer), true);
+                    methodDisplay(method), nextLayer, maxLayer), true);
             if (techniquesGranted > 0) {
                 player.displayClientMessage(Component.translatable(
                         "message.seeking_immortals.method.techniques_granted", techniquesGranted), false);
@@ -776,7 +777,7 @@ public final class ManualCatalogService {
             if (method == null || !grantKnownMethodIfEligible(player, method)) {
                 continue;
             }
-            String display = method.display().isBlank() ? method.id() : method.display();
+            String display = methodDisplay(method);
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.method.sect_granted", display, specialty.display()), true);
             granted.add(method.id());
@@ -1014,39 +1015,40 @@ public final class ManualCatalogService {
     private static void displayLearnGateFailure(ServerPlayer player,
                                                 TextMaterialCatalogService.MethodEntry method,
                                                 MethodLearnGate gate) {
+        String methodName = methodDisplay(method);
         switch (gate.failure()) {
             case REALM_TOO_LOW -> player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.method.realm_too_low", method.display(),
+                    "message.seeking_immortals.method.realm_too_low", methodName,
                     com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts.realm(method.realmMin())), false);
             case REALM_TOO_HIGH -> player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.method.realm_too_high", method.display(),
+                    "message.seeking_immortals.method.realm_too_high", methodName,
                     com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts.realm(method.realmMaxLearn())), false);
             case PREREQUISITE_MISSING -> player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.method.prerequisite_missing", method.display(),
+                    "message.seeking_immortals.method.prerequisite_missing", methodName,
                     methodDisplay(gate.requiredMethod())), false);
             case PREREQUISITE_LAYER -> player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.method.prerequisite_layer", method.display(),
+                    "message.seeking_immortals.method.prerequisite_layer", methodName,
                     methodDisplay(gate.requiredMethod()), gate.requiredLayer(), gate.currentLayer()), false);
             case ROOT_MISMATCH -> player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.method.root_mismatch", method.display(),
-                    String.join("/", method.requiredSpiritRoots())), false);
+                    "message.seeking_immortals.method.root_mismatch", methodName,
+                    rootsDisplay(method.requiredSpiritRoots())), false);
             case CONSTITUTION_MISMATCH -> player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.method.constitution_mismatch", method.display(),
-                    gate.requiredMethod()), false);
+                    "message.seeking_immortals.method.constitution_mismatch", methodName,
+                    requirementDisplay(gate.requiredMethod(), "相应体质")), false);
             case RACE_MISMATCH -> player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.method.race_mismatch", method.display(),
-                    gate.requiredMethod()), false);
+                    "message.seeking_immortals.method.race_mismatch", methodName,
+                    requirementDisplay(gate.requiredMethod(), "相应种族")), false);
             case FACTION_MISMATCH -> player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.method.faction_mismatch", method.display(),
-                    gate.requiredMethod()), false);
+                    "message.seeking_immortals.method.faction_mismatch", methodName,
+                    requirementDisplay(gate.requiredMethod(), "指定宗门")), false);
             case FACTION_RANK_TOO_LOW -> player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.method.faction_rank_too_low", method.display(),
-                    gate.requiredMethod()), false);
+                    "message.seeking_immortals.method.faction_rank_too_low", methodName,
+                    requirementDisplay(gate.requiredMethod(), "更高宗门身份")), false);
             case CONVERT_REQUIRED -> player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.method.convert_required", method.display(),
+                    "message.seeking_immortals.method.convert_required", methodName,
                     com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts.realm(gate.requiredMethod())), false);
             case INVALID_REALM -> player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.method.invalid_realm_gate", method.display()), false);
+                    "message.seeking_immortals.method.invalid_realm_gate", methodName), false);
             case NONE -> {
             }
         }
@@ -1054,9 +1056,82 @@ public final class ManualCatalogService {
 
     private static String methodDisplay(String methodId) {
         return TextMaterialCatalogService.builtin().findMethod(methodId)
-                .map(TextMaterialCatalogService.MethodEntry::display)
-                .filter(display -> display != null && !display.isBlank())
-                .orElse(methodId == null ? "" : methodId);
+                .map(ManualCatalogService::methodDisplay)
+                .orElseGet(() -> {
+                    String id = methodId == null ? "" : methodId.trim().toLowerCase(Locale.ROOT);
+                    String key = "item.seeking_immortals." + id;
+                    return PlayerDisplayText.hasTranslation(key)
+                            ? Component.translatable(key).getString()
+                            : "未知功法";
+                });
+    }
+
+    private static String methodDisplay(TextMaterialCatalogService.MethodEntry method) {
+        if (method == null) {
+            return "未知功法";
+        }
+        String display = method.display();
+        if (PlayerDisplayText.isSafe(display)) {
+            return display.trim();
+        }
+        String id = method.id() == null ? "" : method.id().trim().toLowerCase(Locale.ROOT);
+        String key = "item.seeking_immortals." + id;
+        return PlayerDisplayText.hasTranslation(key)
+                ? Component.translatable(key).getString()
+                : "未知功法";
+    }
+
+    private static String schoolDisplay(String school) {
+        if (PlayerDisplayText.isSafe(school)) {
+            return school.trim();
+        }
+        String code = school == null ? "" : school.trim().toLowerCase(Locale.ROOT);
+        return switch (code) {
+            case "sword" -> "剑道";
+            case "elemental", "elemental_fire", "elemental_ice", "elemental_water" -> "五行术道";
+            case "body" -> "炼体";
+            case "talisman" -> "符箓";
+            case "formation" -> "阵法";
+            case "puppet" -> "傀儡";
+            case "illusion" -> "幻术";
+            case "movement" -> "身法";
+            case "divine_sense" -> "神识";
+            case "recovery" -> "恢复";
+            case "demonic", "ghost", "xuan_yin", "blood" -> "魔道";
+            case "craft_alchemy" -> "炼丹";
+            case "craft_artifact" -> "炼器";
+            case "craft_appraise" -> "鉴宝";
+            case "mixed", "generic", "misc", "" -> "综合";
+            default -> "综合";
+        };
+    }
+
+    private static String rootsDisplay(List<String> roots) {
+        if (roots == null || roots.isEmpty()) {
+            return "相应灵根";
+        }
+        List<String> labels = new ArrayList<>();
+        for (String root : roots) {
+            String code = root == null ? "" : root.trim().toLowerCase(Locale.ROOT);
+            labels.add(switch (code) {
+                case "metal" -> "金灵根";
+                case "wood" -> "木灵根";
+                case "water" -> "水灵根";
+                case "fire" -> "火灵根";
+                case "earth" -> "土灵根";
+                case "ice" -> "冰灵根";
+                case "thunder" -> "雷灵根";
+                case "wind" -> "风灵根";
+                case "yin", "dark" -> "阴灵根";
+                case "yang", "light" -> "阳灵根";
+                default -> PlayerDisplayText.isSafe(root) ? root.trim() : "特殊灵根";
+            });
+        }
+        return String.join("、", labels);
+    }
+
+    private static String requirementDisplay(String raw, String fallback) {
+        return PlayerDisplayText.isSafe(raw) ? raw.trim() : fallback;
     }
 
     private static List<String> softMethodGrants(String manualId) {

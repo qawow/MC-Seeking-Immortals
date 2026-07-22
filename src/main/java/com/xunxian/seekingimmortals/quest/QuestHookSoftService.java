@@ -2,6 +2,7 @@ package com.xunxian.seekingimmortals.quest;
 
 import com.xunxian.seekingimmortals.catalog.ExtendedCatalogService;
 import com.xunxian.seekingimmortals.catalog.FactionQuestCatalogService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 
@@ -98,15 +99,16 @@ public final class QuestHookSoftService {
         String id = normalize(hookId);
         FactionQuestCatalogService.Entry entry = FactionQuestCatalogService.builtin().questHooks().get(id);
         if (entry == null) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.quest_hook.unknown", hookId), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.quest_hook.unknown",
+                    Component.translatable("text.seeking_immortals.unknown_quest")), false);
             return false;
         }
         Optional<String> mapped = mappedChainId(entry.id());
         player.displayClientMessage(Component.translatable("message.seeking_immortals.quest_hook.preview",
-                entry.id(), entry.display()), false);
+                Component.empty(), hookDisplay(entry)), false);
         if (mapped.isPresent()) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.quest_hook.mapped",
-                    mapped.get()), false);
+                    chainDisplay(mapped.get())), false);
             player.displayClientMessage(Component.translatable("message.seeking_immortals.quest_hook.accept_hint"), false);
         } else {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.quest_hook.soft_only"), false);
@@ -124,13 +126,15 @@ public final class QuestHookSoftService {
             // Still allow direct accept of unknown-but-mappable ids for OP tooling.
             Optional<String> mappedUnknown = mappedChainId(id);
             if (mappedUnknown.isEmpty()) {
-                player.displayClientMessage(Component.translatable("message.seeking_immortals.quest_hook.unknown", hookId), false);
+                player.displayClientMessage(Component.translatable("message.seeking_immortals.quest_hook.unknown",
+                        Component.translatable("text.seeking_immortals.unknown_quest")), false);
                 return false;
             }
             boolean started = TextQuestChainService.start(player, mappedUnknown.get());
             if (started) {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.quest_hook.accepted",
-                        id, mappedUnknown.get()), true);
+                        Component.translatable("text.seeking_immortals.unknown_quest"),
+                        chainDisplay(mappedUnknown.get())), true);
             }
             return started;
         }
@@ -146,18 +150,31 @@ public final class QuestHookSoftService {
                 TextQuestChainService.advance(player, mapped.get());
             }
             player.displayClientMessage(Component.translatable("message.seeking_immortals.quest_hook.accepted",
-                    entry.id(), mapped.get()), true);
+                    hookDisplay(entry), chainDisplay(mapped.get())), true);
             TextQuestNpcHookService.openDialogue(player, mapped.get(), false);
             return true;
         }
         boolean started = TextQuestChainService.start(player, mapped.get());
         if (started) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.quest_hook.accepted",
-                    entry.id(), mapped.get()), true);
+                    hookDisplay(entry), chainDisplay(mapped.get())), true);
             // Open dialogue so the player has an immediate authority surface.
             TextQuestNpcHookService.openDialogue(player, mapped.get(), false);
         }
         return started;
+    }
+
+    private static Component hookDisplay(FactionQuestCatalogService.Entry entry) {
+        return entry == null
+                ? Component.translatable("text.seeking_immortals.unknown_quest")
+                : PlayerDisplayText.safeLiteral(entry.display(), "text.seeking_immortals.unknown_quest");
+    }
+
+    private static Component chainDisplay(String chainId) {
+        return TextQuestChainService.find(chainId)
+                .map(chain -> PlayerDisplayText.safeLiteral(
+                        chain.display(), "text.seeking_immortals.unknown_quest"))
+                .orElseGet(() -> Component.translatable("text.seeking_immortals.unknown_quest"));
     }
 
     private static Optional<String> firstPresent(String... ids) {

@@ -2,6 +2,7 @@ package com.xunxian.seekingimmortals.sect;
 
 import com.xunxian.seekingimmortals.catalog.ExtendedCatalogService;
 import com.xunxian.seekingimmortals.quest.QuestProgress;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -336,7 +337,9 @@ public final class SectDefinitionService {
                 }
                 id = canonical;
             }
-            String display = entry.display() == null || entry.display().isBlank() ? id : entry.display();
+            String display = PlayerDisplayText.isSafe(entry.display())
+                    ? entry.display().trim()
+                    : "未知宗门";
             String focus = (entry.specialty() == null || entry.specialty().isBlank())
                     ? (entry.alignment() == null ? "" : entry.alignment())
                     : entry.specialty();
@@ -348,7 +351,7 @@ public final class SectDefinitionService {
                     focus,
                     focus,
                     shopId,
-                    display + " steward",
+                    display + "执事",
                     "seeking_immortals:sect_outpost_generic",
                     SectContributionService.STAGE_KNOCKING,
                     false));

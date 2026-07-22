@@ -7,17 +7,17 @@
     {
       "type": "patchouli:text",
       "title": "来源",
-      "text": "本页对应 文本材料/data/novel_cultivation_learn_requirements_waves.json、cultivation_methods.json、manuals_catalog.json 与 techniques/ 下的学习条件。当前版本复用功法传承卷轴、TechniqueDataManager、七槽释放路径和 Patchouli 手册，不新增独立学习 UI、任务加载器或网络包。"
+      "text": "本页说明功法与术法的学习条件。玩家需要通过功法秘籍、传承卷轴或其他权威来源入门，再把已学术法放入七个技能槽释放。"
     },
     {
       "type": "patchouli:text",
       "title": "门槛类型",
-      "text": "文本材料把学习门槛分成多层：realm_min/realm_max_learn 控制境界；prerequisite_methods 与 layers_required 表示前置功法和层数；spirit_roots 记录必需、加成或禁忌灵根；faction、relation、reputation、karma、items_suggested、divine_sense_min 则对应宗门、声望、因果、物品和神识要求。"
+      "text": "学习门槛包括：最低与最高境界、前置功法和层数、必需或禁忌灵根，以及宗门、关系、声望、因果、指定物品和神识要求。"
     },
     {
       "type": "patchouli:text",
       "title": "当前实现",
-      "text": "已注册的传承卷轴会按 source 学习当前数据包中的术法，并在服务端根据术法 attribute 与玩家灵根属性做匹配。已学术法才能放入 7 个技能槽；释放时服务端校验槽位、已学状态、冷却、灵力、已注册效果和可执行状态。高出当前境界过多的术法目前会增加走火风险。"
+      "text": "传承卷轴会按照其来源学习对应术法，服务端还会根据术法属性与玩家灵根匹配。只有已学术法才能放入 7 个技能槽；释放时会校验槽位、冷却、灵力、效果与执行条件。高出当前境界过多的术法会增加走火风险。"
     },
     {
       "type": "patchouli:text",

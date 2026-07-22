@@ -3,6 +3,7 @@ package com.xunxian.seekingimmortals.client;
 import com.xunxian.seekingimmortals.catalog.AuctionSoftService;
 import com.xunxian.seekingimmortals.network.AuctionActionPacket;
 import com.xunxian.seekingimmortals.network.ModNetwork;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 
@@ -192,10 +193,14 @@ public class AuctionScreen extends AbstractJournalScreen {
                         ImmortalUiSkin.drawListRow(graphics, row.x(), row.y(), row.width(), row.height(),
                                 hovered ? ImmortalUiSkin.InteractionState.HOVERED
                                         : ImmortalUiSkin.InteractionState.NORMAL);
-                        ImmortalUiSkin.drawStringFit(font, graphics, lot.display(), row.x() + 6, row.y() + 5,
+                        ImmortalUiSkin.drawStringFit(font, graphics,
+                                PlayerDisplayText.safeLiteral(lot.display(),
+                                        "text.seeking_immortals.unknown_auction_target").getString(),
+                                row.x() + 6, row.y() + 5,
                                 Math.max(1, row.width() - 12), ImmortalUiSkin.JOURNAL_PAPER, false);
                         ImmortalUiSkin.drawStringFit(font, graphics,
-                                lot.id() + " · " + lot.minEquiv() + " - " + lot.maxEquiv(),
+                                Component.translatable("screen.seeking_immortals.auction.price_range",
+                                        lot.minEquiv(), lot.maxEquiv()).getString(),
                                 row.x() + 6, row.y() + 16, Math.max(1, row.width() - 12),
                                 ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
                     }

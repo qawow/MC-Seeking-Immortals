@@ -2,6 +2,7 @@ package com.xunxian.seekingimmortals.item.alchemy;
 
 import com.xunxian.seekingimmortals.alchemy.AlchemyFormulaKnowledge;
 import com.xunxian.seekingimmortals.alchemy.AlchemyFormulaSource;
+import com.xunxian.seekingimmortals.alchemy.AlchemyDisplayTexts;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -50,8 +51,11 @@ public class AlchemyFormulaItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
-        tooltip.add(Component.translatable("tooltip.seeking_immortals.alchemy_formula.recipe", Component.translatable("alchemy_recipe.seeking_immortals." + recipeId)).withStyle(ChatFormatting.GOLD));
-        tooltip.add(Component.translatable("tooltip.seeking_immortals.alchemy_formula.source." + source.id()).withStyle(ChatFormatting.GRAY));
+        tooltip.add(Component.translatable("tooltip.seeking_immortals.alchemy_formula.recipe",
+                AlchemyDisplayTexts.recipe(recipeId)).withStyle(ChatFormatting.GOLD));
+        String sourceKey = "tooltip.seeking_immortals.alchemy_formula.source." + source.id();
+        tooltip.add(com.xunxian.seekingimmortals.util.PlayerDisplayText.translatedOr(sourceKey,
+                "tooltip.seeking_immortals.alchemy_formula.source.unknown").copy().withStyle(ChatFormatting.GRAY));
         tooltip.add(Component.translatable("tooltip.seeking_immortals.alchemy_formula.use").withStyle(ChatFormatting.GREEN));
     }
 }

@@ -7,17 +7,17 @@
     {
       "type": "patchouli:text",
       "title": "战役阶段",
-      "text": "本条目对应文本材料 mulan_tianlan_war.json 与 MULAN_TIANLAN_WAR.md。当前版本已通过世界包每日事件接入四个阶段：border_skirmish、fashi_array_clash、holy_beast_intervention、ceasefire_or_escalation。"
+      "text": "慕兰天澜战事会按四个阶段推进：边境摩擦、法士大阵对撞、圣禽介入，以及停战或升级。当前四阶段已接入每日事件。"
     },
     {
       "type": "patchouli:text",
       "title": "当前效果",
-      "text": "边境摩擦与法士大阵对撞归入慕兰草原事件，使用 trade_risk_up 与 rare_loot_hint 表达战线风险和战场传闻；圣禽介入提供 aura_plus_5 与 secret_realm_ticket_hint，停战或升级归入天澜分支事件。"
+      "text": "边境摩擦与法士大阵对撞会提高贸易风险，并带来稀有战利品传闻；圣禽介入会提升附近灵气并提供秘境门票线索；停战或升级则决定后续天澜分支。"
     },
     {
       "type": "patchouli:text",
       "title": "延后内容",
-      "text": "玩家选边、慕兰/天澜/天南声望、法士大阵目标、圣禽试炼、战功奖励、战场 NPC 与 FTB Quests 章节仍未实装。现阶段指南只说明已存在的数据钩子，不把奖励或阵营后果伪装成已完成玩法。"
+      "text": "玩家选边、慕兰/天澜/天南声望、法士大阵目标、圣禽试炼、战功奖励、战场人物与任务章节仍待补全。现阶段指南只说明已存在的事件线索，不把未开放的奖励或阵营后果当作已完成玩法。"
     }
   ]
 }

@@ -27,28 +27,28 @@ class M04CraftProductionTest {
             ROOT.resolve("src/main/resources/data/seeking_immortals/text_material/pill_quality.json");
 
     @Test
-    void alchemyRecipeFilesCoverAtLeastOneHundredFourteenPills() throws Exception {
+    void alchemyRecipeFilesCoverAtLeastOneHundredThirteenPills() throws Exception {
         assertTrue(Files.isDirectory(ALCHEMY_RECIPES), "alchemy recipes dir missing");
         long count;
         try (Stream<Path> stream = Files.list(ALCHEMY_RECIPES)) {
             count = stream.filter(p -> p.getFileName().toString().endsWith(".json")).count();
         }
-        // 114 catalog recipes + curated aliases may exceed 114
-        assertTrue(count >= 114, "expected >=114 alchemy recipe files, got " + count);
+        // 113 catalog recipes + curated aliases may exceed 113
+        assertTrue(count >= 113, "expected >=113 alchemy recipe files, got " + count);
     }
 
     @Test
-    void pillNameMapHasOneHundredFourteenEntries() throws Exception {
+    void pillNameMapHasOneHundredThirteenEntries() throws Exception {
         String json = Files.readString(PILL_MAP);
         int entries = countOccurrences(json, "\"pills_catalog_id\"");
-        assertEquals(114, entries, "pill_material_name_map should cover 114 catalog pills");
+        assertEquals(113, entries, "pill_material_name_map should cover 113 canonical catalog pills");
     }
 
     @Test
-    void pillEffectCatalogHasOneHundredFourteenEntries() throws Exception {
+    void pillEffectCatalogHasOneHundredThirteenEntries() throws Exception {
         String json = Files.readString(PILL_EFFECTS);
         int entries = countOccurrences(json, "\"pill_id\"");
-        assertEquals(114, entries, "pill_effect_catalog should cover 114 catalog pills");
+        assertEquals(113, entries, "pill_effect_catalog should cover 113 canonical catalog pills");
     }
 
     @Test

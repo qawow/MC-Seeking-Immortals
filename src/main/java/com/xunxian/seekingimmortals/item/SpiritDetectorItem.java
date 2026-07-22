@@ -3,6 +3,7 @@ package com.xunxian.seekingimmortals.item;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.region.RegionRegistry;
 import com.xunxian.seekingimmortals.spiritual.SpiritualAuraManager;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -37,7 +38,11 @@ public class SpiritDetectorItem extends Item {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.aura.detector.detail",
                     format(aura.dimensionMultiplier()), format(aura.biomeMultiplier()), format(aura.leylineMultiplier()), aura.formationBonus()), false);
             player.displayClientMessage(Component.translatable("message.seeking_immortals.aura.detector.region",
-                    RegionRegistry.find(aura.regionId()).map(region -> region.display()).orElse(aura.regionId()),
+                    RegionRegistry.find(aura.regionId())
+                            .map(region -> PlayerDisplayText.safeLiteral(
+                                    region.display(), "text.seeking_immortals.unknown_region"))
+                            .orElseGet(() -> Component.translatable(
+                                    "text.seeking_immortals.unknown_region")),
                     format(aura.regionMultiplier())), false);
             player.displayClientMessage(Component.translatable("message.seeking_immortals.aura.detector.nature", aura.nature().getDisplayName()), false);
             if (aura.leyline()) {

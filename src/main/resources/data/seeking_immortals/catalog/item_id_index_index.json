@@ -5,31 +5,31 @@
   "entries": [
     {
       "id": "v13",
-      "display": "价值带 v13"
+      "display": "物品目录·价值带一"
     },
     {
       "id": "v14",
-      "display": "价值带 v14"
+      "display": "物品目录·价值带二"
     },
     {
       "id": "v15",
-      "display": "价值带 v15"
+      "display": "物品目录·价值带三"
     },
     {
       "id": "v16",
-      "display": "价值带 v16"
+      "display": "物品目录·价值带四"
     },
     {
       "id": "v21",
-      "display": "价值带 v21"
+      "display": "物品目录·价值带五"
     },
     {
       "id": "v57_novel_complete",
-      "display": "小说索引 v57 完成"
+      "display": "小说物品索引·完整"
     },
     {
       "id": "v58_novel_all",
-      "display": "小说索引 v58 全量"
+      "display": "小说物品索引·全量"
     }
   ]
 }

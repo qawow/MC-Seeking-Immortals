@@ -1,5 +1,6 @@
 package com.xunxian.seekingimmortals.worldpack;
 
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -62,7 +63,8 @@ public final class DailyEventEncounterService {
         } else if (id.contains("merchant") || id.contains("caravan")) {
             // merchant events do not spawn hostiles
             player.getPersistentData().putBoolean(key, true);
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.daily_event.merchant", id), true);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.daily_event.merchant",
+                    displayName(id)), true);
             return;
         } else {
             return;
@@ -100,10 +102,34 @@ public final class DailyEventEncounterService {
         player.getPersistentData().putBoolean(key, true);
         if (cluster) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.daily_event.spawn_cluster", id, count), true);
+                    "message.seeking_immortals.daily_event.spawn_cluster", displayName(id), count), true);
         } else {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.daily_event.spawn", id, count), true);
+                    "message.seeking_immortals.daily_event.spawn", displayName(id), count), true);
         }
+    }
+
+    /** Event ids are retained for scheduling; only authored Chinese names reach chat. */
+    private static Component displayName(String eventId) {
+        String id = eventId == null ? "" : eventId.trim().toLowerCase(Locale.ROOT);
+        String authored = WorldpackDataService.builtin().findDailyEvent(id)
+                .map(WorldpackDataService.DailyEvent::displayZh)
+                .orElse("");
+        if (PlayerDisplayText.isSafe(authored)) {
+            return Component.literal(authored.trim());
+        }
+        if (id.contains("merchant") || id.contains("caravan")) {
+            return Component.literal("商队异象");
+        }
+        if (id.contains("beast") || id.contains("migration") || id.contains("tide")) {
+            return Component.literal("灵兽异动");
+        }
+        if (id.contains("bandit") || id.contains("rogue") || id.contains("raid")) {
+            return Component.literal("劫修来袭");
+        }
+        if (id.contains("demon") || id.contains("qi") || id.contains("corruption")) {
+            return Component.literal("魔气侵染");
+        }
+        return Component.literal("未知异象");
     }
 }

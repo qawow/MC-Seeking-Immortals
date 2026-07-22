@@ -4,6 +4,11 @@ import com.xunxian.seekingimmortals.item.InventoryDeliveryService;
 import com.xunxian.seekingimmortals.menu.AuctionHallMenu;
 import com.xunxian.seekingimmortals.menu.MenuAccessContext;
 import com.xunxian.seekingimmortals.registry.ModItems;
+import com.xunxian.seekingimmortals.region.RegionDefinition;
+import com.xunxian.seekingimmortals.region.RegionRegistry;
+import com.xunxian.seekingimmortals.sect.FactionGraphService;
+import com.xunxian.seekingimmortals.sect.ReputationUnlockService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import com.xunxian.seekingimmortals.worldpack.AuctionHouseSavedData;
 import com.xunxian.seekingimmortals.worldpack.ReputationService;
 import net.minecraft.nbt.CompoundTag;
@@ -121,13 +126,12 @@ public final class AuctionSoftService {
                         if (online != null) {
                             return online.getGameProfile().getName();
                         }
-                        String id = state.bidder().toString();
-                        return id.length() >= 8 ? id.substring(0, 8) : id;
+                        return "未知竞买人";
                     })
                     .orElse("-");
             bids.add(new com.xunxian.seekingimmortals.network.SyncAuctionLadderPacket.LotBid(
                     lot.id(),
-                    lot.display(),
+                    lotDisplayString(lot),
                     current,
                     next,
                     (int) Math.min(Integer.MAX_VALUE, lot.minEquiv()),
@@ -144,6 +148,22 @@ public final class AuctionSoftService {
 
     public record Lot(String id, String display, long minEquiv, long maxEquiv, String sourceNote,
                       String venueId, String rewardItem, List<String> extras) {}
+
+    public static Component playerLotDisplay(Lot lot) {
+        return lotDisplay(lot);
+    }
+
+    public static Component playerVenueDisplay(Venue venue) {
+        return venueDisplay(venue);
+    }
+
+    public static Component playerRegionDisplay(String regionId) {
+        return regionDisplay(regionId);
+    }
+
+    public static Component playerFactionDisplay(String factionId) {
+        return factionDisplay(factionId);
+    }
 
     public record Snapshot(List<Venue> venues, List<Lot> lots, double minIncrementPct, int depositFloor) {
         public int venueCount() { return venues.size(); }
@@ -173,7 +193,7 @@ public final class AuctionSoftService {
             Venue v = venue.get();
             int rep = ReputationService.get(player, v.faction());
             player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.venue",
-                    v.id(), v.region(), v.faction()), false);
+                    venueDisplay(v), regionDisplay(v.region()), factionDisplay(v.faction())), false);
             player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.rep_gate",
                     v.repMin(), rep), false);
             player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.live_ready"), false);
@@ -186,12 +206,12 @@ public final class AuctionSoftService {
             int current = data.currentAmount(l.id());
             int next = nextBidCost(l, current, snapshot.minIncrementPct(), snapshot.depositFloor());
             String leader = data.getBid(l.id())
-                    .map(s -> s.bidder() == null ? "-" : s.bidder().toString().substring(0, 8))
+                    .map(s -> s.bidder() == null ? "-" : "未知竞买人")
                     .orElse("-");
             player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.lot",
-                    l.display(), l.minEquiv(), l.maxEquiv()), false);
+                    lotDisplay(l), l.minEquiv(), l.maxEquiv()), false);
             player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.shared_hint",
-                    current, next, leader, data.isSettled(l.id()) ? "SETTLED" : "OPEN"), false);
+                    current, next, leader, data.isSettled(l.id()) ? "已结算" : "开放"), false);
             snapshot.venueForLot(l).ifPresent(v -> {
                 int rep = ReputationService.get(player, v.faction());
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.rep_gate",
@@ -199,7 +219,8 @@ public final class AuctionSoftService {
             });
             return true;
         }
-        player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.unknown", venueOrLotId), false);
+        player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.unknown",
+                Component.literal("未知拍卖目标")), false);
         return false;
     }
 
@@ -207,13 +228,14 @@ public final class AuctionSoftService {
         Snapshot snapshot = builtin();
         var lotOpt = snapshot.findLot(lotId);
         if (lotOpt.isEmpty()) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.unknown", lotId), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.unknown",
+                    Component.literal("未知拍品")), false);
             return false;
         }
         Lot lot = lotOpt.get();
         AuctionHouseSavedData house = AuctionHouseSavedData.get(player);
         if (house.isSettled(lot.id())) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.lot_settled", lot.display()), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.lot_settled", lotDisplay(lot)), false);
             return false;
         }
 
@@ -221,7 +243,8 @@ public final class AuctionSoftService {
         if (!MarketPriceService.isAuctionEligible(lot.rewardItem())
                 || MarketPriceService.isBlockedFromOpenMarket(lot.rewardItem())
                 || MarketPriceService.isBlockedFromOpenMarket(lot.id())) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.unknown", lotId), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.unknown",
+                    Component.literal("未知拍品")), false);
             return false;
         }
         if (!meetsLotAccess(player, lot)) {
@@ -231,7 +254,7 @@ public final class AuctionSoftService {
         // Wave492: configurable appraisal gate (high-tier / all lots).
         if (!player.getAbilities().instabuild && requiresAppraisal(lot) && !playerMeetsAppraisalGate(player)) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.auction.appraisal_required", lot.display()), true);
+                    "message.seeking_immortals.auction.appraisal_required", lotDisplay(lot)), true);
             return false;
         }
 
@@ -242,7 +265,7 @@ public final class AuctionSoftService {
             int rep = ReputationService.get(player, venue.faction());
             if (rep < venue.repMin()) {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.rep_too_low",
-                        venue.faction(), venue.repMin(), rep), true);
+                        factionDisplay(venue.faction()), venue.repMin(), rep), true);
                 return false;
             }
         }
@@ -277,7 +300,7 @@ public final class AuctionSoftService {
                 giveShards(previous, previousEscrow);
                 setPersonalEscrow(previous, lot.id(), 0);
                 previous.displayClientMessage(Component.translatable(
-                        "message.seeking_immortals.auction.outbid_refund", lot.display(), previousEscrow), true);
+                        "message.seeking_immortals.auction.outbid_refund", lotDisplay(lot), previousEscrow), true);
             } else {
                 house.addPendingRefund(previousLeader, previousEscrow);
             }
@@ -286,7 +309,7 @@ public final class AuctionSoftService {
         ReputationService.add(player, "auction_house", 1);
         venueOpt.ifPresent(v -> ReputationService.add(player, v.faction(), 1));
         player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.raised",
-                lot.display(), next, state.raises()), true);
+                lotDisplay(lot), next, state.raises()), true);
 
         // Wave466: auto-settle when bid reaches catalog maxEquiv floor.
         long max = Math.max(lot.maxEquiv(), lot.minEquiv());
@@ -305,7 +328,8 @@ public final class AuctionSoftService {
         Snapshot snapshot = builtin();
         var lotOpt = snapshot.findLot(lotId);
         if (lotOpt.isEmpty()) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.unknown", lotId), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.unknown",
+                    Component.literal("未知拍品")), false);
             return false;
         }
         return settle(player, lotOpt.get());
@@ -314,16 +338,16 @@ public final class AuctionSoftService {
     private static boolean settle(ServerPlayer player, Lot lot) {
         AuctionHouseSavedData house = AuctionHouseSavedData.get(player);
         if (house.isSettled(lot.id())) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.lot_settled", lot.display()), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.lot_settled", lotDisplay(lot)), false);
             return false;
         }
         AuctionHouseSavedData.BidState state = house.getBid(lot.id()).orElse(null);
         if (state == null || state.amount() <= 0 || state.bidder() == null) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.no_bid", lot.display()), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.no_bid", lotDisplay(lot)), false);
             return false;
         }
         if (!state.bidder().equals(player.getUUID()) && !player.getAbilities().instabuild) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.not_leader", lot.display()), true);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.not_leader", lotDisplay(lot)), true);
             return false;
         }
 
@@ -331,14 +355,14 @@ public final class AuctionSoftService {
         if (won.getBoolean(lot.id())) {
             // Heal house/player ledger drift without re-delivering rewards.
             house.markSettled(lot.id());
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.already_won", lot.display()), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.already_won", lotDisplay(lot)), false);
             return false;
         }
 
         Item rewardItem = rewardItemFor(lot);
         if (rewardItem == null || rewardItem == Items.AIR) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.auction.unknown", lot.display()), false);
+                    "message.seeking_immortals.auction.unknown", lotDisplay(lot)), false);
             return false;
         }
 
@@ -373,7 +397,7 @@ public final class AuctionSoftService {
             // optional
         }
         player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.won",
-                lot.display(), state.amount(), reward.getHoverName()), true);
+                lotDisplay(lot), state.amount(), reward.getHoverName()), true);
         // Wave491: refresh live ladder after settle.
         syncLadder(player, 0);
         return true;
@@ -665,6 +689,92 @@ public final class AuctionSoftService {
             }
         }
         return true;
+    }
+
+    private static Component lotDisplay(Lot lot) {
+        return Component.literal(lotDisplayString(lot));
+    }
+
+    private static String lotDisplayString(Lot lot) {
+        if (lot == null) {
+            return "未知拍品";
+        }
+        if (PlayerDisplayText.isSafe(lot.display())) {
+            return lot.display().trim();
+        }
+        String itemName = itemDisplayString(lot.rewardItem());
+        if (!itemName.isBlank()) {
+            return itemName;
+        }
+        for (String extra : lot.extras()) {
+            itemName = itemDisplayString(extra);
+            if (!itemName.isBlank()) {
+                return itemName;
+            }
+        }
+        return switch (normalizeDisplayId(lot.id())) {
+            case "lot_deity_pill_bundle" -> "化神修为丹药";
+            case "lot_ancient_beast_scale" -> "古兽鳞片";
+            case "lot_foundation_pill" -> "筑基丹";
+            case "lot_low_ancient_treasure" -> "低阶古宝";
+            default -> "未知拍品";
+        };
+    }
+
+    private static String itemDisplayString(String itemId) {
+        Item item = resolveItem(itemId);
+        if (item == null || item == Items.AIR) {
+            return "";
+        }
+        String display = PlayerDisplayText.itemName(item).getString();
+        return PlayerDisplayText.isSafe(display) ? display.trim() : "";
+    }
+
+    private static Component venueDisplay(Venue venue) {
+        String id = venue == null ? "" : normalizeDisplayId(venue.id());
+        return Component.literal(switch (id) {
+            case "wanbao_auction" -> "万宝楼拍卖场";
+            case "chaotic_sea_inner" -> "乱星海内海拍卖场";
+            case "tianyuan_garrison" -> "天渊城驻地拍卖场";
+            default -> "拍卖场";
+        });
+    }
+
+    private static Component regionDisplay(String regionId) {
+        String authored = RegionRegistry.find(regionId).map(RegionDefinition::display).orElse("");
+        if (PlayerDisplayText.isSafe(authored)) {
+            return Component.literal(authored.trim());
+        }
+        return Component.literal(switch (normalizeDisplayId(regionId)) {
+            case "dajin" -> "大晋";
+            case "chaotic_sea" -> "乱星海";
+            case "tianyuan", "tianyuan_city" -> "天渊城";
+            case "tiannan" -> "天南";
+            case "mortal_realm" -> "人界";
+            case "spirit_realm" -> "灵界";
+            default -> "未知地域";
+        });
+    }
+
+    private static Component factionDisplay(String factionId) {
+        String authored = FactionGraphService.findNode(factionId).map(FactionGraphService.Node::display)
+                .or(() -> ReputationUnlockService.find(factionId).map(ReputationUnlockService.FactionUnlocks::display))
+                .orElse("");
+        if (PlayerDisplayText.isSafe(authored)) {
+            return Component.literal(authored.trim());
+        }
+        return Component.literal(switch (normalizeDisplayId(factionId)) {
+            case "wanbao_pavilion", "wanbao" -> "万宝楼";
+            case "star_palace", "xinggong" -> "星宫";
+            case "inverse_star", "inverse_star_alliance" -> "逆星盟";
+            case "tianyuan", "tianyuan_city" -> "天渊城";
+            case "auction_house" -> "拍卖行";
+            default -> "未知势力";
+        });
+    }
+
+    private static String normalizeDisplayId(String id) {
+        return PlayerDisplayText.normalizeId(id);
     }
 
     private static String metadataValue(String note, String key) {

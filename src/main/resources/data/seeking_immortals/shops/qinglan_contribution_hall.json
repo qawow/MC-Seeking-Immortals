@@ -47,13 +47,13 @@
     },
     {
       "id": "recipe_jiangchen",
-      "item": "seeking_immortals:alchemy_formula_foundation_building_pill_paper",
+      "item": "seeking_immortals:recipe_jiangchen",
       "count": 1,
       "cost": 25
     },
     {
       "id": "recipe_huanglong",
-      "item": "seeking_immortals:alchemy_formula_cultivation_pill_paper",
+      "item": "seeking_immortals:recipe_huanglong",
       "count": 1,
       "cost": 45
     },
@@ -84,7 +84,7 @@
     },
     {
       "id": "spirit_recovery_pill",
-      "item": "seeking_immortals:qi_recovery_pill",
+      "item": "seeking_immortals:spirit_recovery_pill",
       "count": 1,
       "cost": 35
     },

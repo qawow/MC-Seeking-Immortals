@@ -6,6 +6,7 @@ import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.region.RegionRegistry;
 import com.xunxian.seekingimmortals.sect.ReputationUnlockService;
 import com.xunxian.seekingimmortals.shop.ShopService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import com.xunxian.seekingimmortals.worldpack.DimensionTravelService;
 import com.xunxian.seekingimmortals.worldpack.ReputationService;
 import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
@@ -132,17 +133,20 @@ public final class DialogueActionExecutor {
             }
             case ENTER_INSTANCE -> enterInstance(player, effect);
             case DENY_SERVICE, END -> {
-                player.displayClientMessage(Component.literal("[对话] 对方拒绝继续交谈。"), false);
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.dialogue.service_denied"), false);
                 yield true;
             }
             case MARK_STRUCTURE -> {
                 String structure = firstNonBlank(effect.param("structure"), effect.param("id"), "marked_structure");
                 NpcDialogueFlags.setFlag(player, "mark_" + normalize(structure));
-                player.displayClientMessage(Component.literal("[对话] 记下了地点：" + structure), false);
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.dialogue.location_marked"), false);
                 yield true;
             }
             case HINT, ANOMALY_LOG -> {
-                player.displayClientMessage(Component.literal("[对话] ……"), false);
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.dialogue.ellipsis"), false);
                 yield true;
             }
             case CALL_GUARD, COMBAT_FLAG, COMBAT_OR_ARREST, ADD_SUSPICION -> {
@@ -153,7 +157,8 @@ public final class DialogueActionExecutor {
                 if (!rep.isBlank()) {
                     ReputationService.add(player, ReputationUnlockService.reputationKey(rep), -3);
                 }
-                player.displayClientMessage(Component.literal("[对话] 气氛骤然紧张。"), false);
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.dialogue.tension"), false);
                 yield true;
             }
             default -> {
@@ -174,7 +179,8 @@ public final class DialogueActionExecutor {
             shopId = ShopService.MARKET_HERBAL_STALL;
         }
         ShopService.openMarket(player, shopId, NpcDialogueApi.currentSourceEntity(player).orElse(null));
-        player.displayClientMessage(Component.literal("[对话] 打开商店：" + shopId), true);
+        player.displayClientMessage(Component.translatable(
+                "message.seeking_immortals.dialogue.shop_opened"), true);
         return true;
     }
 
@@ -209,9 +215,12 @@ public final class DialogueActionExecutor {
             }
         }
         if (ok) {
-            player.displayClientMessage(Component.literal("[对话] 获得物品：" + itemId + " ×" + count), false);
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.dialogue.item_granted",
+                    PlayerDisplayText.itemName(itemId), count), false);
         } else {
-            player.displayClientMessage(Component.literal("[对话] 物品暂不可发放：" + itemId), false);
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.dialogue.item_unavailable"), false);
         }
         return ok;
     }
@@ -249,7 +258,8 @@ public final class DialogueActionExecutor {
             return success;
         }
         NpcDialogueFlags.setFlag(player, "travel_route_" + region);
-        player.displayClientMessage(Component.literal("[对话] 行程已备：" + dest), false);
+        player.displayClientMessage(Component.translatable(
+                "message.seeking_immortals.dialogue.travel_prepared"), false);
         return true;
     }
 
@@ -293,7 +303,8 @@ public final class DialogueActionExecutor {
         }
         ReputationService.add(player, key, delta);
         NpcFavorService.add(player, npcId, Math.max(1, delta / 2));
-        player.displayClientMessage(Component.literal("[对话] 声望变化 " + key + " " + (delta >= 0 ? "+" : "") + delta), false);
+        player.displayClientMessage(Component.translatable(
+                "message.seeking_immortals.dialogue.reputation_changed", delta), false);
         return true;
     }
 

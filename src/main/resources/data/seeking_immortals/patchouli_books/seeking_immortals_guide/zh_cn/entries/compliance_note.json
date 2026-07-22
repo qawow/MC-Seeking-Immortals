@@ -6,12 +6,12 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "专属古宝以残片、仿制品、模板形式出现，见 artifacts_catalog.note",
+      "text": "部分专属古宝只会以残片、仿制品或制作模板出现，不会直接作为完整法宝掉落。",
       "title": "合规说明"
     },
     {
       "type": "patchouli:text",
-      "text": "语料 patchouli_item_book.static_entries.compliance_note",
+      "text": "查看物品说明可确认它属于完整法宝、残片、仿制品还是制作模板。",
       "title": "来源"
     }
   ]

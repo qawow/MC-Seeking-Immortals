@@ -167,7 +167,7 @@
       "id": "jiangchen_pill",
       "display": "降尘丹",
       "realm_min": "",
-      "effect": "foundation_breakthrough_bonus"
+      "effect": "jiangchen_breakthrough_aid"
     },
     {
       "id": "huanglong_pill",
@@ -291,7 +291,7 @@
     },
     {
       "id": "spirit_recovery_pill_high",
-      "display": "回灵丹（中）",
+      "display": "回灵丹（上品）",
       "realm_min": "FOUNDATION",
       "effect": "restore_mana"
     },
@@ -448,12 +448,6 @@
     {
       "id": "anti_poison_pill",
       "display": "解毒丹",
-      "realm_min": "",
-      "effect": ""
-    },
-    {
-      "id": "jiangying_pill",
-      "display": "降尘丹",
       "realm_min": "",
       "effect": ""
     },
@@ -639,49 +633,49 @@
     },
     {
       "id": "cultivation_aid_qi_refining",
-      "display": "QI_REFINING辅修丹（通称）",
+      "display": "炼气辅修丹（通称）",
       "realm_min": "",
       "effect": ""
     },
     {
       "id": "cultivation_aid_foundation",
-      "display": "FOUNDATION辅修丹（通称）",
+      "display": "筑基辅修丹（通称）",
       "realm_min": "",
       "effect": ""
     },
     {
       "id": "cultivation_aid_core_formation",
-      "display": "CORE_FORMATION辅修丹（通称）",
+      "display": "结丹辅修丹（通称）",
       "realm_min": "",
       "effect": ""
     },
     {
       "id": "cultivation_aid_nascent_soul",
-      "display": "NASCENT_SOUL辅修丹（通称）",
+      "display": "元婴辅修丹（通称）",
       "realm_min": "",
       "effect": ""
     },
     {
       "id": "cultivation_aid_deity_transformation",
-      "display": "DEITY_TRANSFORMATION辅修丹（通称）",
+      "display": "化神辅修丹（通称）",
       "realm_min": "",
       "effect": ""
     },
     {
       "id": "cultivation_aid_void_refining",
-      "display": "VOID_REFINING辅修丹（通称）",
+      "display": "炼虚辅修丹（通称）",
       "realm_min": "",
       "effect": ""
     },
     {
       "id": "cultivation_aid_great_vehicle",
-      "display": "GREAT_VEHICLE辅修丹（通称）",
+      "display": "大乘辅修丹（通称）",
       "realm_min": "",
       "effect": ""
     },
     {
       "id": "cultivation_aid_spirit_severing",
-      "display": "SPIRIT_SEVERING辅修丹（通称）",
+      "display": "化神辅修丹（通称）",
       "realm_min": "",
       "effect": ""
     }

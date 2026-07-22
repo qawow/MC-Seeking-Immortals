@@ -7,17 +7,17 @@
     {
       "type": "patchouli:text",
       "title": "Q: How to start?",
-      "text": "A: First, craft or find a $(l)Root Test Stone$() and right-click yourself to test your spiritual roots. Then collect $(l)Spirit Stones$() to absorb spiritual power, press $(l)V key$() to meditate and cultivate, accumulate cultivation experience, then use $(l)/seeking_immortals breakthrough$() to advance realms.$(br2)Beginners should complete the $(l)Seven Mysteries Sect quest line$() for guidance and basic resources."
+      "text": "A: First, craft or find a $(l)Root Test Stone$() and right-click yourself to test your spiritual roots. Then collect $(l)Spirit Stones$() to absorb spiritual power, right-click a $(l)Meditation Cushion$() to meditate and cultivate, accumulate cultivation experience, then use $(l)/seeking_immortals breakthrough$() to advance realms.$(br2)Beginners should complete the $(l)Seven Mysteries Sect quest line$() for guidance and basic resources."
     },
     {
       "type": "patchouli:text",
       "title": "Q: Not enough spiritual power?",
-      "text": "A: Spiritual power recovery methods:$(li)Hold spirit stone and right-click to activate absorption$(li)Use Qi Recovery Pills for quick restoration$(li)Meditate on spirit gathering arrays or cushions$(li)Wear Spirit Charm to increase recovery speed$(br2)Early game, keep multiple stacks of spirit stones to avoid running out during combat."
+      "text": "A: Spiritual power recovery methods:$(li)Hold a spirit stone and right-click to activate absorption$(li)Use Spirit Recovery Pills to restore half your spiritual power$(li)Meditate on spirit gathering arrays or cushions$(li)Wear a Spirit Charm to increase recovery speed$(br2)Early game, keep multiple stacks of spirit stones to avoid running out during combat."
     },
     {
       "type": "patchouli:text",
       "title": "Q: Breakthrough keeps failing?",
-      "text": "A: Ways to improve breakthrough success:$(li)Accumulate more cultivation experience (exceed minimum)$(li)Use $(l)Breakthrough Pills$() to assist$(li)Attempt breakthrough in high-aura environments$(li)Ensure good root quality (single > dual)$(li)Avoid breakthrough near end of lifespan$(br2)Failure causes experience loss; prepare well before attempting."
+      "text": "A: Ways to improve breakthrough success:$(li)Accumulate more cultivation experience (exceed minimum)$(li)Use the Jiangchen Pill or another matching breakthrough aid$(li)Attempt breakthrough in high-aura environments$(li)Ensure good root quality (single > dual)$(li)Avoid breakthrough near end of lifespan$(br2)Failure causes experience loss; prepare well before attempting."
     },
     {
       "type": "patchouli:text",

@@ -30,7 +30,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "seeking_immortals:qi_recovery_pill",
+          "name": "seeking_immortals:spirit_recovery_pill",
           "weight": 28,
           "functions": [
             {

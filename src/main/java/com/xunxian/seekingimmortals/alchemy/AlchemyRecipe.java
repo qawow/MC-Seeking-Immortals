@@ -2,7 +2,9 @@ package com.xunxian.seekingimmortals.alchemy;
 
 import com.xunxian.seekingimmortals.cultivation.Realm;
 import com.xunxian.seekingimmortals.item.pill.PillQuality;
+import com.xunxian.seekingimmortals.registry.ModBulkItems;
 import com.xunxian.seekingimmortals.registry.ModItems;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -35,9 +37,9 @@ public record AlchemyRecipe(String id, Component displayName, List<Item> outputs
     }
 
     public static final List<AlchemyRecipe> MVP_RECIPES = List.of(
-            new AlchemyRecipe("cultivation_pill", Component.translatable("item.seeking_immortals.cultivation_pill"),
-                    uniform(ModItems.CULTIVATION_PILL.get()), 1, 20, 20 * 20, 0.80D, 0.03D,
-                    1, 1, Realm.MORTAL, false, false, List.of(
+            new AlchemyRecipe("cultivate_speed_pill", Component.translatable("item.seeking_immortals.cultivate_speed_pill"),
+                    uniform(bulkPill("cultivate_speed_pill")), 1, 20, 20 * 20, 0.80D, 0.03D,
+                    1, 1, Realm.QI_REFINING, false, false, List.of(
                     new IngredientRequirement(ModItems.SPIRIT_GRASS.get(), 2),
                     new IngredientRequirement(ModItems.CLOUD_MUSHROOM.get(), 1))),
             new AlchemyRecipe("foundation_building_pill_low", Component.translatable("item.seeking_immortals.foundation_building_pill_low"),
@@ -65,9 +67,9 @@ public record AlchemyRecipe(String id, Component displayName, List<Item> outputs
                     uniform(ModItems.QINGXIN_PILL.get()), 1, 20, 22 * 20, 0.65D, 0.04D,
                     1, 2, Realm.QI_REFINING, false, false, List.of(
                     new IngredientRequirement(ModItems.SPIRIT_GRASS.get(), 3))),
-            new AlchemyRecipe("qi_recovery_pill", Component.translatable("item.seeking_immortals.qi_recovery_pill"),
-                    uniform(ModItems.QI_RECOVERY_PILL.get()), 1, 20, 20 * 20, 0.82D, 0.03D,
-                    1, 1, Realm.MORTAL, false, false, List.of(
+            new AlchemyRecipe("spirit_recovery_pill", Component.translatable("item.seeking_immortals.spirit_recovery_pill"),
+                    uniform(bulkPill("spirit_recovery_pill")), 1, 20, 20 * 20, 0.82D, 0.03D,
+                    1, 1, Realm.QI_REFINING, false, false, List.of(
                     new IngredientRequirement(ModItems.SPIRIT_GRASS.get(), 1),
                     new IngredientRequirement(ModItems.CLOUD_MUSHROOM.get(), 2))),
             new AlchemyRecipe("spirit_gathering_pill", Component.translatable("item.seeking_immortals.spirit_gathering_pill"),
@@ -211,6 +213,10 @@ public record AlchemyRecipe(String id, Component displayName, List<Item> outputs
         return List.of(item, item, item, item);
     }
 
+    private static Item bulkPill(String id) {
+        return ModBulkItems.byId().get(id).get();
+    }
+
     private static List<Item> quality(Item low, Item medium, Item high, Item supreme) {
         return List.of(low, medium, high, supreme);
     }
@@ -228,10 +234,10 @@ public record AlchemyRecipe(String id, Component displayName, List<Item> outputs
             return findById("calming_pill_low");
         }
         if (stack.is(ModItems.CLOUD_MUSHROOM.get())) {
-            return findById("qi_recovery_pill");
+            return findById("spirit_recovery_pill");
         }
         if (stack.is(ModItems.SPIRIT_GRASS.get())) {
-            return findById("cultivation_pill");
+            return findById("cultivate_speed_pill");
         }
         return AlchemyRecipeManager.recipes().stream()
                 .filter(recipe -> recipe.ingredients().stream().anyMatch(ingredient -> stack.is(ingredient.item())))
@@ -252,7 +258,7 @@ public record AlchemyRecipe(String id, Component displayName, List<Item> outputs
             IngredientRequirement ingredient = ingredients.get(i);
             if (i > 0) builder.append(", ");
             builder.append(ingredient.count()).append("x ")
-                    .append(Component.translatable(ingredient.item().getDescriptionId()).getString());
+                    .append(PlayerDisplayText.itemName(ingredient.item()).getString());
         }
         return builder.toString();
     }

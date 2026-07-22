@@ -19,8 +19,8 @@
       "stock": 40
     },
     {
-      "id": "qi_recovery_pill",
-      "item": "seeking_immortals:qi_recovery_pill",
+      "id": "spirit_recovery_pill",
+      "item": "seeking_immortals:spirit_recovery_pill",
       "count": 1,
       "cost": 80,
       "stock": 16
@@ -33,8 +33,8 @@
       "stock": 10
     },
     {
-      "id": "formula_qi_recovery",
-      "item": "seeking_immortals:alchemy_formula_qi_recovery_pill_jade",
+      "id": "recipe_spirit_recovery",
+      "item": "seeking_immortals:recipe_spirit_recovery",
       "count": 1,
       "cost": 180,
       "stock": 4

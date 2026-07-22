@@ -329,9 +329,6 @@ public final class ModItems {
                     com.xunxian.seekingimmortals.item.material.MaterialRarity.RARE,
                     "Demonic dual-cultivation alchemy material"));
 
-    public static final RegistryObject<Item> QI_RECOVERY_PILL = ITEMS.register("qi_recovery_pill", () -> new QiRecoveryPillItem(new Item.Properties(), 80));
-    public static final RegistryObject<Item> CULTIVATION_PILL = ITEMS.register("cultivation_pill", () -> new CultivationPillItem(new Item.Properties(), 80));
-    public static final RegistryObject<Item> BREAKTHROUGH_PILL = ITEMS.register("breakthrough_pill", () -> new BreakthroughPillItem(new Item.Properties()));
     public static final RegistryObject<Item> WASTE_PILL = ITEMS.register("waste_pill", () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> REJUVENATION_PILL_LOW = ITEMS.register("rejuvenation_pill_low", () -> new com.xunxian.seekingimmortals.item.pill.RejuvenationPill(new Item.Properties(), com.xunxian.seekingimmortals.item.pill.PillQuality.LOW));
@@ -573,8 +570,8 @@ public final class ModItems {
     public static final RegistryObject<Item> DAN_FIRE_HIGH = registerDanFire("dan_fire_high", 3, Realm.FOUNDATION_ESTABLISHMENT, false);
     public static final RegistryObject<Item> EARTH_FIRE = registerDanFire("earth_fire", 4, Realm.CORE_FORMATION, true);
     public static final RegistryObject<Item> NASCENT_SOUL_FIRE = registerDanFire("nascent_soul_fire", 5, Realm.NASCENT_SOUL, false);
-    public static final RegistryObject<Item> ALCHEMY_FORMULA_CULTIVATION_PILL_PAPER = registerAlchemyFormula("alchemy_formula_cultivation_pill_paper", "cultivation_pill", AlchemyFormulaSource.PAPER);
-    public static final RegistryObject<Item> ALCHEMY_FORMULA_QI_RECOVERY_PILL_JADE = registerAlchemyFormula("alchemy_formula_qi_recovery_pill_jade", "qi_recovery_pill", AlchemyFormulaSource.JADE);
+    public static final RegistryObject<Item> ALCHEMY_FORMULA_CULTIVATION_PILL_PAPER = registerAlchemyFormula("alchemy_formula_cultivation_pill_paper", "cultivate_speed_pill", AlchemyFormulaSource.PAPER);
+    public static final RegistryObject<Item> ALCHEMY_FORMULA_QI_RECOVERY_PILL_JADE = registerAlchemyFormula("alchemy_formula_qi_recovery_pill_jade", "spirit_recovery_pill", AlchemyFormulaSource.JADE);
     public static final RegistryObject<Item> ALCHEMY_FORMULA_CALMING_PILL_JADE = registerAlchemyFormula("alchemy_formula_calming_pill_jade", "calming_pill_low", AlchemyFormulaSource.JADE);
     public static final RegistryObject<Item> ALCHEMY_FORMULA_QINGXIN_PILL_PAPER = registerAlchemyFormula("alchemy_formula_qingxin_pill_paper", "qingxin_pill", AlchemyFormulaSource.PAPER);
     public static final RegistryObject<Item> ALCHEMY_FORMULA_FOUNDATION_BUILDING_PILL_PAPER = registerAlchemyFormula("alchemy_formula_foundation_building_pill_paper", "foundation_building_pill_low", AlchemyFormulaSource.PAPER);

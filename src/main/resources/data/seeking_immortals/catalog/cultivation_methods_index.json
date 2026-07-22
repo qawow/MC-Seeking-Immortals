@@ -466,112 +466,112 @@
     },
     {
       "id": "generic_cultivation_qi_refining",
-      "display": "QI_REFINING通修诀（通称）",
+      "display": "炼气通修诀（通称）",
       "realm_min": "QI_REFINING",
       "school": "mixed",
       "attribute": "neutral"
     },
     {
       "id": "generic_cultivation_foundation",
-      "display": "FOUNDATION通修诀（通称）",
+      "display": "筑基通修诀（通称）",
       "realm_min": "FOUNDATION",
       "school": "mixed",
       "attribute": "neutral"
     },
     {
       "id": "generic_cultivation_core_formation",
-      "display": "CORE_FORMATION通修诀（通称）",
+      "display": "结丹通修诀（通称）",
       "realm_min": "CORE_FORMATION",
       "school": "mixed",
       "attribute": "neutral"
     },
     {
       "id": "generic_cultivation_nascent_soul",
-      "display": "NASCENT_SOUL通修诀（通称）",
+      "display": "元婴通修诀（通称）",
       "realm_min": "NASCENT_SOUL",
       "school": "mixed",
       "attribute": "neutral"
     },
     {
       "id": "generic_cultivation_deity_transformation",
-      "display": "DEITY_TRANSFORMATION通修诀（通称）",
+      "display": "化神通修诀（通称）",
       "realm_min": "DEITY_TRANSFORMATION",
       "school": "mixed",
       "attribute": "neutral"
     },
     {
       "id": "generic_cultivation_void_refining",
-      "display": "VOID_REFINING通修诀（通称）",
+      "display": "炼虚通修诀（通称）",
       "realm_min": "VOID_REFINEMENT",
       "school": "mixed",
       "attribute": "neutral"
     },
     {
       "id": "generic_cultivation_great_vehicle",
-      "display": "GREAT_VEHICLE通修诀（通称）",
+      "display": "大乘通修诀（通称）",
       "realm_min": "GREAT_VEHICLE",
       "school": "mixed",
       "attribute": "neutral"
     },
     {
       "id": "generic_cultivation_spirit_severing",
-      "display": "SPIRIT_SEVERING通修诀（通称）",
+      "display": "合体通修诀（通称）",
       "realm_min": "VOID_REFINEMENT",
       "school": "mixed",
       "attribute": "neutral"
     },
     {
       "id": "sect_specialty_sword",
-      "display": "sword专精入门（通称）",
+      "display": "剑修专精入门（通称）",
       "realm_min": "FOUNDATION",
       "school": true,
       "attribute": "neutral"
     },
     {
       "id": "sect_specialty_body",
-      "display": "body专精入门（通称）",
+      "display": "体修专精入门（通称）",
       "realm_min": "FOUNDATION",
       "school": true,
       "attribute": "neutral"
     },
     {
       "id": "sect_specialty_talisman",
-      "display": "talisman专精入门（通称）",
+      "display": "符箓专精入门（通称）",
       "realm_min": "FOUNDATION",
       "school": true,
       "attribute": "neutral"
     },
     {
       "id": "sect_specialty_formation",
-      "display": "formation专精入门（通称）",
+      "display": "阵法专精入门（通称）",
       "realm_min": "FOUNDATION",
       "school": true,
       "attribute": "neutral"
     },
     {
       "id": "sect_specialty_puppet",
-      "display": "puppet专精入门（通称）",
+      "display": "傀儡专精入门（通称）",
       "realm_min": "FOUNDATION",
       "school": true,
       "attribute": "neutral"
     },
     {
       "id": "sect_specialty_alchemy",
-      "display": "alchemy专精入门（通称）",
+      "display": "炼丹专精入门（通称）",
       "realm_min": "FOUNDATION",
       "school": "craft_alchemy",
       "attribute": "neutral"
     },
     {
       "id": "sect_specialty_ghost",
-      "display": "ghost专精入门（通称）",
+      "display": "鬼道专精入门（通称）",
       "realm_min": "FOUNDATION",
       "school": true,
       "attribute": "neutral"
     },
     {
       "id": "sect_specialty_demonic",
-      "display": "demonic专精入门（通称）",
+      "display": "魔道专精入门（通称）",
       "realm_min": "FOUNDATION",
       "school": true,
       "attribute": "neutral"

@@ -7,12 +7,12 @@
     {
       "type": "patchouli:text",
       "title": "设定来源",
-      "text": "本页对应 文本材料/data/sect_contribution_shop.json 中的 rank_min 与 exchange 门槛。当前版本复用已有 ShopService 宗门贡献兑换、QuestProgress 宗门阶段和 Patchouli 手册，不新增独立 NPC、商店 UI、任务加载器或网络包。"
+      "text": "宗门贡献商店会按弟子品阶限制商品。购买时服务端会检查当前宗门阶段、贡献与库存，不满足条件时不会扣除资源。"
     },
     {
       "type": "patchouli:text",
       "title": "购买校验",
-      "text": "贡献商店现在会在扣除贡献和占用库存之前校验品阶。支持 outer_disciple、inner_disciple、core_disciple 三档；源资料中的 null 表示清除继承门槛。品阶不足时会返回 RANK_TOO_LOW，并显示本地化的所需品阶。"
+      "text": "贡献商店会在扣除贡献和占用库存前校验品阶，支持外门、内门与核心弟子三档。没有额外品阶门槛的商品可直接购买；品阶不足时会显示所需弟子等级。"
     },
     {
       "type": "patchouli:text",
@@ -27,7 +27,7 @@
     {
       "type": "patchouli:text",
       "title": "仍待补全",
-      "text": "境界门槛、声望门槛、月度或个人限购、可视化锁定文本、严格炼丹权限、专属 NPC/任务投放和更完整的源设定货品分布仍是后续切片。本页只说明已经接入服务器校验的 rank_min 路线。"
+      "text": "境界与声望门槛、月度或个人限购、锁定提示、严格炼丹权限、专属人物与任务投放，以及更完整的货品分布仍待补全。本页只说明当前已接入的弟子品阶校验。"
     }
   ]
 }

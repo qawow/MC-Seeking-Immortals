@@ -1,5 +1,7 @@
 package com.xunxian.seekingimmortals.client;
 
+import com.xunxian.seekingimmortals.catalog.ExtendedCatalogService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.network.chat.Component;
@@ -168,7 +170,7 @@ public class QuestTrackerScreen extends AbstractJournalScreen {
         if (lines.isEmpty()) return font.lineHeight;
         int height = 0;
         for (String line : lines) {
-            height += Math.max(1, font.split(Component.literal(line == null ? "" : line), contentWidth).size())
+            height += Math.max(1, font.split(Component.literal(displayLine(line)), contentWidth).size())
                     * (font.lineHeight + LINE_GAP);
         }
         return Math.max(1, height - LINE_GAP);
@@ -185,7 +187,8 @@ public class QuestTrackerScreen extends AbstractJournalScreen {
         int cursorY = y;
         for (String line : lines) {
             String safeLine = line == null ? "" : line;
-            int lineHeight = lineHeight(safeLine, contentWidth);
+            String renderedLine = displayLine(safeLine);
+            int lineHeight = lineHeight(renderedLine, contentWidth);
             Optional<ClientQuestTrackerData.ChainLine> parsed = ClientQuestTrackerData.parseChainLine(safeLine);
             if (parsed.isPresent()) {
                 boolean selected = parsed.get().id().equals(ClientQuestTrackerData.selectedChainId());
@@ -200,7 +203,7 @@ public class QuestTrackerScreen extends AbstractJournalScreen {
             int color = safeLine.startsWith("OK ") ? ImmortalUiSkin.JOURNAL_JADE_TEXT
                     : safeLine.startsWith("ERR ") ? ImmortalUiSkin.JOURNAL_CINNABAR_BRIGHT
                     : ImmortalUiSkin.JOURNAL_PAPER;
-            for (FormattedCharSequence sequence : font.split(Component.literal(safeLine), contentWidth)) {
+            for (FormattedCharSequence sequence : font.split(Component.literal(renderedLine), contentWidth)) {
                 graphics.drawString(font, sequence, x, cursorY, color, false);
                 cursorY += font.lineHeight + LINE_GAP;
             }
@@ -215,7 +218,7 @@ public class QuestTrackerScreen extends AbstractJournalScreen {
         int cursor = 0;
         for (String line : lines) {
             String safeLine = line == null ? "" : line;
-            int height = lineHeight(safeLine, contentWidth);
+            int height = lineHeight(displayLine(safeLine), contentWidth);
             if (contentY >= cursor && contentY < cursor + height) {
                 return ClientQuestTrackerData.parseChainLine(safeLine);
             }
@@ -233,16 +236,46 @@ public class QuestTrackerScreen extends AbstractJournalScreen {
         if (active.isEmpty()) return "";
         ClientQuestTrackerData.ChainLine line = active.get();
         if (line.complete()) {
-            return Component.translatable("screen.seeking_immortals.quest_tracker.hint_done", line.id()).getString();
+            return Component.translatable("screen.seeking_immortals.quest_tracker.hint_done",
+                    questDisplay(line.id())).getString();
         }
         if (line.costNeed() > 0 && line.owned() < line.costNeed()) {
             return Component.translatable("screen.seeking_immortals.quest_tracker.hint_cost",
-                    line.costItem(), line.owned(), line.costNeed()).getString();
+                    PlayerDisplayText.itemName(line.costItem()), line.owned(), line.costNeed()).getString();
         }
         if (line.branchLocked()) {
-            return Component.translatable("screen.seeking_immortals.quest_tracker.hint_locked", line.branch()).getString();
+            return Component.translatable("screen.seeking_immortals.quest_tracker.hint_locked",
+                    branchDisplay(line.branch())).getString();
         }
-        return Component.translatable("screen.seeking_immortals.quest_tracker.hint_ready", line.id()).getString();
+        return Component.translatable("screen.seeking_immortals.quest_tracker.hint_ready",
+                questDisplay(line.id())).getString();
+    }
+
+    private static String questDisplay(String id) {
+        ExtendedCatalogService.QuestChain chain = id == null ? null
+                : ExtendedCatalogService.builtin().questChains().get(id);
+        return chain != null && PlayerDisplayText.isSafe(chain.display())
+                ? chain.display().trim() : Component.translatable("text.seeking_immortals.unknown_quest").getString();
+    }
+
+    private static String branchDisplay(String branch) {
+        String key = "screen.seeking_immortals.quest_tracker.branch." +
+                (branch == null || branch.isBlank() ? "neutral" : branch);
+        return PlayerDisplayText.translatedOr(key,
+                "screen.seeking_immortals.quest_tracker.branch.unknown").getString();
+    }
+
+    private static String displayLine(String raw) {
+        Optional<ClientQuestTrackerData.ChainLine> parsed = ClientQuestTrackerData.parseChainLine(raw);
+        if (parsed.isEmpty()) {
+            return Component.translatable("screen.seeking_immortals.quest_tracker.no_active").getString();
+        }
+        ClientQuestTrackerData.ChainLine line = parsed.get();
+        Component cost = line.costNeed() > 0 ? PlayerDisplayText.itemName(line.costItem())
+                : Component.translatable("text.seeking_immortals.none");
+        return Component.translatable("screen.seeking_immortals.quest_tracker.entry",
+                questDisplay(line.id()), line.stage(), line.steps(), branchDisplay(line.branch()),
+                cost, line.owned(), line.costNeed(), line.complete() ? 1 : 0).getString();
     }
 
     static Layout calculateLayout(int screenWidth, int screenHeight) {

@@ -2,6 +2,7 @@ package com.xunxian.seekingimmortals.catalog;
 
 import com.xunxian.seekingimmortals.catalog.FactionQuestCatalogService.Entry;
 import com.xunxian.seekingimmortals.quest.TextQuestChainService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import com.xunxian.seekingimmortals.worldpack.ReputationService;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -64,18 +65,19 @@ public final class ChronicleTradeSoftService {
     }
 
     public static boolean previewChronicle(ServerPlayer player, String id) {
-        Entry entry = FactionQuestCatalogService.builtin().chronicleEvents().get(norm(id));
+        Entry entry = findEntry(FactionQuestCatalogService.builtin().chronicleEvents(), id);
         if (entry == null) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.chronicle.unknown", id), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.chronicle.unknown",
+                    Component.literal("未知编年事件")), false);
             return false;
         }
         player.displayClientMessage(Component.translatable("message.seeking_immortals.chronicle.preview",
-                entry.id(), entry.display()), false);
+                Component.literal("当前事件"), entryDisplay(entry, "未知编年事件")), false);
         Optional<String> mapped = mappedChronicleChainId(entry.id());
         if (mapped.isPresent()) {
             TextQuestChainService.ChainProgress progress = TextQuestChainService.progressOf(player, mapped.get());
             player.displayClientMessage(Component.translatable("message.seeking_immortals.chronicle.mapped",
-                    mapped.get(), progress.stage(), progress.stepCount()), false);
+                    chainDisplay(mapped.get()), progress.stage(), progress.stepCount()), false);
             player.displayClientMessage(Component.translatable("message.seeking_immortals.chronicle.discover_hint"), false);
             if (hasDiscovered(player, entry.id())) {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.chronicle.already_discovered"), false);
@@ -87,7 +89,7 @@ public final class ChronicleTradeSoftService {
     }
 
     public static Optional<String> mappedChronicleChainId(String eventId) {
-        String id = norm(eventId);
+        String id = canonicalEntryId(FactionQuestCatalogService.builtin().chronicleEvents(), eventId);
         if (id.isBlank()) {
             return Optional.empty();
         }
@@ -156,12 +158,13 @@ public final class ChronicleTradeSoftService {
     }
 
     public static boolean discoverChronicle(ServerPlayer player, String eventId) {
-        String key = norm(eventId);
-        Entry entry = FactionQuestCatalogService.builtin().chronicleEvents().get(key);
+        Entry entry = findEntry(FactionQuestCatalogService.builtin().chronicleEvents(), eventId);
         if (entry == null) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.chronicle.unknown", eventId), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.chronicle.unknown",
+                    Component.literal("未知编年事件")), false);
             return false;
         }
+        String key = norm(entry.id());
         if (hasDiscovered(player, key)) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.chronicle.already_discovered"), false);
             return true;
@@ -187,13 +190,14 @@ public final class ChronicleTradeSoftService {
         grantDiscoverReward(player, key);
         applyChronicleReputation(player, key);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.chronicle.first_discover",
-                entry.display()), true);
+                entryDisplay(entry, "未知编年事件")), true);
         if (mapped.isPresent()) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.chronicle.discovered",
-                    entry.display(), mapped.get()), true);
+                    entryDisplay(entry, "未知编年事件"), chainDisplay(mapped.get())), true);
         } else {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.chronicle.discovered_soft", entry.display()), true);
+                    "message.seeking_immortals.chronicle.discovered_soft",
+                    entryDisplay(entry, "未知编年事件")), true);
         }
         return true;
     }
@@ -270,31 +274,32 @@ public final class ChronicleTradeSoftService {
     }
 
     public static boolean previewTradeRoute(ServerPlayer player, String id) {
-        Entry entry = FactionQuestCatalogService.builtin().tradeRoutes().get(norm(id));
+        Entry entry = findEntry(FactionQuestCatalogService.builtin().tradeRoutes(), id);
         if (entry == null) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.trade_route.unknown", id), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.trade_route.unknown",
+                    Component.literal("未知商路")), false);
             return false;
         }
         player.displayClientMessage(Component.translatable("message.seeking_immortals.trade_route.preview",
-                entry.id(), entry.display()), false);
+                Component.literal("当前商路"), entryDisplay(entry, "未知商路")), false);
         Optional<String> mapped = mappedChainId(entry.id());
         List<EmbarkFee> fees = discountedFees(player, feeFor(entry.id()));
         if (!fees.isEmpty()) {
             double mult = ReputationService.shopDiscountMultiplier(player, "merchant_guild");
             if (mult < 1.0D) {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.trade_route.tax_discount",
-                        ReputationService.discountLabel(player, "merchant_guild")), false);
+                        discountDisplay(ReputationService.discountLabel(player, "merchant_guild"))), false);
             }
             for (EmbarkFee fee : fees) {
                 int owned = countOwned(player, fee);
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.trade_route.fee",
-                        fee.displayKey(), fee.count(), owned), false);
+                        feeDisplay(fee), fee.count(), owned), false);
             }
         }
         if (mapped.isPresent()) {
             TextQuestChainService.ChainProgress progress = TextQuestChainService.progressOf(player, mapped.get());
             player.displayClientMessage(Component.translatable("message.seeking_immortals.trade_route.mapped",
-                    mapped.get(), progress.stage(), progress.stepCount()), false);
+                    chainDisplay(mapped.get()), progress.stage(), progress.stepCount()), false);
             player.displayClientMessage(Component.translatable("message.seeking_immortals.trade_route.embark_hint"), false);
         } else {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.trade_route.soft_only"), false);
@@ -303,7 +308,7 @@ public final class ChronicleTradeSoftService {
     }
 
     public static Optional<String> mappedChainId(String routeId) {
-        String id = norm(routeId);
+        String id = canonicalEntryId(FactionQuestCatalogService.builtin().tradeRoutes(), routeId);
         if (id.isBlank()) {
             return Optional.empty();
         }
@@ -334,7 +339,8 @@ public final class ChronicleTradeSoftService {
     }
 
     public static List<EmbarkFee> feeFor(String routeId) {
-        return ROUTE_FEES.getOrDefault(norm(routeId), List.of(
+        String key = canonicalEntryId(FactionQuestCatalogService.builtin().tradeRoutes(), routeId);
+        return ROUTE_FEES.getOrDefault(key, List.of(
                 new EmbarkFee("seeking_immortals:spirit_stone_shard", 4, "spirit_stone_shard")));
     }
 
@@ -362,15 +368,17 @@ public final class ChronicleTradeSoftService {
      * Wave479: rep-discounted fees + caravan settle profit when chain completes.
      */
     public static boolean embark(ServerPlayer player, String routeId) {
-        String key = norm(routeId);
-        Entry entry = FactionQuestCatalogService.builtin().tradeRoutes().get(key);
+        Entry entry = findEntry(FactionQuestCatalogService.builtin().tradeRoutes(), routeId);
         if (entry == null) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.trade_route.unknown", routeId), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.trade_route.unknown",
+                    Component.literal("未知商路")), false);
             return false;
         }
+        String key = norm(entry.id());
         Optional<String> mapped = mappedChainId(key);
         if (mapped.isEmpty()) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.trade_route.unmapped", key), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.trade_route.unmapped",
+                    entryDisplay(entry, "未知商路")), false);
             return false;
         }
         TextQuestChainService.ChainProgress progress = TextQuestChainService.progressOf(player, mapped.get());
@@ -380,7 +388,7 @@ public final class ChronicleTradeSoftService {
                 return true;
             }
             player.displayClientMessage(Component.translatable("message.seeking_immortals.trade_route.complete",
-                    entry.display(), mapped.get()), false);
+                    entryDisplay(entry, "未知商路"), chainDisplay(mapped.get())), false);
             return false;
         }
         List<EmbarkFee> fees = discountedFees(player, feeFor(key));
@@ -400,7 +408,7 @@ public final class ChronicleTradeSoftService {
         }
         if (ok) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.trade_route.embarked",
-                    entry.display(), mapped.get()), true);
+                    entryDisplay(entry, "未知商路"), chainDisplay(mapped.get())), true);
             ReputationService.add(player, "merchant_guild", 1);
             if (key.contains("smuggle") || key.contains("mulan")) {
                 ReputationService.add(player, "mulan", -1);
@@ -427,7 +435,7 @@ public final class ChronicleTradeSoftService {
         if (player == null) {
             return false;
         }
-        String key = norm(routeId);
+        String key = canonicalEntryId(FactionQuestCatalogService.builtin().tradeRoutes(), routeId);
         if (hasSettled(player, key)) {
             return false;
         }
@@ -450,7 +458,7 @@ public final class ChronicleTradeSoftService {
         ReputationService.add(player, "merchant_guild", 3);
         ReputationService.onQuestComplete(player, chainId);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.trade_route.settled",
-                routeDisplay == null ? key : routeDisplay, profit), true);
+                safeRouteDisplay(key, routeDisplay), profit), true);
         return true;
     }
 
@@ -458,7 +466,8 @@ public final class ChronicleTradeSoftService {
         if (player == null || routeId == null || routeId.isBlank()) {
             return false;
         }
-        return player.getPersistentData().getCompound(SETTLED_TAG).getBoolean(norm(routeId));
+        String key = canonicalEntryId(FactionQuestCatalogService.builtin().tradeRoutes(), routeId);
+        return player.getPersistentData().getCompound(SETTLED_TAG).getBoolean(key);
     }
 
     private static void markSettled(ServerPlayer player, String routeId) {
@@ -475,7 +484,7 @@ public final class ChronicleTradeSoftService {
             Item item = TextQuestChainService.resolveItem(fee.itemId());
             if (item == null) {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.trade_route.missing_fee",
-                        fee.displayKey(), fee.count(), 0), false);
+                        feeDisplay(fee), fee.count(), 0), false);
                 return false;
             }
             totalRequired.merge(item, Math.max(0, fee.count()), Integer::sum);
@@ -486,7 +495,7 @@ public final class ChronicleTradeSoftService {
             Item item = TextQuestChainService.resolveItem(cost.itemId());
             if (item == null) {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.trade_route.missing_fee",
-                        cost.displayKey(), cost.count(), 0), false);
+                        itemDisplay(cost.itemId(), cost.displayKey()), cost.count(), 0), false);
                 return false;
             }
             totalRequired.merge(item, Math.max(0, cost.count()), Integer::sum);
@@ -496,7 +505,8 @@ public final class ChronicleTradeSoftService {
             int owned = countItem(player, required.getKey());
             if (owned < required.getValue()) {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.trade_route.missing_fee",
-                        displayKeys.getOrDefault(required.getKey(), "-"), required.getValue(), owned), false);
+                        itemDisplay(null, displayKeys.getOrDefault(required.getKey(), "")),
+                        required.getValue(), owned), false);
                 return false;
             }
         }
@@ -567,14 +577,115 @@ public final class ChronicleTradeSoftService {
         for (Entry entry : map.values()) {
             if (trade) {
                 String chain = mappedChainId(entry.id()).orElse("-");
-                list.add(entry.id() + " | " + entry.display() + " -> " + chain);
+                list.add(entryDisplayString(entry, "未知商路") + " | 商路 -> " + chainDisplayString(chain));
             } else {
                 String chain = mappedChronicleChainId(entry.id()).orElse("-");
-                list.add(entry.id() + " | " + entry.display() + " -> " + chain);
+                list.add(entryDisplayString(entry, "未知编年事件") + " | 编年事件 -> "
+                        + chainDisplayString(chain));
             }
             if (++i >= Math.max(1, limit)) break;
         }
         return list;
+    }
+
+    private static Entry findEntry(Map<String, Entry> entries, String input) {
+        if (entries == null || entries.isEmpty()) {
+            return null;
+        }
+        String key = norm(input);
+        Entry direct = entries.get(key);
+        if (direct != null) {
+            return direct;
+        }
+        for (Entry entry : entries.values()) {
+            if (entry.id().equalsIgnoreCase(input)
+                    || (PlayerDisplayText.isSafe(entry.display())
+                    && entry.display().trim().equalsIgnoreCase(input == null ? "" : input.trim()))) {
+                return entry;
+            }
+        }
+        return null;
+    }
+
+    /** Accept canonical command ids first, while allowing safe catalog labels from sample output. */
+    private static String canonicalEntryId(Map<String, Entry> entries, String input) {
+        Entry entry = findEntry(entries, input);
+        return entry == null ? norm(input) : norm(entry.id());
+    }
+
+    private static Component entryDisplay(Entry entry, String fallback) {
+        return Component.literal(entryDisplayString(entry, fallback));
+    }
+
+    private static String entryDisplayString(Entry entry, String fallback) {
+        if (entry != null && PlayerDisplayText.isSafe(entry.display())) {
+            return entry.display().trim();
+        }
+        return fallback == null || fallback.isBlank() ? "未知目录项" : fallback;
+    }
+
+    private static Component chainDisplay(String chainId) {
+        return Component.literal(chainDisplayString(chainId));
+    }
+
+    private static String chainDisplayString(String chainId) {
+        if (chainId == null || chainId.isBlank() || "-".equals(chainId)) {
+            return "未知任务链";
+        }
+        String display = TextQuestChainService.find(chainId).map(ExtendedCatalogService.QuestChain::display).orElse("");
+        if (PlayerDisplayText.isSafe(display)) {
+            return display.trim();
+        }
+        return switch (norm(chainId)) {
+            case "huangfeng_cultivation_path" -> "黄枫谷修行路";
+            case "qixuan_mortal_path" -> "七玄门凡人路";
+            case "mulan_tianlan_war", "mulan_war_campaign" -> "慕兰天澜战事";
+            case "chaotic_sea_politics", "star_palace_internal_politics" -> "乱星海风云";
+            case "yin_luo_ghost_sect", "ghost_path" -> "阴罗鬼道";
+            case "ancient_demon_line", "fallen_demon_campaign" -> "上古魔劫";
+            case "tianyuan_merit_path", "spirit_realm_rise" -> "灵界天渊历练";
+            case "dajin_wanbao_route", "dajin_kunwu_line" -> "大晋万宝行";
+            default -> "未知任务链";
+        };
+    }
+
+    private static Component feeDisplay(EmbarkFee fee) {
+        return fee == null ? Component.literal("未知费用物品")
+                : itemDisplay(fee.itemId(), fee.displayKey());
+    }
+
+    private static Component itemDisplay(String itemId, String displayKey) {
+        Item item = itemId == null ? null : TextQuestChainService.resolveItem(itemId);
+        if (item != null) {
+            String display = PlayerDisplayText.itemName(item).getString();
+            if (PlayerDisplayText.isSafe(display)) {
+                return Component.literal(display.trim());
+            }
+        }
+        return Component.literal(switch (PlayerDisplayText.normalizeId(displayKey)) {
+            case "spirit_stone_shard" -> "灵石碎片";
+            case "wind_feather_raft_ticket" -> "风羽飞舟票";
+            case "alliance_merit_token" -> "联盟功勋令";
+            case "yin_stone" -> "阴冥石";
+            case "immortal_jade" -> "仙玉";
+            default -> "未知费用物品";
+        });
+    }
+
+    private static Component discountDisplay(String label) {
+        return Component.literal(switch (norm(label)) {
+            case "honored-20%" -> "敬重优惠二成";
+            case "friendly-5%" -> "友善优惠半成";
+            default -> "无优惠";
+        });
+    }
+
+    private static Component safeRouteDisplay(String routeId, String authored) {
+        if (PlayerDisplayText.isSafe(authored)) {
+            return Component.literal(authored.trim());
+        }
+        Entry entry = findEntry(FactionQuestCatalogService.builtin().tradeRoutes(), routeId);
+        return entryDisplay(entry, "未知商路");
     }
 
     private static Optional<String> firstPresent(String... ids) {

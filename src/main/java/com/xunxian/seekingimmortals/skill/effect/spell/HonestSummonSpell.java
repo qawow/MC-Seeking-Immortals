@@ -5,6 +5,7 @@ import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.entity.SummonedServitorEntity;
 import com.xunxian.seekingimmortals.skill.CultivationSkill;
 import com.xunxian.seekingimmortals.skill.effect.SkillContext;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -58,9 +59,9 @@ public class HonestSummonSpell extends SpellEffect {
         if (spawned) {
             // Brief focus buff only; combat authority is the servitor entity.
             player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 40, 0, false, true));
-            player.displayClientMessage(Component.translatable(successKey, summonId), true);
+            player.displayClientMessage(Component.translatable(successKey, summonDisplay(archetype)), true);
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.summon.archetype", archetype.name().toLowerCase()), false);
+                    "message.seeking_immortals.summon.archetype", archetypeDisplay(archetype)), false);
         } else {
             // Fail-safe: temporary combat proxy if entity cannot spawn.
             player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, scaledDuration, scaledStrength, false, true));
@@ -69,9 +70,30 @@ public class HonestSummonSpell extends SpellEffect {
                 player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, scaledDuration, 0, false, true));
             }
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.summon.honest_mvp", summonId), true);
+                    "message.seeking_immortals.summon.honest_mvp", summonDisplay(archetype)), true);
             player.displayClientMessage(Component.translatable("message.seeking_immortals.summon.entity_pending"), false);
         }
         return true;
+    }
+
+    private Component summonDisplay(SummonedServitorEntity.Archetype archetype) {
+        String itemKey = "item.seeking_immortals." + PlayerDisplayText.normalizeId(summonId);
+        if (PlayerDisplayText.hasTranslation(itemKey)) {
+            return Component.translatable(itemKey);
+        }
+        return SummonHonestMvpService.findPuppet(summonId)
+                .filter(entry -> PlayerDisplayText.isSafe(entry.display()))
+                .map(entry -> (Component) Component.literal(entry.display().trim()))
+                .orElseGet(() -> archetypeDisplay(archetype));
+    }
+
+    private static Component archetypeDisplay(SummonedServitorEntity.Archetype archetype) {
+        String suffix = switch (archetype == null ? SummonedServitorEntity.Archetype.GENERIC : archetype) {
+            case BEAST -> "beast";
+            case PUPPET -> "puppet";
+            case GHOST -> "ghost";
+            case GENERIC -> "generic";
+        };
+        return Component.translatable("message.seeking_immortals.summon.archetype." + suffix);
     }
 }

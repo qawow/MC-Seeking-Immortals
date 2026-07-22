@@ -3,6 +3,7 @@ package com.xunxian.seekingimmortals.client;
 import com.xunxian.seekingimmortals.network.ModNetwork;
 import com.xunxian.seekingimmortals.network.SectActionPacket;
 import com.xunxian.seekingimmortals.sect.SectContributionService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
@@ -108,7 +109,8 @@ public class SectScreen extends AbstractJournalScreen {
             ClientSectData.DialogueOption option = options.get(i);
             Rect bounds = buttons.get(i);
             addRenderableWidget(ImmortalButton.primary(bounds.x(), bounds.y(), bounds.width(), bounds.height(),
-                    Component.translatable(option.labelKey()), button ->
+                    PlayerDisplayText.translatedOr(option.labelKey(),
+                            "screen.seeking_immortals.sect.dialogue.option.unknown"), button ->
                             ModNetwork.CHANNEL.sendToServer(new SectActionPacket(
                                     SectContributionService.ACTION_DIALOGUE, option.id()))));
         }
@@ -164,8 +166,10 @@ public class SectScreen extends AbstractJournalScreen {
     protected void renderJournalTitle(GuiGraphics graphics, JournalChrome chrome, UiRect header) {
         Layout layout = calculateLayout(width, height);
         ClientSectData.Snapshot data = ClientSectData.get();
-        String heading = data.member() ? safe(data.currentSectDisplay())
-                : safe(data.sectDisplay().isBlank() ? data.currentSectDisplay() : data.sectDisplay());
+        String heading = data.member() ? safe(data.currentSectDisplay(),
+                "text.seeking_immortals.unknown_faction")
+                : safe(data.sectDisplay().isBlank() ? data.currentSectDisplay() : data.sectDisplay(),
+                        "text.seeking_immortals.unknown_faction");
         if ("-".equals(heading)) heading = title.getString();
         ImmortalUiSkin.drawStringFit(font, graphics, heading, layout.titleArea().x(),
                 layout.titleArea().y() + Math.max(2, (layout.titleArea().height() - 8) / 2),
@@ -204,7 +208,9 @@ public class SectScreen extends AbstractJournalScreen {
         int bottom = summary.bottom();
         y = summaryLine(graphics, summary, y, bottom,
                 Component.translatable("screen.seeking_immortals.sect.current",
-                        safe(data.currentSectDisplay()), safe(data.role())), ImmortalUiSkin.JOURNAL_PAPER);
+                        safeComponent(data.currentSectDisplay(), "text.seeking_immortals.unknown_faction"),
+                        safeComponent(data.role(), "text.seeking_immortals.unknown_affiliation")),
+                ImmortalUiSkin.JOURNAL_PAPER);
         y = summaryLine(graphics, summary, y, bottom,
                 Component.translatable("screen.seeking_immortals.sect.contribution", data.contribution()),
                 ImmortalUiSkin.JOURNAL_JADE_TEXT);
@@ -214,10 +220,12 @@ public class SectScreen extends AbstractJournalScreen {
                 ImmortalUiSkin.JOURNAL_PAPER_MUTED);
         y = summaryLine(graphics, summary, y, bottom,
                 Component.translatable("screen.seeking_immortals.sect.stage",
-                        Component.translatable(data.stageKey())), ImmortalUiSkin.JOURNAL_SPIRIT);
+                        PlayerDisplayText.translatedOr(data.stageKey(),
+                                "text.seeking_immortals.unknown_phase")), ImmortalUiSkin.JOURNAL_SPIRIT);
         if (y + 8 <= bottom) {
             ImmortalUiSkin.drawStringFit(font, graphics,
-                    Component.translatable(data.objectiveKey()).getString(), summary.x(), y,
+                    PlayerDisplayText.translatedOr(data.objectiveKey(),
+                            "text.seeking_immortals.unknown_quest").getString(), summary.x(), y,
                     summary.width(), ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
         }
     }
@@ -258,7 +266,7 @@ public class SectScreen extends AbstractJournalScreen {
                                 : ImmortalUiSkin.InteractionState.NORMAL);
                 Rect action = rowAction(viewport, layout.rowHeight(), row);
                 ImmortalUiSkin.drawStringFit(font, graphics,
-                        candidate.displayZh() + " / " + candidate.focusKey(), item.x() + 4, item.y() + 5,
+                        candidateDisplay(candidate).getString(), item.x() + 4, item.y() + 5,
                         Math.max(1, action.x() - item.x() - 8), ImmortalUiSkin.JOURNAL_PAPER, false);
             }
         });
@@ -269,10 +277,12 @@ public class SectScreen extends AbstractJournalScreen {
         Rect viewport = inset(content, 5);
         ImmortalUiSkin.withScissor(graphics, viewport.x(), viewport.y(), viewport.width(), viewport.height(), () -> {
             ImmortalUiSkin.drawStringFit(font, graphics,
-                    Component.translatable(data.dialogue().titleKey()).getString(), viewport.x(), viewport.y(),
+                    PlayerDisplayText.translatedOr(data.dialogue().titleKey(),
+                            "text.seeking_immortals.unknown_faction").getString(), viewport.x(), viewport.y(),
                     viewport.width(), ImmortalUiSkin.JOURNAL_PAPER, false);
             ImmortalUiSkin.drawWrappedText(font, graphics,
-                    Component.translatable(data.dialogue().textKey()), viewport.x(), viewport.y() + 16,
+                    PlayerDisplayText.translatedOr(data.dialogue().textKey(),
+                            "message.seeking_immortals.dialogue.line_unavailable"), viewport.x(), viewport.y() + 16,
                     viewport.width(), Math.max(1, viewport.height() - 16),
                     ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
         });
@@ -293,12 +303,15 @@ public class SectScreen extends AbstractJournalScreen {
             }
             int y = viewport.y() + 16;
             ImmortalUiSkin.drawStringFit(font, graphics,
-                    Component.translatable(data.mission().titleKey()).getString(), viewport.x(), y,
+                    PlayerDisplayText.translatedOr(data.mission().titleKey(),
+                            "text.seeking_immortals.unknown_quest").getString(), viewport.x(), y,
                     viewport.width(), ImmortalUiSkin.JOURNAL_PAPER, false);
             y += LINE;
             y = ImmortalUiSkin.drawWrappedText(font, graphics,
-                    Component.translatable(data.mission().objectiveKey(), data.mission().target(),
-                            Component.translatable(data.mission().itemDescriptionId())),
+                    PlayerDisplayText.translatedOr(data.mission().objectiveKey(),
+                            "message.seeking_immortals.dialogue.line_unavailable", data.mission().target(),
+                            PlayerDisplayText.translatedOr(data.mission().itemDescriptionId(),
+                                    "text.seeking_immortals.unknown_item")),
                     viewport.x(), y, viewport.width(), Math.max(1, viewport.bottom() - y - LINE),
                     ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
             String statusKey = data.mission().completed()
@@ -343,7 +356,8 @@ public class SectScreen extends AbstractJournalScreen {
                                 : hovered == row ? ImmortalUiSkin.InteractionState.HOVERED
                                 : ImmortalUiSkin.InteractionState.NORMAL);
                 Rect action = rowAction(viewport, layout.rowHeight(), row);
-                String text = entry.id() + " / " + Component.translatable(entry.itemDescriptionId()).getString()
+                String text = PlayerDisplayText.translatedOr(entry.itemDescriptionId(),
+                        "text.seeking_immortals.unknown_item").getString()
                         + " x" + entry.count() + " / " + entry.cost();
                 ImmortalUiSkin.drawStringFit(font, graphics, text, item.x() + 4, item.y() + 5,
                         Math.max(1, action.x() - item.x() - 8),
@@ -359,15 +373,22 @@ public class SectScreen extends AbstractJournalScreen {
                 Component.translatable("screen.seeking_immortals.sect.progress").getString(),
                 viewport.x(), viewport.y(), viewport.width(), ImmortalUiSkin.JOURNAL_PAPER, false);
         int y = ImmortalUiSkin.drawWrappedText(font, graphics,
-                Component.translatable(data.objectiveKey()), viewport.x(), viewport.y() + 16,
+                PlayerDisplayText.translatedOr(data.objectiveKey(),
+                        "text.seeking_immortals.unknown_quest"), viewport.x(), viewport.y() + 16,
                 viewport.width(), Math.max(1, viewport.height() - 30),
                 ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
         if (y + 8 <= viewport.bottom()) {
             ImmortalUiSkin.drawStringFit(font, graphics,
                     Component.translatable("screen.seeking_immortals.sect.stage",
-                            Component.translatable(data.stageKey())).getString(),
+                            PlayerDisplayText.translatedOr(data.stageKey(),
+                                    "text.seeking_immortals.unknown_phase")).getString(),
                     viewport.x(), y, viewport.width(), ImmortalUiSkin.JOURNAL_SPIRIT, false);
         }
+    }
+
+    private static Component candidateDisplay(ClientSectData.Candidate candidate) {
+        return PlayerDisplayText.safeLiteral(candidate == null ? "" : candidate.displayZh(),
+                "text.seeking_immortals.unknown_faction");
     }
 
     private void drawScrollbar(GuiGraphics graphics, Rect content, Rect viewport,
@@ -410,8 +431,12 @@ public class SectScreen extends AbstractJournalScreen {
                 : "message.seeking_immortals.sect.no").getString();
     }
 
-    private String safe(String value) {
-        return value == null || value.isBlank() ? "-" : value;
+    private static String safe(String value, String fallbackKey) {
+        return PlayerDisplayText.safeLiteral(value, fallbackKey).getString();
+    }
+
+    private static Component safeComponent(String value, String fallbackKey) {
+        return PlayerDisplayText.safeLiteral(value, fallbackKey);
     }
 
     static Layout calculateLayout(int screenWidth, int screenHeight) {

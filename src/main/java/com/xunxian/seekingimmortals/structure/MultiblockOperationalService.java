@@ -3,6 +3,7 @@ package com.xunxian.seekingimmortals.structure;
 import com.xunxian.seekingimmortals.catalog.ItemCatalogService;
 import com.xunxian.seekingimmortals.item.InventoryDeliveryService;
 import com.xunxian.seekingimmortals.registry.ModItems;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -63,6 +64,29 @@ public final class MultiblockOperationalService {
         return efficiencyAt(level, stationId, origin) > 0.0D;
     }
 
+    private static String unknownStationLabel() {
+        // An unknown id is an internal lookup failure; never echo it to the player.
+        return "未知工站";
+    }
+
+    private static Component stationDisplay(MultiblockStructureCatalog.StructureEntry entry) {
+        return entry != null && PlayerDisplayText.isSafe(entry.display())
+                ? Component.literal(entry.display().trim())
+                : Component.literal(unknownStationLabel());
+    }
+
+    private static String stateDisplay(MultiblockOperationalSavedData.OpState state) {
+        if (state == null) {
+            return "未知状态";
+        }
+        return switch (state) {
+            case INTACT -> "完好";
+            case DAMAGED -> "受损";
+            case CRITICAL -> "危急";
+            case DISABLED -> "停用";
+        };
+    }
+
     public static boolean inspect(ServerPlayer player, String stationId, BlockPos origin) {
         if (player == null || !(player.level() instanceof ServerLevel level)) {
             return false;
@@ -71,7 +95,7 @@ public final class MultiblockOperationalService {
                 .find(stationId).orElse(null);
         if (entry == null) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.multiblock.unknown", stationId), false);
+                    "message.seeking_immortals.multiblock.unknown", unknownStationLabel()), false);
             return false;
         }
         boolean formed = MultiblockStationService.isStationFormed(level, stationId, origin);
@@ -82,8 +106,8 @@ public final class MultiblockOperationalService {
         }
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.multiblock.inspect",
-                entry.display(),
-                state.state().id(),
+                stationDisplay(entry),
+                stateDisplay(state.state()),
                 state.hp(),
                 state.maxHp(),
                 (int) Math.round(state.efficiency() * 100.0D),
@@ -100,20 +124,20 @@ public final class MultiblockOperationalService {
                 .find(stationId).orElse(null);
         if (entry == null) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.multiblock.unknown", stationId), false);
+                    "message.seeking_immortals.multiblock.unknown", unknownStationLabel()), false);
             return false;
         }
         if (!MultiblockStationService.isStationFormed(level, stationId, origin)
                 && !player.getAbilities().instabuild) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.multiblock.repair_need_form", entry.display()), true);
+                    "message.seeking_immortals.multiblock.repair_need_form", stationDisplay(entry)), true);
             return false;
         }
         MultiblockOperationalSavedData.StationState state = ensureState(level, stationId, origin);
         if (state.state() == MultiblockOperationalSavedData.OpState.INTACT
                 && state.hp() >= state.maxHp()) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.multiblock.already_intact", entry.display()), true);
+                    "message.seeking_immortals.multiblock.already_intact", stationDisplay(entry)), true);
             return false;
         }
         // Fully disabled stations (uncommissioned or destroyed) must pay structure
@@ -121,7 +145,7 @@ public final class MultiblockOperationalService {
         if (state.state() == MultiblockOperationalSavedData.OpState.DISABLED
                 && !player.getAbilities().instabuild) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.multiblock.repair_need_commission", entry.display()), true);
+                    "message.seeking_immortals.multiblock.repair_need_commission", stationDisplay(entry)), true);
             return false;
         }
 
@@ -142,7 +166,7 @@ public final class MultiblockOperationalService {
                 }
                 player.displayClientMessage(Component.translatable(
                         "message.seeking_immortals.multiblock.repaired",
-                        entry.display(), next.state().id(), next.hp(), next.maxHp(), cost), true);
+                        stationDisplay(entry), stateDisplay(next.state()), next.hp(), next.maxHp(), cost), true);
                 return true;
             } catch (RuntimeException exception) {
                 refundStacks(player, taken);
@@ -156,7 +180,7 @@ public final class MultiblockOperationalService {
         }
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.multiblock.repaired",
-                entry.display(), next.state().id(), next.hp(), next.maxHp(), 0), true);
+                stationDisplay(entry), stateDisplay(next.state()), next.hp(), next.maxHp(), 0), true);
         return true;
     }
 
@@ -168,7 +192,7 @@ public final class MultiblockOperationalService {
                 .find(stationId).orElse(null);
         if (entry == null) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.multiblock.unknown", stationId), false);
+                    "message.seeking_immortals.multiblock.unknown", unknownStationLabel()), false);
             return false;
         }
         MultiblockOperationalSavedData.StationState state = ensureState(level, stationId, origin);
@@ -186,7 +210,7 @@ public final class MultiblockOperationalService {
         }
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.multiblock.dismantled",
-                entry.display(), refund), true);
+                stationDisplay(entry), refund), true);
         return true;
     }
 
@@ -207,13 +231,13 @@ public final class MultiblockOperationalService {
                 .find(stationId).orElse(null);
         if (entry == null) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.multiblock.unknown", stationId), false);
+                    "message.seeking_immortals.multiblock.unknown", unknownStationLabel()), false);
             return false;
         }
         if (!MultiblockStationService.isStationFormed(level, stationId, origin)
                 && !player.getAbilities().instabuild) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.multiblock.form_need_shell", entry.display()), true);
+                    "message.seeking_immortals.multiblock.form_need_shell", stationDisplay(entry)), true);
             return false;
         }
         MultiblockOperationalSavedData data = MultiblockOperationalSavedData.get(level);
@@ -223,14 +247,14 @@ public final class MultiblockOperationalService {
             MultiblockOperationalSavedData.StationState state = existing.get();
             if (state.state() == MultiblockOperationalSavedData.OpState.INTACT && state.hp() >= state.maxHp()) {
                 player.displayClientMessage(Component.translatable(
-                        "message.seeking_immortals.multiblock.already_commissioned", entry.display()), true);
+                        "message.seeking_immortals.multiblock.already_commissioned", stationDisplay(entry)), true);
                 return false;
             }
             // Damaged stations must overhaul rather than re-form.
             if (state.state() != MultiblockOperationalSavedData.OpState.DISABLED
                     || state.hp() > 0) {
                 player.displayClientMessage(Component.translatable(
-                        "message.seeking_immortals.multiblock.form_use_overhaul", entry.display()), true);
+                        "message.seeking_immortals.multiblock.form_use_overhaul", stationDisplay(entry)), true);
                 return false;
             }
         }
@@ -243,7 +267,7 @@ public final class MultiblockOperationalService {
             if (reserved == null) {
                 player.displayClientMessage(Component.translatable(
                         "message.seeking_immortals.multiblock.form_need_materials",
-                        entry.display(), Math.max(1, materials.size())), true);
+                        stationDisplay(entry), Math.max(1, materials.size())), true);
                 return false;
             }
             List<ItemStack> shards = tryReserveShards(player, shardCost);
@@ -262,7 +286,7 @@ public final class MultiblockOperationalService {
                 }
                 player.displayClientMessage(Component.translatable(
                         "message.seeking_immortals.multiblock.formed_ok",
-                        entry.display(), reserved.size(), shardCost), true);
+                        stationDisplay(entry), reserved.size(), shardCost), true);
                 return true;
             } catch (RuntimeException exception) {
                 refundStacks(player, reserved);
@@ -277,7 +301,7 @@ public final class MultiblockOperationalService {
         }
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.multiblock.formed_ok",
-                entry.display(), materials.size(), 0), true);
+                stationDisplay(entry), materials.size(), 0), true);
         return true;
     }
 
@@ -289,19 +313,19 @@ public final class MultiblockOperationalService {
                 .find(stationId).orElse(null);
         if (entry == null) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.multiblock.unknown", stationId), false);
+                    "message.seeking_immortals.multiblock.unknown", unknownStationLabel()), false);
             return false;
         }
         if (!MultiblockStationService.isStationFormed(level, stationId, origin)
                 && !player.getAbilities().instabuild) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.multiblock.repair_need_form", entry.display()), true);
+                    "message.seeking_immortals.multiblock.repair_need_form", stationDisplay(entry)), true);
             return false;
         }
         MultiblockOperationalSavedData.StationState state = ensureState(level, stationId, origin);
         if (state.state() == MultiblockOperationalSavedData.OpState.INTACT && state.hp() >= state.maxHp()) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.multiblock.already_intact", entry.display()), true);
+                    "message.seeking_immortals.multiblock.already_intact", stationDisplay(entry)), true);
             return false;
         }
 
@@ -314,7 +338,7 @@ public final class MultiblockOperationalService {
             if (reserved == null) {
                 player.displayClientMessage(Component.translatable(
                         "message.seeking_immortals.multiblock.overhaul_need_materials",
-                        entry.display(), Math.max(1, materials.size())), true);
+                        stationDisplay(entry), Math.max(1, materials.size())), true);
                 return false;
             }
             List<ItemStack> shards = tryReserveShards(player, shardCost);
@@ -333,7 +357,7 @@ public final class MultiblockOperationalService {
                 }
                 player.displayClientMessage(Component.translatable(
                         "message.seeking_immortals.multiblock.overhauled",
-                        entry.display(), reserved.size(), shardCost), true);
+                        stationDisplay(entry), reserved.size(), shardCost), true);
                 return true;
             } catch (RuntimeException exception) {
                 refundStacks(player, reserved);
@@ -348,7 +372,7 @@ public final class MultiblockOperationalService {
         }
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.multiblock.overhauled",
-                entry.display(), materials.size(), 0), true);
+                stationDisplay(entry), materials.size(), 0), true);
         return true;
     }
 

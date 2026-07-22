@@ -1,23 +1,23 @@
 {
   "name": "天南魔市",
   "category": "seeking_immortals:basics",
-  "icon": "seeking_immortals:cultivation_pill",
+  "icon": "seeking_immortals:heqi_pill",
   "sortnum": 14,
   "pages": [
     {
       "type": "patchouli:text",
       "title": "天南魔市",
-      "text": "天南魔市对应文本材料 merchant_shops.json#tiannan_demonic_dual_market。当前版本通过已有坊市系统接入，不新增独立商人、阵营声望界面或加载器，仍使用下品金灵石作为物品货币。"
+      "text": "天南魔市沿用已有坊市系统，使用下品金灵石交易。这里的货物偏向魔道修炼与双修路线，购买前请确认自身因果与势力关系。"
     },
     {
       "type": "patchouli:text",
       "title": "当前货品",
-      "text": "已接入货品为 heqi_pill，目前复用凝气丹作为合气丹的低阶修炼等价物：单价 40 下品金灵石，库存 6，单项刷新 48000 tick。双修增益、魔道副作用与更细的合气丹调校仍留待后续。"
+      "text": "当前货品为独立的合气丹，服用后获得双修兼容的修炼增益；单价 40 枚下品金灵石，库存 6，单项刷新间隔为 48000 游戏刻。"
     },
     {
       "type": "patchouli:text",
       "title": "延后货品",
-      "text": "文本材料还列出 dual_harmony_pill、demonic_yang_gather_pill 与 demonic_blood_coral。它们需要专属丹药、魔道材料、访问风险和声望/因果规则，暂不通过现有通用物品强行替代。"
+      "text": "双和丹、魔阳聚气丹与魔血珊瑚需要专属丹药、魔道材料、访问风险和声望或因果规则，暂不以通用物品替代。"
     }
   ]
 }

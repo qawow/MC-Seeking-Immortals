@@ -1,17 +1,17 @@
 {
-  "name": "Boss 掉落",
+  "name": "首领掉落",
   "category": "seeking_immortals:beasts_puppets",
   "icon": "seeking_immortals:beast_core",
   "sortnum": 20,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "秘境 Boss 表 boss_loot_tables.json",
-      "title": "Boss 掉落"
+      "text": "秘境首领拥有独立掉落表，首次通关与重复挑战的奖励可能不同。",
+      "title": "首领掉落"
     },
     {
       "type": "patchouli:text",
-      "text": "语料 patchouli_item_book.static_entries.boss_drops",
+      "text": "击败首领后需完成遭遇结算才能领取奖励；与会话无关的玩家无法抢领奖励。",
       "title": "来源"
     }
   ]

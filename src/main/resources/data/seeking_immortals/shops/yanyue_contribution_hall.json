@@ -18,7 +18,7 @@
     },
     {
       "id": "recipe_heqi",
-      "item": "seeking_immortals:alchemy_formula_cultivation_pill_paper",
+      "item": "seeking_immortals:recipe_heqi",
       "count": 1,
       "cost": 40,
       "stock": 6

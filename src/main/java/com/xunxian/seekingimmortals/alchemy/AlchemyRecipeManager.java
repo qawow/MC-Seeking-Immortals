@@ -6,6 +6,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.cultivation.Realm;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
@@ -61,7 +62,17 @@ public class AlchemyRecipeManager extends SimpleJsonResourceReloadListener {
     }
 
     public static Optional<AlchemyRecipe> findById(String id) {
-        return Optional.ofNullable(recipesById.get(id));
+        if (id == null || id.isBlank()) {
+            return Optional.empty();
+        }
+        String raw = id.trim();
+        AlchemyRecipe recipe = recipesById.get(AlchemyFormulaKnowledge.canonicalRecipeId(raw));
+        if (recipe == null) {
+            // Preserve compatibility with datapacks that intentionally use a
+            // case-sensitive or namespaced custom id outside the legacy map.
+            recipe = recipesById.get(raw);
+        }
+        return Optional.ofNullable(recipe);
     }
 
     @Override
@@ -138,7 +149,7 @@ public class AlchemyRecipeManager extends SimpleJsonResourceReloadListener {
         String id = GsonHelper.getAsString(object, "id", fileId.getPath());
         return new AlchemyRecipe(
                 id,
-                net.minecraft.network.chat.Component.translatable(GsonHelper.getAsString(object, "display_translation", "alchemy_recipe.seeking_immortals." + id)),
+                displayText(object, id),
                 parseOutputs(object),
                 positive(GsonHelper.getAsInt(object, "output_count", 1), "output_count"),
                 nonNegative(GsonHelper.getAsInt(object, "mana_cost"), "mana_cost"),
@@ -151,6 +162,20 @@ public class AlchemyRecipeManager extends SimpleJsonResourceReloadListener {
                 GsonHelper.getAsBoolean(object, "controlled", false),
                 GsonHelper.getAsBoolean(object, "requires_earth_fire_room", false),
                 parseIngredients(object));
+    }
+
+    private static net.minecraft.network.chat.Component displayText(JsonObject object, String id) {
+        String authored = GsonHelper.getAsString(object, "display_translation", "").trim();
+        if (!authored.isBlank()) {
+            if (PlayerDisplayText.hasTranslation(authored)) {
+                return net.minecraft.network.chat.Component.translatable(authored);
+            }
+            // A literal is accepted only when it is clearly player-facing Chinese text.
+            if (PlayerDisplayText.isSafe(authored)) {
+                return net.minecraft.network.chat.Component.literal(authored);
+            }
+        }
+        return AlchemyDisplayTexts.recipe(id);
     }
 
     private static List<Item> parseOutputs(JsonObject object) {

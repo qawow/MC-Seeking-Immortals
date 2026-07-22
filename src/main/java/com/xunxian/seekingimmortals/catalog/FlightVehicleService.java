@@ -1,5 +1,6 @@
 package com.xunxian.seekingimmortals.catalog;
 
+import com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.entity.SpiritBoatEntity;
 import com.xunxian.seekingimmortals.item.InventoryDeliveryService;
@@ -8,6 +9,7 @@ import com.xunxian.seekingimmortals.registry.ModItems;
 import com.xunxian.seekingimmortals.structure.FlyingBoatDockStructure;
 import com.xunxian.seekingimmortals.worldpack.FlyingAuthorityPolicy;
 import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -45,7 +47,8 @@ public final class FlightVehicleService {
     public static boolean board(ServerPlayer player, String vehicleId) {
         Optional<TextMaterialCatalogService.FlightBinding> optional = find(vehicleId);
         if (optional.isEmpty()) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.flight_vehicle.unknown", vehicleId), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.flight_vehicle.unknown",
+                    Component.translatable("text.seeking_immortals.unknown_vehicle")), false);
             return false;
         }
         TextMaterialCatalogService.FlightBinding vehicle = optional.get();
@@ -54,12 +57,12 @@ public final class FlightVehicleService {
             if (!vehicle.realmMin().isBlank()
                     && !WorldpackGameplayService.meetsMinRealm(cultivation.getRealm(), vehicle.realmMin())) {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.flight_vehicle.realm_too_low",
-                        vehicle.display(), vehicle.realmMin()), false);
+                        vehicleDisplay(vehicle), ArtifactDisplayTexts.realm(vehicle.realmMin())), false);
                 return;
             }
             if (!FlyingAuthorityPolicy.allowsVehicle(player, vehicle.id())) {
                 player.displayClientMessage(Component.translatable(
-                        "message.seeking_immortals.flight_vehicle.dimension_denied", vehicle.display()), false);
+                        "message.seeking_immortals.flight_vehicle.dimension_denied", vehicleDisplay(vehicle)), false);
                 return;
             }
             // Optional M07 dock formed bonus: when standing on a complete flying_boat_dock, extend life.
@@ -69,7 +72,7 @@ public final class FlightVehicleService {
             Item fuel = requiresFuel ? resolve(vehicle.fuelItem()) : null;
             if (requiresFuel && (fuel == null || fuel == Items.AIR || !has(player, fuel, vehicle.fuelCount()))) {
                     player.displayClientMessage(Component.translatable("message.seeking_immortals.flight_vehicle.missing_fuel",
-                            vehicle.fuelItem(), vehicle.fuelCount()), false);
+                            PlayerDisplayText.itemName(vehicle.fuelItem()), vehicle.fuelCount()), false);
                     return;
             }
             if (!(player.level() instanceof ServerLevel level)) {
@@ -94,7 +97,7 @@ public final class FlightVehicleService {
                 return;
             }
             player.displayClientMessage(Component.translatable("message.seeking_immortals.flight_vehicle.boarded",
-                    vehicle.display(), vehicle.carrierItem(), String.valueOf(vehicle.speed())), true);
+                    vehicleDisplay(vehicle), PlayerDisplayText.itemName(vehicle.carrierItem()), vehicle.speed()), true);
             ok[0] = true;
         });
         return ok[0];
@@ -142,6 +145,18 @@ public final class FlightVehicleService {
             return null;
         }
         return ForgeRegistries.ITEMS.getValue(location);
+    }
+
+    private static Component vehicleDisplay(TextMaterialCatalogService.FlightBinding vehicle) {
+        if (vehicle == null) {
+            return Component.translatable("text.seeking_immortals.unknown_vehicle");
+        }
+        Component carrier = PlayerDisplayText.itemName(vehicle.carrierItem());
+        String carrierKey = "item.seeking_immortals." + PlayerDisplayText.normalizeId(vehicle.carrierItem());
+        if (PlayerDisplayText.hasTranslation(carrierKey)) {
+            return carrier;
+        }
+        return PlayerDisplayText.safeLiteral(vehicle.display(), "text.seeking_immortals.unknown_vehicle");
     }
 
     private static boolean consume(ServerPlayer player, Item item, int count) {

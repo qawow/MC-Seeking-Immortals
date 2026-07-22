@@ -6,6 +6,9 @@ import com.xunxian.seekingimmortals.item.material.BaseMaterialItem;
 import com.xunxian.seekingimmortals.item.material.MaterialRarity;
 import com.xunxian.seekingimmortals.skill.SkillType;
 import com.xunxian.seekingimmortals.spiritual.SpiritualAuraManager;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
@@ -88,26 +91,27 @@ public final class AlchemyRecipeService {
                 .orElse(false);
     }
 
-    public static String missingSummary(ServerPlayer player, AlchemyRecipe recipe) {
-        StringBuilder builder = new StringBuilder();
+    public static Component missingSummary(ServerPlayer player, AlchemyRecipe recipe) {
+        MutableComponent summary = Component.empty();
+        boolean hasEntry = false;
         Inventory inventory = player.getInventory();
         for (AlchemyRecipe.IngredientRequirement ingredient : recipe.ingredients()) {
             int owned = countItems(inventory, ingredient);
             if (owned < ingredient.count()) {
-                if (builder.length() > 0) builder.append(", ");
-                builder.append(ComponentName.item(ingredient.item().getDescriptionId()))
-                        .append(" ")
-                        .append(owned)
-                        .append("/")
-                        .append(ingredient.count());
+                if (hasEntry) summary.append(", ");
+                summary.append(Component.translatable(
+                        "message.seeking_immortals.alchemy_furnace.missing_item",
+                        PlayerDisplayText.itemName(ingredient.item()), owned, ingredient.count()));
+                hasEntry = true;
             }
         }
         int mana = CultivationHelper.get(player).map(PlayerCultivation::getSpiritualPower).orElse(0);
         if (mana < recipe.manaCost()) {
-            if (builder.length() > 0) builder.append(", ");
-            builder.append("mana ").append(mana).append("/").append(recipe.manaCost());
+            if (hasEntry) summary.append(", ");
+            summary.append(Component.translatable(
+                    "message.seeking_immortals.alchemy_furnace.missing_mana", mana, recipe.manaCost()));
         }
-        return builder.length() == 0 ? "" : builder.toString();
+        return summary;
     }
 
     private static boolean hasIngredients(Inventory inventory, AlchemyRecipe recipe) {
@@ -184,9 +188,4 @@ public final class AlchemyRecipeService {
         return com.xunxian.seekingimmortals.skill.LifeSkillService.successBonus(player, SkillType.ALCHEMY);
     }
 
-    private static final class ComponentName {
-        static String item(String descriptionId) {
-            return net.minecraft.network.chat.Component.translatable(descriptionId).getString();
-        }
-    }
 }

@@ -7,6 +7,7 @@ import com.xunxian.seekingimmortals.craft.TalismanCraftService;
 import com.xunxian.seekingimmortals.structure.FormationFieldService;
 import com.xunxian.seekingimmortals.structure.MultiblockOperationalService;
 import com.xunxian.seekingimmortals.structure.MultiblockStationService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -54,11 +55,12 @@ public final class CraftWorldSoftService {
         for (BulkCatalogIndexService.Entry entry : optional.get().entries().values()) {
             String extra = "";
             if ("refinement_recipes_index".equals(indexName)) {
-                extra = ArtifactDataService.builtin().findRecipe(entry.id()).isPresent() ? " -> craftable" : " -> soft";
+                extra = ArtifactDataService.builtin().findRecipe(entry.id()).isPresent() ? "（可炼制）" : "（仅目录记录）";
             } else if ("formation_catalog_index".equals(indexName)) {
-                extra = mappedFieldKind(entry.id()).map(k -> " -> " + k.name()).orElse(" -> soft");
+                extra = mappedFieldKind(entry.id()).map(k -> "（" + fieldKindText(k) + "）").orElse("（仅目录记录）");
             }
-            list.add(entry.id() + " | " + entry.display() + extra);
+            // Samples have no player permission context, so never expose executable ids here.
+            list.add(catalogDisplayString(entry.id(), entry.display(), indexName) + extra);
             if (++i >= Math.max(1, limit)) break;
         }
         return list;
@@ -67,16 +69,20 @@ public final class CraftWorldSoftService {
     public static boolean preview(ServerPlayer player, String indexName, String id, String unknownKey, String previewKey, String softKey) {
         BulkCatalogIndexService.Entry entry = findEntry(indexName, id);
         if (entry == null) {
-            player.displayClientMessage(Component.translatable(unknownKey, id), false);
+            player.displayClientMessage(Component.translatable(unknownKey,
+                    debugId(player, id, unknownDisplay(indexName))), false);
             return false;
         }
-        player.displayClientMessage(Component.translatable(previewKey, entry.id(), entry.display()), false);
+        player.displayClientMessage(Component.translatable(previewKey, debugId(player, entry.id(),
+                        Component.literal("当前条目")),
+                catalogDisplay(entry.id(), entry.display())), false);
         if ("refinement_recipes_index".equals(indexName)) {
             Optional<ArtifactDataService.RefinementRecipe> recipe = ArtifactDataService.builtin().findRecipe(entry.id());
             if (recipe.isPresent()) {
                 ArtifactDataService.RefinementRecipe r = recipe.get();
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.refine.mapped",
-                        r.id(), r.forgeGrade(), String.format(Locale.ROOT, "%.0f%%", r.baseSuccessRate() * 100.0D)), false);
+                        debugId(player, r.id(), Component.literal("当前配方")), r.forgeGrade(),
+                        String.format(Locale.ROOT, "%.0f%%", r.baseSuccessRate() * 100.0D)), false);
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.refine.craft_hint"), false);
                 return true;
             }
@@ -84,7 +90,7 @@ public final class CraftWorldSoftService {
             Optional<FormationFieldService.FieldKind> kind = mappedFieldKind(entry.id());
             if (kind.isPresent()) {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.formation_catalog.mapped",
-                        kind.get().name()), false);
+                        fieldKindText(kind.get())), false);
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.formation_catalog.deploy_hint"), false);
                 return true;
             }
@@ -114,7 +120,8 @@ public final class CraftWorldSoftService {
         boolean ok = ArtifactRefinementService.refine(player, recipe.get().id(), Math.max(1, forgeGrade));
         if (ok) {
             SoftPhaseShellMark.markIfPresent(player, "phase13_refinement_full");
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.refine.crafted", recipe.get().display()), true);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.refine.crafted",
+                    catalogDisplay(recipe.get().id(), recipe.get().display())), true);
         }
         return ok;
     }
@@ -174,13 +181,14 @@ public final class CraftWorldSoftService {
             // Wave492: still allow direct deploy by id when index misses but kind maps.
             Optional<FormationFieldService.FieldKind> kindDirect = mappedFieldKind(formationId);
             if (kindDirect.isEmpty() || !(player.level() instanceof ServerLevel level)) {
-                player.displayClientMessage(Component.translatable("message.seeking_immortals.formation_catalog.unknown", formationId), false);
+                player.displayClientMessage(Component.translatable("message.seeking_immortals.formation_catalog.unknown",
+                        debugId(player, formationId, Component.literal("未知阵法"))), false);
                 return false;
             }
             boolean ok = FormationFieldService.activateFreeField(level, player.blockPosition(), kindDirect.get(), 20 * 90, player, formationId);
             if (ok) {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.formation_catalog.deployed",
-                        formationId, kindDirect.get().name()), true);
+                        debugId(player, formationId, Component.literal("当前阵法")), fieldKindText(kindDirect.get())), true);
             }
             return ok;
         }
@@ -206,7 +214,7 @@ public final class CraftWorldSoftService {
         boolean ok = FormationFieldService.activateFreeField(level, player.blockPosition(), kind.get(), 20 * 90, player, entry.id());
         if (ok) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.formation_catalog.deployed",
-                    entry.display(), kind.get().name()), true);
+                    catalogDisplay(entry.id(), entry.display()), fieldKindText(kind.get())), true);
         }
         return ok;
     }
@@ -220,11 +228,13 @@ public final class CraftWorldSoftService {
         TalismanCraftService.CraftResult result = TalismanCraftService.craftById(player, recipeId);
         if (result.messageKey() != null && !result.messageKey().isBlank()) {
             if (result.success() && result.recipe() != null) {
-                player.displayClientMessage(Component.translatable(result.messageKey(), result.recipe().display()), true);
+                player.displayClientMessage(Component.translatable(result.messageKey(),
+                        catalogDisplay(result.recipe().id(), result.recipe().display())), true);
             } else if (result.recipe() != null) {
                 player.displayClientMessage(Component.translatable(result.messageKey()), true);
             } else {
-                player.displayClientMessage(Component.translatable(result.messageKey(), recipeId), true);
+                player.displayClientMessage(Component.translatable(result.messageKey(),
+                        debugId(player, recipeId, Component.literal("未知制符配方"))), true);
             }
         }
         if (result.success()) {
@@ -242,11 +252,13 @@ public final class CraftWorldSoftService {
         PuppetCraftService.CraftResult result = PuppetCraftService.craftById(player, recipeId);
         if (result.messageKey() != null && !result.messageKey().isBlank()) {
             if (result.success() && result.recipe() != null) {
-                player.displayClientMessage(Component.translatable(result.messageKey(), result.recipe().display()), true);
+                player.displayClientMessage(Component.translatable(result.messageKey(),
+                        catalogDisplay(result.recipe().id(), result.recipe().display())), true);
             } else if (result.recipe() != null) {
                 player.displayClientMessage(Component.translatable(result.messageKey()), true);
             } else {
-                player.displayClientMessage(Component.translatable(result.messageKey(), recipeId), true);
+                player.displayClientMessage(Component.translatable(result.messageKey(),
+                        debugId(player, recipeId, Component.literal("未知傀儡配方"))), true);
             }
         }
         if (result.success()) {
@@ -308,7 +320,9 @@ public final class CraftWorldSoftService {
             return entry;
         }
         for (BulkCatalogIndexService.Entry e : optional.get().entries().values()) {
-            if (e.id().equalsIgnoreCase(id)) {
+            if (e.id().equalsIgnoreCase(id)
+                    || (PlayerDisplayText.isSafe(e.display())
+                    && e.display().trim().equalsIgnoreCase(id == null ? "" : id.trim()))) {
                 return e;
             }
         }
@@ -368,6 +382,64 @@ public final class CraftWorldSoftService {
         map.put("thunder_tribulation_array", FormationFieldService.FieldKind.SPIRIT_GATHER);
         map.put("blood_sacrifice_array", FormationFieldService.FieldKind.SEAL_DEMON);
         return map;
+    }
+
+    private static Component catalogDisplay(String id, String authoredDisplay) {
+        if (PlayerDisplayText.isSafe(authoredDisplay)) {
+            return Component.literal(authoredDisplay.trim());
+        }
+        // Some artifact/formation records have no item carrier. Never expose their raw id.
+        Component item = PlayerDisplayText.itemName(id);
+        String itemName = item.getString();
+        return PlayerDisplayText.isSafe(itemName)
+                ? Component.literal(itemName.trim()) : Component.literal("未知目录项");
+    }
+
+    private static String catalogDisplayString(String id, String authoredDisplay, String indexName) {
+        Component display = catalogDisplay(id, authoredDisplay);
+        String value = display.getString();
+        if (PlayerDisplayText.isSafe(value)) {
+            return value.trim();
+        }
+        return unknownDisplay(indexName).getString();
+    }
+
+    private static Component unknownDisplay(String indexName) {
+        if ("refinement_recipes_index".equals(indexName)) {
+            return Component.literal("未知炼器配方");
+        }
+        if ("formation_catalog_index".equals(indexName)) {
+            return Component.literal("未知阵法");
+        }
+        if ("talisman_recipes_index".equals(indexName)) {
+            return Component.literal("未知制符配方");
+        }
+        if ("puppet_craft_recipes_index".equals(indexName)) {
+            return Component.literal("未知傀儡配方");
+        }
+        return Component.literal("未知目录项");
+    }
+
+    private static Component debugId(ServerPlayer player, String id, Component fallback) {
+        String value = id == null ? "" : id.trim();
+        if (player != null && player.hasPermissions(2) && !value.isBlank()) {
+            return Component.literal("内部标识「" + value + "」");
+        }
+        return fallback == null ? Component.literal("未知目录项") : fallback;
+    }
+
+    private static String fieldKindText(FormationFieldService.FieldKind kind) {
+        if (kind == null) {
+            return "未知阵场";
+        }
+        return switch (kind) {
+            case SPIRIT_GATHER -> "聚灵阵场";
+            case DEFENSE -> "护体阵场";
+            case KILL_SWORD -> "杀剑阵场";
+            case SEAL_DEMON -> "镇魔阵场";
+            case ILLUSION_MAZE -> "幻阵迷宫";
+            case CATALOG_GENERIC -> "通用阵场";
+        };
     }
 
     private static String norm(String id) {

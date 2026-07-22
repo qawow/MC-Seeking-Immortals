@@ -1044,7 +1044,7 @@
     },
     {
       "id": "yin_luo_ghost_cloak",
-      "name": "阴罗鬼cloak",
+      "name": "阴罗鬼氅",
       "type": "spell",
       "attribute": "text_material",
       "source": "文本材料批量接线",

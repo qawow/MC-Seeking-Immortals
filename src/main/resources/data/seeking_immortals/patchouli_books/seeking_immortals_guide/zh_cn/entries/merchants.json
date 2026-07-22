@@ -6,12 +6,12 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "坊市 merchant_shops.json、贡献堂 sect_contribution_shop.json",
+      "text": "坊市与宗门贡献堂共用统一的服务端交易规则，商品、库存与价格会随区域和势力变化。",
       "title": "坊市商人"
     },
     {
       "type": "patchouli:text",
-      "text": "语料 patchouli_item_book.static_entries.merchants",
+      "text": "与商人交互前，先确认自身境界、势力关系和可用货币；交易失败不会扣除关键物品。",
       "title": "来源"
     }
   ]

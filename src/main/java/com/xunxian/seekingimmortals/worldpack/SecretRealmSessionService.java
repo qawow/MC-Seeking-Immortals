@@ -3,6 +3,7 @@ package com.xunxian.seekingimmortals.worldpack;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.ProgressionGateApi;
 import com.xunxian.seekingimmortals.cultivation.Realm;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -101,11 +102,13 @@ public final class SecretRealmSessionService {
         int traps = SecretRealmTrapService.activateAllLayerTraps(player, realmId);
         if (traps > 0) {
             player.sendSystemMessage(Component.translatable(
-                    "message.seeking_immortals.worldpack.trial_traps_armed", realmId, traps));
+                    "message.seeking_immortals.worldpack.trial_traps_armed", realmDisplay(realmId), traps));
         }
         if (defOpt.isPresent() && !defOpt.get().openCondition().isBlank()) {
             player.sendSystemMessage(Component.translatable(
-                    "message.seeking_immortals.worldpack.realm_open_condition", defOpt.get().openCondition()));
+                    "message.seeking_immortals.worldpack.realm_open_condition",
+                    PlayerDisplayText.safeLiteral(
+                            defOpt.get().openCondition(), "text.seeking_immortals.unknown_requirement")));
         }
         return session;
     }
@@ -146,7 +149,7 @@ public final class SecretRealmSessionService {
                 first
                         ? "message.seeking_immortals.worldpack.realm_first_clear"
                         : "message.seeking_immortals.worldpack.realm_repeat_clear",
-                id, count));
+                realmDisplay(id), count));
         MinecraftForge.EVENT_BUS.post(new SecretRealmClearedEvent(player, id, first, count));
     }
 
@@ -180,7 +183,7 @@ public final class SecretRealmSessionService {
             }
             if (session.isTimedOut(now)) {
                 player.sendSystemMessage(Component.translatable(
-                        "message.seeking_immortals.worldpack.realm_timeout", active));
+                        "message.seeking_immortals.worldpack.realm_timeout", realmDisplay(active)));
                 WorldpackGameplayService.returnFromSecretRealm(player);
             }
         });
@@ -198,7 +201,7 @@ public final class SecretRealmSessionService {
             // Death ejects from instance after respawn path by clearing active id via return.
             player.sendSystemMessage(Component.translatable(
                     "message.seeking_immortals.worldpack.realm_death_eject",
-                    cultivation.getWorldpackActiveSecretRealmId()));
+                    realmDisplay(cultivation.getWorldpackActiveSecretRealmId())));
             WorldpackGameplayService.returnFromSecretRealm(player);
         });
     }
@@ -306,6 +309,19 @@ public final class SecretRealmSessionService {
 
     public static String boundRealmId(CompoundTag tag) {
         return tag == null ? "" : normalizeId(tag.getString(REALM_ID));
+    }
+
+    private static Component realmDisplay(String realmId) {
+        Optional<SecretRealmCatalogService.RealmDef> runtime = SecretRealmCatalogService.find(realmId);
+        if (runtime.isPresent()) {
+            return PlayerDisplayText.safeLiteral(
+                    runtime.get().display(), "text.seeking_immortals.unknown_secret_realm");
+        }
+        return WorldpackDataService.builtin().findSecretRealm(realmId)
+                .map(realm -> !realm.displayZh().isBlank() ? realm.displayZh() : realm.displayEn())
+                .filter(PlayerDisplayText::isSafe)
+                .map(value -> Component.literal(value.trim()))
+                .orElseGet(() -> Component.translatable("text.seeking_immortals.unknown_secret_realm"));
     }
 
     private static String normalizeId(String value) {

@@ -6,12 +6,12 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "丹炉+丹方+灵草+修为门槛；失败炸炉见 alchemy_system.json",
+      "text": "炼丹需要合适的丹炉、已掌握的丹方、足量灵草和对应修为；失败时可能损耗材料或炸炉。",
       "title": "炼丹流程"
     },
     {
       "type": "patchouli:text",
-      "text": "语料 patchouli_item_book.static_entries.alchemy_flow",
+      "text": "投入材料前先确认丹炉已成型并启封，丹方与境界满足要求，再开始控火炼制。",
       "title": "来源"
     }
   ]

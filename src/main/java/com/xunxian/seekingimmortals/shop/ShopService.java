@@ -15,6 +15,7 @@ import com.xunxian.seekingimmortals.network.SyncShopDataPacket;
 import com.xunxian.seekingimmortals.quest.QuestProgress;
 import com.xunxian.seekingimmortals.sect.SectContributionService;
 import com.xunxian.seekingimmortals.sect.SectSpecialtyGameplayService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -174,7 +175,8 @@ public final class ShopService {
             return;
         }
         if (!isMarketShop(normalizedShop)) {
-            player.sendSystemMessage(Component.translatable("message.seeking_immortals.market.unknown_shop", normalizedShop));
+            player.sendSystemMessage(Component.translatable(
+                    "message.seeking_immortals.market.unknown_shop_generic"));
             syncMarket(player, false);
             return;
         }
@@ -183,12 +185,13 @@ public final class ShopService {
             return;
         }
         if (!ACTION_BUY.equals(normalizedAction)) {
-            player.sendSystemMessage(Component.translatable("message.seeking_immortals.market.unknown_action", normalizedAction));
+            player.sendSystemMessage(Component.translatable(
+                    "message.seeking_immortals.market.unknown_action_generic"));
             syncMarket(player, normalizedShop, false);
             return;
         }
         PurchaseResult result = buyWithItemCurrency(player, normalizedShop, entryId, WorldpackGameplayService.marketCostModifier(player));
-        sendMarketResult(player, entryId, result);
+        sendMarketResult(player, result);
         if (result != null && result.success()) {
             com.xunxian.seekingimmortals.worldpack.ReputationService.onShopPurchase(player, normalizedShop);
         }
@@ -256,28 +259,42 @@ public final class ShopService {
         return MARKET_SHOPS;
     }
 
-    private static void sendMarketResult(ServerPlayer player, String entryId, PurchaseResult result) {
+    private static void sendMarketResult(ServerPlayer player, PurchaseResult result) {
+        if (result == null || result.status() == null) {
+            player.sendSystemMessage(Component.translatable(
+                    "message.seeking_immortals.market.purchase_unavailable"));
+            return;
+        }
         switch (result.status()) {
             case SUCCESS -> player.sendSystemMessage(Component.translatable(
                     "message.seeking_immortals.market.buy_success",
                     result.entry().count(),
                     itemName(result.entry()),
                     result.paidCost(),
-                    result.entry().currencyItemId(),
+                    currencyName(result.entry()),
                     stockText(result.remainingStock())));
-            case UNKNOWN_ENTRY -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.market.unknown_entry", entryId));
-            case UNSUPPORTED_CURRENCY -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.market.unsupported_currency", entryId));
-            case BAD_ITEM -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.market.bad_shop_item", entryId));
-            case BAD_CURRENCY_ITEM -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.market.bad_currency_item", entryId));
+            case UNKNOWN_ENTRY -> player.sendSystemMessage(Component.translatable(
+                    "message.seeking_immortals.market.unknown_entry_generic"));
+            case UNSUPPORTED_CURRENCY -> player.sendSystemMessage(Component.translatable(
+                    "message.seeking_immortals.market.unsupported_currency",
+                    currencyName(result.entry())));
+            case BAD_ITEM -> player.sendSystemMessage(Component.translatable(
+                    "message.seeking_immortals.market.bad_shop_item",
+                    itemName(result.entry())));
+            case BAD_CURRENCY_ITEM -> player.sendSystemMessage(Component.translatable(
+                    "message.seeking_immortals.market.bad_currency_item",
+                    currencyName(result.entry())));
             case NOT_ENOUGH_CURRENCY -> player.sendSystemMessage(Component.translatable(
                     "message.seeking_immortals.market.not_enough_currency",
                     result.paidCost(),
-                    result.entry() == null ? "-" : result.entry().currencyItemId()));
+                    currencyName(result.entry())));
             case RANK_TOO_LOW -> player.sendSystemMessage(Component.translatable(
                     "message.seeking_immortals.sect.rank_too_low",
                     itemName(result.entry()),
                     Component.translatable(rankDescriptionId(result.entry().rankMin()))));
-            case OUT_OF_STOCK -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.market.out_of_stock", entryId));
+            case OUT_OF_STOCK -> player.sendSystemMessage(Component.translatable(
+                    "message.seeking_immortals.market.out_of_stock",
+                    itemName(result.entry())));
         }
     }
 
@@ -398,16 +415,37 @@ public final class ShopService {
     }
 
     public static Component itemName(Entry entry) {
+        if (entry == null) {
+            return Component.translatable("text.seeking_immortals.unknown_market_entry");
+        }
         Item item = resolveItem(entry.itemId());
         if (item == null || item == Items.AIR) {
-            return Component.literal(entry.itemId());
+            return PlayerDisplayText.itemName(entry.itemId());
         }
-        return new ItemStack(item).getHoverName();
+        return PlayerDisplayText.itemName(item);
+    }
+
+    private static Component currencyName(Entry entry) {
+        if (entry == null) {
+            return Component.translatable("text.seeking_immortals.unknown_currency");
+        }
+        if (CURRENCY_SECT_CONTRIBUTION.equals(entry.currency())) {
+            return Component.translatable("screen.seeking_immortals.shop.currency.sect_contribution");
+        }
+        Item item = resolveItem(entry.currencyItemId());
+        return item == null || item == Items.AIR
+                ? Component.translatable("text.seeking_immortals.unknown_currency")
+                : PlayerDisplayText.itemName(item);
     }
 
     public static String itemDescriptionId(Entry entry) {
         Item item = resolveItem(entry.itemId());
-        return item == null || item == Items.AIR ? entry.itemId() : item.getDescriptionId();
+        if (item == null || item == Items.AIR) {
+            return "text.seeking_immortals.unknown_item";
+        }
+        String descriptionId = item.getDescriptionId();
+        return PlayerDisplayText.hasTranslation(descriptionId)
+                ? descriptionId : "text.seeking_immortals.unknown_item";
     }
 
     public static String currencyDescriptionId(Entry entry) {
@@ -415,7 +453,12 @@ public final class ShopService {
             return "screen.seeking_immortals.shop.currency.sect_contribution";
         }
         Item item = resolveItem(entry.currencyItemId());
-        return item == null || item == Items.AIR ? entry.currencyItemId() : item.getDescriptionId();
+        if (item == null || item == Items.AIR) {
+            return "text.seeking_immortals.unknown_currency";
+        }
+        String descriptionId = item.getDescriptionId();
+        return PlayerDisplayText.hasTranslation(descriptionId)
+                ? descriptionId : "text.seeking_immortals.unknown_currency";
     }
 
     public static int adjustedCost(String shopId, Entry entry, CostModifier modifier) {
@@ -660,16 +703,15 @@ public final class ShopService {
 
     private static void sendMarketListing(ServerPlayer player, MarketSnapshot snapshot) {
         player.sendSystemMessage(Component.translatable(
-                "command.seeking_immortals.market.header",
-                snapshot.shopId()));
+                "message.seeking_immortals.market.listing_header",
+                Component.translatable(snapshot.titleKey())));
         for (ShopEntryData entry : snapshot.entries()) {
             player.sendSystemMessage(Component.translatable(
-                    "command.seeking_immortals.market.entry",
-                    entry.id(),
+                    "message.seeking_immortals.market.listing_entry",
                     Component.translatable(entry.itemDescriptionId()),
                     entry.count(),
                     entry.cost(),
-                    entry.currency(),
+                    Component.translatable(entry.currencyDescriptionId()),
                     stockText(entry.remainingStock())));
         }
     }

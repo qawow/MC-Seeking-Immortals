@@ -1,18 +1,25 @@
 {
-  "name": "丹药",
+  "name": "Pills",
   "category": "seeking_immortals:basics",
-  "icon": "seeking_immortals:qi_recovery_pill",
+  "icon": "seeking_immortals:spirit_recovery_pill",
   "sortnum": 3,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "回灵丹与凝气丹",
-      "text": "回灵丹偏向快速恢复灵力；凝气丹用于增加修为积累。合理搭配灵石与丹药，可以更稳定地推进境界。"
+      "title": "Recovery and Qi Condensing",
+      "text": "Spirit Recovery Pills rapidly restore spiritual power. Qi Condensing Pills grant cultivation and temporarily improve cultivation speed. Both are refined in an alchemy furnace from their respective formulas."
     },
     {
-      "type": "patchouli:crafting",
-      "recipe": "seeking_immortals:qi_recovery_pill",
-      "recipe2": "seeking_immortals:cultivation_pill"
+      "type": "patchouli:spotlight",
+      "item": "seeking_immortals:spirit_recovery_pill",
+      "title": "Spirit Recovery Pill",
+      "text": "Restores a large amount of spiritual power after combat or repeated spellcasting."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "seeking_immortals:cultivate_speed_pill",
+      "title": "Qi Condensing Pill",
+      "text": "Grants cultivation and temporarily improves cultivation speed."
     }
   ]
 }

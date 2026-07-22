@@ -4,6 +4,7 @@ import com.xunxian.seekingimmortals.item.material.BaseMaterialItem;
 import com.xunxian.seekingimmortals.item.material.MaterialCategory;
 import com.xunxian.seekingimmortals.item.material.MaterialRarity;
 import com.xunxian.seekingimmortals.cultivation.Realm;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -15,7 +16,6 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 
 import java.util.List;
-import java.util.Locale;
 
 /**
  * Bulk-catalog pill carrier with data-driven consume effects (M04).
@@ -60,24 +60,32 @@ public class BulkPillItem extends BaseMaterialItem {
     @Override
     public void appendHoverText(ItemStack stack, Level level, List<Component> tooltip, TooltipFlag flag) {
         super.appendHoverText(stack, level, tooltip, flag);
-        tooltip.add(Component.translatable("tooltip.seeking_immortals.catalog_pill.quality." + quality.designId())
+        String qualityKey = "tooltip.seeking_immortals.catalog_pill.quality." + quality.designId();
+        tooltip.add(PlayerDisplayText.translatedOr(qualityKey,
+                        "tooltip.seeking_immortals.catalog_pill.quality.unknown").copy()
                 .withStyle(style -> style.withColor(quality.getColor())));
         PillEffectCatalog.findByPillId(catalogId).ifPresent(entry -> {
             if (entry.effect() != null && !entry.effect().isBlank()) {
+                String effectKey = "tooltip.seeking_immortals.catalog_pill.effect." + entry.effect();
                 tooltip.add(Component.translatable("tooltip.seeking_immortals.catalog_pill.effect",
-                        Component.translatable("tooltip.seeking_immortals.catalog_pill.effect." + entry.effect()))
+                        PlayerDisplayText.translatedOr(effectKey,
+                                "tooltip.seeking_immortals.catalog_pill.unknown"))
                         .withStyle(ChatFormatting.DARK_GRAY));
             }
             if (entry.realmMin() != null && !entry.realmMin().isBlank()) {
                 Realm minRealm = Realm.fromDesignId(entry.realmMin());
                 tooltip.add(Component.translatable("tooltip.seeking_immortals.catalog_pill.min_realm",
-                        minRealm == null ? entry.realmMin().toLowerCase(Locale.ROOT) : minRealm.getDisplayName())
+                        minRealm == null
+                                ? Component.translatable("text.seeking_immortals.unknown_realm")
+                                : minRealm.getDisplayName())
                         .withStyle(ChatFormatting.BLUE));
             }
             if (entry.realmTarget() != null && !entry.realmTarget().isBlank()) {
                 Realm targetRealm = Realm.fromDesignId(entry.realmTarget());
                 tooltip.add(Component.translatable("tooltip.seeking_immortals.catalog_pill.target_realm",
-                        targetRealm == null ? entry.realmTarget() : targetRealm.getDisplayName())
+                        targetRealm == null
+                                ? Component.translatable("text.seeking_immortals.unknown_realm")
+                                : targetRealm.getDisplayName())
                         .withStyle(ChatFormatting.GOLD));
             }
         });

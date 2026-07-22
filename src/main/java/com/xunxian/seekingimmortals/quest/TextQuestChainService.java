@@ -1,11 +1,16 @@
 package com.xunxian.seekingimmortals.quest;
 
+import com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts;
 import com.xunxian.seekingimmortals.catalog.ExtendedCatalogService;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.item.InventoryDeliveryService;
 import com.xunxian.seekingimmortals.network.SyncQuestTrackerPacket;
+import com.xunxian.seekingimmortals.npc.NamedNpcRegistry;
+import com.xunxian.seekingimmortals.region.RegionRegistry;
+import com.xunxian.seekingimmortals.registry.ModBulkItems;
 import com.xunxian.seekingimmortals.registry.ModItems;
 import com.xunxian.seekingimmortals.sect.SectDefinitionService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -97,7 +102,8 @@ public final class TextQuestChainService {
     public static boolean start(ServerPlayer player, String chainId) {
         Optional<ExtendedCatalogService.QuestChain> optional = find(chainId);
         if (optional.isEmpty()) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.unknown", chainId), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.unknown",
+                    questDisplay(chainId)), false);
             return false;
         }
         ExtendedCatalogService.QuestChain chain = optional.get();
@@ -116,14 +122,14 @@ public final class TextQuestChainService {
             touchNpc(player, id);
             com.xunxian.seekingimmortals.worldpack.ReputationService.add(player, factionFor(id), 1);
             player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.started",
-                    chain.display(), chain.stepCount()), true);
+                    questDisplay(chain), chain.stepCount()), true);
             player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.npc_hook",
-                    npcFor(id), getBranch(player, id)), false);
+                    npcDisplay(npcFor(id)), branchDisplay(getBranch(player, id))), false);
             syncTracker(player);
             return true;
         }
         player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.already",
-                chain.display(), root.getInt(id), chain.stepCount()), false);
+                questDisplay(chain), root.getInt(id), chain.stepCount()), false);
         return false;
     }
 
@@ -133,7 +139,7 @@ public final class TextQuestChainService {
         if (player == null || optional.isEmpty()) {
             if (player != null) {
                 player.displayClientMessage(Component.translatable(
-                        "message.seeking_immortals.text_quest.unknown", chainId), false);
+                        "message.seeking_immortals.text_quest.unknown", questDisplay(chainId)), false);
             }
             return false;
         }
@@ -164,7 +170,8 @@ public final class TextQuestChainService {
                 if (warn) {
                     player.displayClientMessage(Component.translatable(
                             "message.seeking_immortals.text_quest.start_realm_too_low",
-                            chain.display(), requirements.realmMin(), cultivation.getRealm().name()), true);
+                            questDisplay(chain), ArtifactDisplayTexts.realm(requirements.realmMin()),
+                            ArtifactDisplayTexts.realm(cultivation.getRealm().name())), true);
                 }
                 return;
             }
@@ -174,7 +181,8 @@ public final class TextQuestChainService {
                 if (warn) {
                     player.displayClientMessage(Component.translatable(
                             "message.seeking_immortals.text_quest.start_wrong_region",
-                            chain.display(), requiredRegion, currentRegion), true);
+                            questDisplay(chain), regionDisplay(requiredRegion),
+                            regionDisplay(currentRegion)), true);
                 }
                 return;
             }
@@ -185,7 +193,8 @@ public final class TextQuestChainService {
                 if (warn) {
                     player.displayClientMessage(Component.translatable(
                             "message.seeking_immortals.text_quest.start_wrong_faction",
-                            chain.display(), requiredFaction, currentFaction.isBlank() ? "-" : currentFaction), true);
+                            questDisplay(chain), factionDisplay(requiredFaction),
+                            factionDisplay(currentFaction)), true);
                 }
                 return;
             }
@@ -201,7 +210,8 @@ public final class TextQuestChainService {
     public static boolean advance(ServerPlayer player, String chainId) {
         Optional<ExtendedCatalogService.QuestChain> optional = find(chainId);
         if (optional.isEmpty()) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.unknown", chainId), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.unknown",
+                    questDisplay(chainId)), false);
             return false;
         }
         ExtendedCatalogService.QuestChain chain = optional.get();
@@ -211,11 +221,11 @@ public final class TextQuestChainService {
         if (stage <= 0) {
             // Must start() first so realm/region/faction gates cannot be skipped.
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.text_quest.not_started", chain.display()), false);
+                    "message.seeking_immortals.text_quest.not_started", questDisplay(chain)), false);
             return false;
         } else if (chain.stepCount() > 0 && stage >= chain.stepCount()) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.complete",
-                    chain.display()), false);
+                    questDisplay(chain)), false);
             return false;
         } else {
             // Wave48: consume stage cost before advancing beyond current stage.
@@ -228,7 +238,7 @@ public final class TextQuestChainService {
         player.getPersistentData().put(ROOT_TAG, root);
         if (chain.stepCount() > 0 && stage >= chain.stepCount()) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.finished",
-                    chain.display()), true);
+                    questDisplay(chain)), true);
             // Wave454: single authority finale path (ledger prevents double grant with FTB bridge).
             grantAuthorityFinaleReward(player, id);
             grantBranchFinaleBonus(player, id);
@@ -240,7 +250,7 @@ public final class TextQuestChainService {
             com.xunxian.seekingimmortals.worldpack.ReputationService.onQuestComplete(player, id);
         } else {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.advanced",
-                    chain.display(), stage, Math.max(chain.stepCount(), stage)), true);
+                    questDisplay(chain), stage, Math.max(chain.stepCount(), stage)), true);
             // Wave41: mid-stage soft grant every half-chain (once per stage mark).
             grantMidStageReward(player, id, stage, chain.stepCount());
             // Branch choice window around 1/3 progress.
@@ -371,27 +381,27 @@ public final class TextQuestChainService {
         StageCost cost = optional.get();
         if (player.getAbilities().instabuild) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.text_quest.cost_waived", cost.displayKey(), cost.count()), false);
+                    "message.seeking_immortals.text_quest.cost_waived", costDisplay(cost), cost.count()), false);
             return true;
         }
         Item item = resolveItem(cost.itemId());
         if (item == null) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.text_quest.cost_missing",
-                    cost.displayKey(), cost.count(), 0), false);
+                    costDisplay(cost), cost.count(), 0), false);
             return false;
         }
         int available = countItem(player, item);
         if (available < cost.count()) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.text_quest.cost_missing",
-                    cost.displayKey(), cost.count(), available), false);
+                    costDisplay(cost), cost.count(), available), false);
             return false;
         }
         consumeItem(player, item, cost.count());
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.text_quest.cost_paid",
-                cost.displayKey(), cost.count(), targetStage), true);
+                costDisplay(cost), cost.count(), targetStage), true);
         return true;
     }
 
@@ -471,42 +481,48 @@ public final class TextQuestChainService {
     public static boolean chooseBranch(ServerPlayer player, String chainId, String branch) {
         Optional<ExtendedCatalogService.QuestChain> optional = find(chainId);
         if (optional.isEmpty()) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.unknown", chainId), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.unknown",
+                    questDisplay(chainId)), false);
             return false;
         }
         String id = normalize(chainId);
         String normalized = normalizeBranch(branch);
         if (normalized.isBlank()) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.branch_unknown", branch), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.branch_unknown",
+                    Component.translatable("text.seeking_immortals.unknown_branch")), false);
             return false;
         }
         ChainProgress progress = progressOf(player, id);
         if (progress.stage() <= 0) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.branch_not_started", id), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.branch_not_started",
+                    questDisplay(id)), false);
             return false;
         }
         if (progress.complete()) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.branch_locked", id), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.branch_locked",
+                    questDisplay(id)), false);
             return false;
         }
         String current = getBranch(player, id);
         // Wave454: once a non-neutral branch is chosen, lock it (neutral may still switch once).
         if (!current.isBlank() && !BRANCH_NEUTRAL.equals(current) && !current.equals(normalized)) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.text_quest.branch_already_locked", id, current), false);
+                    "message.seeking_immortals.text_quest.branch_already_locked",
+                    questDisplay(id), branchDisplay(current)), false);
             return false;
         }
         if (current.equals(normalized)) {
             // Same branch re-select must not farm reputation.
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.text_quest.branch_same", optional.get().display(), normalized), false);
+                    "message.seeking_immortals.text_quest.branch_same", questDisplay(optional.get()),
+                    branchDisplay(normalized)), false);
             return false;
         }
         setBranch(player, id, normalized);
         touchNpc(player, id);
         com.xunxian.seekingimmortals.worldpack.ReputationService.add(player, factionForBranch(normalized), 2);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.branch_chosen",
-                optional.get().display(), normalized, npcFor(id)), true);
+                questDisplay(optional.get()), branchDisplay(normalized), npcDisplay(npcFor(id))), true);
         syncTracker(player);
         return true;
     }
@@ -544,7 +560,8 @@ public final class TextQuestChainService {
             return;
         }
         player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.branch_offer",
-                chainId, BRANCH_RIGHTEOUS, BRANCH_NEUTRAL, BRANCH_DEMONIC), false);
+                questDisplay(chainId), branchDisplay(BRANCH_RIGHTEOUS), branchDisplay(BRANCH_NEUTRAL),
+                branchDisplay(BRANCH_DEMONIC)), false);
     }
 
     private static void grantBranchFinaleBonus(ServerPlayer player, String chainId) {
@@ -566,7 +583,7 @@ public final class TextQuestChainService {
         InventoryDeliveryService.giveOrEnqueue(player, bonus, "quest_chain");
         markAuthorityReward(player, ledgerKey);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.branch_bonus",
-                branch, bonus.getHoverName()), true);
+                branchDisplay(branch), itemDisplay(bonus)), true);
     }
 
     private static void maybeCompleteMainStory(ServerPlayer player, ExtendedCatalogService.QuestChain chain) {
@@ -657,7 +674,7 @@ public final class TextQuestChainService {
         mid.putBoolean(key, true);
         player.getPersistentData().put(MID_REWARD_TAG, mid);
         player.displayClientMessage(Component.translatable(
-                "message.seeking_immortals.text_quest.mid_reward", chainId, milestone), true);
+                "message.seeking_immortals.text_quest.mid_reward", questDisplay(chainId), milestone), true);
     }
 
     /**
@@ -682,7 +699,8 @@ public final class TextQuestChainService {
         CompoundTag legacy = player.getPersistentData().getCompound(REWARD_TAG).copy();
         legacy.putBoolean(id, true);
         player.getPersistentData().put(REWARD_TAG, legacy);
-        player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.authority_reward", id), true);
+        player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.authority_reward",
+                questDisplay(id)), true);
     }
 
     public static boolean hasAuthorityReward(ServerPlayer player, String chainId) {
@@ -812,11 +830,11 @@ public final class TextQuestChainService {
                     stack(ModItems.SPIRIT_STONE_SHARD, 20));
             case "chain_ascension_spirit_world" -> List.of(
                     stack(ModItems.IMMORTAL_JADE, 1),
-                    stack(ModItems.BREAKTHROUGH_PILL, 1));
+                    stack(ModBulkItems.byId().get("jiangchen_pill"), 1));
             // Wave39: expand soft rewards to 15 real quest_chains ids.
             case "qixuan_mortal_path" -> List.of(
                     stack(ModItems.SPIRIT_STONE_SHARD, 12),
-                    stack(ModItems.QI_RECOVERY_PILL, 2));
+                    stack(ModBulkItems.byId().get("spirit_recovery_pill"), 2));
             case "blood_forbidden_campaign" -> List.of(
                     stack(ModItems.DEMONIC_BLOOD_CORAL, 1),
                     stack(ModItems.SPIRIT_STONE_SHARD, 16));
@@ -914,6 +932,88 @@ public final class TextQuestChainService {
         }
         int idx = itemId.indexOf(':');
         return idx >= 0 ? itemId.substring(idx + 1) : itemId;
+    }
+
+    private static Component questDisplay(String chainId) {
+        return find(chainId)
+                .map(TextQuestChainService::questDisplay)
+                .orElseGet(() -> Component.translatable("text.seeking_immortals.unknown_quest"));
+    }
+
+    private static Component questDisplay(ExtendedCatalogService.QuestChain chain) {
+        return chain == null
+                ? Component.translatable("text.seeking_immortals.unknown_quest")
+                : PlayerDisplayText.safeLiteral(chain.display(), "text.seeking_immortals.unknown_quest");
+    }
+
+    private static Component regionDisplay(String regionId) {
+        return RegionRegistry.find(regionId)
+                .map(region -> PlayerDisplayText.safeLiteral(
+                        region.display(), "text.seeking_immortals.unknown_region"))
+                .orElseGet(() -> Component.translatable("text.seeking_immortals.unknown_region"));
+    }
+
+    private static Component factionDisplay(String factionId) {
+        String id = normalize(factionId);
+        Optional<SectDefinitionService.SectDefinition> sect = SectDefinitionService.find(id);
+        if (sect.isPresent()) {
+            return PlayerDisplayText.safeLiteral(
+                    sect.get().displayZh(), "text.seeking_immortals.unknown_faction");
+        }
+        Optional<ExtendedCatalogService.SectEntry> catalog = ExtendedCatalogService.builtin().findSect(id);
+        if (catalog.isPresent()) {
+            return PlayerDisplayText.safeLiteral(
+                    catalog.get().display(), "text.seeking_immortals.unknown_faction");
+        }
+        return switch (id) {
+            case "mortal_realm" -> Component.translatable("text.seeking_immortals.faction.mortal_realm");
+            case "chaotic_sea" -> Component.translatable("text.seeking_immortals.faction.chaotic_sea");
+            case "dajin" -> Component.translatable("text.seeking_immortals.faction.dajin");
+            case "demonic_path" -> Component.translatable("text.seeking_immortals.faction.demonic_path");
+            case "tianyuan" -> Component.translatable("text.seeking_immortals.faction.tianyuan");
+            case "mulan" -> Component.translatable("text.seeking_immortals.faction.mulan");
+            case "righteous_alliance" -> Component.translatable("text.seeking_immortals.faction.righteous_alliance");
+            case "merchant_guild" -> Component.translatable("text.seeking_immortals.faction.merchant_guild");
+            case "clan_array_mo" -> Component.translatable("text.seeking_immortals.faction.clan_array_mo");
+            case "clan_refinement_yu" -> Component.translatable("text.seeking_immortals.faction.clan_refinement_yu");
+            case "clan_alchemy_gu" -> Component.translatable("text.seeking_immortals.faction.clan_alchemy_gu");
+            case "clan_talisman_ning" -> Component.translatable("text.seeking_immortals.faction.clan_talisman_ning");
+            case "tiannan_seven" -> Component.translatable("text.seeking_immortals.faction.tiannan_seven");
+            case "tianfu_gate" -> Component.translatable("text.seeking_immortals.faction.tianfu_gate");
+            default -> Component.translatable("text.seeking_immortals.unknown_faction");
+        };
+    }
+
+    private static Component branchDisplay(String branch) {
+        return switch (normalizeBranch(branch)) {
+            case BRANCH_RIGHTEOUS -> Component.translatable("screen.seeking_immortals.dialogue.righteous");
+            case BRANCH_NEUTRAL -> Component.translatable("screen.seeking_immortals.dialogue.neutral");
+            case BRANCH_DEMONIC -> Component.translatable("screen.seeking_immortals.dialogue.demonic");
+            default -> Component.translatable("text.seeking_immortals.unknown_branch");
+        };
+    }
+
+    private static Component npcDisplay(String npcId) {
+        return NamedNpcRegistry.find(npcId)
+                .map(npc -> PlayerDisplayText.safeLiteral(
+                        npc.display(), "text.seeking_immortals.quest_guide"))
+                .orElseGet(() -> Component.translatable("text.seeking_immortals.quest_guide"));
+    }
+
+    private static Component costDisplay(StageCost cost) {
+        if (cost == null) {
+            return Component.translatable("text.seeking_immortals.unknown_item");
+        }
+        Item item = resolveItem(cost.itemId());
+        return item == null
+                ? PlayerDisplayText.itemName(cost.itemId())
+                : PlayerDisplayText.itemName(item);
+    }
+
+    private static Component itemDisplay(ItemStack stack) {
+        return stack == null || stack.isEmpty()
+                ? Component.translatable("text.seeking_immortals.unknown_item")
+                : PlayerDisplayText.itemName(stack.getItem());
     }
 
     private static String normalize(String id) {

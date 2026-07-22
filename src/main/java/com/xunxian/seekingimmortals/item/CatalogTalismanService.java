@@ -7,6 +7,7 @@ import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.cultivation.BeastContractService;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.entity.CultivationFireballEntity;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -73,7 +74,7 @@ public final class CatalogTalismanService {
             if (success) {
                 player.displayClientMessage(Component.translatable(
                         "message.seeking_immortals.catalog_talisman.cast",
-                        Component.translatable("item.seeking_immortals." + normalize(catalogId))), true);
+                        talismanDisplay(catalogId)), true);
                 player.level().playSound(null, player.blockPosition(), SoundEvents.ENCHANTMENT_TABLE_USE,
                         SoundSource.PLAYERS, 0.5F, 1.2F);
             } else if (!player.getAbilities().instabuild) {
@@ -229,8 +230,12 @@ public final class CatalogTalismanService {
         player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 20 * 12, 0, false, true, true));
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.catalog_talisman.utility",
-                Component.translatable("item.seeking_immortals." + normalize(catalogId))), false);
+                talismanDisplay(catalogId)), false);
         return true;
+    }
+
+    private static Component talismanDisplay(String catalogId) {
+        return PlayerDisplayText.itemName(normalize(catalogId));
     }
 
     private static int gradeScale(String catalogId) {

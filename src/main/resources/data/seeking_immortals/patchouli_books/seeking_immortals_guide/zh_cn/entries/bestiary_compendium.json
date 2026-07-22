@@ -6,17 +6,17 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "M10 图鉴约 1800+ 条目；击杀/契约/见闻写入解锁记录。未解锁条目在图鉴屏以锁态显示。",
+      "text": "当前图鉴约有 1800+ 条目；击杀、契约与见闻会写入解锁记录。未解锁条目在图鉴中以锁定状态显示。",
       "title": "妖兽图鉴"
     },
     {
       "type": "patchouli:text",
-      "text": "威胁与阶位见 beast_thirteen_tier_map / BeastTierService。越高阶掉落与契约门槛越严。",
+      "text": "妖兽共分十三阶，阶位越高，威胁、掉落品质与契约门槛也越高。",
       "title": "十三阶"
     },
     {
       "type": "patchouli:text",
-      "text": "真灵与 companion_only 不进入日常刷怪；契约另有阶位/境界门槛。",
+      "text": "真灵与专属灵兽不会进入日常生成；缔结契约还需满足妖兽阶位与玩家境界门槛。",
       "title": "真灵与禁令"
     },
     {

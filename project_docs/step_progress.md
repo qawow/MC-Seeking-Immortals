@@ -1,3 +1,25 @@
+## 561. 2026-07-22 0.2.137 玩家可见目录索引与最终验证
+
+  Step   Status   Notes
+  ---   ---   ---
+  Catalog index labels   Done   历史价值带/小说索引行改用实际中文分类名，生成脚本同步更新，不再显示开发批次号。
+  Visible text audit   Done   目录、工站、炼丹、法宝、捕获、灵兽、任务、技能树和命令提示的玩家路径已完成安全显示收口；管理员调试 id 风险单独记录。
+  Pill canonicalization   Done   旧泛化丹药与 `jiangying_pill` 不再注册或产出，兼容读取仅保留旧存档/丹方字符串；三个替代丹药效果分离。
+  Tests/build   Done   `python3 scripts/list_eng_displays.py`（0 条）、`m16_lang_audit.py`（5459/5459）、全资源 JSON 解析、定向测试与最终 `./gradlew build` 均通过；构建 `BUILD SUCCESSFUL in 1m 8s`。
+  Version/protocol   Done   `mod_version=0.2.137`；未改网络包字段、顺序、类型或频道行为，protocol 保持 `26`。
+  Backup   Done   本批收尾备份位于 `.bak/20260722_0.2.137_finalize/`、`.bak/20260722_0.2.137_glossary_pill_contract/` 与 `.bak/20260722_0.2.137_compat_safety/`，此前代码/资源备份见 `.bak/20260722_0.2.136_visible_text_pills/` 与 `.bak/20260722_0.2.136_followup/`。
+
+## 560. 2026-07-22 0.2.136 玩家可见文本与丹药去重收口
+
+  Step   Status   Notes
+  ---   ---   ---
+  Visible text audit   Done   目录物品、工站、炼丹、法宝、捕获、灵兽和技能树动态显示不再回显原始英文、snake_case id 或开发版本字样；中文与英文语言文件同步清理。
+  Legacy pills   Done   删除 `qi_recovery_pill`、`cultivation_pill`、`breakthrough_pill` 注册/类/配方/模型/纹理；旧 NBT/配方字符串仅保留兼容读取。
+  Pill split   Done   `spirit_recovery_pill`、`cultivate_speed_pill`、`jiangchen_pill` 维持不同运行时效果，并新增契约测试防止旧 ID 或泛化效果回归。
+  Tests   Pending   已完成定向测试与 JSON 静态检查；最终 `./gradlew build` 待本批所有显示文本代理改动合并后执行。
+  Version/protocol   Done   `mod_version=0.2.136`；未改网络包字段、顺序、类型或频道行为，protocol 保持 `26`。
+  Backup   Done   代码/资源备份位于 `.bak/20260722_0.2.136_visible_text_pills/`，本批测试与文档备份位于 `.bak/20260722_0.2.136_followup/`。
+
 ## 559. 2026-07-21 0.2.135 UI、结构与术法反馈收口
 
   Step   Status   Notes

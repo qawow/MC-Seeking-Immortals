@@ -1,7 +1,7 @@
 {
   "name": "灵力与境界",
   "category": "seeking_immortals:basics",
-  "icon": "seeking_immortals:cultivation_pill",
+  "icon": "seeking_immortals:cultivate_speed_pill",
   "sortnum": 1,
   "pages": [
     {
@@ -12,7 +12,7 @@
     {
       "type": "patchouli:text",
       "title": "灵力恢复",
-      "text": "恢复灵力的方式：$(li)$(l)灵石吸收$()：手持灵石右键激活，每秒恢复灵力，直到灵石耗尽$(li)$(l)回气丹$()：瞬间恢复大量灵力$(li)$(l)打坐冥想$()：在高灵气环境或聚灵阵上打坐可被动恢复$(li)$(l)灵符护身$()：佩戴灵符护身（饰品栏）可获得灵力恢复加成"
+      "text": "恢复灵力的方式：$(li)$(l)灵石吸收$()：手持灵石右键激活，每秒恢复灵力，直到灵石耗尽$(li)$(l)回灵丹$()：恢复一半灵力，灵力已满时不会消耗$(li)$(l)打坐冥想$()：在高灵气环境或聚灵阵上打坐可被动恢复$(li)$(l)灵符护身$()：佩戴灵符护身（饰品栏）可获得灵力恢复加成"
     },
     {
       "type": "patchouli:text",
@@ -22,7 +22,7 @@
     {
       "type": "patchouli:text",
       "title": "境界突破",
-      "text": "使用命令 $(l)/seeking_immortals breakthrough$() 尝试突破。$(br2)突破成功率受以下因素影响：$(li)修为经验是否充足$(li)灵根资质（单灵根>双灵根>三灵根）$(li)当前年龄与寿元$(li)是否使用破境丹辅助$(br2)突破失败会损失修为，多次失败可能走火入魔。"
+      "text": "使用命令 $(l)/seeking_immortals breakthrough$() 尝试突破。$(br2)突破成功率受以下因素影响：$(li)修为经验是否充足$(li)灵根资质（单灵根>双灵根>三灵根）$(li)当前年龄与寿元$(li)是否使用降尘丹等对应境界的突破辅助丹$(br2)突破失败会损失修为，多次失败可能走火入魔。"
     },
     {
       "type": "patchouli:text",
@@ -42,7 +42,7 @@
     {
       "type": "patchouli:text",
       "title": "查看状态",
-      "text": "查看修炼状态的方式：$(li)打开$(l)物品栏$()，点击右上角$(l)修仙$()按钮$(li)使用命令 $(l)/seeking_immortals lingli$() 查看灵力$(li)使用命令 $(l)/seeking_immortals realm$() 查看境界$(li)使用命令 $(l)/seeking_immortals root$() 查看灵根$(br2)游戏内HUD会显示当前灵力值与境界。"
+      "text": "查看修炼状态的方式：$(li)打开$(l)物品栏$()，点击右上角$(l)修仙$()按钮$(li)使用命令 $(l)/seeking_immortals lingli$() 查看灵力$(li)使用命令 $(l)/seeking_immortals realm$() 查看境界$(li)使用命令 $(l)/seeking_immortals root$() 查看灵根$(br2)游戏内状态栏会显示当前灵力值与境界。"
     }
   ]
 }

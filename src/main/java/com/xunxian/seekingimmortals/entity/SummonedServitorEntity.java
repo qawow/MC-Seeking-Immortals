@@ -3,6 +3,7 @@ package com.xunxian.seekingimmortals.entity;
 import com.xunxian.seekingimmortals.cultivation.BeastContractService;
 import com.xunxian.seekingimmortals.beast.PuppetGrowthService;
 import com.xunxian.seekingimmortals.catalog.SummonHonestMvpService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import com.xunxian.seekingimmortals.worldpack.ServitorRegistrySavedData;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -129,7 +130,8 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
         this.guardY = owner.getY();
         this.guardZ = owner.getZ();
         applyArchetypeStats(health, damage);
-        setCustomName(Component.translatable("entity.seeking_immortals.summoned_servitor.name", this.summonId));
+        setCustomName(Component.translatable("entity.seeking_immortals.summoned_servitor.name",
+                summonDisplay()));
         setCustomNameVisible(true);
         rebuildGoals();
     }
@@ -155,7 +157,8 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
             getAttribute(Attributes.FOLLOW_RANGE).setBaseValue(Math.max(28.0D,
                     getAttribute(Attributes.FOLLOW_RANGE).getBaseValue()));
         }
-        setCustomName(Component.translatable("entity.seeking_immortals.trial_shell.name", this.summonId));
+        setCustomName(Component.translatable("entity.seeking_immortals.trial_shell.name",
+                archetypeDisplay()));
         setCustomNameVisible(true);
         rebuildGoals();
     }
@@ -445,7 +448,7 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
         }
         Stance next = cycleStance();
         player.displayClientMessage(Component.translatable(
-                "message.seeking_immortals.summon.stance", summonId, next.name().toLowerCase()), true);
+                "message.seeking_immortals.summon.stance", summonDisplay(), stanceDisplay(next)), true);
         return InteractionResult.CONSUME;
     }
 
@@ -498,7 +501,7 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
                     if (kind == PuppetGrowthService.CreditKind.KILL) {
                         serverPlayer.displayClientMessage(Component.translatable(
                                 "message.seeking_immortals.puppet.combat_growth",
-                                growth.puppetId(), growth.after().level(), growth.after().experience()), true);
+                                displayForId(growth.puppetId()), growth.after().level(), growth.after().experience()), true);
                         if (growth.update().evolutionBlocked()) {
                             serverPlayer.displayClientMessage(Component.translatable(
                                     "message.seeking_immortals.puppet.core_forge_required"), false);
@@ -516,7 +519,8 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
                 && ownerUUID != null && level() instanceof ServerLevel serverLevel) {
             Player owner = serverLevel.getPlayerByUUID(ownerUUID);
             if (owner != null) {
-                owner.displayClientMessage(Component.translatable("message.seeking_immortals.puppet.core_cracked", summonId), true);
+                owner.displayClientMessage(Component.translatable("message.seeking_immortals.puppet.core_cracked",
+                        summonDisplay()), true);
             }
         }
         super.die(source);
@@ -528,6 +532,42 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
             ServitorRegistrySavedData.get(serverLevel).remove(getUUID());
         }
         super.remove(reason);
+    }
+
+    private Component summonDisplay() {
+        return displayForId(summonId);
+    }
+
+    private Component displayForId(String id) {
+        String normalized = PlayerDisplayText.normalizeId(id);
+        String itemKey = "item.seeking_immortals." + normalized;
+        if (!normalized.isBlank() && PlayerDisplayText.hasTranslation(itemKey)) {
+            return Component.translatable(itemKey);
+        }
+        return SummonHonestMvpService.findPuppet(id)
+                .filter(entry -> PlayerDisplayText.isSafe(entry.display()))
+                .<Component>map(entry -> Component.literal(entry.display().trim()))
+                .orElseGet(this::archetypeDisplay);
+    }
+
+    private Component archetypeDisplay() {
+        return Component.translatable("message.seeking_immortals.summon.archetype." +
+                switch (archetype) {
+                    case BEAST -> "beast";
+                    case PUPPET -> "puppet";
+                    case GHOST -> "ghost";
+                    case GENERIC -> "generic";
+                });
+    }
+
+    private static Component stanceDisplay(Stance value) {
+        String key = switch (value == null ? Stance.FOLLOW : value) {
+            case FOLLOW -> "follow";
+            case GUARD -> "guard";
+            case AGGRESSIVE -> "aggressive";
+            case STAY -> "stay";
+        };
+        return Component.translatable("message.seeking_immortals.summon.stance." + key);
     }
 
     @Override

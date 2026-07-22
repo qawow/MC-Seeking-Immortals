@@ -6,12 +6,12 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "天渊城：人妖共防魔潮，功勋殿兑换边境令、驱魔丹、灵界通行证、风雷舟图纸；灵气密度×2 见 faction_species",
+      "text": "天渊城：人妖共防魔潮，功勋殿可兑换边境令、驱魔丹、灵界通行证和风雷舟图纸；当地灵气密度约为普通区域的两倍。",
       "title": "天渊驻军"
     },
     {
       "type": "patchouli:text",
-      "text": "语料 patchouli_item_book.static_entries.tianyuan_garrison",
+      "text": "驻军功勋与边境补给会随事件和区域声望变化，具体兑换以服务端为准。",
       "title": "来源"
     }
   ]

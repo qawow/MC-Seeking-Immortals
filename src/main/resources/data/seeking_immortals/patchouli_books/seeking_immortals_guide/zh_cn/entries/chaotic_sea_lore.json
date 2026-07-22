@@ -11,7 +11,7 @@
     },
     {
       "type": "patchouli:text",
-      "text": "inner_sea: 内星海：星宫直控，双圣坐镇，传送阵与补天丹配额垄断叙事。$(br)outer_sea: 外星海：岛屿林立，海盗与散修，登记征税与逆星暗线并存。$(br)abyss: 深渊裂隙：高阶海兽与走私航线，对应秘境 chaotic_sea_abyss_rift。$(br)void_palace_node: 虚天殿周期开放，钥碎片为星宫、逆星、商盟共同筹码。",
+      "text": "内星海：由星宫直控，双圣坐镇，掌握传送阵与补天丹配额。$(br)外星海：岛屿林立，海盗与散修出没，登记征税与逆星暗线并存。$(br)深渊裂隙：高阶海兽盘踞，也是走私航线经过的危险秘境。$(br)虚天殿：周期开放，钥匙碎片是星宫、逆星盟与商盟共同争夺的筹码。",
       "title": "地理"
     },
     {
@@ -21,7 +21,7 @@
     },
     {
       "type": "patchouli:text",
-      "text": "星宫忠诚线: quest_chains.json#chaotic_sea_politics: star_palace_patrol → pirate_bounty → void_palace_key$(br)逆星暗线: inverse_star_contact → stolen_jade_slip → inverse_star_sabotage → void_palace_key$(br)商盟中立: None",
+      "text": "星宫忠诚线：星宫巡防 → 海盗悬赏 → 虚天殿钥匙。$(br)逆星暗线：接触逆星盟 → 取得失窃玉简 → 执行破坏行动 → 虚天殿钥匙。$(br)商盟中立线：暂未开放。",
       "title": "玩家路径"
     }
   ]

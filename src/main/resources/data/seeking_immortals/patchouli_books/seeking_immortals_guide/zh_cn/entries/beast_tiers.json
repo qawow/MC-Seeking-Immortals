@@ -6,12 +6,12 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "妖兽 1-4/5-8/9-13 通用掉落 beast_loot_tiers.json",
+      "text": "妖兽按一至四阶、五至八阶、九至十三阶分组使用通用掉落，阶位越高，材料越稀有。",
       "title": "妖兽阶位表"
     },
     {
       "type": "patchouli:text",
-      "text": "语料 patchouli_item_book.static_entries.beast_tiers",
+      "text": "妖兽阶位也会影响捕捉、契约与挑战门槛。修为不足时，应优先避开高阶妖兽。",
       "title": "来源"
     }
   ]

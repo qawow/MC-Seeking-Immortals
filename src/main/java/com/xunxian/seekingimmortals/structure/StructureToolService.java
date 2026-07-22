@@ -1,5 +1,6 @@
 package com.xunxian.seekingimmortals.structure;
 
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -72,7 +73,7 @@ public final class StructureToolService {
                     break;
                 }
                 player.displayClientMessage(Component.literal(
-                        " · " + entry.display() + " (" + entry.id() + ")"), false);
+                        " · " + structureDisplay(entry)), false);
                 shown++;
             }
             return InteractionResultHolder.success(stack);
@@ -83,10 +84,10 @@ public final class StructureToolService {
         }
         MultiblockStructureCatalog.StructureEntry entry = MultiblockStructureCatalog.builtin()
                 .find(nearby.stationId()).orElse(null);
-        String display = entry == null ? nearby.stationId() : entry.display();
+        String display = structureDisplay(entry);
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.structure_tool.blueprint_target",
-                display, nearby.stationId()), false);
+                display, Component.literal("核心")), false);
         List<MultiblockSequenceDisplayCatalog.SequenceEntry> sequences =
                 MultiblockSequenceDisplayCatalog.builtin().forStructure(nearby.stationId());
         if (sequences.isEmpty()) {
@@ -104,9 +105,8 @@ public final class StructureToolService {
                 if (stepShown >= 8) {
                     break;
                 }
-                player.displayClientMessage(Component.literal(String.format(
-                        Locale.ROOT, "  %d. [%s] %s — %s",
-                        step.order(), step.actor(), step.action(), step.note())), false);
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.structure_tool.blueprint_step", step.order()), false);
                 stepShown++;
             }
         }
@@ -158,6 +158,13 @@ public final class StructureToolService {
             return "";
         }
         return key.location().getPath().toLowerCase(Locale.ROOT);
+    }
+
+    private static String structureDisplay(MultiblockStructureCatalog.StructureEntry entry) {
+        if (entry != null && PlayerDisplayText.isSafe(entry.display())) {
+            return entry.display().trim();
+        }
+        return "未知工站";
     }
 
     record NearbyStation(String stationId, BlockPos origin) {}

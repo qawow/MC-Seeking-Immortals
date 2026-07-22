@@ -4,6 +4,7 @@ import com.xunxian.seekingimmortals.menu.SectHallMenu;
 import com.xunxian.seekingimmortals.network.ModNetwork;
 import com.xunxian.seekingimmortals.network.SectActionPacket;
 import com.xunxian.seekingimmortals.sect.SectContributionService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
@@ -137,7 +138,8 @@ public class SectHallScreen extends AbstractJournalContainerScreen<SectHallMenu>
             ClientSectData.DialogueOption option = options.get(i);
             Rect bounds = buttons.get(i);
             addRenderableWidget(ImmortalButton.primary(bounds.x(), bounds.y(), bounds.width(), bounds.height(),
-                    Component.translatable(option.labelKey()), button ->
+                    PlayerDisplayText.translatedOr(option.labelKey(),
+                            "screen.seeking_immortals.sect.dialogue.option.unknown"), button ->
                             ModNetwork.CHANNEL.sendToServer(new SectActionPacket(
                                     SectContributionService.ACTION_DIALOGUE, option.id(), "",
                                     menu.accessToken()))));
@@ -259,13 +261,17 @@ public class SectHallScreen extends AbstractJournalContainerScreen<SectHallMenu>
         int bottom = summary.bottom();
         y = summaryLine(graphics, summary, y, bottom,
                 Component.translatable("screen.seeking_immortals.sect.current",
-                        safe(data.currentSectDisplay()), safe(data.role())), ImmortalUiSkin.JOURNAL_PAPER);
+                        PlayerDisplayText.safeLiteral(data.currentSectDisplay(),
+                                "text.seeking_immortals.unknown_faction"),
+                        PlayerDisplayText.safeLiteral(data.role(),
+                                "text.seeking_immortals.unknown_affiliation")), ImmortalUiSkin.JOURNAL_PAPER);
         y = summaryLine(graphics, summary, y, bottom,
                 Component.translatable("screen.seeking_immortals.sect.contribution", data.contribution()),
                 ImmortalUiSkin.JOURNAL_JADE_TEXT);
         summaryLine(graphics, summary, y, bottom,
                 Component.translatable("screen.seeking_immortals.sect.stage",
-                        Component.translatable(data.stageKey())), ImmortalUiSkin.JOURNAL_SPIRIT);
+                        PlayerDisplayText.translatedOr(data.stageKey(),
+                                "text.seeking_immortals.unknown_phase")), ImmortalUiSkin.JOURNAL_SPIRIT);
     }
 
     private int summaryLine(GuiGraphics graphics, Rect summary, int y, int bottom,
@@ -307,7 +313,7 @@ public class SectHallScreen extends AbstractJournalContainerScreen<SectHallMenu>
                         hovered == row ? ImmortalUiSkin.InteractionState.HOVERED
                                 : ImmortalUiSkin.InteractionState.NORMAL);
                 ImmortalUiSkin.drawStringFit(font, graphics,
-                        candidate.displayZh() + " / " + candidate.focusKey(), item.x() + 4, item.y() + 4,
+                        candidateDisplay(candidate).getString(), item.x() + 4, item.y() + 4,
                         Math.max(1, action.x() - item.x() - 8), ImmortalUiSkin.JOURNAL_PAPER, false);
             }
         });
@@ -317,9 +323,12 @@ public class SectHallScreen extends AbstractJournalContainerScreen<SectHallMenu>
     private void renderDialogue(GuiGraphics graphics, Rect content, ClientSectData.Snapshot data) {
         Rect viewport = inset(content, 5);
         ImmortalUiSkin.drawStringFit(font, graphics,
-                Component.translatable(data.dialogue().titleKey()).getString(), viewport.x(), viewport.y(),
+                PlayerDisplayText.translatedOr(data.dialogue().titleKey(),
+                        "text.seeking_immortals.unknown_faction").getString(), viewport.x(), viewport.y(),
                 viewport.width(), ImmortalUiSkin.JOURNAL_PAPER, false);
-        ImmortalUiSkin.drawWrappedText(font, graphics, Component.translatable(data.dialogue().textKey()),
+        ImmortalUiSkin.drawWrappedText(font, graphics,
+                PlayerDisplayText.translatedOr(data.dialogue().textKey(),
+                        "message.seeking_immortals.dialogue.line_unavailable"),
                 viewport.x(), viewport.y() + 16, viewport.width(), Math.max(1, viewport.height() - 16),
                 ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
     }
@@ -330,8 +339,8 @@ public class SectHallScreen extends AbstractJournalContainerScreen<SectHallMenu>
                 Component.translatable("screen.seeking_immortals.sect.mission").getString(),
                 viewport.x(), viewport.y(), viewport.width(), ImmortalUiSkin.JOURNAL_PAPER, false);
         if (data.mission() != null && data.mission().available()) {
-            String text = data.mission().id() + " / "
-                    + Component.translatable(data.mission().titleKey()).getString()
+            String text = PlayerDisplayText.translatedOr(data.mission().titleKey(),
+                    "text.seeking_immortals.unknown_quest").getString()
                     + " / +" + data.mission().rewardContribution();
             ImmortalUiSkin.drawStringFit(font, graphics, text, viewport.x(), viewport.y() + 16,
                     viewport.width(), ImmortalUiSkin.JOURNAL_PAPER, false);
@@ -372,7 +381,8 @@ public class SectHallScreen extends AbstractJournalContainerScreen<SectHallMenu>
                         hovered == row ? ImmortalUiSkin.InteractionState.HOVERED
                                 : ImmortalUiSkin.InteractionState.NORMAL);
                 ImmortalUiSkin.drawStringFit(font, graphics,
-                        Component.translatable(entry.itemDescriptionId()).getString() + " x" + entry.count()
+                        PlayerDisplayText.translatedOr(entry.itemDescriptionId(),
+                                "text.seeking_immortals.unknown_item").getString() + " x" + entry.count()
                                 + " / " + entry.cost(), item.x() + 4, item.y() + 4,
                         Math.max(1, action.x() - item.x() - 8), ImmortalUiSkin.JOURNAL_PAPER, false);
             }
@@ -386,15 +396,22 @@ public class SectHallScreen extends AbstractJournalContainerScreen<SectHallMenu>
                 Component.translatable("screen.seeking_immortals.sect.progress").getString(),
                 viewport.x(), viewport.y(), viewport.width(), ImmortalUiSkin.JOURNAL_PAPER, false);
         int y = ImmortalUiSkin.drawWrappedText(font, graphics,
-                Component.translatable(data.objectiveKey()), viewport.x(), viewport.y() + 16,
+                PlayerDisplayText.translatedOr(data.objectiveKey(),
+                        "text.seeking_immortals.unknown_quest"), viewport.x(), viewport.y() + 16,
                 viewport.width(), Math.max(1, viewport.height() - 28),
                 ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
         if (y + 8 <= viewport.bottom()) {
             ImmortalUiSkin.drawStringFit(font, graphics,
                     Component.translatable("screen.seeking_immortals.sect.stage",
-                            Component.translatable(data.stageKey())).getString(),
+                            PlayerDisplayText.translatedOr(data.stageKey(),
+                                    "text.seeking_immortals.unknown_phase")).getString(),
                     viewport.x(), y, viewport.width(), ImmortalUiSkin.JOURNAL_SPIRIT, false);
         }
+    }
+
+    private static Component candidateDisplay(ClientSectData.Candidate candidate) {
+        return PlayerDisplayText.safeLiteral(candidate == null ? "" : candidate.displayZh(),
+                "text.seeking_immortals.unknown_faction");
     }
 
     // -------------------------------------------------------------------------
@@ -440,10 +457,6 @@ public class SectHallScreen extends AbstractJournalContainerScreen<SectHallMenu>
         int visible = listPanel.visibleRowCount();
         int clamped = Mth.clamp(listPanel.scrollRows(), 0, Math.max(0, itemCount - visible));
         listPanel.setScrollRows(clamped);
-    }
-
-    private String safe(String value) {
-        return value == null || value.isBlank() ? "-" : value;
     }
 
     private static UiRect toUi(Rect rect) {

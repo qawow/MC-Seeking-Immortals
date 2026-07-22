@@ -11,23 +11,23 @@
     },
     {
       "type": "patchouli:text",
-      "title": "启封 form",
-      "text": "新成型的工站默认$(l)禁用$()，需要先启封。途径有二：在工站旁直接交互制作（系统会尝试自动启封），或使用命令 $(code)/seeking_immortals station form <id>$()。启封会预留结构材料与灵石碎片税，失败则退款，不会吞料。"
+      "title": "启封工站",
+      "text": "新成型的工站默认$(l)禁用$()，需要先启封。途径有二：在工站旁直接交互制作（系统会尝试自动启封），或使用命令 $(code)/seeking_immortals station form <工站标识>$()。启封会预留结构材料与灵石碎片税，失败则退款，不会吞料。"
     },
     {
       "type": "patchouli:text",
       "title": "修理与大修",
-      "text": "$(code)station repair$()：对已启封但受损的工站消耗灵石碎片恢复耐久，不能绕过启封。$(code)station overhaul$()：按结构材料表大修，无法解析的材料会按价带折成碎片税（有上限）。$(code)station inspect$() 可查看状态、血量与效率。"
+      "text": "$(code)station repair$()：对已启封但受损的工站消耗灵石碎片恢复耐久，不能绕过启封。$(code)station overhaul$()：按结构材料表大修，无法解析的材料会按价带折成碎片税（有上限）。$(code)station inspect$() 可查看状态、耐久与效率。"
     },
     {
       "type": "patchouli:text",
       "title": "损耗循环",
-      "text": "炼丹爆炸、掀盖、炼败会按 80/30/8 损耗丹炉运行态；结构不完整时 inspect 也会缓慢漂移损伤。禁用工站不能软制作。维护工站，就是维护成功率与安全。"
+      "text": "炼丹爆炸、掀盖、炼败会按 80/30/8 损耗丹炉运行态；结构不完整时执行检查也会缓慢累积损伤。禁用工站不能进行制作。维护工站，就是维护成功率与安全。"
     },
     {
       "type": "patchouli:text",
-      "title": "常用 id",
-      "text": "常见工站 id 包括 alchemy_furnace_g1~g5、refinement_forge_g1~g3、talisman_table、puppet_core_forge、spirit_beast_evolution_pool 等。先搭好多方块壳，再 form/自动启封，然后才能稳定产出。"
+      "title": "常用工站",
+      "text": "常见工站包括一至五阶炼丹炉、初阶至三阶炼器炉、制符台、傀儡核心炉与灵兽化形池。先搭好多方块外壳，再执行启封或等待自动启封，之后才能稳定产出。"
     }
   ]
 }

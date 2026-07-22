@@ -6,12 +6,12 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "spirit_realm_gate_voucher、diyuan_access_token、tianyuan_spirit_pill 等为结构兑换项。",
+      "text": "灵界通行凭证、地渊通行令与天渊灵丹等可作为功勋兑换物品。",
       "title": "天渊功勋阁"
     },
     {
       "type": "patchouli:text",
-      "text": "声望 tier 解锁地渊许可与通道优先权。",
+      "text": "声望达到相应档位后，可解锁地渊许可与跨界通道优先权。",
       "title": "续 1"
     }
   ]

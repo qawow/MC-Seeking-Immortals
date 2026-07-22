@@ -6,27 +6,27 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "图鉴排版遵循 VISUAL_BIBLE（v118 样式 / v120 效果表 / v122 外貌卡）。本页为结构展示，不替换业务 UI。",
+      "text": "图鉴排版遵循统一视觉规范，包含样式、效果表与外貌卡。本页只展示结构，不替换实际业务界面。",
       "title": "视觉规范"
     },
     {
       "type": "patchouli:text",
-      "text": "qi: #C8E7FF$(br)fire: #FF6A3D$(br)water: #4DB7FF$(br)wood: #3DCF7A$(br)metal: #E8D48B$(br)earth: #C2A37A$(br)thunder: #B388FF$(br)yin: #6B4E9B$(br)heal: #8CFFB0$(br)poison: #5CFF3D$(br)soul: #A78BFA",
+      "text": "灵气：#C8E7FF$(br)火：#FF6A3D$(br)水：#4DB7FF$(br)木：#3DCF7A$(br)金：#E8D48B$(br)土：#C2A37A$(br)雷：#B388FF$(br)阴：#6B4E9B$(br)治疗：#8CFFB0$(br)毒：#5CFF3D$(br)神魂：#A78BFA",
       "title": "元素色板"
     },
     {
       "type": "patchouli:text",
-      "text": "pills: 114$(br)herbs: 79$(br)materials: 221$(br)artifacts: 217$(br)consumables: 57$(br)techniques: 346$(br)methods: 91$(br)beasts: 42$(br)npcs: 168$(br)total_item_entries: 1351",
+      "text": "丹药：114$(br)灵草：79$(br)材料：221$(br)法宝：217$(br)消耗品：57$(br)术法：346$(br)功法：91$(br)妖兽：42$(br)人物：168$(br)物品条目总数：1351",
       "title": "条目体量"
     },
     {
       "type": "patchouli:text",
-      "text": "appearance: 静态外貌$(br)idle_vfx: 静置/认主特效$(br)active_vfx: 使用/催动特效$(br)cast_vfx: 术法施放$(br)effect_text: 规则效果+表现$(br)style_tags: 美术标签",
-      "title": "字段 schema"
+      "text": "外貌：静态外貌$(br)静置特效：静置/认主特效$(br)主动特效：使用/催动特效$(br)施法特效：术法施放$(br)效果说明：规则效果与表现$(br)风格标签：美术标签",
+      "title": "字段说明"
     },
     {
       "type": "patchouli:text",
-      "text": "ASSET_TEXTURE_STYLE + asset_texture_batches/job_map/pill_queue 描述贴图任务分批；占位贴图在未替换前保留。",
+      "text": "贴图风格与任务队列用于安排贴图分批制作；占位贴图在替换前会保留。",
       "title": "贴图队列"
     }
   ]

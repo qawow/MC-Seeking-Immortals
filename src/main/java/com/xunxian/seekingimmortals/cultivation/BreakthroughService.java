@@ -6,6 +6,7 @@ import com.xunxian.seekingimmortals.item.pill.PillDeathSubstituteEvents;
 import com.xunxian.seekingimmortals.item.pill.PillQuality;
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
 import com.xunxian.seekingimmortals.persistence.PlayerPersistentDataClonePolicy;
+import com.xunxian.seekingimmortals.registry.ModBulkItems;
 import com.xunxian.seekingimmortals.registry.ModItems;
 import com.xunxian.seekingimmortals.spiritual.SpiritualAuraManager;
 import net.minecraft.network.chat.Component;
@@ -402,7 +403,8 @@ public final class BreakthroughService {
             return itemRequirement(player, "poison_dragon_supreme", assisted, List.of(
                     option(ModItems.POISON_DRAGON_PEARL_SUPREME.get(), PillQuality.SUPREME)));
         }
-        return itemRequirement(player, "breakthrough", assisted, List.of(new PillOption(ModItems.BREAKTHROUGH_PILL.get(), 0.05D)));
+        return itemRequirement(player, "jiangchen", assisted, List.of(
+                option(ModBulkItems.byId().get("jiangchen_pill").get(), PillQuality.LOW)));
     }
 
     private static boolean requiresFoundationBuildingPill(PlayerCultivation cultivation) {

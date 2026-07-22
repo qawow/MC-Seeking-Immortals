@@ -11,17 +11,17 @@
     },
     {
       "type": "patchouli:text",
-      "text": "客户端槽位 → ReleaseTechniquePacket → 服务端校验槽位/已学/冷却/灵力 → 同步。",
+      "text": "术法释放流程：选择术法槽位 → 服务端校验已学状态、冷却与灵力 → 成功后执行并同步结果。",
       "title": "释放流程"
     },
     {
       "type": "patchouli:text",
-      "text": "MethodLayerTechniqueService 在修炼层推进时授予映射术法。",
+      "text": "部分功法在修炼层数提升时会自动解锁对应术法；具体层数与门槛以功法说明为准。",
       "title": "层数解锁"
     },
     {
       "type": "patchouli:text",
-      "text": "ManualConflictMatrixService 在学习心法时拦截互斥组合。",
+      "text": "学习心法时会检查互斥组合；冲突功法不能同时修习，避免属性和效果叠加异常。",
       "title": "冲突矩阵"
     }
   ]

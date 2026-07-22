@@ -16,7 +16,7 @@
     {
       "type": "patchouli:text",
       "title": "Step 2: Obtain Spiritual Power",
-      "text": "Cultivation requires $(l)spiritual power$().$(br2)Ways to obtain spiritual power:$(li)Right-click with a spirit stone to activate absorption$(li)Use Qi Recovery Pills for quick restoration$(li)Meditate on a cushion in a high-aura environment or spirit gathering array$(li)Wear a Spirit Charm in a Curios slot$(br2)Maximum spiritual power increases with realm."
+      "text": "Cultivation requires $(l)spiritual power$().$(br2)Ways to obtain spiritual power:$(li)Right-click with a spirit stone to activate absorption$(li)Use Spirit Recovery Pills for quick restoration$(li)Meditate on a cushion in a high-aura environment or spirit gathering array$(li)Wear a Spirit Charm in a Curios slot$(br2)Maximum spiritual power increases with realm."
     },
     {
       "type": "patchouli:text",
@@ -26,7 +26,7 @@
     {
       "type": "patchouli:text",
       "title": "Step 4: Breakthrough Realm",
-      "text": "Use command $(l)/seeking_immortals breakthrough$() to attempt breakthrough.$(br2)Requirements:$(li)Sufficient cultivation experience$(li)Meet age requirement for the realm$(li)High success rate (Breakthrough Pills help)$(br2)Failure causes experience loss; repeated failures may trigger qi deviation."
+      "text": "Use command $(l)/seeking_immortals breakthrough$() to attempt breakthrough.$(br2)Requirements:$(li)Sufficient cultivation experience$(li)Meet age requirement for the realm$(li)A suitable success rate (Jiangchen Pill and other matching breakthrough aids can help)$(br2)Failure causes experience loss; repeated failures may trigger qi deviation."
     },
     {
       "type": "patchouli:text",

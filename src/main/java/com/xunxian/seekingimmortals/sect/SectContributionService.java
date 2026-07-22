@@ -14,6 +14,7 @@ import com.xunxian.seekingimmortals.quest.QuestProgress;
 import com.xunxian.seekingimmortals.registry.ModEntities;
 import com.xunxian.seekingimmortals.registry.ModItems;
 import com.xunxian.seekingimmortals.shop.ShopService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -94,12 +95,12 @@ public final class SectContributionService {
                 if (entryCheck.reason() != null && entryCheck.reason().startsWith("ghost_ban")) {
                     GhostSectBanService.markDetected(player, "apply:" + sectId);
                     player.sendSystemMessage(Component.translatable(
-                            "message.seeking_immortals.sect.apply_ghost_ban", sectId));
+                            "message.seeking_immortals.sect.apply_ghost_ban", sectDisplay(sectId)));
                 } else {
                     player.sendSystemMessage(Component.translatable(
                             "message.seeking_immortals.sect.apply_entry_denied",
-                            sectId,
-                            entryCheck.reason() == null ? "" : entryCheck.reason()));
+                            sectDisplay(sectId),
+                            Component.translatable("text.seeking_immortals.unknown_requirement")));
                 }
                 syncSect(player, cultivation, openScreen);
                 return;
@@ -114,7 +115,8 @@ public final class SectContributionService {
                             SectDefinitionService.CANDIDATE_ROLE));
                     applied[0] = true;
                 }
-                case UNKNOWN_SECT -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.apply_unknown", sectId));
+                case UNKNOWN_SECT -> player.sendSystemMessage(Component.translatable(
+                        "message.seeking_immortals.sect.apply_unknown", sectDisplay(sectId)));
                 case LOCKED -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.candidates_locked"));
                 case ALREADY_MEMBER -> {
                     player.sendSystemMessage(Component.translatable(
@@ -130,8 +132,8 @@ public final class SectContributionService {
                 }
                 case ENTRY_DENIED, NOT_PLAYABLE -> player.sendSystemMessage(Component.translatable(
                         "message.seeking_immortals.sect.apply_entry_denied",
-                        sectId,
-                        result.status().name().toLowerCase(Locale.ROOT)));
+                        sectDisplay(sectId),
+                        Component.translatable("text.seeking_immortals.unknown_requirement")));
             }
         }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.no_data")));
         return applied[0];
@@ -163,9 +165,9 @@ public final class SectContributionService {
                 if (!(combat && gather && quiz)) {
                     player.sendSystemMessage(Component.translatable(
                             "message.seeking_immortals.sect.knock_progress",
-                            combat ? "OK" : "X",
-                            gather ? "OK" : "X",
-                            quiz ? "OK" : "X"));
+                            completionDisplay(combat),
+                            completionDisplay(gather),
+                            completionDisplay(quiz)));
                     syncSect(player, cultivation, openScreen);
                     return;
                 }
@@ -274,7 +276,7 @@ public final class SectContributionService {
                         definition.get().id(), definition.get().shopId(), progress.getSectQuestStage(), entry.cost());
                 player.sendSystemMessage(Component.translatable(
                         "command.seeking_immortals.sect.shop.entry",
-                        entry.id(),
+                        ShopService.itemName(entry),
                         ShopService.itemName(entry),
                         cost));
             }
@@ -295,11 +297,16 @@ public final class SectContributionService {
             }
             ShopService.PurchaseResult result = ShopService.buyWithSectContribution(player, progress, definition.get().shopId(), entryId);
             switch (result.status()) {
-                case UNKNOWN_ENTRY -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.unknown_entry", entryId));
-                case UNSUPPORTED_CURRENCY -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.unsupported_currency", entryId));
-                case BAD_ITEM -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.bad_shop_item", entryId));
-                case BAD_CURRENCY_ITEM -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.bad_currency_item", entryId));
-                case OUT_OF_STOCK -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.out_of_stock", entryId));
+                case UNKNOWN_ENTRY -> player.sendSystemMessage(Component.translatable(
+                        "message.seeking_immortals.sect.unknown_entry", shopEntryDisplay(result)));
+                case UNSUPPORTED_CURRENCY -> player.sendSystemMessage(Component.translatable(
+                        "message.seeking_immortals.sect.unsupported_currency", shopEntryDisplay(result)));
+                case BAD_ITEM -> player.sendSystemMessage(Component.translatable(
+                        "message.seeking_immortals.sect.bad_shop_item", shopEntryDisplay(result)));
+                case BAD_CURRENCY_ITEM -> player.sendSystemMessage(Component.translatable(
+                        "message.seeking_immortals.sect.bad_currency_item", shopEntryDisplay(result)));
+                case OUT_OF_STOCK -> player.sendSystemMessage(Component.translatable(
+                        "message.seeking_immortals.sect.out_of_stock", shopEntryDisplay(result)));
                 case NOT_ENOUGH_CURRENCY -> player.sendSystemMessage(Component.translatable(
                         "message.seeking_immortals.sect.not_enough_contribution",
                         result.paidCost(),
@@ -353,7 +360,7 @@ public final class SectContributionService {
                 progress.setSectMission(generated.id(), day);
                 player.sendSystemMessage(Component.translatable(
                         "message.seeking_immortals.sect.mission_accepted_generated",
-                        generated.id(), generated.type(), generated.count(),
+                        SectMissionGenerator.displayName(generated), generatedTargetDisplay(generated), generated.count(),
                         SectSpecialtyGameplayService.missionContributionReward(
                                 definition.get().id(), progress.getSectQuestStage(), generated.rewardContribution())));
             } else {
@@ -412,7 +419,7 @@ public final class SectContributionService {
                 progress.completeSectMission();
                 player.sendSystemMessage(Component.translatable(
                         "message.seeking_immortals.sect.mission_completed",
-                        Component.literal(generated.id()),
+                        SectMissionGenerator.displayName(generated),
                         rewardContribution,
                         progress.getContribution()));
                 syncAll(player, cultivation, openScreen, definition.get().id());
@@ -432,7 +439,9 @@ public final class SectContributionService {
                 player.sendSystemMessage(Component.translatable(
                         "message.seeking_immortals.sect.mission_missing_items",
                         mission.target(),
-                        mission.itemId()));
+                        item == null || item == Items.AIR
+                                ? PlayerDisplayText.itemName(mission.itemId())
+                                : PlayerDisplayText.itemName(item)));
                 syncSect(player, cultivation, openScreen);
                 return;
             }
@@ -781,7 +790,9 @@ public final class SectContributionService {
                         .orElseGet(() -> SectContentService.missionForDay(definition.get().id(), stage, currentDay(player)))
                 : SectContentService.missionForDay(definition.get().id(), stage, currentDay(player));
         Item item = resolveItem(mission.itemId());
-        String itemDescriptionId = item == null || item == Items.AIR ? mission.itemId() : item.getDescriptionId();
+        String itemDescriptionId = item == null || item == Items.AIR
+                || !PlayerDisplayText.hasTranslation(item.getDescriptionId())
+                ? "text.seeking_immortals.unknown_item" : item.getDescriptionId();
         boolean canTurnIn = progress.isSectMissionAccepted()
                 && !progress.isSectMissionCompleted()
                 && item != null
@@ -830,11 +841,14 @@ public final class SectContributionService {
         steward.setSectId(definition.id());
         steward.setNpcType(SectStewardEntity.NPC_TYPE_RECRUITER);
         steward.moveTo(pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D, player.getYRot(), 0.0F);
-        steward.setCustomName(Component.literal(definition.stewardName()));
+        Component stewardName = PlayerDisplayText.safeCatalogLiteral(
+                definition.stewardName(), "宗门执事");
+        steward.setCustomName(stewardName);
         steward.setCustomNameVisible(true);
         steward.setPersistenceRequired();
         level.addFreshEntity(steward);
-        player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.spawned_steward", definition.stewardName()));
+        player.sendSystemMessage(Component.translatable(
+                "message.seeking_immortals.sect.spawned_steward", stewardName));
     }
 
     private static boolean canApplyTo(QuestProgress progress, String sectId) {
@@ -941,7 +955,40 @@ public final class SectContributionService {
     private static String displaySect(QuestProgress progress) {
         return currentDefinition(progress)
                 .map(SectDefinitionService.SectDefinition::displayZh)
-                .orElse(progress.getSectId().isBlank() ? "-" : progress.getSectId());
+                .orElse("-");
+    }
+
+    private static Component sectDisplay(String sectId) {
+        return SectDefinitionService.find(sectId)
+                .map(definition -> PlayerDisplayText.safeLiteral(
+                        definition.displayZh(), "text.seeking_immortals.unknown_faction"))
+                .orElseGet(() -> Component.translatable("text.seeking_immortals.unknown_faction"));
+    }
+
+    private static Component completionDisplay(boolean complete) {
+        return Component.translatable(complete
+                ? "message.seeking_immortals.sect.yes"
+                : "message.seeking_immortals.sect.no");
+    }
+
+    private static Component shopEntryDisplay(ShopService.PurchaseResult result) {
+        return result == null || result.entry() == null
+                ? Component.translatable("text.seeking_immortals.unknown_market_entry")
+                : ShopService.itemName(result.entry());
+    }
+
+    private static Component generatedTargetDisplay(SectMissionGenerator.Mission mission) {
+        if (mission == null) {
+            return Component.translatable("text.seeking_immortals.unknown_requirement");
+        }
+        return switch (normalize(mission.type())) {
+            case "gather" -> PlayerDisplayText.itemName(mission.target());
+            case "kill" -> Component.literal("目标妖邪");
+            case "escort" -> Component.literal("宗门执事");
+            case "beast" -> Component.literal("灵兽契约");
+            case "formation" -> Component.literal("宗门阵法");
+            default -> Component.translatable("text.seeking_immortals.unknown_requirement");
+        };
     }
 
     private static String stageKey(int stage, boolean member) {

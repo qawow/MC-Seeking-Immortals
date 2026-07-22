@@ -28,11 +28,20 @@ public final class AlchemyFormulaKnowledge {
         if (player == null) {
             return false;
         }
-        String id = normalize(recipeId);
+        String id = canonicalRecipeId(recipeId);
         if (id.isBlank()) {
             return false;
         }
-        return player.getPersistentData().getCompound(STUDIED_FORMULAS_TAG).getBoolean(id);
+        CompoundTag studied = player.getPersistentData().getCompound(STUDIED_FORMULAS_TAG);
+        if (studied.getBoolean(id)) {
+            return true;
+        }
+        return switch (id) {
+            case "spirit_recovery_pill" -> studied.getBoolean("qi_recovery_pill");
+            case "cultivate_speed_pill" -> studied.getBoolean("cultivation_pill");
+            case "jiangchen_pill" -> studied.getBoolean("breakthrough_pill");
+            default -> false;
+        };
     }
 
     /**
@@ -42,14 +51,14 @@ public final class AlchemyFormulaKnowledge {
         if (player == null) {
             return false;
         }
-        String id = normalize(recipeId);
+        String id = canonicalRecipeId(recipeId);
         if (id.isBlank()) {
             return false;
         }
         if (hasStudied(player, id)) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.alchemy_formula.already_studied",
-                    Component.translatable("alchemy_recipe.seeking_immortals." + id)), true);
+                    AlchemyDisplayTexts.recipe(id)), true);
             return false;
         }
         CompoundTag tag = player.getPersistentData().getCompound(STUDIED_FORMULAS_TAG).copy();
@@ -57,7 +66,7 @@ public final class AlchemyFormulaKnowledge {
         player.getPersistentData().put(STUDIED_FORMULAS_TAG, tag);
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.alchemy_formula.studied",
-                Component.translatable("alchemy_recipe.seeking_immortals." + id)), true);
+                AlchemyDisplayTexts.recipe(id)), true);
         return true;
     }
 
@@ -70,5 +79,18 @@ public final class AlchemyFormulaKnowledge {
 
     static String normalize(String value) {
         return value == null ? "" : value.trim().toLowerCase(Locale.ROOT);
+    }
+
+    /**
+     * Resolves a persisted or authored recipe id to the currently shipped id.
+     * Save-backed systems use this before looking up a runtime recipe.
+     */
+    public static String canonicalRecipeId(String value) {
+        return switch (normalize(value)) {
+            case "qi_recovery_pill" -> "spirit_recovery_pill";
+            case "cultivation_pill" -> "cultivate_speed_pill";
+            case "breakthrough_pill" -> "jiangchen_pill";
+            default -> normalize(value);
+        };
     }
 }

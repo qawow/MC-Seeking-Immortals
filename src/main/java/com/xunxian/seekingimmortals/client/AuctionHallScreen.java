@@ -4,6 +4,7 @@ import com.xunxian.seekingimmortals.menu.AuctionHallMenu;
 import com.xunxian.seekingimmortals.network.AuctionActionPacket;
 import com.xunxian.seekingimmortals.network.ModNetwork;
 import com.xunxian.seekingimmortals.network.SyncAuctionLadderPacket;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
@@ -261,7 +262,10 @@ public class AuctionHallScreen extends AbstractJournalContainerScreen<AuctionHal
                         ImmortalUiSkin.drawListRow(graphics, row.x(), row.y(), row.width(), row.height(),
                                 row.contains(mouseX, mouseY) ? ImmortalUiSkin.InteractionState.HOVERED
                                         : ImmortalUiSkin.InteractionState.NORMAL);
-                        ImmortalUiSkin.drawStringFit(font, graphics, lot.display(), row.x() + 6, row.y() + 5,
+                        ImmortalUiSkin.drawStringFit(font, graphics,
+                                PlayerDisplayText.safeLiteral(lot.display(),
+                                        "text.seeking_immortals.unknown_auction_target").getString(),
+                                row.x() + 6, row.y() + 5,
                                 Math.max(1, row.width() - 12), ImmortalUiSkin.JOURNAL_PAPER, false);
                         Component status = Component.translatable("screen.seeking_immortals.auction.lot_status",
                                 lot.current(), lot.next(), lot.leaderName());

@@ -24,6 +24,17 @@ class M16LoreCorpusTest {
     }
 
     @Test
+    void glossaryPlayerLinesHideIdsAndUnsafeAliases() {
+        assertTrue(NameAliasGlossaryService.sampleLines(20).stream()
+                .noneMatch(line -> line.contains("[") || line.contains("]") || line.matches(".*[A-Za-z_].*")));
+        NameAliasGlossaryService.GlossaryEntry entry = NameAliasGlossaryService.find("palm_bottle").orElseThrow();
+        assertEquals("掌天瓶", NameAliasGlossaryService.playerDisplayName(entry));
+        assertTrue(NameAliasGlossaryService.playerDisplayAliases(entry).stream()
+                .allMatch(alias -> !alias.matches(".*[A-Za-z_].*")));
+        assertEquals("掌天瓶", LoreCompendiumService.tooltipFor("palm_bottle").orElseThrow());
+    }
+
+    @Test
     void numericAndVisualPresent() {
         assertTrue(NumericOverviewService.present());
         assertFalse(NumericOverviewService.builtin().currency().isEmpty());

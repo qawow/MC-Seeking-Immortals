@@ -67,6 +67,23 @@ class ModBulkItemsTest {
         assertTrue(ids.contains("palm_heaven_bottle_stand"));
         assertTrue(ids.contains("market_stall_counter"));
         assertTrue(hasDingshenGrade);
+        assertFalse(ids.contains("jiangying_pill"), "duplicate Jiangchen alias must not be registered");
+    }
+
+    @Test
+    void duplicateJiangchenAliasHasNoShippedAlchemyRecipe() throws Exception {
+        try (InputStream in = ModBulkItemsTest.class.getClassLoader().getResourceAsStream(
+                "data/seeking_immortals/alchemy/recipe_manifest.json")) {
+            assertNotNull(in, "recipe_manifest.json missing on classpath");
+            JsonObject root = JsonParser.parseReader(new InputStreamReader(in, StandardCharsets.UTF_8))
+                    .getAsJsonObject();
+            JsonArray recipes = root.getAsJsonArray("recipes");
+            assertNotNull(recipes);
+            for (JsonElement recipe : recipes) {
+                assertFalse("jiangying_pill".equals(recipe.getAsString()),
+                        "duplicate Jiangchen alias must not have an alchemy recipe");
+            }
+        }
     }
 
     @Test

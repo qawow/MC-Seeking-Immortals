@@ -1755,7 +1755,7 @@
       "id": "spirit_bamboo_shoot",
       "display": "灵竹笋",
       "use": [
-        "cultivation_pill"
+        "cultivate_speed_pill"
       ],
       "regions": [
         "tiannan"

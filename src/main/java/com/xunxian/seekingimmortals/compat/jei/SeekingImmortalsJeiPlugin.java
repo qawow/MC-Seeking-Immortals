@@ -1,6 +1,7 @@
 package com.xunxian.seekingimmortals.compat.jei;
 
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
+import com.xunxian.seekingimmortals.alchemy.AlchemyDisplayTexts;
 import com.xunxian.seekingimmortals.alchemy.AlchemyRecipe;
 import com.xunxian.seekingimmortals.artifact.ArtifactRefinementService;
 import com.xunxian.seekingimmortals.client.AlchemyFurnaceScreen;
@@ -145,7 +146,7 @@ public final class SeekingImmortalsJeiPlugin implements IModPlugin {
         public void draw(AlchemyRecipe recipe, mezz.jei.api.gui.ingredient.IRecipeSlotsView recipeSlotsView,
                          GuiGraphics graphics, double mouseX, double mouseY) {
             var font = net.minecraft.client.Minecraft.getInstance().font;
-            graphics.drawString(font, recipe.displayName(), 2, 2,
+            graphics.drawString(font, AlchemyDisplayTexts.recipe(recipe.id()), 2, 2,
                     com.xunxian.seekingimmortals.client.ImmortalUiSkin.JOURNAL_PAPER, false);
             graphics.drawString(font, Component.translatable("jei.seeking_immortals.alchemy.tier",
                     recipe.requiredFurnaceTier(), recipe.idealFireTier()), 2, 44,

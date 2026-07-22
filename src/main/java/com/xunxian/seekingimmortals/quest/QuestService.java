@@ -143,7 +143,8 @@ public final class QuestService {
                 return;
             }
             if (!progress.getBranchChoice().isBlank()) {
-                player.sendSystemMessage(Component.translatable("message.seeking_immortals.quest.choice_done", progress.getBranchChoice()));
+                player.sendSystemMessage(Component.translatable("message.seeking_immortals.quest.choice_done",
+                        branchDisplay(progress.getBranchChoice())));
                 return;
             }
             progress.setBranchChoice(normalized);
@@ -159,7 +160,8 @@ public final class QuestService {
                 }
                 default -> progress.addContribution(40);
             }
-            player.sendSystemMessage(Component.translatable("message.seeking_immortals.quest.choice_success", normalized));
+            player.sendSystemMessage(Component.translatable("message.seeking_immortals.quest.choice_success",
+                    branchDisplay(normalized)));
             checkProgress(player, cultivation);
         });
         return true;
@@ -175,6 +177,15 @@ public final class QuestService {
         villager.setPersistenceRequired();
         level.addFreshEntity(villager);
         player.sendSystemMessage(Component.translatable("message.seeking_immortals.quest.spawned_npc", name));
+    }
+
+    private static Component branchDisplay(String branch) {
+        return switch (branch == null ? "" : branch.trim().toLowerCase(java.util.Locale.ROOT)) {
+            case BRANCH_REPORT -> Component.literal("上报宗门");
+            case BRANCH_SILENT -> Component.literal("保持沉默");
+            case BRANCH_BLACKMAIL -> Component.literal("以证据要挟");
+            default -> Component.translatable("text.seeking_immortals.unknown_branch");
+        };
     }
 
     public static void placeSecretRoomMarker(ServerPlayer player) {

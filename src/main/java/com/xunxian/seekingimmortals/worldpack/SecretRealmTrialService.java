@@ -5,9 +5,11 @@ import com.xunxian.seekingimmortals.entity.SummonedServitorEntity;
 import com.xunxian.seekingimmortals.item.InventoryDeliveryService;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
 import com.xunxian.seekingimmortals.registry.ModItems;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -88,13 +90,14 @@ public final class SecretRealmTrialService {
                 player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 20 * 20, 0, false, true, true));
             }
             player.sendSystemMessage(Component.translatable(
-                    "message.seeking_immortals.worldpack.trial_shell_ready", id));
+                    "message.seeking_immortals.worldpack.trial_shell_ready", realmDisplay(id)));
             player.sendSystemMessage(Component.translatable(
-                    "message.seeking_immortals.worldpack.trial_multi_room", id));
+                    "message.seeking_immortals.worldpack.trial_multi_room", realmDisplay(id)));
             player.sendSystemMessage(Component.translatable(
-                    "message.seeking_immortals.worldpack.trial_layers", id, "outer/mid/core"));
+                    "message.seeking_immortals.worldpack.trial_layers", realmDisplay(id),
+                    Component.literal("外层 / 中层 / 核心")));
             player.sendSystemMessage(Component.translatable(
-                    "message.seeking_immortals.worldpack.trial_kill_gates", id));
+                    "message.seeking_immortals.worldpack.trial_kill_gates"));
             ReputationService.add(player, "secret_realm_explorer", 2);
         }
         // Wave471: rare proxy no longer granted on enter — unlock on guardian kill.
@@ -192,7 +195,7 @@ public final class SecretRealmTrialService {
             player.addEffect(new MobEffectInstance(MobEffects.POISON, 20 * 8, 0, false, true, true));
         }
         player.sendSystemMessage(Component.translatable(
-                "message.seeking_immortals.worldpack.trial_hazard", realmId));
+                "message.seeking_immortals.worldpack.trial_hazard", realmDisplay(realmId)));
     }
 
     private static int shellRadiusFor(String id) {
@@ -339,7 +342,8 @@ public final class SecretRealmTrialService {
             if (patrol == null) {
                 continue;
             }
-            patrol.setCustomName(Component.translatable("entity.seeking_immortals.trial_patrol.name", realmId));
+            patrol.setCustomName(Component.translatable("entity.seeking_immortals.trial_patrol.name",
+                    realmDisplay(realmId)));
             patrol.setCustomNameVisible(true);
             patrol.setTarget(player);
             tagTrial(patrol, player, session, KIND_PATROL, realmId, ENCOUNTER_MID);
@@ -347,7 +351,7 @@ public final class SecretRealmTrialService {
         root.putBoolean(sessionKey, true);
         player.getPersistentData().put(MID_ENCOUNTER_ROOT, root);
         player.sendSystemMessage(Component.translatable(
-                "message.seeking_immortals.worldpack.trial_mid_patrol", realmId, count));
+                "message.seeking_immortals.worldpack.trial_mid_patrol", realmDisplay(realmId), count));
     }
 
     /**
@@ -370,7 +374,8 @@ public final class SecretRealmTrialService {
         if (guardian == null) {
             return;
         }
-        guardian.setCustomName(Component.translatable("entity.seeking_immortals.trial_guardian.name", realmId));
+        guardian.setCustomName(Component.translatable("entity.seeking_immortals.trial_guardian.name",
+                realmDisplay(realmId)));
         guardian.setCustomNameVisible(true);
         guardian.setTarget(player);
         tagTrial(guardian, player, session, KIND_GUARDIAN, realmId, ENCOUNTER_CORE);
@@ -382,7 +387,8 @@ public final class SecretRealmTrialService {
             if (add == null) {
                 continue;
             }
-            add.setCustomName(Component.translatable("entity.seeking_immortals.trial_patrol.name", realmId));
+            add.setCustomName(Component.translatable("entity.seeking_immortals.trial_patrol.name",
+                    realmDisplay(realmId)));
             add.setCustomNameVisible(true);
             add.setTarget(player);
             tagTrial(add, player, session, KIND_PATROL, realmId, ENCOUNTER_MID);
@@ -390,8 +396,17 @@ public final class SecretRealmTrialService {
         root.putBoolean(sessionKey, true);
         player.getPersistentData().put(ENCOUNTER_ROOT, root);
         player.sendSystemMessage(Component.translatable(
-                "message.seeking_immortals.worldpack.trial_encounter", realmId, guardian.getName().getString(), adds));
+                "message.seeking_immortals.worldpack.trial_encounter", realmDisplay(realmId),
+                guardian.getName(), adds));
         ReputationService.add(player, "secret_realm_explorer", 1);
+    }
+
+    private static Component realmDisplay(String realmId) {
+        return WorldpackDataService.builtin().findSecretRealm(realmId)
+                .map(realm -> !realm.displayZh().isBlank() ? realm.displayZh() : realm.displayEn())
+                .filter(PlayerDisplayText::isSafe)
+                .map(value -> Component.literal(value.trim()))
+                .orElseGet(() -> Component.literal("秘境试炼"));
     }
 
     public static void tagTrial(Mob mob, ServerPlayer owner,
@@ -465,14 +480,14 @@ public final class SecretRealmTrialService {
         InventoryDeliveryService.giveOrEnqueue(player, bonus, "secret_realm_trial");
         ReputationService.add(player, "secret_realm_explorer", 1);
         player.sendSystemMessage(Component.translatable(
-                "message.seeking_immortals.worldpack.trial_mid_clear", realmId));
+                "message.seeking_immortals.worldpack.trial_mid_clear", realmDisplay(realmId)));
     }
 
     private static void unlockCore(ServerPlayer player, String realmId, BlockPos near) {
         fillNearbySealedChest(player, near, realmId, Layer.CORE);
         ReputationService.add(player, "secret_realm_explorer", 2);
         player.sendSystemMessage(Component.translatable(
-                "message.seeking_immortals.worldpack.trial_core_clear", realmId));
+                "message.seeking_immortals.worldpack.trial_core_clear", realmDisplay(realmId)));
         // M09: publish clear hook when core guardian falls (no catalog boss path).
         SecretRealmSessionService.onRealmCleared(realmId, player);
         grantOneTimeRareDropProxy(player, realmId);
@@ -545,12 +560,28 @@ public final class SecretRealmTrialService {
         if (!rare.isEmpty()) {
             player.sendSystemMessage(Component.translatable(
                     "message.seeking_immortals.worldpack.trial_rare_proxy",
-                    String.join(", ", rare), stack.getHoverName()));
+                    rareDropsDisplay(rare), stack.getHoverName()));
         } else {
             player.sendSystemMessage(Component.translatable(
                     "message.seeking_immortals.worldpack.trial_rare_proxy_generic",
                     stack.getHoverName()));
         }
+    }
+
+    private static Component rareDropsDisplay(List<String> itemIds) {
+        if (itemIds == null || itemIds.isEmpty()) {
+            return Component.translatable("text.seeking_immortals.unknown_item");
+        }
+        MutableComponent joined = Component.empty();
+        boolean first = true;
+        for (String itemId : itemIds) {
+            if (!first) {
+                joined.append(Component.literal("、"));
+            }
+            joined.append(PlayerDisplayText.itemName(itemId));
+            first = false;
+        }
+        return joined;
     }
 
     private static Item proxyRewardItem(String realmId) {

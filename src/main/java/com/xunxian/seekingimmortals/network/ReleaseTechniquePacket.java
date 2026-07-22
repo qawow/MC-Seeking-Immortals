@@ -10,6 +10,7 @@ import com.xunxian.seekingimmortals.skill.TalismanConsumePolicy;
 import com.xunxian.seekingimmortals.skill.TechniqueGateService;
 import com.xunxian.seekingimmortals.skill.effect.SkillContext;
 import com.xunxian.seekingimmortals.skill.effect.SkillEffect;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -193,12 +194,19 @@ public record ReleaseTechniquePacket(int slot) {
                     var technique = techniqueOpt.get();
                     player.displayClientMessage(Component.translatable("message.seeking_immortals.technique_release.success",
                             packet.slot + 1,
-                            technique.name().isBlank() ? technique.id() : technique.name(),
+                            techniqueDisplay(technique),
                             cost), false);
                 }
             });
         });
         context.setPacketHandled(true);
+    }
+
+    private static Component techniqueDisplay(TechniqueDataManager.TechniqueEntry technique) {
+        if (technique == null) {
+            return Component.translatable("text.seeking_immortals.unknown_technique");
+        }
+        return PlayerDisplayText.safeCatalogLiteral(technique.name(), "text.seeking_immortals.unknown_technique");
     }
 
     /**

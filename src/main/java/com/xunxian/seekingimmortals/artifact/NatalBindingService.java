@@ -5,6 +5,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 
 /**
  * Natal artifact binding (Wave51 / Wave456 / Wave459).
@@ -30,7 +31,7 @@ public final class NatalBindingService {
         CompoundTag root = player.getPersistentData().getCompound(ROOT).copy();
         if (!root.getString(KEY_ID).isBlank() && !player.getAbilities().instabuild) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.natal.already",
-                    root.getString(KEY_ID)), true);
+                    boundDisplay(root.getString(KEY_ID))), true);
             return false;
         }
         root.putString(KEY_ID, catalogItem.artifactId());
@@ -40,7 +41,7 @@ public final class NatalBindingService {
         stack.getOrCreateTag().putBoolean(STACK_BOUND, true);
         stack.getOrCreateTag().putInt(STACK_GROWTH, growth);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.natal.bound",
-                catalogItem.artifactId()), true);
+                boundDisplay(catalogItem.artifactId())), true);
         return true;
     }
 
@@ -58,9 +59,10 @@ public final class NatalBindingService {
         mirrorGrowthToHeld(player, growth);
         if (growth == 25 || growth == 50 || growth == 75 || growth == 100) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.natal.milestone", id, growth), true);
+                    "message.seeking_immortals.natal.milestone", boundDisplay(id), growth), true);
         } else {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.natal.grown", id, growth), true);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.natal.grown",
+                    boundDisplay(id), growth), true);
         }
         return true;
     }
@@ -84,6 +86,13 @@ public final class NatalBindingService {
             return 0;
         }
         return Math.max(0, stack.getTag().getInt(STACK_GROWTH));
+    }
+
+    private static Component boundDisplay(String id) {
+        return ArtifactDataService.builtin().findArtifact(id)
+                .filter(definition -> PlayerDisplayText.isSafe(definition.display()))
+                .<Component>map(definition -> Component.literal(definition.display().trim()))
+                .orElseGet(() -> PlayerDisplayText.itemName(id));
     }
 
     private static void mirrorGrowthToHeld(ServerPlayer player, int growth) {

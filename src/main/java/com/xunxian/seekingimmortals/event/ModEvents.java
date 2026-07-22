@@ -372,7 +372,8 @@ public final class ModEvents {
                         serverPlayer.getX(), serverPlayer.getY() + 1.0D, serverPlayer.getZ(),
                         32, 0.6D, 0.8D, 0.6D, 0.03D);
                 serverPlayer.serverLevel().playSound(null, serverPlayer.blockPosition(), SoundEvents.SHIELD_BLOCK, SoundSource.PLAYERS, 0.9F, 1.1F);
-                serverPlayer.displayClientMessage(Component.literal("Aura body shield absorbed this damage."), true);
+                serverPlayer.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.aura_body_shield.absorbed"), true);
                 return;
             }
             CultivationHelper.get(hurtPlayer).ifPresent(cultivation -> {
@@ -1086,11 +1087,11 @@ public final class ModEvents {
         if (!(player instanceof ServerPlayer serverPlayer)) return;
         if (!player.getPersistentData().getBoolean(FlyingSwordBeginnerSpell.ACTIVE_KEY)) return;
         if (player.isCreative() || player.isSpectator()) {
-            FlyingSwordBeginnerSpell.stop(serverPlayer, "Qi flying stopped.");
+            FlyingSwordBeginnerSpell.stop(serverPlayer, "御剑飞行已停止。");
             return;
         }
         if (cultivation.getRealm() != Realm.QI_REFINING || !cultivation.hasSkill(SkillType.FLYING_SWORD_BEGINNER)) {
-            FlyingSwordBeginnerSpell.stop(serverPlayer, "Realm or skill is insufficient; qi flying stopped.");
+            FlyingSwordBeginnerSpell.stop(serverPlayer, "境界或技能不足，御剑飞行已停止。");
             return;
         }
         if (!serverPlayer.getAbilities().mayfly || Math.abs(serverPlayer.getAbilities().getFlyingSpeed() - FlyingSwordBeginnerSpell.SPEED) > 0.0001F) {
@@ -1098,7 +1099,7 @@ public final class ModEvents {
         }
         if (serverPlayer.getAbilities().flying && serverPlayer.tickCount % 20 == 0) {
             if (!cultivation.consumeSpiritualPower(FlyingSwordBeginnerSpell.COST_PER_SECOND)) {
-                FlyingSwordBeginnerSpell.stop(serverPlayer, "Insufficient mana; qi flying stopped.");
+                FlyingSwordBeginnerSpell.stop(serverPlayer, "灵力不足，御剑飞行已停止。");
                 SyncCultivationDataPacket.send(serverPlayer, cultivation);
                 return;
             }
@@ -1121,12 +1122,12 @@ public final class ModEvents {
         if (!(player instanceof ServerPlayer serverPlayer)) return;
         if (!player.getPersistentData().getBoolean(FlyingSwordAdvancedSpell.ACTIVE_KEY)) return;
         if (player.isCreative() || player.isSpectator()) {
-            FlyingSwordAdvancedSpell.stop(serverPlayer, "Advanced flying stopped.");
+            FlyingSwordAdvancedSpell.stop(serverPlayer, "进阶御剑飞行已停止。");
             return;
         }
         if (cultivation.getRealm().ordinal() < Realm.FOUNDATION_ESTABLISHMENT.ordinal()
                 || !cultivation.hasSkill(SkillType.FLYING_SWORD_ADVANCED)) {
-            FlyingSwordAdvancedSpell.stop(serverPlayer, "Realm or skill is insufficient; advanced flying stopped.");
+            FlyingSwordAdvancedSpell.stop(serverPlayer, "境界或技能不足，进阶御剑飞行已停止。");
             return;
         }
         if (!serverPlayer.getAbilities().mayfly || Math.abs(serverPlayer.getAbilities().getFlyingSpeed() - FlyingSwordAdvancedSpell.SPEED) > 0.0001F) {
@@ -1134,7 +1135,7 @@ public final class ModEvents {
         }
         if (serverPlayer.getAbilities().flying && serverPlayer.tickCount % 20 == 0) {
             if (!cultivation.consumeSpiritualPower(FlyingSwordAdvancedSpell.COST_PER_SECOND)) {
-                FlyingSwordAdvancedSpell.stop(serverPlayer, "Insufficient mana; advanced flying stopped.");
+                FlyingSwordAdvancedSpell.stop(serverPlayer, "灵力不足，进阶御剑飞行已停止。");
                 SyncCultivationDataPacket.send(serverPlayer, cultivation);
                 return;
             }

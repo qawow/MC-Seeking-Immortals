@@ -4,6 +4,7 @@ import com.xunxian.seekingimmortals.registry.BulkItemClassifier;
 import com.xunxian.seekingimmortals.item.material.BaseMaterialItem;
 import com.xunxian.seekingimmortals.item.material.MaterialCategory;
 import com.xunxian.seekingimmortals.item.material.MaterialRarity;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -81,8 +82,10 @@ public class CatalogConsumableItem extends BaseMaterialItem implements PortableS
     public void appendHoverText(ItemStack stack, Level level, List<Component> tooltip, TooltipFlag flag) {
         super.appendHoverText(stack, level, tooltip, flag);
         if (effect != null && !effect.isBlank()) {
+            String effectKey = "tooltip.seeking_immortals.catalog_consumable.effect." + effect;
             tooltip.add(Component.translatable("tooltip.seeking_immortals.catalog_consumable.effect",
-                    Component.translatable("tooltip.seeking_immortals.catalog_consumable.effect." + effect))
+                    PlayerDisplayText.translatedOr(effectKey,
+                            "tooltip.seeking_immortals.catalog_consumable.effect.unlisted"))
                     .withStyle(ChatFormatting.GREEN));
         }
         if (realmMin != null && !realmMin.isBlank()) {

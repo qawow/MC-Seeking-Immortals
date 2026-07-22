@@ -1,6 +1,8 @@
 package com.xunxian.seekingimmortals.block.entity;
 
 import com.xunxian.seekingimmortals.alchemy.AlchemyFormulaSource;
+import com.xunxian.seekingimmortals.alchemy.AlchemyFormulaKnowledge;
+import com.xunxian.seekingimmortals.alchemy.AlchemyDisplayTexts;
 import com.xunxian.seekingimmortals.alchemy.AlchemyRecipe;
 import com.xunxian.seekingimmortals.alchemy.AlchemyRecipeService;
 import com.xunxian.seekingimmortals.block.AlchemyFurnaceBlock;
@@ -285,7 +287,8 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
             return;
         }
         if (!hasInstalledFormula(player, recipe)) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.alchemy_furnace.no_formula", recipe.displayName()), true);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.alchemy_furnace.no_formula",
+                    AlchemyDisplayTexts.recipe(recipe.id())), true);
             return;
         }
         if (lidTier <= 0) {
@@ -308,7 +311,7 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
         if (recipe.requiresEarthFireRoom()) {
             if (fireTier != EARTH_FIRE_TIER || !hasEarthFireRoom) {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.alchemy_furnace.recipe_needs_earth_fire_room",
-                        recipe.displayName(), Component.translatable("item.seeking_immortals.earth_fire")), true);
+                        AlchemyDisplayTexts.recipe(recipe.id()), Component.translatable("item.seeking_immortals.earth_fire")), true);
                 return;
             }
         } else if (fireTier == EARTH_FIRE_TIER && !hasEarthFireRoom) {
@@ -325,24 +328,24 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
         if (alchemyLevel < requiredSkill && !player.getAbilities().instabuild) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.alchemy_furnace.skill_too_low",
-                    recipe.displayName(), requiredSkill, alchemyLevel), true);
+                    AlchemyDisplayTexts.recipe(recipe.id()), requiredSkill, alchemyLevel), true);
             return;
         }
         if (furnaceTier < recipe.requiredFurnaceTier() || fireTier < recipe.idealFireTier() || !AlchemyRecipeService.hasRealmControl(player, recipe)) {
             if (AlchemyRecipeService.consumeHalfInputs(player, recipe)) {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.alchemy_furnace.half_waste",
-                        recipe.displayName(), furnaceTier, recipe.requiredFurnaceTier(), fireTier, recipe.idealFireTier(), recipe.minControlRealm().getDisplayName()), false);
+                        AlchemyDisplayTexts.recipe(recipe.id()), furnaceTier, recipe.requiredFurnaceTier(), fireTier, recipe.idealFireTier(), recipe.minControlRealm().getDisplayName()), false);
                 serverLevel.playSound(null, worldPosition, SoundEvents.FIRE_EXTINGUISH, SoundSource.BLOCKS, 0.8F, 0.7F);
             } else {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.alchemy_furnace.missing",
-                        recipe.displayName(), AlchemyRecipeService.missingSummary(player, recipe)), true);
+                        AlchemyDisplayTexts.recipe(recipe.id()), AlchemyRecipeService.missingSummary(player, recipe)), true);
             }
             setChanged();
             return;
         }
         if (!AlchemyRecipeService.consumeInputs(player, recipe)) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.alchemy_furnace.missing",
-                    recipe.displayName(), AlchemyRecipeService.missingSummary(player, recipe)), true);
+                    AlchemyDisplayTexts.recipe(recipe.id()), AlchemyRecipeService.missingSummary(player, recipe)), true);
             return;
         }
         recipeId = recipe.id();
@@ -357,7 +360,7 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
         explosionChance = AlchemyRecipeService.explosionChance(player, recipe, furnaceTier, lidTier, fireTier, formulaSource);
         craftingPlayerId = player.getUUID();
         player.displayClientMessage(Component.translatable("message.seeking_immortals.alchemy_furnace.started",
-                recipe.displayName(), recipe.manaCost(), (int) Math.round(successRate * 100.0D)), false);
+                AlchemyDisplayTexts.recipe(recipe.id()), recipe.manaCost(), (int) Math.round(successRate * 100.0D)), false);
         serverLevel.playSound(null, worldPosition, SoundEvents.BLAZE_SHOOT, SoundSource.BLOCKS, 0.4F, 0.8F);
         setChanged();
     }
@@ -429,8 +432,8 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
                     && existingFormula.recipeId().equals(formulaItem.recipeId())
                     && existingFormula.source() == formulaItem.source()) {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.alchemy_furnace.formula_already_installed",
-                        Component.translatable("alchemy_recipe.seeking_immortals." + formulaItem.recipeId()),
-                        Component.translatable("alchemy_formula_source.seeking_immortals." + formulaItem.source().id())), true);
+                        AlchemyDisplayTexts.recipe(formulaItem.recipeId()),
+                        AlchemyDisplayTexts.source(formulaItem.source())), true);
                 return true;
             }
             if (!existing.isEmpty()) {
@@ -442,8 +445,8 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
             shrinkInstalledItem(player, held);
             syncComponentsFromSlots();
             player.displayClientMessage(Component.translatable("message.seeking_immortals.alchemy_furnace.formula_installed",
-                    Component.translatable("alchemy_recipe.seeking_immortals." + formulaItem.recipeId()),
-                    Component.translatable("alchemy_formula_source.seeking_immortals." + formulaItem.source().id())), false);
+                    AlchemyDisplayTexts.recipe(formulaItem.recipeId()),
+                    AlchemyDisplayTexts.source(formulaItem.source())), false);
             setChanged();
             return true;
         }
@@ -453,7 +456,7 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
     public void syncComponentsFromSlots() {
         ItemStack formula = items.getStackInSlot(SLOT_FORMULA);
         if (formula.getItem() instanceof AlchemyFormulaItem formulaItem) {
-            knownFormulaId = formulaItem.recipeId();
+            knownFormulaId = AlchemyFormulaKnowledge.canonicalRecipeId(formulaItem.recipeId());
             formulaSource = formulaItem.source();
         } else {
             knownFormulaId = "";
@@ -570,10 +573,8 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
         setChanged();
     }
 
-    private String getRecipeName() {
-        return AlchemyRecipe.findById(recipeId)
-                .map(recipe -> recipe.displayName().getString())
-                .orElse(recipeId);
+    private Component getRecipeName() {
+        return AlchemyDisplayTexts.recipe(recipeId);
     }
 
     private boolean hasInstalledFormula(ServerPlayer player, AlchemyRecipe recipe) {
@@ -595,13 +596,11 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
                 .filter(recipe -> recipe.acceptsHeldIngredient(held));
     }
 
-    private String describeFormula() {
+    private Component describeFormula() {
         if (knownFormulaId.isBlank()) {
-            return "-";
+            return Component.literal("-");
         }
-        return AlchemyRecipe.findById(knownFormulaId)
-                .map(recipe -> recipe.displayName().getString())
-                .orElse(knownFormulaId);
+        return AlchemyDisplayTexts.recipe(knownFormulaId);
     }
 
     private void shrinkInstalledItem(ServerPlayer player, ItemStack stack) {
@@ -793,8 +792,8 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
         if (tag.contains("Items")) {
             items.deserializeNBT(tag.getCompound("Items"));
         }
-        recipeId = tag.getString("RecipeId");
-        knownFormulaId = tag.getString("KnownFormulaId");
+        recipeId = AlchemyFormulaKnowledge.canonicalRecipeId(tag.getString("RecipeId"));
+        knownFormulaId = AlchemyFormulaKnowledge.canonicalRecipeId(tag.getString("KnownFormulaId"));
         formulaSource = tag.contains("FormulaSource") ? AlchemyFormulaSource.byId(tag.getString("FormulaSource")) : AlchemyFormulaSource.PAPER;
         lidTier = Math.max(0, tag.getInt("LidTier"));
         fireTier = Math.max(0, tag.getInt("FireTier"));

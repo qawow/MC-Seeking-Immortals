@@ -1,7 +1,9 @@
 package com.xunxian.seekingimmortals.client;
 
+import com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts;
 import com.xunxian.seekingimmortals.network.ModNetwork;
 import com.xunxian.seekingimmortals.network.WorldpackActionPacket;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
@@ -199,20 +201,25 @@ public class WorldpackScreen extends AbstractJournalScreen {
         int bottom = status.bottom();
         y = statusLine(graphics, status, y, bottom,
                 Component.translatable("screen.seeking_immortals.worldpack.current_region",
-                        data.currentRegionDisplay().isBlank() ? "-" : data.currentRegionDisplay()),
+                        PlayerDisplayText.safeLiteral(data.currentRegionDisplay(),
+                                "text.seeking_immortals.unknown_region")),
                 ImmortalUiSkin.JOURNAL_PAPER);
         if (!data.activeSecretRealmId().isBlank()) {
             y = statusLine(graphics, status, y, bottom,
                     Component.translatable("screen.seeking_immortals.worldpack.active_realm",
-                            data.activeSecretRealmDisplay()), ImmortalUiSkin.JOURNAL_SPIRIT);
+                            PlayerDisplayText.safeLiteral(data.activeSecretRealmDisplay(),
+                                    "text.seeking_immortals.unknown_secret_realm")), ImmortalUiSkin.JOURNAL_SPIRIT);
             y = statusLine(graphics, status, y, bottom,
                     Component.translatable("screen.seeking_immortals.worldpack.in_realm",
-                            data.activeSecretRealmDisplay()), ImmortalUiSkin.JOURNAL_PAPER_MUTED);
+                            PlayerDisplayText.safeLiteral(data.activeSecretRealmDisplay(),
+                                    "text.seeking_immortals.unknown_secret_realm")), ImmortalUiSkin.JOURNAL_PAPER_MUTED);
         }
         if (!data.dailyEventId().isBlank()) {
             y = statusLine(graphics, status, y, bottom,
                     Component.translatable("screen.seeking_immortals.worldpack.daily_event",
-                            data.dailyEventDisplay(), Math.max(0L, data.currentDailyEventRemainingTicks() / 20L)),
+                            PlayerDisplayText.safeLiteral(data.dailyEventDisplay(),
+                                    "text.seeking_immortals.unknown_event"),
+                            Math.max(0L, data.currentDailyEventRemainingTicks() / 20L)),
                     ImmortalUiSkin.JOURNAL_WARNING);
             statusLine(graphics, status, y, bottom,
                     Component.translatable("screen.seeking_immortals.worldpack.effects",
@@ -233,13 +240,15 @@ public class WorldpackScreen extends AbstractJournalScreen {
                               ClientWorldpackData.Snapshot data, ClientWorldpackData.Region region) {
         Rect action = rowAction(layout, (row.y() - listViewport(layout).y()) / layout.rowHeight());
         int textWidth = Math.max(1, action.x() - row.x() - 8);
-        String text = region.display() + " / " + region.minRealm() + " / x"
-                + String.format("%.2f", region.auraMultiplier());
+        String text = Component.translatable("screen.seeking_immortals.worldpack.region_summary",
+                PlayerDisplayText.safeLiteral(region.display(), "text.seeking_immortals.unknown_region"),
+                ArtifactDisplayTexts.realm(region.minRealm()),
+                String.format("%.2f", region.auraMultiplier())).getString();
         ImmortalUiSkin.drawStringFit(font, graphics, text, row.x() + 4, row.y() + 3, textWidth,
                 region.current() ? ImmortalUiSkin.JOURNAL_JADE_TEXT : ImmortalUiSkin.JOURNAL_PAPER, false);
         if (layout.rowHeight() >= 24) {
-            String meta = Component.translatable("screen.seeking_immortals.worldpack.entry_id", region.id()).getString()
-                    + " / " + bool(region.anchorReady());
+            String meta = Component.translatable("screen.seeking_immortals.worldpack.anchor_state",
+                    bool(region.anchorReady())).getString();
             String route = routeRequirementText(WorldpackGameplayService.routeRequirementForDisplay(
                     data.currentRegionId(), region.id()));
             if (!route.isBlank()) meta += " / " + route;
@@ -257,12 +266,15 @@ public class WorldpackScreen extends AbstractJournalScreen {
                 ? Component.translatable("screen.seeking_immortals.worldpack.ready").getString()
                 : Component.translatable("screen.seeking_immortals.worldpack.cooldown_seconds",
                 Math.max(1L, (remainingCooldownTicks + 19L) / 20L)).getString();
-        String text = realm.display() + " / " + realm.minRealm() + " / " + cooldown;
+        String text = Component.translatable("screen.seeking_immortals.worldpack.realm_summary",
+                PlayerDisplayText.safeLiteral(realm.display(), "text.seeking_immortals.unknown_secret_realm"),
+                ArtifactDisplayTexts.realm(realm.minRealm()), cooldown).getString();
         ImmortalUiSkin.drawStringFit(font, graphics, text, row.x() + 4, row.y() + 3, textWidth,
                 realm.active() ? ImmortalUiSkin.JOURNAL_SPIRIT : ImmortalUiSkin.JOURNAL_PAPER, false);
         if (layout.rowHeight() >= 24) {
-            String meta = Component.translatable("screen.seeking_immortals.worldpack.entry_id", realm.id()).getString()
-                    + " / " + Component.translatable(realm.ticketDescriptionId()).getString();
+            String meta = Component.translatable("screen.seeking_immortals.worldpack.ticket_requirement",
+                    PlayerDisplayText.translatedOr(realm.ticketDescriptionId(),
+                            "text.seeking_immortals.unknown_requirement")).getString();
             ImmortalUiSkin.drawStringFit(font, graphics, meta, row.x() + 4, row.y() + LINE,
                     textWidth, ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
         }
@@ -337,7 +349,9 @@ public class WorldpackScreen extends AbstractJournalScreen {
 
     private static String effectDescription(String effect) {
         String key = effectDescriptionKey(effect);
-        return key.isBlank() ? (effect == null ? "" : effect) : Component.translatable(key).getString();
+        return key.isBlank()
+                ? Component.translatable("screen.seeking_immortals.worldpack.effect.unknown").getString()
+                : Component.translatable(key).getString();
     }
 
     static String effectDescriptionKey(String effect) {
@@ -376,11 +390,11 @@ public class WorldpackScreen extends AbstractJournalScreen {
     private static Component itemNameComponent(String itemId) {
         ResourceLocation location = ResourceLocation.tryParse(itemId == null ? "" : itemId);
         if (location == null || ForgeRegistries.ITEMS == null) {
-            return Component.literal(itemId == null ? "" : itemId);
+            return PlayerDisplayText.itemName(itemId);
         }
         Item item = ForgeRegistries.ITEMS.getValue(location);
         return item == null || item == Items.AIR
-                ? Component.literal(itemId) : Component.translatable(item.getDescriptionId());
+                ? PlayerDisplayText.itemName(itemId) : PlayerDisplayText.itemName(item);
     }
 
     private static UiRect toUi(Rect rect) {

@@ -11,9 +11,11 @@ import com.xunxian.seekingimmortals.item.StarPalaceTaxReceiptItem;
 import com.xunxian.seekingimmortals.network.SyncWorldpackDataPacket;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
 import com.xunxian.seekingimmortals.shop.ShopService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -164,7 +166,8 @@ public final class WorldpackGameplayService {
             case ACTION_ENTER -> player.sendSystemMessage(Component.translatable(
                     "message.seeking_immortals.worldpack.gate_required"));
             case ACTION_RETURN -> returnFromSecretRealm(player);
-            default -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.unknown_action", normalizedAction));
+            default -> player.sendSystemMessage(Component.translatable(
+                    "message.seeking_immortals.worldpack.unknown_action", Component.literal("无效操作")));
         }
     }
 
@@ -176,7 +179,8 @@ public final class WorldpackGameplayService {
         WorldpackDataService.Snapshot snapshot = WorldpackDataService.builtin();
         Optional<WorldpackDataService.RegionCard> regionOptional = snapshot.findRegion(regionId == null ? "" : regionId);
         if (regionOptional.isEmpty()) {
-            player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.unknown_region", regionId));
+            player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.unknown_region",
+                    Component.literal("未收录地域")));
             return false;
         }
         WorldpackDataService.RegionCard region = regionOptional.get();
@@ -184,7 +188,8 @@ public final class WorldpackGameplayService {
         CultivationHelper.get(player).ifPresentOrElse(cultivation -> {
             String currentRegion = normalizeRegion(cultivation, snapshot);
             if (!meetsMinRealm(cultivation.getRealm(), region.minRealm())) {
-                player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.realm_too_low", region.minRealm()));
+                player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.realm_too_low",
+                        realmDisplay(region.minRealm())));
                 return;
             }
             if (!cultivation.getWorldpackActiveSecretRealmId().isBlank()) {
@@ -206,11 +211,13 @@ public final class WorldpackGameplayService {
             }
             Optional<WorldpackSavedData.Anchor> anchor = savedData.getAnchor(region.travelAnchor());
             if (anchor.isEmpty()) {
-                player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.missing_anchor", region.travelAnchor()));
+                player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.missing_anchor",
+                        Component.literal("目标地域锚点")));
                 return;
             }
             if (!canTeleportToAnchor(player, anchor.get())) {
-                player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.bad_anchor", region.travelAnchor()));
+                player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.bad_anchor",
+                        Component.literal("目标地域锚点")));
                 return;
             }
             TravelCostReservation travelCosts = reserveTravelCosts(player, currentRegion, region, fromPortalArray);
@@ -219,7 +226,8 @@ public final class WorldpackGameplayService {
             }
             if (!teleportToAnchor(player, anchor.get())) {
                 travelCosts.refund(player);
-                player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.bad_anchor", region.travelAnchor()));
+                player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.bad_anchor",
+                        Component.literal("目标地域锚点")));
                 return;
             }
             cultivation.setWorldpackCurrentRegionId(region.id());
@@ -238,28 +246,33 @@ public final class WorldpackGameplayService {
         WorldpackDataService.Snapshot snapshot = WorldpackDataService.builtin();
         Optional<WorldpackDataService.SecretRealm> realmOptional = snapshot.findSecretRealm(realmId == null ? "" : realmId);
         if (realmOptional.isEmpty()) {
-            player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.unknown_realm", realmId));
+            player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.unknown_realm",
+                    Component.literal("未收录秘境")));
             return false;
         }
         WorldpackDataService.SecretRealm realm = realmOptional.get();
         Optional<WorldpackDataService.RegionCard> regionOptional = snapshot.findRegion(realm.regionId());
         if (regionOptional.isEmpty()) {
-            player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.unknown_region", realm.regionId()));
+            player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.unknown_region",
+                    Component.literal("未收录地域")));
             return false;
         }
         boolean[] success = { false };
         CultivationHelper.get(player).ifPresentOrElse(cultivation -> {
             if (!cultivation.getWorldpackActiveSecretRealmId().isBlank()) {
-                player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.already_in_realm", cultivation.getWorldpackActiveSecretRealmId()));
+                player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.already_in_realm",
+                        secretRealmDisplay(snapshot, cultivation.getWorldpackActiveSecretRealmId())));
                 return;
             }
             if (!cultivation.getWorldpackCurrentRegionId().equals(realm.regionId())) {
-                player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.wrong_region", realm.regionId()));
+                player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.wrong_region",
+                        regionDisplay(snapshot, realm.regionId())));
                 return;
             }
             if (!meetsMinRealm(cultivation.getRealm(), realm.minRealm())
                     && !ProgressionGateApi.meetsRealm(player, realm.minRealm())) {
-                player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.realm_too_low", realm.minRealm()));
+                player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.realm_too_low",
+                        realmDisplay(realm.minRealm())));
                 return;
             }
             Optional<String> openDenied = SecretRealmSessionService.validateOpen(player, realm.id());
@@ -267,16 +280,17 @@ public final class WorldpackGameplayService {
                 String reason = openDenied.get();
                 if (reason.startsWith("realm_too_low:")) {
                     player.sendSystemMessage(Component.translatable(
-                            "message.seeking_immortals.worldpack.realm_too_low", reason.substring("realm_too_low:".length())));
+                            "message.seeking_immortals.worldpack.realm_too_low",
+                            realmDisplay(reason.substring("realm_too_low:".length()))));
                 } else if (reason.startsWith("party_full:")) {
                     player.sendSystemMessage(Component.translatable(
                             "message.seeking_immortals.worldpack.party_full", reason.substring("party_full:".length())));
                 } else if (reason.startsWith("window_closed:")) {
                     player.sendSystemMessage(Component.translatable(
-                            "message.seeking_immortals.worldpack.window_closed", reason.substring("window_closed:".length())));
+                            "message.seeking_immortals.worldpack.window_closed", Component.literal("当前开放时段")));
                 } else {
                     player.sendSystemMessage(Component.translatable(
-                            "message.seeking_immortals.worldpack.enter_denied", reason));
+                            "message.seeking_immortals.worldpack.enter_denied", Component.literal("入口条件未满足")));
                 }
                 return;
             }
@@ -295,18 +309,21 @@ public final class WorldpackGameplayService {
             if (!dedicatedDimension) {
                 anchor = savedData.getAnchor(region.travelAnchor());
                 if (anchor.isEmpty()) {
-                    player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.missing_anchor", region.travelAnchor()));
+                    player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.missing_anchor",
+                            Component.literal("目标地域锚点")));
                     return;
                 }
                 if (!canTeleportToAnchor(player, anchor.get())) {
-                    player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.bad_anchor", region.travelAnchor()));
+                    player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.bad_anchor",
+                            Component.literal("目标地域锚点")));
                     return;
                 }
             }
             WorldpackSavedData.EventRoll roll = refreshDailyEvent(player, cultivation, savedData, snapshot, realm.regionId());
             boolean ticketDiscount = activeEffects(snapshot, roll).contains(EFFECT_SECRET_REALM_TICKET_HINT);
             if (!hasTicket(player, realm.ticketItem())) {
-                player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.missing_ticket", realm.ticketItem()));
+                player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.missing_ticket",
+                        itemDisplay(realm.ticketItem())));
                 return;
             }
             InventoryReservation ticketReservation = InventoryReservation.none();
@@ -316,7 +333,8 @@ public final class WorldpackGameplayService {
                         ? null
                         : InventoryReservation.consume(player, Map.of(ticket, 1));
                 if (ticketReservation == null) {
-                    player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.missing_ticket", realm.ticketItem()));
+                    player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.missing_ticket",
+                            itemDisplay(realm.ticketItem())));
                     return;
                 }
             }
@@ -333,7 +351,7 @@ public final class WorldpackGameplayService {
             if (entered && dedicatedDimension) {
                 player.sendSystemMessage(Component.translatable(
                         "message.seeking_immortals.worldpack.enter_dedicated_dimension",
-                        SecretRealmDimensionService.dimensionIdFor(realm.id()).orElse("")));
+                        Component.literal("独立秘境空间")));
             }
             if (!entered) {
                 ticketReservation.refund(player);
@@ -354,16 +372,18 @@ public final class WorldpackGameplayService {
             TextMaterialCatalogService.builtin().findFlavor(realm.id()).ifPresent(flavor -> {
                 if (!flavor.openCondition().isBlank()) {
                     player.sendSystemMessage(Component.translatable(
-                            "message.seeking_immortals.worldpack.realm_open_condition", flavor.openCondition()));
+                            "message.seeking_immortals.worldpack.realm_open_condition",
+                            safeNarrative(flavor.openCondition())));
                 }
                 if (!flavor.environment().isBlank()) {
                     player.sendSystemMessage(Component.translatable(
-                            "message.seeking_immortals.worldpack.realm_environment", flavor.environment()));
+                            "message.seeking_immortals.worldpack.realm_environment",
+                            safeNarrative(flavor.environment())));
                 }
                 if (!flavor.rareDrops().isEmpty()) {
                     player.sendSystemMessage(Component.translatable(
                             "message.seeking_immortals.worldpack.realm_rare_drops",
-                            String.join(", ", flavor.rareDrops())));
+                            joinedItemDisplays(flavor.rareDrops())));
                 }
             });
             SecretRealmSessionService.onEnter(player, realm.id());
@@ -698,7 +718,8 @@ public final class WorldpackGameplayService {
         WorldpackSavedData savedData = WorldpackSavedData.get(player.server.overworld());
         savedData.setAnchor(anchorId, player.level().dimension().location().toString(),
                 player.getX(), player.getY(), player.getZ(), player.getYRot(), player.getXRot());
-        player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.anchor_set", anchorId));
+        player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.anchor_set",
+                operatorId(anchorId)));
         sync(player, false);
         return true;
     }
@@ -849,13 +870,13 @@ public final class WorldpackGameplayService {
                     return display(event);
                 }
             }
-            return eventId;
+            return safeDisplay(eventId, "异象");
         });
         long eventRemaining = Math.max(0L, eventRoll.untilTick() - now);
         List<String> effects = activeEffects(snapshot, eventRoll);
         return new WorldpackSnapshot(
                 currentRegion,
-                snapshot.findRegion(currentRegion).map(WorldpackGameplayService::display).orElse(currentRegion),
+                snapshot.findRegion(currentRegion).map(WorldpackGameplayService::display).orElse(safeDisplay(currentRegion, "未知地域")),
                 cultivation.getWorldpackActiveSecretRealmId(),
                 snapshot.findSecretRealm(cultivation.getWorldpackActiveSecretRealmId()).map(WorldpackGameplayService::display).orElse(""),
                 eventId,
@@ -1333,7 +1354,11 @@ public final class WorldpackGameplayService {
 
     private static String itemDescriptionId(String itemId) {
         ResourceLocation location = ResourceLocation.tryParse(itemId == null ? "" : itemId);
-        return location == null ? (itemId == null ? "" : itemId) : "item." + location.getNamespace() + "." + location.getPath();
+        if (location == null) {
+            return "text.seeking_immortals.unknown_item";
+        }
+        String key = "item." + location.getNamespace() + "." + location.getPath();
+        return PlayerDisplayText.hasTranslation(key) ? key : "text.seeking_immortals.unknown_item";
     }
 
     private static long gameTime(ServerPlayer player) {
@@ -1341,15 +1366,73 @@ public final class WorldpackGameplayService {
     }
 
     private static String display(WorldpackDataService.RegionCard region) {
-        return !region.displayZh().isBlank() ? region.displayZh() : region.displayEn();
+        return safeDisplay(!region.displayZh().isBlank() ? region.displayZh() : region.displayEn(), "未知地域");
     }
 
     private static String display(WorldpackDataService.SecretRealm realm) {
-        return !realm.displayZh().isBlank() ? realm.displayZh() : realm.displayEn();
+        return safeDisplay(!realm.displayZh().isBlank() ? realm.displayZh() : realm.displayEn(), "未知秘境");
     }
 
     private static String display(WorldpackDataService.DailyEvent event) {
-        return !event.displayZh().isBlank() ? event.displayZh() : event.displayEn();
+        return safeDisplay(!event.displayZh().isBlank() ? event.displayZh() : event.displayEn(), "未知异象");
+    }
+
+    private static Component regionDisplay(WorldpackDataService.Snapshot snapshot, String id) {
+        return snapshot.findRegion(id)
+                .map(region -> Component.literal(display(region)))
+                .orElseGet(() -> Component.literal("未知地域"));
+    }
+
+    private static Component secretRealmDisplay(WorldpackDataService.Snapshot snapshot, String id) {
+        return snapshot.findSecretRealm(id)
+                .map(realm -> Component.literal(display(realm)))
+                .orElseGet(() -> Component.literal("未知秘境"));
+    }
+
+    private static Component realmDisplay(String realmId) {
+        Realm realm = parseRealm(realmId);
+        return realm == null
+                ? Component.literal("未知境界")
+                : Component.literal(realm.getDisplayName());
+    }
+
+    private static Component itemDisplay(String itemId) {
+        Item item = resolveItem(itemId);
+        if (item != null && item != Items.AIR) {
+            return item.getDefaultInstance().getHoverName();
+        }
+        return PlayerDisplayText.itemName(itemId);
+    }
+
+    private static Component joinedItemDisplays(List<String> itemIds) {
+        if (itemIds == null || itemIds.isEmpty()) {
+            return Component.translatable("text.seeking_immortals.unknown_item");
+        }
+        MutableComponent joined = Component.empty();
+        boolean first = true;
+        for (String itemId : itemIds) {
+            if (!first) {
+                joined.append(Component.literal("、"));
+            }
+            joined.append(itemDisplay(itemId));
+            first = false;
+        }
+        return joined;
+    }
+
+    private static Component safeNarrative(String text) {
+        return PlayerDisplayText.safeLiteral(text, "screen.seeking_immortals.worldpack.effect.unknown");
+    }
+
+    private static String safeDisplay(String text, String fallback) {
+        return PlayerDisplayText.isSafe(text) ? text.trim() : fallback;
+    }
+
+    private static Component operatorId(String id) {
+        String value = id == null ? "" : id.trim();
+        return value.isBlank()
+                ? Component.translatable("text.seeking_immortals.unknown_item")
+                : Component.literal("内部标识「" + value + "」");
     }
 
     public record WorldpackSnapshot(String currentRegionId, String currentRegionDisplay,

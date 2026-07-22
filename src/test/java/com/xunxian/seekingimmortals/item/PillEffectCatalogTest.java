@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class PillEffectCatalogTest {
     @Test
     void mergesRuntimeEffectsWithPillDesignMetadata() {
-        assertEquals(114, PillEffectCatalog.size());
+        assertEquals(113, PillEffectCatalog.size());
 
         PillEffectCatalog.Entry fire = PillEffectCatalog.findByPillId("huoyuan_pill").orElseThrow();
         assertEquals("spirit_gain_flat", fire.effect());
@@ -54,8 +54,9 @@ class PillEffectCatalogTest {
                 PillEffectCatalog.findByPillId("spirit_condense_minor").orElseThrow().effect());
         assertEquals("spirit_gather_tonic",
                 PillEffectCatalog.findByPillId("juling_pill").orElseThrow().effect());
-        assertEquals("dustfall_calm",
+        assertEquals("jiangchen_breakthrough_aid",
                 PillEffectCatalog.findByPillId("jiangying_pill").orElseThrow().effect());
+        assertEquals("jiangchen_pill", PillEffectCatalog.canonicalPillId("jiangying_pill"));
         assertEquals("yin_yang_balance",
                 PillEffectCatalog.findByPillId("yin_yang_pill").orElseThrow().effect());
         assertEquals("spirit_seed_growth",
@@ -70,6 +71,26 @@ class PillEffectCatalogTest {
                 PillEffectCatalog.findByPillId("cultivation_aid_nascent_soul").orElseThrow().effect());
         assertEquals("FOUNDATION",
                 PillEffectCatalog.findByPillId("cultivation_aid_foundation").orElseThrow().realmTarget());
+    }
+
+    @Test
+    void legacyGenericPillsAreRemovedWhileCanonicalReplacementsStayDistinct() {
+        // The old three registry ids no longer represent shipped items.  Their NBT/formula
+        // names remain accepted only by AlchemyFormulaKnowledge for save compatibility.
+        assertTrue(PillEffectCatalog.findByPillId("qi_recovery_pill").isEmpty());
+        assertTrue(PillEffectCatalog.findByPillId("cultivation_pill").isEmpty());
+        assertTrue(PillEffectCatalog.findByPillId("breakthrough_pill").isEmpty());
+
+        PillEffectCatalog.Entry recovery = PillEffectCatalog.findByPillId("spirit_recovery_pill").orElseThrow();
+        PillEffectCatalog.Entry cultivation = PillEffectCatalog.findByPillId("cultivate_speed_pill").orElseThrow();
+        PillEffectCatalog.Entry foundationAid = PillEffectCatalog.findByPillId("jiangchen_pill").orElseThrow();
+        assertEquals("restore_mana_50pct", recovery.effect());
+        assertEquals("cultivation_speed_1h", cultivation.effect());
+        assertEquals("jiangchen_breakthrough_aid", foundationAid.effect());
+        assertNotEquals(recovery.effect(), cultivation.effect());
+        assertNotEquals(cultivation.effect(), foundationAid.effect());
+        assertNotEquals("cultivation_speed_1h",
+                PillEffectCatalog.findByPillId("tianyuan_spirit_pill").orElseThrow().effect());
     }
 
     @Test

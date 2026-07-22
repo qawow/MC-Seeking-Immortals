@@ -11,17 +11,17 @@
     },
     {
       "type": "patchouli:text",
-      "text": "low_stone: 1$(br)mid_stone: 100$(br)high_stone: 10000$(br)top_stone: 1000000$(br)isolated: ['tiannan_merit', 'tianyuan_merit', 'sect_contrib']",
+      "text": "下品灵石：1$(br)中品灵石：100$(br)上品灵石：10000$(br)极品灵石：1000000$(br)独立计分：天南功勋、天渊功勋、宗门贡献",
       "title": "灵石阶梯"
     },
     {
       "type": "patchouli:text",
-      "text": "qi_to_foundation: 0.35$(br)foundation_to_core: 0.2$(br)core_to_nascent: 0.15$(br)nascent_to_deity: 0.08$(br)deity_to_void: 0.12$(br)void_to_integration: 0.1$(br)integration_to_great: 0.06$(br)great_to_true_immortal: 0.03",
+      "text": "炼气→筑基：0.35$(br)筑基→结丹：0.2$(br)结丹→元婴：0.15$(br)元婴→化神：0.08$(br)化神→炼虚：0.12$(br)炼虚→合体：0.1$(br)合体→大乘：0.06$(br)大乘→真仙：0.03",
       "title": "突破基础成功率"
     },
     {
       "type": "patchouli:text",
-      "text": "hostile: [-100, -40]$(br)unfriendly: [-39, -10]$(br)neutral: [-9, 20]$(br)friendly: [21, 50]$(br)honored: [51, 80]$(br)exalted: [81, 100]",
+      "text": "敌对：[-100，-40]$(br)不友好：[-39，-10]$(br)中立：[-9，20]$(br)友好：[21，50]$(br)尊敬：[51，80]$(br)崇敬：[81，100]",
       "title": "声望档位"
     },
     {

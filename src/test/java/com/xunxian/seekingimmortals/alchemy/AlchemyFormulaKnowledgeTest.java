@@ -16,10 +16,21 @@ class AlchemyFormulaKnowledgeTest {
     }
 
     @Test
+    void legacyRecipeIdsResolveToCanonicalRecipes() {
+        assertEquals("spirit_recovery_pill",
+                AlchemyFormulaKnowledge.canonicalRecipeId("qi_recovery_pill"));
+        assertEquals("cultivate_speed_pill",
+                AlchemyFormulaKnowledge.canonicalRecipeId("cultivation_pill"));
+        assertEquals("jiangchen_pill",
+                AlchemyFormulaKnowledge.canonicalRecipeId("breakthrough_pill"));
+    }
+
+    @Test
     void copyProgressionDataClonesStudiedTag() {
         CompoundTag source = new CompoundTag();
         CompoundTag studied = new CompoundTag();
         studied.putBoolean("cultivation_pill", true);
+        studied.putBoolean("breakthrough_pill", true);
         source.put(AlchemyFormulaKnowledge.STUDIED_FORMULAS_TAG, studied);
 
         CompoundTag target = new CompoundTag();
@@ -40,7 +51,12 @@ class AlchemyFormulaKnowledgeTest {
                 "src/main/java/com/xunxian/seekingimmortals/item/alchemy/AlchemyFormulaItem.java"));
         String consumable = java.nio.file.Files.readString(java.nio.file.Path.of(
                 "src/main/java/com/xunxian/seekingimmortals/item/CatalogConsumableService.java"));
+        String recipeManager = java.nio.file.Files.readString(java.nio.file.Path.of(
+                "src/main/java/com/xunxian/seekingimmortals/alchemy/AlchemyRecipeManager.java"));
         assertTrue(furnace.contains("AlchemyFormulaKnowledge.hasStudied"));
+        assertTrue(furnace.contains("canonicalRecipeId(tag.getString(\"RecipeId\"))"));
+        assertTrue(furnace.contains("canonicalRecipeId(tag.getString(\"KnownFormulaId\"))"));
+        assertTrue(recipeManager.contains("AlchemyFormulaKnowledge.canonicalRecipeId(raw)"));
         assertTrue(formulaItem.contains("AlchemyFormulaKnowledge.study"));
         assertTrue(consumable.contains("inscribe_formula"));
         assertTrue(consumable.contains("inscribeFormula"));

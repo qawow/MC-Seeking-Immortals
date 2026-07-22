@@ -9,6 +9,7 @@ import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.entity.SummonedServitorEntity;
 import com.xunxian.seekingimmortals.worldpack.BossEncounterService;
 import com.xunxian.seekingimmortals.worldpack.SecretRealmTrialService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -105,7 +106,8 @@ public final class ArtifactCaptureService {
         best.addEffect(new MobEffectInstance(MobEffects.GLOWING, 40, 0));
         best.discard();
         BestiaryUnlockService.unlock(player, id, BestiaryUnlockService.UnlockKind.SEEN);
-        player.displayClientMessage(Component.translatable("message.seeking_immortals.capture.caught", id), true);
+        player.displayClientMessage(Component.translatable("message.seeking_immortals.capture.caught",
+                beastDisplay(id)), true);
         return true;
     }
 
@@ -174,7 +176,8 @@ public final class ArtifactCaptureService {
         if (ok) {
             jar.getOrCreateTag().remove(TAG);
             jar.getOrCreateTag().remove(TAG_TIER);
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.capture.sealed", stored), true);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.capture.sealed",
+                    beastDisplay(stored)), true);
         }
         return ok;
     }
@@ -201,8 +204,16 @@ public final class ArtifactCaptureService {
         if (ok) {
             jar.getOrCreateTag().remove(TAG);
             jar.getOrCreateTag().remove(TAG_TIER);
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.capture.released", stored), true);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.capture.released",
+                    beastDisplay(stored)), true);
         }
         return ok;
+    }
+
+    private static Component beastDisplay(String id) {
+        return BeastBestiaryService.find(id)
+                .map(BeastBestiaryService.BeastEntry::display)
+                .map(display -> PlayerDisplayText.safeLiteral(display, "text.seeking_immortals.unknown_item"))
+                .orElseGet(() -> Component.translatable("text.seeking_immortals.unknown_item"));
     }
 }

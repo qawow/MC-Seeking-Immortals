@@ -88,7 +88,7 @@
     },
     {
       "id": "jiangchen_pill",
-      "item": "seeking_immortals:foundation_building_pill_low",
+      "item": "seeking_immortals:jiangchen_pill",
       "count": 1,
       "cost": 120,
       "stock": 3,
@@ -96,7 +96,7 @@
     },
     {
       "id": "recipe_jiangchen",
-      "item": "seeking_immortals:alchemy_formula_foundation_building_pill_paper",
+      "item": "seeking_immortals:recipe_jiangchen",
       "count": 1,
       "cost": 25,
       "stock": 4,
@@ -127,7 +127,7 @@
     },
     {
       "id": "spirit_recovery_pill",
-      "item": "seeking_immortals:qi_recovery_pill",
+      "item": "seeking_immortals:spirit_recovery_pill",
       "count": 1,
       "cost": 6,
       "stock": 6,
@@ -135,7 +135,7 @@
     },
     {
       "id": "cultivate_speed_pill",
-      "item": "seeking_immortals:cultivation_pill",
+      "item": "seeking_immortals:cultivate_speed_pill",
       "count": 1,
       "cost": 7,
       "stock": 6,
@@ -151,7 +151,7 @@
     },
     {
       "id": "huanglong_pill",
-      "item": "seeking_immortals:cultivation_pill",
+      "item": "seeking_immortals:huanglong_pill",
       "count": 1,
       "cost": 8,
       "stock": 6,
@@ -159,7 +159,7 @@
     },
     {
       "id": "recipe_huanglong",
-      "item": "seeking_immortals:alchemy_formula_cultivation_pill_paper",
+      "item": "seeking_immortals:recipe_huanglong",
       "count": 1,
       "cost": 45,
       "stock": 3,
@@ -167,7 +167,7 @@
     },
     {
       "id": "heqi_pill",
-      "item": "seeking_immortals:cultivation_pill",
+      "item": "seeking_immortals:heqi_pill",
       "count": 1,
       "cost": 6,
       "stock": 8,

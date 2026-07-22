@@ -2,6 +2,8 @@ package com.xunxian.seekingimmortals.quest;
 
 import com.xunxian.seekingimmortals.network.OpenDialogueScreenPacket;
 import com.xunxian.seekingimmortals.npc.NpcDialogueApi;
+import com.xunxian.seekingimmortals.npc.NamedNpcRegistry;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -77,7 +79,8 @@ public final class TextQuestDialogueService {
     public static boolean talk(ServerPlayer player, String chainId) {
         List<DialogueLine> lines = linesFor(player, chainId);
         if (lines.isEmpty()) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.unknown", chainId), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.unknown",
+                    Component.translatable("text.seeking_immortals.unknown_quest")), false);
             return false;
         }
         TextQuestChainService.ChainProgress progress = TextQuestChainService.progressOf(player, chainId);
@@ -121,7 +124,8 @@ public final class TextQuestDialogueService {
         String id = normalize(chainId);
         if (TextQuestChainService.find(id).isEmpty()) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.text_quest.unknown", chainId), false);
+                    "message.seeking_immortals.text_quest.unknown",
+                    Component.translatable("text.seeking_immortals.unknown_quest")), false);
             return false;
         }
         NpcDialogueApi.clearSession(player);
@@ -229,7 +233,7 @@ public final class TextQuestDialogueService {
                 chainId,
                 npc,
                 nodeId(player, chainId),
-                Component.literal(npc == null || npc.isBlank() ? npcFor(chainId) : npc),
+                Component.literal(npcDisplay(npc == null || npc.isBlank() ? npcFor(chainId) : npc)),
                 List.copyOf(lines),
                 List.copyOf(choices)));
         return true;
@@ -298,10 +302,11 @@ public final class TextQuestDialogueService {
 
     private static Component componentFor(DialogueLine line, TextQuestChainService.ChainProgress progress,
                                           String branch) {
+        String speaker = npcDisplay(line.speaker());
         if (line.textKey().endsWith(".branch_remember") || line.textKey().endsWith(".node.mid2")) {
-            return Component.translatable(line.textKey(), line.speaker(), branch);
+            return Component.translatable(line.textKey(), speaker, branch);
         }
-        return Component.translatable(line.textKey(), line.speaker(), progress.stage(), branch);
+        return Component.translatable(line.textKey(), speaker, progress.stage(), branch);
     }
 
     public static Map<String, String> sampleNpcHooks(int limit) {
@@ -310,6 +315,14 @@ public final class TextQuestDialogueService {
 
     public static String npcFor(String chainId) {
         return TextQuestChainService.npcFor(chainId);
+    }
+
+    private static String npcDisplay(String raw) {
+        return NamedNpcRegistry.find(raw)
+                .map(NamedNpcRegistry.NamedNpc::display)
+                .filter(PlayerDisplayText::isSafe)
+                .map(String::trim)
+                .orElse("引路人");
     }
 
     private static String normalize(String id) {

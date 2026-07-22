@@ -5,17 +5,20 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.boss.EnderDragonPart;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.player.Player;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -123,7 +126,7 @@ public final class GhostContractService {
         String ghostId = generateGhostId(living);
         if (hasContract(player, ghostId)) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.ghost_contract.already_contracted", ghostId), true);
+                    "message.seeking_immortals.ghost_contract.already_contracted", displayName(ghostId)), true);
             return false;
         }
 
@@ -147,7 +150,7 @@ public final class GhostContractService {
             addGhostPathExp(player, 100);
 
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.ghost_contract.success", ghostId, chance), true);
+                    "message.seeking_immortals.ghost_contract.success", displayName(ghostId), chance), true);
             return true;
         } else {
             // Contract failure - backlash
@@ -170,7 +173,7 @@ public final class GhostContractService {
         GhostContract contract = findContract(player, ghostId);
         if (contract == null) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.ghost_contract.not_found", ghostId), true);
+                    "message.seeking_immortals.ghost_contract.not_found", displayName(ghostId)), true);
             return false;
         }
 
@@ -206,7 +209,7 @@ public final class GhostContractService {
 
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.ghost_contract.maintained",
-                ghostId, updated.stability(), updated.loyalty()), true);
+                displayName(ghostId), updated.stability(), updated.loyalty()), true);
         return true;
     }
 
@@ -252,11 +255,11 @@ public final class GhostContractService {
         if (forced) {
             applyContractBreakBacklash(player, contract.tier());
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.ghost_contract.broken_forced", ghostId), true);
+                    "message.seeking_immortals.ghost_contract.broken_forced", displayName(ghostId)), true);
         } else {
             // Voluntary release - return some materials
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.ghost_contract.broken_voluntary", ghostId), true);
+                    "message.seeking_immortals.ghost_contract.broken_voluntary", displayName(ghostId)), true);
         }
     }
 
@@ -288,7 +291,7 @@ public final class GhostContractService {
                     // Crossed warning threshold
                     player.displayClientMessage(Component.translatable(
                             "message.seeking_immortals.ghost_contract.stability_warning",
-                            contract.ghostId(), newStability), true);
+                            displayName(contract.ghostId()), newStability), true);
                 }
             }
         }
@@ -404,6 +407,14 @@ public final class GhostContractService {
         String typeName = entity.getType().getDescription().getString().toLowerCase(Locale.ROOT)
                 .replaceAll("[^a-z0-9_]", "_");
         return "ghost_" + typeName;
+    }
+
+    private static Component displayName(String ghostId) {
+        String id = ghostId == null ? "" : ghostId.trim().toLowerCase(Locale.ROOT);
+        String path = id.startsWith("ghost_") ? id.substring("ghost_".length()) : id;
+        ResourceLocation key = ResourceLocation.tryParse(path.contains(":") ? path : "minecraft:" + path);
+        EntityType<?> type = key == null ? null : ForgeRegistries.ENTITY_TYPES.getValue(key);
+        return type == null ? Component.literal("契约鬼灵") : type.getDescription();
     }
 
     /**

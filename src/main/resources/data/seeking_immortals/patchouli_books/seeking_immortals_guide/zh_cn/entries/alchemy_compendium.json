@@ -6,12 +6,12 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "炼丹炉成阵（盖/阵眼/外环/岩浆）；品阶丹药 LOW/MIDDLE/HIGH/PERFECT 倍率。",
+      "text": "炼丹炉需按炉盖、阵眼、外环与岩浆热源正确成阵；丹药分为低品、中品、高品与极品，品质会影响药效倍率。",
       "title": "炼丹分册"
     },
     {
       "type": "patchouli:text",
-      "text": "alchemy_recipes 与技能门槛由服务端结算；JEI 可选展示。",
+      "text": "炼丹配方与技能门槛均由服务端结算；安装配方查询模组后可查看相关材料。",
       "title": "配方权威"
     }
   ]

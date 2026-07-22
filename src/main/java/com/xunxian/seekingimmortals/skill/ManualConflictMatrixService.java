@@ -7,6 +7,7 @@ import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.catalog.ManualCatalogService;
 import com.xunxian.seekingimmortals.catalog.TextMaterialCatalogService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.server.level.ServerPlayer;
 
 import java.io.InputStream;
@@ -75,13 +76,10 @@ public final class ManualConflictMatrixService {
             }
             String level = pair.level() == null ? "" : pair.level().trim().toUpperCase(Locale.ROOT);
             if ("F".equals(level) || "D".equals(level)) {
-                String display = TextMaterialCatalogService.builtin().findMethod(methodId)
-                        .map(TextMaterialCatalogService.MethodEntry::display).orElse(methodId);
-                String otherDisplay = TextMaterialCatalogService.builtin().findMethod(other)
-                        .map(TextMaterialCatalogService.MethodEntry::display).orElse(other);
+                String display = methodDisplay(methodId, pair);
+                String otherDisplay = methodDisplay(other, pair);
                 return GateResult.deny("message.seeking_immortals.method.conflict",
-                        display, otherDisplay, level,
-                        pair.note() == null || pair.note().isBlank() ? "-" : pair.note());
+                        display, otherDisplay, conflictLevelDisplay(level), safeNote(pair.note()));
             }
         }
         return GateResult.ok();
@@ -221,6 +219,44 @@ public final class ManualConflictMatrixService {
 
     private static String normalizeDisplay(String value) {
         return value == null ? "" : value.trim().toLowerCase(Locale.ROOT).replace(" ", "");
+    }
+
+    private static String methodDisplay(String methodId, Pair pair) {
+        String catalogDisplay = TextMaterialCatalogService.builtin().findMethod(methodId)
+                .map(TextMaterialCatalogService.MethodEntry::display)
+                .orElse("");
+        String safeCatalogDisplay = PlayerDisplayText.sanitizeCatalogText(catalogDisplay);
+        if (!safeCatalogDisplay.isBlank()) {
+            return safeCatalogDisplay;
+        }
+        if (pair != null && methodId != null) {
+            if (methodId.equalsIgnoreCase(pair.aId())) {
+                String display = PlayerDisplayText.sanitizeCatalogText(pair.aDisplay());
+                if (!display.isBlank()) {
+                    return display;
+                }
+            }
+            if (methodId.equalsIgnoreCase(pair.bId())) {
+                String display = PlayerDisplayText.sanitizeCatalogText(pair.bDisplay());
+                if (!display.isBlank()) {
+                    return display;
+                }
+            }
+        }
+        return "未知功法";
+    }
+
+    private static String conflictLevelDisplay(String level) {
+        return switch (level == null ? "" : level.trim().toUpperCase(Locale.ROOT)) {
+            case "F" -> "绝对冲突";
+            case "D" -> "严重冲突";
+            default -> "冲突";
+        };
+    }
+
+    private static String safeNote(String note) {
+        String display = PlayerDisplayText.sanitizeCatalogText(note);
+        return display.isBlank() ? "无补充说明" : display;
     }
 
     private static String str(JsonObject object, String key) {

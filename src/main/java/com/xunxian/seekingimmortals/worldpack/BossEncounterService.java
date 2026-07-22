@@ -1,9 +1,12 @@
 package com.xunxian.seekingimmortals.worldpack;
 
 import com.xunxian.seekingimmortals.beast.BestiaryUnlockService;
+import com.xunxian.seekingimmortals.beast.BeastBestiaryService;
+import com.xunxian.seekingimmortals.beast.BeastBossService;
 import com.xunxian.seekingimmortals.entity.SummonedServitorEntity;
 import com.xunxian.seekingimmortals.item.InventoryDeliveryService;
 import com.xunxian.seekingimmortals.registry.ModItems;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -51,9 +54,11 @@ public final class BossEncounterService {
             return false;
         }
         // M10: prefer catalog boss (tier-scaled + phase skills) when known.
-        if (com.xunxian.seekingimmortals.beast.BeastBossService.find(id).isPresent()) {
-            Mob catalogBoss = com.xunxian.seekingimmortals.beast.BeastBossService.spawnCatalogBoss(player, id);
+        if (BeastBossService.find(id).isPresent()) {
+            Mob catalogBoss = BeastBossService.spawnCatalogBoss(player, id);
             if (catalogBoss != null) {
+                catalogBoss.setCustomName(Component.translatable("entity.seeking_immortals.boss.name",
+                        bossDisplay(id)));
                 bindBoss(catalogBoss, player, session, id);
                 player.getPersistentData().putBoolean(key, true);
                 ReputationService.add(player, "secret_realm_explorer", 1);
@@ -76,13 +81,15 @@ public final class BossEncounterService {
         if (boss == null) {
             return false;
         }
-        boss.setCustomName(Component.translatable("entity.seeking_immortals.boss.name", id));
+        boss.setCustomName(Component.translatable("entity.seeking_immortals.boss.name", bossDisplay(id)));
         boss.setCustomNameVisible(true);
         boss.setTarget(player);
         bindBoss(boss, player, session, id);
         player.getPersistentData().putBoolean(key, true);
-        player.displayClientMessage(Component.translatable("message.seeking_immortals.boss.spawned", id), true);
-        player.displayClientMessage(Component.translatable("message.seeking_immortals.boss.kill_gate_hint", id), false);
+        player.displayClientMessage(Component.translatable("message.seeking_immortals.boss.spawned",
+                bossDisplay(id)), true);
+        player.displayClientMessage(Component.translatable("message.seeking_immortals.boss.kill_gate_hint",
+                bossDisplay(id)), false);
         ReputationService.add(player, "secret_realm_explorer", 1);
         return true;
     }
@@ -93,7 +100,7 @@ public final class BossEncounterService {
         }
         String id = bossId.trim().toLowerCase(Locale.ROOT);
         return BossLootService.find(id).isPresent()
-                || com.xunxian.seekingimmortals.beast.BeastBossService.find(id).isPresent();
+                || BeastBossService.find(id).isPresent();
     }
 
     public static boolean isBossMob(Mob mob) {
@@ -152,10 +159,11 @@ public final class BossEncounterService {
         InventoryDeliveryService.giveOrEnqueue(killer, bonus, "boss_encounter");
         ReputationService.add(killer, "secret_realm_explorer", firstClear ? 3 : 1);
         BestiaryUnlockService.unlock(killer, bossId, BestiaryUnlockService.UnlockKind.KILL);
-        killer.displayClientMessage(Component.translatable("message.seeking_immortals.boss.defeated", bossId), true);
+        killer.displayClientMessage(Component.translatable("message.seeking_immortals.boss.defeated",
+                bossDisplay(bossId)), true);
         if (granted > 0) {
             killer.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.boss.loot_granted", bossId, granted, firstClear), false);
+                    "message.seeking_immortals.boss.loot_granted", bossDisplay(bossId), granted, firstClear), false);
         }
         // Core boss defeat clears the secret realm for M11/M06 hooks (session-latched).
         if (!realmId.isBlank()) {
@@ -201,5 +209,16 @@ public final class BossEncounterService {
             SecretRealmRewardService.initializeChest(
                     chest, player, session, realmId, "boss:" + bossId, false, rewards);
         }
+    }
+
+    private static Component bossDisplay(String bossId) {
+        String display = BeastBossService.find(bossId)
+                .map(BeastBossService.BossDef::display)
+                .filter(PlayerDisplayText::isSafe)
+                .orElseGet(() -> BeastBestiaryService.find(bossId)
+                        .map(BeastBestiaryService.BeastEntry::display)
+                        .filter(PlayerDisplayText::isSafe)
+                        .orElse(""));
+        return PlayerDisplayText.safeLiteral(display, "text.seeking_immortals.unknown_item");
     }
 }

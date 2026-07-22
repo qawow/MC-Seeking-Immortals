@@ -8,6 +8,7 @@ import com.xunxian.seekingimmortals.catalog.LoreCatalogService;
 import com.xunxian.seekingimmortals.design.SettingCatalogSummary;
 import com.xunxian.seekingimmortals.design.SettingCatalogSummaryService;
 import com.xunxian.seekingimmortals.quest.TimelineChronicleService;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 
 import java.nio.file.Files;
@@ -47,11 +48,15 @@ public final class LoreCompendiumService {
             List<CategorySummary> categories) {
         public List<String> lines() {
             List<String> lines = new ArrayList<>();
-            lines.add("glossary=" + glossary + " numeric=" + numericPresent + " visual=" + visualPresent);
-            lines.add("bestiary=" + bestiaryTotal + " chronicle=" + chronicleTotal + " timeline=" + timelinePhases);
-            lines.add("lore_catalog=" + loreCatalogTotal);
+            lines.add(Component.translatable("screen.seeking_immortals.compendium.hub_resources",
+                    glossary, numericPresent, visualPresent).getString());
+            lines.add(Component.translatable("screen.seeking_immortals.compendium.hub_records",
+                    bestiaryTotal, chronicleTotal, timelinePhases).getString());
+            lines.add(Component.translatable("screen.seeking_immortals.compendium.hub_catalog",
+                    loreCatalogTotal).getString());
             for (CategorySummary category : categories) {
-                lines.add(category.display() + ": " + category.count() + " — " + category.hint());
+                lines.add(Component.translatable("screen.seeking_immortals.compendium.category_count",
+                        category.display(), category.count()).getString());
             }
             return lines;
         }
@@ -102,19 +107,19 @@ public final class LoreCompendiumService {
         Optional<NameAliasGlossaryService.GlossaryEntry> glossary = NameAliasGlossaryService.find(idOrAlias);
         if (glossary.isPresent()) {
             NameAliasGlossaryService.GlossaryEntry e = glossary.get();
-            String aliases = e.aliases().isEmpty() ? "-" : String.join("/", e.aliases());
-            return Optional.of(e.primary() + " (" + e.type() + ") [" + aliases + "]");
+            String primary = NameAliasGlossaryService.playerDisplayName(e);
+            return primary.isBlank() ? Optional.empty() : Optional.of(primary);
         }
         Optional<BeastBestiaryService.BeastEntry> beast = BeastBestiaryService.find(idOrAlias);
         if (beast.isPresent()) {
             BeastBestiaryService.BeastEntry b = beast.get();
-            return Optional.of(b.display() + " T" + b.tier() + " threat=" + b.threat()
-                    + (b.trueSpirit() ? " 真灵" : ""));
+            return Optional.of(Component.translatable("screen.seeking_immortals.bestiary.tooltip_summary",
+                    b.display(), b.tier(), b.threat(), b.trueSpirit() ? 1 : 0).getString());
         }
         FactionQuestCatalogService.Entry chronicle =
                 FactionQuestCatalogService.builtin().chronicleEvents().get(idOrAlias.trim().toLowerCase(Locale.ROOT));
         if (chronicle != null) {
-            return Optional.of(chronicle.display() + " [" + chronicle.id() + "]");
+            return Optional.of(chronicle.display());
         }
         return Optional.empty();
     }
@@ -124,14 +129,14 @@ public final class LoreCompendiumService {
         if (player == null) {
             return lines;
         }
-        lines.add("bestiary_unlocked=" + BestiaryUnlockService.unlockedCount(player)
-                + "/" + BeastBestiaryService.size());
-        lines.add("bestiary_kills=" + BestiaryUnlockService.killCount(player)
-                + " contracts=" + BestiaryUnlockService.contractCount(player));
-        lines.add("chronicle_discovered=" + ChronicleTradeSoftService.discoveredCount(player)
-                + "/" + ChronicleTradeSoftService.chronicleCount());
-        lines.add("timeline_phases=" + TimelineChronicleService.unlockedPhaseCount(player)
-                + "/" + TimelineChronicleService.phaseCount());
+        lines.add(Component.translatable("screen.seeking_immortals.lore.progress.bestiary",
+                BestiaryUnlockService.unlockedCount(player), BeastBestiaryService.size()).getString());
+        lines.add(Component.translatable("screen.seeking_immortals.lore.progress.beast_records",
+                BestiaryUnlockService.killCount(player), BestiaryUnlockService.contractCount(player)).getString());
+        lines.add(Component.translatable("screen.seeking_immortals.lore.progress.chronicle",
+                ChronicleTradeSoftService.discoveredCount(player), ChronicleTradeSoftService.chronicleCount()).getString());
+        lines.add(Component.translatable("screen.seeking_immortals.lore.progress.timeline",
+                TimelineChronicleService.unlockedPhaseCount(player), TimelineChronicleService.phaseCount()).getString());
         return lines;
     }
 

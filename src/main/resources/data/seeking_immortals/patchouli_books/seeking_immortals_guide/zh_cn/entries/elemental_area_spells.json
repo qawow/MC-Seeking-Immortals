@@ -7,7 +7,7 @@
     {
       "type": "patchouli:text",
       "title": "来源与定位",
-      "text": "本页对应 文本材料/data/techniques/elemental.json 中的 lava_burst、mist_rain、sand_storm、blizzard、cyclone、chain_lightning。当前实现复用已有功法术法数据、七槽术法释放路径与 ElementalAreaSpell，不新增法术实体、GUI、包格式或运行时加载器。"
+      "text": "本页介绍熔岩爆、雾雨术、沙暴术、暴雪术、旋风术与连锁雷六种范围术法。它们可由功法或传承玉简学习，使用七个术法槽释放；无需额外安装实体或界面。"
     },
     {
       "type": "patchouli:text",
@@ -22,7 +22,7 @@
     {
       "type": "patchouli:text",
       "title": "仍待深化",
-      "text": "光球术与暗焰术仍在后续投射物范围内；文本中的功法前置和灵根门槛目前主要由学习数据表达，仍需更严格的来源校验与展示。专用粒子类型、独立贴图、PvP手感、实机多人视觉检查和更高阶五行爆发也仍待后续阶段。"
+      "text": "光球术与暗焰术仍在后续投射物计划中；功法前置和灵根门槛会在学习时校验。专用粒子、独立贴图、多人对战手感和更高阶五行爆发仍待继续打磨。"
     }
   ]
 }

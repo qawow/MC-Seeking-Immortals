@@ -6,17 +6,17 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "M13 维度注册、灵界窗口、飞升确认与备份箱；空间节点网络 33 点。",
+      "text": "跨界体系包含灵界通道、飞升确认与随身物备份；空间节点网络目前收录 33 个节点。",
       "title": "维度与飞升"
     },
     {
       "type": "patchouli:text",
-      "text": "DimensionTravelService 服务端路线/冷却，不信任客户端维度目标。",
+      "text": "跨界路线与重用间隔由服务端校验，客户端不能自行指定未授权的目的地。",
       "title": "旅行权威"
     },
     {
       "type": "patchouli:text",
-      "text": "FlyingAuthorityPolicy 统一飞行来源（法宝/舟/阵）。",
+      "text": "法宝、灵舟与阵法提供的飞行资格由服务端统一判定，并受禁飞区域限制。",
       "title": "飞行策略"
     }
   ]

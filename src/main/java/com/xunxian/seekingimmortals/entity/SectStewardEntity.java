@@ -3,6 +3,7 @@ package com.xunxian.seekingimmortals.entity;
 import com.xunxian.seekingimmortals.npc.NamedNpcRegistry;
 import com.xunxian.seekingimmortals.npc.NpcDialogueApi;
 import com.xunxian.seekingimmortals.sect.SectContributionService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -136,7 +137,9 @@ public class SectStewardEntity extends Villager {
         } else {
             setNpcType(NPC_TYPE_DIALOGUE);
         }
-        setCustomName(Component.literal(npc.display()));
+        setCustomName(PlayerDisplayText.isSafe(npc.display())
+                ? Component.literal(npc.display().trim())
+                : Component.literal("无名执事"));
         setCustomNameVisible(true);
     }
 

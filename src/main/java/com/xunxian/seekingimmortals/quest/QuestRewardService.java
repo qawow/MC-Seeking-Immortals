@@ -8,6 +8,7 @@ import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.catalog.ItemCatalogService;
 import com.xunxian.seekingimmortals.item.InventoryDeliveryService;
 import com.xunxian.seekingimmortals.registry.ModItems;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -119,7 +120,8 @@ public final class QuestRewardService {
         }
         if (hasUniqueClaimed(player, key)) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.quest_reward.unique_already", uniqueToken), false);
+                    "message.seeking_immortals.quest_reward.unique_already",
+                    uniqueDisplay(uniqueToken)), false);
             return false;
         }
         ItemStack stack = resolveUniqueStack(key, uniqueToken);
@@ -128,8 +130,22 @@ public final class QuestRewardService {
         }
         markUniqueClaimed(player, key);
         player.displayClientMessage(Component.translatable(
-                "message.seeking_immortals.quest_reward.unique_granted", uniqueToken), true);
+                "message.seeking_immortals.quest_reward.unique_granted",
+                uniqueDisplay(uniqueToken)), true);
         return true;
+    }
+
+    private static Component uniqueDisplay(String uniqueToken) {
+        String canonical = canonicalUnique(uniqueToken);
+        try {
+            Item item = ItemCatalogService.resolveCatalogItem(canonical);
+            if (item != null) {
+                return PlayerDisplayText.itemName(item);
+            }
+        } catch (Throwable ignored) {
+            // Catalog can be unavailable in isolated data tests.
+        }
+        return PlayerDisplayText.safeLiteral(uniqueToken, "text.seeking_immortals.unknown_item");
     }
 
     /**

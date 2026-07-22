@@ -112,7 +112,7 @@
     },
     {
       "id": "yin_luo_ghost_cloak",
-      "display": "阴罗鬼cloak",
+      "display": "阴罗鬼氅",
       "school": "ghost",
       "tier": "spell",
       "realm_min": "FOUNDATION",
@@ -126,14 +126,14 @@
         ],
         "element": "yin"
       },
-      "description": "阴罗鬼cloak：ghost派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 18。 常随功法「yin_luo_ghost_art」体系解锁。",
+      "description": "阴罗鬼氅：鬼道术法，属性倾向阴。境界门槛筑基，耗灵约 18。常随功法「阴罗鬼诀」体系解锁。",
       "source": "凡人向扩充",
       "setting": {
         "combat_style": "阴魂尸鬼",
         "karma": "yin",
         "cast_type": "instant",
         "target": "single",
-        "lore": "阴罗鬼cloak：ghost法术，需境界 FOUNDATION 以上方可施展。",
+        "lore": "阴罗鬼氅：鬼道法术，需筑基境以上方可施展。",
         "requires_method": "yin_luo_ghost_art"
       },
       "learn_requirements": {

@@ -7,7 +7,7 @@
   "entries": [
     {
       "id": "spirit_recovery_pill",
-      "item": "seeking_immortals:qi_recovery_pill",
+      "item": "seeking_immortals:spirit_recovery_pill",
       "count": 1,
       "cost": 50,
       "stock": 6

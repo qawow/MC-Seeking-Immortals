@@ -1,6 +1,7 @@
 package com.xunxian.seekingimmortals.item;
 
 import com.xunxian.seekingimmortals.artifact.ArtifactDataService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
@@ -45,17 +46,18 @@ public class FlyingArtifactItem extends Item {
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
         tooltip.add(Component.translatable("tooltip.seeking_immortals.flying_artifact.requirement").withStyle(ChatFormatting.AQUA));
         tooltip.add(Component.translatable("tooltip.seeking_immortals.flying_artifact.rule").withStyle(ChatFormatting.GRAY));
-        appendArtifactDataTooltip(tooltip);
+        appendArtifactDataTooltip(stack, tooltip);
         tooltip.add(Component.translatable(flyingSword
                 ? "tooltip.seeking_immortals.flying_sword.flavor"
                 : "tooltip.seeking_immortals.flying_artifact.flavor").withStyle(ChatFormatting.GOLD));
     }
 
-    private void appendArtifactDataTooltip(List<Component> tooltip) {
+    private void appendArtifactDataTooltip(ItemStack stack, List<Component> tooltip) {
         ArtifactDataService.Snapshot artifactData = ArtifactDataService.builtin();
         artifactData.findArtifact(artifactId).ifPresent(artifact -> {
             tooltip.add(Component.translatable("tooltip.seeking_immortals.artifact.header",
-                            artifact.display(), artifactData.tierDisplay(artifact.tier()), artifact.gameTier())
+                            PlayerDisplayText.itemName(stack.getItem()),
+                            artifactData.tierDisplay(artifact.tier()), artifact.gameTier())
                     .withStyle(ChatFormatting.DARK_AQUA));
             tooltip.add(Component.translatable("tooltip.seeking_immortals.artifact.realm_type",
                             com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts.realm(artifact.realmMin()),

@@ -12,7 +12,7 @@
     {
       "type": "patchouli:crafting",
       "recipe": "seeking_immortals:spirit_charm",
-      "text": "灵石也会参与护符、符箓与丹药等配方。安装 JEI 后，现有原版合成配方会自动显示。"
+      "text": "灵石也会参与护符、符箓与丹药等配方。安装配方查询模组后，现有合成配方会自动显示。"
     },
     {
       "type": "patchouli:text",

@@ -4324,12 +4324,12 @@
       "source_category": "pill",
       "source_id": "jiangying_pill",
       "source_files": [
-        "catalog_bulk"
+        "name_alias_glossary"
       ],
       "canonical_type": "item",
-      "canonical_id": "seeking_immortals:jiangying_pill",
-      "status": "implemented",
-      "note": "Wave 0.1.444 bulk catalog carrier / decompressed."
+      "canonical_id": "seeking_immortals:jiangchen_pill",
+      "status": "implemented_partial",
+      "note": "历史别名，已并入降尘丹 canonical 载体；不再单独注册或产出。"
     },
     {
       "source_category": "pill",

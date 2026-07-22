@@ -2,6 +2,7 @@ package com.xunxian.seekingimmortals.quest;
 
 import com.xunxian.seekingimmortals.catalog.ExtendedCatalogService;
 import com.xunxian.seekingimmortals.network.OpenDialogueScreenPacket;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.npc.Villager;
@@ -102,7 +103,8 @@ public final class TextQuestNpcHookService {
     public static boolean openDialogue(ServerPlayer player, String chainId, boolean autoStart) {
         Optional<ExtendedCatalogService.QuestChain> optional = TextQuestChainService.find(chainId);
         if (optional.isEmpty()) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.unknown", chainId), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.unknown",
+                    Component.translatable("text.seeking_immortals.unknown_quest")), false);
             return false;
         }
         String id = optional.get().id();
@@ -116,8 +118,8 @@ public final class TextQuestNpcHookService {
         OpenDialogueScreenPacket.send(player, id);
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.text_quest.npc_interact",
-                TextQuestChainService.getNpc(player, id),
-                optional.get().display()), true);
+                displayNameForNpc(TextQuestChainService.getNpc(player, id)),
+                PlayerDisplayText.safeLiteral(optional.get().display(), "text.seeking_immortals.unknown_quest")), true);
         return true;
     }
 
@@ -148,7 +150,7 @@ public final class TextQuestNpcHookService {
         }
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.text_quest.dialogue.need_npc",
-                TextQuestChainService.getNpc(player, chainId)), true);
+                displayNameForNpc(TextQuestChainService.getNpc(player, chainId))), true);
         return false;
     }
 

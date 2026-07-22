@@ -96,7 +96,7 @@ public class ShopScreen extends AbstractJournalScreen {
         if (layout.info().height() >= 9) {
             ImmortalUiSkin.drawStringFit(font, graphics,
                     Component.translatable("screen.seeking_immortals.shop.shop_id",
-                            data.shopId().isBlank() ? "-" : data.shopId()).getString(),
+                            Component.translatable(data.titleKey())).getString(),
                     layout.info().x(), layout.info().y() + 2, layout.info().width(),
                     ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
         }
@@ -167,7 +167,7 @@ public class ShopScreen extends AbstractJournalScreen {
                 textWidth, color, false);
         if (layout.rowHeight() >= 24) {
             ImmortalUiSkin.drawStringFit(font, graphics,
-                    Component.translatable("screen.seeking_immortals.shop.entry_id", entry.id()).getString(),
+                    Component.translatable("screen.seeking_immortals.shop.stock_label", stock).getString(),
                     row.x() + 4, row.y() + LINE, textWidth,
                     disabled ? ImmortalUiSkin.JOURNAL_PAPER_MUTED : ImmortalUiSkin.JOURNAL_JADE_TEXT, false);
         }

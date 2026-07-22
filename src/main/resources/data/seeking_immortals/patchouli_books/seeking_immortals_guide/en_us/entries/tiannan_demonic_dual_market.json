@@ -1,7 +1,7 @@
 {
   "name": "天南魔市",
   "category": "seeking_immortals:basics",
-  "icon": "seeking_immortals:cultivation_pill",
+  "icon": "seeking_immortals:heqi_pill",
   "sortnum": 14,
   "pages": [
     {
@@ -12,7 +12,7 @@
     {
       "type": "patchouli:text",
       "title": "当前货品",
-      "text": "已接入货品为 heqi_pill，目前复用凝气丹作为合气丹的低阶修炼等价物：单价 40 下品金灵石，库存 6，单项刷新 48000 tick。双修增益、魔道副作用与更细的合气丹调校仍留待后续。"
+      "text": "The current listing is the dedicated Heqi Pill. It provides a dual-cultivation-compatible cultivation boost for 40 low-grade metal spirit stones, with stock 6 and a 48000-tick refresh."
     },
     {
       "type": "patchouli:text",

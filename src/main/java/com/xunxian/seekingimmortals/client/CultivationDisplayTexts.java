@@ -1,6 +1,9 @@
 package com.xunxian.seekingimmortals.client;
 
 import com.xunxian.seekingimmortals.catalog.TextMaterialCatalogService;
+import com.xunxian.seekingimmortals.cultivation.Realm;
+import com.xunxian.seekingimmortals.skill.SkillType;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.locale.Language;
 import net.minecraft.network.chat.Component;
 
@@ -37,7 +40,7 @@ public final class CultivationDisplayTexts {
             Map.entry("deity_transformation", "soul_transformation"),
             Map.entry("spirit_transformation", "soul_transformation"),
             Map.entry("void_refining", "void_refinement"),
-            Map.entry("spirit_severing", "unity"),
+            Map.entry("spirit_severing", "soul_transformation"),
             Map.entry("great_vehicle", "mahayana"));
     private static final Set<String> REALMS = Set.of(
             "mortal", "qi_refining", "foundation_establishment", "core_formation",
@@ -82,10 +85,15 @@ public final class CultivationDisplayTexts {
     }
 
     public static Component realm(String raw) {
-        String token = REALM_ALIASES.getOrDefault(normalize(raw), normalize(raw));
+        String token = canonicalRealmId(raw);
         return REALMS.contains(token)
                 ? translatedOrUnknown("realm.seeking_immortals." + token)
                 : readableOrUnknown(raw);
+    }
+
+    static String canonicalRealmId(String raw) {
+        String token = normalize(raw);
+        return REALM_ALIASES.getOrDefault(token, token);
     }
 
     public static Component level(int level) {
@@ -104,6 +112,27 @@ public final class CultivationDisplayTexts {
             return unknown().getString();
         }
         return safeDisplayName(method.display(), method.id());
+    }
+
+    /** Safe player-facing name for the enum-backed life/special skill tree. */
+    public static String skillName(SkillType type) {
+        if (type == null) {
+            return unknown().getString();
+        }
+        String key = "skill.seeking_immortals." + type.name().toLowerCase(Locale.ROOT);
+        if (Language.getInstance().has(key)) {
+            return Component.translatable(key).getString();
+        }
+        String cleaned = PlayerDisplayText.sanitizeCatalogText(type.getDisplayName());
+        return cleaned.isBlank() ? unknown().getString() : cleaned;
+    }
+
+    /** Resolves a realm through the same design-id aliases used by method screens. */
+    public static String realmName(Realm realm) {
+        if (realm == null) {
+            return unknown().getString();
+        }
+        return realm(realm.getDesignId()).getString();
     }
 
     public static String sourceText(String raw) {

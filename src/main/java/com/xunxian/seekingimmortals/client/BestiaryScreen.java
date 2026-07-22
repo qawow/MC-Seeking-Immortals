@@ -1,6 +1,7 @@
 package com.xunxian.seekingimmortals.client;
 
 import com.xunxian.seekingimmortals.beast.BeastBestiaryService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
@@ -123,7 +124,8 @@ public class BestiaryScreen extends AbstractLoreScreen {
                         ImmortalUiSkin.drawListRow(graphics, layout.list().x() + 2, y,
                                 Math.max(1, layout.list().w() - 4), ROW_H - 1, rowState);
                         String label = unlocked
-                                ? ("T" + entry.tier() + " " + entry.display())
+                                ? Component.translatable("screen.seeking_immortals.bestiary.list_entry",
+                                        entry.tier(), beastDisplay(entry)).getString()
                                 : Component.translatable("screen.seeking_immortals.bestiary.locked").getString();
                         int color = unlocked ? ImmortalUiSkin.JOURNAL_PAPER : ImmortalUiSkin.JOURNAL_PAPER_MUTED;
                         ImmortalUiSkin.drawStringFit(font, graphics, label,
@@ -148,19 +150,19 @@ public class BestiaryScreen extends AbstractLoreScreen {
             if (!unlocked) {
                 lines.add(Component.translatable("screen.seeking_immortals.bestiary.locked_detail").getString());
             } else {
-                lines.add(entry.display() + " [" + entry.id() + "]");
-                lines.add("tier=" + entry.tier() + (entry.tierMax() > entry.tier() ? "-" + entry.tierMax() : "")
-                        + " threat=" + entry.threat());
-                lines.add("element=" + nullToDash(entry.element()) + " habitat=" + nullToDash(entry.habitat()));
-                lines.add("category=" + nullToDash(entry.category()));
-                lines.add("tameable=" + entry.tameable() + " true_spirit=" + entry.trueSpirit()
-                        + " companion_only=" + entry.companionOnly());
-                if (entry.regions() != null && !entry.regions().isEmpty()) {
-                    lines.add("regions=" + String.join(",", entry.regions()));
-                }
-                if (entry.drops() != null && !entry.drops().isEmpty()) {
-                    lines.add("drops=" + String.join(",", entry.drops()));
-                }
+                lines.add(beastDisplay(entry).getString());
+                String tier = entry.tierMax() > entry.tier()
+                        ? entry.tier() + "-" + entry.tierMax() : Integer.toString(entry.tier());
+                lines.add(Component.translatable("screen.seeking_immortals.bestiary.tier_threat",
+                        tier, entry.threat()).getString());
+                lines.add(Component.translatable("screen.seeking_immortals.bestiary.element_category",
+                        codeDisplay("element", entry.element()),
+                        codeDisplay("category", entry.category())).getString());
+                lines.add(Component.translatable("screen.seeking_immortals.bestiary.traits",
+                        yesNo(entry.tameable()), yesNo(entry.trueSpirit()), yesNo(entry.companionOnly())).getString());
+                lines.add(Component.translatable("screen.seeking_immortals.bestiary.catalog_counts",
+                        entry.regions() == null ? 0 : entry.regions().size(),
+                        entry.drops() == null ? 0 : entry.drops().size()).getString());
             }
         }
         renderWrappedDetail(graphics, layout.detail().x(), layout.detail().y(),
@@ -195,8 +197,21 @@ public class BestiaryScreen extends AbstractLoreScreen {
         return super.mouseScrolled(mouseX, mouseY, delta);
     }
 
-    private static String nullToDash(String value) {
-        return value == null || value.isBlank() ? "-" : value;
+    private static Component codeDisplay(String kind, String code) {
+        String normalized = PlayerDisplayText.normalizeId(code);
+        String key = "screen.seeking_immortals.bestiary." + kind + "." + normalized;
+        return PlayerDisplayText.translatedOr(key,
+                "screen.seeking_immortals.bestiary." + kind + ".unknown");
+    }
+
+    private static Component beastDisplay(BeastBestiaryService.BeastEntry entry) {
+        return PlayerDisplayText.safeLiteral(entry == null ? "" : entry.display(),
+                "text.seeking_immortals.unknown_beast");
+    }
+
+    private static Component yesNo(boolean value) {
+        return Component.translatable(value
+                ? "screen.seeking_immortals.common.yes" : "screen.seeking_immortals.common.no");
     }
 
     static int findSelectedIndex(List<BeastBestiaryService.BeastEntry> entries, String id) {

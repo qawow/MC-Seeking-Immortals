@@ -7,6 +7,7 @@ import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.catalog.ItemCatalogService;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -114,7 +115,7 @@ public final class FormationItemService {
                 consumeUse(player, stack, behavior);
                 player.displayClientMessage(Component.translatable(
                         "message.seeking_immortals.formation_item.placed",
-                        behavior.display() == null ? behavior.id() : behavior.display()), true);
+                        PlayerDisplayText.itemName(stack.getItem())), true);
                 return Optional.of(InteractionResultHolder.success(stack));
             }
         }
@@ -122,7 +123,7 @@ public final class FormationItemService {
         if (!"activate_free_field".equals(action)) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.formation_item.failed",
-                    behavior.display() == null ? behavior.id() : behavior.display()), true);
+                    PlayerDisplayText.itemName(stack.getItem())), true);
             return Optional.of(InteractionResultHolder.fail(stack));
         }
 
@@ -144,14 +145,25 @@ public final class FormationItemService {
             }
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.formation_item.activated",
-                    behavior.display() == null ? behavior.id() : behavior.display(),
-                    kind.name()), true);
+                    PlayerDisplayText.itemName(stack.getItem()),
+                    fieldKindDisplay(kind)), true);
             return Optional.of(InteractionResultHolder.success(stack));
         }
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.formation_item.failed",
-                behavior.display() == null ? behavior.id() : behavior.display()), true);
+                PlayerDisplayText.itemName(stack.getItem())), true);
         return Optional.of(InteractionResultHolder.fail(stack));
+    }
+
+    private static Component fieldKindDisplay(FormationFieldService.FieldKind kind) {
+        return switch (kind) {
+            case SPIRIT_GATHER -> Component.literal("聚灵阵域");
+            case DEFENSE -> Component.literal("护御阵域");
+            case KILL_SWORD -> Component.literal("杀剑阵域");
+            case SEAL_DEMON -> Component.literal("封魔阵域");
+            case ILLUSION_MAZE -> Component.literal("迷幻阵域");
+            case CATALOG_GENERIC -> Component.literal("通用阵域");
+        };
     }
 
     static int fieldDurationTicks(boolean fueled) {

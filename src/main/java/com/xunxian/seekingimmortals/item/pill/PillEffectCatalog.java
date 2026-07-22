@@ -5,6 +5,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
+import com.xunxian.seekingimmortals.alchemy.AlchemyDisplayTexts;
 import com.xunxian.seekingimmortals.cultivation.BeastContractService;
 import com.xunxian.seekingimmortals.cultivation.BreakthroughService;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
@@ -42,6 +43,7 @@ public final class PillEffectCatalog {
     private static final Map<String, String> PILL_ALIASES = Map.of(
             "appearance_lock_pill", "dingyan_pill",
             "beast_taming_pill_low", "beast_taming_pill",
+            "jiangying_pill", "jiangchen_pill",
             "marrow_drain_pill", "marrow_extract_pill",
             "qingxu_pill", "calm_spirit_pill"
     );
@@ -176,13 +178,17 @@ public final class PillEffectCatalog {
             }
         }
 
-        BreakthroughService.HandBreakthroughAidResult aidResult =
-                BreakthroughService.tryApplyHandConsumedBreakthroughAid(player, cultivation, stack, true);
-        if (aidResult == BreakthroughService.HandBreakthroughAidResult.APPLIED) {
-            return true;
-        }
-        if (aidResult == BreakthroughService.HandBreakthroughAidResult.BLOCKED) {
-            return false;
+        // Jiangchen Pill has its own lower-grade breakthrough profile. Letting the generic
+        // hand-aid path claim it first would make it identical to a low Foundation Pill.
+        if (!"jiangchen_breakthrough_aid".equals(entry.effect())) {
+            BreakthroughService.HandBreakthroughAidResult aidResult =
+                    BreakthroughService.tryApplyHandConsumedBreakthroughAid(player, cultivation, stack, true);
+            if (aidResult == BreakthroughService.HandBreakthroughAidResult.APPLIED) {
+                return true;
+            }
+            if (aidResult == BreakthroughService.HandBreakthroughAidResult.BLOCKED) {
+                return false;
+            }
         }
 
         double multiplier = quality.getEffectMultiplier() * cultivation.getPillAbsorptionMultiplier();
@@ -300,14 +306,26 @@ public final class PillEffectCatalog {
                 addDivineConsciousness(cultivation, scale(8, multiplier));
                 yield true;
             }
-            case "cultivation_speed_1h", "cultivation_speed_tianyuan", "blood_cultivation_boost" -> {
+            case "cultivation_speed_1h" -> {
                 cultivation.addCultivationBoost(scaleTicks(72000, multiplier), 1.0D + 0.25D * multiplier);
                 cultivation.addCultivationExp(scale(60, multiplier));
-                if ("blood_cultivation_boost".equals(effect)) {
-                    cultivation.addQiDeviationRisk(3);
-                }
                 yield true;
             }
+            case "cultivation_speed_tianyuan" -> {
+                cultivation.addCultivationBoost(scaleTicks(108000, multiplier), 1.0D + 0.45D * multiplier);
+                cultivation.addCultivationExp(scale(180, multiplier));
+                addSpiritualPower(cultivation, scale(80, multiplier));
+                addDivineConsciousness(cultivation, scale(6, multiplier));
+                yield true;
+            }
+            case "blood_cultivation_boost" -> {
+                cultivation.addCultivationBoost(scaleTicks(72000, multiplier), 1.0D + 0.25D * multiplier);
+                cultivation.addCultivationExp(scale(60, multiplier));
+                cultivation.addQiDeviationRisk(3);
+                yield true;
+            }
+            case "jiangchen_breakthrough_aid" ->
+                    applyJiangchenBreakthroughAid(player, cultivation, quality);
             case "foundation_breakthrough_bonus", "stabilize_foundation" ->
                     applyTargetedBreakthrough(player, cultivation, entry, quality, false);
             case "dual_cultivation_compatible", "dual_cultivation_bonus", "demonic_dual_cultivation" -> {
@@ -402,7 +420,6 @@ public final class PillEffectCatalog {
             case "yuan_gathering" -> applyYuanGathering(player, cultivation, multiplier);
             case "dragon_tiger_temper" -> applyDragonTigerTemper(player, cultivation, multiplier);
             case "spirit_gather_tonic" -> applySpiritGatherTonic(player, cultivation, entry, multiplier);
-            case "dustfall_calm" -> applyDustfallCalm(player, cultivation, multiplier);
             case "yin_yang_balance" -> applyYinYangBalance(player, cultivation, multiplier);
             case "spirit_seed_growth" -> applySpiritSeedGrowth(player, cultivation, multiplier);
             case "star_sea_voyage" -> applyStarSeaVoyage(player, cultivation, multiplier);
@@ -411,7 +428,8 @@ public final class PillEffectCatalog {
             default -> {
                 SeekingImmortalsMod.LOGGER.error("Unsupported pill effect {} for {}", effect, entry.pillId());
                 player.displayClientMessage(Component.translatable(
-                        "message.seeking_immortals.catalog_pill.effect_unavailable", entry.display()), true);
+                        "message.seeking_immortals.catalog_pill.effect_unavailable",
+                        AlchemyDisplayTexts.recipe(entry.pillId())), true);
                 yield false;
             }
         };
@@ -537,6 +555,23 @@ public final class PillEffectCatalog {
         if (tribulationAid) {
             cultivation.addTribulationResistance(quality.getBreakthroughBonusPercent());
         }
+        return true;
+    }
+
+    private static boolean applyJiangchenBreakthroughAid(ServerPlayer player, PlayerCultivation cultivation,
+                                                          PillQuality quality) {
+        if (!cultivation.isAtBreakthroughCap()) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.catalog_pill.not_at_breakthrough"), true);
+            return false;
+        }
+        if (cultivation.isBreakthroughAssisted()) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.catalog_pill.breakthrough_exists"), true);
+            return false;
+        }
+        // A low Jiangchen Pill is a 3% aid; formal Foundation Pills start at 5%.
+        cultivation.setBreakthroughPillBonus(quality.getBreakthroughBonus() * 0.60D);
         return true;
     }
 
@@ -666,13 +701,6 @@ public final class PillEffectCatalog {
         cultivation.addCultivationExp(scale(base / 2, multiplier));
         cultivation.addCultivationBoost(scaleTicks(9000, multiplier), 1.0D + 0.12D * multiplier);
         return true;
-    }
-
-    private static boolean applyDustfallCalm(ServerPlayer player, PlayerCultivation cultivation, double multiplier) {
-        boolean changed = applyHeartDemonRelief(player, cultivation, multiplier * 0.75D, false);
-        changed |= removeEffects(player, MobEffects.CONFUSION, MobEffects.BLINDNESS);
-        changed |= addSpiritualPower(cultivation, scale(20, multiplier));
-        return changed || true;
     }
 
     private static boolean applyYinYangBalance(ServerPlayer player, PlayerCultivation cultivation, double multiplier) {
@@ -895,7 +923,6 @@ public final class PillEffectCatalog {
             case "juyuan_pill" -> "yuan_gathering";
             case "longhu_pill" -> "dragon_tiger_temper";
             case "spirit_condense_minor", "spirit_condense_pill", "juling_pill" -> "spirit_gather_tonic";
-            case "jiangying_pill" -> "dustfall_calm";
             case "yin_yang_pill" -> "yin_yang_balance";
             case "spirit_seed_pill" -> "spirit_seed_growth";
             case "star_sea_pill" -> "star_sea_voyage";

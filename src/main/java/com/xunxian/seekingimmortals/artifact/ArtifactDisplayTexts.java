@@ -17,7 +17,10 @@ public final class ArtifactDisplayTexts {
 
     public static Component realm(String realmCode) {
         String original = safe(realmCode);
-        String key = "realm.seeking_immortals." + original.toLowerCase(Locale.ROOT);
+        Realm resolved = Realm.fromDesignId(original);
+        String token = resolved == null ? original.toLowerCase(Locale.ROOT)
+                : resolved.name().toLowerCase(Locale.ROOT);
+        String key = "realm.seeking_immortals." + token;
         if (hasKey(key)) {
             return Component.translatable(key);
         }
@@ -30,7 +33,7 @@ public final class ArtifactDisplayTexts {
         if (hasKey(key)) {
             return Component.translatable(key);
         }
-        return Component.literal(humanize(code));
+        return unknownLabel();
     }
 
     public static Component tag(String tagCode) {
@@ -39,7 +42,7 @@ public final class ArtifactDisplayTexts {
         if (hasKey(key)) {
             return Component.translatable(key);
         }
-        return Component.literal(humanize(code));
+        return unknownLabel();
     }
 
     public static Component effect(String effectCode) {
@@ -51,7 +54,7 @@ public final class ArtifactDisplayTexts {
         if (hasKey(key)) {
             return Component.translatable(key);
         }
-        return Component.literal(humanize(code));
+        return Component.literal("未知效果");
     }
 
     public static Component tagsJoined(List<String> tags) {
@@ -108,46 +111,18 @@ public final class ArtifactDisplayTexts {
         if (code.isEmpty()) {
             return "未知";
         }
-        try {
-            return Realm.valueOf(code).getDisplayName();
-        } catch (IllegalArgumentException ignored) {
-            // fall through to design-id / alias mapping
-        }
-        for (Realm realm : Realm.values()) {
-            if (code.equalsIgnoreCase(realm.getDesignId()) || code.equalsIgnoreCase(realm.name())) {
-                return realm.getDisplayName();
-            }
-        }
-        return switch (code) {
-            case "FOUNDATION" -> Realm.FOUNDATION_ESTABLISHMENT.getDisplayName();
-            case "DEITY_TRANSFORMATION", "SPIRIT_TRANSFORMATION", "SOUL_TRANSFORMATION" ->
-                    Realm.SOUL_TRANSFORMATION.getDisplayName();
-            case "GREAT_VEHICLE", "MAHAYANA" -> Realm.MAHAYANA.getDisplayName();
-            case "SPIRIT_SEVERING" -> Realm.UNITY.getDisplayName();
-            case "VOID_REFINING", "VOID_REFINEMENT" -> Realm.VOID_REFINEMENT.getDisplayName();
-            default -> humanize(code.toLowerCase(Locale.ROOT));
-        };
+        Realm realm = Realm.fromDesignId(code);
+        return realm == null ? "未知境界" : realm.getDisplayName();
+    }
+
+    /** Never expose an authored snake_case id when a translation key is missing. */
+    private static Component unknownLabel() {
+        String key = "artifact.type.seeking_immortals.unknown";
+        return hasKey(key) ? Component.translatable(key) : Component.literal("未知");
     }
 
     private static String safe(String raw) {
         return raw == null ? "" : raw.trim();
     }
 
-    private static String humanize(String code) {
-        if (code == null || code.isBlank()) {
-            return "";
-        }
-        String[] parts = code.toLowerCase(Locale.ROOT).split("[_\\-]+");
-        StringBuilder sb = new StringBuilder();
-        for (String part : parts) {
-            if (part.isBlank()) {
-                continue;
-            }
-            if (sb.length() > 0) {
-                sb.append(' ');
-            }
-            sb.append(part);
-        }
-        return sb.toString();
-    }
 }

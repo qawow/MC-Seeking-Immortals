@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.catalog.FactionQuestCatalogService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -84,7 +85,8 @@ public final class TimelineChronicleService {
                 .findFirst();
         if (phase.isEmpty()) {
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.timeline.unknown", phaseId), false);
+                    "message.seeking_immortals.timeline.unknown",
+                    Component.translatable("text.seeking_immortals.unknown_phase")), false);
             return false;
         }
         CompoundTag root = player.getPersistentData().getCompound(TIMELINE_TAG).copy();
@@ -95,7 +97,9 @@ public final class TimelineChronicleService {
         root.putBoolean(key, true);
         player.getPersistentData().put(TIMELINE_TAG, root);
         player.displayClientMessage(Component.translatable(
-                "message.seeking_immortals.timeline.unlocked", phase.get().phase()), true);
+                "message.seeking_immortals.timeline.unlocked",
+                PlayerDisplayText.safeLiteral(phase.get().phase(),
+                        "text.seeking_immortals.unknown_phase")), true);
         return true;
     }
 

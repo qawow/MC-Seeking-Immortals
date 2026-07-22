@@ -570,7 +570,7 @@
       "secret_realm": "seven_meridian_cave",
       "drops": [
         {"item": "sect_contribution_token", "chance": 0.55, "count": [1, 3]},
-        {"item": "qi_recovery_pill", "chance": 0.42, "count": [1, 2]},
+        {"item": "spirit_recovery_pill", "chance": 0.42, "count": [1, 2]},
         {"item": "foundation_building_pill_low", "chance": 0.12, "count": 1},
         {"item": "jade_slip_blank", "chance": 0.20, "count": 1}
       ]

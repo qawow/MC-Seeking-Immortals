@@ -8,6 +8,7 @@ import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.cultivation.Realm;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -121,7 +122,8 @@ public final class ArtifactRefinementService {
         ArtifactDataService.RefinementRecipe recipe = snapshot.findRecipe(recipeId).orElse(null);
         if (recipe == null) {
             player.sendSystemMessage(Component.translatable(
-                    "message.seeking_immortals.artifact.refine.unknown_recipe", recipeId));
+                    "message.seeking_immortals.artifact.refine.unknown_recipe",
+                    Component.translatable("text.seeking_immortals.unknown_formula")));
             return false;
         }
 
@@ -136,7 +138,7 @@ public final class ArtifactRefinementService {
         if (cultivation.getRealm().ordinal() < requiredRealm.ordinal()) {
             player.sendSystemMessage(Component.translatable(
                     "message.seeking_immortals.artifact.refine.realm_too_low",
-                    recipe.display(), requiredRealm.getDisplayName()));
+                    recipeDisplay(recipe), requiredRealm.getDisplayName()));
             return false;
         }
 
@@ -147,7 +149,7 @@ public final class ArtifactRefinementService {
         if (grade < requiredGrade) {
             player.sendSystemMessage(Component.translatable(
                     "message.seeking_immortals.artifact.refine.forge_too_low",
-                    recipe.display(), requiredGrade, grade));
+                    recipeDisplay(recipe), requiredGrade, grade));
             return false;
         }
 
@@ -155,7 +157,7 @@ public final class ArtifactRefinementService {
         if (!plan.missingMappings().isEmpty()) {
             player.sendSystemMessage(Component.translatable(
                     "message.seeking_immortals.artifact.refine.missing_mapping",
-                    recipe.id(), String.join(", ", plan.missingMappings())));
+                    recipeDisplay(recipe), Component.translatable("text.seeking_immortals.unknown_item")));
             return false;
         }
 
@@ -163,7 +165,7 @@ public final class ArtifactRefinementService {
         if (outputItem == null) {
             player.sendSystemMessage(Component.translatable(
                     "message.seeking_immortals.artifact.refine.bad_item",
-                    recipe.artifactId(), plan.outputItemId()));
+                    recipeDisplay(recipe), PlayerDisplayText.itemName(plan.outputItemId())));
             return false;
         }
 
@@ -173,7 +175,7 @@ public final class ArtifactRefinementService {
             if (item == null) {
                 player.sendSystemMessage(Component.translatable(
                         "message.seeking_immortals.artifact.refine.bad_item",
-                        material.sourceId(), material.itemId()));
+                        recipeDisplay(recipe), PlayerDisplayText.itemName(material.itemId())));
                 return false;
             }
             ingredients.add(new ResolvedIngredient(material, item));
@@ -183,7 +185,7 @@ public final class ArtifactRefinementService {
         if (!missing.isEmpty()) {
             player.sendSystemMessage(Component.translatable(
                     "message.seeking_immortals.artifact.refine.not_enough_materials",
-                    recipe.display(), missingRequirementSummary(missing)));
+                    recipeDisplay(recipe), missingRequirementSummary(missing)));
             return false;
         }
 
@@ -224,7 +226,7 @@ public final class ArtifactRefinementService {
                     com.xunxian.seekingimmortals.skill.SkillType.ARTIFACT_REFINING, 28, 12);
             player.sendSystemMessage(Component.translatable(
                     "message.seeking_immortals.artifact.refine.success",
-                    recipe.display(), outputName, successPercent(adjustedRate)));
+                    recipeDisplay(recipe), outputName, successPercent(adjustedRate)));
             return true;
         }
 
@@ -235,8 +237,20 @@ public final class ArtifactRefinementService {
         List<ItemStack> failureLoot = grantFailureLoot(player, recipe, grade, requiredGrade);
         player.sendSystemMessage(Component.translatable(
                 "message.seeking_immortals.artifact.refine.failure",
-                recipe.display(), successPercent(adjustedRate), failureLootSummary(failureLoot)));
+                recipeDisplay(recipe), successPercent(adjustedRate), failureLootSummary(failureLoot)));
         return false;
+    }
+
+    private static Component recipeDisplay(ArtifactDataService.RefinementRecipe recipe) {
+        if (recipe == null) {
+            return Component.translatable("text.seeking_immortals.unknown_formula");
+        }
+        String id = PlayerDisplayText.normalizeId(recipe.id());
+        String itemKey = "item.seeking_immortals." + id;
+        if (!id.isBlank() && PlayerDisplayText.hasTranslation(itemKey)) {
+            return Component.translatable(itemKey);
+        }
+        return PlayerDisplayText.safeLiteral(recipe.display(), "text.seeking_immortals.unknown_formula");
     }
 
     public static double adjustedSuccessRate(double baseRate, int forgeGrade, int requiredGrade) {

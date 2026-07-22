@@ -7,6 +7,7 @@ import com.xunxian.seekingimmortals.cultivation.Realm;
 import com.xunxian.seekingimmortals.cultivation.SpiritualRootAttribute;
 import com.xunxian.seekingimmortals.item.ItemUsageGateService;
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -353,9 +354,14 @@ public class CatalogPillItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, Level level, List<Component> tooltip, TooltipFlag flag) {
-        tooltip.add(Component.translatable("tooltip.seeking_immortals.catalog_pill.quality." + quality.designId())
+        tooltip.add(PlayerDisplayText.translatedOr(
+                        "tooltip.seeking_immortals.catalog_pill.quality." + quality.designId(),
+                        "tooltip.seeking_immortals.catalog_pill.quality.unknown").copy()
                 .withStyle(style -> style.withColor(quality.getColor())));
-        tooltip.add(Component.translatable("tooltip.seeking_immortals.catalog_pill." + type.id()).withStyle(ChatFormatting.GRAY));
+        tooltip.add(PlayerDisplayText.translatedOr(
+                        "tooltip.seeking_immortals.catalog_pill." + type.id(),
+                        "tooltip.seeking_immortals.catalog_pill.unknown").copy()
+                .withStyle(ChatFormatting.GRAY));
 
         // 使用 ItemUsageGateService 显示境界要求
         ItemUsageGateService.ItemRequirement requirement = ItemUsageGateService.ItemRequirement.realm(type.minRealm());

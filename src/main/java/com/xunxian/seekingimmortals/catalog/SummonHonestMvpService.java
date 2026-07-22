@@ -7,6 +7,7 @@ import com.xunxian.seekingimmortals.beast.PuppetGrowthService;
 import com.xunxian.seekingimmortals.entity.SummonedServitorEntity;
 import com.xunxian.seekingimmortals.registry.ModEntities;
 import com.xunxian.seekingimmortals.registry.ModItems;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import com.xunxian.seekingimmortals.worldpack.ServitorRegistrySavedData;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
@@ -110,7 +111,8 @@ public final class SummonHonestMvpService {
                 }
                 if (!BeastContractService.hasContract(player, beastId)) {
                     player.displayClientMessage(Component.translatable(
-                            "message.seeking_immortals.summon.beast_contract_required", beastId), true);
+                            "message.seeking_immortals.summon.beast_contract_required",
+                            summonDisplay(beastId, Optional.empty(), SummonedServitorEntity.Archetype.BEAST)), true);
                     return;
                 }
                 // Prefer contract-scaled summon when possible.
@@ -131,11 +133,11 @@ public final class SummonHonestMvpService {
             player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, Math.min(duration, 100), Math.min(1, amp)));
 
             boolean spawned = spawnConfigured(player, id, duration, health, damage, archetype);
-            String display = puppet.map(LoreCatalogService.Entry::display).filter(s -> !s.isBlank()).orElse(id);
+            Component display = summonDisplay(id, puppet, archetype);
             if (spawned) {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.summon.entity_spawned", display), true);
                 player.displayClientMessage(Component.translatable(
-                        "message.seeking_immortals.summon.archetype", archetype.name().toLowerCase(Locale.ROOT)), false);
+                        "message.seeking_immortals.summon.archetype", archetypeDisplay(archetype)), false);
             } else {
                 player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, duration, amp));
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.summon.honest_mvp", display), true);
@@ -209,7 +211,7 @@ public final class SummonHonestMvpService {
         if (count > 0) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.summon.stance_all",
-                    stance.name().toLowerCase(Locale.ROOT), count), true);
+                    stanceDisplay(stance), count), true);
         }
         return count;
     }
@@ -387,7 +389,8 @@ public final class SummonHonestMvpService {
             var growth = PuppetGrowthService.progress(player, summonId);
             servitor.setCustomName(Component.translatable(
                     "entity.seeking_immortals.summoned_servitor.growth_name",
-                    summonId, growth.level(), growth.evolutionStage()));
+                    summonDisplay(summonId, findPuppet(summonId), archetype),
+                    growth.level(), growth.evolutionStage()));
         }
         servitor.setCrafted(crafted || archetype == SummonedServitorEntity.Archetype.PUPPET && summonId.startsWith("puppet_"));
         boolean added = level.addFreshEntity(servitor);
@@ -400,6 +403,38 @@ public final class SummonHonestMvpService {
                     countOwnedServitors(player), MAX_ACTIVE_SERVITORS), false);
         }
         return added;
+    }
+
+    private static Component summonDisplay(String id, Optional<LoreCatalogService.Entry> entry,
+                                            SummonedServitorEntity.Archetype archetype) {
+        String normalized = PlayerDisplayText.normalizeId(id);
+        String itemKey = "item.seeking_immortals." + normalized;
+        if (!normalized.isBlank() && PlayerDisplayText.hasTranslation(itemKey)) {
+            return Component.translatable(itemKey);
+        }
+        return entry.filter(value -> PlayerDisplayText.isSafe(value.display()))
+                .<Component>map(value -> Component.literal(value.display().trim()))
+                .orElseGet(() -> archetypeDisplay(archetype));
+    }
+
+    private static Component archetypeDisplay(SummonedServitorEntity.Archetype archetype) {
+        String suffix = switch (archetype == null ? SummonedServitorEntity.Archetype.GENERIC : archetype) {
+            case BEAST -> "beast";
+            case PUPPET -> "puppet";
+            case GHOST -> "ghost";
+            case GENERIC -> "generic";
+        };
+        return Component.translatable("message.seeking_immortals.summon.archetype." + suffix);
+    }
+
+    private static Component stanceDisplay(SummonedServitorEntity.Stance stance) {
+        String suffix = switch (stance == null ? SummonedServitorEntity.Stance.FOLLOW : stance) {
+            case FOLLOW -> "follow";
+            case GUARD -> "guard";
+            case AGGRESSIVE -> "aggressive";
+            case STAY -> "stay";
+        };
+        return Component.translatable("message.seeking_immortals.summon.stance." + suffix);
     }
 
     private static boolean puppetCoreForgeReady(ServerPlayer player) {

@@ -8,6 +8,7 @@ import com.xunxian.seekingimmortals.artifact.NatalBindingService;
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
 import com.xunxian.seekingimmortals.catalog.FlightVehicleService;
 import com.xunxian.seekingimmortals.structure.FormationFieldService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -874,8 +875,7 @@ public final class ArtifactActivationService {
                         first
                                 ? "message.seeking_immortals.artifact.binds_quest_unlock"
                                 : "message.seeking_immortals.artifact.binds_quest_known",
-                        artifact.display() == null || artifact.display().isBlank() ? artifact.id() : artifact.display(),
-                        key), true);
+                        artifactDisplay(artifact), bindDisplay(key)), true);
                 yield true;
             }
         };
@@ -997,7 +997,7 @@ public final class ArtifactActivationService {
             }
             // Fail soft to legacy mobility burst so activation SP cost is not wasted on unknown binds.
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.artifact.binds_vehicle_fallback", binds), true);
+                    "message.seeking_immortals.artifact.binds_vehicle_fallback", vehicleDisplay(binds)), true);
         }
         int duration = 240 + gameTier * 28;
         player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, duration, gameTier >= 7 ? 2 : 1, false, true));
@@ -1206,6 +1206,44 @@ public final class ArtifactActivationService {
                 18, 0.45D, 0.55D, 0.45D, 0.03D);
         level.playSound(null, player.blockPosition(), SoundEvents.AMETHYST_BLOCK_CHIME,
                 SoundSource.PLAYERS, 0.55F, 1.45F);
+    }
+
+    private static Component artifactDisplay(ArtifactDataService.ArtifactDefinition artifact) {
+        if (artifact == null) {
+            return Component.literal("未知法宝");
+        }
+        String id = PlayerDisplayText.normalizeId(artifact.id());
+        String itemKey = "item.seeking_immortals." + id;
+        if (!id.isBlank() && PlayerDisplayText.hasTranslation(itemKey)) {
+            return Component.translatable(itemKey);
+        }
+        if (PlayerDisplayText.isSafe(artifact.display())) {
+            return Component.literal(artifact.display().trim());
+        }
+        return Component.literal("未知法宝");
+    }
+
+    private static Component bindDisplay(String bindId) {
+        return switch (bindId == null ? "" : bindId.trim().toLowerCase(Locale.ROOT)) {
+            case "void_palace" -> Component.literal("虚天殿见闻");
+            case "blood_forbidden_side", "blood_forbidden", "blood_forbidden_land" ->
+                    Component.literal("血色禁地见闻");
+            case "great_jin_auction", "great_jin", "auction" -> Component.literal("大晋坊市见闻");
+            default -> Component.literal("特殊见闻");
+        };
+    }
+
+    private static Component vehicleDisplay(String bindId) {
+        return switch (resolveVehicleBind(bindId)) {
+            case "spirit_boat_low", "spirit_boat_mid", "spirit_boat_chaotic_sea" ->
+                    Component.literal("灵舟");
+            case "cloud_sedan" -> Component.literal("云轿");
+            case "bone_wind_cart_vehicle" -> Component.literal("御风车");
+            case "wind_feather_raft" -> Component.literal("风羽筏");
+            case "chaotic_sea_ferry" -> Component.literal("乱星海渡船");
+            case "teleport_array_ticket" -> Component.literal("传送阵令牌");
+            default -> Component.literal("未知载具");
+        };
     }
 
     private static void setIntegrity(ItemStack stack, int value, int max) {

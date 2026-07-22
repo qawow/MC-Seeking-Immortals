@@ -57,7 +57,8 @@ class JeiRecipeCoverageResourceTest {
             }
         }
 
-        assertEquals(129, alchemyIds.size());
+        // The three removed generic pill recipes must not re-enter the packaged JEI corpus.
+        assertEquals(126, alchemyIds.size());
         assertEquals(alchemyIds, manifestIds,
                 "The client JEI packaged manifest must match every authoritative alchemy recipe file");
         assertEquals(73, ArtifactDataService.builtin().refinementRecipes().size());

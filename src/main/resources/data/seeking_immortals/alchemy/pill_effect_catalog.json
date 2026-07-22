@@ -223,7 +223,7 @@
       "pill_id": "jiangchen_pill",
       "display": "降尘丹",
       "category": "breakthrough",
-      "effect": "foundation_breakthrough_bonus",
+      "effect": "jiangchen_breakthrough_aid",
       "realm_min": "QI_REFINING",
       "item": "seeking_immortals:jiangchen_pill"
     },
@@ -389,7 +389,7 @@
     },
     {
       "pill_id": "spirit_recovery_pill_high",
-      "display": "回灵丹（中）",
+      "display": "回灵丹（上品）",
       "category": "cultivation",
       "effect": "restore_mana",
       "realm_min": "FOUNDATION_ESTABLISHMENT",
@@ -602,14 +602,6 @@
       "effect": "generic_cultivation",
       "realm_min": "QI_REFINING",
       "item": "seeking_immortals:anti_poison_pill"
-    },
-    {
-      "pill_id": "jiangying_pill",
-      "display": "降尘丹",
-      "category": "cultivation",
-      "effect": "generic_cultivation",
-      "realm_min": "QI_REFINING",
-      "item": "seeking_immortals:jiangying_pill"
     },
     {
       "pill_id": "xiyu_pill",
@@ -853,7 +845,7 @@
     },
     {
       "pill_id": "cultivation_aid_qi_refining",
-      "display": "QI_REFINING辅修丹（通称）",
+      "display": "炼气辅修丹（通称）",
       "category": "cultivation",
       "effect": "generic_cultivation",
       "realm_min": "QI_REFINING",
@@ -861,7 +853,7 @@
     },
     {
       "pill_id": "cultivation_aid_foundation",
-      "display": "FOUNDATION辅修丹（通称）",
+      "display": "筑基辅修丹（通称）",
       "category": "cultivation",
       "effect": "generic_cultivation",
       "realm_min": "QI_REFINING",
@@ -869,7 +861,7 @@
     },
     {
       "pill_id": "cultivation_aid_core_formation",
-      "display": "CORE_FORMATION辅修丹（通称）",
+      "display": "结丹辅修丹（通称）",
       "category": "cultivation",
       "effect": "generic_cultivation",
       "realm_min": "QI_REFINING",
@@ -877,7 +869,7 @@
     },
     {
       "pill_id": "cultivation_aid_nascent_soul",
-      "display": "NASCENT_SOUL辅修丹（通称）",
+      "display": "元婴辅修丹（通称）",
       "category": "cultivation",
       "effect": "generic_cultivation",
       "realm_min": "QI_REFINING",
@@ -885,7 +877,7 @@
     },
     {
       "pill_id": "cultivation_aid_deity_transformation",
-      "display": "DEITY_TRANSFORMATION辅修丹（通称）",
+      "display": "化神辅修丹（通称）",
       "category": "cultivation",
       "effect": "generic_cultivation",
       "realm_min": "QI_REFINING",
@@ -893,7 +885,7 @@
     },
     {
       "pill_id": "cultivation_aid_void_refining",
-      "display": "VOID_REFINING辅修丹（通称）",
+      "display": "炼虚辅修丹（通称）",
       "category": "cultivation",
       "effect": "generic_cultivation",
       "realm_min": "QI_REFINING",
@@ -901,7 +893,7 @@
     },
     {
       "pill_id": "cultivation_aid_great_vehicle",
-      "display": "GREAT_VEHICLE辅修丹（通称）",
+      "display": "大乘辅修丹（通称）",
       "category": "cultivation",
       "effect": "generic_cultivation",
       "realm_min": "QI_REFINING",
@@ -909,7 +901,7 @@
     },
     {
       "pill_id": "cultivation_aid_spirit_severing",
-      "display": "SPIRIT_SEVERING辅修丹（通称）",
+      "display": "化神辅修丹（通称）",
       "category": "cultivation",
       "effect": "generic_cultivation",
       "realm_min": "QI_REFINING",

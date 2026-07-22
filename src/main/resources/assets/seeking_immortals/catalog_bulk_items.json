@@ -917,49 +917,49 @@
       "id": "cultivation_aid_core_formation",
       "category": "pill",
       "rarity": "uncommon",
-      "description": "目录载体：CORE_FORMATION辅修丹（通称）"
+      "description": "目录载体：结丹辅修丹（通称）"
     },
     {
       "id": "cultivation_aid_deity_transformation",
       "category": "pill",
       "rarity": "uncommon",
-      "description": "目录载体：DEITY_TRANSFORMATION辅修丹（通称）"
+      "description": "目录载体：化神辅修丹（通称）"
     },
     {
       "id": "cultivation_aid_foundation",
       "category": "pill",
       "rarity": "uncommon",
-      "description": "目录载体：FOUNDATION辅修丹（通称）"
+      "description": "目录载体：筑基辅修丹（通称）"
     },
     {
       "id": "cultivation_aid_great_vehicle",
       "category": "pill",
       "rarity": "epic",
-      "description": "目录载体：GREAT_VEHICLE辅修丹（通称）"
+      "description": "目录载体：大乘辅修丹（通称）"
     },
     {
       "id": "cultivation_aid_nascent_soul",
       "category": "pill",
       "rarity": "uncommon",
-      "description": "目录载体：NASCENT_SOUL辅修丹（通称）"
+      "description": "目录载体：元婴辅修丹（通称）"
     },
     {
       "id": "cultivation_aid_qi_refining",
       "category": "pill",
       "rarity": "uncommon",
-      "description": "目录载体：QI_REFINING辅修丹（通称）"
+      "description": "目录载体：炼气辅修丹（通称）"
     },
     {
       "id": "cultivation_aid_spirit_severing",
       "category": "pill",
       "rarity": "uncommon",
-      "description": "目录载体：SPIRIT_SEVERING辅修丹（通称）"
+      "description": "目录载体：合体辅修丹（通称）"
     },
     {
       "id": "cultivation_aid_void_refining",
       "category": "pill",
       "rarity": "uncommon",
-      "description": "目录载体：VOID_REFINING辅修丹（通称）"
+      "description": "目录载体：炼虚辅修丹（通称）"
     },
     {
       "id": "demon_expel_pill",
@@ -1137,12 +1137,6 @@
     },
     {
       "id": "jiangchen_pill",
-      "category": "pill",
-      "rarity": "uncommon",
-      "description": "目录载体：降尘丹"
-    },
-    {
-      "id": "jiangying_pill",
       "category": "pill",
       "rarity": "uncommon",
       "description": "目录载体：降尘丹"
@@ -1643,7 +1637,7 @@
       "id": "spirit_recovery_pill_high",
       "category": "pill",
       "rarity": "uncommon",
-      "description": "目录载体：回灵丹（中）"
+      "description": "目录载体：回灵丹（上品）"
     },
     {
       "id": "spirit_seed_pill",
@@ -5239,1387 +5233,1387 @@
       "id": "altar_stone",
       "category": "material",
       "rarity": "uncommon",
-      "description": "契坛石。多方块建造材料（v135 对齐）。"
+      "description": "契坛石。多方块建造材料。"
     },
     {
       "id": "anchor_spike",
       "category": "material",
       "rarity": "uncommon",
-      "description": "界域锚定针。多方块建造材料（v135 对齐）。"
+      "description": "界域锚定针。多方块建造材料。"
     },
     {
       "id": "ancient_stone",
       "category": "material",
       "rarity": "common",
-      "description": "古殿石。多方块建造材料（v135 对齐）。"
+      "description": "古殿石。多方块建造材料。"
     },
     {
       "id": "anti_theft_port",
       "category": "material",
       "rarity": "uncommon",
-      "description": "防盗杀阵接口。多方块建造材料（v135 对齐）。"
+      "description": "防盗杀阵接口。多方块建造材料。"
     },
     {
       "id": "array_disk_basic",
       "category": "material",
       "rarity": "uncommon",
-      "description": "基础阵盘。多方块建造材料（v135 对齐）。"
+      "description": "基础阵盘。多方块建造材料。"
     },
     {
       "id": "array_etch",
       "category": "material",
       "rarity": "uncommon",
-      "description": "炼器阵纹刻录。多方块建造材料（v135 对齐）。"
+      "description": "炼器阵纹刻录。多方块建造材料。"
     },
     {
       "id": "array_flag",
       "category": "material",
       "rarity": "uncommon",
-      "description": "阵旗。多方块建造材料（v135 对齐）。"
+      "description": "阵旗。多方块建造材料。"
     },
     {
       "id": "array_flag_large",
       "category": "material",
       "rarity": "uncommon",
-      "description": "大阵旗。多方块建造材料（v135 对齐）。"
+      "description": "大阵旗。多方块建造材料。"
     },
     {
       "id": "array_kit",
       "category": "material",
       "rarity": "uncommon",
-      "description": "禁制包。多方块建造材料（v135 对齐）。"
+      "description": "禁制包。多方块建造材料。"
     },
     {
       "id": "arrow_wall",
       "category": "material",
       "rarity": "uncommon",
-      "description": "箭壁模块。多方块建造材料（v135 对齐）。"
+      "description": "箭壁模块。多方块建造材料。"
     },
     {
       "id": "auth_etch",
       "category": "material",
       "rarity": "uncommon",
-      "description": "鉴钥纹。多方块建造材料（v135 对齐）。"
+      "description": "鉴钥纹。多方块建造材料。"
     },
     {
       "id": "bamboo_slip",
       "category": "material",
       "rarity": "common",
-      "description": "竹简。多方块建造材料（v135 对齐）。"
+      "description": "竹简。多方块建造材料。"
     },
     {
       "id": "banner_pole",
       "category": "material",
       "rarity": "uncommon",
-      "description": "幡杆。多方块建造材料（v135 对齐）。"
+      "description": "幡杆。多方块建造材料。"
     },
     {
       "id": "barrier_kit",
       "category": "material",
       "rarity": "uncommon",
-      "description": "禁制光幕组件。多方块建造材料（v135 对齐）。"
+      "description": "禁制光幕组件。多方块建造材料。"
     },
     {
       "id": "battlement",
       "category": "material",
       "rarity": "uncommon",
-      "description": "箭垛。多方块建造材料（v135 对齐）。"
+      "description": "箭垛。多方块建造材料。"
     },
     {
       "id": "bay_stone",
       "category": "material",
       "rarity": "common",
-      "description": "台石。多方块建造材料（v135 对齐）。"
+      "description": "台石。多方块建造材料。"
     },
     {
       "id": "beast_gate",
       "category": "material",
       "rarity": "uncommon",
-      "description": "兽闸。多方块建造材料（v135 对齐）。"
+      "description": "兽闸。多方块建造材料。"
     },
     {
       "id": "bell_tassel",
       "category": "material",
       "rarity": "uncommon",
-      "description": "旗角小铃。多方块建造材料（v135 对齐）。"
+      "description": "旗角小铃。多方块建造材料。"
     },
     {
       "id": "bellows",
       "category": "material",
       "rarity": "uncommon",
-      "description": "风箱。多方块建造材料（v135 对齐）。"
+      "description": "风箱。多方块建造材料。"
     },
     {
       "id": "bid_voice_array",
       "category": "material",
       "rarity": "uncommon",
-      "description": "出价声纹阵。多方块建造材料（v135 对齐）。"
+      "description": "出价声纹阵。多方块建造材料。"
     },
     {
       "id": "black_iron",
       "category": "material",
       "rarity": "uncommon",
-      "description": "玄铁。多方块建造材料（v135 对齐）。"
+      "description": "玄铁。多方块建造材料。"
     },
     {
       "id": "black_jade_slab",
       "category": "material",
       "rarity": "uncommon",
-      "description": "黑玉案面。多方块建造材料（v135 对齐）。"
+      "description": "黑玉案面。多方块建造材料。"
     },
     {
       "id": "black_stone",
       "category": "material",
       "rarity": "common",
-      "description": "黑石。多方块建造材料（v135 对齐）。"
+      "description": "黑石。多方块建造材料。"
     },
     {
       "id": "blood_groove_liner",
       "category": "material",
       "rarity": "common",
-      "description": "血契凹槽衬。多方块建造材料（v135 对齐）。"
+      "description": "血契凹槽衬。多方块建造材料。"
     },
     {
       "id": "blood_sand",
       "category": "material",
       "rarity": "common",
-      "description": "血砂。多方块建造材料（v135 对齐）。"
+      "description": "血砂。多方块建造材料。"
     },
     {
       "id": "blood_seal_slot",
       "category": "material",
       "rarity": "common",
-      "description": "血印槽。多方块建造材料（v135 对齐）。"
+      "description": "血印槽。多方块建造材料。"
     },
     {
       "id": "blood_stone",
       "category": "material",
       "rarity": "common",
-      "description": "血石。多方块建造材料（v135 对齐）。"
+      "description": "血石。多方块建造材料。"
     },
     {
       "id": "bloodline_array",
       "category": "material",
       "rarity": "uncommon",
-      "description": "血脉引导阵。多方块建造材料（v135 对齐）。"
+      "description": "血脉引导阵。多方块建造材料。"
     },
     {
       "id": "board_wood",
       "category": "material",
       "rarity": "common",
-      "description": "牌木。多方块建造材料（v135 对齐）。"
+      "description": "牌木。多方块建造材料。"
     },
     {
       "id": "bone_fragment",
       "category": "material",
       "rarity": "uncommon",
-      "description": "骨殖。多方块建造材料（v135 对齐）。"
+      "description": "骨殖。多方块建造材料。"
     },
     {
       "id": "borrow_seal",
       "category": "material",
       "rarity": "uncommon",
-      "description": "借阅禁制。多方块建造材料（v135 对齐）。"
+      "description": "借阅禁制。多方块建造材料。"
     },
     {
       "id": "boundary_post",
       "category": "material",
       "rarity": "common",
-      "description": "界壁柱。多方块建造材料（v135 对齐）。"
+      "description": "界壁柱。多方块建造材料。"
     },
     {
       "id": "broken_teleport_disk",
       "category": "material",
       "rarity": "uncommon",
-      "description": "残破传送盘。多方块建造材料（v135 对齐）。"
+      "description": "残破传送盘。多方块建造材料。"
     },
     {
       "id": "bronze_ingot",
       "category": "material",
       "rarity": "uncommon",
-      "description": "青铜锭。多方块建造材料（v135 对齐）。"
+      "description": "青铜锭。多方块建造材料。"
     },
     {
       "id": "cabinet_wood",
       "category": "material",
       "rarity": "common",
-      "description": "柜木。多方块建造材料（v135 对齐）。"
+      "description": "柜木。多方块建造材料。"
     },
     {
       "id": "calm_array_etch",
       "category": "material",
       "rarity": "uncommon",
-      "description": "静心阵纹。多方块建造材料（v135 对齐）。"
+      "description": "静心阵纹。多方块建造材料。"
     },
     {
       "id": "challenge_dais",
       "category": "material",
       "rarity": "uncommon",
-      "description": "令台。多方块建造材料（v135 对齐）。"
+      "description": "令台。多方块建造材料。"
     },
     {
       "id": "chisel_formation",
       "category": "material",
       "rarity": "uncommon",
-      "description": "阵纹刻刀。多方块建造材料（v135 对齐）。"
+      "description": "阵纹刻刀。多方块建造材料。"
     },
     {
       "id": "city_brick",
       "category": "material",
       "rarity": "common",
-      "description": "城砖。多方块建造材料（v135 对齐）。"
+      "description": "城砖。多方块建造材料。"
     },
     {
       "id": "clay_spirit",
       "category": "material",
       "rarity": "uncommon",
-      "description": "灵泥。多方块建造材料（v135 对齐）。"
+      "description": "灵泥。多方块建造材料。"
     },
     {
       "id": "cleanse_array",
       "category": "material",
       "rarity": "uncommon",
-      "description": "自清便溺阵。多方块建造材料（v135 对齐）。"
+      "description": "自清便溺阵。多方块建造材料。"
     },
     {
       "id": "cold_jade_box",
       "category": "material",
       "rarity": "uncommon",
-      "description": "寒玉匣。多方块建造材料（v135 对齐）。"
+      "description": "寒玉匣。多方块建造材料。"
     },
     {
       "id": "console_bamboo",
       "category": "material",
       "rarity": "common",
-      "description": "控台竹材。多方块建造材料（v135 对齐）。"
+      "description": "控台竹材。多方块建造材料。"
     },
     {
       "id": "const_temp_talisman",
       "category": "material",
       "rarity": "uncommon",
-      "description": "恒温符。多方块建造材料（v135 对齐）。"
+      "description": "恒温符。多方块建造材料。"
     },
     {
       "id": "contract_rack",
       "category": "material",
       "rarity": "common",
-      "description": "契约卷轴架。多方块建造材料（v135 对齐）。"
+      "description": "契约卷轴架。多方块建造材料。"
     },
     {
       "id": "control_array_plate",
       "category": "material",
       "rarity": "uncommon",
-      "description": "控火阵盘。多方块建造材料（v135 对齐）。"
+      "description": "控火阵盘。多方块建造材料。"
     },
     {
       "id": "copper_hoop",
       "category": "material",
       "rarity": "uncommon",
-      "description": "灵铜箍。多方块建造材料（v135 对齐）。"
+      "description": "灵铜箍。多方块建造材料。"
     },
     {
       "id": "copper_scrap",
       "category": "material",
       "rarity": "uncommon",
-      "description": "粗铜。多方块建造材料（v135 对齐）。"
+      "description": "粗铜。多方块建造材料。"
     },
     {
       "id": "core_infuse_disk",
       "category": "material",
       "rarity": "uncommon",
-      "description": "灌灵阵盘。多方块建造材料（v135 对齐）。"
+      "description": "灌灵阵盘。多方块建造材料。"
     },
     {
       "id": "corpse_chain_post",
       "category": "material",
       "rarity": "common",
-      "description": "锁尸链桩。多方块建造材料（v135 对齐）。"
+      "description": "锁尸链桩。多方块建造材料。"
     },
     {
       "id": "count_array",
       "category": "material",
       "rarity": "uncommon",
-      "description": "点石阵。多方块建造材料（v135 对齐）。"
+      "description": "点石阵。多方块建造材料。"
     },
     {
       "id": "crate_slot",
       "category": "material",
       "rarity": "uncommon",
-      "description": "货箱位。多方块建造材料（v135 对齐）。"
+      "description": "货箱位。多方块建造材料。"
     },
     {
       "id": "crimson_disk",
       "category": "material",
       "rarity": "uncommon",
-      "description": "暗红阵盘。多方块建造材料（v135 对齐）。"
+      "description": "暗红阵盘。多方块建造材料。"
     },
     {
       "id": "crimson_stone",
       "category": "material",
       "rarity": "common",
-      "description": "暗红石。多方块建造材料（v135 对齐）。"
+      "description": "暗红石。多方块建造材料。"
     },
     {
       "id": "crystal_array_disk",
       "category": "material",
       "rarity": "uncommon",
-      "description": "水晶阵盘。多方块建造材料（v135 对齐）。"
+      "description": "水晶阵盘。多方块建造材料。"
     },
     {
       "id": "demon_nail",
       "category": "material",
       "rarity": "uncommon",
-      "description": "镇魔钉。多方块建造材料（v135 对齐）。"
+      "description": "镇魔钉。多方块建造材料。"
     },
     {
       "id": "demon_subdue_bell",
       "category": "material",
       "rarity": "rare",
-      "description": "降魔钟。多方块建造材料（v135 对齐）。"
+      "description": "降魔钟。多方块建造材料。"
     },
     {
       "id": "demon_suppress_post",
       "category": "material",
       "rarity": "common",
-      "description": "镇压桩。多方块建造材料（v135 对齐）。"
+      "description": "镇压桩。多方块建造材料。"
     },
     {
       "id": "demon_well_rim",
       "category": "material",
       "rarity": "uncommon",
-      "description": "镇魔井沿。多方块建造材料（v135 对齐）。"
+      "description": "镇魔井沿。多方块建造材料。"
     },
     {
       "id": "diag_etch",
       "category": "material",
       "rarity": "uncommon",
-      "description": "诊断阵纹。多方块建造材料（v135 对齐）。"
+      "description": "诊断阵纹。多方块建造材料。"
     },
     {
       "id": "direction_stele",
       "category": "material",
       "rarity": "uncommon",
-      "description": "方位碑。多方块建造材料（v135 对齐）。"
+      "description": "方位碑。多方块建造材料。"
     },
     {
       "id": "dragon_relief_cast",
       "category": "material",
       "rarity": "uncommon",
-      "description": "真龙浮雕铸件。多方块建造材料（v135 对齐）。"
+      "description": "真龙浮雕铸件。多方块建造材料。"
     },
     {
       "id": "drawer_set",
       "category": "material",
       "rarity": "uncommon",
-      "description": "多层丹屉。多方块建造材料（v135 对齐）。"
+      "description": "多层丹屉。多方块建造材料。"
     },
     {
       "id": "drip_array",
       "category": "material",
       "rarity": "uncommon",
-      "description": "滴漏阵。多方块建造材料（v135 对齐）。"
+      "description": "滴漏阵。多方块建造材料。"
     },
     {
       "id": "dual_fire_mouth",
       "category": "material",
       "rarity": "uncommon",
-      "description": "冰火双口。多方块建造材料（v135 对齐）。"
+      "description": "冰火双口。多方块建造材料。"
     },
     {
       "id": "dual_futon_array",
       "category": "material",
       "rarity": "uncommon",
-      "description": "双位蒲团阵。多方块建造材料（v135 对齐）。"
+      "description": "双位蒲团阵。多方块建造材料。"
     },
     {
       "id": "earth_fire_tap",
       "category": "material",
       "rarity": "uncommon",
-      "description": "地火口组件。多方块建造材料（v135 对齐）。"
+      "description": "地火口组件。多方块建造材料。"
     },
     {
       "id": "earth_pedestal",
       "category": "material",
       "rarity": "uncommon",
-      "description": "土台。多方块建造材料（v135 对齐）。"
+      "description": "土台。多方块建造材料。"
     },
     {
       "id": "eternal_lamp",
       "category": "material",
       "rarity": "common",
-      "description": "长明灵灯。多方块建造材料（v135 对齐）。"
+      "description": "长明灵灯。多方块建造材料。"
     },
     {
       "id": "evolution_fluid_shell",
       "category": "material",
       "rarity": "common",
-      "description": "化形池壳。多方块建造材料（v135 对齐）。"
+      "description": "化形池壳。多方块建造材料。"
     },
     {
       "id": "feeding_trough",
       "category": "material",
       "rarity": "uncommon",
-      "description": "食槽。多方块建造材料（v135 对齐）。"
+      "description": "食槽。多方块建造材料。"
     },
     {
       "id": "fire_charcoal",
       "category": "material",
       "rarity": "uncommon",
-      "description": "灵炭。多方块建造材料（v135 对齐）。"
+      "description": "灵炭。多方块建造材料。"
     },
     {
       "id": "fire_pedestal",
       "category": "material",
       "rarity": "uncommon",
-      "description": "火台。多方块建造材料（v135 对齐）。"
+      "description": "火台。多方块建造材料。"
     },
     {
       "id": "fire_pipe",
       "category": "material",
       "rarity": "common",
-      "description": "导火铜管。多方块建造材料（v135 对齐）。"
+      "description": "导火铜管。多方块建造材料。"
     },
     {
       "id": "fireproof_talisman",
       "category": "material",
       "rarity": "uncommon",
-      "description": "防火符。多方块建造材料（v135 对齐）。"
+      "description": "防火符。多方块建造材料。"
     },
     {
       "id": "fireproof_xuan_stone",
       "category": "material",
       "rarity": "common",
-      "description": "耐火玄石。多方块建造材料（v135 对齐）。"
+      "description": "耐火玄石。多方块建造材料。"
     },
     {
       "id": "fog_break_etch",
       "category": "material",
       "rarity": "uncommon",
-      "description": "雾破纹。多方块建造材料（v135 对齐）。"
+      "description": "雾破纹。多方块建造材料。"
     },
     {
       "id": "frost_jade",
       "category": "material",
       "rarity": "uncommon",
-      "description": "寒玉。多方块建造材料（v135 对齐）。"
+      "description": "寒玉。多方块建造材料。"
     },
     {
       "id": "frost_quench",
       "category": "material",
       "rarity": "uncommon",
-      "description": "霜淬槽。多方块建造材料（v135 对齐）。"
+      "description": "霜淬槽。多方块建造材料。"
     },
     {
       "id": "futon",
       "category": "material",
       "rarity": "common",
-      "description": "蒲团。多方块建造材料（v135 对齐）。"
+      "description": "蒲团。多方块建造材料。"
     },
     {
       "id": "gather_etch",
       "category": "material",
       "rarity": "uncommon",
-      "description": "聚灵纹。多方块建造材料（v135 对齐）。"
+      "description": "聚灵纹。多方块建造材料。"
     },
     {
       "id": "gather_fire_etch",
       "category": "material",
       "rarity": "uncommon",
-      "description": "聚火符。多方块建造材料（v135 对齐）。"
+      "description": "聚火符。多方块建造材料。"
     },
     {
       "id": "gather_stone_core",
       "category": "material",
       "rarity": "common",
-      "description": "聚灵石。多方块建造材料（v135 对齐）。"
+      "description": "聚灵石。多方块建造材料。"
     },
     {
       "id": "gold_rim_jade",
       "category": "material",
       "rarity": "uncommon",
-      "description": "金边玉台料。多方块建造材料（v135 对齐）。"
+      "description": "金边玉台料。多方块建造材料。"
     },
     {
       "id": "greenhouse_frame",
       "category": "material",
       "rarity": "uncommon",
-      "description": "暖架。多方块建造材料（v135 对齐）。"
+      "description": "暖架。多方块建造材料。"
     },
     {
       "id": "guard_array",
       "category": "material",
       "rarity": "uncommon",
-      "description": "护瓶禁制。多方块建造材料（v135 对齐）。"
+      "description": "护瓶禁制。多方块建造材料。"
     },
     {
       "id": "guide_etch",
       "category": "material",
       "rarity": "uncommon",
-      "description": "螺旋导灵纹。多方块建造材料（v135 对齐）。"
+      "description": "螺旋导灵纹。多方块建造材料。"
     },
     {
       "id": "heart_mirror_shard",
       "category": "material",
       "rarity": "uncommon",
-      "description": "心镜碎片。多方块建造材料（v135 对齐）。"
+      "description": "心镜碎片。多方块建造材料。"
     },
     {
       "id": "high_platform_stone",
       "category": "material",
       "rarity": "rare",
-      "description": "高台石。多方块建造材料（v135 对齐）。"
+      "description": "高台石。多方块建造材料。"
     },
     {
       "id": "holo_array",
       "category": "material",
       "rarity": "uncommon",
-      "description": "投影阵。多方块建造材料（v135 对齐）。"
+      "description": "投影阵。多方块建造材料。"
     },
     {
       "id": "ice_crystal_stone",
       "category": "material",
       "rarity": "common",
-      "description": "冰晶石。多方块建造材料（v135 对齐）。"
+      "description": "冰晶石。多方块建造材料。"
     },
     {
       "id": "identity_etch",
       "category": "material",
       "rarity": "uncommon",
-      "description": "识别阵纹刻画。多方块建造材料（v135 对齐）。"
+      "description": "识别阵纹刻画。多方块建造材料。"
     },
     {
       "id": "immortal_array_disk",
       "category": "material",
       "rarity": "epic",
-      "description": "仙级阵盘。多方块建造材料（v135 对齐）。"
+      "description": "仙级阵盘。多方块建造材料。"
     },
     {
       "id": "immortal_spirit_pillar",
       "category": "material",
       "rarity": "epic",
-      "description": "仙灵石柱。多方块建造材料（v135 对齐）。"
+      "description": "仙灵石柱。多方块建造材料。"
     },
     {
       "id": "immortal_spirit_stone",
       "category": "material",
       "rarity": "epic",
-      "description": "仙灵石。多方块建造材料（v135 对齐）。"
+      "description": "仙灵石。多方块建造材料。"
     },
     {
       "id": "infant_fire_seed",
       "category": "material",
       "rarity": "rare",
-      "description": "婴火种。多方块建造材料（v135 对齐）。"
+      "description": "婴火种。多方块建造材料。"
     },
     {
       "id": "iron_sheet",
       "category": "material",
       "rarity": "uncommon",
-      "description": "铁皮。多方块建造材料（v135 对齐）。"
+      "description": "铁皮。多方块建造材料。"
     },
     {
       "id": "irrigation_disk",
       "category": "material",
       "rarity": "uncommon",
-      "description": "灌溉小盘。多方块建造材料（v135 对齐）。"
+      "description": "灌溉小盘。多方块建造材料。"
     },
     {
       "id": "isolation_dome",
       "category": "material",
       "rarity": "uncommon",
-      "description": "隔离罩。多方块建造材料（v135 对齐）。"
+      "description": "隔离罩。多方块建造材料。"
     },
     {
       "id": "jade_array_disk",
       "category": "material",
       "rarity": "uncommon",
-      "description": "青玉阵盘。多方块建造材料（v135 对齐）。"
+      "description": "青玉阵盘。多方块建造材料。"
     },
     {
       "id": "jade_platform",
       "category": "material",
       "rarity": "uncommon",
-      "description": "玉石台料。多方块建造材料（v135 对齐）。"
+      "description": "玉石台料。多方块建造材料。"
     },
     {
       "id": "jade_rest",
       "category": "material",
       "rarity": "uncommon",
-      "description": "玉托。多方块建造材料（v135 对齐）。"
+      "description": "玉托。多方块建造材料。"
     },
     {
       "id": "joint_kit",
       "category": "material",
       "rarity": "uncommon",
-      "description": "关节轴包。多方块建造材料（v135 对齐）。"
+      "description": "关节轴包。多方块建造材料。"
     },
     {
       "id": "key_socket_stone",
       "category": "material",
       "rarity": "common",
-      "description": "钥孔石。多方块建造材料（v135 对齐）。"
+      "description": "钥孔石。多方块建造材料。"
     },
     {
       "id": "lecture_futon_zone",
       "category": "material",
       "rarity": "common",
-      "description": "听法蒲团区。多方块建造材料（v135 对齐）。"
+      "description": "听法蒲团区。多方块建造材料。"
     },
     {
       "id": "lightning_rod_post",
       "category": "material",
       "rarity": "common",
-      "description": "避劫柱。多方块建造材料（v135 对齐）。"
+      "description": "避劫柱。多方块建造材料。"
     },
     {
       "id": "locator_bead",
       "category": "material",
       "rarity": "uncommon",
-      "description": "定位珠。多方块建造材料（v135 对齐）。"
+      "description": "定位珠。多方块建造材料。"
     },
     {
       "id": "material_slot",
       "category": "material",
       "rarity": "uncommon",
-      "description": "材料槽。多方块建造材料（v135 对齐）。"
+      "description": "材料槽。多方块建造材料。"
     },
     {
       "id": "metal_pedestal",
       "category": "material",
       "rarity": "uncommon",
-      "description": "金台。多方块建造材料（v135 对齐）。"
+      "description": "金台。多方块建造材料。"
     },
     {
       "id": "micro_gather_etch",
       "category": "material",
       "rarity": "uncommon",
-      "description": "微聚灵纹。多方块建造材料（v135 对齐）。"
+      "description": "微聚灵纹。多方块建造材料。"
     },
     {
       "id": "mist_bead",
       "category": "material",
       "rarity": "uncommon",
-      "description": "迷雾珠。多方块建造材料（v135 对齐）。"
+      "description": "迷雾珠。多方块建造材料。"
     },
     {
       "id": "mooring_post",
       "category": "material",
       "rarity": "common",
-      "description": "泊桩。多方块建造材料（v135 对齐）。"
+      "description": "泊桩。多方块建造材料。"
     },
     {
       "id": "nurture_micro_array",
       "category": "material",
       "rarity": "uncommon",
-      "description": "养器微阵。多方块建造材料（v135 对齐）。"
+      "description": "养器微阵。多方块建造材料。"
     },
     {
       "id": "obelisk_stone",
       "category": "material",
       "rarity": "common",
-      "description": "碑石。多方块建造材料（v135 对齐）。"
+      "description": "碑石。多方块建造材料。"
     },
     {
       "id": "octagon_platform_stone",
       "category": "material",
       "rarity": "common",
-      "description": "八角台石料。多方块建造材料（v135 对齐）。"
+      "description": "八角台石料。多方块建造材料。"
     },
     {
       "id": "offering_slot",
       "category": "material",
       "rarity": "uncommon",
-      "description": "供品槽。多方块建造材料（v135 对齐）。"
+      "description": "供品槽。多方块建造材料。"
     },
     {
       "id": "owner_lock",
       "category": "material",
       "rarity": "uncommon",
-      "description": "认主锁禁制。多方块建造材料（v135 对齐）。"
+      "description": "认主锁禁制。多方块建造材料。"
     },
     {
       "id": "patrol_disk",
       "category": "material",
       "rarity": "uncommon",
-      "description": "巡海阵盘。多方块建造材料（v135 对齐）。"
+      "description": "巡海阵盘。多方块建造材料。"
     },
     {
       "id": "platform_stone",
       "category": "material",
       "rarity": "common",
-      "description": "台石。多方块建造材料（v135 对齐）。"
+      "description": "台石。多方块建造材料。"
     },
     {
       "id": "platinum_array_disk",
       "category": "material",
       "rarity": "uncommon",
-      "description": "白金大阵盘。多方块建造材料（v135 对齐）。"
+      "description": "白金大阵盘。多方块建造材料。"
     },
     {
       "id": "price_tag_array",
       "category": "material",
       "rarity": "uncommon",
-      "description": "价签阵。多方块建造材料（v135 对齐）。"
+      "description": "价签阵。多方块建造材料。"
     },
     {
       "id": "privacy_array",
       "category": "material",
       "rarity": "uncommon",
-      "description": "隔绝禁制。多方块建造材料（v135 对齐）。"
+      "description": "隔绝禁制。多方块建造材料。"
     },
     {
       "id": "puppet_port",
       "category": "material",
       "rarity": "uncommon",
-      "description": "发射孔。多方块建造材料（v135 对齐）。"
+      "description": "发射孔。多方块建造材料。"
     },
     {
       "id": "purple_gold",
       "category": "material",
       "rarity": "rare",
-      "description": "紫金。多方块建造材料（v135 对齐）。"
+      "description": "紫金。多方块建造材料。"
     },
     {
       "id": "purple_sandalwood",
       "category": "material",
       "rarity": "common",
-      "description": "紫檀。多方块建造材料（v135 对齐）。"
+      "description": "紫檀。多方块建造材料。"
     },
     {
       "id": "quench_basin",
       "category": "material",
       "rarity": "uncommon",
-      "description": "石质淬火槽。多方块建造材料（v135 对齐）。"
+      "description": "石质淬火槽。多方块建造材料。"
     },
     {
       "id": "quench_spirit_pool",
       "category": "material",
       "rarity": "uncommon",
-      "description": "淬灵池壳。多方块建造材料（v135 对齐）。"
+      "description": "淬灵池壳。多方块建造材料。"
     },
     {
       "id": "rack_wood",
       "category": "material",
       "rarity": "common",
-      "description": "架木。多方块建造材料（v135 对齐）。"
+      "description": "架木。多方块建造材料。"
     },
     {
       "id": "red_copper",
       "category": "material",
       "rarity": "uncommon",
-      "description": "赤铜。多方块建造材料（v135 对齐）。"
+      "description": "赤铜。多方块建造材料。"
     },
     {
       "id": "reef_post",
       "category": "material",
       "rarity": "common",
-      "description": "礁湾木桩。多方块建造材料（v135 对齐）。"
+      "description": "礁湾木桩。多方块建造材料。"
     },
     {
       "id": "reef_stone",
       "category": "material",
       "rarity": "common",
-      "description": "礁石。多方块建造材料（v135 对齐）。"
+      "description": "礁石。多方块建造材料。"
     },
     {
       "id": "refine_slab",
       "category": "material",
       "rarity": "uncommon",
-      "description": "炼台石。多方块建造材料（v135 对齐）。"
+      "description": "炼台石。多方块建造材料。"
     },
     {
       "id": "refresh_talisman",
       "category": "material",
       "rarity": "uncommon",
-      "description": "刷新符。多方块建造材料（v135 对齐）。"
+      "description": "刷新符。多方块建造材料。"
     },
     {
       "id": "repair_bench",
       "category": "material",
       "rarity": "uncommon",
-      "description": "检修台。多方块建造材料（v135 对齐）。"
+      "description": "检修台。多方块建造材料。"
     },
     {
       "id": "rift_anchor",
       "category": "material",
       "rarity": "uncommon",
-      "description": "裂隙锚。多方块建造材料（v135 对齐）。"
+      "description": "裂隙锚。多方块建造材料。"
     },
     {
       "id": "ring_array_kit",
       "category": "material",
       "rarity": "uncommon",
-      "description": "引火环阵组件。多方块建造材料（v135 对齐）。"
+      "description": "引火环阵组件。多方块建造材料。"
     },
     {
       "id": "roster_pearl_array",
       "category": "material",
       "rarity": "uncommon",
-      "description": "名录灵光阵。多方块建造材料（v135 对齐）。"
+      "description": "名录灵光阵。多方块建造材料。"
     },
     {
       "id": "safety_disk",
       "category": "material",
       "rarity": "uncommon",
-      "description": "防爆盘。多方块建造材料（v135 对齐）。"
+      "description": "防爆盘。多方块建造材料。"
     },
     {
       "id": "sand_pit_kit",
       "category": "material",
       "rarity": "common",
-      "description": "测试沙场砂。多方块建造材料（v135 对齐）。"
+      "description": "测试沙场砂。多方块建造材料。"
     },
     {
       "id": "sea_gate_stone",
       "category": "material",
       "rarity": "common",
-      "description": "海礁门石。多方块建造材料（v135 对齐）。"
+      "description": "海礁门石。多方块建造材料。"
     },
     {
       "id": "seal_casket",
       "category": "material",
       "rarity": "uncommon",
-      "description": "封印匣。多方块建造材料（v135 对齐）。"
+      "description": "封印匣。多方块建造材料。"
     },
     {
       "id": "seal_chain",
       "category": "material",
       "rarity": "uncommon",
-      "description": "封链。多方块建造材料（v135 对齐）。"
+      "description": "封链。多方块建造材料。"
     },
     {
       "id": "seal_etch",
       "category": "material",
       "rarity": "uncommon",
-      "description": "封印纹刻画。多方块建造材料（v135 对齐）。"
+      "description": "封印纹刻画。多方块建造材料。"
     },
     {
       "id": "seal_leak_etch",
       "category": "material",
       "rarity": "uncommon",
-      "description": "封灵防漏纹。多方块建造材料（v135 对齐）。"
+      "description": "封灵防漏纹。多方块建造材料。"
     },
     {
       "id": "seal_slot",
       "category": "material",
       "rarity": "uncommon",
-      "description": "轮回印鉴槽。多方块建造材料（v135 对齐）。"
+      "description": "轮回印鉴槽。多方块建造材料。"
     },
     {
       "id": "sharp_rune_stone",
       "category": "material",
       "rarity": "common",
-      "description": "锋锐符石。多方块建造材料（v135 对齐）。"
+      "description": "锋锐符石。多方块建造材料。"
     },
     {
       "id": "shield_generator",
       "category": "material",
       "rarity": "uncommon",
-      "description": "防护罩发生器。多方块建造材料（v135 对齐）。"
+      "description": "防护罩发生器。多方块建造材料。"
     },
     {
       "id": "shunt_slot",
       "category": "material",
       "rarity": "uncommon",
-      "description": "分流槽。多方块建造材料（v135 对齐）。"
+      "description": "分流槽。多方块建造材料。"
     },
     {
       "id": "signal_lamp",
       "category": "material",
       "rarity": "common",
-      "description": "暗号信号灯。多方块建造材料（v135 对齐）。"
+      "description": "暗号信号灯。多方块建造材料。"
     },
     {
       "id": "soothe_pillar",
       "category": "material",
       "rarity": "uncommon",
-      "description": "安魂符柱。多方块建造材料（v135 对齐）。"
+      "description": "安魂符柱。多方块建造材料。"
     },
     {
       "id": "soul_nail",
       "category": "material",
       "rarity": "uncommon",
-      "description": "镇魂钉。多方块建造材料（v135 对齐）。"
+      "description": "镇魂钉。多方块建造材料。"
     },
     {
       "id": "sound_pillar",
       "category": "material",
       "rarity": "uncommon",
-      "description": "音柱。多方块建造材料（v135 对齐）。"
+      "description": "音柱。多方块建造材料。"
     },
     {
       "id": "soundproof_brick",
       "category": "material",
       "rarity": "common",
-      "description": "隔音砖。多方块建造材料（v135 对齐）。"
+      "description": "隔音砖。多方块建造材料。"
     },
     {
       "id": "space_array_disk",
       "category": "material",
       "rarity": "uncommon",
-      "description": "空间阵盘。多方块建造材料（v135 对齐）。"
+      "description": "空间阵盘。多方块建造材料。"
     },
     {
       "id": "sphere_mold",
       "category": "material",
       "rarity": "uncommon",
-      "description": "球形凹模。多方块建造材料（v135 对齐）。"
+      "description": "球形凹模。多方块建造材料。"
     },
     {
       "id": "spike_pit",
       "category": "material",
       "rarity": "uncommon",
-      "description": "刺坑。多方块建造材料（v135 对齐）。"
+      "description": "刺坑。多方块建造材料。"
     },
     {
       "id": "spirit_bamboo",
       "category": "material",
       "rarity": "common",
-      "description": "灵竹。多方块建造材料（v135 对齐）。"
+      "description": "灵竹。多方块建造材料。"
     },
     {
       "id": "spirit_bamboo_fence",
       "category": "material",
       "rarity": "common",
-      "description": "灵竹篱。多方块建造材料（v135 对齐）。"
+      "description": "灵竹篱。多方块建造材料。"
     },
     {
       "id": "spirit_cable",
       "category": "material",
       "rarity": "uncommon",
-      "description": "缆灵索。多方块建造材料（v135 对齐）。"
+      "description": "缆灵索。多方块建造材料。"
     },
     {
       "id": "spirit_core",
       "category": "material",
       "rarity": "rare",
-      "description": "灵核。多方块建造材料（v135 对齐）。"
+      "description": "灵核。多方块建造材料。"
     },
     {
       "id": "spirit_flame_bead",
       "category": "material",
       "rarity": "uncommon",
-      "description": "灵焰珠。多方块建造材料（v135 对齐）。"
+      "description": "灵焰珠。多方块建造材料。"
     },
     {
       "id": "spirit_ink_pool",
       "category": "material",
       "rarity": "uncommon",
-      "description": "灵墨池。多方块建造材料（v135 对齐）。"
+      "description": "灵墨池。多方块建造材料。"
     },
     {
       "id": "spirit_jade_pipe",
       "category": "material",
       "rarity": "uncommon",
-      "description": "灵玉管。多方块建造材料（v135 对齐）。"
+      "description": "灵玉管。多方块建造材料。"
     },
     {
       "id": "spirit_membrane",
       "category": "material",
       "rarity": "uncommon",
-      "description": "灵膜。多方块建造材料（v135 对齐）。"
+      "description": "灵膜。多方块建造材料。"
     },
     {
       "id": "spirit_pearl",
       "category": "material",
       "rarity": "uncommon",
-      "description": "灵珠。多方块建造材料（v135 对齐）。"
+      "description": "灵珠。多方块建造材料。"
     },
     {
       "id": "spirit_soil",
       "category": "material",
       "rarity": "common",
-      "description": "灵土。多方块建造材料（v135 对齐）。"
+      "description": "灵土。多方块建造材料。"
     },
     {
       "id": "spirit_stone_slot",
       "category": "material",
       "rarity": "common",
-      "description": "灵石槽。多方块建造材料（v135 对齐）。"
+      "description": "灵石槽。多方块建造材料。"
     },
     {
       "id": "spirit_stone_well",
       "category": "material",
       "rarity": "common",
-      "description": "灵石井。多方块建造材料（v135 对齐）。"
+      "description": "灵石井。多方块建造材料。"
     },
     {
       "id": "spirit_thread",
       "category": "material",
       "rarity": "common",
-      "description": "灵丝。多方块建造材料（v135 对齐）。"
+      "description": "灵丝。多方块建造材料。"
     },
     {
       "id": "spirit_vein_interface",
       "category": "material",
       "rarity": "uncommon",
-      "description": "灵脉接口。多方块建造材料（v135 对齐）。"
+      "description": "灵脉接口。多方块建造材料。"
     },
     {
       "id": "spirit_wood_post",
       "category": "material",
       "rarity": "common",
-      "description": "灵木柱。多方块建造材料（v135 对齐）。"
+      "description": "灵木柱。多方块建造材料。"
     },
     {
       "id": "spirit_wood_shelf",
       "category": "material",
       "rarity": "common",
-      "description": "灵木书架。多方块建造材料（v135 对齐）。"
+      "description": "灵木书架。多方块建造材料。"
     },
     {
       "id": "stabilizer_needle",
       "category": "material",
       "rarity": "uncommon",
-      "description": "稳时针。多方块建造材料（v135 对齐）。"
+      "description": "稳时针。多方块建造材料。"
     },
     {
       "id": "stall_wood",
       "category": "material",
       "rarity": "common",
-      "description": "摊木。多方块建造材料（v135 对齐）。"
+      "description": "摊木。多方块建造材料。"
     },
     {
       "id": "star_emblem",
       "category": "material",
       "rarity": "rare",
-      "description": "星宫徽记石。多方块建造材料（v135 对齐）。"
+      "description": "星宫徽记石。多方块建造材料。"
     },
     {
       "id": "star_lamp",
       "category": "material",
       "rarity": "common",
-      "description": "星灯。多方块建造材料（v135 对齐）。"
+      "description": "星灯。多方块建造材料。"
     },
     {
       "id": "star_map_etch",
       "category": "material",
       "rarity": "uncommon",
-      "description": "星图刻画。多方块建造材料（v135 对齐）。"
+      "description": "星图刻画。多方块建造材料。"
     },
     {
       "id": "statue_kit",
       "category": "material",
       "rarity": "uncommon",
-      "description": "石像组件。多方块建造材料（v135 对齐）。"
+      "description": "石像组件。多方块建造材料。"
     },
     {
       "id": "stealth_flag",
       "category": "material",
       "rarity": "uncommon",
-      "description": "匿踪阵旗。多方块建造材料（v135 对齐）。"
+      "description": "匿踪阵旗。多方块建造材料。"
     },
     {
       "id": "steel_joint",
       "category": "material",
       "rarity": "uncommon",
-      "description": "精钢机括。多方块建造材料（v135 对齐）。"
+      "description": "精钢机括。多方块建造材料。"
     },
     {
       "id": "stele_stone",
       "category": "material",
       "rarity": "common",
-      "description": "碑石。多方块建造材料（v135 对齐）。"
+      "description": "碑石。多方块建造材料。"
     },
     {
       "id": "stone_door",
       "category": "material",
       "rarity": "common",
-      "description": "闭关石门。多方块建造材料（v135 对齐）。"
+      "description": "闭关石门。多方块建造材料。"
     },
     {
       "id": "stone_table",
       "category": "material",
       "rarity": "common",
-      "description": "石台。多方块建造材料（v135 对齐）。"
+      "description": "石台。多方块建造材料。"
     },
     {
       "id": "stop_flag",
       "category": "material",
       "rarity": "uncommon",
-      "description": "急停符。多方块建造材料（v135 对齐）。"
+      "description": "急停符。多方块建造材料。"
     },
     {
       "id": "striker",
       "category": "material",
       "rarity": "uncommon",
-      "description": "撞木。多方块建造材料（v135 对齐）。"
+      "description": "撞木。多方块建造材料。"
     },
     {
       "id": "supply_slot",
       "category": "material",
       "rarity": "uncommon",
-      "description": "供灵槽。多方块建造材料（v135 对齐）。"
+      "description": "供灵槽。多方块建造材料。"
     },
     {
       "id": "suppress_nail",
       "category": "material",
       "rarity": "uncommon",
-      "description": "固鼎阵钉。多方块建造材料（v135 对齐）。"
+      "description": "固鼎阵钉。多方块建造材料。"
     },
     {
       "id": "suspend_frame",
       "category": "material",
       "rarity": "uncommon",
-      "description": "悬吊框架。多方块建造材料（v135 对齐）。"
+      "description": "悬吊框架。多方块建造材料。"
     },
     {
       "id": "taiji_lintel",
       "category": "material",
       "rarity": "uncommon",
-      "description": "太极门楣。多方块建造材料（v135 对齐）。"
+      "description": "太极门楣。多方块建造材料。"
     },
     {
       "id": "talisman_paper_rack",
       "category": "material",
       "rarity": "common",
-      "description": "符纸架。多方块建造材料（v135 对齐）。"
+      "description": "符纸架。多方块建造材料。"
     },
     {
       "id": "temp_array",
       "category": "material",
       "rarity": "uncommon",
-      "description": "温控阵。多方块建造材料（v135 对齐）。"
+      "description": "温控阵。多方块建造材料。"
     },
     {
       "id": "temp_control_etch",
       "category": "material",
       "rarity": "uncommon",
-      "description": "温控阵纹。多方块建造材料（v135 对齐）。"
+      "description": "温控阵纹。多方块建造材料。"
     },
     {
       "id": "temple_timber",
       "category": "material",
       "rarity": "uncommon",
-      "description": "寺木。多方块建造材料（v135 对齐）。"
+      "description": "寺木。多方块建造材料。"
     },
     {
       "id": "thick_stone",
       "category": "material",
       "rarity": "common",
-      "description": "厚石料。多方块建造材料（v135 对齐）。"
+      "description": "厚石料。多方块建造材料。"
     },
     {
       "id": "thunder_plate",
       "category": "material",
       "rarity": "uncommon",
-      "description": "接雷盘。多方块建造材料（v135 对齐）。"
+      "description": "接雷盘。多方块建造材料。"
     },
     {
       "id": "time_law_stone",
       "category": "material",
       "rarity": "epic",
-      "description": "时间法则符石。多方块建造材料（v135 对齐）。"
+      "description": "时间法则符石。多方块建造材料。"
     },
     {
       "id": "timer_stele",
       "category": "material",
       "rarity": "uncommon",
-      "description": "时限符柱。多方块建造材料（v135 对齐）。"
+      "description": "时限符柱。多方块建造材料。"
     },
     {
       "id": "totem_etch",
       "category": "material",
       "rarity": "uncommon",
-      "description": "兽形图腾刻画。多方块建造材料（v135 对齐）。"
+      "description": "兽形图腾刻画。多方块建造材料。"
     },
     {
       "id": "trap_plate",
       "category": "material",
       "rarity": "uncommon",
-      "description": "压力板。多方块建造材料（v135 对齐）。"
+      "description": "压力板。多方块建造材料。"
     },
     {
       "id": "trial_stone",
       "category": "material",
       "rarity": "common",
-      "description": "试炼石。多方块建造材料（v135 对齐）。"
+      "description": "试炼石。多方块建造材料。"
     },
     {
       "id": "tribulation_rod",
       "category": "material",
       "rarity": "uncommon",
-      "description": "引雷针。多方块建造材料（v135 对齐）。"
+      "description": "引雷针。多方块建造材料。"
     },
     {
       "id": "triple_seal_door",
       "category": "material",
       "rarity": "uncommon",
-      "description": "三道禁制门。多方块建造材料（v135 对齐）。"
+      "description": "三道禁制门。多方块建造材料。"
     },
     {
       "id": "true_word_pillar",
       "category": "material",
       "rarity": "epic",
-      "description": "真言音柱。多方块建造材料（v135 对齐）。"
+      "description": "真言音柱。多方块建造材料。"
     },
     {
       "id": "vent_chimney",
       "category": "material",
       "rarity": "uncommon",
-      "description": "灵压阀烟囱。多方块建造材料（v135 对齐）。"
+      "description": "灵压阀烟囱。多方块建造材料。"
     },
     {
       "id": "vent_rune_stone",
       "category": "material",
       "rarity": "common",
-      "description": "泄压符石。多方块建造材料（v135 对齐）。"
+      "description": "泄压符石。多方块建造材料。"
     },
     {
       "id": "vessel_etch",
       "category": "material",
       "rarity": "uncommon",
-      "description": "血管祭纹。多方块建造材料（v135 对齐）。"
+      "description": "血管祭纹。多方块建造材料。"
     },
     {
       "id": "wall_slot",
       "category": "material",
       "rarity": "uncommon",
-      "description": "供能槽。多方块建造材料（v135 对齐）。"
+      "description": "供能槽。多方块建造材料。"
     },
     {
       "id": "warm_brick",
       "category": "material",
       "rarity": "common",
-      "description": "暖色灵砖。多方块建造材料（v135 对齐）。"
+      "description": "暖色灵砖。多方块建造材料。"
     },
     {
       "id": "warm_jade_chip",
       "category": "material",
       "rarity": "uncommon",
-      "description": "温玉片。多方块建造材料（v135 对齐）。"
+      "description": "温玉片。多方块建造材料。"
     },
     {
       "id": "water_adjacent",
       "category": "material",
       "rarity": "uncommon",
-      "description": "邻接水源。多方块建造材料（v135 对齐）。"
+      "description": "邻接水源。多方块建造材料。"
     },
     {
       "id": "water_pedestal",
       "category": "material",
       "rarity": "uncommon",
-      "description": "水台。多方块建造材料（v135 对齐）。"
+      "description": "水台。多方块建造材料。"
     },
     {
       "id": "water_spirit_channel",
       "category": "material",
       "rarity": "uncommon",
-      "description": "水灵导槽。多方块建造材料（v135 对齐）。"
+      "description": "水灵导槽。多方块建造材料。"
     },
     {
       "id": "weigh_array",
       "category": "material",
       "rarity": "uncommon",
-      "description": "称重阵。多方块建造材料（v135 对齐）。"
+      "description": "称重阵。多方块建造材料。"
     },
     {
       "id": "well_rim_stone",
       "category": "material",
       "rarity": "common",
-      "description": "井圈青石。多方块建造材料（v135 对齐）。"
+      "description": "井圈青石。多方块建造材料。"
     },
     {
       "id": "white_jade",
       "category": "material",
       "rarity": "uncommon",
-      "description": "白玉。多方块建造材料（v135 对齐）。"
+      "description": "白玉。多方块建造材料。"
     },
     {
       "id": "white_jade_disk",
       "category": "material",
       "rarity": "uncommon",
-      "description": "乳白玉盘。多方块建造材料（v135 对齐）。"
+      "description": "乳白玉盘。多方块建造材料。"
     },
     {
       "id": "white_jade_pillar",
       "category": "material",
       "rarity": "uncommon",
-      "description": "白玉阵柱。多方块建造材料（v135 对齐）。"
+      "description": "白玉阵柱。多方块建造材料。"
     },
     {
       "id": "white_jade_slab",
       "category": "material",
       "rarity": "uncommon",
-      "description": "白玉台料。多方块建造材料（v135 对齐）。"
+      "description": "白玉台料。多方块建造材料。"
     },
     {
       "id": "wood_pedestal",
       "category": "material",
       "rarity": "common",
-      "description": "木台。多方块建造材料（v135 对齐）。"
+      "description": "木台。多方块建造材料。"
     },
     {
       "id": "world_seed_core",
       "category": "material",
       "rarity": "common",
-      "description": "幻世种核。多方块建造材料（v135 对齐）。"
+      "description": "幻世种核。多方块建造材料。"
     },
     {
       "id": "worldgen",
       "category": "material",
       "rarity": "common",
-      "description": "世界生成。多方块建造材料（v135 对齐）。"
+      "description": "世界生成。多方块建造材料。"
     },
     {
       "id": "worldgen_or_event",
       "category": "material",
       "rarity": "common",
-      "description": "秘境/事件生成。多方块建造材料（v135 对齐）。"
+      "description": "秘境/事件生成。多方块建造材料。"
     },
     {
       "id": "worldgen_or_quest",
       "category": "material",
       "rarity": "common",
-      "description": "秘境/任务生成。多方块建造材料（v135 对齐）。"
+      "description": "秘境/任务生成。多方块建造材料。"
     },
     {
       "id": "xuan_iron_post",
       "category": "material",
       "rarity": "uncommon",
-      "description": "玄铁桩。多方块建造材料（v135 对齐）。"
+      "description": "玄铁桩。多方块建造材料。"
     },
     {
       "id": "xuan_stone_deep",
       "category": "material",
       "rarity": "common",
-      "description": "深青玄石。多方块建造材料（v135 对齐）。"
+      "description": "深青玄石。多方块建造材料。"
     },
     {
       "id": "yang_stone",
       "category": "material",
       "rarity": "common",
-      "description": "阳石。多方块建造材料（v135 对齐）。"
+      "description": "阳石。多方块建造材料。"
     },
     {
       "id": "yin_fire_brazier",
       "category": "material",
       "rarity": "common",
-      "description": "阴火盆。多方块建造材料（v135 对齐）。"
+      "description": "阴火盆。多方块建造材料。"
     },
     {
       "id": "yin_soil",
       "category": "material",
       "rarity": "common",
-      "description": "阴土。多方块建造材料（v135 对齐）。"
+      "description": "阴土。多方块建造材料。"
     },
     {
       "id": "yin_wood",
       "category": "material",
       "rarity": "common",
-      "description": "阴木。多方块建造材料（v135 对齐）。"
+      "description": "阴木。多方块建造材料。"
     },
     {
       "id": "yinyang_floor_etch",
       "category": "material",
       "rarity": "uncommon",
-      "description": "阴阳鱼地纹。多方块建造材料（v135 对齐）。"
+      "description": "阴阳鱼地纹。多方块建造材料。"
     },
     {
       "id": "zither_slot",
       "category": "material",
       "rarity": "uncommon",
-      "description": "琴位。多方块建造材料（v135 对齐）。"
+      "description": "琴位。多方块建造材料。"
     },
     {
       "id": "war_banner_cloth",
@@ -6661,35 +6655,35 @@
       "id": "earth_spike_talisman",
       "category": "talisman",
       "rarity": "common",
-      "description": "地刺符，huang阶符箓。",
+      "description": "地刺符，黄阶符箓。",
       "grade": "huang"
     },
     {
       "id": "golden_light_shield",
       "category": "talisman",
       "rarity": "common",
-      "description": "金光盾符，huang阶符箓。",
+      "description": "金光盾符，黄阶符箓。",
       "grade": "huang"
     },
     {
       "id": "thunder_talisman_xuan",
       "category": "talisman",
       "rarity": "uncommon",
-      "description": "玄级雷符，xuan阶符箓。",
+      "description": "玄级雷符，玄阶符箓。",
       "grade": "xuan"
     },
     {
       "id": "armor_talisman_di",
       "category": "talisman",
       "rarity": "uncommon",
-      "description": "地级甲符，di阶符箓。",
+      "description": "地级甲符，地阶符箓。",
       "grade": "di"
     },
     {
       "id": "escape_talisman_di",
       "category": "talisman",
       "rarity": "uncommon",
-      "description": "地级遁符，di阶符箓。",
+      "description": "地级遁符，地阶符箓。",
       "grade": "di"
     },
     {

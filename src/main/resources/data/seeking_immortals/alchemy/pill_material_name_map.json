@@ -1543,8 +1543,8 @@
         "high": "seeking_immortals:spirit_recovery_pill_high",
         "supreme": "seeking_immortals:spirit_recovery_pill_high"
       },
-      "zh_cn": "回灵丹（中）",
-      "en_us": "spirit_recovery_pill_high",
+      "zh_cn": "回灵丹（上品）",
+      "en_us": "Spirit Recovery Pill (High)",
       "formula_items": [],
       "formula_source": "paper",
       "materials": [
@@ -2329,36 +2329,6 @@
         {
           "item": "seeking_immortals:spirit_herb_common",
           "count": 3
-        }
-      ],
-      "required_furnace_tier": 1,
-      "ideal_fire_tier": 1,
-      "min_control_realm": "QI_REFINING",
-      "controlled": false,
-      "requires_earth_fire_room": false
-    },
-    {
-      "pills_catalog_id": "jiangying_pill",
-      "canonical_recipe_id": "jiangying_pill",
-      "canonical_low_item": "seeking_immortals:jiangying_pill",
-      "quality_outputs": {
-        "low": "seeking_immortals:jiangying_pill",
-        "medium": "seeking_immortals:jiangying_pill",
-        "high": "seeking_immortals:jiangying_pill",
-        "supreme": "seeking_immortals:jiangying_pill"
-      },
-      "zh_cn": "降尘丹",
-      "en_us": "jiangying_pill",
-      "formula_items": [],
-      "formula_source": "paper",
-      "materials": [
-        {
-          "item": "seeking_immortals:spirit_grass",
-          "count": 2
-        },
-        {
-          "item": "seeking_immortals:cloud_mushroom",
-          "count": 1
         }
       ],
       "required_furnace_tier": 1,

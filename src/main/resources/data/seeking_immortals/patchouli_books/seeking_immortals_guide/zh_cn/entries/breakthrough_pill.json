@@ -1,17 +1,19 @@
 {
-  "name": "破境丹",
+  "name": "降尘丹",
   "category": "seeking_immortals:basics",
-  "icon": "seeking_immortals:breakthrough_pill",
+  "icon": "seeking_immortals:jiangchen_pill",
   "sortnum": 4,
   "pages": [
     {
       "type": "patchouli:text",
       "title": "辅助突破",
-      "text": "破境丹能护持下一次突破尝试。它不是无条件晋升，仍需要足够的灵力、修为与瓶颈条件。"
+      "text": "降尘丹是低阶修士常用的破境药，可护持下一次普通突破尝试。它不能无条件晋升，仍需修为达到瓶颈；跨越大境界时还需对应境界的专用丹药或资源。"
     },
     {
-      "type": "patchouli:crafting",
-      "recipe": "seeking_immortals:breakthrough_pill"
+      "type": "patchouli:spotlight",
+      "item": "seeking_immortals:jiangchen_pill",
+      "title": "降尘丹",
+      "text": "效力弱于筑基丹，主要用于日常小层次突破。"
     }
   ]
 }

@@ -7,12 +7,12 @@
     {
       "type": "patchouli:text",
       "title": "灵界主陆",
-      "text": "本条目对应文本材料 patchouli_static_entries.json#spirit_fengyuan、region_cards/spirit_fengyuan.json 与 human_clan_league.json。当前世界包已接入 spirit_fengyuan 区域，门槛为化神，旅行锚点为 fengyuan_anchor。"
+      "text": "风元大陆是灵界的人族世家与妖族共存区域，进入门槛为化神境。区域旅行入口已经接入，可从灵界路线前往。"
     },
     {
       "type": "patchouli:text",
       "title": "当前数据",
-      "text": "风元大陆在世界包中拥有 1.8 灵气倍率，并带有 spirit_realm、clans、treasure_fair 标签。文本材料中的人族世家联盟、妖族并存、北接蛮荒等内容目前作为指南说明与后续任务钩子保留。"
+      "text": "风元大陆灵气倍率为 1.8，特色包括人族世家、妖族聚落与宝会贸易，北面连接蛮荒。世家联盟与区域任务线会在后续探索中逐步展开。"
     },
     {
       "type": "patchouli:text",
@@ -22,7 +22,7 @@
     {
       "type": "patchouli:text",
       "title": "延后内容",
-      "text": "真实世家 NPC、世家声望、联盟任务网、宝会竞价、蛮荒边界通行、专精商店、风元探索线与 FTB Quests 章节仍未实装。本页只说明已存在的区域、秘境和事件线索。"
+      "text": "完整世家人物、世家声望、联盟任务、宝会竞价、蛮荒边界通行、专精商店、风元探索线与任务章节仍待补全。本页只说明当前可用的区域、秘境和事件线索。"
     }
   ]
 }

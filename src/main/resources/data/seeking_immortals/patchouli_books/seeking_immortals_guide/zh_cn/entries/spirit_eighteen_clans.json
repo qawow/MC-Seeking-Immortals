@@ -6,12 +6,12 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "spirit_realm_clan_quests.json 每族双任务钩。",
+      "text": "灵界十八族各自拥有两条任务线索，可从巡礼与区域事件中逐步接触。",
       "title": "灵界十八族"
     },
     {
       "type": "patchouli:text",
-      "text": "巡礼链 spirit_eighteen_pilgrimage；与蛮荒妖王 affinity 见 barbarian_faction_affinity_map。",
+      "text": "巡礼路线会影响各族关系；与蛮荒妖王的亲和也会改变部分事件与交易。",
       "title": "续 1"
     }
   ]

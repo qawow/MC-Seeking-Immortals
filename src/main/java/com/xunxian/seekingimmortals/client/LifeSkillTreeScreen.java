@@ -242,14 +242,14 @@ public class LifeSkillTreeScreen extends AbstractJournalScreen {
                 ? "screen.seeking_immortals.skill_tree.status.unlocked"
                 : "screen.seeking_immortals.skill_tree.status.locked");
         int stateWidth = Math.min(innerWidth / 3, Math.max(24, font.width(stateText)));
-        ImmortalUiSkin.drawStringFit(font, graphics, type.getDisplayName(), innerX, y + 4,
+        ImmortalUiSkin.drawStringFit(font, graphics, CultivationDisplayTexts.skillName(type), innerX, y + 4,
                 Math.max(1, innerWidth - stateWidth - 5),
                 skill.unlocked() ? ImmortalUiSkin.JOURNAL_PAPER : ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
         ImmortalUiSkin.drawStringFit(font, graphics, stateText.getString(),
                 innerX + innerWidth - stateWidth, y + 4, stateWidth,
                 skill.unlocked() ? ImmortalUiSkin.JOURNAL_JADE_TEXT : ImmortalUiSkin.JOURNAL_WARNING, false);
 
-        String realm = type.getRequiredRealm() == null ? "-" : type.getRequiredRealm().getDisplayName();
+        String realm = type.getRequiredRealm() == null ? "-" : CultivationDisplayTexts.realmName(type.getRequiredRealm());
         ImmortalUiSkin.drawStringFit(font, graphics,
                 Component.translatable("screen.seeking_immortals.skill_tree.realm_requirement", realm).getString(),
                 innerX, y + 15, innerWidth, ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);

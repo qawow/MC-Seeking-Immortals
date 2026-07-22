@@ -12,6 +12,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import com.xunxian.seekingimmortals.item.CatalogItemDescriptionService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 
 import java.util.List;
 import java.util.Locale;
@@ -74,8 +75,6 @@ public class BaseMaterialItem extends Item {
             Language language = Language.getInstance();
             if (language != null && language.has(descKey)) {
                 tooltip.add(Component.translatable(descKey).withStyle(ChatFormatting.DARK_GRAY));
-            } else if (!desc.isBlank()) {
-                tooltip.add(Component.literal(desc).withStyle(ChatFormatting.DARK_GRAY));
             }
         }
         String id = stack.getDescriptionId() == null ? "" : stack.getDescriptionId().toLowerCase(Locale.ROOT);

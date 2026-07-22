@@ -225,7 +225,7 @@ public enum SkillType {
     DEMON_CLAW("魔爪", SkillCategory.SPELL, Realm.FOUNDATION_ESTABLISHMENT, RealmStage.EARLY, "demon_claw", 18, 100, "魔爪近距撕扯目标", SpiritualRootAttribute.DARK),
     BLOOD_DEMON_SLASH("血魔斩", SkillCategory.SPELL, Realm.CORE_FORMATION, RealmStage.EARLY, "blood_demon_slash", 28, 140, "血刃近身重斩", SpiritualRootAttribute.DARK, SpiritualRootAttribute.METAL),
     SOUL_BANNER_WAVE("招魂幡浪", SkillCategory.SPELL, Realm.FOUNDATION_ESTABLISHMENT, RealmStage.EARLY, "soul_banner_wave", 22, 180, "招魂幡浪冲击一片阴魂", SpiritualRootAttribute.DARK),
-    YIN_LUO_GHOST_CLOAK("阴罗鬼cloak", SkillCategory.SPELL, Realm.FOUNDATION_ESTABLISHMENT, RealmStage.EARLY, "yin_luo_ghost_cloak", 18, 200, "阴罗鬼cloak隐匿身形", SpiritualRootAttribute.DARK),
+    YIN_LUO_GHOST_CLOAK("阴罗鬼氅", SkillCategory.SPELL, Realm.FOUNDATION_ESTABLISHMENT, RealmStage.EARLY, "yin_luo_ghost_cloak", 18, 200, "阴罗鬼氅隐匿身形", SpiritualRootAttribute.DARK),
     GHOST_WALK("鬼步", SkillCategory.SPELL, Realm.FOUNDATION_ESTABLISHMENT, RealmStage.EARLY, "ghost_walk", 18, 120, "鬼步身法加速并扰动敌踪", SpiritualRootAttribute.DARK),
     SHORT_TELEPORT("瞬步", SkillCategory.SPELL, Realm.QI_REFINING, RealmStage.LAYER_4, "short_teleport", 12, 100, "短距瞬步位移"),
     WIND_RIDE("御风", SkillCategory.SPELL, Realm.QI_REFINING, RealmStage.LAYER_3, "wind_ride", 12, 120, "御风提升身法", SpiritualRootAttribute.WIND),

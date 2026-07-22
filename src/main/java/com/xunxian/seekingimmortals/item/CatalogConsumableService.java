@@ -18,6 +18,8 @@ import com.xunxian.seekingimmortals.catalog.ItemCatalogService;
 import com.xunxian.seekingimmortals.catalog.SummonHonestMvpService;
 import com.xunxian.seekingimmortals.combat.status.PoisonAntidoteService;
 import com.xunxian.seekingimmortals.sect.SectContributionTokenService;
+import com.xunxian.seekingimmortals.sect.SectDefinitionService;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -557,7 +559,13 @@ public final class CatalogConsumableService {
             String role = progress.getSectRole();
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.catalog_consumable.sect_identity",
-                    sectId, role == null || role.isBlank() ? "-" : role), true);
+                    SectDefinitionService.find(sectId)
+                            .map(SectDefinitionService.SectDefinition::displayZh)
+                            .filter(PlayerDisplayText::isSafe)
+                            .map(value -> Component.literal(value.trim()))
+                            .orElseGet(() -> Component.literal("未知宗门")),
+                    PlayerDisplayText.isSafe(role) ? Component.literal(role.trim())
+                            : Component.literal("身份未明")), true);
             return true;
         }).orElse(false);
     }
@@ -596,11 +604,10 @@ public final class CatalogConsumableService {
     private static boolean redeemSpiritPillVoucher(ServerPlayer player) {
         List<String> pool = List.of(
                 "bigu_pill",
-                "qi_recovery_pill",
-                "cultivation_pill",
+                "spirit_recovery_pill",
+                "cultivate_speed_pill",
                 "calming_pill_low",
                 "qingxin_pill",
-                "spirit_recovery_pill",
                 "body_tempering_pill",
                 "beast_taming_pill");
         String id = pool.get(player.getRandom().nextInt(pool.size()));
@@ -608,7 +615,7 @@ public final class CatalogConsumableService {
         if (ok) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.catalog_consumable.voucher_redeem",
-                    Component.translatable("item.seeking_immortals." + id)), true);
+                    PlayerDisplayText.itemName(id)), true);
             player.level().playSound(null, player.blockPosition(), SoundEvents.EXPERIENCE_ORB_PICKUP,
                     SoundSource.PLAYERS, 0.5F, 1.1F);
         } else {

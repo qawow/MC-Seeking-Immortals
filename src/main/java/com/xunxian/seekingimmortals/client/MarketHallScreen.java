@@ -181,9 +181,8 @@ public class MarketHallScreen extends AbstractJournalContainerScreen<MarketHallM
     protected void renderJournalBody(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
         MarketLayout layout = calculateLayout(width, height);
         ClientShopData.Snapshot data = ClientShopData.get();
-        String shopId = data.shopId().isBlank() ? currentShopId() : data.shopId();
-        String summary = Component.translatable("screen.seeking_immortals.shop.shop_id", shopId).getString()
-                + " · " + (shopIndex + 1) + "/" + shopIds().size() + " · p" + (page + 1);
+        String summary = Component.translatable("screen.seeking_immortals.shop.page_status",
+                shopIndex + 1, shopIds().size(), page + 1).getString();
         ImmortalUiSkin.drawStringFit(font, graphics, summary, layout.summary().x() + 3,
                 layout.summary().y() + 2, Math.max(1, layout.summary().width() - 6),
                 ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);

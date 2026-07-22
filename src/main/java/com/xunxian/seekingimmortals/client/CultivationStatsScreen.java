@@ -620,7 +620,7 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
     }
 
     private String skillSummary(SkillType type, ClientSkillData.SkillSnapshot skill) {
-        String realm = type.getRequiredRealm() == null ? "-" : type.getRequiredRealm().getDisplayName();
+        String realm = type.getRequiredRealm() == null ? "-" : CultivationDisplayTexts.realmName(type.getRequiredRealm());
         if (!skill.unlocked()) {
             return Component.translatable("screen.seeking_immortals.skill_tree.locked_requirement", realm).getString();
         }

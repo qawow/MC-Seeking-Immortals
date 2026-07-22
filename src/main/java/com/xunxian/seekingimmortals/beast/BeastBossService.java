@@ -8,6 +8,7 @@ import com.xunxian.seekingimmortals.combat.status.StatusCatalogService;
 import com.xunxian.seekingimmortals.combat.status.StatusRegistry;
 import com.xunxian.seekingimmortals.entity.SummonedServitorEntity;
 import com.xunxian.seekingimmortals.skill.effect.AbstractTechniqueEffectResolver;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import com.xunxian.seekingimmortals.worldpack.BossEncounterService;
 import com.xunxian.seekingimmortals.worldpack.TrialCombatShellService;
 import net.minecraft.core.BlockPos;
@@ -122,8 +123,8 @@ public final class BeastBossService {
         shell.getPersistentData().putBoolean("seeking_immortals_ecology_beast", false);
         shell.getPersistentData().putInt(PHASE_TAG, 0);
         shell.getPersistentData().putInt(PHASE_TICK, 0);
-        String display = defOpt.map(BossDef::display).filter(s -> !s.isBlank()).orElse(id);
-        shell.setCustomName(Component.translatable("entity.seeking_immortals.boss.name", display));
+        shell.setCustomName(Component.translatable("entity.seeking_immortals.boss.name",
+                displayName(defOpt.orElse(null))));
         shell.setCustomNameVisible(true);
         return shell;
     }
@@ -213,10 +214,18 @@ public final class BeastBossService {
             return null;
         }
         boss.setTarget(player);
+        Component bossName = displayName(def.get());
         player.displayClientMessage(Component.translatable("message.seeking_immortals.boss.spawned",
-                def.get().display().isBlank() ? bossId : def.get().display()), true);
-        player.displayClientMessage(Component.translatable("message.seeking_immortals.boss.kill_gate_hint", bossId), false);
+                bossName), true);
+        player.displayClientMessage(Component.translatable("message.seeking_immortals.boss.kill_gate_hint", bossName), false);
         return boss;
+    }
+
+    private static Component displayName(BossDef definition) {
+        if (definition != null && PlayerDisplayText.isSafe(definition.display())) {
+            return Component.literal(definition.display().trim());
+        }
+        return Component.translatable("text.seeking_immortals.unknown_boss");
     }
 
     private static Snapshot load() {

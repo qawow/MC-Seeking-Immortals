@@ -3,6 +3,7 @@ package com.xunxian.seekingimmortals.block;
 import com.xunxian.seekingimmortals.craft.PuppetCraftService;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
 import com.xunxian.seekingimmortals.structure.PuppetAssemblyBenchStructure;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
@@ -70,7 +71,9 @@ public class PuppetAssemblyBenchBlock extends Block {
             serverLevel.sendParticles(ParticleTypes.CRIT, pos.getX() + 0.5D, pos.getY() + 1.1D, pos.getZ() + 0.5D,
                     36, 0.55D, 0.4D, 0.55D, 0.03D);
             serverLevel.playSound(null, pos, SoundEvents.ANVIL_USE, SoundSource.BLOCKS, 0.65F, 0.95F);
-            String display = result.recipe() == null ? "" : result.recipe().display();
+            Component display = PlayerDisplayText.safeLiteral(
+                    result.recipe() == null ? "" : result.recipe().display(),
+                    "text.seeking_immortals.unknown_puppet");
             player.displayClientMessage(Component.translatable(result.messageKey(), display), true);
         } else {
             player.displayClientMessage(Component.translatable(result.messageKey()), false);

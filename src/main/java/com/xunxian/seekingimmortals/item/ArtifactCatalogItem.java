@@ -4,8 +4,10 @@ import com.xunxian.seekingimmortals.artifact.ArtifactActivationService;
 import com.xunxian.seekingimmortals.artifact.ArtifactDataService;
 import com.xunxian.seekingimmortals.artifact.ArtifactStorageService;
 import com.xunxian.seekingimmortals.artifact.NatalBindingService;
+import com.xunxian.seekingimmortals.cultivation.TechniqueDataManager;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.Realm;
+import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -127,7 +129,8 @@ public class ArtifactCatalogItem extends Item {
             // Wave490: hide detailed identity until appraised (creative tooltips still full).
             if (appraised || creativeFull || com.xunxian.seekingimmortals.artifact.ArtifactAppraisalService.isAppraisalTool(artifactId)) {
                 tooltip.add(Component.translatable("tooltip.seeking_immortals.artifact.header",
-                                artifact.display(), data.tierDisplay(artifact.tier()), artifact.gameTier())
+                                PlayerDisplayText.itemName(stack.getItem()),
+                                data.tierDisplay(artifact.tier()), artifact.gameTier())
                         .withStyle(ChatFormatting.DARK_AQUA));
                 tooltip.add(Component.translatable("tooltip.seeking_immortals.artifact.realm_type",
                                 com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts.realm(artifact.realmMin()),
@@ -174,9 +177,10 @@ public class ArtifactCatalogItem extends Item {
             }
             com.xunxian.seekingimmortals.artifact.ArtifactActiveSkillService.resolve(artifactId).ifPresent(skill ->
                     tooltip.add(Component.translatable("tooltip.seeking_immortals.artifact.active_skill",
-                                    skill.techniqueId())
+                                    techniqueDisplay(skill.techniqueId()))
                             .withStyle(ChatFormatting.BLUE)));
-        }, () -> tooltip.add(Component.translatable("tooltip.seeking_immortals.artifact.missing", artifactId)
+        }, () -> tooltip.add(Component.translatable("tooltip.seeking_immortals.artifact.missing",
+                PlayerDisplayText.itemName(artifactId))
                 .withStyle(ChatFormatting.RED)));
         if (com.xunxian.seekingimmortals.artifact.ArtifactAppraisalService.isAppraisalTool(artifactId)) {
             tooltip.add(Component.translatable("tooltip.seeking_immortals.appraisal_tool")
@@ -191,6 +195,16 @@ public class ArtifactCatalogItem extends Item {
                     tag.getInt(com.xunxian.seekingimmortals.artifact.ArtifactAppraisalService.TAG_APPRAISED_VALUE))
                     .withStyle(ChatFormatting.GOLD));
         }
+    }
+
+    private static Component techniqueDisplay(String techniqueId) {
+        if (techniqueId != null) {
+            TechniqueDataManager.TechniqueEntry entry = TechniqueDataManager.builtinTechniques().get(techniqueId);
+            if (entry != null && PlayerDisplayText.isSafe(entry.name())) {
+                return Component.literal(entry.name().trim());
+            }
+        }
+        return Component.translatable("text.seeking_immortals.unknown_technique");
     }
 
     /**

@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "见 patchouli_item_book 分类索引条目 skill_trees_overview。游戏内百科与命令可进一步检索。",
+      "text": "技能树用于查看已学功法的前置、层数与精进方向。功法必须先通过秘籍或传承卷轴入门，界面不会直接授予未学习的功法。",
       "title": "技能树总览"
     }
   ]
