@@ -8858,3 +8858,15 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Tests/build   Done   `compileJava`、定向网络/协议/客户端隔离测试通过；贴图批次独立提交后，普通 `./gradlew build --no-daemon` `BUILD SUCCESSFUL in 1m 19s`，`aiPreflight` 正常记录 `mod_version=0.2.139`；开发客户端已加载 Lodestone 与资源后按超时停止，无崩溃。
   Version/protocol   Done   `mod_version=0.2.139`；新增 S2C 包改变频道消息表，`ModNetwork.PROTOCOL_VERSION=27`。
   Backup   Done   初始实现备份位于 `.bak/20260722_0.2.138_vfx/`；版本协调备份位于 `.bak/20260722_0.2.139_vfx_rebase/`。
+
+## 564. 2026-07-23 0.2.150 作者术法视觉档案
+
+  Step   Status   Notes
+  ---   ---   ---
+  Source projection   Done   将 v118-v122 的 346 条逐帧术法记录确定性合并为 344 个唯一 profile；保留成型、命中、消散及 40 条大招预兆，并合并青元剑芒无 catalog_id 专稿。
+  Runtime mapping   Done   作者 particle/trail/shape 接入服务端视觉计划和客户端 Lodestone 四阶段渲染；543 个无作者逐帧表的内置术法继续使用既有语义回退。
+  Performance   Done   每个事件最多使用一个作者粒子系统和一个作者拖尾系统；子预算为通用几何保留份额，低粒子档仍保持全路径端点。
+  Network   Done   `TechniqueVfxPacket` 新增粒子、拖尾和预兆字段；`ModNetwork.PROTOCOL_VERSION` 从 `28` 升至 `29`。
+  Verification   Done   生成一致性检查、定向 VFX/协议/多人测试及 `./gradlew build --no-daemon --max-workers=1` 全部通过。
+  Backup   Done   既有目标文件备份至 `.bak/20260723_authored_vfx/`；新生成器、档案、加载器、测试和更新说明无旧文件。
+  Follow-up   Pending   继续把法宝、丹药/消耗品、灵兽、药草/材料、区域与 BOSS 视觉表接入同一档案管线并做客户端实机取证。

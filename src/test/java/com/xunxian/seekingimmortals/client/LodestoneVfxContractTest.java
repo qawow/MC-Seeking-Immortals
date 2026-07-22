@@ -125,14 +125,14 @@ class LodestoneVfxContractTest {
     }
 
     @Test
-    void buildDeclaresMandatoryLodestoneAndProtocolTwentyEight() throws Exception {
+    void buildDeclaresMandatoryLodestoneAndProtocolTwentyNine() throws Exception {
         String build = Files.readString(Path.of("build.gradle"));
         String mods = Files.readString(Path.of("src", "main", "resources", "META-INF", "mods.toml"));
         String network = read(JAVA_ROOT.resolve(Path.of("network", "ModNetwork.java")));
         assertTrue(build.contains("maven.modrinth:lodestonelib:${lodestone_version}"));
         assertTrue(mods.contains("modId=\"lodestone\""));
         assertTrue(mods.contains("mandatory=true"));
-        assertTrue(network.contains("PROTOCOL_VERSION = \"28\""));
+        assertTrue(network.contains("PROTOCOL_VERSION = \"29\""));
         assertTrue(network.contains("TechniqueVfxPacket.class"));
     }
 

@@ -7,8 +7,8 @@ import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 
 public final class ModNetwork {
-    // 0.2.141: extend bounded Lodestone intents with semantic motifs and lifecycle phases.
-    private static final String PROTOCOL_VERSION = "28";
+    // 0.2.150: add authored particle-system and trail-style fields to VFX intents.
+    private static final String PROTOCOL_VERSION = "29";
 
     public static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
             new ResourceLocation(SeekingImmortalsMod.MODID, "main"),

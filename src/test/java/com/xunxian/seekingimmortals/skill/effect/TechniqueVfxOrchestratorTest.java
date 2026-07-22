@@ -22,7 +22,7 @@ class TechniqueVfxOrchestratorTest {
             Motif.BLADE, Motif.SHIELD, Motif.DOMAIN, Motif.TELEPORT, Motif.SUMMON,
             Motif.WALL, Motif.CHAIN, Motif.CHANNEL, Motif.RAIN, Motif.HEAL,
             Motif.CLEANSE, Motif.SEAL, Motif.FORMATION, Motif.BUDDHIST,
-            Motif.CONFUCIAN, Motif.DAO, Motif.GHOST, Motif.ILLUSION);
+            Motif.CONFUCIAN, Motif.DAO, Motif.GHOST, Motif.ILLUSION, Motif.MARTIAL);
 
     @Test
     void genericEffectTypesChooseDistinctShapes() {
@@ -52,6 +52,41 @@ class TechniqueVfxOrchestratorTest {
         assertEquals(Motif.BLADE, plan.motif());
         assertEquals(Kind.PATH, plan.kind());
         assertEquals(10.0D, plan.range());
+    }
+
+    @Test
+    void authoredParticleAndTrailReferencesOverrideFallbackMotifs() {
+        TechniqueVfxOrchestrator.VisualPlan sword = TechniqueVfxOrchestrator.plan(
+                technique("qingyuan_sword_ray", "beam", "metal", "", Set.of(), "single", "long", "", ""),
+                null, false);
+        assertEquals(TechniqueVfxPacket.ParticleStyle.METAL_SPARK, sword.particleStyle());
+        assertEquals(TechniqueVfxPacket.TrailStyle.SWORD_THIN, sword.trailStyle());
+        assertEquals(Motif.BLADE, sword.motif());
+        assertEquals(Kind.BEAM, sword.kind());
+
+        TechniqueVfxOrchestrator.VisualPlan body = TechniqueVfxOrchestrator.plan(
+                technique("palm_wind", "melee", "wind", "", Set.of(), "single", "short", "", ""),
+                null, false);
+        assertEquals(TechniqueVfxPacket.ParticleStyle.QI_SOFT, body.particleStyle());
+        assertEquals(TechniqueVfxPacket.TrailStyle.HEAVY_WEAPON, body.trailStyle());
+        assertEquals(Motif.MARTIAL, body.motif());
+    }
+
+    @Test
+    void movementGeometryRemainsAPathWhenShapeUsesAfterimageLanguage() {
+        assertMovementPath("earth_escape", "movement", Motif.ILLUSION);
+        assertMovementPath("void_step", "movement", Motif.ILLUSION);
+        assertMovementPath("blood_shadow_escape", "escape", Motif.GHOST);
+        assertMovementPath("body_flash", "movement", Motif.MARTIAL);
+    }
+
+    @Test
+    void authoredUltimateFrameExtendsTheClientTelegraph() {
+        TechniqueVfxOrchestrator.VisualPlan plan = TechniqueVfxOrchestrator.plan(
+                technique("sword_formation_secret", "secret_art", "metal", "", Set.of(),
+                        "area", "long", "", ""), null, false);
+
+        assertTrue(plan.telegraphed());
     }
 
     @Test
@@ -183,6 +218,14 @@ class TechniqueVfxOrchestratorTest {
                 SkillType.valueOf(name),
                 false);
         assertEquals(motif, plan.motif(), name);
+    }
+
+    private static void assertMovementPath(String id, String type, Motif motif) {
+        TechniqueVfxOrchestrator.VisualPlan plan = TechniqueVfxOrchestrator.plan(
+                technique(id, type, "neutral", "", Set.of(), "self", "dash", "", ""),
+                null, false);
+        assertEquals(Kind.PATH, plan.kind(), id);
+        assertEquals(motif, plan.motif(), id);
     }
 
     private static TechniqueDataManager.TechniqueEntry technique(String id,

@@ -92,6 +92,17 @@ test {
     classpath += sourceSets.main.output
 }
 
+tasks.register('authoredVfxCheck', Exec) {
+    group = 'verification'
+    description = 'Checks that the compiled authored technique VFX catalog matches text-material sources.'
+    executable 'python3'
+    args '-B', file('scripts/generate_authored_vfx_profiles.py').absolutePath, '--check'
+}
+
+tasks.named('check') {
+    dependsOn tasks.named('authoredVfxCheck')
+}
+
 tasks.register('aiPreflight', Exec) {
     group = 'verification'
     description = 'Checks AI workflow gates before building.'

@@ -26,6 +26,9 @@ public final class TechniqueVfxOrchestrator {
             TechniqueVfxPalette.Family family,
             Motif motif,
             Kind kind,
+            TechniqueVfxPacket.ParticleStyle particleStyle,
+            TechniqueVfxPacket.TrailStyle trailStyle,
+            boolean telegraphed,
             double range,
             double radius,
             int intensity
@@ -34,6 +37,8 @@ public final class TechniqueVfxOrchestrator {
             family = family == null ? TechniqueVfxPalette.Family.NEUTRAL : family;
             motif = motif == null ? Motif.GENERIC : motif;
             kind = kind == null || kind == Kind.CAST ? Kind.BURST : kind;
+            particleStyle = particleStyle == null ? TechniqueVfxPacket.ParticleStyle.DEFAULT : particleStyle;
+            trailStyle = trailStyle == null ? TechniqueVfxPacket.TrailStyle.DEFAULT : trailStyle;
             range = clampFinite(range, 0.0D, 48.0D, 0.0D);
             radius = clampFinite(radius, 0.35D, 12.0D, 1.0D);
             intensity = Math.max(8, Math.min(48, intensity));
@@ -84,7 +89,8 @@ public final class TechniqueVfxOrchestrator {
                 attribute, source, skillName);
 
         Motif motif = motifForSkillName(skillName);
-        if (motif == null) {
+        boolean lockedSkillMotif = motif != null;
+        if (!lockedSkillMotif) {
             motif = inferMotif(type, blob);
         }
         TechniqueVfxPalette.Family family = inferFamily(effectElement, attribute, tagText, blob, motif);
@@ -92,7 +98,75 @@ public final class TechniqueVfxOrchestrator {
         double plannedRange = resolveRange(range, type, safeTarget);
         double radius = resolveRadius(type, safeTarget, motif);
         int intensity = resolveIntensity(type, kind, secondary);
-        return new VisualPlan(family, motif, kind, plannedRange, radius, intensity);
+        VisualPlan fallback = new VisualPlan(family, motif, kind,
+                TechniqueVfxPacket.ParticleStyle.DEFAULT,
+                TechniqueVfxPacket.TrailStyle.DEFAULT,
+                false,
+                plannedRange, radius, intensity);
+        return AuthoredTechniqueVfxCatalog.find(id)
+                .map(profile -> applyAuthoredProfile(
+                        fallback, profile, type, safeTarget, blob, secondary, lockedSkillMotif))
+                .orElse(fallback);
+    }
+
+    private static VisualPlan applyAuthoredProfile(VisualPlan fallback,
+                                                   AuthoredTechniqueVfxCatalog.Profile profile,
+                                                   String effectType,
+                                                   String target,
+                                                   String blob,
+                                                   boolean secondary,
+                                                   boolean lockedSkillMotif) {
+        Motif motif = authoredMotif(profile, fallback.motif(), lockedSkillMotif);
+        TechniqueVfxPalette.Family family = fallback.family();
+        if (family == TechniqueVfxPalette.Family.NEUTRAL) {
+            TechniqueVfxPalette.Family authoredFamily = TechniqueVfxPalette.familyOf(profile.element());
+            if (authoredFamily != TechniqueVfxPalette.Family.NEUTRAL) {
+                family = authoredFamily;
+            }
+        }
+        Kind kind = fallback.kind();
+        if (!profile.effectType().isBlank()) {
+            kind = inferKind(profile.effectType(), target,
+                    join(blob, profile.shape(), profile.school()), motif);
+            if (kind == Kind.CAST) {
+                kind = fallback.kind();
+            }
+        }
+        String authoredType = profile.effectType().isBlank() ? effectType : profile.effectType();
+        double radius = resolveRadius(authoredType, target, motif);
+        int intensity = resolveIntensity(authoredType, kind, secondary);
+        return new VisualPlan(family, motif, kind, profile.particle(), profile.trail(), profile.telegraphed(),
+                fallback.range(), radius, intensity);
+    }
+
+    private static Motif authoredMotif(AuthoredTechniqueVfxCatalog.Profile profile,
+                                       Motif fallback,
+                                       boolean lockedSkillMotif) {
+        if (lockedSkillMotif) {
+            return fallback;
+        }
+        // The v122 shape language is the primary silhouette contract. A trail is an
+        // additional ribbon style and must not erase a stronger authored geometry.
+        switch (profile.shape()) {
+            case "冲击环" -> { return Motif.MARTIAL; }
+            case "地网" -> { return Motif.FORMATION; }
+            case "丝连" -> { return Motif.CHAIN; }
+            case "绿金粒" -> { return Motif.HEAL; }
+            case "纸焚轨迹" -> { return Motif.TALISMAN; }
+            case "薄线" -> { return Motif.BLADE; }
+            case "重影", "残影" -> { return Motif.ILLUSION; }
+            case "半透", "湿暗" -> { return Motif.GHOST; }
+            case "风骨混合" -> { return Motif.TELEPORT; }
+            case "弹/扇/柱随元素" -> { return Motif.PROJECTILE; }
+            default -> { }
+        }
+        TechniqueVfxPacket.TrailStyle trail = profile.trail();
+        if (trail == TechniqueVfxPacket.TrailStyle.SWORD_THIN) return Motif.BLADE;
+        if (trail == TechniqueVfxPacket.TrailStyle.TALISMAN_ASH) return Motif.TALISMAN;
+        if (trail == TechniqueVfxPacket.TrailStyle.MOVEMENT_WIND) return Motif.TELEPORT;
+        if (trail == TechniqueVfxPacket.TrailStyle.HEAVY_WEAPON) return Motif.MARTIAL;
+        if (trail == TechniqueVfxPacket.TrailStyle.SOUL_AFTERIMAGE) return Motif.ILLUSION;
+        return fallback;
     }
 
     public static void emitSuccessfulCast(ServerPlayer player,
@@ -122,8 +196,9 @@ public final class TechniqueVfxOrchestrator {
         TechniqueVfxPacket capturedCast = selectCaptured(capturedIntents, Kind.CAST);
         TechniqueVfxPacket capturedSemantic = selectSemantic(capturedIntents, plan.kind());
 
+        boolean movementTechnique = isMovementTechnique(technique);
         Vec3 castStart = capturedCast == null
-                ? (plan.motif() == Motif.TELEPORT && moved
+                ? (movementTechnique && moved
                         ? beforeCast.add(0.0D, eyeOffset, 0.0D)
                         : eye)
                 : start(capturedCast);
@@ -137,6 +212,9 @@ public final class TechniqueVfxOrchestrator {
                 Kind.CAST,
                 family(plan, capturedCast),
                 motif(plan, capturedCast),
+                particleStyle(plan, capturedCast),
+                trailStyle(plan, capturedCast),
+                telegraphed(plan, capturedCast),
                 castStart,
                 castEnd,
                 castRadius,
@@ -153,6 +231,9 @@ public final class TechniqueVfxOrchestrator {
                 semanticKind,
                 family(plan, capturedSemantic),
                 motif(plan, capturedSemantic),
+                particleStyle(plan, capturedSemantic),
+                trailStyle(plan, capturedSemantic),
+                telegraphed(plan, capturedSemantic),
                 semanticStart,
                 semanticEnd,
                 semanticRadius,
@@ -204,6 +285,26 @@ public final class TechniqueVfxOrchestrator {
         return plan.motif();
     }
 
+    private static TechniqueVfxPacket.ParticleStyle particleStyle(VisualPlan plan,
+                                                                  TechniqueVfxPacket captured) {
+        if (captured != null && captured.particleStyle() != TechniqueVfxPacket.ParticleStyle.DEFAULT) {
+            return captured.particleStyle();
+        }
+        return plan.particleStyle();
+    }
+
+    private static TechniqueVfxPacket.TrailStyle trailStyle(VisualPlan plan,
+                                                            TechniqueVfxPacket captured) {
+        if (captured != null && captured.trailStyle() != TechniqueVfxPacket.TrailStyle.DEFAULT) {
+            return captured.trailStyle();
+        }
+        return plan.trailStyle();
+    }
+
+    private static boolean telegraphed(VisualPlan plan, TechniqueVfxPacket captured) {
+        return (captured != null && captured.telegraphed()) || plan.telegraphed();
+    }
+
     private static Vec3 start(TechniqueVfxPacket packet) {
         return new Vec3(packet.x(), packet.y(), packet.z());
     }
@@ -221,7 +322,7 @@ public final class TechniqueVfxOrchestrator {
                                      Vec3 look) {
         Vec3 after = player.position();
         Vec3 eye = player.getEyePosition();
-        if (plan.motif() == Motif.TELEPORT && moved) {
+        if (isMovementTechnique(technique) && moved) {
             return new Geometry(
                     beforeCast.add(0.0D, eyeOffset, 0.0D),
                     after.add(0.0D, eyeOffset, 0.0D));
@@ -264,6 +365,14 @@ public final class TechniqueVfxOrchestrator {
                 || plan.motif() == Motif.CLEANSE;
     }
 
+    private static boolean isMovementTechnique(TechniqueDataManager.TechniqueEntry technique) {
+        if (technique == null) {
+            return false;
+        }
+        String type = normalize(technique.effectType());
+        return MOVEMENT_TYPES.contains(type);
+    }
+
     private static TechniqueVfxPalette.Family inferFamily(String effectElement,
                                                             String attribute,
                                                             String tagText,
@@ -286,6 +395,7 @@ public final class TechniqueVfxOrchestrator {
             case SHIELD, WALL -> TechniqueVfxPalette.Family.EARTH;
             case TELEPORT -> TechniqueVfxPalette.Family.VOID;
             case HEAL -> TechniqueVfxPalette.Family.WOOD;
+            case MARTIAL -> TechniqueVfxPalette.Family.EARTH;
             default -> TechniqueVfxPalette.Family.NEUTRAL;
         };
     }
@@ -397,6 +507,7 @@ public final class TechniqueVfxOrchestrator {
     }
 
     private static Kind inferKind(String type, String target, String blob, Motif motif) {
+        if (MOVEMENT_TYPES.contains(type)) return Kind.PATH;
         if ("beam".equals(type)) return Kind.BEAM;
         if ("cone".equals(type)) return Kind.CONE;
         if ("projectile".equals(type)) return Kind.PATH;

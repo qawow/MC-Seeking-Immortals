@@ -35,6 +35,9 @@ public final class LodestoneTechniqueVfx {
     private static final int MAX_PARTICLES_PER_TICK = 192;
     private static final int MAX_SHAKES_PER_TICK = 2;
     private static final int MAX_ACTIVE_VFX = 72;
+    // Base geometry, semantic motif, and at most one authored particle + one authored trail
+    // are the four visual systems allowed for a single packet.
+    private static final int MAX_AUTHORED_SYSTEMS_PER_EVENT = 2;
     private static final double MAX_VIEW_DISTANCE_SQR = 96.0D * 96.0D;
     private static final ParticleRenderType SOFT_GLOW_RENDER_TYPE =
             LodestoneWorldParticleRenderType.LUMITRANSPARENT.withDepthFade();
@@ -63,7 +66,7 @@ public final class LodestoneTechniqueVfx {
         if (distanceSqr > MAX_VIEW_DISTANCE_SQR) {
             return;
         }
-        Rhythm rhythm = rhythmFor(packet.kind(), packet.motif());
+        Rhythm rhythm = rhythmFor(packet.kind(), packet.motif(), packet.telegraphed());
         if (ACTIVE_VFX.size() >= MAX_ACTIVE_VFX) {
             ACTIVE_VFX.remove(0);
             activeVfxCursor = Math.max(0, activeVfxCursor - 1);
@@ -155,7 +158,24 @@ public final class LodestoneTechniqueVfx {
         }
     }
 
-    private static Rhythm rhythmFor(TechniqueVfxPacket.Kind kind, TechniqueVfxPacket.Motif motif) {
+    private static void withSubBudget(int quota, Runnable action) {
+        EmissionBudget parent = activeEmissionBudget;
+        int allowed = parent == null ? Math.max(0, quota) : Math.min(Math.max(0, quota), parent.remaining);
+        EmissionBudget child = new EmissionBudget(allowed);
+        activeEmissionBudget = child;
+        try {
+            action.run();
+        } finally {
+            int spent = allowed - child.remaining;
+            activeEmissionBudget = parent;
+            if (parent != null) {
+                parent.remaining = Math.max(0, parent.remaining - spent);
+            }
+        }
+    }
+
+    private static Rhythm rhythmFor(TechniqueVfxPacket.Kind kind, TechniqueVfxPacket.Motif motif,
+                                    boolean telegraphed) {
         Rhythm base = switch (kind) {
             case CAST -> new Rhythm(3, 2, 2, 5, 2);
             case BURST -> new Rhythm(2, 1, 1, 5, 2);
@@ -169,16 +189,17 @@ public final class LodestoneTechniqueVfx {
             case STATUS -> new Rhythm(2, 1, 8, 6, 2);
             case DISSIPATE -> new Rhythm(1, 1, 2, 8, 2);
         };
-        return switch (motif) {
+        Rhythm semantic = switch (motif) {
             case CHANNEL -> base.adjust(1, 0, 6, 1, -1);
             case DOMAIN, FORMATION -> base.adjust(1, 0, 4, 2, 0);
             case SHIELD, WALL, SEAL -> base.adjust(1, 0, 3, 1, 0);
             case RAIN, SUMMON -> base.adjust(1, 1, 3, 1, 0);
             case TELEPORT, ILLUSION -> base.adjust(1, 1, 1, 2, 0);
-            case PROJECTILE, BLADE, CHAIN -> base.adjust(-1, 0, 0, -1, 0);
+            case PROJECTILE, BLADE, CHAIN, MARTIAL -> base.adjust(-1, 0, 0, -1, 0);
             case HEAL, CLEANSE -> base.adjust(0, 0, 3, 2, 0);
             case GENERIC, BUDDHIST, CONFUCIAN, DAO, GHOST, TALISMAN -> base;
         };
+        return telegraphed ? semantic.adjust(4, 1, 1, 1, 0) : semantic;
     }
 
     private static int eventParticleCap(ParticleStatus status) {
@@ -206,6 +227,7 @@ public final class LodestoneTechniqueVfx {
     private static void emitPacket(Minecraft minecraft, ClientLevel level, ActiveVfx active,
                                    int intensity, Random random, boolean shake) {
         TechniqueVfxPacket packet = active.packet;
+        emitAuthoredLayers(level, packet, active.start, active.end, intensity, random, Phase.RELEASE);
         // The authored semantic motif is emitted once at release; the timeline supplies the
         // quieter pulses before and after it.
         embellish(level, packet.kind(), packet.motif(), packet.family(), active.start, active.end,
@@ -310,6 +332,7 @@ public final class LodestoneTechniqueVfx {
                     case ANTICIPATION -> {
                         if (localAge == 0 || localAge == rhythm.anticipationTicks() - 1) {
                             int pulse = Math.max(1, authoredIntensity / 3);
+                            emitAuthoredLayers(level, packet, start, end, pulse, random, Phase.ANTICIPATION);
                             embellish(level, packet.kind(), packet.motif(), packet.family(), start, end,
                                     packet.radius(), pulse, random);
                             cast(level, packet.family(), start, end, packet.radius(), pulse, random);
@@ -332,11 +355,14 @@ public final class LodestoneTechniqueVfx {
                     case SUSTAIN -> {
                         if (localAge % rhythm.sustainInterval() == 0) {
                             int pulse = Math.max(1, authoredIntensity / 3);
+                            emitAuthoredLayers(level, packet, start, end, pulse, random, Phase.SUSTAIN);
                             sustain(level, packet, start, end, pulse, random);
                         }
                     }
                     case AFTERGLOW -> {
                         if (localAge == 0 || (localAge & 1) == 0) {
+                            emitAuthoredLayers(level, packet, start, end,
+                                    Math.max(1, authoredIntensity / 4), random, Phase.AFTERGLOW);
                             dissipate(level, packet.family(), start, packet.radius(),
                                     Math.max(1, authoredIntensity / 4), random);
                         }
@@ -599,6 +625,7 @@ public final class LodestoneTechniqueVfx {
             case GHOST -> ghostMotif(level, family, start, end, radius, intensity, random);
             case TALISMAN -> talismanMotif(level, family, start, end, radius, intensity, random);
             case ILLUSION -> illusionMotif(level, family, start, radius, intensity, random);
+            case MARTIAL -> martialMotif(level, family, start, radius, intensity, random);
         }
     }
 
@@ -625,6 +652,21 @@ public final class LodestoneTechniqueVfx {
             Vec3 base = start.add(Math.cos(angle) * radius, 0.16D, Math.sin(angle) * radius);
             Vec3 tip = base.add(-Math.sin(angle) * 0.28D, 0.38D, Math.cos(angle) * 0.28D);
             shortLine(level, family, base, tip, 3, random);
+        }
+    }
+
+    private static void martialMotif(ClientLevel level, TechniqueVfxPalette.Family family, Vec3 center,
+                                      float radius, int intensity, Random random) {
+        double safeRadius = Math.max(0.75D, Math.min(3.5D, radius));
+        int points = Math.min(24, Math.max(8, intensity / 2));
+        ring(level, family, center.add(0.0D, 0.06D, 0.0D), safeRadius, points, random, 0.14F, 16);
+        for (int i = 0; i < Math.min(12, Math.max(4, intensity / 4)) && budgetAvailable(level); i++) {
+            double angle = random.nextDouble() * Math.PI * 2.0D;
+            Vec3 direction = new Vec3(Math.cos(angle), 0.15D + random.nextDouble() * 0.35D,
+                    Math.sin(angle)).normalize();
+            spawn(level, LodestoneParticleRegistry.WISP_PARTICLE,
+                    family, center.add(0.0D, 0.08D, 0.0D), direction.scale(0.045D),
+                    0.18F, 0.62F, 12 + random.nextInt(8), random.nextFloat());
         }
     }
 
@@ -840,6 +882,291 @@ public final class LodestoneTechniqueVfx {
                 Math.min(24, Math.max(12, intensity / 2)), phase, random);
         rotatingRing(level, family, center.add(0.0D, 1.2D, 0.0D), safeRadius * 0.72D,
                 Math.min(20, Math.max(10, intensity / 3)), -phase * 1.4D, random);
+    }
+
+    private static void emitAuthoredLayers(ClientLevel level, TechniqueVfxPacket packet,
+                                           Vec3 start, Vec3 end, int intensity, Random random,
+                                           Phase phase) {
+        boolean particleActive = packet.particleStyle() != TechniqueVfxPacket.ParticleStyle.DEFAULT;
+        boolean trailActive = (phase == Phase.RELEASE || phase == Phase.SUSTAIN)
+                && packet.trailStyle() != TechniqueVfxPacket.TrailStyle.DEFAULT
+                && packet.trailStyle() != TechniqueVfxPacket.TrailStyle.NONE;
+        int systems = (particleActive ? 1 : 0) + (trailActive ? 1 : 0);
+        if (systems == 0 || systems > MAX_AUTHORED_SYSTEMS_PER_EVENT) {
+            return;
+        }
+        int available = activeEmissionBudget == null ? 6 : activeEmissionBudget.remaining;
+        int perSystem = Math.min(4, Math.max(0, available / (systems + 1)));
+        if (perSystem <= 0) {
+            return;
+        }
+        if (particleActive) {
+            withSubBudget(perSystem,
+                    () -> authoredParticleLayer(level, packet, start, end, intensity, random, phase));
+        }
+        if (trailActive) {
+            withSubBudget(perSystem,
+                    () -> authoredTrailLayer(level, packet, start, end, intensity, random, phase));
+        }
+    }
+
+    /** Emits the single authored particle system selected by the v121 frame sheet. */
+    private static void authoredParticleLayer(ClientLevel level, TechniqueVfxPacket packet,
+                                              Vec3 start, Vec3 end, int intensity, Random random,
+                                              Phase phase) {
+        TechniqueVfxPacket.ParticleStyle style = packet.particleStyle();
+        if (style == TechniqueVfxPacket.ParticleStyle.DEFAULT) {
+            return;
+        }
+        int count = authoredCount(intensity, phase);
+        Vec3 anchor = phase == Phase.AFTERGLOW ? end : start;
+        if (style == TechniqueVfxPacket.ParticleStyle.WATER_MIST_METAL_SPARK) {
+            for (int i = 0; i < count && budgetAvailable(level); i++) {
+                authoredParticleSystem(level, packet.family(), anchor, start, end,
+                        (i & 1) == 0
+                                ? TechniqueVfxPacket.ParticleStyle.WATER_MIST
+                                : TechniqueVfxPacket.ParticleStyle.METAL_SPARK,
+                        1, random);
+            }
+            return;
+        }
+        authoredParticleSystem(level, packet.family(), anchor, start, end, style, count, random);
+    }
+
+    private static int authoredCount(int intensity, Phase phase) {
+        int phaseCap = switch (phase) {
+            case ANTICIPATION -> 6;
+            case RELEASE -> 16;
+            case SUSTAIN -> 8;
+            case AFTERGLOW -> 5;
+        };
+        return Math.max(2, Math.min(phaseCap, Math.max(2, intensity / 3)));
+    }
+
+    private static void authoredParticleSystem(ClientLevel level, TechniqueVfxPalette.Family family,
+                                               Vec3 anchor, Vec3 start, Vec3 end,
+                                               TechniqueVfxPacket.ParticleStyle style,
+                                               int count, Random random) {
+        if (count <= 0) {
+            return;
+        }
+        if (style == TechniqueVfxPacket.ParticleStyle.THUNDER_ARC
+                && start.distanceToSqr(end) > 0.04D) {
+            int available = activeEmissionBudget == null ? count : activeEmissionBudget.remaining;
+            authoredJaggedLine(level, family, start, end,
+                    Math.max(1, Math.min(5, available - 1)), random);
+            return;
+        }
+        for (int i = 0; i < count && budgetAvailable(level); i++) {
+            ParticleEmission emission = switch (style) {
+                case QI_SOFT -> {
+                    Vec3 point = anchor.add(randomOffset(random, 0.26D));
+                    Vec3 motion = new Vec3(0.0D, 0.018D + random.nextDouble() * 0.018D, 0.0D);
+                    yield new ParticleEmission(LodestoneParticleRegistry.WISP_PARTICLE,
+                            point, motion, 0.16F, 0.58F, 20 + random.nextInt(10));
+                }
+                case FIRE_EMBER -> {
+                    Vec3 point = anchor.add(randomOffset(random, 0.18D));
+                    Vec3 motion = new Vec3((random.nextDouble() - 0.5D) * 0.025D,
+                            0.035D + random.nextDouble() * 0.045D,
+                            (random.nextDouble() - 0.5D) * 0.025D);
+                    yield new ParticleEmission(LodestoneParticleRegistry.EXTRUDING_SPARK_PARTICLE,
+                            point, motion, 0.13F, 0.82F, 8 + random.nextInt(9));
+                }
+                case WATER_MIST -> {
+                    Vec3 point = anchor.add(randomOffset(random, 0.32D));
+                    Vec3 motion = new Vec3((random.nextDouble() - 0.5D) * 0.018D,
+                            -0.006D + random.nextDouble() * 0.012D,
+                            (random.nextDouble() - 0.5D) * 0.018D);
+                    yield new ParticleEmission(LodestoneParticleRegistry.WISP_PARTICLE,
+                            point, motion, 0.22F, 0.48F, 22 + random.nextInt(12));
+                }
+                case WOOD_POLLEN -> {
+                    Vec3 point = anchor.add(randomOffset(random, 0.38D));
+                    Vec3 motion = new Vec3((random.nextDouble() - 0.5D) * 0.012D,
+                            0.004D + random.nextDouble() * 0.009D,
+                            (random.nextDouble() - 0.5D) * 0.012D);
+                    yield new ParticleEmission(LodestoneParticleRegistry.TWINKLE_PARTICLE,
+                            point, motion, 0.12F, 0.62F, 28 + random.nextInt(12));
+                }
+                case METAL_SPARK -> {
+                    Vec3 point = anchor.add(randomOffset(random, 0.12D));
+                    Vec3 motion = randomDirection(random).scale(0.055D + random.nextDouble() * 0.065D);
+                    yield new ParticleEmission(LodestoneParticleRegistry.THIN_EXTRUDING_SPARK_PARTICLE,
+                            point, motion, 0.10F, 0.86F, 6 + random.nextInt(6));
+                }
+                case EARTH_DUST -> {
+                    double angle = random.nextDouble() * Math.PI * 2.0D;
+                    double distance = 0.18D + random.nextDouble() * 0.62D;
+                    Vec3 point = anchor.add(Math.cos(angle) * distance, 0.04D + random.nextDouble() * 0.12D,
+                            Math.sin(angle) * distance);
+                    Vec3 motion = new Vec3(Math.cos(angle) * 0.018D, -0.004D,
+                            Math.sin(angle) * 0.018D);
+                    yield new ParticleEmission(LodestoneParticleRegistry.WISP_PARTICLE,
+                            point, motion, 0.20F, 0.48F, 14 + random.nextInt(10));
+                }
+                case THUNDER_ARC -> {
+                    Vec3 point = anchor.add(randomOffset(random, 0.18D));
+                    Vec3 motion = randomDirection(random).scale(0.025D);
+                    yield new ParticleEmission(LodestoneParticleRegistry.THIN_EXTRUDING_SPARK_PARTICLE,
+                            point, motion, 0.11F, 0.9F, 5 + random.nextInt(4));
+                }
+                case YIN_SMOKE -> {
+                    Vec3 point = anchor.add(randomOffset(random, 0.35D));
+                    Vec3 motion = new Vec3((random.nextDouble() - 0.5D) * 0.012D,
+                            -0.014D - random.nextDouble() * 0.012D,
+                            (random.nextDouble() - 0.5D) * 0.012D);
+                    yield new ParticleEmission(LodestoneParticleRegistry.WISP_PARTICLE,
+                            point, motion, 0.25F, 0.52F, 26 + random.nextInt(14));
+                }
+                case SOUL_WISPS -> {
+                    Vec3 point = anchor.add(randomOffset(random, 0.44D));
+                    Vec3 motion = randomDirection(random).scale(0.012D);
+                    yield new ParticleEmission(LodestoneParticleRegistry.WISP_PARTICLE,
+                            point, motion, 0.20F, 0.5F, 18 + random.nextInt(16));
+                }
+                case BLOOD_MIST -> {
+                    Vec3 point = anchor.add(randomOffset(random, 0.25D));
+                    Vec3 motion = new Vec3((random.nextDouble() - 0.5D) * 0.012D,
+                            -0.022D - random.nextDouble() * 0.014D,
+                            (random.nextDouble() - 0.5D) * 0.012D);
+                    yield new ParticleEmission(LodestoneParticleRegistry.WISP_PARTICLE,
+                            point, motion, 0.22F, 0.58F, 14 + random.nextInt(10));
+                }
+                case HEAL_MOTES -> {
+                    Vec3 point = anchor.add(randomOffset(random, 0.3D));
+                    yield new ParticleEmission(LodestoneParticleRegistry.TWINKLE_PARTICLE,
+                            point, new Vec3(0.0D, -0.018D, 0.0D),
+                            0.14F, 0.72F, 18 + random.nextInt(10));
+                }
+                case SPACE_GLITCH -> {
+                    Vec3 point = anchor.add(randomOffset(random, 0.42D));
+                    Vec3 motion = randomDirection(random).scale(0.01D);
+                    yield new ParticleEmission(LodestoneParticleRegistry.THIN_EXTRUDING_SPARK_PARTICLE,
+                            point, motion, 0.08F, 0.44F, 4 + random.nextInt(5));
+                }
+                case DEFAULT, WATER_MIST_METAL_SPARK -> null;
+            };
+            if (emission == null) {
+                return;
+            }
+            spawn(level, emission.particle(), family, emission.point(), emission.motion(),
+                    emission.scale(), emission.alpha(), emission.lifetime(), random.nextFloat());
+        }
+    }
+
+    /** Adds only the authored ribbon language; NONE intentionally emits no extra geometry. */
+    private static void authoredTrailLayer(ClientLevel level, TechniqueVfxPacket packet,
+                                           Vec3 start, Vec3 end, int intensity, Random random,
+                                           Phase phase) {
+        if (phase == Phase.AFTERGLOW || packet.trailStyle() == TechniqueVfxPacket.TrailStyle.DEFAULT
+                || packet.trailStyle() == TechniqueVfxPacket.TrailStyle.NONE) {
+            return;
+        }
+        TechniqueVfxPalette.Family family = packet.family();
+        int available = activeEmissionBudget == null ? 8 : activeEmissionBudget.remaining;
+        int points = Math.min(18, Math.max(1, Math.min(Math.max(1, intensity / 3), available - 1)));
+        boolean emitted = switch (packet.trailStyle()) {
+            case SWORD_THIN -> {
+                shortLine(level, family, start, end, points, random);
+                yield true;
+            }
+            case HEAVY_WEAPON -> {
+                if (start.distanceToSqr(end) > 0.04D) {
+                    shortLine(level, family, start, end, points, random);
+                }
+                yield true;
+            }
+            case FLYING_SWORD_ORBIT -> {
+                rotatingRing(level, family, start.add(0.0D, 0.55D, 0.0D),
+                        Math.max(0.35D, packet.radius() * 0.42D), points, level.getGameTime() * 0.12D, random);
+                yield true;
+            }
+            case TALISMAN_ASH -> {
+                ashTrail(level, family, start, end, points, random);
+                yield true;
+            }
+            case BLOOD_RIBBON -> {
+                helix(level, family, start, end, Math.max(0.12D, packet.radius() * 0.14D), points, random);
+                yield true;
+            }
+            case THUNDER_JAGGED -> {
+                authoredJaggedLine(level, family, start, end, Math.min(7, points / 2), random);
+                yield true;
+            }
+            case SOUL_AFTERIMAGE -> {
+                afterimageTrail(level, family, start, end, points, random);
+                yield true;
+            }
+            case MOVEMENT_WIND -> {
+                movementWindTrail(level, family, start, end, packet.radius(), points, random);
+                yield true;
+            }
+            case DEFAULT, NONE -> {
+                yield false;
+            }
+        };
+        if (!emitted) {
+            return;
+        }
+    }
+
+    private static void movementWindTrail(ClientLevel level, TechniqueVfxPalette.Family family,
+                                          Vec3 start, Vec3 end, float radius, int points, Random random) {
+        Vec3 normal = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        int available = activeEmissionBudget == null ? points * 2 : activeEmissionBudget.remaining;
+        int each = Math.max(1, available / 2);
+        withSubBudget(each, () -> verticalRing(level, family, start.add(0.0D, 0.85D, 0.0D), normal,
+                Math.max(0.5D, radius * 0.45D), Math.min(points, each), random, 0.12F));
+        withSubBudget(each, () -> verticalRing(level, family, end.add(0.0D, 0.85D, 0.0D), normal,
+                Math.max(0.5D, radius * 0.45D), Math.min(points, each), random, 0.12F));
+    }
+
+    private static void ashTrail(ClientLevel level, TechniqueVfxPalette.Family family,
+                                 Vec3 start, Vec3 end, int points, Random random) {
+        Vec3 delta = end.subtract(start);
+        for (int i = 0; i <= points && budgetAvailable(level); i++) {
+            Vec3 point = start.add(delta.scale(i / (double) points)).add(randomOffset(random, 0.08D));
+            spawn(level, LodestoneParticleRegistry.WISP_PARTICLE, family, point,
+                    new Vec3(0.0D, -0.018D, 0.0D), 0.14F, 0.48F, 18, random.nextFloat());
+        }
+    }
+
+    private static void afterimageTrail(ClientLevel level, TechniqueVfxPalette.Family family,
+                                        Vec3 start, Vec3 end, int points, Random random) {
+        Vec3 delta = end.subtract(start);
+        int samples = Math.max(2, Math.min(points + 1,
+                activeEmissionBudget == null ? points + 1 : activeEmissionBudget.remaining));
+        for (int i = 0; i < samples && budgetAvailable(level); i++) {
+            double progress = i / (double) (samples - 1);
+            Vec3 point = start.add(delta.scale(progress)).add(0.0D, 0.35D, 0.0D);
+            spawn(level, LodestoneParticleRegistry.WISP_PARTICLE, family, point,
+                    new Vec3(0.0D, 0.006D, 0.0D), 0.22F, 0.34F, 12, random.nextFloat());
+        }
+    }
+
+    private static void authoredJaggedLine(ClientLevel level, TechniqueVfxPalette.Family family,
+                                           Vec3 start, Vec3 end, int segments, Random random) {
+        if (segments <= 0 || start.distanceToSqr(end) < 0.04D) {
+            return;
+        }
+        Vec3 delta = end.subtract(start);
+        Vec3 side = perpendicular(delta.normalize());
+        int available = activeEmissionBudget == null ? segments + 1 : activeEmissionBudget.remaining;
+        int vertices = Math.min(segments + 1, available);
+        if (vertices < 2) {
+            return;
+        }
+        for (int i = 0; i < vertices && budgetAvailable(level); i++) {
+            double progress = i / (double) (vertices - 1);
+            double offset = i == 0 || i == vertices - 1
+                    ? 0.0D : (random.nextDouble() - 0.5D) * 0.42D;
+            Vec3 point = start.add(delta.scale(progress)).add(side.scale(offset));
+            Vec3 motion = i + 1 < vertices
+                    ? end.subtract(point).normalize().scale(0.004D) : Vec3.ZERO;
+            spawn(level, LodestoneParticleRegistry.THIN_EXTRUDING_SPARK_PARTICLE,
+                    family, point, motion, 0.11F, 0.84F, 6, random.nextFloat());
+        }
     }
 
     private static void projectileTrail(ClientLevel level, Entity entity, TechniqueVfxPalette.Family family,
@@ -1085,6 +1412,15 @@ public final class LodestoneTechniqueVfx {
             this.remaining = remaining;
         }
     }
+
+    private record ParticleEmission(
+            RegistryObject<? extends LodestoneWorldParticleType> particle,
+            Vec3 point,
+            Vec3 motion,
+            float scale,
+            float alpha,
+            int lifetime
+    ) {}
 
     private record PaletteColors(float startR, float startG, float startB,
                                  float endR, float endG, float endB) {}

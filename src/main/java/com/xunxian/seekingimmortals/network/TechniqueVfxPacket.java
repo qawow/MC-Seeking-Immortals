@@ -13,6 +13,7 @@ import net.minecraftforge.network.PacketDistributor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.function.Supplier;
 
 /**
@@ -23,6 +24,9 @@ public record TechniqueVfxPacket(
         Kind kind,
         TechniqueVfxPalette.Family family,
         Motif motif,
+        ParticleStyle particleStyle,
+        TrailStyle trailStyle,
+        boolean telegraphed,
         double x,
         double y,
         double z,
@@ -75,13 +79,70 @@ public record TechniqueVfxPacket(
         DAO,
         GHOST,
         TALISMAN,
-        ILLUSION
+        ILLUSION,
+        MARTIAL
+    }
+
+    /** Authored particle-system references from the v121 particle bible. */
+    public enum ParticleStyle {
+        DEFAULT,
+        QI_SOFT,
+        FIRE_EMBER,
+        WATER_MIST,
+        WOOD_POLLEN,
+        METAL_SPARK,
+        EARTH_DUST,
+        THUNDER_ARC,
+        YIN_SMOKE,
+        SOUL_WISPS,
+        BLOOD_MIST,
+        HEAL_MOTES,
+        SPACE_GLITCH,
+        WATER_MIST_METAL_SPARK;
+
+        public static ParticleStyle fromAuthorRef(String value) {
+            String normalized = normalizeRef(value);
+            if ("water_mist+metal_spark".equals(normalized)
+                    || "metal_spark+water_mist".equals(normalized)) {
+                return WATER_MIST_METAL_SPARK;
+            }
+            try {
+                return normalized.isBlank() ? DEFAULT : valueOf(normalized.toUpperCase(Locale.ROOT));
+            } catch (IllegalArgumentException ignored) {
+                return DEFAULT;
+            }
+        }
+    }
+
+    /** Authored ribbon/trail references from the v121 trail bible. */
+    public enum TrailStyle {
+        DEFAULT,
+        NONE,
+        SWORD_THIN,
+        HEAVY_WEAPON,
+        FLYING_SWORD_ORBIT,
+        TALISMAN_ASH,
+        BLOOD_RIBBON,
+        THUNDER_JAGGED,
+        SOUL_AFTERIMAGE,
+        MOVEMENT_WIND;
+
+        public static TrailStyle fromAuthorRef(String value) {
+            String normalized = normalizeRef(value);
+            try {
+                return normalized.isBlank() ? DEFAULT : valueOf(normalized.toUpperCase(Locale.ROOT));
+            } catch (IllegalArgumentException ignored) {
+                return DEFAULT;
+            }
+        }
     }
 
     public TechniqueVfxPacket {
         kind = kind == null ? Kind.BURST : kind;
         family = family == null ? TechniqueVfxPalette.Family.NEUTRAL : family;
         motif = motif == null ? Motif.GENERIC : motif;
+        particleStyle = particleStyle == null ? ParticleStyle.DEFAULT : particleStyle;
+        trailStyle = trailStyle == null ? TrailStyle.DEFAULT : trailStyle;
         x = clampCoordinate(x);
         y = clampCoordinate(y);
         z = clampCoordinate(z);
@@ -97,7 +158,19 @@ public record TechniqueVfxPacket(
                               double x, double y, double z,
                               double endX, double endY, double endZ,
                               float radius, int intensity, long seed) {
-        this(kind, family, Motif.GENERIC, x, y, z, endX, endY, endZ, radius, intensity, seed);
+        this(kind, family, Motif.GENERIC, ParticleStyle.DEFAULT, TrailStyle.DEFAULT,
+                false,
+                x, y, z, endX, endY, endZ, radius, intensity, seed);
+    }
+
+    /** Compatibility constructor for semantic callers predating authored particle/trail profiles. */
+    public TechniqueVfxPacket(Kind kind, TechniqueVfxPalette.Family family, Motif motif,
+                              double x, double y, double z,
+                              double endX, double endY, double endZ,
+                              float radius, int intensity, long seed) {
+        this(kind, family, motif, ParticleStyle.DEFAULT, TrailStyle.DEFAULT,
+                false,
+                x, y, z, endX, endY, endZ, radius, intensity, seed);
     }
 
     public static void send(ServerLevel level, Kind kind, TechniqueVfxPalette.Family family,
@@ -107,12 +180,28 @@ public record TechniqueVfxPacket(
 
     public static void send(ServerLevel level, Kind kind, TechniqueVfxPalette.Family family,
                             Motif motif, Vec3 start, Vec3 end, double radius, int intensity, long seed) {
+        send(level, kind, family, motif, ParticleStyle.DEFAULT, TrailStyle.DEFAULT,
+                false,
+                start, end, radius, intensity, seed);
+    }
+
+    public static void send(ServerLevel level, Kind kind, TechniqueVfxPalette.Family family,
+                            Motif motif, ParticleStyle particleStyle, TrailStyle trailStyle,
+                            Vec3 start, Vec3 end, double radius, int intensity, long seed) {
+        send(level, kind, family, motif, particleStyle, trailStyle, false,
+                start, end, radius, intensity, seed);
+    }
+
+    public static void send(ServerLevel level, Kind kind, TechniqueVfxPalette.Family family,
+                            Motif motif, ParticleStyle particleStyle, TrailStyle trailStyle,
+                            boolean telegraphed, Vec3 start, Vec3 end,
+                            double radius, int intensity, long seed) {
         if (level == null || start == null || !finite(start)) {
             return;
         }
         Vec3 safeEnd = end == null || !finite(end) ? start : end;
         TechniqueVfxPacket packet = new TechniqueVfxPacket(
-                kind, family, motif,
+                kind, family, motif, particleStyle, trailStyle, telegraphed,
                 start.x, start.y, start.z,
                 safeEnd.x, safeEnd.y, safeEnd.z,
                 (float) radius, intensity, seed);
@@ -154,6 +243,9 @@ public record TechniqueVfxPacket(
         buffer.writeByte(packet.kind.ordinal());
         buffer.writeByte(packet.family.ordinal());
         buffer.writeByte(packet.motif.ordinal());
+        buffer.writeByte(packet.particleStyle.ordinal());
+        buffer.writeByte(packet.trailStyle.ordinal());
+        buffer.writeBoolean(packet.telegraphed());
         buffer.writeDouble(packet.x);
         buffer.writeDouble(packet.y);
         buffer.writeDouble(packet.z);
@@ -170,10 +262,18 @@ public record TechniqueVfxPacket(
         TechniqueVfxPalette.Family family = enumValue(
                 TechniqueVfxPalette.Family.values(), buffer.readUnsignedByte(), TechniqueVfxPalette.Family.NEUTRAL);
         Motif motif = enumValue(Motif.values(), buffer.readUnsignedByte(), Motif.GENERIC);
+        ParticleStyle particleStyle = enumValue(
+                ParticleStyle.values(), buffer.readUnsignedByte(), ParticleStyle.DEFAULT);
+        TrailStyle trailStyle = enumValue(
+                TrailStyle.values(), buffer.readUnsignedByte(), TrailStyle.DEFAULT);
+        boolean telegraphed = buffer.readBoolean();
         return new TechniqueVfxPacket(
                 kind,
                 family,
                 motif,
+                particleStyle,
+                trailStyle,
+                telegraphed,
                 buffer.readDouble(), buffer.readDouble(), buffer.readDouble(),
                 buffer.readDouble(), buffer.readDouble(), buffer.readDouble(),
                 buffer.readFloat(), buffer.readVarInt(), buffer.readLong());
@@ -203,6 +303,10 @@ public record TechniqueVfxPacket(
 
     private static <T> T enumValue(T[] values, int index, T fallback) {
         return index >= 0 && index < values.length ? values[index] : fallback;
+    }
+
+    private static String normalizeRef(String value) {
+        return value == null ? "" : value.trim().toLowerCase(Locale.ROOT).replace(' ', '_');
     }
 
     public static final class CaptureScope implements AutoCloseable {

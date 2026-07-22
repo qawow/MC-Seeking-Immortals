@@ -16,6 +16,9 @@ class TechniqueVfxPacketTest {
                 TechniqueVfxPacket.Kind.FORMATION,
                 TechniqueVfxPalette.Family.THUNDER,
                 TechniqueVfxPacket.Motif.FORMATION,
+                TechniqueVfxPacket.ParticleStyle.THUNDER_ARC,
+                TechniqueVfxPacket.TrailStyle.THUNDER_JAGGED,
+                true,
                 1.25D, 64.5D, -3.75D,
                 8.0D, 66.0D, 12.0D,
                 9.5F, 72, 0x1234ABCDL);
@@ -40,6 +43,9 @@ class TechniqueVfxPacketTest {
         assertEquals(TechniqueVfxPacket.Kind.BURST, packet.kind());
         assertEquals(TechniqueVfxPalette.Family.NEUTRAL, packet.family());
         assertEquals(TechniqueVfxPacket.Motif.GENERIC, packet.motif());
+        assertEquals(TechniqueVfxPacket.ParticleStyle.DEFAULT, packet.particleStyle());
+        assertEquals(TechniqueVfxPacket.TrailStyle.DEFAULT, packet.trailStyle());
+        assertFalse(packet.telegraphed());
         assertEquals(0.0D, packet.x());
         assertEquals(0.0D, packet.y());
         assertEquals(-30_000_000.0D, packet.z());
@@ -55,6 +61,9 @@ class TechniqueVfxPacketTest {
         buffer.writeByte(255);
         buffer.writeByte(255);
         buffer.writeByte(255);
+        buffer.writeByte(255);
+        buffer.writeByte(255);
+        buffer.writeBoolean(false);
         for (int i = 0; i < 6; i++) {
             buffer.writeDouble(0.0D);
         }
@@ -67,7 +76,24 @@ class TechniqueVfxPacketTest {
         assertEquals(TechniqueVfxPacket.Kind.BURST, decoded.kind());
         assertEquals(TechniqueVfxPalette.Family.NEUTRAL, decoded.family());
         assertEquals(TechniqueVfxPacket.Motif.GENERIC, decoded.motif());
+        assertEquals(TechniqueVfxPacket.ParticleStyle.DEFAULT, decoded.particleStyle());
+        assertEquals(TechniqueVfxPacket.TrailStyle.DEFAULT, decoded.trailStyle());
+        assertFalse(decoded.telegraphed());
         assertTrue(decoded.radius() > 0.0F);
+    }
+
+    @Test
+    void authorReferencesMapToBoundedWireEnums() {
+        assertEquals(TechniqueVfxPacket.ParticleStyle.METAL_SPARK,
+                TechniqueVfxPacket.ParticleStyle.fromAuthorRef("metal_spark"));
+        assertEquals(TechniqueVfxPacket.ParticleStyle.WATER_MIST_METAL_SPARK,
+                TechniqueVfxPacket.ParticleStyle.fromAuthorRef("water_mist+metal_spark"));
+        assertEquals(TechniqueVfxPacket.ParticleStyle.DEFAULT,
+                TechniqueVfxPacket.ParticleStyle.fromAuthorRef("unknown"));
+        assertEquals(TechniqueVfxPacket.TrailStyle.SWORD_THIN,
+                TechniqueVfxPacket.TrailStyle.fromAuthorRef("sword_thin"));
+        assertEquals(TechniqueVfxPacket.TrailStyle.DEFAULT,
+                TechniqueVfxPacket.TrailStyle.fromAuthorRef("unknown"));
     }
 
     @Test
