@@ -170,12 +170,7 @@ public final class ArtifactActivationService {
             if (castResult == ArtifactActiveSkillService.CastResult.SUCCESS) {
                 if (info.integrityCost() > 0 && !player.getAbilities().instabuild) {
                     int effectiveCost = effectiveIntegrityCost(player, artifact, info);
-                    int integrity = getIntegrity(stack, artifact);
-                    if (integrity < effectiveCost) {
-                        damageIntegrity(stack, artifact, integrity);
-                    } else {
-                        damageIntegrity(stack, artifact, effectiveCost);
-                    }
+                    consumeIntegrityWithVfx(player, stack, artifact, effectiveCost);
                 }
                 consumeTalismanUse(player, stack, info);
                 playActivationFeedback(player);
@@ -219,23 +214,19 @@ public final class ArtifactActivationService {
         Vec3 activationStart = player.position();
         if (repairTarget != null) {
             applyRepair(player, stack, repairTarget, info);
+            emitResolvedRepairVfx(player, artifact, info, activationStart);
         } else {
             applyActivation(player, cultivation, artifact, info, powerScale);
+            emitGenericActivationVfx(player, artifact, info, activationStart);
             // Wave456: natal-bound artifact gains growth on successful activation.
             if (artifact.id().equals(NatalBindingService.boundId(player))) {
                 NatalBindingService.grow(player);
             }
             if (info.integrityCost() > 0 && !player.getAbilities().instabuild) {
                 int effectiveCost = effectiveIntegrityCost(player, artifact, info);
-                int integrity = getIntegrity(stack, artifact);
-                if (integrity < effectiveCost) {
-                    damageIntegrity(stack, artifact, integrity); // last light
-                } else {
-                    damageIntegrity(stack, artifact, effectiveCost);
-                }
+                consumeIntegrityWithVfx(player, stack, artifact, effectiveCost); // last light
             }
         }
-        emitGenericActivationVfx(player, artifact, info, activationStart);
         int cooldown = ArtifactPowerService.scaledCooldown(
                 effectiveCooldown(player, artifact, info), powerScale);
         player.getCooldowns().addCooldown(activatedItem, cooldown);
@@ -265,6 +256,15 @@ public final class ArtifactActivationService {
             cost = Math.max(0, cost - growth / 25);
         }
         return cost;
+    }
+
+    private static void consumeIntegrityWithVfx(ServerPlayer player, ItemStack stack,
+                                                ArtifactDataService.ArtifactDefinition artifact,
+                                                int amount) {
+        int before = getIntegrity(stack, artifact);
+        int after = damageIntegrity(stack, artifact, Math.min(before, Math.max(0, amount)));
+        ArtifactVfxOrchestrator.emitIntegrityTransition(
+                player, artifact.id(), before, after, maxIntegrity(artifact));
     }
 
     static boolean hasUsableIntegrity(int integrity, int integrityCost, boolean instabuild) {
@@ -589,6 +589,7 @@ public final class ArtifactActivationService {
         }
         player.displayClientMessage(Component.translatable("message.seeking_immortals.artifact.repaired",
                 target.stack().getHoverName(), repaired, target.maxIntegrity()), true);
+        ArtifactVfxOrchestrator.emitState(player, target.artifact().id(), ArtifactVfxOrchestrator.State.REPAIRED);
         if (!player.getAbilities().instabuild) {
             repairStack.shrink(1);
         }
@@ -1229,8 +1230,15 @@ public final class ArtifactActivationService {
                 ^ ((long) artifact.id().hashCode() << 21)
                 ^ ((long) kind.ordinal() << 52)
                 ^ player.serverLevel().getGameTime();
-        TechniqueVfxPacket.send(player.serverLevel(), kind, family, motif,
+        ArtifactVfxOrchestrator.send(player.serverLevel(), artifact.id(), kind, family, motif,
                 start, end, radius, intensity, seed);
+    }
+
+    private static void emitResolvedRepairVfx(ServerPlayer player,
+                                              ArtifactDataService.ArtifactDefinition artifact,
+                                              ActivationInfo info,
+                                              Vec3 activationStart) {
+        emitGenericActivationVfx(player, artifact, info, activationStart);
     }
 
     static double artifactVfxAimDistance(String activationKind, int gameTier) {

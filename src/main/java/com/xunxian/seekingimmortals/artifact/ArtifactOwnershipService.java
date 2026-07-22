@@ -73,6 +73,7 @@ public final class ArtifactOwnershipService {
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.artifact.claim.success",
                 displayName(stack, def, artifactId)), true);
+        ArtifactVfxOrchestrator.emitState(player, artifactId, ArtifactVfxOrchestrator.State.IDLE_BOUND);
         return true;
     }
 
@@ -205,6 +206,7 @@ public final class ArtifactOwnershipService {
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.artifact.spirit.awakened",
                 displayName(stack, ArtifactDataService.builtin().findArtifact(artifactId).orElse(null), artifactId)), true);
+        ArtifactVfxOrchestrator.emitState(player, artifactId, ArtifactVfxOrchestrator.State.AWAKENED);
         return true;
     }
 

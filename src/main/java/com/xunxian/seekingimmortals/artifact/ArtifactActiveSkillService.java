@@ -162,7 +162,8 @@ public final class ArtifactActiveSkillService {
                 skill.skillType(),
                 beforeCast,
                 vfxCapture.packets(),
-                false);
+                false,
+                ArtifactVfxOrchestrator.overrideFor(def.id()));
         player.getCooldowns().addCooldown(stack.getItem(), cooldown);
         // 本命成长
         if (def.id().equals(NatalBindingService.boundId(player))) {

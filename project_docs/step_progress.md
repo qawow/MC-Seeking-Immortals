@@ -1,3 +1,15 @@
+## 571. 2026-07-23 0.2.152 作者法宝视觉档案
+
+  Step   Status   Notes
+  ---   ---   ---
+  Source projection   Done   v118-v122 五层作者资料确定性合并为 217 条唯一法宝 profile，运行时 `catalog_id` 全量对齐；虚天鼎无 catalog_id 的 v118 专稿归并到 `void_heaven_cauldron_shard` 并保留来源。
+  Runtime routing   Done   `activation=198`、`material=18`、`utility_deferred=1` 分流；材料/延后工具不覆盖主动技既有几何，状态演出入口也 fail-closed。
+  Lifecycle hooks   Done   激活、祭炼成败、认主、器灵觉醒、储物开启、修补以及耐久损坏/碎裂阈值均接入一次性作者粒子、拖尾和预兆；基础六状态与 orbit/launch/open/reflect 扩展状态覆盖完整。
+  Tests/build   Done   两套生成器 `--check`、三组法宝定向测试及普通 `./gradlew build --no-daemon --max-workers=1` 通过；最终构建 `BUILD SUCCESSFUL in 1m 27s`，`aiPreflight` 记录 `0.2.152`。
+  Version/protocol   Done   `mod_version` 从共享树 `0.2.151` 协调升至 `0.2.152`；未改变网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=29` 保持不变。
+  Backup   Done   既有文件备份位于 `.bak/20260723_artifact_vfx/`、`.bak/20260723_artifact_vfx_version_reconcile/`，文档收尾备份位于 `.bak/20260723_artifact_vfx_docs_finalize/`。
+  Follow-up   Pending   持续待机附着、持有模型、连续飞行轨迹和完整 reflect 动画仍待实现；多人/低粒子/透明排序实机验收及丹药/消耗品视觉档案接入留给后续批次。
+
 ## 570. 2026-07-23 0.2.149 方块模型与五行灵石矿
 
   Step   Status   Notes

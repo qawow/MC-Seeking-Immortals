@@ -49,6 +49,23 @@ public final class TechniqueVfxOrchestrator {
         }
     }
 
+    /** Optional authored skin layered over an existing technique geometry plan. */
+    public record VisualOverride(
+            TechniqueVfxPalette.Family family,
+            Motif motif,
+            TechniqueVfxPacket.ParticleStyle particleStyle,
+            TechniqueVfxPacket.TrailStyle trailStyle,
+            boolean telegraphed
+    ) {
+        public VisualOverride {
+            family = family == null ? TechniqueVfxPalette.Family.NEUTRAL : family;
+            motif = motif == null ? Motif.GENERIC : motif;
+            particleStyle = particleStyle == null
+                    ? TechniqueVfxPacket.ParticleStyle.DEFAULT : particleStyle;
+            trailStyle = trailStyle == null ? TechniqueVfxPacket.TrailStyle.DEFAULT : trailStyle;
+        }
+    }
+
     public static VisualPlan plan(TechniqueDataManager.TechniqueEntry technique,
                                   SkillType skillType,
                                   boolean secondary) {
@@ -183,18 +200,30 @@ public final class TechniqueVfxOrchestrator {
                                           Vec3 beforeCast,
                                           List<TechniqueVfxPacket> capturedIntents,
                                           boolean secondary) {
+        emitSuccessfulCast(player, technique, skillType, beforeCast, capturedIntents, secondary, null);
+    }
+
+    public static void emitSuccessfulCast(ServerPlayer player,
+                                          TechniqueDataManager.TechniqueEntry technique,
+                                          SkillType skillType,
+                                          Vec3 beforeCast,
+                                          List<TechniqueVfxPacket> capturedIntents,
+                                          boolean secondary,
+                                          VisualOverride visualOverride) {
         if (player == null) {
             return;
         }
         ServerLevel level = player.serverLevel();
-        VisualPlan plan = plan(technique, skillType, secondary);
+        VisualPlan plan = applyOverride(plan(technique, skillType, secondary), visualOverride);
         Vec3 after = player.position();
         Vec3 eye = player.getEyePosition();
         Vec3 look = normalized(player.getLookAngle());
         double eyeOffset = Math.max(0.5D, eye.y - after.y);
         boolean moved = finite(beforeCast) && beforeCast.distanceToSqr(after) > 0.01D;
-        TechniqueVfxPacket capturedCast = selectCaptured(capturedIntents, Kind.CAST);
-        TechniqueVfxPacket capturedSemantic = selectSemantic(capturedIntents, plan.kind());
+        TechniqueVfxPacket capturedCast = applyOverride(
+                selectCaptured(capturedIntents, Kind.CAST), visualOverride);
+        TechniqueVfxPacket capturedSemantic = applyOverride(
+                selectSemantic(capturedIntents, plan.kind()), visualOverride);
 
         boolean movementTechnique = isMovementTechnique(technique);
         Vec3 castStart = capturedCast == null
@@ -239,6 +268,39 @@ public final class TechniqueVfxOrchestrator {
                 semanticRadius,
                 plan.intensity(),
                 seed ^ 0x6A09E667F3BCC909L);
+    }
+
+    private static VisualPlan applyOverride(VisualPlan plan, VisualOverride override) {
+        if (override == null) {
+            return plan;
+        }
+        return new VisualPlan(
+                override.family() == TechniqueVfxPalette.Family.NEUTRAL ? plan.family() : override.family(),
+                override.motif() == Motif.GENERIC ? plan.motif() : override.motif(),
+                plan.kind(),
+                override.particleStyle() == TechniqueVfxPacket.ParticleStyle.DEFAULT
+                        ? plan.particleStyle() : override.particleStyle(),
+                override.trailStyle() == TechniqueVfxPacket.TrailStyle.DEFAULT
+                        ? plan.trailStyle() : override.trailStyle(),
+                plan.telegraphed() || override.telegraphed(),
+                plan.range(), plan.radius(), plan.intensity());
+    }
+
+    private static TechniqueVfxPacket applyOverride(TechniqueVfxPacket packet, VisualOverride override) {
+        if (packet == null || override == null) {
+            return packet;
+        }
+        return new TechniqueVfxPacket(
+                packet.kind(),
+                override.family() == TechniqueVfxPalette.Family.NEUTRAL ? packet.family() : override.family(),
+                override.motif() == Motif.GENERIC ? packet.motif() : override.motif(),
+                override.particleStyle() == TechniqueVfxPacket.ParticleStyle.DEFAULT
+                        ? packet.particleStyle() : override.particleStyle(),
+                override.trailStyle() == TechniqueVfxPacket.TrailStyle.DEFAULT
+                        ? packet.trailStyle() : override.trailStyle(),
+                packet.telegraphed() || override.telegraphed(),
+                packet.x(), packet.y(), packet.z(), packet.endX(), packet.endY(), packet.endZ(),
+                packet.radius(), packet.intensity(), packet.seed());
     }
 
     private static TechniqueVfxPacket selectCaptured(List<TechniqueVfxPacket> captured, Kind kind) {

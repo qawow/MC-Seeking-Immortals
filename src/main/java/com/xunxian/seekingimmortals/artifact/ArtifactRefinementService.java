@@ -605,7 +605,8 @@ public final class ArtifactRefinementService {
                 success ? SoundEvents.AMETHYST_BLOCK_CHIME : SoundEvents.FIRE_EXTINGUISH,
                 SoundSource.PLAYERS, success ? 0.6F : 0.45F, success ? 1.35F : 0.85F);
         Vec3 center = player.position().add(0.0D, 0.9D, 0.0D);
-        TechniqueVfxPacket.send(level,
+        ArtifactVfxOrchestrator.send(level,
+                recipe == null ? "" : recipe.artifactId(),
                 success ? TechniqueVfxPacket.Kind.BURST : TechniqueVfxPacket.Kind.DISSIPATE,
                 refinementFamily(recipe),
                 refinementMotif(recipe),

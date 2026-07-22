@@ -123,6 +123,7 @@ public final class ArtifactStorageService {
             buf.writeEnum(hand);
             buf.writeVarInt(slots);
         });
+        ArtifactVfxOrchestrator.emitState(player, artifact.id(), ArtifactVfxOrchestrator.State.OPEN);
         return true;
     }
 

@@ -103,6 +103,17 @@ tasks.named('check') {
     dependsOn tasks.named('authoredVfxCheck')
 }
 
+tasks.register('authoredArtifactVfxCheck', Exec) {
+    group = 'verification'
+    description = 'Checks that the authored artifact VFX catalog matches text-material sources.'
+    executable 'python3'
+    args '-B', file('scripts/generate_authored_artifact_vfx_profiles.py').absolutePath, '--check'
+}
+
+tasks.named('check') {
+    dependsOn tasks.named('authoredArtifactVfxCheck')
+}
+
 tasks.register('aiPreflight', Exec) {
     group = 'verification'
     description = 'Checks AI workflow gates before building.'
