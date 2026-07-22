@@ -48,6 +48,11 @@ public final class ModCreativeTabs {
 
                 // 方块
                 output.accept(ModItems.SPIRIT_ORE.get());
+                output.accept(ModItems.METAL_SPIRIT_ORE.get());
+                output.accept(ModItems.WOOD_SPIRIT_ORE.get());
+                output.accept(ModItems.WATER_SPIRIT_ORE.get());
+                output.accept(ModItems.FIRE_SPIRIT_ORE.get());
+                output.accept(ModItems.EARTH_SPIRIT_ORE.get());
                 output.accept(ModItems.MEDITATION_CUSHION.get());
                 output.accept(ModItems.LING_GEN_IDENTIFICATION_SLAB.get());
                 output.accept(ModItems.SPIRIT_GATHERING_ARRAY.get());

@@ -1,6 +1,10 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "seeking_immortals:block/templates/refinement_forge",
   "textures": {
-    "all": "seeking_immortals:block/refinement_forge_g6"
+    "body": "seeking_immortals:block/refinement_forge_g6",
+    "side": "seeking_immortals:block/refinement_forge_g6",
+    "top": "seeking_immortals:block/refinement_forge_g6_top",
+    "accent": "seeking_immortals:block/refinement_forge_g6",
+    "particle": "seeking_immortals:block/refinement_forge_g6"
   }
 }

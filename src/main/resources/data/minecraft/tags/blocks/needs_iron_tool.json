@@ -2,6 +2,13 @@
   "replace": false,
   "values": [
     "seeking_immortals:spirit_ore",
+    "seeking_immortals:metal_spirit_ore",
+    "seeking_immortals:wood_spirit_ore",
+    "seeking_immortals:water_spirit_ore",
+    "seeking_immortals:fire_spirit_ore",
+    "seeking_immortals:earth_spirit_ore",
+    "seeking_immortals:low_spirit_iron_ore",
+    "seeking_immortals:yin_essence_ore",
     "seeking_immortals:spirit_gathering_array",
     "seeking_immortals:alchemy_furnace",
     "seeking_immortals:alchemy_furnace_tier_2",

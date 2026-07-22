@@ -1,6 +1,9 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "seeking_immortals:block/templates/workstation",
   "textures": {
-    "all": "seeking_immortals:block/puppet_assembly_bench"
+    "top": "seeking_immortals:block/puppet_assembly_bench",
+    "side": "seeking_immortals:block/puppet_assembly_bench_side",
+    "accent": "seeking_immortals:block/puppet_assembly_bench",
+    "particle": "seeking_immortals:block/puppet_assembly_bench_side"
   }
 }

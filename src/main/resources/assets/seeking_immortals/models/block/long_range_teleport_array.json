@@ -1,6 +1,9 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "seeking_immortals:block/templates/array_pedestal",
   "textures": {
-    "all": "seeking_immortals:block/long_range_teleport_array"
+    "top": "seeking_immortals:block/long_range_teleport_array",
+    "side": "seeking_immortals:block/long_range_teleport_array_side",
+    "accent": "seeking_immortals:block/long_range_teleport_array",
+    "particle": "seeking_immortals:block/long_range_teleport_array_side"
   }
 }

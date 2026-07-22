@@ -1,6 +1,9 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "seeking_immortals:block/templates/array_pedestal",
   "textures": {
-    "all": "seeking_immortals:block/blood_forbidden_gate"
+    "top": "seeking_immortals:block/blood_forbidden_gate",
+    "side": "seeking_immortals:block/blood_forbidden_gate_side",
+    "accent": "seeking_immortals:block/blood_forbidden_gate",
+    "particle": "seeking_immortals:block/blood_forbidden_gate_side"
   }
 }

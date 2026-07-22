@@ -24,8 +24,35 @@ public final class LeylineVeinPieces {
     public static final int SHAPE_FOREST = 1;
     public static final int SHAPE_SHORE = 2;
     public static final int SHAPE_PLAINS = 3;
+    public static final int ELEMENT_METAL = 0;
+    public static final int ELEMENT_WOOD = 1;
+    public static final int ELEMENT_WATER = 2;
+    public static final int ELEMENT_FIRE = 3;
+    public static final int ELEMENT_EARTH = 4;
 
     private LeylineVeinPieces() {}
+
+    /**
+     * Returns the dominant spirit-stone element for a leyline landscape.
+     * The pure integer contract keeps the biome bias deterministic and testable without loading registries.
+     */
+    public static int preferredElementForShape(int shape, int roll) {
+        int value = Math.floorMod(roll, 100);
+        return switch (shape) {
+            case SHAPE_MOUNTAIN -> value < 45 ? ELEMENT_METAL
+                    : value < 80 ? ELEMENT_EARTH
+                    : value < 93 ? ELEMENT_FIRE : ELEMENT_WATER;
+            case SHAPE_FOREST -> value < 55 ? ELEMENT_WOOD
+                    : value < 80 ? ELEMENT_EARTH
+                    : value < 93 ? ELEMENT_WATER : ELEMENT_METAL;
+            case SHAPE_SHORE -> value < 60 ? ELEMENT_WATER
+                    : value < 78 ? ELEMENT_WOOD
+                    : value < 92 ? ELEMENT_EARTH : ELEMENT_METAL;
+            default -> value < 50 ? ELEMENT_EARTH
+                    : value < 75 ? ELEMENT_FIRE
+                    : value < 89 ? ELEMENT_WOOD : ELEMENT_METAL;
+        };
+    }
 
     public static class Piece extends StructurePiece {
         private final int shape;
@@ -106,7 +133,7 @@ public final class LeylineVeinPieces {
                             continue;
                         }
                         if (dy < 0 || (dx == 0 && dz == 0)) {
-                            place(level, pos, oreState(random), box);
+                            place(level, pos, oreState(random, shape), box);
                         } else if (dy == height) {
                             place(level, pos, markerState(), box);
                         }
@@ -130,7 +157,7 @@ public final class LeylineVeinPieces {
                     for (int dy = -5; dy <= -1; dy++) {
                         BlockPos pos = center.offset(dx, dy, dz);
                         if (box.isInside(pos) && random.nextFloat() < 0.55F) {
-                            place(level, pos, oreState(random), box);
+                            place(level, pos, oreState(random, shape), box);
                         }
                     }
                 }
@@ -144,7 +171,7 @@ public final class LeylineVeinPieces {
                 if (box.isInside(pos)) {
                     place(level, pos, markerState(), box);
                     if (random.nextBoolean()) {
-                        place(level, pos.below(), oreState(random), box);
+                        place(level, pos.below(), oreState(random, shape), box);
                     }
                 }
             }
@@ -159,7 +186,7 @@ public final class LeylineVeinPieces {
                     if (!box.isInside(pos)) {
                         continue;
                     }
-                    place(level, pos, oreState(random), box);
+                    place(level, pos, oreState(random, shape), box);
                     if (Math.abs(i) % 3 == 0 && w == 0) {
                         place(level, pos.above(), markerState(), box);
                     }
@@ -184,7 +211,7 @@ public final class LeylineVeinPieces {
                         }
                         if (dy < 0) {
                             if (random.nextFloat() < 0.7F) {
-                                place(level, pos, oreState(random), box);
+                                place(level, pos, oreState(random, shape), box);
                             }
                         } else if (dist2 <= 1) {
                             place(level, pos, markerState(), box);
@@ -196,15 +223,24 @@ public final class LeylineVeinPieces {
             place(level, center.above(), markerState(), box);
         }
 
-        private BlockState oreState(RandomSource random) {
-            // Mix low-tier ores with spirit ore for body.
-            if (random.nextFloat() < 0.25F) {
+        private BlockState oreState(RandomSource random, int shape) {
+            // Keep rare legacy materials in generated veins while making the main body element-aware.
+            float rareRoll = random.nextFloat();
+            if (rareRoll < 0.14F) {
                 return ModBlocks.LOW_SPIRIT_IRON_ORE.get().defaultBlockState();
             }
-            if (random.nextFloat() < 0.15F) {
+            if (rareRoll < 0.20F) {
                 return ModBlocks.YIN_ESSENCE_ORE.get().defaultBlockState();
             }
-            return ModBlocks.SPIRIT_ORE.get().defaultBlockState();
+            int element = preferredElementForShape(shape, random.nextInt(100) + tier * 11);
+            return switch (element) {
+                case ELEMENT_METAL -> ModBlocks.METAL_SPIRIT_ORE.get().defaultBlockState();
+                case ELEMENT_WOOD -> ModBlocks.WOOD_SPIRIT_ORE.get().defaultBlockState();
+                case ELEMENT_WATER -> ModBlocks.WATER_SPIRIT_ORE.get().defaultBlockState();
+                case ELEMENT_FIRE -> ModBlocks.FIRE_SPIRIT_ORE.get().defaultBlockState();
+                case ELEMENT_EARTH -> ModBlocks.EARTH_SPIRIT_ORE.get().defaultBlockState();
+                default -> ModBlocks.SPIRIT_ORE.get().defaultBlockState();
+            };
         }
 
         private BlockState markerState() {

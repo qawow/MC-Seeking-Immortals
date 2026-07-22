@@ -1,6 +1,9 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "seeking_immortals:block/templates/array_pedestal",
   "textures": {
-    "all": "seeking_immortals:block/ascension_gate"
+    "top": "seeking_immortals:block/ascension_gate",
+    "side": "seeking_immortals:block/ascension_gate_side",
+    "accent": "seeking_immortals:block/ascension_gate",
+    "particle": "seeking_immortals:block/ascension_gate_side"
   }
 }

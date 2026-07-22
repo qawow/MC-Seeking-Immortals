@@ -1,8 +1,10 @@
 {
-  "parent": "minecraft:block/slab",
+  "parent": "seeking_immortals:block/templates/refinement_forge",
   "textures": {
-    "bottom": "seeking_immortals:block/refinement_forge_g2",
-    "top": "seeking_immortals:block/refinement_forge_g2",
-    "side": "seeking_immortals:block/refinement_forge_g2"
+    "body": "seeking_immortals:block/refinement_forge_g2",
+    "side": "seeking_immortals:block/refinement_forge_g2",
+    "top": "seeking_immortals:block/refinement_forge_g2_top",
+    "accent": "seeking_immortals:block/refinement_forge_g2",
+    "particle": "seeking_immortals:block/refinement_forge_g2"
   }
 }

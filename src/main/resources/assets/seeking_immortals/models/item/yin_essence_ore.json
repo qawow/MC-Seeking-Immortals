@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "seeking_immortals:item/yin_essence_ore"
-  }
+  "parent": "seeking_immortals:block/yin_essence_ore"
 }

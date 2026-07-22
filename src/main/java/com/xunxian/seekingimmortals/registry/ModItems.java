@@ -504,6 +504,11 @@ public final class ModItems {
     public static final RegistryObject<Item> SPIRIT_DETECTOR = ITEMS.register("spirit_detector", () -> new SpiritDetectorItem(new Item.Properties()));
     public static final RegistryObject<Item> LEYLINE_COMPASS = ITEMS.register("leyline_compass", () -> new LeylineCompassItem(new Item.Properties()));
     public static final RegistryObject<Item> SPIRIT_ORE = ITEMS.register("spirit_ore", () -> new BlockItem(ModBlocks.SPIRIT_ORE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> METAL_SPIRIT_ORE = ITEMS.register("metal_spirit_ore", () -> new BlockItem(ModBlocks.METAL_SPIRIT_ORE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> WOOD_SPIRIT_ORE = ITEMS.register("wood_spirit_ore", () -> new BlockItem(ModBlocks.WOOD_SPIRIT_ORE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> WATER_SPIRIT_ORE = ITEMS.register("water_spirit_ore", () -> new BlockItem(ModBlocks.WATER_SPIRIT_ORE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> FIRE_SPIRIT_ORE = ITEMS.register("fire_spirit_ore", () -> new BlockItem(ModBlocks.FIRE_SPIRIT_ORE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> EARTH_SPIRIT_ORE = ITEMS.register("earth_spirit_ore", () -> new BlockItem(ModBlocks.EARTH_SPIRIT_ORE.get(), new Item.Properties()));
     public static final RegistryObject<Item> MEDITATION_CUSHION = ITEMS.register("meditation_cushion", () -> new BlockItem(ModBlocks.MEDITATION_CUSHION.get(), new Item.Properties()));
     public static final RegistryObject<Item> LING_GEN_IDENTIFICATION_SLAB = ITEMS.register("ling_gen_identification_slab", () -> new BlockItem(ModBlocks.LING_GEN_IDENTIFICATION_SLAB.get(), new Item.Properties()));
     public static final RegistryObject<Item> SPIRIT_GATHERING_ARRAY = ITEMS.register("spirit_gathering_array", () -> new BlockItem(ModBlocks.SPIRIT_GATHERING_ARRAY.get(), new Item.Properties()));

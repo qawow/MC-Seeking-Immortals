@@ -49,6 +49,11 @@ public final class ModBlocks {
     public static final RegistryObject<Block> SPIRIT_ORE = BLOCKS.register("spirit_ore", () -> new DropExperienceBlock(
             BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(3.0F, 3.0F).requiresCorrectToolForDrops().sound(SoundType.STONE),
             UniformInt.of(2, 5)));
+    public static final RegistryObject<Block> METAL_SPIRIT_ORE = registerSpiritOre("metal_spirit_ore", MapColor.METAL);
+    public static final RegistryObject<Block> WOOD_SPIRIT_ORE = registerSpiritOre("wood_spirit_ore", MapColor.COLOR_GREEN);
+    public static final RegistryObject<Block> WATER_SPIRIT_ORE = registerSpiritOre("water_spirit_ore", MapColor.COLOR_BLUE);
+    public static final RegistryObject<Block> FIRE_SPIRIT_ORE = registerSpiritOre("fire_spirit_ore", MapColor.COLOR_RED);
+    public static final RegistryObject<Block> EARTH_SPIRIT_ORE = registerSpiritOre("earth_spirit_ore", MapColor.DIRT);
 
     public static final RegistryObject<Block> MEDITATION_CUSHION = BLOCKS.register("meditation_cushion", () -> new MeditationCushionBlock(
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).strength(0.4F).sound(SoundType.WOOL).noOcclusion()));
@@ -190,8 +195,16 @@ public final class ModBlocks {
 
     private static RegistryObject<Block> registerAlchemyFurnace(String name, int tier, float hardness, float resistance) {
         return BLOCKS.register(name, () -> new AlchemyFurnaceBlock(
-                BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(hardness, resistance).requiresCorrectToolForDrops().sound(SoundType.METAL),
+                BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(hardness, resistance)
+                        .requiresCorrectToolForDrops().sound(SoundType.METAL).noOcclusion(),
                 tier));
+    }
+
+    private static RegistryObject<Block> registerSpiritOre(String name, MapColor mapColor) {
+        return BLOCKS.register(name, () -> new DropExperienceBlock(
+                BlockBehaviour.Properties.of().mapColor(mapColor).strength(3.0F, 3.0F)
+                        .requiresCorrectToolForDrops().sound(SoundType.STONE),
+                UniformInt.of(2, 5)));
     }
 
     private static RegistryObject<Block> registerAlchemyLid(String name, int tier) {

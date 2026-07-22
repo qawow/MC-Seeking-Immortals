@@ -1,6 +1,9 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "seeking_immortals:block/templates/formation_core",
   "textures": {
-    "all": "seeking_immortals:block/spirit_gathering_minor_formation_core"
+    "top": "seeking_immortals:block/spirit_gathering_minor_formation_core",
+    "side": "seeking_immortals:block/spirit_gathering_minor_formation_core_side",
+    "accent": "seeking_immortals:block/spirit_gathering_minor_formation_core",
+    "particle": "seeking_immortals:block/spirit_gathering_minor_formation_core_side"
   }
 }

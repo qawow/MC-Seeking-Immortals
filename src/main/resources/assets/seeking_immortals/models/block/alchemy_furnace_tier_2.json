@@ -1,6 +1,10 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "seeking_immortals:block/templates/alchemy_furnace",
   "textures": {
-    "all": "seeking_immortals:block/alchemy_furnace_tier_2"
+    "body": "seeking_immortals:block/alchemy_furnace_tier_2",
+    "side": "seeking_immortals:block/alchemy_furnace_tier_2",
+    "top": "seeking_immortals:block/alchemy_furnace_tier_2_top",
+    "accent": "seeking_immortals:block/alchemy_furnace_tier_2",
+    "particle": "seeking_immortals:block/alchemy_furnace_tier_2"
   }
 }

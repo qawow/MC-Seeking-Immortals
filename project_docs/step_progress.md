@@ -1,3 +1,16 @@
+## 570. 2026-07-23 0.2.149 方块模型与五行灵石矿
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   实现文件备份位于 `.bak/20260722_180803/`，下界矿标签审计备份位于 `.bak/20260723_015201/`，模型契约补强备份位于 `.bak/20260723_020946/`，版本与公共文档备份位于 `.bak/20260723_021322_block_models_elemental_ores_finalize/`；灵兽/NPC 及 mystic vial 改动不属于本批。
+  Block textures   Done   确定性 Pillow 生成器将方块纹理扩至 104 张 16x16 RGBA 全不透明资源；模型引用缺失、坏图、重复像素组和复渲染差异均为 0，丹炉/阵核/工站/界门/矿脉获得分面语义。
+  Shared geometry   Done   7 个共享 `elements` 模板承载 42 个丹炉/成型态、炉盖、阵核、炼器炉、聚灵阵盘、界门和工站模型；37 个可获得控制器的 blockstate 与 BlockItem 均反向可达同一三维模型，5 个 `*_formed` 仅作状态模型。目标方块保留匹配高度的 VoxelShape 并使用 `noOcclusion()`。
+  Elemental ores   Done   新增金/木/水/火/土五种灵石矿的方块与 BlockItem、创造栏、双语、模型、贴图、精准采集/时运/经验掉落、镐与铁级工具标签、Forge 矿物标签及完整 worldgen 链；旧 `spirit_ore` id 保留并随机掉落五行下品灵石。
+  Generation repair   Done   旧矿 count 从 8 调至 3，五行矿各 count 1，总预算仍为每区块 8 次；旧灵石矿与下品灵铁矿补 deepslate target。阴精矿拆分主世界/下界宿主岩规则，下界使用 1.20.1 有效的 `minecraft:base_stone_nether`；灵脉矿体保持 14% 下品灵铁、6% 阴精、80% 地貌偏置五行矿。
+  Tests/build   Done   两个贴图生成器检查通过；1,844 份相关 JSON 可解析；模型/矿物资源/灵脉 3 类共 11 项定向测试通过；仅含本批内容的隔离快照完整通过 963 项测试。最终普通 `./gradlew build --no-daemon --max-workers=1` 在 `1m 24s` 内成功，218 个套件/1,000 项测试全部通过，`aiPreflight` 记录 `0.2.149`；独立临时世界专服完成数据包加载和新区块生成并到达 `Done (20.202s)`，无 worldgen codec、缺标签或注册表错误。
+  Version/protocol   Done   代码/资源/数据包批次从 `0.2.148` 升至 `mod_version=0.2.149`；未修改网络包字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=28` 保持不变。
+  Live QA   Pending   仍需新生成区块矿量抽样、三维 BlockItem/方块六面/碰撞边角、多人资源包覆盖及实机美术签字；Forge biome modifier 按 biome tag 注入，复用同一原版 biome 的自有维度会继承对应矿物生成。
+
 ## 569. 2026-07-23 0.2.148 灵兽与专用 NPC 实体层
 
   Step   Status   Notes

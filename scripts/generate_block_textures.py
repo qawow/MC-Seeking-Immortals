@@ -102,6 +102,8 @@ MOTIF_OVERRIDES = {
 @dataclass(frozen=True)
 class BlockSpec:
     block_id: str
+    base_id: str
+    face: str
     kind: str
     motif: str
     palette: str
@@ -169,8 +171,10 @@ def infer_accent(block_id: str) -> str:
 
 
 def infer_kind(block_id: str) -> str:
-    if block_id in {"spirit_ore", "low_spirit_iron_ore", "yin_essence_ore"}:
+    if block_id in {"spirit_ore", "low_spirit_iron_ore", "yin_essence_ore"} or block_id.endswith("_spirit_ore"):
         return "ore"
+    if block_id == "leyline_surface_marker":
+        return "marker"
     if block_id.startswith("alchemy_furnace") and block_id != "alchemy_furnace_array_node":
         return "furnace"
     if block_id.startswith("alchemy_lid"):
@@ -230,6 +234,8 @@ def infer_palette(block_id: str, kind: str) -> str:
         return ("bronze", "bronze", "metal", "jade", "obsidian")[min(5, infer_tier(block_id)) - 1]
     if kind == "ore":
         return "deepstone" if block_id == "yin_essence_ore" else "stone"
+    if kind == "marker":
+        return "jade"
     if "demon" in block_id or "hidden" in block_id or "nether" in block_id or "cycle" in block_id:
         return "obsidian"
     if "spirit" in block_id or "ling_gen" in block_id:
@@ -241,16 +247,26 @@ def infer_palette(block_id: str, kind: str) -> str:
     return "stone"
 
 
+def split_texture_face(block_id: str) -> tuple[str, str]:
+    for suffix, face in (("_side", "side"), ("_top", "top")):
+        if block_id.endswith(suffix):
+            return block_id.removesuffix(suffix), face
+    return block_id, "all"
+
+
 def build_spec(block_id: str) -> BlockSpec:
-    kind = infer_kind(block_id)
+    base_id, face = split_texture_face(block_id)
+    kind = infer_kind(base_id)
     return BlockSpec(
         block_id=block_id,
+        base_id=base_id,
+        face=face,
         kind=kind,
-        motif=MOTIF_OVERRIDES.get(block_id, kind),
-        palette=infer_palette(block_id, kind),
-        accent=infer_accent(block_id),
-        tier=infer_tier(block_id),
-        formed=block_id.endswith("_formed"),
+        motif=MOTIF_OVERRIDES.get(base_id, kind),
+        palette=infer_palette(base_id, kind),
+        accent=infer_accent(base_id),
+        tier=infer_tier(base_id),
+        formed=base_id.endswith("_formed"),
         seed=stable_bytes(block_id),
     )
 
@@ -276,7 +292,7 @@ def discover_texture_ids() -> list[str]:
     ids = {path.stem for path in TEXTURE_DIR.glob("*.png")}
     ids.update(COMPAT_TEXTURE_IDS)
     for directory in (BLOCK_MODEL_DIR, ITEM_MODEL_DIR):
-        for path in directory.glob("*.json"):
+        for path in directory.rglob("*.json"):
             try:
                 data = json.loads(path.read_text(encoding="utf-8"))
             except (OSError, json.JSONDecodeError):
@@ -328,10 +344,26 @@ class BlockPainter:
 
     def ore(self) -> None:
         self.material(contrast=17)
-        if self.spec.block_id == "spirit_ore":
+        block_id = self.spec.base_id
+        if block_id == "spirit_ore":
             vein = ACCENTS["spirit"]
             secondary = (213, 188, 96)
-        elif self.spec.block_id == "low_spirit_iron_ore":
+        elif block_id == "metal_spirit_ore":
+            vein = (204, 214, 209)
+            secondary = (132, 170, 160)
+        elif block_id == "wood_spirit_ore":
+            vein = ACCENTS["wood"]
+            secondary = (181, 205, 103)
+        elif block_id == "water_spirit_ore":
+            vein = ACCENTS["water"]
+            secondary = (104, 211, 220)
+        elif block_id == "fire_spirit_ore":
+            vein = ACCENTS["fire"]
+            secondary = (240, 185, 72)
+        elif block_id == "earth_spirit_ore":
+            vein = ACCENTS["earth"]
+            secondary = (217, 187, 100)
+        elif block_id == "low_spirit_iron_ore":
             vein = (157, 169, 166)
             secondary = (91, 183, 164)
         else:
@@ -351,6 +383,62 @@ class BlockPainter:
             for point_index, (x, y) in enumerate(points[1:-1]):
                 if (self.spec.seed[point_index + 4] + index) % 2 == 0:
                     self.draw.point((x, max(0, y - 1)), fill=mix(color, (244, 241, 210), 0.45))
+
+    def model_side(self) -> None:
+        self.material(contrast=10)
+        lower = mix(self.dark, (19, 20, 22), 0.28)
+        trim = mix(self.accent, self.light, 0.24)
+        self.draw.line((0, 1, 15, 1), fill=trim)
+        self.draw.line((0, 4, 15, 4), fill=self.dark)
+        self.draw.line((0, 11, 15, 11), fill=lower)
+        self.draw.line((0, 14, 15, 14), fill=trim)
+        for x in (2, 7, 12):
+            self.draw.rectangle((x, 6, x + 1, 9), fill=mix(self.base, self.accent, 0.22))
+            self.draw.point((x, 6), fill=self.glow)
+
+    def model_top(self) -> None:
+        block_id = self.spec.base_id
+        if block_id.startswith("alchemy_furnace"):
+            self.material(contrast=10)
+            self.frame(0, accent=True)
+            rim = mix(self.accent, (223, 186, 104), min(0.52, self.spec.tier * 0.08))
+            self.draw.ellipse((2, 2, 13, 13), fill=mix(self.base, self.dark, 0.14), outline=self.dark)
+            self.draw.ellipse((4, 4, 11, 11), fill=(25, 23, 25), outline=rim)
+            self.draw.ellipse((6, 6, 9, 9), fill=shade(ACCENTS["fire"], 0.45))
+            self.draw.point((7, 7), fill=mix(self.glow, ACCENTS["fire"], 0.36))
+            for index in range(min(self.spec.tier, 5)):
+                x, y = ((7, 2), (12, 7), (7, 12), (2, 7), (10, 10))[index]
+                self.draw.point((x, y), fill=rim)
+            return
+        if block_id.startswith("refinement_forge"):
+            self.material("metal", contrast=11)
+            self.frame(0, accent=True)
+            tier_trim = {
+                1: (190, 167, 116),
+                2: (87, 184, 174),
+                3: (111, 157, 205),
+                4: (221, 166, 69),
+                5: (171, 112, 202),
+                6: (215, 225, 211),
+            }[self.spec.tier]
+            trim = mix(tier_trim, self.accent, 0.18)
+            self.draw.rectangle((2, 2, 13, 13), fill=mix(self.base, self.dark, 0.16), outline=self.dark)
+            self.draw.rectangle((4, 4, 11, 11), outline=trim)
+            self.draw.polygon(((5, 6), (10, 6), (12, 8), (10, 10), (5, 10), (3, 8)), fill=shade(self.dark, 0.62), outline=trim)
+            self.draw.line((5, 8, 10, 8), fill=self.glow)
+            return
+        self.material(contrast=9)
+        self.frame(0, accent=True)
+
+    def marker(self) -> None:
+        self.material("jade", contrast=12)
+        self.frame(0, accent=True)
+        self.draw.line((2, 13, 6, 9, 8, 5, 12, 2), fill=shade(self.accent, 0.62), width=2)
+        self.draw.line((3, 12, 6, 9, 8, 5, 12, 2), fill=self.accent)
+        self.draw.line((7, 14, 8, 10, 12, 7, 14, 5), fill=self.glow)
+        for x, y in ((3, 4), (6, 12), (11, 10), (13, 3)):
+            self.draw.rectangle((x, y, x + 1, y + 1), fill=self.accent)
+        self.draw.point((8, 5), fill=(239, 229, 161))
 
     def furnace(self) -> None:
         self.material(contrast=12)
@@ -594,14 +682,23 @@ class BlockPainter:
         self.draw.point((7, 7), fill=self.accent)
 
     def render(self) -> Image.Image:
+        if self.spec.kind == "identification_slab":
+            self.identification_slab()
+            return self.image
+        if self.spec.face == "side":
+            self.model_side()
+            return self.image
+        if self.spec.face == "top":
+            self.model_top()
+            return self.image
         renderers = {
             "cushion": self.cushion,
             "earth": self.earth,
             "formation": self.formation,
             "furnace": self.furnace,
             "gate": self.gate,
-            "identification_slab": self.identification_slab,
             "lid": self.lid,
+            "marker": self.marker,
             "masonry": self.masonry,
             "ore": self.ore,
             "workstation": self.workstation,
@@ -645,7 +742,7 @@ def referenced_block_textures() -> tuple[set[str], list[str]]:
     refs: set[str] = set()
     issues: list[str] = []
     for directory in (BLOCK_MODEL_DIR, ITEM_MODEL_DIR):
-        for path in sorted(directory.glob("*.json")):
+        for path in sorted(directory.rglob("*.json")):
             try:
                 data = json.loads(path.read_text(encoding="utf-8"))
             except (OSError, json.JSONDecodeError) as exc:
