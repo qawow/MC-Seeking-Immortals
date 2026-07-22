@@ -184,17 +184,23 @@ class TechniqueVfxPaletteTest {
         }
 
         String projectile = source("entity", "SwordProjectileEntity.java");
-        assertTrue(projectile.contains("TechniqueVfxPalette.profile"));
+        String geometry = source("client", "LodestoneWorldGeometry.java");
+        assertTrue(projectile.contains("TechniqueLifecycleVfxService.projectileImpact("));
+        assertTrue(projectile.contains("TechniqueLifecycleVfxService.projectileDissipate("));
         assertFalse(projectile.contains(".castAt("), "entity construction must not replay cast feedback");
-        assertTrue(projectile.contains(".trailAt("), "sword projectile trail feedback");
-        assertTrue(projectile.contains(".impactAt("), "sword projectile impact feedback");
+        assertFalse(projectile.contains(".trailAt("), "continuous trails belong to client geometry");
+        assertTrue(geometry.contains("entity instanceof SwordProjectileEntity"));
+        assertTrue(geometry.contains("renderTrail("), "client geometry owns continuous projectile trails");
     }
 
     @Test
-    void swordCastFeedbackIsOwnedByPlayerEntryPoints() throws Exception {
+    void swordCastFeedbackAndTrailsHaveSingleOwners() throws Exception {
         String projectile = source("entity", "SwordProjectileEntity.java");
+        String geometry = source("client", "LodestoneWorldGeometry.java");
         assertFalse(projectile.contains(".castAt("));
-        assertTrue(projectile.contains("life % 4 == 0"), "projectile trail must be throttled");
+        assertFalse(projectile.contains("life % 4 == 0"), "server must not broadcast periodic trail particles");
+        assertTrue(geometry.contains("PROJECTILE_TRAILS"));
+        assertTrue(geometry.contains("projectileSamples("));
 
         for (String className : List.of("SwordProjectileSpell", "MultiSwordArraySpell")) {
             String spell = source("skill", "effect", "spell", className + ".java");

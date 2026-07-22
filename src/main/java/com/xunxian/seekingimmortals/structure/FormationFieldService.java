@@ -10,6 +10,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
@@ -19,6 +20,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -35,7 +37,15 @@ public final class FormationFieldService {
     private static final int DEFAULT_DURATION_TICKS = 20 * 90;
     private static final int TICK_INTERVAL = 20;
     private static final int RING_CHECK_INTERVAL = 20;
+    /** Cosmetic target fan-out is deliberately bounded per server pulse. */
+    private static final int MAX_PULSE_TARGET_VFX = 8;
+    /** Shared custom-packet budget for every formation lifecycle in one dimension tick. */
+    private static final int MAX_VFX_PACKETS_PER_DIMENSION_TICK = 48;
+    /** Eight ticks of burst absorption without allowing an unbounded visual backlog. */
+    private static final int MAX_PENDING_VFX_PER_DIMENSION = MAX_VFX_PACKETS_PER_DIMENSION_TICK * 8;
     private static final Map<FieldKey, ActiveField> ACTIVE = new ConcurrentHashMap<>();
+    private static final Map<String, Integer> PULSE_VFX_CURSOR = new ConcurrentHashMap<>();
+    private static final Map<String, VfxBudgetState> VFX_BUDGETS = new ConcurrentHashMap<>();
 
     private FormationFieldService() {}
 
@@ -120,7 +130,11 @@ public final class FormationFieldService {
                 params.auraBonus(),
                 params.effect(),
                 coreBlockId);
-        ACTIVE.put(key, field);
+        ActiveField replaced = ACTIVE.put(key, field);
+        if (replaced != null) {
+            // A new field at the same core supersedes the old visual state.
+            emitDissipateVfx(level, replaced, false);
+        }
         persistField(level, field);
         grantFormationPractice(deployer, true);
         emitActivationVfx(level, field);
@@ -156,7 +170,10 @@ public final class FormationFieldService {
                 params.effect(),
                 "");
         field.freeField = true;
-        ACTIVE.put(key, field);
+        ActiveField replaced = ACTIVE.put(key, field);
+        if (replaced != null) {
+            emitDissipateVfx(level, replaced, false);
+        }
         persistField(level, field);
         grantFormationPractice(deployer, false);
         emitActivationVfx(level, field);
@@ -295,10 +312,15 @@ public final class FormationFieldService {
     }
 
     public static void serverTick(ServerLevel level) {
-        if (level == null || ACTIVE.isEmpty()) {
+        if (level == null) {
+            return;
+        }
+        flushPendingVfx(level);
+        if (ACTIVE.isEmpty()) {
             return;
         }
         String dim = level.dimension().location().toString();
+        List<PulseVisual> pulseVisuals = new ArrayList<>();
         Iterator<Map.Entry<FieldKey, ActiveField>> it = ACTIVE.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry<FieldKey, ActiveField> entry = it.next();
@@ -319,10 +341,11 @@ public final class FormationFieldService {
                 continue;
             }
             if (field.remainingTicks % TICK_INTERVAL == 0) {
-                applyFieldPulse(level, field);
+                pulseVisuals.add(applyFieldPulse(level, field));
                 persistField(level, field);
             }
         }
+        emitPulseVisuals(level, dim, pulseVisuals);
     }
 
     public static int activeCount() {
@@ -331,6 +354,8 @@ public final class FormationFieldService {
 
     public static void clearAll() {
         ACTIVE.clear();
+        PULSE_VFX_CURSOR.clear();
+        VFX_BUDGETS.clear();
     }
 
     public static void unload(ServerLevel level) {
@@ -339,6 +364,8 @@ public final class FormationFieldService {
         }
         String dimensionId = level.dimension().location().toString();
         ACTIVE.keySet().removeIf(key -> dimensionId.equals(key.dimensionId));
+        PULSE_VFX_CURSOR.remove(dimensionId);
+        VFX_BUDGETS.remove(dimensionId);
     }
 
     private static void persistField(ServerLevel level, ActiveField field) {
@@ -408,14 +435,18 @@ public final class FormationFieldService {
         return BuiltInRegistries.BLOCK.getKey(level.getBlockState(corePos).getBlock()).toString();
     }
 
-    private static void applyFieldPulse(ServerLevel level, ActiveField field) {
-        double radius = field.radius + 1.5D;
-        AABB box = new AABB(field.corePos).inflate(radius, 2.0D, radius);
+    private static PulseVisual applyFieldPulse(ServerLevel level, ActiveField field) {
+        double radius = effectRadiusFor(field.radius);
+        AABB box = AABB.ofSize(Vec3.atCenterOf(field.corePos), radius * 2.0D, 5.0D, radius * 2.0D);
+        BoundedPulseTargetSampler targets = new BoundedPulseTargetSampler(
+                MAX_PULSE_TARGET_VFX,
+                vfxSeed(level, field, TechniqueVfxPacket.Kind.STATUS) ^ 0x6a09e667f3bcc909L);
         switch (field.kind) {
             case SPIRIT_GATHER -> {
                 for (ServerPlayer player : level.getEntitiesOfClass(ServerPlayer.class, box)) {
-                    player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 40, 0, true, true, true));
-                    player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 40, 0, true, true, true));
+                    boolean changed = player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 40, 0, true, true, true));
+                    changed |= player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 40, 0, true, true, true));
+                    targets.consider(player, TechniqueVfxPacket.Kind.STATUS, changed);
                 }
                 level.sendParticles(ParticleTypes.END_ROD,
                         field.corePos.getX() + 0.5D, field.corePos.getY() + 1.0D, field.corePos.getZ() + 0.5D,
@@ -423,7 +454,8 @@ public final class FormationFieldService {
             }
             case DEFENSE -> {
                 for (ServerPlayer player : level.getEntitiesOfClass(ServerPlayer.class, box)) {
-                    player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 40, 0, true, true, true));
+                    boolean changed = player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 40, 0, true, true, true));
+                    targets.consider(player, TechniqueVfxPacket.Kind.STATUS, changed);
                 }
                 level.sendParticles(ParticleTypes.CRIT,
                         field.corePos.getX() + 0.5D, field.corePos.getY() + 1.0D, field.corePos.getZ() + 0.5D,
@@ -431,11 +463,13 @@ public final class FormationFieldService {
             }
             case KILL_SWORD -> {
                 for (Monster monster : level.getEntitiesOfClass(Monster.class, box)) {
-                    monster.hurt(level.damageSources().magic(), 2.0F);
-                    monster.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 0, true, true, true));
+                    boolean changed = monster.hurt(level.damageSources().magic(), 2.0F);
+                    changed |= monster.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 0, true, true, true));
+                    targets.consider(monster, TechniqueVfxPacket.Kind.IMPACT, changed);
                 }
                 for (ServerPlayer player : level.getEntitiesOfClass(ServerPlayer.class, box)) {
-                    player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 40, 0, true, true, true));
+                    boolean changed = player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 40, 0, true, true, true));
+                    targets.consider(player, TechniqueVfxPacket.Kind.STATUS, changed);
                 }
                 level.sendParticles(ParticleTypes.SWEEP_ATTACK,
                         field.corePos.getX() + 0.5D, field.corePos.getY() + 1.0D, field.corePos.getZ() + 0.5D,
@@ -444,13 +478,15 @@ public final class FormationFieldService {
             case SEAL_DEMON -> {
                 for (LivingEntity living : level.getEntitiesOfClass(LivingEntity.class, box)) {
                     if (living instanceof ServerPlayer) {
-                        living.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 40, 0, true, true, true));
+                        boolean changed = living.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 40, 0, true, true, true));
+                        targets.consider(living, TechniqueVfxPacket.Kind.STATUS, changed);
                         continue;
                     }
                     if (living instanceof Monster) {
-                        living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 1, true, true, true));
-                        living.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 40, 0, true, true, true));
-                        living.addEffect(new MobEffectInstance(MobEffects.GLOWING, 40, 0, true, true, true));
+                        boolean changed = living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 1, true, true, true));
+                        changed |= living.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 40, 0, true, true, true));
+                        changed |= living.addEffect(new MobEffectInstance(MobEffects.GLOWING, 40, 0, true, true, true));
+                        targets.consider(living, TechniqueVfxPacket.Kind.IMPACT, changed);
                     }
                 }
                 level.sendParticles(ParticleTypes.SOUL,
@@ -459,12 +495,14 @@ public final class FormationFieldService {
             }
             case ILLUSION_MAZE -> {
                 for (ServerPlayer player : level.getEntitiesOfClass(ServerPlayer.class, box)) {
-                    player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 30, 0, true, true, true));
-                    player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 40, 0, true, true, true));
+                    boolean changed = player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 30, 0, true, true, true));
+                    changed |= player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 40, 0, true, true, true));
+                    targets.consider(player, TechniqueVfxPacket.Kind.STATUS, changed);
                 }
                 for (Monster monster : level.getEntitiesOfClass(Monster.class, box)) {
-                    monster.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 40, 0, true, true, true));
-                    monster.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 0, true, true, true));
+                    boolean changed = monster.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 40, 0, true, true, true));
+                    changed |= monster.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 0, true, true, true));
+                    targets.consider(monster, TechniqueVfxPacket.Kind.IMPACT, changed);
                 }
                 level.sendParticles(ParticleTypes.CLOUD,
                         field.corePos.getX() + 0.5D, field.corePos.getY() + 1.0D, field.corePos.getZ() + 0.5D,
@@ -472,74 +510,235 @@ public final class FormationFieldService {
             }
             case CATALOG_GENERIC -> {
                 for (ServerPlayer player : level.getEntitiesOfClass(ServerPlayer.class, box)) {
-                    player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 30, 0, true, true, true));
+                    boolean changed = player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 30, 0, true, true, true));
+                    targets.consider(player, TechniqueVfxPacket.Kind.STATUS, changed);
                 }
             }
         }
-        emitFormationVfx(level, field);
+        return new PulseVisual(field, targets.snapshot());
+    }
+
+    private static void emitPulseVisuals(ServerLevel level, String dimensionId,
+                                         List<PulseVisual> visuals) {
+        if (visuals.isEmpty()) {
+            return;
+        }
+        int size = visuals.size();
+        int start = Math.floorMod(PULSE_VFX_CURSOR.getOrDefault(dimensionId, 0), size);
+        int remaining = MAX_VFX_PACKETS_PER_DIMENSION_TICK;
+        int served = 0;
+        for (int offset = 0; offset < size && remaining > 0; offset++) {
+            PulseVisual visual = visuals.get((start + offset) % size);
+            int remainingFields = size - offset;
+            int fairShare = Math.max(1, remaining / Math.max(1, remainingFields));
+            int quota = Math.min(1 + MAX_PULSE_TARGET_VFX, fairShare);
+            emitFormationVfx(level, visual.field());
+            remaining--;
+            int targetQuota = Math.min(visual.targets().size(), Math.max(0, quota - 1));
+            for (int i = 0; i < targetQuota && remaining > 0; i++) {
+                PulseTarget target = visual.targets().get(i);
+                emitPulseTargetVfx(level, visual.field(), target.entity(), target.kind());
+                remaining--;
+            }
+            served++;
+        }
+        PULSE_VFX_CURSOR.put(dimensionId, nextPulseCursor(start, served, size));
+    }
+
+    static int nextPulseCursor(int start, int served, int size) {
+        if (size <= 0) {
+            return 0;
+        }
+        int advance = served >= size ? 1 : Math.max(1, served);
+        return Math.floorMod(start + advance, size);
+    }
+
+    private static void emitPulseTargetVfx(ServerLevel level, ActiveField field,
+                                           LivingEntity target, TechniqueVfxPacket.Kind kind) {
+        Vec3 position = target.position().add(0.0D, Math.max(0.15D, target.getBbHeight() * 0.48D), 0.0D);
+        submitVfx(level, new VfxEmission(
+                kind,
+                familyFor(field),
+                motifFor(field.formationId, field.effect, field.kind),
+                position,
+                position,
+                Math.max(0.35D, Math.min(1.8D, target.getBbWidth() * 0.8D)),
+                kind == TechniqueVfxPacket.Kind.IMPACT ? 24 : 18,
+                vfxSeed(level, field, kind) ^ target.getId() * 0x9e3779b9L), false);
+    }
+
+    private record PulseTarget(LivingEntity entity, TechniqueVfxPacket.Kind kind) {}
+
+    private record PulseVisual(ActiveField field, List<PulseTarget> targets) {}
+
+    /** Equal-probability reservoir sampling keeps target intent storage capped at the visual fan-out. */
+    private static final class BoundedPulseTargetSampler {
+        private final int capacity;
+        private final RandomSource random;
+        private final List<PulseTarget> samples;
+        private int eligibleCount;
+
+        private BoundedPulseTargetSampler(int capacity, long seed) {
+            this.capacity = Math.max(0, capacity);
+            this.random = RandomSource.create(seed);
+            this.samples = new ArrayList<>(this.capacity);
+        }
+
+        private void consider(LivingEntity entity, TechniqueVfxPacket.Kind kind, boolean stateChanged) {
+            if (!stateChanged || entity == null || kind == null || capacity == 0) {
+                return;
+            }
+            for (PulseTarget sample : samples) {
+                if (sample.entity().getId() == entity.getId()) {
+                    return;
+                }
+            }
+            eligibleCount++;
+            PulseTarget candidate = new PulseTarget(entity, kind);
+            if (samples.size() < capacity) {
+                samples.add(candidate);
+                return;
+            }
+            int slot = random.nextInt(eligibleCount);
+            if (slot < capacity) {
+                samples.set(slot, candidate);
+            }
+        }
+
+        private List<PulseTarget> snapshot() {
+            return List.copyOf(samples);
+        }
+    }
+
+    private static void submitVfx(ServerLevel level, VfxEmission emission, boolean lifecycle) {
+        if (level == null || emission == null) {
+            return;
+        }
+        String dimensionId = level.dimension().location().toString();
+        VfxBudgetState budget = VFX_BUDGETS.computeIfAbsent(dimensionId, ignored -> new VfxBudgetState());
+        List<VfxEmission> ready = new ArrayList<>(MAX_VFX_PACKETS_PER_DIMENSION_TICK);
+        synchronized (budget) {
+            beginVfxTick(level, budget);
+            drainPendingVfx(budget, ready);
+            if (budget.sentThisTick < MAX_VFX_PACKETS_PER_DIMENSION_TICK) {
+                budget.sentThisTick++;
+                ready.add(emission);
+            } else {
+                budget.offer(emission, lifecycle);
+            }
+        }
+        sendReadyVfx(level, ready);
+    }
+
+    private static void flushPendingVfx(ServerLevel level) {
+        String dimensionId = level.dimension().location().toString();
+        VfxBudgetState budget = VFX_BUDGETS.get(dimensionId);
+        if (budget == null) {
+            return;
+        }
+        List<VfxEmission> ready = new ArrayList<>(MAX_VFX_PACKETS_PER_DIMENSION_TICK);
+        synchronized (budget) {
+            beginVfxTick(level, budget);
+            drainPendingVfx(budget, ready);
+        }
+        sendReadyVfx(level, ready);
+    }
+
+    private static void beginVfxTick(ServerLevel level, VfxBudgetState budget) {
+        long gameTime = level.getGameTime();
+        if (budget.gameTime != gameTime) {
+            budget.gameTime = gameTime;
+            budget.sentThisTick = 0;
+        }
+    }
+
+    private static void drainPendingVfx(VfxBudgetState budget, List<VfxEmission> ready) {
+        while (budget.sentThisTick < MAX_VFX_PACKETS_PER_DIMENSION_TICK) {
+            VfxEmission emission = budget.poll();
+            if (emission == null) {
+                return;
+            }
+            budget.sentThisTick++;
+            ready.add(emission);
+        }
+    }
+
+    private static void sendReadyVfx(ServerLevel level, List<VfxEmission> ready) {
+        for (VfxEmission emission : ready) {
+            TechniqueVfxPacket.send(
+                    level,
+                    emission.kind(),
+                    emission.family(),
+                    emission.motif(),
+                    emission.start(),
+                    emission.end(),
+                    emission.radius(),
+                    emission.intensity(),
+                    emission.seed());
+        }
     }
 
     private static void emitActivationVfx(ServerLevel level, ActiveField field) {
         TechniqueVfxPalette.Family family = familyFor(field);
+        TechniqueVfxPacket.Motif motif = motifFor(field.formationId, field.effect, field.kind);
         Vec3 center = vfxCenter(field);
+        double effectRadius = effectRadiusFor(field.radius);
         long seed = vfxSeed(level, field, TechniqueVfxPacket.Kind.FORMATION);
-        TechniqueVfxPacket.send(
-                level,
+        submitVfx(level, new VfxEmission(
                 TechniqueVfxPacket.Kind.FORMATION,
                 family,
-                TechniqueVfxPacket.Motif.FORMATION,
+                motif,
                 center,
                 center,
-                field.radius,
+                effectRadius,
                 Math.min(96, 72 + field.radius * 4),
-                seed);
+                seed), true);
         Vec3 castStart = center.add(0.0D, 0.12D, 0.0D);
-        Vec3 castEnd = center.add(0.0D, 1.25D + field.radius * 0.18D, 0.0D);
-        TechniqueVfxPacket.send(
-                level,
+        Vec3 castEnd = center.add(0.0D, 1.25D + effectRadius * 0.18D, 0.0D);
+        submitVfx(level, new VfxEmission(
                 TechniqueVfxPacket.Kind.CAST,
                 family,
-                TechniqueVfxPacket.Motif.FORMATION,
+                motif,
                 castStart,
                 castEnd,
-                Math.max(0.65D, field.radius * 0.35D),
+                Math.max(0.65D, effectRadius * 0.35D),
                 Math.min(72, 44 + field.radius * 3),
-                seed ^ 0x4f1bbcdcL);
+                seed ^ 0x4f1bbcdcL), true);
     }
 
     private static void emitStatusVfx(ServerLevel level, ActiveField field) {
         emitFormationVfx(level, field, TechniqueVfxPacket.Kind.STATUS,
-                TechniqueVfxPacket.Motif.FORMATION, Math.min(24, 8 + field.radius * 2));
+                motifFor(field.formationId, field.effect, field.kind), Math.min(24, 8 + field.radius * 2), true);
     }
 
     private static void emitDissipateVfx(ServerLevel level, ActiveField field, boolean ringBroken) {
         emitFormationVfx(level, field, TechniqueVfxPacket.Kind.DISSIPATE,
-                TechniqueVfxPacket.Motif.FORMATION,
-                ringBroken ? Math.min(96, 76 + field.radius * 4) : Math.min(30, 20 + field.radius * 2));
+                motifFor(field.formationId, field.effect, field.kind),
+                ringBroken ? Math.min(96, 76 + field.radius * 4) : Math.min(30, 20 + field.radius * 2), true);
     }
 
     private static void emitFormationVfx(ServerLevel level, ActiveField field,
                                          TechniqueVfxPacket.Kind kind,
                                          TechniqueVfxPacket.Motif motif,
-                                         int intensity) {
+                                         int intensity,
+                                         boolean lifecycle) {
         TechniqueVfxPalette.Family family = familyFor(field);
         Vec3 center = vfxCenter(field);
         long seed = vfxSeed(level, field, kind);
-        TechniqueVfxPacket.send(
-                level,
+        submitVfx(level, new VfxEmission(
                 kind,
                 family,
                 motif,
                 center,
                 center,
-                field.radius,
+                effectRadiusFor(field.radius),
                 intensity,
-                seed);
+                seed), lifecycle);
     }
 
     private static void emitFormationVfx(ServerLevel level, ActiveField field) {
         emitFormationVfx(level, field, TechniqueVfxPacket.Kind.FORMATION,
-                TechniqueVfxPacket.Motif.FORMATION, Math.min(72, 28 + field.radius * 2));
+                motifFor(field.formationId, field.effect, field.kind), Math.min(72, 28 + field.radius * 2), false);
     }
 
     private static TechniqueVfxPalette.Family familyFor(ActiveField field) {
@@ -547,8 +746,39 @@ public final class FormationFieldService {
     }
 
     static TechniqueVfxPalette.Family familyFor(String formationId, String effect, FieldKind kind) {
-        TechniqueVfxPalette.Family semanticFamily = TechniqueVfxPalette.familyOf(
-                (formationId == null ? "" : formationId) + " " + (effect == null ? "" : effect));
+        String id = normalizeSemanticId(formationId);
+        TechniqueVfxPalette.Family explicit = switch (id) {
+            case "teleport_array", "teleport_array_long_range", "juling_gu_chuan",
+                    "xinggong_teleport", "miaoyin_teleport", "jiezi_boundary",
+                    "wuxing_yankong", "guwu_shachang", "xutian_neijin" -> TechniqueVfxPalette.Family.VOID;
+            case "huangsha_zhen", "five_elements_mountain", "sect_mountain_guard",
+                    "defense_wall", "barrier_sect_protection" -> TechniqueVfxPalette.Family.EARTH;
+            case "thunder_tribulation_array", "lei_zhen_double", "huju_zhen_generic" ->
+                    TechniqueVfxPalette.Family.THUNDER;
+            case "jin_guang_fang", "vajra_prison_array", "beijiyuan_guang", "dayan_fenshen_monitor" ->
+                    TechniqueVfxPalette.Family.LIGHT;
+            case "xue_luo_zhao", "blood_forbidden_gate", "seal_demon_array",
+                    "demon_seal_pillar_array", "kunwu_seals" -> TechniqueVfxPalette.Family.BLOOD;
+            case "chunli_jianzhen", "xian_teng_nurture", "chongqun_yuzhen" -> TechniqueVfxPalette.Family.WOOD;
+            case "kill_sword", "sword_array_bagua", "geng_jian_zhen", "qingpan_jianzhen",
+                    "juling_kill_combo" -> TechniqueVfxPalette.Family.METAL;
+            case "nine_dragon_flame_barrier", "liandao_huoyan" -> TechniqueVfxPalette.Family.FIRE;
+            case "mulan_wind_ride_array" -> TechniqueVfxPalette.Family.WIND;
+            case "wubianhai_fengyin" -> TechniqueVfxPalette.Family.WATER;
+            case "illusion_maze", "illusion_maze_array", "inverted_five_elements_array",
+                    "wuxing_huanying", "diandao_wuxing", "huanmiao_tianxiang" ->
+                    TechniqueVfxPalette.Family.ILLUSION;
+            case "yin_yang_ku_ban", "yin_ming_natural" -> TechniqueVfxPalette.Family.DARK;
+            case "spirit_gather", "spirit_gathering_minor", "spirit_gathering_array", "juling_zhen",
+                    "juling_island_guard", "ju_ling_zhu_boost", "yangsheng_muyu",
+                    "gui_luo_fan_zhen", "mulan_totem_field" -> TechniqueVfxPalette.Family.SOUL;
+            case "liangyi_weichen" -> TechniqueVfxPalette.Family.VOID;
+            default -> TechniqueVfxPalette.Family.NEUTRAL;
+        };
+        if (explicit != TechniqueVfxPalette.Family.NEUTRAL) {
+            return explicit;
+        }
+        TechniqueVfxPalette.Family semanticFamily = TechniqueVfxPalette.familyOf(effect);
         if (semanticFamily != TechniqueVfxPalette.Family.NEUTRAL) {
             return semanticFamily;
         }
@@ -560,6 +790,74 @@ public final class FormationFieldService {
             case ILLUSION_MAZE -> TechniqueVfxPalette.Family.ILLUSION;
             case CATALOG_GENERIC -> TechniqueVfxPalette.Family.NEUTRAL;
         };
+    }
+
+    static TechniqueVfxPacket.Motif motifFor(String formationId, String effect, FieldKind kind) {
+        String id = normalizeSemanticId(formationId);
+        TechniqueVfxPacket.Motif explicit = switch (id) {
+            case "teleport_array", "teleport_array_long_range", "juling_gu_chuan",
+                    "xinggong_teleport", "miaoyin_teleport", "blood_forbidden_gate" ->
+                    TechniqueVfxPacket.Motif.TELEPORT;
+            case "kill_sword", "sword_array_bagua", "geng_jian_zhen", "chunli_jianzhen",
+                    "qingpan_jianzhen", "juling_kill_combo", "beijiyuan_guang" ->
+                    TechniqueVfxPacket.Motif.BLADE;
+            case "defense_wall", "barrier_sect_protection", "nine_dragon_flame_barrier",
+                    "jin_guang_fang", "xue_luo_zhao", "juling_island_guard", "sect_mountain_guard",
+                    "huju_zhen_generic" -> TechniqueVfxPacket.Motif.SHIELD;
+            case "seal_demon_array", "demon_seal_pillar_array", "vajra_prison_array",
+                    "yin_yang_ku_ban", "kunwu_seals", "wubianhai_fengyin" ->
+                    TechniqueVfxPacket.Motif.SEAL;
+            case "illusion_maze", "illusion_maze_array", "inverted_five_elements_array",
+                    "wuxing_huanying", "diandao_wuxing", "huangsha_zhen", "huanmiao_tianxiang" ->
+                    TechniqueVfxPacket.Motif.ILLUSION;
+            case "thunder_tribulation_array", "lei_zhen_double" -> TechniqueVfxPacket.Motif.RAIN;
+            case "spirit_gather", "spirit_gathering_minor", "spirit_gathering_array", "juling_zhen",
+                    "ju_ling_zhu_boost", "yangsheng_muyu", "xian_teng_nurture" ->
+                    TechniqueVfxPacket.Motif.HEAL;
+            case "chongqun_yuzhen", "gui_luo_fan_zhen", "mulan_totem_field" ->
+                    TechniqueVfxPacket.Motif.SUMMON;
+            case "liandao_huoyan", "dayan_fenshen_monitor" -> TechniqueVfxPacket.Motif.CHANNEL;
+            case "five_elements_mountain", "liangyi_weichen" -> TechniqueVfxPacket.Motif.DAO;
+            case "jiezi_boundary", "wuxing_yankong", "guwu_shachang", "xutian_neijin",
+                    "yin_ming_natural" -> TechniqueVfxPacket.Motif.DOMAIN;
+            default -> TechniqueVfxPacket.Motif.GENERIC;
+        };
+        if (explicit != TechniqueVfxPacket.Motif.GENERIC) {
+            return explicit;
+        }
+        String semantic = (effect == null ? "" : effect).toLowerCase(Locale.ROOT);
+        if (containsSemantic(semantic, "teleport", "travel", "传送", "跨域")) return TechniqueVfxPacket.Motif.TELEPORT;
+        if (containsSemantic(semantic, "sword", "blade", "剑", "绞杀")) return TechniqueVfxPacket.Motif.BLADE;
+        if (containsSemantic(semantic, "barrier", "defense", "护", "抵挡", "隔绝")) return TechniqueVfxPacket.Motif.SHIELD;
+        if (containsSemantic(semantic, "seal", "prison", "封", "镇压", "困锁")) return TechniqueVfxPacket.Motif.SEAL;
+        if (containsSemantic(semantic, "illusion", "confuse", "hide", "迷", "幻")) return TechniqueVfxPacket.Motif.ILLUSION;
+        if (containsSemantic(semantic, "heal", "recover", "cultivation", "恢复", "修炼", "养")) return TechniqueVfxPacket.Motif.HEAL;
+        return switch (kind == null ? FieldKind.CATALOG_GENERIC : kind) {
+            case SPIRIT_GATHER -> TechniqueVfxPacket.Motif.HEAL;
+            case DEFENSE -> TechniqueVfxPacket.Motif.SHIELD;
+            case KILL_SWORD -> TechniqueVfxPacket.Motif.BLADE;
+            case SEAL_DEMON -> TechniqueVfxPacket.Motif.SEAL;
+            case ILLUSION_MAZE -> TechniqueVfxPacket.Motif.ILLUSION;
+            case CATALOG_GENERIC -> TechniqueVfxPacket.Motif.FORMATION;
+        };
+    }
+
+    private static String normalizeSemanticId(String value) {
+        return value == null ? "" : value.trim().toLowerCase(Locale.ROOT);
+    }
+
+    private static boolean containsSemantic(String value, String... tokens) {
+        for (String token : tokens) {
+            if (value.contains(token)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    static double effectRadiusFor(int gameplayRadius) {
+        // The pulse AABB is centered on the core block and extends two blocks beyond the catalog radius.
+        return Math.max(1, gameplayRadius) + 2.0D;
     }
 
     private static Vec3 vfxCenter(ActiveField field) {
@@ -576,6 +874,42 @@ public final class FormationFieldService {
     private record FieldKey(String dimensionId, long packedPos) {
         static FieldKey of(ServerLevel level, BlockPos pos) {
             return new FieldKey(level.dimension().location().toString(), pos.asLong());
+        }
+    }
+
+    private record VfxEmission(
+            TechniqueVfxPacket.Kind kind,
+            TechniqueVfxPalette.Family family,
+            TechniqueVfxPacket.Motif motif,
+            Vec3 start,
+            Vec3 end,
+            double radius,
+            int intensity,
+            long seed
+    ) {}
+
+    private static final class VfxBudgetState {
+        private final ArrayDeque<VfxEmission> lifecyclePending = new ArrayDeque<>();
+        private final ArrayDeque<VfxEmission> pulsePending = new ArrayDeque<>();
+        private long gameTime = Long.MIN_VALUE;
+        private int sentThisTick;
+
+        private void offer(VfxEmission emission, boolean lifecycle) {
+            if (pendingCount() >= MAX_PENDING_VFX_PER_DIMENSION) {
+                if (!lifecycle || pulsePending.pollFirst() == null) {
+                    return;
+                }
+            }
+            (lifecycle ? lifecyclePending : pulsePending).addLast(emission);
+        }
+
+        private VfxEmission poll() {
+            VfxEmission lifecycle = lifecyclePending.pollFirst();
+            return lifecycle != null ? lifecycle : pulsePending.pollFirst();
+        }
+
+        private int pendingCount() {
+            return lifecyclePending.size() + pulsePending.size();
         }
     }
 

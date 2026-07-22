@@ -19,6 +19,7 @@ import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
+import net.minecraftforge.client.event.RenderLevelStageEvent;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import com.xunxian.seekingimmortals.registry.ModMenus;
@@ -27,6 +28,7 @@ import net.minecraftforge.client.gui.overlay.ForgeGui;
 import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.client.gui.overlay.VanillaGuiOverlay;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+import net.minecraftforge.event.entity.EntityLeaveLevelEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -233,9 +235,27 @@ public final class ClientEvents {
         }
 
         @SubscribeEvent
-        public static void onLocalPlayerJoinLevel(EntityJoinLevelEvent event) {
+        public static void onEntityJoinLevel(EntityJoinLevelEvent event) {
+            if (!event.getLevel().isClientSide()) {
+                return;
+            }
             if (event.getEntity() == Minecraft.getInstance().player) {
                 resetClientSyncState();
+            }
+            LodestoneTechniqueVfx.trackProjectile(event.getEntity());
+        }
+
+        @SubscribeEvent
+        public static void onEntityLeaveLevel(EntityLeaveLevelEvent event) {
+            if (event.getLevel().isClientSide()) {
+                LodestoneTechniqueVfx.untrackProjectile(event.getEntity());
+            }
+        }
+
+        @SubscribeEvent
+        public static void onRenderLevelStage(RenderLevelStageEvent event) {
+            if (event.getStage() == RenderLevelStageEvent.Stage.AFTER_PARTICLES) {
+                LodestoneTechniqueVfx.renderWorldGeometry(event);
             }
         }
 
@@ -251,6 +271,7 @@ public final class ClientEvents {
             ClientQuestTrackerData.reset();
             ClientAuctionLadderData.reset();
             ClientLoreData.reset();
+            LodestoneTechniqueVfx.reset();
         }
 
         private static void drainTechniqueKeyClicks() {

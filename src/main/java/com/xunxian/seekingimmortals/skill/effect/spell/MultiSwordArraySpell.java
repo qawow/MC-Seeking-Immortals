@@ -2,8 +2,10 @@ package com.xunxian.seekingimmortals.skill.effect.spell;
 
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.entity.SwordProjectileEntity;
+import com.xunxian.seekingimmortals.network.TechniqueVfxPacket;
 import com.xunxian.seekingimmortals.skill.CultivationSkill;
 import com.xunxian.seekingimmortals.skill.effect.SkillContext;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueLifecycleVfxService;
 import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -69,7 +71,22 @@ public class MultiSwordArraySpell extends SpellEffect {
     }
 
     public static void clear(ServerPlayer player) {
+        clear(player, true);
+    }
+
+    public static void clear(ServerPlayer player, boolean emitDissipate) {
         CompoundTag data = player.getPersistentData();
+        boolean active = data.getLong(UNTIL_KEY) > 0L;
+        if (active && emitDissipate) {
+            Vec3 center = player.position().add(0.0D, 1.1D, 0.0D);
+            TechniqueLifecycleVfxService.projectileDissipate(
+                    player.serverLevel(),
+                    TechniqueVfxPalette.Family.METAL,
+                    TechniqueVfxPacket.Motif.BLADE,
+                    center,
+                    1.8D,
+                    player.getId() * 97L);
+        }
         data.remove(UNTIL_KEY);
         data.remove(NEXT_KEY);
         data.remove(VOLLEY_KEY);

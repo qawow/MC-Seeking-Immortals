@@ -1,3 +1,17 @@
+## 568. 2026-07-22 0.2.147 Lodestone 全域 VFX 深化
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   VFX 既有文件分批备份于 `.bak/20260722_173457_vfx_depth/`、`.bak/20260722_181500_active_effect_vfx/`、`.bak/20260722_211416_formation_vfx_hardening/`、`.bak/20260722_211500_vfx_review_fixes/`、`.bak/20260722_221239_vfx_lifecycle_finish/`、`.bak/20260722_231642_vfx_authored_semantic/` 和 `.bak/20260722_vfx_depth_finalize/`；NPC、任务、灵兽、矿物、贴图及 GeckoLib 并行批次不属于本更新。
+  Client renderer   Done   Lodestone 客户端增加语义 motif、四阶段事件、世界光束/轨迹、深度衰减 additive/lumitransparent 表现、有限震屏、距离 LOD、低粒子降级及总粒子/活动事件预算。
+  Technique lifecycle   Done   区域、目标、阵法和剑阵复用真实服务端几何；投射物命中/消散显式收口；SelfBuff 绑定作者 semantic/effect/element，以效果 id 区分轨道并以 family/motif 合并 STATUS/DISSIPATE。
+  Persistence/budgets   Done   SelfBuff 登出时保存受原施法边界限制的剩余 tick，登录后按仍存活 MobEffect 恢复；STATUS/DISSIPATE 全服各 16 包/tick、队列各 512，上限外失败关闭，同 tick drain 幂等。
+  Systems   Done   阵法每维 48 包/tick、384 待发上限并持续排空；法宝激活/炼制、工站运行、召唤物生成/状态/命中/消散和天劫阶段接入语义 VFX。
+  Coverage truth   Done   92 个设施仅 34 个有真实 validator、58 个仍不可形成；法宝语义映射测试不代表全部物品可达；约 74 个直接载体中 73 个进入激活服务，储物手镯按设计绕过。
+  Tests/build   Done   VFX 定向集合 68 项通过；`cleanTest build` 强制执行完整 987 项测试，0 failure/ignored。版本协调后的普通 `./gradlew build --no-daemon` 由 `aiPreflight` 确认 `0.2.147`，`BUILD SUCCESSFUL in 1m 23s`；提交前从 Git 索引导出的隔离快照再次执行完整 build，并在 2m 内成功。75 秒客户端烟测加载 Forge、Lodestone、模组注册表及方块/粒子/JEI 图集后由 timeout 124 停止，仅有环境缺少 flite/OpenAL 的既知噪声；并行提交前曾因共享指纹使用一次已记录的预检例外。
+  Version/protocol   Done   并行任务批次先提交为 `0.2.146` 后，本批按单调 SemVer 协调为 `mod_version=0.2.147`；未改包字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=28` 不升级。
+  Live visual QA   Pending   自动测试和启动烟测不替代人工视觉验收；仍需检查多人密集粒子、透明排序、低粒子设置、跨维度迁移、长时状态与真实设施/法宝可达路径。
+
 ## 567. 2026-07-22 0.2.146 完整任务手册与原生/FTB 同步加固
 
   Step   Status   Notes

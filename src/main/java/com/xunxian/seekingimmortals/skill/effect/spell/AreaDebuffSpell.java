@@ -1,8 +1,12 @@
 package com.xunxian.seekingimmortals.skill.effect.spell;
 
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
+import com.xunxian.seekingimmortals.network.TechniqueVfxPacket;
 import com.xunxian.seekingimmortals.skill.CultivationSkill;
+import com.xunxian.seekingimmortals.skill.effect.ActiveTechniqueEffectVfxService;
 import com.xunxian.seekingimmortals.skill.effect.SkillContext;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueLifecycleVfxService;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
 import java.util.List;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.network.chat.Component;
@@ -71,12 +75,32 @@ public class AreaDebuffSpell extends SpellEffect {
             if (damage > 0.0D) {
                 target.hurt(player.damageSources().indirectMagic(player, player), (float)damage);
             }
-            applyEffect(target, primaryEffect, primaryDurationTicks, primaryAmplifier, skill);
-            applyEffect(target, secondaryEffect, secondaryDurationTicks, secondaryAmplifier, skill);
+            boolean primaryApplied = applyEffect(
+                    target, primaryEffect, primaryDurationTicks, primaryAmplifier, skill);
+            boolean secondaryApplied = applyEffect(
+                    target, secondaryEffect, secondaryDurationTicks, secondaryAmplifier, skill);
+            ActiveTechniqueEffectVfxService.track(
+                    target,
+                    ActiveTechniqueEffectVfxService.semantic(skill, "area_debuff"),
+                    ActiveTechniqueEffectVfxService.familyForSkill(
+                            skill, TechniqueVfxPalette.Family.NEUTRAL),
+                    TechniqueVfxPacket.Motif.DOMAIN,
+                    Math.max(0.72D, target.getBbWidth() * 0.72D),
+                    primaryApplied ? primaryEffect : null,
+                    secondaryApplied ? secondaryEffect : null);
         }
 
         level.sendParticles(particle, center.x, center.y + 0.1D, center.z,
                 48, radius * 0.45D, 0.12D, radius * 0.45D, 0.04D);
+        TechniqueLifecycleVfxService.captureGeometry(
+                level,
+                TechniqueVfxPacket.Kind.FORMATION,
+                TechniqueVfxPalette.Family.NEUTRAL,
+                center,
+                center,
+                radius,
+                40,
+                player.getId() * 41L ^ targets.size());
         level.playSound(null, player.blockPosition(), sound, SoundSource.PLAYERS, 0.75F, 0.9F);
         player.displayClientMessage(Component.translatable(successKey, targets.size()), true);
         return true;
@@ -93,12 +117,14 @@ public class AreaDebuffSpell extends SpellEffect {
         return hit.getType() == HitResult.Type.MISS ? end : hit.getLocation();
     }
 
-    private static void applyEffect(LivingEntity target, MobEffect effect, int durationTicks, int amplifier, CultivationSkill skill) {
+    private static boolean applyEffect(LivingEntity target, MobEffect effect, int durationTicks,
+                                       int amplifier, CultivationSkill skill) {
         if (effect == null || durationTicks <= 0) {
-            return;
+            return false;
         }
         int scaledDuration = durationTicks + Math.max(0, skill.getLevel() - 1) * 10;
         int scaledAmplifier = amplifier + Math.max(0, skill.getLevel() / 5);
-        target.addEffect(new MobEffectInstance(effect, scaledDuration, scaledAmplifier, false, true));
+        return target.addEffect(new MobEffectInstance(
+                effect, scaledDuration, scaledAmplifier, false, true));
     }
 }

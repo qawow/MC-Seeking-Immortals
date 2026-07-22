@@ -1,7 +1,9 @@
 package com.xunxian.seekingimmortals.cultivation;
 
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
+import com.xunxian.seekingimmortals.network.TechniqueVfxPacket;
 import com.xunxian.seekingimmortals.item.CatalogConsumableService;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
 import com.xunxian.seekingimmortals.spiritual.SpiritualAuraManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -19,6 +21,7 @@ import net.minecraft.world.phys.Vec3;
 public final class TribulationService {
     private static final int INITIAL_DELAY_TICKS = 6 * 20;
     private static final int STRIKE_INTERVAL_TICKS = 5 * 20;
+    private static final int STRIKE_WARNING_TICKS = 8;
     private static final double MAX_TOTAL_REDUCTION = 0.95D;
 
     private TribulationService() {}
@@ -37,11 +40,14 @@ public final class TribulationService {
     public static void tick(ServerPlayer player, PlayerCultivation cultivation) {
         if (!cultivation.isTribulationActive()) return;
         if (player.isDeadOrDying()) return;
-        if (!cultivation.tickTribulationCountdown()) return;
-
         Realm targetRealm = cultivation.getTribulationTargetRealm();
         int strikeNumber = cultivation.getTribulationCurrentStrike() + 1;
         int totalStrikes = cultivation.getTribulationTotalStrikes();
+        if (cultivation.getTribulationNextStrikeTicks() == STRIKE_WARNING_TICKS) {
+            emitStrikeWarning(player, targetRealm, strikeNumber, totalStrikes);
+        }
+        if (!cultivation.tickTribulationCountdown()) return;
+
         SpiritualAuraManager.AuraInfo auraInfo = SpiritualAuraManager.getAuraInfo(player.level(), player.blockPosition());
         double reduction = calculateDamageReductionPercent(
                 cultivation.getTribRes(),
@@ -63,12 +69,7 @@ public final class TribulationService {
                 auraInfo.formationBonus(),
                 cultivation.getTribulationDamageReductionBonus());
 
-        spawnStrikeVisual(player);
-        player.displayClientMessage(Component.translatable("message.seeking_immortals.tribulation.strike",
-                strikeNumber,
-                totalStrikes,
-                Math.round(damage * 10.0D) / 10.0D,
-                percent(reduction)), false);
+        StrikeVfx strikeVfx = strikeVfx(player, targetRealm, strikeNumber, totalStrikes);
         CatalogConsumableService.markTribulationDamage(player);
         boolean damageAccepted;
         try {
@@ -79,6 +80,15 @@ public final class TribulationService {
         if (!damageAccepted) {
             cultivation.scheduleTribulationRetry(20);
             SyncCultivationDataPacket.send(player, cultivation);
+            return;
+        }
+        emitStrikeImpact(player, strikeVfx, strikeNumber);
+        player.displayClientMessage(Component.translatable("message.seeking_immortals.tribulation.strike",
+                strikeNumber,
+                totalStrikes,
+                Math.round(damage * 10.0D) / 10.0D,
+                percent(reduction)), false);
+        if (!cultivation.isTribulationActive()) {
             return;
         }
         applyDivineSenseInstability(player, cultivation, targetRealm);
@@ -178,6 +188,7 @@ public final class TribulationService {
             return true;
         }
         cultivation.startTribulation(targetRealm, strikeCount, debug ? 20 : INITIAL_DELAY_TICKS);
+        emitTribulationStartVfx(player, targetRealm, strikeCount);
         player.displayClientMessage(Component.translatable(debug
                 ? "message.seeking_immortals.tribulation.debug_started"
                 : "message.seeking_immortals.tribulation.breakthrough_triggered",
@@ -196,6 +207,7 @@ public final class TribulationService {
         player.getPersistentData().putString("seeking_immortals_last_tribulation_realm",
                 targetRealm == null ? "" : targetRealm.name());
         player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 15 * 20, 1, false, false));
+        emitTribulationEndVfx(player, targetRealm, true);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.tribulation.success",
                 targetRealm.getDisplayName(), reward, cultivation.getTribRes()), false);
         SyncCultivationDataPacket.send(player, cultivation);
@@ -210,6 +222,7 @@ public final class TribulationService {
         int bodyLoss = cultivation.failTribulationPenalty();
         player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 30 * 20, 2, false, false));
         player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 60 * 20, 2, false, false));
+        emitTribulationEndVfx(player, targetRealm, false);
         player.displayClientMessage(Component.translatable(messageKey,
                 targetRealm.getDisplayName(),
                 cultivation.getQiDevRisk(),
@@ -229,9 +242,38 @@ public final class TribulationService {
                 requirement, cultivation.getDivSense(), risk, cultivation.getQiDevRisk()), true);
     }
 
-    private static void spawnStrikeVisual(ServerPlayer player) {
+    private static void emitStrikeWarning(ServerPlayer player, Realm targetRealm,
+                                          int strikeNumber, int totalStrikes) {
         ServerLevel level = player.serverLevel();
-        BlockPos pos = player.blockPosition();
+        StrikeVfx strikeVfx = strikeVfx(player, targetRealm, strikeNumber, totalStrikes);
+        Vec3 impact = strikeVfx.impact();
+        Vec3 cloud = impact.add(0.0D, 10.0D + Math.min(8.0D, strikeNumber * 0.35D), 0.0D);
+        TechniqueVfxPacket.send(level,
+                TechniqueVfxPacket.Kind.BEAM,
+                TechniqueVfxPalette.Family.THUNDER,
+                TechniqueVfxPacket.Motif.RAIN,
+                cloud,
+                impact,
+                0.8D + Math.min(1.0D, strikeNumber * 0.04D),
+                Math.min(88, 48 + strikeNumber * 2),
+                strikeVfx.seed());
+    }
+
+    private static StrikeVfx strikeVfx(ServerPlayer player, Realm targetRealm,
+                                       int strikeNumber, int totalStrikes) {
+        Vec3 impact = player.position().add(0.0D, Math.max(0.8D, player.getBbHeight() * 0.55D), 0.0D);
+        long seed = player.getUUID().getMostSignificantBits()
+                ^ player.getUUID().getLeastSignificantBits()
+                ^ ((long) (targetRealm == null ? 0 : targetRealm.ordinal() + 1) << 48)
+                ^ ((long) Math.max(1, totalStrikes) << 40)
+                ^ ((long) Math.max(1, strikeNumber) << 24);
+        return new StrikeVfx(impact, seed);
+    }
+
+    private static void emitStrikeImpact(ServerPlayer player, StrikeVfx strikeVfx, int strikeNumber) {
+        ServerLevel level = player.serverLevel();
+        Vec3 impact = strikeVfx.impact();
+        BlockPos pos = BlockPos.containing(impact);
         LightningBolt bolt = EntityType.LIGHTNING_BOLT.create(level);
         if (bolt != null) {
             bolt.moveTo(Vec3.atBottomCenterOf(pos));
@@ -240,11 +282,68 @@ public final class TribulationService {
             level.addFreshEntity(bolt);
         }
         level.sendParticles(ParticleTypes.ELECTRIC_SPARK,
-                player.getX(), player.getY() + 1.0D, player.getZ(),
+                impact.x, impact.y, impact.z,
                 48, 0.6D, 0.9D, 0.6D, 0.08D);
         level.playSound(null, pos, SoundEvents.LIGHTNING_BOLT_THUNDER, SoundSource.WEATHER, 1.2F, 0.9F);
         level.playSound(null, pos, SoundEvents.LIGHTNING_BOLT_IMPACT, SoundSource.WEATHER, 0.9F, 1.1F);
+        TechniqueVfxPacket.send(level,
+                TechniqueVfxPacket.Kind.IMPACT,
+                TechniqueVfxPalette.Family.THUNDER,
+                TechniqueVfxPacket.Motif.RAIN,
+                impact,
+                impact,
+                1.2D + Math.min(2.2D, strikeNumber * 0.08D),
+                Math.min(96, 58 + strikeNumber * 2),
+                strikeVfx.seed() ^ 0x6a09e667f3bcc909L);
     }
+
+    private static void emitTribulationStartVfx(ServerPlayer player, Realm targetRealm, int strikeCount) {
+        ServerLevel level = player.serverLevel();
+        Vec3 center = player.position().add(0.0D, 0.12D, 0.0D);
+        double radius = 4.0D + Math.min(6.0D, Math.max(1, strikeCount) * 0.18D);
+        TechniqueVfxPacket.send(level,
+                TechniqueVfxPacket.Kind.FORMATION,
+                TechniqueVfxPalette.Family.THUNDER,
+                TechniqueVfxPacket.Motif.DOMAIN,
+                center,
+                center,
+                radius,
+                Math.min(96, 54 + Math.max(1, strikeCount)),
+                tribulationSeed(player, targetRealm, 0));
+    }
+
+    private static void emitTribulationEndVfx(ServerPlayer player, Realm targetRealm, boolean success) {
+        ServerLevel level = player.serverLevel();
+        Vec3 center = player.position().add(0.0D, Math.max(0.3D, player.getBbHeight() * 0.4D), 0.0D);
+        long seed = tribulationSeed(player, targetRealm, success ? 0x51 : 0x7f);
+        TechniqueVfxPacket.send(level,
+                success ? TechniqueVfxPacket.Kind.BURST : TechniqueVfxPacket.Kind.IMPACT,
+                TechniqueVfxPalette.Family.THUNDER,
+                TechniqueVfxPacket.Motif.DOMAIN,
+                center,
+                center,
+                success ? 3.2D : 2.2D,
+                success ? 72 : 52,
+                seed);
+        TechniqueVfxPacket.send(level,
+                TechniqueVfxPacket.Kind.DISSIPATE,
+                TechniqueVfxPalette.Family.THUNDER,
+                TechniqueVfxPacket.Motif.DOMAIN,
+                center,
+                center,
+                success ? 4.0D : 2.8D,
+                success ? 48 : 64,
+                seed ^ 0x6a09e667f3bcc909L);
+    }
+
+    private static long tribulationSeed(ServerPlayer player, Realm targetRealm, int phase) {
+        return player.blockPosition().asLong()
+                ^ ((long) (targetRealm == null ? 0 : targetRealm.ordinal() + 1) << 48)
+                ^ ((long) phase << 24)
+                ^ player.serverLevel().getGameTime();
+    }
+
+    private record StrikeVfx(Vec3 impact, long seed) {}
 
     private static double getTargetDamageMultiplier(Realm targetRealm) {
         // 优先用语料 damage_per_wave_base 归一化到 maxHealth 倍率；无数据时回退旧表。

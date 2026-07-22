@@ -1,7 +1,5 @@
 package com.xunxian.seekingimmortals.client;
 
-import com.xunxian.seekingimmortals.entity.CultivationFireballEntity;
-import com.xunxian.seekingimmortals.entity.SwordProjectileEntity;
 import com.xunxian.seekingimmortals.network.TechniqueVfxPacket;
 import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
 import net.minecraft.client.Minecraft;
@@ -13,6 +11,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.event.RenderLevelStageEvent;
 import net.minecraftforge.registries.RegistryObject;
 import org.joml.Vector3f;
 import team.lodestar.lodestone.registry.common.particle.LodestoneParticleRegistry;
@@ -27,12 +26,15 @@ import team.lodestar.lodestone.systems.particle.world.type.LodestoneWorldParticl
 import team.lodestar.lodestone.handlers.ScreenshakeHandler;
 import team.lodestar.lodestone.systems.screenshake.PositionedScreenshakeInstance;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 @OnlyIn(Dist.CLIENT)
 public final class LodestoneTechniqueVfx {
     private static final int MAX_PARTICLES_PER_TICK = 192;
     private static final int MAX_SHAKES_PER_TICK = 2;
+    private static final int MAX_ACTIVE_VFX = 72;
     private static final double MAX_VIEW_DISTANCE_SQR = 96.0D * 96.0D;
     private static final ParticleRenderType SOFT_GLOW_RENDER_TYPE =
             LodestoneWorldParticleRenderType.LUMITRANSPARENT.withDepthFade();
@@ -41,6 +43,9 @@ public final class LodestoneTechniqueVfx {
     private static int particlesThisTick;
     private static long shakeBudgetTick = Long.MIN_VALUE;
     private static int shakesThisTick;
+    private static int activeVfxCursor;
+    private static EmissionBudget activeEmissionBudget;
+    private static final List<ActiveVfx> ACTIVE_VFX = new ArrayList<>();
     private static final PaletteColors[] COLOR_CACHE = new PaletteColors[TechniqueVfxPalette.Family.values().length];
 
     private LodestoneTechniqueVfx() {}
@@ -52,36 +57,20 @@ public final class LodestoneTechniqueVfx {
             return;
         }
         Vec3 start = new Vec3(packet.x(), packet.y(), packet.z());
-        if (minecraft.player.distanceToSqr(start) > MAX_VIEW_DISTANCE_SQR) {
+        Vec3 end = new Vec3(packet.endX(), packet.endY(), packet.endZ());
+        double distanceSqr = LodestoneVfxMath.distanceToSegmentSqr(
+                minecraft.player.position(), start, end);
+        if (distanceSqr > MAX_VIEW_DISTANCE_SQR) {
             return;
         }
-        Vec3 end = new Vec3(packet.endX(), packet.endY(), packet.endZ());
-        float lod = lodScale(minecraft, minecraft.player.distanceToSqr(start));
-        int intensity = Math.max(1, Math.round(packet.intensity() * lod));
-        Random random = new Random(packet.seed());
-
-        // Preserve the authored motif under low particle settings; base filler uses the remaining budget.
-        embellish(level, packet.kind(), packet.motif(), packet.family(), start, end,
-                packet.radius(), intensity, random);
-        switch (packet.kind()) {
-            case CAST -> cast(level, packet.family(), start, end, packet.radius(), intensity, random);
-            case BURST -> burst(level, packet.family(), start, packet.radius(), intensity, random);
-            case PATH -> path(level, packet.family(), start, end, intensity, random, false);
-            case AURA -> aura(level, packet.family(), start, packet.radius(), intensity, random);
-            case SCAN -> scan(level, packet.family(), start, packet.radius(), intensity, random);
-            case BEAM -> path(level, packet.family(), start, end, intensity, random, true);
-            case CONE -> cone(level, packet.family(), start, end, packet.radius(), intensity, random);
-            case IMPACT -> impact(level, packet.family(), start, packet.radius(), intensity, random);
-            case FORMATION -> formation(level, packet.family(), start, packet.radius(), intensity, random, packet.seed());
-            case STATUS -> status(level, packet.family(), start, packet.radius(), intensity, random);
-            case DISSIPATE -> dissipate(level, packet.family(), start, packet.radius(), intensity, random);
+        Rhythm rhythm = rhythmFor(packet.kind(), packet.motif());
+        if (ACTIVE_VFX.size() >= MAX_ACTIVE_VFX) {
+            ACTIVE_VFX.remove(0);
+            activeVfxCursor = Math.max(0, activeVfxCursor - 1);
         }
-        if ((packet.kind() == TechniqueVfxPacket.Kind.IMPACT
-                || packet.kind() == TechniqueVfxPacket.Kind.DISSIPATE)
-                && intensity >= 32) {
-            addScreenshake(minecraft, level, start, intensity,
-                    packet.kind() == TechniqueVfxPacket.Kind.DISSIPATE);
-        }
+        ACTIVE_VFX.add(new ActiveVfx(packet, start, end, rhythm));
+        LodestoneWorldGeometry.addIntent(packet, rhythm.anticipationTicks(), rhythm.releaseTicks(),
+                rhythm.sustainTicks(), rhythm.afterglowTicks());
     }
 
     public static void tickProjectiles() {
@@ -90,19 +79,304 @@ public final class LodestoneTechniqueVfx {
         if (level == null || minecraft.player == null || minecraft.isPaused()) {
             return;
         }
+        tickActiveVfx(minecraft, level);
+        LodestoneWorldGeometry.tick(level);
         ParticleStatus status = minecraft.options.particles().get();
         int interval = status == ParticleStatus.MINIMAL ? 3 : status == ParticleStatus.DECREASED ? 2 : 1;
-        for (Entity entity : level.getEntities((Entity) null, minecraft.player.getBoundingBox().inflate(64.0D),
-                entity -> entity instanceof CultivationFireballEntity || entity instanceof SwordProjectileEntity)) {
+        int projectileQuota = status == ParticleStatus.MINIMAL ? 1 : 2;
+        for (LodestoneWorldGeometry.ProjectileSample sample :
+                LodestoneWorldGeometry.projectileSamples(minecraft)) {
+            Entity entity = sample.entity();
             if (entity.tickCount % interval != 0 || minecraft.player.distanceToSqr(entity) > 64.0D * 64.0D) {
                 continue;
             }
-            if (entity instanceof CultivationFireballEntity fireball) {
-                projectileTrail(level, fireball, TechniqueVfxPalette.familyOf(fireball.getElement().name()), false);
-            } else if (entity instanceof SwordProjectileEntity sword) {
-                projectileTrail(level, sword, TechniqueVfxPalette.Family.METAL, true);
+            withEventBudget(projectileQuota,
+                    () -> projectileTrail(level, entity, sample.family(), sample.sword()));
+        }
+    }
+
+    public static void trackProjectile(Entity entity) {
+        LodestoneWorldGeometry.track(entity);
+    }
+
+    public static void untrackProjectile(Entity entity) {
+        LodestoneWorldGeometry.untrack(entity);
+    }
+
+    public static void renderWorldGeometry(RenderLevelStageEvent event) {
+        LodestoneWorldGeometry.render(event);
+    }
+
+    public static void reset() {
+        ACTIVE_VFX.clear();
+        activeVfxCursor = 0;
+        activeEmissionBudget = null;
+        budgetTick = Long.MIN_VALUE;
+        particlesThisTick = 0;
+        shakeBudgetTick = Long.MIN_VALUE;
+        shakesThisTick = 0;
+        LodestoneWorldGeometry.reset();
+    }
+
+    private static void tickActiveVfx(Minecraft minecraft, ClientLevel level) {
+        if (ACTIVE_VFX.isEmpty()) {
+            return;
+        }
+        List<ActiveVfx> snapshot = List.copyOf(ACTIVE_VFX);
+        int size = snapshot.size();
+        int start = Math.floorMod(activeVfxCursor, size);
+        int perEventCap = eventParticleCap(minecraft.options.particles().get());
+        int emittedEvents = 0;
+        for (int offset = 0; offset < size; offset++) {
+            ActiveVfx active = snapshot.get((start + offset) % size);
+            int remainingEvents = size - offset;
+            int remaining = remainingParticleBudget(level);
+            int fairShare = remaining <= 0 ? 0
+                    : Math.max(1, remaining / Math.max(1, remainingEvents));
+            int quota = Math.min(perEventCap, fairShare);
+            int particlesBefore = particlesThisTick;
+            withEventBudget(quota, () -> active.tick(minecraft, level));
+            if (particlesThisTick > particlesBefore) {
+                emittedEvents++;
             }
         }
+        ACTIVE_VFX.removeIf(ActiveVfx::expired);
+        activeVfxCursor = ACTIVE_VFX.isEmpty() ? 0
+                : (start + Math.max(1, emittedEvents)) % ACTIVE_VFX.size();
+    }
+
+    private static void withEventBudget(int quota, Runnable action) {
+        EmissionBudget previous = activeEmissionBudget;
+        activeEmissionBudget = new EmissionBudget(Math.max(0, quota));
+        try {
+            action.run();
+        } finally {
+            activeEmissionBudget = previous;
+        }
+    }
+
+    private static Rhythm rhythmFor(TechniqueVfxPacket.Kind kind, TechniqueVfxPacket.Motif motif) {
+        Rhythm base = switch (kind) {
+            case CAST -> new Rhythm(3, 2, 2, 5, 2);
+            case BURST -> new Rhythm(2, 1, 1, 5, 2);
+            case PATH -> new Rhythm(2, 1, 3, 4, 2);
+            case AURA -> new Rhythm(3, 2, 8, 6, 2);
+            case SCAN -> new Rhythm(3, 1, 5, 5, 2);
+            case BEAM -> new Rhythm(3, 2, 8, 5, 1);
+            case CONE -> new Rhythm(2, 2, 3, 4, 2);
+            case IMPACT -> new Rhythm(1, 1, 1, 6, 2);
+            case FORMATION -> new Rhythm(4, 2, 10, 7, 2);
+            case STATUS -> new Rhythm(2, 1, 8, 6, 2);
+            case DISSIPATE -> new Rhythm(1, 1, 2, 8, 2);
+        };
+        return switch (motif) {
+            case CHANNEL -> base.adjust(1, 0, 6, 1, -1);
+            case DOMAIN, FORMATION -> base.adjust(1, 0, 4, 2, 0);
+            case SHIELD, WALL, SEAL -> base.adjust(1, 0, 3, 1, 0);
+            case RAIN, SUMMON -> base.adjust(1, 1, 3, 1, 0);
+            case TELEPORT, ILLUSION -> base.adjust(1, 1, 1, 2, 0);
+            case PROJECTILE, BLADE, CHAIN -> base.adjust(-1, 0, 0, -1, 0);
+            case HEAL, CLEANSE -> base.adjust(0, 0, 3, 2, 0);
+            case GENERIC, BUDDHIST, CONFUCIAN, DAO, GHOST, TALISMAN -> base;
+        };
+    }
+
+    private static int eventParticleCap(ParticleStatus status) {
+        return status == ParticleStatus.MINIMAL ? 7
+                : status == ParticleStatus.DECREASED ? 16 : 30;
+    }
+
+    private static int remainingParticleBudget(ClientLevel level) {
+        long tick = level.getGameTime();
+        if (budgetTick != tick) {
+            budgetTick = tick;
+            particlesThisTick = 0;
+        }
+        ParticleStatus status = Minecraft.getInstance().options.particles().get();
+        int cap = status == ParticleStatus.MINIMAL ? 48
+                : status == ParticleStatus.DECREASED ? 112 : MAX_PARTICLES_PER_TICK;
+        return Math.max(0, cap - particlesThisTick);
+    }
+
+    private static boolean budgetAvailable(ClientLevel level) {
+        return remainingParticleBudget(level) > 0
+                && (activeEmissionBudget == null || activeEmissionBudget.remaining > 0);
+    }
+
+    private static void emitPacket(Minecraft minecraft, ClientLevel level, ActiveVfx active,
+                                   int intensity, Random random, boolean shake) {
+        TechniqueVfxPacket packet = active.packet;
+        // The authored semantic motif is emitted once at release; the timeline supplies the
+        // quieter pulses before and after it.
+        embellish(level, packet.kind(), packet.motif(), packet.family(), active.start, active.end,
+                packet.radius(), intensity, random);
+        switch (packet.kind()) {
+            case CAST -> cast(level, packet.family(), active.start, active.end,
+                    packet.radius(), intensity, random);
+            case BURST -> burst(level, packet.family(), active.start, packet.radius(), intensity, random);
+            case PATH -> path(level, packet.family(), active.start, active.end, intensity, random, false);
+            case AURA -> aura(level, packet.family(), active.start, packet.radius(), intensity, random);
+            case SCAN -> scan(level, packet.family(), active.start, packet.radius(), intensity, random);
+            case BEAM -> path(level, packet.family(), active.start, active.end, intensity, random, true);
+            case CONE -> cone(level, packet.family(), active.start, active.end,
+                    packet.radius(), intensity, random);
+            case IMPACT -> impact(level, packet.family(), active.start, packet.radius(), intensity, random);
+            case FORMATION -> formation(level, packet.family(), active.start, packet.radius(),
+                    intensity, random, packet.seed());
+            case STATUS -> status(level, packet.family(), active.start, packet.radius(), intensity, random);
+            case DISSIPATE -> dissipate(level, packet.family(), active.start, packet.radius(), intensity, random);
+        }
+        if (shake && (packet.kind() == TechniqueVfxPacket.Kind.IMPACT
+                || packet.kind() == TechniqueVfxPacket.Kind.DISSIPATE) && intensity >= 32) {
+            addScreenshake(minecraft, level, active.start, intensity,
+                    packet.kind() == TechniqueVfxPacket.Kind.DISSIPATE);
+        }
+    }
+
+    private enum Phase {
+        ANTICIPATION,
+        RELEASE,
+        SUSTAIN,
+        AFTERGLOW
+    }
+
+    private record Rhythm(int anticipationTicks, int releaseTicks, int sustainTicks,
+                          int afterglowTicks, int sustainInterval) {
+        private Rhythm {
+            anticipationTicks = Math.max(1, anticipationTicks);
+            releaseTicks = Math.max(1, releaseTicks);
+            sustainTicks = Math.max(1, sustainTicks);
+            afterglowTicks = Math.max(1, afterglowTicks);
+            sustainInterval = Math.max(1, sustainInterval);
+        }
+
+        private Rhythm adjust(int anticipation, int release, int sustain, int afterglow, int interval) {
+            return new Rhythm(anticipationTicks + anticipation, releaseTicks + release,
+                    sustainTicks + sustain, afterglowTicks + afterglow,
+                    Math.max(1, sustainInterval + interval));
+        }
+
+        private int totalTicks() {
+            return anticipationTicks + releaseTicks + sustainTicks + afterglowTicks;
+        }
+
+        private Phase phaseAt(int age) {
+            if (age < anticipationTicks) {
+                return Phase.ANTICIPATION;
+            }
+            if (age < anticipationTicks + releaseTicks) {
+                return Phase.RELEASE;
+            }
+            if (age < anticipationTicks + releaseTicks + sustainTicks) {
+                return Phase.SUSTAIN;
+            }
+            return Phase.AFTERGLOW;
+        }
+
+        private int localAge(int age, Phase phase) {
+            return switch (phase) {
+                case ANTICIPATION -> age;
+                case RELEASE -> age - anticipationTicks;
+                case SUSTAIN -> age - anticipationTicks - releaseTicks;
+                case AFTERGLOW -> age - anticipationTicks - releaseTicks - sustainTicks;
+            };
+        }
+    }
+
+    private static final class ActiveVfx {
+        private final TechniqueVfxPacket packet;
+        private final Vec3 start;
+        private final Vec3 end;
+        private final Rhythm rhythm;
+        private int age;
+
+        private ActiveVfx(TechniqueVfxPacket packet, Vec3 start, Vec3 end, Rhythm rhythm) {
+            this.packet = packet;
+            this.start = start;
+            this.end = end;
+            this.rhythm = rhythm;
+        }
+
+        private void tick(Minecraft minecraft, ClientLevel level) {
+            Phase phase = rhythm.phaseAt(age);
+            int localAge = rhythm.localAge(age, phase);
+            float lod = lodScale(minecraft,
+                    LodestoneVfxMath.distanceToSegmentSqr(minecraft.player.position(), start, end));
+            int authoredIntensity = Math.max(1, Math.round(packet.intensity() * lod));
+            Random random = new Random(packet.seed() ^ (0x9E3779B97F4A7C15L * (age + 1L)));
+            int particlesBefore = particlesThisTick;
+            if (budgetAvailable(level)) {
+                switch (phase) {
+                    case ANTICIPATION -> {
+                        if (localAge == 0 || localAge == rhythm.anticipationTicks() - 1) {
+                            int pulse = Math.max(1, authoredIntensity / 3);
+                            embellish(level, packet.kind(), packet.motif(), packet.family(), start, end,
+                                    packet.radius(), pulse, random);
+                            cast(level, packet.family(), start, end, packet.radius(), pulse, random);
+                        }
+                    }
+                    case RELEASE -> {
+                        if (localAge == 0) {
+                            emitPacket(minecraft, level, this, authoredIntensity, random, true);
+                            if (particlesThisTick == particlesBefore && budgetAvailable(level)) {
+                                releaseAnchor(level, packet, start, end, random);
+                            }
+                        } else if (packet.kind() == TechniqueVfxPacket.Kind.BEAM
+                                || packet.kind() == TechniqueVfxPacket.Kind.PATH
+                                || packet.motif() == TechniqueVfxPacket.Motif.CHANNEL) {
+                            path(level, packet.family(), start, end,
+                                    Math.max(1, authoredIntensity / 3), random,
+                                    packet.kind() == TechniqueVfxPacket.Kind.BEAM);
+                        }
+                    }
+                    case SUSTAIN -> {
+                        if (localAge % rhythm.sustainInterval() == 0) {
+                            int pulse = Math.max(1, authoredIntensity / 3);
+                            sustain(level, packet, start, end, pulse, random);
+                        }
+                    }
+                    case AFTERGLOW -> {
+                        if (localAge == 0 || (localAge & 1) == 0) {
+                            dissipate(level, packet.family(), start, packet.radius(),
+                                    Math.max(1, authoredIntensity / 4), random);
+                        }
+                    }
+                }
+            }
+            if (phase == Phase.RELEASE && localAge == 0 && particlesThisTick == particlesBefore) {
+                return;
+            }
+            age++;
+        }
+
+        private boolean expired() {
+            return age >= rhythm.totalTicks();
+        }
+    }
+
+    private static void sustain(ClientLevel level, TechniqueVfxPacket packet, Vec3 start, Vec3 end,
+                                int intensity, Random random) {
+        switch (packet.kind()) {
+            case AURA -> aura(level, packet.family(), start, packet.radius(), intensity, random);
+            case FORMATION -> formation(level, packet.family(), start, packet.radius(), intensity, random,
+                    packet.seed());
+            case STATUS -> status(level, packet.family(), start, packet.radius(), intensity, random);
+            case BEAM -> path(level, packet.family(), start, end, intensity, random, true);
+            case PATH, CONE -> path(level, packet.family(), start, end, intensity, random, false);
+            case SCAN -> scan(level, packet.family(), start, packet.radius(), intensity, random);
+            case BURST, IMPACT, CAST, DISSIPATE -> embellish(level, packet.kind(), packet.motif(),
+                    packet.family(), start, end, packet.radius(), intensity, random);
+        }
+    }
+
+    private static void releaseAnchor(ClientLevel level, TechniqueVfxPacket packet,
+                                      Vec3 start, Vec3 end, Random random) {
+        Vec3 anchor = switch (packet.kind()) {
+            case IMPACT, FORMATION, STATUS, DISSIPATE, AURA, BURST, SCAN -> start;
+            case CAST, PATH, BEAM, CONE -> start.lerp(end, 0.5D);
+        };
+        spawn(level, LodestoneParticleRegistry.STAR_PARTICLE, packet.family(), anchor,
+                Vec3.ZERO, 0.28F, 0.9F, 12, random.nextFloat());
     }
 
     private static void cast(ClientLevel level, TechniqueVfxPalette.Family family, Vec3 start, Vec3 end,
@@ -110,7 +384,7 @@ public final class LodestoneTechniqueVfx {
         int points = Math.min(24, Math.max(8, intensity / 2));
         ring(level, family, start, Math.max(0.45D, radius), points, random, 0.18F, 18);
         Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.15D, 1.0D));
-        for (int i = 0; i < Math.min(10, intensity / 3 + 2); i++) {
+        for (int i = 0; i < Math.min(10, intensity / 3 + 2) && budgetAvailable(level); i++) {
             Vec3 point = start.add(direction.scale(0.08D * i)).add(randomOffset(random, 0.08D));
             spawn(level, LodestoneParticleRegistry.SPARKLE_PARTICLE, family, point,
                     direction.scale(0.025D), 0.20F, 0.92F, 15, random.nextFloat() * 0.8F);
@@ -123,7 +397,7 @@ public final class LodestoneTechniqueVfx {
                               float radius, int intensity, Random random) {
         int count = Math.min(40, Math.max(8, intensity));
         double spread = Math.max(0.35D, radius);
-        for (int i = 0; i < count; i++) {
+        for (int i = 0; i < count && budgetAvailable(level); i++) {
             Vec3 direction = randomDirection(random);
             Vec3 point = center.add(direction.scale(random.nextDouble() * spread * 0.28D));
             spawn(level, i % 4 == 0 ? LodestoneParticleRegistry.EXTRUDING_SPARK_PARTICLE
@@ -144,7 +418,7 @@ public final class LodestoneTechniqueVfx {
         Vec3 direction = delta.scale(1.0D / length);
         Vec3 side = perpendicular(direction);
         int points = Math.min(48, Math.max(6, Math.min(intensity, (int) Math.ceil(length * (beam ? 2.8D : 1.8D)))));
-        for (int i = 0; i <= points; i++) {
+        for (int i = 0; i <= points && budgetAvailable(level); i++) {
             double progress = i / (double) points;
             Vec3 point = start.add(delta.scale(progress));
             double wave = beam ? Math.sin(progress * Math.PI * 6.0D) * 0.075D : 0.0D;
@@ -165,7 +439,7 @@ public final class LodestoneTechniqueVfx {
         int points = Math.min(36, Math.max(12, intensity));
         ring(level, family, center, Math.max(0.5D, radius), points, random, 0.17F, 24);
         int spirals = Math.min(16, Math.max(6, intensity / 2));
-        for (int i = 0; i < spirals; i++) {
+        for (int i = 0; i < spirals && budgetAvailable(level); i++) {
             double angle = i * 2.399963229728653D + random.nextDouble() * 0.2D;
             double height = 0.12D + i * 0.11D;
             Vec3 point = center.add(Math.cos(angle) * radius * 0.55D, height, Math.sin(angle) * radius * 0.55D);
@@ -180,7 +454,7 @@ public final class LodestoneTechniqueVfx {
         int points = Math.min(32, Math.max(12, intensity / 2));
         ring(level, family, center, safeRadius * 0.45D, points, random, 0.12F, 18);
         ring(level, family, center.add(0.0D, 0.04D, 0.0D), safeRadius, points, random, 0.16F, 22);
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 8 && budgetAvailable(level); i++) {
             double angle = Math.PI * 2.0D * i / 8.0D;
             Vec3 node = center.add(Math.cos(angle) * safeRadius, 0.12D, Math.sin(angle) * safeRadius);
             spawn(level, LodestoneParticleRegistry.STAR_PARTICLE, family, node,
@@ -195,12 +469,12 @@ public final class LodestoneTechniqueVfx {
         Vec3 side = perpendicular(direction);
         Vec3 up = normalized(side.cross(direction), new Vec3(0.0D, 1.0D, 0.0D));
         int slices = Math.min(7, Math.max(3, intensity / 8));
-        for (int slice = 1; slice <= slices; slice++) {
+        for (int slice = 1; slice <= slices && budgetAvailable(level); slice++) {
             double progress = slice / (double) slices;
             Vec3 center = start.add(delta.scale(progress));
             double sliceRadius = Math.max(0.25D, radius * progress);
             int points = Math.min(12, 4 + slice);
-            for (int i = 0; i < points; i++) {
+            for (int i = 0; i < points && budgetAvailable(level); i++) {
                 double angle = Math.PI * 2.0D * i / points;
                 Vec3 point = center.add(side.scale(Math.cos(angle) * sliceRadius))
                         .add(up.scale(Math.sin(angle) * sliceRadius));
@@ -215,7 +489,7 @@ public final class LodestoneTechniqueVfx {
         double safeRadius = Math.max(0.65D, radius);
         ring(level, family, center.add(0.0D, 0.05D, 0.0D), safeRadius, Math.min(32, intensity), random, 0.17F, 18);
         int rays = Math.min(24, Math.max(8, intensity / 2));
-        for (int i = 0; i < rays; i++) {
+        for (int i = 0; i < rays && budgetAvailable(level); i++) {
             Vec3 direction = randomDirection(random);
             if (direction.y < -0.15D) {
                 direction = new Vec3(direction.x, Math.abs(direction.y) * 0.55D, direction.z).normalize();
@@ -237,7 +511,7 @@ public final class LodestoneTechniqueVfx {
         rotatingRing(level, family, center.add(0.0D, 0.16D, 0.0D), safeRadius * 0.58D,
                 Math.min(28, outerPoints), phase, random);
 
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 8 && budgetAvailable(level); i++) {
             double angle = phase + Math.PI * 2.0D * i / 8.0D;
             Vec3 node = center.add(Math.cos(angle) * safeRadius, 0.15D, Math.sin(angle) * safeRadius);
             spawn(level, (i & 1) == 0 ? LodestoneParticleRegistry.STAR_PARTICLE
@@ -245,13 +519,13 @@ public final class LodestoneTechniqueVfx {
                     family, node, new Vec3(0.0D, 0.012D, 0.0D),
                     0.25F, 0.9F, 30, (float) angle);
         }
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 7 && budgetAvailable(level); i++) {
             Vec3 point = center.add(randomOffset(random, safeRadius * 0.15D)).add(0.0D, 0.25D + i * 0.34D, 0.0D);
             spawn(level, LodestoneParticleRegistry.WISP_PARTICLE, family, point,
                     new Vec3(0.0D, 0.018D, 0.0D), 0.24F + i * 0.012F, 0.72F, 34, phaseAsFloat(phase + i));
         }
         if (family == TechniqueVfxPalette.Family.METAL || family == TechniqueVfxPalette.Family.THUNDER) {
-            for (int i = 0; i < 8; i++) {
+            for (int i = 0; i < 8 && budgetAvailable(level); i++) {
                 double angle = phase + Math.PI * 2.0D * i / 8.0D;
                 Vec3 from = center.add(Math.cos(angle) * safeRadius * 0.28D, 0.22D,
                         Math.sin(angle) * safeRadius * 0.28D);
@@ -273,7 +547,7 @@ public final class LodestoneTechniqueVfx {
         int points = Math.min(20, Math.max(8, intensity / 2));
         double phase = level.getGameTime() * 0.09D;
         rotatingRing(level, family, center.add(0.0D, 0.12D, 0.0D), safeRadius, points, phase, random);
-        for (int i = 0; i < Math.min(10, Math.max(4, intensity / 5)); i++) {
+        for (int i = 0; i < Math.min(10, Math.max(4, intensity / 5)) && budgetAvailable(level); i++) {
             double angle = phase + i * 2.399963229728653D;
             Vec3 point = center.add(Math.cos(angle) * safeRadius * 0.62D,
                     0.25D + (i % 5) * 0.27D,
@@ -287,7 +561,7 @@ public final class LodestoneTechniqueVfx {
                                   float radius, int intensity, Random random) {
         double safeRadius = Math.max(0.65D, radius);
         int count = Math.min(36, Math.max(12, intensity));
-        for (int i = 0; i < count; i++) {
+        for (int i = 0; i < count && budgetAvailable(level); i++) {
             Vec3 direction = randomDirection(random);
             Vec3 point = center.add(direction.scale(safeRadius * (0.65D + random.nextDouble() * 0.35D)));
             spawn(level, i % 3 == 0 ? LodestoneParticleRegistry.TWINKLE_PARTICLE
@@ -346,7 +620,7 @@ public final class LodestoneTechniqueVfx {
         shortLine(level, family, start.subtract(side.scale(width)), end.add(side.scale(width)),
                 Math.min(18, Math.max(5, intensity / 4)), random);
         int blades = Math.min(10, Math.max(4, intensity / 8));
-        for (int i = 0; i < blades; i++) {
+        for (int i = 0; i < blades && budgetAvailable(level); i++) {
             double angle = Math.PI * 2.0D * i / blades;
             Vec3 base = start.add(Math.cos(angle) * radius, 0.16D, Math.sin(angle) * radius);
             Vec3 tip = base.add(-Math.sin(angle) * 0.28D, 0.38D, Math.cos(angle) * 0.28D);
@@ -398,7 +672,7 @@ public final class LodestoneTechniqueVfx {
                                     float radius, int intensity, Random random) {
         double safeRadius = Math.max(1.0D, radius);
         int pillars = Math.min(8, Math.max(4, intensity / 8));
-        for (int i = 0; i < pillars; i++) {
+        for (int i = 0; i < pillars && budgetAvailable(level); i++) {
             double angle = Math.PI * 2.0D * i / pillars;
             Vec3 base = center.add(Math.cos(angle) * safeRadius * 0.68D, 0.1D,
                     Math.sin(angle) * safeRadius * 0.68D);
@@ -415,7 +689,7 @@ public final class LodestoneTechniqueVfx {
         double halfWidth = Math.max(1.0D, radius);
         Vec3 center = start.add(end).scale(0.5D);
         int columns = Math.min(9, Math.max(5, intensity / 7));
-        for (int i = 0; i < columns; i++) {
+        for (int i = 0; i < columns && budgetAvailable(level); i++) {
             double offset = -halfWidth + halfWidth * 2.0D * i / (columns - 1.0D);
             Vec3 base = center.add(side.scale(offset));
             shortLine(level, family, base, base.add(0.0D, 2.2D, 0.0D), 5, random);
@@ -433,7 +707,7 @@ public final class LodestoneTechniqueVfx {
         Vec3 side = perpendicular(delta.normalize());
         int links = Math.min(16, Math.max(6, intensity / 4));
         Vec3 previous = start;
-        for (int i = 1; i <= links; i++) {
+        for (int i = 1; i <= links && budgetAvailable(level); i++) {
             double progress = i / (double) links;
             double zigzag = (i & 1) == 0 ? -0.16D : 0.16D;
             Vec3 next = start.add(delta.scale(progress)).add(side.scale(zigzag * (1.0D - progress * 0.35D)));
@@ -454,7 +728,7 @@ public final class LodestoneTechniqueVfx {
                                   float radius, int intensity, Random random) {
         double safeRadius = Math.max(1.5D, radius);
         int streaks = Math.min(18, Math.max(6, intensity / 3));
-        for (int i = 0; i < streaks; i++) {
+        for (int i = 0; i < streaks && budgetAvailable(level); i++) {
             double angle = random.nextDouble() * Math.PI * 2.0D;
             double distance = Math.sqrt(random.nextDouble()) * safeRadius;
             Vec3 top = center.add(Math.cos(angle) * distance, 2.4D + random.nextDouble(), Math.sin(angle) * distance);
@@ -466,7 +740,7 @@ public final class LodestoneTechniqueVfx {
                                   float radius, int intensity, Random random, boolean cleanse) {
         double safeRadius = Math.max(0.75D, radius);
         int count = Math.min(18, Math.max(8, intensity / 3));
-        for (int i = 0; i < count; i++) {
+        for (int i = 0; i < count && budgetAvailable(level); i++) {
             double angle = i * 2.399963229728653D;
             Vec3 point = center.add(Math.cos(angle) * safeRadius * 0.58D,
                     0.12D + (i % 6) * 0.24D,
@@ -484,13 +758,13 @@ public final class LodestoneTechniqueVfx {
         double safeRadius = Math.max(0.9D, radius);
         int nodes = 8;
         Vec3[] points = new Vec3[nodes];
-        for (int i = 0; i < nodes; i++) {
+        for (int i = 0; i < nodes && budgetAvailable(level); i++) {
             double angle = Math.PI * 2.0D * i / nodes;
             points[i] = center.add(Math.cos(angle) * safeRadius, 0.13D, Math.sin(angle) * safeRadius);
             spawn(level, LodestoneParticleRegistry.STAR_PARTICLE, family, points[i], Vec3.ZERO,
                     0.20F, 0.9F, 25, (float) angle);
         }
-        for (int i = 0; i < nodes; i++) {
+        for (int i = 0; i < nodes && budgetAvailable(level); i++) {
             shortLine(level, family, points[i], points[(i + 3) % nodes],
                     Math.min(4, Math.max(2, intensity / 18)), random);
         }
@@ -501,7 +775,7 @@ public final class LodestoneTechniqueVfx {
         double safeRadius = Math.max(0.9D, radius);
         ring(level, family, center.add(0.0D, 1.75D, 0.0D), safeRadius * 0.72D,
                 Math.min(24, Math.max(12, intensity / 2)), random, 0.18F, 28);
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 6 && budgetAvailable(level); i++) {
             double angle = Math.PI * 2.0D * i / 6.0D;
             Vec3 base = center.add(Math.cos(angle) * safeRadius, 0.15D, Math.sin(angle) * safeRadius);
             shortLine(level, family, base, base.add(0.0D, 1.35D, 0.0D), 4, random);
@@ -538,7 +812,7 @@ public final class LodestoneTechniqueVfx {
         Vec3 target = start.distanceToSqr(end) < 0.04D ? start.add(0.0D, 2.2D, 0.0D) : end;
         helix(level, family, start.add(0.0D, 0.2D, 0.0D), target,
                 Math.max(0.14D, radius * 0.18D), Math.min(28, Math.max(12, intensity / 2)), random);
-        for (int i = 0; i < Math.min(8, Math.max(4, intensity / 8)); i++) {
+        for (int i = 0; i < Math.min(8, Math.max(4, intensity / 8)) && budgetAvailable(level); i++) {
             Vec3 point = start.add(randomOffset(random, Math.max(0.5D, radius * 0.6D))).add(0.0D, 0.5D, 0.0D);
             spawn(level, LodestoneParticleRegistry.WISP_PARTICLE, family, point,
                     new Vec3(0.0D, 0.025D, 0.0D), 0.26F, 0.58F, 30, random.nextFloat());
@@ -592,7 +866,7 @@ public final class LodestoneTechniqueVfx {
 
     private static void ring(ClientLevel level, TechniqueVfxPalette.Family family, Vec3 center,
                              double radius, int points, Random random, float scale, int lifetime) {
-        for (int i = 0; i < points; i++) {
+        for (int i = 0; i < points && budgetAvailable(level); i++) {
             double angle = Math.PI * 2.0D * i / points;
             Vec3 point = center.add(Math.cos(angle) * radius, 0.0D, Math.sin(angle) * radius);
             spawn(level, i % 5 == 0 ? LodestoneParticleRegistry.TWINKLE_PARTICLE
@@ -603,7 +877,7 @@ public final class LodestoneTechniqueVfx {
 
     private static void rotatingRing(ClientLevel level, TechniqueVfxPalette.Family family, Vec3 center,
                                      double radius, int points, double phase, Random random) {
-        for (int i = 0; i < points; i++) {
+        for (int i = 0; i < points && budgetAvailable(level); i++) {
             double angle = phase + Math.PI * 2.0D * i / points;
             Vec3 point = center.add(Math.cos(angle) * radius, 0.0D, Math.sin(angle) * radius);
             spawn(level, LodestoneParticleRegistry.WISP_PARTICLE, family, point,
@@ -617,7 +891,7 @@ public final class LodestoneTechniqueVfx {
         Vec3 safeNormal = normalized(normal, new Vec3(0.0D, 0.0D, 1.0D));
         Vec3 axisA = perpendicular(safeNormal);
         Vec3 axisB = normalized(safeNormal.cross(axisA), new Vec3(0.0D, 1.0D, 0.0D));
-        for (int i = 0; i < points; i++) {
+        for (int i = 0; i < points && budgetAvailable(level); i++) {
             double angle = Math.PI * 2.0D * i / points;
             Vec3 point = center.add(axisA.scale(Math.cos(angle) * radius))
                     .add(axisB.scale(Math.sin(angle) * radius));
@@ -638,7 +912,7 @@ public final class LodestoneTechniqueVfx {
         Vec3 up = normalized(side.cross(direction), new Vec3(0.0D, 1.0D, 0.0D));
         double helixRadius = Math.abs(radius);
         double directionSign = Math.signum(radius) == 0.0D ? 1.0D : Math.signum(radius);
-        for (int i = 0; i <= points; i++) {
+        for (int i = 0; i <= points && budgetAvailable(level); i++) {
             double progress = i / (double) points;
             double angle = directionSign * progress * Math.PI * 6.0D;
             Vec3 coil = side.scale(Math.cos(angle) * helixRadius)
@@ -654,7 +928,7 @@ public final class LodestoneTechniqueVfx {
                                   int points, Random random) {
         Vec3 delta = end.subtract(start);
         Vec3 motion = normalized(delta, new Vec3(0.0D, 0.0D, 1.0D)).scale(0.003D);
-        for (int i = 0; i <= points; i++) {
+        for (int i = 0; i <= points && budgetAvailable(level); i++) {
             Vec3 point = start.add(delta.scale(i / (double) points));
             spawn(level, LodestoneParticleRegistry.THIN_EXTRUDING_SPARK_PARTICLE, family, point,
                     motion, 0.11F, 0.72F, 18, random.nextFloat());
@@ -727,19 +1001,13 @@ public final class LodestoneTechniqueVfx {
     }
 
     private static boolean claimBudget(ClientLevel level) {
-        long tick = level.getGameTime();
-        if (budgetTick != tick) {
-            budgetTick = tick;
-            particlesThisTick = 0;
-        }
-        ParticleStatus status = Minecraft.getInstance().options.particles().get();
-        int cap = status == ParticleStatus.MINIMAL ? 48
-                : status == ParticleStatus.DECREASED ? 112
-                : MAX_PARTICLES_PER_TICK;
-        if (particlesThisTick >= cap) {
+        if (!budgetAvailable(level)) {
             return false;
         }
         particlesThisTick++;
+        if (activeEmissionBudget != null) {
+            activeEmissionBudget.remaining--;
+        }
         return true;
     }
 
@@ -808,6 +1076,14 @@ public final class LodestoneTechniqueVfx {
 
     private static float phaseAsFloat(double value) {
         return (float) (value % (Math.PI * 2.0D));
+    }
+
+    private static final class EmissionBudget {
+        private int remaining;
+
+        private EmissionBudget(int remaining) {
+            this.remaining = remaining;
+        }
     }
 
     private record PaletteColors(float startR, float startG, float startB,

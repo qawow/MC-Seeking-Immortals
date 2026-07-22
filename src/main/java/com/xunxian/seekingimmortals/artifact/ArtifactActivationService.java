@@ -6,7 +6,9 @@ import com.xunxian.seekingimmortals.entity.CultivationFireballEntity;
 import com.xunxian.seekingimmortals.item.ArtifactCatalogItem;
 import com.xunxian.seekingimmortals.artifact.NatalBindingService;
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
+import com.xunxian.seekingimmortals.network.TechniqueVfxPacket;
 import com.xunxian.seekingimmortals.catalog.FlightVehicleService;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
 import com.xunxian.seekingimmortals.structure.FormationFieldService;
 import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
@@ -214,6 +216,7 @@ public final class ArtifactActivationService {
         }
 
         Item activatedItem = stack.getItem();
+        Vec3 activationStart = player.position();
         if (repairTarget != null) {
             applyRepair(player, stack, repairTarget, info);
         } else {
@@ -232,6 +235,7 @@ public final class ArtifactActivationService {
                 }
             }
         }
+        emitGenericActivationVfx(player, artifact, info, activationStart);
         int cooldown = ArtifactPowerService.scaledCooldown(
                 effectiveCooldown(player, artifact, info), powerScale);
         player.getCooldowns().addCooldown(activatedItem, cooldown);
@@ -1077,6 +1081,178 @@ public final class ArtifactActivationService {
             return CultivationFireballEntity.SpellElement.FIRE;
         }
         return CultivationFireballEntity.SpellElement.METAL;
+    }
+
+    /** Semantic fallback language for artifacts that do not resolve through the active-skill registry. */
+    static TechniqueVfxPacket.Kind artifactVfxKind(String activationKind) {
+        return switch (activationKind == null ? "" : activationKind.toLowerCase(Locale.ROOT)) {
+            case "offense", "talisman" -> TechniqueVfxPacket.Kind.CAST;
+            case "ruler", "soul_destroy" -> TechniqueVfxPacket.Kind.IMPACT;
+            case "sound" -> TechniqueVfxPacket.Kind.BURST;
+            case "magnet" -> TechniqueVfxPacket.Kind.FORMATION;
+            case "capture" -> TechniqueVfxPacket.Kind.BEAM;
+            case "teleport_protection", "space_control", "vehicle" -> TechniqueVfxPacket.Kind.PATH;
+            case "world", "formation" -> TechniqueVfxPacket.Kind.FORMATION;
+            case "swarm", "beast_control" -> TechniqueVfxPacket.Kind.BURST;
+            default -> TechniqueVfxPacket.Kind.STATUS;
+        };
+    }
+
+    static TechniqueVfxPacket.Motif artifactVfxMotif(String activationKind, String artifactId, String effect) {
+        String kind = activationKind == null ? "" : activationKind.toLowerCase(Locale.ROOT);
+        String id = artifactId == null ? "" : artifactId.toLowerCase(Locale.ROOT);
+        String semantic = id + " " + (effect == null ? "" : effect.toLowerCase(Locale.ROOT));
+        TechniqueVfxPacket.Motif genericTierMotif = switch (id) {
+            case "generic_treasure_grade_4" -> TechniqueVfxPacket.Motif.BLADE;
+            case "generic_treasure_grade_5" -> TechniqueVfxPacket.Motif.SHIELD;
+            case "generic_treasure_grade_6" -> TechniqueVfxPacket.Motif.DOMAIN;
+            case "generic_treasure_grade_7" -> TechniqueVfxPacket.Motif.RAIN;
+            default -> TechniqueVfxPacket.Motif.GENERIC;
+        };
+        if (genericTierMotif != TechniqueVfxPacket.Motif.GENERIC) {
+            return genericTierMotif;
+        }
+        if (hasArtifactToken(semantic, "teleport", "space", "void", "rift", "portal")) {
+            return TechniqueVfxPacket.Motif.TELEPORT;
+        }
+        if (hasArtifactToken(semantic, "sword", "blade", "ruler", "slash", "thunder")) {
+            return TechniqueVfxPacket.Motif.BLADE;
+        }
+        if (hasArtifactToken(semantic, "fire", "flame", "talisman")) {
+            return TechniqueVfxPacket.Motif.TALISMAN;
+        }
+        if (hasArtifactToken(semantic, "soul", "ghost", "demon", "blood")) {
+            return TechniqueVfxPacket.Motif.GHOST;
+        }
+        return switch (kind) {
+            case "defense", "formation" -> TechniqueVfxPacket.Motif.SHIELD;
+            case "teleport_protection" -> TechniqueVfxPacket.Motif.TELEPORT;
+            case "focus", "repair" -> TechniqueVfxPacket.Motif.CLEANSE;
+            case "mirror", "illusion" -> TechniqueVfxPacket.Motif.ILLUSION;
+            case "sound" -> TechniqueVfxPacket.Motif.CHANNEL;
+            case "magnet" -> TechniqueVfxPacket.Motif.DOMAIN;
+            case "swarm", "beast_control" -> TechniqueVfxPacket.Motif.SUMMON;
+            case "capture" -> TechniqueVfxPacket.Motif.CHAIN;
+            case "refinement" -> TechniqueVfxPacket.Motif.CHANNEL;
+            case "spirit_liquid" -> TechniqueVfxPacket.Motif.HEAL;
+            case "world", "space_control" -> TechniqueVfxPacket.Motif.DOMAIN;
+            case "vehicle", "movement" -> TechniqueVfxPacket.Motif.TELEPORT;
+            default -> TechniqueVfxPacket.Motif.PROJECTILE;
+        };
+    }
+
+    static TechniqueVfxPalette.Family artifactVfxFamily(String activationKind, String artifactId, String effect) {
+        String kind = activationKind == null ? "" : activationKind.toLowerCase(Locale.ROOT);
+        String id = artifactId == null ? "" : artifactId.toLowerCase(Locale.ROOT);
+        TechniqueVfxPalette.Family genericTierFamily = switch (id) {
+            case "generic_treasure_grade_4" -> TechniqueVfxPalette.Family.METAL;
+            case "generic_treasure_grade_5" -> TechniqueVfxPalette.Family.LIGHT;
+            case "generic_treasure_grade_6" -> TechniqueVfxPalette.Family.VOID;
+            case "generic_treasure_grade_7" -> TechniqueVfxPalette.Family.THUNDER;
+            default -> TechniqueVfxPalette.Family.NEUTRAL;
+        };
+        if (genericTierFamily != TechniqueVfxPalette.Family.NEUTRAL) {
+            return genericTierFamily;
+        }
+        String semantic = id + " "
+                + (effect == null ? "" : effect.toLowerCase(Locale.ROOT));
+        if (hasArtifactToken(semantic, "thunder", "lightning", "bolt")) return TechniqueVfxPalette.Family.THUNDER;
+        if (hasArtifactToken(semantic, "ice", "frost", "snow", "cold")) return TechniqueVfxPalette.Family.ICE;
+        if (hasArtifactToken(semantic, "fire", "flame", "lava")) return TechniqueVfxPalette.Family.FIRE;
+        if (hasArtifactToken(semantic, "blood", "demon", "curse", "corpse")) return TechniqueVfxPalette.Family.BLOOD;
+        if (hasArtifactToken(semantic, "soul", "ghost", "yin")) return TechniqueVfxPalette.Family.SOUL;
+        if (hasArtifactToken(semantic, "illusion", "mirror", "dream")) return TechniqueVfxPalette.Family.ILLUSION;
+        if (hasArtifactToken(semantic, "water", "rain", "ocean")) return TechniqueVfxPalette.Family.WATER;
+        if (hasArtifactToken(semantic, "wood", "herb", "beast", "swarm")) return TechniqueVfxPalette.Family.WOOD;
+        if (hasArtifactToken(semantic, "sword", "blade", "metal", "gold", "ruler", "magnet", "yuanci")) {
+            return TechniqueVfxPalette.Family.METAL;
+        }
+        return switch (kind) {
+            case "movement", "vehicle" -> TechniqueVfxPalette.Family.WIND;
+            case "defense", "formation" -> TechniqueVfxPalette.Family.EARTH;
+            case "focus", "utility", "repair" -> TechniqueVfxPalette.Family.LIGHT;
+            case "magnet" -> TechniqueVfxPalette.Family.METAL;
+            case "refinement", "talisman" -> TechniqueVfxPalette.Family.FIRE;
+            case "spirit_liquid" -> TechniqueVfxPalette.Family.WATER;
+            case "teleport_protection", "space_control", "world" -> TechniqueVfxPalette.Family.VOID;
+            case "sound", "capture", "soul_destroy" -> TechniqueVfxPalette.Family.SOUL;
+            default -> TechniqueVfxPalette.Family.NEUTRAL;
+        };
+    }
+
+    private static boolean hasArtifactToken(String semantic, String... tokens) {
+        String padded = "_" + (semantic == null ? "" : semantic.replaceAll("[^a-z0-9]+", "_")) + "_";
+        for (String token : tokens) {
+            if (padded.contains("_" + token + "_")) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static void emitGenericActivationVfx(ServerPlayer player,
+                                                  ArtifactDataService.ArtifactDefinition artifact,
+                                                  ActivationInfo info,
+                                                  Vec3 activationStart) {
+        if (player == null || artifact == null || info == null || !info.supported()) {
+            return;
+        }
+        TechniqueVfxPacket.Kind kind = artifactVfxKind(info.kind());
+        TechniqueVfxPalette.Family family = artifactVfxFamily(info.kind(), artifact.id(), artifact.effect());
+        TechniqueVfxPacket.Motif motif = artifactVfxMotif(info.kind(), artifact.id(), artifact.effect());
+        String activationKind = info.kind() == null ? "" : info.kind().toLowerCase(Locale.ROOT);
+        Vec3 current = player.position().add(0.0D, 0.9D, 0.0D);
+        Vec3 start = current;
+        Vec3 end = current;
+        if (kind == TechniqueVfxPacket.Kind.PATH && activationStart != null) {
+            start = activationStart.add(0.0D, 0.9D, 0.0D);
+            end = current;
+            if (start.distanceToSqr(end) < 0.04D) {
+                kind = TechniqueVfxPacket.Kind.STATUS;
+            }
+        } else if (kind == TechniqueVfxPacket.Kind.CAST || kind == TechniqueVfxPacket.Kind.BEAM) {
+            start = player.getEyePosition();
+            end = start.add(player.getLookAngle().normalize()
+                    .scale(artifactVfxAimDistance(activationKind, artifact.gameTier())));
+        } else if (kind == TechniqueVfxPacket.Kind.IMPACT) {
+            start = player.getEyePosition().add(player.getLookAngle().normalize()
+                    .scale(artifactVfxAimDistance(activationKind, artifact.gameTier())));
+            end = start;
+        } else if (kind == TechniqueVfxPacket.Kind.FORMATION && "magnet".equals(activationKind)) {
+            start = player.position().add(0.0D, 1.0D, 0.0D)
+                    .add(player.getLookAngle().normalize().scale(2.6D));
+            end = start;
+        }
+        double radius = artifactVfxRadius(activationKind, artifact.gameTier());
+        int intensity = kind == TechniqueVfxPacket.Kind.IMPACT ? 34 : 28;
+        long seed = player.blockPosition().asLong()
+                ^ ((long) artifact.id().hashCode() << 21)
+                ^ ((long) kind.ordinal() << 52)
+                ^ player.serverLevel().getGameTime();
+        TechniqueVfxPacket.send(player.serverLevel(), kind, family, motif,
+                start, end, radius, intensity, seed);
+    }
+
+    static double artifactVfxAimDistance(String activationKind, int gameTier) {
+        return switch (activationKind == null ? "" : activationKind.toLowerCase(Locale.ROOT)) {
+            case "ruler" -> 3.5D;
+            case "soul_destroy" -> 4.0D;
+            case "capture" -> 3.2D;
+            case "magnet" -> 2.6D;
+            default -> 2.0D + Math.min(4, Math.max(1, gameTier) * 0.25D);
+        };
+    }
+
+    static double artifactVfxRadius(String activationKind, int gameTier) {
+        int tier = Math.max(1, gameTier);
+        return switch (activationKind == null ? "" : activationKind.toLowerCase(Locale.ROOT)) {
+            case "ruler" -> 3.6D + tier * 0.2D;
+            case "sound" -> 4.8D + tier * 0.28D;
+            case "magnet" -> 5.2D + tier * 0.35D;
+            case "soul_destroy" -> 3.2D + tier * 0.25D;
+            case "capture" -> 3.8D + tier * 0.28D;
+            default -> Math.max(0.45D, Math.min(6.0D, 0.8D + tier * 0.12D));
+        };
     }
 
     private static void affectArea(ServerPlayer player, Vec3 center, double radius,

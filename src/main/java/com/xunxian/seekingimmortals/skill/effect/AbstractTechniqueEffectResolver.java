@@ -218,7 +218,7 @@ public final class AbstractTechniqueEffectResolver {
                         "message.seeking_immortals.spell.area.fail");
             }
             case "buff_self", "buff", "shield", "transform", "utility", "utility_combat", "scout", "scan", "inspect" ->
-                    createBuff(spec, cost, cooldown);
+                    createBuff(technique, spec, cost, cooldown);
             case "heal", "heal_spirit", "cleanse" -> new RecoverySpell(
                     cost, cooldown, spec.damage(), Math.max(2.0D, spec.radius()),
                     recoveryForm(spec.type()), "message.seeking_immortals.spell.generic_heal.success");
@@ -231,7 +231,8 @@ public final class AbstractTechniqueEffectResolver {
                         primaryBuff != null ? primaryBuff : safeGetEffect("berserk"), movementDuration(spec), 1,
                         secondaryBuff != null ? secondaryBuff : safeGetEffect("shield"), movementDuration(spec), 0,
                         vfx.accent(), vfx.castSound(),
-                        "message.seeking_immortals.spell.generic_movement.success");
+                        "message.seeking_immortals.spell.generic_movement.success",
+                        technique.id(), spec.type(), spec.element());
             }
             case "melee", "strike" -> new SwordTechniqueSpell(
                     cost, cooldown, spec.damage(), spec.range(), Math.max(0.45D, spec.radius() / 4.0D),
@@ -276,9 +277,10 @@ public final class AbstractTechniqueEffectResolver {
         };
     }
 
-    private static SkillEffect createBuff(RuntimeSpec spec, int cost, int cooldown) {
+    private static SkillEffect createBuff(TechniqueDataManager.TechniqueEntry technique,
+                                          RuntimeSpec spec, int cost, int cooldown) {
         return new SelfBuffSpell(cost, cooldown, spec.type(), spec.element(),
-                "message.seeking_immortals.spell.generic_buff.success");
+                "message.seeking_immortals.spell.generic_buff.success", technique.id());
     }
 
     private static MobEffect safeGetEffect(String statusId) {

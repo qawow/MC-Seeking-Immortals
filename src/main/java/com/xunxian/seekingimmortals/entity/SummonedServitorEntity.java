@@ -3,6 +3,7 @@ package com.xunxian.seekingimmortals.entity;
 import com.xunxian.seekingimmortals.cultivation.BeastContractService;
 import com.xunxian.seekingimmortals.beast.PuppetGrowthService;
 import com.xunxian.seekingimmortals.catalog.SummonHonestMvpService;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueLifecycleVfxService;
 import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import com.xunxian.seekingimmortals.worldpack.ServitorRegistrySavedData;
 import net.minecraft.nbt.CompoundTag;
@@ -88,6 +89,9 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
     private Stance stance = Stance.FOLLOW;
     private boolean crafted;
     private boolean hostileTrial;
+    private boolean summonVfxArmed;
+    private boolean summonVfxSent;
+    private boolean terminalVfxSent;
     private double guardX;
     private double guardY;
     private double guardZ;
@@ -97,6 +101,15 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
         this.lifeTicks = 20 * 25;
         this.maxLifeTicks = this.lifeTicks;
         setPersistenceRequired();
+    }
+
+    @Override
+    public void onAddedToWorld() {
+        super.onAddedToWorld();
+        if (!level().isClientSide && summonVfxArmed && !summonVfxSent) {
+            summonVfxSent = true;
+            TechniqueLifecycleVfxService.summon(this);
+        }
     }
 
     @Override
@@ -120,6 +133,7 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
 
     public void configure(Player owner, String summonId, int lifeTicks, double health, double damage, Archetype archetype) {
         this.hostileTrial = false;
+        this.summonVfxArmed = true;
         this.ownerUUID = owner.getUUID();
         this.summonId = summonId == null || summonId.isBlank() ? "summon" : summonId;
         this.lifeTicks = Math.max(20 * 8, lifeTicks);
@@ -141,6 +155,7 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
      */
     public void configureHostileTrial(String shellId, int lifeTicks, double health, double damage, Archetype archetype) {
         this.hostileTrial = true;
+        this.summonVfxArmed = true;
         this.ownerUUID = null;
         this.crafted = false;
         this.summonId = shellId == null || shellId.isBlank() ? "trial_shell" : shellId;
@@ -332,8 +347,12 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
         if (!level().isClientSide) {
             lifeTicks--;
             if (lifeTicks <= 0) {
+                sendDissipate();
                 discard();
                 return;
+            }
+            if (isAlive() && !terminalVfxSent && Math.floorMod(tickCount + getId(), 40) == 0) {
+                TechniqueLifecycleVfxService.servitorStatus(this);
             }
             // Hostile trial shells do not require an owner and stay in arena AI.
             if (hostileTrial) {
@@ -476,6 +495,8 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
             if (archetype == Archetype.GHOST) {
                 living.setDeltaMovement(living.getDeltaMovement().add(0.0D, 0.15D, 0.0D));
             }
+            TechniqueLifecycleVfxService.servitorImpact(
+                    this, living.position().add(0.0D, living.getBbHeight() * 0.55D, 0.0D));
             // Wave458: beast combat credit.
             if (archetype == Archetype.BEAST && ownerUUID != null && level() instanceof ServerLevel serverLevel) {
                 Player owner = serverLevel.getPlayerByUUID(ownerUUID);
@@ -528,10 +549,21 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
 
     @Override
     public void remove(RemovalReason reason) {
+        if (!level().isClientSide && reason.shouldDestroy()) {
+            sendDissipate();
+        }
         if (!level().isClientSide && reason.shouldDestroy() && level() instanceof ServerLevel serverLevel) {
             ServitorRegistrySavedData.get(serverLevel).remove(getUUID());
         }
         super.remove(reason);
+    }
+
+    private void sendDissipate() {
+        if (terminalVfxSent || level().isClientSide) {
+            return;
+        }
+        terminalVfxSent = true;
+        TechniqueLifecycleVfxService.servitorDissipate(this);
     }
 
     private Component summonDisplay() {

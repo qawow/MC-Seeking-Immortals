@@ -8,6 +8,8 @@ import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.cultivation.Realm;
+import com.xunxian.seekingimmortals.network.TechniqueVfxPacket;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
 import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
@@ -20,6 +22,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.io.IOException;
@@ -216,7 +219,7 @@ public final class ArtifactRefinementService {
             com.xunxian.seekingimmortals.item.InventoryDeliveryService.giveOrEnqueue(
                     player, output, "artifact_refine:" + recipe.display());
             player.containerMenu.broadcastChanges();
-            playFeedback(player, true);
+            playFeedback(player, true, recipe);
             // Wave459: refining bound natal artifact grows it.
             if (recipe.artifactId() != null
                     && recipe.artifactId().equals(NatalBindingService.boundId(player))) {
@@ -231,7 +234,7 @@ public final class ArtifactRefinementService {
         }
 
         player.containerMenu.broadcastChanges();
-        playFeedback(player, false);
+        playFeedback(player, false, recipe);
         com.xunxian.seekingimmortals.skill.LifeSkillService.grantPractice(player,
                 com.xunxian.seekingimmortals.skill.SkillType.ARTIFACT_REFINING, 10, 4);
         List<ItemStack> failureLoot = grantFailureLoot(player, recipe, grade, requiredGrade);
@@ -553,7 +556,47 @@ public final class ArtifactRefinementService {
         return String.format(Locale.ROOT, "%.0f%%", Math.max(0.0D, Math.min(1.0D, rate)) * 100.0D);
     }
 
-    private static void playFeedback(ServerPlayer player, boolean success) {
+    static TechniqueVfxPalette.Family refinementFamily(ArtifactDataService.RefinementRecipe recipe) {
+        if (recipe == null) {
+            return TechniqueVfxPalette.Family.METAL;
+        }
+        String semantic = (recipe.id() == null ? "" : recipe.id().toLowerCase(Locale.ROOT)) + " "
+                + (recipe.artifactId() == null ? "" : recipe.artifactId().toLowerCase(Locale.ROOT));
+        if (hasToken(semantic, "thunder", "lightning", "bolt")) return TechniqueVfxPalette.Family.THUNDER;
+        if (hasToken(semantic, "ice", "frost", "cold", "snow")) return TechniqueVfxPalette.Family.ICE;
+        if (hasToken(semantic, "fire", "flame", "lava")) return TechniqueVfxPalette.Family.FIRE;
+        if (hasToken(semantic, "void", "space", "rift")) return TechniqueVfxPalette.Family.VOID;
+        if (hasToken(semantic, "soul", "ghost", "yin")) return TechniqueVfxPalette.Family.SOUL;
+        if (hasToken(semantic, "demon", "blood", "corpse")) return TechniqueVfxPalette.Family.BLOOD;
+        if (hasToken(semantic, "wood", "herb", "beast", "puppet")) return TechniqueVfxPalette.Family.WOOD;
+        return TechniqueVfxPalette.Family.METAL;
+    }
+
+    static TechniqueVfxPacket.Motif refinementMotif(ArtifactDataService.RefinementRecipe recipe) {
+        if (recipe == null) {
+            return TechniqueVfxPacket.Motif.CHANNEL;
+        }
+        String semantic = (recipe.id() == null ? "" : recipe.id().toLowerCase(Locale.ROOT)) + " "
+                + (recipe.artifactId() == null ? "" : recipe.artifactId().toLowerCase(Locale.ROOT));
+        if (hasToken(semantic, "sword", "blade", "needle", "ruler", "chain")) {
+            return TechniqueVfxPacket.Motif.BLADE;
+        }
+        if (hasToken(semantic, "mirror", "illusion")) return TechniqueVfxPacket.Motif.ILLUSION;
+        if (hasToken(semantic, "talisman", "seal", "charm")) return TechniqueVfxPacket.Motif.TALISMAN;
+        if (hasToken(semantic, "puppet", "beast", "bell")) return TechniqueVfxPacket.Motif.SUMMON;
+        return TechniqueVfxPacket.Motif.CHANNEL;
+    }
+
+    private static boolean hasToken(String semantic, String... tokens) {
+        String padded = "_" + (semantic == null ? "" : semantic.replaceAll("[^a-z0-9]+", "_")) + "_";
+        for (String token : tokens) {
+            if (padded.contains("_" + token + "_")) return true;
+        }
+        return false;
+    }
+
+    private static void playFeedback(ServerPlayer player, boolean success,
+                                     ArtifactDataService.RefinementRecipe recipe) {
         ServerLevel level = player.serverLevel();
         level.sendParticles(success ? ParticleTypes.END_ROD : ParticleTypes.SMOKE,
                 player.getX(), player.getY() + 1.0D, player.getZ(),
@@ -561,6 +604,19 @@ public final class ArtifactRefinementService {
         level.playSound(null, player.blockPosition(),
                 success ? SoundEvents.AMETHYST_BLOCK_CHIME : SoundEvents.FIRE_EXTINGUISH,
                 SoundSource.PLAYERS, success ? 0.6F : 0.45F, success ? 1.35F : 0.85F);
+        Vec3 center = player.position().add(0.0D, 0.9D, 0.0D);
+        TechniqueVfxPacket.send(level,
+                success ? TechniqueVfxPacket.Kind.BURST : TechniqueVfxPacket.Kind.DISSIPATE,
+                refinementFamily(recipe),
+                refinementMotif(recipe),
+                center,
+                center.add(0.0D, success ? 1.1D : 0.25D, 0.0D),
+                success ? 1.35D : 1.0D,
+                success ? 56 : 34,
+                player.blockPosition().asLong()
+                        ^ ((long) (recipe == null ? "" : recipe.id()).hashCode() << 19)
+                        ^ ((long) (success ? 1 : 0) << 52)
+                        ^ level.getGameTime());
     }
 
     private static String getString(JsonObject object, String key) {

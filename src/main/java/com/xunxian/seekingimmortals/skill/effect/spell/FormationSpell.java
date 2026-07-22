@@ -1,8 +1,13 @@
 package com.xunxian.seekingimmortals.skill.effect.spell;
 
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
+import com.xunxian.seekingimmortals.network.TechniqueVfxPacket;
 import com.xunxian.seekingimmortals.skill.CultivationSkill;
+import com.xunxian.seekingimmortals.skill.effect.ActiveTechniqueEffectVfxService;
 import com.xunxian.seekingimmortals.skill.effect.SkillContext;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueLifecycleVfxService;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -58,9 +63,18 @@ public class FormationSpell extends SpellEffect {
         int restore = Math.max(6, 12 + skill.getLevel() * 2);
         cultivation.addSpiritualPower(restore);
         cultivation.addQiDeviationRisk(-2);
-        add(player, MobEffects.REGENERATION, duration / 2, 0);
-        add(player, MobEffects.DAMAGE_RESISTANCE, duration, 0);
+        boolean regenerationApplied = add(player, MobEffects.REGENERATION, duration / 2, 0);
+        boolean resistanceApplied = add(player, MobEffects.DAMAGE_RESISTANCE, duration, 0);
+        ActiveTechniqueEffectVfxService.track(
+                player,
+                ActiveTechniqueEffectVfxService.semantic(skill, form.name()),
+                TechniqueVfxPalette.Family.WOOD,
+                TechniqueVfxPacket.Motif.FORMATION,
+                radius,
+                regenerationApplied ? MobEffects.REGENERATION : null,
+                resistanceApplied ? MobEffects.DAMAGE_RESISTANCE : null);
         form.spawnSelfField(level, player.position(), radius, player.getBbHeight());
+        captureFormation(level, player, player.position(), radius);
         play(level, form, player.blockPosition());
         player.displayClientMessage(Component.translatable(successKey, restore), true);
         return true;
@@ -69,10 +83,20 @@ public class FormationSpell extends SpellEffect {
     private boolean castDefense(ServerPlayer player, CultivationSkill skill) {
         ServerLevel level = player.serverLevel();
         int duration = scaledTicks(170, skill, 12);
-        add(player, MobEffects.DAMAGE_RESISTANCE, duration, 0);
-        add(player, MobEffects.ABSORPTION, duration, Math.max(0, skill.getLevel() / 5));
+        boolean resistanceApplied = add(player, MobEffects.DAMAGE_RESISTANCE, duration, 0);
+        boolean absorptionApplied = add(
+                player, MobEffects.ABSORPTION, duration, Math.max(0, skill.getLevel() / 5));
+        ActiveTechniqueEffectVfxService.track(
+                player,
+                ActiveTechniqueEffectVfxService.semantic(skill, form.name()),
+                TechniqueVfxPalette.Family.EARTH,
+                TechniqueVfxPacket.Motif.SHIELD,
+                radius,
+                resistanceApplied ? MobEffects.DAMAGE_RESISTANCE : null,
+                absorptionApplied ? MobEffects.ABSORPTION : null);
         int deflected = deflectProjectiles(player, level, radius);
         form.spawnSelfField(level, player.position(), radius, player.getBbHeight());
+        captureFormation(level, player, player.position(), radius);
         play(level, form, player.blockPosition());
         player.displayClientMessage(Component.translatable(successKey, deflected), true);
         return true;
@@ -81,18 +105,36 @@ public class FormationSpell extends SpellEffect {
     private boolean castPatrolBeacon(ServerPlayer player, CultivationSkill skill) {
         ServerLevel level = player.serverLevel();
         int duration = scaledTicks(150, skill, 10);
-        add(player, MobEffects.NIGHT_VISION, duration, 0);
-        add(player, MobEffects.MOVEMENT_SPEED, duration, 0);
+        boolean nightVisionApplied = add(player, MobEffects.NIGHT_VISION, duration, 0);
+        boolean speedApplied = add(player, MobEffects.MOVEMENT_SPEED, duration, 0);
+        ActiveTechniqueEffectVfxService.track(
+                player,
+                ActiveTechniqueEffectVfxService.semantic(skill, form.name()),
+                TechniqueVfxPalette.Family.WATER,
+                TechniqueVfxPacket.Motif.FORMATION,
+                radius + 1.2D,
+                nightVisionApplied ? MobEffects.NIGHT_VISION : null,
+                speedApplied ? MobEffects.MOVEMENT_SPEED : null);
         List<LivingEntity> targets = findAreaTargets(level, player, player.position(), radius + 2.2D);
         int marked = 0;
         for (LivingEntity target : targets.stream().limit(12).toList()) {
-            add(target, MobEffects.GLOWING, duration, 0);
+            boolean glowingApplied = add(target, MobEffects.GLOWING, duration, 0);
+            boolean slowingApplied = false;
             if (target instanceof Enemy) {
-                add(target, MobEffects.MOVEMENT_SLOWDOWN, duration / 2, 0);
+                slowingApplied = add(target, MobEffects.MOVEMENT_SLOWDOWN, duration / 2, 0);
             }
+            ActiveTechniqueEffectVfxService.track(
+                    target,
+                    ActiveTechniqueEffectVfxService.semantic(skill, form.name()),
+                    TechniqueVfxPalette.Family.WATER,
+                    TechniqueVfxPacket.Motif.FORMATION,
+                    Math.max(0.72D, target.getBbWidth() * 0.72D),
+                    glowingApplied ? MobEffects.GLOWING : null,
+                    slowingApplied ? MobEffects.MOVEMENT_SLOWDOWN : null);
             marked++;
         }
         form.spawnSelfField(level, player.position(), radius + 1.2D, player.getBbHeight());
+        captureFormation(level, player, player.position(), radius + 1.2D);
         play(level, form, player.blockPosition());
         player.displayClientMessage(Component.translatable(successKey, marked), true);
         return true;
@@ -103,7 +145,6 @@ public class FormationSpell extends SpellEffect {
         Vec3 center = traceEnd(level, player, player.getEyePosition(), range);
         List<LivingEntity> targets = findAreaTargets(level, player, center, radius);
         if (targets.isEmpty()) {
-            form.spawnArea(level, center, radius * 0.72D, List.of());
             player.displayClientMessage(Component.translatable("message.seeking_immortals.spell.area.fail"), true);
             return false;
         }
@@ -116,11 +157,19 @@ public class FormationSpell extends SpellEffect {
             if (amount > 0.0D) {
                 target.hurt(player.damageSources().indirectMagic(player, player), (float)amount);
             }
-            form.applyTarget(player, target, center, skill);
+            MobEffect[] appliedEffects = form.applyTarget(player, target, center, skill);
+            ActiveTechniqueEffectVfxService.track(
+                    target,
+                    ActiveTechniqueEffectVfxService.semantic(skill, form.name()),
+                    ActiveTechniqueEffectVfxService.familyForSkill(skill, form.lifecycleFamily()),
+                    form.lifecycleMotif(),
+                    Math.max(0.72D, target.getBbWidth() * 0.72D),
+                    appliedEffects);
             hitCount++;
         }
 
         form.spawnArea(level, center, radius, targets);
+        captureFormation(level, player, center, radius);
         play(level, form, BlockPos.containing(center));
         player.displayClientMessage(Component.translatable(successKey, hitCount), true);
         return true;
@@ -171,9 +220,27 @@ public class FormationSpell extends SpellEffect {
         return baseTicks + Math.max(0, skill.getLevel() - 1) * perLevelTicks;
     }
 
-    private static void add(LivingEntity target, MobEffect effect, int durationTicks, int amplifier) {
-        if (durationTicks > 0) {
-            target.addEffect(new MobEffectInstance(effect, durationTicks, amplifier, false, true));
+    private void captureFormation(ServerLevel level, ServerPlayer player, Vec3 center, double fieldRadius) {
+        TechniqueLifecycleVfxService.captureGeometry(
+                level,
+                TechniqueVfxPacket.Kind.FORMATION,
+                TechniqueVfxPalette.Family.NEUTRAL,
+                center,
+                center,
+                fieldRadius,
+                42,
+                player.getId() * 43L ^ form.ordinal());
+    }
+
+    private static boolean add(LivingEntity target, MobEffect effect, int durationTicks, int amplifier) {
+        return durationTicks > 0
+                && target.addEffect(new MobEffectInstance(effect, durationTicks, amplifier, false, true));
+    }
+
+    private static void add(List<MobEffect> appliedEffects, LivingEntity target,
+                            MobEffect effect, int durationTicks, int amplifier) {
+        if (add(target, effect, durationTicks, amplifier)) {
+            appliedEffects.add(effect);
         }
     }
 
@@ -234,6 +301,32 @@ public class FormationSpell extends SpellEffect {
             this.pitch = pitch;
         }
 
+        private TechniqueVfxPalette.Family lifecycleFamily() {
+            return switch (this) {
+                case SMALL_SWORD_ARRAY, KILL_SWORD_FORMATION -> TechniqueVfxPalette.Family.METAL;
+                case ILLUSION_FORMATION -> TechniqueVfxPalette.Family.ILLUSION;
+                case THUNDER_TRAP_ARRAY -> TechniqueVfxPalette.Family.THUNDER;
+                case SEA_LOCK_ARRAY, STAR_PALACE_TIDAL_LOCK, STAR_PALACE_SEAL,
+                        STAR_PALACE_PATROL_BEACON -> TechniqueVfxPalette.Family.WATER;
+                case DEFENSE_FORMATION, KUNWU_SEAL_STRIKE, SEAL_ARRAY, FORMATION_TRAP_BASIC ->
+                        TechniqueVfxPalette.Family.EARTH;
+                case SPIRIT_GATHER_ARRAY -> TechniqueVfxPalette.Family.WOOD;
+            };
+        }
+
+        private TechniqueVfxPacket.Motif lifecycleMotif() {
+            return switch (this) {
+                case SMALL_SWORD_ARRAY, KILL_SWORD_FORMATION -> TechniqueVfxPacket.Motif.BLADE;
+                case ILLUSION_FORMATION -> TechniqueVfxPacket.Motif.ILLUSION;
+                case SEA_LOCK_ARRAY, STAR_PALACE_TIDAL_LOCK -> TechniqueVfxPacket.Motif.DOMAIN;
+                case SEAL_ARRAY, FORMATION_TRAP_BASIC, STAR_PALACE_SEAL, KUNWU_SEAL_STRIKE ->
+                        TechniqueVfxPacket.Motif.SEAL;
+                case DEFENSE_FORMATION -> TechniqueVfxPacket.Motif.SHIELD;
+                case SPIRIT_GATHER_ARRAY, THUNDER_TRAP_ARRAY, STAR_PALACE_PATROL_BEACON ->
+                        TechniqueVfxPacket.Motif.FORMATION;
+            };
+        }
+
         private int targetLimit() {
             return switch (this) {
                 case KILL_SWORD_FORMATION, THUNDER_TRAP_ARRAY, STAR_PALACE_SEAL, KUNWU_SEAL_STRIKE -> 9;
@@ -253,60 +346,62 @@ public class FormationSpell extends SpellEffect {
             };
         }
 
-        private void applyTarget(ServerPlayer player, LivingEntity target, Vec3 center, CultivationSkill skill) {
+        private MobEffect[] applyTarget(ServerPlayer player, LivingEntity target, Vec3 center, CultivationSkill skill) {
+            List<MobEffect> appliedEffects = new ArrayList<>(3);
             int bonus = Math.max(0, skill.getLevel() - 1);
             switch (this) {
                 case SMALL_SWORD_ARRAY -> {
-                    add(target, MobEffects.MOVEMENT_SLOWDOWN, 80 + bonus * 5, 1);
-                    add(target, MobEffects.WEAKNESS, 70 + bonus * 5, 0);
+                    add(appliedEffects, target, MobEffects.MOVEMENT_SLOWDOWN, 80 + bonus * 5, 1);
+                    add(appliedEffects, target, MobEffects.WEAKNESS, 70 + bonus * 5, 0);
                     pushAway(target, center, 0.10D, 0.04D);
                 }
                 case ILLUSION_FORMATION -> {
-                    add(target, MobEffects.CONFUSION, 95 + bonus * 6, 0);
-                    add(target, MobEffects.MOVEMENT_SLOWDOWN, 80 + bonus * 5, 1);
-                    add(target, MobEffects.GLOWING, 70 + bonus * 4, 0);
+                    add(appliedEffects, target, MobEffects.CONFUSION, 95 + bonus * 6, 0);
+                    add(appliedEffects, target, MobEffects.MOVEMENT_SLOWDOWN, 80 + bonus * 5, 1);
+                    add(appliedEffects, target, MobEffects.GLOWING, 70 + bonus * 4, 0);
                     target.removeEffect(MobEffects.INVISIBILITY);
                 }
                 case THUNDER_TRAP_ARRAY -> {
-                    add(target, MobEffects.MOVEMENT_SLOWDOWN, 90 + bonus * 5, 2);
-                    add(target, MobEffects.DIG_SLOWDOWN, 90 + bonus * 5, 1);
-                    add(target, MobEffects.GLOWING, 60 + bonus * 4, 0);
+                    add(appliedEffects, target, MobEffects.MOVEMENT_SLOWDOWN, 90 + bonus * 5, 2);
+                    add(appliedEffects, target, MobEffects.DIG_SLOWDOWN, 90 + bonus * 5, 1);
+                    add(appliedEffects, target, MobEffects.GLOWING, 60 + bonus * 4, 0);
                     jolt(target, center, 0.08D);
                 }
                 case SEAL_ARRAY, FORMATION_TRAP_BASIC -> {
-                    add(target, MobEffects.MOVEMENT_SLOWDOWN, 120 + bonus * 7, 3);
-                    add(target, MobEffects.DIG_SLOWDOWN, 105 + bonus * 6, 1);
-                    add(target, MobEffects.WEAKNESS, 95 + bonus * 6, 0);
+                    add(appliedEffects, target, MobEffects.MOVEMENT_SLOWDOWN, 120 + bonus * 7, 3);
+                    add(appliedEffects, target, MobEffects.DIG_SLOWDOWN, 105 + bonus * 6, 1);
+                    add(appliedEffects, target, MobEffects.WEAKNESS, 95 + bonus * 6, 0);
                     target.setDeltaMovement(target.getDeltaMovement().multiply(0.35D, 0.30D, 0.35D));
                     target.hasImpulse = true;
                 }
                 case KILL_SWORD_FORMATION -> {
-                    add(target, MobEffects.MOVEMENT_SLOWDOWN, 85 + bonus * 5, 1);
-                    add(target, MobEffects.WEAKNESS, 100 + bonus * 6, 1);
+                    add(appliedEffects, target, MobEffects.MOVEMENT_SLOWDOWN, 85 + bonus * 5, 1);
+                    add(appliedEffects, target, MobEffects.WEAKNESS, 100 + bonus * 6, 1);
                     pushAway(target, player.position(), 0.20D, 0.06D);
                 }
                 case SEA_LOCK_ARRAY, STAR_PALACE_TIDAL_LOCK -> {
-                    add(target, MobEffects.MOVEMENT_SLOWDOWN, 125 + bonus * 7, 2);
-                    add(target, MobEffects.WEAKNESS, 90 + bonus * 6, 0);
-                    add(target, MobEffects.DIG_SLOWDOWN, 80 + bonus * 5, 0);
+                    add(appliedEffects, target, MobEffects.MOVEMENT_SLOWDOWN, 125 + bonus * 7, 2);
+                    add(appliedEffects, target, MobEffects.WEAKNESS, 90 + bonus * 6, 0);
+                    add(appliedEffects, target, MobEffects.DIG_SLOWDOWN, 80 + bonus * 5, 0);
                     pull(target, center, 0.10D, 0.03D);
                 }
                 case STAR_PALACE_SEAL -> {
-                    add(target, MobEffects.MOVEMENT_SLOWDOWN, 120 + bonus * 7, 3);
-                    add(target, MobEffects.WEAKNESS, 105 + bonus * 6, 1);
-                    add(target, MobEffects.GLOWING, 85 + bonus * 5, 0);
+                    add(appliedEffects, target, MobEffects.MOVEMENT_SLOWDOWN, 120 + bonus * 7, 3);
+                    add(appliedEffects, target, MobEffects.WEAKNESS, 105 + bonus * 6, 1);
+                    add(appliedEffects, target, MobEffects.GLOWING, 85 + bonus * 5, 0);
                     pull(target, center, 0.12D, 0.04D);
                 }
                 case KUNWU_SEAL_STRIKE -> {
-                    add(target, MobEffects.MOVEMENT_SLOWDOWN, 110 + bonus * 7, 2);
-                    add(target, MobEffects.DIG_SLOWDOWN, 100 + bonus * 6, 1);
-                    add(target, MobEffects.WEAKNESS, 100 + bonus * 6, 1);
+                    add(appliedEffects, target, MobEffects.MOVEMENT_SLOWDOWN, 110 + bonus * 7, 2);
+                    add(appliedEffects, target, MobEffects.DIG_SLOWDOWN, 100 + bonus * 6, 1);
+                    add(appliedEffects, target, MobEffects.WEAKNESS, 100 + bonus * 6, 1);
                     target.setDeltaMovement(target.getDeltaMovement().multiply(0.42D, 0.24D, 0.42D));
                     target.hasImpulse = true;
                 }
                 case SPIRIT_GATHER_ARRAY, DEFENSE_FORMATION, STAR_PALACE_PATROL_BEACON -> {
                 }
             }
+            return appliedEffects.toArray(MobEffect[]::new);
         }
 
         private void spawnSelfField(ServerLevel level, Vec3 base, double radius, double height) {

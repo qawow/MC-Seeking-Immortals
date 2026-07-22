@@ -1,8 +1,13 @@
 package com.xunxian.seekingimmortals.skill.effect.spell;
 
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
+import com.xunxian.seekingimmortals.network.TechniqueVfxPacket;
 import com.xunxian.seekingimmortals.skill.CultivationSkill;
+import com.xunxian.seekingimmortals.skill.effect.ActiveTechniqueEffectVfxService;
 import com.xunxian.seekingimmortals.skill.effect.SkillContext;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueLifecycleVfxService;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import net.minecraft.core.particles.DustParticleOptions;
@@ -54,11 +59,27 @@ public class ElementalAreaSpell extends SpellEffect {
             double distance = target.position().distanceTo(center);
             double falloff = Math.max(0.42D, 1.0D - distance / (radius + 0.5D));
             target.hurt(player.damageSources().indirectMagic(player, player), (float)(damage * falloff));
-            element.applyEffects(target, skill);
+            MobEffect[] appliedEffects = element.applyEffects(target, skill);
+            ActiveTechniqueEffectVfxService.track(
+                    target,
+                    ActiveTechniqueEffectVfxService.semantic(skill, element.name()),
+                    TechniqueVfxPalette.familyOf(element.name()),
+                    TechniqueVfxPacket.Motif.DOMAIN,
+                    Math.max(0.72D, target.getBbWidth() * 0.72D),
+                    appliedEffects);
             hitCount++;
         }
 
         element.spawnVisual(level, center, radius, targets);
+        TechniqueLifecycleVfxService.captureGeometry(
+                level,
+                TechniqueVfxPacket.Kind.IMPACT,
+                TechniqueVfxPalette.familyOf(element.name()),
+                center,
+                center,
+                radius,
+                42,
+                player.getId() * 31L ^ element.ordinal());
         level.playSound(null, center.x, center.y, center.z, element.sound, SoundSource.PLAYERS, 0.78F, element.pitch);
         player.displayClientMessage(Component.translatable(successKey, hitCount), true);
         return true;
@@ -138,64 +159,66 @@ public class ElementalAreaSpell extends SpellEffect {
             this.pitch = pitch;
         }
 
-        private void applyEffects(LivingEntity target, CultivationSkill skill) {
+        private MobEffect[] applyEffects(LivingEntity target, CultivationSkill skill) {
+            List<MobEffect> appliedEffects = new ArrayList<>(2);
             int levelBonus = Math.max(0, skill.getLevel() - 1);
             switch (this) {
                 case LAVA -> {
                     target.setSecondsOnFire(4);
-                    add(target, MobEffects.WEAKNESS, 70 + levelBonus * 6, 0);
+                    add(appliedEffects, target, MobEffects.WEAKNESS, 70 + levelBonus * 6, 0);
                 }
                 case MIST_RAIN -> {
                     target.clearFire();
-                    add(target, MobEffects.MOVEMENT_SLOWDOWN, 80 + levelBonus * 6, 1);
-                    add(target, MobEffects.WEAKNESS, 60 + levelBonus * 5, 0);
+                    add(appliedEffects, target, MobEffects.MOVEMENT_SLOWDOWN, 80 + levelBonus * 6, 1);
+                    add(appliedEffects, target, MobEffects.WEAKNESS, 60 + levelBonus * 5, 0);
                 }
                 case SAND_STORM -> {
-                    add(target, MobEffects.MOVEMENT_SLOWDOWN, 95 + levelBonus * 7, 2);
-                    add(target, MobEffects.BLINDNESS, 45 + levelBonus * 4, 0);
+                    add(appliedEffects, target, MobEffects.MOVEMENT_SLOWDOWN, 95 + levelBonus * 7, 2);
+                    add(appliedEffects, target, MobEffects.BLINDNESS, 45 + levelBonus * 4, 0);
                 }
                 case BLIZZARD -> {
-                    add(target, MobEffects.MOVEMENT_SLOWDOWN, 110 + levelBonus * 8, 2);
-                    add(target, MobEffects.DIG_SLOWDOWN, 90 + levelBonus * 6, 1);
+                    add(appliedEffects, target, MobEffects.MOVEMENT_SLOWDOWN, 110 + levelBonus * 8, 2);
+                    add(appliedEffects, target, MobEffects.DIG_SLOWDOWN, 90 + levelBonus * 6, 1);
                 }
                 case CYCLONE -> {
-                    add(target, MobEffects.MOVEMENT_SLOWDOWN, 75 + levelBonus * 5, 1);
-                    add(target, MobEffects.WEAKNESS, 55 + levelBonus * 4, 0);
+                    add(appliedEffects, target, MobEffects.MOVEMENT_SLOWDOWN, 75 + levelBonus * 5, 1);
+                    add(appliedEffects, target, MobEffects.WEAKNESS, 55 + levelBonus * 4, 0);
                     target.push(0.0D, 0.18D, 0.0D);
                 }
                 case CHAIN_THUNDER -> {
-                    add(target, MobEffects.MOVEMENT_SLOWDOWN, 55 + levelBonus * 4, 1);
-                    add(target, MobEffects.WEAKNESS, 55 + levelBonus * 4, 0);
+                    add(appliedEffects, target, MobEffects.MOVEMENT_SLOWDOWN, 55 + levelBonus * 4, 1);
+                    add(appliedEffects, target, MobEffects.WEAKNESS, 55 + levelBonus * 4, 0);
                 }
                 case METAL_SHARD -> {
-                    add(target, MobEffects.WEAKNESS, 85 + levelBonus * 6, 1);
-                    add(target, MobEffects.DIG_SLOWDOWN, 70 + levelBonus * 5, 0);
+                    add(appliedEffects, target, MobEffects.WEAKNESS, 85 + levelBonus * 6, 1);
+                    add(appliedEffects, target, MobEffects.DIG_SLOWDOWN, 70 + levelBonus * 5, 0);
                 }
                 case WOOD_BLOOM -> {
-                    add(target, MobEffects.POISON, 80 + levelBonus * 6, 0);
-                    add(target, MobEffects.MOVEMENT_SLOWDOWN, 70 + levelBonus * 5, 1);
+                    add(appliedEffects, target, MobEffects.POISON, 80 + levelBonus * 6, 0);
+                    add(appliedEffects, target, MobEffects.MOVEMENT_SLOWDOWN, 70 + levelBonus * 5, 1);
                 }
                 case LIGHT_BURST -> {
-                    add(target, MobEffects.GLOWING, 100 + levelBonus * 6, 0);
-                    add(target, MobEffects.WEAKNESS, 60 + levelBonus * 4, 0);
+                    add(appliedEffects, target, MobEffects.GLOWING, 100 + levelBonus * 6, 0);
+                    add(appliedEffects, target, MobEffects.WEAKNESS, 60 + levelBonus * 4, 0);
                 }
                 case SOUL_REND -> {
-                    add(target, MobEffects.WITHER, 70 + levelBonus * 5, 0);
-                    add(target, MobEffects.WEAKNESS, 70 + levelBonus * 5, 0);
+                    add(appliedEffects, target, MobEffects.WITHER, 70 + levelBonus * 5, 0);
+                    add(appliedEffects, target, MobEffects.WEAKNESS, 70 + levelBonus * 5, 0);
                 }
                 case BLOOD_MIST -> {
-                    add(target, MobEffects.WITHER, 75 + levelBonus * 5, 1);
-                    add(target, MobEffects.HUNGER, 90 + levelBonus * 6, 0);
+                    add(appliedEffects, target, MobEffects.WITHER, 75 + levelBonus * 5, 1);
+                    add(appliedEffects, target, MobEffects.HUNGER, 90 + levelBonus * 6, 0);
                 }
                 case VOID_RIFT -> {
-                    add(target, MobEffects.LEVITATION, 25 + levelBonus * 2, 0);
-                    add(target, MobEffects.BLINDNESS, 40 + levelBonus * 3, 0);
+                    add(appliedEffects, target, MobEffects.LEVITATION, 25 + levelBonus * 2, 0);
+                    add(appliedEffects, target, MobEffects.BLINDNESS, 40 + levelBonus * 3, 0);
                 }
                 case ILLUSION_HAZE -> {
-                    add(target, MobEffects.CONFUSION, 100 + levelBonus * 6, 0);
-                    add(target, MobEffects.BLINDNESS, 50 + levelBonus * 4, 0);
+                    add(appliedEffects, target, MobEffects.CONFUSION, 100 + levelBonus * 6, 0);
+                    add(appliedEffects, target, MobEffects.BLINDNESS, 50 + levelBonus * 4, 0);
                 }
             }
+            return appliedEffects.toArray(MobEffect[]::new);
         }
 
         private void spawnVisual(ServerLevel level, Vec3 center, double radius, List<LivingEntity> targets) {
@@ -400,8 +423,11 @@ public class ElementalAreaSpell extends SpellEffect {
             }
         }
 
-        private static void add(LivingEntity target, MobEffect effect, int durationTicks, int amplifier) {
-            target.addEffect(new MobEffectInstance(effect, durationTicks, amplifier, false, true));
+        private static void add(List<MobEffect> appliedEffects, LivingEntity target,
+                                MobEffect effect, int durationTicks, int amplifier) {
+            if (target.addEffect(new MobEffectInstance(effect, durationTicks, amplifier, false, true))) {
+                appliedEffects.add(effect);
+            }
         }
     }
 }

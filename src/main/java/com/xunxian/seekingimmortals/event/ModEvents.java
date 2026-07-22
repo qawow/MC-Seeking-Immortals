@@ -44,6 +44,8 @@ import com.xunxian.seekingimmortals.sect.EscortMissionService;
 import com.xunxian.seekingimmortals.sect.SectMissionGenerator;
 import com.xunxian.seekingimmortals.shop.ShopService;
 import com.xunxian.seekingimmortals.skill.SkillType;
+import com.xunxian.seekingimmortals.skill.effect.ActiveTechniqueEffectVfxService;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueLifecycleVfxService;
 import com.xunxian.seekingimmortals.skill.effect.spell.AuraBodyShieldSpell;
 import com.xunxian.seekingimmortals.skill.effect.spell.FlyingSwordAdvancedSpell;
 import com.xunxian.seekingimmortals.skill.effect.spell.FlyingSwordBeginnerSpell;
@@ -86,11 +88,13 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.EntityLeaveLevelEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.level.ExplosionEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.event.server.ServerStoppedEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import top.theillusivec4.curios.api.CuriosApi;
@@ -166,8 +170,30 @@ public final class ModEvents {
     @SubscribeEvent
     public static void onLevelUnload(net.minecraftforge.event.level.LevelEvent.Unload event) {
         if (event.getLevel() instanceof ServerLevel serverLevel && !serverLevel.isClientSide()) {
+            ActiveTechniqueEffectVfxService.clearLevel(serverLevel);
             FormationFieldService.unload(serverLevel);
         }
+    }
+
+    @SubscribeEvent
+    public static void onEntityLeaveLevel(EntityLeaveLevelEvent event) {
+        if (!event.getLevel().isClientSide() && event.getEntity() instanceof LivingEntity living) {
+            ActiveTechniqueEffectVfxService.onEntityLeave(living);
+        }
+    }
+
+    @SubscribeEvent
+    public static void onServerTick(TickEvent.ServerTickEvent event) {
+        if (event.phase == TickEvent.Phase.END) {
+            ActiveTechniqueEffectVfxService.serverTick(event.getServer());
+            TechniqueLifecycleVfxService.serverTick(event.getServer());
+        }
+    }
+
+    @SubscribeEvent
+    public static void onServerStopped(ServerStoppedEvent event) {
+        ActiveTechniqueEffectVfxService.clearAll();
+        TechniqueLifecycleVfxService.clearRuntimeState();
     }
 
     @SubscribeEvent
@@ -217,6 +243,9 @@ public final class ModEvents {
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (event.phase != TickEvent.Phase.END || event.player.level().isClientSide) return;
         handleCatalogPillTimers(event.player);
+        if (event.player instanceof ServerPlayer serverPlayer) {
+            TechniqueLifecycleVfxService.tickSelfBuff(serverPlayer);
+        }
         // M04: re-assert palm bottle uniqueness occasionally
         if (event.player instanceof ServerPlayer serverPlayer && serverPlayer.tickCount % 100 == 0) {
             com.xunxian.seekingimmortals.craft.GardenLiquidService.enforceUniqueBottle(serverPlayer);
@@ -528,6 +557,7 @@ public final class ModEvents {
         player.getPersistentData().remove(FlyingSwordBeginnerSpell.ACTIVE_KEY);
         player.getPersistentData().remove(FlyingSwordAdvancedSpell.ACTIVE_KEY);
         player.getPersistentData().remove(AuraBodyShieldSpell.ACTIVE_KEY);
+        TechniqueLifecycleVfxService.clearSelfBuff(player, true);
         MultiSwordArraySpell.clear(player);
         FlyingAuthority.clearAll(player);
         // M09: death inside secret realm ejects to return anchor.
@@ -539,10 +569,11 @@ public final class ModEvents {
     public static void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
         WorldHazardVfxService.clear(player);
+        TechniqueLifecycleVfxService.clearSelfBuff(player);
         player.getPersistentData().remove(FlyingSwordBeginnerSpell.ACTIVE_KEY);
         player.getPersistentData().remove(FlyingSwordAdvancedSpell.ACTIVE_KEY);
         player.getPersistentData().remove(AuraBodyShieldSpell.ACTIVE_KEY);
-        MultiSwordArraySpell.clear(player);
+        MultiSwordArraySpell.clear(player, false);
         FlyingAuthority.clearAll(player);
         BreakthroughService.restorePreservedOnRespawn(player);
         SectMissionGenerator.restartEscortAfterRespawn(player);
@@ -568,10 +599,12 @@ public final class ModEvents {
     public static void onPlayerChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
         WorldHazardVfxService.clear(player);
+        ActiveTechniqueEffectVfxService.relocateEntity(player);
+        TechniqueLifecycleVfxService.relocateSelfBuffs(player);
         player.getPersistentData().remove(FlyingSwordBeginnerSpell.ACTIVE_KEY);
         player.getPersistentData().remove(FlyingSwordAdvancedSpell.ACTIVE_KEY);
         player.getPersistentData().remove(AuraBodyShieldSpell.ACTIVE_KEY);
-        MultiSwordArraySpell.clear(player);
+        MultiSwordArraySpell.clear(player, false);
         FlyingAuthority.clearAll(player);
         SectMissionGenerator.restartEscortAfterRespawn(player);
         // M13: re-apply realm/dimension flight policy after clearing transient sources.
@@ -696,6 +729,8 @@ public final class ModEvents {
     public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
         if (event.getEntity() instanceof ServerPlayer serverPlayer) {
             WorldHazardVfxService.clear(serverPlayer);
+            TechniqueLifecycleVfxService.restoreSelfBuffs(serverPlayer);
+            MultiSwordArraySpell.clear(serverPlayer, false);
         }
         CultivationHelper.get(event.getEntity()).ifPresent(cultivation -> {
             cultivation.ensureRootInitialized(event.getEntity().getRandom());
@@ -726,6 +761,9 @@ public final class ModEvents {
     public static void onPlayerLogout(PlayerEvent.PlayerLoggedOutEvent event) {
         if (event.getEntity() instanceof ServerPlayer player) {
             WorldHazardVfxService.clear(player);
+            ActiveTechniqueEffectVfxService.clearEntity(player);
+            TechniqueLifecycleVfxService.pauseSelfBuffs(player);
+            MultiSwordArraySpell.clear(player, false);
         }
     }
 

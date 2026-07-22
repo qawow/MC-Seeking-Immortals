@@ -1,5 +1,6 @@
 package com.xunxian.seekingimmortals.client;
 
+import net.minecraft.world.phys.Vec3;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.Files;
@@ -7,6 +8,7 @@ import java.nio.file.Path;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class LodestoneVfxContractTest {
@@ -20,8 +22,9 @@ class LodestoneVfxContractTest {
                     .filter(path -> path.toString().endsWith(".java"))
                     .filter(path -> read(path).contains("import team.lodestar.lodestone"))
                     .toList();
-            assertEquals(1, imports.size(), imports.toString());
-            assertTrue(imports.get(0).startsWith(JAVA_ROOT.resolve("client")), imports.toString());
+            assertTrue(imports.size() >= 2, imports.toString());
+            assertTrue(imports.stream().allMatch(path -> path.startsWith(JAVA_ROOT.resolve("client"))),
+                    imports.toString());
         }
     }
 
@@ -38,8 +41,21 @@ class LodestoneVfxContractTest {
         assertTrue(renderer.contains("LodestoneWorldParticleRenderType.ADDITIVE"));
         assertTrue(renderer.contains("ExtrudingSparkBehaviorComponent"));
         assertTrue(renderer.contains("PositionedScreenshakeInstance"));
-        assertTrue(renderer.contains("getBoundingBox().inflate(64.0D)"));
+        assertFalse(renderer.contains("getEntities((Entity) null"));
         assertTrue(renderer.contains("MAX_SHAKES_PER_TICK"));
+        assertTrue(renderer.contains("MAX_ACTIVE_VFX"));
+        assertTrue(renderer.contains("ANTICIPATION"));
+        assertTrue(renderer.contains("RELEASE"));
+        assertTrue(renderer.contains("SUSTAIN"));
+        assertTrue(renderer.contains("AFTERGLOW"));
+        assertTrue(renderer.contains("activeVfxCursor"));
+        assertTrue(renderer.contains("emittedEvents"));
+        assertTrue(renderer.contains("releaseAnchor("));
+        assertTrue(renderer.contains("phase == Phase.RELEASE && localAge == 0"));
+        assertTrue(renderer.contains("particlesThisTick == particlesBefore"));
+        assertTrue(renderer.contains("eventParticleCap"));
+        assertTrue(renderer.contains("remainingParticleBudget"));
+        assertTrue(renderer.contains("distanceToSegmentSqr"));
         assertTrue(renderer.contains("COLOR_CACHE"));
         assertTrue(renderer.contains("0.74F"));
         assertTrue(renderer.contains("8.0F, 32.0F"));
@@ -50,16 +66,61 @@ class LodestoneVfxContractTest {
     }
 
     @Test
-    void sharedTechniqueAndEveryFormationPulseEmitOneVisualIntent() throws Exception {
+    void lodestoneWorldGeometryUsesBoundedEventTrackedBeamsAndTrails() throws Exception {
+        String geometry = read(JAVA_ROOT.resolve(Path.of("client", "LodestoneWorldGeometry.java")));
+        String events = read(JAVA_ROOT.resolve(Path.of("client", "ClientEvents.java")));
+
+        assertTrue(geometry.contains("MAX_TRACKED_PROJECTILES"));
+        assertTrue(geometry.contains("MAX_TRANSIENT_BEAMS"));
+        assertTrue(geometry.contains("PROJECTILE_AFTERGLOW_TICKS"));
+        assertTrue(geometry.contains("VFXBuilders.createWorld()"));
+        assertTrue(geometry.contains("TrailPointBuilder.create"));
+        assertTrue(geometry.contains("renderBeam("));
+        assertTrue(geometry.contains("renderTrail("));
+        assertTrue(geometry.contains("LodestoneVfxMath.beamFacingReference("));
+        assertTrue(geometry.contains("getPartialTick()"));
+        assertTrue(geometry.contains("entity.getPosition(Mth.clamp(partialTick"));
+        assertTrue(geometry.contains("position.subtract(camera)"));
+        assertTrue(geometry.contains("trail.entity == entity"));
+        assertTrue(geometry.contains("projectileTickCursor = (start + Math.max(1, scanned))"));
+        assertTrue(geometry.contains("private void refreshFamily()"));
+        assertTrue(geometry.contains("ParticleStatus.MINIMAL"));
+        assertTrue(read(JAVA_ROOT.resolve(Path.of("client", "LodestoneVfxMath.java")))
+                .contains("distanceToSegmentSqr"));
+        assertTrue(events.contains("EntityJoinLevelEvent"));
+        assertTrue(events.contains("EntityLeaveLevelEvent"));
+        assertTrue(events.contains("RenderLevelStageEvent.Stage.AFTER_PARTICLES"));
+    }
+
+    @Test
+    void geometryMathKeepsSegmentLodAndAxialBeamsStable() {
+        assertEquals(4.0D, LodestoneVfxMath.distanceToSegmentSqr(
+                new Vec3(3.0D, 2.0D, 0.0D), Vec3.ZERO, new Vec3(6.0D, 0.0D, 0.0D)), 1.0E-8D);
+
+        Vec3 start = Vec3.ZERO;
+        Vec3 end = new Vec3(0.0D, 0.0D, 6.0D);
+        Vec3 camera = new Vec3(0.0D, 0.0D, -1.0D);
+        Vec3 reference = LodestoneVfxMath.beamFacingReference(start, end, camera);
+        assertTrue(start.subtract(reference).cross(end.subtract(start)).lengthSqr() > 1.0E-6D);
+    }
+
+    @Test
+    void sharedTechniqueAndFormationPulsesUseBoundedVisualIntents() throws Exception {
         String palette = read(JAVA_ROOT.resolve(Path.of("skill", "effect", "TechniqueVfxPalette.java")));
         for (String kind : List.of("CAST", "BURST", "PATH", "AURA", "SCAN", "BEAM", "CONE", "IMPACT")) {
             assertTrue(palette.contains("TechniqueVfxPacket.Kind." + kind), kind);
         }
 
         String formations = read(JAVA_ROOT.resolve(Path.of("structure", "FormationFieldService.java")));
-        assertTrue(formations.contains("emitFormationVfx(level, field);"));
+        assertTrue(formations.contains("MAX_PULSE_TARGET_VFX = 8"));
+        assertTrue(formations.contains("MAX_VFX_PACKETS_PER_DIMENSION_TICK = 48"));
+        assertTrue(formations.contains(
+                "MAX_PENDING_VFX_PER_DIMENSION = MAX_VFX_PACKETS_PER_DIMENSION_TICK * 8"));
+        assertTrue(formations.contains("flushPendingVfx(level);"));
+        assertTrue(formations.contains("emitPulseVisuals(level, dim, pulseVisuals);"));
+        assertTrue(formations.contains("emitFormationVfx(level, visual.field());"));
         assertTrue(formations.contains("TechniqueVfxPacket.Kind.FORMATION"));
-        assertTrue(formations.indexOf("emitFormationVfx(level, field);")
+        assertTrue(formations.indexOf("emitFormationVfx(level, visual.field());")
                 > formations.indexOf("case CATALOG_GENERIC"));
     }
 

@@ -2,6 +2,7 @@ package com.xunxian.seekingimmortals.entity;
 
 import com.xunxian.seekingimmortals.network.TechniqueVfxPacket;
 import com.xunxian.seekingimmortals.registry.ModEntities;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueLifecycleVfxService;
 import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.nbt.CompoundTag;
@@ -39,6 +40,7 @@ public class CultivationFireballEntity extends Projectile {
 
     private double damage = 6.0D;
     private int life;
+    private boolean terminalVfxSent;
 
     public CultivationFireballEntity(EntityType<? extends CultivationFireballEntity> type, Level level) {
         super(type, level);
@@ -86,9 +88,9 @@ public class CultivationFireballEntity extends Projectile {
         Vec3 movement = getDeltaMovement();
         move(MoverType.SELF, movement);
         ProjectileUtil.rotateTowardsMovement(this, 0.2F);
-        spawnTrailParticles();
 
         if (++life > MAX_LIFE || !level().isLoaded(blockPosition())) {
+            sendDissipate();
             discard();
         }
     }
@@ -147,55 +149,41 @@ public class CultivationFireballEntity extends Projectile {
                     position.x, position.y, position.z,
                     Math.max(6, element.impactParticles / 2), 0.28D, 0.22D, 0.28D, 0.02D);
             TechniqueVfxPalette.Family family = TechniqueVfxPalette.familyOf(element.name());
-            TechniqueVfxPacket.send(
+            terminalVfxSent = true;
+            TechniqueLifecycleVfxService.projectileImpact(
                     serverLevel,
-                    TechniqueVfxPacket.Kind.IMPACT,
                     family,
-                    position,
+                    TechniqueVfxPacket.Motif.PROJECTILE,
                     position,
                     Math.max(0.8D, element.splashRadius),
                     Math.min(72, element.impactParticles + 18),
-                    serverLevel.getGameTime() * 31L ^ getId() * 131L ^ element.id);
+                    getId() * 131L ^ element.id);
             serverLevel.playSound(null, blockPosition(), element.impactSound, SoundSource.PLAYERS, 0.55F, element.impactPitch);
         }
         discard();
     }
 
-    private void spawnTrailParticles() {
+    private void sendDissipate() {
+        if (terminalVfxSent || !(level() instanceof ServerLevel serverLevel)) {
+            return;
+        }
+        terminalVfxSent = true;
         SpellElement element = getElement();
-        Vec3 movement = getDeltaMovement();
-        Vec3 direction = movement.lengthSqr() < 0.001D ? new Vec3(0.0D, 0.0D, 1.0D) : movement.normalize();
-        Vec3 side = direction.cross(new Vec3(0.0D, 1.0D, 0.0D));
-        if (side.lengthSqr() < 0.001D) {
-            side = new Vec3(1.0D, 0.0D, 0.0D);
-        } else {
-            side = side.normalize();
-        }
-        Vec3 up = side.cross(direction).normalize();
-        double angle = (tickCount + getId() * 3) * 0.55D;
-        Vec3 swirl = side.scale(Math.cos(angle) * 0.12D).add(up.scale(Math.sin(angle) * 0.12D));
-        double x = getX() - direction.x * 0.15D + swirl.x;
-        double y = getY() + getBbHeight() * 0.5D - direction.y * 0.15D + swirl.y;
-        double z = getZ() - direction.z * 0.15D + swirl.z;
+        TechniqueLifecycleVfxService.projectileDissipate(
+                serverLevel,
+                TechniqueVfxPalette.familyOf(element.name()),
+                TechniqueVfxPacket.Motif.PROJECTILE,
+                position(),
+                Math.max(0.7D, element.splashRadius * 0.65D),
+                getId() * 149L ^ element.id);
+    }
 
-        if (level().isClientSide) {
-            level().addParticle(element.dust(0.7F), x, y, z, -direction.x * 0.012D, -direction.y * 0.012D, -direction.z * 0.012D);
-            if (tickCount % 2 == 0) {
-                level().addParticle(element.spark(0.45F), getX(), getY() + getBbHeight() * 0.5D, getZ(), swirl.x * 0.04D, swirl.y * 0.04D, swirl.z * 0.04D);
-            }
-            if (element == SpellElement.FIRE_SERPENT) {
-                Vec3 coil = side.scale(Math.sin(angle * 1.45D) * 0.22D).add(up.scale(Math.cos(angle * 1.12D) * 0.14D));
-                Vec3 coilPoint = position().add(direction.scale(-0.22D)).add(coil);
-                level().addParticle(element.dust(0.58F), coilPoint.x, coilPoint.y + getBbHeight() * 0.5D, coilPoint.z,
-                        -direction.x * 0.018D, 0.004D, -direction.z * 0.018D);
-            } else if (element == SpellElement.ICE_SPEAR && tickCount % 2 == 0) {
-                Vec3 tip = position().add(direction.scale(0.18D));
-                level().addParticle(element.spark(0.36F), tip.x, tip.y + getBbHeight() * 0.5D, tip.z,
-                        direction.x * 0.02D, direction.y * 0.02D, direction.z * 0.02D);
-            }
-        } else if (tickCount % 3 == 0 && level() instanceof ServerLevel serverLevel) {
-            serverLevel.sendParticles(element.dust(0.55F), x, y, z, 1, 0.05D, 0.05D, 0.05D, 0.005D);
+    @Override
+    public void remove(RemovalReason reason) {
+        if (!level().isClientSide) {
+            sendDissipate();
         }
+        super.remove(reason);
     }
 
     public SpellElement getElement() {

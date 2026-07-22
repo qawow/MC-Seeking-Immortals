@@ -1,8 +1,12 @@
 package com.xunxian.seekingimmortals.skill.effect.spell;
 
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
+import com.xunxian.seekingimmortals.network.TechniqueVfxPacket;
 import com.xunxian.seekingimmortals.skill.CultivationSkill;
+import com.xunxian.seekingimmortals.skill.effect.ActiveTechniqueEffectVfxService;
 import com.xunxian.seekingimmortals.skill.effect.SkillContext;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueLifecycleVfxService;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -66,12 +70,33 @@ public class TargetedDebuffSpell extends SpellEffect {
         if (damage > 0.0D) {
             target.hurt(player.damageSources().indirectMagic(player, player), (float)damage);
         }
-        applyEffect(target, primaryEffect, primaryDurationTicks, primaryAmplifier, skill);
-        applyEffect(target, secondaryEffect, secondaryDurationTicks, secondaryAmplifier, skill);
+        boolean primaryApplied = applyEffect(
+                target, primaryEffect, primaryDurationTicks, primaryAmplifier, skill);
+        boolean secondaryApplied = applyEffect(
+                target, secondaryEffect, secondaryDurationTicks, secondaryAmplifier, skill);
+        ActiveTechniqueEffectVfxService.track(
+                target,
+                ActiveTechniqueEffectVfxService.semantic(skill, "targeted_debuff"),
+                ActiveTechniqueEffectVfxService.familyForSkill(
+                        skill, TechniqueVfxPalette.Family.NEUTRAL),
+                TechniqueVfxPacket.Motif.SEAL,
+                Math.max(0.72D, target.getBbWidth() * 0.72D),
+                primaryApplied ? primaryEffect : null,
+                secondaryApplied ? secondaryEffect : null);
 
         level.sendParticles(particle,
                 target.getX(), target.getY() + target.getBbHeight() * 0.55D, target.getZ(),
                 24, 0.45D, 0.45D, 0.45D, 0.03D);
+        Vec3 targetCenter = target.position().add(0.0D, target.getBbHeight() * 0.55D, 0.0D);
+        TechniqueLifecycleVfxService.captureGeometry(
+                level,
+                TechniqueVfxPacket.Kind.BEAM,
+                TechniqueVfxPalette.Family.NEUTRAL,
+                player.getEyePosition(),
+                targetCenter,
+                0.42D,
+                32,
+                player.getId() * 37L ^ target.getId());
         level.playSound(null, target.blockPosition(), sound, SoundSource.PLAYERS, 0.7F, 1.15F);
         player.displayClientMessage(Component.translatable(successKey, target.getDisplayName()), true);
         return true;
@@ -100,12 +125,14 @@ public class TargetedDebuffSpell extends SpellEffect {
         return canAffect(player, entity);
     }
 
-    private static void applyEffect(LivingEntity target, MobEffect effect, int durationTicks, int amplifier, CultivationSkill skill) {
+    private static boolean applyEffect(LivingEntity target, MobEffect effect, int durationTicks,
+                                       int amplifier, CultivationSkill skill) {
         if (effect == null || durationTicks <= 0) {
-            return;
+            return false;
         }
         int scaledDuration = durationTicks + Math.max(0, skill.getLevel() - 1) * 10;
         int scaledAmplifier = amplifier + Math.max(0, skill.getLevel() / 5);
-        target.addEffect(new MobEffectInstance(effect, scaledDuration, scaledAmplifier, false, true));
+        return target.addEffect(new MobEffectInstance(
+                effect, scaledDuration, scaledAmplifier, false, true));
     }
 }

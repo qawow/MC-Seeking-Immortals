@@ -1,6 +1,8 @@
 package com.xunxian.seekingimmortals.entity;
 
+import com.xunxian.seekingimmortals.network.TechniqueVfxPacket;
 import com.xunxian.seekingimmortals.registry.ModEntities;
+import com.xunxian.seekingimmortals.skill.effect.TechniqueLifecycleVfxService;
 import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
@@ -24,6 +26,7 @@ public class SwordProjectileEntity extends Projectile {
     private double damage = 8.0D;
     private int life;
     private boolean slowsTarget;
+    private boolean terminalVfxSent;
 
     public SwordProjectileEntity(EntityType<? extends SwordProjectileEntity> type, Level level) {
         super(type, level);
@@ -58,11 +61,9 @@ public class SwordProjectileEntity extends Projectile {
         move(MoverType.SELF, movement);
         setPos(getX(), getY(), getZ());
         ProjectileUtil.rotateTowardsMovement(this, 0.2F);
-        if (!level().isClientSide && life % 4 == 0 && level() instanceof ServerLevel serverLevel) {
-            TechniqueVfxPalette.profile("metal").trailAt(serverLevel, position(), movement);
-        }
 
         if (++life > 80 || !level().isLoaded(blockPosition())) {
+            sendDissipate();
             discard();
         }
     }
@@ -92,8 +93,38 @@ public class SwordProjectileEntity extends Projectile {
 
     private void spawnImpactVisual(Vec3 position) {
         if (level() instanceof ServerLevel serverLevel) {
-            TechniqueVfxPalette.profile("metal").impactAt(serverLevel, position);
+            terminalVfxSent = true;
+            TechniqueLifecycleVfxService.projectileImpact(
+                    serverLevel,
+                    TechniqueVfxPalette.Family.METAL,
+                    TechniqueVfxPacket.Motif.BLADE,
+                    position,
+                    0.82D,
+                    36,
+                    getId() * 163L);
         }
+    }
+
+    private void sendDissipate() {
+        if (terminalVfxSent || !(level() instanceof ServerLevel serverLevel)) {
+            return;
+        }
+        terminalVfxSent = true;
+        TechniqueLifecycleVfxService.projectileDissipate(
+                serverLevel,
+                TechniqueVfxPalette.Family.METAL,
+                TechniqueVfxPacket.Motif.BLADE,
+                position(),
+                0.78D,
+                getId() * 173L);
+    }
+
+    @Override
+    public void remove(RemovalReason reason) {
+        if (!level().isClientSide) {
+            sendDissipate();
+        }
+        super.remove(reason);
     }
 
     @Override

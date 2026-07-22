@@ -25,6 +25,11 @@ import java.util.Optional;
  * form/inspect/repair/dismantle with material reserve → commit → refund on failure.
  */
 public final class MultiblockOperationalService {
+    private static final String USE_VFX_TICK_TAG = "SeekingImmortalsStationUseVfxTick";
+    private static final String USE_VFX_ORIGIN_TAG = "SeekingImmortalsStationUseVfxOrigin";
+    private static final String USE_VFX_STATION_TAG = "SeekingImmortalsStationUseVfxStation";
+    private static final int USE_VFX_COOLDOWN_TICKS = 10;
+
     private MultiblockOperationalService() {}
 
     public static MultiblockOperationalSavedData.StationState ensureState(
@@ -522,22 +527,26 @@ public final class MultiblockOperationalService {
 
     static TechniqueVfxPacket.Motif stationMotif(String stationId) {
         String key = stationId == null ? "" : stationId.trim().toLowerCase(Locale.ROOT);
-        if (containsAny(key, "gate", "rift", "teleport", "ferry", "portal", "cycle")) {
+        if (hasToken(key, "repair", "maintenance", "overhaul")) {
+            return TechniqueVfxPacket.Motif.CLEANSE;
+        }
+        if (hasToken(key, "gate", "rift", "teleport", "ferry", "portal", "cycle", "dock", "exit")) {
             return TechniqueVfxPacket.Motif.TELEPORT;
         }
-        if (containsAny(key, "array", "formation")) {
+        if (hasToken(key, "array", "formation", "hub")) {
             return TechniqueVfxPacket.Motif.FORMATION;
         }
-        if (containsAny(key, "altar", "seal", "suppress")) {
+        if (hasToken(key, "altar", "seal", "suppress", "sacrifice", "pillar")) {
             return TechniqueVfxPacket.Motif.SEAL;
         }
-        if (containsAny(key, "furnace", "forge", "alchemy", "refine", "craft")) {
+        if (hasToken(key, "furnace", "forge", "alchemy", "refine", "refinement", "craft",
+                "workshop", "bench", "table", "console", "platform")) {
             return TechniqueVfxPacket.Motif.CHANNEL;
         }
-        if (containsAny(key, "shield", "ward", "defense")) {
+        if (hasToken(key, "shield", "ward", "defense", "wall", "vault")) {
             return TechniqueVfxPacket.Motif.SHIELD;
         }
-        if (containsAny(key, "garden", "planter", "herb", "spring")) {
+        if (hasToken(key, "garden", "planter", "herb", "spring", "well", "greenhouse", "field")) {
             return TechniqueVfxPacket.Motif.HEAL;
         }
         return TechniqueVfxPacket.Motif.DOMAIN;
@@ -545,25 +554,62 @@ public final class MultiblockOperationalService {
 
     static TechniqueVfxPalette.Family stationFamily(String semantic) {
         String key = semantic == null ? "" : semantic.trim().toLowerCase(Locale.ROOT);
-        TechniqueVfxPalette.Family family = TechniqueVfxPalette.familyOf(key);
-        if (family != TechniqueVfxPalette.Family.NEUTRAL) {
-            return family;
+        // Match full semantic tokens. Raw substring matching turns sacrifice into ice,
+        // repair into air/wind and flying into yin/dark.
+        if (hasToken(key, "teleport", "portal", "rift", "ferry", "exit", "time")) {
+            return TechniqueVfxPalette.Family.VOID;
         }
-        if (containsAny(key, "furnace", "forge", "alchemy", "refine")) {
+        if (hasToken(key, "blood", "sacrifice", "corpse", "demon", "asura")) {
+            return TechniqueVfxPalette.Family.BLOOD;
+        }
+        if (hasToken(key, "illusion", "mirage", "dream")) {
+            return TechniqueVfxPalette.Family.ILLUSION;
+        }
+        if (hasToken(key, "ice", "frost", "snow", "cold", "cooler")) {
+            return TechniqueVfxPalette.Family.ICE;
+        }
+        if (hasToken(key, "thunder", "lightning", "tribulation")) {
+            return TechniqueVfxPalette.Family.THUNDER;
+        }
+        if (hasToken(key, "fire", "flame", "lava", "furnace", "alchemy", "brazier", "forge", "refinement")) {
             return TechniqueVfxPalette.Family.FIRE;
         }
-        if (containsAny(key, "garden", "planter", "herb", "pill")) {
+        if (hasToken(key, "garden", "planter", "herb", "pill", "greenhouse", "field", "seed", "bottle")) {
             return TechniqueVfxPalette.Family.WOOD;
         }
-        if (containsAny(key, "gate", "rift", "teleport", "ferry", "portal", "cycle")) {
+        if (hasToken(key, "wind", "air", "gale", "cloud", "flying", "boat")) {
+            return TechniqueVfxPalette.Family.WIND;
+        }
+        if (hasToken(key, "dock", "gate", "cycle")) {
             return TechniqueVfxPalette.Family.VOID;
+        }
+        if (hasToken(key, "water", "rain", "ocean", "sea", "irrigation", "well")) {
+            return TechniqueVfxPalette.Family.WATER;
+        }
+        if (hasToken(key, "yin", "yinyang", "shadow", "night")) {
+            return TechniqueVfxPalette.Family.DARK;
+        }
+        if (hasToken(key, "metal", "gold", "sword", "blade", "weapon", "iron", "copper", "ore",
+                "rack", "repair", "mechanism")) {
+            return TechniqueVfxPalette.Family.METAL;
+        }
+        if (hasToken(key, "earth", "sand", "stone", "rock", "mountain")) {
+            return TechniqueVfxPalette.Family.EARTH;
+        }
+        if (hasToken(key, "light", "holy", "buddha", "talisman", "lecture", "true", "lighthouse")) {
+            return TechniqueVfxPalette.Family.LIGHT;
+        }
+        if (hasToken(key, "soul", "spirit", "ghost", "meditation", "reincarnation", "bell", "altar", "seal", "pillar")) {
+            return TechniqueVfxPalette.Family.SOUL;
         }
         return TechniqueVfxPalette.Family.NEUTRAL;
     }
 
-    private static boolean containsAny(String value, String... tokens) {
+    private static boolean hasToken(String value, String... tokens) {
+        String padded = "_" + (value == null ? "" : value.toLowerCase(Locale.ROOT)
+                .replaceAll("[^a-z0-9]+", "_")) + "_";
         for (String token : tokens) {
-            if (value.contains(token)) {
+            if (padded.contains("_" + token + "_")) {
                 return true;
             }
         }
@@ -652,12 +698,42 @@ public final class MultiblockOperationalService {
             return false;
         }
         if (efficiencyAt(level, stationId, origin) > 0.0D) {
+            emitOperationalUseVfx(player, stationId, origin);
             return true;
         }
         if (player.getAbilities().instabuild) {
             return forceIntact(level, stationId, origin) != null;
         }
         return form(player, stationId, origin);
+    }
+
+    /**
+     * Shared interaction entry for operational stations. The player may call this
+     * repeatedly while a screen is opening, so keep the cosmetic pulse throttled
+     * without changing the authoritative station state.
+     */
+    private static void emitOperationalUseVfx(ServerPlayer player, String stationId, BlockPos origin) {
+        if (player == null || origin == null || stationId == null || stationId.isBlank()) {
+            return;
+        }
+        long now = player.serverLevel().getGameTime();
+        var data = player.getPersistentData();
+        long lastTick = data.getLong(USE_VFX_TICK_TAG);
+        long lastOrigin = data.getLong(USE_VFX_ORIGIN_TAG);
+        int lastStation = data.getInt(USE_VFX_STATION_TAG);
+        int stationHash = stationId.toLowerCase(Locale.ROOT).hashCode();
+        if (data.contains(USE_VFX_TICK_TAG)
+                && now >= lastTick
+                && now - lastTick < USE_VFX_COOLDOWN_TICKS
+                && lastOrigin == origin.asLong()
+                && lastStation == stationHash) {
+            return;
+        }
+        data.putLong(USE_VFX_TICK_TAG, now);
+        data.putLong(USE_VFX_ORIGIN_TAG, origin.asLong());
+        data.putInt(USE_VFX_STATION_TAG, stationHash);
+        emitStationVfx(player.serverLevel(), stationId, origin,
+                TechniqueVfxPacket.Kind.STATUS, stationMotif(stationId), 20);
     }
 
     /**
