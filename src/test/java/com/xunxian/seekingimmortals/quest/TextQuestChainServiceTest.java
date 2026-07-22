@@ -75,6 +75,81 @@ class TextQuestChainServiceTest {
         assertTrue(line.contains("LOCK="));
         assertTrue(line.contains("REW="));
         assertTrue(line.contains("cost="));
+        assertTrue(line.contains("STATE=ACTIVE"));
+        assertTrue(line.contains("GATE=NONE"));
+        assertTrue(line.length() <= 160);
+    }
+
+    @Test
+    void trackerStateCoversAllFourStatesWithoutPlayerData() {
+        assertEquals(TextQuestChainService.TrackerState.AVAILABLE,
+                TextQuestChainService.trackerState(
+                        new TextQuestChainService.ChainProgress("a", 0, 2, false),
+                        new TextQuestChainService.StartEligibility(true,
+                                TextQuestChainService.StartGate.NONE)));
+        assertEquals(TextQuestChainService.TrackerState.LOCKED,
+                TextQuestChainService.trackerState(
+                        new TextQuestChainService.ChainProgress("a", 0, 2, false),
+                        new TextQuestChainService.StartEligibility(false,
+                                TextQuestChainService.StartGate.REGION)));
+        assertEquals(TextQuestChainService.TrackerState.ACTIVE,
+                TextQuestChainService.trackerState(
+                        new TextQuestChainService.ChainProgress("a", 1, 2, false),
+                        new TextQuestChainService.StartEligibility(false,
+                                TextQuestChainService.StartGate.DATA)));
+        assertEquals(TextQuestChainService.TrackerState.DONE,
+                TextQuestChainService.trackerState(
+                        new TextQuestChainService.ChainProgress("a", 2, 2, true),
+                        new TextQuestChainService.StartEligibility(false,
+                                TextQuestChainService.StartGate.DATA)));
+    }
+
+    @Test
+    void trackerListsEveryCatalogChainAndBoundsRows() {
+        var lines = TextQuestChainService.buildTrackerLines(null);
+        assertEquals(62, lines.size());
+        assertTrue(lines.stream().allMatch(value -> value.length() <= 160));
+        assertTrue(lines.stream().allMatch(value -> value.contains("STATE=LOCKED GATE=DATA")));
+    }
+
+    @Test
+    void silentEligibilityAndFallbackRewardPreviewAreSafeWithoutForgePlayer() {
+        assertEquals(TextQuestChainService.StartGate.DATA,
+                TextQuestChainService.startEligibility(null, "qixuan_mortal_path").gate());
+        var preview = TextQuestChainService.finaleRewardPreview("qixuan_mortal_path");
+        assertFalse(preview.isEmpty());
+        assertTrue(preview.stream().allMatch(reward -> reward.itemId().contains(":")));
+        assertTrue(preview.stream().allMatch(reward -> reward.count() > 0));
+    }
+
+    @Test
+    void qixuanTutorialAloneAcceptsTheDefaultQinglanStartRegion() {
+        assertTrue(TextQuestChainService.matchesStartRegion(
+                "qixuan_mortal_path", "tiannan", "qinglan_mountains"));
+        assertFalse(TextQuestChainService.matchesStartRegion(
+                "huangfeng_cultivation_path", "tiannan", "qinglan_mountains"));
+        assertTrue(TextQuestChainService.matchesStartRegion(
+                "huangfeng_cultivation_path", "tiannan", "tiannan"));
+    }
+
+    @Test
+    void rewardCountsAreBoundedWithoutIntegerOverflow() {
+        assertEquals(1, TextQuestChainService.boundedRewardCount("0"));
+        assertEquals(12, TextQuestChainService.boundedRewardCount("12"));
+        assertEquals(4096, TextQuestChainService.boundedRewardCount("999999999999999999999999"));
+        assertEquals(1, TextQuestChainService.boundedRewardCount("12x"));
+    }
+
+    @Test
+    void authoredStartRequirementsAreLoadedForSafeNativeGates() {
+        var ghost = TextQuestChainService.find("yin_luo_ghost_sect").orElseThrow().startRequirements();
+        assertEquals("ghost_cultivator", ghost.pathRequired());
+        var mulan = TextQuestChainService.find("mulan_fashi_path").orElseThrow().startRequirements();
+        assertEquals("mulan_fashi", mulan.raceRequired());
+        var depth = TextQuestChainService.find("diyuan_depth_delve").orElseThrow().startRequirements();
+        assertEquals("void_great_cultivation_arc", depth.parentChain());
+        var demonic = TextQuestChainService.find("demonic_six_path").orElseThrow().startRequirements();
+        assertEquals("demonic_karma", demonic.karmaRequired());
     }
 
     @Test
@@ -113,6 +188,14 @@ class TextQuestChainServiceTest {
         assertTrue(second.isPresent());
         assertEquals("alchemy_apprentice", second.get());
         assertTrue(TextQuestChainService.expectedHookForStage("huangfeng_cultivation_path", 0).isEmpty());
+    }
+
+    @Test
+    void expectedHookAlsoReadsCompactStringSteps() {
+        assertEquals("fengyuan_clan_intro",
+                TextQuestChainService.expectedHookForStage("human_clan_neutral_intro", 1).orElseThrow());
+        assertEquals("clan_guest_register",
+                TextQuestChainService.expectedHookForStage("human_clan_neutral_intro", 2).orElseThrow());
     }
 
     @Test

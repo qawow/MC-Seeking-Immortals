@@ -30,7 +30,18 @@ public final class ExtendedCatalogService {
     }
 
     public record PriceBand(String id, int min, int max, int suggested, String band, String note) {}
-    public record QuestStartRequirements(String realmMin, String faction, String region) {}
+    /**
+     * Start requirements that can be evaluated without loading the full narrative engine.
+     * The legacy three-argument constructor remains source-compatible for thin index entries.
+     */
+    public record QuestStartRequirements(String realmMin, String faction, String region,
+                                         String pathRequired, String raceRequired,
+                                         String karmaRequired, String parentChain,
+                                         String extendsChain) {
+        public QuestStartRequirements(String realmMin, String faction, String region) {
+            this(realmMin, faction, region, "", "", "", "", "");
+        }
+    }
     public record QuestChain(String id, String display, String region, String realmSpan, int stepCount,
                              String mainChapterRef, List<String> rewardsFinale,
                              QuestStartRequirements startRequirements,
@@ -238,13 +249,23 @@ public final class ExtendedCatalogService {
             String realmMin = hasStart ? str(start, "realm_min") : current.startRequirements().realmMin();
             String faction = hasStart ? str(start, "faction") : current.startRequirements().faction();
             String startRegion = hasStart ? str(start, "region") : current.startRequirements().region();
+            String pathRequired = firstString(object, "requires");
+            String raceRequired = str(object, "race_required");
+            String karmaRequired = str(object, "karma_required");
+            String parentChain = str(object, "parent_chain");
+            String extendsChain = str(object, "extends_chain");
             // Prefer live step hooks / refs from full schema-18 corpus when index is thin.
             List<String> hooks = new ArrayList<>(current.stepHooks());
             JsonElement stepsEl = object.get("steps");
             if (hooks.isEmpty() && stepsEl != null && stepsEl.isJsonArray()) {
                 for (JsonElement stepEl : stepsEl.getAsJsonArray()) {
-                    if (!stepEl.isJsonObject()) continue;
-                    String hook = str(stepEl.getAsJsonObject(), "hook");
+                    String hook = "";
+                    if (stepEl.isJsonObject()) {
+                        hook = str(stepEl.getAsJsonObject(), "hook");
+                    } else if (stepEl.isJsonPrimitive() && stepEl.getAsJsonPrimitive().isString()) {
+                        // Schema 18 also permits the compact form ["hook_id", ...].
+                        hook = stepEl.getAsString().trim();
+                    }
                     if (!hook.isBlank()) hooks.add(hook);
                 }
             }
@@ -275,7 +296,8 @@ public final class ExtendedCatalogService {
             String mainChapter = current.mainChapterRef().isBlank() ? str(object, "main_chapter_ref") : current.mainChapterRef();
             quests.put(id, new QuestChain(current.id(), current.display(), region, realmSpan,
                     stepCount, mainChapter, finale,
-                    new QuestStartRequirements(realmMin, faction, startRegion),
+                    new QuestStartRequirements(realmMin, faction, startRegion,
+                            pathRequired, raceRequired, karmaRequired, parentChain, extendsChain),
                     List.copyOf(hooks), alchemy, skillTree));
         }
     }
@@ -285,6 +307,27 @@ public final class ExtendedCatalogService {
             return a;
         }
         return b == null ? "" : b;
+    }
+
+    private static String firstString(JsonObject object, String key) {
+        if (object == null || !object.has(key) || object.get(key).isJsonNull()) {
+            return "";
+        }
+        JsonElement value = object.get(key);
+        if (value.isJsonArray()) {
+            for (JsonElement element : value.getAsJsonArray()) {
+                try {
+                    String text = element.getAsString().trim();
+                    if (!text.isBlank()) {
+                        return text;
+                    }
+                } catch (Exception ignored) {
+                    // Ignore malformed authored requirement rows.
+                }
+            }
+            return "";
+        }
+        return str(object, key);
     }
 
     private static String joinOrStr(JsonObject object, String key) {

@@ -8905,3 +8905,14 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Verification   Done   三组定向契约与客户端编译通过；当前树普通 `./gradlew build --no-daemon --max-workers=1` 在 1 分 24 秒内完成编译、资源、打包、重映射、生成一致性检查和全量测试，结果为 `BUILD SUCCESSFUL`，`aiPreflight` 记录 `0.2.153`。
   Backup   Done   最终协调备份位于 `.bak/20260723_042350_multiblock_projection_finalize/`；前置实现备份继续保留。
   Follow-up   Pending   备用 validator 布局、未来模组 Dirt 标签扩展、240 单元显示预算及 Fabulous/Fast/多人真实视觉仍需后续实机签字。
+## 572. 2026-07-23 0.2.154 原生任务追踪与 FTB 文本收口
+
+  Step   Status   Notes
+  ---   ---   ---
+  Native tracker   Done   62 条原生任务链同步为可接、受限、进行中、已完成四态；新增筛选、接取/推进按钮、任务描述、NPC、材料与奖励预览。
+  Authored gates   Done   `requires`（鬼修路线）、`race_required`（慕兰法士）和 `parent_chain` 接入服务端接取门禁；`karma_required`、阶段分支/编年前置因缺少完整权威规则仅显示为资料条件。
+  FTB projection   Done   九章 215 节点继续覆盖 62 链/241 阶段；44 个无原生标签节点中，41 个通过显式展示映射关联正确任务链，3 个保持纯叙事节点，不再伪造章节首链奖励；物品任务非消耗且 FTB 奖励为空。
+  Text safety   Done   修复阶段/任务显示中的内部 ID 与英文泄漏，补全手册阶段标签；奖励数量解析支持两种后缀并限制溢出。
+  Tests/build   Done   `python3 scripts/generate_ftb_quest_projection.py --check`、任务追踪器/FTB/客户端定向测试通过；最终普通 `./gradlew build --no-daemon --max-workers=1` 在 1 分 17 秒内完成，`BUILD SUCCESSFUL`，`aiPreflight` 记录 `mod_version=0.2.154`。
+  Version/protocol   Done   `mod_version=0.2.154`；未改变网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=29` 保持不变。
+  Backup   Done   `.bak/20260723_quest_tracker_followup/`、`.bak/20260723_quest_tracker_authored_requirements/`、`.bak/20260723_quest_tracker_manifest/`、`.bak/20260723_quest_tracker_version_docs/`、`.bak/20260723_quest_tracker_narrative_reconcile/`。

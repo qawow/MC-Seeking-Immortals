@@ -2,7 +2,7 @@
   id: "1000000000000001",
   filename: "seeking_immortals_main",
   title: "寻仙问道：主线任务",
-  subtitle: ["源自 文本材料/data/quest_chains.json 与 quest_hooks.json 的首批 FTB Quests 呈现。"],
+  subtitle: ["主线任务修行篇章。按节点核对实际完成条件，原生任务线奖励由原生任务账本结算。"],
   default_quest_shape: "circle",
   default_hide_dependency_lines: false,
   progression_mode: "linear",
@@ -10,357 +10,378 @@
     {
       id: "1000000000000101",
       title: "七玄山村",
-      subtitle: "七玄门凡俗线",
+      subtitle: "七玄门凡俗线 · 山村与墨大夫传闻",
       x: 0.0d,
       y: 0.0d,
       guide_page: "seeking_immortals:quest_native_main",
       description: [
-        "来源：qixuan_mortal_path / qixuan_village_intro。",
-        "从山村传闻开始，记录墨大夫、七玄门与凡俗江湖的第一条引导线。"
+        "任务提示：围绕“七玄山村”推进七玄门凡俗线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：达成检测目标：进入世界并解锁游戏故事根进度；接取门槛：境界不低于凡人；当前区域为天南（青岚山脉新手起点也可）；完成接取里程碑（七玄门凡俗线：山村与墨大夫传闻）；先在原生任务追踪中接取七玄门凡俗线（接取门槛：境界不低于凡人；当前区域为天南（青岚山脉新手起点也可））；本镜像读取已记录的接取里程碑（七玄门凡俗线：山村与墨大夫传闻）。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条七玄门凡俗线完成后结算：七玄凡术卷 × 1、灵石碎片 × 1；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       tags: ["seeking_immortals", "qixuan_mortal_path", "si_native_write_qixuan_mortal_path_1"],
       require_sequential_tasks: true,
-      tasks: [{id: "1000000000001101", type: "advancement", advancement: "minecraft:story/root", title: "确认山村传闻"},
-        {id: "3100000000000043", type: "custom", title: "提交原生任务阶段 1", tags: ["si_native_ready_qixuan_mortal_path_1"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000043", type: "custom", title: "同步原生任务阶段 1/4", tags: ["si_native_qixuan_mortal_path_1"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001101", type: "advancement", advancement: "minecraft:story/root", title: "达成检测目标：进入世界并解锁游戏故事根进度"},
+        {id: "3100000000000043", type: "custom", title: "接取里程碑：七玄门凡俗线：山村与墨大夫传闻", tags: ["si_native_ready_qixuan_mortal_path_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000043", type: "custom", title: "接取里程碑：七玄门凡俗线：山村与墨大夫传闻", tags: ["si_native_qixuan_mortal_path_1"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000102",
       title: "七玄采药",
-      subtitle: "采药杂役",
+      subtitle: "七玄门凡俗线 · 采药杂役",
       x: 2.0d,
       y: 0.0d,
       guide_page: "seeking_immortals:quest_native_main",
       description: [
-        "来源：qixuan_herb_errand。",
-        "先以灵草杂役和低阶药材收集建立凡人阶段的生计循环。当前 FTB 物品任务检测 4 株灵草但不消耗；原生任务账本负责实际上交。源设定奖励：herb_bundle_low。"
+        "任务提示：围绕“七玄采药”推进七玄门凡俗线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有灵草 × 4（检测不消耗物品）；满足七玄门凡俗线的阶段推进条件并完成七玄门凡俗线：采药杂役；原生任务账本已记录七玄门凡俗线：采药杂役。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条七玄门凡俗线完成后结算：七玄凡术卷 × 1、灵石碎片 × 1；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000101"],
       tags: ["seeking_immortals", "qixuan_mortal_path", "si_native_write_qixuan_mortal_path_2"],
       require_sequential_tasks: true,
-      tasks: [{id: "1000000000001102", type: "item", title: "交验灵草", item: "seeking_immortals:spirit_grass", count: 4L, consume_items: false, match_nbt: false},
-        {id: "3100000000000044", type: "custom", title: "提交原生任务阶段 2", tags: ["si_native_ready_qixuan_mortal_path_2"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000044", type: "custom", title: "同步原生任务阶段 2/4", tags: ["si_native_qixuan_mortal_path_2"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001102", type: "item", title: "持有灵草 × 4", item: "seeking_immortals:spirit_grass", count: 4L, consume_items: false, match_nbt: false},
+        {id: "3100000000000044", type: "custom", title: "七玄门凡俗线：采药杂役", tags: ["si_native_ready_qixuan_mortal_path_2"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000044", type: "custom", title: "七玄门凡俗线：采药杂役", tags: ["si_native_qixuan_mortal_path_2"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000103",
       title: "七玄入门试",
-      subtitle: "测灵根入外门",
+      subtitle: "七玄门凡俗线 · 测灵根入外门",
       x: 4.0d,
       y: 0.0d,
       guide_page: "seeking_immortals:quest_native_main",
       description: [
-        "来源：qixuan_sect_trial。",
-        "将测灵根、外门试炼和凡俗武学传承串成可见任务节点。当前 FTB 物品任务检测测灵石但不消耗；原生任务账本负责实际上交。源设定奖励：qixuan_mortal_art_scroll。"
+        "任务提示：围绕“七玄入门试”推进七玄门凡俗线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有灵根测试石 × 1（检测不消耗物品）；满足七玄门凡俗线的阶段推进条件并完成七玄门凡俗线：测灵根入外门；原生任务账本已记录七玄门凡俗线：测灵根入外门。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条七玄门凡俗线完成后结算：七玄凡术卷 × 1、灵石碎片 × 1；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000102"],
       tags: ["seeking_immortals", "qixuan_mortal_path", "si_native_write_qixuan_mortal_path_3"],
       require_sequential_tasks: true,
-      tasks: [{id: "1000000000001103", type: "item", title: "持有测灵石", item: "seeking_immortals:ling_gen_test_stone", count: 1L, consume_items: false, match_nbt: false},
-        {id: "3100000000000045", type: "custom", title: "提交原生任务阶段 3", tags: ["si_native_ready_qixuan_mortal_path_3"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000045", type: "custom", title: "同步原生任务阶段 3/4", tags: ["si_native_qixuan_mortal_path_3"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001103", type: "item", title: "持有灵根测试石 × 1", item: "seeking_immortals:ling_gen_test_stone", count: 1L, consume_items: false, match_nbt: false},
+        {id: "3100000000000045", type: "custom", title: "七玄门凡俗线：测灵根入外门", tags: ["si_native_ready_qixuan_mortal_path_3"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000045", type: "custom", title: "七玄门凡俗线：测灵根入外门", tags: ["si_native_qixuan_mortal_path_3"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000104",
       title: "衰落遗册",
-      subtitle: "门派衰落遗册",
+      subtitle: "七玄门凡俗线 · 门派衰落遗册",
       x: 6.0d,
       y: 0.0d,
       guide_page: "seeking_immortals:quest_native_main",
       description: [
-        "来源：qixuan_decline_legacy。",
-        "收束七玄门凡俗线，作为后续离开大燕、进入天南宗门线的叙事桥。当前 FTB 物品任务检测灵石碎片但不消耗；原生任务账本负责实际上交。源设定奖励：spirit_stone_shard。"
+        "任务提示：围绕“衰落遗册”推进七玄门凡俗线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有灵石碎片 × 1（检测不消耗物品）；满足七玄门凡俗线的阶段推进条件并完成七玄门凡俗线：门派衰落遗册；原生任务账本已记录七玄门凡俗线：门派衰落遗册。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条七玄门凡俗线完成后结算：七玄凡术卷 × 1、灵石碎片 × 1；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000103"],
       tags: ["seeking_immortals", "qixuan_mortal_path", "si_native_write_qixuan_mortal_path_4"],
       require_sequential_tasks: true,
-      tasks: [{id: "1000000000001104", type: "item", title: "持有灵石碎片", item: "seeking_immortals:spirit_stone_shard", count: 1L, consume_items: false, match_nbt: false},
-        {id: "3100000000000046", type: "custom", title: "提交原生任务阶段 4", tags: ["si_native_ready_qixuan_mortal_path_4"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000046", type: "custom", title: "同步原生任务阶段 4/4", tags: ["si_native_qixuan_mortal_path_4"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001104", type: "item", title: "持有灵石碎片 × 1", item: "seeking_immortals:spirit_stone_shard", count: 1L, consume_items: false, match_nbt: false},
+        {id: "3100000000000046", type: "custom", title: "七玄门凡俗线：门派衰落遗册", tags: ["si_native_ready_qixuan_mortal_path_4"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000046", type: "custom", title: "七玄门凡俗线：门派衰落遗册", tags: ["si_native_qixuan_mortal_path_4"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000201",
       title: "黄枫谷入门",
-      subtitle: "入门测灵根",
+      subtitle: "黄枫谷修行线 · 入门测灵根",
       x: 0.0d,
       y: 2.0d,
       guide_page: "seeking_immortals:quest_native_main",
       description: [
-        "来源：huangfeng_cultivation_path / huangfeng_entry。",
-        "七玄凡俗线之后，进入天南宗门修行路径。源设定奖励：sect_token、changchun_gong。"
+        "任务提示：围绕“黄枫谷入门”推进黄枫谷修行线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：达成检测目标：取得圆石、深板岩圆石或黑石，达成石器时代进度；接取门槛：境界不低于炼气；当前区域为天南；完成接取里程碑（黄枫谷修行线：入门测灵根）；先在原生任务追踪中接取黄枫谷修行线（接取门槛：境界不低于炼气；当前区域为天南）；本镜像读取已记录的接取里程碑（黄枫谷修行线：入门测灵根）。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条黄枫谷修行线完成后结算：下品筑基丹 × 1、功勋令 × 2；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000104"],
       tags: ["seeking_immortals", "huangfeng_cultivation_path", "si_native_write_huangfeng_cultivation_path_1"],
       require_sequential_tasks: true,
-      tasks: [{id: "1000000000001201", type: "advancement", advancement: "minecraft:story/mine_stone", title: "完成黄枫入门"},
-        {id: "3100000000000001", type: "custom", title: "提交原生任务阶段 1", tags: ["si_native_ready_huangfeng_cultivation_path_1"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000001", type: "custom", title: "同步原生任务阶段 1/5", tags: ["si_native_huangfeng_cultivation_path_1"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001201", type: "advancement", advancement: "minecraft:story/mine_stone", title: "达成检测目标：取得圆石、深板岩圆石或黑石，达成石器时代进度"},
+        {id: "3100000000000001", type: "custom", title: "接取里程碑：黄枫谷修行线：入门测灵根", tags: ["si_native_ready_huangfeng_cultivation_path_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000001", type: "custom", title: "接取里程碑：黄枫谷修行线：入门测灵根", tags: ["si_native_huangfeng_cultivation_path_1"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000202",
       title: "丹童试炼",
-      subtitle: "丹童与辟谷丹",
+      subtitle: "黄枫谷修行线 · 丹童与辟谷丹",
       x: 2.0d,
       y: 2.0d,
       guide_page: "seeking_immortals:quest_native_main",
       description: [
-        "来源：alchemy_apprentice。",
-        "对接已实现的炼丹炉、辟谷丹和炼丹配方循环。当前 FTB 物品任务检测辟谷丹但不消耗；原生任务账本负责实际上交。源设定奖励：recipe_bigu、alchemy_furnace_g1。"
+        "任务提示：围绕“丹童试炼”推进黄枫谷修行线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有下品辟谷丹 × 1（检测不消耗物品）；满足黄枫谷修行线的阶段推进条件并完成黄枫谷修行线：丹童与辟谷丹；原生任务账本已记录黄枫谷修行线：丹童与辟谷丹。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条黄枫谷修行线完成后结算：下品筑基丹 × 1、功勋令 × 2；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000201"],
       tags: ["seeking_immortals", "huangfeng_cultivation_path", "alchemy", "si_native_write_huangfeng_cultivation_path_2"],
       require_sequential_tasks: true,
-      tasks: [{id: "1000000000001202", type: "item", title: "炼成辟谷丹", item: "seeking_immortals:fasting_pill_low", count: 1L, consume_items: false, match_nbt: false},
-        {id: "3100000000000002", type: "custom", title: "提交原生任务阶段 2", tags: ["si_native_ready_huangfeng_cultivation_path_2"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000002", type: "custom", title: "同步原生任务阶段 2/5", tags: ["si_native_huangfeng_cultivation_path_2"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001202", type: "item", title: "持有下品辟谷丹 × 1", item: "seeking_immortals:fasting_pill_low", count: 1L, consume_items: false, match_nbt: false},
+        {id: "3100000000000002", type: "custom", title: "黄枫谷修行线：丹童与辟谷丹", tags: ["si_native_ready_huangfeng_cultivation_path_2"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000002", type: "custom", title: "黄枫谷修行线：丹童与辟谷丹", tags: ["si_native_huangfeng_cultivation_path_2"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000203",
       title: "外门灵草任务",
-      subtitle: "灵草收购",
+      subtitle: "黄枫谷修行线 · 外门灵草任务",
       x: 4.0d,
       y: 2.0d,
       guide_page: "seeking_immortals:quest_native_main",
       description: [
-        "来源：herb_gather_contract。",
-        "把宗门贡献、灵草收购和外门日常先作为可见节点，后续可替换为物品/声望任务。"
+        "任务提示：围绕“外门灵草任务”推进黄枫谷修行线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录黄枫谷修行线：外门灵草任务。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条黄枫谷修行线完成后结算：下品筑基丹 × 1、功勋令 × 2；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000202"],
       tags: ["seeking_immortals", "huangfeng_cultivation_path", "repeatable_design"],
-      tasks: [{id: "1000000000001203", type: "custom", title: "同步原生任务第三阶段", tags: ["si_native_huangfeng_cultivation_path_3"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001203", type: "custom", title: "黄枫谷修行线：外门灵草任务", tags: ["si_native_huangfeng_cultivation_path_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000204",
       title: "血色禁地接引",
-      subtitle: "血色禁地历练",
+      subtitle: "黄枫谷修行线 · 血色禁地历练",
       x: 6.0d,
       y: 2.0d,
       guide_page: "seeking_immortals:quest_native_main",
       description: [
-        "来源：blood_forbidden_run。",
-        "黄枫谷线在此接入完整血色禁地章节；禁地细分节点位于下方支线。"
+        "任务提示：围绕“血色禁地接引”推进黄枫谷修行线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录黄枫谷修行线：血色禁地历练；先在原生任务追踪中接取血色禁地历练（接取门槛：境界不低于炼气；当前区域为天南）；本镜像读取已记录的接取里程碑（血色禁地历练：传闻与名额）。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条黄枫谷修行线完成后结算：下品筑基丹 × 1、功勋令 × 2；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4；整条血色禁地历练完成后结算：禁地血参 × 1；中段第3阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000203"],
       tags: ["seeking_immortals", "huangfeng_cultivation_path", "blood_forbidden_campaign"],
-      tasks: [{id: "1000000000001204", type: "custom", title: "同步原生任务第四阶段", tags: ["si_native_huangfeng_cultivation_path_4"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000193", type: "custom", title: "同步原生任务阶段 1/6", tags: ["si_native_blood_forbidden_campaign_1"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001204", type: "custom", title: "黄枫谷修行线：血色禁地历练", tags: ["si_native_huangfeng_cultivation_path_4"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000193", type: "custom", title: "接取里程碑：血色禁地历练：传闻与名额", tags: ["si_native_blood_forbidden_campaign_1"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000205",
       title: "地火室资格",
-      subtitle: "结丹后地火室",
+      subtitle: "黄枫谷修行线 · 结丹后地火室",
       x: 8.0d,
       y: 2.0d,
       guide_page: "seeking_immortals:quest_native_main",
       description: [
-        "来源：sect_fire_room。",
-        "将结丹后的地火室、炼器/炼丹进阶资格预留为宗门中后期节点。源设定奖励：core_earth_fire。"
+        "任务提示：围绕“地火室资格”推进黄枫谷修行线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录黄枫谷修行线：结丹后地火室。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条黄枫谷修行线完成后结算：下品筑基丹 × 1、功勋令 × 2；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000306"],
       tags: ["seeking_immortals", "huangfeng_cultivation_path"],
-      tasks: [{id: "1000000000001205", type: "custom", title: "同步原生任务完成状态", tags: ["si_native_huangfeng_cultivation_path_5"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001205", type: "custom", title: "黄枫谷修行线：结丹后地火室", tags: ["si_native_huangfeng_cultivation_path_5"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000301",
       title: "血色传闻",
-      subtitle: "传闻与名额",
+      subtitle: "血色禁地历练 · 传闻与名额",
       x: 0.0d,
       y: 4.0d,
       guide_page: "seeking_immortals:quest_native_main",
       description: [
-        "来源：blood_forbidden_campaign / blood_forbidden_rumor。",
-        "以五年周期、宗门名额和筑基机缘开启血色禁地历练。"
+        "任务提示：围绕“血色传闻”推进血色禁地历练，按顺序完成当前节点的实际检测目标。",
+        "完成条件：达成检测目标：取得铁镐，达成铁制工具进度；接取门槛：境界不低于炼气；当前区域为天南；完成接取里程碑（血色禁地历练：传闻与名额）。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条血色禁地历练完成后结算：禁地血参 × 1；中段第3阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000204"],
       tags: ["seeking_immortals", "blood_forbidden_campaign", "si_native_write_blood_forbidden_campaign_1"],
       require_sequential_tasks: true,
-      tasks: [{id: "1000000000001301", type: "advancement", advancement: "minecraft:story/iron_tools", title: "听闻禁地开启"},
-        {id: "3100000000000193", type: "custom", title: "提交原生任务阶段 1", tags: ["si_native_ready_blood_forbidden_campaign_1"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001301", type: "advancement", advancement: "minecraft:story/iron_tools", title: "达成检测目标：取得铁镐，达成铁制工具进度"},
+        {id: "3100000000000193", type: "custom", title: "接取里程碑：血色禁地历练：传闻与名额", tags: ["si_native_ready_blood_forbidden_campaign_1"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000302",
       title: "争取入场令",
-      subtitle: "血色禁地名额",
+      subtitle: "血色禁地历练 · 争取入场令",
       x: 2.0d,
       y: 4.0d,
       guide_page: "seeking_immortals:quest_native_main",
       description: [
-        "来源：hook_blood_forbidden_ticket。",
-        "以名额、入场令和宗门竞争表达禁地入口条件。源设定奖励：realm_entry_blood。"
+        "任务提示：围绕“争取入场令”推进血色禁地历练，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录血色禁地历练：争取入场令。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条血色禁地历练完成后结算：禁地血参 × 1；中段第3阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000301"],
       tags: ["seeking_immortals", "blood_forbidden_campaign"],
-      tasks: [{id: "1000000000001302", type: "custom", title: "同步原生任务第二阶段", tags: ["si_native_blood_forbidden_campaign_2"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001302", type: "custom", title: "血色禁地历练：争取入场令", tags: ["si_native_blood_forbidden_campaign_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000303",
       title: "穿越禁制入口",
-      subtitle: "禁制压制",
+      subtitle: "血色禁地历练 · 穿越禁制入口",
       x: 4.0d,
       y: 4.0d,
       guide_page: "seeking_immortals:quest_native_main",
       description: [
-        "来源：blood_forbidden_entry_scar。",
-        "记录穿越禁制和境界压制规则；后续可挂接秘境入口检查与状态效果。"
+        "任务提示：围绕“穿越禁制入口”推进血色禁地历练，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录血色禁地历练：穿越禁制入口。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条血色禁地历练完成后结算：禁地血参 × 1；中段第3阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000302"],
       tags: ["seeking_immortals", "blood_forbidden_campaign"],
-      tasks: [{id: "1000000000001303", type: "custom", title: "同步原生任务第三阶段", tags: ["si_native_blood_forbidden_campaign_3"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001303", type: "custom", title: "血色禁地历练：穿越禁制入口", tags: ["si_native_blood_forbidden_campaign_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000304",
       title: "禁地外层",
-      subtitle: "外层猎妖取药",
+      subtitle: "血色禁地历练 · 外层猎妖取药",
       x: 6.0d,
       y: 4.0d,
       guide_page: "seeking_immortals:quest_native_main",
       description: [
-        "来源：blood_forbidden_outer_layer。",
-        "外层以妖兽、灵草、筑基材料为目标。源设定奖励：blood_forbidden_herb。"
+        "任务提示：围绕“禁地外层”推进血色禁地历练，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录血色禁地历练：外层猎妖取药。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条血色禁地历练完成后结算：禁地血参 × 1；中段第3阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000303"],
       tags: ["seeking_immortals", "blood_forbidden_campaign"],
-      tasks: [{id: "1000000000001304", type: "custom", title: "同步原生任务第四阶段", tags: ["si_native_blood_forbidden_campaign_4"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001304", type: "custom", title: "血色禁地历练：外层猎妖取药", tags: ["si_native_blood_forbidden_campaign_4"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000305",
       title: "禁地内层",
-      subtitle: "内层结伴破禁",
+      subtitle: "血色禁地历练 · 内层结伴破禁",
       x: 8.0d,
       y: 4.0d,
       guide_page: "seeking_immortals:quest_native_main",
       description: [
-        "来源：blood_forbidden_inner_layer。",
-        "内层强调结伴破禁、争夺筑基资源和更高风险的秘境推进。"
+        "任务提示：围绕“禁地内层”推进血色禁地历练，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录血色禁地历练：内层结伴破禁；原生任务账本已记录血色禁地历练：守关妖蛟。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条血色禁地历练完成后结算：禁地血参 × 1；中段第3阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000304"],
       tags: ["seeking_immortals", "blood_forbidden_campaign"],
-      tasks: [{id: "1000000000001305", type: "custom", title: "同步原生任务第五阶段", tags: ["si_native_blood_forbidden_campaign_5"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000198", type: "custom", title: "同步原生任务阶段 6/6", tags: ["si_native_blood_forbidden_campaign_6"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001305", type: "custom", title: "血色禁地历练：内层结伴破禁", tags: ["si_native_blood_forbidden_campaign_5"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000198", type: "custom", title: "血色禁地历练：守关妖蛟", tags: ["si_native_blood_forbidden_campaign_6"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000306",
       title: "守关妖蛟",
-      subtitle: "血色禁地终章",
+      subtitle: "血色禁地历练 · 守关妖蛟",
       x: 10.0d,
       y: 4.0d,
       guide_page: "seeking_immortals:quest_native_main",
       description: [
-        "来源：blood_jiao_guardian。",
-        "作为血色禁地首批 FTB 章节终点，暂用手动勾选，后续替换为 boss / loot / secret-realm 条件。源设定奖励：foundation_pill_material、blood_forbidden_herb、contribution_rank_inner。"
+        "任务提示：围绕“守关妖蛟”推进血色禁地历练，按顺序完成当前节点的实际检测目标。",
+        "完成条件：击败溺尸 × 1；满足血色禁地历练的阶段推进条件并完成血色禁地历练：守关妖蛟。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条血色禁地历练完成后结算：禁地血参 × 1；中段第3阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000305"],
       tags: ["seeking_immortals", "blood_forbidden_campaign", "boss_design", "si_native_write_blood_forbidden_campaign_6"],
       require_sequential_tasks: true,
-      tasks: [{id: "1000000000001306", type: "kill", entity: "minecraft:drowned", value: 1L, title: "击退守关妖蛟"},
-        {id: "3100000000000198", type: "custom", title: "提交原生任务阶段 6", tags: ["si_native_ready_blood_forbidden_campaign_6"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001306", type: "kill", entity: "minecraft:drowned", value: 1L, title: "击败溺尸 × 1"},
+        {id: "3100000000000198", type: "custom", title: "血色禁地历练：守关妖蛟", tags: ["si_native_ready_blood_forbidden_campaign_6"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000401",
       title: "天渊城征召",
-      subtitle: "天渊入伍",
+      subtitle: "灵界上升线 · 天渊诛魔契约",
       x: 0.0d,
       y: 6.0d,
       guide_page: "seeking_immortals:quest_native_main",
       description: [
-        "来源：spirit_realm_rise / tianyuan_enlist / chain_tianyuan_enlist。",
-        "进入灵界后，以天渊城服役作为灵界主线入口。源设定门槛：DEITY_TRANSFORMATION。"
+        "任务提示：围绕“天渊城征召”推进灵界上升线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：达成检测目标：进入下界，达成勇往直下进度；接取门槛：境界不低于炼气；当前区域为风元大陆；完成接取里程碑（灵界上升线：天渊诛魔契约）。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条灵界上升线完成后结算：功勋令 × 3、仙玉 × 1；中段第3阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000205"],
       tags: ["seeking_immortals", "spirit_realm_rise", "tianyuan", "si_native_write_spirit_realm_rise_1"],
       require_sequential_tasks: true,
-      tasks: [{id: "1000000000001401", type: "advancement", advancement: "minecraft:story/enter_the_nether", title: "接受天渊征召"},
-        {id: "3100000000000025", type: "custom", title: "提交原生任务阶段 1", tags: ["si_native_ready_spirit_realm_rise_1"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001401", type: "advancement", advancement: "minecraft:story/enter_the_nether", title: "达成检测目标：进入下界，达成勇往直下进度"},
+        {id: "3100000000000025", type: "custom", title: "接取里程碑：灵界上升线：天渊诛魔契约", tags: ["si_native_ready_spirit_realm_rise_1"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000402",
       title: "天渊诛魔契约",
-      subtitle: "联盟功勋",
+      subtitle: "灵界上升线 · 万宝大会请柬",
       x: 2.0d,
       y: 6.0d,
       guide_page: "seeking_immortals:quest_native_main",
       description: [
-        "来源：tianyuan_demon_contract。",
-        "承接已存在的联盟功勋代币、天渊/地渊/灵界路线，先展示诛魔契约任务。"
+        "任务提示：围绕“天渊诛魔契约”推进灵界上升线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录灵界上升线：万宝大会请柬。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条灵界上升线完成后结算：功勋令 × 3、仙玉 × 1；中段第3阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000401"],
       tags: ["seeking_immortals", "spirit_realm_rise", "tianyuan"],
-      tasks: [{id: "1000000000001402", type: "custom", title: "同步原生任务第二阶段", tags: ["si_native_spirit_realm_rise_2"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001402", type: "custom", title: "灵界上升线：万宝大会请柬", tags: ["si_native_spirit_realm_rise_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000403",
       title: "万宝大会请柬",
-      subtitle: "灵界宝会",
+      subtitle: "灵界上升线 · 地渊侦察",
       x: 4.0d,
       y: 6.0d,
       guide_page: "seeking_immortals:quest_native_main",
       description: [
-        "来源：treasure_fair_invite。",
-        "将灵界风元、万宝大会、拍卖与高阶资源流通作为后续经济/拍卖线入口。"
+        "任务提示：围绕“万宝大会请柬”推进灵界上升线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录灵界上升线：地渊侦察。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条灵界上升线完成后结算：功勋令 × 3、仙玉 × 1；中段第3阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000402"],
       tags: ["seeking_immortals", "spirit_realm_rise"],
-      tasks: [{id: "1000000000001403", type: "custom", title: "同步原生任务第三阶段", tags: ["si_native_spirit_realm_rise_3"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001403", type: "custom", title: "灵界上升线：地渊侦察", tags: ["si_native_spirit_realm_rise_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000404",
       title: "地渊侦察",
-      subtitle: "地渊探索",
+      subtitle: "灵界上升线 · 修罗试炼",
       x: 6.0d,
       y: 6.0d,
       guide_page: "seeking_immortals:quest_native_main",
       description: [
-        "来源：diyuan_scout。",
-        "对接已实现的地渊通行令、压力抗性、禁飞和秘境入口规则。源设定门槛：VOID_REFINEMENT。"
+        "任务提示：围绕“地渊侦察”推进灵界上升线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录灵界上升线：修罗试炼。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条灵界上升线完成后结算：功勋令 × 3、仙玉 × 1；中段第3阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000403"],
       tags: ["seeking_immortals", "spirit_realm_rise", "diyuan"],
-      tasks: [{id: "1000000000001404", type: "custom", title: "同步原生任务第四阶段", tags: ["si_native_spirit_realm_rise_4"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001404", type: "custom", title: "灵界上升线：修罗试炼", tags: ["si_native_spirit_realm_rise_4"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000405",
       title: "修罗试炼",
-      subtitle: "可选支线",
+      subtitle: "灵界上升线 · 九仙闭关许可",
       x: 8.0d,
       y: 6.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_main",
       description: [
-        "来源：asura_trial。",
-        "灵界上升线的可选战斗试炼，后续可接入 Demon/Asura 秘境、击杀或声望条件。"
+        "任务提示：围绕“修罗试炼”推进灵界上升线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：进入修罗界；满足灵界上升线的阶段推进条件并完成灵界上升线：九仙闭关许可。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条灵界上升线完成后结算：功勋令 × 3、仙玉 × 1；中段第3阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000404"],
       tags: ["seeking_immortals", "spirit_realm_rise", "optional", "si_native_write_spirit_realm_rise_5"],
       require_sequential_tasks: true,
       tasks: [{id: "1000000000001405", type: "dimension", dimension: "seeking_immortals:asura_realm", title: "进入修罗界"},
-        {id: "3100000000000029", type: "custom", title: "提交原生任务阶段 5", tags: ["si_native_ready_spirit_realm_rise_5"], check_timer: 20, max_progress: 1L}
+        {id: "3100000000000029", type: "custom", title: "灵界上升线：九仙闭关许可", tags: ["si_native_ready_spirit_realm_rise_5"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000406",
       title: "九仙闭关许可",
-      subtitle: "灵界上升线终点",
+      subtitle: "灵界上升线 · 天渊入伍",
       x: 10.0d,
       y: 6.0d,
       guide_page: "seeking_immortals:quest_native_main",
       description: [
-        "来源：jiuxian_seclusion_permit。",
-        "首批 FTB 主线的灵界终点，代表闭关许可、声望门槛和更高境界路线的占位入口。"
+        "任务提示：围绕“九仙闭关许可”推进灵界上升线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录灵界上升线：天渊入伍。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条灵界上升线完成后结算：功勋令 × 3、仙玉 × 1；中段第3阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000404"],
       tags: ["seeking_immortals", "spirit_realm_rise"],
-      tasks: [{id: "1000000000001406", type: "custom", title: "同步原生任务完成状态", tags: ["si_native_spirit_realm_rise_6"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001406", type: "custom", title: "灵界上升线：天渊入伍", tags: ["si_native_spirit_realm_rise_6"], check_timer: 20, max_progress: 1L}]
     }
   ]
 }

@@ -47,7 +47,11 @@ class FtbQuestBridgeServiceTest {
         for (Map.Entry<String, String> mapping : snapshot.chainToChapter().entrySet()) {
             FtbQuestBridgeService.ChapterSeed chapter = chapters.get(mapping.getValue());
             String snbt = Files.readString(PACKAGED_ROOT.resolve(chapter.relativePath()));
-            Pattern reference = Pattern.compile("\\b" + Pattern.quote(mapping.getKey()) + "\\b");
+            // Native ids are embedded in underscore-delimited projection tags such as
+            // si_native_mulan_war_campaign_1; Java's \\b treats '_' as a word character,
+            // so a plain word-boundary pattern misses valid hidden references.
+            Pattern reference = Pattern.compile("(?<![a-z0-9])" + Pattern.quote(mapping.getKey())
+                    + "(?![a-z0-9])");
             assertTrue(reference.matcher(snbt).find(), () -> mapping.getKey()
                     + " is mapped to a chapter that does not reference it: " + mapping.getValue());
         }

@@ -1,14 +1,11 @@
 package com.xunxian.seekingimmortals.network;
 
-import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.quest.TextQuestChainService;
 import com.xunxian.seekingimmortals.quest.TextQuestNpcHookService;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkEvent;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 import java.util.function.Supplier;
 
@@ -40,18 +37,13 @@ public record QuestTrackerActionPacket(String action) {
             }
             String raw = packet.action() == null ? "sync" : packet.action().trim();
             String lower = raw.toLowerCase(Locale.ROOT);
-            String status = "OK sync";
             if (lower.startsWith("start:")) {
                 String chainId = raw.substring(6).trim();
-                boolean ok = TextQuestChainService.start(player, chainId);
-                status = (ok ? "OK" : "ERR") + " start " + chainId;
+                TextQuestChainService.start(player, chainId);
             } else if (lower.startsWith("advance:")) {
                 String chainId = raw.substring(8).trim();
-                if (!TextQuestNpcHookService.requireNearbyNpcOrWarn(player, chainId)) {
-                    status = "ERR need_npc " + chainId;
-                } else {
-                    boolean ok = TextQuestChainService.advance(player, chainId);
-                    status = (ok ? "OK" : "ERR") + " advance " + chainId;
+                if (TextQuestNpcHookService.requireNearbyNpcOrWarn(player, chainId)) {
+                    TextQuestChainService.advance(player, chainId);
                 }
             } else if (lower.startsWith("branch:")) {
                 String body = raw.substring(7).trim();
@@ -59,41 +51,14 @@ public record QuestTrackerActionPacket(String action) {
                 if (split > 0) {
                     String chainId = body.substring(0, split).trim();
                     String branch = body.substring(split + 1).trim();
-                    if (!TextQuestNpcHookService.requireNearbyNpcOrWarn(player, chainId)) {
-                        status = "ERR need_npc " + chainId;
-                    } else {
-                        boolean ok = TextQuestChainService.chooseBranch(player, chainId, branch);
-                        status = (ok ? "OK" : "ERR") + " branch " + chainId + " " + branch;
+                    if (TextQuestNpcHookService.requireNearbyNpcOrWarn(player, chainId)) {
+                        TextQuestChainService.chooseBranch(player, chainId, branch);
                     }
-                } else {
-                    status = "ERR branch_format";
                 }
             }
-            // Always sync after intent (including plain sync).
-            List<String> lines = new ArrayList<>();
-            lines.add(status);
-            CultivationHelper.get(player).ifPresent(cultivation -> {
-                var progress = cultivation.getSevenMysteriesQuest();
-                lines.add("mainline stage=" + progress.getStage()
-                        + " sect=" + progress.getSectId()
-                        + " rankStage=" + progress.getSectQuestStage()
-                        + " contrib=" + progress.getContribution());
-            });
-            for (String line : TextQuestChainService.buildTrackerLines(player)) {
-                // M11: align with SyncQuestTrackerPacket.MAX_LINES (72).
-                if (lines.size() >= 72) {
-                    break;
-                }
-                // Skip empty placeholder when we already have mainline + status.
-                if ("(no active text quest chains)".equals(line) && lines.size() > 1) {
-                    continue;
-                }
-                lines.add(line);
-            }
-            if (lines.size() <= 2) {
-                lines.add("(no active text quest chains)");
-            }
-            SyncQuestTrackerPacket.send(player, lines);
+            // Every response is a parseable full-catalog snapshot; action errors
+            // remain explicit player messages from the authority services.
+            SyncQuestTrackerPacket.send(player, TextQuestChainService.buildTrackerLines(player));
         });
         context.setPacketHandled(true);
     }

@@ -414,7 +414,7 @@
       },
       "learn_requirements": {
         "start": {
-          "realm_min": "QI_REFINING",
+          "realm_min": "MORTAL",
           "faction": null,
           "region": "tiannan"
         }

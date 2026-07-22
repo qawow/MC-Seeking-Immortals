@@ -1,83 +1,203 @@
 package com.xunxian.seekingimmortals.client;
 
+import com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts;
 import com.xunxian.seekingimmortals.catalog.ExtendedCatalogService;
+import com.xunxian.seekingimmortals.npc.NamedNpcRegistry;
+import com.xunxian.seekingimmortals.quest.QuestPresentationService;
+import com.xunxian.seekingimmortals.quest.TextQuestChainService;
+import com.xunxian.seekingimmortals.region.RegionRegistry;
+import com.xunxian.seekingimmortals.sect.SectDefinitionService;
 import com.xunxian.seekingimmortals.util.PlayerDisplayText;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.network.chat.Component;
-import net.minecraft.util.FormattedCharSequence;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 import java.util.Optional;
 
-/** Server-authoritative quest tracker with a scrollable journal view. */
+/**
+ * Native, server-authoritative quest journal.
+ *
+ * <p>The packet still carries compact machine lines. This screen resolves only authored,
+ * player-facing metadata and never renders a chain id, hook id, raw state token, or fallback
+ * English implementation text.</p>
+ */
 public class QuestTrackerScreen extends AbstractJournalScreen {
-    private static final int DESIRED_WIDTH = 340;
-    private static final int DESIRED_HEIGHT = 230;
-    private static final int LINE_GAP = 2;
+    private static final int DESIRED_WIDTH = 500;
+    private static final int DESIRED_HEIGHT = 320;
+    private static final int ROW_HEIGHT = 24;
+    private static final int ROW_GAP = 1;
+    private static final int DETAIL_GAP = 3;
 
-    private Button advanceButton;
+    private enum Filter {
+        ALL("all"), AVAILABLE("available"), LOCKED("locked"), ACTIVE("active"), DONE("done");
+
+        private final String key;
+
+        Filter(String key) {
+            this.key = key;
+        }
+    }
+
+    private enum DisplayState {
+        AVAILABLE,
+        LOCKED,
+        ACTIVE,
+        DONE
+    }
+
+    private record DetailLine(String text, int color, int gapBefore) {}
+
+    private Filter filter = Filter.ALL;
+    private List<ClientQuestTrackerData.ChainLine> view = List.of();
+    private final TabBar<Filter> filterBar = new TabBar<>(Filter.ALL);
+    private final ScrollableListPanel listPanel = new ScrollableListPanel();
+    private final ScrollableListPanel detailPanel = new ScrollableListPanel();
+
+    private Button primaryButton;
     private Button righteousButton;
     private Button neutralButton;
     private Button demonicButton;
-    private final ScrollableListPanel listPanel = new ScrollableListPanel();
 
+    public QuestTrackerScreen() {
+        super(Component.translatable("screen.seeking_immortals.quest_tracker.title"));
+        listPanel.setScrollStep(18)
+                .setRowMetrics(ROW_HEIGHT, ROW_GAP)
+                .setContentInsets(4, 2, 6, 2)
+                .setScissorInsets(1, 1, 1, 1)
+                .setScrollbarInsetRight(3)
+                .setScrollbarTrackInsets(1, 1);
+        detailPanel.setScrollStep(18)
+                .setContentInsets(6, 5, 8, 5)
+                .setScissorInsets(1, 1, 1, 1)
+                .setScrollHeightReduce(8)
+                .setScrollbarInsetRight(3)
+                .setScrollbarTrackInsets(1, 1);
+    }
 
     @Override
     protected UiClimate defaultClimate() {
         return UiClimate.BAMBOO_SLIP;
     }
 
-    public QuestTrackerScreen() {
-        super(Component.translatable("screen.seeking_immortals.quest_tracker.title"));
-        this.listPanel.setScrollStep(16)
-                .setContentInsets(5, 3, 5, 0)
-                .setScissorInsets(1, 1, 1, 1)
-                .setScrollHeightReduce(6)
-                .setScrollbarInsetRight(3)
-                .setScrollbarTrackInsets(1, 1);
-    }
-
     @Override
     protected void init() {
         super.init();
+        rebuildView();
         rebuildButtons();
     }
 
-    /** Called when tracker data refreshes while this screen is open. */
+    /** Called by the packet handler after a fresh authoritative snapshot arrives. */
     public void refreshWidgets() {
+        rebuildView();
         clearWidgets();
         rebuildButtons();
     }
 
+    private void rebuildView() {
+        Map<String, ClientQuestTrackerData.ChainLine> unique = new LinkedHashMap<>();
+        for (String raw : ClientQuestTrackerData.lines()) {
+            ClientQuestTrackerData.parseChainLine(raw).ifPresent(line -> {
+                if (matchesFilter(stateOf(line))) {
+                    unique.putIfAbsent(line.id(), line);
+                }
+            });
+        }
+        List<ClientQuestTrackerData.ChainLine> next = new ArrayList<>(unique.values());
+        // Keep authored/catalog order where possible; unknown rows are placed last without exposing ids.
+        next.sort(Comparator.comparingInt((ClientQuestTrackerData.ChainLine line) -> stateOrder(stateOf(line)))
+                .thenComparing(line -> QuestPresentationService.title(line.id(), chineseLocale()),
+                        String.CASE_INSENSITIVE_ORDER));
+        view = List.copyOf(next);
+        boolean selectedStillVisible = view.stream()
+                .anyMatch(line -> line.id().equals(ClientQuestTrackerData.selectedChainId()));
+        if (!selectedStillVisible && !view.isEmpty()) {
+            ClientQuestTrackerData.selectChain(view.get(0).id());
+        }
+        listPanel.resetScroll();
+        detailPanel.resetScroll();
+    }
+
+    private boolean matchesFilter(DisplayState state) {
+        return filter == Filter.ALL || switch (filter) {
+            case AVAILABLE -> state == DisplayState.AVAILABLE;
+            case LOCKED -> state == DisplayState.LOCKED;
+            case ACTIVE -> state == DisplayState.ACTIVE;
+            case DONE -> state == DisplayState.DONE;
+            case ALL -> true;
+        };
+    }
+
     private void rebuildButtons() {
         Layout layout = calculateLayout(width, height);
-        List<UiRect> buttons = layout.buttons();
-        Optional<ClientQuestTrackerData.ChainLine> active = ClientQuestTrackerData.selectedChain();
-        String chainId = active.map(ClientQuestTrackerData.ChainLine::id).orElse("");
-        boolean canAct = active.isPresent() && !active.get().complete() && !chainId.isBlank();
-        boolean locked = active.map(ClientQuestTrackerData.ChainLine::branchLocked).orElse(false);
-        boolean canAfford = active.map(line -> line.costNeed() <= 0 || line.owned() >= line.costNeed()).orElse(false);
+        filterBar.setSelected(filter).clearTabs()
+                .addTab(Filter.ALL, Component.translatable("screen.seeking_immortals.quest_tracker.filter_all"),
+                        layout.filters().get(0))
+                .addTab(Filter.AVAILABLE, Component.translatable("screen.seeking_immortals.quest_tracker.filter_available"),
+                        layout.filters().get(1))
+                .addTab(Filter.LOCKED, Component.translatable("screen.seeking_immortals.quest_tracker.filter_locked"),
+                        layout.filters().get(2))
+                .addTab(Filter.ACTIVE, Component.translatable("screen.seeking_immortals.quest_tracker.filter_active"),
+                        layout.filters().get(3))
+                .addTab(Filter.DONE, Component.translatable("screen.seeking_immortals.quest_tracker.filter_done"),
+                        layout.filters().get(4))
+                .setOnSelect(this::setFilter);
+        for (ImmortalButton button : filterBar.attach(null)) {
+            addRenderableWidget(button);
+        }
 
+        Optional<ClientQuestTrackerData.ChainLine> selected = selectedLine();
+        String chainId = selected.map(ClientQuestTrackerData.ChainLine::id).orElse("");
+        DisplayState state = selected.map(QuestTrackerScreen::stateOf).orElse(DisplayState.LOCKED);
+        boolean active = selected.isPresent() && state == DisplayState.ACTIVE && !chainId.isBlank();
+        boolean affordable = selected.map(line -> !costMissing(line)).orElse(false);
+        boolean canBranch = active && selected.map(line -> !line.branchLocked()).orElse(false);
+
+        List<UiRect> buttons = layout.buttons();
         addButton(buttons.get(0), Component.translatable("screen.seeking_immortals.quest_tracker.refresh"),
                 button -> sendAction("sync"), false);
-        advanceButton = addButton(buttons.get(1),
-                Component.translatable("screen.seeking_immortals.quest_tracker.advance"), button -> {
-                    if (!chainId.isBlank()) sendAction("advance:" + chainId);
-                }, true);
-        advanceButton.active = canAct && canAfford;
-        righteousButton = branchButton(buttons.get(2), "righteous", chainId,
-                Component.translatable("screen.seeking_immortals.quest_tracker.branch_righteous"), canAct && !locked);
-        neutralButton = branchButton(buttons.get(3), "neutral", chainId,
-                Component.translatable("screen.seeking_immortals.quest_tracker.branch_neutral"), canAct);
-        demonicButton = branchButton(buttons.get(4), "demonic", chainId,
-                Component.translatable("screen.seeking_immortals.quest_tracker.branch_demonic"), canAct && !locked);
+        primaryButton = addButton(buttons.get(1), primaryLabel(state), button -> {
+            if (chainId.isBlank()) {
+                return;
+            }
+            if (state == DisplayState.AVAILABLE) {
+                sendAction("start:" + chainId);
+            } else if (state == DisplayState.ACTIVE) {
+                sendAction("advance:" + chainId);
+            }
+        }, true);
+        primaryButton.active = state == DisplayState.AVAILABLE || (active && affordable);
+
+        righteousButton = branchButton(buttons.get(2), "righteous", chainId, canBranch,
+                "screen.seeking_immortals.quest_tracker.branch_righteous");
+        neutralButton = branchButton(buttons.get(3), "neutral", chainId, canBranch,
+                "screen.seeking_immortals.quest_tracker.branch_neutral");
+        demonicButton = branchButton(buttons.get(4), "demonic", chainId, canBranch,
+                "screen.seeking_immortals.quest_tracker.branch_demonic");
         addButton(buttons.get(5), Component.translatable("gui.done"), button -> onClose(), false);
     }
 
-    private Button branchButton(UiRect rect, String branch, String chainId, Component label, boolean active) {
-        Button button = addButton(rect, label, pressed -> {
-            if (!chainId.isBlank()) sendAction("branch:" + chainId + ":" + branch);
+    private void setFilter(Filter next) {
+        if (next == null || next == filter) {
+            return;
+        }
+        filter = next;
+        rebuildView();
+        clearWidgets();
+        rebuildButtons();
+    }
+
+    private Button branchButton(UiRect rect, String branch, String chainId, boolean active, String key) {
+        Button button = addButton(rect, Component.translatable(key), pressed -> {
+            if (!chainId.isBlank()) {
+                sendAction("branch:" + chainId + ":" + branch);
+            }
         }, false);
         button.active = active && !chainId.isBlank();
         return button;
@@ -99,15 +219,14 @@ public class QuestTrackerScreen extends AbstractJournalScreen {
     @Override
     protected JournalChrome journalChrome() {
         Layout layout = calculateLayout(width, height);
-        UiRect panel = layout.panel();
-        return new JournalChrome(panel.x(), panel.y(), panel.width(), panel.height(),
-                layout.titleBar(), layout.viewport());
+        return new JournalChrome(layout.panel().x(), layout.panel().y(), layout.panel().width(), layout.panel().height(),
+                layout.titleBar(), null);
     }
 
     @Override
     protected void renderJournalTitle(GuiGraphics graphics, JournalChrome chrome, UiRect header) {
-        ImmortalUiSkin.drawStringFit(font, graphics, getTitle().getString(),
-                header.x() + 6, header.y() + Math.max(2, (header.height() - font.lineHeight) / 2),
+        ImmortalUiSkin.drawStringFit(font, graphics, getTitle().getString(), header.x() + 6,
+                header.y() + Math.max(2, (header.height() - font.lineHeight) / 2),
                 Math.max(1, header.width() - 12), ImmortalUiSkin.JOURNAL_PAPER, false);
     }
 
@@ -115,226 +234,597 @@ public class QuestTrackerScreen extends AbstractJournalScreen {
     protected void renderJournalContent(GuiGraphics graphics, JournalChrome chrome,
                                         int mouseX, int mouseY, float partialTick) {
         Layout layout = calculateLayout(width, height);
-        UiRect viewport = layout.viewport();
-        UiRect hint = layout.hint();
+        ImmortalUiSkin.drawInnerFrame(graphics, layout.list().x(), layout.list().y(),
+                layout.list().width(), layout.list().height());
+        ImmortalUiSkin.drawInnerFrame(graphics, layout.detail().x(), layout.detail().y(),
+                layout.detail().width(), layout.detail().height());
 
-        int contentWidth = Math.max(1, viewport.width() - 10);
-        List<String> lines = ClientQuestTrackerData.lines();
-        listPanel.setBounds(viewport)
-                .setContentHeight(measureLines(lines, contentWidth))
-                .renderContent(graphics, (g, contentX, contentY, measuredWidth) ->
-                        renderLines(g, lines, contentX, contentY, measuredWidth, mouseX, mouseY));
+        listPanel.setBounds(layout.list()).setContentRows(view.size());
+        if (view.isEmpty()) {
+            ImmortalUiSkin.drawWrappedText(font, graphics,
+                    Component.translatable("screen.seeking_immortals.quest_tracker.empty_filtered"),
+                    layout.list().x() + 6, layout.list().y() + 6,
+                    Math.max(1, layout.list().width() - 12), Math.max(1, layout.list().height() - 10),
+                    ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
+        } else {
+            listPanel.renderRows(graphics, view.size(), mouseX, mouseY, (g, index, bounds, state, hovered) -> {
+                ClientQuestTrackerData.ChainLine line = view.get(index);
+                boolean selected = line.id().equals(ClientQuestTrackerData.selectedChainId());
+                if (selected) {
+                    ImmortalUiSkin.drawListRow(g, bounds.x(), bounds.y(), bounds.width(), bounds.height(),
+                            ImmortalUiSkin.InteractionState.SELECTED);
+                }
+                renderListRow(g, line, bounds);
+            });
+        }
 
-        String hintText = activeHint();
-        if (!hintText.isBlank()) {
-            ImmortalUiSkin.withScissor(graphics, hint.x(), hint.y(), hint.width(), hint.height(), () ->
-                    ImmortalUiSkin.drawWrappedText(font, graphics, hintText,
-                            hint.x(), hint.y(), hint.width(), hint.height(),
-                            ImmortalUiSkin.JOURNAL_PAPER_MUTED, false));
+        List<DetailLine> details = detailLines();
+        int detailWidth = Math.max(1, layout.detail().width() - 14);
+        detailPanel.setBounds(layout.detail())
+                .setContentHeight(measureDetail(details, detailWidth));
+        detailPanel.renderContent(graphics, (g, x, y, contentWidth) ->
+                renderDetailLines(g, details, x, y, Math.max(1, contentWidth), mouseX, mouseY));
+    }
+
+    private void renderListRow(GuiGraphics graphics, ClientQuestTrackerData.ChainLine line, UiRect bounds) {
+        DisplayState state = stateOf(line);
+        String title = displayTitle(line.id());
+        String status = Component.translatable(stateKey(state)).getString();
+        String top = status + " · " + title;
+        ImmortalUiSkin.drawStringFit(font, graphics, top, bounds.x() + 5, bounds.y() + 3,
+                Math.max(1, bounds.width() - 12), stateColor(state), false);
+        if (bounds.height() >= 18) {
+            String progress = progressText(line, state);
+            ImmortalUiSkin.drawStringFit(font, graphics, progress, bounds.x() + 5, bounds.y() + 13,
+                    Math.max(1, bounds.width() - 12), ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
         }
     }
 
-    @Override
-    public boolean mouseScrolled(double mouseX, double mouseY, double delta) {
-        Layout layout = calculateLayout(width, height);
-        UiRect viewport = layout.viewport();
-        int contentWidth = Math.max(1, viewport.width() - 10);
-        listPanel.setBounds(viewport)
-                .setContentHeight(measureLines(ClientQuestTrackerData.lines(), contentWidth));
-        if (listPanel.mouseScrolled(mouseX, mouseY, delta)) {
-            return true;
+    private List<DetailLine> detailLines() {
+        Optional<ClientQuestTrackerData.ChainLine> selected = selectedLine();
+        if (selected.isEmpty()) {
+            return List.of(new DetailLine(Component.translatable(
+                    "screen.seeking_immortals.quest_tracker.pick_hint").getString(),
+                    ImmortalUiSkin.JOURNAL_PAPER_MUTED, 0));
         }
-        return super.mouseScrolled(mouseX, mouseY, delta);
+        ClientQuestTrackerData.ChainLine line = selected.get();
+        DisplayState state = stateOf(line);
+        boolean chinese = chineseLocale();
+        Optional<QuestPresentationService.ChainPresentation> metadata =
+                QuestPresentationService.find(line.id());
+        List<DetailLine> details = new ArrayList<>();
+        details.add(new DetailLine(displayTitle(line.id()), stateColor(state), 0));
+        details.add(new DetailLine(Component.translatable("screen.seeking_immortals.quest_tracker.detail_status",
+                Component.translatable(stateKey(state)), line.stage(), Math.max(0, line.steps())).getString(),
+                ImmortalUiSkin.JOURNAL_SPIRIT, 1));
+        details.add(new DetailLine(Component.translatable("screen.seeking_immortals.quest_tracker.detail_description",
+                metadata.map(value -> chinese ? value.descriptionZh() : value.descriptionEn())
+                        .filter(value -> !value.isBlank())
+                        .orElseGet(() -> Component.translatable("screen.seeking_immortals.quest_tracker.description_missing").getString())).getString(),
+                ImmortalUiSkin.JOURNAL_PAPER, 3));
+
+        String requirements = requirementsText(metadata.orElse(null));
+        details.add(new DetailLine(Component.translatable(
+                "screen.seeking_immortals.quest_tracker.detail_requirements", requirements).getString(),
+                ImmortalUiSkin.JOURNAL_PAPER, 3));
+
+        String gate = gateText(line, state, metadata.orElse(null));
+        if (!gate.isBlank()) {
+            details.add(new DetailLine(Component.translatable(
+                    "screen.seeking_immortals.quest_tracker.detail_gate", gate).getString(),
+                    ImmortalUiSkin.JOURNAL_CINNABAR_BRIGHT, 2));
+        }
+
+        String npc = npcDisplay(TextQuestChainService.npcFor(line.id()));
+        details.add(new DetailLine(Component.translatable(
+                "screen.seeking_immortals.quest_tracker.detail_guide", npc).getString(),
+                ImmortalUiSkin.JOURNAL_PAPER, 3));
+
+        int objectiveStage = objectiveStage(line);
+        String objective = metadata.flatMap(value -> value.stage(objectiveStage))
+                .map(value -> chinese ? value.summaryZh() : value.summaryEn())
+                .filter(value -> !value.isBlank())
+                .orElseGet(() -> Component.translatable(
+                        "screen.seeking_immortals.quest_tracker.objective_generic").getString());
+        details.add(new DetailLine(Component.translatable(
+                "screen.seeking_immortals.quest_tracker.detail_objective", objective).getString(),
+                ImmortalUiSkin.JOURNAL_JADE_TEXT, 3));
+
+        Optional<QuestPresentationService.StagePresentation> stageMetadata =
+                metadata.flatMap(value -> value.stage(objectiveStage));
+        String authoredStageConditions = stageMetadata
+                .map(value -> authoredRequirementsText(value.requirements(), chinese))
+                .orElse("");
+        if (!authoredStageConditions.isBlank()) {
+            details.add(new DetailLine(Component.translatable(
+                    "screen.seeking_immortals.quest_tracker.detail_condition_authored",
+                    authoredStageConditions).getString(), ImmortalUiSkin.JOURNAL_CINNABAR, 2));
+        }
+
+        if (state == DisplayState.ACTIVE) {
+            details.add(new DetailLine(Component.translatable(
+                    "screen.seeking_immortals.quest_tracker.detail_condition_npc", npc).getString(),
+                    ImmortalUiSkin.JOURNAL_PAPER, 2));
+            String cost = nextCostText(line, chinese);
+            details.add(new DetailLine(Component.translatable(
+                    "screen.seeking_immortals.quest_tracker.detail_condition_material", cost).getString(),
+                    costMissing(line) ? ImmortalUiSkin.JOURNAL_CINNABAR_BRIGHT : ImmortalUiSkin.JOURNAL_PAPER,
+                    1));
+        } else if (state == DisplayState.AVAILABLE) {
+            details.add(new DetailLine(Component.translatable(
+                    "screen.seeking_immortals.quest_tracker.detail_condition_accept").getString(),
+                    ImmortalUiSkin.JOURNAL_PAPER, 2));
+        }
+
+        details.addAll(rewardLines(line, metadata.orElse(null), chinese));
+        return List.copyOf(details);
+    }
+
+    private List<DetailLine> rewardLines(ClientQuestTrackerData.ChainLine line,
+                                          QuestPresentationService.ChainPresentation metadata,
+                                          boolean chinese) {
+        List<DetailLine> result = new ArrayList<>();
+        List<TextQuestChainService.RewardPreview> finale =
+                QuestPresentationService.finaleRewards(line.id());
+        result.add(new DetailLine(Component.translatable(
+                "screen.seeking_immortals.quest_tracker.detail_rewards",
+                rewardText(finale, chinese)).getString(), ImmortalUiSkin.JOURNAL_SPIRIT, 4));
+        List<TextQuestChainService.RewardPreview> midpoint =
+                QuestPresentationService.midpointRewards(line.id());
+        if (!midpoint.isEmpty()) {
+            int milestone = metadata == null ? 0 : Math.max(2, metadata.stepCount() / 2);
+            result.add(new DetailLine(Component.translatable(
+                    "screen.seeking_immortals.quest_tracker.detail_mid_reward", milestone,
+                    rewardText(midpoint, chinese)).getString(), ImmortalUiSkin.JOURNAL_PAPER, 2));
+        }
+        String branch = normalizedBranch(line.branch());
+        result.add(new DetailLine(Component.translatable(
+                "screen.seeking_immortals.quest_tracker.detail_branch_reward",
+                branchDisplay(branch), rewardText(QuestPresentationService.branchRewards(branch), chinese)).getString(),
+                ImmortalUiSkin.JOURNAL_PAPER, 2));
+        if (line.rewarded()) {
+            result.add(new DetailLine(Component.translatable(
+                    "screen.seeking_immortals.quest_tracker.reward_claimed").getString(),
+                    ImmortalUiSkin.JOURNAL_JADE_TEXT, 1));
+        }
+        return result;
+    }
+
+    private int measureDetail(List<DetailLine> lines, int width) {
+        if (lines == null || lines.isEmpty()) {
+            return font.lineHeight;
+        }
+        int height = 0;
+        for (DetailLine line : lines) {
+            int wrapped = Math.max(1, font.split(Component.literal(line.text()), Math.max(1, width)).size());
+            height += line.gapBefore() + wrapped * (font.lineHeight + DETAIL_GAP);
+        }
+        return Math.max(1, height + 4);
+    }
+
+    private void renderDetailLines(GuiGraphics graphics, List<DetailLine> lines, int x, int y,
+                                   int width, int mouseX, int mouseY) {
+        int cursor = y;
+        for (DetailLine line : lines) {
+            cursor += line.gapBefore();
+            for (var sequence : font.split(Component.literal(line.text()), Math.max(1, width))) {
+                graphics.drawString(font, sequence, x, cursor, line.color(), false);
+                cursor += font.lineHeight + DETAIL_GAP;
+            }
+        }
+    }
+
+    private Optional<ClientQuestTrackerData.ChainLine> selectedLine() {
+        String selectedId = ClientQuestTrackerData.selectedChainId();
+        if (selectedId != null && !selectedId.isBlank()) {
+            for (ClientQuestTrackerData.ChainLine line : view) {
+                if (selectedId.equals(line.id())) {
+                    return Optional.of(line);
+                }
+            }
+        }
+        return view.isEmpty() ? Optional.empty() : Optional.of(view.get(0));
     }
 
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
         if (button == 0) {
             Layout layout = calculateLayout(width, height);
-            UiRect viewport = layout.viewport();
-            if (viewport.contains(mouseX, mouseY)) {
-                int contentWidth = Math.max(1, viewport.width() - 10);
-                int contentY = (int)Math.floor(mouseY) - (viewport.y() + 3) + listPanel.scrollOffset();
-                Optional<ClientQuestTrackerData.ChainLine> clicked = chainAtContentOffset(
-                        ClientQuestTrackerData.lines(), contentWidth, contentY);
-                if (clicked.isPresent() && ClientQuestTrackerData.selectChain(clicked.get().id())) {
-                    refreshWidgets();
+            if (layout.list().contains(mouseX, mouseY) && !view.isEmpty()) {
+                int visible = listPanel.visibleRowCount();
+                int local = (int) ((mouseY - layout.list().y()) / Math.max(1, listPanel.rowStride()));
+                int index = listPanel.firstVisibleRow() + local;
+                if (local >= 0 && local < visible && index >= 0 && index < view.size()) {
+                    ClientQuestTrackerData.selectChain(view.get(index).id());
+                    detailPanel.resetScroll();
+                    clearWidgets();
+                    rebuildButtons();
                     return true;
                 }
             }
         }
+        if (listPanel.mouseClicked(mouseX, mouseY, button)
+                || detailPanel.mouseClicked(mouseX, mouseY, button)) {
+            return true;
+        }
         return super.mouseClicked(mouseX, mouseY, button);
     }
 
-    private int measureLines(List<String> lines, int contentWidth) {
-        if (lines.isEmpty()) return font.lineHeight;
-        int height = 0;
-        for (String line : lines) {
-            height += Math.max(1, font.split(Component.literal(displayLine(line)), contentWidth).size())
-                    * (font.lineHeight + LINE_GAP);
+    @Override
+    public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
+        if (listPanel.mouseDragged(mouseX, mouseY, button, dragX, dragY)
+                || detailPanel.mouseDragged(mouseX, mouseY, button, dragX, dragY)) {
+            return true;
         }
-        return Math.max(1, height - LINE_GAP);
+        return super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
     }
 
-    private void renderLines(GuiGraphics graphics, List<String> lines, int x, int y, int contentWidth,
-                             int mouseX, int mouseY) {
-        if (lines.isEmpty()) {
-            ImmortalUiSkin.drawStringFit(font, graphics,
-                    Component.translatable("screen.seeking_immortals.quest_tracker.empty").getString(),
-                    x, y, contentWidth, ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
-            return;
+    @Override
+    public boolean mouseReleased(double mouseX, double mouseY, int button) {
+        if (listPanel.mouseReleased(mouseX, mouseY, button)
+                || detailPanel.mouseReleased(mouseX, mouseY, button)) {
+            return true;
         }
-        int cursorY = y;
-        for (String line : lines) {
-            String safeLine = line == null ? "" : line;
-            String renderedLine = displayLine(safeLine);
-            int lineHeight = lineHeight(renderedLine, contentWidth);
-            Optional<ClientQuestTrackerData.ChainLine> parsed = ClientQuestTrackerData.parseChainLine(safeLine);
-            if (parsed.isPresent()) {
-                boolean selected = parsed.get().id().equals(ClientQuestTrackerData.selectedChainId());
-                boolean hovered = mouseX >= x - 2 && mouseX < x + contentWidth + 2
-                        && mouseY >= cursorY - 1 && mouseY < cursorY + lineHeight - 1;
-                if (selected || hovered) {
-                    ImmortalUiSkin.drawListRow(graphics, x - 2, cursorY - 1, contentWidth + 4, lineHeight,
-                            selected ? ImmortalUiSkin.InteractionState.SELECTED
-                                    : ImmortalUiSkin.InteractionState.HOVERED);
-                }
+        return super.mouseReleased(mouseX, mouseY, button);
+    }
+
+    @Override
+    public boolean mouseScrolled(double mouseX, double mouseY, double delta) {
+        Layout layout = calculateLayout(width, height);
+        listPanel.setBounds(layout.list()).setContentRows(view.size());
+        if (listPanel.mouseScrolledRows(mouseX, mouseY, delta, view.size())) {
+            return true;
+        }
+        List<DetailLine> details = detailLines();
+        detailPanel.setBounds(layout.detail())
+                .setContentHeight(measureDetail(details, Math.max(1, layout.detail().width() - 14)));
+        if (detailPanel.mouseScrolled(mouseX, mouseY, delta)) {
+            return true;
+        }
+        return super.mouseScrolled(mouseX, mouseY, delta);
+    }
+
+    private String requirementsText(QuestPresentationService.ChainPresentation chain) {
+        if (chain == null) {
+            return Component.translatable("screen.seeking_immortals.quest_tracker.requirement_unknown").getString();
+        }
+        List<String> parts = new ArrayList<>();
+        if (!chain.realmMin().isBlank()) {
+            parts.add(Component.translatable("screen.seeking_immortals.quest_tracker.requirement_realm",
+                    ArtifactDisplayTexts.realm(chain.realmMin())).getString());
+        }
+        if (!chain.regionId().isBlank()) {
+            String key = "qixuan_mortal_path".equals(chain.id()) && "tiannan".equals(chain.regionId())
+                    ? "screen.seeking_immortals.quest_tracker.requirement_region_tutorial"
+                    : "screen.seeking_immortals.quest_tracker.requirement_region";
+            parts.add(Component.translatable(key, regionDisplay(chain.regionId())).getString());
+        }
+        if (!chain.factionId().isBlank()) {
+            parts.add(Component.translatable("screen.seeking_immortals.quest_tracker.requirement_faction",
+                    factionDisplay(chain.factionId())).getString());
+        }
+        String authored = authoredRequirementsText(chain.requirements(), chineseLocale());
+        if (!authored.isBlank()) {
+            parts.add(authored);
+        }
+        return parts.isEmpty()
+                ? Component.translatable("screen.seeking_immortals.quest_tracker.requirement_none").getString()
+                : String.join(chineseLocale() ? "；" : "; ", parts);
+    }
+
+    private String authoredRequirementsText(List<QuestPresentationService.RequirementPresentation> requirements,
+                                            boolean chinese) {
+        if (requirements == null || requirements.isEmpty()) {
+            return "";
+        }
+        List<String> values = new ArrayList<>();
+        for (QuestPresentationService.RequirementPresentation requirement : requirements) {
+            if (requirement == null) {
+                continue;
             }
-            int color = safeLine.startsWith("OK ") ? ImmortalUiSkin.JOURNAL_JADE_TEXT
-                    : safeLine.startsWith("ERR ") ? ImmortalUiSkin.JOURNAL_CINNABAR_BRIGHT
-                    : ImmortalUiSkin.JOURNAL_PAPER;
-            for (FormattedCharSequence sequence : font.split(Component.literal(renderedLine), contentWidth)) {
-                graphics.drawString(font, sequence, x, cursorY, color, false);
-                cursorY += font.lineHeight + LINE_GAP;
+            String value = chinese ? requirement.textZh() : requirement.textEn();
+            if (value == null || value.isBlank()) {
+                continue;
+            }
+            if (!requirement.enforced()) {
+                value = Component.translatable(
+                        "screen.seeking_immortals.quest_tracker.requirement_informational", value).getString();
+            }
+            values.add(value);
+        }
+        return String.join(chinese ? "；" : "; ", values);
+    }
+
+    private String gateText(ClientQuestTrackerData.ChainLine line, DisplayState state,
+                            QuestPresentationService.ChainPresentation chain) {
+        if (state != DisplayState.LOCKED) {
+            return "";
+        }
+        String gate = gateOf(line);
+        return switch (gate) {
+            case "REALM" -> Component.translatable("screen.seeking_immortals.quest_tracker.gate_realm").getString();
+            case "REGION" -> Component.translatable("screen.seeking_immortals.quest_tracker.gate_region").getString();
+            case "FACTION" -> Component.translatable("screen.seeking_immortals.quest_tracker.gate_faction").getString();
+            case "PATH" -> Component.translatable("screen.seeking_immortals.quest_tracker.gate_path").getString();
+            case "RACE" -> Component.translatable("screen.seeking_immortals.quest_tracker.gate_race").getString();
+            case "PARENT" -> Component.translatable("screen.seeking_immortals.quest_tracker.gate_parent").getString();
+            case "DATA" -> Component.translatable("screen.seeking_immortals.quest_tracker.gate_data").getString();
+            default -> Component.translatable("screen.seeking_immortals.quest_tracker.gate_unknown").getString();
+        };
+    }
+
+    private String nextCostText(ClientQuestTrackerData.ChainLine line, boolean chinese) {
+        if (line.costNeed() > 0) {
+            return itemDisplay(line.costItem(), chinese) + " " + line.owned() + "/" + line.costNeed();
+        }
+        Optional<TextQuestChainService.StageCost> cost =
+                QuestPresentationService.nextStageCost(line.id(), line.stage());
+        if (cost.isPresent()) {
+            TextQuestChainService.StageCost value = cost.get();
+            return itemDisplay(value.itemId(), chinese) + " 0/" + value.count();
+        }
+        return Component.translatable("screen.seeking_immortals.quest_tracker.material_none").getString();
+    }
+
+    private String rewardText(List<TextQuestChainService.RewardPreview> rewards, boolean chinese) {
+        if (rewards == null || rewards.isEmpty()) {
+            return Component.translatable("screen.seeking_immortals.quest_tracker.reward_none").getString();
+        }
+        List<String> values = new ArrayList<>();
+        for (TextQuestChainService.RewardPreview reward : rewards) {
+            if (reward == null || reward.itemId() == null || reward.itemId().isBlank()) {
+                continue;
+            }
+            values.add(itemDisplay(reward.itemId(), chinese) + " ×" + Math.max(1, reward.count()));
+        }
+        if (values.isEmpty()) {
+            return Component.translatable("screen.seeking_immortals.quest_tracker.reward_story").getString();
+        }
+        return String.join(chinese ? "、" : ", ", values);
+    }
+
+    private String itemDisplay(String rawId, boolean chinese) {
+        Component unknown = Component.translatable("text.seeking_immortals.unknown_item");
+        Component item = PlayerDisplayText.itemName(rawId);
+        String value = item.getString();
+        return value.equals(unknown.getString())
+                ? QuestPresentationService.rewardFallback(rawId, chinese) : value;
+    }
+
+    private String displayTitle(String chainId) {
+        String title = QuestPresentationService.title(chainId, chineseLocale());
+        return title.isBlank() ? Component.translatable("text.seeking_immortals.unknown_quest").getString() : title;
+    }
+
+    private String progressText(ClientQuestTrackerData.ChainLine line, DisplayState state) {
+        return switch (state) {
+            case AVAILABLE -> Component.translatable("screen.seeking_immortals.quest_tracker.progress_available").getString();
+            case LOCKED -> Component.translatable("screen.seeking_immortals.quest_tracker.progress_locked").getString();
+            case ACTIVE, DONE -> Component.translatable("screen.seeking_immortals.quest_tracker.progress_stage",
+                    Math.max(0, line.stage()), Math.max(0, line.steps())).getString();
+        };
+    }
+
+    private Component primaryLabel(DisplayState state) {
+        return Component.translatable(switch (state) {
+            case AVAILABLE -> "screen.seeking_immortals.quest_tracker.accept";
+            case ACTIVE -> "screen.seeking_immortals.quest_tracker.advance";
+            case LOCKED -> "screen.seeking_immortals.quest_tracker.action_locked";
+            case DONE -> "screen.seeking_immortals.quest_tracker.action_done";
+        });
+    }
+
+    private static int stateColor(DisplayState state) {
+        return switch (state) {
+            case AVAILABLE -> ImmortalUiSkin.JOURNAL_JADE_TEXT;
+            case ACTIVE -> ImmortalUiSkin.JOURNAL_SPIRIT;
+            case LOCKED -> ImmortalUiSkin.JOURNAL_PAPER_MUTED;
+            case DONE -> ImmortalUiSkin.JOURNAL_PAPER;
+        };
+    }
+
+    private static int stateOrder(DisplayState state) {
+        return switch (state) {
+            case ACTIVE -> 0;
+            case AVAILABLE -> 1;
+            case LOCKED -> 2;
+            case DONE -> 3;
+        };
+    }
+
+    private String stateKey(DisplayState state) {
+        return "screen.seeking_immortals.quest_tracker.state." + state.name().toLowerCase(Locale.ROOT);
+    }
+
+    private static boolean costMissing(ClientQuestTrackerData.ChainLine line) {
+        return line.costNeed() > 0 && line.owned() < line.costNeed();
+    }
+
+    private String branchDisplay(String branch) {
+        String normalized = normalizedBranch(branch);
+        return Component.translatable("screen.seeking_immortals.quest_tracker.branch_name." + normalized).getString();
+    }
+
+    private String regionDisplay(String id) {
+        return RegionRegistry.find(id).map(region -> chineseLocale() ? region.displayZh() : region.displayEn())
+                .filter(value -> value != null && !value.isBlank())
+                .orElseGet(() -> Component.translatable("text.seeking_immortals.unknown_region").getString());
+    }
+
+    private String factionDisplay(String id) {
+        String normalized = id == null ? "" : id.trim().toLowerCase(Locale.ROOT);
+        Optional<SectDefinitionService.SectDefinition> sect = SectDefinitionService.find(normalized);
+        if (sect.isPresent()) {
+            String value = chineseLocale() ? sect.get().displayZh() : sect.get().displayEn();
+            if (value != null && !value.isBlank()) {
+                return value;
             }
         }
+        Optional<ExtendedCatalogService.SectEntry> catalog = ExtendedCatalogService.builtin().findSect(normalized);
+        if (catalog.isPresent() && PlayerDisplayText.isSafe(catalog.get().display())) {
+            return catalog.get().display();
+        }
+        String key = switch (normalized) {
+            case "mortal_realm" -> "text.seeking_immortals.faction.mortal_realm";
+            case "chaotic_sea" -> "text.seeking_immortals.faction.chaotic_sea";
+            case "dajin" -> "text.seeking_immortals.faction.dajin";
+            case "demonic_path" -> "text.seeking_immortals.faction.demonic_path";
+            case "tianyuan" -> "text.seeking_immortals.faction.tianyuan";
+            case "mulan" -> "text.seeking_immortals.faction.mulan";
+            default -> "text.seeking_immortals.unknown_faction";
+        };
+        return Component.translatable(key).getString();
     }
 
-    private Optional<ClientQuestTrackerData.ChainLine> chainAtContentOffset(
-            List<String> lines, int contentWidth, int contentY) {
-        if (contentY < 0) {
-            return Optional.empty();
-        }
-        int cursor = 0;
-        for (String line : lines) {
-            String safeLine = line == null ? "" : line;
-            int height = lineHeight(displayLine(safeLine), contentWidth);
-            if (contentY >= cursor && contentY < cursor + height) {
-                return ClientQuestTrackerData.parseChainLine(safeLine);
-            }
-            cursor += height;
-        }
-        return Optional.empty();
+    private String npcDisplay(String id) {
+        return NamedNpcRegistry.find(id).map(npc -> PlayerDisplayText.isSafe(npc.display())
+                        ? npc.display() : Component.translatable("text.seeking_immortals.quest_guide").getString())
+                .orElseGet(() -> Component.translatable("text.seeking_immortals.quest_guide").getString());
     }
 
-    private int lineHeight(String line, int contentWidth) {
-        return Math.max(1, font.split(Component.literal(line), contentWidth).size()) * (font.lineHeight + LINE_GAP);
+    private static String normalizedBranch(String branch) {
+        String value = branch == null ? "" : branch.trim().toLowerCase(Locale.ROOT);
+        return switch (value) {
+            case "righteous", "zheng", "dao" -> "righteous";
+            case "demonic", "mo", "xie" -> "demonic";
+            default -> "neutral";
+        };
     }
 
-    private String activeHint() {
-        Optional<ClientQuestTrackerData.ChainLine> active = ClientQuestTrackerData.selectedChain();
-        if (active.isEmpty()) return "";
-        ClientQuestTrackerData.ChainLine line = active.get();
-        if (line.complete()) {
-            return Component.translatable("screen.seeking_immortals.quest_tracker.hint_done",
-                    questDisplay(line.id())).getString();
+    private static DisplayState stateOf(ClientQuestTrackerData.ChainLine line) {
+        if (line == null || line.state() == null) {
+            return DisplayState.LOCKED;
         }
-        if (line.costNeed() > 0 && line.owned() < line.costNeed()) {
-            return Component.translatable("screen.seeking_immortals.quest_tracker.hint_cost",
-                    PlayerDisplayText.itemName(line.costItem()), line.owned(), line.costNeed()).getString();
-        }
-        if (line.branchLocked()) {
-            return Component.translatable("screen.seeking_immortals.quest_tracker.hint_locked",
-                    branchDisplay(line.branch())).getString();
-        }
-        return Component.translatable("screen.seeking_immortals.quest_tracker.hint_ready",
-                questDisplay(line.id())).getString();
+        return switch (line.state()) {
+            case AVAILABLE -> DisplayState.AVAILABLE;
+            case LOCKED -> DisplayState.LOCKED;
+            case ACTIVE -> DisplayState.ACTIVE;
+            case DONE -> DisplayState.DONE;
+        };
     }
 
-    private static String questDisplay(String id) {
-        ExtendedCatalogService.QuestChain chain = id == null ? null
-                : ExtendedCatalogService.builtin().questChains().get(id);
-        return chain != null && PlayerDisplayText.isSafe(chain.display())
-                ? chain.display().trim() : Component.translatable("text.seeking_immortals.unknown_quest").getString();
-    }
-
-    private static String branchDisplay(String branch) {
-        String key = "screen.seeking_immortals.quest_tracker.branch." +
-                (branch == null || branch.isBlank() ? "neutral" : branch);
-        return PlayerDisplayText.translatedOr(key,
-                "screen.seeking_immortals.quest_tracker.branch.unknown").getString();
-    }
-
-    private static String displayLine(String raw) {
-        Optional<ClientQuestTrackerData.ChainLine> parsed = ClientQuestTrackerData.parseChainLine(raw);
-        if (parsed.isEmpty()) {
-            return Component.translatable("screen.seeking_immortals.quest_tracker.no_active").getString();
+    static int objectiveStage(ClientQuestTrackerData.ChainLine line) {
+        if (line == null) {
+            return 1;
         }
-        ClientQuestTrackerData.ChainLine line = parsed.get();
-        Component cost = line.costNeed() > 0 ? PlayerDisplayText.itemName(line.costItem())
-                : Component.translatable("text.seeking_immortals.none");
-        return Component.translatable("screen.seeking_immortals.quest_tracker.entry",
-                questDisplay(line.id()), line.stage(), line.steps(), branchDisplay(line.branch()),
-                cost, line.owned(), line.costNeed(), line.complete() ? 1 : 0).getString();
+        int last = Math.max(1, line.steps());
+        return switch (stateOf(line)) {
+            case ACTIVE -> Math.min(last, Math.max(1, line.stage() + 1));
+            case DONE -> last;
+            case AVAILABLE, LOCKED -> 1;
+        };
+    }
+
+    private static String gateOf(ClientQuestTrackerData.ChainLine line) {
+        return line == null || line.gate() == null ? "" : line.gate().name();
+    }
+
+    private boolean chineseLocale() {
+        try {
+            String selected = Minecraft.getInstance().getLanguageManager().getSelected();
+            return selected == null || selected.toLowerCase(Locale.ROOT).startsWith("zh");
+        } catch (Throwable ignored) {
+            return true;
+        }
     }
 
     static Layout calculateLayout(int screenWidth, int screenHeight) {
         int safeWidth = Math.max(1, screenWidth);
         int safeHeight = Math.max(1, screenHeight);
-        int margin = safeWidth < 160 || safeHeight < 110 ? 4 : 12;
-        margin = Math.min(margin, Math.min((safeWidth - 1) / 2, (safeHeight - 1) / 2));
+        int margin = safeWidth < 180 || safeHeight < 120 ? 4 : 10;
+        margin = Math.min(margin, Math.min(Math.max(0, (safeWidth - 1) / 2), Math.max(0, (safeHeight - 1) / 2)));
         int panelWidth = Math.max(1, Math.min(DESIRED_WIDTH, safeWidth - margin * 2));
         int panelHeight = Math.max(1, Math.min(DESIRED_HEIGHT, safeHeight - margin * 2));
         int left = Math.max(0, (safeWidth - panelWidth) / 2);
         int top = Math.max(0, (safeHeight - panelHeight) / 2);
         UiRect panel = new UiRect(left, top, panelWidth, panelHeight);
-        int padding = panelWidth < 160 || panelHeight < 110 ? 4 : 10;
-        int gap = panelHeight < 110 ? 2 : 6;
-        int titleHeight = panelHeight < 110 ? 14 : 20;
-        int frameInset = Math.min(4, Math.max(0, panelWidth - 1));
-        UiRect titleBar = new UiRect(left + frameInset, top + Math.min(4, Math.max(0, panelHeight - 1)),
-                Math.max(1, panelWidth - frameInset * 2), Math.min(titleHeight, panelHeight));
-
-        boolean twoRows = panelWidth < 260;
-        int buttonHeight = panelHeight < 110 ? 12 : 18;
-        int buttonGap = twoRows ? Math.min(3, gap) : 4;
-        int rows = twoRows ? 2 : 1;
-        int footerHeight = rows * buttonHeight + (rows - 1) * buttonGap;
-        int footerY = Math.max(top, panel.bottom() - padding - footerHeight);
-        int hintHeight = Math.min(panelHeight < 110 ? 9 : 20,
-                Math.max(1, footerY - titleBar.bottom() - gap * 2));
-        UiRect hint = new UiRect(left + padding, Math.max(titleBar.bottom(), footerY - gap - hintHeight),
-                Math.max(1, panelWidth - padding * 2), hintHeight);
-        int viewportY = Math.min(hint.y(), titleBar.bottom() + gap);
-        UiRect viewport = new UiRect(left + padding, viewportY,
-                Math.max(1, panelWidth - padding * 2), Math.max(1, hint.y() - gap - viewportY));
-
-        java.util.ArrayList<UiRect> buttonRects = new java.util.ArrayList<>(6);
-        if (twoRows) {
-            int columnWidth = Math.max(1, (panelWidth - padding * 2 - buttonGap * 2) / 3);
-            for (int index = 0; index < 6; index++) {
-                int row = index / 3;
-                int col = index % 3;
-                int x = left + padding + col * (columnWidth + buttonGap);
-                int width = col == 2
-                        ? Math.max(1, panel.right() - padding - x) : columnWidth;
-                buttonRects.add(new UiRect(x, footerY + row * (buttonHeight + buttonGap), width, buttonHeight));
+        int pad = panelWidth < 180 || panelHeight < 120 ? 4 : 8;
+        int gap = panelHeight < 120 ? 2 : 5;
+        int titleHeight = Math.min(panelHeight, panelHeight < 120 ? 14 : 20);
+        UiRect title = new UiRect(left + Math.min(4, panelWidth - 1), top + Math.min(4, panelHeight - 1),
+                Math.max(1, panelWidth - Math.min(4, panelWidth - 1) * 2), Math.max(1, titleHeight));
+        int innerX = left + pad;
+        int innerW = Math.max(1, panelWidth - pad * 2);
+        int filterH = Math.max(1, Math.min(panelHeight < 120 ? 11 : 15, panelHeight));
+        int filterY = Math.min(panel.bottom(), title.bottom() + gap);
+        int filterGap = innerW < 20 ? 0 : Math.min(3, (innerW - 5) / 4);
+        int filterSpace = Math.max(1, innerW - filterGap * 4);
+        List<UiRect> filters = new ArrayList<>(5);
+        int consumed = 0;
+        for (int i = 0; i < 5; i++) {
+            int remaining = filterSpace - consumed;
+            int slots = 5 - i;
+            int w = Math.max(1, remaining / slots);
+            int x = innerX + i * (Math.max(1, filterSpace / 5) + filterGap);
+            if (i == 4) {
+                x = innerX + innerW - w;
+            }
+            filters.add(new UiRect(Math.max(innerX, x), filterY, Math.max(1, Math.min(w, left + panelWidth - pad - x)), filterH));
+            consumed += w;
+        }
+        int rows = panelWidth < 390 ? 2 : 1;
+        int buttonH = Math.max(1, Math.min(panelHeight < 120 ? 12 : 18, panelHeight));
+        int buttonGap = Math.min(4, gap);
+        int footerH = rows * buttonH + (rows - 1) * buttonGap;
+        int footerY = Math.max(top, panel.bottom() - pad - footerH);
+        int contentY = Math.min(footerY, filterY + filterH + gap);
+        int contentH = Math.max(1, footerY - contentY - gap);
+        boolean stacked = panelWidth < 390 || contentH < 90;
+        int listX = innerX;
+        int listY = contentY;
+        int listW;
+        int listH;
+        int detailX;
+        int detailY;
+        int detailW;
+        int detailH;
+        if (stacked) {
+            int splitGap = Math.min(4, Math.max(0, contentH - 2));
+            listH = Math.max(1, (contentH - splitGap) / 2);
+            detailY = contentY + listH + splitGap;
+            detailH = Math.max(1, contentH - listH - splitGap);
+            listW = innerW;
+            detailX = innerX;
+            detailW = innerW;
+        } else {
+            int splitGap = Math.min(8, Math.max(1, innerW / 30));
+            listW = Math.max(1, Math.min(210, (innerW - splitGap) * 42 / 100));
+            detailX = innerX + listW + splitGap;
+            detailW = Math.max(1, innerX + innerW - detailX);
+            listH = contentH;
+            detailY = contentY;
+            detailH = contentH;
+        }
+        UiRect list = new UiRect(listX, listY, listW, listH);
+        UiRect detail = new UiRect(detailX, detailY, detailW, detailH);
+        List<UiRect> buttons = new ArrayList<>(6);
+        if (rows == 2) {
+            int colGap = Math.min(3, buttonGap);
+            int colW = Math.max(1, (innerW - colGap * 2) / 3);
+            for (int i = 0; i < 6; i++) {
+                int row = i / 3;
+                int col = i % 3;
+                int x = innerX + col * (colW + colGap);
+                int w = col == 2 ? Math.max(1, innerX + innerW - x) : colW;
+                buttons.add(new UiRect(x, footerY + row * (buttonH + buttonGap), w, buttonH));
             }
         } else {
-            int columnWidth = Math.max(1, (panelWidth - padding * 2 - buttonGap * 5) / 6);
-            for (int index = 0; index < 6; index++) {
-                int x = left + padding + index * (columnWidth + buttonGap);
-                int width = index == 5
-                        ? Math.max(1, panel.right() - padding - x) : columnWidth;
-                buttonRects.add(new UiRect(x, footerY, width, buttonHeight));
+            int colGap = Math.min(4, buttonGap);
+            int colW = Math.max(1, (innerW - colGap * 5) / 6);
+            for (int i = 0; i < 6; i++) {
+                int x = innerX + i * (colW + colGap);
+                int w = i == 5 ? Math.max(1, innerX + innerW - x) : colW;
+                buttons.add(new UiRect(x, footerY, w, buttonH));
             }
         }
-        return new Layout(panel, titleBar, viewport, hint, List.copyOf(buttonRects));
+        return new Layout(panel, title, list, detail, List.copyOf(filters),
+                new UiRect(innerX, filterY, innerW, filterH), List.copyOf(buttons), stacked);
     }
 
     static int clampScroll(int offset, int contentHeight, int viewportHeight) {
         return ScrollableListPanel.clampScroll(offset, contentHeight, viewportHeight);
     }
 
-    record Layout(UiRect panel, UiRect titleBar, UiRect viewport, UiRect hint, List<UiRect> buttons) {}
+    record Layout(UiRect panel, UiRect titleBar, UiRect list, UiRect detail, List<UiRect> filters,
+                  UiRect hint, List<UiRect> buttons, boolean stacked) {}
 }

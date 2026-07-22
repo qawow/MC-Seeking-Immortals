@@ -13,6 +13,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class ClientQuestTrackerDataTest {
     private static final String FIRST = "first_path 1/3 branch=neutral cost=spirit_stone:2 own=4 LOCK=0 REW=0";
     private static final String SECOND = "second_path 2/4 branch=righteous cost=-:0 own=0 LOCK=1 REW=0";
+    private static final String AVAILABLE =
+            "available_path 0/4 branch=neutral cost=-:0 own=0 LOCK=0 REW=0 STATE=AVAILABLE GATE=NONE";
+    private static final String LOCKED =
+            "locked_path 0/4 branch=neutral cost=-:0 own=0 LOCK=0 REW=0 STATE=LOCKED GATE=REGION";
+    private static final String ACTIVE =
+            "active_path 1/4 branch=neutral cost=-:0 own=0 LOCK=0 REW=0 STATE=ACTIVE GATE=NONE";
 
     @AfterEach
     void resetClientData() {
@@ -47,5 +53,34 @@ class ClientQuestTrackerDataTest {
 
         assertFalse(ClientQuestTrackerData.selectChain("missing"));
         assertEquals("first_path", ClientQuestTrackerData.selectedChainId());
+    }
+
+    @Test
+    void parsesOptionalStateAndGateWithConveniencePredicates() {
+        var available = ClientQuestTrackerData.parseChainLine(AVAILABLE).orElseThrow();
+        assertEquals(ClientQuestTrackerData.TrackerState.AVAILABLE, available.state());
+        assertEquals(ClientQuestTrackerData.StartGate.NONE, available.gate());
+        assertTrue(available.isAvailable());
+        assertFalse(available.isLocked());
+
+        var locked = ClientQuestTrackerData.parseChainLine(LOCKED).orElseThrow();
+        assertEquals(ClientQuestTrackerData.StartGate.REGION, locked.gate());
+        assertTrue(locked.isLocked());
+        assertFalse(locked.complete());
+
+        // Pre-state rows remain parseable and infer ACTIVE from their positive stage.
+        assertTrue(ClientQuestTrackerData.parseChainLine(FIRST).orElseThrow().isActive());
+    }
+
+    @Test
+    void defaultSelectionPrefersActiveThenAvailableThenOtherStates() {
+        assertEquals("available_path", ClientQuestTrackerData.resolveSelectedChainId("", List.of(
+                "done_path 4/4 DONE branch=neutral cost=-:0 own=0 LOCK=0 REW=1 STATE=DONE GATE=NONE",
+                LOCKED,
+                AVAILABLE)));
+        assertEquals("active_path", ClientQuestTrackerData.resolveSelectedChainId("", List.of(
+                AVAILABLE,
+                ACTIVE,
+                LOCKED)));
     }
 }

@@ -3,11 +3,11 @@ package com.xunxian.seekingimmortals.quest;
 import com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts;
 import com.xunxian.seekingimmortals.catalog.ExtendedCatalogService;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
+import com.xunxian.seekingimmortals.cultivation.ProgressionGateApi;
 import com.xunxian.seekingimmortals.item.InventoryDeliveryService;
 import com.xunxian.seekingimmortals.network.SyncQuestTrackerPacket;
 import com.xunxian.seekingimmortals.npc.NamedNpcRegistry;
 import com.xunxian.seekingimmortals.region.RegionRegistry;
-import com.xunxian.seekingimmortals.registry.ModBulkItems;
 import com.xunxian.seekingimmortals.registry.ModItems;
 import com.xunxian.seekingimmortals.sect.SectDefinitionService;
 import com.xunxian.seekingimmortals.util.PlayerDisplayText;
@@ -19,7 +19,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -39,6 +38,7 @@ import java.util.Optional;
  * Still not the full narrative/NPC quest engine.
  */
 public final class TextQuestChainService {
+    private static final int MAX_REWARD_COUNT = 4096;
     private static final String ROOT_TAG = "seeking_immortals_text_quest_chains";
     private static final String REWARD_TAG = "seeking_immortals_text_quest_rewards";
     private static final String BRANCH_TAG = "seeking_immortals_text_quest_branches";
@@ -70,6 +70,39 @@ public final class TextQuestChainService {
     public record ChainProgress(String id, int stage, int stepCount, boolean complete) {}
 
     public record StageCost(String itemId, int count, String displayKey) {}
+
+    /** Compact state mirrored by the native quest tracker. */
+    public enum TrackerState {
+        AVAILABLE,
+        LOCKED,
+        ACTIVE,
+        DONE
+    }
+
+    /** First failing start requirement. NONE means the chain can be accepted. */
+    public enum StartGate {
+        NONE,
+        REALM,
+        REGION,
+        FACTION,
+        PATH,
+        RACE,
+        PARENT,
+        DATA
+    }
+
+    public record StartEligibility(boolean eligible, StartGate gate) {
+        private static StartEligibility available() {
+            return new StartEligibility(true, StartGate.NONE);
+        }
+
+        private static StartEligibility blocked(StartGate gate) {
+            return new StartEligibility(false, gate == null ? StartGate.DATA : gate);
+        }
+    }
+
+    /** Read-only finale reward description. It never grants or marks a reward. */
+    public record RewardPreview(String itemId, int count) {}
 
     public static int chainCount() {
         return ExtendedCatalogService.builtin().questChains().size();
@@ -150,6 +183,76 @@ public final class TextQuestChainService {
     }
 
     /**
+     * Silent start preflight used by tracker snapshots. The first failed gate is
+     * returned without sending chat/action-bar messages or mutating player data.
+     */
+    public static StartEligibility startEligibility(ServerPlayer player, String chainId) {
+        return find(chainId)
+                .map(chain -> startEligibility(player, chain))
+                .orElseGet(() -> StartEligibility.blocked(StartGate.DATA));
+    }
+
+    private static StartEligibility startEligibility(ServerPlayer player,
+                                                      ExtendedCatalogService.QuestChain chain) {
+        if (player == null || chain == null) {
+            return StartEligibility.blocked(StartGate.DATA);
+        }
+        if (player.getAbilities().instabuild) {
+            return StartEligibility.available();
+        }
+        var cultivation = CultivationHelper.get(player).orElse(null);
+        if (cultivation == null) {
+            return StartEligibility.blocked(StartGate.DATA);
+        }
+        ExtendedCatalogService.QuestStartRequirements requirements = chain.startRequirements();
+        if (requirements == null) {
+            return StartEligibility.available();
+        }
+        String currentRegion = normalize(cultivation.getWorldpackCurrentRegionId());
+        if (!requirements.realmMin().isBlank()
+                && !WorldpackGameplayService.meetsMinRealm(cultivation.getRealm(), requirements.realmMin())) {
+            return StartEligibility.blocked(StartGate.REALM);
+        }
+        String requiredRegion = normalize(requirements.region());
+        if (!matchesStartRegion(chain.id(), requiredRegion, currentRegion)) {
+            return StartEligibility.blocked(StartGate.REGION);
+        }
+        String requiredFaction = SectDefinitionService.canonicalizeSectId(requirements.faction());
+        String currentFaction = SectDefinitionService.canonicalizeSectId(
+                cultivation.getSevenMysteriesQuest().getSectId());
+        if (!requiredFaction.isBlank() && !requiredFaction.equals(currentFaction)) {
+            return StartEligibility.blocked(StartGate.FACTION);
+        }
+        String requiredPath = normalize(requirements.pathRequired());
+        if (!requiredPath.isBlank() && !ProgressionGateApi.meetsPath(cultivation, requiredPath)) {
+            return StartEligibility.blocked(StartGate.PATH);
+        }
+        String requiredRace = normalize(requirements.raceRequired());
+        if (!requiredRace.isBlank() && !ProgressionGateApi.meetsRace(cultivation, requiredRace)) {
+            return StartEligibility.blocked(StartGate.RACE);
+        }
+        String parentChain = normalize(requirements.parentChain());
+        if (!parentChain.isBlank()) {
+            Optional<ExtendedCatalogService.QuestChain> parent = find(parentChain);
+            if (parent.isEmpty() || !progressOf(player, parentChain).complete()) {
+                return StartEligibility.blocked(StartGate.PARENT);
+            }
+        }
+        return StartEligibility.available();
+    }
+
+    static boolean matchesStartRegion(String chainId, String requiredRegion, String currentRegion) {
+        String required = normalize(requiredRegion);
+        String current = normalize(currentRegion);
+        if (required.isBlank() || required.equals(current)) {
+            return true;
+        }
+        return "qixuan_mortal_path".equals(normalize(chainId))
+                && "tiannan".equals(required)
+                && "qinglan_mountains".equals(current);
+    }
+
+    /**
      * Silent authority preflight for an explicitly targeted one-stage transition.
      * This does not evaluate or replay authored hooks; the caller must provide its
      * own server-side proof for the requested target stage.
@@ -198,56 +301,51 @@ public final class TextQuestChainService {
         if (player == null || chain == null) {
             return false;
         }
-        if (player.getAbilities().instabuild) {
+        StartEligibility eligibility = startEligibility(player, chain);
+        if (eligibility.eligible()) {
             return true;
         }
-        boolean[] allowed = {false};
-        CultivationHelper.get(player).ifPresent(cultivation -> {
-            ExtendedCatalogService.QuestStartRequirements requirements = chain.startRequirements();
-            if (requirements == null) {
-                allowed[0] = true;
-                return;
-            }
-            if (!requirements.realmMin().isBlank()
-                    && !WorldpackGameplayService.meetsMinRealm(cultivation.getRealm(), requirements.realmMin())) {
-                if (warn) {
-                    player.displayClientMessage(Component.translatable(
-                            "message.seeking_immortals.text_quest.start_realm_too_low",
-                            questDisplay(chain), ArtifactDisplayTexts.realm(requirements.realmMin()),
-                            ArtifactDisplayTexts.realm(cultivation.getRealm().name())), true);
-                }
-                return;
-            }
-            String currentRegion = normalize(cultivation.getWorldpackCurrentRegionId());
-            String requiredRegion = normalize(requirements.region());
-            if (!requiredRegion.isBlank() && !requiredRegion.equals(currentRegion)) {
-                if (warn) {
-                    player.displayClientMessage(Component.translatable(
-                            "message.seeking_immortals.text_quest.start_wrong_region",
-                            questDisplay(chain), regionDisplay(requiredRegion),
-                            regionDisplay(currentRegion)), true);
-                }
-                return;
-            }
-            String requiredFaction = SectDefinitionService.canonicalizeSectId(requirements.faction());
-            String currentFaction = SectDefinitionService.canonicalizeSectId(
-                    cultivation.getSevenMysteriesQuest().getSectId());
-            if (!requiredFaction.isBlank() && !requiredFaction.equals(currentFaction)) {
-                if (warn) {
-                    player.displayClientMessage(Component.translatable(
-                            "message.seeking_immortals.text_quest.start_wrong_faction",
-                            questDisplay(chain), factionDisplay(requiredFaction),
-                            factionDisplay(currentFaction)), true);
-                }
-                return;
-            }
-            allowed[0] = true;
-        });
-        if (!allowed[0] && warn && !CultivationHelper.get(player).isPresent()) {
-            player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.text_quest.start_no_data"), true);
+        if (!warn) {
+            return false;
         }
-        return allowed[0];
+        var cultivation = CultivationHelper.get(player).orElse(null);
+        ExtendedCatalogService.QuestStartRequirements requirements = chain.startRequirements();
+        switch (eligibility.gate()) {
+            case REALM -> player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.text_quest.start_realm_too_low",
+                    questDisplay(chain), ArtifactDisplayTexts.realm(requirements.realmMin()),
+                    ArtifactDisplayTexts.realm(cultivation.getRealm().name())), true);
+            case REGION -> {
+                String requiredRegion = normalize(requirements.region());
+                String currentRegion = normalize(cultivation.getWorldpackCurrentRegionId());
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.text_quest.start_wrong_region",
+                        questDisplay(chain), regionDisplay(requiredRegion), regionDisplay(currentRegion)), true);
+            }
+            case FACTION -> {
+                String requiredFaction = SectDefinitionService.canonicalizeSectId(requirements.faction());
+                String currentFaction = SectDefinitionService.canonicalizeSectId(
+                        cultivation.getSevenMysteriesQuest().getSectId());
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.text_quest.start_wrong_faction",
+                        questDisplay(chain), factionDisplay(requiredFaction), factionDisplay(currentFaction)), true);
+            }
+            case PATH -> player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.text_quest.start_wrong_path",
+                    questDisplay(chain), pathDisplay(requirements.pathRequired())), true);
+            case RACE -> player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.text_quest.start_wrong_race",
+                    questDisplay(chain), raceDisplay(requirements.raceRequired())), true);
+            case PARENT -> player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.text_quest.start_parent_incomplete",
+                    questDisplay(chain), questDisplay(requirements.parentChain())), true);
+            case DATA -> player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.text_quest.start_no_data"), true);
+            case NONE -> {
+                // No warning is needed for an eligible chain.
+            }
+        }
+        return false;
     }
 
     public static boolean advance(ServerPlayer player, String chainId) {
@@ -774,13 +872,19 @@ public final class TextQuestChainService {
     }
 
     private static List<ItemStack> authorityRewardsFor(String chainId) {
-        String id = normalize(chainId);
-        // Wave457: catalog rewards_finale first (resolve via Forge registry / bulk carriers).
-        List<ItemStack> fromCatalog = catalogFinaleRewards(id);
-        if (!fromCatalog.isEmpty()) {
-            return fromCatalog;
+        List<ItemStack> stacks = new ArrayList<>();
+        for (RewardPreview preview : finaleRewardPreview(chainId)) {
+            Item item;
+            try {
+                item = resolveItem(preview.itemId());
+            } catch (Throwable ignored) {
+                continue;
+            }
+            if (item != null) {
+                stacks.add(new ItemStack(item, preview.count()));
+            }
         }
-        return softRewardsFor(id);
+        return List.copyOf(stacks);
     }
 
     /**
@@ -788,6 +892,32 @@ public final class TextQuestChainService {
      * Supports optional "id*count" / "id:count" suffixes.
      */
     public static List<ItemStack> catalogFinaleRewards(String chainId) {
+        List<ItemStack> stacks = new ArrayList<>();
+        for (RewardPreview preview : catalogFinaleRewardPreview(chainId)) {
+            Item item;
+            try {
+                item = resolveItem(preview.itemId());
+            } catch (Throwable ignored) {
+                continue;
+            }
+            if (item != null) {
+                stacks.add(new ItemStack(item, preview.count()));
+            }
+        }
+        return List.copyOf(stacks);
+    }
+
+    /**
+     * Catalog-first finale preview shared with the authority grant path. If no
+     * catalog token resolves to a registered item, the legacy fallback table is
+     * returned as pure ids so headless documentation/tests remain safe.
+     */
+    public static List<RewardPreview> finaleRewardPreview(String chainId) {
+        List<RewardPreview> catalog = catalogFinaleRewardPreview(chainId);
+        return catalog.isEmpty() ? fallbackFinaleRewardPreview(normalize(chainId)) : catalog;
+    }
+
+    private static List<RewardPreview> catalogFinaleRewardPreview(String chainId) {
         Optional<ExtendedCatalogService.QuestChain> optional = find(chainId);
         if (optional.isEmpty()) {
             return List.of();
@@ -796,7 +926,7 @@ public final class TextQuestChainService {
         if (finale == null || finale.isEmpty()) {
             return List.of();
         }
-        List<ItemStack> stacks = new ArrayList<>();
+        List<RewardPreview> previews = new ArrayList<>();
         for (String raw : finale) {
             ParsedReward parsed = parseRewardToken(raw);
             if (parsed == null) {
@@ -812,9 +942,9 @@ public final class TextQuestChainService {
             if (item == null) {
                 continue;
             }
-            stacks.add(new ItemStack(item, parsed.count()));
+            previews.add(new RewardPreview(namespacedItemId(parsed.itemId()), parsed.count()));
         }
-        return stacks;
+        return List.copyOf(previews);
     }
 
     private record ParsedReward(String itemId, int count) {}
@@ -827,11 +957,15 @@ public final class TextQuestChainService {
         int count = 1;
         String itemId = token;
         int star = token.lastIndexOf('*');
-        if (star > 0 && star < token.length() - 1) {
-            String maybe = token.substring(star + 1).trim();
-            if (!maybe.isEmpty() && maybe.chars().allMatch(Character::isDigit)) {
-                count = Math.max(1, Integer.parseInt(maybe));
-                itemId = token.substring(0, star).trim();
+        int colon = token.lastIndexOf(':');
+        int separator = star > 0 ? star : colon;
+        if (separator > 0 && separator < token.length() - 1) {
+            String maybe = token.substring(separator + 1).trim();
+            String prefix = token.substring(0, separator).trim();
+            if (!prefix.isEmpty() && !maybe.isEmpty()
+                    && maybe.chars().allMatch(Character::isDigit)) {
+                count = boundedRewardCount(maybe);
+                itemId = prefix;
             }
         }
         if (itemId.isBlank()) {
@@ -840,63 +974,87 @@ public final class TextQuestChainService {
         return new ParsedReward(itemId, count);
     }
 
-    /** Authority reward table (legacy method name retained). */
-    private static List<ItemStack> softRewardsFor(String chainId) {
+    static int boundedRewardCount(String digits) {
+        if (digits == null || digits.isBlank()) {
+            return 1;
+        }
+        int value = 0;
+        for (int index = 0; index < digits.length(); index++) {
+            char digit = digits.charAt(index);
+            if (digit < '0' || digit > '9') {
+                return 1;
+            }
+            int next = digit - '0';
+            if (value > (MAX_REWARD_COUNT - next) / 10) {
+                return MAX_REWARD_COUNT;
+            }
+            value = value * 10 + next;
+        }
+        return Math.max(1, value);
+    }
+
+    private static String namespacedItemId(String itemId) {
+        String id = normalize(itemId);
+        return id.contains(":") ? id : "seeking_immortals:" + id;
+    }
+
+    /** Authority fallback table, shared by grants and read-only previews. */
+    private static List<RewardPreview> fallbackFinaleRewardPreview(String chainId) {
         return switch (chainId) {
             case "huangfeng_cultivation_path" -> List.of(
-                    stack(ModItems.FOUNDATION_BUILDING_PILL_LOW, 1),
-                    stack(ModItems.ALLIANCE_MERIT_TOKEN, 2));
+                    reward("foundation_building_pill_low", 1),
+                    reward("alliance_merit_token", 2));
             case "ghost_path" -> List.of(
-                    stack(ModItems.YIN_STONE, 8),
-                    stack(ModItems.SOUL_FRAGMENT, 2));
+                    reward("yin_stone", 8),
+                    reward("soul_fragment", 2));
             case "dajin_kunwu_line" -> List.of(
-                    stack(ModItems.IMMORTAL_JADE, 1),
-                    stack(ModItems.VOID_CRYSTAL, 1));
+                    reward("immortal_jade", 1),
+                    reward("void_crystal", 1));
             case "chaotic_sea_politics" -> List.of(
-                    stack(ModItems.STAR_PALACE_TAX_RECEIPT, 1),
-                    stack(ModItems.SPIRIT_STONE_SHARD, 16));
+                    reward("star_palace_tax_receipt", 1),
+                    reward("spirit_stone_shard", 16));
             case "spirit_realm_rise" -> List.of(
-                    stack(ModItems.ALLIANCE_MERIT_TOKEN, 3),
-                    stack(ModItems.IMMORTAL_JADE, 1));
+                    reward("alliance_merit_token", 3),
+                    reward("immortal_jade", 1));
             // Wave34: expand top mainline soft rewards to 10 real quest_chains ids.
             case "mulan_tianlan_war" -> List.of(
-                    stack(ModItems.WAR_CONTRIBUTION_TOKEN, 2),
-                    stack(ModItems.SPIRIT_STONE_SHARD, 12));
+                    reward("war_contribution_token", 2),
+                    reward("spirit_stone_shard", 12));
             case "chain_seven_sect_outer_to_inner" -> List.of(
-                    stack(ModItems.JADE_SLIP_BLANK, 1),
-                    stack(ModItems.ALLIANCE_MERIT_TOKEN, 2));
+                    reward("jade_slip_blank", 1),
+                    reward("alliance_merit_token", 2));
             case "yin_cluster_pilgrim" -> List.of(
-                    stack(ModItems.YIN_STONE, 12),
-                    stack(ModItems.SOUL_GATHERING_STONE, 1));
+                    reward("yin_stone", 12),
+                    reward("soul_gathering_stone", 1));
             case "inverse_star_recruit" -> List.of(
-                    stack(ModItems.VOID_MARROW, 1),
-                    stack(ModItems.SPIRIT_STONE_SHARD, 20));
+                    reward("void_marrow", 1),
+                    reward("spirit_stone_shard", 20));
             case "chain_ascension_spirit_world" -> List.of(
-                    stack(ModItems.IMMORTAL_JADE, 1),
-                    stack(ModBulkItems.byId().get("jiangchen_pill"), 1));
+                    reward("immortal_jade", 1),
+                    reward("jiangchen_pill", 1));
             // Wave39: expand soft rewards to 15 real quest_chains ids.
             case "qixuan_mortal_path" -> List.of(
-                    stack(ModItems.SPIRIT_STONE_SHARD, 12),
-                    stack(ModBulkItems.byId().get("spirit_recovery_pill"), 2));
+                    reward("spirit_stone_shard", 12),
+                    reward("spirit_recovery_pill", 2));
             case "blood_forbidden_campaign" -> List.of(
-                    stack(ModItems.DEMONIC_BLOOD_CORAL, 1),
-                    stack(ModItems.SPIRIT_STONE_SHARD, 16));
+                    reward("demonic_blood_coral", 1),
+                    reward("spirit_stone_shard", 16));
             case "fallen_demon_campaign" -> List.of(
-                    stack(ModItems.DEMONIC_BLOOD_CORAL, 1),
-                    stack(ModItems.YIN_STONE, 8));
+                    reward("demonic_blood_coral", 1),
+                    reward("yin_stone", 8));
             case "void_palace_campaign" -> List.of(
-                    stack(ModItems.VOID_CRYSTAL, 1),
-                    stack(ModItems.VOID_MARROW, 1));
+                    reward("void_crystal", 1),
+                    reward("void_marrow", 1));
             case "tianyuan_merit_path" -> List.of(
-                    stack(ModItems.ALLIANCE_MERIT_TOKEN, 4),
-                    stack(ModItems.SPIRIT_STONE_SHARD, 20));
+                    reward("alliance_merit_token", 4),
+                    reward("spirit_stone_shard", 20));
             // Wave40: remaining chains get a generic one-time soft reward.
-            default -> List.of(stack(ModItems.SPIRIT_STONE_SHARD, 4));
+            default -> List.of(reward("spirit_stone_shard", 4));
         };
     }
 
-    private static ItemStack stack(RegistryObject<? extends Item> item, int count) {
-        return new ItemStack(item.get(), Math.max(1, count));
+    private static RewardPreview reward(String itemId, int count) {
+        return new RewardPreview(namespacedItemId(itemId), Math.max(1, count));
     }
 
     public static Map<String, Integer> activeMap(ServerPlayer player) {
@@ -917,34 +1075,44 @@ public final class TextQuestChainService {
     }
 
     /**
-     * Wave457: machine-readable tracker lines for client authority buttons.
-     * Format: {@code <id> <stage>/<steps> [DONE] branch=<b> cost=<item>:<need> own=<n> LOCK=<0|1> REW=<0|1>}
+     * Machine-readable full quest catalog for client authority buttons.
+     * Legacy fields are retained; STATE/GATE are optional to older clients.
+     * Format: {@code <id> <stage>/<steps> [DONE] branch=<b> cost=<item>:<need> own=<n> LOCK=<0|1> REW=<0|1> STATE=<state> GATE=<gate>}
      */
     public static List<String> buildTrackerLines(ServerPlayer player) {
         List<String> lines = new ArrayList<>();
-        if (player == null) {
-            lines.add("(no active text quest chains)");
-            return lines;
-        }
-        int shown = 0;
-        // M11: raise active-chain tracker capacity to cover full 62-chain concurrent tracking.
-        final int maxActive = 64;
-        for (ChainProgress chain : listProgress(player)) {
-            if (chain.stage() <= 0 && !chain.complete()) {
-                continue;
-            }
+        List<ChainProgress> progress = player == null ? emptyProgress() : listProgress(player);
+        for (ChainProgress chain : progress) {
             lines.add(formatTrackerLine(player, chain));
-            if (++shown >= maxActive) {
-                break;
-            }
         }
-        if (lines.isEmpty()) {
-            lines.add("(no active text quest chains)");
+        return List.copyOf(lines);
+    }
+
+    private static List<ChainProgress> emptyProgress() {
+        List<ChainProgress> progress = new ArrayList<>();
+        for (ExtendedCatalogService.QuestChain chain : ExtendedCatalogService.builtin().questChains().values()) {
+            progress.add(new ChainProgress(chain.id(), 0, Math.max(0, chain.stepCount()), false));
         }
-        return lines;
+        return progress;
+    }
+
+    static TrackerState trackerState(ChainProgress progress, StartEligibility eligibility) {
+        if (progress.complete() || (progress.stepCount() > 0 && progress.stage() >= progress.stepCount())) {
+            return TrackerState.DONE;
+        }
+        if (progress.stage() > 0) {
+            return TrackerState.ACTIVE;
+        }
+        return eligibility != null && eligibility.eligible()
+                ? TrackerState.AVAILABLE : TrackerState.LOCKED;
     }
 
     public static String formatTrackerLine(ServerPlayer player, ChainProgress chain) {
+        StartEligibility eligibility = chain.stage() <= 0 && !chain.complete()
+                ? startEligibility(player, chain.id()) : StartEligibility.available();
+        TrackerState state = trackerState(chain, eligibility);
+        StartGate gate = state == TrackerState.LOCKED ? eligibility.gate() : StartGate.NONE;
+        boolean done = state == TrackerState.DONE;
         String branch = player == null ? BRANCH_NEUTRAL : getBranch(player, chain.id());
         if (branch == null || branch.isBlank()) {
             branch = BRANCH_NEUTRAL;
@@ -952,7 +1120,7 @@ public final class TextQuestChainService {
         boolean locked = !BRANCH_NEUTRAL.equals(normalizeBranch(branch)) && !branch.isBlank();
         boolean rewarded = player != null && hasAuthorityReward(player, chain.id());
         String costPart = "cost=-:0 own=0";
-        if (!chain.complete()) {
+        if (!done) {
             int target = Math.max(1, chain.stage() + 1);
             Optional<StageCost> cost = stageCostFor(chain.id(), target, chain.stepCount());
             if (cost.isPresent()) {
@@ -961,12 +1129,27 @@ public final class TextQuestChainService {
                 costPart = "cost=" + shortItemId(c.itemId()) + ":" + c.count() + " own=" + owned;
             }
         }
-        return chain.id() + " " + chain.stage() + "/" + chain.stepCount()
-                + (chain.complete() ? " DONE" : "")
+        String line = chain.id() + " " + chain.stage() + "/" + chain.stepCount()
+                + (done ? " DONE" : "")
                 + " branch=" + branch
                 + " " + costPart
                 + " LOCK=" + (locked ? 1 : 0)
-                + " REW=" + (rewarded ? 1 : 0);
+                + " REW=" + (rewarded ? 1 : 0)
+                + " STATE=" + state.name()
+                + " GATE=" + gate.name();
+        return limitTrackerLine(line, state, gate);
+    }
+
+    private static String limitTrackerLine(String line, TrackerState state, StartGate gate) {
+        final int maxLength = SyncQuestTrackerPacket.MAX_LINE_LENGTH;
+        if (line.length() <= maxLength) {
+            return line;
+        }
+        String suffix = " STATE=" + state.name() + " GATE=" + gate.name();
+        int stateMarker = line.indexOf(" STATE=");
+        String prefix = stateMarker >= 0 ? line.substring(0, stateMarker) : line;
+        int prefixLength = Math.max(0, maxLength - suffix.length());
+        return prefix.substring(0, Math.min(prefix.length(), prefixLength)).trim() + suffix;
     }
 
     private static String shortItemId(String itemId) {
@@ -1024,6 +1207,21 @@ public final class TextQuestChainService {
             case "tiannan_seven" -> Component.translatable("text.seeking_immortals.faction.tiannan_seven");
             case "tianfu_gate" -> Component.translatable("text.seeking_immortals.faction.tianfu_gate");
             default -> Component.translatable("text.seeking_immortals.unknown_faction");
+        };
+    }
+
+    private static Component pathDisplay(String pathId) {
+        return switch (normalize(pathId)) {
+            case "ghost", "ghost_cultivator" ->
+                    Component.translatable("text.seeking_immortals.quest_path.ghost");
+            default -> Component.translatable("text.seeking_immortals.quest_path.specific");
+        };
+    }
+
+    private static Component raceDisplay(String raceId) {
+        return switch (normalize(raceId)) {
+            case "mulan_fashi" -> Component.translatable("text.seeking_immortals.quest_race.mulan_fashi");
+            default -> Component.translatable("text.seeking_immortals.quest_race.specific");
         };
     }
 

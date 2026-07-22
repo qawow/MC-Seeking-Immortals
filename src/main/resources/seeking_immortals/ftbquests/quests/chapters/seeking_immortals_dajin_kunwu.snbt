@@ -2,7 +2,7 @@
   id: "1000000000000003",
   filename: "seeking_immortals_dajin_kunwu",
   title: "寻仙问道：大晋与昆吾山",
-  subtitle: ["源自 quest_chains.json、quest_hooks.json、dajin_faction_quests.json 与 main_story_chapters.json。"],
+  subtitle: ["大晋与昆吾山修行篇章。按节点核对实际完成条件，原生任务线奖励由原生任务账本结算。"],
   default_quest_shape: "circle",
   default_hide_dependency_lines: false,
   progression_mode: "linear",
@@ -10,223 +10,236 @@
     {
       id: "1000000000000601",
       title: "大晋纵横",
-      subtitle: "大晋入口",
+      subtitle: "大晋正魔边境线 · 边境传闻",
       x: 0.0d,
       y: 0.0d,
       guide_page: "seeking_immortals:quest_native_dajin_kunwu",
       description: [
-        "来源：main_story_chapters#chapter_4_great_jin。",
-        "虚天殿后转入大晋，连接万宝楼、世家、正魔边境和昆吾山。"
+        "任务提示：围绕“大晋纵横”推进大晋正魔边境线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：先在原生任务追踪中接取大晋正魔边境线（接取门槛：境界不低于筑基；当前区域为指定区域）；本镜像读取已记录的接取里程碑（大晋正魔边境线：边境传闻）。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条大晋正魔边境线完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000515"],
       tags: ["seeking_immortals", "dajin", "chapter_4_great_jin"],
-      tasks: [{id: "1000000000001601", type: "custom", title: "抵达大晋", tags: ["si_native_dajin_righteous_demon_line_1"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001601", type: "custom", title: "接取里程碑：大晋正魔边境线：边境传闻", tags: ["si_native_dajin_righteous_demon_line_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000602",
       title: "万宝拍卖预览",
-      subtitle: "万宝楼拍卖线",
+      subtitle: "大晋商路 · 大晋拍卖请柬",
       x: 2.0d,
       y: -1.0d,
       guide_page: "seeking_immortals:quest_native_dajin_kunwu",
       description: [
-        "来源：dajin_wanbao_route / dajin_auction_preview。",
-        "大晋拍卖中枢正魔皆可竞价，后续可接入拍卖排期、请柬和竞价 UI。当前 FTB 物品任务检查 1 枚仙玉作为竞价保证金代理但不消耗；原生任务账本负责实际上交。"
+        "任务提示：围绕“万宝拍卖预览”推进大晋商路，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有仙玉 × 1（检测不消耗物品）；先在原生任务追踪中接取大晋商路（接取门槛：境界不低于炼气；当前区域为指定区域）；本镜像读取已记录的接取里程碑（大晋商路：大晋拍卖请柬）；原生任务账本已记录大晋商路：世家争端抉择；原生任务账本已记录大晋商路：昆吾山传闻。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条大晋商路完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000601"],
       tags: ["seeking_immortals", "dajin", "auction", "wanbao_pavilion"],
-      tasks: [{id: "1000000000001602", type: "item", title: "备齐竞价保证金", item: "seeking_immortals:immortal_jade", count: 1L, consume_items: false, match_nbt: false},
-        {id: "3200000000000103", type: "custom", title: "同步原生任务阶段 1/3", tags: ["si_native_dajin_wanbao_route_1"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000104", type: "custom", title: "同步原生任务阶段 2/3", tags: ["si_native_dajin_wanbao_route_2"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000105", type: "custom", title: "同步原生任务阶段 3/3", tags: ["si_native_dajin_wanbao_route_3"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001602", type: "item", title: "持有仙玉 × 1", item: "seeking_immortals:immortal_jade", count: 1L, consume_items: false, match_nbt: false},
+        {id: "3200000000000103", type: "custom", title: "接取里程碑：大晋商路：大晋拍卖请柬", tags: ["si_native_dajin_wanbao_route_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000104", type: "custom", title: "大晋商路：世家争端抉择", tags: ["si_native_dajin_wanbao_route_2"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000105", type: "custom", title: "大晋商路：昆吾山传闻", tags: ["si_native_dajin_wanbao_route_3"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000603",
       title: "世家领地巡护",
-      subtitle: "大晋世家",
+      subtitle: "大晋世家线 · 世家领地巡护",
       x: 2.0d,
       y: 1.0d,
       guide_page: "seeking_immortals:quest_native_dajin_kunwu",
       description: [
-        "来源：dajin_clan_line / clan_territory_patrol。",
-        "宁家等世家领地、祖传诀碎片与世家声望在此形成大晋支线。"
+        "任务提示：围绕“世家领地巡护”推进大晋世家线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：先在原生任务追踪中接取大晋世家线（接取门槛：境界不低于炼气；当前区域为指定区域）；本镜像读取已记录的接取里程碑（大晋世家线：世家领地巡护）；原生任务账本已记录大晋世家线：大晋拍卖预览；原生任务账本已记录大晋世家线：祖传诀试炼；原生任务账本已记录大晋世家线：昆吾远征。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条大晋世家线完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000601"],
       tags: ["seeking_immortals", "dajin", "clan"],
-      tasks: [{id: "1000000000001603", type: "custom", title: "完成世家巡护", tags: ["si_native_dajin_clan_line_1"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000061", type: "custom", title: "同步原生任务阶段 2/4", tags: ["si_native_dajin_clan_line_2"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000062", type: "custom", title: "同步原生任务阶段 3/4", tags: ["si_native_dajin_clan_line_3"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000063", type: "custom", title: "同步原生任务阶段 4/4", tags: ["si_native_dajin_clan_line_4"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001603", type: "custom", title: "接取里程碑：大晋世家线：世家领地巡护", tags: ["si_native_dajin_clan_line_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000061", type: "custom", title: "大晋世家线：大晋拍卖预览", tags: ["si_native_dajin_clan_line_2"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000062", type: "custom", title: "大晋世家线：祖传诀试炼", tags: ["si_native_dajin_clan_line_3"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000063", type: "custom", title: "大晋世家线：昆吾远征", tags: ["si_native_dajin_clan_line_4"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000604",
       title: "正魔边境传闻",
-      subtitle: "边境摩擦",
+      subtitle: "大晋正魔边境线 · 边境传闻",
       x: 2.0d,
       y: 3.0d,
       guide_page: "seeking_immortals:quest_native_dajin_kunwu",
       description: [
-        "来源：dajin_righteous_demon_line / dajin_border_rumor。",
-        "大晋正魔边境摩擦可走正道巡边或魔道渗透；真实互斥状态后续实现。"
+        "任务提示：围绕“正魔边境传闻”推进大晋正魔边境线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：先在原生任务追踪中接取大晋正魔边境线（接取门槛：境界不低于筑基；当前区域为指定区域）；本镜像读取已记录的接取里程碑（大晋正魔边境线：边境传闻）；原生任务账本已记录大晋正魔边境线：正道巡边；原生任务账本已记录大晋正魔边境线：万宝阁拍卖线索；原生任务账本已记录大晋正魔边境线：昆吾远征。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条大晋正魔边境线完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000601"],
       tags: ["seeking_immortals", "dajin", "branch_design"],
-      tasks: [{id: "1000000000001604", type: "custom", title: "听闻边境摩擦", tags: ["si_native_dajin_righteous_demon_line_1"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000226", type: "custom", title: "同步原生任务阶段 2/5", tags: ["si_native_dajin_righteous_demon_line_2"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000228", type: "custom", title: "同步原生任务阶段 4/5", tags: ["si_native_dajin_righteous_demon_line_4"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000229", type: "custom", title: "同步原生任务阶段 5/5", tags: ["si_native_dajin_righteous_demon_line_5"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001604", type: "custom", title: "接取里程碑：大晋正魔边境线：边境传闻", tags: ["si_native_dajin_righteous_demon_line_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000226", type: "custom", title: "大晋正魔边境线：正道巡边", tags: ["si_native_dajin_righteous_demon_line_2"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000228", type: "custom", title: "大晋正魔边境线：万宝阁拍卖线索", tags: ["si_native_dajin_righteous_demon_line_4"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000229", type: "custom", title: "大晋正魔边境线：昆吾远征", tags: ["si_native_dajin_righteous_demon_line_5"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000605",
       title: "正道巡边",
-      subtitle: "清剿魔道探子",
+      subtitle: "大晋正魔边境线 · 正道巡边",
       x: 4.0d,
       y: 2.0d,
       guide_page: "seeking_immortals:quest_native_dajin_kunwu",
       description: [
-        "来源：dajin_righteous_patrol_hook。",
-        "协助世家或佛寺清剿魔道探子，作为正道边境分支。"
+        "任务提示：围绕“正道巡边”推进大晋正魔边境线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：大晋声望达到 10。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条大晋正魔边境线完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000604"],
       tags: ["seeking_immortals", "dajin", "branch_righteous"],
-      tasks: [{id: "1000000000001605", type: "custom", title: "完成正道巡边", tags: ["si_rep_dajin_10"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001605", type: "custom", title: "大晋声望达到 10", tags: ["si_rep_dajin_10"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000606",
       title: "魔道渗透",
-      subtitle: "合欢或阴罗外围",
+      subtitle: "大晋正魔边境线 · 魔道渗透",
       x: 4.0d,
       y: 4.0d,
       guide_page: "seeking_immortals:quest_native_dajin_kunwu",
       description: [
-        "来源：dajin_demon_infiltrate_hook。",
-        "合欢或阴罗外围任务会限制正道声望；当前仅作为 FTB 分支提示。"
+        "任务提示：围绕“魔道渗透”推进大晋正魔边境线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录大晋正魔边境线：魔道渗透。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条大晋正魔边境线完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000604"],
       tags: ["seeking_immortals", "dajin", "branch_demonic"],
-      tasks: [{id: "1000000000001606", type: "custom", title: "完成魔道渗透", tags: ["si_native_dajin_righteous_demon_line_3"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001606", type: "custom", title: "大晋正魔边境线：魔道渗透", tags: ["si_native_dajin_righteous_demon_line_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000607",
       title: "昆吾情报",
-      subtitle: "入山线索",
+      subtitle: "大晋昆吾线 · 大晋拍卖预览",
       x: 4.0d,
       y: -1.0d,
       guide_page: "seeking_immortals:quest_native_dajin_kunwu",
       description: [
-        "来源：dajin_kunwu_line / kunwu_intel。",
-        "从万宝拍卖、世家消息和大晋游历中取得昆吾山地图碎片。当前 FTB 物品任务检查 1 枚空白玉简作为情报记录载体但不消耗；原生任务账本负责实际上交。"
+        "任务提示：围绕“昆吾情报”推进大晋昆吾线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有空白玉简 × 1（检测不消耗物品）；先在原生任务追踪中接取大晋昆吾线（接取门槛：境界不低于炼气；当前区域为指定区域）；本镜像读取已记录的接取里程碑（大晋昆吾线：大晋拍卖预览）；原生任务账本已记录大晋昆吾线：昆吾情报；先在原生任务追踪中接取昆吾山夺宝（接取门槛：境界不低于结丹；当前区域为昆吾山）；本镜像读取已记录的接取里程碑（昆吾山夺宝：入山许可）。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条大晋昆吾线完成后结算：昆吾令碎片 × 1、鉴宝瞳镜 × 1；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4；整条昆吾山夺宝完成后结算：昆吾山核矿 × 1、昆吾傀儡核心 × 1、昆吾令碎片 × 1；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000602"],
       tags: ["seeking_immortals", "dajin", "kunwu_mountain_campaign"],
-      tasks: [{id: "1000000000001607", type: "item", title: "记录昆吾情报", item: "seeking_immortals:jade_slip_blank", count: 1L, consume_items: false, match_nbt: false},
-        {id: "3200000000000035", type: "custom", title: "同步原生任务阶段 1/4", tags: ["si_native_dajin_kunwu_line_1"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000036", type: "custom", title: "同步原生任务阶段 2/4", tags: ["si_native_dajin_kunwu_line_2"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000210", type: "custom", title: "同步原生任务阶段 1/5", tags: ["si_native_kunwu_mountain_campaign_1"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001607", type: "item", title: "持有空白玉简 × 1", item: "seeking_immortals:jade_slip_blank", count: 1L, consume_items: false, match_nbt: false},
+        {id: "3200000000000035", type: "custom", title: "接取里程碑：大晋昆吾线：大晋拍卖预览", tags: ["si_native_dajin_kunwu_line_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000036", type: "custom", title: "大晋昆吾线：昆吾情报", tags: ["si_native_dajin_kunwu_line_2"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000210", type: "custom", title: "接取里程碑：昆吾山夺宝：入山许可", tags: ["si_native_kunwu_mountain_campaign_1"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000608",
       title: "昆吾入山令",
-      subtitle: "许可与寒潮准备",
+      subtitle: "昆吾山夺宝 · 外阵破禁",
       x: 6.0d,
       y: -1.0d,
       guide_page: "seeking_immortals:quest_native_dajin_kunwu",
       description: [
-        "来源：kunwu_mountain_campaign / kunwu_open_permit。",
-        "昆吾山要求大晋许可、境界与寒潮准备；后续可接入许可物品和冷害状态。当前 FTB 物品任务检查 1 枚寒玉作为寒潮准备代理但不消耗；原生任务账本负责实际上交。"
+        "任务提示：围绕“昆吾入山令”推进昆吾山夺宝，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有寒玉 × 1（检测不消耗物品）；原生任务账本已记录昆吾山夺宝：外阵破禁。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条昆吾山夺宝完成后结算：昆吾山核矿 × 1、昆吾傀儡核心 × 1、昆吾令碎片 × 1；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000607"],
       tags: ["seeking_immortals", "dajin", "kunwu_mountain_campaign"],
-      tasks: [{id: "1000000000001608", type: "item", title: "备妥寒潮护材", item: "seeking_immortals:cold_jade", count: 1L, consume_items: false, match_nbt: false},
-        {id: "3200000000000211", type: "custom", title: "同步原生任务阶段 2/5", tags: ["si_native_kunwu_mountain_campaign_2"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001608", type: "item", title: "持有寒玉 × 1", item: "seeking_immortals:cold_jade", count: 1L, consume_items: false, match_nbt: false},
+        {id: "3200000000000211", type: "custom", title: "昆吾山夺宝：外阵破禁", tags: ["si_native_kunwu_mountain_campaign_2"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000609",
       title: "昆吾外阵",
-      subtitle: "上古阵纹",
+      subtitle: "昆吾山夺宝 · 矿脉傀儡",
       x: 8.0d,
       y: -1.0d,
       guide_page: "seeking_immortals:quest_native_dajin_kunwu",
       description: [
-        "来源：kunwu_outer_array。",
-        "外阵破禁可走阵法或蛮力，连接现有聚灵阵和阵法指南内容。当前 FTB 物品任务检查 1 个聚灵阵作为破阵阵基代理但不消耗；原生任务账本负责实际上交。"
+        "任务提示：围绕“昆吾外阵”推进昆吾山夺宝，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有聚灵阵 × 1（检测不消耗物品）；原生任务账本已记录昆吾山夺宝：矿脉傀儡。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条昆吾山夺宝完成后结算：昆吾山核矿 × 1、昆吾傀儡核心 × 1、昆吾令碎片 × 1；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000608"],
       tags: ["seeking_immortals", "dajin", "kunwu_mountain_campaign", "formation"],
-      tasks: [{id: "1000000000001609", type: "item", title: "携带破阵阵基", item: "seeking_immortals:spirit_gathering_array", count: 1L, consume_items: false, match_nbt: false},
-        {id: "3200000000000212", type: "custom", title: "同步原生任务阶段 3/5", tags: ["si_native_kunwu_mountain_campaign_3"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001609", type: "item", title: "持有聚灵阵 × 1", item: "seeking_immortals:spirit_gathering_array", count: 1L, consume_items: false, match_nbt: false},
+        {id: "3200000000000212", type: "custom", title: "昆吾山夺宝：矿脉傀儡", tags: ["si_native_kunwu_mountain_campaign_3"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000610",
       title: "矿脉傀儡",
-      subtitle: "昆吾矿洞",
+      subtitle: "昆吾山夺宝 · 入山许可",
       x: 10.0d,
       y: -1.0d,
       guide_page: "seeking_immortals:quest_native_dajin_kunwu",
       description: [
-        "来源：kunwu_mine_tunnel。",
-        "矿脉傀儡节点用于承接昆吾铜、寒禁和傀儡战斗资源。"
+        "任务提示：围绕“矿脉傀儡”推进昆吾山夺宝，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有昆吾灵铜 × 4（检测不消耗物品）。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条昆吾山夺宝完成后结算：昆吾山核矿 × 1、昆吾傀儡核心 × 1、昆吾令碎片 × 1；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000609"],
       tags: ["seeking_immortals", "dajin", "kunwu_mountain_campaign", "puppet_design"],
-      tasks: [{id: "1000000000001610", type: "item", title: "采得昆吾灵铜", item: "seeking_immortals:kunwu_copper", count: 4L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001610", type: "item", title: "持有昆吾灵铜 × 4", item: "seeking_immortals:kunwu_copper", count: 4L, consume_items: false, match_nbt: false}]
     },
     {
       id: "1000000000000611",
       title: "傀儡殿",
-      subtitle: "上古傀儡",
+      subtitle: "昆吾山夺宝 · 傀儡殿",
       x: 12.0d,
       y: -1.0d,
       guide_page: "seeking_immortals:quest_native_dajin_kunwu",
       description: [
-        "来源：kunwu_puppet_hall。",
-        "傀儡殿是昆吾山中层战斗节点，后续可挂接实体、波次和傀儡核心掉落。"
+        "任务提示：围绕“傀儡殿”推进昆吾山夺宝，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有傀儡灵核（空） × 1（检测不消耗物品）；原生任务账本已记录昆吾山夺宝：傀儡殿。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条昆吾山夺宝完成后结算：昆吾山核矿 × 1、昆吾傀儡核心 × 1、昆吾令碎片 × 1；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000610"],
       tags: ["seeking_immortals", "dajin", "kunwu_mountain_campaign", "puppet_design"],
-      tasks: [{id: "1000000000001611", type: "item", title: "带回傀儡灵核", item: "seeking_immortals:puppet_core_blank", count: 1L, consume_items: false, match_nbt: false},
-        {id: "3200000000000213", type: "custom", title: "同步原生任务阶段 4/5", tags: ["si_native_kunwu_mountain_campaign_4"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001611", type: "item", title: "持有傀儡灵核（空） × 1", item: "seeking_immortals:puppet_core_blank", count: 1L, consume_items: false, match_nbt: false},
+        {id: "3200000000000213", type: "custom", title: "昆吾山夺宝：傀儡殿", tags: ["si_native_kunwu_mountain_campaign_4"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000612",
       title: "峰顶封印",
-      subtitle: "昆吾傀儡王",
+      subtitle: "昆吾山夺宝 · 峰顶封印",
       x: 14.0d,
       y: -1.0d,
       guide_page: "seeking_immortals:quest_native_dajin_kunwu",
       description: [
-        "来源：kunwu_peak_seal。",
-        "峰顶封印与昆吾傀儡王是昆吾山战役终点；当前以原版击杀任务承接战役终点。"
+        "任务提示：围绕“峰顶封印”推进昆吾山夺宝，按顺序完成当前节点的实际检测目标。",
+        "完成条件：击败铁傀儡 × 1；原生任务账本已记录昆吾山夺宝：峰顶封印。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条昆吾山夺宝完成后结算：昆吾山核矿 × 1、昆吾傀儡核心 × 1、昆吾令碎片 × 1；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000611"],
       tags: ["seeking_immortals", "dajin", "kunwu_mountain_campaign", "boss_design"],
-      tasks: [{id: "1000000000001612", type: "kill", entity: "minecraft:iron_golem", value: 1L, title: "稳住峰顶封印"},
-        {id: "3200000000000214", type: "custom", title: "同步原生任务阶段 5/5", tags: ["si_native_kunwu_mountain_campaign_5"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001612", type: "kill", entity: "minecraft:iron_golem", value: 1L, title: "击败铁傀儡 × 1"},
+        {id: "3200000000000214", type: "custom", title: "昆吾山夺宝：峰顶封印", tags: ["si_native_kunwu_mountain_campaign_5"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000613",
       title: "封魔阵残卷",
-      subtitle: "昆吾终章",
+      subtitle: "大晋昆吾线 · 昆吾远征",
       x: 16.0d,
       y: -1.0d,
       guide_page: "seeking_immortals:quest_native_dajin_kunwu",
       description: [
-        "来源：kunwu_seal_research / dajin_kunwu_line。",
-        "昆吾封魔阵残卷可并入古魔封印线；源设定奖励：kunwu_seal_fragment、ancient_treasure_appraisal_lens。当前 FTB 物品任务检查 1 个镇魔符宝坯作为封魔阵文代理但不消耗；原生任务账本负责实际上交。"
+        "任务提示：围绕“封魔阵残卷”推进大晋昆吾线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有镇魔符宝胚 × 1（检测不消耗物品）；原生任务账本已记录大晋昆吾线：昆吾远征；原生任务账本已记录大晋昆吾线：封魔阵残卷。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条大晋昆吾线完成后结算：昆吾令碎片 × 1、鉴宝瞳镜 × 1；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4；整条昆吾山夺宝完成后结算：昆吾山核矿 × 1、昆吾傀儡核心 × 1、昆吾令碎片 × 1；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000612"],
       tags: ["seeking_immortals", "dajin", "kunwu_mountain_campaign", "ancient_demon_line"],
-      tasks: [{id: "1000000000001613", type: "item", title: "誊录封魔阵文", item: "seeking_immortals:demon_suppress_talisman_blank", count: 1L, consume_items: false, match_nbt: false},
-        {id: "3200000000000037", type: "custom", title: "同步原生任务阶段 3/4", tags: ["si_native_dajin_kunwu_line_3"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000038", type: "custom", title: "同步原生任务阶段 4/4", tags: ["si_native_dajin_kunwu_line_4"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001613", type: "item", title: "持有镇魔符宝胚 × 1", item: "seeking_immortals:demon_suppress_talisman_blank", count: 1L, consume_items: false, match_nbt: false},
+        {id: "3200000000000037", type: "custom", title: "大晋昆吾线：昆吾远征", tags: ["si_native_dajin_kunwu_line_3"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000038", type: "custom", title: "大晋昆吾线：封魔阵残卷", tags: ["si_native_dajin_kunwu_line_4"], check_timer: 20, max_progress: 1L}
       ]
 }
   ]

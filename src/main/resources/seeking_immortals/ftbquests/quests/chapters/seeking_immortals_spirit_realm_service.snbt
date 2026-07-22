@@ -2,7 +2,7 @@
   id: "1000000000000006",
   filename: "seeking_immortals_spirit_realm_service",
   title: "寻仙问道：灵界天渊与风元百族",
-  subtitle: ["源自 quest_chains.json、quest_hooks.json、spirit_realm_interface.json、tianyuan_city.json、tianyuan_merit_economy.json、tianyuan_daily_events.json、human_clan_league.json、human_clan_quest_network.json、spirit_realm_clan_quests.json 与 barbarian_demon_kings.json。"],
+  subtitle: ["灵界天渊与风元百族修行篇章。按节点核对实际完成条件，原生任务线奖励由原生任务账本结算。"],
   default_quest_shape: "circle",
   default_hide_dependency_lines: false,
   progression_mode: "linear",
@@ -10,600 +10,636 @@
     {
       id: "1000000000000901",
       title: "飞升照会",
-      subtitle: "人界化神赴灵界",
+      subtitle: "人界化神·赴灵界 · 人界境界极限感悟",
       x: 0.0d,
       y: 0.0d,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：mortal_to_spirit_bridge / chain_ascension_spirit_world / spirit_realm_interface#ascension。",
-        "化神后期触碰人界上限，飞升照会将玩家引向天渊城登记；当前不触发真实飞升状态。"
+        "任务提示：围绕“飞升照会”推进人界化神·赴灵界，按顺序完成当前节点的实际检测目标。",
+        "完成条件：达成检测目标：进入要塞范围，达成隔墙有眼进度。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条人界化神·赴灵界完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000401"],
       tags: ["seeking_immortals", "spirit_realm", "ascension_bridge"],
-      tasks: [{id: "1000000000001901", type: "advancement", advancement: "minecraft:story/follow_ender_eye", title: "完成飞升照会"}]
+      tasks: [{id: "1000000000001901", type: "advancement", advancement: "minecraft:story/follow_ender_eye", title: "达成检测目标：进入要塞范围，达成隔墙有眼进度"}]
     },
     {
       id: "1000000000000902",
       title: "天渊军籍",
-      subtitle: "服役登记",
+      subtitle: "天渊功勋线 · 天渊功勋征召",
       x: 2.0d,
       y: 0.0d,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：chain_tianyuan_enlist / tianyuan_merit_path / quest_hooks#tianyuan_merit_enlist。",
-        "天渊城以军籍和功勋管理飞升修士，后续可接入 border_merit_token 与军功任务板。"
+        "任务提示：围绕“天渊军籍”推进天渊功勋线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：达成检测目标：进入下界，解锁下界根进度；先在原生任务追踪中接取天渊功勋线（接取门槛：境界不低于化神；当前区域为天渊城）；本镜像读取已记录的接取里程碑（天渊功勋线：天渊功勋征召）；原生任务账本已记录天渊功勋线：妖兽攻城防守；先在原生任务追踪中接取天渊城服役（接取门槛：境界不低于炼气；当前区域为天渊城）；本镜像读取已记录的接取里程碑（天渊城服役：天渊城登记入伍）；原生任务账本已记录天渊城服役：累积天渊功勋；原生任务账本已记录天渊城服役：换取灵界资源与通行资格。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条天渊功勋线完成后结算：功勋令 × 4、灵石碎片 × 20；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4；整条天渊城服役完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000901"],
       tags: ["seeking_immortals", "tianyuan", "merit", "service"],
-      tasks: [{id: "1000000000001902", type: "advancement", advancement: "minecraft:nether/root", title: "登记天渊军籍"},
-        {id: "3200000000000113", type: "custom", title: "同步原生任务阶段 1/3", tags: ["si_native_tianyuan_merit_path_1"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000114", type: "custom", title: "同步原生任务阶段 2/3", tags: ["si_native_tianyuan_merit_path_2"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000189", type: "custom", title: "同步原生任务阶段 1/4", tags: ["si_native_chain_tianyuan_enlist_1"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000191", type: "custom", title: "同步原生任务阶段 3/4", tags: ["si_native_chain_tianyuan_enlist_3"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000192", type: "custom", title: "同步原生任务阶段 4/4", tags: ["si_native_chain_tianyuan_enlist_4"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001902", type: "advancement", advancement: "minecraft:nether/root", title: "达成检测目标：进入下界，解锁下界根进度"},
+        {id: "3200000000000113", type: "custom", title: "接取里程碑：天渊功勋线：天渊功勋征召", tags: ["si_native_tianyuan_merit_path_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000114", type: "custom", title: "天渊功勋线：妖兽攻城防守", tags: ["si_native_tianyuan_merit_path_2"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000189", type: "custom", title: "接取里程碑：天渊城服役：天渊城登记入伍", tags: ["si_native_chain_tianyuan_enlist_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000191", type: "custom", title: "天渊城服役：累积天渊功勋", tags: ["si_native_chain_tianyuan_enlist_3"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000192", type: "custom", title: "天渊城服役：换取灵界资源与通行资格", tags: ["si_native_chain_tianyuan_enlist_4"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000903",
       title: "诛魔契约细则",
-      subtitle: "天渊功勋来源",
+      subtitle: "灵界上升线 · 天渊诛魔契约",
       x: 4.0d,
       y: -1.0d,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：quest_hooks#tianyuan_demon_contract / spirit_realm_rise。",
-        "天渊诛魔契约是灵界前线的主要功勋入口；当前只展示契约节点，不授予功勋。"
+        "任务提示：围绕“诛魔契约细则”推进灵界上升线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：先在原生任务追踪中接取灵界上升线（接取门槛：境界不低于炼气；当前区域为风元大陆）；本镜像读取已记录的接取里程碑（灵界上升线：天渊诛魔契约）；原生任务账本已记录灵界上升线：九仙闭关许可。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条灵界上升线完成后结算：功勋令 × 3、仙玉 × 1；中段第3阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000902"],
       tags: ["seeking_immortals", "tianyuan", "demon_hunt", "reward_bridge_deferred"],
-      tasks: [{id: "1000000000001903", type: "custom", title: "签阅诛魔契约", tags: ["si_native_spirit_realm_rise_1"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000029", type: "custom", title: "同步原生任务阶段 5/6", tags: ["si_native_spirit_realm_rise_5"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001903", type: "custom", title: "接取里程碑：灵界上升线：天渊诛魔契约", tags: ["si_native_spirit_realm_rise_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000029", type: "custom", title: "灵界上升线：九仙闭关许可", tags: ["si_native_spirit_realm_rise_5"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000904",
       title: "兽潮守城",
-      subtitle: "军功大项",
+      subtitle: "天渊功勋线 · 妖兽攻城防守",
       x: 4.0d,
       y: 1.0d,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：tianyuan_merit_economy#beast_wave_defense / quest_hooks#demon_beast_siege_defense。",
-        "兽潮守城是高额功勋来源，军功加倍日可提高收益；真实事件、刷怪和结算留待后续。"
+        "任务提示：围绕“兽潮守城”推进天渊功勋线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有妖兽内丹 × 1（检测不消耗物品）。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条天渊功勋线完成后结算：功勋令 × 4、灵石碎片 × 20；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000902"],
       tags: ["seeking_immortals", "tianyuan", "beast_wave", "merit"],
-      tasks: [{id: "1000000000001904", type: "item", title: "持有兽潮妖核", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001904", type: "item", title: "持有妖兽内丹 × 1", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false}]
     },
     {
       id: "1000000000000905",
       title: "功勋车队护卫",
-      subtitle: "荒原补给线",
+      subtitle: "天渊城服役 · 累积天渊功勋",
       x: 4.0d,
       y: 3.0d,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：tianyuan_merit_economy#merit_convoy / tianyuan_daily_events#tianyuan_convoy_call。",
-        "物资车队通往风元荒原，易遭魔族与兽群伏击，是天渊到风元的自然过渡。"
+        "任务提示：围绕“功勋车队护卫”推进天渊城服役，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有功勋令 × 1（检测不消耗物品）。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条天渊城服役完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000902"],
       tags: ["seeking_immortals", "tianyuan", "convoy", "spirit_fengyuan"],
-      tasks: [{id: "1000000000001905", type: "item", title: "持有功勋令", item: "seeking_immortals:alliance_merit_token", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001905", type: "item", title: "持有功勋令 × 1", item: "seeking_immortals:alliance_merit_token", count: 1L, consume_items: false, match_nbt: false}]
     },
     {
       id: "1000000000000906",
       title: "妖族使者入城",
-      subtitle: "外交支线",
+      subtitle: "天渊城服役 · 完成边境守卫任务",
       x: 6.0d,
       y: -1.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：tianyuan_daily_events#tianyuan_demon_envoy / tianyuan_merit_economy#demon_embassy_quest。",
-        "人妖共守前线但摩擦不断，妖族外交任务后续可接入声望、禁忌和族群路线。"
+        "任务提示：围绕“妖族使者入城”推进天渊城服役，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录天渊城服役：完成边境守卫任务。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条天渊城服役完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000903"],
       tags: ["seeking_immortals", "tianyuan", "diplomacy", "optional"],
-      tasks: [{id: "1000000000001906", type: "custom", title: "接待妖族使者", tags: ["si_native_chain_tianyuan_enlist_2"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001906", type: "custom", title: "天渊城服役：完成边境守卫任务", tags: ["si_native_chain_tianyuan_enlist_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000907",
       title: "天渊灵雨",
-      subtitle: "修炼日程提示",
+      subtitle: "章节剧情节点",
       x: 6.0d,
       y: 1.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：tianyuan_daily_events#tianyuan_spirit_rain / spirit_realm_interface#tianyuan_city。",
-        "天渊城灵气倍率高于人界，灵雨日可作为吐纳和丹药活动窗口；当前不加 buff。"
+        "任务提示：完成“天渊灵雨”对应的章节剧情节点，按顺序完成当前节点的实际检测目标。",
+        "完成条件：进入天渊地域。",
+        "完成奖励：天渊灵雨活动系统结算当日修炼增益；不计入原生任务链，也不发放原生任务物品。"
       ],
       dependencies: ["1000000000000902"],
       tags: ["seeking_immortals", "tianyuan", "daily_event", "optional"],
-      tasks: [{id: "1000000000001907", type: "dimension", dimension: "seeking_immortals:tianyuan", title: "抵达天渊维度"}]
+      tasks: [{id: "1000000000001907", type: "dimension", dimension: "seeking_immortals:tianyuan", title: "进入天渊地域"}]
     },
     {
       id: "1000000000000908",
       title: "地渊名额放榜",
-      subtitle: "功勋换地渊令",
+      subtitle: "天渊功勋线 · 地渊通行令申请",
       x: 6.0d,
       y: 3.0d,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：tianyuan_daily_events#tianyuan_diyuan_quota / tianyuan_merit_economy#diyuan_permit_exchange。",
-        "地渊令需高额功勋且炼虚以上，后续应接入真实兑换和准入检查。"
+        "任务提示：围绕“地渊名额放榜”推进天渊功勋线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录天渊功勋线：地渊通行令申请。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条天渊功勋线完成后结算：功勋令 × 4、灵石碎片 × 20；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000904"],
       tags: ["seeking_immortals", "tianyuan", "diyuan", "permit"],
-      tasks: [{id: "1000000000001908", type: "custom", title: "查看地渊名额", tags: ["si_native_tianyuan_merit_path_3"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001908", type: "custom", title: "天渊功勋线：地渊通行令申请", tags: ["si_native_tianyuan_merit_path_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000909",
       title: "风元通行阵",
-      subtitle: "管制传送",
+      subtitle: "天渊城服役 · 换取灵界资源与通行资格",
       x: 8.0d,
       y: 3.0d,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：spirit_realm_interface#gates#tianyuan_to_spirit_fengyuan / trade_routes#tianyuan_to_spirit_fengyuan。",
-        "天渊至风元大陆是管制传送阵路线，已由现有世界旅行需求提示承接。当前 FTB 物品任务检查 1 枚功勋令但不消耗；原生任务账本负责实际上交。"
+        "任务提示：围绕“风元通行阵”推进天渊城服役，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有功勋令 × 1（检测不消耗物品）。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条天渊城服役完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000905"],
       tags: ["seeking_immortals", "spirit_fengyuan", "regulated_portal"],
-      tasks: [{id: "1000000000001909", type: "item", title: "持有功勋令", item: "seeking_immortals:alliance_merit_token", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001909", type: "item", title: "持有功勋令 × 1", item: "seeking_immortals:alliance_merit_token", count: 1L, consume_items: false, match_nbt: false}]
     },
     {
       id: "1000000000000910",
       title: "风元初探",
-      subtitle: "灵界大陆入口",
+      subtitle: "风元探索 · 风元世家引荐",
       x: 10.0d,
       y: 3.0d,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：fengyuan_explorer / region_cards#spirit_fengyuan。",
-        "风元大陆包含人族世家、百族聚落和蛮荒边境，是灵界开放探索的主舞台。"
+        "任务提示：围绕“风元初探”推进风元探索，按顺序完成当前节点的实际检测目标。",
+        "完成条件：进入风元地域；先在原生任务追踪中接取风元探索（接取门槛：境界不低于化神；当前区域为风元大陆）；本镜像读取已记录的接取里程碑（风元探索：风元世家引荐）；原生任务账本已记录风元探索：风元边境巡防；原生任务账本已记录风元探索：蛮荒传闻。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条风元探索完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000909"],
       tags: ["seeking_immortals", "spirit_fengyuan", "exploration"],
-      tasks: [{id: "1000000000001910", type: "dimension", dimension: "seeking_immortals:spirit_fengyuan", title: "抵达风元维度"},
-        {id: "3200000000000121", type: "custom", title: "同步原生任务阶段 1/3", tags: ["si_native_fengyuan_explorer_1"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000122", type: "custom", title: "同步原生任务阶段 2/3", tags: ["si_native_fengyuan_explorer_2"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000123", type: "custom", title: "同步原生任务阶段 3/3", tags: ["si_native_fengyuan_explorer_3"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001910", type: "dimension", dimension: "seeking_immortals:spirit_fengyuan", title: "进入风元地域"},
+        {id: "3200000000000121", type: "custom", title: "接取里程碑：风元探索：风元世家引荐", tags: ["si_native_fengyuan_explorer_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000122", type: "custom", title: "风元探索：风元边境巡防", tags: ["si_native_fengyuan_explorer_2"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000123", type: "custom", title: "风元探索：蛮荒传闻", tags: ["si_native_fengyuan_explorer_3"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000911",
       title: "世家引荐",
-      subtitle: "风元人族联盟",
+      subtitle: "世家联盟总线 · 风元世家引荐",
       x: 12.0d,
       y: 1.0d,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：human_clan_neutral_intro / human_clan_league.json。",
-        "风元人族世家以炼丹、炼器、阵法和制符分工，外姓修士需盟约或客卿身份。"
+        "任务提示：围绕“世家引荐”推进世家联盟总线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：先在原生任务追踪中接取世家联盟总线（接取门槛：境界不低于炼气；当前区域为风元大陆）；本镜像读取已记录的接取里程碑（世家联盟总线：风元世家引荐）；先在原生任务追踪中接取世家引荐（接取门槛：境界不低于炼气；当前区域为风元大陆）；本镜像读取已记录的接取里程碑（世家引荐：风元世家引荐）。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条世家联盟总线完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4；整条世家引荐完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000910"],
       tags: ["seeking_immortals", "human_clan_league", "spirit_fengyuan"],
-      tasks: [{id: "1000000000001911", type: "custom", title: "取得世家引荐", tags: ["si_native_human_clan_league_hub_1"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000127", type: "custom", title: "同步原生任务阶段 1/2", tags: ["si_native_human_clan_neutral_intro_1"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001911", type: "custom", title: "接取里程碑：世家联盟总线：风元世家引荐", tags: ["si_native_human_clan_league_hub_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000127", type: "custom", title: "接取里程碑：世家引荐：风元世家引荐", tags: ["si_native_human_clan_neutral_intro_1"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000912",
       title: "客卿登记",
-      subtitle: "外姓修士身份",
+      subtitle: "世家联盟总线 · 世家客卿登记",
       x: 14.0d,
       y: 1.0d,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：human_clan_quest_network#human_clan_neutral_intro / quest_hooks#clan_guest_register。",
-        "客卿登记是进入四条世家技能线的共用前置，当前不写家族声望。"
+        "任务提示：围绕“客卿登记”推进世家联盟总线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录世家联盟总线：世家客卿登记；原生任务账本已记录世家引荐：世家客卿登记。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条世家联盟总线完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4；整条世家引荐完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000911"],
       tags: ["seeking_immortals", "human_clan_league", "guest_register"],
-      tasks: [{id: "1000000000001912", type: "custom", title: "登记世家客卿", tags: ["si_native_human_clan_league_hub_2"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000128", type: "custom", title: "同步原生任务阶段 2/2", tags: ["si_native_human_clan_neutral_intro_2"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001912", type: "custom", title: "世家联盟总线：世家客卿登记", tags: ["si_native_human_clan_league_hub_2"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000128", type: "custom", title: "世家引荐：世家客卿登记", tags: ["si_native_human_clan_neutral_intro_2"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000913",
       title: "莫家阵盘委托",
-      subtitle: "阵法世家",
+      subtitle: "莫家阵法线 · 阵盘委托",
       x: 16.0d,
       y: -2.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：clan_array_mo_line / human_clan_league#clan_array_mo。",
-        "莫家偏阵法与阵盘碎片，后续可接入 portable array disk、阵法试炼和世家声望。"
+        "任务提示：围绕“莫家阵盘委托”推进莫家阵法线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：先在原生任务追踪中接取莫家阵法线（接取门槛：境界不低于炼气；当前区域为风元大陆；已加入莫家）；本镜像读取已记录的接取里程碑（莫家阵法线：阵盘委托）；原生任务账本已记录莫家阵法线：莫家阵法试炼；原生任务账本已记录莫家阵法线：世家纷争调停。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条莫家阵法线完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000912"],
       tags: ["seeking_immortals", "human_clan_league", "formation", "optional"],
-      tasks: [{id: "1000000000001913", type: "custom", title: "完成莫家委托", tags: ["si_native_clan_array_mo_line_1"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000130", type: "custom", title: "同步原生任务阶段 2/3", tags: ["si_native_clan_array_mo_line_2"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000131", type: "custom", title: "同步原生任务阶段 3/3", tags: ["si_native_clan_array_mo_line_3"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001913", type: "custom", title: "接取里程碑：莫家阵法线：阵盘委托", tags: ["si_native_clan_array_mo_line_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000130", type: "custom", title: "莫家阵法线：莫家阵法试炼", tags: ["si_native_clan_array_mo_line_2"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000131", type: "custom", title: "莫家阵法线：世家纷争调停", tags: ["si_native_clan_array_mo_line_3"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000914",
       title: "俞家灵矿护送",
-      subtitle: "炼器世家",
+      subtitle: "俞家炼器线 · 灵矿押运",
       x: 16.0d,
       y: 0.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：clan_refinement_yu_line / human_clan_league#clan_refinement_yu。",
-        "俞家偏炼器与灵矿，能承接现有神器炼制、材料映射和鉴定路线。"
+        "任务提示：围绕“俞家灵矿护送”推进俞家炼器线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：先在原生任务追踪中接取俞家炼器线（接取门槛：境界不低于炼气；当前区域为风元大陆；已加入俞家）；本镜像读取已记录的接取里程碑（俞家炼器线：灵矿押运）；原生任务账本已记录俞家炼器线：俞家炼器学徒；原生任务账本已记录俞家炼器线：法宝鉴定委托。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条俞家炼器线完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000912"],
       tags: ["seeking_immortals", "human_clan_league", "refinement", "optional"],
-      tasks: [{id: "1000000000001914", type: "custom", title: "护送俞家灵矿", tags: ["si_native_clan_refinement_yu_line_1"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000133", type: "custom", title: "同步原生任务阶段 2/3", tags: ["si_native_clan_refinement_yu_line_2"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000134", type: "custom", title: "同步原生任务阶段 3/3", tags: ["si_native_clan_refinement_yu_line_3"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001914", type: "custom", title: "接取里程碑：俞家炼器线：灵矿押运", tags: ["si_native_clan_refinement_yu_line_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000133", type: "custom", title: "俞家炼器线：俞家炼器学徒", tags: ["si_native_clan_refinement_yu_line_2"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000134", type: "custom", title: "俞家炼器线：法宝鉴定委托", tags: ["si_native_clan_refinement_yu_line_3"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000915",
       title: "谷家药贡",
-      subtitle: "炼丹世家",
+      subtitle: "谷家丹道线 · 谷家灵草贡纳",
       x: 16.0d,
       y: 2.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：clan_alchemy_gu_line / human_clan_league#clan_alchemy_gu。",
-        "谷家偏炼丹、药材贡赋和丹炉权限，后续可接入高阶丹方与品质审计。"
+        "任务提示：围绕“谷家药贡”推进谷家丹道线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有风元世家参 × 1（检测不消耗物品）；先在原生任务追踪中接取谷家丹道线（接取门槛：境界不低于炼气；当前区域为风元大陆；已加入谷家）；本镜像读取已记录的接取里程碑（谷家丹道线：谷家灵草贡纳）；原生任务账本已记录谷家丹道线：炼丹炉使用资格；原生任务账本已记录谷家丹道线：丹药品阶考核。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条谷家丹道线完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000912"],
       tags: ["seeking_immortals", "human_clan_league", "alchemy", "optional"],
-      tasks: [{id: "1000000000001915", type: "item", title: "持有风元参", item: "seeking_immortals:fengyuan_clan_ginseng", count: 1L, consume_items: false, match_nbt: false},
-        {id: "3200000000000135", type: "custom", title: "同步原生任务阶段 1/3", tags: ["si_native_clan_alchemy_gu_line_1"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000136", type: "custom", title: "同步原生任务阶段 2/3", tags: ["si_native_clan_alchemy_gu_line_2"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000137", type: "custom", title: "同步原生任务阶段 3/3", tags: ["si_native_clan_alchemy_gu_line_3"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001915", type: "item", title: "持有风元世家参 × 1", item: "seeking_immortals:fengyuan_clan_ginseng", count: 1L, consume_items: false, match_nbt: false},
+        {id: "3200000000000135", type: "custom", title: "接取里程碑：谷家丹道线：谷家灵草贡纳", tags: ["si_native_clan_alchemy_gu_line_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000136", type: "custom", title: "谷家丹道线：炼丹炉使用资格", tags: ["si_native_clan_alchemy_gu_line_2"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000137", type: "custom", title: "谷家丹道线：丹药品阶考核", tags: ["si_native_clan_alchemy_gu_line_3"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000916",
       title: "宁家符箓订料",
-      subtitle: "制符世家",
+      subtitle: "宁家符箓线 · 空白符纸订单",
       x: 16.0d,
       y: 4.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：clan_talisman_ning_line / human_clan_league#clan_talisman_ning。",
-        "宁家偏高阶符纸、铭符课程和突袭防守，后续可接入符箓技能线。"
+        "任务提示：围绕“宁家符箓订料”推进宁家符箓线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有凡符纸 × 3（检测不消耗物品）；先在原生任务追踪中接取宁家符箓线（接取门槛：境界不低于炼气；当前区域为风元大陆；已加入宁家）；本镜像读取已记录的接取里程碑（宁家符箓线：空白符纸订单）；原生任务账本已记录宁家符箓线：符箓铭刻课；原生任务账本已记录宁家符箓线：宁家御敌。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条宁家符箓线完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000912"],
       tags: ["seeking_immortals", "human_clan_league", "talisman", "optional"],
-      tasks: [{id: "1000000000001916", type: "item", title: "备好符纸订料", item: "seeking_immortals:talisman_paper_mortal", count: 3L, consume_items: false, match_nbt: false},
-        {id: "3200000000000138", type: "custom", title: "同步原生任务阶段 1/3", tags: ["si_native_clan_talisman_ning_line_1"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000139", type: "custom", title: "同步原生任务阶段 2/3", tags: ["si_native_clan_talisman_ning_line_2"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000140", type: "custom", title: "同步原生任务阶段 3/3", tags: ["si_native_clan_talisman_ning_line_3"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001916", type: "item", title: "持有凡符纸 × 3", item: "seeking_immortals:talisman_paper_mortal", count: 3L, consume_items: false, match_nbt: false},
+        {id: "3200000000000138", type: "custom", title: "接取里程碑：宁家符箓线：空白符纸订单", tags: ["si_native_clan_talisman_ning_line_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000139", type: "custom", title: "宁家符箓线：符箓铭刻课", tags: ["si_native_clan_talisman_ning_line_2"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000140", type: "custom", title: "宁家符箓线：宁家御敌", tags: ["si_native_clan_talisman_ning_line_3"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000917",
       title: "世家纷争调停",
-      subtitle: "跨族镜像事件",
+      subtitle: "世家联盟总线 · 大晋世家争端",
       x: 18.0d,
       y: 1.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：human_clan_quest_network#cross_clan_event / quest_chains#human_clan_league_hub。",
-        "世家纷争用于承接风元与大晋世家的镜像冲突，真实双声望奖励和锁定暂不实现。"
+        "任务提示：围绕“世家纷争调停”推进世家联盟总线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录世家联盟总线：大晋世家争端。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条世家联盟总线完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000912"],
       tags: ["seeking_immortals", "human_clan_league", "clan_feud", "optional"],
-      tasks: [{id: "1000000000001917", type: "custom", title: "调停世家纷争", tags: ["si_native_human_clan_league_hub_3"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001917", type: "custom", title: "世家联盟总线：大晋世家争端", tags: ["si_native_human_clan_league_hub_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000918",
       title: "十八族巡礼册",
-      subtitle: "百族路线入口",
+      subtitle: "灵界十八族巡礼 · 天渊入伍",
       x: 12.0d,
       y: 6.0d,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：spirit_eighteen_pilgrimage / spirit_realm_clan_quests.json。",
-        "灵界百族巡礼要求至少接触多个族群与特产兑换，当前以总览节点呈现。"
+        "任务提示：围绕“十八族巡礼册”推进灵界十八族巡礼，按顺序完成当前节点的实际检测目标。",
+        "完成条件：先在原生任务追踪中接取灵界十八族巡礼（接取门槛：境界不低于炼气；当前区域为风元大陆）；本镜像读取已记录的接取里程碑（灵界十八族巡礼：天渊入伍）；先在原生任务追踪中接取灵界十八族巡礼（接取门槛：境界不低于炼气；当前区域为风元大陆）；本镜像读取已记录的接取里程碑（灵界十八族巡礼：风元世家引荐）；原生任务账本已记录灵界十八族巡礼：十八族巡礼；原生任务账本已记录灵界十八族巡礼：天渊城征召。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条灵界十八族巡礼完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4；整条灵界十八族巡礼完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000910"],
       tags: ["seeking_immortals", "spirit_eighteen_clans", "spirit_fengyuan"],
-      tasks: [{id: "1000000000001918", type: "custom", title: "领取十八族巡礼册", tags: ["si_native_spirit_eighteen_clans_1"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000144", type: "custom", title: "同步原生任务阶段 1/3", tags: ["si_native_spirit_eighteen_pilgrimage_1"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000145", type: "custom", title: "同步原生任务阶段 2/3", tags: ["si_native_spirit_eighteen_pilgrimage_2"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000146", type: "custom", title: "同步原生任务阶段 3/3", tags: ["si_native_spirit_eighteen_pilgrimage_3"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001918", type: "custom", title: "接取里程碑：灵界十八族巡礼：天渊入伍", tags: ["si_native_spirit_eighteen_clans_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000144", type: "custom", title: "接取里程碑：灵界十八族巡礼：风元世家引荐", tags: ["si_native_spirit_eighteen_pilgrimage_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000145", type: "custom", title: "灵界十八族巡礼：十八族巡礼", tags: ["si_native_spirit_eighteen_pilgrimage_2"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000146", type: "custom", title: "灵界十八族巡礼：天渊城征召", tags: ["si_native_spirit_eighteen_pilgrimage_3"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000919",
       title: "天狐幻境",
-      subtitle: "幻术与盟约",
+      subtitle: "灵界十八族巡礼 · 异族朝贡",
       x: 14.0d,
       y: 5.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：spirit_realm_clan_quests#tianhu。",
-        "天狐族重幻术与盟约，忌破誓；可产 illusion_pearl，并关联蛮荒迷雾狐王。"
+        "任务提示：围绕“天狐幻境”推进灵界十八族巡礼，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录灵界十八族巡礼：异族朝贡。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条灵界十八族巡礼完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000918"],
       tags: ["seeking_immortals", "spirit_eighteen_clans", "tianhu", "optional"],
-      tasks: [{id: "1000000000001919", type: "custom", title: "完成天狐幻境", tags: ["si_native_spirit_eighteen_clans_2"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001919", type: "custom", title: "灵界十八族巡礼：异族朝贡", tags: ["si_native_spirit_eighteen_clans_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000920",
       title: "树妖根网",
-      subtitle: "森罗共生",
+      subtitle: "灵界十八族巡礼 · 异族朝贡",
       x: 14.0d,
       y: 7.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：spirit_realm_clan_quests#shuyao。",
-        "树妖族守森罗根网，忌焚林；可产 ancient_wood_core，并关联古松妖王。"
+        "任务提示：围绕“树妖根网”推进灵界十八族巡礼，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录灵界十八族巡礼：异族朝贡。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条灵界十八族巡礼完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000918"],
       tags: ["seeking_immortals", "spirit_eighteen_clans", "shuyao", "optional"],
-      tasks: [{id: "1000000000001920", type: "custom", title: "修补树妖根网", tags: ["si_native_spirit_eighteen_clans_2"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001920", type: "custom", title: "灵界十八族巡礼：异族朝贡", tags: ["si_native_spirit_eighteen_clans_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000921",
       title: "石人地脉",
-      subtitle: "地脉守望",
+      subtitle: "灵界十八族巡礼 · 异族朝贡",
       x: 16.0d,
       y: 5.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：spirit_realm_clan_quests#shiren。",
-        "石人族守地脉，忌掘祖脉；可产 spirit_stone_vein_map，适合连接灵矿/地渊。"
+        "任务提示：围绕“石人地脉”推进灵界十八族巡礼，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录灵界十八族巡礼：异族朝贡。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条灵界十八族巡礼完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000918"],
       tags: ["seeking_immortals", "spirit_eighteen_clans", "shiren", "optional"],
-      tasks: [{id: "1000000000001921", type: "custom", title: "巡护石人地脉", tags: ["si_native_spirit_eighteen_clans_2"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001921", type: "custom", title: "灵界十八族巡礼：异族朝贡", tags: ["si_native_spirit_eighteen_clans_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000922",
       title: "飞灵金翼天风",
-      subtitle: "天风骑猎",
+      subtitle: "灵界十八族巡礼 · 万宝大会请柬",
       x: 16.0d,
       y: 7.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：spirit_realm_clan_quests#feiling / #jinyi。",
-        "飞灵族和金翼族代表空域、铸翼与天风骑猎，可衔接 wind_feather 与空战试炼。"
+        "任务提示：围绕“飞灵金翼天风”推进灵界十八族巡礼，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录灵界十八族巡礼：万宝大会请柬。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条灵界十八族巡礼完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000918"],
       tags: ["seeking_immortals", "spirit_eighteen_clans", "feiling", "jinyi", "optional"],
-      tasks: [{id: "1000000000001922", type: "custom", title: "完成天风骑猎", tags: ["si_native_spirit_eighteen_clans_3"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001922", type: "custom", title: "灵界十八族巡礼：万宝大会请柬", tags: ["si_native_spirit_eighteen_clans_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000923",
       title: "夜叉魔血边战",
-      subtitle: "血契与劫掠",
+      subtitle: "灵界十八族巡礼 · 天渊入伍",
       x: 18.0d,
       y: 5.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：spirit_realm_clan_quests#yaksha / #mozu。",
-        "夜叉与魔族支系代表边境血战和劫掠风险，后续可接入 demon_blood_crystal 与悬赏。"
+        "任务提示：围绕“夜叉魔血边战”推进灵界十八族巡礼，按顺序完成当前节点的实际检测目标。",
+        "完成条件：天渊声望达到 10。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条灵界十八族巡礼完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000918"],
       tags: ["seeking_immortals", "spirit_eighteen_clans", "yaksha", "mozu", "optional"],
-      tasks: [{id: "1000000000001923", type: "custom", title: "记录边境血契", tags: ["si_rep_tianyuan_10"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001923", type: "custom", title: "天渊声望达到 10", tags: ["si_rep_tianyuan_10"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000924",
       title: "水府空岛长寿阵",
-      subtitle: "鱼鸟龟三线",
+      subtitle: "灵界十八族巡礼 · 万宝大会请柬",
       x: 18.0d,
       y: 7.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：spirit_realm_clan_quests#yuzu / #niaozu / #guizu。",
-        "鱼族水府、鸟族空岛和龟族长寿阵先合并展示，后续再拆水域、空岛与阵师任务。"
+        "任务提示：围绕“水府空岛长寿阵”推进灵界十八族巡礼，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录灵界十八族巡礼：万宝大会请柬。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条灵界十八族巡礼完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000918"],
       tags: ["seeking_immortals", "spirit_eighteen_clans", "water_court", "air_island", "optional"],
-      tasks: [{id: "1000000000001924", type: "custom", title: "完成水府空岛巡礼", tags: ["si_native_spirit_eighteen_clans_3"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001924", type: "custom", title: "灵界十八族巡礼：万宝大会请柬", tags: ["si_native_spirit_eighteen_clans_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000925",
       title: "异族朝贡集成",
-      subtitle: "五族章戳占位",
+      subtitle: "灵界十八族巡礼 · 修罗试炼",
       x: 20.0d,
       y: 6.0d,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：quest_chains#spirit_eighteen_clans / quest_hooks#clan_generic_tribute。",
-        "源设定要求接触至少五族并收集特产章戳；当前不统计数量，不发放 spirit_clan_grand_token。"
+        "任务提示：围绕“异族朝贡集成”推进灵界十八族巡礼，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录灵界十八族巡礼：修罗试炼。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条灵界十八族巡礼完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000918"],
       tags: ["seeking_immortals", "spirit_eighteen_clans", "reward_bridge_deferred"],
-      tasks: [{id: "1000000000001925", type: "custom", title: "汇总异族朝贡", tags: ["si_native_spirit_eighteen_clans_4"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001925", type: "custom", title: "灵界十八族巡礼：修罗试炼", tags: ["si_native_spirit_eighteen_clans_4"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000926",
       title: "地渊令申请",
-      subtitle: "炼虚准入",
+      subtitle: "地渊探脉 · 天渊功勋换地渊令",
       x: 8.0d,
       y: 6.0d,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：diyuan_depth_delve / diyuan_campaign / tianyuan_merit_economy#diyuan_permit_exchange。",
-        "地渊申请承接主线地渊侦察与天渊功勋，后续应检查 pressure_resist_charm 与地渊令。当前 FTB 物品任务检查 1 枚地渊令但不消耗；原生任务账本负责实际上交。"
+        "任务提示：围绕“地渊令申请”推进地渊探脉，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有地渊令 × 1（检测不消耗物品）；先在原生任务追踪中接取地渊探脉（接取门槛：境界不低于炼虚；当前区域为天渊城）；本镜像读取已记录的接取里程碑（地渊探脉：天渊功勋换地渊令）。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条地渊探脉完成后结算：地渊晶核 × 1、抗压符 × 1；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000908", "1000000000000404"],
       tags: ["seeking_immortals", "diyuan", "permit", "void_refining"],
-      tasks: [{id: "1000000000001926", type: "item", title: "持有地渊令", item: "seeking_immortals:diyuan_permit", count: 1L, consume_items: false, match_nbt: false},
-        {id: "3200000000000220", type: "custom", title: "同步原生任务阶段 1/5", tags: ["si_native_diyuan_campaign_1"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001926", type: "item", title: "持有地渊令 × 1", item: "seeking_immortals:diyuan_permit", count: 1L, consume_items: false, match_nbt: false},
+        {id: "3200000000000220", type: "custom", title: "接取里程碑：地渊探脉：天渊功勋换地渊令", tags: ["si_native_diyuan_campaign_1"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000927",
       title: "裂隙口重压",
-      subtitle: "地渊入口",
+      subtitle: "地渊探脉 · 裂隙口重压",
       x: 10.0d,
       y: 6.0d,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：quest_hooks#diyuan_rift_mouth / diyuan_campaign#diyuan_rift_mouth。",
-        "地渊裂隙口重压初显，未持令者神识受创；当前只呈现任务节点。"
+        "任务提示：围绕“裂隙口重压”推进地渊探脉，按顺序完成当前节点的实际检测目标。",
+        "完成条件：进入魔渊裂隙；原生任务账本已记录地渊探脉：裂隙口重压。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条地渊探脉完成后结算：地渊晶核 × 1、抗压符 × 1；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000926"],
       tags: ["seeking_immortals", "diyuan", "pressure"],
       tasks: [{id: "1000000000001927", type: "dimension", dimension: "seeking_immortals:demon_rift", title: "进入魔渊裂隙"},
-        {id: "3200000000000221", type: "custom", title: "同步原生任务阶段 2/5", tags: ["si_native_diyuan_campaign_2"], check_timer: 20, max_progress: 1L}
+        {id: "3200000000000221", type: "custom", title: "地渊探脉：裂隙口重压", tags: ["si_native_diyuan_campaign_2"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000928",
       title: "浅矿灵脉",
-      subtitle: "灵脉取样",
+      subtitle: "地渊探脉 · 浅矿灵脉",
       x: 12.0d,
       y: 8.0d,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：diyuan_campaign#diyuan_shallow_mine / artifact_realm_drops#diyuan_by_layer。",
-        "浅层灵脉可作为地渊材料与灵脉碎片的来源，真实采集/掉落留待后续。"
+        "任务提示：围绕“浅矿灵脉”推进地渊探脉，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录地渊探脉：浅矿灵脉。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条地渊探脉完成后结算：地渊晶核 × 1、抗压符 × 1；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000927"],
       tags: ["seeking_immortals", "diyuan", "spirit_vein", "reward_bridge_deferred"],
-      tasks: [{id: "1000000000001928", type: "custom", title: "完成浅矿取样", tags: ["si_native_diyuan_campaign_3"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001928", type: "custom", title: "地渊探脉：浅矿灵脉", tags: ["si_native_diyuan_campaign_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000929",
       title: "重压带探测",
-      subtitle: "压力波与褶皱",
+      subtitle: "地渊探脉 · 重压带",
       x: 14.0d,
       y: 8.0d,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：diyuan_depth_delve#diyuan_pressure_wave / diyuan_campaign#environment_rules。",
-        "地渊深层有重压、紊乱灵气和空间褶皱，可承接现有 Pressure Resist Pill/Charm 机制。当前 FTB 物品任务检查 1 张抗压符但不消耗；原生任务账本负责实际上交。"
+        "任务提示：围绕“重压带探测”推进地渊探脉，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有抗压符 × 1（检测不消耗物品）；原生任务账本已记录地渊探脉：重压带。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条地渊探脉完成后结算：地渊晶核 × 1、抗压符 × 1；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000928"],
       tags: ["seeking_immortals", "diyuan", "pressure_resist"],
-      tasks: [{id: "1000000000001929", type: "item", title: "持有抗压符", item: "seeking_immortals:pressure_resist_charm", count: 1L, consume_items: false, match_nbt: false},
-        {id: "3200000000000223", type: "custom", title: "同步原生任务阶段 4/5", tags: ["si_native_diyuan_campaign_4"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001929", type: "item", title: "持有抗压符 × 1", item: "seeking_immortals:pressure_resist_charm", count: 1L, consume_items: false, match_nbt: false},
+        {id: "3200000000000223", type: "custom", title: "地渊探脉：重压带", tags: ["si_native_diyuan_campaign_4"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000930",
       title: "地渊古兽守脉",
-      subtitle: "深层古兽",
+      subtitle: "地渊探脉 · 古兽守脉",
       x: 16.0d,
       y: 8.0d,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：diyuan_campaign#diyuan_ancient_beast / beast_boss_tier_secret_realm_map#diyuan_guardian。",
-        "古兽守脉是地渊深层收束，源设定奖励含 spirit_vein_shard 与 diyuan_core_crystal。"
+        "任务提示：围绕“地渊古兽守脉”推进地渊探脉，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录地渊探脉：古兽守脉。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条地渊探脉完成后结算：地渊晶核 × 1、抗压符 × 1；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000929"],
       tags: ["seeking_immortals", "diyuan", "ancient_beast", "reward_bridge_deferred"],
-      tasks: [{id: "1000000000001930", type: "custom", title: "记录古兽守脉", tags: ["si_native_diyuan_campaign_5"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001930", type: "custom", title: "地渊探脉：古兽守脉", tags: ["si_native_diyuan_campaign_5"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000931",
       title: "蛮荒边境接触",
-      subtitle: "妖王议会外缘",
+      subtitle: "蛮荒妖王线 · 蛮荒边境接触",
       x: 12.0d,
       y: 10.0d,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：barbarian_kings_line / barbarian_king_hunt / region_cards#barbarian_wasteland。",
-        "蛮荒之地位于风元大陆边缘，弱肉强食、朝贡与妖王领地构成主要玩法。"
+        "任务提示：围绕“蛮荒边境接触”推进蛮荒妖王线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录蛮荒妖王线：蛮荒边境接触；先在原生任务追踪中接取蛮荒妖王线（接取门槛：境界不低于炼气；当前区域为蛮荒之地）；本镜像读取已记录的接取里程碑（蛮荒妖王线：地渊侦察）；先在原生任务追踪中接取蛮荒妖王线（接取门槛：境界不低于指定境界；当前区域为蛮荒之地）；本镜像读取已记录的接取里程碑（蛮荒妖王线：蛮荒边境接触）；原生任务账本已记录蛮荒妖王线：蛮荒兽潮求生。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条蛮荒妖王线完成后结算：蛮王令 × 1、上古妖核 × 1；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4；整条蛮荒妖王线完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000910"],
       tags: ["seeking_immortals", "barbarian_wasteland", "barbarian_council"],
-      tasks: [{id: "1000000000001931", type: "custom", title: "接触蛮荒边境", tags: ["si_native_barbarian_kings_line_2"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000072", type: "custom", title: "同步原生任务阶段 1/4", tags: ["si_native_barbarian_kings_line_1"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000124", type: "custom", title: "同步原生任务阶段 1/3", tags: ["si_native_barbarian_king_hunt_1"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000125", type: "custom", title: "同步原生任务阶段 2/3", tags: ["si_native_barbarian_king_hunt_2"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001931", type: "custom", title: "蛮荒妖王线：蛮荒边境接触", tags: ["si_native_barbarian_kings_line_2"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000072", type: "custom", title: "接取里程碑：蛮荒妖王线：地渊侦察", tags: ["si_native_barbarian_kings_line_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000124", type: "custom", title: "接取里程碑：蛮荒妖王线：蛮荒边境接触", tags: ["si_native_barbarian_king_hunt_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000125", type: "custom", title: "蛮荒妖王线：蛮荒兽潮求生", tags: ["si_native_barbarian_king_hunt_2"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000932",
       title: "蛮荒兽潮生还",
-      subtitle: "荒原灾厄",
+      subtitle: "蛮荒妖王线 · 蛮荒兽潮求生",
       x: 14.0d,
       y: 10.0d,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：region_cards#barbarian_wasteland#daily_events / quest_hooks#barbarian_beast_tide_survive。",
-        "蛮荒兽潮是妖王领地的基础风险，后续可接入野外事件、狩猎榜和部族声望。"
+        "任务提示：围绕“蛮荒兽潮生还”推进蛮荒妖王线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有妖兽内丹 × 1（检测不消耗物品）。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条蛮荒妖王线完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000931"],
       tags: ["seeking_immortals", "barbarian_wasteland", "beast_tide"],
-      tasks: [{id: "1000000000001932", type: "item", title: "持有蛮荒妖核", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001932", type: "item", title: "持有妖兽内丹 × 1", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false}]
     },
     {
       id: "1000000000000933",
       title: "妖王朝贡试炼",
-      subtitle: "贡礼与试胆",
+      subtitle: "蛮荒妖王线 · 妖王朝贡试炼",
       x: 16.0d,
       y: 10.0d,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：quest_hooks#king_tribute_quest / spirit_realm_clan_quests#barbarian_council。",
-        "朝贡试炼决定妖王议会是否承认玩家，真实贡礼、声望和令牌消耗暂不实现。"
+        "任务提示：围绕“妖王朝贡试炼”推进蛮荒妖王线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录蛮荒妖王线：妖王朝贡试炼。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条蛮荒妖王线完成后结算：蛮王令 × 1、上古妖核 × 1；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000932"],
       tags: ["seeking_immortals", "barbarian_wasteland", "tribute", "reward_bridge_deferred"],
-      tasks: [{id: "1000000000001933", type: "custom", title: "完成妖王朝贡", tags: ["si_native_barbarian_kings_line_3"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001933", type: "custom", title: "蛮荒妖王线：妖王朝贡试炼", tags: ["si_native_barbarian_kings_line_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000934",
       title: "七王令牌狩猎",
-      subtitle: "熊狐松鹏蛇虎龟",
+      subtitle: "蛮荒妖王线 · 妖王信物狩猎",
       x: 18.0d,
       y: 10.0d,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：barbarian_demon_kings.json / quest_hooks#barbarian_king_token_hunt。",
-        "七位妖王提供不同领地、掉落和族群亲和；聚合令牌要求任意三枚王令。"
+        "任务提示：围绕“七王令牌狩猎”推进蛮荒妖王线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录蛮荒妖王线：妖王信物狩猎。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条蛮荒妖王线完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000933"],
       tags: ["seeking_immortals", "barbarian_wasteland", "king_token"],
-      tasks: [{id: "1000000000001934", type: "custom", title: "记录七王令牌", tags: ["si_native_barbarian_king_hunt_3"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001934", type: "custom", title: "蛮荒妖王线：妖王信物狩猎", tags: ["si_native_barbarian_king_hunt_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000935",
       title: "空间裂缝脱险",
-      subtitle: "可选风险",
+      subtitle: "蛮荒妖王线 · 空间裂缝脱险",
       x: 18.0d,
       y: 12.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：barbarian_kings_line#spatial_rift_escape / trade_routes#route_dajin_barbarian_caravan。",
-        "蛮荒商路空间裂缝频发，向导必备；当前不触发伤害或传送，只展示风险。"
+        "任务提示：围绕“空间裂缝脱险”推进蛮荒妖王线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录蛮荒妖王线：空间裂缝脱险。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条蛮荒妖王线完成后结算：蛮王令 × 1、上古妖核 × 1；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000933"],
       tags: ["seeking_immortals", "barbarian_wasteland", "spatial_rift", "optional"],
-      tasks: [{id: "1000000000001935", type: "custom", title: "脱离空间裂缝", tags: ["si_native_barbarian_kings_line_4"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001935", type: "custom", title: "蛮荒妖王线：空间裂缝脱险", tags: ["si_native_barbarian_kings_line_4"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000936",
       title: "妖王议会觐见",
-      subtitle: "蛮荒线收束",
+      subtitle: "蛮荒妖王线 · 空间裂缝脱险",
       x: 20.0d,
       y: 10.0d,
       guide_page: "seeking_immortals:quest_native_spirit_realm_service",
       description: [
-        "来源：barbarian_demon_kings#aggregate_token / spirit_realm_clan_quests#barbarian_council。",
-        "任意三枚妖王令牌可开启妖王议会觐见；当前不统计令牌，不发放 ancient_beast_core。"
+        "任务提示：围绕“妖王议会觐见”推进蛮荒妖王线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录蛮荒妖王线：空间裂缝脱险。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条蛮荒妖王线完成后结算：蛮王令 × 1、上古妖核 × 1；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000934"],
       tags: ["seeking_immortals", "barbarian_wasteland", "barbarian_council", "reward_bridge_deferred"],
-      tasks: [{id: "1000000000001936", type: "custom", title: "觐见妖王议会", tags: ["si_native_barbarian_kings_line_4"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001936", type: "custom", title: "蛮荒妖王线：空间裂缝脱险", tags: ["si_native_barbarian_kings_line_4"], check_timer: 20, max_progress: 1L}]
     }
   ]
 }

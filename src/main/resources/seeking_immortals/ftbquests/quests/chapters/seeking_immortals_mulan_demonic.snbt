@@ -2,7 +2,7 @@
   id: "1000000000000005",
   filename: "seeking_immortals_mulan_demonic",
   title: "寻仙问道：慕兰天澜与魔道六宗",
-  subtitle: ["源自 quest_chains.json、quest_hooks.json、mulan_tianlan_war.json、mulan_faction_quests.json 与 demonic_six_sects.json。"],
+  subtitle: ["慕兰天澜与魔道六宗修行篇章。按节点核对实际完成条件，原生任务线奖励由原生任务账本结算。"],
   default_quest_shape: "circle",
   default_hide_dependency_lines: false,
   progression_mode: "linear",
@@ -10,430 +10,455 @@
     {
       id: "1000000000000801",
       title: "草原斥候战",
-      subtitle: "慕兰边境遭遇",
+      subtitle: "慕兰天澜战役 · 边境遭遇",
       x: 0.0d,
       y: 0.0d,
       guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
-        "来源：mulan_war_campaign / chain_mulan_war_campaign / mulan_faction_quests#mulan_scout_clash。",
-        "天南与慕兰草原边境摩擦，低阶修士与法士斥候先行交锋。"
+        "任务提示：围绕“草原斥候战”推进慕兰天澜战役，按顺序完成当前节点的实际检测目标。",
+        "完成条件：宗门战争处于开启状态；接取门槛：境界不低于炼气；当前区域为慕兰草原；完成接取里程碑（慕兰天澜战线：慕兰边军）；先在原生任务追踪中接取慕兰天澜战役（接取门槛：境界不低于炼气；当前区域为慕兰草原）；本镜像读取已记录的接取里程碑（慕兰天澜战役：边境遭遇）；原生任务账本已记录慕兰天澜战役：慕兰边军；原生任务账本已记录慕兰天澜战役：天南动员；先在原生任务追踪中接取慕兰大战战役（接取门槛：境界不低于炼气；当前区域为慕兰草原）；本镜像读取已记录的接取里程碑（慕兰大战战役：边境遭遇）。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条慕兰天澜战役完成后结算：战事令 × 1；中段第3阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4；整条慕兰大战战役完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4；整条慕兰天澜战线完成后结算：战勋牌 × 2、灵石碎片 × 12；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000203"],
       tags: ["seeking_immortals", "mulan_tianlan_war", "mulan_border", "si_native_write_mulan_tianlan_war_1"],
       require_sequential_tasks: true,
-      tasks: [{id: "1000000000001801", type: "custom", title: "完成边境遭遇", tags: ["si_war_active"], check_timer: 20, max_progress: 1L},
-        {id: "3100000000000012", type: "custom", title: "提交原生任务阶段 1", tags: ["si_native_ready_mulan_tianlan_war_1"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000084", type: "custom", title: "同步原生任务阶段 1/6", tags: ["si_native_mulan_war_campaign_1"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000085", type: "custom", title: "同步原生任务阶段 2/6", tags: ["si_native_mulan_war_campaign_2"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000086", type: "custom", title: "同步原生任务阶段 3/6", tags: ["si_native_mulan_war_campaign_3"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000175", type: "custom", title: "同步原生任务阶段 1/4", tags: ["si_native_chain_mulan_war_campaign_1"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001801", type: "custom", title: "等待宗门战开启", tags: ["si_war_active"], check_timer: 20, max_progress: 1L},
+        {id: "3100000000000012", type: "custom", title: "接取里程碑：慕兰天澜战线：慕兰边军", tags: ["si_native_ready_mulan_tianlan_war_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000084", type: "custom", title: "接取里程碑：慕兰天澜战役：边境遭遇", tags: ["si_native_mulan_war_campaign_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000085", type: "custom", title: "慕兰天澜战役：慕兰边军", tags: ["si_native_mulan_war_campaign_2"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000086", type: "custom", title: "慕兰天澜战役：天南动员", tags: ["si_native_mulan_war_campaign_3"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000175", type: "custom", title: "接取里程碑：慕兰大战战役：边境遭遇", tags: ["si_native_chain_mulan_war_campaign_1"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000802",
       title: "天南动员",
-      subtitle: "黄枫与联军",
+      subtitle: "慕兰天澜战线 · 慕兰边军",
       x: 2.0d,
       y: -1.0d,
       guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
-        "来源：tiannan_defense_mobilize / mulan_tianlan_war#phase_border_skirmish。",
-        "天南宗门动员应对慕兰游骑；后续可接入战功、宗门令和动态战场。"
+        "任务提示：围绕“天南动员”推进慕兰天澜战线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：先在原生任务追踪中接取慕兰天澜战线（接取门槛：境界不低于炼气；当前区域为慕兰草原）；本镜像读取已记录的接取里程碑（慕兰天澜战线：慕兰边军）。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条慕兰天澜战线完成后结算：战勋牌 × 2、灵石碎片 × 12；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000801"],
       tags: ["seeking_immortals", "mulan_tianlan_war", "tiannan_alliance"],
-      tasks: [{id: "1000000000001802", type: "custom", title: "同步原生任务接取状态", tags: ["si_native_mulan_tianlan_war_1"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001802", type: "custom", title: "接取里程碑：慕兰天澜战线：慕兰边军", tags: ["si_native_mulan_tianlan_war_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000803",
       title: "慕兰边军",
-      subtitle: "择边提示",
+      subtitle: "慕兰天澜战线 · 慕兰边军",
       x: 2.0d,
       y: 1.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
-        "来源：quest_hooks#mulan_side。",
-        "选择慕兰边军会与天澜/天南路线形成阵营张力；当前只做可见分支，不写互斥状态。"
+        "任务提示：围绕“慕兰边军”推进慕兰天澜战线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：慕兰声望达到 10。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条慕兰天澜战线完成后结算：战勋牌 × 2、灵石碎片 × 12；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000801"],
       tags: ["seeking_immortals", "mulan_tianlan_war", "mulan_fashi", "branch_design"],
-      tasks: [{id: "1000000000001803", type: "custom", title: "接触慕兰边军", tags: ["si_rep_mulan_10"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001803", type: "custom", title: "慕兰声望达到 10", tags: ["si_rep_mulan_10"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000804",
       title: "天澜圣印",
-      subtitle: "天澜阵营提示",
+      subtitle: "天澜御兽线 · 天澜誓约",
       x: 2.0d,
       y: 3.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
-        "来源：quest_hooks#tianlan_side。",
-        "天澜圣印用于展示天澜御兽与圣殿支线；后续可接入声望和御兽契约。"
+        "任务提示：围绕“天澜圣印”推进天澜御兽线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：先在原生任务追踪中接取天澜御兽线（接取门槛：境界不低于炼气；当前区域为天澜草原边境；已加入天澜圣殿）；本镜像读取已记录的接取里程碑（天澜御兽线：天澜誓约）；原生任务账本已记录慕兰天澜战线：兽潮守城。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条天澜御兽线完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4；整条慕兰天澜战线完成后结算：战勋牌 × 2、灵石碎片 × 12；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000801"],
       tags: ["seeking_immortals", "mulan_tianlan_war", "tianlan_temple", "branch_design"],
-      tasks: [{id: "1000000000001804", type: "custom", title: "接触天澜圣印", tags: ["si_native_tianlan_defense_line_1"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000013", type: "custom", title: "同步原生任务阶段 2/3", tags: ["si_native_mulan_tianlan_war_2"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001804", type: "custom", title: "接取里程碑：天澜御兽线：天澜誓约", tags: ["si_native_tianlan_defense_line_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000013", type: "custom", title: "慕兰天澜战线：兽潮守城", tags: ["si_native_mulan_tianlan_war_2"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000805",
       title: "法士护阵战",
-      subtitle: "护阵破阵",
+      subtitle: "慕兰天澜战线 · 兽潮守城",
       x: 4.0d,
       y: -1.0d,
       guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
-        "来源：mulan_tianlan_war#phase_fashi_array / fashi_soul_array_battle。",
-        "慕兰法士灵术大阵对天南宗门阵法，战场进入筑基到结丹阶段。"
+        "任务提示：围绕“法士护阵战”推进慕兰天澜战线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：击败掠夺者 × 3；满足慕兰天澜战线的阶段推进条件并完成慕兰天澜战线：兽潮守城。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条慕兰天澜战线完成后结算：战勋牌 × 2、灵石碎片 × 12；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000802"],
       tags: ["seeking_immortals", "mulan_tianlan_war", "formation", "si_native_write_mulan_tianlan_war_2"],
       require_sequential_tasks: true,
-      tasks: [{id: "1000000000001805", type: "kill", entity: "minecraft:pillager", value: 3L, title: "完成护阵破阵"},
-        {id: "3100000000000013", type: "custom", title: "提交原生任务阶段 2", tags: ["si_native_ready_mulan_tianlan_war_2"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001805", type: "kill", entity: "minecraft:pillager", value: 3L, title: "击败掠夺者 × 3"},
+        {id: "3100000000000013", type: "custom", title: "慕兰天澜战线：兽潮守城", tags: ["si_native_ready_mulan_tianlan_war_2"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000806",
       title: "燕乐破阵支援",
-      subtitle: "阵法宗门",
+      subtitle: "慕兰大战战役 · 法士大阵",
       x: 6.0d,
       y: -2.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
-        "来源：quest_hooks#yanyue_formation_support。",
-        "燕乐宗常担破阵支援，连接现有阵法指南和宗门贡献路线。"
+        "任务提示：围绕“燕乐破阵支援”推进慕兰大战战役，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录慕兰大战战役：法士大阵。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条慕兰大战战役完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4；整条慕兰天澜战线完成后结算：战勋牌 × 2、灵石碎片 × 12；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000805"],
       tags: ["seeking_immortals", "mulan_tianlan_war", "yanyue_sect", "optional"],
-      tasks: [{id: "1000000000001806", type: "custom", title: "完成破阵支援", tags: ["si_native_chain_mulan_war_campaign_2"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001806", type: "custom", title: "慕兰大战战役：法士大阵", tags: ["si_native_chain_mulan_war_campaign_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000807",
       title: "圣禽祝福",
-      subtitle: "可选圣禽线",
+      subtitle: "慕兰大战战役 · 圣禽祝福",
       x: 6.0d,
       y: 0.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
-        "来源：mulan_tianlan_war#phase_holy_bird / holy_bird_blessing_quest。",
-        "慕兰圣禽临凡影响士气与停战筹码，是可选支线而非必胜剧情。"
+        "任务提示：围绕“圣禽祝福”推进慕兰大战战役，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录慕兰大战战役：圣禽祝福。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条慕兰大战战役完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4；整条慕兰天澜战线完成后结算：战勋牌 × 2、灵石碎片 × 12；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000805"],
       tags: ["seeking_immortals", "mulan_tianlan_war", "holy_bird", "optional"],
-      tasks: [{id: "1000000000001807", type: "custom", title: "完成圣禽祈福", tags: ["si_native_chain_mulan_war_campaign_3"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001807", type: "custom", title: "慕兰大战战役：圣禽祝福", tags: ["si_native_chain_mulan_war_campaign_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000808",
       title: "停战谈判",
-      subtitle: "战役收束",
+      subtitle: "慕兰天澜战线 · 草原斥候交锋",
       x: 8.0d,
       y: -1.0d,
       guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
-        "来源：mulan_tianlan_war#phase_ceasefire / war_ceasefire_negotiation。",
-        "资源枯竭与双方损耗后谈判，玩家功勋后续可影响兑换与声望。"
+        "任务提示：围绕“停战谈判”推进慕兰天澜战线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：宗门战争处于开启状态；原生任务账本已记录慕兰天澜战线：草原斥候交锋。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条慕兰天澜战线完成后结算：战勋牌 × 2、灵石碎片 × 12；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000805"],
       tags: ["seeking_immortals", "mulan_tianlan_war", "ceasefire"],
       tasks: [
-        {id: "1000000000001808", type: "custom", title: "促成停战谈判", tags: ["si_war_active", "si_rep_mulan_10"], check_timer: 20, max_progress: 1L},
-        {id: "2000000000001808", type: "custom", title: "同步原生任务完成状态", tags: ["si_native_mulan_tianlan_war_3"], check_timer: 20, max_progress: 1L}
+        {id: "1000000000001808", type: "custom", title: "等待宗门战开启", tags: ["si_war_active", "si_rep_mulan_10"], check_timer: 20, max_progress: 1L},
+        {id: "2000000000001808", type: "custom", title: "慕兰天澜战线：草原斥候交锋", tags: ["si_native_mulan_tianlan_war_3"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000809",
       title: "战功收束",
-      subtitle: "战役代币占位",
+      subtitle: "慕兰天澜战役 · 法士护阵",
       x: 10.0d,
       y: -1.0d,
       guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
-        "来源：mulan_war_campaign#rewards_finale / chain_mulan_war_campaign#rewards。",
-        "源设定奖励包含 war_campaign_token、war_merit 与 mulan_spoil；当前仅写入说明，不发放奖励。"
+        "任务提示：围绕“战功收束”推进慕兰天澜战役，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有战勋牌 × 1（检测不消耗物品）；原生任务账本已记录慕兰天澜战役：法士护阵；原生任务账本已记录慕兰天澜战役：圣禽祝福；原生任务账本已记录慕兰天澜战役：停战谈判；原生任务账本已记录慕兰大战战役：停战。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条慕兰天澜战役完成后结算：战事令 × 1；中段第3阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4；整条慕兰大战战役完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4；整条慕兰天澜战线完成后结算：战勋牌 × 2、灵石碎片 × 12；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000808"],
       tags: ["seeking_immortals", "mulan_tianlan_war", "reward_bridge_deferred"],
-      tasks: [{id: "1000000000001809", type: "item", title: "持有战勋牌", item: "seeking_immortals:war_contribution_token", count: 1L, consume_items: false, match_nbt: false},
-        {id: "3200000000000087", type: "custom", title: "同步原生任务阶段 4/6", tags: ["si_native_mulan_war_campaign_4"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000088", type: "custom", title: "同步原生任务阶段 5/6", tags: ["si_native_mulan_war_campaign_5"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000089", type: "custom", title: "同步原生任务阶段 6/6", tags: ["si_native_mulan_war_campaign_6"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000178", type: "custom", title: "同步原生任务阶段 4/4", tags: ["si_native_chain_mulan_war_campaign_4"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001809", type: "item", title: "持有战勋牌 × 1", item: "seeking_immortals:war_contribution_token", count: 1L, consume_items: false, match_nbt: false},
+        {id: "3200000000000087", type: "custom", title: "慕兰天澜战役：法士护阵", tags: ["si_native_mulan_war_campaign_4"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000088", type: "custom", title: "慕兰天澜战役：圣禽祝福", tags: ["si_native_mulan_war_campaign_5"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000089", type: "custom", title: "慕兰天澜战役：停战谈判", tags: ["si_native_mulan_war_campaign_6"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000178", type: "custom", title: "慕兰大战战役：停战", tags: ["si_native_chain_mulan_war_campaign_4"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000810",
       title: "法士入门",
-      subtitle: "慕兰法士道途",
+      subtitle: "慕兰法士道途 · 法士入门",
       x: 4.0d,
       y: 1.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
-        "来源：mulan_fashi_path / mulan_fashi_initiation。",
-        "慕兰法士入门连接风灵术页、法士技能树和圣禽祭坛。"
+        "任务提示：围绕“法士入门”推进慕兰法士道途，按顺序完成当前节点的实际检测目标。",
+        "完成条件：先在原生任务追踪中接取慕兰法士道途（接取门槛：境界不低于炼气；当前区域为慕兰草原）；本镜像读取已记录的接取里程碑（慕兰法士道途：法士入门）。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条慕兰法士道途完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000803"],
       tags: ["seeking_immortals", "mulan_fashi", "optional"],
-      tasks: [{id: "1000000000001810", type: "custom", title: "完成法士入门", tags: ["si_native_mulan_fashi_path_1"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001810", type: "custom", title: "接取里程碑：慕兰法士道途：法士入门", tags: ["si_native_mulan_fashi_path_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000811",
       title: "圣禽祭坛",
-      subtitle: "法士支线",
+      subtitle: "慕兰法士道途 · 圣禽祭坛参拜",
       x: 6.0d,
       y: 1.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
-        "来源：mulan_fashi_path#holy_bird_altar_visit。",
-        "祭坛拜访承接圣禽祝福与法士身份，后续可接入祭品、buff 或声望条件。"
+        "任务提示：围绕“圣禽祭坛”推进慕兰法士道途，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录慕兰法士道途：圣禽祭坛参拜。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条慕兰法士道途完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000810"],
       tags: ["seeking_immortals", "mulan_fashi", "holy_bird", "optional"],
-      tasks: [{id: "1000000000001811", type: "custom", title: "拜访圣禽祭坛", tags: ["si_native_mulan_fashi_path_2"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001811", type: "custom", title: "慕兰法士道途：圣禽祭坛参拜", tags: ["si_native_mulan_fashi_path_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000812",
       title: "天虎驯兽",
-      subtitle: "可选驯兽",
+      subtitle: "慕兰法士道途 · 天狐灵兽驯服",
       x: 8.0d,
       y: 1.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
-        "来源：mulan_fashi_path#tianhu_beast_tame_optional。",
-        "天虎驯兽作为法士可选兽契路线，真实契约/驯兽状态留待后续。"
+        "任务提示：围绕“天虎驯兽”推进慕兰法士道途，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有妖兽内丹 × 1（检测不消耗物品）；原生任务账本已记录慕兰法士道途：天狐灵兽驯服。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条慕兰法士道途完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000811"],
       tags: ["seeking_immortals", "mulan_fashi", "beast_taming", "optional"],
-      tasks: [{id: "1000000000001812", type: "item", title: "持有妖兽内丹", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false},
-        {id: "3200000000000092", type: "custom", title: "同步原生任务阶段 3/3", tags: ["si_native_mulan_fashi_path_3"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001812", type: "item", title: "持有妖兽内丹 × 1", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false},
+        {id: "3200000000000092", type: "custom", title: "慕兰法士道途：天狐灵兽驯服", tags: ["si_native_mulan_fashi_path_3"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000813",
       title: "天澜誓约",
-      subtitle: "御兽宗门",
+      subtitle: "天澜御兽线 · 天澜誓约",
       x: 4.0d,
       y: 3.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
-        "来源：tianlan_defense_line / tianlan_oath_renew。",
-        "天澜誓约表现御兽宗门立场，后续可接入兽魂契约提示和天澜声望。"
+        "任务提示：围绕“天澜誓约”推进天澜御兽线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：先在原生任务追踪中接取天澜御兽线（接取门槛：境界不低于炼气；当前区域为天澜草原边境；已加入天澜圣殿）；本镜像读取已记录的接取里程碑（天澜御兽线：天澜誓约）；原生任务账本已记录天澜御兽线：天澜兽魂召唤训练。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条天澜御兽线完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000804"],
       tags: ["seeking_immortals", "tianlan_temple", "beast_taming", "optional"],
-      tasks: [{id: "1000000000001813", type: "custom", title: "重立天澜誓约", tags: ["si_native_tianlan_defense_line_1"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000094", type: "custom", title: "同步原生任务阶段 2/3", tags: ["si_native_tianlan_defense_line_2"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001813", type: "custom", title: "接取里程碑：天澜御兽线：天澜誓约", tags: ["si_native_tianlan_defense_line_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000094", type: "custom", title: "天澜御兽线：天澜兽魂召唤训练", tags: ["si_native_tianlan_defense_line_2"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000814",
       title: "兽魂唤灵训练",
-      subtitle: "天澜御兽线",
+      subtitle: "天澜御兽线 · 慕兰战争战役",
       x: 6.0d,
       y: 3.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
-        "来源：tianlan_defense_line#tianlan_beast_soul_call_training。",
-        "兽魂唤灵训练作为天澜御兽成长节点，暂不授予技能或契约。"
+        "任务提示：围绕“兽魂唤灵训练”推进天澜御兽线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有妖兽内丹 × 1（检测不消耗物品）；原生任务账本已记录天澜御兽线：慕兰战争战役。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条天澜御兽线完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000813"],
       tags: ["seeking_immortals", "tianlan_temple", "beast_taming", "optional"],
-      tasks: [{id: "1000000000001814", type: "item", title: "持有妖兽内丹", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false},
-        {id: "3200000000000095", type: "custom", title: "同步原生任务阶段 3/3", tags: ["si_native_tianlan_defense_line_3"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001814", type: "item", title: "持有妖兽内丹 × 1", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false},
+        {id: "3200000000000095", type: "custom", title: "天澜御兽线：慕兰战争战役", tags: ["si_native_tianlan_defense_line_3"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000815",
       title: "突兀袭营",
-      subtitle: "世仇开端",
+      subtitle: "突兀慕兰世仇 · 突兀袭击慕兰营地",
       x: 4.0d,
       y: 5.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
-        "来源：wutu_mulan_feud_line / wutu_raid_mulan_camp。",
-        "突兀袭营表现慕兰与突兀世仇，后续可接入边境事件、狼皮掉落和声望。"
+        "任务提示：围绕“突兀袭营”推进突兀慕兰世仇，按顺序完成当前节点的实际检测目标。",
+        "完成条件：先在原生任务追踪中接取突兀慕兰世仇（接取门槛：境界不低于炼气；当前区域为慕兰草原）；本镜像读取已记录的接取里程碑（突兀慕兰世仇：突兀袭击慕兰营地）。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条突兀慕兰世仇完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000801"],
       tags: ["seeking_immortals", "mulan", "wutu_feud", "optional"],
-      tasks: [{id: "1000000000001815", type: "custom", title: "处理突兀袭营", tags: ["si_native_wutu_mulan_feud_line_1"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001815", type: "custom", title: "接取里程碑：突兀慕兰世仇：突兀袭击慕兰营地", tags: ["si_native_wutu_mulan_feud_line_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000816",
       title: "慕兰反猎",
-      subtitle: "反击突兀",
+      subtitle: "突兀慕兰世仇 · 慕兰反猎",
       x: 6.0d,
       y: 5.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
-        "来源：mulan_counter_hunt。",
-        "慕兰反猎承接突兀袭营，真实战斗、声望和战利品留待后续。"
+        "任务提示：围绕“慕兰反猎”推进突兀慕兰世仇，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录突兀慕兰世仇：慕兰反猎。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条突兀慕兰世仇完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000815"],
       tags: ["seeking_immortals", "mulan", "wutu_feud", "optional"],
-      tasks: [{id: "1000000000001816", type: "custom", title: "完成慕兰反猎", tags: ["si_native_wutu_mulan_feud_line_2"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001816", type: "custom", title: "突兀慕兰世仇：慕兰反猎", tags: ["si_native_wutu_mulan_feud_line_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000817",
       title: "世仇调停",
-      subtitle: "停战掮客",
+      subtitle: "突兀慕兰世仇 · 世仇停战斡旋",
       x: 8.0d,
       y: 5.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
-        "来源：feud_truce_broker。",
-        "为中立玩家保留双声望调停空间；真实停战令与声望锁后续实现。"
+        "任务提示：围绕“世仇调停”推进突兀慕兰世仇，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录突兀慕兰世仇：世仇停战斡旋。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条突兀慕兰世仇完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000816"],
       tags: ["seeking_immortals", "mulan", "wutu_feud", "optional"],
-      tasks: [{id: "1000000000001817", type: "custom", title: "促成世仇调停", tags: ["si_native_wutu_mulan_feud_line_3"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001817", type: "custom", title: "突兀慕兰世仇：世仇停战斡旋", tags: ["si_native_wutu_mulan_feud_line_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000818",
       title: "魔道北迁传闻",
-      subtitle: "北荒风声",
+      subtitle: "魔道六宗线 · 北迁传闻",
       x: 0.0d,
       y: 8.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
-        "来源：demonic_six_path / demonic_six_expanded / demonic_north_rumor。",
-        "鬼灵、合欢、天魔、青罗、万狐、血巫六宗北迁，入魔会恶化七派关系。"
+        "任务提示：围绕“魔道北迁传闻”推进魔道六宗线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：先在原生任务追踪中接取魔道六宗线（接取门槛：境界不低于炼气；当前区域为天南荒原（魔道））；本镜像读取已记录的接取里程碑（魔道六宗线：北迁传闻）；原生任务账本已记录魔道六宗线：天魔血祭；原生任务账本已记录魔道六宗线：正道悬赏反噬；先在原生任务追踪中接取魔道六宗深入线（接取门槛：境界不低于炼气；当前区域为天南荒原（魔道））；本镜像读取已记录的接取里程碑（魔道六宗深入线：北迁与边境悬赏）；原生任务账本已记录魔道六宗深入线：六宗择一入门。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条魔道六宗线完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4；整条魔道六宗深入线完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000201"],
       tags: ["seeking_immortals", "demonic_six", "tiannan_north_waste", "optional"],
-      tasks: [{id: "1000000000001818", type: "custom", title: "听闻魔道北迁", tags: ["si_native_demonic_six_path_1"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000067", type: "custom", title: "同步原生任务阶段 4/5", tags: ["si_native_demonic_six_path_4"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000068", type: "custom", title: "同步原生任务阶段 5/5", tags: ["si_native_demonic_six_path_5"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000238", type: "custom", title: "同步原生任务阶段 1/4", tags: ["si_native_demonic_six_expanded_1"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000239", type: "custom", title: "同步原生任务阶段 2/4", tags: ["si_native_demonic_six_expanded_2"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001818", type: "custom", title: "接取里程碑：魔道六宗线：北迁传闻", tags: ["si_native_demonic_six_path_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000067", type: "custom", title: "魔道六宗线：天魔血祭", tags: ["si_native_demonic_six_path_4"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000068", type: "custom", title: "魔道六宗线：正道悬赏反噬", tags: ["si_native_demonic_six_path_5"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000238", type: "custom", title: "接取里程碑：魔道六宗深入线：北迁与边境悬赏", tags: ["si_native_demonic_six_expanded_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000239", type: "custom", title: "魔道六宗深入线：六宗择一入门", tags: ["si_native_demonic_six_expanded_2"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000819",
       title: "魔道六宗招揽",
-      subtitle: "叛宗风险",
+      subtitle: "魔道六宗线 · 鬼灵门招募",
       x: 2.0d,
       y: 8.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
-        "来源：hook_demonic_six_recruit / demonic_six_expanded#sect_branch_choice。",
-        "六宗招揽需要考虑正道内门身份、魔道因果与未来悬赏风险；当前不写阵营状态。"
+        "任务提示：围绕“魔道六宗招揽”推进魔道六宗线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录魔道六宗线：鬼灵门招募；原生任务账本已记录魔道六宗深入线：正道围剿压力。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条魔道六宗线完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4；整条魔道六宗深入线完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000818"],
       tags: ["seeking_immortals", "demonic_six", "branch_design", "optional"],
-      tasks: [{id: "1000000000001819", type: "custom", title: "记录六宗招揽", tags: ["si_native_demonic_six_path_2"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000240", type: "custom", title: "同步原生任务阶段 3/4", tags: ["si_native_demonic_six_expanded_3"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000001819", type: "custom", title: "魔道六宗线：鬼灵门招募", tags: ["si_native_demonic_six_path_2"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000240", type: "custom", title: "魔道六宗深入线：正道围剿压力", tags: ["si_native_demonic_six_expanded_3"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000000820",
       title: "鬼灵门招募",
-      subtitle: "摄魂炼尸",
+      subtitle: "魔道六宗线 · 鬼灵门招募",
       x: 4.0d,
       y: 7.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
-        "来源：guiling_gate_recruit / demonic_six_sects#guiling_gate。",
-        "鬼灵门专长摄魂、炼尸与阴火，和鬼修/玄阴系有天然交汇。"
+        "任务提示：围绕“鬼灵门招募”推进魔道六宗线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有魂魄碎片 × 1（检测不消耗物品）。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条魔道六宗线完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000819"],
       tags: ["seeking_immortals", "demonic_six", "guiling_gate", "optional"],
-      tasks: [{id: "1000000000001820", type: "item", title: "持有魂魄碎片", item: "seeking_immortals:soul_fragment", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001820", type: "item", title: "持有魂魄碎片 × 1", item: "seeking_immortals:soul_fragment", count: 1L, consume_items: false, match_nbt: false}]
     },
     {
       id: "1000000000000821",
       title: "合欢试心",
-      subtitle: "幻惑试炼",
+      subtitle: "魔道六宗线 · 合欢试心",
       x: 4.0d,
       y: 8.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
-        "来源：hehuan_sect_trial / demonic_six_sects#hehuan_sect。",
-        "合欢宗以媚术、双修、幻惑为标签；当前仅呈现路线与心性试炼。"
+        "任务提示：围绕“合欢试心”推进魔道六宗线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录魔道六宗线：合欢试心。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条魔道六宗线完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000819"],
       tags: ["seeking_immortals", "demonic_six", "hehuan_sect", "optional"],
-      tasks: [{id: "1000000000001821", type: "custom", title: "完成合欢试心", tags: ["si_native_demonic_six_path_3"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001821", type: "custom", title: "魔道六宗线：合欢试心", tags: ["si_native_demonic_six_path_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000822",
       title: "天魔血祭",
-      subtitle: "魔体炼体",
+      subtitle: "魔道六宗线 · 天魔血祭",
       x: 4.0d,
       y: 9.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
-        "来源：tianmo_blood_rite / demonic_six_sects#tianmo_sect。",
-        "天魔宗要求更高风险的血祭和魔体修行，源设定建议筑基以上接触。"
+        "任务提示：围绕“天魔血祭”推进魔道六宗线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有魔血珊瑚 × 1（检测不消耗物品）。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条魔道六宗线完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000819"],
       tags: ["seeking_immortals", "demonic_six", "tianmo_sect", "optional"],
-      tasks: [{id: "1000000000001822", type: "item", title: "持有魔血珊瑚", item: "seeking_immortals:demonic_blood_coral", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001822", type: "item", title: "持有魔血珊瑚 × 1", item: "seeking_immortals:demonic_blood_coral", count: 1L, consume_items: false, match_nbt: false}]
     },
     {
       id: "1000000000000823",
       title: "青罗万狐血巫",
-      subtitle: "六宗余脉",
+      subtitle: "魔道六宗深入线 · 荒原古冢夺宝",
       x: 6.0d,
       y: 8.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
-        "来源：demonic_six_sects#qingluo_sect / #wanhu_sect / #xuewu_sect。",
-        "青罗毒虫、万狐幻兽、血巫血咒目前缺少完整技能树，先作为 FTB 可见支路。"
+        "任务提示：围绕“青罗万狐血巫”推进魔道六宗深入线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录魔道六宗深入线：荒原古冢夺宝。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条魔道六宗深入线完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000819"],
       tags: ["seeking_immortals", "demonic_six", "missing_tree", "optional"],
-      tasks: [{id: "1000000000001823", type: "custom", title: "记录六宗余脉", tags: ["si_native_demonic_six_expanded_4"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001823", type: "custom", title: "魔道六宗深入线：荒原古冢夺宝", tags: ["si_native_demonic_six_expanded_4"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000824",
       title: "正道悬赏反噬",
-      subtitle: "入魔代价",
+      subtitle: "魔道六宗线 · 正道悬赏反噬",
       x: 8.0d,
       y: 8.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
-        "来源：righteous_bounty_hunt / demonic_six_sects#karma。",
-        "入魔会触发正道悬赏与宗门排斥；当前不扣声望，只展示风险节点。"
+        "任务提示：围绕“正道悬赏反噬”推进魔道六宗线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：大晋声望达到 10。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条魔道六宗线完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000819"],
       tags: ["seeking_immortals", "demonic_six", "righteous_bounty", "optional"],
-      tasks: [{id: "1000000000001824", type: "custom", title: "承受正道悬赏", tags: ["si_rep_dajin_10"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000001824", type: "custom", title: "大晋声望达到 10", tags: ["si_rep_dajin_10"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000825",
       title: "北荒古冢夺宝",
-      subtitle: "魔道收束",
+      subtitle: "魔道六宗深入线 · 荒原古冢夺宝",
       x: 10.0d,
       y: 8.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_mulan_demonic",
       description: [
-        "来源：demonic_six_expanded#north_waste_ruin。",
-        "北荒古冢夺宝是魔道深入线收束节点；源设定奖励：demonic_core_material 与 sect_method_scroll。"
+        "任务提示：围绕“北荒古冢夺宝”推进魔道六宗深入线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有妖兽内丹 × 1（检测不消耗物品）。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条魔道六宗深入线完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000824"],
       tags: ["seeking_immortals", "demonic_six", "tiannan_north_waste", "reward_bridge_deferred", "optional"],
-      tasks: [{id: "1000000000001825", type: "item", title: "持有妖兽内丹", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001825", type: "item", title: "持有妖兽内丹 × 1", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false}]
 }
   ]
 }

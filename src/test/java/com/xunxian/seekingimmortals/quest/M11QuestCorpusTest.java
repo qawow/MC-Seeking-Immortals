@@ -114,9 +114,11 @@ class M11QuestCorpusTest {
 
     @Test
     void trackerCapacityCoversSixtyTwoActiveChains() {
-        // Packet constant via encode bounds: MAX_LINES elevated for M11.
-        // buildTrackerLines should accept up to 64 active entries without throwing.
-        assertTrue(TextQuestChainService.buildTrackerLines(null).size() >= 1);
+        // The native snapshot now includes available/locked entries as well as active ones.
+        var lines = TextQuestChainService.buildTrackerLines(null);
+        assertEquals(62, lines.size());
+        assertTrue(lines.stream().allMatch(line -> line.length() <= 160));
+        assertTrue(lines.stream().allMatch(line -> line.contains("STATE=") && line.contains("GATE=")));
         assertTrue(TextQuestChainService.formatTrackerLine(null,
                 new TextQuestChainService.ChainProgress("huangfeng_cultivation_path", 1, 5, false))
                 .contains("huangfeng_cultivation_path"));

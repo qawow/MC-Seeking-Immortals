@@ -2,7 +2,7 @@
   id: "1000000000000008",
   filename: "seeking_immortals_star_palace_inverse",
   title: "寻仙问道：星宫派系与逆星暗线",
-  subtitle: ["源自 star_palace_internal_factions.json、chaotic_sea_faction_war.json、inverse_star_quest_network.json 与虚天殿设定。"],
+  subtitle: ["星宫派系与逆星暗线修行篇章。按节点核对实际完成条件，原生任务线奖励由原生任务账本结算。"],
   default_quest_shape: "circle",
   default_hide_dependency_lines: false,
   progression_mode: "linear",
@@ -10,392 +10,416 @@
     {
       id: "1000000000001101",
       title: "天星城阵枢复核",
-      subtitle: "星宫二层入口",
+      subtitle: "星宫派系线 · 星宫巡防",
       x: 0.0d,
       y: 0.0d,
       guide_page: "seeking_immortals:quest_native_star_palace_inverse",
       description: [
-        "来源：chaotic_sea_factions.json#star_palace / spatial_nodes_catalog.json#node_star_palace。",
-        "外海登记后进入天星城阵枢，复核通行、岛税和巡防身份。当前只展示路线，不发放通行令或声望。"
+        "任务提示：围绕“天星城阵枢复核”推进星宫派系线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：先在原生任务追踪中接取星宫派系线（接取门槛：境界不低于炼气；当前区域为乱星海）；本镜像读取已记录的接取里程碑（星宫派系线：星宫巡防）。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条星宫派系线完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000502"],
       tags: ["seeking_immortals", "chaotic_sea", "star_palace", "internal_politics"],
-      tasks: [{id: "1000000000002101", type: "custom", title: "复核天星城阵枢", tags: ["si_native_star_palace_internal_politics_1"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000002101", type: "custom", title: "接取里程碑：星宫派系线：星宫巡防", tags: ["si_native_star_palace_internal_politics_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001102",
       title: "长老会内议",
-      subtitle: "执法与贸易分歧",
+      subtitle: "星宫派系线 · 星宫执法派任务",
       x: 2.0d,
       y: 0.0d,
       guide_page: "seeking_immortals:quest_native_star_palace_inverse",
       description: [
-        "来源：star_palace_internal_factions.json / chaotic_sea_faction_war#phase_internal_star_palace。",
-        "星宫执法派主张严查逆星，贸易派主张以商养战，长老会维持中立调停。"
+        "任务提示：围绕“长老会内议”推进星宫派系线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录星宫派系线：星宫执法派任务。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条星宫派系线完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000001101"],
       tags: ["seeking_immortals", "chaotic_sea", "star_palace", "council"],
-      tasks: [{id: "1000000000002102", type: "custom", title: "旁听长老会内议", tags: ["si_native_star_palace_internal_politics_2"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000002102", type: "custom", title: "星宫派系线：星宫执法派任务", tags: ["si_native_star_palace_internal_politics_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001103",
       title: "执法派巡防简报",
-      subtitle: "铁腕支线",
+      subtitle: "星宫派系线 · 星宫执法派任务",
       x: 4.0d,
       y: -2.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_star_palace_inverse",
       description: [
-        "来源：star_palace_internal_factions#star_palace_enforcement_patrol / quest_chains#star_palace_branch_enforcement。",
-        "执法派巡防清剿海盗与逆星走私船；真实分支锁、功勋和通缉热度后续接入。"
+        "任务提示：围绕“执法派巡防简报”推进星宫派系线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录星宫派系线：星宫执法派任务。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条星宫派系线完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000001102", "1000000000000503"],
       tags: ["seeking_immortals", "chaotic_sea", "star_palace_enforcement", "optional"],
-      tasks: [{id: "1000000000002103", type: "custom", title: "领取执法派简报", tags: ["si_native_star_palace_internal_politics_2"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000002103", type: "custom", title: "星宫派系线：星宫执法派任务", tags: ["si_native_star_palace_internal_politics_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001104",
       title: "外海镇压清单",
-      subtitle: "清剿与缉私",
+      subtitle: "星宫派系线 · 星宫执法派任务",
       x: 6.0d,
       y: -2.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_star_palace_inverse",
       description: [
-        "来源：star_palace_internal_factions#outer_sea_demon_suppress / chaotic_sea_factions#pirate_scatter。",
-        "外海镇压清单包含海盗据点、高阶海兽与逆星走私航线，暂不生成战斗任务。"
+        "任务提示：围绕“外海镇压清单”推进星宫派系线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有火弹符 × 1（检测不消耗物品）。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条星宫派系线完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000001103"],
       tags: ["seeking_immortals", "chaotic_sea", "star_palace_enforcement", "pirate_bounty", "optional"],
-      tasks: [{id: "1000000000002104", type: "item", title: "持有镇魔火符", item: "seeking_immortals:fire_talisman", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000002104", type: "item", title: "持有火弹符 × 1", item: "seeking_immortals:fire_talisman", count: 1L, consume_items: false, match_nbt: false}]
     },
     {
       id: "1000000000001105",
       title: "巡功上缴",
-      subtitle: "执法派收束",
+      subtitle: "星宫派系线 · 星宫执法派任务",
       x: 8.0d,
       y: -2.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_star_palace_inverse",
       description: [
-        "来源：star_palace_internal_factions#enforcement_merit_turn_in / quest_hooks#star_palace_branch_enforcement。",
-        "源设定奖励 patrol_merit_bonus；当前 FTB 章节不授予功勋或改变声望。"
+        "任务提示：围绕“巡功上缴”推进星宫派系线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录星宫派系线：星宫执法派任务。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条星宫派系线完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000001104"],
       tags: ["seeking_immortals", "chaotic_sea", "star_palace_enforcement", "reward_bridge_deferred", "optional"],
-      tasks: [{id: "1000000000002105", type: "custom", title: "登记巡功", tags: ["si_native_star_palace_internal_politics_2"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000002105", type: "custom", title: "星宫派系线：星宫执法派任务", tags: ["si_native_star_palace_internal_politics_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001106",
       title: "贸易派税册审计",
-      subtitle: "坊市与岛税",
+      subtitle: "星宫派系线 · 星宫商贸派任务",
       x: 4.0d,
       y: 0.5d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_star_palace_inverse",
       description: [
-        "来源：star_palace_internal_factions#star_palace_commerce_license / quest_chains#star_palace_branch_commerce。",
-        "贸易派审计岛税、传送阵费和拍卖抽成；与执法派立场互斥的真实锁定留待后续。"
+        "任务提示：围绕“贸易派税册审计”推进星宫派系线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有星宫税契 × 1（检测不消耗物品）。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条星宫派系线完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000001102"],
       tags: ["seeking_immortals", "chaotic_sea", "star_palace_commerce", "optional"],
-      tasks: [{id: "1000000000002106", type: "item", title: "持有星宫税契", item: "seeking_immortals:star_palace_tax_receipt", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000002106", type: "item", title: "持有星宫税契 × 1", item: "seeking_immortals:star_palace_tax_receipt", count: 1L, consume_items: false, match_nbt: false}]
     },
     {
       id: "1000000000001107",
       title: "传送阵费减免",
-      subtitle: "阵枢许可",
+      subtitle: "星宫派系线 · 星宫商贸派任务",
       x: 6.0d,
       y: 0.5d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_star_palace_inverse",
       description: [
-        "来源：star_palace_internal_factions#teleport_array_fee_waiver / spatial_nodes_catalog#node_chaotic_sea_hub。",
-        "贸易派争取传送阵费减免和通行许可；当前不写入费用折扣或空间节点状态。"
+        "任务提示：围绕“传送阵费减免”推进星宫派系线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录星宫派系线：星宫商贸派任务。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条星宫派系线完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000001106"],
       tags: ["seeking_immortals", "chaotic_sea", "star_palace_commerce", "teleport_array", "optional"],
-      tasks: [{id: "1000000000002107", type: "custom", title: "记录阵费减免议案", tags: ["si_native_star_palace_internal_politics_3"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000002107", type: "custom", title: "星宫派系线：星宫商贸派任务", tags: ["si_native_star_palace_internal_politics_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001108",
       title: "虚天拍卖掮客",
-      subtitle: "贸易派收束",
+      subtitle: "星宫派系线 · 星宫商贸派任务",
       x: 8.0d,
       y: 0.5d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_star_palace_inverse",
       description: [
-        "来源：star_palace_internal_factions#void_auction_broker / chaotic_sea_lore_compendium#void_palace_node。",
-        "虚天殿钥与情报成为拍卖筹码，贸易派试图以商路换取入殿优势。"
+        "任务提示：围绕“虚天拍卖掮客”推进星宫派系线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有仙玉 × 1（检测不消耗物品）。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条星宫派系线完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000001107"],
       tags: ["seeking_immortals", "chaotic_sea", "star_palace_commerce", "void_palace", "optional"],
-      tasks: [{id: "1000000000002108", type: "item", title: "持有拍卖仙玉", item: "seeking_immortals:immortal_jade", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000002108", type: "item", title: "持有仙玉 × 1", item: "seeking_immortals:immortal_jade", count: 1L, consume_items: false, match_nbt: false}]
     },
     {
       id: "1000000000001109",
       title: "长老会调停差事",
-      subtitle: "中立长老",
+      subtitle: "星宫派系线 · 星宫内部税议",
       x: 4.0d,
       y: 2.5d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_star_palace_inverse",
       description: [
-        "来源：star_palace_internal_factions#star_palace_council_mediation。",
-        "中立长老要求玩家在执法派、贸易派和逆星压力之间传话，避免双边声望彻底破裂。"
+        "任务提示：围绕“长老会调停差事”推进星宫派系线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录星宫派系线：星宫内部税议。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条星宫派系线完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000001102"],
       tags: ["seeking_immortals", "chaotic_sea", "star_palace_council_neutral", "optional"],
-      tasks: [{id: "1000000000002109", type: "custom", title: "接下调停差事", tags: ["si_native_star_palace_internal_politics_4"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000002109", type: "custom", title: "星宫派系线：星宫内部税议", tags: ["si_native_star_palace_internal_politics_4"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001110",
       title: "内税投票",
-      subtitle: "星宫派系收束",
+      subtitle: "星宫派系线 · 星宫内部税议",
       x: 10.0d,
       y: 0.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_star_palace_inverse",
       description: [
-        "来源：quest_chains#star_palace_internal_politics / quest_hooks#internal_tax_vote。",
-        "执法、贸易或调停路线最后落到岛税投票；当前只呈现结果节点，不调整税率标签。"
+        "任务提示：围绕“内税投票”推进星宫派系线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录星宫派系线：星宫内部税议。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条星宫派系线完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000001105", "1000000000001108", "1000000000001109"],
       tags: ["seeking_immortals", "chaotic_sea", "star_palace", "internal_tax_vote", "optional"],
-      tasks: [{id: "1000000000002110", type: "custom", title: "参与内税投票", tags: ["si_native_star_palace_internal_politics_4"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000002110", type: "custom", title: "星宫派系线：星宫内部税议", tags: ["si_native_star_palace_internal_politics_4"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001111",
       title: "暗礁港复联",
-      subtitle: "逆星二层入口",
+      subtitle: "逆星入盟 · 逆星接头传闻",
       x: 0.0d,
       y: 6.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_star_palace_inverse",
       description: [
-        "来源：chaotic_sea_factions#hidden_smuggle_cove / spatial_nodes_catalog#node_inverse_star_hideout。",
-        "完成逆星盟誓后，暗礁港重新开放走私、悬赏和破阵支线；当前不写入隐藏节点可见性。"
+        "任务提示：围绕“暗礁港复联”推进逆星入盟，按顺序完成当前节点的实际检测目标。",
+        "完成条件：先在原生任务追踪中接取逆星入盟（接取门槛：境界不低于炼气；当前区域为乱星海；已加入逆星盟）；本镜像读取已记录的接取里程碑（逆星入盟：逆星接头传闻）。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条逆星入盟完成后结算：虚空髓 × 1、灵石碎片 × 20；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000000506"],
       tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "hidden_smuggle_cove", "optional"],
-      tasks: [{id: "1000000000002111", type: "custom", title: "重返暗礁港", tags: ["si_native_inverse_star_recruit_1"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000002111", type: "custom", title: "接取里程碑：逆星入盟：逆星接头传闻", tags: ["si_native_inverse_star_recruit_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001112",
       title: "星宫通缉榜",
-      subtitle: "黑市悬赏",
+      subtitle: "逆星入盟 · 逆星暗号试炼",
       x: 2.0d,
       y: 5.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_star_palace_inverse",
       description: [
-        "来源：inverse_star_quest_network#inverse_star_assassination_bounty / chaotic_sea_faction_war#phase_patrol_clash。",
-        "逆星黑市承接星宫通缉风险，后续可接入通缉热度、目标 NPC 和赏金回收。"
+        "任务提示：围绕“星宫通缉榜”推进逆星入盟，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录逆星入盟：逆星暗号试炼。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条逆星入盟完成后结算：虚空髓 × 1、灵石碎片 × 20；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000001111"],
       tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "bounty", "optional"],
-      tasks: [{id: "1000000000002112", type: "custom", title: "查阅星宫通缉榜", tags: ["si_native_inverse_star_recruit_2"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000002112", type: "custom", title: "逆星入盟：逆星暗号试炼", tags: ["si_native_inverse_star_recruit_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001113",
       title: "逆星标记走私",
-      subtitle: "暗港标记",
+      subtitle: "走私补给线 · 逆星走私补给",
       x: 4.0d,
       y: 5.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_star_palace_inverse",
       description: [
-        "来源：inverse_star_quest_network#inverse_star_mark_smuggle。",
-        "为逆星黑市标记走私货箱，当前不生成物品提交或巡逻追捕。"
+        "任务提示：围绕“逆星标记走私”推进走私补给线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：先在原生任务追踪中接取走私补给线（接取门槛：境界不低于炼气；当前区域为乱星海；已加入逆星盟）；本镜像读取已记录的接取里程碑（走私补给线：逆星走私补给）。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条走私补给线完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000001112"],
       tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "smuggle", "optional"],
-      tasks: [{id: "1000000000002113", type: "custom", title: "完成走私标记", tags: ["si_native_inverse_star_smuggle_arc_1"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000002113", type: "custom", title: "接取里程碑：走私补给线：逆星走私补给", tags: ["si_native_inverse_star_smuggle_arc_1"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001114",
       title: "黑市赏金回收",
-      subtitle: "逆星悬赏收束",
+      subtitle: "章节剧情节点",
       x: 6.0d,
       y: 5.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_star_palace_inverse",
       description: [
-        "来源：inverse_star_quest_network#collect_black_market_reward。",
-        "源设定奖励 rep_inverse_star 与 stolen_jade_slip；当前不授予玉简、声望或黑市折扣。逆星黑市已有妖丹货架承接，当前 FTB 物品任务检查 1 枚妖丹但不消耗；原生任务账本负责实际上交。"
+        "任务提示：完成“黑市赏金回收”对应的章节剧情节点，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有妖兽内丹 × 1（检测不消耗物品）。",
+        "完成奖励：独立黑市悬赏系统结算赏金；当前未纳入原生任务链，不重复发放任务链奖励。"
       ],
       dependencies: ["1000000000001113"],
       tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "reward_bridge_deferred", "optional"],
-      tasks: [{id: "1000000000002114", type: "item", title: "持有黑市妖丹", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000002114", type: "item", title: "持有妖兽内丹 × 1", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false}]
     },
     {
       id: "1000000000001115",
       title: "传送阵节点侦察",
-      subtitle: "破阵前置",
+      subtitle: "走私补给线 · 躲避星宫巡防",
       x: 2.0d,
       y: 7.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_star_palace_inverse",
       description: [
-        "来源：inverse_star_quest_network#inverse_star_array_sabotage / spatial_nodes_catalog#node_star_palace。",
-        "逆星盟要求侦察星宫传送阵节点，削弱内海通行；当前不破坏真实路线或传送阵。"
+        "任务提示：围绕“传送阵节点侦察”推进走私补给线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录走私补给线：躲避星宫巡防。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条走私补给线完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000001111"],
       tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "teleport_array", "optional"],
-      tasks: [{id: "1000000000002115", type: "custom", title: "侦察传送阵节点", tags: ["si_native_inverse_star_smuggle_arc_2"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000002115", type: "custom", title: "走私补给线：躲避星宫巡防", tags: ["si_native_inverse_star_smuggle_arc_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001116",
       title: "破阵器材交付",
-      subtitle: "逆星破坏",
+      subtitle: "走私补给线 · 躲避星宫巡防",
       x: 4.0d,
       y: 7.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_star_palace_inverse",
       description: [
-        "来源：inverse_star_quest_network#inverse_star_sabotage_kit。",
-        "破阵器材用于表达逆星破坏路线；真实材料消耗、追捕和阵法失效留待后续。"
+        "任务提示：围绕“破阵器材交付”推进走私补给线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录走私补给线：躲避星宫巡防。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条走私补给线完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000001115"],
       tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "sabotage", "optional"],
-      tasks: [{id: "1000000000002116", type: "custom", title: "交付破阵器材", tags: ["si_native_inverse_star_smuggle_arc_2"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000002116", type: "custom", title: "走私补给线：躲避星宫巡防", tags: ["si_native_inverse_star_smuggle_arc_2"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001117",
       title: "巡窗撤离",
-      subtitle: "避开执法队",
+      subtitle: "走私补给线 · 虚天殿情报出售",
       x: 6.0d,
       y: 7.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_star_palace_inverse",
       description: [
-        "来源：inverse_star_quest_network#escape_patrol_window / quest_hooks#star_palace_patrol_dodge。",
-        "在星宫巡防窗口撤离，后续可接入时间窗、追捕热度和失败惩罚。"
+        "任务提示：围绕“巡窗撤离”推进走私补给线，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录走私补给线：虚天殿情报出售。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条走私补给线完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000001116"],
       tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "sabotage", "optional"],
-      tasks: [{id: "1000000000002117", type: "custom", title: "趁巡窗撤离", tags: ["si_native_inverse_star_smuggle_arc_3"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000002117", type: "custom", title: "走私补给线：虚天殿情报出售", tags: ["si_native_inverse_star_smuggle_arc_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001118",
       title: "黑市购虚天线索",
-      subtitle: "虚天情报战",
+      subtitle: "虚天情报战 · 逆星黑市购货",
       x: 8.0d,
       y: 6.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_star_palace_inverse",
       description: [
-        "来源：quest_chains#inverse_star_void_heist / inverse_star_quest_network#inverse_star_void_heist。",
-        "逆星线通过黑市购买虚天钥碎片线索，与商盟情报倒卖和星宫巡防形成三角博弈。"
+        "任务提示：围绕“黑市购虚天线索”推进虚天情报战，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有仙玉 × 1（检测不消耗物品）；原生任务账本已记录虚天情报战：逆星黑市购货。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条虚天情报战完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000001114", "1000000000001117", "1000000000000509"],
       tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "void_palace", "optional"],
-      tasks: [{id: "1000000000002118", type: "item", title: "持有线索仙玉", item: "seeking_immortals:immortal_jade", count: 1L, consume_items: false, match_nbt: false},
-        {id: "3200000000000165", type: "custom", title: "同步原生任务阶段 2/3", tags: ["si_native_inverse_star_void_heist_2"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000002118", type: "item", title: "持有仙玉 × 1", item: "seeking_immortals:immortal_jade", count: 1L, consume_items: false, match_nbt: false},
+        {id: "3200000000000165", type: "custom", title: "虚天情报战：逆星黑市购货", tags: ["si_native_inverse_star_void_heist_2"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000001119",
       title: "揭露星宫密探",
-      subtitle: "可选反制",
+      subtitle: "星宫逆星对峙 · 星宫执法突袭",
       x: 10.0d,
       y: 5.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_star_palace_inverse",
       description: [
-        "来源：quest_hooks#star_palace_spy_expose_optional。",
-        "可将密探交给星宫或逆星；当前节点只记录选择空间，不写入双边声望。"
+        "任务提示：围绕“揭露星宫密探”推进星宫逆星对峙，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录星宫逆星对峙：星宫执法突袭。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条星宫逆星对峙完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000001118"],
       tags: ["seeking_immortals", "chaotic_sea", "spy", "branch_design", "optional"],
-      tasks: [{id: "1000000000002119", type: "custom", title: "处理星宫密探", tags: ["si_native_chaotic_sea_civil_war_3"], check_timer: 20, max_progress: 1L}]
+      tasks: [{id: "1000000000002119", type: "custom", title: "星宫逆星对峙：星宫执法突袭", tags: ["si_native_chaotic_sea_civil_war_3"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001120",
       title: "深渊前哨劫案",
-      subtitle: "虚天筹码争夺",
+      subtitle: "虚天情报战 · 虚天钥匙残片传闻",
       x: 10.0d,
       y: 7.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_star_palace_inverse",
       description: [
-        "来源：chaotic_sea_faction_quests#hub_abyss_rift_outpost / chaotic_sea_lore_compendium#abyss。",
-        "深渊裂隙处高阶海兽、逆星劫案和星宫清剿交叉，暂不生成深渊 Boss 或海兽战。"
+        "任务提示：围绕“深渊前哨劫案”推进虚天情报战，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有妖兽内丹 × 1（检测不消耗物品）。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条虚天情报战完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000001118"],
       tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "abyss_rift", "void_palace", "optional"],
-      tasks: [{id: "1000000000002120", type: "item", title: "持有深渊妖丹", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000002120", type: "item", title: "持有妖兽内丹 × 1", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false}]
     },
     {
       id: "1000000000001121",
       title: "虚天钥残片上缴",
-      subtitle: "钥碎片复线",
+      subtitle: "虚天情报战 · 虚天钥匙残片传闻",
       x: 12.0d,
       y: 6.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_star_palace_inverse",
       description: [
-        "来源：quest_hooks#void_palace_key_fragment_turnin / quest_chains#chain_void_palace_expedition。",
-        "虚天钥碎片可上缴星宫、倒卖商盟或交给逆星，当前并消耗碎片或发放地图残片。"
+        "任务提示：围绕“虚天钥残片上缴”推进虚天情报战，按顺序完成当前节点的实际检测目标。",
+        "完成条件：先在原生任务追踪中接取虚天情报战（接取门槛：境界不低于炼气；当前区域为乱星海；已加入逆星盟）；本镜像读取已记录的接取里程碑（虚天情报战：虚天钥匙残片传闻）；先在原生任务追踪中接取虚天殿探险链（接取门槛：境界不低于结丹；当前区域为乱星海）；本镜像读取已记录的接取里程碑（虚天殿探险链：收集虚天残图）；原生任务账本已记录虚天殿探险链：换取入殿钥令。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条虚天情报战完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4；整条虚天殿探险链完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000001118", "1000000000000511"],
       tags: ["seeking_immortals", "chaotic_sea", "void_palace", "key_fragment", "optional"],
-      tasks: [{id: "1000000000002121", type: "custom", title: "登记虚天钥残片", tags: ["si_native_inverse_star_void_heist_1"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000179", type: "custom", title: "同步原生任务阶段 1/4", tags: ["si_native_chain_void_palace_expedition_1"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000180", type: "custom", title: "同步原生任务阶段 2/4", tags: ["si_native_chain_void_palace_expedition_2"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000002121", type: "custom", title: "接取里程碑：虚天情报战：虚天钥匙残片传闻", tags: ["si_native_inverse_star_void_heist_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000179", type: "custom", title: "接取里程碑：虚天殿探险链：收集虚天残图", tags: ["si_native_chain_void_palace_expedition_1"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000180", type: "custom", title: "虚天殿探险链：换取入殿钥令", tags: ["si_native_chain_void_palace_expedition_2"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000001122",
       title: "虚天殿周期入口",
-      subtitle: "三百年开门",
+      subtitle: "虚天殿探险链 · 换取入殿钥令",
       x: 14.0d,
       y: 6.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_star_palace_inverse",
       description: [
-        "来源：spatial_nodes_catalog#node_void_palace_gate / secret_realms.json#void_palace。",
-        "虚天殿入口需要周期、钥碎片和高境界准备；当前不触发真实秘境门或收取灵石。"
+        "任务提示：围绕“虚天殿周期入口”推进虚天殿探险链，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有仙玉 × 1（检测不消耗物品）。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条虚天殿探险链完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000001121", "1000000000000510"],
       tags: ["seeking_immortals", "chaotic_sea", "void_palace", "cycle_gate", "optional"],
-      tasks: [{id: "1000000000002122", type: "item", title: "持有秘境仙玉", item: "seeking_immortals:immortal_jade", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000002122", type: "item", title: "持有仙玉 × 1", item: "seeking_immortals:immortal_jade", count: 1L, consume_items: false, match_nbt: false}]
     },
     {
       id: "1000000000001123",
       title: "多层殿宇路线图",
-      subtitle: "外殿至寒玉殿",
+      subtitle: "虚天情报战 · 星宫密探揭露",
       x: 16.0d,
       y: 6.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_star_palace_inverse",
       description: [
-        "来源：secret_realms.json#void_palace / quest_chains#void_palace_campaign。",
-        "虚天殿分外殿、灵药园、寒玉殿和核心宝库，作为 chain_void_palace_expedition 的四步展开。"
+        "任务提示：围绕“多层殿宇路线图”推进虚天情报战，按顺序完成当前节点的实际检测目标。",
+        "完成条件：原生任务账本已记录虚天情报战：星宫密探揭露；原生任务账本已记录虚天殿探险链：探索多层殿宇；原生任务账本已记录虚天殿探险链：夺取宝物并安全撤离。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条虚天情报战完成后结算：灵石碎片 × 4；本任务链阶段较短，不设中段额外奖励；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4；整条虚天殿探险链完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000001122", "1000000000000512"],
       tags: ["seeking_immortals", "chaotic_sea", "void_palace", "chain_void_palace_expedition", "optional"],
-      tasks: [{id: "1000000000002123", type: "custom", title: "绘制多层殿宇路线", tags: ["si_native_inverse_star_void_heist_3"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000181", type: "custom", title: "同步原生任务阶段 3/4", tags: ["si_native_chain_void_palace_expedition_3"], check_timer: 20, max_progress: 1L},
-        {id: "3200000000000182", type: "custom", title: "同步原生任务阶段 4/4", tags: ["si_native_chain_void_palace_expedition_4"], check_timer: 20, max_progress: 1L}
+      tasks: [{id: "1000000000002123", type: "custom", title: "虚天情报战：星宫密探揭露", tags: ["si_native_inverse_star_void_heist_3"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000181", type: "custom", title: "虚天殿探险链：探索多层殿宇", tags: ["si_native_chain_void_palace_expedition_3"], check_timer: 20, max_progress: 1L},
+        {id: "3200000000000182", type: "custom", title: "虚天殿探险链：夺取宝物并安全撤离", tags: ["si_native_chain_void_palace_expedition_4"], check_timer: 20, max_progress: 1L}
       ]
     },
     {
       id: "1000000000001124",
       title: "虚天殿主掉落账",
-      subtitle: "古宝残片收束",
+      subtitle: "虚天殿探险链 · 夺取宝物并安全撤离",
       x: 18.0d,
       y: 6.0d,
       optional: true,
       guide_page: "seeking_immortals:quest_native_star_palace_inverse",
       description: [
-        "来源：novel_world_expansion_waves_v67#loot_void_palace_lord / boss_loot_tables.json#loot_void_palace_lord。",
-        "源设定奖励古宝残片、虚天寒玉与高阶材料；当前仅展示账册，不授予战利品。殿主掉落表的 space_crystal 已映射为虚空结晶，当前 FTB 物品任务检查 1 枚虚空结晶但不消耗；原生任务账本负责实际上交。"
+        "任务提示：围绕“虚天殿主掉落账”推进虚天殿探险链，按顺序完成当前节点的实际检测目标。",
+        "完成条件：持有虚空结晶 × 1（检测不消耗物品）。",
+        "完成奖励：本节点仅展示并核对进度，不直接发放或消耗奖励物品；以下物品由原生任务账本一次性结算：整条虚天殿探险链完成后结算：灵石碎片 × 4；中段第2阶段另得灵石碎片 × 2；结局分支加赠：正道功勋令 × 1、中立灵石碎片 × 2、魔道阴石 × 4。"
       ],
       dependencies: ["1000000000001123", "1000000000000515"],
       tags: ["seeking_immortals", "chaotic_sea", "void_palace", "boss_loot", "reward_bridge_deferred", "optional"],
-      tasks: [{id: "1000000000002124", type: "item", title: "持有虚空结晶", item: "seeking_immortals:void_crystal", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000002124", type: "item", title: "持有虚空结晶 × 1", item: "seeking_immortals:void_crystal", count: 1L, consume_items: false, match_nbt: false}]
 }
   ]
 }

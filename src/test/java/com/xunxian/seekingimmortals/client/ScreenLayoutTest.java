@@ -82,6 +82,23 @@ class ScreenLayoutTest {
     }
 
     @Test
+    void questTrackerPointsAtTheNextMilestoneAndCapsTheFinale() {
+        ClientQuestTrackerData.ChainLine available = new ClientQuestTrackerData.ChainLine(
+                "qixuan_mortal_path", 0, 4, false, "neutral", "-", 0, 0, false, false);
+        ClientQuestTrackerData.ChainLine active = new ClientQuestTrackerData.ChainLine(
+                "qixuan_mortal_path", 1, 4, false, "neutral", "-", 0, 0, false, false);
+        ClientQuestTrackerData.ChainLine finale = new ClientQuestTrackerData.ChainLine(
+                "qixuan_mortal_path", 3, 4, false, "neutral", "-", 0, 0, false, false);
+        ClientQuestTrackerData.ChainLine done = new ClientQuestTrackerData.ChainLine(
+                "qixuan_mortal_path", 4, 4, true, "neutral", "-", 0, 0, false, true);
+
+        assertEquals(1, QuestTrackerScreen.objectiveStage(available));
+        assertEquals(2, QuestTrackerScreen.objectiveStage(active));
+        assertEquals(4, QuestTrackerScreen.objectiveStage(finale));
+        assertEquals(4, QuestTrackerScreen.objectiveStage(done));
+    }
+
+    @Test
     void loreJournalScreensFitAndSwitchAtPanelWidthBreakpoints() {
         int[][] sizes = {
                 {120, 90}, {287, 180}, {288, 180}, {320, 180},
@@ -387,9 +404,33 @@ class ScreenLayoutTest {
 
         QuestTrackerScreen.Layout quest = QuestTrackerScreen.calculateLayout(screenWidth, screenHeight);
         assertTrue(quest.panel().inside(screenWidth, screenHeight));
-        assertTrue(quest.viewport().inside(screenWidth, screenHeight));
+        assertTrue(quest.titleBar().inside(screenWidth, screenHeight));
+        assertTrue(quest.list().inside(screenWidth, screenHeight));
+        assertTrue(quest.detail().inside(screenWidth, screenHeight));
+        assertTrue(quest.filters().size() == 5);
+        assertTrue(quest.filters().stream().allMatch(rect -> rect.inside(screenWidth, screenHeight)));
         assertEquals(6, quest.buttons().size());
         assertTrue(quest.buttons().stream().allMatch(rect -> rect.inside(screenWidth, screenHeight)));
+        assertFalse(quest.list().intersects(quest.detail()),
+                "quest list and detail panes must not overlap");
+        for (int i = 0; i < quest.filters().size(); i++) {
+            assertTrue(quest.filters().get(i).bottom() <= quest.list().y()
+                            && quest.filters().get(i).bottom() <= quest.detail().y(),
+                    "quest filter tabs must stay above both body panes");
+            for (int j = i + 1; j < quest.filters().size(); j++) {
+                assertFalse(quest.filters().get(i).intersects(quest.filters().get(j)),
+                        "quest filter tabs must not overlap");
+            }
+        }
+        for (int i = 0; i < quest.buttons().size(); i++) {
+            for (int j = i + 1; j < quest.buttons().size(); j++) {
+                assertFalse(quest.buttons().get(i).intersects(quest.buttons().get(j)),
+                        "quest footer buttons must not overlap");
+            }
+        }
+        assertTrue(quest.list().bottom() <= quest.buttons().get(0).y()
+                        && quest.detail().bottom() <= quest.buttons().get(0).y(),
+                "quest body must leave room for footer controls");
 
         RefinementPlanScreen.Layout refinement = RefinementPlanScreen.calculateLayout(screenWidth, screenHeight);
         assertTrue(refinement.panel().inside(screenWidth, screenHeight));
