@@ -1,3 +1,9 @@
+## 0.2.143 全量非物品贴图资源状态
+
+全部 1,477 张非物品 PNG 已重绘或补齐：66 张 block、6 张 entity、1,392 张 skill、6 张 dialogue、5 张 ink 和 2 张 empty-slot。方块全部为 16x16 RGBA 全不透明材质，62 个唯一模型纹理引用缺失 0；技能图标全部为 16x16 RGBA 透明角且 1,392 个像素哈希唯一，新增 107 张后 cultivation 运行时技法同名覆盖为 477/477；实体 UV 图集和核心 GUI 图保持对应消费尺寸，灵舟两张 atlas 与 Geo 从历史 64x32 越界重叠布局重排为 128x64 非重叠布局。三个生成器的确定性复渲染差异与分类内重复像素组均为 0，物品生成器回归也通过。当前资源树没有 particle/effect 纹理目录，本批没有虚构新增未被运行时使用的粒子图。
+
+仍未完成：真实客户端中的方块六面、远近距离平铺、阵纹方向、灵舟/仆从 GeckoLib 模型 UV、HUD/技能编辑器不同 GUI scale、头像/空槽合成和第三方资源包覆盖检查。4 张兼容方块纹理（altar、formation_core、ling_gen_identification_slab、portal_gate）与 3 张 GUI 素材（两个 empty slot、seal_grain）目前没有静态消费者，继续保留但不宣称已接线。多数方块模型仍是 `cube_all` 或跨面复用单纹理，相关技能仍按元素/motif 使用家族化轮廓；若追求工作室级美术，需要后续按高价值内容增加多面 block model、手绘逐技能构图和实体精模，而不是继续扩大未引用占位资源。
+
 ## 0.2.138 全量物品贴图资源状态
 
 全量 1,704 张 item PNG 已重绘并通过 16x16 RGBA、透明角、覆盖率、像素重复和确定性重渲染检查。1,590 个直接 item model 全部引用同名纹理，36 个历史别名已解除；54 个 block-parent item model 继续按设计使用方块模型且父模型均存在。64 张名称含 `placeholder` 的兼容资源和未引用的 `spirit_stone_superior.png` 仍按项目约定保留，不视为缺失引用。

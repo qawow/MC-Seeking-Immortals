@@ -4,8 +4,8 @@
     {
       "description": {
         "identifier": "geometry.seeking_immortals.spirit_boat",
-        "texture_width": 64,
-        "texture_height": 32,
+        "texture_width": 128,
+        "texture_height": 64,
         "visible_bounds_width": 3,
         "visible_bounds_height": 1.5,
         "visible_bounds_offset": [
@@ -72,7 +72,7 @@
               ],
               "uv": [
                 0,
-                16
+                32
               ]
             }
           ]
@@ -98,8 +98,8 @@
                 4
               ],
               "uv": [
-                48,
-                0
+                64,
+                32
               ]
             }
           ]

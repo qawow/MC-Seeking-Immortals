@@ -1,3 +1,17 @@
+## 566. 2026-07-22 0.2.143 全量非物品贴图重绘
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope audit   Done   当前非物品 PNG 共 1,477 张：block 66、entity 6、GUI 1,405（skill 1,392、dialogue 6、ink 5、empty slot 2）；不存在 particle/effect 纹理目录。
+  Backup   Done   原有 1,370 张非物品 PNG、现有技能生成器、灵舟 Geo、版本和公共文档备份于 `.bak/20260722_143356_full_non_item_texture_redraw/`；方块补充备份位于 `.bak/20260722_143352_block_texture_redraw/`；版本协调后的公共文件备份位于 `.bak/20260722_164000_full_non_item_texture_finalize/` 与 `.bak/20260722_171300_full_non_item_texture_finalize/`。
+  Block renderer   Done   `scripts/generate_block_textures.py` 重绘 66 张 16x16 RGBA 全不透明方块材质；矿脉、工站、丹炉、界门与阵法采用可平铺语义，模型纹理引用缺失 0。
+  Skill renderer   Done   `scripts/generate_skill_icons.py` 重绘原 1,285 张并补齐 107 张缺失图标，最终 1,392 张 16x16 RGBA；匹配 747 条参考元数据，477/477 cultivation 技法有同名图标，透明角、重复像素与复渲染差异均为 0。
+  Entity/GUI renderer   Done   `scripts/generate_entity_gui_textures.py` 重绘 6 张实体、6 张头像、5 张纸纹及 2 张空槽图；灵舟 Geo/两张 atlas 从越界重叠的 64x32 重排为 128x64，18 个 box UV 面均在界内且无正面积重叠。
+  Regression audit   Done   三个非物品生成器和 `scripts/generate_item_textures.py --check` 全部通过；1,477 个目标文件恰为 66 block + 6 entity + 1,405 GUI。
+  Tests/build   Done   四个纹理生成器检查全部通过；最终 `./gradlew build --no-daemon` `BUILD SUCCESSFUL in 1m 12s`，201 个测试套件共 905 项，失败、错误和跳过均为 0，`aiPreflight` 记录 `mod_version=0.2.143`。
+  Version/protocol   Done   本批使用 `mod_version=0.2.143`；不改网络契约，沿用共享树 protocol `28`。
+  Live visual QA   Pending   仍需真实客户端方块六面/平铺、灵舟与仆从 GeckoLib UV、HUD/GUI scale 与资源包覆盖抽检；多数方块模型仍复用单纹理面，同元素技能保留家族化轮廓。
+
 ## 563. 2026-07-22 0.2.142 任务手册与原生/FTB 同步
 
   Step   Status   Notes
