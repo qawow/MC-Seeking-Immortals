@@ -1,16 +1,16 @@
-## 574. 2026-07-23 0.2.157 每日事件运行时语义
+## 574. 2026-07-23 0.2.158 每日事件运行时语义
 
   Step   Status   Notes
   ---   ---   ---
   Lossless catalog   Done   无损加载作者 76/76 条事件，保留未知字段/令牌、对象/数组/标量效果、奖励占位、精确小数权重与作者时长；同 ID 作者定义在地域别名投影时覆盖旧 worldpack 条目。
   Progression lifecycle   Done   每日修炼倍率独立于普通 `CultivationBoost`，两者相乘；突破加成独立于丹药辅助。登录、重生、跨维、跨日、配置关闭和严格到期均恢复或清理服务端状态，`VOID_REFINING` 映射到炼虚。
-  Encounters/conflicts   Done   遭遇锁改为 `(region,event,until)` 有界键，失败/和平模式不落锁；作者 `faction_war` 优先确定性映射并保存地域/阶段/期限，空事件不再误匹配所有冲突。
+  Encounters/conflicts   Done   遭遇锁改为 `(region,event,until)` 有界键并迁移旧布尔锁；零生成/和平模式不落锁，部分成功会立即锁定且灵兽精确受作者数量约束。慕兰作者事件及旧候选统一解析真实双方，同势力对战争可保存最多 32 个地域/维度 scope，空事件不再误匹配所有冲突。
   Ferry authority   Done   冥河、天南往返乱星海、乱星海往返外海坊市及 `sea_ship` 在真实消费前执行封航/费用规则；海盗事件可将船票或渡船燃料翻倍，私人 `flying_boat` 不被泛化拦截。
   Economy/UI   Done   作者灵草价格/税率与宗门贡献进入现有结算点；客户端在倒计时归零后隐藏旧事件并分组显示作者效果。功勋、逆星走私概率、星宫巡查奖励尚无权威结算调用者，覆盖状态为 `PRESERVED`。
-  Focused verification   Done   最新 `compileJava`、7 组每日事件/修炼/冲突/界面/突破/遭遇定向测试及双语 JSON 解析通过。
-  Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1` 在 1 分 26 秒内 `BUILD SUCCESSFUL`；aiPreflight 记录 `mod_version=0.2.157`，1,088 项测试全部通过。
-  Version/protocol   Done   共享树在 `0.2.156` 成功指纹后继续修改可发布源码，最终协调为 `mod_version=0.2.157`；未改变包字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=29` 保持不变。
-  Backup   Done   路径保持型总回滚为 `.bak/20260723_133345_daily_event_finalize/`；既有分批备份为 `.bak/20260723_061500_daily_event_breakthrough/`、`.bak/20260723_061800_daily_event_worldpack_hooks/`、`.bak/20260723_071500_daily_event_runtime_semantics/`、`.bak/20260723_0.2.156_daily_event_finalize/`。
+  Focused verification   Done   16 组 131 项每日事件、调度、修炼、冲突、战争、界面、突破、遭遇、克隆与地域定向测试通过；双语 JSON 解析通过。
+  Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1` 在 1 分 28 秒内 `BUILD SUCCESSFUL`；aiPreflight 记录 `mod_version=0.2.158`，230 个测试套件共 1,088 项全部通过。
+  Version/protocol   Done   共享树在 `0.2.157` 成功指纹后继续收录可发布源码修复，最终协调为 `mod_version=0.2.158`；未改变包字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=29` 保持不变。
+  Backup   Done   总回滚为 `.bak/20260723_133345_daily_event_finalize/` 与 `.bak/20260723_145000_daily_event_final_review/`；复核修复备份为 `.bak/20260723_133500_daily_review_followup/`、`.bak/20260723_100500_sect_war_multi_scope/`，另保留既有分批备份。
   Live QA/follow-up   Pending   仍需实机验证跨日/跨区/重连、多人遭遇密度、封航提示和实际票价；功勋奖励、逆星走私结算、星宫巡查奖励及其生产调用者留待后续。
 
 ## 573. 2026-07-23 0.2.155 作者丹药与消耗品视觉档案
