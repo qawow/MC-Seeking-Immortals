@@ -107,9 +107,12 @@ public final class LeylineVeinPieces {
                     Math.max(boundingBox.minY() + 8, (boundingBox.minY() + boundingBox.maxY()) / 2 - 2),
                     (boundingBox.minZ() + boundingBox.maxZ()) / 2);
             // Re-anchor center Y to local surface for safer placement.
+            // beard_thin terrain adaptation can raise the surface above box.maxY; clamp so
+            // box.isInside() never culls every block (which would generate nothing).
             int surfaceY = level.getHeight(net.minecraft.world.level.levelgen.Heightmap.Types.WORLD_SURFACE_WG,
                     center.getX(), center.getZ());
-            center = new BlockPos(center.getX(), surfaceY, center.getZ());
+            int clampedY = Math.max(boundingBox.minY() + 8, Math.min(surfaceY, boundingBox.maxY() - 2));
+            center = new BlockPos(center.getX(), clampedY, center.getZ());
 
             switch (shape) {
                 case SHAPE_MOUNTAIN -> placeMountain(level, random, box, center);
