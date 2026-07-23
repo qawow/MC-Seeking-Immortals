@@ -5,6 +5,7 @@ import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.cultivation.Realm;
 import com.xunxian.seekingimmortals.cultivation.SpiritualRootAttribute;
+import com.xunxian.seekingimmortals.item.ConsumableVfxOrchestrator;
 import com.xunxian.seekingimmortals.item.ItemUsageGateService;
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
 import com.xunxian.seekingimmortals.util.PlayerDisplayText;
@@ -65,6 +66,7 @@ public class CatalogPillItem extends Item {
                 if (!serverPlayer.getAbilities().instabuild) {
                     stack.shrink(1);
                 }
+                ConsumableVfxOrchestrator.emitPill(serverPlayer, type.id(), quality);
                 return InteractionResultHolder.success(stack);
             }
             return InteractionResultHolder.fail(stack);

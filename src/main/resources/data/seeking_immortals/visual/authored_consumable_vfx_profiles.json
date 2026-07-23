@@ -1,0 +1,4929 @@
+{
+  "schema_version": 1,
+  "description": "v118-v122 作者丹药与消耗品外观、服用/使用演出运行时档案",
+  "pill_profile_count": 114,
+  "consumable_profile_count": 57,
+  "source_hashes": {
+    "item_descriptions_v118.json": "91ffe8557119b562cf4d88f08d3b5e0a80bd3b400837bd3ce5e4f636853c8e6e",
+    "item_descriptions_v119.json": "cd2197614fb8369530bdee0014f9b17c4bb0b6a7ccca46d482796fb382dd5e8a",
+    "item_descriptions_v120.json": "ac7e7fae670c4792785f3f8a392b802ea790c3a665abc64696aa52ae889e4332",
+    "item_descriptions_v121.json": "b65db8e0353e74c23dc1fd8873c7f8ad171c7acff03754caa9ef263342a56b81",
+    "item_descriptions_v122.json": "bd75a2525ccc5240030abbf6b44f7e02571001fd174d947bf22101d70d3eabcd",
+    "pills_catalog.json": "23529da5b5c72793b2b7ff11fe7f7c1ecb9e2fa47cfc28992af7fd49a770ef8b",
+    "consumables_catalog.json": "14cebc41b66140762c9a13bb77a498ab5784eee694fdb72b3c88c865898792af",
+    "pill_effect_catalog.json": "77dbbdf6aed2cf72eb7dc195071d5ff7f06620f6a676fbe0b8c71497330723eb"
+  },
+  "constraints": {
+    "max_concurrent_particle_systems": 4,
+    "max_vignette_seconds": 2.0,
+    "unique_language": "space_glitch",
+    "particle_whitelist": [
+      "blood_mist",
+      "earth_dust",
+      "fire_ember",
+      "heal_motes",
+      "metal_spark",
+      "qi_soft",
+      "soul_wisps",
+      "space_glitch",
+      "thunder_arc",
+      "water_mist",
+      "wood_pollen",
+      "yin_smoke"
+    ],
+    "trail_whitelist": [
+      "blood_ribbon",
+      "flying_sword_orbit",
+      "heavy_weapon",
+      "movement_wind",
+      "none",
+      "soul_afterimage",
+      "sword_thin",
+      "talisman_ash",
+      "thunder_jagged"
+    ],
+    "forbid": [
+      "DEFAULT",
+      "rainbow_particle_rain",
+      "thick_neon_sword_trail"
+    ],
+    "pill_aliases": {
+      "jiangying_pill": "jiangchen_pill"
+    },
+    "separate_arrays_for_overlapping_ids": [
+      "bigu_pill",
+      "demon_qi_purge_pill"
+    ]
+  },
+  "pills": [
+    {
+      "id": "anti_poison_pill",
+      "category": "recovery",
+      "effect": "detox",
+      "family": "BLOOD",
+      "motif": "CLEANSE",
+      "vfx_kind": "BURST",
+      "particle": "blood_mist",
+      "trail": "blood_ribbon",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "色泽：素色。形态：圆丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_anti_poison_pill",
+        "v119": "icon_pill_anti_poison_pill",
+        "v120": "sheet_pill_anti_poison_pill",
+        "v121": "frame_pill_anti_poison_pill",
+        "v122": "look_pill_anti_poison_pill"
+      }
+    },
+    {
+      "id": "antidote_pill",
+      "category": "recovery",
+      "effect": "clear_poison",
+      "family": "BLOOD",
+      "motif": "CLEANSE",
+      "vfx_kind": "BURST",
+      "particle": "blood_mist",
+      "trail": "blood_ribbon",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "色泽：素色。形态：圆丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_antidote_pill",
+        "v119": "icon_pill_antidote_pill",
+        "v120": "sheet_pill_antidote_pill",
+        "v121": "frame_pill_antidote_pill",
+        "v122": "look_pill_antidote_pill"
+      }
+    },
+    {
+      "id": "asura_mind_pill",
+      "category": "special",
+      "effect": "killing_intent_control",
+      "family": "LIGHT",
+      "motif": "CLEANSE",
+      "vfx_kind": "BURST",
+      "particle": "heal_motes",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "色泽：随丹而异，多素白。形态：小丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_asura_mind_pill",
+        "v119": "icon_pill_asura_mind_pill",
+        "v120": "sheet_pill_asura_mind_pill",
+        "v121": "frame_pill_asura_mind_pill",
+        "v122": "look_pill_asura_mind_pill"
+      }
+    },
+    {
+      "id": "barbarian_strength_pill",
+      "category": "cultivation",
+      "effect": "body_tempering",
+      "family": "EARTH",
+      "motif": "MARTIAL",
+      "vfx_kind": "AURA",
+      "particle": "earth_dust",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_barbarian_strength_pill",
+        "v119": "icon_pill_barbarian_strength_pill",
+        "v120": "sheet_pill_barbarian_strength_pill",
+        "v121": "frame_pill_barbarian_strength_pill",
+        "v122": "look_pill_barbarian_strength_pill"
+      }
+    },
+    {
+      "id": "beast_taming_pill",
+      "category": "special",
+      "effect": "beast_contract_bonus",
+      "family": "WOOD",
+      "motif": "SUMMON",
+      "vfx_kind": "AURA",
+      "particle": "wood_pollen",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：随丹而异，多素白。形态：小丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_beast_taming_pill",
+        "v119": "icon_pill_beast_taming_pill",
+        "v120": "sheet_pill_beast_taming_pill",
+        "v121": "frame_pill_beast_taming_pill",
+        "v122": "look_pill_beast_taming_pill"
+      }
+    },
+    {
+      "id": "bigu_pill",
+      "category": "special",
+      "effect": "no_food_24h",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "STATUS",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.75,
+      "intensity": 20,
+      "appearance": "色泽：浅麦色。形态：小丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "烟火气淡",
+      "body_vfx": "烟火气淡",
+      "ui_vfx": "饱食隐藏",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_bigu_pill",
+        "v119": "icon_pill_bigu_pill",
+        "v120": "sheet_pill_bigu_pill",
+        "v121": "frame_pill_bigu_pill",
+        "v122": "look_pill_bigu_pill"
+      }
+    },
+    {
+      "id": "biyu_pill",
+      "category": "cultivation",
+      "effect": "jade_spirit_tonic",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_biyu_pill",
+        "v119": "icon_pill_biyu_pill",
+        "v120": "sheet_pill_biyu_pill",
+        "v121": "frame_pill_biyu_pill",
+        "v122": "look_pill_biyu_pill"
+      }
+    },
+    {
+      "id": "blood_curse_pill",
+      "category": "poison",
+      "effect": "toxic_cultivation",
+      "family": "BLOOD",
+      "motif": "CHANNEL",
+      "vfx_kind": "STATUS",
+      "particle": "blood_mist",
+      "trail": "blood_ribbon",
+      "telegraphed": true,
+      "radius": 0.9,
+      "intensity": 28,
+      "appearance": "色泽：诡绿或墨紫。形态：慎触。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器双层密封黑瓷；静置光慎启，缝溢诡雾",
+      "active_vfx": "甲缘变色",
+      "body_vfx": "甲缘变色",
+      "ui_vfx": "毒叠",
+      "frames": [
+        "甲缘变色",
+        "blood_mist 极淡"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_blood_curse_pill",
+        "v119": "icon_pill_blood_curse_pill",
+        "v120": "sheet_pill_blood_curse_pill",
+        "v121": "frame_pill_blood_curse_pill",
+        "v122": "look_pill_blood_curse_pill"
+      }
+    },
+    {
+      "id": "blood_essence_pill",
+      "category": "cultivation",
+      "effect": "blood_cultivation_boost",
+      "family": "BLOOD",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "blood_mist",
+      "trail": "blood_ribbon",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：素色。形态：圆丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_blood_essence_pill",
+        "v119": "icon_pill_blood_essence_pill",
+        "v120": "sheet_pill_blood_essence_pill",
+        "v121": "frame_pill_blood_essence_pill",
+        "v122": "look_pill_blood_essence_pill"
+      }
+    },
+    {
+      "id": "blood_qi_pill",
+      "category": "special",
+      "effect": "lifespan_plus_decades",
+      "family": "BLOOD",
+      "motif": "GENERIC",
+      "vfx_kind": "STATUS",
+      "particle": "blood_mist",
+      "trail": "blood_ribbon",
+      "telegraphed": false,
+      "radius": 0.75,
+      "intensity": 20,
+      "appearance": "色泽：随丹而异，多素白。形态：小丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_blood_qi_pill",
+        "v119": "icon_pill_blood_qi_pill",
+        "v120": "sheet_pill_blood_qi_pill",
+        "v121": "frame_pill_blood_qi_pill",
+        "v122": "look_pill_blood_qi_pill"
+      }
+    },
+    {
+      "id": "body_refine_pill",
+      "category": "cultivation",
+      "effect": "body_tempering",
+      "family": "EARTH",
+      "motif": "MARTIAL",
+      "vfx_kind": "AURA",
+      "particle": "earth_dust",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_body_refine_pill",
+        "v119": "icon_pill_body_refine_pill",
+        "v120": "sheet_pill_body_refine_pill",
+        "v121": "frame_pill_body_refine_pill",
+        "v122": "look_pill_body_refine_pill"
+      }
+    },
+    {
+      "id": "body_tempering_pill",
+      "category": "cultivation",
+      "effect": "physique_plus",
+      "family": "EARTH",
+      "motif": "MARTIAL",
+      "vfx_kind": "AURA",
+      "particle": "earth_dust",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_body_tempering_pill",
+        "v119": "icon_pill_body_tempering_pill",
+        "v120": "sheet_pill_body_tempering_pill",
+        "v121": "frame_pill_body_tempering_pill",
+        "v122": "look_pill_body_tempering_pill"
+      }
+    },
+    {
+      "id": "bone_marrow_pill",
+      "category": "cultivation",
+      "effect": "marrow_cleansing",
+      "family": "EARTH",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "earth_dust",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_bone_marrow_pill",
+        "v119": "icon_pill_bone_marrow_pill",
+        "v120": "sheet_pill_bone_marrow_pill",
+        "v121": "frame_pill_bone_marrow_pill",
+        "v122": "look_pill_bone_marrow_pill"
+      }
+    },
+    {
+      "id": "bu_tian_pill",
+      "category": "legendary",
+      "effect": "spirit_root_purify",
+      "family": "LIGHT",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "heal_motes",
+      "trail": "none",
+      "telegraphed": true,
+      "radius": 1.55,
+      "intensity": 38,
+      "appearance": "色泽：素色。形态：圆丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_bu_tian_pill",
+        "v119": "icon_pill_bu_tian_pill",
+        "v120": "sheet_pill_bu_tian_pill",
+        "v121": "frame_pill_bu_tian_pill",
+        "v122": "look_pill_bu_tian_pill"
+      }
+    },
+    {
+      "id": "calm_spirit_pill",
+      "category": "special",
+      "effect": "pet_mind_clarity",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "STATUS",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.75,
+      "intensity": 20,
+      "appearance": "色泽：随丹而异，多素白。形态：小丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_calm_spirit_pill",
+        "v119": "icon_pill_calm_spirit_pill",
+        "v120": "sheet_pill_calm_spirit_pill",
+        "v121": "frame_pill_calm_spirit_pill",
+        "v122": "look_pill_calm_spirit_pill"
+      }
+    },
+    {
+      "id": "chaotic_sea_antidote",
+      "category": "cultivation",
+      "effect": "sea_poison_cure",
+      "family": "BLOOD",
+      "motif": "CLEANSE",
+      "vfx_kind": "AURA",
+      "particle": "blood_mist",
+      "trail": "blood_ribbon",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：素色。形态：圆丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_chaotic_sea_antidote",
+        "v119": "icon_pill_chaotic_sea_antidote",
+        "v120": "sheet_pill_chaotic_sea_antidote",
+        "v121": "frame_pill_chaotic_sea_antidote",
+        "v122": "look_pill_chaotic_sea_antidote"
+      }
+    },
+    {
+      "id": "condensation_pill",
+      "category": "breakthrough",
+      "effect": "targeted_breakthrough_aid",
+      "family": "NEUTRAL",
+      "motif": "CHANNEL",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": true,
+      "radius": 1.55,
+      "intensity": 38,
+      "appearance": "色泽：深紫或玄青，偶有星点。形态：略大，纹路如云。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器玉瓶火漆；静置光内里星点慢闪",
+      "active_vfx": "经脉亮线、气关震动",
+      "body_vfx": "经脉亮线、气关震动",
+      "ui_vfx": "丹田图标闪",
+      "frames": [
+        "丹田核亮",
+        "经脉金线爬行",
+        "可选远雷垫"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_pill_condensation_pill",
+        "v119": "icon_pill_condensation_pill",
+        "v120": "sheet_pill_condensation_pill",
+        "v121": "frame_pill_condensation_pill",
+        "v122": "look_pill_condensation_pill"
+      }
+    },
+    {
+      "id": "cultivate_speed_pill",
+      "category": "cultivation",
+      "effect": "cultivation_speed_1h",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_cultivate_speed_pill",
+        "v119": "icon_pill_cultivate_speed_pill",
+        "v120": "sheet_pill_cultivate_speed_pill",
+        "v121": "frame_pill_cultivate_speed_pill",
+        "v122": "look_pill_cultivate_speed_pill"
+      }
+    },
+    {
+      "id": "cultivation_aid_core_formation",
+      "category": "cultivation",
+      "effect": "realm_cultivation_aid",
+      "family": "EARTH",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "earth_dust",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_cultivation_aid_core_formation",
+        "v119": "icon_pill_cultivation_aid_core_formation",
+        "v120": "sheet_pill_cultivation_aid_core_formation",
+        "v121": "frame_pill_cultivation_aid_core_formation",
+        "v122": "look_pill_cultivation_aid_core_formation"
+      }
+    },
+    {
+      "id": "cultivation_aid_deity_transformation",
+      "category": "cultivation",
+      "effect": "realm_cultivation_aid",
+      "family": "EARTH",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "earth_dust",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_cultivation_aid_deity_transformation",
+        "v119": "icon_pill_cultivation_aid_deity_transformation",
+        "v120": "sheet_pill_cultivation_aid_deity_transformation",
+        "v121": "frame_pill_cultivation_aid_deity_transformation",
+        "v122": "look_pill_cultivation_aid_deity_transformation"
+      }
+    },
+    {
+      "id": "cultivation_aid_foundation",
+      "category": "cultivation",
+      "effect": "realm_cultivation_aid",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_cultivation_aid_foundation",
+        "v119": "icon_pill_cultivation_aid_foundation",
+        "v120": "sheet_pill_cultivation_aid_foundation",
+        "v121": "frame_pill_cultivation_aid_foundation",
+        "v122": "look_pill_cultivation_aid_foundation"
+      }
+    },
+    {
+      "id": "cultivation_aid_great_vehicle",
+      "category": "cultivation",
+      "effect": "realm_cultivation_aid",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_cultivation_aid_great_vehicle",
+        "v119": "icon_pill_cultivation_aid_great_vehicle",
+        "v120": "sheet_pill_cultivation_aid_great_vehicle",
+        "v121": "frame_pill_cultivation_aid_great_vehicle",
+        "v122": "look_pill_cultivation_aid_great_vehicle"
+      }
+    },
+    {
+      "id": "cultivation_aid_nascent_soul",
+      "category": "cultivation",
+      "effect": "realm_cultivation_aid",
+      "family": "SOUL",
+      "motif": "GHOST",
+      "vfx_kind": "AURA",
+      "particle": "soul_wisps",
+      "trail": "soul_afterimage",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_cultivation_aid_nascent_soul",
+        "v119": "icon_pill_cultivation_aid_nascent_soul",
+        "v120": "sheet_pill_cultivation_aid_nascent_soul",
+        "v121": "frame_pill_cultivation_aid_nascent_soul",
+        "v122": "look_pill_cultivation_aid_nascent_soul"
+      }
+    },
+    {
+      "id": "cultivation_aid_qi_refining",
+      "category": "cultivation",
+      "effect": "realm_cultivation_aid",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_cultivation_aid_qi_refining",
+        "v119": "icon_pill_cultivation_aid_qi_refining",
+        "v120": "sheet_pill_cultivation_aid_qi_refining",
+        "v121": "frame_pill_cultivation_aid_qi_refining",
+        "v122": "look_pill_cultivation_aid_qi_refining"
+      }
+    },
+    {
+      "id": "cultivation_aid_spirit_severing",
+      "category": "cultivation",
+      "effect": "realm_cultivation_aid",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_cultivation_aid_spirit_severing",
+        "v119": "icon_pill_cultivation_aid_spirit_severing",
+        "v120": "sheet_pill_cultivation_aid_spirit_severing",
+        "v121": "frame_pill_cultivation_aid_spirit_severing",
+        "v122": "look_pill_cultivation_aid_spirit_severing"
+      }
+    },
+    {
+      "id": "cultivation_aid_void_refining",
+      "category": "cultivation",
+      "effect": "realm_cultivation_aid",
+      "family": "VOID",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "space_glitch",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_cultivation_aid_void_refining",
+        "v119": "icon_pill_cultivation_aid_void_refining",
+        "v120": "sheet_pill_cultivation_aid_void_refining",
+        "v121": "frame_pill_cultivation_aid_void_refining",
+        "v122": "look_pill_cultivation_aid_void_refining"
+      }
+    },
+    {
+      "id": "demon_expel_pill",
+      "category": "cultivation",
+      "effect": "purge_demon_qi",
+      "family": "DARK",
+      "motif": "CLEANSE",
+      "vfx_kind": "AURA",
+      "particle": "yin_smoke",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：素色。形态：圆丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_demon_expel_pill",
+        "v119": "icon_pill_demon_expel_pill",
+        "v120": "sheet_pill_demon_expel_pill",
+        "v121": "frame_pill_demon_expel_pill",
+        "v122": "look_pill_demon_expel_pill"
+      }
+    },
+    {
+      "id": "demon_gold_body_pill",
+      "category": "special",
+      "effect": "demon_body_temper",
+      "family": "DARK",
+      "motif": "MARTIAL",
+      "vfx_kind": "AURA",
+      "particle": "yin_smoke",
+      "trail": "none",
+      "telegraphed": true,
+      "radius": 1.2,
+      "intensity": 30,
+      "appearance": "色泽：随丹而异，多素白。形态：小丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_demon_gold_body_pill",
+        "v119": "icon_pill_demon_gold_body_pill",
+        "v120": "sheet_pill_demon_gold_body_pill",
+        "v121": "frame_pill_demon_gold_body_pill",
+        "v122": "look_pill_demon_gold_body_pill"
+      }
+    },
+    {
+      "id": "demon_heart_pill",
+      "category": "special",
+      "effect": "resist_demon_qi_corruption",
+      "family": "DARK",
+      "motif": "CLEANSE",
+      "vfx_kind": "BURST",
+      "particle": "yin_smoke",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "色泽：随丹而异，多素白。形态：小丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_demon_heart_pill",
+        "v119": "icon_pill_demon_heart_pill",
+        "v120": "sheet_pill_demon_heart_pill",
+        "v121": "frame_pill_demon_heart_pill",
+        "v122": "look_pill_demon_heart_pill"
+      }
+    },
+    {
+      "id": "demon_qi_purge_pill",
+      "category": "special",
+      "effect": "reduce_demon_qi_stack",
+      "family": "DARK",
+      "motif": "CLEANSE",
+      "vfx_kind": "BURST",
+      "particle": "yin_smoke",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "色泽：随丹而异，多素白。形态：小丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_demon_qi_purge_pill",
+        "v119": "icon_pill_demon_qi_purge_pill",
+        "v120": "sheet_pill_demon_qi_purge_pill",
+        "v121": "frame_pill_demon_qi_purge_pill",
+        "v122": "look_pill_demon_qi_purge_pill"
+      }
+    },
+    {
+      "id": "demon_suppress_pill",
+      "category": "special",
+      "effect": "suppress_demon_qi_24h",
+      "family": "DARK",
+      "motif": "CLEANSE",
+      "vfx_kind": "BURST",
+      "particle": "yin_smoke",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "色泽：随丹而异，多素白。形态：小丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_demon_suppress_pill",
+        "v119": "icon_pill_demon_suppress_pill",
+        "v120": "sheet_pill_demon_suppress_pill",
+        "v121": "frame_pill_demon_suppress_pill",
+        "v122": "look_pill_demon_suppress_pill"
+      }
+    },
+    {
+      "id": "demonic_blood_pill",
+      "category": "poison",
+      "effect": "toxic_cultivation",
+      "family": "BLOOD",
+      "motif": "CHANNEL",
+      "vfx_kind": "STATUS",
+      "particle": "blood_mist",
+      "trail": "blood_ribbon",
+      "telegraphed": true,
+      "radius": 0.9,
+      "intensity": 28,
+      "appearance": "色泽：诡绿或墨紫。形态：慎触。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器双层密封黑瓷；静置光慎启，缝溢诡雾",
+      "active_vfx": "甲缘变色",
+      "body_vfx": "甲缘变色",
+      "ui_vfx": "毒叠",
+      "frames": [
+        "甲缘变色",
+        "blood_mist 极淡"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_demonic_blood_pill",
+        "v119": "icon_pill_demonic_blood_pill",
+        "v120": "sheet_pill_demonic_blood_pill",
+        "v121": "frame_pill_demonic_blood_pill",
+        "v122": "look_pill_demonic_blood_pill"
+      }
+    },
+    {
+      "id": "demonic_yang_gather_pill",
+      "category": "special",
+      "effect": "demonic_dual_cultivation",
+      "family": "DARK",
+      "motif": "GHOST",
+      "vfx_kind": "AURA",
+      "particle": "yin_smoke",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：随丹而异，多素白。形态：小丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_demonic_yang_gather_pill",
+        "v119": "icon_pill_demonic_yang_gather_pill",
+        "v120": "sheet_pill_demonic_yang_gather_pill",
+        "v121": "frame_pill_demonic_yang_gather_pill",
+        "v122": "look_pill_demonic_yang_gather_pill"
+      }
+    },
+    {
+      "id": "dingyan_pill",
+      "category": "special",
+      "effect": "freeze_appearance",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "STATUS",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.75,
+      "intensity": 20,
+      "appearance": "色泽：随丹而异，多素白。形态：小丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_dingyan_pill",
+        "v119": "icon_pill_dingyan_pill",
+        "v120": "sheet_pill_dingyan_pill",
+        "v121": "frame_pill_dingyan_pill",
+        "v122": "look_pill_dingyan_pill"
+      }
+    },
+    {
+      "id": "diyuan_adapt_pill",
+      "category": "special",
+      "effect": "diyuan_adaptation",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "STATUS",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.75,
+      "intensity": 20,
+      "appearance": "色泽：随丹而异，多素白。形态：小丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_diyuan_adapt_pill",
+        "v119": "icon_pill_diyuan_adapt_pill",
+        "v120": "sheet_pill_diyuan_adapt_pill",
+        "v121": "frame_pill_diyuan_adapt_pill",
+        "v122": "look_pill_diyuan_adapt_pill"
+      }
+    },
+    {
+      "id": "dual_harmony_pill",
+      "category": "special",
+      "effect": "dual_cultivation_bonus",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：随丹而异，多素白。形态：小丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_dual_harmony_pill",
+        "v119": "icon_pill_dual_harmony_pill",
+        "v120": "sheet_pill_dual_harmony_pill",
+        "v121": "frame_pill_dual_harmony_pill",
+        "v122": "look_pill_dual_harmony_pill"
+      }
+    },
+    {
+      "id": "dujie_pill",
+      "category": "breakthrough",
+      "effect": "tribulation_breakthrough_aid",
+      "family": "THUNDER",
+      "motif": "CHANNEL",
+      "vfx_kind": "AURA",
+      "particle": "thunder_arc",
+      "trail": "thunder_jagged",
+      "telegraphed": true,
+      "radius": 1.55,
+      "intensity": 38,
+      "appearance": "色泽：深紫或玄青，偶有星点。形态：略大，纹路如云。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器玉瓶火漆；静置光内里星点慢闪",
+      "active_vfx": "经脉亮线、气关震动",
+      "body_vfx": "经脉亮线、气关震动",
+      "ui_vfx": "丹田图标闪",
+      "frames": [
+        "丹田核亮",
+        "经脉金线爬行",
+        "可选远雷垫"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_pill_dujie_pill",
+        "v119": "icon_pill_dujie_pill",
+        "v120": "sheet_pill_dujie_pill",
+        "v121": "frame_pill_dujie_pill",
+        "v122": "look_pill_dujie_pill"
+      }
+    },
+    {
+      "id": "forget_dust_pill",
+      "category": "special",
+      "effect": "erase_memory_12h",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "STATUS",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.75,
+      "intensity": 20,
+      "appearance": "色泽：浅灰蓝。形态：半透。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "杂念灰烬落",
+      "body_vfx": "杂念灰烬落",
+      "ui_vfx": "心魔抗性",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_forget_dust_pill",
+        "v119": "icon_pill_forget_dust_pill",
+        "v120": "sheet_pill_forget_dust_pill",
+        "v121": "frame_pill_forget_dust_pill",
+        "v122": "look_pill_forget_dust_pill"
+      }
+    },
+    {
+      "id": "foundation_pill",
+      "category": "breakthrough",
+      "effect": "targeted_breakthrough_aid",
+      "family": "LIGHT",
+      "motif": "CHANNEL",
+      "vfx_kind": "AURA",
+      "particle": "heal_motes",
+      "trail": "none",
+      "telegraphed": true,
+      "radius": 1.55,
+      "intensity": 38,
+      "appearance": "玉脂白丹，内含一缕淡紫云丝，置白玉瓶中如月。；色泽：玉白嵌淡紫云纹。形态：比寻常丹略大，温润如脂。可置于瓷瓶，晃动有轻微灵光。；体积略大于寻常丹，拇指节；容器玉瓶火漆；静置光内里星点慢闪",
+      "active_vfx": "服下后丹田亮如灯笼，经脉金线从胸口爬向四肢，周身灰浊蒸出。",
+      "body_vfx": "金线四肢、浊气外蒸",
+      "ui_vfx": "筑基检定",
+      "frames": [
+        "吞服喉光",
+        "丹田灯笼",
+        "金线四肢",
+        "浊气外蒸",
+        "瞳金环3s 或 失败崩线咳血"
+      ],
+      "frame_count": 5,
+      "sources": {
+        "v118": "vis_pill_foundation_pill",
+        "v119": "icon_pill_foundation_pill",
+        "v120": "sheet_pill_foundation_pill",
+        "v121": "frame_pill_foundation_pill",
+        "v122": "look_pill_foundation_pill",
+        "v118_ultra": "vis_ultra_foundation_pill"
+      }
+    },
+    {
+      "id": "fox_illusion_pill",
+      "category": "special",
+      "effect": "illusion_tonic",
+      "family": "ILLUSION",
+      "motif": "ILLUSION",
+      "vfx_kind": "STATUS",
+      "particle": "soul_wisps",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.75,
+      "intensity": 20,
+      "appearance": "色泽：随丹而异，多素白。形态：小丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_fox_illusion_pill",
+        "v119": "icon_pill_fox_illusion_pill",
+        "v120": "sheet_pill_fox_illusion_pill",
+        "v121": "frame_pill_fox_illusion_pill",
+        "v122": "look_pill_fox_illusion_pill"
+      }
+    },
+    {
+      "id": "ghost_cultivate_pill",
+      "category": "poison",
+      "effect": "toxic_cultivation",
+      "family": "SOUL",
+      "motif": "GHOST",
+      "vfx_kind": "STATUS",
+      "particle": "soul_wisps",
+      "trail": "soul_afterimage",
+      "telegraphed": true,
+      "radius": 0.9,
+      "intensity": 28,
+      "appearance": "色泽：诡绿或墨紫。形态：慎触。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器双层密封黑瓷；静置光慎启，缝溢诡雾",
+      "active_vfx": "甲缘变色",
+      "body_vfx": "甲缘变色",
+      "ui_vfx": "毒叠",
+      "frames": [
+        "甲缘变色",
+        "blood_mist 极淡"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_ghost_cultivate_pill",
+        "v119": "icon_pill_ghost_cultivate_pill",
+        "v120": "sheet_pill_ghost_cultivate_pill",
+        "v121": "frame_pill_ghost_cultivate_pill",
+        "v122": "look_pill_ghost_cultivate_pill"
+      }
+    },
+    {
+      "id": "ghost_gate_pill",
+      "category": "poison",
+      "effect": "toxic_cultivation",
+      "family": "SOUL",
+      "motif": "GHOST",
+      "vfx_kind": "STATUS",
+      "particle": "soul_wisps",
+      "trail": "soul_afterimage",
+      "telegraphed": true,
+      "radius": 0.9,
+      "intensity": 28,
+      "appearance": "色泽：诡绿或墨紫。形态：慎触。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器双层密封黑瓷；静置光慎启，缝溢诡雾",
+      "active_vfx": "甲缘变色",
+      "body_vfx": "甲缘变色",
+      "ui_vfx": "毒叠",
+      "frames": [
+        "甲缘变色",
+        "blood_mist 极淡"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_ghost_gate_pill",
+        "v119": "icon_pill_ghost_gate_pill",
+        "v120": "sheet_pill_ghost_gate_pill",
+        "v121": "frame_pill_ghost_gate_pill",
+        "v122": "look_pill_ghost_gate_pill"
+      }
+    },
+    {
+      "id": "golden_core_pill",
+      "category": "breakthrough",
+      "effect": "targeted_breakthrough_aid",
+      "family": "NEUTRAL",
+      "motif": "CHANNEL",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": true,
+      "radius": 1.55,
+      "intensity": 38,
+      "appearance": "色泽：深紫或玄青，偶有星点。形态：略大，纹路如云。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器玉瓶火漆；静置光内里星点慢闪",
+      "active_vfx": "经脉亮线、气关震动",
+      "body_vfx": "经脉亮线、气关震动",
+      "ui_vfx": "丹田图标闪",
+      "frames": [
+        "丹田核亮",
+        "经脉金线爬行",
+        "可选远雷垫"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_pill_golden_core_pill",
+        "v119": "icon_pill_golden_core_pill",
+        "v120": "sheet_pill_golden_core_pill",
+        "v121": "frame_pill_golden_core_pill",
+        "v122": "look_pill_golden_core_pill"
+      }
+    },
+    {
+      "id": "great_vehicle_ascension_aid_pill",
+      "category": "special",
+      "effect": "ascension_tribulation_aid",
+      "family": "THUNDER",
+      "motif": "GENERIC",
+      "vfx_kind": "STATUS",
+      "particle": "thunder_arc",
+      "trail": "thunder_jagged",
+      "telegraphed": true,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "色泽：随丹而异，多素白。形态：小丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_great_vehicle_ascension_aid_pill",
+        "v119": "icon_pill_great_vehicle_ascension_aid_pill",
+        "v120": "sheet_pill_great_vehicle_ascension_aid_pill",
+        "v121": "frame_pill_great_vehicle_ascension_aid_pill",
+        "v122": "look_pill_great_vehicle_ascension_aid_pill"
+      }
+    },
+    {
+      "id": "heart_guard_pill",
+      "category": "special",
+      "effect": "heart_demon_resist",
+      "family": "DARK",
+      "motif": "CLEANSE",
+      "vfx_kind": "BURST",
+      "particle": "yin_smoke",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "色泽：随丹而异，多素白。形态：小丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_heart_guard_pill",
+        "v119": "icon_pill_heart_guard_pill",
+        "v120": "sheet_pill_heart_guard_pill",
+        "v121": "frame_pill_heart_guard_pill",
+        "v122": "look_pill_heart_guard_pill"
+      }
+    },
+    {
+      "id": "hehuan_pill",
+      "category": "special",
+      "effect": "dual_cultivation_bonus",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：随丹而异，多素白。形态：小丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_hehuan_pill",
+        "v119": "icon_pill_hehuan_pill",
+        "v120": "sheet_pill_hehuan_pill",
+        "v121": "frame_pill_hehuan_pill",
+        "v122": "look_pill_hehuan_pill"
+      }
+    },
+    {
+      "id": "heqi_pill",
+      "category": "cultivation",
+      "effect": "dual_cultivation_compatible",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_heqi_pill",
+        "v119": "icon_pill_heqi_pill",
+        "v120": "sheet_pill_heqi_pill",
+        "v121": "frame_pill_heqi_pill",
+        "v122": "look_pill_heqi_pill"
+      }
+    },
+    {
+      "id": "huanglong_pill",
+      "category": "cultivation",
+      "effect": "spirit_gain_flat",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_huanglong_pill",
+        "v119": "icon_pill_huanglong_pill",
+        "v120": "sheet_pill_huanglong_pill",
+        "v121": "frame_pill_huanglong_pill",
+        "v122": "look_pill_huanglong_pill"
+      }
+    },
+    {
+      "id": "huanti_pill",
+      "category": "cultivation",
+      "effect": "body_tempering",
+      "family": "EARTH",
+      "motif": "MARTIAL",
+      "vfx_kind": "AURA",
+      "particle": "earth_dust",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_huanti_pill",
+        "v119": "icon_pill_huanti_pill",
+        "v120": "sheet_pill_huanti_pill",
+        "v121": "frame_pill_huanti_pill",
+        "v122": "look_pill_huanti_pill"
+      }
+    },
+    {
+      "id": "huanxue_pill",
+      "category": "cultivation",
+      "effect": "body_tempering",
+      "family": "EARTH",
+      "motif": "MARTIAL",
+      "vfx_kind": "AURA",
+      "particle": "earth_dust",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_huanxue_pill",
+        "v119": "icon_pill_huanxue_pill",
+        "v120": "sheet_pill_huanxue_pill",
+        "v121": "frame_pill_huanxue_pill",
+        "v122": "look_pill_huanxue_pill"
+      }
+    },
+    {
+      "id": "huashen_pill",
+      "category": "breakthrough",
+      "effect": "targeted_breakthrough_aid",
+      "family": "NEUTRAL",
+      "motif": "CHANNEL",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": true,
+      "radius": 1.55,
+      "intensity": 38,
+      "appearance": "色泽：深紫或玄青，偶有星点。形态：略大，纹路如云。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器玉瓶火漆；静置光内里星点慢闪",
+      "active_vfx": "经脉亮线、气关震动",
+      "body_vfx": "经脉亮线、气关震动",
+      "ui_vfx": "丹田图标闪",
+      "frames": [
+        "丹田核亮",
+        "经脉金线爬行",
+        "可选远雷垫"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_pill_huashen_pill",
+        "v119": "icon_pill_huashen_pill",
+        "v120": "sheet_pill_huashen_pill",
+        "v121": "frame_pill_huashen_pill",
+        "v122": "look_pill_huashen_pill"
+      }
+    },
+    {
+      "id": "huichun_pill",
+      "category": "recovery",
+      "effect": "hp_regen",
+      "family": "LIGHT",
+      "motif": "HEAL",
+      "vfx_kind": "BURST",
+      "particle": "heal_motes",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "色泽：素色。形态：圆丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_huichun_pill",
+        "v119": "icon_pill_huichun_pill",
+        "v120": "sheet_pill_huichun_pill",
+        "v121": "frame_pill_huichun_pill",
+        "v122": "look_pill_huichun_pill"
+      }
+    },
+    {
+      "id": "huiyang_true_water",
+      "category": "special",
+      "effect": "lifespan_quarter_once",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "STATUS",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.75,
+      "intensity": 20,
+      "appearance": "色泽：随丹而异，多素白。形态：小丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_huiyang_true_water",
+        "v119": "icon_pill_huiyang_true_water",
+        "v120": "sheet_pill_huiyang_true_water",
+        "v121": "frame_pill_huiyang_true_water",
+        "v122": "look_pill_huiyang_true_water"
+      }
+    },
+    {
+      "id": "huiyuan_pill",
+      "category": "recovery",
+      "effect": "restorative_tonic",
+      "family": "NEUTRAL",
+      "motif": "HEAL",
+      "vfx_kind": "BURST",
+      "particle": "heal_motes",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "色泽：素色。形态：圆丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_huiyuan_pill",
+        "v119": "icon_pill_huiyuan_pill",
+        "v120": "sheet_pill_huiyuan_pill",
+        "v121": "frame_pill_huiyuan_pill",
+        "v122": "look_pill_huiyuan_pill"
+      }
+    },
+    {
+      "id": "huoyuan_pill",
+      "category": "cultivation",
+      "effect": "spirit_gain_flat",
+      "family": "FIRE",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "fire_ember",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_huoyuan_pill",
+        "v119": "icon_pill_huoyuan_pill",
+        "v120": "sheet_pill_huoyuan_pill",
+        "v121": "frame_pill_huoyuan_pill",
+        "v122": "look_pill_huoyuan_pill"
+      }
+    },
+    {
+      "id": "ice_fire_pill",
+      "category": "cultivation",
+      "effect": "elemental_cultivation",
+      "family": "ICE",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "water_mist",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_ice_fire_pill",
+        "v119": "icon_pill_ice_fire_pill",
+        "v120": "sheet_pill_ice_fire_pill",
+        "v121": "frame_pill_ice_fire_pill",
+        "v122": "look_pill_ice_fire_pill"
+      }
+    },
+    {
+      "id": "illusion_pill",
+      "category": "special",
+      "effect": "illusion_tonic",
+      "family": "ILLUSION",
+      "motif": "ILLUSION",
+      "vfx_kind": "STATUS",
+      "particle": "soul_wisps",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.75,
+      "intensity": 20,
+      "appearance": "色泽：随丹而异，多素白。形态：小丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_illusion_pill",
+        "v119": "icon_pill_illusion_pill",
+        "v120": "sheet_pill_illusion_pill",
+        "v121": "frame_pill_illusion_pill",
+        "v122": "look_pill_illusion_pill"
+      }
+    },
+    {
+      "id": "jiangchen_pill",
+      "category": "breakthrough",
+      "effect": "jiangchen_breakthrough_aid",
+      "family": "EARTH",
+      "motif": "CHANNEL",
+      "vfx_kind": "AURA",
+      "particle": "earth_dust",
+      "trail": "none",
+      "telegraphed": true,
+      "radius": 1.55,
+      "intensity": 38,
+      "appearance": "玄金重丹，表面如落尘被封在釉下。；色泽：深沉玄金。形态：沉重，光泽内敛。可置于瓷瓶，晃动有轻微灵光。；体积沉手，近板栗核；容器玉瓶火漆；静置光内里星点慢闪",
+      "active_vfx": "浮尘从人物模型反向沉降入土，气机压低成稳固光环。",
+      "body_vfx": "浮尘沉降入土",
+      "ui_vfx": "稳固环",
+      "frames": [
+        "开盒暗金",
+        "吞服",
+        "浮尘粒子反向沉降",
+        "贴地稳环"
+      ],
+      "frame_count": 4,
+      "sources": {
+        "v118": "vis_pill_jiangchen_pill",
+        "v119": "icon_pill_jiangchen_pill",
+        "v120": "sheet_pill_jiangchen_pill",
+        "v121": "frame_pill_jiangchen_pill",
+        "v122": "look_pill_jiangchen_pill",
+        "v118_ultra": "vis_ultra_jiangchen"
+      }
+    },
+    {
+      "id": "jiangying_pill",
+      "category": "cultivation",
+      "effect": "jiangchen_breakthrough_aid",
+      "family": "EARTH",
+      "motif": "CHANNEL",
+      "vfx_kind": "AURA",
+      "particle": "earth_dust",
+      "trail": "none",
+      "telegraphed": true,
+      "radius": 1.2,
+      "intensity": 30,
+      "appearance": "色泽：深沉玄金。形态：沉重，光泽内敛。可置于瓷瓶，晃动有轻微灵光。；体积沉手，近板栗核；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "浮尘沉降入土",
+      "body_vfx": "浮尘沉降入土",
+      "ui_vfx": "稳固环",
+      "frames": [
+        "开盒暗金",
+        "吞服",
+        "浮尘粒子反向沉降",
+        "贴地稳环"
+      ],
+      "frame_count": 4,
+      "sources": {
+        "v118": "vis_pill_jiangying_pill",
+        "v119": "icon_pill_jiangying_pill",
+        "v120": "sheet_pill_jiangying_pill",
+        "v121": "frame_pill_jiangying_pill",
+        "v122": "look_pill_jiangying_pill"
+      }
+    },
+    {
+      "id": "jiedan_pill",
+      "category": "breakthrough",
+      "effect": "targeted_breakthrough_aid",
+      "family": "NEUTRAL",
+      "motif": "CHANNEL",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": true,
+      "radius": 1.55,
+      "intensity": 38,
+      "appearance": "色泽：深紫或玄青，偶有星点。形态：略大，纹路如云。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器玉瓶火漆；静置光内里星点慢闪",
+      "active_vfx": "经脉亮线、气关震动",
+      "body_vfx": "经脉亮线、气关震动",
+      "ui_vfx": "丹田图标闪",
+      "frames": [
+        "丹田核亮",
+        "经脉金线爬行",
+        "可选远雷垫"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_pill_jiedan_pill",
+        "v119": "icon_pill_jiedan_pill",
+        "v120": "sheet_pill_jiedan_pill",
+        "v121": "frame_pill_jiedan_pill",
+        "v122": "look_pill_jiedan_pill"
+      }
+    },
+    {
+      "id": "jieqi_pill",
+      "category": "recovery",
+      "effect": "restorative_tonic",
+      "family": "NEUTRAL",
+      "motif": "HEAL",
+      "vfx_kind": "BURST",
+      "particle": "heal_motes",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "色泽：素色。形态：圆丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_jieqi_pill",
+        "v119": "icon_pill_jieqi_pill",
+        "v120": "sheet_pill_jieqi_pill",
+        "v121": "frame_pill_jieqi_pill",
+        "v122": "look_pill_jieqi_pill"
+      }
+    },
+    {
+      "id": "jingxin_pill",
+      "category": "recovery",
+      "effect": "restorative_tonic",
+      "family": "NEUTRAL",
+      "motif": "HEAL",
+      "vfx_kind": "BURST",
+      "particle": "heal_motes",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "色泽：素色。形态：圆丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_jingxin_pill",
+        "v119": "icon_pill_jingxin_pill",
+        "v120": "sheet_pill_jingxin_pill",
+        "v121": "frame_pill_jingxin_pill",
+        "v122": "look_pill_jingxin_pill"
+      }
+    },
+    {
+      "id": "juling_pill",
+      "category": "cultivation",
+      "effect": "spirit_gather_tonic",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_juling_pill",
+        "v119": "icon_pill_juling_pill",
+        "v120": "sheet_pill_juling_pill",
+        "v121": "frame_pill_juling_pill",
+        "v122": "look_pill_juling_pill"
+      }
+    },
+    {
+      "id": "juyuan_pill",
+      "category": "cultivation",
+      "effect": "yuan_gathering",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_juyuan_pill",
+        "v119": "icon_pill_juyuan_pill",
+        "v120": "sheet_pill_juyuan_pill",
+        "v121": "frame_pill_juyuan_pill",
+        "v122": "look_pill_juyuan_pill"
+      }
+    },
+    {
+      "id": "lieyan_pill",
+      "category": "special",
+      "effect": "elemental_cultivation",
+      "family": "FIRE",
+      "motif": "GENERIC",
+      "vfx_kind": "STATUS",
+      "particle": "fire_ember",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.75,
+      "intensity": 20,
+      "appearance": "色泽：随丹而异，多素白。形态：小丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_lieyan_pill",
+        "v119": "icon_pill_lieyan_pill",
+        "v120": "sheet_pill_lieyan_pill",
+        "v121": "frame_pill_lieyan_pill",
+        "v122": "look_pill_lieyan_pill"
+      }
+    },
+    {
+      "id": "longevity_fruit_pill",
+      "category": "special",
+      "effect": "max_lifespan_plus",
+      "family": "LIGHT",
+      "motif": "GENERIC",
+      "vfx_kind": "STATUS",
+      "particle": "heal_motes",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.75,
+      "intensity": 20,
+      "appearance": "色泽：随丹而异，多素白。形态：小丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_longevity_fruit_pill",
+        "v119": "icon_pill_longevity_fruit_pill",
+        "v120": "sheet_pill_longevity_fruit_pill",
+        "v121": "frame_pill_longevity_fruit_pill",
+        "v122": "look_pill_longevity_fruit_pill"
+      }
+    },
+    {
+      "id": "longevity_wine_pill",
+      "category": "cultivation",
+      "effect": "lifespan_small",
+      "family": "LIGHT",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "heal_motes",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：素色。形态：圆丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_longevity_wine_pill",
+        "v119": "icon_pill_longevity_wine_pill",
+        "v120": "sheet_pill_longevity_wine_pill",
+        "v121": "frame_pill_longevity_wine_pill",
+        "v122": "look_pill_longevity_wine_pill"
+      }
+    },
+    {
+      "id": "longhu_pill",
+      "category": "cultivation",
+      "effect": "dragon_tiger_temper",
+      "family": "EARTH",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "earth_dust",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_longhu_pill",
+        "v119": "icon_pill_longhu_pill",
+        "v120": "sheet_pill_longhu_pill",
+        "v121": "frame_pill_longhu_pill",
+        "v122": "look_pill_longhu_pill"
+      }
+    },
+    {
+      "id": "luoyun_spirit_pill",
+      "category": "cultivation",
+      "effect": "spirit_gain_flat",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_luoyun_spirit_pill",
+        "v119": "icon_pill_luoyun_spirit_pill",
+        "v120": "sheet_pill_luoyun_spirit_pill",
+        "v121": "frame_pill_luoyun_spirit_pill",
+        "v122": "look_pill_luoyun_spirit_pill"
+      }
+    },
+    {
+      "id": "mana_shield_pill",
+      "category": "recovery",
+      "effect": "temp_mana_shield",
+      "family": "NEUTRAL",
+      "motif": "SHIELD",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：素色。形态：圆丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_mana_shield_pill",
+        "v119": "icon_pill_mana_shield_pill",
+        "v120": "sheet_pill_mana_shield_pill",
+        "v121": "frame_pill_mana_shield_pill",
+        "v122": "look_pill_mana_shield_pill"
+      }
+    },
+    {
+      "id": "marrow_extract_pill",
+      "category": "poison",
+      "effect": "power_now_lifespan_debt",
+      "family": "BLOOD",
+      "motif": "CHANNEL",
+      "vfx_kind": "STATUS",
+      "particle": "blood_mist",
+      "trail": "blood_ribbon",
+      "telegraphed": true,
+      "radius": 0.9,
+      "intensity": 28,
+      "appearance": "色泽：诡绿或墨紫。形态：慎触。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器双层密封黑瓷；静置光慎启，缝溢诡雾",
+      "active_vfx": "甲缘变色",
+      "body_vfx": "甲缘变色",
+      "ui_vfx": "毒叠",
+      "frames": [
+        "甲缘变色",
+        "blood_mist 极淡"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_marrow_extract_pill",
+        "v119": "icon_pill_marrow_extract_pill",
+        "v120": "sheet_pill_marrow_extract_pill",
+        "v121": "frame_pill_marrow_extract_pill",
+        "v122": "look_pill_marrow_extract_pill"
+      }
+    },
+    {
+      "id": "marrow_repair_pill",
+      "category": "recovery",
+      "effect": "save_life_self_damage",
+      "family": "LIGHT",
+      "motif": "HEAL",
+      "vfx_kind": "BURST",
+      "particle": "heal_motes",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "色泽：素色。形态：圆丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_marrow_repair_pill",
+        "v119": "icon_pill_marrow_repair_pill",
+        "v120": "sheet_pill_marrow_repair_pill",
+        "v121": "frame_pill_marrow_repair_pill",
+        "v122": "look_pill_marrow_repair_pill"
+      }
+    },
+    {
+      "id": "meridian_open_pill",
+      "category": "cultivation",
+      "effect": "body_tempering",
+      "family": "EARTH",
+      "motif": "MARTIAL",
+      "vfx_kind": "AURA",
+      "particle": "earth_dust",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_meridian_open_pill",
+        "v119": "icon_pill_meridian_open_pill",
+        "v120": "sheet_pill_meridian_open_pill",
+        "v121": "frame_pill_meridian_open_pill",
+        "v122": "look_pill_meridian_open_pill"
+      }
+    },
+    {
+      "id": "mulan_wind_pill",
+      "category": "cultivation",
+      "effect": "movement_speed",
+      "family": "WIND",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：素色。形态：圆丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_mulan_wind_pill",
+        "v119": "icon_pill_mulan_wind_pill",
+        "v120": "sheet_pill_mulan_wind_pill",
+        "v121": "frame_pill_mulan_wind_pill",
+        "v122": "look_pill_mulan_wind_pill"
+      }
+    },
+    {
+      "id": "nascent_soul_pill",
+      "category": "breakthrough",
+      "effect": "targeted_breakthrough_aid",
+      "family": "SOUL",
+      "motif": "CHANNEL",
+      "vfx_kind": "AURA",
+      "particle": "soul_wisps",
+      "trail": "soul_afterimage",
+      "telegraphed": true,
+      "radius": 1.55,
+      "intensity": 38,
+      "appearance": "色泽：深紫或玄青，偶有星点。形态：略大，纹路如云。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器玉瓶火漆；静置光内里星点慢闪",
+      "active_vfx": "经脉亮线、气关震动",
+      "body_vfx": "经脉亮线、气关震动",
+      "ui_vfx": "丹田图标闪",
+      "frames": [
+        "丹田核亮",
+        "经脉金线爬行",
+        "可选远雷垫"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_pill_nascent_soul_pill",
+        "v119": "icon_pill_nascent_soul_pill",
+        "v120": "sheet_pill_nascent_soul_pill",
+        "v121": "frame_pill_nascent_soul_pill",
+        "v122": "look_pill_nascent_soul_pill"
+      }
+    },
+    {
+      "id": "ninghun_dan",
+      "category": "recovery",
+      "effect": "soul_heal",
+      "family": "SOUL",
+      "motif": "HEAL",
+      "vfx_kind": "BURST",
+      "particle": "heal_motes",
+      "trail": "soul_afterimage",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "色泽：素色。形态：圆丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_ninghun_dan",
+        "v119": "icon_pill_ninghun_dan",
+        "v120": "sheet_pill_ninghun_dan",
+        "v121": "frame_pill_ninghun_dan",
+        "v122": "look_pill_ninghun_dan"
+      }
+    },
+    {
+      "id": "ningjin_pill",
+      "category": "breakthrough",
+      "effect": "targeted_breakthrough_aid",
+      "family": "NEUTRAL",
+      "motif": "CHANNEL",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": true,
+      "radius": 1.55,
+      "intensity": 38,
+      "appearance": "色泽：深紫或玄青，偶有星点。形态：略大，纹路如云。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器玉瓶火漆；静置光内里星点慢闪",
+      "active_vfx": "经脉亮线、气关震动",
+      "body_vfx": "经脉亮线、气关震动",
+      "ui_vfx": "丹田图标闪",
+      "frames": [
+        "丹田核亮",
+        "经脉金线爬行",
+        "可选远雷垫"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_pill_ningjin_pill",
+        "v119": "icon_pill_ningjin_pill",
+        "v120": "sheet_pill_ningjin_pill",
+        "v121": "frame_pill_ningjin_pill",
+        "v122": "look_pill_ningjin_pill"
+      }
+    },
+    {
+      "id": "ningshen_pill",
+      "category": "special",
+      "effect": "calm_inner_demon",
+      "family": "DARK",
+      "motif": "CLEANSE",
+      "vfx_kind": "BURST",
+      "particle": "yin_smoke",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "色泽：随丹而异，多素白。形态：小丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_ningshen_pill",
+        "v119": "icon_pill_ningshen_pill",
+        "v120": "sheet_pill_ningshen_pill",
+        "v121": "frame_pill_ningshen_pill",
+        "v122": "look_pill_ningshen_pill"
+      }
+    },
+    {
+      "id": "ningying_pill",
+      "category": "breakthrough",
+      "effect": "targeted_breakthrough_aid",
+      "family": "SOUL",
+      "motif": "CHANNEL",
+      "vfx_kind": "AURA",
+      "particle": "soul_wisps",
+      "trail": "soul_afterimage",
+      "telegraphed": true,
+      "radius": 1.55,
+      "intensity": 38,
+      "appearance": "色泽：深紫或玄青，偶有星点。形态：略大，纹路如云。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器玉瓶火漆；静置光内里星点慢闪",
+      "active_vfx": "经脉亮线、气关震动",
+      "body_vfx": "经脉亮线、气关震动",
+      "ui_vfx": "丹田图标闪",
+      "frames": [
+        "丹田核亮",
+        "经脉金线爬行",
+        "可选远雷垫"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_pill_ningying_pill",
+        "v119": "icon_pill_ningying_pill",
+        "v120": "sheet_pill_ningying_pill",
+        "v121": "frame_pill_ningying_pill",
+        "v122": "look_pill_ningying_pill"
+      }
+    },
+    {
+      "id": "ningyuan_pill",
+      "category": "breakthrough",
+      "effect": "targeted_breakthrough_aid",
+      "family": "NEUTRAL",
+      "motif": "CHANNEL",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": true,
+      "radius": 1.55,
+      "intensity": 38,
+      "appearance": "色泽：深紫或玄青，偶有星点。形态：略大，纹路如云。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器玉瓶火漆；静置光内里星点慢闪",
+      "active_vfx": "经脉亮线、气关震动",
+      "body_vfx": "经脉亮线、气关震动",
+      "ui_vfx": "丹田图标闪",
+      "frames": [
+        "丹田核亮",
+        "经脉金线爬行",
+        "可选远雷垫"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_pill_ningyuan_pill",
+        "v119": "icon_pill_ningyuan_pill",
+        "v120": "sheet_pill_ningyuan_pill",
+        "v121": "frame_pill_ningyuan_pill",
+        "v122": "look_pill_ningyuan_pill"
+      }
+    },
+    {
+      "id": "poison_dragon_pearl",
+      "category": "poison",
+      "effect": "force_power_side_effect",
+      "family": "BLOOD",
+      "motif": "CHANNEL",
+      "vfx_kind": "STATUS",
+      "particle": "blood_mist",
+      "trail": "blood_ribbon",
+      "telegraphed": true,
+      "radius": 0.9,
+      "intensity": 28,
+      "appearance": "色泽：诡绿或墨紫。形态：慎触。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器双层密封黑瓷；静置光慎启，缝溢诡雾",
+      "active_vfx": "甲缘变色",
+      "body_vfx": "甲缘变色",
+      "ui_vfx": "毒叠",
+      "frames": [
+        "甲缘变色",
+        "blood_mist 极淡"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_poison_dragon_pearl",
+        "v119": "icon_pill_poison_dragon_pearl",
+        "v120": "sheet_pill_poison_dragon_pearl",
+        "v121": "frame_pill_poison_dragon_pearl",
+        "v122": "look_pill_poison_dragon_pearl"
+      }
+    },
+    {
+      "id": "poison_insect_pill",
+      "category": "poison",
+      "effect": "toxic_cultivation",
+      "family": "BLOOD",
+      "motif": "CHANNEL",
+      "vfx_kind": "STATUS",
+      "particle": "blood_mist",
+      "trail": "blood_ribbon",
+      "telegraphed": true,
+      "radius": 0.9,
+      "intensity": 28,
+      "appearance": "色泽：诡绿或墨紫。形态：慎触。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器双层密封黑瓷；静置光慎启，缝溢诡雾",
+      "active_vfx": "甲缘变色",
+      "body_vfx": "甲缘变色",
+      "ui_vfx": "毒叠",
+      "frames": [
+        "甲缘变色",
+        "blood_mist 极淡"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_poison_insect_pill",
+        "v119": "icon_pill_poison_insect_pill",
+        "v120": "sheet_pill_poison_insect_pill",
+        "v121": "frame_pill_poison_insect_pill",
+        "v122": "look_pill_poison_insect_pill"
+      }
+    },
+    {
+      "id": "pressure_resist_pill",
+      "category": "cultivation",
+      "effect": "diyuan_adaptation",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：素色。形态：圆丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_pressure_resist_pill",
+        "v119": "icon_pill_pressure_resist_pill",
+        "v120": "sheet_pill_pressure_resist_pill",
+        "v121": "frame_pill_pressure_resist_pill",
+        "v122": "look_pill_pressure_resist_pill"
+      }
+    },
+    {
+      "id": "qingxin_pill",
+      "category": "recovery",
+      "effect": "heart_demon_reduce",
+      "family": "DARK",
+      "motif": "CLEANSE",
+      "vfx_kind": "BURST",
+      "particle": "yin_smoke",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "色泽：素色。形态：圆丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_qingxin_pill",
+        "v119": "icon_pill_qingxin_pill",
+        "v120": "sheet_pill_qingxin_pill",
+        "v121": "frame_pill_qingxin_pill",
+        "v122": "look_pill_qingxin_pill"
+      }
+    },
+    {
+      "id": "sea_calm_pill",
+      "category": "special",
+      "effect": "sea_sickness_immune",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "STATUS",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.75,
+      "intensity": 20,
+      "appearance": "色泽：随丹而异，多素白。形态：小丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_sea_calm_pill",
+        "v119": "icon_pill_sea_calm_pill",
+        "v120": "sheet_pill_sea_calm_pill",
+        "v121": "frame_pill_sea_calm_pill",
+        "v122": "look_pill_sea_calm_pill"
+      }
+    },
+    {
+      "id": "snow_lotus_pill",
+      "category": "recovery",
+      "effect": "clear_cold_poison",
+      "family": "ICE",
+      "motif": "CLEANSE",
+      "vfx_kind": "BURST",
+      "particle": "water_mist",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "色泽：素色。形态：圆丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_snow_lotus_pill",
+        "v119": "icon_pill_snow_lotus_pill",
+        "v120": "sheet_pill_snow_lotus_pill",
+        "v121": "frame_pill_snow_lotus_pill",
+        "v122": "look_pill_snow_lotus_pill"
+      }
+    },
+    {
+      "id": "solid_essence_pill",
+      "category": "cultivation",
+      "effect": "stabilize_foundation",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：素色。形态：圆丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_solid_essence_pill",
+        "v119": "icon_pill_solid_essence_pill",
+        "v120": "sheet_pill_solid_essence_pill",
+        "v121": "frame_pill_solid_essence_pill",
+        "v122": "look_pill_solid_essence_pill"
+      }
+    },
+    {
+      "id": "soul_break_pill",
+      "category": "poison",
+      "effect": "lethal_silent",
+      "family": "SOUL",
+      "motif": "GHOST",
+      "vfx_kind": "STATUS",
+      "particle": "soul_wisps",
+      "trail": "soul_afterimage",
+      "telegraphed": true,
+      "radius": 0.9,
+      "intensity": 28,
+      "appearance": "色泽：诡绿或墨紫。形态：慎触。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器双层密封黑瓷；静置光慎启，缝溢诡雾",
+      "active_vfx": "甲缘变色",
+      "body_vfx": "甲缘变色",
+      "ui_vfx": "毒叠",
+      "frames": [
+        "甲缘变色",
+        "blood_mist 极淡"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_soul_break_pill",
+        "v119": "icon_pill_soul_break_pill",
+        "v120": "sheet_pill_soul_break_pill",
+        "v121": "frame_pill_soul_break_pill",
+        "v122": "look_pill_soul_break_pill"
+      }
+    },
+    {
+      "id": "soul_gathering_pill",
+      "category": "recovery",
+      "effect": "restore_spirit_30pct",
+      "family": "SOUL",
+      "motif": "HEAL",
+      "vfx_kind": "BURST",
+      "particle": "heal_motes",
+      "trail": "soul_afterimage",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "色泽：素色。形态：圆丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_soul_gathering_pill",
+        "v119": "icon_pill_soul_gathering_pill",
+        "v120": "sheet_pill_soul_gathering_pill",
+        "v121": "frame_pill_soul_gathering_pill",
+        "v122": "look_pill_soul_gathering_pill"
+      }
+    },
+    {
+      "id": "spirit_beast_nurture_pill",
+      "category": "special",
+      "effect": "pet_growth",
+      "family": "WOOD",
+      "motif": "SUMMON",
+      "vfx_kind": "AURA",
+      "particle": "wood_pollen",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：随丹而异，多素白。形态：小丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_spirit_beast_nurture_pill",
+        "v119": "icon_pill_spirit_beast_nurture_pill",
+        "v120": "sheet_pill_spirit_beast_nurture_pill",
+        "v121": "frame_pill_spirit_beast_nurture_pill",
+        "v122": "look_pill_spirit_beast_nurture_pill"
+      }
+    },
+    {
+      "id": "spirit_condense_minor",
+      "category": "cultivation",
+      "effect": "spirit_gather_tonic",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_spirit_condense_minor",
+        "v119": "icon_pill_spirit_condense_minor",
+        "v120": "sheet_pill_spirit_condense_minor",
+        "v121": "frame_pill_spirit_condense_minor",
+        "v122": "look_pill_spirit_condense_minor"
+      }
+    },
+    {
+      "id": "spirit_condense_pill",
+      "category": "cultivation",
+      "effect": "spirit_gain_flat",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_spirit_condense_pill",
+        "v119": "icon_pill_spirit_condense_pill",
+        "v120": "sheet_pill_spirit_condense_pill",
+        "v121": "frame_pill_spirit_condense_pill",
+        "v122": "look_pill_spirit_condense_pill"
+      }
+    },
+    {
+      "id": "spirit_realm_condense_pill",
+      "category": "cultivation",
+      "effect": "high_tier_cultivation",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：素色。形态：圆丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_spirit_realm_condense_pill",
+        "v119": "icon_pill_spirit_realm_condense_pill",
+        "v120": "sheet_pill_spirit_realm_condense_pill",
+        "v121": "frame_pill_spirit_realm_condense_pill",
+        "v122": "look_pill_spirit_realm_condense_pill"
+      }
+    },
+    {
+      "id": "spirit_recovery_pill",
+      "category": "recovery",
+      "effect": "restore_mana_50pct",
+      "family": "WATER",
+      "motif": "HEAL",
+      "vfx_kind": "BURST",
+      "particle": "heal_motes",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "色泽：素色。形态：圆丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_spirit_recovery_pill",
+        "v119": "icon_pill_spirit_recovery_pill",
+        "v120": "sheet_pill_spirit_recovery_pill",
+        "v121": "frame_pill_spirit_recovery_pill",
+        "v122": "look_pill_spirit_recovery_pill"
+      }
+    },
+    {
+      "id": "spirit_recovery_pill_high",
+      "category": "cultivation",
+      "effect": "restore_mana",
+      "family": "WATER",
+      "motif": "HEAL",
+      "vfx_kind": "AURA",
+      "particle": "heal_motes",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：素色。形态：圆丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_spirit_recovery_pill_high",
+        "v119": "icon_pill_spirit_recovery_pill_high",
+        "v120": "sheet_pill_spirit_recovery_pill_high",
+        "v121": "frame_pill_spirit_recovery_pill_high",
+        "v122": "look_pill_spirit_recovery_pill_high"
+      }
+    },
+    {
+      "id": "spirit_seed_pill",
+      "category": "cultivation",
+      "effect": "spirit_seed_growth",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_spirit_seed_pill",
+        "v119": "icon_pill_spirit_seed_pill",
+        "v120": "sheet_pill_spirit_seed_pill",
+        "v121": "frame_pill_spirit_seed_pill",
+        "v122": "look_pill_spirit_seed_pill"
+      }
+    },
+    {
+      "id": "spirit_severing_pill",
+      "category": "breakthrough",
+      "effect": "targeted_breakthrough_aid",
+      "family": "NEUTRAL",
+      "motif": "CHANNEL",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": true,
+      "radius": 1.55,
+      "intensity": 38,
+      "appearance": "色泽：深紫或玄青，偶有星点。形态：略大，纹路如云。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器玉瓶火漆；静置光内里星点慢闪",
+      "active_vfx": "经脉亮线、气关震动",
+      "body_vfx": "经脉亮线、气关震动",
+      "ui_vfx": "丹田图标闪",
+      "frames": [
+        "丹田核亮",
+        "经脉金线爬行",
+        "可选远雷垫"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_pill_spirit_severing_pill",
+        "v119": "icon_pill_spirit_severing_pill",
+        "v120": "sheet_pill_spirit_severing_pill",
+        "v121": "frame_pill_spirit_severing_pill",
+        "v122": "look_pill_spirit_severing_pill"
+      }
+    },
+    {
+      "id": "star_sea_pill",
+      "category": "cultivation",
+      "effect": "star_sea_voyage",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_star_sea_pill",
+        "v119": "icon_pill_star_sea_pill",
+        "v120": "sheet_pill_star_sea_pill",
+        "v121": "frame_pill_star_sea_pill",
+        "v122": "look_pill_star_sea_pill"
+      }
+    },
+    {
+      "id": "thunder_soothing_pill",
+      "category": "special",
+      "effect": "tribulation_lightning_reduce",
+      "family": "THUNDER",
+      "motif": "GENERIC",
+      "vfx_kind": "STATUS",
+      "particle": "thunder_arc",
+      "trail": "thunder_jagged",
+      "telegraphed": true,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "色泽：随丹而异，多素白。形态：小丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_thunder_soothing_pill",
+        "v119": "icon_pill_thunder_soothing_pill",
+        "v120": "sheet_pill_thunder_soothing_pill",
+        "v121": "frame_pill_thunder_soothing_pill",
+        "v122": "look_pill_thunder_soothing_pill"
+      }
+    },
+    {
+      "id": "tianling_pill",
+      "category": "legendary",
+      "effect": "legendary_essence",
+      "family": "LIGHT",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "heal_motes",
+      "trail": "none",
+      "telegraphed": true,
+      "radius": 1.55,
+      "intensity": 38,
+      "appearance": "色泽：素色。形态：圆丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_tianling_pill",
+        "v119": "icon_pill_tianling_pill",
+        "v120": "sheet_pill_tianling_pill",
+        "v121": "frame_pill_tianling_pill",
+        "v122": "look_pill_tianling_pill"
+      }
+    },
+    {
+      "id": "tianyuan_merit_pill",
+      "category": "special",
+      "effect": "merit_tonic",
+      "family": "LIGHT",
+      "motif": "GENERIC",
+      "vfx_kind": "STATUS",
+      "particle": "heal_motes",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.75,
+      "intensity": 20,
+      "appearance": "色泽：随丹而异，多素白。形态：小丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_tianyuan_merit_pill",
+        "v119": "icon_pill_tianyuan_merit_pill",
+        "v120": "sheet_pill_tianyuan_merit_pill",
+        "v121": "frame_pill_tianyuan_merit_pill",
+        "v122": "look_pill_tianyuan_merit_pill"
+      }
+    },
+    {
+      "id": "tianyuan_spirit_pill",
+      "category": "cultivation",
+      "effect": "cultivation_speed_tianyuan",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_tianyuan_spirit_pill",
+        "v119": "icon_pill_tianyuan_spirit_pill",
+        "v120": "sheet_pill_tianyuan_spirit_pill",
+        "v121": "frame_pill_tianyuan_spirit_pill",
+        "v122": "look_pill_tianyuan_spirit_pill"
+      }
+    },
+    {
+      "id": "tihu_pill",
+      "category": "special",
+      "effect": "death_substitute_once",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "STATUS",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.75,
+      "intensity": 20,
+      "appearance": "色泽：随丹而异，多素白。形态：小丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_tihu_pill",
+        "v119": "icon_pill_tihu_pill",
+        "v120": "sheet_pill_tihu_pill",
+        "v121": "frame_pill_tihu_pill",
+        "v122": "look_pill_tihu_pill"
+      }
+    },
+    {
+      "id": "tribulation_guard_pill",
+      "category": "breakthrough",
+      "effect": "tribulation_guard",
+      "family": "THUNDER",
+      "motif": "CLEANSE",
+      "vfx_kind": "AURA",
+      "particle": "thunder_arc",
+      "trail": "thunder_jagged",
+      "telegraphed": true,
+      "radius": 1.55,
+      "intensity": 38,
+      "appearance": "色泽：深紫或玄青，偶有星点。形态：略大，纹路如云。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器玉瓶火漆；静置光内里星点慢闪",
+      "active_vfx": "经脉亮线、气关震动",
+      "body_vfx": "经脉亮线、气关震动",
+      "ui_vfx": "丹田图标闪",
+      "frames": [
+        "丹田核亮",
+        "经脉金线爬行",
+        "可选远雷垫"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_pill_tribulation_guard_pill",
+        "v119": "icon_pill_tribulation_guard_pill",
+        "v120": "sheet_pill_tribulation_guard_pill",
+        "v121": "frame_pill_tribulation_guard_pill",
+        "v122": "look_pill_tribulation_guard_pill"
+      }
+    },
+    {
+      "id": "void_condense_pill",
+      "category": "breakthrough",
+      "effect": "targeted_breakthrough_aid",
+      "family": "VOID",
+      "motif": "CHANNEL",
+      "vfx_kind": "AURA",
+      "particle": "space_glitch",
+      "trail": "none",
+      "telegraphed": true,
+      "radius": 1.55,
+      "intensity": 38,
+      "appearance": "色泽：深紫或玄青，偶有星点。形态：略大，纹路如云。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器玉瓶火漆；静置光内里星点慢闪",
+      "active_vfx": "经脉亮线、气关震动",
+      "body_vfx": "经脉亮线、气关震动",
+      "ui_vfx": "丹田图标闪",
+      "frames": [
+        "丹田核亮",
+        "经脉金线爬行",
+        "可选远雷垫"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_pill_void_condense_pill",
+        "v119": "icon_pill_void_condense_pill",
+        "v120": "sheet_pill_void_condense_pill",
+        "v121": "frame_pill_void_condense_pill",
+        "v122": "look_pill_void_condense_pill"
+      }
+    },
+    {
+      "id": "wangchen_pill",
+      "category": "special",
+      "effect": "erase_memory_12h",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "STATUS",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.75,
+      "intensity": 20,
+      "appearance": "色泽：浅灰蓝。形态：半透。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "杂念灰烬落",
+      "body_vfx": "杂念灰烬落",
+      "ui_vfx": "心魔抗性",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_wangchen_pill",
+        "v119": "icon_pill_wangchen_pill",
+        "v120": "sheet_pill_wangchen_pill",
+        "v121": "frame_pill_wangchen_pill",
+        "v122": "look_pill_wangchen_pill"
+      }
+    },
+    {
+      "id": "wuxing_pill",
+      "category": "cultivation",
+      "effect": "elemental_cultivation",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_wuxing_pill",
+        "v119": "icon_pill_wuxing_pill",
+        "v120": "sheet_pill_wuxing_pill",
+        "v121": "frame_pill_wuxing_pill",
+        "v122": "look_pill_wuxing_pill"
+      }
+    },
+    {
+      "id": "xiyu_pill",
+      "category": "cultivation",
+      "effect": "marrow_cleansing",
+      "family": "EARTH",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "earth_dust",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_xiyu_pill",
+        "v119": "icon_pill_xiyu_pill",
+        "v120": "sheet_pill_xiyu_pill",
+        "v121": "frame_pill_xiyu_pill",
+        "v122": "look_pill_xiyu_pill"
+      }
+    },
+    {
+      "id": "xuanbing_pill",
+      "category": "special",
+      "effect": "elemental_cultivation",
+      "family": "ICE",
+      "motif": "GENERIC",
+      "vfx_kind": "STATUS",
+      "particle": "water_mist",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.75,
+      "intensity": 20,
+      "appearance": "色泽：随丹而异，多素白。形态：小丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_xuanbing_pill",
+        "v119": "icon_pill_xuanbing_pill",
+        "v120": "sheet_pill_xuanbing_pill",
+        "v121": "frame_pill_xuanbing_pill",
+        "v122": "look_pill_xuanbing_pill"
+      }
+    },
+    {
+      "id": "xueying_pill",
+      "category": "poison",
+      "effect": "toxic_cultivation",
+      "family": "SOUL",
+      "motif": "GHOST",
+      "vfx_kind": "STATUS",
+      "particle": "soul_wisps",
+      "trail": "soul_afterimage",
+      "telegraphed": true,
+      "radius": 0.9,
+      "intensity": 28,
+      "appearance": "色泽：诡绿或墨紫。形态：慎触。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器双层密封黑瓷；静置光慎启，缝溢诡雾",
+      "active_vfx": "甲缘变色",
+      "body_vfx": "甲缘变色",
+      "ui_vfx": "毒叠",
+      "frames": [
+        "甲缘变色",
+        "blood_mist 极淡"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_xueying_pill",
+        "v119": "icon_pill_xueying_pill",
+        "v120": "sheet_pill_xueying_pill",
+        "v121": "frame_pill_xueying_pill",
+        "v122": "look_pill_xueying_pill"
+      }
+    },
+    {
+      "id": "yanghun_pill",
+      "category": "recovery",
+      "effect": "restore_soul_minor",
+      "family": "SOUL",
+      "motif": "HEAL",
+      "vfx_kind": "BURST",
+      "particle": "heal_motes",
+      "trail": "soul_afterimage",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "色泽：素色。形态：圆丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_yanghun_pill",
+        "v119": "icon_pill_yanghun_pill",
+        "v120": "sheet_pill_yanghun_pill",
+        "v121": "frame_pill_yanghun_pill",
+        "v122": "look_pill_yanghun_pill"
+      }
+    },
+    {
+      "id": "yangyuan_pill",
+      "category": "cultivation",
+      "effect": "restorative_tonic",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_yangyuan_pill",
+        "v119": "icon_pill_yangyuan_pill",
+        "v120": "sheet_pill_yangyuan_pill",
+        "v121": "frame_pill_yangyuan_pill",
+        "v122": "look_pill_yangyuan_pill"
+      }
+    },
+    {
+      "id": "yin_ward_pill",
+      "category": "special",
+      "effect": "yin_damage_resist_24h",
+      "family": "SOUL",
+      "motif": "CLEANSE",
+      "vfx_kind": "STATUS",
+      "particle": "soul_wisps",
+      "trail": "soul_afterimage",
+      "telegraphed": false,
+      "radius": 0.75,
+      "intensity": 20,
+      "appearance": "色泽：随丹而异，多素白。形态：小丸。可置于瓷瓶，晃动有轻微灵光。；体积拇指节；容器素瓷；静置光极弱自光或无",
+      "active_vfx": "视丹",
+      "body_vfx": "视丹",
+      "ui_vfx": "特殊",
+      "frames": [
+        "气机微变 qi_soft"
+      ],
+      "frame_count": 1,
+      "sources": {
+        "v118": "vis_pill_yin_ward_pill",
+        "v119": "icon_pill_yin_ward_pill",
+        "v120": "sheet_pill_yin_ward_pill",
+        "v121": "frame_pill_yin_ward_pill",
+        "v122": "look_pill_yin_ward_pill"
+      }
+    },
+    {
+      "id": "yin_yang_pill",
+      "category": "cultivation",
+      "effect": "yin_yang_balance",
+      "family": "SOUL",
+      "motif": "GHOST",
+      "vfx_kind": "AURA",
+      "particle": "soul_wisps",
+      "trail": "soul_afterimage",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "色泽：翠绿或青碧。形态：标准丹丸。可置于瓷瓶，晃动有轻微灵光。；体积黄豆至豌豆；容器青瓷；静置光青绿呼吸光",
+      "active_vfx": "周身淡雾",
+      "body_vfx": "周身淡雾",
+      "ui_vfx": "修为条微加速粒子",
+      "frames": [
+        "周身 qi_soft 缓升",
+        "毛孔淡雾"
+      ],
+      "frame_count": 2,
+      "sources": {
+        "v118": "vis_pill_yin_yang_pill",
+        "v119": "icon_pill_yin_yang_pill",
+        "v120": "sheet_pill_yin_yang_pill",
+        "v121": "frame_pill_yin_yang_pill",
+        "v122": "look_pill_yin_yang_pill"
+      }
+    }
+  ],
+  "consumables": [
+    {
+      "id": "auction_invitation",
+      "category": "quest",
+      "effect": "open_auction_invite",
+      "family": "NEUTRAL",
+      "motif": "DAO",
+      "vfx_kind": "SCAN",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.5,
+      "intensity": 24,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_auction_invitation",
+        "v120": "sheet_cons_auction_invitation",
+        "v122": "look_cons_auction_invitation"
+      }
+    },
+    {
+      "id": "beast_feed_spirit",
+      "category": "beast",
+      "effect": "pet_loyalty_plus",
+      "family": "WOOD",
+      "motif": "SUMMON",
+      "vfx_kind": "AURA",
+      "particle": "wood_pollen",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "持续效果脚底淡环",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "效果落定，持续状态以脚底淡环提示"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_beast_feed_spirit",
+        "v120": "sheet_cons_beast_feed_spirit",
+        "v122": "look_cons_beast_feed_spirit"
+      }
+    },
+    {
+      "id": "beast_meat_jerky",
+      "category": "food",
+      "effect": "satiation_plus_strength",
+      "family": "WOOD",
+      "motif": "HEAL",
+      "vfx_kind": "AURA",
+      "particle": "heal_motes",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "持续效果脚底淡环",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "效果落定，持续状态以脚底淡环提示"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_beast_meat_jerky",
+        "v120": "sheet_cons_beast_meat_jerky",
+        "v122": "look_cons_beast_meat_jerky"
+      }
+    },
+    {
+      "id": "bigu_pill",
+      "category": "",
+      "effect": "",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "STATUS",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.75,
+      "intensity": 20,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "持续效果脚底淡环",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "效果落定，持续状态以脚底淡环提示"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_bigu_pill",
+        "v120": "sheet_cons_bigu_pill",
+        "v122": "look_cons_bigu_pill"
+      }
+    },
+    {
+      "id": "demon_qi_purge_pill",
+      "category": "special",
+      "effect": "demon_qi_resist",
+      "family": "DARK",
+      "motif": "CLEANSE",
+      "vfx_kind": "BURST",
+      "particle": "yin_smoke",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_demon_qi_purge_pill",
+        "v120": "sheet_cons_demon_qi_purge_pill",
+        "v122": "look_cons_demon_qi_purge_pill"
+      }
+    },
+    {
+      "id": "detox_minor_pill",
+      "category": "",
+      "effect": "detox_minor",
+      "family": "LIGHT",
+      "motif": "CLEANSE",
+      "vfx_kind": "BURST",
+      "particle": "heal_motes",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_detox_minor_pill",
+        "v120": "sheet_cons_detox_minor_pill",
+        "v122": "look_cons_detox_minor_pill"
+      }
+    },
+    {
+      "id": "escape_talisman",
+      "category": "talisman_consumable",
+      "effect": "short_escape",
+      "family": "VOID",
+      "motif": "TALISMAN",
+      "vfx_kind": "PATH",
+      "particle": "space_glitch",
+      "trail": "movement_wind",
+      "telegraphed": false,
+      "radius": 1.2,
+      "intensity": 28,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_escape_talisman",
+        "v120": "sheet_cons_escape_talisman",
+        "v122": "look_cons_escape_talisman"
+      }
+    },
+    {
+      "id": "fallen_demon_scout_report",
+      "category": "quest",
+      "effect": "discover_fallen_demon",
+      "family": "DARK",
+      "motif": "DAO",
+      "vfx_kind": "SCAN",
+      "particle": "yin_smoke",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.5,
+      "intensity": 24,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_fallen_demon_scout_report",
+        "v120": "sheet_cons_fallen_demon_scout_report",
+        "v122": "look_cons_fallen_demon_scout_report"
+      }
+    },
+    {
+      "id": "ferry_pass",
+      "category": "travel",
+      "effect": "travel_nether_ferry",
+      "family": "WIND",
+      "motif": "TELEPORT",
+      "vfx_kind": "PATH",
+      "particle": "qi_soft",
+      "trail": "movement_wind",
+      "telegraphed": false,
+      "radius": 1.2,
+      "intensity": 28,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_ferry_pass",
+        "v120": "sheet_cons_ferry_pass",
+        "v122": "look_cons_ferry_pass"
+      }
+    },
+    {
+      "id": "fireball_talisman",
+      "category": "talisman_consumable",
+      "effect": "fireball_cast",
+      "family": "FIRE",
+      "motif": "TALISMAN",
+      "vfx_kind": "CAST",
+      "particle": "fire_ember",
+      "trail": "talisman_ash",
+      "telegraphed": true,
+      "radius": 1.05,
+      "intensity": 34,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_fireball_talisman",
+        "v120": "sheet_cons_fireball_talisman",
+        "v122": "look_cons_fireball_talisman"
+      }
+    },
+    {
+      "id": "golden_armor_talisman",
+      "category": "talisman_consumable",
+      "effect": "golden_armor",
+      "family": "NEUTRAL",
+      "motif": "TALISMAN",
+      "vfx_kind": "AURA",
+      "particle": "qi_soft",
+      "trail": "talisman_ash",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "持续效果脚底淡环",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "效果落定，持续状态以脚底淡环提示"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_golden_armor_talisman",
+        "v120": "sheet_cons_golden_armor_talisman",
+        "v122": "look_cons_golden_armor_talisman"
+      }
+    },
+    {
+      "id": "healing_salve",
+      "category": "recovery",
+      "effect": "restore_health",
+      "family": "LIGHT",
+      "motif": "HEAL",
+      "vfx_kind": "BURST",
+      "particle": "heal_motes",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_healing_salve",
+        "v120": "sheet_cons_healing_salve",
+        "v122": "look_cons_healing_salve"
+      }
+    },
+    {
+      "id": "ice_shard_talisman",
+      "category": "talisman_consumable",
+      "effect": "ice_shard_cast",
+      "family": "ICE",
+      "motif": "TALISMAN",
+      "vfx_kind": "CAST",
+      "particle": "water_mist",
+      "trail": "talisman_ash",
+      "telegraphed": true,
+      "radius": 1.05,
+      "intensity": 34,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_ice_shard_talisman",
+        "v120": "sheet_cons_ice_shard_talisman",
+        "v122": "look_cons_ice_shard_talisman"
+      }
+    },
+    {
+      "id": "inverse_star_smuggler_pack",
+      "category": "loot",
+      "effect": "open_random_contraband",
+      "family": "NEUTRAL",
+      "motif": "DOMAIN",
+      "vfx_kind": "BURST",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.1,
+      "intensity": 24,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_inverse_star_smuggler_pack",
+        "v120": "sheet_cons_inverse_star_smuggler_pack",
+        "v122": "look_cons_inverse_star_smuggler_pack"
+      }
+    },
+    {
+      "id": "jade_slip_blank",
+      "category": "craft",
+      "effect": "",
+      "family": "EARTH",
+      "motif": "TALISMAN",
+      "vfx_kind": "BURST",
+      "particle": "earth_dust",
+      "trail": "talisman_ash",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_jade_slip_blank",
+        "v120": "sheet_cons_jade_slip_blank",
+        "v122": "look_cons_jade_slip_blank"
+      }
+    },
+    {
+      "id": "kunwu_map_scroll",
+      "category": "quest",
+      "effect": "discover_kunwu",
+      "family": "NEUTRAL",
+      "motif": "DAO",
+      "vfx_kind": "SCAN",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.5,
+      "intensity": 24,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_kunwu_map_scroll",
+        "v120": "sheet_cons_kunwu_map_scroll",
+        "v122": "look_cons_kunwu_map_scroll"
+      }
+    },
+    {
+      "id": "low_spirit_stone_pouch",
+      "category": "currency_bundle",
+      "effect": "contains_low_stone_10",
+      "family": "METAL",
+      "motif": "DOMAIN",
+      "vfx_kind": "BURST",
+      "particle": "metal_spark",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.1,
+      "intensity": 24,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_low_spirit_stone_pouch",
+        "v120": "sheet_cons_low_spirit_stone_pouch",
+        "v122": "look_cons_low_spirit_stone_pouch"
+      }
+    },
+    {
+      "id": "major_thunder_array_token",
+      "category": "tribulation",
+      "effect": "formation_tribulation_buff",
+      "family": "THUNDER",
+      "motif": "FORMATION",
+      "vfx_kind": "FORMATION",
+      "particle": "thunder_arc",
+      "trail": "thunder_jagged",
+      "telegraphed": true,
+      "radius": 2.35,
+      "intensity": 44,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_major_thunder_array_token",
+        "v120": "sheet_cons_major_thunder_array_token",
+        "v122": "look_cons_major_thunder_array_token"
+      }
+    },
+    {
+      "id": "minor_thunder_ward_charm",
+      "category": "tribulation",
+      "effect": "lightning_mitigate_once",
+      "family": "THUNDER",
+      "motif": "CLEANSE",
+      "vfx_kind": "STATUS",
+      "particle": "thunder_arc",
+      "trail": "thunder_jagged",
+      "telegraphed": true,
+      "radius": 0.9,
+      "intensity": 28,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "持续效果脚底淡环",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "效果落定，持续状态以脚底淡环提示"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_minor_thunder_ward_charm",
+        "v120": "sheet_cons_minor_thunder_ward_charm",
+        "v122": "look_cons_minor_thunder_ward_charm"
+      }
+    },
+    {
+      "id": "nascent_soul_escape_charm",
+      "category": "tribulation",
+      "effect": "forced_escape_once",
+      "family": "THUNDER",
+      "motif": "TELEPORT",
+      "vfx_kind": "PATH",
+      "particle": "thunder_arc",
+      "trail": "movement_wind",
+      "telegraphed": true,
+      "radius": 1.35,
+      "intensity": 36,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_nascent_soul_escape_charm",
+        "v120": "sheet_cons_nascent_soul_escape_charm",
+        "v122": "look_cons_nascent_soul_escape_charm"
+      }
+    },
+    {
+      "id": "paper_formula_scroll",
+      "category": "craft",
+      "effect": "",
+      "family": "EARTH",
+      "motif": "TALISMAN",
+      "vfx_kind": "BURST",
+      "particle": "earth_dust",
+      "trail": "talisman_ash",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_paper_formula_scroll",
+        "v120": "sheet_cons_paper_formula_scroll",
+        "v122": "look_cons_paper_formula_scroll"
+      }
+    },
+    {
+      "id": "pirate_loot_bundle",
+      "category": "loot",
+      "effect": "open_random_contraband",
+      "family": "NEUTRAL",
+      "motif": "DOMAIN",
+      "vfx_kind": "BURST",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.1,
+      "intensity": 24,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_pirate_loot_bundle",
+        "v120": "sheet_cons_pirate_loot_bundle",
+        "v122": "look_cons_pirate_loot_bundle"
+      }
+    },
+    {
+      "id": "poison_antidote_pack",
+      "category": "recovery",
+      "effect": "clear_poison",
+      "family": "BLOOD",
+      "motif": "CLEANSE",
+      "vfx_kind": "BURST",
+      "particle": "blood_mist",
+      "trail": "blood_ribbon",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_poison_antidote_pack",
+        "v120": "sheet_cons_poison_antidote_pack",
+        "v122": "look_cons_poison_antidote_pack"
+      }
+    },
+    {
+      "id": "recipe_scroll_bundle",
+      "category": "loot",
+      "effect": "random_recipe_low_tier",
+      "family": "NEUTRAL",
+      "motif": "DOMAIN",
+      "vfx_kind": "BURST",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.1,
+      "intensity": 24,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_recipe_scroll_bundle",
+        "v120": "sheet_cons_recipe_scroll_bundle",
+        "v122": "look_cons_recipe_scroll_bundle"
+      }
+    },
+    {
+      "id": "sect_identity_token",
+      "category": "quest",
+      "effect": "show_sect_identity",
+      "family": "NEUTRAL",
+      "motif": "DAO",
+      "vfx_kind": "SCAN",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.5,
+      "intensity": 24,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_sect_identity_token",
+        "v120": "sheet_cons_sect_identity_token",
+        "v122": "look_cons_sect_identity_token"
+      }
+    },
+    {
+      "id": "smoke_bomb_spirit",
+      "category": "special",
+      "effect": "smoke_screen",
+      "family": "ILLUSION",
+      "motif": "ILLUSION",
+      "vfx_kind": "BURST",
+      "particle": "soul_wisps",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_smoke_bomb_spirit",
+        "v120": "sheet_cons_smoke_bomb_spirit",
+        "v122": "look_cons_smoke_bomb_spirit"
+      }
+    },
+    {
+      "id": "sound_beacon",
+      "category": "special",
+      "effect": "sound_beacon",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "BURST",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_sound_beacon",
+        "v120": "sheet_cons_sound_beacon",
+        "v122": "look_cons_sound_beacon"
+      }
+    },
+    {
+      "id": "spirit_beast_feed",
+      "category": "pet",
+      "effect": "pet_loyalty_plus",
+      "family": "WOOD",
+      "motif": "SUMMON",
+      "vfx_kind": "AURA",
+      "particle": "wood_pollen",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "持续效果脚底淡环",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "效果落定，持续状态以脚底淡环提示"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_spirit_beast_feed",
+        "v120": "sheet_cons_spirit_beast_feed",
+        "v122": "look_cons_spirit_beast_feed"
+      }
+    },
+    {
+      "id": "spirit_boat_ticket",
+      "category": "travel",
+      "effect": "travel_spirit_boat",
+      "family": "WIND",
+      "motif": "TELEPORT",
+      "vfx_kind": "PATH",
+      "particle": "qi_soft",
+      "trail": "movement_wind",
+      "telegraphed": false,
+      "radius": 1.2,
+      "intensity": 28,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_spirit_boat_ticket",
+        "v120": "sheet_cons_spirit_boat_ticket",
+        "v122": "look_cons_spirit_boat_ticket"
+      }
+    },
+    {
+      "id": "spirit_garden_fertilizer",
+      "category": "craft",
+      "effect": "herb_growth_speed",
+      "family": "WOOD",
+      "motif": "TALISMAN",
+      "vfx_kind": "BURST",
+      "particle": "wood_pollen",
+      "trail": "talisman_ash",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_spirit_garden_fertilizer",
+        "v120": "sheet_cons_spirit_garden_fertilizer",
+        "v122": "look_cons_spirit_garden_fertilizer"
+      }
+    },
+    {
+      "id": "spirit_gathering_array_disk",
+      "category": "formation_consumable",
+      "effect": "deploy_spirit_gather_disk",
+      "family": "EARTH",
+      "motif": "FORMATION",
+      "vfx_kind": "FORMATION",
+      "particle": "earth_dust",
+      "trail": "none",
+      "telegraphed": true,
+      "radius": 2.35,
+      "intensity": 40,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_spirit_gathering_array_disk",
+        "v120": "sheet_cons_spirit_gathering_array_disk",
+        "v122": "look_cons_spirit_gathering_array_disk"
+      }
+    },
+    {
+      "id": "spirit_rice_bowl",
+      "category": "food",
+      "effect": "minor_spirit_regen",
+      "family": "WATER",
+      "motif": "HEAL",
+      "vfx_kind": "BURST",
+      "particle": "heal_motes",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_spirit_rice_bowl",
+        "v120": "sheet_cons_spirit_rice_bowl",
+        "v122": "look_cons_spirit_rice_bowl"
+      }
+    },
+    {
+      "id": "spirit_root_test_stone",
+      "category": "quest",
+      "effect": "reveal_spirit_roots",
+      "family": "METAL",
+      "motif": "DAO",
+      "vfx_kind": "SCAN",
+      "particle": "metal_spark",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.5,
+      "intensity": 24,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_spirit_root_test_stone",
+        "v120": "sheet_cons_spirit_root_test_stone",
+        "v122": "look_cons_spirit_root_test_stone"
+      }
+    },
+    {
+      "id": "spirit_sand_pouch",
+      "category": "craft",
+      "effect": "array_fuel",
+      "family": "EARTH",
+      "motif": "FORMATION",
+      "vfx_kind": "FORMATION",
+      "particle": "earth_dust",
+      "trail": "none",
+      "telegraphed": true,
+      "radius": 2.35,
+      "intensity": 40,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_spirit_sand_pouch",
+        "v120": "sheet_cons_spirit_sand_pouch",
+        "v122": "look_cons_spirit_sand_pouch"
+      }
+    },
+    {
+      "id": "spirit_stone_high_bulk",
+      "category": "currency",
+      "effect": "spirit_stone_high_bundle",
+      "family": "METAL",
+      "motif": "GENERIC",
+      "vfx_kind": "STATUS",
+      "particle": "metal_spark",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.75,
+      "intensity": 20,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "持续效果脚底淡环",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "效果落定，持续状态以脚底淡环提示"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_spirit_stone_high_bulk",
+        "v120": "sheet_cons_spirit_stone_high_bulk",
+        "v122": "look_cons_spirit_stone_high_bulk"
+      }
+    },
+    {
+      "id": "spirit_stone_low",
+      "category": "currency",
+      "effect": "",
+      "family": "METAL",
+      "motif": "GENERIC",
+      "vfx_kind": "STATUS",
+      "particle": "metal_spark",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.75,
+      "intensity": 20,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "持续效果脚底淡环",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "效果落定，持续状态以脚底淡环提示"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_spirit_stone_low",
+        "v120": "sheet_cons_spirit_stone_low",
+        "v122": "look_cons_spirit_stone_low"
+      }
+    },
+    {
+      "id": "spirit_stone_mid_bulk",
+      "category": "currency",
+      "effect": "spirit_stone_mid_bundle",
+      "family": "METAL",
+      "motif": "GENERIC",
+      "vfx_kind": "STATUS",
+      "particle": "metal_spark",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.75,
+      "intensity": 20,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "持续效果脚底淡环",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "效果落定，持续状态以脚底淡环提示"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_spirit_stone_mid_bulk",
+        "v120": "sheet_cons_spirit_stone_mid_bulk",
+        "v122": "look_cons_spirit_stone_mid_bulk"
+      }
+    },
+    {
+      "id": "spirit_stone_pouch_sealed",
+      "category": "currency",
+      "effect": "open_low_spirit_stone_pouch",
+      "family": "METAL",
+      "motif": "GENERIC",
+      "vfx_kind": "STATUS",
+      "particle": "metal_spark",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.75,
+      "intensity": 20,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "持续效果脚底淡环",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "效果落定，持续状态以脚底淡环提示"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_spirit_stone_pouch_sealed",
+        "v120": "sheet_cons_spirit_stone_pouch_sealed",
+        "v122": "look_cons_spirit_stone_pouch_sealed"
+      }
+    },
+    {
+      "id": "spirit_water_flask",
+      "category": "recovery",
+      "effect": "restore_spirit",
+      "family": "WATER",
+      "motif": "HEAL",
+      "vfx_kind": "BURST",
+      "particle": "heal_motes",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_spirit_water_flask",
+        "v120": "sheet_cons_spirit_water_flask",
+        "v122": "look_cons_spirit_water_flask"
+      }
+    },
+    {
+      "id": "spirit_wine_jar",
+      "category": "food",
+      "effect": "courage_buff_short",
+      "family": "WOOD",
+      "motif": "HEAL",
+      "vfx_kind": "AURA",
+      "particle": "heal_motes",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.05,
+      "intensity": 26,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "持续效果脚底淡环",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "效果落定，持续状态以脚底淡环提示"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_spirit_wine_jar",
+        "v120": "sheet_cons_spirit_wine_jar",
+        "v122": "look_cons_spirit_wine_jar"
+      }
+    },
+    {
+      "id": "star_palace_patrol_seal",
+      "category": "quest",
+      "effect": "star_palace_patrol",
+      "family": "NEUTRAL",
+      "motif": "DAO",
+      "vfx_kind": "SCAN",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.5,
+      "intensity": 24,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_star_palace_patrol_seal",
+        "v120": "sheet_cons_star_palace_patrol_seal",
+        "v122": "look_cons_star_palace_patrol_seal"
+      }
+    },
+    {
+      "id": "star_palace_tax_receipt",
+      "category": "quest",
+      "effect": "star_palace_tax_paid",
+      "family": "METAL",
+      "motif": "DAO",
+      "vfx_kind": "STATUS",
+      "particle": "metal_spark",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.75,
+      "intensity": 20,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "持续效果脚底淡环",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "效果落定，持续状态以脚底淡环提示"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_star_palace_tax_receipt",
+        "v120": "sheet_cons_star_palace_tax_receipt",
+        "v122": "look_cons_star_palace_tax_receipt"
+      }
+    },
+    {
+      "id": "storage_bag_high",
+      "category": "storage",
+      "effect": "portable_storage_27",
+      "family": "WIND",
+      "motif": "DOMAIN",
+      "vfx_kind": "BURST",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.1,
+      "intensity": 24,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_storage_bag_high",
+        "v120": "sheet_cons_storage_bag_high",
+        "v122": "look_cons_storage_bag_high"
+      }
+    },
+    {
+      "id": "storage_bag_low",
+      "category": "storage",
+      "effect": "portable_storage_9",
+      "family": "WIND",
+      "motif": "DOMAIN",
+      "vfx_kind": "BURST",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.1,
+      "intensity": 24,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_storage_bag_low",
+        "v120": "sheet_cons_storage_bag_low",
+        "v122": "look_cons_storage_bag_low"
+      }
+    },
+    {
+      "id": "storage_pouch_low",
+      "category": "equipment",
+      "effect": "portable_storage_9",
+      "family": "NEUTRAL",
+      "motif": "DOMAIN",
+      "vfx_kind": "BURST",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_storage_pouch_low",
+        "v120": "sheet_cons_storage_pouch_low",
+        "v122": "look_cons_storage_pouch_low"
+      }
+    },
+    {
+      "id": "storage_pouch_mid",
+      "category": "equipment",
+      "effect": "portable_storage_18",
+      "family": "NEUTRAL",
+      "motif": "DOMAIN",
+      "vfx_kind": "BURST",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_storage_pouch_mid",
+        "v120": "sheet_cons_storage_pouch_mid",
+        "v122": "look_cons_storage_pouch_mid"
+      }
+    },
+    {
+      "id": "talisman_crate_high",
+      "category": "loot",
+      "effect": "random_talisman_high",
+      "family": "NEUTRAL",
+      "motif": "DOMAIN",
+      "vfx_kind": "BURST",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.1,
+      "intensity": 24,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_talisman_crate_high",
+        "v120": "sheet_cons_talisman_crate_high",
+        "v122": "look_cons_talisman_crate_high"
+      }
+    },
+    {
+      "id": "talisman_crate_low",
+      "category": "loot",
+      "effect": "random_talisman_low",
+      "family": "NEUTRAL",
+      "motif": "DOMAIN",
+      "vfx_kind": "BURST",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.1,
+      "intensity": 24,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_talisman_crate_low",
+        "v120": "sheet_cons_talisman_crate_low",
+        "v122": "look_cons_talisman_crate_low"
+      }
+    },
+    {
+      "id": "talisman_crate_mid",
+      "category": "loot",
+      "effect": "random_talisman_mid",
+      "family": "NEUTRAL",
+      "motif": "DOMAIN",
+      "vfx_kind": "BURST",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.1,
+      "intensity": 24,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_talisman_crate_mid",
+        "v120": "sheet_cons_talisman_crate_mid",
+        "v122": "look_cons_talisman_crate_mid"
+      }
+    },
+    {
+      "id": "talisman_ink_bottle",
+      "category": "craft",
+      "effect": "talisman_craft_material",
+      "family": "EARTH",
+      "motif": "TALISMAN",
+      "vfx_kind": "BURST",
+      "particle": "earth_dust",
+      "trail": "talisman_ash",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 24,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_talisman_ink_bottle",
+        "v120": "sheet_cons_talisman_ink_bottle",
+        "v122": "look_cons_talisman_ink_bottle"
+      }
+    },
+    {
+      "id": "teleport_talisman_chaotic_sea",
+      "category": "talisman_consumable",
+      "effect": "travel_chaotic_sea",
+      "family": "VOID",
+      "motif": "TALISMAN",
+      "vfx_kind": "PATH",
+      "particle": "space_glitch",
+      "trail": "movement_wind",
+      "telegraphed": false,
+      "radius": 1.2,
+      "intensity": 28,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_teleport_talisman_chaotic_sea",
+        "v120": "sheet_cons_teleport_talisman_chaotic_sea",
+        "v122": "look_cons_teleport_talisman_chaotic_sea"
+      }
+    },
+    {
+      "id": "tribulation_ward_charm",
+      "category": "tribulation",
+      "effect": "lightning_mitigate_once",
+      "family": "THUNDER",
+      "motif": "CLEANSE",
+      "vfx_kind": "STATUS",
+      "particle": "thunder_arc",
+      "trail": "thunder_jagged",
+      "telegraphed": true,
+      "radius": 0.9,
+      "intensity": 28,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "持续效果脚底淡环",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "效果落定，持续状态以脚底淡环提示"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_tribulation_ward_charm",
+        "v120": "sheet_cons_tribulation_ward_charm",
+        "v122": "look_cons_tribulation_ward_charm"
+      }
+    },
+    {
+      "id": "void_palace_map_fragment",
+      "category": "quest",
+      "effect": "discover_void_palace",
+      "family": "VOID",
+      "motif": "DAO",
+      "vfx_kind": "SCAN",
+      "particle": "space_glitch",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 1.5,
+      "intensity": 24,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_void_palace_map_fragment",
+        "v120": "sheet_cons_void_palace_map_fragment",
+        "v122": "look_cons_void_palace_map_fragment"
+      }
+    },
+    {
+      "id": "wind_feather_raft_blueprint",
+      "category": "manual",
+      "effect": "vehicle_craft",
+      "family": "WIND",
+      "motif": "TELEPORT",
+      "vfx_kind": "PATH",
+      "particle": "qi_soft",
+      "trail": "movement_wind",
+      "telegraphed": false,
+      "radius": 1.2,
+      "intensity": 28,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "一次性使用反馈",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "灵光收束"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_wind_feather_raft_blueprint",
+        "v120": "sheet_cons_wind_feather_raft_blueprint",
+        "v122": "look_cons_wind_feather_raft_blueprint"
+      }
+    },
+    {
+      "id": "yanyue_incense_bundle",
+      "category": "special",
+      "effect": "dual_cultivation_mood",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "vfx_kind": "STATUS",
+      "particle": "qi_soft",
+      "trail": "none",
+      "telegraphed": false,
+      "radius": 0.75,
+      "intensity": 20,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "持续效果脚底淡环",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "效果落定，持续状态以脚底淡环提示"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_yanyue_incense_bundle",
+        "v120": "sheet_cons_yanyue_incense_bundle",
+        "v122": "look_cons_yanyue_incense_bundle"
+      }
+    },
+    {
+      "id": "yin_body_protection_charm",
+      "category": "ghost_path",
+      "effect": "yin_corruption_mitigate",
+      "family": "SOUL",
+      "motif": "CLEANSE",
+      "vfx_kind": "STATUS",
+      "particle": "soul_wisps",
+      "trail": "soul_afterimage",
+      "telegraphed": false,
+      "radius": 0.75,
+      "intensity": 20,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "持续效果脚底淡环",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "效果落定，持续状态以脚底淡环提示"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_yin_body_protection_charm",
+        "v120": "sheet_cons_yin_body_protection_charm",
+        "v122": "look_cons_yin_body_protection_charm"
+      }
+    },
+    {
+      "id": "yin_coffin_nail",
+      "category": "ghost_path",
+      "effect": "corpse_control",
+      "family": "SOUL",
+      "motif": "GHOST",
+      "vfx_kind": "STATUS",
+      "particle": "soul_wisps",
+      "trail": "soul_afterimage",
+      "telegraphed": false,
+      "radius": 0.75,
+      "intensity": 20,
+      "appearance": "符纸/瓶剂/一次性法器构件，做旧纸质或瓷质；符纸/瓷瓶/烟丸做旧",
+      "active_vfx": "撕符焚化轨迹或药雾爆",
+      "body_vfx": "撕符焚化轨迹或药雾爆",
+      "ui_vfx": "持续效果脚底淡环",
+      "frames": [
+        "取出并启封，材质轮廓清晰",
+        "撕符焚化轨迹或药雾爆",
+        "效果落定，持续状态以脚底淡环提示"
+      ],
+      "frame_count": 3,
+      "sources": {
+        "v118": "vis_cons_yin_coffin_nail",
+        "v120": "sheet_cons_yin_coffin_nail",
+        "v122": "look_cons_yin_coffin_nail"
+      }
+    }
+  ]
+}

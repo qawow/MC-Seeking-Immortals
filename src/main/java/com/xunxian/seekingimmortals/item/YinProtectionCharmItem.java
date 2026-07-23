@@ -34,6 +34,10 @@ public class YinProtectionCharmItem extends Item {
             boolean activated = CultivationHelper.get(serverPlayer)
                     .map(cultivation -> activate(serverPlayer, stack, cultivation.getRealm()))
                     .orElse(false);
+            if (activated) {
+                ConsumableVfxOrchestrator.emitConsumable(serverPlayer,
+                        "yin_body_protection_charm", "yin_corruption_mitigate");
+            }
             return activated ? InteractionResultHolder.success(stack) : InteractionResultHolder.fail(stack);
         }
         return InteractionResultHolder.consume(stack);

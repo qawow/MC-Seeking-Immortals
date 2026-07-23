@@ -2,6 +2,7 @@ package com.xunxian.seekingimmortals.item.pill;
 
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
+import com.xunxian.seekingimmortals.item.ConsumableVfxOrchestrator;
 import com.xunxian.seekingimmortals.item.ItemUsageGateService;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -43,6 +44,7 @@ public class BasePillItem extends Item {
 
             if (consumePill(serverPlayer)) {
                 stack.shrink(1);
+                ConsumableVfxOrchestrator.emitLegacyPill(serverPlayer, pillType, quality);
                 return InteractionResultHolder.success(stack);
             }
             return InteractionResultHolder.fail(stack);

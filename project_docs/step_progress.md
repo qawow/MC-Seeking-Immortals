@@ -1,3 +1,16 @@
+## 573. 2026-07-23 0.2.155 作者丹药与消耗品视觉档案
+
+  Step   Status   Notes
+  ---   ---   ---
+  Source/profile audit   Done   v118-v122 丹药标准层 114/114 完整对齐，v118 两条无 `catalog_id` 专稿归并筑基丹/降尘丹；消耗品 v118/v120/v122 各 57/57，对 `bigu_pill`、`demon_qi_purge_pill` 跨目录重名采用分数组保存。
+  Deterministic generator   Done   `generate_authored_consumable_vfx_profiles.py` 生成 114 条 pill 与 57 条 consumable profile，保存作者来源、外观、演出、逐帧、family/motif/kind、粒子和拖尾；Gradle `check` 已接入 `--check`。
+  Runtime semantics   Done   113 条可执行丹药 effect/category 与 `PillEffectCatalog.mergeDesignMetadata` 逐项一致；完整 ID 先于品质后缀，五个运行时别名和 10 个目录丹药同义 ID 显式映射，独立 `spirit_recovery_pill_high` 不会被误折叠。
+  Authority wiring   Done   `BasePillItem`、`CatalogPillItem`、`PillEffectCatalog`、`CatalogConsumableService` 及阴棺钉/星宫税契/阴体护符专用成功路径接入；失败、门禁、重复状态不发视觉，储物 UI 和无使用入口材料不额外发包。
+  Verification   Done   生成器 `--check` 与档案、消耗品、丹药、批量注册、VFX 包定向回归通过；最终普通 `./gradlew build --no-daemon --max-workers=1` `BUILD SUCCESSFUL in 1m 28s`。
+  Version/protocol   Done   `mod_version=0.2.155`；复用既有 `TechniqueVfxPacket` 字段与 Lodestone 客户端渲染，未改变包字段/顺序/类型/注册/频道行为，`ModNetwork.PROTOCOL_VERSION=29` 保持不变。
+  Backup   Done   主备份 `.bak/20260723_consumable_vfx/`，语义修正 `.bak/20260723_consumable_vfx_semantic_fix/`，版本/文档 `.bak/20260723_consumable_vfx_version_docs/`；共享树编译修复备份 `.bak/20260723_consumable_vfx_shared_compile/`。
+  Live visual QA   Pending   仍需实机抽检四品质强度、多人密集粒子、低粒子档、透明排序、跨区域移动轨迹、投射符与长期状态的视觉密度。
+
 ## 571. 2026-07-23 0.2.152 作者法宝视觉档案
 
   Step   Status   Notes

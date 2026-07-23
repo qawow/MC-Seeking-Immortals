@@ -46,6 +46,8 @@ public class StarPalaceTaxReceiptItem extends Item {
         if (!serverPlayer.getAbilities().instabuild) {
             stack.shrink(1);
         }
+        ConsumableVfxOrchestrator.emitConsumable(serverPlayer,
+                "star_palace_tax_receipt", "star_palace_tax_paid");
         return InteractionResultHolder.success(stack);
     }
 

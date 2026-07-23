@@ -98,6 +98,7 @@ public class YinCoffinNailItem extends Item {
         boolean success = GhostContractService.attemptContract(player, corpse);
 
         if (success) {
+            ConsumableVfxOrchestrator.emitConsumable(player, "yin_coffin_nail", "corpse_control");
             if (!player.getAbilities().instabuild) {
                 stack.shrink(1);
             }

@@ -12,6 +12,7 @@ import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.cultivation.Realm;
 import com.xunxian.seekingimmortals.cultivation.SpiritualRootAttribute;
+import com.xunxian.seekingimmortals.item.ConsumableVfxOrchestrator;
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -144,9 +145,13 @@ public final class PillEffectCatalog {
         }
         Entry entry = optional.get();
         PillQuality resolvedQuality = quality == null ? PillQuality.LOW : quality;
-        return CultivationHelper.get(player)
+        boolean consumed = CultivationHelper.get(player)
                 .map(cultivation -> apply(player, cultivation, stack, entry, resolvedQuality))
                 .orElse(false);
+        if (consumed) {
+            ConsumableVfxOrchestrator.emitPill(player, entry.pillId(), resolvedQuality);
+        }
+        return consumed;
     }
 
     private static boolean apply(ServerPlayer player, PlayerCultivation cultivation, ItemStack stack,

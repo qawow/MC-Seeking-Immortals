@@ -127,6 +127,9 @@ public final class CatalogConsumableService {
             case "puppet_repair" -> SummonHonestMvpService.repairOwnedPuppets(player) > 0;
             default -> knownIdAction(player, id);
         };
+        if (success) {
+            ConsumableVfxOrchestrator.emitConsumable(player, id, action);
+        }
         if (success && shouldAnnounceGenericSuccess(action)) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.catalog_consumable.success", stack.getHoverName()), true);
