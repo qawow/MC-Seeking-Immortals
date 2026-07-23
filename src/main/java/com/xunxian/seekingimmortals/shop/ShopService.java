@@ -19,6 +19,7 @@ import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Item;
@@ -306,7 +307,7 @@ public final class ShopService {
                 .orElse(0);
         List<ShopEntryData> entries = shop.entries().stream()
                 .map(entry -> {
-                    StockPreview stock = stockPreview(shopId, entry, gameTime);
+                    StockPreview stock = stockPreview(player.serverLevel(), shopId, entry, gameTime);
                     boolean blocked = MarketPriceService.isBlockedFromOpenMarket(entry.itemId());
                     boolean locked = blocked || (entry.hasRankRequirement() && !meetsRankRequirement(entry, sectStage));
                     return new ShopEntryData(
@@ -756,34 +757,56 @@ public final class ShopService {
             return new StockReservation(PurchaseStatus.SUCCESS, UNLIMITED_STOCK);
         }
         String key = shopId + "/" + entry.id();
-        StockState state = STOCK_CACHE.computeIfAbsent(key, ignored -> new StockState(entry.stock()));
+        StockState state = STOCK_CACHE.computeIfAbsent(key,
+                ignored -> loadStockState(player.serverLevel(), key, entry.stock()));
         long gameTime = player.serverLevel().getGameTime();
         synchronized (state) {
-            state.refreshIfNeeded(entry, gameTime);
+            boolean refreshed = state.refreshIfNeeded(entry, gameTime);
             if (state.remaining <= 0) {
+                if (refreshed) persistStock(player.serverLevel(), key, state);
                 return new StockReservation(PurchaseStatus.OUT_OF_STOCK, state.remaining);
             }
             state.remaining--;
             if (entry.refreshTicks() > 0 && state.nextRefreshGameTime == Long.MAX_VALUE) {
                 state.nextRefreshGameTime = gameTime + entry.refreshTicks();
             }
+            persistStock(player.serverLevel(), key, state);
             return new StockReservation(PurchaseStatus.SUCCESS, state.remaining);
         }
     }
 
-    private static StockPreview stockPreview(String shopId, Entry entry, long gameTime) {
+    private static StockPreview stockPreview(ServerLevel level, String shopId, Entry entry, long gameTime) {
         if (entry.stock() == UNLIMITED_STOCK) {
             return new StockPreview(UNLIMITED_STOCK, 0L);
         }
         String key = shopId + "/" + entry.id();
-        StockState state = STOCK_CACHE.computeIfAbsent(key, ignored -> new StockState(entry.stock()));
+        StockState state = STOCK_CACHE.computeIfAbsent(key,
+                ignored -> loadStockState(level, key, entry.stock()));
         synchronized (state) {
-            state.refreshIfNeeded(entry, gameTime);
+            if (state.refreshIfNeeded(entry, gameTime)) {
+                persistStock(level, key, state);
+            }
             long nextRefreshTicks = state.nextRefreshGameTime == Long.MAX_VALUE
                     ? 0L
                     : Math.max(0L, state.nextRefreshGameTime - gameTime);
             return new StockPreview(state.remaining, nextRefreshTicks);
         }
+    }
+
+    /** 从持久化存储加载库存状态；不存在则按默认库存创建。 */
+    private static StockState loadStockState(ServerLevel level, String key, int defaultStock) {
+        ShopStockSavedData.StockRecord record = ShopStockSavedData.get(level).get(key);
+        if (record == null) {
+            return new StockState(defaultStock);
+        }
+        StockState state = new StockState(record.remaining());
+        state.nextRefreshGameTime = record.nextRefreshGameTime();
+        return state;
+    }
+
+    /** 将库存状态持久化到 overworld SavedData。 */
+    private static void persistStock(ServerLevel level, String key, StockState state) {
+        ShopStockSavedData.get(level).put(key, state.remaining, state.nextRefreshGameTime);
     }
 
     private static Component stockText(int stock) {
@@ -889,12 +912,14 @@ public final class ShopService {
             this.remaining = stock;
         }
 
-        private void refreshIfNeeded(Entry entry, long gameTime) {
+        /** 若到达刷新时间则补满库存；返回是否发生了刷新。 */
+        private boolean refreshIfNeeded(Entry entry, long gameTime) {
             if (entry.refreshTicks() <= 0 || gameTime < nextRefreshGameTime) {
-                return;
+                return false;
             }
             remaining = entry.stock();
             nextRefreshGameTime = gameTime + entry.refreshTicks();
+            return true;
         }
     }
 }
