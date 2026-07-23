@@ -1,5 +1,7 @@
 package com.xunxian.seekingimmortals.network;
 
+import com.xunxian.seekingimmortals.SeekingImmortalsMod;
+
 /**
  * Reflective bridge so common packet classes never put client Screen types in their
  * constant pool. Dedicated servers load network/* during CONSTRUCT; any CONSTANT_Class
@@ -15,7 +17,9 @@ public final class ClientPacketDispatch {
             Class<?> handlers = Class.forName(HANDLERS);
             handlers.getMethod(methodName, packet.getClass()).invoke(null, packet);
         } catch (ReflectiveOperationException exception) {
-            throw new RuntimeException("client packet dispatch failed: " + methodName, exception);
+            // 优雅降级：处理器缺失/签名漂移时记录日志而非崩溃客户端，避免收包即闪退
+            SeekingImmortalsMod.LOGGER.warn("Client packet dispatch failed for {} ({}): {}",
+                    methodName, packet.getClass().getSimpleName(), exception.toString());
         }
     }
 }

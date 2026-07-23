@@ -201,7 +201,12 @@ public class PlayerCultivation {
     }
     public SpiritualRoot getSpiritualRoot() { return spiritualRoot; }
     public Set<SpiritualRootAttribute> getSpiritualRootAttributes() { return EnumSet.copyOf(spiritualRootAttributes); }
-    public SpiritualRootAttribute getSpiritualRootAttribute() { return spiritualRootAttributes.iterator().next(); }
+    public SpiritualRootAttribute getSpiritualRootAttribute() {
+        // 防御性兜底：集合为空时返回默认属性，避免 iterator().next() 抛 NoSuchElementException
+        return spiritualRootAttributes.isEmpty()
+                ? SpiritualRootAttribute.WOOD
+                : spiritualRootAttributes.iterator().next();
+    }
     public SpecialPhysique getSpecialPhysique() { return specialPhysique; }
     public String getConstitutionId() {
         if (constitutionId != null && !constitutionId.isBlank() && !"none".equalsIgnoreCase(constitutionId)) {

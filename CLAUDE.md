@@ -9,7 +9,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Mod id: `seeking_immortals`
 - Java: 17
 - Build system: ForgeGradle 6.x via Gradle Wrapper
-- Current version: `0.1.80` in `gradle.properties`
+- Current version: see `mod_version` in `gradle.properties` (bumped per the mandatory workflow)
 - Theme: original 凡人流修仙 gameplay — 灵力、境界、灵根、寿元、功法/术法、灵石、丹药、材料、符箓、聚灵阵、修仙 UI and combat attributes.
 
 This working directory is commonly used without Git history. Before modifying existing files, create a backup under `.bak/<timestamp>/` or `backups/<timestamp>/` and report the rollback path.
@@ -237,11 +237,10 @@ Package: `combat/`
 - `DamageResult` carries final damage and combat flags for feedback.
 - `CultivationStatsScreen` displays synced combat attributes in the player cultivation UI.
 
-Known review risks to keep in mind before extending combat:
+Known review risks to keep in mind before extending combat (all three historical risks are now resolved):
 
-- PvP damage replacement currently hooks `LivingDamageEvent`; calling `defender.hurt(...)` from the same event path can recurse unless guarded or moved to a more appropriate event phase.
-- `LivingDamageEvent` fires after vanilla armor/absorption processing, so canceling/reapplying damage can consume resources before cultivation miss/dodge logic.
-- `CombatCalculator#getCombatStats` can return null if capability access fails; defensive handling is needed before broadening combat usage.
+- PvP damage now hooks `LivingHurtEvent` (pre-armor), not `LivingDamageEvent`, so there is no `defender.hurt(...)` recursion and no post-armor resource consumption before the miss/dodge pipeline.
+- `CombatCalculator#getCombatStats` returns `Optional<CombatStats>` with a safe fallback when capability access fails; callers must handle the empty case rather than assuming a value.
 
 ### Events and Server Tick Logic
 
@@ -272,7 +271,7 @@ Current packets registered in `ModNetwork`:
 - `ReleaseTechniquePacket`
 - `SetTechniqueSlotPacket`
 
-`ModNetwork.PROTOCOL_VERSION` is currently `7`. If packet fields/order change, bump the protocol version to prevent mismatched clients/servers from decoding stale packet formats.
+`ModNetwork.PROTOCOL_VERSION` is currently `30`. If packet fields/order change, bump the protocol version to prevent mismatched clients/servers from decoding stale packet formats.
 
 Client state mirrors:
 
@@ -293,7 +292,7 @@ Client-only code lives under `client/` and is registered through `ClientEvents` 
   - Renders single-page sections: 基础状态, 战斗属性, 灵根信息, 功法信息, 负面状态
 - `TechniqueSkillBarOverlay`
   - Left-side 7-slot HUD
-- `BreathingHudOverlay`
+- `CultivationHudOverlay`
   - Meditation/breathing HUD and progress bar
 - `TechniqueEditScreen`
   - Technique slot editor with drag/drop binding and right-click clear
@@ -302,7 +301,7 @@ Client-only code lives under `client/` and is registered through `ClientEvents` 
 
 Default key behavior:
 
-- Meditation key: `V`
+- Meditation: no keybinding — started by right-clicking a meditation cushion, auto-stopped by movement input
 - Technique edit key: unbound by default
 - 7 technique release keys: unbound by default
 

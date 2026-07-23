@@ -23,8 +23,10 @@ public class CombatStats {
 
     public double getBaseAttack() { return baseAttack; }
     public double getBaseDefense() { return baseDefense; }
-    public double getCritChance() { return Math.min(critChance, 0.75); }
+    // 上限与 PlayerCultivation.getCriticalRate/getDodgeRate 保持一致（0.80/0.75），
+    // 避免此处二次夹取静默覆盖修炼层的调参
+    public double getCritChance() { return Math.min(critChance, 0.80); }
     public double getCritDamage() { return critDamage; }
-    public double getDodgeChance() { return Math.min(dodgeChance, 0.50); }
+    public double getDodgeChance() { return Math.min(dodgeChance, 0.75); }
     public double getAccuracy() { return Math.min(accuracy, 0.99); }
 }

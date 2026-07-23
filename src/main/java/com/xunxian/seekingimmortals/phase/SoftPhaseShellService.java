@@ -57,7 +57,9 @@ public final class SoftPhaseShellService {
     }
 
     public static boolean isMarked(ServerPlayer player, String phaseId) {
-        return player != null && player.getPersistentData().getCompound(ROOT).getBoolean(phaseId);
+        // 与 mark() 保持一致的归一化（trim + 小写），避免大小写/空白差异导致查询失配
+        String id = phaseId == null ? "" : phaseId.trim().toLowerCase(Locale.ROOT);
+        return player != null && player.getPersistentData().getCompound(ROOT).getBoolean(id);
     }
 
     public static String status(ServerPlayer player) {
