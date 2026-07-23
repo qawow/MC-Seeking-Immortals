@@ -499,6 +499,9 @@ public final class ModCreativeTabs {
                 output.accept(ModItems.SPIRIT_BEAST_FEED.get());
                 output.accept(ModItems.BEAST_FEED_SPIRIT.get());
 
+                // 鬼契系统
+                output.accept(ModItems.YIN_COFFIN_NAIL.get());
+
                 // Wave 0.1.444 bulk catalog carriers
                 for (var bulk : com.xunxian.seekingimmortals.registry.ModBulkItems.byId().values()) {
                     output.accept(bulk.get());

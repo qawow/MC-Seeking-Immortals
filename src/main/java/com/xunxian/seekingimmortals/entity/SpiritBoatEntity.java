@@ -74,17 +74,20 @@ public class SpiritBoatEntity extends Entity implements GeoEntity {
                         serverLevel.getGameTime() ^ getUUID().getLeastSignificantBits(), 1);
             }
         }
-        Entity controller = getFirstPassenger();
-        if (controller instanceof Player player) {
-            setYRot(player.getYRot());
-            Vec3 look = player.getLookAngle();
-            double speed = vehicleId().contains("cloud") ? 0.55D : 0.42D;
-            double dy = player.getXRot() < -15.0F ? 0.16D : (player.getXRot() > 25.0F ? -0.12D : 0.02D);
-            setDeltaMovement(look.x * speed, dy, look.z * speed);
-        } else {
-            setDeltaMovement(getDeltaMovement().scale(0.9D));
+        // 权威移动只在服务端计算并应用，客户端依赖实体追踪插值，避免双端各自模拟导致失步/抖动
+        if (!level().isClientSide) {
+            Entity controller = getFirstPassenger();
+            if (controller instanceof Player player) {
+                setYRot(player.getYRot());
+                Vec3 look = player.getLookAngle();
+                double speed = vehicleId().contains("cloud") ? 0.55D : 0.42D;
+                double dy = player.getXRot() < -15.0F ? 0.16D : (player.getXRot() > 25.0F ? -0.12D : 0.02D);
+                setDeltaMovement(look.x * speed, dy, look.z * speed);
+            } else {
+                setDeltaMovement(getDeltaMovement().scale(0.9D));
+            }
+            move(MoverType.SELF, getDeltaMovement());
         }
-        move(MoverType.SELF, getDeltaMovement());
     }
 
     @Override

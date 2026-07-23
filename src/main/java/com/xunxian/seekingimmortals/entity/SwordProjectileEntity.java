@@ -78,11 +78,14 @@ public class SwordProjectileEntity extends Projectile {
     @Override
     public void tick() {
         super.tick();
-        HitResult hit = ProjectileUtil.getHitResultOnMoveVector(this, this::canHitEntity);
-        if (hit.getType() != HitResult.Type.MISS) {
-            onHit(hit);
-            if (isRemoved()) {
-                return;
+        // 权威命中/伤害/移除只在服务端执行，客户端仅做插值，避免客户端篡改本地血量或提前丢弃弹射物
+        if (!level().isClientSide) {
+            HitResult hit = ProjectileUtil.getHitResultOnMoveVector(this, this::canHitEntity);
+            if (hit.getType() != HitResult.Type.MISS) {
+                onHit(hit);
+                if (isRemoved()) {
+                    return;
+                }
             }
         }
 
@@ -91,7 +94,7 @@ public class SwordProjectileEntity extends Projectile {
         setPos(getX(), getY(), getZ());
         ProjectileUtil.rotateTowardsMovement(this, 0.2F);
 
-        if (++life > 80 || !level().isLoaded(blockPosition())) {
+        if (!level().isClientSide && (++life > 80 || !level().isLoaded(blockPosition()))) {
             sendDissipate();
             discard();
         }

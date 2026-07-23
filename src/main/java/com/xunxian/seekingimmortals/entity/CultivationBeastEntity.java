@@ -100,6 +100,7 @@ public class CultivationBeastEntity extends Monster implements GeoEntity {
     private static final String TAG_GUARD_Z = "CompanionGuardZ";
     private static final String TAG_CONFIGURED_HEALTH = "CompanionConfiguredHealth";
     private static final String TAG_CONFIGURED_DAMAGE = "CompanionConfiguredDamage";
+    private static final String TAG_TERMINAL_GROWTH_CREDITED = "CompanionTerminalGrowthCredited";
     private static final String TAG_COMPANION_DAMAGE_OWNER = "SeekingImmortalsCompanionDamageOwner";
     private static final String TAG_COMPANION_DAMAGE_EXPIRY = "SeekingImmortalsCompanionDamageExpiry";
 
@@ -832,6 +833,7 @@ public class CultivationBeastEntity extends Monster implements GeoEntity {
                 maxHealth == null ? getMaxHealth() : maxHealth.getBaseValue());
         tag.putDouble(TAG_CONFIGURED_DAMAGE,
                 attackDamage == null ? getAttributeValue(Attributes.ATTACK_DAMAGE) : attackDamage.getBaseValue());
+        tag.putBoolean(TAG_TERMINAL_GROWTH_CREDITED, terminalGrowthCredited);
     }
 
     @Override
@@ -873,6 +875,7 @@ public class CultivationBeastEntity extends Monster implements GeoEntity {
         if (tag.contains(TAG_CONFIGURED_DAMAGE)) {
             setBase(Attributes.ATTACK_DAMAGE, Mth.clamp(tag.getDouble(TAG_CONFIGURED_DAMAGE), 0.0D, 2048.0D));
         }
+        terminalGrowthCredited = tag.getBoolean(TAG_TERMINAL_GROWTH_CREDITED);
         if (companion) {
             getPersistentData().putBoolean(TAG_ECOLOGY, false);
         }

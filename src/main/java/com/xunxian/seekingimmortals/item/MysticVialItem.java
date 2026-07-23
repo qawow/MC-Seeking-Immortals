@@ -51,11 +51,11 @@ public class MysticVialItem extends Item {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.mystic_vial.not_owner"), true);
             return InteractionResultHolder.fail(stack);
         }
-        // 现实时间充能（含离线补算）
-        refillIfNeeded(stack, System.currentTimeMillis());
         if (level.isClientSide) {
             return InteractionResultHolder.sidedSuccess(stack, true);
         }
+        // 现实时间充能（含离线补算）——仅服务端执行，避免客户端改写 NBT 导致与服务端失步
+        refillIfNeeded(stack, System.currentTimeMillis());
         if (getCharges(stack) <= 0) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.mystic_vial.no_charges"), true);
             return InteractionResultHolder.fail(stack);
@@ -78,10 +78,11 @@ public class MysticVialItem extends Item {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.mystic_vial.not_owner"), true);
             return InteractionResult.FAIL;
         }
-        refillIfNeeded(stack, System.currentTimeMillis());
         if (level.isClientSide) {
             return InteractionResult.SUCCESS;
         }
+        // 现实时间充能（含离线补算）——仅服务端执行，避免客户端改写 NBT 导致与服务端失步
+        refillIfNeeded(stack, System.currentTimeMillis());
         if (getCharges(stack) <= 0) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.mystic_vial.no_charges"), true);
             return InteractionResult.CONSUME;
@@ -196,7 +197,7 @@ public class MysticVialItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
-        refillIfNeeded(stack, System.currentTimeMillis());
+        // 只读展示当前灵液，不在此处改写 NBT（充能由服务端在 use/useOn 时结算）
         int charges = getCharges(stack);
         int max = getMaxCharges(stack);
         tooltip.add(Component.translatable("tooltip.seeking_immortals.mystic_vial.charges", charges, max).withStyle(ChatFormatting.AQUA));

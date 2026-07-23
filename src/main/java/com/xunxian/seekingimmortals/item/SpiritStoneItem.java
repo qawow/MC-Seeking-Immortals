@@ -117,9 +117,10 @@ public class SpiritStoneItem extends Item {
 
     public static int getStoredPower(ItemStack stack) {
         if (!(stack.getItem() instanceof SpiritStoneItem stone)) return 0;
-        CompoundTag tag = stack.getOrCreateTag();
-        if (!tag.contains(STORED_POWER_TAG)) {
-            tag.putInt(STORED_POWER_TAG, stone.maxStoredPower);
+        // 读取路径不写 NBT：tag 缺失时返回默认值（满），避免悬停等客户端读取悄悄初始化物品栈
+        CompoundTag tag = stack.getTag();
+        if (tag == null || !tag.contains(STORED_POWER_TAG)) {
+            return stone.maxStoredPower;
         }
         return Math.max(0, Math.min(stone.maxStoredPower, tag.getInt(STORED_POWER_TAG)));
     }
