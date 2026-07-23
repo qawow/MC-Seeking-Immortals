@@ -246,14 +246,2400 @@
       "dialogue_ref": "npc_dialogue_templates_v138.json",
       "v144": true,
       "role": "great_elder"
+    },
+    {
+      "id": "npc_huangfeng_valley_sect_master",
+      "display": "黄枫谷·掌门/代掌",
+      "faction": "huangfeng_valley",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "sect_leader",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_huangfeng_valley_great_elder",
+      "display": "黄枫谷·大长老",
+      "faction": "huangfeng_valley",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_huangfeng_valley_alchemy_elder",
+      "display": "黄枫谷·丹堂执事",
+      "faction": "huangfeng_valley",
+      "realm": "QI_REFINING",
+      "role": "alchemy_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_huangfeng_valley_outer_deacon",
+      "display": "黄枫谷·外门执事",
+      "faction": "huangfeng_valley",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_huangfeng_valley_patrol_captain",
+      "display": "黄枫谷·巡卫队长",
+      "faction": "huangfeng_valley",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_yanyue_sect_sect_master",
+      "display": "掩月宗·掌门/代掌",
+      "faction": "yanyue_sect",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "sect_leader",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_yanyue_sect_great_elder",
+      "display": "掩月宗·大长老",
+      "faction": "yanyue_sect",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_yanyue_sect_alchemy_elder",
+      "display": "掩月宗·丹堂执事",
+      "faction": "yanyue_sect",
+      "realm": "QI_REFINING",
+      "role": "alchemy_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_yanyue_sect_outer_deacon",
+      "display": "掩月宗·外门执事",
+      "faction": "yanyue_sect",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_yanyue_sect_patrol_captain",
+      "display": "掩月宗·巡卫队长",
+      "faction": "yanyue_sect",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_spirit_beast_mountain_sect_master",
+      "display": "灵兽山·掌门/代掌",
+      "faction": "spirit_beast_mountain",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "sect_leader",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_spirit_beast_mountain_great_elder",
+      "display": "灵兽山·大长老",
+      "faction": "spirit_beast_mountain",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_spirit_beast_mountain_alchemy_elder",
+      "display": "灵兽山·丹堂执事",
+      "faction": "spirit_beast_mountain",
+      "realm": "QI_REFINING",
+      "role": "alchemy_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_spirit_beast_mountain_outer_deacon",
+      "display": "灵兽山·外门执事",
+      "faction": "spirit_beast_mountain",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_spirit_beast_mountain_patrol_captain",
+      "display": "灵兽山·巡卫队长",
+      "faction": "spirit_beast_mountain",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_qingxu_gate_sect_master",
+      "display": "清虚门·掌门/代掌",
+      "faction": "qingxu_gate",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "sect_leader",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_qingxu_gate_great_elder",
+      "display": "清虚门·大长老",
+      "faction": "qingxu_gate",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_qingxu_gate_alchemy_elder",
+      "display": "清虚门·丹堂执事",
+      "faction": "qingxu_gate",
+      "realm": "QI_REFINING",
+      "role": "alchemy_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_qingxu_gate_outer_deacon",
+      "display": "清虚门·外门执事",
+      "faction": "qingxu_gate",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_qingxu_gate_patrol_captain",
+      "display": "清虚门·巡卫队长",
+      "faction": "qingxu_gate",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_huadao_wu_sect_master",
+      "display": "化刀坞·掌门/代掌",
+      "faction": "huadao_wu",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "sect_leader",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_huadao_wu_great_elder",
+      "display": "化刀坞·大长老",
+      "faction": "huadao_wu",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_huadao_wu_alchemy_elder",
+      "display": "化刀坞·丹堂执事",
+      "faction": "huadao_wu",
+      "realm": "QI_REFINING",
+      "role": "alchemy_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_huadao_wu_outer_deacon",
+      "display": "化刀坞·外门执事",
+      "faction": "huadao_wu",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_huadao_wu_patrol_captain",
+      "display": "化刀坞·巡卫队长",
+      "faction": "huadao_wu",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_tianque_fort_sect_master",
+      "display": "天阙堡·掌门/代掌",
+      "faction": "tianque_fort",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "sect_leader",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_tianque_fort_great_elder",
+      "display": "天阙堡·大长老",
+      "faction": "tianque_fort",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_tianque_fort_alchemy_elder",
+      "display": "天阙堡·丹堂执事",
+      "faction": "tianque_fort",
+      "realm": "QI_REFINING",
+      "role": "alchemy_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_tianque_fort_outer_deacon",
+      "display": "天阙堡·外门执事",
+      "faction": "tianque_fort",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_tianque_fort_patrol_captain",
+      "display": "天阙堡·巡卫队长",
+      "faction": "tianque_fort",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_giant_sword_gate_sect_master",
+      "display": "巨剑门·掌门/代掌",
+      "faction": "giant_sword_gate",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "sect_leader",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_giant_sword_gate_great_elder",
+      "display": "巨剑门·大长老",
+      "faction": "giant_sword_gate",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_giant_sword_gate_alchemy_elder",
+      "display": "巨剑门·丹堂执事",
+      "faction": "giant_sword_gate",
+      "realm": "QI_REFINING",
+      "role": "alchemy_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_giant_sword_gate_outer_deacon",
+      "display": "巨剑门·外门执事",
+      "faction": "giant_sword_gate",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_giant_sword_gate_patrol_captain",
+      "display": "巨剑门·巡卫队长",
+      "faction": "giant_sword_gate",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_qixuan_men_sect_master",
+      "display": "七玄门·掌门/代掌",
+      "faction": "qixuan_men",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "sect_leader",
+      "region": "tiannan",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_qixuan_men_great_elder",
+      "display": "七玄门·大长老",
+      "faction": "qixuan_men",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_qixuan_men_alchemy_elder",
+      "display": "七玄门·丹堂执事",
+      "faction": "qixuan_men",
+      "realm": "QI_REFINING",
+      "role": "alchemy_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_qixuan_men_outer_deacon",
+      "display": "七玄门·外门执事",
+      "faction": "qixuan_men",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_qixuan_men_patrol_captain",
+      "display": "七玄门·巡卫队长",
+      "faction": "qixuan_men",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_ghost_spirit_gate_sect_master",
+      "display": "鬼灵门·掌门/代掌",
+      "faction": "ghost_spirit_gate",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "sect_leader",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_ghost_spirit_gate_great_elder",
+      "display": "鬼灵门·大长老",
+      "faction": "ghost_spirit_gate",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_ghost_spirit_gate_alchemy_elder",
+      "display": "鬼灵门·丹堂执事",
+      "faction": "ghost_spirit_gate",
+      "realm": "QI_REFINING",
+      "role": "alchemy_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_ghost_spirit_gate_outer_deacon",
+      "display": "鬼灵门·外门执事",
+      "faction": "ghost_spirit_gate",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_ghost_spirit_gate_patrol_captain",
+      "display": "鬼灵门·巡卫队长",
+      "faction": "ghost_spirit_gate",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_hehuan_sect_sect_master",
+      "display": "合欢宗·掌门/代掌",
+      "faction": "hehuan_sect",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "sect_leader",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_hehuan_sect_great_elder",
+      "display": "合欢宗·大长老",
+      "faction": "hehuan_sect",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_hehuan_sect_alchemy_elder",
+      "display": "合欢宗·丹堂执事",
+      "faction": "hehuan_sect",
+      "realm": "QI_REFINING",
+      "role": "alchemy_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_hehuan_sect_outer_deacon",
+      "display": "合欢宗·外门执事",
+      "faction": "hehuan_sect",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_hehuan_sect_patrol_captain",
+      "display": "合欢宗·巡卫队长",
+      "faction": "hehuan_sect",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_moyan_gate_sect_master",
+      "display": "魔焰门·掌门/代掌",
+      "faction": "moyan_gate",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "sect_leader",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_moyan_gate_great_elder",
+      "display": "魔焰门·大长老",
+      "faction": "moyan_gate",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_moyan_gate_alchemy_elder",
+      "display": "魔焰门·丹堂执事",
+      "faction": "moyan_gate",
+      "realm": "QI_REFINING",
+      "role": "alchemy_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_moyan_gate_outer_deacon",
+      "display": "魔焰门·外门执事",
+      "faction": "moyan_gate",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_moyan_gate_patrol_captain",
+      "display": "魔焰门·巡卫队长",
+      "faction": "moyan_gate",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_tiansha_sect_sect_master",
+      "display": "天煞宗·掌门/代掌",
+      "faction": "tiansha_sect",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "sect_leader",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_tiansha_sect_great_elder",
+      "display": "天煞宗·大长老",
+      "faction": "tiansha_sect",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_tiansha_sect_alchemy_elder",
+      "display": "天煞宗·丹堂执事",
+      "faction": "tiansha_sect",
+      "realm": "QI_REFINING",
+      "role": "alchemy_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_tiansha_sect_outer_deacon",
+      "display": "天煞宗·外门执事",
+      "faction": "tiansha_sect",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_tiansha_sect_patrol_captain",
+      "display": "天煞宗·巡卫队长",
+      "faction": "tiansha_sect",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_yuling_sect_sect_master",
+      "display": "御灵宗·掌门/代掌",
+      "faction": "yuling_sect",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "sect_leader",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_yuling_sect_great_elder",
+      "display": "御灵宗·大长老",
+      "faction": "yuling_sect",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_yuling_sect_alchemy_elder",
+      "display": "御灵宗·丹堂执事",
+      "faction": "yuling_sect",
+      "realm": "QI_REFINING",
+      "role": "alchemy_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_yuling_sect_outer_deacon",
+      "display": "御灵宗·外门执事",
+      "faction": "yuling_sect",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_yuling_sect_patrol_captain",
+      "display": "御灵宗·巡卫队长",
+      "faction": "yuling_sect",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_qianhuan_sect_sect_master",
+      "display": "千幻宗·掌门/代掌",
+      "faction": "qianhuan_sect",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "sect_leader",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_qianhuan_sect_great_elder",
+      "display": "千幻宗·大长老",
+      "faction": "qianhuan_sect",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_qianhuan_sect_alchemy_elder",
+      "display": "千幻宗·丹堂执事",
+      "faction": "qianhuan_sect",
+      "realm": "QI_REFINING",
+      "role": "alchemy_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_qianhuan_sect_outer_deacon",
+      "display": "千幻宗·外门执事",
+      "faction": "qianhuan_sect",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_qianhuan_sect_patrol_captain",
+      "display": "千幻宗·巡卫队长",
+      "faction": "qianhuan_sect",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_luoyun_sect_sect_master",
+      "display": "落云宗·掌门/代掌",
+      "faction": "luoyun_sect",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "sect_leader",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_luoyun_sect_great_elder",
+      "display": "落云宗·大长老",
+      "faction": "luoyun_sect",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_luoyun_sect_alchemy_elder",
+      "display": "落云宗·丹堂执事",
+      "faction": "luoyun_sect",
+      "realm": "QI_REFINING",
+      "role": "alchemy_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_luoyun_sect_outer_deacon",
+      "display": "落云宗·外门执事",
+      "faction": "luoyun_sect",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_luoyun_sect_patrol_captain",
+      "display": "落云宗·巡卫队长",
+      "faction": "luoyun_sect",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_star_palace_sect_master",
+      "display": "星宫·掌门/代掌",
+      "faction": "star_palace",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "outer_sea_market",
+      "dialogue_archetype": "sect_leader",
+      "region": "chaotic_sea",
+      "alignment": "lawful",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_star_palace_great_elder",
+      "display": "星宫·大长老",
+      "faction": "star_palace",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "outer_sea_market",
+      "dialogue_archetype": "generic",
+      "region": "chaotic_sea",
+      "alignment": "lawful",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_star_palace_alchemy_elder",
+      "display": "星宫·丹堂执事",
+      "faction": "star_palace",
+      "realm": "QI_REFINING",
+      "role": "alchemy_elder",
+      "structure": "outer_sea_market",
+      "dialogue_archetype": "generic",
+      "region": "chaotic_sea",
+      "alignment": "lawful",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_star_palace_outer_deacon",
+      "display": "星宫·外门执事",
+      "faction": "star_palace",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "outer_sea_market",
+      "dialogue_archetype": "generic",
+      "region": "chaotic_sea",
+      "alignment": "lawful",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_star_palace_patrol_captain",
+      "display": "星宫·巡卫队长",
+      "faction": "star_palace",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "outer_sea_market",
+      "dialogue_archetype": "generic",
+      "region": "chaotic_sea",
+      "alignment": "lawful",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_inverse_star_alliance_sect_master",
+      "display": "逆星盟·掌门/代掌",
+      "faction": "inverse_star_alliance",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "outer_sea_market",
+      "dialogue_archetype": "sect_leader",
+      "region": "chaotic_sea",
+      "alignment": "rebel",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_inverse_star_alliance_great_elder",
+      "display": "逆星盟·大长老",
+      "faction": "inverse_star_alliance",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "outer_sea_market",
+      "dialogue_archetype": "generic",
+      "region": "chaotic_sea",
+      "alignment": "rebel",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_inverse_star_alliance_alchemy_elder",
+      "display": "逆星盟·丹堂执事",
+      "faction": "inverse_star_alliance",
+      "realm": "QI_REFINING",
+      "role": "alchemy_elder",
+      "structure": "outer_sea_market",
+      "dialogue_archetype": "generic",
+      "region": "chaotic_sea",
+      "alignment": "rebel",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_inverse_star_alliance_outer_deacon",
+      "display": "逆星盟·外门执事",
+      "faction": "inverse_star_alliance",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "outer_sea_market",
+      "dialogue_archetype": "generic",
+      "region": "chaotic_sea",
+      "alignment": "rebel",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_inverse_star_alliance_patrol_captain",
+      "display": "逆星盟·巡卫队长",
+      "faction": "inverse_star_alliance",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "outer_sea_market",
+      "dialogue_archetype": "generic",
+      "region": "chaotic_sea",
+      "alignment": "rebel",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_qianzhu_teach_sect_master",
+      "display": "千竹教·掌门/代掌",
+      "faction": "qianzhu_teach",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "sect_leader",
+      "region": "extreme_west",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_qianzhu_teach_great_elder",
+      "display": "千竹教·大长老",
+      "faction": "qianzhu_teach",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "extreme_west",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_qianzhu_teach_alchemy_elder",
+      "display": "千竹教·丹堂执事",
+      "faction": "qianzhu_teach",
+      "realm": "QI_REFINING",
+      "role": "alchemy_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "extreme_west",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_qianzhu_teach_outer_deacon",
+      "display": "千竹教·外门执事",
+      "faction": "qianzhu_teach",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "extreme_west",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_qianzhu_teach_patrol_captain",
+      "display": "千竹教·巡卫队长",
+      "faction": "qianzhu_teach",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "extreme_west",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_mulan_fashi_council_sect_master",
+      "display": "慕兰神师府·掌门/代掌",
+      "faction": "mulan_fashi_council",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "sect_leader",
+      "region": "mulan",
+      "alignment": "tribal_faith",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_mulan_fashi_council_great_elder",
+      "display": "慕兰神师府·大长老",
+      "faction": "mulan_fashi_council",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "mulan",
+      "alignment": "tribal_faith",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_mulan_fashi_council_alchemy_elder",
+      "display": "慕兰神师府·丹堂执事",
+      "faction": "mulan_fashi_council",
+      "realm": "QI_REFINING",
+      "role": "alchemy_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "mulan",
+      "alignment": "tribal_faith",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_mulan_fashi_council_outer_deacon",
+      "display": "慕兰神师府·外门执事",
+      "faction": "mulan_fashi_council",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "mulan",
+      "alignment": "tribal_faith",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_mulan_fashi_council_patrol_captain",
+      "display": "慕兰神师府·巡卫队长",
+      "faction": "mulan_fashi_council",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "mulan",
+      "alignment": "tribal_faith",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_tianlan_temple_sect_master",
+      "display": "天澜圣殿·掌门/代掌",
+      "faction": "tianlan_temple",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "sect_leader",
+      "region": "tianlan",
+      "alignment": "tribal_faith",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_tianlan_temple_great_elder",
+      "display": "天澜圣殿·大长老",
+      "faction": "tianlan_temple",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tianlan",
+      "alignment": "tribal_faith",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_tianlan_temple_alchemy_elder",
+      "display": "天澜圣殿·丹堂执事",
+      "faction": "tianlan_temple",
+      "realm": "QI_REFINING",
+      "role": "alchemy_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tianlan",
+      "alignment": "tribal_faith",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_tianlan_temple_outer_deacon",
+      "display": "天澜圣殿·外门执事",
+      "faction": "tianlan_temple",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tianlan",
+      "alignment": "tribal_faith",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_tianlan_temple_patrol_captain",
+      "display": "天澜圣殿·巡卫队长",
+      "faction": "tianlan_temple",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tianlan",
+      "alignment": "tribal_faith",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_qianzhu_sect_sect_master",
+      "display": "千竹教·掌门/代掌",
+      "faction": "qianzhu_sect",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "sect_leader",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_qianzhu_sect_great_elder",
+      "display": "千竹教·大长老",
+      "faction": "qianzhu_sect",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_qianzhu_sect_alchemy_elder",
+      "display": "千竹教·丹堂执事",
+      "faction": "qianzhu_sect",
+      "realm": "QI_REFINING",
+      "role": "alchemy_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_qianzhu_sect_outer_deacon",
+      "display": "千竹教·外门执事",
+      "faction": "qianzhu_sect",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_qianzhu_sect_patrol_captain",
+      "display": "千竹教·巡卫队长",
+      "faction": "qianzhu_sect",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_yuling_sect_secret_sect_master",
+      "display": "御灵宗·掌门/代掌",
+      "faction": "yuling_sect_secret",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "sect_leader",
+      "region": "tiannan",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_yuling_sect_secret_great_elder",
+      "display": "御灵宗·大长老",
+      "faction": "yuling_sect_secret",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_yuling_sect_secret_alchemy_elder",
+      "display": "御灵宗·丹堂执事",
+      "faction": "yuling_sect_secret",
+      "realm": "QI_REFINING",
+      "role": "alchemy_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_yuling_sect_secret_outer_deacon",
+      "display": "御灵宗·外门执事",
+      "faction": "yuling_sect_secret",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_yuling_sect_secret_patrol_captain",
+      "display": "御灵宗·巡卫队长",
+      "faction": "yuling_sect_secret",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_guiling_gate_sect_master",
+      "display": "鬼灵门·掌门/代掌",
+      "faction": "guiling_gate",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "sect_leader",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_guiling_gate_great_elder",
+      "display": "鬼灵门·大长老",
+      "faction": "guiling_gate",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_guiling_gate_alchemy_elder",
+      "display": "鬼灵门·丹堂执事",
+      "faction": "guiling_gate",
+      "realm": "QI_REFINING",
+      "role": "alchemy_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_guiling_gate_outer_deacon",
+      "display": "鬼灵门·外门执事",
+      "faction": "guiling_gate",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_guiling_gate_patrol_captain",
+      "display": "鬼灵门·巡卫队长",
+      "faction": "guiling_gate",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_tianmo_sect_sect_master",
+      "display": "天魔宗·掌门/代掌",
+      "faction": "tianmo_sect",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "sect_leader",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_tianmo_sect_great_elder",
+      "display": "天魔宗·大长老",
+      "faction": "tianmo_sect",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_tianmo_sect_alchemy_elder",
+      "display": "天魔宗·丹堂执事",
+      "faction": "tianmo_sect",
+      "realm": "QI_REFINING",
+      "role": "alchemy_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_tianmo_sect_outer_deacon",
+      "display": "天魔宗·外门执事",
+      "faction": "tianmo_sect",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_tianmo_sect_patrol_captain",
+      "display": "天魔宗·巡卫队长",
+      "faction": "tianmo_sect",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_qingluo_sect_sect_master",
+      "display": "青罗宗·掌门/代掌",
+      "faction": "qingluo_sect",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "sect_leader",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_qingluo_sect_great_elder",
+      "display": "青罗宗·大长老",
+      "faction": "qingluo_sect",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_qingluo_sect_alchemy_elder",
+      "display": "青罗宗·丹堂执事",
+      "faction": "qingluo_sect",
+      "realm": "QI_REFINING",
+      "role": "alchemy_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_qingluo_sect_outer_deacon",
+      "display": "青罗宗·外门执事",
+      "faction": "qingluo_sect",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_qingluo_sect_patrol_captain",
+      "display": "青罗宗·巡卫队长",
+      "faction": "qingluo_sect",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_wanhu_sect_sect_master",
+      "display": "万狐宗·掌门/代掌",
+      "faction": "wanhu_sect",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "sect_leader",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_wanhu_sect_great_elder",
+      "display": "万狐宗·大长老",
+      "faction": "wanhu_sect",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_wanhu_sect_alchemy_elder",
+      "display": "万狐宗·丹堂执事",
+      "faction": "wanhu_sect",
+      "realm": "QI_REFINING",
+      "role": "alchemy_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_wanhu_sect_outer_deacon",
+      "display": "万狐宗·外门执事",
+      "faction": "wanhu_sect",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_wanhu_sect_patrol_captain",
+      "display": "万狐宗·巡卫队长",
+      "faction": "wanhu_sect",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_xuewu_sect_sect_master",
+      "display": "血巫教·掌门/代掌",
+      "faction": "xuewu_sect",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "sect_leader",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_xuewu_sect_great_elder",
+      "display": "血巫教·大长老",
+      "faction": "xuewu_sect",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_xuewu_sect_alchemy_elder",
+      "display": "血巫教·丹堂执事",
+      "faction": "xuewu_sect",
+      "realm": "QI_REFINING",
+      "role": "alchemy_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_xuewu_sect_outer_deacon",
+      "display": "血巫教·外门执事",
+      "faction": "xuewu_sect",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_xuewu_sect_patrol_captain",
+      "display": "血巫教·巡卫队长",
+      "faction": "xuewu_sect",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_dajin_buddhist_temple_line_sect_master",
+      "display": "大晋佛寺一脉·掌门/代掌",
+      "faction": "dajin_buddhist_temple_line",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "sect_leader",
+      "region": "dajin",
+      "alignment": "neutral_righteous",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_dajin_buddhist_temple_line_great_elder",
+      "display": "大晋佛寺一脉·大长老",
+      "faction": "dajin_buddhist_temple_line",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "dajin",
+      "alignment": "neutral_righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_dajin_buddhist_temple_line_alchemy_elder",
+      "display": "大晋佛寺一脉·丹堂执事",
+      "faction": "dajin_buddhist_temple_line",
+      "realm": "QI_REFINING",
+      "role": "alchemy_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "dajin",
+      "alignment": "neutral_righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_dajin_buddhist_temple_line_outer_deacon",
+      "display": "大晋佛寺一脉·外门执事",
+      "faction": "dajin_buddhist_temple_line",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "dajin",
+      "alignment": "neutral_righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_dajin_buddhist_temple_line_patrol_captain",
+      "display": "大晋佛寺一脉·巡卫队长",
+      "faction": "dajin_buddhist_temple_line",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "dajin",
+      "alignment": "neutral_righteous",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_huangfeng_dan_tang",
+      "display": "黄枫谷·丹堂管事",
+      "faction": "huangfeng_valley",
+      "realm": "QI_REFINING",
+      "role": "alchemy_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_huangfeng_outer",
+      "display": "黄枫谷·外门赵执事",
+      "faction": "huangfeng_valley",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_yanyue_shadow",
+      "display": "掩月宗·影堂引路人",
+      "faction": "yanyue_sect",
+      "realm": "QI_REFINING",
+      "role": "quest_giver_main",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_spirit_beast_herder",
+      "display": "灵兽山·御兽长",
+      "faction": "spirit_beast_mountain",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_qingxu_quiet",
+      "display": "清虚门·静修堂主",
+      "faction": "qingxu_gate",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_jujian_forge",
+      "display": "巨剑门·剑冢执事",
+      "faction": "giant_sword_gate",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_qixuan_chief",
+      "display": "七玄门·门主（江湖）",
+      "faction": "qixuan_men",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "sect_leader",
+      "region": "tiannan",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_ghost_spirit_ferry",
+      "display": "鬼灵门·引渡使",
+      "faction": "ghost_spirit_gate",
+      "realm": "QI_REFINING",
+      "role": "quest_giver_main",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "yinming",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_hehuan_host",
+      "display": "合欢宗·堂主",
+      "faction": "hehuan_sect",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "sect_leader",
+      "region": "tiannan",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_star_palace_censor",
+      "display": "星宫·巡察使",
+      "faction": "star_palace",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "outer_sea_market",
+      "dialogue_archetype": "generic",
+      "region": "chaotic_sea",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_inverse_star_broker",
+      "display": "逆星·灰市掮客",
+      "faction": "inverse_star",
+      "realm": "QI_REFINING",
+      "role": "black_market_contact",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "outer_sea_market",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_liulian_envoy",
+      "display": "六连殿·联络修",
+      "faction": "liulian",
+      "realm": "QI_REFINING",
+      "role": "quest_giver_main",
+      "structure": "outer_sea_market",
+      "dialogue_archetype": "generic",
+      "region": "chaotic_sea",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_dajin_auctioneer",
+      "display": "大晋·拍卖行掌柜",
+      "faction": "dajin_neutral",
+      "realm": "QI_REFINING",
+      "role": "black_market_contact",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "great_jin_central",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_dajin_border_general",
+      "display": "大晋边军·校尉",
+      "faction": "dajin_border",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "dajin",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_mulan_scout_chief",
+      "display": "慕兰·斥候长",
+      "faction": "mulan",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tianlan",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_tianyuan_clerk",
+      "display": "天渊城·功勋吏",
+      "faction": "tianyuan",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tianyuan",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_kunwu_guide",
+      "display": "昆吾·火脉向导",
+      "faction": "kunwu_local",
+      "realm": "QI_REFINING",
+      "role": "quest_giver_main",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "kunwu",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_nether_ferryman",
+      "display": "冥河·摆渡残影",
+      "faction": "nether",
+      "realm": "QI_REFINING",
+      "role": "quest_giver_main",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "nether_river",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_blood_forbidden_guard",
+      "display": "血色禁地·守界修",
+      "faction": "blood_forbidden",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_xutian_observer",
+      "display": "虚天殿·观殿人",
+      "faction": "xutian",
+      "realm": "QI_REFINING",
+      "role": "great_elder",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_diyuan_miner",
+      "display": "地渊·矿脉包工头",
+      "faction": "diyuan",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "dajin",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_asura_trial_warden",
+      "display": "修罗界·试炼令使",
+      "faction": "asura",
+      "realm": "QI_REFINING",
+      "role": "quest_giver_main",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "spirit_realm_border",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_jiuxian_gatekeeper",
+      "display": "九仙山·守峰人",
+      "faction": "jiuxian",
+      "realm": "CORE_FORMATION",
+      "role": "sect_master",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "sect_leader",
+      "region": "spirit_fengyuan",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "sect_intro",
+        "sect_quest",
+        "sect_shop"
+      ]
+    },
+    {
+      "id": "npc_garden_auditor",
+      "display": "灵缈园·采药审计",
+      "faction": "spirit_garden",
+      "realm": "QI_REFINING",
+      "role": "patrol_captain",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "spirit_fengyuan",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_wandering_appraiser",
+      "display": "散修·鉴宝张",
+      "faction": "neutral",
+      "realm": "QI_REFINING",
+      "role": "black_market_contact",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
+    },
+    {
+      "id": "npc_seven_meridian_judge",
+      "display": "七脉试炼·评分执事",
+      "faction": "huangfeng_valley",
+      "realm": "QI_REFINING",
+      "role": "outer_deacon",
+      "structure": "sect_outpost_generic",
+      "dialogue_archetype": "generic",
+      "region": "tiannan",
+      "alignment": "neutral",
+      "dialogue_hooks": [
+        "greeting"
+      ]
     }
   ],
   "still_not_done": [
     "仙界全部具名原著角色百科",
-    "每名 NPC 完整日程与好感曲线",
     "道祖级实体不展开",
     "小极宫等仅钩子非全势力百科"
   ],
   "v138": true,
-  "v144": true
+  "v144": true,
+  "v148": "补全 166 个 NPC 生成种子（全量审查 Phase 4）"
 }

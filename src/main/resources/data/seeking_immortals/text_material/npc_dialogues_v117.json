@@ -218,6 +218,6327 @@
       "tags": [
         "dialogue_v117"
       ]
+    },
+    {
+      "id": "dlg_huangfeng_valley_sect_master",
+      "npc": "npc_huangfeng_valley_sect_master",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（黄枫谷·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_huangfeng_valley_sect_master（黄枫谷·掌门/代掌）。场景数 5。first_meet：（黄枫谷·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_huangfeng_valley_great_elder",
+      "npc": "npc_huangfeng_valley_great_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（黄枫谷·大长老）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_huangfeng_valley_great_elder（黄枫谷·大长老）。场景数 5。first_meet：（黄枫谷·大长老）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_huangfeng_valley_alchemy_elder",
+      "npc": "npc_huangfeng_valley_alchemy_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（黄枫谷·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_huangfeng_valley_alchemy_elder（黄枫谷·丹堂执事）。场景数 5。first_meet：（黄枫谷·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_huangfeng_valley_outer_deacon",
+      "npc": "npc_huangfeng_valley_outer_deacon",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（黄枫谷·外门执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_huangfeng_valley_outer_deacon（黄枫谷·外门执事）。场景数 5。first_meet：（黄枫谷·外门执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_huangfeng_valley_patrol_captain",
+      "npc": "npc_huangfeng_valley_patrol_captain",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（黄枫谷·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_huangfeng_valley_patrol_captain（黄枫谷·巡卫队长）。场景数 5。first_meet：（黄枫谷·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_yanyue_sect_sect_master",
+      "npc": "npc_yanyue_sect_sect_master",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（掩月宗·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_yanyue_sect_sect_master（掩月宗·掌门/代掌）。场景数 5。first_meet：（掩月宗·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_yanyue_sect_great_elder",
+      "npc": "npc_yanyue_sect_great_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（掩月宗·大长老）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_yanyue_sect_great_elder（掩月宗·大长老）。场景数 5。first_meet：（掩月宗·大长老）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_yanyue_sect_alchemy_elder",
+      "npc": "npc_yanyue_sect_alchemy_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（掩月宗·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_yanyue_sect_alchemy_elder（掩月宗·丹堂执事）。场景数 5。first_meet：（掩月宗·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_yanyue_sect_outer_deacon",
+      "npc": "npc_yanyue_sect_outer_deacon",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（掩月宗·外门执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_yanyue_sect_outer_deacon（掩月宗·外门执事）。场景数 5。first_meet：（掩月宗·外门执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_yanyue_sect_patrol_captain",
+      "npc": "npc_yanyue_sect_patrol_captain",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（掩月宗·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_yanyue_sect_patrol_captain（掩月宗·巡卫队长）。场景数 5。first_meet：（掩月宗·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_spirit_beast_mountain_sect_master",
+      "npc": "npc_spirit_beast_mountain_sect_master",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（灵兽山·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_spirit_beast_mountain_sect_master（灵兽山·掌门/代掌）。场景数 5。first_meet：（灵兽山·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_spirit_beast_mountain_great_elder",
+      "npc": "npc_spirit_beast_mountain_great_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（灵兽山·大长老）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_spirit_beast_mountain_great_elder（灵兽山·大长老）。场景数 5。first_meet：（灵兽山·大长老）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_spirit_beast_mountain_alchemy_elder",
+      "npc": "npc_spirit_beast_mountain_alchemy_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（灵兽山·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_spirit_beast_mountain_alchemy_elder（灵兽山·丹堂执事）。场景数 5。first_meet：（灵兽山·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_spirit_beast_mountain_outer_deacon",
+      "npc": "npc_spirit_beast_mountain_outer_deacon",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（灵兽山·外门执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_spirit_beast_mountain_outer_deacon（灵兽山·外门执事）。场景数 5。first_meet：（灵兽山·外门执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_spirit_beast_mountain_patrol_captain",
+      "npc": "npc_spirit_beast_mountain_patrol_captain",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（灵兽山·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_spirit_beast_mountain_patrol_captain（灵兽山·巡卫队长）。场景数 5。first_meet：（灵兽山·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qingxu_gate_sect_master",
+      "npc": "npc_qingxu_gate_sect_master",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（清虚门·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qingxu_gate_sect_master（清虚门·掌门/代掌）。场景数 5。first_meet：（清虚门·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qingxu_gate_great_elder",
+      "npc": "npc_qingxu_gate_great_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（清虚门·大长老）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qingxu_gate_great_elder（清虚门·大长老）。场景数 5。first_meet：（清虚门·大长老）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qingxu_gate_alchemy_elder",
+      "npc": "npc_qingxu_gate_alchemy_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（清虚门·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qingxu_gate_alchemy_elder（清虚门·丹堂执事）。场景数 5。first_meet：（清虚门·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qingxu_gate_outer_deacon",
+      "npc": "npc_qingxu_gate_outer_deacon",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（清虚门·外门执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qingxu_gate_outer_deacon（清虚门·外门执事）。场景数 5。first_meet：（清虚门·外门执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qingxu_gate_patrol_captain",
+      "npc": "npc_qingxu_gate_patrol_captain",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（清虚门·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qingxu_gate_patrol_captain（清虚门·巡卫队长）。场景数 5。first_meet：（清虚门·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_huadao_wu_sect_master",
+      "npc": "npc_huadao_wu_sect_master",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（化刀坞·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_huadao_wu_sect_master（化刀坞·掌门/代掌）。场景数 5。first_meet：（化刀坞·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_huadao_wu_great_elder",
+      "npc": "npc_huadao_wu_great_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（化刀坞·大长老）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_huadao_wu_great_elder（化刀坞·大长老）。场景数 5。first_meet：（化刀坞·大长老）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_huadao_wu_alchemy_elder",
+      "npc": "npc_huadao_wu_alchemy_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（化刀坞·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_huadao_wu_alchemy_elder（化刀坞·丹堂执事）。场景数 5。first_meet：（化刀坞·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_huadao_wu_outer_deacon",
+      "npc": "npc_huadao_wu_outer_deacon",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（化刀坞·外门执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_huadao_wu_outer_deacon（化刀坞·外门执事）。场景数 5。first_meet：（化刀坞·外门执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_huadao_wu_patrol_captain",
+      "npc": "npc_huadao_wu_patrol_captain",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（化刀坞·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_huadao_wu_patrol_captain（化刀坞·巡卫队长）。场景数 5。first_meet：（化刀坞·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_tianque_fort_sect_master",
+      "npc": "npc_tianque_fort_sect_master",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（天阙堡·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_tianque_fort_sect_master（天阙堡·掌门/代掌）。场景数 5。first_meet：（天阙堡·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_tianque_fort_great_elder",
+      "npc": "npc_tianque_fort_great_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（天阙堡·大长老）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_tianque_fort_great_elder（天阙堡·大长老）。场景数 5。first_meet：（天阙堡·大长老）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_tianque_fort_alchemy_elder",
+      "npc": "npc_tianque_fort_alchemy_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（天阙堡·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_tianque_fort_alchemy_elder（天阙堡·丹堂执事）。场景数 5。first_meet：（天阙堡·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_tianque_fort_outer_deacon",
+      "npc": "npc_tianque_fort_outer_deacon",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（天阙堡·外门执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_tianque_fort_outer_deacon（天阙堡·外门执事）。场景数 5。first_meet：（天阙堡·外门执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_tianque_fort_patrol_captain",
+      "npc": "npc_tianque_fort_patrol_captain",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（天阙堡·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_tianque_fort_patrol_captain（天阙堡·巡卫队长）。场景数 5。first_meet：（天阙堡·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_giant_sword_gate_sect_master",
+      "npc": "npc_giant_sword_gate_sect_master",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（巨剑门·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_giant_sword_gate_sect_master（巨剑门·掌门/代掌）。场景数 5。first_meet：（巨剑门·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_giant_sword_gate_great_elder",
+      "npc": "npc_giant_sword_gate_great_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（巨剑门·大长老）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_giant_sword_gate_great_elder（巨剑门·大长老）。场景数 5。first_meet：（巨剑门·大长老）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_giant_sword_gate_alchemy_elder",
+      "npc": "npc_giant_sword_gate_alchemy_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（巨剑门·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_giant_sword_gate_alchemy_elder（巨剑门·丹堂执事）。场景数 5。first_meet：（巨剑门·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_giant_sword_gate_outer_deacon",
+      "npc": "npc_giant_sword_gate_outer_deacon",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（巨剑门·外门执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_giant_sword_gate_outer_deacon（巨剑门·外门执事）。场景数 5。first_meet：（巨剑门·外门执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_giant_sword_gate_patrol_captain",
+      "npc": "npc_giant_sword_gate_patrol_captain",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（巨剑门·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_giant_sword_gate_patrol_captain（巨剑门·巡卫队长）。场景数 5。first_meet：（巨剑门·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qixuan_men_sect_master",
+      "npc": "npc_qixuan_men_sect_master",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（七玄门·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qixuan_men_sect_master（七玄门·掌门/代掌）。场景数 5。first_meet：（七玄门·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qixuan_men_great_elder",
+      "npc": "npc_qixuan_men_great_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（七玄门·大长老）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qixuan_men_great_elder（七玄门·大长老）。场景数 5。first_meet：（七玄门·大长老）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qixuan_men_alchemy_elder",
+      "npc": "npc_qixuan_men_alchemy_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（七玄门·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qixuan_men_alchemy_elder（七玄门·丹堂执事）。场景数 5。first_meet：（七玄门·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qixuan_men_outer_deacon",
+      "npc": "npc_qixuan_men_outer_deacon",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（七玄门·外门执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qixuan_men_outer_deacon（七玄门·外门执事）。场景数 5。first_meet：（七玄门·外门执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qixuan_men_patrol_captain",
+      "npc": "npc_qixuan_men_patrol_captain",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（七玄门·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qixuan_men_patrol_captain（七玄门·巡卫队长）。场景数 5。first_meet：（七玄门·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_ghost_spirit_gate_sect_master",
+      "npc": "npc_ghost_spirit_gate_sect_master",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（鬼灵门·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_ghost_spirit_gate_sect_master（鬼灵门·掌门/代掌）。场景数 5。first_meet：（鬼灵门·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_ghost_spirit_gate_great_elder",
+      "npc": "npc_ghost_spirit_gate_great_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（鬼灵门·大长老）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_ghost_spirit_gate_great_elder（鬼灵门·大长老）。场景数 5。first_meet：（鬼灵门·大长老）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_ghost_spirit_gate_alchemy_elder",
+      "npc": "npc_ghost_spirit_gate_alchemy_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（鬼灵门·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_ghost_spirit_gate_alchemy_elder（鬼灵门·丹堂执事）。场景数 5。first_meet：（鬼灵门·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_ghost_spirit_gate_outer_deacon",
+      "npc": "npc_ghost_spirit_gate_outer_deacon",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（鬼灵门·外门执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_ghost_spirit_gate_outer_deacon（鬼灵门·外门执事）。场景数 5。first_meet：（鬼灵门·外门执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_ghost_spirit_gate_patrol_captain",
+      "npc": "npc_ghost_spirit_gate_patrol_captain",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（鬼灵门·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_ghost_spirit_gate_patrol_captain（鬼灵门·巡卫队长）。场景数 5。first_meet：（鬼灵门·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_hehuan_sect_sect_master",
+      "npc": "npc_hehuan_sect_sect_master",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（合欢宗·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_hehuan_sect_sect_master（合欢宗·掌门/代掌）。场景数 5。first_meet：（合欢宗·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_hehuan_sect_great_elder",
+      "npc": "npc_hehuan_sect_great_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（合欢宗·大长老）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_hehuan_sect_great_elder（合欢宗·大长老）。场景数 5。first_meet：（合欢宗·大长老）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_hehuan_sect_alchemy_elder",
+      "npc": "npc_hehuan_sect_alchemy_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（合欢宗·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_hehuan_sect_alchemy_elder（合欢宗·丹堂执事）。场景数 5。first_meet：（合欢宗·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_hehuan_sect_outer_deacon",
+      "npc": "npc_hehuan_sect_outer_deacon",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（合欢宗·外门执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_hehuan_sect_outer_deacon（合欢宗·外门执事）。场景数 5。first_meet：（合欢宗·外门执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_hehuan_sect_patrol_captain",
+      "npc": "npc_hehuan_sect_patrol_captain",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（合欢宗·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_hehuan_sect_patrol_captain（合欢宗·巡卫队长）。场景数 5。first_meet：（合欢宗·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_moyan_gate_sect_master",
+      "npc": "npc_moyan_gate_sect_master",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（魔焰门·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_moyan_gate_sect_master（魔焰门·掌门/代掌）。场景数 5。first_meet：（魔焰门·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_moyan_gate_great_elder",
+      "npc": "npc_moyan_gate_great_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（魔焰门·大长老）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_moyan_gate_great_elder（魔焰门·大长老）。场景数 5。first_meet：（魔焰门·大长老）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_moyan_gate_alchemy_elder",
+      "npc": "npc_moyan_gate_alchemy_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（魔焰门·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_moyan_gate_alchemy_elder（魔焰门·丹堂执事）。场景数 5。first_meet：（魔焰门·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_moyan_gate_outer_deacon",
+      "npc": "npc_moyan_gate_outer_deacon",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（魔焰门·外门执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_moyan_gate_outer_deacon（魔焰门·外门执事）。场景数 5。first_meet：（魔焰门·外门执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_moyan_gate_patrol_captain",
+      "npc": "npc_moyan_gate_patrol_captain",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（魔焰门·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_moyan_gate_patrol_captain（魔焰门·巡卫队长）。场景数 5。first_meet：（魔焰门·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_tiansha_sect_sect_master",
+      "npc": "npc_tiansha_sect_sect_master",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（天煞宗·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_tiansha_sect_sect_master（天煞宗·掌门/代掌）。场景数 5。first_meet：（天煞宗·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_tiansha_sect_great_elder",
+      "npc": "npc_tiansha_sect_great_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（天煞宗·大长老）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_tiansha_sect_great_elder（天煞宗·大长老）。场景数 5。first_meet：（天煞宗·大长老）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_tiansha_sect_alchemy_elder",
+      "npc": "npc_tiansha_sect_alchemy_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（天煞宗·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_tiansha_sect_alchemy_elder（天煞宗·丹堂执事）。场景数 5。first_meet：（天煞宗·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_tiansha_sect_outer_deacon",
+      "npc": "npc_tiansha_sect_outer_deacon",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（天煞宗·外门执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_tiansha_sect_outer_deacon（天煞宗·外门执事）。场景数 5。first_meet：（天煞宗·外门执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_tiansha_sect_patrol_captain",
+      "npc": "npc_tiansha_sect_patrol_captain",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（天煞宗·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_tiansha_sect_patrol_captain（天煞宗·巡卫队长）。场景数 5。first_meet：（天煞宗·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_yuling_sect_sect_master",
+      "npc": "npc_yuling_sect_sect_master",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（御灵宗·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_yuling_sect_sect_master（御灵宗·掌门/代掌）。场景数 5。first_meet：（御灵宗·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_yuling_sect_great_elder",
+      "npc": "npc_yuling_sect_great_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（御灵宗·大长老）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_yuling_sect_great_elder（御灵宗·大长老）。场景数 5。first_meet：（御灵宗·大长老）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_yuling_sect_alchemy_elder",
+      "npc": "npc_yuling_sect_alchemy_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（御灵宗·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_yuling_sect_alchemy_elder（御灵宗·丹堂执事）。场景数 5。first_meet：（御灵宗·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_yuling_sect_outer_deacon",
+      "npc": "npc_yuling_sect_outer_deacon",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（御灵宗·外门执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_yuling_sect_outer_deacon（御灵宗·外门执事）。场景数 5。first_meet：（御灵宗·外门执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_yuling_sect_patrol_captain",
+      "npc": "npc_yuling_sect_patrol_captain",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（御灵宗·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_yuling_sect_patrol_captain（御灵宗·巡卫队长）。场景数 5。first_meet：（御灵宗·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qianhuan_sect_sect_master",
+      "npc": "npc_qianhuan_sect_sect_master",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（千幻宗·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qianhuan_sect_sect_master（千幻宗·掌门/代掌）。场景数 5。first_meet：（千幻宗·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qianhuan_sect_great_elder",
+      "npc": "npc_qianhuan_sect_great_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（千幻宗·大长老）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qianhuan_sect_great_elder（千幻宗·大长老）。场景数 5。first_meet：（千幻宗·大长老）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qianhuan_sect_alchemy_elder",
+      "npc": "npc_qianhuan_sect_alchemy_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（千幻宗·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qianhuan_sect_alchemy_elder（千幻宗·丹堂执事）。场景数 5。first_meet：（千幻宗·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qianhuan_sect_outer_deacon",
+      "npc": "npc_qianhuan_sect_outer_deacon",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（千幻宗·外门执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qianhuan_sect_outer_deacon（千幻宗·外门执事）。场景数 5。first_meet：（千幻宗·外门执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qianhuan_sect_patrol_captain",
+      "npc": "npc_qianhuan_sect_patrol_captain",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（千幻宗·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qianhuan_sect_patrol_captain（千幻宗·巡卫队长）。场景数 5。first_meet：（千幻宗·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_luoyun_sect_sect_master",
+      "npc": "npc_luoyun_sect_sect_master",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（落云宗·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_luoyun_sect_sect_master（落云宗·掌门/代掌）。场景数 5。first_meet：（落云宗·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_luoyun_sect_great_elder",
+      "npc": "npc_luoyun_sect_great_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（落云宗·大长老）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_luoyun_sect_great_elder（落云宗·大长老）。场景数 5。first_meet：（落云宗·大长老）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_luoyun_sect_alchemy_elder",
+      "npc": "npc_luoyun_sect_alchemy_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（落云宗·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_luoyun_sect_alchemy_elder（落云宗·丹堂执事）。场景数 5。first_meet：（落云宗·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_luoyun_sect_outer_deacon",
+      "npc": "npc_luoyun_sect_outer_deacon",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（落云宗·外门执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_luoyun_sect_outer_deacon（落云宗·外门执事）。场景数 5。first_meet：（落云宗·外门执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_luoyun_sect_patrol_captain",
+      "npc": "npc_luoyun_sect_patrol_captain",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（落云宗·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_luoyun_sect_patrol_captain（落云宗·巡卫队长）。场景数 5。first_meet：（落云宗·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_star_palace_sect_master",
+      "npc": "npc_star_palace_sect_master",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（星宫·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_star_palace_sect_master（星宫·掌门/代掌）。场景数 5。first_meet：（星宫·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_star_palace_great_elder",
+      "npc": "npc_star_palace_great_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（星宫·大长老）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_star_palace_great_elder（星宫·大长老）。场景数 5。first_meet：（星宫·大长老）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_star_palace_alchemy_elder",
+      "npc": "npc_star_palace_alchemy_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（星宫·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_star_palace_alchemy_elder（星宫·丹堂执事）。场景数 5。first_meet：（星宫·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_star_palace_outer_deacon",
+      "npc": "npc_star_palace_outer_deacon",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（星宫·外门执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_star_palace_outer_deacon（星宫·外门执事）。场景数 5。first_meet：（星宫·外门执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_star_palace_patrol_captain",
+      "npc": "npc_star_palace_patrol_captain",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（星宫·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_star_palace_patrol_captain（星宫·巡卫队长）。场景数 5。first_meet：（星宫·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_inverse_star_alliance_sect_master",
+      "npc": "npc_inverse_star_alliance_sect_master",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（逆星盟·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_inverse_star_alliance_sect_master（逆星盟·掌门/代掌）。场景数 5。first_meet：（逆星盟·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_inverse_star_alliance_great_elder",
+      "npc": "npc_inverse_star_alliance_great_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（逆星盟·大长老）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_inverse_star_alliance_great_elder（逆星盟·大长老）。场景数 5。first_meet：（逆星盟·大长老）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_inverse_star_alliance_alchemy_elder",
+      "npc": "npc_inverse_star_alliance_alchemy_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（逆星盟·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_inverse_star_alliance_alchemy_elder（逆星盟·丹堂执事）。场景数 5。first_meet：（逆星盟·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_inverse_star_alliance_outer_deacon",
+      "npc": "npc_inverse_star_alliance_outer_deacon",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（逆星盟·外门执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_inverse_star_alliance_outer_deacon（逆星盟·外门执事）。场景数 5。first_meet：（逆星盟·外门执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_inverse_star_alliance_patrol_captain",
+      "npc": "npc_inverse_star_alliance_patrol_captain",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（逆星盟·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_inverse_star_alliance_patrol_captain（逆星盟·巡卫队长）。场景数 5。first_meet：（逆星盟·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qianzhu_teach_sect_master",
+      "npc": "npc_qianzhu_teach_sect_master",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（千竹教·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qianzhu_teach_sect_master（千竹教·掌门/代掌）。场景数 5。first_meet：（千竹教·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qianzhu_teach_great_elder",
+      "npc": "npc_qianzhu_teach_great_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（千竹教·大长老）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qianzhu_teach_great_elder（千竹教·大长老）。场景数 5。first_meet：（千竹教·大长老）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qianzhu_teach_alchemy_elder",
+      "npc": "npc_qianzhu_teach_alchemy_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（千竹教·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qianzhu_teach_alchemy_elder（千竹教·丹堂执事）。场景数 5。first_meet：（千竹教·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qianzhu_teach_outer_deacon",
+      "npc": "npc_qianzhu_teach_outer_deacon",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（千竹教·外门执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qianzhu_teach_outer_deacon（千竹教·外门执事）。场景数 5。first_meet：（千竹教·外门执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qianzhu_teach_patrol_captain",
+      "npc": "npc_qianzhu_teach_patrol_captain",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（千竹教·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qianzhu_teach_patrol_captain（千竹教·巡卫队长）。场景数 5。first_meet：（千竹教·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_mulan_fashi_council_sect_master",
+      "npc": "npc_mulan_fashi_council_sect_master",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（慕兰神师府·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_mulan_fashi_council_sect_master（慕兰神师府·掌门/代掌）。场景数 5。first_meet：（慕兰神师府·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_mulan_fashi_council_great_elder",
+      "npc": "npc_mulan_fashi_council_great_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（慕兰神师府·大长老）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_mulan_fashi_council_great_elder（慕兰神师府·大长老）。场景数 5。first_meet：（慕兰神师府·大长老）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_mulan_fashi_council_alchemy_elder",
+      "npc": "npc_mulan_fashi_council_alchemy_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（慕兰神师府·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_mulan_fashi_council_alchemy_elder（慕兰神师府·丹堂执事）。场景数 5。first_meet：（慕兰神师府·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_mulan_fashi_council_outer_deacon",
+      "npc": "npc_mulan_fashi_council_outer_deacon",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（慕兰神师府·外门执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_mulan_fashi_council_outer_deacon（慕兰神师府·外门执事）。场景数 5。first_meet：（慕兰神师府·外门执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_mulan_fashi_council_patrol_captain",
+      "npc": "npc_mulan_fashi_council_patrol_captain",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（慕兰神师府·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_mulan_fashi_council_patrol_captain（慕兰神师府·巡卫队长）。场景数 5。first_meet：（慕兰神师府·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_tianlan_temple_sect_master",
+      "npc": "npc_tianlan_temple_sect_master",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（天澜圣殿·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_tianlan_temple_sect_master（天澜圣殿·掌门/代掌）。场景数 5。first_meet：（天澜圣殿·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_tianlan_temple_great_elder",
+      "npc": "npc_tianlan_temple_great_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（天澜圣殿·大长老）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_tianlan_temple_great_elder（天澜圣殿·大长老）。场景数 5。first_meet：（天澜圣殿·大长老）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_tianlan_temple_alchemy_elder",
+      "npc": "npc_tianlan_temple_alchemy_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（天澜圣殿·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_tianlan_temple_alchemy_elder（天澜圣殿·丹堂执事）。场景数 5。first_meet：（天澜圣殿·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_tianlan_temple_outer_deacon",
+      "npc": "npc_tianlan_temple_outer_deacon",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（天澜圣殿·外门执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_tianlan_temple_outer_deacon（天澜圣殿·外门执事）。场景数 5。first_meet：（天澜圣殿·外门执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_tianlan_temple_patrol_captain",
+      "npc": "npc_tianlan_temple_patrol_captain",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（天澜圣殿·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_tianlan_temple_patrol_captain（天澜圣殿·巡卫队长）。场景数 5。first_meet：（天澜圣殿·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qianzhu_sect_sect_master",
+      "npc": "npc_qianzhu_sect_sect_master",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（千竹教·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qianzhu_sect_sect_master（千竹教·掌门/代掌）。场景数 5。first_meet：（千竹教·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qianzhu_sect_great_elder",
+      "npc": "npc_qianzhu_sect_great_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（千竹教·大长老）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qianzhu_sect_great_elder（千竹教·大长老）。场景数 5。first_meet：（千竹教·大长老）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qianzhu_sect_alchemy_elder",
+      "npc": "npc_qianzhu_sect_alchemy_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（千竹教·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qianzhu_sect_alchemy_elder（千竹教·丹堂执事）。场景数 5。first_meet：（千竹教·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qianzhu_sect_outer_deacon",
+      "npc": "npc_qianzhu_sect_outer_deacon",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（千竹教·外门执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qianzhu_sect_outer_deacon（千竹教·外门执事）。场景数 5。first_meet：（千竹教·外门执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qianzhu_sect_patrol_captain",
+      "npc": "npc_qianzhu_sect_patrol_captain",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（千竹教·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qianzhu_sect_patrol_captain（千竹教·巡卫队长）。场景数 5。first_meet：（千竹教·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_yuling_sect_secret_sect_master",
+      "npc": "npc_yuling_sect_secret_sect_master",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（御灵宗·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_yuling_sect_secret_sect_master（御灵宗·掌门/代掌）。场景数 5。first_meet：（御灵宗·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_yuling_sect_secret_great_elder",
+      "npc": "npc_yuling_sect_secret_great_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（御灵宗·大长老）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_yuling_sect_secret_great_elder（御灵宗·大长老）。场景数 5。first_meet：（御灵宗·大长老）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_yuling_sect_secret_alchemy_elder",
+      "npc": "npc_yuling_sect_secret_alchemy_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（御灵宗·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_yuling_sect_secret_alchemy_elder（御灵宗·丹堂执事）。场景数 5。first_meet：（御灵宗·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_yuling_sect_secret_outer_deacon",
+      "npc": "npc_yuling_sect_secret_outer_deacon",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（御灵宗·外门执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_yuling_sect_secret_outer_deacon（御灵宗·外门执事）。场景数 5。first_meet：（御灵宗·外门执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_yuling_sect_secret_patrol_captain",
+      "npc": "npc_yuling_sect_secret_patrol_captain",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（御灵宗·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_yuling_sect_secret_patrol_captain（御灵宗·巡卫队长）。场景数 5。first_meet：（御灵宗·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_guiling_gate_sect_master",
+      "npc": "npc_guiling_gate_sect_master",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（鬼灵门·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_guiling_gate_sect_master（鬼灵门·掌门/代掌）。场景数 5。first_meet：（鬼灵门·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_guiling_gate_great_elder",
+      "npc": "npc_guiling_gate_great_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（鬼灵门·大长老）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_guiling_gate_great_elder（鬼灵门·大长老）。场景数 5。first_meet：（鬼灵门·大长老）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_guiling_gate_alchemy_elder",
+      "npc": "npc_guiling_gate_alchemy_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（鬼灵门·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_guiling_gate_alchemy_elder（鬼灵门·丹堂执事）。场景数 5。first_meet：（鬼灵门·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_guiling_gate_outer_deacon",
+      "npc": "npc_guiling_gate_outer_deacon",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（鬼灵门·外门执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_guiling_gate_outer_deacon（鬼灵门·外门执事）。场景数 5。first_meet：（鬼灵门·外门执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_guiling_gate_patrol_captain",
+      "npc": "npc_guiling_gate_patrol_captain",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（鬼灵门·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_guiling_gate_patrol_captain（鬼灵门·巡卫队长）。场景数 5。first_meet：（鬼灵门·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_tianmo_sect_sect_master",
+      "npc": "npc_tianmo_sect_sect_master",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（天魔宗·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_tianmo_sect_sect_master（天魔宗·掌门/代掌）。场景数 5。first_meet：（天魔宗·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_tianmo_sect_great_elder",
+      "npc": "npc_tianmo_sect_great_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（天魔宗·大长老）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_tianmo_sect_great_elder（天魔宗·大长老）。场景数 5。first_meet：（天魔宗·大长老）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_tianmo_sect_alchemy_elder",
+      "npc": "npc_tianmo_sect_alchemy_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（天魔宗·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_tianmo_sect_alchemy_elder（天魔宗·丹堂执事）。场景数 5。first_meet：（天魔宗·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_tianmo_sect_outer_deacon",
+      "npc": "npc_tianmo_sect_outer_deacon",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（天魔宗·外门执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_tianmo_sect_outer_deacon（天魔宗·外门执事）。场景数 5。first_meet：（天魔宗·外门执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_tianmo_sect_patrol_captain",
+      "npc": "npc_tianmo_sect_patrol_captain",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（天魔宗·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_tianmo_sect_patrol_captain（天魔宗·巡卫队长）。场景数 5。first_meet：（天魔宗·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qingluo_sect_sect_master",
+      "npc": "npc_qingluo_sect_sect_master",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（青罗宗·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qingluo_sect_sect_master（青罗宗·掌门/代掌）。场景数 5。first_meet：（青罗宗·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qingluo_sect_great_elder",
+      "npc": "npc_qingluo_sect_great_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（青罗宗·大长老）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qingluo_sect_great_elder（青罗宗·大长老）。场景数 5。first_meet：（青罗宗·大长老）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qingluo_sect_alchemy_elder",
+      "npc": "npc_qingluo_sect_alchemy_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（青罗宗·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qingluo_sect_alchemy_elder（青罗宗·丹堂执事）。场景数 5。first_meet：（青罗宗·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qingluo_sect_outer_deacon",
+      "npc": "npc_qingluo_sect_outer_deacon",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（青罗宗·外门执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qingluo_sect_outer_deacon（青罗宗·外门执事）。场景数 5。first_meet：（青罗宗·外门执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qingluo_sect_patrol_captain",
+      "npc": "npc_qingluo_sect_patrol_captain",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（青罗宗·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qingluo_sect_patrol_captain（青罗宗·巡卫队长）。场景数 5。first_meet：（青罗宗·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_wanhu_sect_sect_master",
+      "npc": "npc_wanhu_sect_sect_master",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（万狐宗·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_wanhu_sect_sect_master（万狐宗·掌门/代掌）。场景数 5。first_meet：（万狐宗·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_wanhu_sect_great_elder",
+      "npc": "npc_wanhu_sect_great_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（万狐宗·大长老）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_wanhu_sect_great_elder（万狐宗·大长老）。场景数 5。first_meet：（万狐宗·大长老）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_wanhu_sect_alchemy_elder",
+      "npc": "npc_wanhu_sect_alchemy_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（万狐宗·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_wanhu_sect_alchemy_elder（万狐宗·丹堂执事）。场景数 5。first_meet：（万狐宗·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_wanhu_sect_outer_deacon",
+      "npc": "npc_wanhu_sect_outer_deacon",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（万狐宗·外门执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_wanhu_sect_outer_deacon（万狐宗·外门执事）。场景数 5。first_meet：（万狐宗·外门执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_wanhu_sect_patrol_captain",
+      "npc": "npc_wanhu_sect_patrol_captain",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（万狐宗·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_wanhu_sect_patrol_captain（万狐宗·巡卫队长）。场景数 5。first_meet：（万狐宗·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_xuewu_sect_sect_master",
+      "npc": "npc_xuewu_sect_sect_master",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（血巫教·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_xuewu_sect_sect_master（血巫教·掌门/代掌）。场景数 5。first_meet：（血巫教·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_xuewu_sect_great_elder",
+      "npc": "npc_xuewu_sect_great_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（血巫教·大长老）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_xuewu_sect_great_elder（血巫教·大长老）。场景数 5。first_meet：（血巫教·大长老）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_xuewu_sect_alchemy_elder",
+      "npc": "npc_xuewu_sect_alchemy_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（血巫教·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_xuewu_sect_alchemy_elder（血巫教·丹堂执事）。场景数 5。first_meet：（血巫教·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_xuewu_sect_outer_deacon",
+      "npc": "npc_xuewu_sect_outer_deacon",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（血巫教·外门执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_xuewu_sect_outer_deacon（血巫教·外门执事）。场景数 5。first_meet：（血巫教·外门执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_xuewu_sect_patrol_captain",
+      "npc": "npc_xuewu_sect_patrol_captain",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（血巫教·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_xuewu_sect_patrol_captain（血巫教·巡卫队长）。场景数 5。first_meet：（血巫教·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_dajin_buddhist_temple_line_sect_master",
+      "npc": "npc_dajin_buddhist_temple_line_sect_master",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（大晋佛寺一脉·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_dajin_buddhist_temple_line_sect_master（大晋佛寺一脉·掌门/代掌）。场景数 5。first_meet：（大晋佛寺一脉·掌门/代掌）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_dajin_buddhist_temple_line_great_elder",
+      "npc": "npc_dajin_buddhist_temple_line_great_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（大晋佛寺一脉·大长老）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_dajin_buddhist_temple_line_great_elder（大晋佛寺一脉·大长老）。场景数 5。first_meet：（大晋佛寺一脉·大长老）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_dajin_buddhist_temple_line_alchemy_elder",
+      "npc": "npc_dajin_buddhist_temple_line_alchemy_elder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（大晋佛寺一脉·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_dajin_buddhist_temple_line_alchemy_elder（大晋佛寺一脉·丹堂执事）。场景数 5。first_meet：（大晋佛寺一脉·丹堂执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_dajin_buddhist_temple_line_outer_deacon",
+      "npc": "npc_dajin_buddhist_temple_line_outer_deacon",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（大晋佛寺一脉·外门执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_dajin_buddhist_temple_line_outer_deacon（大晋佛寺一脉·外门执事）。场景数 5。first_meet：（大晋佛寺一脉·外门执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_dajin_buddhist_temple_line_patrol_captain",
+      "npc": "npc_dajin_buddhist_temple_line_patrol_captain",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（大晋佛寺一脉·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_dajin_buddhist_temple_line_patrol_captain（大晋佛寺一脉·巡卫队长）。场景数 5。first_meet：（大晋佛寺一脉·巡卫队长）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_yanyue_shadow",
+      "npc": "npc_yanyue_shadow",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（掩月宗·影堂引路人）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_yanyue_shadow（掩月宗·影堂引路人）。场景数 5。first_meet：（掩月宗·影堂引路人）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_spirit_beast_herder",
+      "npc": "npc_spirit_beast_herder",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（灵兽山·御兽长）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_spirit_beast_herder（灵兽山·御兽长）。场景数 5。first_meet：（灵兽山·御兽长）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qingxu_quiet",
+      "npc": "npc_qingxu_quiet",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（清虚门·静修堂主）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qingxu_quiet（清虚门·静修堂主）。场景数 5。first_meet：（清虚门·静修堂主）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_jujian_forge",
+      "npc": "npc_jujian_forge",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（巨剑门·剑冢执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_jujian_forge（巨剑门·剑冢执事）。场景数 5。first_meet：（巨剑门·剑冢执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qixuan_chief",
+      "npc": "npc_qixuan_chief",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（七玄门·门主（江湖））禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qixuan_chief（七玄门·门主（江湖））。场景数 5。first_meet：（七玄门·门主（江湖））禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_ghost_spirit_ferry",
+      "npc": "npc_ghost_spirit_ferry",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（鬼灵门·引渡使）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_ghost_spirit_ferry（鬼灵门·引渡使）。场景数 5。first_meet：（鬼灵门·引渡使）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_hehuan_host",
+      "npc": "npc_hehuan_host",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（合欢宗·堂主）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_hehuan_host（合欢宗·堂主）。场景数 5。first_meet：（合欢宗·堂主）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_liulian_envoy",
+      "npc": "npc_liulian_envoy",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（六连殿·联络修）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_liulian_envoy（六连殿·联络修）。场景数 5。first_meet：（六连殿·联络修）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_dajin_auctioneer",
+      "npc": "npc_dajin_auctioneer",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（大晋·拍卖行掌柜）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_dajin_auctioneer（大晋·拍卖行掌柜）。场景数 5。first_meet：（大晋·拍卖行掌柜）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_dajin_border_general",
+      "npc": "npc_dajin_border_general",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（大晋边军·校尉）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_dajin_border_general（大晋边军·校尉）。场景数 5。first_meet：（大晋边军·校尉）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_mulan_scout_chief",
+      "npc": "npc_mulan_scout_chief",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（慕兰·斥候长）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_mulan_scout_chief（慕兰·斥候长）。场景数 5。first_meet：（慕兰·斥候长）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_qianzhu_mechanic",
+      "npc": "npc_qianzhu_mechanic",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（千竹·机关长老）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_qianzhu_mechanic（千竹·机关长老）。场景数 5。first_meet：（千竹·机关长老）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_kunwu_guide",
+      "npc": "npc_kunwu_guide",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（昆吾·火脉向导）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_kunwu_guide（昆吾·火脉向导）。场景数 5。first_meet：（昆吾·火脉向导）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_xutian_observer",
+      "npc": "npc_xutian_observer",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（虚天殿·观殿人）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_xutian_observer（虚天殿·观殿人）。场景数 5。first_meet：（虚天殿·观殿人）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_diyuan_miner",
+      "npc": "npc_diyuan_miner",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（地渊·矿脉包工头）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_diyuan_miner（地渊·矿脉包工头）。场景数 5。first_meet：（地渊·矿脉包工头）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_asura_trial_warden",
+      "npc": "npc_asura_trial_warden",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（修罗界·试炼令使）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_asura_trial_warden（修罗界·试炼令使）。场景数 5。first_meet：（修罗界·试炼令使）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_garden_auditor",
+      "npc": "npc_garden_auditor",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（灵缈园·采药审计）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_garden_auditor（灵缈园·采药审计）。场景数 5。first_meet：（灵缈园·采药审计）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
+    },
+    {
+      "id": "dlg_seven_meridian_judge",
+      "npc": "npc_seven_meridian_judge",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "（七脉试炼·评分执事）禁地的令，是贡献堆出来的，不是求来的。"
+          ]
+        },
+        {
+          "when": "quest_offer",
+          "lines": [
+            "药园缺人、后山妖兽闹腾——拣你能做的。",
+            "配额将开，贡献不够就别惦记试炼令。"
+          ]
+        },
+        {
+          "when": "quest_turnin",
+          "lines": [
+            "东西齐了。贡献已记上，别挥霍。",
+            "做得干净。下回难一些。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "外门权限只到此为止。",
+            "内门凭证呢？没有就去任务牌挣。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_seven_meridian_judge（七脉试炼·评分执事）。场景数 5。first_meet：（七脉试炼·评分执事）禁地的令，是贡献堆出来的，不是求来的。 quest_offer：药园缺人、后山妖兽闹腾——拣你能做的。／配额将开，贡献不够就别惦记试炼令。 quest_turnin：东西齐了。贡献已记上，别挥霍。／做得干净。下回难一些。 low_rep：外门权限只到此为止。／内门凭证呢？没有就去任务牌挣。 high_rep：去罢，别在殿里吵闹。"
     }
-  ]
+  ],
+  "v148": "补全 158 个 NPC 对话树（全量审查 Phase 5）"
 }
