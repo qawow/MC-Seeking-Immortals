@@ -121,7 +121,7 @@ public class LingGenTestStoneItem extends Item {
     }
 
     private static void showResult(Player viewer, Player target, PlayerCultivation cultivation, boolean created) {
-        viewer.displayClientMessage(Component.literal("§6§l【灵根检测】§r " + target.getName().getString()), false);
+        viewer.displayClientMessage(Component.translatable("message.seeking_immortals.ling_gen.header", target.getName()), false);
         viewer.displayClientMessage(Component.translatable(created
                 ? "message.seeking_immortals.ling_gen_test.created"
                 : "message.seeking_immortals.ling_gen_test.read_only"), false);

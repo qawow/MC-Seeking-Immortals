@@ -49,7 +49,7 @@ public class FormationSenseSpell extends SpellEffect {
             }
         }
 
-        player.displayClientMessage(Component.literal("阵法感知：附近显露 " + matches + " 处阵法/灵力边界。"), true);
+        player.displayClientMessage(Component.translatable("message.seeking_immortals.spell.formation_sense", matches), true);
         return true;
     }
 

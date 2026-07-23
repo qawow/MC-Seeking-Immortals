@@ -211,7 +211,7 @@ public class TalismanConsumeSpell extends SpellEffect {
         return switch (normalized) {
             case "projectile", "aoe", "buff", "control", "movement" ->
                     Component.translatable("tooltip.seeking_immortals.catalog_talisman.mode." + normalized);
-            default -> Component.literal("未知模式");
+            default -> Component.translatable("message.seeking_immortals.spell.talisman.unknown_mode");
         };
     }
 

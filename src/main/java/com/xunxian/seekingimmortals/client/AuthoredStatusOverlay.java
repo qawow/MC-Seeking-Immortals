@@ -43,7 +43,8 @@ public final class AuthoredStatusOverlay {
             if (effectId != null) {
                 ResourceLocation texture = new ResourceLocation(effectId.getNamespace(),
                         "textures/mob_effect/" + effectId.getPath() + ".png");
-                graphics.blit(texture, x + 1, y + 1, 0, 0, 16, 16, 18, 18);
+                // 完整绘制 18×18 效果图标（与背景框对齐），避免只取左上 16×16 导致右/下 2px 被裁切
+                graphics.blit(texture, x, y, 0, 0, 18, 18, 18, 18);
             }
             if (instance.getAmplifier() > 0) {
                 graphics.drawString(Minecraft.getInstance().font,

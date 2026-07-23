@@ -24,7 +24,7 @@ public class FiveElementsEscapeSpell extends SpellEffect {
     @Override
     public boolean execute(ServerPlayer player, PlayerCultivation cultivation, CultivationSkill skill, SkillContext context) {
         if (!hasFiveElementRoot(cultivation.getSpiritualRootAttributes())) {
-            player.displayClientMessage(Component.literal("灵根五行不稳，无法施展五行遁术。"), true);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.spell.five_elements_escape.unstable"), true);
             return false;
         }
 
@@ -45,12 +45,12 @@ public class FiveElementsEscapeSpell extends SpellEffect {
                     player.teleportTo(feet.getX() + 0.5D, feet.getY(), feet.getZ() + 0.5D);
                     level.sendParticles(ParticleTypes.HAPPY_VILLAGER, player.getX(), player.getY() + 0.8D, player.getZ(), 18, 0.4D, 0.5D, 0.4D, 0.02D);
                     level.playSound(null, player.blockPosition(), SoundEvents.ENDERMAN_TELEPORT, SoundSource.PLAYERS, 0.8F, 1.5F);
-                    player.displayClientMessage(Component.literal("五行遁术穿行二十格。"), true);
+                    player.displayClientMessage(Component.translatable("message.seeking_immortals.spell.five_elements_escape.success"), true);
                     return true;
                 }
             }
         }
-        player.displayClientMessage(Component.literal("前方五行阻滞，遁术失败。"), true);
+        player.displayClientMessage(Component.translatable("message.seeking_immortals.spell.five_elements_escape.blocked"), true);
         return false;
     }
 

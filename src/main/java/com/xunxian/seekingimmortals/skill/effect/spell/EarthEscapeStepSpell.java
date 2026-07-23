@@ -33,11 +33,11 @@ public class EarthEscapeStepSpell extends SpellEffect {
                         Math.max(10, (int) Math.ceil(distance * 5.0D)));
                 player.teleportTo(target.x, target.y, target.z);
                 vfx.impactAt(level, target);
-                player.displayClientMessage(Component.literal("土遁步穿行数步。"), true);
+                player.displayClientMessage(Component.translatable("message.seeking_immortals.spell.earth_escape_step.success"), true);
                 return true;
             }
         }
-        player.displayClientMessage(Component.literal("前方地脉紊乱，土遁步失败。"), true);
+        player.displayClientMessage(Component.translatable("message.seeking_immortals.spell.earth_escape_step.failed"), true);
         return false;
     }
 

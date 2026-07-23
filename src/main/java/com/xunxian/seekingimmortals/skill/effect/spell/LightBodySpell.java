@@ -32,7 +32,7 @@ public class LightBodySpell extends SpellEffect {
         }
 
         player.displayClientMessage(
-            net.minecraft.network.chat.Component.literal("轻身术！提升速度和跳跃" + (duration / 20) + "秒"),
+            net.minecraft.network.chat.Component.translatable("message.seeking_immortals.spell.light_body", duration / 20),
             true
         );
 

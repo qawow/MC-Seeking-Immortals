@@ -34,7 +34,9 @@ public class SwordProjectileSpell extends SpellEffect {
             SwordProjectileEntity projectile = new SwordProjectileEntity(context.getLevel(), player, direction, calculateDamage(skill.getLevel(), skill.getProficiency()), false);
             context.getLevel().addFreshEntity(projectile);
         }
-        player.displayClientMessage(Component.literal(count == 1 ? "单剑刺击破空而出。" : "三才剑阵三剑齐发。"), true);
+        player.displayClientMessage(Component.translatable(count == 1
+                ? "message.seeking_immortals.spell.sword_projectile.single"
+                : "message.seeking_immortals.spell.sword_projectile.triple"), true);
         return true;
     }
 }

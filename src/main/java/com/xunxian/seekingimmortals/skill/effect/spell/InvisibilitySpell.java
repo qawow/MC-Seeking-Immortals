@@ -30,7 +30,7 @@ public class InvisibilitySpell extends SpellEffect {
         }
 
         player.displayClientMessage(
-            net.minecraft.network.chat.Component.literal("隐身术！隐身" + (duration / 20) + "秒"),
+            net.minecraft.network.chat.Component.translatable("message.seeking_immortals.spell.invisibility", duration / 20),
             true
         );
 

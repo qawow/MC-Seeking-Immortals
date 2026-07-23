@@ -36,7 +36,7 @@ public class FlyingSwordBeginnerSpell extends SpellEffect {
         TechniqueVfxPalette.Profile vfx = TechniqueVfxPalette.profile("metal");
         vfx.castAt(player.serverLevel(), player);
         vfx.auraAt(player.serverLevel(), player, 0.9D, 24);
-        player.displayClientMessage(Component.literal("御剑飞行初启动，每秒消耗5点灵力。"), true);
+        player.displayClientMessage(Component.translatable("message.seeking_immortals.spell.flying_sword_beginner"), true);
         return true;
     }
 

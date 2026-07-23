@@ -74,14 +74,14 @@ public class DetectionSpell extends SpellEffect {
                 }
             }
             player.displayClientMessage(
-                    Component.literal("神识探测：发现" + entities.size() + "个生灵，已高亮" + highlightedEntities + "个，" + highlightedBlocks + "处灵物波动"),
+                    Component.translatable("message.seeking_immortals.spell.detection.found", entities.size(), highlightedEntities, highlightedBlocks),
                     true
             );
             return true;
         }
 
         player.displayClientMessage(
-            Component.literal("神识探测：未能展开探查"),
+            Component.translatable("message.seeking_immortals.spell.detection.failed"),
             true
         );
 

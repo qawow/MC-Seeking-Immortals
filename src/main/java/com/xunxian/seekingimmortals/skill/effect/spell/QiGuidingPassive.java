@@ -13,7 +13,7 @@ public class QiGuidingPassive extends SpellEffect {
 
     @Override
     public boolean execute(ServerPlayer player, PlayerCultivation cultivation, CultivationSkill skill, SkillContext context) {
-        player.displayClientMessage(Component.literal("引气入体已融入周天运转，可进行打坐吐纳。"), true);
+        player.displayClientMessage(Component.translatable("message.seeking_immortals.spell.qi_guiding"), true);
         return true;
     }
 }

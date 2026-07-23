@@ -14,9 +14,10 @@ public class HealingPill extends BasePillItem {
 
         player.heal(healAmount);
         player.displayClientMessage(
-            net.minecraft.network.chat.Component.literal(
-                "服用" + getQuality().getDisplayName() + "疗伤丹，恢复" +
-                String.format("%.1f", healAmount) + "生命值"
+            net.minecraft.network.chat.Component.translatable(
+                "message.seeking_immortals.pill.healing",
+                getQuality().getDisplayName(),
+                String.format("%.1f", healAmount)
             ), true
         );
         return true;

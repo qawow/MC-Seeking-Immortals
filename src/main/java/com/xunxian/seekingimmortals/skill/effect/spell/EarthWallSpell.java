@@ -47,7 +47,7 @@ public class EarthWallSpell extends SpellEffect {
         vfx.impactAt(level, Vec3.atCenterOf(base));
 
         player.displayClientMessage(
-            net.minecraft.network.chat.Component.literal("土墙术！生成" + placed + "格土墙，" + (EarthWallBlock.REMOVAL_TICKS / 20) + "秒后消散"),
+            net.minecraft.network.chat.Component.translatable("message.seeking_immortals.spell.earth_wall", placed, EarthWallBlock.REMOVAL_TICKS / 20),
             true
         );
 

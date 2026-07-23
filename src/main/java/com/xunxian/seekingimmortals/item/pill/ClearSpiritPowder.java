@@ -22,8 +22,9 @@ public class ClearSpiritPowder extends BasePillItem {
         }
 
         player.displayClientMessage(
-            net.minecraft.network.chat.Component.literal(
-                "服用" + getQuality().getDisplayName() + "清灵散，解除毒素"
+            net.minecraft.network.chat.Component.translatable(
+                "message.seeking_immortals.pill.clear_spirit",
+                getQuality().getDisplayName()
             ), true
         );
         return true;

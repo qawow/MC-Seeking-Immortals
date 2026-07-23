@@ -34,7 +34,7 @@ public class FlyingSwordAdvancedSpell extends SpellEffect {
             return true;
         }
         if (cultivation.getRealm().ordinal() < Realm.FOUNDATION_ESTABLISHMENT.ordinal()) {
-            player.displayClientMessage(Component.literal("尚未筑基，无法驾驭进阶御剑飞行。"), true);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.spell.flying_sword_advanced.locked"), true);
             return false;
         }
         if (cultivation.getSpiritualPower() < COST_PER_SECOND) {
@@ -46,7 +46,7 @@ public class FlyingSwordAdvancedSpell extends SpellEffect {
         TechniqueVfxPalette.Profile vfx = TechniqueVfxPalette.profile("metal");
         vfx.castAt(player.serverLevel(), player);
         vfx.auraAt(player.serverLevel(), player, 1.15D, 32);
-        player.displayClientMessage(Component.literal("进阶御剑飞行启动，每秒消耗3点灵力。三柄护体飞剑环绕。"), true);
+        player.displayClientMessage(Component.translatable("message.seeking_immortals.spell.flying_sword_advanced.active"), true);
         spawnGuardSwordVisuals(player);
         return true;
     }

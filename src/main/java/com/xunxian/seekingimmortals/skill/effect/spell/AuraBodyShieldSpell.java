@@ -30,7 +30,7 @@ public class AuraBodyShieldSpell extends SpellEffect {
                     24, 0.55D, 0.75D, 0.55D, 0.02D);
             level.playSound(null, player.blockPosition(), SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.PLAYERS, 0.7F, 1.2F);
         }
-        player.displayClientMessage(Component.literal("罡气护体凝成，可抵消下一次伤害。"), true);
+        player.displayClientMessage(Component.translatable("message.seeking_immortals.spell.aura_body_shield"), true);
         return true;
     }
 }

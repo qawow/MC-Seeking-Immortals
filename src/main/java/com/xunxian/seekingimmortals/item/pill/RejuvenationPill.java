@@ -21,9 +21,11 @@ public class RejuvenationPill extends BasePillItem {
             cultivation.addCultivationExp(cultivationExpGain);
 
             player.displayClientMessage(
-                net.minecraft.network.chat.Component.literal(
-                    "服用" + getQuality().getDisplayName() + "回春丹，恢复" +
-                    spiritualPowerGain + "灵力，增加" + cultivationExpGain + "修为"
+                net.minecraft.network.chat.Component.translatable(
+                    "message.seeking_immortals.pill.rejuvenation",
+                    getQuality().getDisplayName(),
+                    spiritualPowerGain,
+                    cultivationExpGain
                 ), true
             );
             return true;

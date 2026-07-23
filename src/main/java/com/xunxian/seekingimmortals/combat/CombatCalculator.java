@@ -123,7 +123,7 @@ public class CombatCalculator {
         }
         if (result.isMissed()) {
             attacker.displayClientMessage(
-                Component.literal("§7未命中！"),
+                Component.translatable("message.seeking_immortals.combat.miss"),
                 true
             );
             return;
@@ -131,29 +131,29 @@ public class CombatCalculator {
 
         if (result.isDodged()) {
             attacker.displayClientMessage(
-                Component.literal("§e" + defender.getName().getString() + " 闪避了攻击！"),
+                Component.translatable("message.seeking_immortals.combat.dodged_by", defender.getName()),
                 true
             );
             defender.displayClientMessage(
-                Component.literal("§a成功闪避攻击！"),
+                Component.translatable("message.seeking_immortals.combat.dodged"),
                 true
             );
             return;
         }
 
-        // 显示伤害信息
-        String damageText = String.format("§c%.1f", result.getFinalDamage());
+        // 显示伤害信息（伤害数值与暴击前缀作为嵌套组件，由客户端按玩家语言解析）
+        Component damageComponent = Component.literal(String.format("§c%.1f", result.getFinalDamage()));
         if (result.isCrit()) {
-            damageText = "§6§l暴击！ " + damageText;
+            damageComponent = Component.translatable("message.seeking_immortals.combat.crit", damageComponent);
         }
 
         attacker.displayClientMessage(
-            Component.literal("对 " + defender.getName().getString() + " 造成 " + damageText + " 伤害"),
+            Component.translatable("message.seeking_immortals.combat.dealt", defender.getName(), damageComponent),
             true
         );
 
         defender.displayClientMessage(
-            Component.literal("受到 " + damageText + " 伤害"),
+            Component.translatable("message.seeking_immortals.combat.received", damageComponent),
             true
         );
     }
