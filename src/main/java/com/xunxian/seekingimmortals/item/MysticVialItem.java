@@ -46,6 +46,11 @@ public class MysticVialItem extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
+        // 归属绑定：非绑定玩家无法使用
+        if (!isOwner(stack, player)) {
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.mystic_vial.not_owner"), true);
+            return InteractionResultHolder.fail(stack);
+        }
         // 现实时间充能（含离线补算）
         refillIfNeeded(stack, System.currentTimeMillis());
         if (level.isClientSide) {
@@ -65,12 +70,17 @@ public class MysticVialItem extends Item {
         BlockPos pos = context.getClickedPos();
         ItemStack stack = context.getItemInHand();
         Player player = context.getPlayer();
+        if (player == null) {
+            return InteractionResult.PASS;
+        }
+        // 归属绑定：非绑定玩家无法使用
+        if (!isOwner(stack, player)) {
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.mystic_vial.not_owner"), true);
+            return InteractionResult.FAIL;
+        }
         refillIfNeeded(stack, System.currentTimeMillis());
         if (level.isClientSide) {
             return InteractionResult.SUCCESS;
-        }
-        if (player == null) {
-            return InteractionResult.PASS;
         }
         if (getCharges(stack) <= 0) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.mystic_vial.no_charges"), true);

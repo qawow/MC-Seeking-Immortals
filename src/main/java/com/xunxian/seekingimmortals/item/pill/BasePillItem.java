@@ -43,7 +43,9 @@ public class BasePillItem extends Item {
             }
 
             if (consumePill(serverPlayer)) {
-                stack.shrink(1);
+                if (!player.getAbilities().instabuild) {
+                    stack.shrink(1);
+                }
                 ConsumableVfxOrchestrator.emitLegacyPill(serverPlayer, pillType, quality);
                 return InteractionResultHolder.success(stack);
             }

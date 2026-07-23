@@ -125,7 +125,7 @@ public record ReleaseTechniquePacket(int slot) {
                     if (multiScale < 0.999D) {
                         cooldownTicks = Math.max(5, (int) Math.round(cooldownTicks * multiScale));
                     }
-                    // H5: 只检查不扣，execute 成功后才扣
+                    // H5: 只检查不扣；真正扣费放在过阶风险检查之后（避免走火入魔触发时白扣费）
                     if (cultivation.getSpiritualPower() < cost) {
                         player.displayClientMessage(Component.translatable("message.seeking_immortals.not_enough_qi"), true);
                         SyncCultivationDataPacket.send(player, cultivation);
@@ -145,11 +145,19 @@ public record ReleaseTechniquePacket(int slot) {
                             return;
                         }
                     }
+                    // H5: 原子性扣费——在 execute 之前扣除，避免 execute 内部消耗灵力后
+                    // consume 失败导致已施法却不设冷却的免费重复施法
+                    if (!cultivation.consumeSpiritualPower(cost)) {
+                        player.displayClientMessage(Component.translatable("message.seeking_immortals.not_enough_qi"), true);
+                        SyncCultivationDataPacket.send(player, cultivation);
+                        return;
+                    }
                     // Soft talisman_consume policy for CAST_* / *talisman* techniques.
                     // Reserve first; refund if effect fails so failed casts never eat talismans.
                     TalismanConsumePolicy.Reservation talismanReservation =
                             TalismanConsumePolicy.tryReserve(player, technique.id(), skillType);
                     if (!talismanReservation.allowed()) {
+                        cultivation.addSpiritualPower(cost); // 符箓预留失败，退还灵力
                         SyncCultivationDataPacket.send(player, cultivation);
                         return;
                     }
@@ -168,16 +176,13 @@ public record ReleaseTechniquePacket(int slot) {
                     }
                     if (!executed) {
                         talismanReservation.refund(player);
+                        cultivation.addSpiritualPower(cost); // execute 失败，退还灵力
                         player.displayClientMessage(
                                 Component.translatable("message.seeking_immortals.technique_release.effect_failed"), true);
                         SyncCultivationDataPacket.send(player, cultivation);
                         return;
                     }
                     talismanReservation.commit(player);
-                    // H5: execute 成功后扣费
-                    if (!cultivation.consumeSpiritualPower(cost)) {
-                        return;
-                    }
                     TechniqueVfxOrchestrator.emitSuccessfulCast(
                             player, technique, skillType, beforeCast, vfxCapture.packets(), false);
                     if (skillType != null) {
@@ -273,12 +278,14 @@ public record ReleaseTechniquePacket(int slot) {
             int cost = effect.getSpiritualPowerCost(skill.getLevel());
             // Dual-cast secondary arts cost half, min 1.
             cost = Math.max(1, cost / 2);
-            if (cultivation.getSpiritualPower() < cost) {
+            // 原子性扣费：execute 之前扣除，避免 execute 后 consume 失败导致免费施法
+            if (!cultivation.consumeSpiritualPower(cost)) {
                 continue;
             }
             TalismanConsumePolicy.Reservation talismanReservation =
                     TalismanConsumePolicy.tryReserve(player, technique.id(), skillType);
             if (!talismanReservation.allowed()) {
+                cultivation.addSpiritualPower(cost); // 符箓预留失败，退还灵力
                 continue;
             }
             SkillContext ctx = SkillContext.builder()
@@ -296,12 +303,10 @@ public record ReleaseTechniquePacket(int slot) {
             }
             if (!executed) {
                 talismanReservation.refund(player);
+                cultivation.addSpiritualPower(cost); // execute 失败，退还灵力
                 continue;
             }
             talismanReservation.commit(player);
-            if (!cultivation.consumeSpiritualPower(cost)) {
-                continue;
-            }
             TechniqueVfxOrchestrator.emitSuccessfulCast(
                     player, technique, skillType, beforeCast, vfxCapture.packets(), true);
             int cooldownTicks = effect.getCooldownTicks(skill.getLevel());

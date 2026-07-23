@@ -81,9 +81,10 @@ public class CultivationSkill {
             return null;
         }
         CultivationSkill skill = new CultivationSkill(skillType);
-        skill.level = tag.getInt("Level");
-        skill.experience = tag.getInt("Experience");
-        skill.proficiency = tag.getInt("Proficiency");
+        // 防御性夹取：NBT 可能被损坏或篡改，避免 level=MAX_VALUE 导致伤害倍率溢出
+        skill.level = Math.max(0, Math.min(skill.getMaxLevel(), tag.getInt("Level")));
+        skill.experience = Math.max(0, tag.getInt("Experience"));
+        skill.proficiency = Math.max(0, Math.min(10000, tag.getInt("Proficiency")));
         skill.unlocked = tag.getBoolean("Unlocked");
         return skill;
     }

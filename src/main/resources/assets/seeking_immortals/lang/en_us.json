@@ -545,6 +545,7 @@
   "message.seeking_immortals.mystic_vial.granted": "A mysterious vial appears in your possession.",
   "message.seeking_immortals.mystic_vial.cannot_drop": "The mystic vial cannot be dropped.",
   "message.seeking_immortals.mystic_vial.cannot_discard": "The mystic vial cannot be dropped or placed in containers.",
+  "message.seeking_immortals.mystic_vial.not_owner": "This mystic vial does not belong to you.",
   "item.seeking_immortals.alchemy_lid_low": "Tier 1 Alchemy Lid",
   "item.seeking_immortals.alchemy_lid_mid": "Tier 2 Alchemy Lid",
   "item.seeking_immortals.alchemy_lid_high": "Tier 3 Alchemy Lid",
