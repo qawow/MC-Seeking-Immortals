@@ -5,6 +5,8 @@ import com.xunxian.seekingimmortals.network.TechniqueVfxPacket;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
 import com.xunxian.seekingimmortals.sect.SectMissionGenerator;
 import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
+import com.xunxian.seekingimmortals.visual.AuthoredVisualCatalog;
+import com.xunxian.seekingimmortals.visual.VisualEventDispatcher;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.particles.ParticleTypes;
@@ -557,6 +559,7 @@ public final class FormationFieldService {
                                            LivingEntity target, TechniqueVfxPacket.Kind kind) {
         Vec3 position = target.position().add(0.0D, Math.max(0.15D, target.getBbHeight() * 0.48D), 0.0D);
         submitVfx(level, new VfxEmission(
+                field.formationId,
                 kind,
                 familyFor(field),
                 motifFor(field.formationId, field.effect, field.kind),
@@ -665,6 +668,14 @@ public final class FormationFieldService {
 
     private static void sendReadyVfx(ServerLevel level, List<VfxEmission> ready) {
         for (VfxEmission emission : ready) {
+            String formationId = normalizeSemanticId(emission.formationId());
+            if (!formationId.isBlank()
+                    && AuthoredVisualCatalog.resolve("formation:" + formationId).isPresent()) {
+                VisualEventDispatcher.event(level, "formation", formationId, emission.kind().name(),
+                        emission.start(), emission.end(), emission.radius(), emission.intensity(),
+                        emission.seed(), emission.kind() == TechniqueVfxPacket.Kind.IMPACT ? 2 : 1);
+                continue;
+            }
             TechniqueVfxPacket.send(
                     level,
                     emission.kind(),
@@ -685,6 +696,7 @@ public final class FormationFieldService {
         double effectRadius = effectRadiusFor(field.radius);
         long seed = vfxSeed(level, field, TechniqueVfxPacket.Kind.FORMATION);
         submitVfx(level, new VfxEmission(
+                field.formationId,
                 TechniqueVfxPacket.Kind.FORMATION,
                 family,
                 motif,
@@ -696,6 +708,7 @@ public final class FormationFieldService {
         Vec3 castStart = center.add(0.0D, 0.12D, 0.0D);
         Vec3 castEnd = center.add(0.0D, 1.25D + effectRadius * 0.18D, 0.0D);
         submitVfx(level, new VfxEmission(
+                field.formationId,
                 TechniqueVfxPacket.Kind.CAST,
                 family,
                 motif,
@@ -726,6 +739,7 @@ public final class FormationFieldService {
         Vec3 center = vfxCenter(field);
         long seed = vfxSeed(level, field, kind);
         submitVfx(level, new VfxEmission(
+                field.formationId,
                 kind,
                 family,
                 motif,
@@ -878,6 +892,7 @@ public final class FormationFieldService {
     }
 
     private record VfxEmission(
+            String formationId,
             TechniqueVfxPacket.Kind kind,
             TechniqueVfxPalette.Family family,
             TechniqueVfxPacket.Motif motif,

@@ -1,10 +1,13 @@
 package com.xunxian.seekingimmortals.block.entity;
 
+import com.xunxian.seekingimmortals.entity.SyncedVisualIdentity;
 import com.xunxian.seekingimmortals.registry.ModBlockEntities;
 import com.xunxian.seekingimmortals.structure.FormationFieldService;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -14,6 +17,7 @@ import net.minecraft.world.level.block.state.BlockState;
  * M07: also stores formationId for catalog-aligned field params.
  */
 public class FormationCoreBlockEntity extends BlockEntity {
+    private static final String DEFAULT_KIND = FormationFieldService.FieldKind.CATALOG_GENERIC.name();
     private String kind = FormationFieldService.FieldKind.CATALOG_GENERIC.name();
     private String formationId = "";
     private int remainingTicks;
@@ -28,11 +32,12 @@ public class FormationCoreBlockEntity extends BlockEntity {
     }
 
     public void activate(FormationFieldService.FieldKind fieldKind, int durationTicks, boolean free, String formationId) {
-        this.kind = fieldKind.name();
-        this.formationId = formationId == null ? "" : formationId;
+        this.kind = (fieldKind == null ? FormationFieldService.FieldKind.CATALOG_GENERIC : fieldKind).name();
+        this.formationId = SyncedVisualIdentity.boundedKey(formationId, "");
         this.remainingTicks = Math.max(20, durationTicks);
         this.freeField = free;
         setChanged();
+        syncClient();
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, FormationCoreBlockEntity be) {
@@ -42,10 +47,18 @@ public class FormationCoreBlockEntity extends BlockEntity {
         be.remainingTicks--;
         if (be.remainingTicks % 20 == 0) {
             be.setChanged();
+            be.syncClient();
         }
-        if (be.remainingTicks <= 0) {
-            be.setChanged();
-        }
+    }
+
+    @Override
+    public CompoundTag getUpdateTag() {
+        return saveWithoutMetadata();
+    }
+
+    @Override
+    public ClientboundBlockEntityDataPacket getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
     }
 
     @Override
@@ -62,10 +75,52 @@ public class FormationCoreBlockEntity extends BlockEntity {
         super.load(tag);
         kind = tag.getString("Kind");
         if (kind == null || kind.isBlank()) {
-            kind = FormationFieldService.FieldKind.CATALOG_GENERIC.name();
+            kind = DEFAULT_KIND;
         }
-        remainingTicks = tag.getInt("Ticks");
+        remainingTicks = Math.max(0, tag.getInt("Ticks"));
         freeField = tag.getBoolean("Free");
-        formationId = tag.contains("FormationId") ? tag.getString("FormationId") : "";
+        formationId = SyncedVisualIdentity.boundedKey(
+                tag.contains("FormationId") ? tag.getString("FormationId") : "", "");
+    }
+
+    public boolean isActive() {
+        return remainingTicks > 0;
+    }
+
+    public int remainingTicks() {
+        return Math.max(0, remainingTicks);
+    }
+
+    public String kind() {
+        return kind;
+    }
+
+    public FormationFieldService.FieldKind fieldKind() {
+        return SyncedVisualIdentity.byName(
+                FormationFieldService.FieldKind.class, kind,
+                FormationFieldService.FieldKind.CATALOG_GENERIC);
+    }
+
+    public String formationId() {
+        return formationId == null ? "" : formationId;
+    }
+
+    public String visualProfileId() {
+        String rawId = formationId().isBlank()
+                ? fieldKind().name().toLowerCase(java.util.Locale.ROOT)
+                : formationId();
+        return SyncedVisualIdentity.qualified("formation", rawId, "formation:catalog_generic");
+    }
+
+    public boolean isFreeField() {
+        return freeField;
+    }
+
+    private void syncClient() {
+        if (level == null || level.isClientSide) {
+            return;
+        }
+        BlockState state = getBlockState();
+        level.sendBlockUpdated(worldPosition, state, state, Block.UPDATE_CLIENTS);
     }
 }

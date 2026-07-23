@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "description": "作者视觉目录的显式命名空间别名与重复条目裁决",
+  "aliases": [
+    {"domain": "PILL", "alias": "appearance_lock_pill", "target": "dingyan_pill"},
+    {"domain": "PILL", "alias": "beast_taming_pill_low", "target": "beast_taming_pill"},
+    {"domain": "PILL", "alias": "jiangying_pill", "target": "jiangchen_pill"},
+    {"domain": "PILL", "alias": "marrow_drain_pill", "target": "marrow_extract_pill"},
+    {"domain": "PILL", "alias": "qingxu_pill", "target": "calm_spirit_pill"},
+    {"domain": "PILL", "alias": "spirit_gathering_pill", "target": "juling_pill"},
+    {"domain": "PILL", "alias": "fire_origin_pill", "target": "huoyuan_pill"},
+    {"domain": "PILL", "alias": "marrow_cleansing_pill", "target": "bone_marrow_pill"},
+    {"domain": "PILL", "alias": "essence_condensing_pill", "target": "condensation_pill"},
+    {"domain": "PILL", "alias": "clear_void_pill", "target": "calm_spirit_pill"},
+    {"domain": "PILL", "alias": "appearance_fixing_pill", "target": "dingyan_pill"},
+    {"domain": "PILL", "alias": "longevity_pill", "target": "longevity_fruit_pill"},
+    {"domain": "PILL", "alias": "return_yang_true_water", "target": "huiyang_true_water"},
+    {"domain": "PILL", "alias": "marrow_extracting_pill", "target": "marrow_extract_pill"},
+    {"domain": "PILL", "alias": "soul_breaking_pill", "target": "soul_break_pill"}
+  ],
+  "collision_resolutions": {
+    "TECHNIQUE": {
+      "inverse_star_veil": {
+        "selected_school": "illusion",
+        "source_precedence": "text_material/techniques/illusion.json"
+      },
+      "golden_armor_talisman_cast": {
+        "selected_school": "talisman",
+        "source_precedence": "text_material/techniques/talisman.json"
+      }
+    },
+    "MATERIAL": {
+      "fire_feather": {"merge": true, "reason": "同 ID 不同用途标签，保留两层来源"},
+      "hundred_year_ice": {"merge": true, "reason": "寒冰/寒玉同 ID，外观共用"},
+      "beast_soul_essence": {"merge": true, "reason": "精魄用途跨傀儡与灵兽契约"},
+      "xuanguang_mirror_shard": {"merge": true, "reason": "材料与法宝碎片使用域分离"}
+    }
+  },
+  "id_maps": {
+    "REALM": {
+      "vis_realm_blood_forbidden": "blood_forbidden",
+      "vis_realm_xutian": "void_palace",
+      "vis_realm_zhuimo": "fallen_demon_valley",
+      "vis_realm_kunwu": "kunwu_mountain",
+      "vis_realm_yinyang_ku": "yin_mountain_catacomb",
+      "vis_realm_nether_river": "nether_river_land",
+      "vis_realm_chaotic_sea_abyss": "chaotic_sea_abyss_rift",
+      "light_blood_forbidden": "blood_forbidden",
+      "light_xutian": "void_palace",
+      "light_zhuimo": "fallen_demon_valley",
+      "light_kunwu": "kunwu_mountain",
+      "light_yinyang_ku": "yin_mountain_catacomb",
+      "light_nether_river": "nether_river_land",
+      "light_chaotic_abyss": "chaotic_sea_abyss_rift"
+    },
+    "ZONE": {
+      "zone_vis_blood_forbidden_outer_mist": "bf_outer_mist",
+      "zone_vis_blood_forbidden_herb_ring": "bf_herb_ring",
+      "zone_vis_blood_forbidden_water_black_jiao": "bf_water_jiao",
+      "zone_vis_blood_forbidden_mid_contested": "bf_mid_contest",
+      "zone_vis_blood_forbidden_inner_core": "bf_inner_core",
+      "zone_vis_xutian_outer_court": "xt_outer_court",
+      "zone_vis_xutian_herb_garden_relic": "xt_herb_garden",
+      "zone_vis_xutian_treasure_core": "xt_treasure_core",
+      "zone_vis_xutian_escape_corridor": "xt_escape",
+      "zone_vis_zhuimo_outer_valley": "zm_outer",
+      "zone_vis_zhuimo_mid_rift": "zm_mid",
+      "zone_vis_zhuimo_inner_valley": "zm_inner",
+      "zone_vis_zhuimo_candle_fruit_point": "zm_candle",
+      "zone_vis_kunwu_approach_path": "kw_approach",
+      "zone_vis_kunwu_outer_halls": "kw_outer_halls",
+      "zone_vis_kunwu_fire_seal_zone": "kw_fire_seal",
+      "zone_vis_kunwu_demon_seal_zone": "kw_demon_seal",
+      "zone_vis_kunwu_apex_vault": "kw_apex",
+      "zone_vis_kunwu_exit_pursuit": "kw_exit_pursuit",
+      "zone_vis_yinyang_ku_outer_yin_mist": "yy_outer",
+      "zone_vis_yinyang_ku_yin_yang_split_path": "yy_split",
+      "zone_vis_yinyang_ku_yezha_nest": "yy_yezha",
+      "zone_vis_yinyang_ku_yinzhi_habitat": "yy_yinzhi",
+      "zone_vis_yinyang_ku_alchemy_cooperation": "yy_alchemy_coop"
+    },
+    "BOSS": {
+      "boss_mo_jiao": "blood_jiao_guardian",
+      "boss_void_palace_lord": "void_palace_lord",
+      "boss_kunwu_puppet_king": "kunwu_puppet_king",
+      "boss_ancient_demon_projection": "ancient_demon_projection",
+      "boss_blood_jiao": "chaotic_sea_jiao_lord",
+      "boss_gold_body_moon_corpse": "yin_corpses_general",
+      "boss_holy_peacock": "ancient_beast_sovereign",
+      "boss_asura_projection": "asura_avatar",
+      "boss_thunder_jiao_v120": "abyss_jiao",
+      "boss_four_ear_ape_v120": "diyuan_guardian",
+      "boss_suanni_v120": "ice_fire_demon",
+      "boss_soul_weep_v120": "nether_river_guardian",
+      "style_boss_mo_jiao": "blood_jiao_guardian",
+      "style_boss_void_lord": "void_palace_lord",
+      "style_boss_puppet_king": "kunwu_puppet_king",
+      "style_boss_demon_proj": "ancient_demon_projection",
+      "style_boss_blood_jiao": "chaotic_sea_jiao_lord",
+      "style_boss_holy_peacock": "ancient_beast_sovereign"
+    },
+    "STRUCTURE": {
+      "prop_spirit_stone_ore_node": "low_spirit_iron_ore",
+      "prop_herb_node": "spirit_herb_planter",
+      "prop_array_flag": "formation_flag_post",
+      "prop_teleport_pad": "teleport_array_pedestal",
+      "prop_alchemy_furnace": "alchemy_furnace_g1",
+      "prop_puppet_rack": "puppet_core_forge",
+      "prop_auction_gavel_zone": "auction_display_dais",
+      "prop_blood_token_gate": "blood_forbidden_entry_stele"
+    },
+    "BEAST": {
+      "vis_ultra_gold_devour": "gold_devour_beetle"
+    }
+  },
+  "style_maps": {
+    "STATUS": {
+      "burn": "fx_burn",
+      "frozen": "fx_freeze",
+      "soul_shock": "fx_soul_damage",
+      "illusion": "fx_soul_damage",
+      "karma": "fx_soul_damage",
+      "demonic_qi": "fx_poison",
+      "foundation_unstable": "fx_array",
+      "marrow_drain": "fx_bleed",
+      "seal_nascent": "fx_array",
+      "conceal_qi": "fx_shield",
+      "poison": "fx_poison",
+      "bleed": "fx_bleed",
+      "stun": "fx_stun",
+      "shield": "fx_shield",
+      "fear": "fx_soul_damage",
+      "berserk": "fx_sword_intent",
+      "qi_disorder": "fx_array",
+      "soul_wound": "fx_soul_damage",
+      "sword_intent": "fx_sword_intent",
+      "array_bind": "fx_array",
+      "heal_hot": "fx_heal",
+      "tribulation_mark": "fx_array"
+    }
+  },
+  "unmapped_visuals": {
+    "REALM": {
+      "light_spirit_border": "作者光雾卡没有对应的运行时 realm id，保留为待接入来源"
+    }
+  },
+  "raw_card_counts": {
+    "BOSS": 18,
+    "REALM": 15,
+    "ZONE": 24,
+    "STRUCTURE": 8,
+    "STATUS": 12
+  }
+}

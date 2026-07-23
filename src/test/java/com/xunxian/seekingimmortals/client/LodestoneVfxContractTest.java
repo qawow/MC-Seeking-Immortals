@@ -23,7 +23,9 @@ class LodestoneVfxContractTest {
                     .filter(path -> read(path).contains("import team.lodestar.lodestone"))
                     .toList();
             assertTrue(imports.size() >= 2, imports.toString());
-            assertTrue(imports.stream().allMatch(path -> path.startsWith(JAVA_ROOT.resolve("client"))),
+            Path sharedParticleRegistry = JAVA_ROOT.resolve(Path.of("registry", "ModParticles.java"));
+            assertTrue(imports.stream().allMatch(path -> path.startsWith(JAVA_ROOT.resolve("client"))
+                            || path.equals(sharedParticleRegistry)),
                     imports.toString());
         }
     }
@@ -32,6 +34,8 @@ class LodestoneVfxContractTest {
     void clientRendererHasDistanceQualityAndPerTickBudgets() throws Exception {
         String renderer = read(JAVA_ROOT.resolve(Path.of("client", "LodestoneTechniqueVfx.java")));
         assertTrue(renderer.contains("MAX_PARTICLES_PER_TICK"));
+        assertTrue(renderer.contains("ClientVisualEngine.remainingParticleBudget"));
+        assertTrue(renderer.contains("ModParticles.QI_SOFT"));
         assertTrue(renderer.contains("MAX_VIEW_DISTANCE_SQR"));
         assertTrue(renderer.contains("ParticleStatus.MINIMAL"));
         assertTrue(renderer.contains("lodScale("));
@@ -52,9 +56,17 @@ class LodestoneVfxContractTest {
         assertTrue(renderer.contains("emittedEvents"));
         assertTrue(renderer.contains("releaseAnchor("));
         assertTrue(renderer.contains("phase == Phase.RELEASE && localAge == 0"));
-        assertTrue(renderer.contains("particlesThisTick == particlesBefore"));
+        assertTrue(renderer.contains("ClientVisualEngine.particlesUsed(level) == particlesBefore"));
         assertTrue(renderer.contains("eventParticleCap"));
         assertTrue(renderer.contains("remainingParticleBudget"));
+        assertTrue(renderer.contains("ClientVisualEngine.claimPostEffect()"));
+        int thunderBranch = renderer.indexOf(
+                "style == TechniqueVfxPacket.ParticleStyle.THUNDER_ARC");
+        int thunderReturn = renderer.indexOf("return;", thunderBranch);
+        assertTrue(thunderBranch >= 0);
+        assertTrue(thunderReturn > thunderBranch);
+        assertTrue(renderer.substring(thunderBranch, thunderReturn)
+                .contains("ModParticles.THUNDER_ARC"));
         assertTrue(renderer.contains("distanceToSegmentSqr"));
         assertTrue(renderer.contains("COLOR_CACHE"));
         assertTrue(renderer.contains("0.74F"));
@@ -83,7 +95,9 @@ class LodestoneVfxContractTest {
         assertTrue(geometry.contains("position.subtract(camera)"));
         assertTrue(geometry.contains("trail.entity == entity"));
         assertTrue(geometry.contains("projectileTickCursor = (start + Math.max(1, scanned))"));
-        assertTrue(geometry.contains("private void refreshFamily()"));
+        assertTrue(geometry.contains("private void refreshVisualIdentity()"));
+        assertTrue(geometry.contains("getVisualProfileId()"));
+        assertTrue(geometry.contains("textures/effect/beam_soft.png"));
         assertTrue(geometry.contains("ParticleStatus.MINIMAL"));
         assertTrue(read(JAVA_ROOT.resolve(Path.of("client", "LodestoneVfxMath.java")))
                 .contains("distanceToSegmentSqr"));
@@ -125,15 +139,16 @@ class LodestoneVfxContractTest {
     }
 
     @Test
-    void buildDeclaresMandatoryLodestoneAndProtocolTwentyNine() throws Exception {
+    void buildDeclaresMandatoryLodestoneAndProtocolThirty() throws Exception {
         String build = Files.readString(Path.of("build.gradle"));
         String mods = Files.readString(Path.of("src", "main", "resources", "META-INF", "mods.toml"));
         String network = read(JAVA_ROOT.resolve(Path.of("network", "ModNetwork.java")));
         assertTrue(build.contains("maven.modrinth:lodestonelib:${lodestone_version}"));
         assertTrue(mods.contains("modId=\"lodestone\""));
         assertTrue(mods.contains("mandatory=true"));
-        assertTrue(network.contains("PROTOCOL_VERSION = \"29\""));
+        assertTrue(network.contains("PROTOCOL_VERSION = \"30\""));
         assertTrue(network.contains("TechniqueVfxPacket.class"));
+        assertTrue(network.contains("VisualEventPacket.class"));
     }
 
     @Test

@@ -1,7 +1,9 @@
 package com.xunxian.seekingimmortals.combat.status;
 
+import com.xunxian.seekingimmortals.network.VisualEventPacket;
 import com.xunxian.seekingimmortals.network.TechniqueVfxPacket;
 import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
+import com.xunxian.seekingimmortals.visual.VisualEventDispatcher;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
@@ -26,19 +28,19 @@ public final class StatusVfxService {
     private StatusVfxService() {}
 
     public static void emitApplied(LivingEntity entity, SeekingStatusEffect effect, int amplifier) {
-        emit(entity, effect, amplifier, TechniqueVfxPacket.Kind.STATUS, 24, 4, false);
+        emit(entity, effect, amplifier, VisualKind.APPLY, 24, 4, false);
     }
 
     public static void emitPulse(LivingEntity entity, SeekingStatusEffect effect, int amplifier) {
-        emit(entity, effect, amplifier, TechniqueVfxPacket.Kind.STATUS, 10, 2, true);
+        emit(entity, effect, amplifier, VisualKind.PULSE, 10, 2, true);
     }
 
     public static void emitDissipate(LivingEntity entity, SeekingStatusEffect effect, int amplifier) {
-        emit(entity, effect, amplifier, TechniqueVfxPacket.Kind.DISSIPATE, 18, 3, false);
+        emit(entity, effect, amplifier, VisualKind.DISSIPATE, 18, 3, false);
     }
 
     private static void emit(LivingEntity entity, SeekingStatusEffect effect, int amplifier,
-                             TechniqueVfxPacket.Kind kind, int baseIntensity, int intensityPerLevel,
+                             VisualKind kind, int baseIntensity, int intensityPerLevel,
                              boolean throttlePulse) {
         if (entity == null || effect == null || !(entity.level() instanceof ServerLevel level)) {
             return;
@@ -50,7 +52,6 @@ public final class StatusVfxService {
             return;
         }
 
-        VisualProfile profile = profile(statusId, effect.isBeneficial());
         int safeAmplifier = Mth.clamp(amplifier, 0, 8);
         int intensity = baseIntensity + safeAmplifier * intensityPerLevel;
         double radius = Mth.clamp(Math.max(0.65D, entity.getBbWidth() * 0.9D), 0.65D, 2.5D);
@@ -63,8 +64,20 @@ public final class StatusVfxService {
                 ^ ((long) statusId.hashCode() << 17)
                 ^ ((long) kind.ordinal() << 52);
 
-        TechniqueVfxPacket.send(level, kind, profile.family(), profile.motif(),
-                center, top, radius, intensity, seed);
+        VisualEventPacket.Lifecycle lifecycle = switch (kind) {
+            case APPLY -> VisualEventPacket.Lifecycle.START;
+            case PULSE -> VisualEventPacket.Lifecycle.UPDATE;
+            case DISSIPATE -> VisualEventPacket.Lifecycle.STOP;
+        };
+        String trigger = switch (kind) {
+            case APPLY -> "APPLY";
+            case PULSE -> "TICK";
+            case DISSIPATE -> "EXPIRE";
+        };
+        int duration = kind == VisualKind.DISSIPATE ? 1 : (kind == VisualKind.PULSE ? 30 : 45);
+        VisualEventDispatcher.entity(level, "status", statusId, lifecycle, trigger, entity,
+                VisualEventDispatcher.entityKey("status", entity, statusId), duration, 0,
+                radius, intensity, seed, effect.isBeneficial() ? 1 : 2);
     }
 
     private static boolean claimPulse(ServerLevel level, LivingEntity entity, String statusId) {
@@ -187,6 +200,12 @@ public final class StatusVfxService {
     }
 
     private record VisualProfile(TechniqueVfxPalette.Family family, TechniqueVfxPacket.Motif motif) {}
+
+    private enum VisualKind {
+        APPLY,
+        PULSE,
+        DISSIPATE
+    }
 
     private record EmissionKey(String dimensionId, UUID entityId, String statusId) {}
 }

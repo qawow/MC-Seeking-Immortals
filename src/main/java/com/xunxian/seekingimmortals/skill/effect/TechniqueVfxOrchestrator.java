@@ -4,6 +4,9 @@ import com.xunxian.seekingimmortals.cultivation.TechniqueDataManager;
 import com.xunxian.seekingimmortals.network.TechniqueVfxPacket;
 import com.xunxian.seekingimmortals.network.TechniqueVfxPacket.Kind;
 import com.xunxian.seekingimmortals.network.TechniqueVfxPacket.Motif;
+import com.xunxian.seekingimmortals.network.VisualEventPacket;
+import com.xunxian.seekingimmortals.visual.AuthoredVisualCatalog;
+import com.xunxian.seekingimmortals.visual.VisualEventDispatcher;
 import com.xunxian.seekingimmortals.skill.SkillType;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -236,38 +239,57 @@ public final class TechniqueVfxOrchestrator {
                 ? Math.max(0.48D, Math.min(1.25D, plan.radius() * 0.34D))
                 : capturedCast.radius();
         long seed = seed(level, player, technique, skillType, secondary);
-        TechniqueVfxPacket.send(
-                level,
-                Kind.CAST,
-                family(plan, capturedCast),
-                motif(plan, capturedCast),
-                particleStyle(plan, capturedCast),
-                trailStyle(plan, capturedCast),
-                telegraphed(plan, capturedCast),
-                castStart,
-                castEnd,
-                castRadius,
-                plan.castIntensity(),
-                seed);
+        if (useUnifiedProfile(technique)) {
+            VisualEventDispatcher.event(level, "technique", technique.id(), "CAST",
+                    castStart, castEnd, castRadius, plan.castIntensity(), seed,
+                    plan.telegraphed() ? 2 : 1);
+        } else {
+            TechniqueVfxPacket.send(
+                    level,
+                    Kind.CAST,
+                    family(plan, capturedCast),
+                    motif(plan, capturedCast),
+                    particleStyle(plan, capturedCast),
+                    trailStyle(plan, capturedCast),
+                    telegraphed(plan, capturedCast),
+                    castStart,
+                    castEnd,
+                    castRadius,
+                    plan.castIntensity(),
+                    seed);
+        }
 
         Geometry geometry = geometry(player, technique, plan, beforeCast, moved, eyeOffset, look);
         Kind semanticKind = capturedSemantic == null ? plan.kind() : capturedSemantic.kind();
         Vec3 semanticStart = capturedSemantic == null ? geometry.start() : start(capturedSemantic);
         Vec3 semanticEnd = capturedSemantic == null ? geometry.end() : end(capturedSemantic);
         double semanticRadius = capturedSemantic == null ? plan.radius() : capturedSemantic.radius();
-        TechniqueVfxPacket.send(
-                level,
-                semanticKind,
-                family(plan, capturedSemantic),
-                motif(plan, capturedSemantic),
-                particleStyle(plan, capturedSemantic),
-                trailStyle(plan, capturedSemantic),
-                telegraphed(plan, capturedSemantic),
-                semanticStart,
-                semanticEnd,
-                semanticRadius,
-                plan.intensity(),
-                seed ^ 0x6A09E667F3BCC909L);
+        if (useUnifiedProfile(technique)) {
+            VisualEventDispatcher.event(level, "technique", technique.id(), semanticKind.name(),
+                    semanticStart, semanticEnd, semanticRadius, plan.intensity(),
+                    seed ^ 0x6A09E667F3BCC909L, plan.telegraphed() ? 2 : 1);
+        } else {
+            TechniqueVfxPacket.send(
+                    level,
+                    semanticKind,
+                    family(plan, capturedSemantic),
+                    motif(plan, capturedSemantic),
+                    particleStyle(plan, capturedSemantic),
+                    trailStyle(plan, capturedSemantic),
+                    telegraphed(plan, capturedSemantic),
+                    semanticStart,
+                    semanticEnd,
+                    semanticRadius,
+                    plan.intensity(),
+                    seed ^ 0x6A09E667F3BCC909L);
+        }
+    }
+
+    private static boolean useUnifiedProfile(TechniqueDataManager.TechniqueEntry technique) {
+        if (technique == null || technique.id() == null || technique.id().isBlank()) {
+            return false;
+        }
+        return AuthoredVisualCatalog.resolve("technique:" + technique.id()).isPresent();
     }
 
     private static VisualPlan applyOverride(VisualPlan plan, VisualOverride override) {

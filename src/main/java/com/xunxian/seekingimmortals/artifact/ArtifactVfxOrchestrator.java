@@ -3,6 +3,7 @@ package com.xunxian.seekingimmortals.artifact;
 import com.xunxian.seekingimmortals.network.TechniqueVfxPacket;
 import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxOrchestrator;
 import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
+import com.xunxian.seekingimmortals.visual.VisualEventDispatcher;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.phys.Vec3;
@@ -66,8 +67,9 @@ public final class ArtifactVfxOrchestrator {
                 || kind == TechniqueVfxPacket.Kind.PATH
                 || kind == TechniqueVfxPacket.Kind.BEAM
                 || kind == TechniqueVfxPacket.Kind.FORMATION);
-        TechniqueVfxPacket.send(level, kind, family, motif, particle, trail, telegraphed,
-                start, end == null ? start : end, radius, intensity, seed);
+        VisualEventDispatcher.event(level, "artifact", artifactId, kind.name(),
+                start, end == null ? start : end, radius, intensity, seed,
+                telegraphed ? 2 : 1);
     }
 
     public static void emitState(ServerPlayer player, String artifactId, State state) {
@@ -157,7 +159,7 @@ public final class ArtifactVfxOrchestrator {
                                           double radius,
                                           int intensity,
                                           long seed) {
-        TechniqueVfxPacket.send(level, kind, family, motif, profile.particle(), profile.trail(),
-                false, start, end, radius, intensity, seed);
+        VisualEventDispatcher.event(level, "artifact", profile.id(), kind.name(),
+                start, end, radius, intensity, seed, kind == TechniqueVfxPacket.Kind.DISSIPATE ? 2 : 1);
     }
 }

@@ -6,6 +6,7 @@ import com.xunxian.seekingimmortals.skill.effect.TechniqueLifecycleVfxService;
 import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -32,9 +33,22 @@ import net.minecraftforge.network.NetworkHooks;
 import org.joml.Vector3f;
 
 import java.util.List;
+import java.util.Locale;
 
 public class CultivationFireballEntity extends Projectile {
     private static final EntityDataAccessor<Integer> DATA_ELEMENT = SynchedEntityData.defineId(CultivationFireballEntity.class, EntityDataSerializers.INT);
+    private static final String DEFAULT_VISUAL_PROFILE = "technique:fireball";
+    private static final String TAG_VISUAL_PROFILE = "VisualProfile";
+    private static final String TAG_VISUAL_FAMILY = "VisualFamily";
+    private static final String TAG_VISUAL_FAMILY_NAME = "VisualFamilyName";
+    private static final String TAG_VISUAL_TRAIL = "VisualTrail";
+    private static final String TAG_VISUAL_TRAIL_NAME = "VisualTrailName";
+    private static final EntityDataAccessor<String> DATA_VISUAL_PROFILE_ID =
+            SynchedEntityData.defineId(CultivationFireballEntity.class, EntityDataSerializers.STRING);
+    private static final EntityDataAccessor<Integer> DATA_VISUAL_FAMILY =
+            SynchedEntityData.defineId(CultivationFireballEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> DATA_VISUAL_TRAIL =
+            SynchedEntityData.defineId(CultivationFireballEntity.class, EntityDataSerializers.INT);
     private static final double SPEED = 1.15D;
     private static final int MAX_LIFE = 80;
 
@@ -60,11 +74,21 @@ public class CultivationFireballEntity extends Projectile {
     }
 
     public CultivationFireballEntity(Level level, LivingEntity owner, Vec3 direction, double damage, double speed, SpellElement element) {
+        this(level, owner, direction, damage, speed, element,
+                defaultVisualProfile(element), defaultVisualFamily(element),
+                TechniqueVfxPacket.TrailStyle.SWORD_THIN);
+    }
+
+    public CultivationFireballEntity(Level level, LivingEntity owner, Vec3 direction, double damage,
+                                     double speed, SpellElement element, String visualProfileId,
+                                     TechniqueVfxPalette.Family visualFamily,
+                                     TechniqueVfxPacket.TrailStyle visualTrailStyle) {
         this(ModEntities.CULTIVATION_FIREBALL.get(), level);
         Vec3 normalized = direction.normalize();
         setOwner(owner);
         this.damage = damage;
         setElement(element);
+        setVisualIdentity(visualProfileId, visualFamily, visualTrailStyle);
         setPos(owner.getEyePosition().add(normalized.scale(0.8D)));
         setDeltaMovement(normalized.scale(speed));
     }
@@ -72,6 +96,9 @@ public class CultivationFireballEntity extends Projectile {
     @Override
     protected void defineSynchedData() {
         entityData.define(DATA_ELEMENT, SpellElement.FIRE.id);
+        entityData.define(DATA_VISUAL_PROFILE_ID, DEFAULT_VISUAL_PROFILE);
+        entityData.define(DATA_VISUAL_FAMILY, TechniqueVfxPalette.Family.FIRE.ordinal());
+        entityData.define(DATA_VISUAL_TRAIL, TechniqueVfxPacket.TrailStyle.SWORD_THIN.ordinal());
     }
 
     @Override
@@ -148,11 +175,10 @@ public class CultivationFireballEntity extends Projectile {
             serverLevel.sendParticles(element.spark(0.75F),
                     position.x, position.y, position.z,
                     Math.max(6, element.impactParticles / 2), 0.28D, 0.22D, 0.28D, 0.02D);
-            TechniqueVfxPalette.Family family = TechniqueVfxPalette.familyOf(element.name());
             terminalVfxSent = true;
             TechniqueLifecycleVfxService.projectileImpact(
                     serverLevel,
-                    family,
+                    getVisualFamily(),
                     TechniqueVfxPacket.Motif.PROJECTILE,
                     position,
                     Math.max(0.8D, element.splashRadius),
@@ -171,7 +197,7 @@ public class CultivationFireballEntity extends Projectile {
         SpellElement element = getElement();
         TechniqueLifecycleVfxService.projectileDissipate(
                 serverLevel,
-                TechniqueVfxPalette.familyOf(element.name()),
+                getVisualFamily(),
                 TechniqueVfxPacket.Motif.PROJECTILE,
                 position(),
                 Math.max(0.7D, element.splashRadius * 0.65D),
@@ -194,6 +220,74 @@ public class CultivationFireballEntity extends Projectile {
         entityData.set(DATA_ELEMENT, element == null ? SpellElement.FIRE.id : element.id);
     }
 
+    public void setVisualIdentity(String visualProfileId,
+                                  TechniqueVfxPalette.Family family,
+                                  TechniqueVfxPacket.TrailStyle trailStyle) {
+        setVisualProfileId(visualProfileId);
+        setVisualFamily(family);
+        setVisualTrailStyle(trailStyle);
+    }
+
+    public String getVisualProfileId() {
+        return SyncedVisualIdentity.qualified(
+                "technique", entityData.get(DATA_VISUAL_PROFILE_ID), defaultVisualProfile(getElement()));
+    }
+
+    public String visualProfileId() {
+        return getVisualProfileId();
+    }
+
+    public String rawVisualProfileId() {
+        return SyncedVisualIdentity.rawId(getVisualProfileId());
+    }
+
+    public void setVisualProfileId(String visualProfileId) {
+        entityData.set(DATA_VISUAL_PROFILE_ID,
+                SyncedVisualIdentity.qualified("technique", visualProfileId,
+                        defaultVisualProfile(getElement())));
+    }
+
+    public TechniqueVfxPalette.Family getVisualFamily() {
+        return SyncedVisualIdentity.byOrdinal(
+                TechniqueVfxPalette.Family.values(), entityData.get(DATA_VISUAL_FAMILY),
+                defaultVisualFamily(getElement()));
+    }
+
+    public TechniqueVfxPalette.Family visualFamily() {
+        return getVisualFamily();
+    }
+
+    public void setVisualFamily(TechniqueVfxPalette.Family family) {
+        TechniqueVfxPalette.Family safeFamily = family == null
+                ? defaultVisualFamily(getElement()) : family;
+        entityData.set(DATA_VISUAL_FAMILY, safeFamily.ordinal());
+    }
+
+    public TechniqueVfxPacket.TrailStyle getVisualTrailStyle() {
+        return SyncedVisualIdentity.byOrdinal(
+                TechniqueVfxPacket.TrailStyle.values(), entityData.get(DATA_VISUAL_TRAIL),
+                TechniqueVfxPacket.TrailStyle.SWORD_THIN);
+    }
+
+    public TechniqueVfxPacket.TrailStyle visualTrailStyle() {
+        return getVisualTrailStyle();
+    }
+
+    public void setVisualTrailStyle(TechniqueVfxPacket.TrailStyle trailStyle) {
+        TechniqueVfxPacket.TrailStyle safeTrail = trailStyle == null
+                ? TechniqueVfxPacket.TrailStyle.SWORD_THIN : trailStyle;
+        entityData.set(DATA_VISUAL_TRAIL, safeTrail.ordinal());
+    }
+
+    public static String defaultVisualProfile(SpellElement element) {
+        return element == SpellElement.ICE_SPEAR ? "technique:ice_spear" : DEFAULT_VISUAL_PROFILE;
+    }
+
+    public static TechniqueVfxPalette.Family defaultVisualFamily(SpellElement element) {
+        SpellElement safeElement = element == null ? SpellElement.FIRE : element;
+        return TechniqueVfxPalette.familyOf(safeElement.name().toLowerCase(Locale.ROOT));
+    }
+
     @Override
     protected void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
@@ -203,7 +297,40 @@ public class CultivationFireballEntity extends Projectile {
         if (tag.contains("Element")) {
             setElement(SpellElement.byId(tag.getInt("Element")));
         }
-        life = tag.getInt("Life");
+        setVisualIdentity(defaultVisualProfile(getElement()), defaultVisualFamily(getElement()),
+                TechniqueVfxPacket.TrailStyle.SWORD_THIN);
+        if (tag.contains("Life", Tag.TAG_INT)) {
+            life = Math.max(0, tag.getInt("Life"));
+        }
+        if (tag.contains(TAG_VISUAL_PROFILE, Tag.TAG_STRING)) {
+            setVisualProfileId(tag.getString(TAG_VISUAL_PROFILE));
+        }
+        if (tag.contains(TAG_VISUAL_FAMILY, Tag.TAG_INT)) {
+            setVisualFamily(SyncedVisualIdentity.byOrdinal(
+                    TechniqueVfxPalette.Family.values(), tag.getInt(TAG_VISUAL_FAMILY),
+                    defaultVisualFamily(getElement())));
+        } else if (tag.contains(TAG_VISUAL_FAMILY, Tag.TAG_STRING)) {
+            setVisualFamily(SyncedVisualIdentity.byName(
+                    TechniqueVfxPalette.Family.class, tag.getString(TAG_VISUAL_FAMILY),
+                    defaultVisualFamily(getElement())));
+        } else if (tag.contains(TAG_VISUAL_FAMILY_NAME, Tag.TAG_STRING)) {
+            setVisualFamily(SyncedVisualIdentity.byName(
+                    TechniqueVfxPalette.Family.class, tag.getString(TAG_VISUAL_FAMILY_NAME),
+                    defaultVisualFamily(getElement())));
+        }
+        if (tag.contains(TAG_VISUAL_TRAIL, Tag.TAG_INT)) {
+            setVisualTrailStyle(SyncedVisualIdentity.byOrdinal(
+                    TechniqueVfxPacket.TrailStyle.values(), tag.getInt(TAG_VISUAL_TRAIL),
+                    TechniqueVfxPacket.TrailStyle.SWORD_THIN));
+        } else if (tag.contains(TAG_VISUAL_TRAIL, Tag.TAG_STRING)) {
+            setVisualTrailStyle(SyncedVisualIdentity.byName(
+                    TechniqueVfxPacket.TrailStyle.class, tag.getString(TAG_VISUAL_TRAIL),
+                    TechniqueVfxPacket.TrailStyle.SWORD_THIN));
+        } else if (tag.contains(TAG_VISUAL_TRAIL_NAME, Tag.TAG_STRING)) {
+            setVisualTrailStyle(SyncedVisualIdentity.byName(
+                    TechniqueVfxPacket.TrailStyle.class, tag.getString(TAG_VISUAL_TRAIL_NAME),
+                    TechniqueVfxPacket.TrailStyle.SWORD_THIN));
+        }
     }
 
     @Override
@@ -212,6 +339,11 @@ public class CultivationFireballEntity extends Projectile {
         tag.putDouble("Damage", damage);
         tag.putInt("Element", getElement().id);
         tag.putInt("Life", life);
+        tag.putString(TAG_VISUAL_PROFILE, getVisualProfileId());
+        tag.putInt(TAG_VISUAL_FAMILY, getVisualFamily().ordinal());
+        tag.putString(TAG_VISUAL_FAMILY_NAME, getVisualFamily().name());
+        tag.putInt(TAG_VISUAL_TRAIL, getVisualTrailStyle().ordinal());
+        tag.putString(TAG_VISUAL_TRAIL_NAME, getVisualTrailStyle().name());
     }
 
     @Override

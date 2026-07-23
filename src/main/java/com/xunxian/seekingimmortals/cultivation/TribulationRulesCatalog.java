@@ -50,6 +50,10 @@ public final class TribulationRulesCatalog {
             if (realm == Realm.CORE_FORMATION) {
                 return Optional.ofNullable(byId.get("minor_soul_trial"));
             }
+            // 真仙突破完成飞升，沿用渡劫期的飞升仙劫作者档案。
+            if (realm == Realm.TRUE_IMMORTAL) {
+                return Optional.ofNullable(byId.get("final_ascension"));
+            }
             return Optional.empty();
         }
 

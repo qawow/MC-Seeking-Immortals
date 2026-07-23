@@ -11,6 +11,7 @@ import com.xunxian.seekingimmortals.network.SyncSectDataPacket;
 import com.xunxian.seekingimmortals.network.SyncShopDataPacket;
 import com.xunxian.seekingimmortals.network.SyncWorldpackDataPacket;
 import com.xunxian.seekingimmortals.network.TechniqueVfxPacket;
+import com.xunxian.seekingimmortals.network.VisualEventPacket;
 import net.minecraft.client.Minecraft;
 
 import java.util.Locale;
@@ -165,5 +166,9 @@ public final class ClientPacketHandlers {
 
     public static void handleTechniqueVfx(TechniqueVfxPacket packet) {
         LodestoneTechniqueVfx.handle(packet);
+    }
+
+    public static void handleVisualEvent(VisualEventPacket packet) {
+        ClientVisualEngine.handle(packet);
     }
 }

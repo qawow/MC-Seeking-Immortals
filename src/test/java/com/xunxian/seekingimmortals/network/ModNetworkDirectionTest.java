@@ -114,6 +114,7 @@ class ModNetworkDirectionTest {
         S2C_SYNCS.forEach(packet -> expected.put(packet, Direction.PLAY_TO_CLIENT));
         S2C_SCREEN_OPENS.forEach(packet -> expected.put(packet, Direction.PLAY_TO_CLIENT));
         expected.put("TechniqueVfxPacket", Direction.PLAY_TO_CLIENT);
+        expected.put("VisualEventPacket", Direction.PLAY_TO_CLIENT);
         return expected;
     }
 

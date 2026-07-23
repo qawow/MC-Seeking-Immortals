@@ -7,8 +7,8 @@ import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 
 public final class ModNetwork {
-    // 0.2.150: add authored particle-system and trail-style fields to VFX intents.
-    private static final String PROTOCOL_VERSION = "29";
+    // 0.2.159: append lifecycle visual instances after the existing VFX intent.
+    private static final String PROTOCOL_VERSION = "30";
 
     public static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
             new ResourceLocation(SeekingImmortalsMod.MODID, "main"),
@@ -192,6 +192,12 @@ public final class ModNetwork {
                 .encoder(TechniqueVfxPacket::encode)
                 .decoder(TechniqueVfxPacket::decode)
                 .consumerMainThread(TechniqueVfxPacket::handle)
+                .add();
+        // Lifecycle transport is appended so every pre-existing packet id remains stable.
+        CHANNEL.messageBuilder(VisualEventPacket.class, id++, NetworkDirection.PLAY_TO_CLIENT)
+                .encoder(VisualEventPacket::encode)
+                .decoder(VisualEventPacket::decode)
+                .consumerMainThread(VisualEventPacket::handle)
                 .add();
     }
 }

@@ -145,6 +145,13 @@ public final class ClientEvents {
         @SubscribeEvent
         public static void onRenderGuiOverlayPre(RenderGuiOverlayEvent.Pre event) {
             Minecraft minecraft = Minecraft.getInstance();
+            if (event.getOverlay().id().equals(VanillaGuiOverlay.POTION_ICONS.id())
+                    && minecraft.gui instanceof ForgeGui forgeGui) {
+                event.setCanceled(true);
+                AuthoredStatusOverlay.render(forgeGui, event.getGuiGraphics(), event.getPartialTick(),
+                        minecraft.getWindow().getGuiScaledWidth(), minecraft.getWindow().getGuiScaledHeight());
+                return;
+            }
             if (event.getOverlay().id().equals(VanillaGuiOverlay.PLAYER_HEALTH.id())
                     && minecraft.gui instanceof ForgeGui forgeGui
                     && CultivationHealthOverlay.shouldReplaceVanillaPlayerHealth(forgeGui)) {
@@ -217,6 +224,7 @@ public final class ClientEvents {
         @SubscribeEvent
         public static void onClientTick(TickEvent.ClientTickEvent event) {
             if (event.phase == TickEvent.Phase.END) {
+                ClientVisualEngine.tick();
                 LodestoneTechniqueVfx.tickProjectiles();
                 MultiblockProjectionRenderer.tick();
             }
@@ -268,6 +276,7 @@ public final class ClientEvents {
         @SubscribeEvent
         public static void onRenderLevelStage(RenderLevelStageEvent event) {
             if (event.getStage() == RenderLevelStageEvent.Stage.AFTER_PARTICLES) {
+                ClientVisualEngine.render(event);
                 LodestoneTechniqueVfx.renderWorldGeometry(event);
                 MultiblockProjectionRenderer.render(event);
             }
@@ -285,6 +294,7 @@ public final class ClientEvents {
             ClientQuestTrackerData.reset();
             ClientAuctionLadderData.reset();
             ClientLoreData.reset();
+            ClientVisualEngine.reset();
             LodestoneTechniqueVfx.reset();
             MultiblockProjectionRenderer.reset();
         }

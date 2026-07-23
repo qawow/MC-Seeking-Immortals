@@ -3,6 +3,7 @@ package com.xunxian.seekingimmortals.item;
 import com.xunxian.seekingimmortals.item.pill.PillQuality;
 import com.xunxian.seekingimmortals.item.pill.PillType;
 import com.xunxian.seekingimmortals.network.TechniqueVfxPacket;
+import com.xunxian.seekingimmortals.visual.VisualEventDispatcher;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.phys.Vec3;
@@ -30,7 +31,7 @@ public final class ConsumableVfxOrchestrator {
             return;
         }
         AuthoredConsumableVfxCatalog.findPill(visualPillId(pillId))
-                .ifPresent(profile -> emit(player, profile, qualityScale(quality)));
+                .ifPresent(profile -> emit(player, "pill", profile, qualityScale(quality)));
     }
 
     /** Resolves runtime-only catalog ids to the closest authored visual profile. */
@@ -55,7 +56,7 @@ public final class ConsumableVfxOrchestrator {
             return;
         }
         AuthoredConsumableVfxCatalog.findConsumable(catalogId)
-                .ifPresent(profile -> emit(player, profile, 1.0D));
+                .ifPresent(profile -> emit(player, "consumable", profile, 1.0D));
     }
 
     public static String legacyPillId(PillType type) {
@@ -92,6 +93,7 @@ public final class ConsumableVfxOrchestrator {
     }
 
     private static void emit(ServerPlayer player,
+                             String domain,
                              AuthoredConsumableVfxCatalog.Profile profile,
                              double scale) {
         if (profile == null || profile.storageLike()) {
@@ -114,9 +116,8 @@ public final class ConsumableVfxOrchestrator {
         TechniqueVfxPacket.Kind kind = profile.vfxKind();
         Vec3 castStart = eye.add(look.scale(0.35D));
         Vec3 castEnd = castStart.add(look.scale(kind == TechniqueVfxPacket.Kind.CAST ? 1.55D : 0.8D));
-        TechniqueVfxPacket.send(level, TechniqueVfxPacket.Kind.CAST, profile.family(), profile.motif(),
-                profile.particle(), profile.trail(), false, castStart, castEnd,
-                Math.max(0.35D, radius * 0.42D), Math.max(8, intensity / 2), seed);
+        VisualEventDispatcher.event(level, domain, profile.id(), "CAST", castStart, castEnd,
+                Math.max(0.35D, radius * 0.42D), Math.max(8, intensity / 2), seed, 1);
 
         if (kind == TechniqueVfxPacket.Kind.CAST) {
             return;
@@ -126,9 +127,9 @@ public final class ConsumableVfxOrchestrator {
             case AURA, STATUS, DISSIPATE -> center.add(0.0D, player.getBbHeight(), 0.0D);
             case BURST, IMPACT, FORMATION, SCAN, CAST -> center;
         };
-        TechniqueVfxPacket.send(level, kind, profile.family(), profile.motif(), profile.particle(),
-                profile.trail(), profile.telegraphed(), center, semanticEnd, radius, intensity,
-                seed ^ 0x9E3779B97F4A7C15L);
+        VisualEventDispatcher.event(level, domain, profile.id(), kind.name(), center, semanticEnd,
+                radius, intensity, seed ^ 0x9E3779B97F4A7C15L,
+                profile.telegraphed() ? 2 : 1);
     }
 
     private static double qualityScale(PillQuality quality) {

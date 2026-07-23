@@ -2,9 +2,12 @@ package com.xunxian.seekingimmortals.cultivation;
 
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
 import com.xunxian.seekingimmortals.network.TechniqueVfxPacket;
+import com.xunxian.seekingimmortals.network.VisualEventPacket;
 import com.xunxian.seekingimmortals.item.CatalogConsumableService;
 import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
 import com.xunxian.seekingimmortals.spiritual.SpiritualAuraManager;
+import com.xunxian.seekingimmortals.visual.AuthoredVisualCatalog;
+import com.xunxian.seekingimmortals.visual.VisualEventDispatcher;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
@@ -82,7 +85,7 @@ public final class TribulationService {
             SyncCultivationDataPacket.send(player, cultivation);
             return;
         }
-        emitStrikeImpact(player, strikeVfx, strikeNumber);
+        emitStrikeImpact(player, targetRealm, strikeVfx, strikeNumber);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.tribulation.strike",
                 strikeNumber,
                 totalStrikes,
@@ -248,15 +251,10 @@ public final class TribulationService {
         StrikeVfx strikeVfx = strikeVfx(player, targetRealm, strikeNumber, totalStrikes);
         Vec3 impact = strikeVfx.impact();
         Vec3 cloud = impact.add(0.0D, 10.0D + Math.min(8.0D, strikeNumber * 0.35D), 0.0D);
-        TechniqueVfxPacket.send(level,
-                TechniqueVfxPacket.Kind.BEAM,
-                TechniqueVfxPalette.Family.THUNDER,
-                TechniqueVfxPacket.Motif.RAIN,
-                cloud,
-                impact,
+        emitTribulationVfx(level, targetRealm, TechniqueVfxPacket.Kind.BEAM,
+                TechniqueVfxPacket.Motif.RAIN, cloud, impact,
                 0.8D + Math.min(1.0D, strikeNumber * 0.04D),
-                Math.min(88, 48 + strikeNumber * 2),
-                strikeVfx.seed());
+                Math.min(88, 48 + strikeNumber * 2), strikeVfx.seed(), 2);
     }
 
     private static StrikeVfx strikeVfx(ServerPlayer player, Realm targetRealm,
@@ -270,7 +268,8 @@ public final class TribulationService {
         return new StrikeVfx(impact, seed);
     }
 
-    private static void emitStrikeImpact(ServerPlayer player, StrikeVfx strikeVfx, int strikeNumber) {
+    private static void emitStrikeImpact(ServerPlayer player, Realm targetRealm,
+                                         StrikeVfx strikeVfx, int strikeNumber) {
         ServerLevel level = player.serverLevel();
         Vec3 impact = strikeVfx.impact();
         BlockPos pos = BlockPos.containing(impact);
@@ -286,54 +285,74 @@ public final class TribulationService {
                 48, 0.6D, 0.9D, 0.6D, 0.08D);
         level.playSound(null, pos, SoundEvents.LIGHTNING_BOLT_THUNDER, SoundSource.WEATHER, 1.2F, 0.9F);
         level.playSound(null, pos, SoundEvents.LIGHTNING_BOLT_IMPACT, SoundSource.WEATHER, 0.9F, 1.1F);
-        TechniqueVfxPacket.send(level,
-                TechniqueVfxPacket.Kind.IMPACT,
-                TechniqueVfxPalette.Family.THUNDER,
-                TechniqueVfxPacket.Motif.RAIN,
-                impact,
-                impact,
+        emitTribulationVfx(level, targetRealm, TechniqueVfxPacket.Kind.IMPACT,
+                TechniqueVfxPacket.Motif.RAIN, impact, impact,
                 1.2D + Math.min(2.2D, strikeNumber * 0.08D),
                 Math.min(96, 58 + strikeNumber * 2),
-                strikeVfx.seed() ^ 0x6a09e667f3bcc909L);
+                strikeVfx.seed() ^ 0x6a09e667f3bcc909L, 2);
     }
 
     private static void emitTribulationStartVfx(ServerPlayer player, Realm targetRealm, int strikeCount) {
         ServerLevel level = player.serverLevel();
         Vec3 center = player.position().add(0.0D, 0.12D, 0.0D);
         double radius = 4.0D + Math.min(6.0D, Math.max(1, strikeCount) * 0.18D);
-        TechniqueVfxPacket.send(level,
-                TechniqueVfxPacket.Kind.FORMATION,
-                TechniqueVfxPalette.Family.THUNDER,
-                TechniqueVfxPacket.Motif.DOMAIN,
-                center,
-                center,
-                radius,
+        emitTribulationVfx(level, targetRealm, TechniqueVfxPacket.Kind.FORMATION,
+                TechniqueVfxPacket.Motif.DOMAIN, center, center, radius,
                 Math.min(96, 54 + Math.max(1, strikeCount)),
-                tribulationSeed(player, targetRealm, 0));
+                tribulationSeed(player, targetRealm, 0), 2);
     }
 
     private static void emitTribulationEndVfx(ServerPlayer player, Realm targetRealm, boolean success) {
         ServerLevel level = player.serverLevel();
         Vec3 center = player.position().add(0.0D, Math.max(0.3D, player.getBbHeight() * 0.4D), 0.0D);
         long seed = tribulationSeed(player, targetRealm, success ? 0x51 : 0x7f);
-        TechniqueVfxPacket.send(level,
+        emitTribulationVfx(level, targetRealm,
                 success ? TechniqueVfxPacket.Kind.BURST : TechniqueVfxPacket.Kind.IMPACT,
-                TechniqueVfxPalette.Family.THUNDER,
-                TechniqueVfxPacket.Motif.DOMAIN,
-                center,
-                center,
-                success ? 3.2D : 2.2D,
-                success ? 72 : 52,
-                seed);
-        TechniqueVfxPacket.send(level,
-                TechniqueVfxPacket.Kind.DISSIPATE,
-                TechniqueVfxPalette.Family.THUNDER,
-                TechniqueVfxPacket.Motif.DOMAIN,
-                center,
-                center,
-                success ? 4.0D : 2.8D,
-                success ? 48 : 64,
+                TechniqueVfxPacket.Motif.DOMAIN, center, center,
+                success ? 3.2D : 2.2D, success ? 72 : 52, seed, 2);
+        emitTribulationStopVfx(player, targetRealm, success, center,
+                success ? 4.0D : 2.8D, success ? 48 : 64,
                 seed ^ 0x6a09e667f3bcc909L);
+    }
+
+    private static void emitTribulationStopVfx(ServerPlayer player, Realm targetRealm, boolean success,
+                                               Vec3 center, double radius, int intensity, long seed) {
+        ServerLevel level = player.serverLevel();
+        String profileId = tribulationProfileId(targetRealm);
+        if (profileId != null && AuthoredVisualCatalog.resolve("tribulation:" + profileId).isPresent()) {
+            VisualEventDispatcher.entity(level, "tribulation", profileId,
+                    VisualEventPacket.Lifecycle.STOP, success ? "SUCCESS" : "FAILURE", player,
+                    VisualEventDispatcher.entityKey("tribulation", player, profileId),
+                    1, 0, radius, intensity, seed, 1);
+            return;
+        }
+        TechniqueVfxPacket.send(level, TechniqueVfxPacket.Kind.DISSIPATE,
+                TechniqueVfxPalette.Family.THUNDER, TechniqueVfxPacket.Motif.DOMAIN,
+                center, center, radius, intensity, seed);
+    }
+
+    /** Uses the typed tribulation profile when present, retaining the old packet as a bounded fallback. */
+    private static void emitTribulationVfx(ServerLevel level, Realm targetRealm,
+                                           TechniqueVfxPacket.Kind kind,
+                                           TechniqueVfxPacket.Motif motif,
+                                           Vec3 start, Vec3 end, double radius, int intensity,
+                                           long seed, int priority) {
+        String profileId = tribulationProfileId(targetRealm);
+        if (profileId != null && AuthoredVisualCatalog.resolve("tribulation:" + profileId).isPresent()) {
+            VisualEventDispatcher.event(level, "tribulation", profileId, kind.name(),
+                    start, end, radius, intensity, seed, priority);
+            return;
+        }
+        TechniqueVfxPacket.send(level, kind, TechniqueVfxPalette.Family.THUNDER, motif,
+                start, end, radius, intensity, seed);
+    }
+
+    private static String tribulationProfileId(Realm targetRealm) {
+        if (targetRealm == null) {
+            return null;
+        }
+        return TribulationRulesCatalog.builtin().forRealm(targetRealm)
+                .map(TribulationRulesCatalog.Rule::id).orElse(null);
     }
 
     private static long tribulationSeed(ServerPlayer player, Realm targetRealm, int phase) {

@@ -1,3 +1,21 @@
+## 575. 2026-07-23 0.2.162 全域作者视觉生命周期收口
+
+  Step   Status   Notes
+  ---   ---   ---
+  Unified catalog   Done   schema 3 确定性目录覆盖 17 域 3,779 个 profile、18,395 个 timeline event、80 个域内 alias 与 29 份源哈希；family/motif、particle/trail、palette、state 与 timeline 均通过类型和边界校验。
+  Crosswalk/provenance   Done   Realm v118/v120 双层来源和 status v119 的 12 张真实样式卡显式合并；22 个状态映射真实 `fx_*` 来源，`light_spirit_border` 因无运行时 realm id 明确保留在 `unmapped_visuals`。
+  Assets/render bridge   Done   注册 12 种模组自有 Lodestone 粒子，生成 12 张粒子、8 张拖尾、1 张 beam 与 22 张状态图标；精确 ARGB、作者粒子/拖尾、半径、强度和动作进入客户端 Lodestone/世界几何渲染。
+  Lifecycle transport   Done   追加仅 S2C 的有界 `VisualEventPacket`，支持 WORLD/ENTITY/BLOCK 锚点与 START/UPDATE/STOP/SNAPSHOT/EVENT；旧包 id 保持顺序，客户端最多跟踪 256 个实例、显示 96 个，并按粒子档共享 192/112/48 粒子与 48/24/10 几何预算。
+  Timeline runtime   Done   `VisualTimelinePlan` 按 packet state 优先、typed trigger 次之选择作者窗口，重基准 start/duration；持续状态循环且 UPDATE 年龄回退会重置发射记录，一次性 EVENT 进入有限本地实例而非只播放 tick 0。Boss P1/P2/P3、阵法 ACTIVE、状态 APPLY、渡劫 WAVE 与术法完整 storyboard 均有定向断言。
+  Domain wiring   Done   术法、法宝、丹药/消耗品、状态、阵法、多方块、投射物、Boss、灵兽、NPC、载具、秘境/区域、危害与渡劫接入统一 profile；投射物/阵心同步视觉身份，纯视觉读取不再写物品 NBT。
+  Lifecycle hardening   Done   世界切换清空旧实例；ENTITY 一次性/STOP 可回退包坐标；死亡先 STOP 后 DEATH 且离场不重复 STOP；方块事件只对作者 profile 发送并限制每维每 tick 32 包；危害使用 80 tick 租约/40 tick 刷新并隔离实例键；灵舟每 40 tick 续租。
+  Tribulation closure   Done   `TRUE_IMMORTAL` 映射 `final_ascension`，CORE_FORMATION 至 TRUE_IMMORTAL 八个目标境界均解析作者渡劫 profile；成功/失败显式 STOP 同一持续实例。
+  Focused verification   Done   三套生成器 `--check` 通过；目录 5 项及 timeline/客户端生命周期/死亡去重/渡劫 15 项定向测试通过，compileJava 成功。
+  Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1` 在 1 分 19 秒内成功；236 个测试套件共 1,116 项，failure/error/skipped 均为 0，`aiPreflight` 记录 `0.2.162`。
+  Version/protocol   Done   当前批次从工作树 `0.2.161` 升至 `mod_version=0.2.162`；因追加 S2C 生命周期包改变频道消息表，`ModNetwork.PROTOCOL_VERSION` 从 `29` 升至 `30`。
+  Backup   Done   主备份 `.bak/20260723_141500_full_visual_rebuild/`；目录/运行时复核见 `.bak/20260723_194500_visual_catalog_enum_closure/`、`.bak/20260723_195000_visual_crosswalk/`、`.bak/20260723_200000_visual_runtime_hardening/`、`.bak/20260723_tribulation_visual_closure/`、`.bak/20260723_203000_visual_leave_dedupe/`、`.bak/20260723_204000_timeline_review/`、`.bak/20260723_204500_visual_alias_count/`。
+  Live QA/follow-up   Pending   仍需客户端实机验证多人密集、低粒子档、透明排序、跨维切换、长时续租、Boss/阵法/渡劫阶段；SCREEN_OVERLAY/MODEL_ANIMATION 当前安全投影为 SCAN/STATUS，旧异常 NBT `spirit_boat` 默认 id 无专用 vehicle profile。
+
 ## 574. 2026-07-23 0.2.158 每日事件运行时语义
 
   Step   Status   Notes

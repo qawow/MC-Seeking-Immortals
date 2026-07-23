@@ -129,8 +129,11 @@ class FormationFieldServiceTest {
         assertTrue(source.contains("ArrayDeque<VfxEmission> pulsePending"));
         assertTrue(source.contains("pendingCount() >= MAX_PENDING_VFX_PER_DIMENSION"));
         assertTrue(source.contains("budget.sentThisTick < MAX_VFX_PACKETS_PER_DIMENSION_TICK"));
+        assertTrue(source.contains("String formationId"));
+        assertTrue(source.contains("AuthoredVisualCatalog.resolve(\"formation:\" + formationId)"));
+        assertTrue(source.contains("VisualEventDispatcher.event(level, \"formation\", formationId"));
         assertEquals(1, occurrences(source, "TechniqueVfxPacket.send("),
-                "formation packets must only leave through the shared budgeted sender");
+                "unknown formation profiles must retain one bounded legacy fallback sender");
 
         int flush = source.indexOf("flushPendingVfx(level);");
         int emptyReturn = source.indexOf("if (ACTIVE.isEmpty())", flush);

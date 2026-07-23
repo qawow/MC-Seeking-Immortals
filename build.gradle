@@ -125,6 +125,39 @@ tasks.named('check') {
     dependsOn tasks.named('authoredConsumableVfxCheck')
 }
 
+tasks.register('authoredVisualCatalogCheck', Exec) {
+    group = 'verification'
+    description = 'Checks that the unified authored visual catalog matches its source projections.'
+    executable 'python3'
+    args '-B', file('scripts/generate_authored_visual_catalog.py').absolutePath, '--check'
+}
+
+tasks.named('check') {
+    dependsOn tasks.named('authoredVisualCatalogCheck')
+}
+
+tasks.register('visualEffectTexturesCheck', Exec) {
+    group = 'verification'
+    description = 'Checks that generated particle, trail, and beam textures are current.'
+    executable 'python3'
+    args '-B', file('scripts/generate_visual_effect_textures.py').absolutePath, '--check'
+}
+
+tasks.named('check') {
+    dependsOn tasks.named('visualEffectTexturesCheck')
+}
+
+tasks.register('statusEffectTexturesCheck', Exec) {
+    group = 'verification'
+    description = 'Checks that generated status-effect textures are current.'
+    executable 'python3'
+    args '-B', file('scripts/generate_status_effect_textures.py').absolutePath, '--check'
+}
+
+tasks.named('check') {
+    dependsOn tasks.named('statusEffectTexturesCheck')
+}
+
 tasks.register('aiPreflight', Exec) {
     group = 'verification'
     description = 'Checks AI workflow gates before building.'

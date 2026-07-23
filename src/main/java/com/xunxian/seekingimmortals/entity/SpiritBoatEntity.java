@@ -1,9 +1,17 @@
 package com.xunxian.seekingimmortals.entity;
 
 import com.xunxian.seekingimmortals.registry.ModEntities;
+import com.xunxian.seekingimmortals.network.VisualEventPacket;
+import com.xunxian.seekingimmortals.visual.AuthoredVisualCatalog;
+import com.xunxian.seekingimmortals.visual.VisualEventDispatcher;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
@@ -25,8 +33,10 @@ import software.bernie.geckolib.util.GeckoLibUtil;
  * Rideable spirit boat / cloud vehicle (Wave49 vehicle depth).
  */
 public class SpiritBoatEntity extends Entity implements GeoEntity {
+    private static final String DEFAULT_VEHICLE_ID = "spirit_boat";
+    private static final EntityDataAccessor<String> DATA_VEHICLE_ID =
+            SynchedEntityData.defineId(SpiritBoatEntity.class, EntityDataSerializers.STRING);
     private int lifeTicks = 20 * 90;
-    private String vehicleId = "spirit_boat";
     private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
 
     public SpiritBoatEntity(EntityType<? extends SpiritBoatEntity> type, Level level) {
@@ -40,7 +50,7 @@ public class SpiritBoatEntity extends Entity implements GeoEntity {
     }
 
     public void configure(String vehicleId, int lifeTicks) {
-        this.vehicleId = vehicleId == null || vehicleId.isBlank() ? "spirit_boat" : vehicleId;
+        setVehicleId(vehicleId);
         this.lifeTicks = Math.max(20 * 20, lifeTicks);
     }
 
@@ -54,12 +64,21 @@ public class SpiritBoatEntity extends Entity implements GeoEntity {
                 discard();
                 return;
             }
+            if (tickCount % 40 == 0 && level() instanceof ServerLevel serverLevel
+                    && AuthoredVisualCatalog.resolve("vehicle:" + vehicleId()).isPresent()) {
+                VisualEventDispatcher.entity(serverLevel, "vehicle", vehicleId(),
+                        VisualEventPacket.Lifecycle.UPDATE,
+                        getPassengers().isEmpty() ? "DOCKED" : "CRUISE", this,
+                        VisualEventDispatcher.entityKey("vehicle", this, vehicleId()),
+                        80, 0, 1.0D, getPassengers().isEmpty() ? 8 : 18,
+                        serverLevel.getGameTime() ^ getUUID().getLeastSignificantBits(), 1);
+            }
         }
         Entity controller = getFirstPassenger();
         if (controller instanceof Player player) {
             setYRot(player.getYRot());
             Vec3 look = player.getLookAngle();
-            double speed = vehicleId.contains("cloud") ? 0.55D : 0.42D;
+            double speed = vehicleId().contains("cloud") ? 0.55D : 0.42D;
             double dy = player.getXRot() < -15.0F ? 0.16D : (player.getXRot() > 25.0F ? -0.12D : 0.02D);
             setDeltaMovement(look.x * speed, dy, look.z * speed);
         } else {
@@ -91,21 +110,26 @@ public class SpiritBoatEntity extends Entity implements GeoEntity {
 
     @Override
     protected void defineSynchedData() {
+        entityData.define(DATA_VEHICLE_ID, DEFAULT_VEHICLE_ID);
     }
 
     @Override
     protected void readAdditionalSaveData(CompoundTag tag) {
-        lifeTicks = tag.getInt("Life");
-        vehicleId = tag.getString("VehicleId");
-        if (vehicleId == null || vehicleId.isBlank()) {
-            vehicleId = "spirit_boat";
+        if (tag.contains("Life", Tag.TAG_INT)) {
+            lifeTicks = Math.max(1, tag.getInt("Life"));
         }
+        String savedVehicleId = tag.contains("VehicleId", Tag.TAG_STRING)
+                ? tag.getString("VehicleId")
+                : tag.contains("vehicleId", Tag.TAG_STRING)
+                ? tag.getString("vehicleId")
+                : tag.getString("vehicle_id");
+        setVehicleId(savedVehicleId);
     }
 
     @Override
     protected void addAdditionalSaveData(CompoundTag tag) {
         tag.putInt("Life", lifeTicks);
-        tag.putString("VehicleId", vehicleId);
+        tag.putString("VehicleId", vehicleId());
     }
 
     @Override
@@ -114,7 +138,16 @@ public class SpiritBoatEntity extends Entity implements GeoEntity {
     }
 
     public String vehicleId() {
-        return vehicleId;
+        return SyncedVisualIdentity.boundedKey(entityData.get(DATA_VEHICLE_ID), DEFAULT_VEHICLE_ID);
+    }
+
+    public String getVehicleId() {
+        return vehicleId();
+    }
+
+    public void setVehicleId(String vehicleId) {
+        entityData.set(DATA_VEHICLE_ID,
+                SyncedVisualIdentity.boundedKey(vehicleId, DEFAULT_VEHICLE_ID));
     }
 
     @Override
