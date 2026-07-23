@@ -197,6 +197,7 @@ public final class ModEvents {
     public static void onServerStopped(ServerStoppedEvent event) {
         ActiveTechniqueEffectVfxService.clearAll();
         TechniqueLifecycleVfxService.clearRuntimeState();
+        TechniqueDataManager.invalidateAllCaches();
     }
 
     @SubscribeEvent
@@ -829,6 +830,16 @@ public final class ModEvents {
     @SubscribeEvent
     public static void addReloadListeners(AddReloadListenerEvent event) {
         event.addListener(new AlchemyRecipeManager());
+        // 数据包重载（/reload）后丢弃功法缓存，使下一次读取重新扫描 cultivation/*.json
+        event.addListener(new net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener(
+                new com.google.gson.GsonBuilder().create(), "cultivation") {
+            @Override
+            protected void apply(java.util.Map<net.minecraft.resources.ResourceLocation, com.google.gson.JsonElement> object,
+                                 net.minecraft.server.packs.resources.ResourceManager resourceManager,
+                                 net.minecraft.util.profiling.ProfilerFiller profiler) {
+                TechniqueDataManager.invalidateAllCaches();
+            }
+        });
     }
 
     private static void givePatchouliGuideBook(ServerPlayer player) {

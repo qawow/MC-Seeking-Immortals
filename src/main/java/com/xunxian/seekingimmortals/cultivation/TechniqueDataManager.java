@@ -45,6 +45,15 @@ public final class TechniqueDataManager {
     private static final Map<String, TechniqueEntry> BUILTIN_TECHNIQUES = loadBuiltInTechniques();
     private static final Map<String, SourceSummary> BUILTIN_SOURCE_SUMMARIES = buildSourceSummaries(BUILTIN_TECHNIQUES);
 
+    /**
+     * Per-server cache of the merged (builtin + datapack) technique map. loadTechniques re-lists and
+     * re-parses every datapack cultivation JSON, which is far too expensive to run on every cast or
+     * per-second sync. The cache is keyed by server instance and invalidated on datapack reload and
+     * server stop (see ModEvents), so /reload and world restarts pick up datapack changes.
+     */
+    private static final Map<MinecraftServer, Map<String, TechniqueEntry>> SERVER_TECHNIQUE_CACHE =
+            java.util.Collections.synchronizedMap(new java.util.WeakHashMap<>());
+
     private TechniqueDataManager() {}
 
     public static List<TechniqueEntry> getTechniquesBySource(MinecraftServer server, String source) {
@@ -99,10 +108,15 @@ public final class TechniqueDataManager {
     }
 
     public static Map<String, TechniqueEntry> loadTechniques(MinecraftServer server) {
-        Map<String, TechniqueEntry> result = new LinkedHashMap<>(BUILTIN_TECHNIQUES);
         if (server == null) {
-            return result;
+            return BUILTIN_TECHNIQUES;
         }
+        return SERVER_TECHNIQUE_CACHE.computeIfAbsent(server, TechniqueDataManager::scanTechniques);
+    }
+
+    /** Rebuilds the merged technique map by scanning datapack cultivation JSON. Callers should prefer {@link #loadTechniques}. */
+    private static Map<String, TechniqueEntry> scanTechniques(MinecraftServer server) {
+        Map<String, TechniqueEntry> result = new LinkedHashMap<>(BUILTIN_TECHNIQUES);
         server.getResourceManager().listResources("cultivation", location -> location.getPath().endsWith(".json")).forEach((location, resource) -> {
             if (!SeekingImmortalsMod.MODID.equals(location.getNamespace())) {
                 return;
@@ -115,7 +129,19 @@ public final class TechniqueDataManager {
         });
         // Text-material already baked into BUILTIN; re-apply so datapack overrides lose to corpus ids.
         result.putAll(BUILTIN_TECHNIQUES);
-        return result;
+        return Map.copyOf(result);
+    }
+
+    /** Drops the cached technique map for a server so the next read re-scans datapack JSON (e.g. after /reload). */
+    public static void invalidateCache(MinecraftServer server) {
+        if (server != null) {
+            SERVER_TECHNIQUE_CACHE.remove(server);
+        }
+    }
+
+    /** Clears all per-server caches (e.g. on server stop). */
+    public static void invalidateAllCaches() {
+        SERVER_TECHNIQUE_CACHE.clear();
     }
 
     public static boolean matchesAttributeCondition(PlayerCultivation cultivation, String attributeCondition) {

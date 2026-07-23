@@ -102,8 +102,10 @@ public class PlayerCultivation {
     private int qiDevDecayAccumulatorTicks = 0;
     private int leylineQiDevDecayAccumulatorTicks = 0;
 
-    private static final int QI_DEV_RISK_DECAY_TICKS = 720 * 20;     // 平稳打坐每 720 秒 -1
-    private static final int LEYLINE_RISK_DECAY_TICKS = 360 * 20;    // 灵脉额外每 360 秒 -1
+    // tickQiDeviationDecay 每秒调用一次（ModEvents 中 tickCount % 20 门控），
+    // 因此累加器以“秒”为单位，阈值直接用秒数，不再乘 20。
+    private static final int QI_DEV_RISK_DECAY_TICKS = 720;     // 平稳打坐每 720 秒 -1
+    private static final int LEYLINE_RISK_DECAY_TICKS = 360;    // 灵脉额外每 360 秒 -1
 
     public PlayerCultivation() {
         clearTechniqueSlots();
