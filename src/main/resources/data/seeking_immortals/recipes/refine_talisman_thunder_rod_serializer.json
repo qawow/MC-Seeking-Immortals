@@ -1,0 +1,40 @@
+{
+    "type": "seeking_immortals:refinement",
+    "group": "refinement",
+    "ingredients": [
+        {
+            "item": "seeking_immortals:talisman_paper"
+        },
+        {
+            "item": "seeking_immortals:talisman_paper"
+        },
+        {
+            "item": "seeking_immortals:talisman_paper"
+        },
+        {
+            "item": "seeking_immortals:talisman_paper"
+        },
+        {
+            "item": "seeking_immortals:talisman_paper"
+        },
+        {
+            "item": "seeking_immortals:talisman_paper"
+        },
+        {
+            "item": "seeking_immortals:thunder_bamboo"
+        },
+        {
+            "item": "seeking_immortals:thunder_bamboo"
+        },
+        {
+            "item": "seeking_immortals:gold_seam_stone"
+        }
+    ],
+    "result": {
+        "item": "seeking_immortals:talisman_treasure_thunder_rod",
+        "count": 1
+    },
+    "success_rate": 0.2,
+    "realm_min": "CORE_FORMATION",
+    "forge_grade": 4
+}

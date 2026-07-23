@@ -1,0 +1,22 @@
+{
+    "type": "seeking_immortals:refinement",
+    "group": "refinement",
+    "ingredients": [
+        {
+            "item": "seeking_immortals:ice_fire_crystal"
+        },
+        {
+            "item": "seeking_immortals:ice_fire_crystal"
+        },
+        {
+            "item": "seeking_immortals:demon_core_high"
+        }
+    ],
+    "result": {
+        "item": "seeking_immortals:ice_fire_dual_orb",
+        "count": 1
+    },
+    "success_rate": 0.15,
+    "realm_min": "CORE_FORMATION",
+    "forge_grade": 5
+}

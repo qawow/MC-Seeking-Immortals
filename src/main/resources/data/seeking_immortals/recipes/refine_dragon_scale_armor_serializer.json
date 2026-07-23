@@ -1,0 +1,40 @@
+{
+    "type": "seeking_immortals:refinement",
+    "group": "refinement",
+    "ingredients": [
+        {
+            "item": "seeking_immortals:dragon_scale"
+        },
+        {
+            "item": "seeking_immortals:dragon_scale"
+        },
+        {
+            "item": "seeking_immortals:dragon_scale"
+        },
+        {
+            "item": "seeking_immortals:dragon_scale"
+        },
+        {
+            "item": "seeking_immortals:dragon_scale"
+        },
+        {
+            "item": "seeking_immortals:spirit_silk"
+        },
+        {
+            "item": "seeking_immortals:spirit_silk"
+        },
+        {
+            "item": "seeking_immortals:spirit_silk"
+        },
+        {
+            "item": "seeking_immortals:spirit_silk"
+        }
+    ],
+    "result": {
+        "item": "seeking_immortals:dragon_scale_armor",
+        "count": 1
+    },
+    "success_rate": 0.26,
+    "realm_min": "CORE_FORMATION",
+    "forge_grade": 4
+}

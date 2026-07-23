@@ -1,0 +1,43 @@
+{
+    "type": "seeking_immortals:refinement",
+    "group": "refinement",
+    "ingredients": [
+        {
+            "item": "seeking_immortals:poison_sac"
+        },
+        {
+            "item": "seeking_immortals:poison_sac"
+        },
+        {
+            "item": "seeking_immortals:poison_sac"
+        },
+        {
+            "item": "seeking_immortals:gold_seam_stone"
+        },
+        {
+            "item": "seeking_immortals:low_spirit_iron"
+        },
+        {
+            "item": "seeking_immortals:low_spirit_iron"
+        },
+        {
+            "item": "seeking_immortals:low_spirit_iron"
+        },
+        {
+            "item": "seeking_immortals:low_spirit_iron"
+        },
+        {
+            "item": "seeking_immortals:low_spirit_iron"
+        },
+        {
+            "item": "seeking_immortals:low_spirit_iron"
+        }
+    ],
+    "result": {
+        "item": "seeking_immortals:thousand_bee_needles",
+        "count": 1
+    },
+    "success_rate": 0.3,
+    "realm_min": "CORE_FORMATION",
+    "forge_grade": 4
+}

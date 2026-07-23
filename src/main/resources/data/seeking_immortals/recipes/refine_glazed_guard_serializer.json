@@ -1,0 +1,31 @@
+{
+    "type": "seeking_immortals:refinement",
+    "group": "refinement",
+    "ingredients": [
+        {
+            "item": "seeking_immortals:space_crystal_fragment"
+        },
+        {
+            "item": "seeking_immortals:space_crystal_fragment"
+        },
+        {
+            "item": "seeking_immortals:kunwu_copper"
+        },
+        {
+            "item": "seeking_immortals:kunwu_copper"
+        },
+        {
+            "item": "seeking_immortals:kunwu_copper"
+        },
+        {
+            "item": "seeking_immortals:kunwu_copper"
+        }
+    ],
+    "result": {
+        "item": "seeking_immortals:glazed_guard_shield",
+        "count": 1
+    },
+    "success_rate": 0.28,
+    "realm_min": "CORE_FORMATION",
+    "forge_grade": 4
+}

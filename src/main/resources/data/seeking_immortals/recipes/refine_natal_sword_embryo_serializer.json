@@ -1,0 +1,52 @@
+{
+    "type": "seeking_immortals:refinement",
+    "group": "refinement",
+    "ingredients": [
+        {
+            "item": "seeking_immortals:natal_artifact_embryo"
+        },
+        {
+            "item": "seeking_immortals:ironwood"
+        },
+        {
+            "item": "seeking_immortals:ironwood"
+        },
+        {
+            "item": "seeking_immortals:ironwood"
+        },
+        {
+            "item": "seeking_immortals:ironwood"
+        },
+        {
+            "item": "seeking_immortals:ironwood"
+        },
+        {
+            "item": "seeking_immortals:ironwood"
+        },
+        {
+            "item": "seeking_immortals:ironwood"
+        },
+        {
+            "item": "seeking_immortals:ironwood"
+        },
+        {
+            "item": "seeking_immortals:ironwood"
+        },
+        {
+            "item": "seeking_immortals:ironwood"
+        },
+        {
+            "item": "seeking_immortals:gold_seam_stone"
+        },
+        {
+            "item": "seeking_immortals:gold_seam_stone"
+        }
+    ],
+    "result": {
+        "item": "seeking_immortals:natal_sword_embryo",
+        "count": 1
+    },
+    "success_rate": 0.14,
+    "realm_min": "CORE_FORMATION",
+    "forge_grade": 5
+}

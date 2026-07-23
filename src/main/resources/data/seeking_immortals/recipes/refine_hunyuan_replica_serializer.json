@@ -1,0 +1,31 @@
+{
+    "type": "seeking_immortals:refinement",
+    "group": "refinement",
+    "ingredients": [
+        {
+            "item": "seeking_immortals:kunwu_copper"
+        },
+        {
+            "item": "seeking_immortals:kunwu_copper"
+        },
+        {
+            "item": "seeking_immortals:kunwu_copper"
+        },
+        {
+            "item": "seeking_immortals:kunwu_copper"
+        },
+        {
+            "item": "seeking_immortals:kunwu_copper"
+        },
+        {
+            "item": "seeking_immortals:space_crystal"
+        }
+    ],
+    "result": {
+        "item": "seeking_immortals:hunyuan_bowl_replica",
+        "count": 1
+    },
+    "success_rate": 0.25,
+    "realm_min": "CORE_FORMATION",
+    "forge_grade": 4
+}

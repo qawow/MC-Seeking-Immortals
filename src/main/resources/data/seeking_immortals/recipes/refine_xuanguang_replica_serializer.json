@@ -1,0 +1,28 @@
+{
+    "type": "seeking_immortals:refinement",
+    "group": "refinement",
+    "ingredients": [
+        {
+            "item": "seeking_immortals:xuanguang_mirror_shard"
+        },
+        {
+            "item": "seeking_immortals:hundred_year_ice"
+        },
+        {
+            "item": "seeking_immortals:hundred_year_ice"
+        },
+        {
+            "item": "seeking_immortals:soul_gathering_stone"
+        },
+        {
+            "item": "seeking_immortals:soul_gathering_stone"
+        }
+    ],
+    "result": {
+        "item": "seeking_immortals:xuanguang_mirror_replica",
+        "count": 1
+    },
+    "success_rate": 0.18,
+    "realm_min": "CORE_FORMATION",
+    "forge_grade": 4
+}

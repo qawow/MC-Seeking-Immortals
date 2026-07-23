@@ -1,0 +1,31 @@
+{
+    "type": "seeking_immortals:refinement",
+    "group": "refinement",
+    "ingredients": [
+        {
+            "item": "seeking_immortals:talisman_paper"
+        },
+        {
+            "item": "seeking_immortals:talisman_paper"
+        },
+        {
+            "item": "seeking_immortals:talisman_paper"
+        },
+        {
+            "item": "seeking_immortals:talisman_paper"
+        },
+        {
+            "item": "seeking_immortals:hundred_year_ice"
+        },
+        {
+            "item": "seeking_immortals:hundred_year_ice"
+        }
+    ],
+    "result": {
+        "item": "seeking_immortals:talisman_treasure_ice_shield",
+        "count": 1
+    },
+    "success_rate": 0.24,
+    "realm_min": "CORE_FORMATION",
+    "forge_grade": 4
+}
