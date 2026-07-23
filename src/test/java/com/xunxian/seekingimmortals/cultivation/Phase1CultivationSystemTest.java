@@ -170,6 +170,39 @@ class Phase1CultivationSystemTest {
     }
 
     @Test
+    void dailyCultivationMultiplierStacksWithAndClearsIndependentlyFromRegularBoost() {
+        MeditationFormula.Breakdown tenPerTick = new MeditationFormula.Breakdown(
+                0.0D, 1.0D, 1.0D, 1.0D, 1.0D, 1.0D, 0.0D, 200.0D);
+        PlayerCultivation cultivation = new PlayerCultivation();
+        cultivation.loadNBTData(realmTag(Realm.QI_REFINING, RealmStage.LAYER_1, 0));
+        cultivation.addCultivationBoost(200, 1.5D);
+        cultivation.setWorldpackDailyCultivationMultiplier(1.2D);
+
+        assertEquals(1.5D, cultivation.getCultivationBoostMultiplier(), 0.0001D);
+        assertEquals(1.2D, cultivation.getWorldpackDailyCultivationMultiplier(), 0.0001D);
+        assertEquals(18, cultivation.addMeditationCultivation(tenPerTick));
+
+        cultivation.clearWorldpackDailyCultivationMultiplier();
+
+        assertEquals(1.5D, cultivation.getCultivationBoostMultiplier(), 0.0001D);
+        assertEquals(1.0D, cultivation.getWorldpackDailyCultivationMultiplier(), 0.0001D);
+        assertEquals(15, cultivation.addMeditationCultivation(tenPerTick));
+    }
+
+    @Test
+    void changingRegionClearsTheRegionOwnedDailyEventMirror() {
+        PlayerCultivation cultivation = new PlayerCultivation();
+        cultivation.setWorldpackDailyEvent("spirit_rain", 24000L);
+        cultivation.setWorldpackDailyCultivationMultiplier(1.2D);
+
+        cultivation.setWorldpackCurrentRegionId("tiannan");
+
+        assertEquals("", cultivation.getWorldpackActiveDailyEventId());
+        assertEquals(0L, cultivation.getWorldpackActiveDailyEventUntilTick());
+        assertEquals(1.0D, cultivation.getWorldpackDailyCultivationMultiplier(), 0.0001D);
+    }
+
+    @Test
     void validatesGoldCoreScoreThresholdsAndAttributeMultiplier() {
         assertEquals(GoldCoreGrade.PSEUDO, GoldCoreGrade.fromScore(34));
         assertEquals(GoldCoreGrade.LOW, GoldCoreGrade.fromScore(35));

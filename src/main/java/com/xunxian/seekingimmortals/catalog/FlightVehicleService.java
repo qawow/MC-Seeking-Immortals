@@ -8,6 +8,7 @@ import com.xunxian.seekingimmortals.registry.ModBlocks;
 import com.xunxian.seekingimmortals.registry.ModItems;
 import com.xunxian.seekingimmortals.structure.FlyingBoatDockStructure;
 import com.xunxian.seekingimmortals.worldpack.FlyingAuthorityPolicy;
+import com.xunxian.seekingimmortals.worldpack.FerryTravelPolicy;
 import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
 import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.core.BlockPos;
@@ -65,14 +66,21 @@ public final class FlightVehicleService {
                         "message.seeking_immortals.flight_vehicle.dimension_denied", vehicleDisplay(vehicle)), false);
                 return;
             }
+            if (FerryTravelPolicy.isFerryVehicle(vehicle.id())
+                    && FerryTravelPolicy.denyIfDelayed(player)) {
+                return;
+            }
             // Optional M07 dock formed bonus: when standing on a complete flying_boat_dock, extend life.
             boolean docked = isNearFormedDock(player);
+            int fuelCount = FerryTravelPolicy.isFerryVehicle(vehicle.id())
+                    ? FerryTravelPolicy.adjustCost(player, vehicle.fuelCount())
+                    : vehicle.fuelCount();
             boolean requiresFuel = !player.getAbilities().instabuild
-                    && vehicle.fuelCount() > 0 && !vehicle.fuelItem().isBlank();
+                    && fuelCount > 0 && !vehicle.fuelItem().isBlank();
             Item fuel = requiresFuel ? resolve(vehicle.fuelItem()) : null;
-            if (requiresFuel && (fuel == null || fuel == Items.AIR || !has(player, fuel, vehicle.fuelCount()))) {
+            if (requiresFuel && (fuel == null || fuel == Items.AIR || !has(player, fuel, fuelCount))) {
                     player.displayClientMessage(Component.translatable("message.seeking_immortals.flight_vehicle.missing_fuel",
-                            PlayerDisplayText.itemName(vehicle.fuelItem()), vehicle.fuelCount()), false);
+                            PlayerDisplayText.itemName(vehicle.fuelItem()), fuelCount), false);
                     return;
             }
             if (!(player.level() instanceof ServerLevel level)) {
@@ -91,7 +99,7 @@ public final class FlightVehicleService {
                 boat.discard();
                 return;
             }
-            if (requiresFuel && !consume(player, fuel, vehicle.fuelCount())) {
+            if (requiresFuel && !consume(player, fuel, fuelCount)) {
                 player.stopRiding();
                 boat.discard();
                 return;
@@ -101,6 +109,11 @@ public final class FlightVehicleService {
             ok[0] = true;
         });
         return ok[0];
+    }
+
+    /** Allows artifact activation to avoid converting a temporary ferry closure into a mobility fallback. */
+    public static boolean isBoardingDelayed(ServerPlayer player, String vehicleId) {
+        return FerryTravelPolicy.isFerryVehicle(vehicleId) && FerryTravelPolicy.isDelayed(player);
     }
 
     public static List<CraftCost> windFeatherRaftRecipe() {

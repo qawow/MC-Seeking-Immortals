@@ -166,6 +166,16 @@ public final class BeastSpawnTableService {
      * Spawn 1-N wild beasts near player from a matching table.
      */
     public static int spawnNearPlayer(ServerPlayer player, String regionHint, int count) {
+        return spawnNearPlayer(player, regionHint, count, true);
+    }
+
+    /** Spawns at most {@code count}; daily encounter plans use this exact upper bound. */
+    public static int spawnNearPlayerExact(ServerPlayer player, String regionHint, int count) {
+        return spawnNearPlayer(player, regionHint, count, false);
+    }
+
+    private static int spawnNearPlayer(ServerPlayer player, String regionHint, int count,
+                                       boolean allowLeylineBonus) {
         if (player == null || !(player.level() instanceof ServerLevel level)) {
             return 0;
         }
@@ -200,7 +210,7 @@ public final class BeastSpawnTableService {
         if (room <= 0) {
             return 0;
         }
-        int want = Math.min(MAX_SPAWN_PER_REQUEST, Math.min(room, Math.max(1, count + (cluster ? 2 : 0))));
+        int want = spawnRequestLimit(count, cluster, allowLeylineBonus, room);
         int spawned = 0;
         RandomSource random = player.getRandom();
         // Dedupe beast ids within this request.
@@ -231,6 +241,13 @@ public final class BeastSpawnTableService {
                     table.get().region(), spawned), true);
         }
         return spawned;
+    }
+
+    static int spawnRequestLimit(int count, boolean cluster, boolean allowLeylineBonus, int room) {
+        int requested = allowLeylineBonus
+                ? Math.max(1, count + (cluster ? 2 : 0))
+                : Math.max(0, count);
+        return Math.min(MAX_SPAWN_PER_REQUEST, Math.min(Math.max(0, room), requested));
     }
 
     public static int countEcologyNear(ServerLevel level, double x, double y, double z) {

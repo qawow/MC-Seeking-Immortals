@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -31,7 +32,7 @@ class BeastSpawnSafetyContractTest {
         assertBefore(encounter, "level.getDifficulty() == Difficulty.PEACEFUL",
                 "player.getPersistentData().putBoolean(key, true)");
 
-        String ecology = methodSource(ecologyService, "public static int spawnNearPlayer(");
+        String ecology = methodSource(ecologyService, "private static int spawnNearPlayer(");
         assertBefore(ecology, "level.getDifficulty() == Difficulty.PEACEFUL",
                 "Optional<Weight> roll = roll(");
     }
@@ -71,20 +72,38 @@ class BeastSpawnSafetyContractTest {
     }
 
     @Test
-    void failedDailyBeastSpawnsDoNotLatchOrFallbackToVanillaAnimals() throws Exception {
+    void failedDailySpawnsRemainRetryableAndPartialSuccessesLatch() throws Exception {
         String source = Files.readString(JAVA.resolve("worldpack/DailyEventEncounterService.java"));
         String spawn = methodSource(source, "public static void maybeSpawn(");
 
-        int spawned = spawn.indexOf("int spawned = BeastSpawnTableService.spawnNearPlayer(");
-        int failure = spawn.indexOf("if (spawned <= 0)", spawned);
-        int failureReturn = spawn.indexOf("return;", failure);
-        int latch = spawn.indexOf("player.getPersistentData().putBoolean(key, true)", failureReturn);
-        assertTrue(spawned >= 0 && failure > spawned);
-        assertTrue(failureReturn > failure && latch > failureReturn,
-                "daily beast events must remain retryable when no ecology beast was spawned");
-        assertTrue(spawn.indexOf("displayName(id), spawned)", latch) > latch);
+        String exactCall = "BeastSpawnTableService.spawnNearPlayerExact(";
+        int spawned = spawn.indexOf("int spawned = " + exactCall);
+        int beastStart = spawn.indexOf("if (plan.kind() == Kind.BEAST)");
+        int shellStart = spawn.indexOf("} else if (plan.kind() == Kind.SHELL)", beastStart);
+        int vanillaStart = spawn.indexOf("} else {", shellStart);
+        String beastBranch = spawn.substring(beastStart, shellStart);
+        String shellBranch = spawn.substring(shellStart, vanillaStart);
+        String vanillaBranch = spawn.substring(vanillaStart);
+        assertTrue(spawned >= 0 && beastStart >= 0 && shellStart > beastStart && vanillaStart > shellStart);
+        assertEquals(spawn.indexOf(exactCall), spawn.lastIndexOf(exactCall),
+                "daily beast encounters must use one exact-size ecology request");
+        assertFalse(spawn.contains("int remaining = plan.count() - spawned"));
+        assertFalse(spawn.contains("if (spawned < plan.count())"),
+                "a partial successful encounter must latch so retries cannot exceed the authored total");
+        assertZeroFailureBeforeLatch(beastBranch);
+        assertZeroFailureBeforeLatch(shellBranch);
+        assertZeroFailureBeforeLatch(vanillaBranch);
         assertFalse(spawn.contains("EntityType.WOLF"));
         assertFalse(spawn.contains("EntityType.FOX"));
+    }
+
+    private static void assertZeroFailureBeforeLatch(String branch) {
+        int failure = branch.indexOf("if (spawned <= 0)");
+        int failureReturn = branch.indexOf("return;", failure);
+        int latch = branch.indexOf("latch(player,", failureReturn);
+        assertTrue(failure >= 0 && failureReturn > failure && latch > failureReturn,
+                "zero successful spawns must remain retryable while partial success latches");
+        assertTrue(branch.indexOf("displayName(id), spawned)", latch) > latch);
     }
 
     private static void assertSafePositionSearch(String source) {

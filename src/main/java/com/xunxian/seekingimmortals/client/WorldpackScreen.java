@@ -214,12 +214,13 @@ public class WorldpackScreen extends AbstractJournalScreen {
                             PlayerDisplayText.safeLiteral(data.activeSecretRealmDisplay(),
                                     "text.seeking_immortals.unknown_secret_realm")), ImmortalUiSkin.JOURNAL_PAPER_MUTED);
         }
-        if (!data.dailyEventId().isBlank()) {
+        long eventRemaining = data.currentDailyEventRemainingTicks();
+        if (!data.dailyEventId().isBlank() && eventRemaining > 0L) {
             y = statusLine(graphics, status, y, bottom,
                     Component.translatable("screen.seeking_immortals.worldpack.daily_event",
                             PlayerDisplayText.safeLiteral(data.dailyEventDisplay(),
                                     "text.seeking_immortals.unknown_event"),
-                            Math.max(0L, data.currentDailyEventRemainingTicks() / 20L)),
+                            Math.max(1L, eventRemaining / 20L)),
                     ImmortalUiSkin.JOURNAL_WARNING);
             statusLine(graphics, status, y, bottom,
                     Component.translatable("screen.seeking_immortals.worldpack.effects",
@@ -356,6 +357,9 @@ public class WorldpackScreen extends AbstractJournalScreen {
 
     static String effectDescriptionKey(String effect) {
         if (effect == null || effect.isBlank()) return "";
+        if (effect.startsWith("quest_") || effect.startsWith("auction_")) {
+            return "screen.seeking_immortals.worldpack.effect.opportunity";
+        }
         return switch (effect) {
             case WorldpackGameplayService.EFFECT_AURA_PLUS_5 ->
                     "screen.seeking_immortals.worldpack.effect.aura_plus_5";
@@ -370,6 +374,37 @@ public class WorldpackScreen extends AbstractJournalScreen {
             case WorldpackGameplayService.EFFECT_SECT_CONTRIBUTION_BONUS ->
                     "screen.seeking_immortals.worldpack.effect.sect_contribution_bonus";
             case "rare_loot_hint" -> "screen.seeking_immortals.worldpack.effect.rare_loot_hint";
+            case "cultivation_speed_1.1_1day", "cultivation_speed_1.2_3day",
+                    "cultivation_buff_minor", "cultivation_buff_tag" ->
+                    "screen.seeking_immortals.worldpack.effect.cultivation_bonus";
+            case "breakthrough_chance_small" ->
+                    "screen.seeking_immortals.worldpack.effect.breakthrough_bonus";
+            case "contribution_gain_1.5_1day" ->
+                    "screen.seeking_immortals.worldpack.effect.contribution_bonus";
+            case "merit_mult_2" -> "screen.seeking_immortals.worldpack.effect.merit_double";
+            case "herb_shop_price_x1.3" -> "screen.seeking_immortals.worldpack.effect.herb_price_up";
+            case "shop_herb_discount" -> "screen.seeking_immortals.worldpack.effect.herb_price_down";
+            case "tax_mult" -> "screen.seeking_immortals.worldpack.effect.market_tax";
+            case "ferry_cost_double" -> "screen.seeking_immortals.worldpack.effect.ferry_cost_double";
+            case "ferry_delay" -> "screen.seeking_immortals.worldpack.effect.ferry_delayed";
+            case "movement_debuff_outdoor", "movement_debuff" ->
+                    "screen.seeking_immortals.worldpack.effect.movement_debuff";
+            case "demon_qi_tick", "demonization_risk_tag", "yin_damage_ambient",
+                    "ghost_hunt_risk", "spatial_damage_risk", "tribulation_pressure",
+                    "tribulation_prep_event" -> "screen.seeking_immortals.worldpack.effect.environment_hazard";
+            case "spawn_beast_wave", "spawn_elite", "random_ambush_low", "sea_spawn_boost",
+                    "yin_wraith", "spawn_multiplier", "combat_tier" ->
+                    "screen.seeking_immortals.worldpack.effect.encounter";
+            case "herb_growth_boost" -> "screen.seeking_immortals.worldpack.effect.herb_growth";
+            case "star_palace_patrol_bonus" -> "screen.seeking_immortals.worldpack.effect.patrol_bonus";
+            case "inverse_star_smuggle_chance" -> "screen.seeking_immortals.worldpack.effect.smuggle_chance";
+            case "pvp_disabled_factions", "pvp_local" ->
+                    "screen.seeking_immortals.worldpack.effect.local_pvp_rules";
+            case "pearl_raw_stock", "high_herb", "bu_tian_pill" ->
+                    "screen.seeking_immortals.worldpack.effect.rare_stock";
+            case "huangfeng_entry", "treasure_fair_invite", "auction_notice",
+                    "clan_quest_offer", "faction_conflict_minor" ->
+                    "screen.seeking_immortals.worldpack.effect.opportunity";
             default -> "";
         };
     }

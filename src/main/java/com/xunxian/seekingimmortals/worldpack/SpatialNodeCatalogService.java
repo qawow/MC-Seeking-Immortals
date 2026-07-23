@@ -95,11 +95,15 @@ public final class SpatialNodeCatalogService {
                     dimensionDisplay(node.dimensionFrom()), dimensionDisplay(currentDimension)), true);
             return false;
         }
+        String type = node.type() == null ? "" : node.type().trim().toLowerCase(Locale.ROOT);
+        if (FerryTravelPolicy.isFerryRoute(node.id(), type, node.id())
+                && FerryTravelPolicy.denyIfDelayed(player)) {
+            return false;
+        }
         SpatialNodeRequiresService.Reservation reservation = SpatialNodeRequiresService.reserve(player, node);
         if (reservation == null) {
             return false;
         }
-        String type = node.type() == null ? "" : node.type().trim().toLowerCase(Locale.ROOT);
         boolean ok = executeTravel(player, node, type);
         if (!ok) {
             reservation.refund(player);

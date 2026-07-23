@@ -9,6 +9,7 @@ import com.xunxian.seekingimmortals.persistence.PlayerPersistentDataClonePolicy;
 import com.xunxian.seekingimmortals.registry.ModBulkItems;
 import com.xunxian.seekingimmortals.registry.ModItems;
 import com.xunxian.seekingimmortals.spiritual.SpiritualAuraManager;
+import com.xunxian.seekingimmortals.worldpack.DailyEventEffectExecutor;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
@@ -73,7 +74,8 @@ public final class BreakthroughService {
         PlayerCultivation.BreakthroughAttemptResult result = cultivation.tryBreakthrough(player.getRandom(), new PlayerCultivation.BreakthroughChanceModifiers(
                 preview.pillBonus(),
                 preview.spiritEyeBonus(),
-                preview.techniqueQualityBonus()));
+                preview.techniqueQualityBonus(),
+                DailyEventEffectExecutor.activeBreakthroughChanceBonus(player)));
         if (result.success()) {
             formGoldCoreIfNeeded(player, cultivation, result);
             boolean tribulationStarted = TribulationService.onBreakthroughSuccess(player, cultivation, result);
@@ -88,6 +90,7 @@ public final class BreakthroughService {
                     percent(result.chanceBreakdown().pillBonus()),
                     percent(result.chanceBreakdown().spiritEyeBonus()),
                     percent(result.chanceBreakdown().techniqueQualityBonus()),
+                    percent(result.chanceBreakdown().eventBonus()),
                     percent(result.chanceBreakdown().obsessionBonus()),
                     percent(result.chanceBreakdown().advancedBonus())), false);
             return;
@@ -101,6 +104,7 @@ public final class BreakthroughService {
                     percent(result.chanceBreakdown().pillBonus()),
                     percent(result.chanceBreakdown().spiritEyeBonus()),
                     percent(result.chanceBreakdown().techniqueQualityBonus()),
+                    percent(result.chanceBreakdown().eventBonus()),
                     percent(result.chanceBreakdown().obsessionBonus()),
                     percent(result.chanceBreakdown().advancedBonus())), false);
             if (result.qiDeviationTriggered()) {
@@ -120,6 +124,7 @@ public final class BreakthroughService {
                 percent(preview.pillBonus()),
                 percent(preview.spiritEyeBonus()),
                 percent(preview.techniqueQualityBonus()),
+                percent(preview.eventBonus()),
                 percent(preview.obsessionBonus()),
                 percent(preview.advancedBonus()),
                 percent(preview.chance())), false);
@@ -277,7 +282,8 @@ public final class BreakthroughService {
         PlayerCultivation.BreakthroughChanceModifiers modifiers = new PlayerCultivation.BreakthroughChanceModifiers(
                 getPreviewPillBonus(player, cultivation, requirement),
                 getSpiritEyeBonus(player),
-                getTechniqueQualityBonus(player, cultivation));
+                getTechniqueQualityBonus(player, cultivation),
+                DailyEventEffectExecutor.activeBreakthroughChanceBonus(player));
         return cultivation.getBreakthroughChanceBreakdown(modifiers);
     }
 

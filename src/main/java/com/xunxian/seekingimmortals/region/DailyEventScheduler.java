@@ -1,26 +1,19 @@
 package com.xunxian.seekingimmortals.region;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.worldpack.DailyEventEncounterService;
+import com.xunxian.seekingimmortals.worldpack.DailyEventEffectCatalog;
+import com.xunxian.seekingimmortals.worldpack.DailyEventEffectExecutor;
 import com.xunxian.seekingimmortals.worldpack.WorldpackDataService;
 import com.xunxian.seekingimmortals.worldpack.WorldpackSavedData;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
+import com.xunxian.seekingimmortals.cultivation.Realm;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -30,6 +23,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * exposes {@link #onDailyEvent} subscription for M08/M11.
  */
 public final class DailyEventScheduler {
+    private static final int AUTHORED_WEIGHT_SCALE = 1000;
     private static final List<DailyEventHook> HOOKS = new CopyOnWriteArrayList<>();
     private static final List<ExpandedEvent> EXPANDED = loadExpanded();
     private static long lastServerDay = Long.MIN_VALUE;
@@ -71,7 +65,16 @@ public final class DailyEventScheduler {
     }
 
     public static void serverTick(MinecraftServer server) {
-        if (server == null || !RegionEventConfig.isDailyEventsEnabled()) {
+        if (server == null) {
+            return;
+        }
+        if (!RegionEventConfig.isDailyEventsEnabled()) {
+            // Force the first enabled tick to rehydrate the current day's roll.
+            lastServerDay = Long.MIN_VALUE;
+            for (ServerPlayer player : server.getPlayerList().getPlayers()) {
+                clearPlayerEvent(player);
+            }
+            com.xunxian.seekingimmortals.sect.SectWarService.stopDailyEventWar(server);
             return;
         }
         ServerLevel overworld = server.overworld();
@@ -91,6 +94,7 @@ public final class DailyEventScheduler {
             return new WorldpackSavedData.EventRoll(regionId == null ? "" : regionId, "", 0L);
         }
         if (!RegionEventConfig.isDailyEventsEnabled()) {
+            clearPlayerEvent(player);
             return new WorldpackSavedData.EventRoll(regionId == null ? "" : regionId, "", 0L);
         }
         WorldpackDataService.Snapshot snapshot = WorldpackDataService.builtin();
@@ -102,13 +106,45 @@ public final class DailyEventScheduler {
         WorldpackSavedData.EventRoll previous = savedData.peekDailyEvent(resolvedRegion).orElse(null);
         WorldpackSavedData.EventRoll roll = savedData.getOrRollDailyEvent(
                 resolvedRegion, snapshot, gameTime, player.getRandom(), expandedCandidates(resolvedRegion, snapshot));
-        if (previous == null || !previous.eventId().equals(roll.eventId()) || !previous.isActive(gameTime)) {
-            if (!roll.eventId().isBlank()) {
-                onDailyEvent(resolvedRegion, roll.eventId());
-                DailyEventEncounterService.maybeSpawn(player, roll.eventId());
+        boolean changed = previous == null || !previous.eventId().equals(roll.eventId())
+                || !previous.isActive(gameTime);
+        if (!roll.eventId().isBlank()) {
+            Optional<DailyEventEffectCatalog.Event> authored = DailyEventEffectCatalog.builtin().find(roll.eventId());
+            authored.ifPresent(event ->
+                    DailyEventEffectExecutor.apply(player, resolvedRegion, event, roll.untilTick(), changed));
+            if (authored.isEmpty()) {
+                // Legacy worldpack ids have no typed ownership; clear any
+                // previous authored state before the compatibility multiplier
+                // is restored by PlayerCultivation#setWorldpackDailyEvent.
+                DailyEventEffectExecutor.expire(player);
+                com.xunxian.seekingimmortals.cultivation.CultivationHelper.get(player)
+                        .ifPresent(cultivation -> cultivation.setWorldpackDailyEvent(roll.eventId(), roll.untilTick()));
             }
+            DailyEventEncounterService.maybeSpawn(player, resolvedRegion, roll.eventId(), roll.untilTick());
+            if (changed) {
+                onDailyEvent(resolvedRegion, roll.eventId());
+            }
+        } else {
+            clearPlayerEvent(player);
         }
+        com.xunxian.seekingimmortals.sect.FactionConflictEventService.onDailyEvent(
+                player, resolvedRegion, roll.eventId(), roll.untilTick());
         return roll;
+    }
+
+    private static void clearPlayerEvent(ServerPlayer player) {
+        if (!DailyEventEffectExecutor.hasState(player)
+                && !com.xunxian.seekingimmortals.sect.FactionConflictEventService.hasActiveState(player)) {
+            return;
+        }
+        DailyEventEffectExecutor.expire(player);
+        com.xunxian.seekingimmortals.cultivation.CultivationHelper.get(player)
+                .ifPresent(cultivation -> cultivation.setWorldpackDailyEvent("", 0L));
+        String region = com.xunxian.seekingimmortals.cultivation.CultivationHelper.get(player)
+                .map(cultivation -> cultivation.getWorldpackCurrentRegionId())
+                .orElse(RegionRegistry.DEFAULT_REGION_ID);
+        com.xunxian.seekingimmortals.sect.FactionConflictEventService.onDailyEvent(
+                player, region, "", 0L);
     }
 
     public static void rollAllRegions(ServerLevel overworld, boolean notifyPlayers) {
@@ -126,16 +162,32 @@ public final class DailyEventScheduler {
             boolean changed = previous == null
                     || !previous.eventId().equals(roll.eventId())
                     || !previous.isActive(gameTime);
-            if (changed && !roll.eventId().isBlank()) {
-                onDailyEvent(region.id(), roll.eventId());
-                if (notifyPlayers) {
-                    for (ServerPlayer player : overworld.getServer().getPlayerList().getPlayers()) {
-                        com.xunxian.seekingimmortals.cultivation.CultivationHelper.get(player).ifPresent(cultivation -> {
-                            if (region.id().equals(cultivation.getWorldpackCurrentRegionId())) {
-                                DailyEventEncounterService.maybeSpawn(player, roll.eventId());
+            if (changed) {
+                if (!roll.eventId().isBlank()) {
+                    onDailyEvent(region.id(), roll.eventId());
+                }
+            }
+            if (notifyPlayers) {
+                for (ServerPlayer player : overworld.getServer().getPlayerList().getPlayers()) {
+                    com.xunxian.seekingimmortals.cultivation.CultivationHelper.get(player).ifPresent(cultivation -> {
+                        if (region.id().equals(cultivation.getWorldpackCurrentRegionId())) {
+                            if (roll.eventId().isBlank()) {
+                                clearPlayerEvent(player);
+                                return;
                             }
-                        });
-                    }
+                            Optional<DailyEventEffectCatalog.Event> authored =
+                                    DailyEventEffectCatalog.builtin().find(roll.eventId());
+                            authored.ifPresent(event -> DailyEventEffectExecutor.apply(
+                                    player, region.id(), event, roll.untilTick(), changed));
+                            if (authored.isEmpty()) {
+                                DailyEventEffectExecutor.expire(player);
+                                cultivation.setWorldpackDailyEvent(roll.eventId(), roll.untilTick());
+                            }
+                            com.xunxian.seekingimmortals.sect.FactionConflictEventService.onDailyEvent(
+                                    player, region.id(), roll.eventId(), roll.untilTick());
+                            DailyEventEncounterService.maybeSpawn(player, region.id(), roll.eventId(), roll.untilTick());
+                        }
+                    });
                 }
             }
         }
@@ -143,108 +195,76 @@ public final class DailyEventScheduler {
 
     public static List<WorldpackDataService.DailyEvent> expandedCandidates(String regionId,
                                                                            WorldpackDataService.Snapshot snapshot) {
-        List<WorldpackDataService.DailyEvent> base = new ArrayList<>(snapshot.eventsForRegion(regionId));
+        List<WorldpackDataService.DailyEvent> base = new ArrayList<>();
+        for (WorldpackDataService.DailyEvent event : snapshot.eventsForRegion(regionId)) {
+            DailyEventEffectCatalog.Event authored = DailyEventEffectCatalog.builtin().find(event.id())
+                    .filter(candidate -> candidate.matchesRegion(regionId))
+                    .orElse(null);
+            if (authored == null) {
+                base.add(new WorldpackDataService.DailyEvent(
+                        event.id(), event.regionId(), event.displayZh(), event.displayEn(),
+                        scaledWeight(event.weight()), event.durationTicks(), event.effects()));
+            } else {
+                base.add(new WorldpackDataService.DailyEvent(
+                        authored.id(), regionId,
+                        authored.display().isBlank() ? event.displayZh() : authored.display(),
+                        authored.display().isBlank() ? event.displayEn() : authored.display(),
+                        authored.scaledWeight(AUTHORED_WEIGHT_SCALE), authored.durationTicks(),
+                        authored.legacyEffects()));
+            }
+        }
         for (ExpandedEvent expanded : EXPANDED) {
             if (!expanded.matches(regionId)) {
                 continue;
             }
-            boolean exists = base.stream().anyMatch(event -> event.id().equals(expanded.id()));
-            if (exists) {
-                continue;
-            }
-            // Only inject when the event is not already present under another single-region binding
-            // with the same id for this region.
-            Optional<WorldpackDataService.DailyEvent> existing = snapshot.findDailyEvent(expanded.id());
-            if (existing.isPresent() && existing.get().regionId().equals(regionId)) {
-                continue;
-            }
-            base.add(new WorldpackDataService.DailyEvent(
+            WorldpackDataService.DailyEvent projected = new WorldpackDataService.DailyEvent(
                     expanded.id(),
                     regionId,
                     expanded.displayZh(),
                     expanded.displayEn(),
                     expanded.weight(),
                     expanded.durationTicks(),
-                    expanded.effects()));
+                    expanded.effects());
+            int existingIndex = -1;
+            for (int i = 0; i < base.size(); i++) {
+                if (base.get(i).id().equals(expanded.id())) {
+                    existingIndex = i;
+                    break;
+                }
+            }
+            if (existingIndex >= 0) {
+                // Authored data wins over a legacy projection, including region aliases.
+                base.set(existingIndex, projected);
+            } else {
+                base.add(projected);
+            }
         }
         return List.copyOf(base);
     }
 
     private static List<ExpandedEvent> loadExpanded() {
         List<ExpandedEvent> events = new ArrayList<>();
-        JsonObject root = readJson("data/" + SeekingImmortalsMod.MODID + "/text_material/daily_random_events.json");
-        if (root == null) {
-            return List.of();
-        }
-        for (JsonElement element : array(root, "events")) {
-            if (!element.isJsonObject()) {
-                continue;
-            }
-            JsonObject object = element.getAsJsonObject();
-            String id = str(object, "id");
-            if (id.isBlank()) {
-                continue;
-            }
-            List<String> regions = strings(object, "regions");
-            List<String> effects = new ArrayList<>();
-            if (object.has("buff") && object.get("buff").isJsonPrimitive()) {
-                effects.add(object.get("buff").getAsString());
-            }
-            effects.addAll(strings(object, "effects"));
-            effects.addAll(strings(object, "hooks"));
-            if (effects.isEmpty()) {
-                if (object.has("combat_tier")) {
-                    effects.add("trade_risk_up");
-                } else if (object.has("rewards")) {
-                    effects.add("herb_shop_bonus");
-                } else {
-                    effects.add("aura_plus_5");
-                }
-            }
-            String display = str(object, "display");
+        for (DailyEventEffectCatalog.Event event : DailyEventEffectCatalog.builtin().list()) {
             events.add(new ExpandedEvent(
-                    id,
-                    regions,
-                    display,
-                    display,
-                    Math.max(1, intValue(object, "weight", 1)),
-                    24000,
-                    List.copyOf(effects)));
-        }
-        // tianyuan dedicated pool
-        JsonObject tianyuan = readJson("data/" + SeekingImmortalsMod.MODID + "/text_material/tianyuan_daily_events.json");
-        if (tianyuan != null) {
-            String region = firstNonBlank(str(tianyuan, "region"), "tianyuan");
-            for (JsonElement element : array(tianyuan, "events")) {
-                if (!element.isJsonObject()) {
-                    continue;
-                }
-                JsonObject object = element.getAsJsonObject();
-                String id = str(object, "id");
-                if (id.isBlank()) {
-                    continue;
-                }
-                List<String> effects = new ArrayList<>(strings(object, "effects"));
-                if (effects.isEmpty()) {
-                    String effect = str(object, "effect");
-                    if (!effect.isBlank()) {
-                        effects.add(effect);
-                    } else {
-                        effects.add("aura_plus_5");
-                    }
-                }
-                String display = str(object, "display");
-                events.add(new ExpandedEvent(
-                        id,
-                        List.of(region),
-                        display,
-                        display,
-                        Math.max(1, intValue(object, "weight", 1)),
-                        24000,
-                        List.copyOf(effects)));
-            }
+                    event.id(),
+                    event.regions(),
+                    event.display(),
+                    event.display(),
+                    event.scaledWeight(AUTHORED_WEIGHT_SCALE),
+                    event.durationTicks(),
+                    event.legacyEffects()));
         }
         return List.copyOf(events);
+    }
+
+    private static int scaledWeight(int weight) {
+        long scaled = (long) Math.max(1, weight) * AUTHORED_WEIGHT_SCALE;
+        return (int) Math.min(Integer.MAX_VALUE, Math.max(1L, scaled));
+    }
+
+    /** Pure gate helper used by tests and player-scoped callers. */
+    public static boolean meetsRealmMinimum(DailyEventEffectCatalog.Event event, Realm realm) {
+        return event == null || DailyEventEffectExecutor.meetsRealmMinimum(realm, event.realmMin());
     }
 
     private record ExpandedEvent(String id, List<String> regions, String displayZh, String displayEn,
@@ -260,60 +280,25 @@ public final class DailyEventScheduler {
                 if ("*".equals(region) || "any".equalsIgnoreCase(region) || region.equalsIgnoreCase(regionId)) {
                     return true;
                 }
-                // soft alias: tiannan_border ~ tiannan / wutu_border
-                if ("tiannan_border".equalsIgnoreCase(region)
-                        && ("tiannan".equalsIgnoreCase(regionId) || "wutu_border".equalsIgnoreCase(regionId))) {
+                if (regionAliasMatches(region, regionId)) {
                     return true;
                 }
             }
             return false;
         }
-    }
 
-    private static String firstNonBlank(String primary, String fallback) {
-        return primary != null && !primary.isBlank() ? primary : (fallback == null ? "" : fallback);
-    }
-
-    private static JsonObject readJson(String path) {
-        try (InputStream stream = DailyEventScheduler.class.getClassLoader().getResourceAsStream(path)) {
-            if (stream == null) {
-                return null;
-            }
-            try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8))) {
-                return JsonParser.parseReader(reader).getAsJsonObject();
-            }
-        } catch (Exception exception) {
-            SeekingImmortalsMod.LOGGER.warn("Failed to load daily event resource {}", path, exception);
-            return null;
+        private static boolean regionAliasMatches(String authoredRegion, String runtimeRegion) {
+            String authored = authoredRegion == null ? "" : authoredRegion.toLowerCase(java.util.Locale.ROOT);
+            String runtime = runtimeRegion == null ? "" : runtimeRegion.toLowerCase(java.util.Locale.ROOT);
+            return switch (authored) {
+                case "tiannan_border" -> "tiannan".equals(runtime) || "wutu_border".equals(runtime);
+                case "mulan" -> "mulan_grassland".equals(runtime);
+                case "great_jin" -> "great_jin_central".equals(runtime) || "dajin".equals(runtime);
+                case "wild_land" -> "spirit_realm_border".equals(runtime);
+                case "diyuan" -> "spirit_fengyuan".equals(runtime);
+                default -> false;
+            };
         }
     }
 
-    private static JsonArray array(JsonObject object, String key) {
-        return object != null && object.has(key) && object.get(key).isJsonArray()
-                ? object.getAsJsonArray(key) : new JsonArray();
-    }
-
-    private static List<String> strings(JsonObject object, String key) {
-        List<String> values = new ArrayList<>();
-        for (JsonElement element : array(object, key)) {
-            if (element.isJsonPrimitive() && element.getAsJsonPrimitive().isString()) {
-                String value = element.getAsString();
-                if (!value.isBlank()) {
-                    values.add(value);
-                }
-            }
-        }
-        return values;
-    }
-
-    private static String str(JsonObject object, String key) {
-        return object != null && object.has(key) && object.get(key).isJsonPrimitive()
-                ? object.get(key).getAsString() : "";
-    }
-
-    private static int intValue(JsonObject object, String key, int fallback) {
-        return object != null && object.has(key) && object.get(key).isJsonPrimitive()
-                && object.get(key).getAsJsonPrimitive().isNumber()
-                ? object.get(key).getAsInt() : fallback;
-    }
 }

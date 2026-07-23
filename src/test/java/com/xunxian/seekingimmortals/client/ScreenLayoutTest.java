@@ -271,6 +271,12 @@ class ScreenLayoutTest {
                 WorldpackScreen.effectDescriptionKey(WorldpackGameplayService.EFFECT_SECT_CONTRIBUTION_BONUS));
         assertEquals("screen.seeking_immortals.worldpack.effect.rare_loot_hint",
                 WorldpackScreen.effectDescriptionKey("rare_loot_hint"));
+        assertEquals("screen.seeking_immortals.worldpack.effect.ferry_delayed",
+                WorldpackScreen.effectDescriptionKey("ferry_delay"));
+        assertEquals("screen.seeking_immortals.worldpack.effect.merit_double",
+                WorldpackScreen.effectDescriptionKey("merit_mult_2"));
+        assertEquals("screen.seeking_immortals.worldpack.effect.cultivation_bonus",
+                WorldpackScreen.effectDescriptionKey("cultivation_speed_1.2_3day"));
         assertEquals("", WorldpackScreen.effectDescriptionKey("future_effect"));
     }
 

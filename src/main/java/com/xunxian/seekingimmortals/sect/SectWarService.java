@@ -5,6 +5,8 @@ import com.xunxian.seekingimmortals.worldpack.ReputationService;
 import com.xunxian.seekingimmortals.worldpack.TrialCombatShellService;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
@@ -13,8 +15,10 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.level.saveddata.SavedData;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 
 /**
  * Multiplayer sect-war scoreboard (Wave49 Phase22 depth).
@@ -27,11 +31,38 @@ public final class SectWarService {
     public static final String WAR_SHELL_TAG = "seeking_immortals_war_shell";
     public static final String WAR_SHELL_SIDE = "Side";
     public static final String WAR_SHELL_ALLY = "Ally";
+    /** Persisted generation token that binds a shell to one war window. */
+    public static final String WAR_SHELL_GENERATION = "WarGeneration";
+    private static final String WAR_SCOPE_REGION = "ScopeRegion";
+    private static final String WAR_SCOPE_DIMENSION = "ScopeDimension";
+    private static final String WAR_SCOPES = "Scopes";
+    private static final String SCOPE_REGION = "Region";
+    private static final String SCOPE_DIMENSION = "Dimension";
+    static final int MAX_DAILY_WAR_SCOPES = 32;
     private static final String LAST_PULSE_ROOT = "seeking_immortals_war_ai_pulse";
     private static final int AI_PULSE_INTERVAL_TICKS = 20 * 20; // 20s
     private static final int ALLY_LIFE_TICKS = 20 * 45;
+    private static final Set<String> TIANNAN_SEVEN_SECT_IDS = Set.of(
+            "huangfeng_valley",
+            "yanyue_sect",
+            "spirit_beast_mountain",
+            "qingxu_gate",
+            "huadao_wu",
+            "tianque_fort",
+            "giant_sword_gate");
 
     private SectWarService() {}
+
+    record WarScope(String regionId, String dimensionId) {
+        WarScope {
+            regionId = normalizeOptional(regionId);
+            dimensionId = normalizeOptional(dimensionId);
+        }
+
+        boolean isValid() {
+            return !regionId.isBlank() && !dimensionId.isBlank();
+        }
+    }
 
     public static final class WarData extends SavedData {
         private static final String NAME = "seeking_immortals_sect_war";
@@ -47,6 +78,14 @@ public final class SectWarService {
         long startedAtGameTime;
         long endsAtGameTime;
         long lastAiPulseGameTime;
+        /** True only for the daily-event-owned global scoreboard. */
+        boolean dailyEventOwned;
+        /** Monotonic token; every newly started war receives a new generation. */
+        long generation;
+        /** Empty for command/manual wars; daily wars are scoped to both values. */
+        String scopeRegionId = "";
+        String scopeDimensionId = "";
+        final LinkedHashSet<WarScope> scopes = new LinkedHashSet<>();
 
         public static WarData get(ServerLevel overworld) {
             return overworld.getDataStorage().computeIfAbsent(WarData::load, WarData::new, NAME);
@@ -64,9 +103,25 @@ public final class SectWarService {
             data.startedAtGameTime = tag.getLong("Started");
             data.endsAtGameTime = tag.getLong("Ends");
             data.lastAiPulseGameTime = tag.getLong("LastAiPulse");
+            data.dailyEventOwned = tag.getBoolean("DailyEventOwned");
+            data.generation = tag.getLong("Generation");
+            data.scopeRegionId = tag.contains(WAR_SCOPE_REGION) ? tag.getString(WAR_SCOPE_REGION) : "";
+            data.scopeDimensionId = tag.contains(WAR_SCOPE_DIMENSION) ? tag.getString(WAR_SCOPE_DIMENSION) : "";
+            addDailyScope(data, data.scopeRegionId, data.scopeDimensionId);
+            ListTag scopes = tag.getList(WAR_SCOPES, Tag.TAG_COMPOUND);
+            for (int i = 0; i < scopes.size() && data.scopes.size() < MAX_DAILY_WAR_SCOPES; i++) {
+                CompoundTag scope = scopes.getCompound(i);
+                addDailyScope(data, scope.getString(SCOPE_REGION), scope.getString(SCOPE_DIMENSION));
+            }
+            syncLegacyScope(data);
             // Legacy dual-war saves without Started: approximate from ends window.
             if (data.startedAtGameTime <= 0L && data.endsAtGameTime > 0L) {
                 data.startedAtGameTime = Math.max(0L, data.endsAtGameTime - 20L * 60L * 10L);
+            }
+            // A legacy active save has no token. Give the current window a token
+            // so newly spawned shells can be bound while old shells fail closed.
+            if (data.active && data.generation <= 0L) {
+                data.generation = 1L;
             }
             return data;
         }
@@ -83,6 +138,20 @@ public final class SectWarService {
             tag.putLong("Started", startedAtGameTime);
             tag.putLong("Ends", endsAtGameTime);
             tag.putLong("LastAiPulse", lastAiPulseGameTime);
+            tag.putBoolean("DailyEventOwned", dailyEventOwned);
+            tag.putLong("Generation", generation);
+            addDailyScope(this, scopeRegionId, scopeDimensionId);
+            syncLegacyScope(this);
+            tag.putString(WAR_SCOPE_REGION, scopeRegionId);
+            tag.putString(WAR_SCOPE_DIMENSION, scopeDimensionId);
+            ListTag scopeList = new ListTag();
+            for (WarScope scope : scopes) {
+                CompoundTag scopeTag = new CompoundTag();
+                scopeTag.putString(SCOPE_REGION, scope.regionId());
+                scopeTag.putString(SCOPE_DIMENSION, scope.dimensionId());
+                scopeList.add(scopeTag);
+            }
+            tag.put(WAR_SCOPES, scopeList);
             return tag;
         }
 
@@ -103,8 +172,59 @@ public final class SectWarService {
         if (server == null) {
             return false;
         }
+        long now = server.overworld().getGameTime();
+        return startAt(server, factionA, factionB, factionC,
+                now + Math.max(1, minutes) * 20L * 60L, false, "", "");
+    }
+
+    /** Starts the global scoreboard once for a daily conflict without resetting it per player. */
+    public static boolean ensureStarted(MinecraftServer server, String factionA, String factionB,
+                                        long untilGameTime) {
+        return ensureStarted(server, factionA, factionB, untilGameTime, "", "");
+    }
+
+    /** Starts one region/dimension-scoped daily conflict without resetting it per player. */
+    public static boolean ensureStarted(MinecraftServer server, String factionA, String factionB,
+                                        long untilGameTime, String regionId, String dimensionId) {
+        if (server == null) {
+            return false;
+        }
         ServerLevel overworld = server.overworld();
         WarData data = WarData.get(overworld);
+        long now = overworld.getGameTime();
+        String wantedA = normalize(factionA);
+        String wantedB = normalize(factionB);
+        String wantedRegion = normalizeOptional(regionId);
+        String wantedDimension = normalizeOptional(dimensionId);
+        if (data.active && !isExpired(data, now)) {
+            int previousScopeCount = data.scopes.size();
+            long previousEnd = data.endsAtGameTime;
+            boolean ensured = mergeDailyWarScope(data, wantedA, wantedB, wantedRegion, wantedDimension,
+                    Math.max(now + 1L, untilGameTime), now);
+            if (ensured && (data.scopes.size() != previousScopeCount || data.endsAtGameTime != previousEnd)) {
+                data.setDirty();
+            }
+            // A single global scoreboard cannot represent two simultaneous
+            // faction pairs. Keep the first active war intact instead of
+            // resetting scores for a later player's refresh.
+            return ensured;
+        }
+        if (isExpired(data, now)) {
+            stop(server);
+        }
+        return startAt(server, wantedA, wantedB, "", Math.max(now + 1L, untilGameTime), true,
+                wantedRegion, wantedDimension);
+    }
+
+    private static boolean startAt(MinecraftServer server, String factionA, String factionB,
+                                   String factionC, long endsAtGameTime, boolean dailyEventOwned,
+                                   String scopeRegionId, String scopeDimensionId) {
+        if (server == null) {
+            return false;
+        }
+        ServerLevel overworld = server.overworld();
+        WarData data = WarData.get(overworld);
+        data.generation = nextGeneration(data.generation);
         data.active = true;
         data.factionA = normalize(factionA);
         data.factionB = normalize(factionB);
@@ -118,9 +238,17 @@ public final class SectWarService {
         data.scoreC = 0;
         long now = overworld.getGameTime();
         data.startedAtGameTime = now;
-        data.endsAtGameTime = now + Math.max(1, minutes) * 20L * 60L;
+        data.endsAtGameTime = Math.max(now + 1L, endsAtGameTime);
         data.lastAiPulseGameTime = 0L;
+        data.dailyEventOwned = dailyEventOwned;
+        data.scopeRegionId = dailyEventOwned ? normalizeOptional(scopeRegionId) : "";
+        data.scopeDimensionId = dailyEventOwned ? normalizeOptional(scopeDimensionId) : "";
+        data.scopes.clear();
+        if (dailyEventOwned) {
+            addDailyScope(data, data.scopeRegionId, data.scopeDimensionId);
+        }
         data.setDirty();
+        int minutes = (int) Math.max(1L, (data.endsAtGameTime - now + 1199L) / 1200L);
         if (data.hasThirdArmy()) {
             broadcast(server, Component.translatable("message.seeking_immortals.sect_war.started_triple",
                     data.factionA, data.factionB, data.factionC, minutes));
@@ -131,6 +259,137 @@ public final class SectWarService {
         return true;
     }
 
+    static boolean sameArmies(WarData data, String factionA, String factionB, String factionC) {
+        if (data == null) {
+            return false;
+        }
+        String a = canonicalWarFaction(factionA);
+        String b = canonicalWarFaction(factionB);
+        String c = canonicalWarFaction(factionC);
+        String dataA = canonicalWarFaction(data.factionA);
+        String dataB = canonicalWarFaction(data.factionB);
+        boolean samePair = (a.equals(dataA) && b.equals(dataB))
+                || (a.equals(dataB) && b.equals(dataA));
+        return samePair && c.equals(canonicalWarFaction(data.factionC));
+    }
+
+    /** A war owns its end tick; equality is already outside the active window. */
+    static boolean isExpired(WarData data, long nowGameTime) {
+        return data != null && data.active && nowGameTime >= data.endsAtGameTime;
+    }
+
+    static long nextGeneration(long currentGeneration) {
+        return currentGeneration <= 0L || currentGeneration == Long.MAX_VALUE
+                ? 1L : currentGeneration + 1L;
+    }
+
+    /**
+     * Accepts another scope only for the currently active daily war with the
+     * same armies. Scores, start time, and generation are intentionally shared.
+     */
+    static boolean mergeDailyWarScope(WarData data, String factionA, String factionB,
+                                      String regionId, String dimensionId,
+                                      long desiredEndGameTime, long nowGameTime) {
+        if (data == null || !data.active || isExpired(data, nowGameTime) || !data.dailyEventOwned
+                || !sameArmies(data, factionA, factionB, "")) {
+            return false;
+        }
+        boolean legacyUnscoped = data.scopes.isEmpty()
+                && normalizeOptional(data.scopeRegionId).isBlank()
+                && normalizeOptional(data.scopeDimensionId).isBlank()
+                && normalizeOptional(regionId).isBlank()
+                && normalizeOptional(dimensionId).isBlank();
+        if (!legacyUnscoped && !addDailyScope(data, regionId, dimensionId)) {
+            return false;
+        }
+        if (desiredEndGameTime > data.endsAtGameTime) {
+            data.endsAtGameTime = desiredEndGameTime;
+        }
+        return true;
+    }
+
+    /** Returns true when the normalized scope already exists or was appended. */
+    static boolean addDailyScope(WarData data, String regionId, String dimensionId) {
+        if (data == null) {
+            return false;
+        }
+        migrateLegacyScope(data);
+        WarScope scope = new WarScope(regionId, dimensionId);
+        if (!scope.isValid()) {
+            return false;
+        }
+        if (data.scopes.contains(scope)) {
+            return true;
+        }
+        if (data.scopes.size() >= MAX_DAILY_WAR_SCOPES) {
+            return false;
+        }
+        data.scopes.add(scope);
+        syncLegacyScope(data);
+        return true;
+    }
+
+    private static void migrateLegacyScope(WarData data) {
+        if (data == null || !data.scopes.isEmpty()) {
+            return;
+        }
+        WarScope legacy = new WarScope(data.scopeRegionId, data.scopeDimensionId);
+        if (legacy.isValid()) {
+            data.scopes.add(legacy);
+        }
+    }
+
+    private static void syncLegacyScope(WarData data) {
+        if (data == null || data.scopes.isEmpty()) {
+            return;
+        }
+        WarScope first = data.scopes.iterator().next();
+        data.scopeRegionId = first.regionId();
+        data.scopeDimensionId = first.dimensionId();
+    }
+
+    static boolean sameDailyScope(WarData data, String regionId, String dimensionId) {
+        if (data == null) {
+            return false;
+        }
+        WarScope wanted = new WarScope(regionId, dimensionId);
+        if (!wanted.isValid()) {
+            return false;
+        }
+        if (!data.scopes.isEmpty()) {
+            return data.scopes.contains(wanted);
+        }
+        return wanted.regionId().equals(normalizeOptional(data.scopeRegionId))
+                && wanted.dimensionId().equals(normalizeOptional(data.scopeDimensionId));
+    }
+
+    /** Manual wars are global; daily wars fail closed outside their saved scope. */
+    static boolean isInWarScope(WarData data, String regionId, String dimensionId) {
+        if (data == null) {
+            return false;
+        }
+        if (!data.dailyEventOwned) {
+            return true;
+        }
+        WarScope current = new WarScope(regionId, dimensionId);
+        if (!current.isValid()) {
+            return false;
+        }
+        if (!data.scopes.isEmpty()) {
+            return data.scopes.contains(current);
+        }
+        String expectedRegion = normalizeOptional(data.scopeRegionId);
+        String expectedDimension = normalizeOptional(data.scopeDimensionId);
+        return (expectedRegion.isBlank() || expectedRegion.equals(current.regionId()))
+                && (expectedDimension.isBlank() || expectedDimension.equals(current.dimensionId()));
+    }
+
+    static boolean warShellGenerationMatches(CompoundTag shellTag, WarData data) {
+        return shellTag != null && data != null && data.active && data.generation > 0L
+                && shellTag.contains(WAR_SHELL_GENERATION)
+                && shellTag.getLong(WAR_SHELL_GENERATION) == data.generation;
+    }
+
     public static boolean stop(MinecraftServer server) {
         ServerLevel overworld = server.overworld();
         WarData data = WarData.get(overworld);
@@ -138,6 +397,10 @@ public final class SectWarService {
             return false;
         }
         data.active = false;
+        data.dailyEventOwned = false;
+        data.scopeRegionId = "";
+        data.scopeDimensionId = "";
+        data.scopes.clear();
         data.setDirty();
         String winner = winnerOf(data);
         if (data.hasThirdArmy()) {
@@ -148,6 +411,18 @@ public final class SectWarService {
                     data.factionA, data.scoreA, data.factionB, data.scoreB, winner));
         }
         return true;
+    }
+
+    /** Stops only the scoreboard created by daily-event conflict semantics. */
+    public static boolean stopDailyEventWar(MinecraftServer server) {
+        if (server == null) {
+            return false;
+        }
+        WarData data = WarData.get(server.overworld());
+        if (!data.active || !data.dailyEventOwned) {
+            return false;
+        }
+        return stop(server);
     }
 
     public static void onKill(ServerPlayer killer, ServerPlayer victim) {
@@ -170,8 +445,11 @@ public final class SectWarService {
         if (!data.active) {
             return false;
         }
-        if (server.overworld().getGameTime() > data.endsAtGameTime) {
+        if (isExpired(data, server.overworld().getGameTime())) {
             stop(server);
+            return false;
+        }
+        if (!isPlayerInWarScope(player, data)) {
             return false;
         }
         String token = normalizeOptional(sideToken);
@@ -197,7 +475,7 @@ public final class SectWarService {
         if (!data.active) {
             return false;
         }
-        if (server.overworld().getGameTime() > data.endsAtGameTime) {
+        if (isExpired(data, server.overworld().getGameTime())) {
             stop(server);
             return false;
         }
@@ -213,8 +491,11 @@ public final class SectWarService {
         if (!data.active) {
             return;
         }
-        if (server.overworld().getGameTime() > data.endsAtGameTime) {
+        if (isExpired(data, server.overworld().getGameTime())) {
             stop(server);
+            return;
+        }
+        if (!isPlayerInWarScope(killer, data)) {
             return;
         }
         String side = sideOf(killer, data);
@@ -228,10 +509,10 @@ public final class SectWarService {
     }
 
     public static String status(MinecraftServer server) {
-        WarData data = WarData.get(server.overworld());
-        if (!data.active) {
+        if (!isActive(server)) {
             return "inactive";
         }
+        WarData data = WarData.get(server.overworld());
         long remain = Math.max(0L, data.endsAtGameTime - server.overworld().getGameTime());
         int phase = warPhase(data, server.overworld().getGameTime());
         String base = data.factionA + "=" + data.scoreA + " vs " + data.factionB + "=" + data.scoreB;
@@ -258,6 +539,9 @@ public final class SectWarService {
             return;
         }
         WarData data = WarData.get(server.overworld());
+        if (!isPlayerInWarScope(player, data)) {
+            return;
+        }
         String side = sideOf(player, data);
         if (side.isBlank()) {
             return;
@@ -321,6 +605,7 @@ public final class SectWarService {
                 shell.setTarget(player);
                 CompoundTag tag = shell.getPersistentData().getCompound(WAR_SHELL_TAG).copy();
                 tag.putString(WAR_SHELL_SIDE, side);
+                tag.putLong(WAR_SHELL_GENERATION, data.generation);
                 tag.putString("EnemyFaction", enemyToken);
                 tag.putInt("Phase", phase);
                 shell.getPersistentData().put(WAR_SHELL_TAG, tag);
@@ -371,6 +656,7 @@ public final class SectWarService {
         ally.setCustomNameVisible(true);
         CompoundTag tag = ally.getPersistentData().getCompound(WAR_SHELL_TAG).copy();
         tag.putString(WAR_SHELL_SIDE, side);
+        tag.putLong(WAR_SHELL_GENERATION, data.generation);
         tag.putBoolean(WAR_SHELL_ALLY, true);
         tag.putInt("Phase", phase);
         ally.getPersistentData().put(WAR_SHELL_TAG, tag);
@@ -421,8 +707,11 @@ public final class SectWarService {
             return;
         }
         CompoundTag shellTag = shell.getPersistentData().getCompound(WAR_SHELL_TAG);
-        int phase = Math.max(1, shellTag.getInt("Phase"));
         WarData data = WarData.get(killer.server.overworld());
+        if (!warShellGenerationMatches(shellTag, data) || !isPlayerInWarScope(killer, data)) {
+            return;
+        }
+        int phase = Math.max(1, shellTag.getInt("Phase"));
         String side = sideOf(killer, data);
         if (side.isBlank()) {
             return;
@@ -526,13 +815,13 @@ public final class SectWarService {
         if (token == null || token.isBlank()) {
             return "";
         }
-        if (token.contains(data.factionA) || data.factionA.contains(token)) {
+        if (factionMatches(token, data.factionA)) {
             return "A";
         }
-        if (token.contains(data.factionB) || data.factionB.contains(token)) {
+        if (factionMatches(token, data.factionB)) {
             return "B";
         }
-        if (data.hasThirdArmy() && (token.contains(data.factionC) || data.factionC.contains(token))) {
+        if (data.hasThirdArmy() && factionMatches(token, data.factionC)) {
             return "C";
         }
         return "";
@@ -546,16 +835,61 @@ public final class SectWarService {
             return "";
         }
         String s = sect[0].toLowerCase(Locale.ROOT);
-        if (s.contains(data.factionA) || data.factionA.contains(s)) {
+        if (factionMatches(s, data.factionA)) {
             return "A";
         }
-        if (s.contains(data.factionB) || data.factionB.contains(s)) {
+        if (factionMatches(s, data.factionB)) {
             return "B";
         }
-        if (data.hasThirdArmy() && (s.contains(data.factionC) || data.factionC.contains(s))) {
+        if (data.hasThirdArmy() && factionMatches(s, data.factionC)) {
             return "C";
         }
         return "";
+    }
+
+    static boolean factionMatches(String participantFaction, String warFaction) {
+        String participant = canonicalWarFaction(participantFaction);
+        String faction = canonicalWarFaction(warFaction);
+        if (participant.isBlank() || faction.isBlank()) {
+            return false;
+        }
+        if ("tiannan_seven_sects".equals(faction)) {
+            return TIANNAN_SEVEN_SECT_IDS.contains(participant);
+        }
+        if ("tiannan_seven_sects".equals(participant)) {
+            return TIANNAN_SEVEN_SECT_IDS.contains(faction);
+        }
+        if (participant.equals(faction)) {
+            return true;
+        }
+        // Preserve compatibility with older qualified faction tokens after
+        // explicit aliases and aggregate armies have been resolved.
+        return participant.contains(faction) || faction.contains(participant);
+    }
+
+    private static String canonicalWarFaction(String id) {
+        String normalized = normalizeOptional(id);
+        if (normalized.isBlank()) {
+            return "";
+        }
+        if ("mulan_council".equals(normalized) || "mulan_fashi".equals(normalized)) {
+            return "mulan_fashi_council";
+        }
+        if ("tiannan_alliance".equals(normalized)) {
+            return "tiannan_seven_sects";
+        }
+        return SectDefinitionService.canonicalizeSectId(normalized);
+    }
+
+    private static boolean isPlayerInWarScope(ServerPlayer player, WarData data) {
+        if (player == null || data == null || !data.dailyEventOwned) {
+            return player != null && data != null;
+        }
+        String regionId = com.xunxian.seekingimmortals.cultivation.CultivationHelper.get(player)
+                .map(cultivation -> cultivation.getWorldpackCurrentRegionId())
+                .orElse("");
+        String dimensionId = player.level().dimension().location().toString();
+        return isInWarScope(data, regionId, dimensionId);
     }
 
     private static void broadcast(MinecraftServer server, Component message) {

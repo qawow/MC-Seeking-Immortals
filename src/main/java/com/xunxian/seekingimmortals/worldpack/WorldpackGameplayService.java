@@ -52,11 +52,15 @@ public final class WorldpackGameplayService {
     public static final String ROUTE_HINT_WIND_FEATHER_RAFT = "screen.seeking_immortals.worldpack.route.wind_feather_raft";
     public static final String ROUTE_HINT_NETHER_FERRY_FEE = "screen.seeking_immortals.worldpack.route.nether_ferry_fee";
     public static final String ROUTE_HINT_NETHER_FERRY_RETURN = "screen.seeking_immortals.worldpack.route.nether_ferry_return";
+    public static final String ROUTE_HINT_CHAOTIC_SEA_FERRY = "screen.seeking_immortals.worldpack.route.chaotic_sea_ferry";
     private static final double STAR_PALACE_ISLAND_MARKET_TAX_MULTIPLIER = 1.10D;
     private static final String TIANYUAN_REGION_ID = "tianyuan";
+    private static final String TIANNAN_REGION_ID = "tiannan";
     private static final String SPIRIT_FENGYUAN_REGION_ID = "spirit_fengyuan";
     private static final String NETHER_RIVER_REGION_ID = "nether_river";
     private static final String YINMING_REGION_ID = "yinming";
+    private static final String CHAOTIC_SEA_REGION_ID = "chaotic_sea";
+    private static final String OUTER_SEA_MARKET_REGION_ID = "outer_sea_market";
     private static final String FALLEN_DEMON_REGION_ID = "fallen_demon_valley";
     private static final String GREAT_JIN_CENTRAL_REGION_ID = "great_jin_central";
     private static final String DAJIN_REGION_ID = "dajin";
@@ -64,6 +68,7 @@ public final class WorldpackGameplayService {
     private static final String WIND_FEATHER_RAFT_TICKET_ITEM = "seeking_immortals:wind_feather_raft_ticket";
     private static final String ALLIANCE_MERIT_TOKEN_ITEM = "seeking_immortals:alliance_merit_token";
     private static final String YIN_STONE_ITEM = "seeking_immortals:yin_stone";
+    private static final String SPIRIT_BOAT_TICKET_ITEM = "seeking_immortals:spirit_boat_ticket";
     private static final String SECRET_REALM_TAG_NO_FLY = "no_fly";
     private static final int NETHER_RIVER_FERRY_YIN_STONE_FEE = 30;
     private static final int DEFAULT_PORTAL_PLATFORM_RADIUS = PortalArrayStructure.BASE_RADIUS;
@@ -147,15 +152,15 @@ public final class WorldpackGameplayService {
         Optional<WorldpackSavedData.EventRoll> saved = savedData == null
                 ? Optional.empty()
                 : savedData.peekDailyEvent(resolved);
-        if (saved.isPresent() && (gameTime <= 0L || saved.get().isActive(gameTime))) {
+        if (saved.isPresent() && saved.get().isActive(gameTime)) {
             return saved.get();
         }
         String playerEvent = cultivation.getWorldpackActiveDailyEventId();
         long until = cultivation.getWorldpackActiveDailyEventUntilTick();
-        if (playerEvent != null && !playerEvent.isBlank() && (gameTime <= 0L || until > gameTime)) {
+        if (playerEvent != null && !playerEvent.isBlank() && until > gameTime) {
             return new WorldpackSavedData.EventRoll(resolved, playerEvent, until);
         }
-        return saved.orElseGet(() -> new WorldpackSavedData.EventRoll(resolved, "", 0L));
+        return new WorldpackSavedData.EventRoll(resolved, "", 0L);
     }
 
     public static void handleClientAction(ServerPlayer player, String action, String targetId) {
@@ -420,6 +425,9 @@ public final class WorldpackGameplayService {
         if (returnResult.isPresent()) {
             return returnResult.get();
         }
+        if (FerryTravelPolicy.denyIfDelayed(player)) {
+            return false;
+        }
         SpatialNodeRequiresService.Reservation reservation = reserveSpatialNode(player, "pocket_gate", enforceRequires);
         if (reservation == null) {
             return false;
@@ -466,7 +474,6 @@ public final class WorldpackGameplayService {
         return completeSpatialNodeUse(player, reservation, success[0]);
     }
 
-    private static final String CHAOTIC_SEA_REGION_ID = "chaotic_sea";
     private static final String INVERSE_STAR_HIDEOUT_REGION_ID = "inverse_star_hideout";
 
     /** Wave462: ascension_gate with realm/tribulation requires, routes to Tianyuan. */
@@ -750,9 +757,21 @@ public final class WorldpackGameplayService {
     public static ShopService.CostModifier marketCostModifier(ServerPlayer player) {
         return (shopId, entry, baseCost) -> {
             int effectAdjusted = CultivationHelper.get(player)
-                    .map(cultivation -> adjustMarketCostForShop(shopId, entry, baseCost,
-                            activeEffects(player, cultivation),
-                            StarPalaceTaxReceiptItem.hasPaidIslandTradeTax(cultivation)))
+                    .map(cultivation -> {
+                        List<String> effects = activeEffects(player, cultivation);
+                        boolean taxPaid = StarPalaceTaxReceiptItem.hasPaidIslandTradeTax(cultivation);
+                        Optional<DailyEventEffectCatalog.Event> authored = activeAuthoredEvent(player, cultivation)
+                                .filter(DailyEventEffectExecutor::definesMarketPricing);
+                        if (authored.isPresent()) {
+                            int exact = DailyEventEffectExecutor.adjustMarketCost(
+                                    baseCost, authored.get(), shopId, entry == null ? "" : entry.itemId());
+                            if (appliesStarPalaceIslandMarketTax(shopId, entry, taxPaid)) {
+                                exact = Math.max(1, (int) Math.ceil(exact * STAR_PALACE_ISLAND_MARKET_TAX_MULTIPLIER));
+                            }
+                            return exact;
+                        }
+                        return adjustMarketCostForShop(shopId, entry, baseCost, effects, taxPaid);
+                    })
                     .orElseGet(() -> adjustMarketCostForShop(shopId, entry, baseCost, List.of(), false));
             // Wave46: reputation discount table (friendly 5%, honored 12%, max 20%).
             double repDiscount = ReputationService.shopDiscountMultiplier(player, shopId);
@@ -793,7 +812,11 @@ public final class WorldpackGameplayService {
     }
 
     public static int applySectContributionBonus(ServerPlayer player, PlayerCultivation cultivation, int baseReward) {
-        return adjustSectContributionReward(baseReward, activeEffects(player, cultivation));
+        List<String> effects = activeEffects(player, cultivation);
+        return activeAuthoredEvent(player, cultivation)
+                .filter(DailyEventEffectExecutor::definesContributionReward)
+                .map(event -> DailyEventEffectExecutor.adjustContributionReward(baseReward, event))
+                .orElseGet(() -> adjustSectContributionReward(baseReward, effects));
     }
 
     public static int adjustSectContributionReward(int baseReward, List<String> effects) {
@@ -862,18 +885,12 @@ public final class WorldpackGameplayService {
                             cultivation.getWorldpackActiveSecretRealmId().equals(realm.id()));
                 })
                 .toList();
-        String eventId = eventRoll.eventId();
-        String eventDisplay = snapshot.findDailyEvent(eventId).map(WorldpackGameplayService::display).orElseGet(() -> {
-            for (WorldpackDataService.DailyEvent event : com.xunxian.seekingimmortals.region.DailyEventScheduler
-                    .expandedCandidates(currentRegion, snapshot)) {
-                if (event.id().equals(eventId)) {
-                    return display(event);
-                }
-            }
-            return safeDisplay(eventId, "异象");
-        });
-        long eventRemaining = Math.max(0L, eventRoll.untilTick() - now);
-        List<String> effects = activeEffects(snapshot, eventRoll);
+        boolean eventActive = eventRoll != null && !eventRoll.eventId().isBlank()
+                && eventRoll.untilTick() > now;
+        String eventId = eventActive ? eventRoll.eventId() : "";
+        String eventDisplay = eventActive ? expandedEventDisplay(currentRegion, snapshot, eventId) : "";
+        long eventRemaining = eventActive ? Math.max(0L, eventRoll.untilTick() - now) : 0L;
+        List<String> effects = eventActive ? activeEffects(snapshot, eventRoll) : List.of();
         return new WorldpackSnapshot(
                 currentRegion,
                 snapshot.findRegion(currentRegion).map(WorldpackGameplayService::display).orElse(safeDisplay(currentRegion, "未知地域")),
@@ -886,6 +903,19 @@ public final class WorldpackGameplayService {
                 regions,
                 realms,
                 openScreen);
+    }
+
+    private static String expandedEventDisplay(String currentRegion, WorldpackDataService.Snapshot snapshot,
+                                                String eventId) {
+        return snapshot.findDailyEvent(eventId).map(WorldpackGameplayService::display).orElseGet(() -> {
+            for (WorldpackDataService.DailyEvent event : com.xunxian.seekingimmortals.region.DailyEventScheduler
+                    .expandedCandidates(currentRegion, snapshot)) {
+                if (event.id().equals(eventId)) {
+                    return display(event);
+                }
+            }
+            return safeDisplay(eventId, "异象");
+        });
     }
 
     private static void sendSummary(ServerPlayer player, WorldpackSnapshot data) {
@@ -946,9 +976,6 @@ public final class WorldpackGameplayService {
         // M06: expanded candidates + hook dispatch + encounter spawn live in DailyEventScheduler.
         WorldpackSavedData.EventRoll roll = com.xunxian.seekingimmortals.region.DailyEventScheduler
                 .ensurePlayerEvent(player, regionId);
-        cultivation.setWorldpackDailyEvent(roll.eventId(), roll.untilTick());
-        // M08: player-scoped faction conflict authority (rep/price). Region-wide hooks fire inside scheduler.
-        com.xunxian.seekingimmortals.sect.FactionConflictEventService.onDailyEvent(player, regionId, roll.eventId());
         return roll;
     }
 
@@ -963,6 +990,10 @@ public final class WorldpackGameplayService {
         if (roll == null || roll.eventId().isBlank()) {
             return List.of();
         }
+        Optional<DailyEventEffectCatalog.Event> authored = DailyEventEffectCatalog.builtin().find(roll.eventId());
+        if (authored.isPresent()) {
+            return authored.get().legacyEffects();
+        }
         Optional<WorldpackDataService.DailyEvent> direct = snapshot.findDailyEvent(roll.eventId());
         if (direct.isPresent()) {
             return direct.get().effects();
@@ -975,6 +1006,19 @@ public final class WorldpackGameplayService {
             }
         }
         return List.of();
+    }
+
+    private static Optional<DailyEventEffectCatalog.Event> activeAuthoredEvent(ServerPlayer player,
+                                                                                 PlayerCultivation cultivation) {
+        if (player == null || cultivation == null) {
+            return Optional.empty();
+        }
+        long until = cultivation.getWorldpackActiveDailyEventUntilTick();
+        if (until <= player.level().getGameTime()) {
+            return Optional.empty();
+        }
+        return DailyEventEffectCatalog.builtin().find(cultivation.getWorldpackActiveDailyEventId())
+                .filter(event -> DailyEventEffectExecutor.isRealmAllowed(player, event));
     }
 
     private static String normalizeRegion(PlayerCultivation cultivation, WorldpackDataService.Snapshot snapshot) {
@@ -1071,6 +1115,27 @@ public final class WorldpackGameplayService {
                 && YINMING_REGION_ID.equals(targetRegion.id());
     }
 
+    static boolean isNetherFerryRoute(String currentRegionId, String targetRegionId) {
+        String current = currentRegionId == null ? "" : currentRegionId.trim();
+        String target = targetRegionId == null ? "" : targetRegionId.trim();
+        return (NETHER_RIVER_REGION_ID.equals(current) && YINMING_REGION_ID.equals(target))
+                || (YINMING_REGION_ID.equals(current) && NETHER_RIVER_REGION_ID.equals(target));
+    }
+
+    static boolean isSeaFerryRoute(String currentRegionId, String targetRegionId) {
+        String current = currentRegionId == null ? "" : currentRegionId.trim();
+        String target = targetRegionId == null ? "" : targetRegionId.trim();
+        return (TIANNAN_REGION_ID.equals(current) && CHAOTIC_SEA_REGION_ID.equals(target))
+                || (CHAOTIC_SEA_REGION_ID.equals(current) && TIANNAN_REGION_ID.equals(target))
+                || (CHAOTIC_SEA_REGION_ID.equals(current) && OUTER_SEA_MARKET_REGION_ID.equals(target))
+                || (OUTER_SEA_MARKET_REGION_ID.equals(current) && CHAOTIC_SEA_REGION_ID.equals(target));
+    }
+
+    static boolean isFerryRoute(String currentRegionId, String targetRegionId) {
+        return isNetherFerryRoute(currentRegionId, targetRegionId)
+                || isSeaFerryRoute(currentRegionId, targetRegionId);
+    }
+
     static int netherRiverFerryYinStoneFee(String currentRegionId, WorldpackDataService.RegionCard targetRegion) {
         return requiresNetherRiverFerryFee(currentRegionId, targetRegion) ? NETHER_RIVER_FERRY_YIN_STONE_FEE : 0;
     }
@@ -1105,12 +1170,22 @@ public final class WorldpackGameplayService {
         if (YINMING_REGION_ID.equals(current) && NETHER_RIVER_REGION_ID.equals(targetRegion.id())) {
             return new RouteRequirement(ROUTE_HINT_NETHER_FERRY_RETURN, 0, "");
         }
+        if (isSeaFerryRoute(current, targetRegion.id())) {
+            return new RouteRequirement(ROUTE_HINT_CHAOTIC_SEA_FERRY, 1, SPIRIT_BOAT_TICKET_ITEM);
+        }
         return RouteRequirement.NONE;
     }
 
     private static TravelCostReservation reserveTravelCosts(ServerPlayer player, String currentRegionId,
                                                             WorldpackDataService.RegionCard targetRegion,
                                                             boolean fromPortalArray) {
+        boolean ferryPath = isFerryRoute(currentRegionId, targetRegion.id())
+                || (!fromPortalArray && NETHER_RIVER_REGION_ID.equals(targetRegion.id())
+                && !NETHER_RIVER_REGION_ID.equals(currentRegionId));
+        if (ferryPath
+                && FerryTravelPolicy.denyIfDelayed(player)) {
+            return null;
+        }
         Map<Item, Integer> costs = new LinkedHashMap<>();
         if (!fromPortalArray && requiresPortalArray(targetRegion)
                 && !planNonPortalTravelAccess(player, currentRegionId, targetRegion, costs)) {
@@ -1174,10 +1249,20 @@ public final class WorldpackGameplayService {
     private static boolean planRegionalTravelFee(ServerPlayer player, String currentRegionId,
                                                  WorldpackDataService.RegionCard targetRegion,
                                                  Map<Item, Integer> costs) {
+        if (isSeaFerryRoute(currentRegionId, targetRegion.id())) {
+            int ticketCount = FerryTravelPolicy.adjustCost(player, 1);
+            return planTravelCost(player, costs, SPIRIT_BOAT_TICKET_ITEM, ticketCount,
+                    Component.translatable(
+                            "message.seeking_immortals.worldpack.missing_spirit_boat_ticket",
+                            ticketCount,
+                            Component.translatable(itemDescriptionId(SPIRIT_BOAT_TICKET_ITEM))));
+        }
         int yinStoneFee = netherRiverFerryYinStoneFee(currentRegionId, targetRegion);
         if (yinStoneFee <= 0) {
             return true;
         }
+        int baseYinStoneFee = yinStoneFee;
+        yinStoneFee = FerryTravelPolicy.adjustCost(player, baseYinStoneFee);
         return planTravelCost(player, costs, YIN_STONE_ITEM, yinStoneFee,
                 Component.translatable(
                         "message.seeking_immortals.worldpack.missing_nether_ferry_fee",

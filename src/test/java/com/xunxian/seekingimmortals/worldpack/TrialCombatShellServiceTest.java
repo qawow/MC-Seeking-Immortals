@@ -83,7 +83,8 @@ class TrialCombatShellServiceTest {
         String source = Files.readString(Path.of(
                 "src", "main", "java", "com", "xunxian", "seekingimmortals",
                 "worldpack", "DailyEventEncounterService.java"));
-        assertTrue(source.contains("BeastSpawnTableService.spawnNearPlayer(player, region, 3)"));
+        assertTrue(source.contains(
+                "BeastSpawnTableService.spawnNearPlayerExact(player, region, plan.count())"));
         assertFalse(source.contains("EntityType.WOLF"));
         assertFalse(source.contains("EntityType.FOX"));
     }

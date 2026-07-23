@@ -997,6 +997,10 @@ public final class ArtifactActivationService {
         String binds = artifact == null || artifact.binds() == null ? "" : artifact.binds().trim().toLowerCase(Locale.ROOT);
         if (!binds.isBlank()) {
             String vehicleId = resolveVehicleBind(binds);
+            if (FlightVehicleService.isBoardingDelayed(player, vehicleId)) {
+                FlightVehicleService.board(player, vehicleId);
+                return;
+            }
             if (FlightVehicleService.board(player, vehicleId)) {
                 return;
             }

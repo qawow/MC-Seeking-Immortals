@@ -141,6 +141,10 @@ public final class DimensionTravelService {
                     "message.seeking_immortals.dim_travel.not_allowed", routeDisplay(route)), false);
             return false;
         }
+        if (FerryTravelPolicy.isFerryRoute(route.id(), route.method(), route.gateId())
+                && FerryTravelPolicy.denyIfDelayed(player)) {
+            return false;
+        }
         int contributionCost = contributionCost(route.id());
         var progress = CultivationHelper.get(player)
                 .map(cultivation -> cultivation.getSevenMysteriesQuest())
@@ -222,6 +226,10 @@ public final class DimensionTravelService {
                 || toDim.trim().toLowerCase(Locale.ROOT).startsWith("instance:")) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.dim_travel.not_allowed", dimensionDisplay(toDim)), false);
+            return false;
+        }
+        if (FerryTravelPolicy.isFerryRoute(routeKey, method, gateId)
+                && FerryTravelPolicy.denyIfDelayed(player)) {
             return false;
         }
         String currentDimension = normalizeDimToken(player.level().dimension().location().toString());

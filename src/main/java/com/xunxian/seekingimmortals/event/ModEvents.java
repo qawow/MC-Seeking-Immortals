@@ -55,6 +55,7 @@ import com.xunxian.seekingimmortals.skill.effect.spell.MultiSwordArraySpell;
 import com.xunxian.seekingimmortals.spiritual.SpiritualAuraManager;
 import com.xunxian.seekingimmortals.structure.FormationFieldService;
 import com.xunxian.seekingimmortals.worldpack.DemonRiftHazard;
+import com.xunxian.seekingimmortals.worldpack.DailyEventEffectExecutor;
 import com.xunxian.seekingimmortals.worldpack.SecretRealmRewardService;
 import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
 import com.xunxian.seekingimmortals.worldpack.WorldHazardVfxService;
@@ -247,6 +248,8 @@ public final class ModEvents {
         handleCatalogPillTimers(event.player);
         if (event.player instanceof ServerPlayer serverPlayer) {
             TechniqueLifecycleVfxService.tickSelfBuff(serverPlayer);
+            // Clear an expired daily mirror before meditation gain is computed.
+            DailyEventEffectExecutor.expireIfNeeded(serverPlayer);
         }
         // M04: re-assert palm bottle uniqueness occasionally
         if (event.player instanceof ServerPlayer serverPlayer && serverPlayer.tickCount % 100 == 0) {
@@ -270,6 +273,9 @@ public final class ModEvents {
                 TribulationService.tick(serverPlayer, cultivation);
                 handlePhysiqueDefects(serverPlayer, cultivation);
                 MultiSwordArraySpell.tickActive(serverPlayer);
+                if (serverPlayer.tickCount % 20 == 0) {
+                    DailyEventEffectExecutor.tick(serverPlayer);
+                }
                 // Wave472: secret-realm hazard pulse every 5s while active.
                 if (serverPlayer.tickCount % 100 == 0) {
                     com.xunxian.seekingimmortals.worldpack.SecretRealmTrialService.tickHazard(serverPlayer);
@@ -608,7 +614,10 @@ public final class ModEvents {
             player.getPersistentData().remove("SeekingImmortalsMysticVialRespawn");
         }
 
+        String resolvedRegion = com.xunxian.seekingimmortals.region.RegionRegistry.resolveAndSync(player);
         CultivationHelper.get(player).ifPresent(cultivation -> {
+            com.xunxian.seekingimmortals.region.DailyEventScheduler.ensurePlayerEvent(
+                    player, resolvedRegion);
             refreshCultivationAttributeState(player, cultivation);
             syncClientMirrors(player, cultivation);
         });
@@ -629,8 +638,11 @@ public final class ModEvents {
         // M13: re-apply realm/dimension flight policy after clearing transient sources.
         com.xunxian.seekingimmortals.worldpack.FlyingAuthorityPolicy.onDimensionChanged(
                 player, event.getTo().location().toString());
+        String resolvedRegion = com.xunxian.seekingimmortals.region.RegionRegistry.resolveAndSync(player);
         CultivationHelper.get(player).ifPresent(cultivation -> {
             TribulationService.handleDimensionChange(player, cultivation);
+            com.xunxian.seekingimmortals.region.DailyEventScheduler.ensurePlayerEvent(
+                    player, resolvedRegion);
             refreshCultivationAttributeState(player, cultivation);
             syncClientMirrors(player, cultivation);
         });
@@ -757,6 +769,9 @@ public final class ModEvents {
             event.getEntity().displayClientMessage(
                     Component.translatable("message.seeking_immortals.login", cultivation.getRealm().getDisplayName(), cultivation.getStage().getDisplayName(), cultivation.getSpiritualPower(), cultivation.getMaxSpiritualPower()), false);
             if (event.getEntity() instanceof ServerPlayer serverPlayer) {
+                String resolvedRegion = com.xunxian.seekingimmortals.region.RegionRegistry.resolveAndSync(serverPlayer);
+                com.xunxian.seekingimmortals.region.DailyEventScheduler.ensurePlayerEvent(
+                        serverPlayer, resolvedRegion);
                 refreshCultivationAttributeState(serverPlayer, cultivation);
                 givePatchouliGuideBook(serverPlayer);
                 // Wave467: claim offline auction outbid refunds.
@@ -1038,7 +1053,8 @@ public final class ModEvents {
                 cultivation.getWorldpackCurrentRegionId(),
                 cultivation.getWorldpackActiveSecretRealmId(),
                 player.level().dimension().location().toString(),
-                cultivation.getWorldpackActiveDailyEventId());
+                cultivation.getWorldpackActiveDailyEventUntilTick() > player.level().getGameTime()
+                        ? cultivation.getWorldpackActiveDailyEventId() : "");
         boolean hasYinProtection = CatalogPillItem.hasYinProtection(player);
         WorldHazardVfxService.transition(
                 player, WorldHazardVfxService.Hazard.YIN_UNDERWORLD, profile.active(), hasYinProtection);
@@ -1097,7 +1113,8 @@ public final class ModEvents {
                 cultivation.getWorldpackCurrentRegionId(),
                 cultivation.getWorldpackActiveSecretRealmId(),
                 player.level().dimension().location().toString(),
-                cultivation.getWorldpackActiveDailyEventId());
+                cultivation.getWorldpackActiveDailyEventUntilTick() > player.level().getGameTime()
+                        ? cultivation.getWorldpackActiveDailyEventId() : "");
         WorldHazardVfxService.transition(
                 player, WorldHazardVfxService.Hazard.DEMON_RIFT, profile.active(), false);
         if (!profile.active() || !profile.shouldApply(player.tickCount)) {

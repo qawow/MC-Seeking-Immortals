@@ -110,6 +110,9 @@ public final class RegionRegistry {
             String resolved = resolveRegionId(player.level(), player.blockPosition(), preferred);
             if (!resolved.equals(preferred) && isKnown(resolved)) {
                 cultivation.setWorldpackCurrentRegionId(resolved);
+                com.xunxian.seekingimmortals.worldpack.DailyEventEffectExecutor.expire(player);
+                com.xunxian.seekingimmortals.sect.FactionConflictEventService.onDailyEvent(
+                        player, resolved, "", 0L);
             }
             return resolved;
         }).orElse(DEFAULT_REGION_ID);

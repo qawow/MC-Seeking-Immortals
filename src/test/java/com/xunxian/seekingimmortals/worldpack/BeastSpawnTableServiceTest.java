@@ -4,6 +4,7 @@ import com.xunxian.seekingimmortals.beast.BeastBestiaryService;
 import com.xunxian.seekingimmortals.beast.BeastCompanionService;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -31,5 +32,14 @@ class BeastSpawnTableServiceTest {
                         "banned beast in table " + table.region() + ": " + weight.beastId());
             }
         }
+    }
+
+    @Test
+    void exactRequestsDoNotReceiveLeylineBonusOrExceedAvailableRoom() {
+        assertEquals(5, BeastSpawnTableService.spawnRequestLimit(3, true, true, 12));
+        assertEquals(3, BeastSpawnTableService.spawnRequestLimit(3, true, false, 12));
+        assertEquals(4, BeastSpawnTableService.spawnRequestLimit(6, true, false, 4));
+        assertEquals(0, BeastSpawnTableService.spawnRequestLimit(0, true, false, 12));
+        assertEquals(0, BeastSpawnTableService.spawnRequestLimit(3, true, false, 0));
     }
 }

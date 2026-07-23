@@ -80,6 +80,11 @@ public class PlayerCultivation {
     private double meditationCultivationProgress = 0.0D;
     private int cultivationBoostTicks = 0;
     private double cultivationBoostMultiplier = 1.0D;
+    /**
+     * Authoritative multiplier owned by the currently active authored daily event.
+     * It is deliberately separate from pill/consumable cultivation boosts.
+     */
+    private double worldpackDailyCultivationMultiplier = 1.0D;
     private double movementSpeedScale = 1.0D;
     private String worldpackCurrentRegionId = "qinglan_mountains";
     private String worldpackActiveSecretRealmId = "";
@@ -189,6 +194,9 @@ public class PlayerCultivation {
     public boolean isMeditating() { return meditating; }
     public int getCultivationBoostTicks() { return cultivationBoostTicks; }
     public double getCultivationBoostMultiplier() { return cultivationBoostTicks > 0 ? cultivationBoostMultiplier : 1.0D; }
+    public double getWorldpackDailyCultivationMultiplier() {
+        return clampDailyCultivationMultiplier(worldpackDailyCultivationMultiplier);
+    }
     public SpiritualRoot getSpiritualRoot() { return spiritualRoot; }
     public Set<SpiritualRootAttribute> getSpiritualRootAttributes() { return EnumSet.copyOf(spiritualRootAttributes); }
     public SpiritualRootAttribute getSpiritualRootAttribute() { return spiritualRootAttributes.iterator().next(); }
@@ -744,7 +752,11 @@ public class PlayerCultivation {
     }
 
     public void setWorldpackCurrentRegionId(String regionId) {
-        worldpackCurrentRegionId = cleanWorldpackId(regionId, "qinglan_mountains");
+        String normalized = cleanWorldpackId(regionId, "qinglan_mountains");
+        if (!normalized.equals(getWorldpackCurrentRegionId())) {
+            clearWorldpackDailyEvent();
+        }
+        worldpackCurrentRegionId = normalized;
     }
 
     public String getWorldpackActiveSecretRealmId() {
@@ -824,8 +836,39 @@ public class PlayerCultivation {
     }
 
     public void setWorldpackDailyEvent(String eventId, long untilTick) {
-        worldpackActiveDailyEventId = cleanWorldpackId(eventId, "");
-        worldpackActiveDailyEventUntilTick = Math.max(0L, untilTick);
+        String normalized = cleanWorldpackId(eventId, "");
+        long normalizedUntil = Math.max(0L, untilTick);
+        if (normalized.isBlank()) {
+            clearWorldpackDailyEvent();
+            return;
+        }
+        boolean changed = !normalized.equals(worldpackActiveDailyEventId)
+                || normalizedUntil != worldpackActiveDailyEventUntilTick;
+        worldpackActiveDailyEventId = normalized;
+        worldpackActiveDailyEventUntilTick = normalizedUntil;
+        // Preserve the legacy two-event behavior for old callers. When the
+        // event identity/expiry is unchanged, retain the exact typed value
+        // installed by DailyEventEffectExecutor.
+        if (changed) {
+            worldpackDailyCultivationMultiplier = getWorldpackDailyCultivationMultiplier(normalized);
+        }
+    }
+
+    /** Clears the event identity, deadline, and only the event-owned multiplier. */
+    public void clearWorldpackDailyEvent() {
+        worldpackActiveDailyEventId = "";
+        worldpackActiveDailyEventUntilTick = 0L;
+        worldpackDailyCultivationMultiplier = 1.0D;
+    }
+
+    /** Sets the multiplier owned by the active authored daily event. */
+    public void setWorldpackDailyCultivationMultiplier(double multiplier) {
+        worldpackDailyCultivationMultiplier = clampDailyCultivationMultiplier(multiplier);
+    }
+
+    /** Clears only the daily-event multiplier; consumable boosts remain intact. */
+    public void clearWorldpackDailyCultivationMultiplier() {
+        worldpackDailyCultivationMultiplier = 1.0D;
     }
 
     public double getMeleeAttackPower() {
@@ -1281,8 +1324,8 @@ public class PlayerCultivation {
     }
 
     public int addMeditationCultivation(MeditationFormula.Breakdown breakdown) {
-        double worldpackMultiplier = getWorldpackDailyCultivationMultiplier(worldpackActiveDailyEventId);
-        meditationCultivationProgress += Math.max(0.0D, breakdown.perTick() * getCultivationBoostMultiplier() * worldpackMultiplier);
+        meditationCultivationProgress += Math.max(0.0D,
+                breakdown.perTick() * getCultivationBoostMultiplier() * getWorldpackDailyCultivationMultiplier());
         int whole = (int) Math.floor(meditationCultivationProgress);
         if (whole <= 0) return 0;
         meditationCultivationProgress -= whole;
@@ -1358,11 +1401,14 @@ public class PlayerCultivation {
         double pillBonus = modifiers == null ? 0.0D : modifiers.pillBonus();
         double spiritEyeBonus = modifiers == null ? 0.0D : modifiers.spiritEyeBonus();
         double techniqueQualityBonus = modifiers == null ? 0.0D : modifiers.techniqueQualityBonus();
+        double eventBonus = modifiers == null ? 0.0D : modifiers.eventBonus();
         Realm targetRealm = getNextBreakthroughRealm();
         double advancedBonus = getAdvancedBreakthroughBonus(targetRealm);
         double chanceCap = getBreakthroughChanceCap(targetRealm);
-        double chance = Math.min(chanceCap, baseChance + rootBonus + pillBonus + spiritEyeBonus + techniqueQualityBonus + obsessionBonus + advancedBonus);
-        return new BreakthroughChanceBreakdown(baseChance, pillBonus, spiritEyeBonus, techniqueQualityBonus, obsessionBonus, advancedBonus, chance);
+        double chance = Math.min(chanceCap, baseChance + rootBonus + pillBonus + spiritEyeBonus
+                + techniqueQualityBonus + eventBonus + obsessionBonus + advancedBonus);
+        return new BreakthroughChanceBreakdown(baseChance, pillBonus, spiritEyeBonus, techniqueQualityBonus,
+                eventBonus, obsessionBonus, advancedBonus, chance);
     }
 
     public BreakthroughAttemptResult tryBreakthrough(RandomSource random) {
@@ -1404,8 +1450,24 @@ public class PlayerCultivation {
         FINAL_STAGE
     }
 
-    public record BreakthroughChanceModifiers(double pillBonus, double spiritEyeBonus, double techniqueQualityBonus) {
-        public static final BreakthroughChanceModifiers NONE = new BreakthroughChanceModifiers(0.0D, 0.0D, 0.0D);
+    /**
+     * Non-resource breakthrough modifiers.  {@code eventBonus} is supplied by
+     * server-authoritative temporary events and deliberately does not affect
+     * {@link #isBreakthroughAssisted()} or breakthrough resource requirements.
+     */
+    public record BreakthroughChanceModifiers(double pillBonus, double spiritEyeBonus,
+                                               double techniqueQualityBonus, double eventBonus) {
+        public BreakthroughChanceModifiers(double pillBonus, double spiritEyeBonus,
+                                           double techniqueQualityBonus) {
+            this(pillBonus, spiritEyeBonus, techniqueQualityBonus, 0.0D);
+        }
+
+        public BreakthroughChanceModifiers {
+            eventBonus = Double.isFinite(eventBonus) ? Math.max(0.0D, Math.min(0.20D, eventBonus)) : 0.0D;
+        }
+
+        public static final BreakthroughChanceModifiers NONE =
+                new BreakthroughChanceModifiers(0.0D, 0.0D, 0.0D, 0.0D);
     }
 
     public record BreakthroughChanceBreakdown(
@@ -1413,6 +1475,7 @@ public class PlayerCultivation {
             double pillBonus,
             double spiritEyeBonus,
             double techniqueQualityBonus,
+            double eventBonus,
             double obsessionBonus,
             double advancedBonus,
             double chance) {}
@@ -1511,6 +1574,10 @@ public class PlayerCultivation {
             case "spirit_vein_pulse" -> WORLDPACK_SPIRIT_VEIN_PULSE_CULTIVATION_MULTIPLIER;
             default -> 1.0D;
         };
+    }
+
+    private static double clampDailyCultivationMultiplier(double multiplier) {
+        return Double.isFinite(multiplier) ? Math.max(1.0D, Math.min(5.0D, multiplier)) : 1.0D;
     }
 
     private static int normalizeRiskPercent(float value, int max) {
@@ -1690,6 +1757,7 @@ public class PlayerCultivation {
         tag.putInt("RealmFallScars", realmFallScars);
         tag.putInt("CultivationBoostTicks", cultivationBoostTicks);
         tag.putDouble("CultivationBoostMultiplier", cultivationBoostMultiplier);
+        tag.putDouble("WorldpackDailyCultivationMultiplier", getWorldpackDailyCultivationMultiplier());
         tag.putDouble("MovementSpeedScale", movementSpeedScale);
         tag.putString("WorldpackCurrentRegion", getWorldpackCurrentRegionId());
         tag.putString("WorldpackActiveSecretRealm", getWorldpackActiveSecretRealmId());
@@ -1798,6 +1866,9 @@ public class PlayerCultivation {
         worldpackActiveSecretRealmId = cleanWorldpackId(tag.getString("WorldpackActiveSecretRealm"), "");
         worldpackActiveDailyEventId = cleanWorldpackId(tag.getString("WorldpackActiveDailyEvent"), "");
         worldpackActiveDailyEventUntilTick = Math.max(0L, tag.getLong("WorldpackDailyEventUntilTick"));
+        worldpackDailyCultivationMultiplier = tag.contains("WorldpackDailyCultivationMultiplier")
+                ? clampDailyCultivationMultiplier(tag.getDouble("WorldpackDailyCultivationMultiplier"))
+                : getWorldpackDailyCultivationMultiplier(worldpackActiveDailyEventId);
         worldpackHasReturnLocation = false;
         worldpackReturnDimension = "";
         if (tag.contains("WorldpackReturn")) {

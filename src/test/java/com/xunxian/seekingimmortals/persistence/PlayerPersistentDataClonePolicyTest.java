@@ -19,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class PlayerPersistentDataClonePolicyTest {
+    private static final String DAILY_EVENT_SEMANTICS = "seeking_immortals_daily_event_semantics";
     private static final Set<String> EXPECTED_DURABLE_KEYS = Set.of(
             "SeekingImmortalsExchangeDay",
             "SeekingImmortalsExchangeCount",
@@ -92,6 +93,17 @@ class PlayerPersistentDataClonePolicyTest {
 
         CompoundTag helperSource = intTag("fresh", 17);
         source.put(ManualCatalogService.STUDIED_TAG, helperSource);
+        CompoundTag eventSemantics = new CompoundTag();
+        eventSemantics.putString("ActiveId", "mulan_border_patrol");
+        eventSemantics.putLong("ActiveUntil", 24000L);
+        eventSemantics.putString("AppliedId", "mulan_border_patrol");
+        eventSemantics.putLong("AppliedUntil", 24000L);
+        ListTag appliedFlags = new ListTag();
+        appliedFlags.add(StringTag.valueOf("daily_event_mulan_border_patrol"));
+        eventSemantics.put("AppliedFlags", appliedFlags);
+        eventSemantics.putDouble("BreakthroughBonus", 0.05D);
+        eventSemantics.putDouble("SmuggleChance", 0.2D);
+        source.put(DAILY_EVENT_SEMANTICS, eventSemantics);
         source.putInt("seeking_immortals_unknown_clone_data", 19);
         source.putInt("seeking_immortals_dialogue_session", 23);
         source.putInt("seeking_immortals_text_dialogue_session", 29);
@@ -107,6 +119,7 @@ class PlayerPersistentDataClonePolicyTest {
         Set<String> expectedTargetKeys = new HashSet<>(EXPECTED_DURABLE_KEYS);
         expectedTargetKeys.addAll(dynamicKeys);
         expectedTargetKeys.add(ManualCatalogService.STUDIED_TAG);
+        expectedTargetKeys.add(DAILY_EVENT_SEMANTICS);
         assertEquals(expectedTargetKeys, target.getAllKeys());
 
         for (String key : EXPECTED_DURABLE_KEYS) {
@@ -130,12 +143,38 @@ class PlayerPersistentDataClonePolicyTest {
         helperSource.putInt("fresh", -1);
         assertEquals(17, target.getCompound(ManualCatalogService.STUDIED_TAG).getInt("fresh"));
 
+        CompoundTag copiedSemantics = target.getCompound(DAILY_EVENT_SEMANTICS);
+        assertNotSame(eventSemantics, copiedSemantics);
+        assertEquals("mulan_border_patrol", copiedSemantics.getString("ActiveId"));
+        assertEquals(24000L, copiedSemantics.getLong("AppliedUntil"));
+        assertEquals("daily_event_mulan_border_patrol",
+                copiedSemantics.getList("AppliedFlags", Tag.TAG_STRING).getString(0));
+        eventSemantics.putString("ActiveId", "changed_after_clone");
+        eventSemantics.getList("AppliedFlags", Tag.TAG_STRING).clear();
+        assertEquals("mulan_border_patrol", copiedSemantics.getString("ActiveId"));
+        assertEquals(1, copiedSemantics.getList("AppliedFlags", Tag.TAG_STRING).size());
+
         assertFalse(target.contains("seeking_immortals_unknown_clone_data"));
         assertFalse(target.contains("seeking_immortals_dialogue_session"));
         assertFalse(target.contains("seeking_immortals_text_dialogue_session"));
         assertFalse(target.contains("seeking_immortals_boss_spawned"));
         assertFalse(target.contains(PlayerPersistentDataClonePolicy.EXTREME_PRESERVED_KEY));
         assertTrue(source.contains(PlayerPersistentDataClonePolicy.EXTREME_PRESERVED_KEY));
+    }
+
+    @Test
+    void clearsStaleOrMalformedDailyEventOwnershipDuringClone() {
+        CompoundTag target = new CompoundTag();
+        target.put(DAILY_EVENT_SEMANTICS, intTag("stale", 1));
+
+        PlayerPersistentDataClonePolicy.copyDurableData(new CompoundTag(), target);
+        assertFalse(target.contains(DAILY_EVENT_SEMANTICS));
+
+        CompoundTag malformedSource = new CompoundTag();
+        malformedSource.putString(DAILY_EVENT_SEMANTICS, "not-a-compound");
+        target.put(DAILY_EVENT_SEMANTICS, intTag("stale", 2));
+        PlayerPersistentDataClonePolicy.copyDurableData(malformedSource, target);
+        assertFalse(target.contains(DAILY_EVENT_SEMANTICS));
     }
 
     @Test
