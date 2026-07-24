@@ -1,0 +1,45 @@
+{
+  "schema_version": 55,
+  "extract_version": 247,
+  "source": "《凡人修仙传》— 人工精读提取索引（入谷前·传送·杀机：第803–809章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v246 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": {
+    "start_chapter": 803,
+    "end_chapter": 809,
+    "total_main_chapters": 2005,
+    "progress_approx": "809/2005 ≈ 40.3%"
+  },
+  "count": 16,
+  "by_category": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3
+  },
+  "entries": [
+    {"id": "setting_601", "display": "结丹傀儡炼成三十余具", "category": "setting", "file": "novel_curated_settings_v247.json"},
+    {"id": "setting_602", "display": "南陇侯约击上古火蟾", "category": "setting", "file": "novel_curated_settings_v247.json"},
+    {"id": "setting_603", "display": "坠魔谷禁制与空间裂缝", "category": "setting", "file": "novel_curated_settings_v247.json"},
+    {"id": "setting_604", "display": "鬼灵门单向传送与高阶灵石", "category": "setting", "file": "novel_curated_settings_v247.json"},
+    {"id": "setting_605", "display": "魏无涯联手与五行灵婴", "category": "setting", "file": "novel_curated_settings_v247.json"},
+    {"id": "setting_606", "display": "谷中杀机与明清灵眼", "category": "setting", "file": "novel_curated_settings_v247.json"},
+    {"id": "artifact_385", "display": "天极令牌", "category": "artifact", "file": "novel_curated_artifacts_v247.json"},
+    {"id": "artifact_386", "display": "金属性高阶灵石", "category": "artifact", "file": "novel_curated_artifacts_v247.json"},
+    {"id": "artifact_387", "display": "鬼灵门单向传送阵", "category": "artifact", "file": "novel_curated_artifacts_v247.json"},
+    {"id": "artifact_388", "display": "遮面斗篷", "category": "artifact", "file": "novel_curated_artifacts_v247.json"},
+    {"id": "technique_297", "display": "小须弥禁法", "category": "technique", "file": "novel_curated_techniques_v247.json"},
+    {"id": "technique_298", "display": "明清灵眼探隐裂", "category": "technique", "file": "novel_curated_techniques_v247.json"},
+    {"id": "technique_299", "display": "苍坤入谷法与鬼灵门法", "category": "technique", "file": "novel_curated_techniques_v247.json"},
+    {"id": "material_319", "display": "高阶与顶阶灵石", "category": "material", "file": "novel_curated_materials_v247.json"},
+    {"id": "material_320", "display": "金灵子与化息丹", "category": "material", "file": "novel_curated_materials_v247.json"},
+    {"id": "material_321", "display": "上古火蟾内丹", "category": "material", "file": "novel_curated_materials_v247.json"}
+  ],
+  "themes": [
+    "结丹傀儡三十余具、高阶妖魂",
+    "南陇侯约击火蟾、内丹归韩、泄入谷法",
+    "坠魔谷禁制、游走空间裂缝",
+    "鬼灵门单向传送阵、高阶灵石、王天胜",
+    "魏无涯联手、五行灵婴、明清灵眼、遮面斗篷"
+  ]
+}
