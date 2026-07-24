@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 202,
+  "source": "《凡人修仙传》— 人工精读提取索引 v202（主传第528–531章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v201 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第528章 暗流涌动",
+    "to_chapter": "第531章 冷漠与苦求",
+    "chapter_range": "528-531",
+    "main_book_chapters_read_through": 531,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "26.5%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v202.json",
+    "novel_curated_artifacts_v202.json",
+    "novel_curated_techniques_v202.json",
+    "novel_curated_materials_v202.json",
+    "novel_curated_index_v202.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v202.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_331", "display": "虚天鼎出世与元婴共聚", "category": "setting"},
+    {"id": "setting_332", "display": "炼丹突破大师线", "category": "setting"},
+    {"id": "setting_333", "display": "霓裳草对三色噬金虫失效", "category": "setting"},
+    {"id": "setting_334", "display": "青元剑诀八层与结丹中期", "category": "setting"},
+    {"id": "setting_335", "display": "兽潮与奇渊岛沦陷", "category": "setting"},
+    {"id": "setting_336", "display": "青灵门与真元逆转", "category": "setting"},
+    {"id": "artifact_205", "display": "雾海幻阵与白色光幕", "category": "artifact"},
+    {"id": "artifact_206", "display": "巨猿傀儡光柱杀阵", "category": "artifact"},
+    {"id": "artifact_207", "display": "传音符（火光入幕）", "category": "artifact"},
+    {"id": "artifact_208", "display": "炼丹鼎炉", "category": "artifact"},
+    {"id": "technique_162", "display": "假虫魔金银虫云灭杀", "category": "technique"},
+    {"id": "technique_163", "display": "丹药炼化苦修剑诀", "category": "technique"},
+    {"id": "technique_164", "display": "闭关遥控护府", "category": "technique"},
+    {"id": "material_184", "display": "五级妖丹练手与珍稀丹药", "category": "material"},
+    {"id": "material_185", "display": "红光龙眼丹药", "category": "material"},
+    {"id": "material_186", "display": "鹰鸢兽（二级）", "category": "material"}
+  ]
+}
