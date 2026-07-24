@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 304,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（虚灵殿·冰魄寒烈阵·玄玉洞·阴灵水·群妖压境：第1091–1095章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v303 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1091章 虚灵殿 — 第1095章 群妖压境",
+  "progress": "1095/2005 ≈ 54.6%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_943–setting_948",
+    "artifacts": "artifact_613–artifact_616",
+    "techniques": "technique_468–technique_470",
+    "materials": "material_490–material_492"
+  },
+  "entries": [
+    {"id": "setting_943", "display": "虚灵殿开启与监察灵宝", "category": "setting", "file": "novel_curated_settings_v304.json"},
+    {"id": "setting_944", "display": "冰魄寒烈阵", "category": "setting", "file": "novel_curated_settings_v304.json"},
+    {"id": "setting_945", "display": "玄玉洞", "category": "setting", "file": "novel_curated_settings_v304.json"},
+    {"id": "setting_946", "display": "五焰光莲刺激法阵", "category": "setting", "file": "novel_curated_settings_v304.json"},
+    {"id": "setting_947", "display": "小极宫宫主与车老妖", "category": "setting", "file": "novel_curated_settings_v304.json"},
+    {"id": "setting_948", "display": "群妖压境两面夹击", "category": "setting", "file": "novel_curated_settings_v304.json"},
+    {"id": "artifact_613", "display": "虚灵殿开启玉佩", "category": "artifact", "file": "novel_curated_artifacts_v304.json"},
+    {"id": "artifact_614", "display": "冰魄寒烈阵盘", "category": "artifact", "file": "novel_curated_artifacts_v304.json"},
+    {"id": "artifact_615", "display": "太阳精石屋", "category": "artifact", "file": "novel_curated_artifacts_v304.json"},
+    {"id": "artifact_616", "display": "阴灵水白瓶", "category": "artifact", "file": "novel_curated_artifacts_v304.json"},
+    {"id": "technique_468", "display": "虚灵殿封印启闭", "category": "technique", "file": "novel_curated_techniques_v304.json"},
+    {"id": "technique_469", "display": "五焰光莲催动", "category": "technique", "file": "novel_curated_techniques_v304.json"},
+    {"id": "technique_470", "display": "太阴真火克制玄玉寒光", "category": "technique", "file": "novel_curated_techniques_v304.json"},
+    {"id": "material_490", "display": "万年玄玉", "category": "material", "file": "novel_curated_materials_v304.json"},
+    {"id": "material_491", "display": "阴灵水", "category": "material", "file": "novel_curated_materials_v304.json"},
+    {"id": "material_492", "display": "太阳精石", "category": "material", "file": "novel_curated_materials_v304.json"}
+  ]
+}

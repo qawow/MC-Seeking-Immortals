@@ -1668,3 +1668,15 @@
 - 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
 - 备份：`.bak/20260725_025100`
 - 文件：`文本材料/data/novel_curated_*_v303.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v303.md`，`文本材料/README_WORLDPACK.md`
+
+
+## 2026-07-25 · v304 虚灵殿·冰魄寒烈阵·玄玉洞·阴灵水·群妖压境（第1091–1095章）
+
+- 方法：沿原文逐段连续精读主传第 1091–1095 章，凭理解概括；视觉描述为原文逐字引用。
+- 产出：高保真条目 16（设定 6 / 法宝 4 / 法术 3 / 材料 3）。
+- ID 区间：setting_943–948，artifact_613–616，technique_468–470，material_490–492。
+- 关节点：虚灵殿密道/监察灵宝/创派女修光影；冰魄寒烈阵 1008 玄冰柱；玄玉洞与万年玄玉；阴灵水十年一滴取玉；太阳精石屋·太阳精火线索；五焰光莲催动；宫主柳与车老妖化身；群妖两面夹击天元阴脉寒眼。
+- 阅读进度：1095/2005 ≈ 54.6%；下一批自第 1096 章。
+- 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
+- 备份：`.bak/20260725_030500`
+- 文件：`文本材料/data/novel_curated_*_v304.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v304.md`，`文本材料/README_WORLDPACK.md`
