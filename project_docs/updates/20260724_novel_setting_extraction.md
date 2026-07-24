@@ -1608,3 +1608,15 @@
 - 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
 - 备份：`.bak/20260729_030000`
 - 文件：`文本材料/data/novel_curated_*_v298.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v298.md`，`文本材料/README_WORLDPACK.md`
+
+
+## 2026-07-29 · v299 珈轮战魔·漩涡·黑洞·逃脱·逆灵通道（第1066–1070章）
+
+- 方法：沿原文逐段连续精读主传第 1066–1070 章，凭理解概括；视觉描述为原文逐字引用。
+- 产出：高保真条目 16（设定 6 / 法宝 4 / 法术 3 / 材料 3）。
+- ID 区间：setting_913–918，artifact_593–596，technique_453–455，material_475–477。
+- 关节点：天轮化魔/珈轮战魔灭玄青子；五色灵珠吸魔灌黑风旗；魔髓飞刀搅旗·漩涡黑洞撕空间；幻妙天象放向之礼；封印开真魔气涌；破界符逃第七层；化龙玺碎/天晶碑备用；逆灵通道真相（临时通道·传界香·逆星盘印记一人通道）。
+- 阅读进度：1070/2005 ≈ 53.4%；下一批自第 1071 章。
+- 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
+- 备份：`.bak/20260729_040000`
+- 文件：`文本材料/data/novel_curated_*_v299.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v299.md`，`文本材料/README_WORLDPACK.md`
