@@ -1,0 +1,120 @@
+{
+  "schema_version": 55,
+  "extract_version": 337,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（淬骨诀·进阶化神·五龙海·海雾·空间节点：第1256–1260章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v336 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1256章 淬骨诀 — 第1260章 空间节点",
+  "progress": "1260/2005 ≈ 62.8%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1141–setting_1146",
+    "artifacts": "artifact_745–artifact_748",
+    "techniques": "technique_567–technique_569",
+    "materials": "material_589–material_591"
+  },
+  "entries": [
+    {
+      "id": "setting_1141",
+      "display": "金蛟骨躯逃遁与灭杀二妖",
+      "category": "setting",
+      "file": "novel_curated_settings_v337.json"
+    },
+    {
+      "id": "setting_1142",
+      "display": "淬骨诀与落云假闭关",
+      "category": "setting",
+      "file": "novel_curated_settings_v337.json"
+    },
+    {
+      "id": "setting_1143",
+      "display": "芥子闭关与进阶化神",
+      "category": "setting",
+      "file": "novel_curated_settings_v337.json"
+    },
+    {
+      "id": "setting_1144",
+      "display": "三化神入节点与元神灯灭",
+      "category": "setting",
+      "file": "novel_curated_settings_v337.json"
+    },
+    {
+      "id": "setting_1145",
+      "display": "五龙海与雾海节点岛",
+      "category": "setting",
+      "file": "novel_curated_settings_v337.json"
+    },
+    {
+      "id": "setting_1146",
+      "display": "空间节点震荡与百年时限",
+      "category": "setting",
+      "file": "novel_curated_settings_v337.json"
+    },
+    {
+      "id": "artifact_745",
+      "display": "绿色小瓶收精魂",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v337.json"
+    },
+    {
+      "id": "artifact_746",
+      "display": "元磁山炼化入体至宝",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v337.json"
+    },
+    {
+      "id": "artifact_747",
+      "display": "雷鲸兽妖丹交易",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v337.json"
+    },
+    {
+      "id": "artifact_748",
+      "display": "空间节点封印与加强阵",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v337.json"
+    },
+    {
+      "id": "technique_567",
+      "display": "破灭法目断骨蛟遁空",
+      "category": "technique",
+      "file": "novel_curated_techniques_v337.json"
+    },
+    {
+      "id": "technique_568",
+      "display": "金属丹灵根与元磁大成",
+      "category": "technique",
+      "file": "novel_curated_techniques_v337.json"
+    },
+    {
+      "id": "technique_569",
+      "display": "魔元丹五寒焰冲击化神",
+      "category": "technique",
+      "file": "novel_curated_techniques_v337.json"
+    },
+    {
+      "id": "material_589",
+      "display": "金蛟丹与赤金骨躯",
+      "category": "material",
+      "file": "novel_curated_materials_v337.json"
+    },
+    {
+      "id": "material_590",
+      "display": "绛云丹与移植灵药",
+      "category": "material",
+      "file": "novel_curated_materials_v337.json"
+    },
+    {
+      "id": "material_591",
+      "display": "化蛟丸与馨香丹",
+      "category": "material",
+      "file": "novel_curated_materials_v337.json"
+    }
+  ]
+}
