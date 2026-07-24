@@ -1,0 +1,32 @@
+{
+  "schema_version": 55,
+  "extract_version": 250,
+  "source": "《凡人修仙传》— 人工精读索引（遗骸分宝·七焰扇·血咒之门：第821–826章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v249 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第821–826章",
+  "progress": {
+    "chapters_covered_end": 826,
+    "total_main_chapters": 2005,
+    "approx_percent": 41.2
+  },
+  "count": 16,
+  "entries": [
+    {"id": "setting_619", "display": "不灭之体与妖丹真死", "category": "setting", "file": "novel_curated_settings_v250.json"},
+    {"id": "setting_620", "display": "遗骸分宝与灵料", "category": "setting", "file": "novel_curated_settings_v250.json"},
+    {"id": "setting_621", "display": "七焰扇通天灵宝", "category": "setting", "file": "novel_curated_settings_v250.json"},
+    {"id": "setting_622", "display": "血咒之门与骨骸钥匙", "category": "setting", "file": "novel_curated_settings_v250.json"},
+    {"id": "setting_623", "display": "水潭血咒之门", "category": "setting", "file": "novel_curated_settings_v250.json"},
+    {"id": "setting_624", "display": "血咒解禁与小须弥灵药", "category": "setting", "file": "novel_curated_settings_v250.json"},
+    {"id": "artifact_397", "display": "青蚕袍与夹层地图", "category": "artifact", "file": "novel_curated_artifacts_v250.json"},
+    {"id": "artifact_398", "display": "七焰扇炼宝玉简", "category": "artifact", "file": "novel_curated_artifacts_v250.json"},
+    {"id": "artifact_399", "display": "紫色古镜", "category": "artifact", "file": "novel_curated_artifacts_v250.json"},
+    {"id": "artifact_400", "display": "分水旗与苍坤玉佩", "category": "artifact", "file": "novel_curated_artifacts_v250.json"},
+    {"id": "technique_306", "display": "冰焰封霞碎体取丹", "category": "technique", "file": "novel_curated_techniques_v250.json"},
+    {"id": "technique_307", "display": "血咒骨粉解禁", "category": "technique", "file": "novel_curated_techniques_v250.json"},
+    {"id": "technique_308", "display": "小须弥金刚困仙阵", "category": "technique", "file": "novel_curated_techniques_v250.json"},
+    {"id": "material_328", "display": "火蟾妖丹", "category": "material", "file": "novel_curated_materials_v250.json"},
+    {"id": "material_329", "display": "火属性灵料与金阳芝", "category": "material", "file": "novel_curated_materials_v250.json"},
+    {"id": "material_330", "display": "天元果补天芝金雷竹", "category": "material", "file": "novel_curated_materials_v250.json"}
+  ]
+}
