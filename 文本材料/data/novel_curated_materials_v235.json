@@ -1,0 +1,55 @@
+{
+  "schema_version": 55,
+  "extract_version": 235,
+  "source": "《凡人修仙传》— 人工精读提取 · 材料类（通灵玉佩·烈焰铁玄英晶·虚天宝鼎：第726–733章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v234 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 3,
+  "entries": [
+    {
+      "id": "material_283",
+      "display": "通灵玉佩",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第730章 昔日缨宁"},
+      "setting": "韩立昔年赠墨玉珠之贺礼，李缨宁自幼贴身收藏。白色滑润，可辨认来历。韩立验后交还，不收回。",
+      "visual_descriptions": [
+        "她掏出一块白的玉佩，双手捧着它又转回过来。",
+        "用两根手指抚摸了一下玉佩表面的滑润，韩立长叹了一口气。"
+      ],
+      "setting_descriptions": [
+        "这通灵玉跟你这么多年了，我自然不会再收回去了。"
+      ]
+    },
+    {
+      "id": "material_284",
+      "display": "烈焰铁与玄英晶",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第730章 昔日缨宁"},
+      "setting": "李缨宁本命飞刀材料。烈焰铁外加玄英晶炼制，平常够用，对法士恐不足。",
+      "visual_descriptions": [
+        "飞刀是用烈焰铁外加玄英晶炼制而成的，威力还算不错。"
+      ],
+      "setting_descriptions": [
+        "若是平常时期，那口飞刀倒也够用了，但是现在就要和法士交上手，单凭此宝恐怕有些危险。"
+      ]
+    },
+    {
+      "id": "material_285",
+      "display": "虚天宝鼎",
+      "category": "material",
+      "term": "虚天鼎",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第731章 紫罗极火"},
+      "setting": "银月所称通天灵宝。韩立盼打开后横扫天南。银月坚称神通只在所言之上不在其下。",
+      "visual_descriptions": [
+        "我现在最希望的，就是能打开那件‘虚天宝鼎’。"
+      ],
+      "setting_descriptions": [
+        "若是你所言通天灵宝威力没有虚假的话，有此鼎在手应该足以横扫天南了。",
+        "虚天鼎的神通之大，只在小婢所言之上，绝不在其下。"
+      ]
+    }
+  ]
+}
