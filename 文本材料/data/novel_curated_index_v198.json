@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 198,
+  "source": "《凡人修仙传》— 人工精读提取索引 v198（主传第515–516章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v197 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第515章 寸金阁",
+    "to_chapter": "第516章 伴妖草",
+    "chapter_range": "515-516",
+    "main_book_chapters_read_through": 516,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "25.7%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v198.json",
+    "novel_curated_artifacts_v198.json",
+    "novel_curated_techniques_v198.json",
+    "novel_curated_materials_v198.json",
+    "novel_curated_index_v198.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v198.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_307", "display": "寸金阁原料商铺", "category": "setting"},
+    {"id": "setting_308", "display": "千叶露即伴妖草汁液", "category": "setting"},
+    {"id": "setting_309", "display": "古玉专研上古丹方灵药", "category": "setting"},
+    {"id": "setting_310", "display": "寸金阁拉拢结丹出海", "category": "setting"},
+    {"id": "setting_311", "display": "黑石城凡人雇佣登记", "category": "setting"},
+    {"id": "setting_312", "display": "曲兄寒芒震慑分手", "category": "setting"},
+    {"id": "artifact_189", "display": "千叶露上古典籍玉简", "category": "artifact"},
+    {"id": "artifact_190", "display": "黄色小剑符宝", "category": "artifact"},
+    {"id": "artifact_191", "display": "玛瑙角", "category": "artifact"},
+    {"id": "artifact_192", "display": "传讯符箓", "category": "artifact"},
+    {"id": "technique_150", "display": "略放结丹修为见管事", "category": "technique"},
+    {"id": "technique_151", "display": "山水画中藏匿之术", "category": "technique"},
+    {"id": "technique_152", "display": "寒芒扫视慑人", "category": "technique"},
+    {"id": "material_172", "display": "伴妖草（八级身畔）", "category": "material"},
+    {"id": "material_173", "display": "玛瑙兽独角", "category": "material"},
+    {"id": "material_174", "display": "提升修为丹药小瓶", "category": "material"}
+  ]
+}
