@@ -1,0 +1,20 @@
+{
+  "schema_version": 55,
+  "extract_version": 163,
+  "source": "《凡人修仙传》— 人工精读提取 · 总索引（血侍对峙·妖化·血祭隐秘·皇城禁令·颠倒五行阵后手：第306–315章）",
+  "method": "沿原文逐段精读（荒庙落石阵→血侍黑风阵·血光吞器→火焰连环飞叉大展身手·遮天钟困妖化→青尺符宝吓退铁罗→断魂丹审杀小王爷·血祭魂祭·李破云皇宫老巢·四大血侍→同门援兵·七派禁令抉择→夜布改进颠倒五行阵），凭理解概括设定，视觉描述为原文逐字引用。与 v148–v162 互补。",
+  "disclaimer": "代表性精读而非穷尽全本（4795 章无法逐字读完）；本批覆盖主传第306–315章，入包前仍需人工校订。",
+  "reading_progress": "《凡人修仙传》已逐段精读至第315章（后手、怀疑），约全书 15.7%（315/2005）。",
+  "totals": {
+    "entities": 19,
+    "by_category": {"设定": 7, "法宝": 5, "法术": 3, "材料": 4}
+  },
+  "note": "本弧线为黑煞教高潮前半：韩立破落石阵后遭血侍铁罗与黑风阵包围；大衍诀多器齐控废阵，遮天钟困不住妖化煞妖，青尺符宝吓退铁罗；审出教主李破云藏皇宫假山下、血祭注定无法结丹；同门刘靖宋蒙钟卫娘等援兵至，武炫拒闯皇城；韩立夜潜皇宫竹林布改进颠倒五行阵为保命后手，准备闯宫。",
+  "files": {
+    "setting": "novel_curated_settings_v163.json",
+    "artifact": "novel_curated_artifacts_v163.json",
+    "technique": "novel_curated_techniques_v163.json",
+    "material": "novel_curated_materials_v163.json"
+  },
+  "docs": "docs/NOVEL_CURATED_EXTRACT_v163.md"
+}

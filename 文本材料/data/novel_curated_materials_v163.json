@@ -1,0 +1,64 @@
+{
+  "schema_version": 55,
+  "extract_version": 163,
+  "source": "《凡人修仙传》— 人工精读提取 · 材料/物品类（断魂丹·火红疗伤丸·迷幻药水·火云符：第308–315章）",
+  "method": "沿原文逐段精读，凭理解概括材料设定；视觉描述为精读时所见原文逐字引用。与 v148–v162 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 4,
+  "entries": [
+    {
+      "id": "material_058",
+      "display": "断魂丹",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第310章 皇室"},
+      "setting": "黑色药丸。可令目标无声无息死去。韩立审完小王爷后塞入其口毒杀；自认毒杀无反抗之人不舒服，但对方血祭十余名修士，死不算冤。",
+      "visual_descriptions": [
+        "从怀内掏出了一颗准备好的黑色药丸，毫无表情地塞进了其嘴中"
+      ],
+      "setting_descriptions": [
+        "这颗“断魂丹”可以让其无声无息的死去了。",
+        "虽然毒杀一个毫无反抗的人，韩立心里有些不太舒服，但是光凭小王爷修炼魔功，就用了十几名修士血祭的事情，他死的也不算冤枉了。"
+      ]
+    },
+    {
+      "id": "material_059",
+      "display": "火红疗伤丸",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第310章 皇室"},
+      "setting": "龙眼大小火红药丸，药香扑鼻，闻之即精神大振。入腹化热流散至周身，伤势大轻。韩立战后赏蒙山四友各一颗，黑脸老者凭经验知其珍贵之极。",
+      "visual_descriptions": [
+        "由黑脸老者恭敬的拿过小瓶轻轻一倒，四颗龙眼大小的药丸就出现在了手中。颜色火红，药香扑鼻。只闻了一下，就让人精神大振。"
+      ],
+      "setting_descriptions": [
+        "每人一颗服下，对你们的伤势很有益处。",
+        "药丸刚一入腹，立刻就化为了一股热流分散到了身体各处。让几人马上觉得伤势大轻"
+      ]
+    },
+    {
+      "id": "material_060",
+      "display": "迷幻药水",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第310章 皇室"},
+      "setting": "审讯用药。硬灌一瓶后目标晕晕乎乎、神智迷幻，便于后续迷魂法术掌控。韩立以此配合幻色眼审问小王爷。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "就毫不客气地硬灌了对方一瓶药水。结果让其晕晕乎乎，神智陷入迷幻之中。"
+      ]
+    },
+    {
+      "id": "material_061",
+      "display": "火云符",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第312章 平静与援兵"},
+      "setting": "韩立戒备用攻击符箓。感应门外三四位筑基期修士（实为同门援兵）时，祭白磷盾并手扣火云符如临大敌。",
+      "visual_descriptions": [
+        "一拍腰间的储物袋，顿时飞出了白磷盾漂浮在空中，挡在了其身前，同时手中也扣上了一张火云符，整个人如临大敌的样子。"
+      ],
+      "setting_descriptions": []
+    }
+  ]
+}
