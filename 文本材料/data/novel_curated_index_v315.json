@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 315,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（极阴之讯·阴煞血尸·再见极阴·擒魔·交换：第1146–1150章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v314 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1146章 极阴之讯 — 第1150章 交换",
+  "progress": "1150/2005 ≈ 57.4%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1009–setting_1014",
+    "artifacts": "artifact_657–artifact_660",
+    "techniques": "technique_501–technique_503",
+    "materials": "material_523–material_525"
+  },
+  "entries": [
+    {"id": "setting_1009", "display": "妙鹤暗投逆星盟运灵石", "category": "setting", "file": "novel_curated_settings_v315.json"},
+    {"id": "setting_1010", "display": "碧灵岛无灵表与拘灵石", "category": "setting", "file": "novel_curated_settings_v315.json"},
+    {"id": "setting_1011", "display": "阴煞血尸", "category": "setting", "file": "novel_curated_settings_v315.json"},
+    {"id": "setting_1012", "display": "石峰禁断大阵与限神念禁", "category": "setting", "file": "novel_curated_settings_v315.json"},
+    {"id": "setting_1013", "display": "托天魔功锁魂与噬婴求轮回", "category": "setting", "file": "novel_curated_settings_v315.json"},
+    {"id": "setting_1014", "display": "极阴囚禁蛮胡子始末", "category": "setting", "file": "novel_curated_settings_v315.json"},
+    {"id": "artifact_657", "display": "虚天鼎青网冰莲", "category": "artifact", "file": "novel_curated_artifacts_v315.json"},
+    {"id": "artifact_658", "display": "天都尸火与天都尸", "category": "artifact", "file": "novel_curated_artifacts_v315.json"},
+    {"id": "artifact_659", "display": "极阴血色长刀", "category": "artifact", "file": "novel_curated_artifacts_v315.json"},
+    {"id": "artifact_660", "display": "黄昆银色法轮", "category": "artifact", "file": "novel_curated_artifacts_v315.json"},
+    {"id": "technique_501", "display": "紫罗极火冰封擒敌", "category": "technique", "file": "novel_curated_techniques_v315.json"},
+    {"id": "technique_502", "display": "人形傀儡雷遁追杀", "category": "technique", "file": "novel_curated_techniques_v315.json"},
+    {"id": "technique_503", "display": "土遁入地与青丝化身", "category": "technique", "file": "novel_curated_techniques_v315.json"},
+    {"id": "material_523", "display": "双袋高阶灵石二百余", "category": "material", "file": "novel_curated_materials_v315.json"},
+    {"id": "material_524", "display": "阴煞血尸血腥丹丸", "category": "material", "file": "novel_curated_materials_v315.json"},
+    {"id": "material_525", "display": "补天丹对元婴无效", "category": "material", "file": "novel_curated_materials_v315.json"}
+  ]
+}

@@ -1790,3 +1790,14 @@
 - 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
 - 备份：`.bak/20260725_054500`
 - 文件：`文本材料/data/novel_curated_*_v314.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v314.md`，`文本材料/README_WORLDPACK.md`
+
+## 2026-07-25 · v315 极阴之讯·阴煞血尸·再见极阴·擒魔·交换（第1146–1150章）
+
+- 方法：沿原文逐段连续精读主传第 1146–1150 章，凭理解概括；视觉描述为原文逐字引用。
+- 产出：高保真条目 16（设定 6 / 法宝 4 / 法术 3 / 材料 3）。
+- ID 区间：setting_1009–1014，artifact_657–660，technique_501–503，material_523–525。
+- 关节点：紫焰冰封黄昆·傀儡穿胸妙鹤；搜魂知极阴在碧灵岛；无灵表拘灵银粒石峰；费前辈阴煞血尸；潜入限神念地道；虚天鼎青网冰莲擒极阴；蛮胡子托天锁魂换噬婴求轮回·补天丹元婴无效。
+- 阅读进度：1150/2005 ≈ 57.4%；下一批自第 1151 章。
+- 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
+- 备份：`.bak/20260725_060000`
+- 文件：`文本材料/data/novel_curated_*_v315.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v315.md`，`文本材料/README_WORLDPACK.md`
