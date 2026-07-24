@@ -1,0 +1,32 @@
+{
+  "schema_version": 55,
+  "extract_version": 276,
+  "source": "《凡人修仙传》— 人工精读索引（墨金·妙音宝镜·九幽宗·符箓与法阵·骚动：第951–955章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v275 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第951–955章",
+  "progress": {
+    "chapters_covered_end": 955,
+    "total_main_chapters": 2005,
+    "approx_percent": 47.6
+  },
+  "count": 16,
+  "entries": [
+    {"id": "setting_775", "display": "九霄殿首日拍卖与佛宗三僧", "category": "setting", "file": "novel_curated_settings_v276.json"},
+    {"id": "setting_776", "display": "叶家散修代拍与地下补墨金", "category": "setting", "file": "novel_curated_settings_v276.json"},
+    {"id": "setting_777", "display": "妙音镜守口与八极分光阵", "category": "setting", "file": "novel_curated_settings_v276.json"},
+    {"id": "setting_778", "display": "九幽宗富长老与漱灵斋传送", "category": "setting", "file": "novel_curated_settings_v276.json"},
+    {"id": "setting_779", "display": "地下交易会身份盘与易洗天", "category": "setting", "file": "novel_curated_settings_v276.json"},
+    {"id": "setting_780", "display": "符箓法阵遮容换物会", "category": "setting", "file": "novel_curated_settings_v276.json"},
+    {"id": "artifact_501", "display": "墨金乌黑金芒", "category": "artifact", "file": "novel_curated_artifacts_v276.json"},
+    {"id": "artifact_502", "display": "妙音宝镜银光小镜", "category": "artifact", "file": "novel_curated_artifacts_v276.json"},
+    {"id": "artifact_503", "display": "元婴级身份盘", "category": "artifact", "file": "novel_curated_artifacts_v276.json"},
+    {"id": "artifact_504", "display": "魔髓钻两枚", "category": "artifact", "file": "novel_curated_artifacts_v276.json"},
+    {"id": "technique_384", "display": "搜魂秘术黑幽火焰", "category": "technique", "file": "novel_curated_techniques_v276.json"},
+    {"id": "technique_385", "display": "符箓配阵遮掩真容", "category": "technique", "file": "novel_curated_techniques_v276.json"},
+    {"id": "technique_386", "display": "婴火寒气魔气鉴魔髓钻", "category": "technique", "file": "novel_curated_techniques_v276.json"},
+    {"id": "material_406", "display": "姜黄晶土属性晶石", "category": "material", "file": "novel_curated_materials_v276.json"},
+    {"id": "material_407", "display": "离火沙珍稀材料", "category": "material", "file": "novel_curated_materials_v276.json"},
+    {"id": "material_408", "display": "玉橡胶傀儡材料", "category": "material", "file": "novel_curated_materials_v276.json"}
+  ]
+}
