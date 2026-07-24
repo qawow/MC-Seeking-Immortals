@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 223,
+  "source": "《凡人修仙传》— 人工精读提取索引 v223（主传第638–644章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v222 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第638章 结婴（中）",
+    "to_chapter": "第644章 三十年之约",
+    "chapter_range": "638-644",
+    "main_book_chapters_read_through": 644,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "32.1%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v223.json",
+    "novel_curated_artifacts_v223.json",
+    "novel_curated_techniques_v223.json",
+    "novel_curated_materials_v223.json",
+    "novel_curated_index_v223.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v223.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_457", "display": "结婴天兆", "category": "setting"},
+    {"id": "setting_458", "display": "心魔反噬与定灵丹", "category": "setting"},
+    {"id": "setting_459", "display": "散修结婴与宗门拉拢", "category": "setting"},
+    {"id": "setting_460", "display": "通天灵宝与虚天鼎", "category": "setting"},
+    {"id": "setting_461", "display": "落云宗长老待遇与加入", "category": "setting"},
+    {"id": "setting_462", "display": "弄假成真与三十年之约", "category": "setting"},
+    {"id": "artifact_289", "display": "虚天鼎（通天灵宝）", "category": "artifact"},
+    {"id": "artifact_290", "display": "乾蓝冰焰", "category": "artifact"},
+    {"id": "artifact_291", "display": "神秘小瓶（逆天催熟）", "category": "artifact"},
+    {"id": "artifact_292", "display": "巨猿傀儡", "category": "artifact"},
+    {"id": "technique_225", "display": "碎丹结婴与心魔", "category": "technique"},
+    {"id": "technique_226", "display": "元婴出窍初成", "category": "technique"},
+    {"id": "technique_227", "display": "禁神术", "category": "technique"},
+    {"id": "material_247", "display": "定灵丹（结婴心魔）", "category": "material"},
+    {"id": "material_248", "display": "近熟赤金噬金虫", "category": "material"},
+    {"id": "material_249", "display": "定颜丹", "category": "material"}
+  ]
+}
