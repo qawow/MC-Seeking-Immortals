@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 306,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（魔高一丈·冲阶化神·反目·战起·洞下激战：第1101–1105章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v305 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1101章 魔高一丈 — 第1105章 洞下激战",
+  "progress": "1105/2005 ≈ 55.1%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_955–setting_960",
+    "artifacts": "artifact_621–artifact_624",
+    "techniques": "technique_474–technique_476",
+    "materials": "material_496–material_498"
+  },
+  "entries": [
+    {"id": "setting_955", "display": "黄泉鬼母与同生咒", "category": "setting", "file": "novel_curated_settings_v306.json"},
+    {"id": "setting_956", "display": "虚灵殿撤离与空间裂缝", "category": "setting", "file": "novel_curated_settings_v306.json"},
+    {"id": "setting_957", "display": "肉身檀化与冲阶化神", "category": "setting", "file": "novel_curated_settings_v306.json"},
+    {"id": "setting_958", "display": "乾蓝双鼎与虚天鼎索讨", "category": "setting", "file": "novel_curated_settings_v306.json"},
+    {"id": "setting_959", "display": "柳翠派外门与反目围攻", "category": "setting", "file": "novel_curated_settings_v306.json"},
+    {"id": "setting_960", "display": "玄玉洞幻阵激战", "category": "setting", "file": "novel_curated_settings_v306.json"},
+    {"id": "artifact_621", "display": "玄鬼令", "category": "artifact", "file": "novel_curated_artifacts_v306.json"},
+    {"id": "artifact_622", "display": "摩鸠梵音木鱼", "category": "artifact", "file": "novel_curated_artifacts_v306.json"},
+    {"id": "artifact_623", "display": "白梦馨玄冰镜", "category": "artifact", "file": "novel_curated_artifacts_v306.json"},
+    {"id": "artifact_624", "display": "玄玉令牌", "category": "artifact", "file": "novel_curated_artifacts_v306.json"},
+    {"id": "technique_474", "display": "浩然长歌诀", "category": "technique", "file": "novel_curated_techniques_v306.json"},
+    {"id": "technique_475", "display": "银刃拔除玄玉寒气", "category": "technique", "file": "novel_curated_techniques_v306.json"},
+    {"id": "technique_476", "display": "巨剑术破阵眼", "category": "technique", "file": "novel_curated_techniques_v306.json"},
+    {"id": "material_496", "display": "魂石", "category": "material", "file": "novel_curated_materials_v306.json"},
+    {"id": "material_497", "display": "品字阵高阶灵石", "category": "material", "file": "novel_curated_materials_v306.json"},
+    {"id": "material_498", "display": "六色神念莲记", "category": "material", "file": "novel_curated_materials_v306.json"}
+  ]
+}
