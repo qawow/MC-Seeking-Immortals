@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 238,
+  "source": "《凡人修仙传》— 人工精读提取索引 v238（主传第747–754章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v237 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第747章 名声渐起",
+    "to_chapter": "第754章 化焰",
+    "chapter_range": "747-754",
+    "main_book_chapters_read_through": 754,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "37.6%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v238.json",
+    "novel_curated_artifacts_v238.json",
+    "novel_curated_techniques_v238.json",
+    "novel_curated_materials_v238.json",
+    "novel_curated_index_v238.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v238.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_547", "display": "血影遁脱神师与名声渐起", "category": "setting"},
+    {"id": "setting_548", "display": "阗天沦陷与天一石城", "category": "setting"},
+    {"id": "setting_549", "display": "南宫义妹与双修安排", "category": "setting"},
+    {"id": "setting_550", "display": "天道盟长老会与再战条件", "category": "setting"},
+    {"id": "setting_551", "display": "紫灵梅凝约坠魔谷", "category": "setting"},
+    {"id": "setting_552", "display": "灵烛果造化丹限制与定议", "category": "setting"},
+    {"id": "artifact_349", "display": "庚精与大庚剑阵", "category": "artifact"},
+    {"id": "artifact_350", "display": "青竹蜂云剑残焰", "category": "artifact"},
+    {"id": "artifact_351", "display": "天一城议事大殿", "category": "artifact"},
+    {"id": "artifact_352", "display": "宋家障眼令牌", "category": "artifact"},
+    {"id": "technique_270", "display": "血影遁", "category": "technique"},
+    {"id": "technique_271", "display": "梦引术审讯法士", "category": "technique"},
+    {"id": "technique_272", "display": "紫罗化焰", "category": "technique"},
+    {"id": "material_292", "display": "灵烛果", "category": "material"},
+    {"id": "material_293", "display": "造化丹", "category": "material"},
+    {"id": "material_294", "display": "宋家古丹方玉简", "category": "material"}
+  ]
+}
