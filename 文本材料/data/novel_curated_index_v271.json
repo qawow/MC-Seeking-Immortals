@@ -1,0 +1,32 @@
+{
+  "schema_version": 55,
+  "extract_version": 271,
+  "source": "《凡人修仙传》— 人工精读索引（炼器殿·绿秀郡主·大晋皇族·乌风翎·风云乍起：第926–930章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v270 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第926–930章",
+  "progress": {
+    "chapters_covered_end": 930,
+    "total_main_chapters": 2005,
+    "approx_percent": 46.4
+  },
+  "count": 16,
+  "entries": [
+    {"id": "setting_745", "display": "皇清观炼器殿", "category": "setting", "file": "novel_curated_settings_v271.json"},
+    {"id": "setting_746", "display": "明王诀二层锻体剧痛", "category": "setting", "file": "novel_curated_settings_v271.json"},
+    {"id": "setting_747", "display": "绿秀郡主与四大散修后", "category": "setting", "file": "novel_curated_settings_v271.json"},
+    {"id": "setting_748", "display": "叶家通天灵宝筹划", "category": "setting", "file": "novel_curated_settings_v271.json"},
+    {"id": "setting_749", "display": "三皇观平山印诱饵", "category": "setting", "file": "novel_curated_settings_v271.json"},
+    {"id": "setting_750", "display": "韩失踪与南部搜宝", "category": "setting", "file": "novel_curated_settings_v271.json"},
+    {"id": "artifact_481", "display": "地火殿三层与葫芦火柱", "category": "artifact", "file": "novel_curated_artifacts_v271.json"},
+    {"id": "artifact_482", "display": "血丝银精炼块", "category": "artifact", "file": "novel_curated_artifacts_v271.json"},
+    {"id": "artifact_483", "display": "乌风翎", "category": "artifact", "file": "novel_curated_artifacts_v271.json"},
+    {"id": "artifact_484", "display": "平山印仿制品", "category": "artifact", "file": "novel_curated_artifacts_v271.json"},
+    {"id": "technique_369", "display": "大晋材料精练术", "category": "technique", "file": "novel_curated_techniques_v271.json"},
+    {"id": "technique_370", "display": "明王诀二层锻体", "category": "technique", "file": "novel_curated_techniques_v271.json"},
+    {"id": "technique_371", "display": "明清灵目窥翎", "category": "technique", "file": "novel_curated_techniques_v271.json"},
+    {"id": "material_391", "display": "血丝银", "category": "material", "file": "novel_curated_materials_v271.json"},
+    {"id": "material_392", "display": "乌风尾翎", "category": "material", "file": "novel_curated_materials_v271.json"},
+    {"id": "material_393", "display": "平山印土属性材", "category": "material", "file": "novel_curated_materials_v271.json"}
+  ]
+}
