@@ -1,0 +1,32 @@
+{
+  "schema_version": 55,
+  "extract_version": 262,
+  "source": "《凡人修仙传》— 人工精读索引（五鬼锁神·无妄之灾·各怀心思·魔虫妖尸·猿鹫：第881–885章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v261 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第881–885章",
+  "progress": {
+    "chapters_covered_end": 885,
+    "total_main_chapters": 2005,
+    "approx_percent": 44.1
+  },
+  "count": 16,
+  "entries": [
+    {"id": "setting_691", "display": "五鬼锁神大法", "category": "setting", "file": "novel_curated_settings_v262.json"},
+    {"id": "setting_692", "display": "噬金虫群无妄之灾", "category": "setting", "file": "novel_curated_settings_v262.json"},
+    {"id": "setting_693", "display": "混入朝贡队与圣殿策略", "category": "setting", "file": "novel_curated_settings_v262.json"},
+    {"id": "setting_694", "display": "毒龙丸悬赏与弃子搜捕", "category": "setting", "file": "novel_curated_settings_v262.json"},
+    {"id": "setting_695", "display": "成熟噬金虫炼妖尸", "category": "setting", "file": "novel_curated_settings_v262.json"},
+    {"id": "setting_696", "display": "猿鹫与红狼合队", "category": "setting", "file": "novel_curated_settings_v262.json"},
+    {"id": "artifact_445", "display": "寒仙师青斗篷装束", "category": "artifact", "file": "novel_curated_artifacts_v262.json"},
+    {"id": "artifact_446", "display": "禁制玉盒（成熟噬金虫）", "category": "artifact", "file": "novel_curated_artifacts_v262.json"},
+    {"id": "artifact_447", "display": "阴罗幡（五鬼下唯一如意宝）", "category": "artifact", "file": "novel_curated_artifacts_v262.json"},
+    {"id": "artifact_448", "display": "枫仙师锦帕与白濛濛小剑", "category": "artifact", "file": "novel_curated_artifacts_v262.json"},
+    {"id": "technique_342", "display": "五鬼锁神大法", "category": "technique", "file": "novel_curated_techniques_v262.json"},
+    {"id": "technique_343", "display": "六魂分元术", "category": "technique", "file": "novel_curated_techniques_v262.json"},
+    {"id": "technique_344", "display": "大五行擒仙手", "category": "technique", "file": "novel_curated_techniques_v262.json"},
+    {"id": "material_364", "display": "万年灵液（解封代价）", "category": "material", "file": "novel_curated_materials_v262.json"},
+    {"id": "material_365", "display": "毒龙丸", "category": "material", "file": "novel_curated_materials_v262.json"},
+    {"id": "material_366", "display": "成熟体噬金虫", "category": "material", "file": "novel_curated_materials_v262.json"}
+  ]
+}
