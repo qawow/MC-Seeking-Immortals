@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 313,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（援手·似曾相识·轮回之惑·约定·巨禽：第1136–1140章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v312 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1136章 援手 — 第1140章 巨禽",
+  "progress": "1140/2005 ≈ 56.9%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_997–setting_1002",
+    "artifacts": "artifact_649–artifact_652",
+    "techniques": "technique_495–technique_497",
+    "materials": "material_517–material_519"
+  },
+  "entries": [
+    {"id": "setting_997", "display": "双圣拉拢灭杀与联姻策", "category": "setting", "file": "novel_curated_settings_v313.json"},
+    {"id": "setting_998", "display": "龙吟之体", "category": "setting", "file": "novel_curated_settings_v313.json"},
+    {"id": "setting_999", "display": "轮回转世与阴冥界传说", "category": "setting", "file": "novel_curated_settings_v313.json"},
+    {"id": "setting_1000", "display": "碧灵岛灵石矿聚集地", "category": "setting", "file": "novel_curated_settings_v313.json"},
+    {"id": "setting_1001", "display": "跨界巨禽与鬼雾再临", "category": "setting", "file": "novel_curated_settings_v313.json"},
+    {"id": "setting_1002", "display": "十级以上妖兽境界", "category": "setting", "file": "novel_curated_settings_v313.json"},
+    {"id": "artifact_649", "display": "阵法要诀玉匣", "category": "artifact", "file": "novel_curated_artifacts_v313.json"},
+    {"id": "artifact_650", "display": "紫阴丸青瓶", "category": "artifact", "file": "novel_curated_artifacts_v313.json"},
+    {"id": "artifact_651", "display": "跨界巨禽青羽", "category": "artifact", "file": "novel_curated_artifacts_v313.json"},
+    {"id": "artifact_652", "display": "风雷翅遁离", "category": "artifact", "file": "novel_curated_artifacts_v313.json"},
+    {"id": "technique_495", "display": "银针五色网驱毒", "category": "technique", "file": "novel_curated_techniques_v313.json"},
+    {"id": "technique_496", "display": "玄阴灵力压龙吟", "category": "technique", "file": "novel_curated_techniques_v313.json"},
+    {"id": "technique_497", "display": "神念深海强吸与尖鸣破罩", "category": "technique", "file": "novel_curated_techniques_v313.json"},
+    {"id": "material_517", "display": "还梦丹", "category": "material", "file": "novel_curated_materials_v313.json"},
+    {"id": "material_518", "display": "白鹭内丹生服清余毒", "category": "material", "file": "novel_curated_materials_v313.json"},
+    {"id": "material_519", "display": "六级海妖妖丹", "category": "material", "file": "novel_curated_materials_v313.json"}
+  ]
+}

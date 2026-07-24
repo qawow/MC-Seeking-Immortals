@@ -1768,3 +1768,14 @@
 - 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
 - 备份：`.bak/20260725_051500`
 - 文件：`文本材料/data/novel_curated_*_v312.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v312.md`，`文本材料/README_WORLDPACK.md`
+
+## 2026-07-25 · v313 援手·似曾相识·轮回之惑·约定·巨禽（第1136–1140章）
+
+- 方法：沿原文逐段连续精读主传第 1136–1140 章，凭理解概括；视觉描述为原文逐字引用。
+- 产出：高保真条目 16（设定 6 / 法宝 4 / 法术 3 / 材料 3）。
+- ID 区间：setting_997–1002，artifact_649–652，technique_495–497，material_517–519。
+- 关节点：文思月求援田琴儿；双圣灵暝惧意联姻/设伏/圈套；龙吟之体红痣龙纹似辛如音；银针五色网解毒·玄阴暂压；还梦丹·紫阴丸·阵法要诀玉匣·魁星岛一年约；碧灵岛木系矿；跨界巨禽青爪对鬼雾黑电蛟·青羽掉落·风雷翅遁。
+- 阅读进度：1140/2005 ≈ 56.9%；下一批自第 1141 章。
+- 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
+- 备份：`.bak/20260725_053000`
+- 文件：`文本材料/data/novel_curated_*_v313.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v313.md`，`文本材料/README_WORLDPACK.md`
