@@ -1724,3 +1724,14 @@
 - 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
 - 备份：`.bak/20260725_040500`
 - 文件：`文本材料/data/novel_curated_*_v308.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v308.md`，`文本材料/README_WORLDPACK.md`
+
+## 2026-07-25 · v309 三目妖兽·妖气冲天·万妖幡与车老妖·各现神通·旗鼓相当（第1116–1120章）
+
+- 方法：沿原文逐段连续精读主传第 1116–1120 章，凭理解概括；视觉描述为原文逐字引用。
+- 产出：高保真条目 16（设定 6 / 法宝 4 / 法术 3 / 材料 3）。
+- ID 区间：setting_973–978，artifact_633–636，technique_483–485，material_505–507。
+- 关节点：破法天目破雷遁；傀儡魔髓斩八级·紫鸦冰封九级收精魂；叶监察两气瓶抗十级皂袍；万妖幡摄入禁制·车老妖化身幼童索八灵尺；火海火鸦僵持·魔天爪被庚精巨剑斩；化灵符避绳·破界符遁出；大殿巨幡本体·冰凤白寒焰压小极宫三修。
+- 阅读进度：1120/2005 ≈ 55.9%；下一批自第 1121 章。
+- 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
+- 备份：`.bak/20260725_042000`
+- 文件：`文本材料/data/novel_curated_*_v309.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v309.md`，`文本材料/README_WORLDPACK.md`
