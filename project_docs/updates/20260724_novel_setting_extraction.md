@@ -1560,3 +1560,15 @@
 - 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
 - 备份：`.bak/20260728_230000`
 - 文件：`文本材料/data/novel_curated_*_v294.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v294.md`，`文本材料/README_WORLDPACK.md`
+
+
+## 2026-07-28 · v295 斩魔·重获旧宝·反目·吞婴·血刃再现（第1046–1050章）
+
+- 方法：沿原文逐段连续精读主传第 1046–1050 章，凭理解概括；视觉描述为原文逐字引用。
+- 产出：高保真条目 16（设定 6 / 法宝 4 / 法术 3 / 材料 3）。
+- ID 区间：setting_889–894，artifact_577–580，technique_441–443，material_463–465。
+- 关节点：失神刺+魔髓飞刀连斩双首古魔灭精魂；重获青竹蜂云剑；灰幡破与传送僵持；混沌开天封空；叶家反目黑血刃处叛七叔；元刹吞三元婴现银狼妖体；四散真人血刃再现、联手破空。
+- 阅读进度：1050/2005 ≈ 52.4%；下一批自第 1051 章。
+- 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
+- 备份：`.bak/20260729_000000`
+- 文件：`文本材料/data/novel_curated_*_v295.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v295.md`，`文本材料/README_WORLDPACK.md`

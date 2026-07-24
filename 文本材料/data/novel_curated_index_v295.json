@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 295,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（斩魔·重获旧宝·反目·吞婴·血刃再现：第1046–1050章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v294 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1046章 斩魔 — 第1050章 血刃再现",
+  "progress": "1050/2005 ≈ 52.4%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_889–setting_894",
+    "artifacts": "artifact_577–artifact_580",
+    "techniques": "technique_441–technique_443",
+    "materials": "material_463–material_465"
+  },
+  "entries": [
+    {"id": "setting_889", "display": "失神刺斩双首古魔", "category": "setting", "file": "novel_curated_settings_v295.json"},
+    {"id": "setting_890", "display": "混沌开天与黑风旗封空", "category": "setting", "file": "novel_curated_settings_v295.json"},
+    {"id": "setting_891", "display": "叶家反目与黑血刃处叛", "category": "setting", "file": "novel_curated_settings_v295.json"},
+    {"id": "setting_892", "display": "元刹吞婴与银狼妖体", "category": "setting", "file": "novel_curated_settings_v295.json"},
+    {"id": "setting_893", "display": "四散血刃与破空联手", "category": "setting", "file": "novel_curated_settings_v295.json"},
+    {"id": "setting_894", "display": "灰幡禁制与传送僵持", "category": "setting", "file": "novel_curated_settings_v295.json"},
+    {"id": "artifact_577", "display": "青竹蜂云剑重获", "category": "artifact", "file": "novel_curated_artifacts_v295.json"},
+    {"id": "artifact_578", "display": "黑血刃", "category": "artifact", "file": "novel_curated_artifacts_v295.json"},
+    {"id": "artifact_579", "display": "弥天镯与仿映月环", "category": "artifact", "file": "novel_curated_artifacts_v295.json"},
+    {"id": "artifact_580", "display": "仿魔龙刃血刃", "category": "artifact", "file": "novel_curated_artifacts_v295.json"},
+    {"id": "technique_441", "display": "失神刺与魔髓飞刀连斩", "category": "technique", "file": "novel_curated_techniques_v295.json"},
+    {"id": "technique_442", "display": "混沌开天封空", "category": "technique", "file": "novel_curated_techniques_v295.json"},
+    {"id": "technique_443", "display": "吞婴炼化与银狼化身", "category": "technique", "file": "novel_curated_techniques_v295.json"},
+    {"id": "material_463", "display": "魔髓钻飞刀", "category": "material", "file": "novel_curated_materials_v295.json"},
+    {"id": "material_464", "display": "半透明杀婴圆珠", "category": "material", "file": "novel_curated_materials_v295.json"},
+    {"id": "material_465", "display": "庚精飞剑材质", "category": "material", "file": "novel_curated_materials_v295.json"}
+  ]
+}
