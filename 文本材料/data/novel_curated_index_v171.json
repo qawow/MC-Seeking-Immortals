@@ -1,0 +1,20 @@
+{
+  "schema_version": 55,
+  "extract_version": 171,
+  "source": "《凡人修仙传》— 人工精读提取 · 总索引（白池山情报·壁虎断尾→无边海慕兰灵术九国盟→潜回灵矿修阵·惊遇南宫婉·石柱幻阵劫人：第357–360章）",
+  "method": "沿原文逐段精读（白池山散修聚会·丁家情报·黄枫谷壁虎断尾→无边海/慕兰法士灵术/九国盟/突兀天澜→购材潜回灵矿·幻形+颠倒五行护阵·材料报废→夜遇南宫婉·王蝉田公子董萱儿·玄月吸阴功→假败诱敌·石柱幻阵劫走），凭理解概括设定，视觉描述为原文逐字引用。与 v148–v170 互补。",
+  "disclaimer": "代表性精读而非穷尽全本（4795 章无法逐字读完）；本批覆盖主传第357–360章，入包前仍需人工校订。",
+  "reading_progress": "《凡人修仙传》已逐段精读至第360章（半路劫人），约全书 18.0%（360/2005）。",
+  "totals": {
+    "entities": 14,
+    "by_category": {"设定": 6, "法宝": 3, "法术": 3, "材料": 2}
+  },
+  "note": "本弧线为白池山情报与南宫婉重逢：黄枫谷壁虎断尾真相；无边海/慕兰灵术/九国盟地理设定；潜回灵矿修古传送阵；夜遇南宫婉被王蝉田公子追击；韩立石柱幻阵劫人带走南宫。",
+  "files": {
+    "setting": "novel_curated_settings_v171.json",
+    "artifact": "novel_curated_artifacts_v171.json",
+    "technique": "novel_curated_techniques_v171.json",
+    "material": "novel_curated_materials_v171.json"
+  },
+  "docs": "docs/NOVEL_CURATED_EXTRACT_v171.md"
+}
