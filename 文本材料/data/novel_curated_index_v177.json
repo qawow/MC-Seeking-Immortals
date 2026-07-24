@@ -1,0 +1,20 @@
+{
+  "schema_version": 55,
+  "extract_version": 177,
+  "source": "《凡人修仙传》— 人工精读提取 · 总索引（四年结丹·噬金虫·曲魂魔威·天星城星宫：第386–389章）",
+  "method": "沿原文逐段精读（天火液冲击青元七层·曲魂血凝五行丹结煞丹·结丹异象·噬金虫银球·灵兽袋规则·曲魂魔威尽屠执法·浮云寻踪术避险·内星海外星海·星宫天星双圣·摘星大会·天星城自由城规与外星海传送阵），凭理解概括设定，视觉描述为原文逐字引用。与 v148–v176 互补。",
+  "disclaimer": "代表性精读而非穷尽全本（4795 章无法逐字读完）；本批覆盖主传第386–389章，入包前仍需人工校订。",
+  "reading_progress": "《凡人修仙传》已逐段精读至第389章（天星城与星宫），约全书 19.4%（389/2005）；第390章巨城起入天星城。",
+  "totals": {
+    "entities": 15,
+    "by_category": {"设定": 7, "法宝": 2, "法术": 3, "材料": 3}
+  },
+  "note": "本弧线：海猿岛四年后曲魂结煞丹、韩立失败；小寰岛得噬金虫；执法围杀被曲魂尽屠；购海域图知星宫体系，决意前往天星城。",
+  "files": {
+    "setting": "novel_curated_settings_v177.json",
+    "artifact": "novel_curated_artifacts_v177.json",
+    "technique": "novel_curated_techniques_v177.json",
+    "material": "novel_curated_materials_v177.json"
+  },
+  "docs": "docs/NOVEL_CURATED_EXTRACT_v177.md"
+}
