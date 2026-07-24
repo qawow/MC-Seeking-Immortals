@@ -1,0 +1,20 @@
+{
+  "schema_version": 55,
+  "extract_version": 175,
+  "source": "《凡人修仙传》— 人工精读提取 · 总索引（双娇·天都街云梦阁·雪灵水天火液·降尘丹六级妖兽：第375–377章）",
+  "method": "沿原文逐段精读（三转一转筑基顶峰出关·魁星城禁空·天都街云梦阁·双娇金环·敛气师侄分身师叔→六连殿白水楼·假丹境界·雪灵水天火液深海极玉匣→降尘丹换六级妖兽·六遁水波大阵），凭理解概括设定，视觉描述为原文逐字引用。与 v148–v174 互补。",
+  "disclaimer": "代表性精读而非穷尽全本（4795 章无法逐字读完）；本批覆盖主传第375–377章，入包前仍需人工校订。",
+  "reading_progress": "《凡人修仙传》已逐段精读至第377章（丹方与妖丹），约全书 18.8%（377/2005）。",
+  "totals": {
+    "entities": 13,
+    "by_category": {"设定": 6, "法宝": 2, "法术": 2, "材料": 3}
+  },
+  "note": "本弧线：二十余年闭关后韩立完成三转一转、曲魂修为并进；魁星城天都街云梦阁；双娇妍丽元瑶；六连殿假丹礼遇；雪灵水天火液收入；降尘丹换六级妖兽之请暂缓。",
+  "files": {
+    "setting": "novel_curated_settings_v175.json",
+    "artifact": "novel_curated_artifacts_v175.json",
+    "technique": "novel_curated_techniques_v175.json",
+    "material": "novel_curated_materials_v175.json"
+  },
+  "docs": "docs/NOVEL_CURATED_EXTRACT_v175.md"
+}
