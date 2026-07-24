@@ -1,0 +1,45 @@
+{
+  "schema_version": 55,
+  "extract_version": 245,
+  "source": "《凡人修仙传》— 人工精读提取索引（第二元婴·天绝魔尸·远行·坠魔：第793–796章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v244 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": {
+    "start_chapter": 793,
+    "end_chapter": 796,
+    "total_main_chapters": 2005,
+    "progress_approx": "796/2005 ≈ 39.7%"
+  },
+  "count": 16,
+  "by_category": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3
+  },
+  "entries": [
+    {"id": "setting_589", "display": "器灵加持与妖狐之体", "category": "setting", "file": "novel_curated_settings_v245.json"},
+    {"id": "setting_590", "display": "玄牡化婴与侵占至木灵婴", "category": "setting", "file": "novel_curated_settings_v245.json"},
+    {"id": "setting_591", "display": "天绝魔尸炼制", "category": "setting", "file": "novel_curated_settings_v245.json"},
+    {"id": "setting_592", "display": "假闭关与启程极西", "category": "setting", "file": "novel_curated_settings_v245.json"},
+    {"id": "setting_593", "display": "东裕国中立与万岭坠魔", "category": "setting", "file": "novel_curated_settings_v245.json"},
+    {"id": "setting_594", "display": "鬼灵门坠魔令", "category": "setting", "file": "novel_curated_settings_v245.json"},
+    {"id": "artifact_377", "display": "离针与至木金球", "category": "artifact", "file": "novel_curated_artifacts_v245.json"},
+    {"id": "artifact_378", "display": "辟邪银钉阵", "category": "artifact", "file": "novel_curated_artifacts_v245.json"},
+    {"id": "artifact_379", "display": "缚尸银链古宝", "category": "artifact", "file": "novel_curated_artifacts_v245.json"},
+    {"id": "artifact_380", "display": "坠魔令", "category": "artifact", "file": "novel_curated_artifacts_v245.json"},
+    {"id": "technique_291", "display": "离魂术削弱神识", "category": "technique", "file": "novel_curated_techniques_v245.json"},
+    {"id": "technique_292", "display": "玄牡化婴侵占", "category": "technique", "file": "novel_curated_techniques_v245.json"},
+    {"id": "technique_293", "display": "啼魂吞尸魈元神", "category": "technique", "file": "novel_curated_techniques_v245.json"},
+    {"id": "material_313", "display": "六翼霜蚣卵", "category": "material", "file": "novel_curated_materials_v245.json"},
+    {"id": "material_314", "display": "玄天仙藤根须（半活）", "category": "material", "file": "novel_curated_materials_v245.json"},
+    {"id": "material_315", "display": "尸火与尸毒", "category": "material", "file": "novel_curated_materials_v245.json"}
+  ],
+  "themes": [
+    "器灵精元损耗、妖狐之体优先",
+    "离魂术削弱、玄牡化婴侵占第二元婴",
+    "天绝魔尸、啼魂吞元神、缚尸银链古宝",
+    "霜蚣产卵、仙藤半活、假闭关启程极西",
+    "东裕中立万岭瘴气、鬼灵门坠魔令"
+  ]
+}
