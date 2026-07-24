@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 203,
+  "source": "《凡人修仙传》— 人工精读提取索引 v203（主传第532–535章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v202 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第532章 稚女炉鼎",
+    "to_chapter": "第535章 交换会",
+    "chapter_range": "532-535",
+    "main_book_chapters_read_through": 535,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "26.7%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v203.json",
+    "novel_curated_artifacts_v203.json",
+    "novel_curated_techniques_v203.json",
+    "novel_curated_materials_v203.json",
+    "novel_curated_index_v203.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v203.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_337", "display": "炉鼎戏言与赠宝弃府", "category": "setting"},
+    {"id": "setting_338", "display": "换形诀（玄阴经秘术）", "category": "setting"},
+    {"id": "setting_339", "display": "结丹中期瓶颈与伴妖草目标", "category": "setting"},
+    {"id": "setting_340", "display": "南黎岛坊市破与地下秘市", "category": "setting"},
+    {"id": "setting_341", "display": "听风阁与结丹交换会", "category": "setting"},
+    {"id": "setting_342", "display": "顶阶功法玉简库", "category": "setting"},
+    {"id": "artifact_209", "display": "至元丹白玉瓶", "category": "artifact"},
+    {"id": "artifact_210", "display": "法宝养炼淡红光罩阵", "category": "artifact"},
+    {"id": "artifact_211", "display": "秘市巨石洞口与符文石门", "category": "artifact"},
+    {"id": "artifact_212", "display": "赠宝绢巾留言", "category": "artifact"},
+    {"id": "technique_165", "display": "换形诀改貌", "category": "technique"},
+    {"id": "technique_166", "display": "禁制霞光传送入府", "category": "technique"},
+    {"id": "technique_167", "display": "隐匿潜行入秘市", "category": "technique"},
+    {"id": "material_187", "display": "至元丹（妖丹炼制）", "category": "material"},
+    {"id": "material_188", "display": "缠玉决与金真功玉简", "category": "material"},
+    {"id": "material_189", "display": "八级伴妖草（寻访目标）", "category": "material"}
+  ]
+}
