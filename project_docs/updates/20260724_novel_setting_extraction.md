@@ -1503,3 +1503,14 @@
 - 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
 - 备份：`.bak/20260728_180000`
 - 文件：`文本材料/data/novel_curated_*_v289.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v289.md`，`文本材料/README_WORLDPACK.md`
+
+## 2026-07-28 · v290 融魂·再见元光·偷袭·夺宝·阳环之威（第1021–1025章）
+
+- 方法：沿原文逐段连续精读主传第 1021–1025 章，凭理解概括；视觉描述为原文逐字引用。
+- 产出：高保真条目 16（设定 6 / 法宝 4 / 法术 3 / 材料 3）。
+- ID 区间：setting_859–864，artifact_557–560，technique_426–428，material_448–450。
+- 关节点：融灵大法一体两魂；大周天星辰链与五魔器；昆吾殿北极元光；三人望月图神念；案桌化龙玺夺宝；四象尺七色巨莲；两仪阳环控元光；本命元牌。
+- 阅读进度：1025/2005 ≈ 51.1%；下一批自第 1026 章「降伏」。
+- 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
+- 备份：`.bak/20260728_190000`
+- 文件：`文本材料/data/novel_curated_*_v290.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v290.md`，`文本材料/README_WORLDPACK.md`
