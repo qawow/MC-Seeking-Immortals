@@ -2054,3 +2054,13 @@
 - 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
 - 备份：`.bak/20260726_020000`
 - 文件：`文本材料/data/novel_curated_*_v338.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v338.md`，`文本材料/README_WORLDPACK.md`
+
+## 2026-07-25 · v339 陌生之地·血咒文书与灵具·天东商号·南歧子与符老·沙虫兽（第1266–1270章）
+
+- 方法：沿原文逐段精读主传第 1266–1270 章（七天体青罗沙漠·节点惨胜·元婴虚化·血咒文书·灵具·金刚诀炼体士·天东商号车队·沙虫兽），凭理解概括，视觉描述为原文逐字引用。
+- 产出：高保真条目 **16**（设定 6 / 法宝 4 / 法术 3 / 材料 3）。
+- 阅读进度：主传已精读至第 1270 章（约全书 63.3%，1270/2005）。
+- 版本与协议：仍属设定数据/文档类，不 bump mod_version（维持 0.2.173），`PROTOCOL_VERSION` 维持 30。
+- 备份：`.bak/20260726_030000`
+- 文件：`文本材料/data/novel_curated_*_v339.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v339.md`，`文本材料/README_WORLDPACK.md`
+
