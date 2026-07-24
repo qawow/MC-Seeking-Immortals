@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 325,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（金刚诀·终成眷属·聚灵珠·暗谋·木生珠：第1196–1200章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v324 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1196章 金刚诀和帝流浆 — 第1200章 木生珠",
+  "progress": "1200/2005 ≈ 59.9%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1069–setting_1074",
+    "artifacts": "artifact_697–artifact_700",
+    "techniques": "technique_531–technique_533",
+    "materials": "material_553–material_555"
+  },
+  "entries": [
+    {"id": "setting_1069", "display": "灵界凡人金刚诀与八百下界", "category": "setting", "file": "novel_curated_settings_v325.json"},
+    {"id": "setting_1070", "display": "梵圣真片明王决托天魔功三部凑齐", "category": "setting", "file": "novel_curated_settings_v325.json"},
+    {"id": "setting_1071", "display": "双修大典万修观礼天南第一威慑", "category": "setting", "file": "novel_curated_settings_v325.json"},
+    {"id": "setting_1072", "display": "姹女天月诀阴月分府与慕沛灵义妹", "category": "setting", "file": "novel_curated_settings_v325.json"},
+    {"id": "setting_1073", "display": "鬼灵门燕家求援与王蝉条件", "category": "setting", "file": "novel_curated_settings_v325.json"},
+    {"id": "setting_1074", "display": "合欢老魔暗送木灵珠阻化神", "category": "setting", "file": "novel_curated_settings_v325.json"},
+    {"id": "artifact_697", "display": "血魂镯饲阴魂血鬼", "category": "artifact", "file": "novel_curated_artifacts_v325.json"},
+    {"id": "artifact_698", "display": "木灵珠五行聚灵珠", "category": "artifact", "file": "novel_curated_artifacts_v325.json"},
+    {"id": "artifact_699", "display": "木生珠不灭之体转化", "category": "artifact", "file": "novel_curated_artifacts_v325.json"},
+    {"id": "artifact_700", "display": "血肢丹瓷瓶断肢重生", "category": "artifact", "file": "novel_curated_artifacts_v325.json"},
+    {"id": "technique_531", "display": "金刚诀灵界凡人炼体", "category": "technique", "file": "novel_curated_techniques_v325.json"},
+    {"id": "technique_532", "display": "明王决第三层与疾风九变改", "category": "technique", "file": "novel_curated_techniques_v325.json"},
+    {"id": "technique_533", "display": "木生珠不灭之体神通", "category": "technique", "file": "novel_curated_techniques_v325.json"},
+    {"id": "material_553", "display": "帝流浆开启妖智塑体", "category": "material", "file": "novel_curated_materials_v325.json"},
+    {"id": "material_554", "display": "培婴丹破元婴后期", "category": "material", "file": "novel_curated_materials_v325.json"},
+    {"id": "material_555", "display": "血肢丹断肢重生圣药", "category": "material", "file": "novel_curated_materials_v325.json"}
+  ]
+}
