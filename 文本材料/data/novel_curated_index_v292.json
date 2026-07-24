@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 292,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（反噬·灵宝现世·魔刃疑云·血刀·八灵尺：第1031–1035章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v291 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1031章 反噬 — 第1035章 八灵尺",
+  "progress": "1035/2005 ≈ 51.6%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_871–setting_876",
+    "artifacts": "artifact_565–artifact_568",
+    "techniques": "technique_432–technique_434",
+    "materials": "material_454–material_456"
+  },
+  "entries": [
+    {"id": "setting_871", "display": "五子魔反噬饲主", "category": "setting", "file": "novel_curated_settings_v292.json"},
+    {"id": "setting_872", "display": "通天灵宝现世异象", "category": "setting", "file": "novel_curated_settings_v292.json"},
+    {"id": "setting_873", "display": "魔龙刃传说与魔刃疑云", "category": "setting", "file": "novel_curated_settings_v292.json"},
+    {"id": "setting_874", "display": "倒塔镇魔塔结构", "category": "setting", "file": "novel_curated_settings_v292.json"},
+    {"id": "setting_875", "display": "八灵尺通天灵宝", "category": "setting", "file": "novel_curated_settings_v292.json"},
+    {"id": "setting_876", "display": "银月记忆召唤与另一半", "category": "setting", "file": "novel_curated_settings_v292.json"},
+    {"id": "artifact_565", "display": "魔髓飞刀", "category": "artifact", "file": "novel_curated_artifacts_v292.json"},
+    {"id": "artifact_566", "display": "虚天鼎青霞擒婴", "category": "artifact", "file": "novel_curated_artifacts_v292.json"},
+    {"id": "artifact_567", "display": "四散真人血刀", "category": "artifact", "file": "novel_curated_artifacts_v292.json"},
+    {"id": "artifact_568", "display": "八灵尺", "category": "artifact", "file": "novel_curated_artifacts_v292.json"},
+    {"id": "technique_432", "display": "魔眼迷魂幻术", "category": "technique", "file": "novel_curated_techniques_v292.json"},
+    {"id": "technique_433", "display": "符箓金丝封印五子魔", "category": "technique", "file": "novel_curated_techniques_v292.json"},
+    {"id": "technique_434", "display": "紫罗极火解玄冰", "category": "technique", "file": "novel_curated_techniques_v292.json"},
+    {"id": "material_454", "display": "眩光晶", "category": "material", "file": "novel_curated_materials_v292.json"},
+    {"id": "material_455", "display": "魔髓钻", "category": "material", "file": "novel_curated_materials_v292.json"},
+    {"id": "material_456", "display": "金刚罩收魔珠", "category": "material", "file": "novel_curated_materials_v292.json"}
+  ]
+}

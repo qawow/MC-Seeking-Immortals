@@ -1525,3 +1525,14 @@
 - 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
 - 备份：`.bak/20260728_200000`
 - 文件：`文本材料/data/novel_curated_*_v291.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v291.md`，`文本材料/README_WORLDPACK.md`
+
+## 2026-07-28 · v292 反噬·灵宝现世·魔刃疑云·血刀·八灵尺（第1031–1035章）
+
+- 方法：沿原文逐段连续精读主传第 1031–1035 章，凭理解概括；视觉描述为原文逐字引用。
+- 产出：高保真条目 16（设定 6 / 法宝 4 / 法术 3 / 材料 3）。
+- ID 区间：setting_871–876，artifact_565–568，technique_432–434，material_454–456。
+- 关节点：虚天鼎青霞生擒乾元婴；五子魔反噬饲主；符箓金丝+金刚罩封印；通天灵宝现世异象；魔龙刃传说与血刀疑云；倒塔镇魔塔；四散真人血刀偷袭；白瑶怡玄冰自封；八灵尺与银月另一半召唤。
+- 阅读进度：1035/2005 ≈ 51.6%；下一批自第 1036 章「联手」。
+- 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
+- 备份：`.bak/20260728_210000`
+- 文件：`文本材料/data/novel_curated_*_v292.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v292.md`，`文本材料/README_WORLDPACK.md`
