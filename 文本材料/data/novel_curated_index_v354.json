@@ -1,0 +1,120 @@
+{
+  "schema_version": 55,
+  "extract_version": 354,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（真灵鳞片·拍下·真灵世家·千宝上人·雷袍现世：第1341–1345章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v353 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1341章 真灵鳞片 — 第1345章 雷袍现世",
+  "progress": "1345/2005 ≈ 67.1%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1243–setting_1248",
+    "artifacts": "artifact_813–artifact_816",
+    "techniques": "technique_618–technique_620",
+    "materials": "material_640–material_642"
+  },
+  "entries": [
+    {
+      "id": "setting_1243",
+      "display": "墨麒麟鳞片与葵水真灵丹",
+      "category": "setting",
+      "file": "novel_curated_settings_v354.json"
+    },
+    {
+      "id": "setting_1244",
+      "display": "阴阳化极决与大周天灭绝神针",
+      "category": "setting",
+      "file": "novel_curated_settings_v354.json"
+    },
+    {
+      "id": "setting_1245",
+      "display": "隐秘真灵世家",
+      "category": "setting",
+      "file": "novel_curated_settings_v354.json"
+    },
+    {
+      "id": "setting_1246",
+      "display": "千宝上人遗宝与灵地归属",
+      "category": "setting",
+      "file": "novel_curated_settings_v354.json"
+    },
+    {
+      "id": "setting_1247",
+      "display": "万珑珠监控法阵",
+      "category": "setting",
+      "file": "novel_curated_settings_v354.json"
+    },
+    {
+      "id": "setting_1248",
+      "display": "万年灵草流通与抵押",
+      "category": "setting",
+      "file": "novel_curated_settings_v354.json"
+    },
+    {
+      "id": "artifact_813",
+      "display": "平海戈",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v354.json"
+    },
+    {
+      "id": "artifact_814",
+      "display": "紫枫伞与五色幡",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v354.json"
+    },
+    {
+      "id": "artifact_815",
+      "display": "雷纹之珠与雷袍",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v354.json"
+    },
+    {
+      "id": "artifact_816",
+      "display": "八角万珑法盘",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v354.json"
+    },
+    {
+      "id": "technique_618",
+      "display": "真灵鳞片验真手段",
+      "category": "technique",
+      "file": "novel_curated_techniques_v354.json"
+    },
+    {
+      "id": "technique_619",
+      "display": "紫光灵目",
+      "category": "technique",
+      "file": "novel_curated_techniques_v354.json"
+    },
+    {
+      "id": "technique_620",
+      "display": "天雷凝雷纹与雷珠试爆",
+      "category": "technique",
+      "file": "novel_curated_techniques_v354.json"
+    },
+    {
+      "id": "material_640",
+      "display": "真蟾灵血四百万成交",
+      "category": "material",
+      "file": "novel_curated_materials_v354.json"
+    },
+    {
+      "id": "material_641",
+      "display": "雪蛟草与万年灵纹",
+      "category": "material",
+      "file": "novel_curated_materials_v354.json"
+    },
+    {
+      "id": "material_642",
+      "display": "墨麒麟真灵鳞片",
+      "category": "material",
+      "file": "novel_curated_materials_v354.json"
+    }
+  ]
+}
