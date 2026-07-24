@@ -1,0 +1,32 @@
+{
+  "schema_version": 55,
+  "extract_version": 268,
+  "source": "《凡人修仙传》— 人工精读索引（晶化妖丹·悦来客栈·冯家密窟·明王诀：第911–915章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v267 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第911–915章",
+  "progress": {
+    "chapters_covered_end": 915,
+    "total_main_chapters": 2005,
+    "approx_percent": 45.6
+  },
+  "count": 16,
+  "entries": [
+    {"id": "setting_727", "display": "晶化妖丹与人界诸域", "category": "setting", "file": "novel_curated_settings_v268.json"},
+    {"id": "setting_728", "display": "悦来客栈与冯家备份", "category": "setting", "file": "novel_curated_settings_v268.json"},
+    {"id": "setting_729", "display": "大晋世俗与修仙世家", "category": "setting", "file": "novel_curated_settings_v268.json"},
+    {"id": "setting_730", "display": "瀑布后冯家密窟", "category": "setting", "file": "novel_curated_settings_v268.json"},
+    {"id": "setting_731", "display": "天风双魔围杀炫烨", "category": "setting", "file": "novel_curated_settings_v268.json"},
+    {"id": "setting_732", "display": "明王诀与梵圣真片同源", "category": "setting", "file": "novel_curated_settings_v268.json"},
+    {"id": "artifact_469", "display": "无忧针与寒霜偷袭", "category": "artifact", "file": "novel_curated_artifacts_v268.json"},
+    {"id": "artifact_470", "display": "冯家密窟银钥", "category": "artifact", "file": "novel_curated_artifacts_v268.json"},
+    {"id": "artifact_471", "display": "青砖储物法器", "category": "artifact", "file": "novel_curated_artifacts_v268.json"},
+    {"id": "artifact_472", "display": "佛门赤匣与舍利子", "category": "artifact", "file": "novel_curated_artifacts_v268.json"},
+    {"id": "technique_360", "display": "梦引术问供", "category": "technique", "file": "novel_curated_techniques_v268.json"},
+    {"id": "technique_361", "display": "明王诀炼煞", "category": "technique", "file": "novel_curated_techniques_v268.json"},
+    {"id": "technique_362", "display": "抽魂化神秘术", "category": "technique", "file": "novel_curated_techniques_v268.json"},
+    {"id": "material_382", "display": "晶化七级妖丹", "category": "material", "file": "novel_curated_materials_v268.json"},
+    {"id": "material_383", "display": "乳白舍利子", "category": "material", "file": "novel_curated_materials_v268.json"},
+    {"id": "material_384", "display": "天尸珠", "category": "material", "file": "novel_curated_materials_v268.json"}
+  ]
+}
