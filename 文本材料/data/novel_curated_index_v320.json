@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 320,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（前世今生·回宗·坠魔异变·安排·压服两宗：第1171–1175章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v319 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1171章 前世今生 — 第1175章 压服两宗",
+  "progress": "1175/2005 ≈ 58.6%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1039–setting_1044",
+    "artifacts": "artifact_677–artifact_680",
+    "techniques": "technique_516–technique_518",
+    "materials": "material_538–material_540"
+  },
+  "entries": [
+    {"id": "setting_1039", "display": "田琴儿龙吟转世疑云", "category": "setting", "file": "novel_curated_settings_v320.json"},
+    {"id": "setting_1040", "display": "落云大修士回宗大典", "category": "setting", "file": "novel_curated_settings_v320.json"},
+    {"id": "setting_1041", "display": "南宫婉姹女天月与解咒", "category": "setting", "file": "novel_curated_settings_v320.json"},
+    {"id": "setting_1042", "display": "坠魔外谷弱化与魔尸异变", "category": "setting", "file": "novel_curated_settings_v320.json"},
+    {"id": "setting_1043", "display": "庚精玄玉重炼本命剑", "category": "setting", "file": "novel_curated_settings_v320.json"},
+    {"id": "setting_1044", "display": "神识隔绝压服云梦两宗", "category": "setting", "file": "novel_curated_settings_v320.json"},
+    {"id": "artifact_677", "display": "元婴级傀儡赠宗", "category": "artifact", "file": "novel_curated_artifacts_v320.json"},
+    {"id": "artifact_678", "display": "大晋布阵旗盘封禁地", "category": "artifact", "file": "novel_curated_artifacts_v320.json"},
+    {"id": "artifact_679", "display": "第二套青竹蜂云剑重炼", "category": "artifact", "file": "novel_curated_artifacts_v320.json"},
+    {"id": "artifact_680", "display": "弟子防身法器与子母令", "category": "artifact", "file": "novel_curated_artifacts_v320.json"},
+    {"id": "technique_516", "display": "回宗惊天长啸", "category": "technique", "file": "novel_curated_techniques_v320.json"},
+    {"id": "technique_517", "display": "彻底隔绝气息神通", "category": "technique", "file": "novel_curated_techniques_v320.json"},
+    {"id": "technique_518", "display": "元婴后期灵压毕露", "category": "technique", "file": "novel_curated_techniques_v320.json"},
+    {"id": "material_538", "display": "紫焰花外谷所得", "category": "material", "file": "novel_curated_materials_v320.json"},
+    {"id": "material_539", "display": "幻灵草结丹关键材", "category": "material", "file": "novel_curated_materials_v320.json"},
+    {"id": "material_540", "display": "万年玄玉掺剑材", "category": "material", "file": "novel_curated_materials_v320.json"}
+  ]
+}
