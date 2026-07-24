@@ -1,0 +1,1404 @@
+{
+ "schema_version": 55,
+ "extract_version": 148,
+ "source": "原著全本扫描提取 — 法宝类",
+ "method": "Aho-Corasick 单次全文扫描两部原著，抽取实体首现章节、出现频次与含视觉关键词的原文句",
+ "disclaimer": "原文引文逐句摘自《凡人修仙传》《凡人修仙传仙界篇》全本扫描，为设定/视觉描述素材，非逐件数值；入包前需人工校订。",
+ "count": 66,
+ "entries": [
+  {
+   "id": "artifact_000",
+   "display": "青竹蜂云剑",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》",
+    "《凡人修仙传仙界篇》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第二百四十一章"
+   },
+   "mention_count": 927,
+   "chapter_hits": 402,
+   "visual_descriptions": [
+    "原来这一张金页里，竟然全是教授结丹期的修士，如何炼制一种叫“青竹蜂云剑”飞剑法宝",
+    "而最终他要炼制的，还是“金页”上垂涎了好久的“青竹蜂云剑”此法宝",
+    "说实话，仅原来一根天雷竹炼制一套十二把的“青竹蜂云剑”都略显不够，现在既然知道凭绿液就还可以催生出幼竹来，那他主原料不够的窘迫处境就彻底解决了"
+   ],
+   "setting_descriptions": [
+    "他如今要做的，就是赶紧收集炼制“青竹蜂云剑”的法宝材料，好早日将此法宝在丹火和元神中培炼出大威力来",
+    "而韩立要炼制的“青竹蜂云剑”，顾名思义，主要材料要用数千年的灵竹炼制而成"
+   ]
+  },
+  {
+   "id": "artifact_001",
+   "display": "虚天鼎",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第四百三十四章"
+   },
+   "mention_count": 420,
+   "chapter_hits": 148,
+   "visual_descriptions": [
+    "毕竟光凭万天明的金丝蚕也想取出虚天鼎，我看是痴心妄想的事情",
+    "万天明扫了一下祭坛上正拖拉虚天鼎的血玉蜘蛛，和蓝光乱颤的洞口，竟神色平静的吐出了这几个字来",
+    "这时虚天鼎已经离洞口很近了，这几位虽是元婴期修士，但为了抵挡洞口放出的奇寒，全都运足了功法，防御宝物一个接一个地祭了出来，身上各种奇光流转不停"
+   ],
+   "setting_descriptions": [
+    "这万天明可是正道中数一数二的领军人物，他会不会是想打那虚天鼎的主意",
+    "若是有此奇虫相助的话，可能这位万大门主真的会打虚天鼎的主意"
+   ]
+  },
+  {
+   "id": "artifact_002",
+   "display": "灵兽袋",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》",
+    "《凡人修仙传仙界篇》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第三百八十七章"
+   },
+   "mention_count": 253,
+   "chapter_hits": 165,
+   "visual_descriptions": [
+    "当即将手中的灵兽袋，轻轻往空中一抛，单手再一扬，一道青色法诀飞快的打到了皮袋之上",
+    "接着手掌一翻，一只灵兽袋就出现在了手中，同时身前的两只飞剑颤抖了起来，微微散发出了绿色光辉",
+    "他将一直抓在手中的灵兽袋轻轻一抛，数千只噬金虫蜂拥而出，片刻后就组成了一片金银色的绚丽云霞，漂浮在了头上"
+   ],
+   "setting_descriptions": [
+    "说起来盛装妖兽应该使用专门的灵兽袋才行，否则普通的灵兽就会在储物袋中因无法呼吸而闷死",
+    "当然，若是真的想要驱兽御敌，还是专用的灵兽袋最合用了，不但召唤灵兽方便，而且更方便调教"
+   ]
+  },
+  {
+   "id": "artifact_003",
+   "display": "符宝",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》",
+    "《凡人修仙传仙界篇》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第一百四十三章"
+   },
+   "mention_count": 207,
+   "chapter_hits": 49,
+   "visual_descriptions": [
+    "这张金光砖符宝，是本楼不惜巨价从某个小家族中收购来的，是丝毫未曾动用过的崭新符宝，换取厉兄的这株千年灵草绝对绰绰有余",
+    "特别是那件金光砖符宝，那对他之后的帮助就更大了，他一定是要拿下的",
+    "这一回符宝所化的灰芒，明显比上回击杀黄衣人时，不可同日而语，光从它所化的剑光中就可以看出，威力起码大了三四倍还要多"
+   ],
+   "setting_descriptions": [
+    "这张曾被他所斩杀的黄衣人惊称为符宝的东西，应该是大有来历的物品",
+    "只是作为见不得光的赃物，他一直都没敢让别人知道此符箓，只是暗中对符宝二字上了心，准备找个合适的机会，再向他人打听一下称谓的意思"
+   ]
+  },
+  {
+   "id": "artifact_004",
+   "display": "风雷翅",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》",
+    "《凡人修仙传仙界篇》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第五百四十五章"
+   },
+   "mention_count": 187,
+   "chapter_hits": 116,
+   "visual_descriptions": [
+    "韩立头也没抬的单手一张，大片青光喷射而出，一下将裸露出来的风雷翅卷入了其中，瞬间拉回到了手上",
+    "不久，一个淡金色电弧罩出现在了空中，并且将风雷翅包裹在了里面，雷鸣声一下由高变低起来",
+    "看着电罩中的风雷翅，在一点点的吸收着辟邪神雷的电弧，韩立心里这才一松"
+   ],
+   "setting_descriptions": [
+    "不过，不再是风火翅了，而是风雷翅",
+    "只要我的风雷翅法宝炼制成功，在下自会替道友解除后患，若是失败的话，道友自然就是在下发泄怒气的第一个祭品了"
+   ]
+  },
+  {
+   "id": "artifact_005",
+   "display": "三焰扇",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第八百六十一章"
+   },
+   "mention_count": 114,
+   "chapter_hits": 61,
+   "visual_descriptions": [
+    "在路上他走走停停，将三焰扇部分材料，用婴火炼制成了灵料，但可惜一路上并没有碰到雷雨天气，雷火之力一直无法收集，这让韩立多少有些郁闷",
+    "顿时光芒一闪后，三焰扇化为了数尺大小",
+    "就在银翅夜叉眼珠转动，心中大生忌惮时，韩立见到三焰扇如此威力，自然心中大喜"
+   ],
+   "setting_descriptions": [
+    "但是以此方法炼制出来的宝扇，其实不能叫七焰扇了，该叫三焰扇才差不多，因为此宝原先需要八十一种火属灵灵料才能炼制出来，被我改成了三十一种了",
+    "通天灵宝真有传说中的那么厉害，这仿制的三焰扇也绝对不是普通修士能抵挡的"
+   ]
+  },
+  {
+   "id": "artifact_006",
+   "display": "八灵尺",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第一千一十八章"
+   },
+   "mention_count": 102,
+   "chapter_hits": 39,
+   "visual_descriptions": [
+    "八灵尺，黑风旗，在典籍上只是略微提了一下",
+    "心中疑惑，他正想要再问一下银月，一股惊人灵压忽从宫殿中冲天而起，接着轰的一声巨响后，一道黄光从顶部破开射出，随即化为一只黄色大手，直奔八灵尺狠狠抓去",
+    "就在这时，一声销魂的娇笑也从宫殿中传出，随即八灵尺附近的空间骤然波动，一个披头散发人影竟诡异浮现而出"
+   ],
+   "setting_descriptions": [
+    "师姐说过用来镇压那人的两件通天灵宝中有一件是八灵尺，不正是这件四象尺所仿制之宝吗",
+    "八灵尺也是通天灵宝之一，只是在上古时候动用次数并不多，所以此宝名声不显"
+   ]
+  },
+  {
+   "id": "artifact_007",
+   "display": "玉如意",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》",
+    "《凡人修仙传仙界篇》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第四百八十四章"
+   },
+   "mention_count": 86,
+   "chapter_hits": 40,
+   "visual_descriptions": [
+    "因为在下面的祭坛附近，韩立正手持一件黄红两色的玉如意仔细端详着，而如意的两端各雕有一只栩栩如生的狼首",
+    "片刻后银狼的形体淡化了下来，最后化为了虚影，显出了一柄玉如意来",
+    "不过，韩立也很清楚，被那白虹一击没死的最大功臣，还应该是那柄红黄两色的玉如意"
+   ],
+   "setting_descriptions": [
+    "当韩立将玉如意拿在手上，欣喜的鉴赏之时，儒衫老者和极阴正好和万天明夺宝失败，看到了让他们愕然的这一幕",
+    "而他来得及所做的反应，就是把手中正把玩的玉如意拼命往胸前挡了一下"
+   ]
+  },
+  {
+   "id": "artifact_008",
+   "display": "顶阶法器",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第一百九十五章"
+   },
+   "mention_count": 80,
+   "chapter_hits": 45,
+   "visual_descriptions": [
+    "更何况两颗蛟目所炼制的顶阶法器“青火瘴”，不但有掩饰身形，让人无法抓住准确位置地奇效",
+    "顿时两道乌光和六道金光同时飞射而出，毫不客气的向大汉激射而去，这么多顶阶法器互相呼应发出的惊涛骇天的呼啸气势，让光头大汉大惊之下，不禁面露一丝畏惧之色色",
+    "有这片刻时间的争取，韩立的七八件顶阶法器后发先至的飞到了曲魂身前，不停地旋转飞舞，布下黑白交错的刃幕"
+   ],
+   "setting_descriptions": [
+    "所遇到的几波敌人都是有顶级法器的主，这才让他产生了顶阶法器不稀奇的错觉，有了这么大的误解",
+    "顶阶法器，而且要顶阶法器中的精品"
+   ]
+  },
+  {
+   "id": "artifact_009",
+   "display": "元合五极山",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》",
+    "《凡人修仙传仙界篇》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第一千六百六十三章"
+   },
+   "mention_count": 78,
+   "chapter_hits": 25,
+   "visual_descriptions": [
+    "不过纵然面上尽量保持平静，韩立心中却暗暗兴奋不已，太乙青光正是炼制元合五极山中一座极山的主材料“太乙青山”所有的奇光",
+    "远处华服青年脸上变色，当即顾不得再管韩立的青竹蜂云剑，任凭其被元合五极山捆缚，身形一晃的朝胖瘦二人飞射而去",
+    "一道若隐若现的金色幻影浮现而出，朝着远处的元合五极山飞射而去，速度快的不可思议"
+   ],
+   "setting_descriptions": [
+    "璃水珠和元合五极山",
+    "元合五极山’，竟然有这种将五件顶阶通天灵宝化为一体的炼制之法"
+   ]
+  },
+  {
+   "id": "artifact_010",
+   "display": "元磁神山",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》",
+    "《凡人修仙传仙界篇》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第一千一百五十九章"
+   },
+   "mention_count": 71,
+   "chapter_hits": 39,
+   "visual_descriptions": [
+    "这所谓红影赫然是两只蛇首喷出的蛇芯，竟然能有如此巨力，将元磁神山所化山峰都能击飞出去",
+    "另一边上，肖姓女子借助韩立的元磁神山挡下了那密密麻麻的血丝后，也同样一下瞬移到了数十丈外",
+    "在韩立全力催动之下，元磁神山片刻后竟狂涨至了千余丈之巨，底部放出的元磁神光更是飞卷闪动之下，将数亩大小的海面全都笼罩在了其下"
+   ],
+   "setting_descriptions": [
+    "否则，万一此人真能够忍得住百年时间空耗，等我们坐化后杀到星城强抢元磁神山，还真有些棘手的",
+    "本宫将元磁神光修炼之法和元磁神山作为交换条件，道友觉得如何"
+   ]
+  },
+  {
+   "id": "artifact_011",
+   "display": "镇魔锁",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第一千九百零六章"
+   },
+   "mention_count": 70,
+   "chapter_hits": 18,
+   "visual_descriptions": [
+    "你若不认识血光那小人，如何得到这件镇魔锁的",
+    "若是开头的一段时期了，血光那小人真身无法马上降临人界，难道因此才让这镇魔锁离开身边的",
+    "若非如此，这件镇魔锁绝不会离开血光这小人身旁分毫的，更不会意外落入你这么一名人族修士手中的"
+   ],
+   "setting_descriptions": [
+    "哼，这件镇魔锁从古至今不知在我们圣族多少圣祖手中流传过，但哪一个不是时刻贴身携带，怎会落在你区区一名人族手中",
+    "韩立这具化身只是一缕神念所化，自然没有什么神通蕴含其中，干脆丝毫不加以抵抗对方的举动，反而微微一笑的说道：“镇魔锁"
+   ]
+  },
+  {
+   "id": "artifact_012",
+   "display": "御风车",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第六百九十章"
+   },
+   "mention_count": 64,
+   "chapter_hits": 18,
+   "visual_descriptions": [
+    "韩立再细看两眼，才惊讶发现，这御风车通体洁白细腻，竟是用不知名的兽骨炼制组合而成，隐隐散发出来一股凶煞之气",
+    "并且由于从未和法士交过手，韩立没敢轻易的用神识探进御风车中，而转首过来再次催动身上的血色披风，向南边的慕兰草原方向，径直遁去",
+    "结果那御风车蓦然一停，接着白芒闪动几下后，从车中先后下来了四个衣着打扮各异的人影，三男一女"
+   ],
+   "setting_descriptions": [
+    "况且，以天风部的法宝‘御风车’的恐怖速度，也未必不能追上这几人",
+    "那御风车虽然速度惊人，但若要聚集了足够人手才出发，恐怕是来不及了"
+   ]
+  },
+  {
+   "id": "artifact_013",
+   "display": "血刃",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》",
+    "《凡人修仙传仙界篇》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第六章"
+   },
+   "mention_count": 59,
+   "chapter_hits": 27,
+   "visual_descriptions": [
+    "但是当那把黑色血刀一成形之际，韩立原本游荡在其附近的神识，马上被黑色血刃强行吸纳了过去，大有要全部吞噬的架势",
+    "只能看到那细长血刃一点点弯曲，仿佛哀鸣的急颤个不停，立刻显出不支之色",
+    "黑血刃是叶家传承之宝，也是本族处置叛逆的法器"
+   ],
+   "setting_descriptions": [
+    "外门有飞鸟堂，聚宝堂，四海堂，外刃堂四个分堂，内门有百锻堂，七绝堂，供奉堂，血刃堂四个分堂，另外还有一个只在正门主之下和其他副门主并驾齐驱的长老会",
+    "如此一来，万一有什么不妙之处，谈判之人也可依仗武功高强迅速杀出重围，返回自己的地界，在那里另有数队精锐的血刃堂弟子负责接应，可确保他们的退路安全"
+   ]
+  },
+  {
+   "id": "artifact_014",
+   "display": "五子同心魔",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第九百八十二章"
+   },
+   "mention_count": 50,
+   "chapter_hits": 32,
+   "visual_descriptions": [
+    "虽然觉得五子同心魔似乎在什么地方听到过的，但一时尚未想起所谓的乾老魔倒底是何人，白瑶怡一听此话，却也脸色蓦然苍白起来",
+    "手中巨斧方停，圭灵一张口，喷出一股黄色妖焰罩住地面上残骨，要一口气彻底解决掉这五子同心魔",
+    "而里面的五颗金球则雷鸣声一响，无数纤细电弧闪动，竟在金弧中露出了五个贴满了符箓的人形骨架来，在这些骨架的胸腔中，还各有一个乌黑的骷髅头，同样被各色符箓包裹着，无法动弹分毫的样子，这些正是那阴罗宗大长老乾老魔修炼的五子同心魔化身"
+   ],
+   "setting_descriptions": [
+    "五子同心魔，是乾老魔的化身魔子",
+    "乾道友的话深合我意，韩某也久闻五子同心魔的大名，正想和道友切磋一二呢"
+   ]
+  },
+  {
+   "id": "artifact_015",
+   "display": "金刚罩",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第八百三十一章"
+   },
+   "mention_count": 47,
+   "chapter_hits": 19,
+   "visual_descriptions": [
+    "你忘了那个老和尚祭出这颗舍利后，虽然还未形金刚罩，只是金光护体，就让大王发动尸火后，花费了三天三夜才将舍利上金光炼尽，灭杀此僧",
+    "炫烨王同样心中震动，他虽然一眼就看出来，韩立就是拿走那金刚罩的修士，应该有些手段才是，但同样没想到，对方真正修为竟然如此之高，神色也阴晴不定起来",
+    "此猴数寸大小，满脸的不情愿之色，正是原本在金刚罩中炼化尸焰的啼魂兽"
+   ],
+   "setting_descriptions": [
+    "如今虽然二人都有些元气大损，但这金刚罩也到了油尽灯枯之时，明显随时都可能被攻破这最后一层，这让心中暗暗叫苦不迭的二人，总算能咬着牙的坚持下来",
+    "真想看看这舍利子所化金刚罩，到底有多神妙"
+   ]
+  },
+  {
+   "id": "artifact_016",
+   "display": "鬼罗幡",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第七百六十五章"
+   },
+   "mention_count": 44,
+   "chapter_hits": 22,
+   "visual_descriptions": [
+    "青年脸色一下苍白无血，他方寸大乱之下，也顾不得什么镇宗之宝了，猛然伸手一招身前的鬼罗幡，其化为一道黑光收到了手中，然后一咬牙，双手持幡，身形滴溜溜在原地一转，人幡合二为一，化为一团阴森森的绿雾，突然朝天空方向破空射去",
+    "黑光闪动，第二元婴浮现在了头顶之上，一张口，吐出了那面鬼罗幡来",
+    "光芒万道下黑气中传出老魔惊怒的大吼，魔气纷纷融消化解，现出了血色元婴及那杆鬼罗幡来"
+   ],
+   "setting_descriptions": [
+    "这一次，要不是我们阴罗宗镇宗之宝鬼罗幡被正道那些家伙击毁了几杆，急需大量生魂来修复，本宗绝不会掺和到你们法士和天南修士的争斗中去",
+    "阴云中的黑袍男子沉默了下来，过了好一会儿，才阴森的说道：“好，既然你如此不知进退，本宗主也没心情多浪费时间，就让你见识一下，本宗至宝‘鬼罗幡’的威力"
+   ]
+  },
+  {
+   "id": "artifact_017",
+   "display": "降魔杖",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》",
+    "《凡人修仙传仙界篇》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第一千二十三章"
+   },
+   "mention_count": 38,
+   "chapter_hits": 10,
+   "visual_descriptions": [
+    "四块叠在一起的血红色木牌，一口紫色小剑，一杆巴掌大降魔杖，一本泛着红光的书卷以及一块碧绿色印玺，表面雕印着栩栩如生的一只五爪真龙",
+    "当他还想再卷向附近的那件降魔杖时，头顶就同时十余道血色光柱和一股金色音波滚滚袭来",
+    "而降魔杖顿时被随后紧至的血影一把捞走了"
+   ],
+   "setting_descriptions": [
+    "但是三个小人却默不做声的同时冲案桌上的小剑、降魔杖、书卷各自伸手一点指",
+    "倒是将那件从昆吾殿中得到了的书卷和从乾老魔储物袋中得到的土黄色降魔杖，都是昔年昆吾三老成名的宝物，威力同样极其巨大，只要稍加祭炼，也可驱使如意的，韩立自然不会忘掉的"
+   ]
+  },
+  {
+   "id": "artifact_018",
+   "display": "灭仙珠",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第一千二百三十五章"
+   },
+   "mention_count": 38,
+   "chapter_hits": 15,
+   "visual_descriptions": [],
+   "setting_descriptions": [
+    "但这东西刚才搜魂后，似乎被那人称为灭仙珠的",
+    "更何况，他还有新弄明白来历的灭仙珠两颗，作为杀手锏"
+   ]
+  },
+  {
+   "id": "artifact_019",
+   "display": "血魔剑",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第七百一十八章"
+   },
+   "mention_count": 31,
+   "chapter_hits": 13,
+   "visual_descriptions": [
+    "韩立瞅了那血魔剑一眼，淡淡的说道，似乎将此剑根本没放在心上一样",
+    "片刻后，南宫婉美目一睁，手掌一抬，在其手心处多出了一把血红小剑，正是那件“血魔剑",
+    "他虽然还有紫罗极火、血魔剑等杀手锏，但可没有丝毫在这里和此女死拼的意思"
+   ],
+   "setting_descriptions": [
+    "若是还不同意的话，一会儿血魔剑发狂起来，我可没有十足的把握能够控制住威力大小，万一伤了师妹，可别怪师姐没有提醒过你",
+    "冰冷女子不客气的说道，似乎对这血魔剑信心十足"
+   ]
+  },
+  {
+   "id": "artifact_020",
+   "display": "法印",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》",
+    "《凡人修仙传仙界篇》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第三百七十四章"
+   },
+   "mention_count": 28,
+   "chapter_hits": 21,
+   "visual_descriptions": [
+    "韩立忽然一声大吼，两手结出了一个古怪的法印，身子就一动不动了，但从鼻孔中却哼出一团拇指般大小的绿色光团，此光团飞快的飞到了曲魂鼻下，同样从鼻孔中钻进了去其体内",
+    "魔魂恶鬼头颅口中发出几声金属板的锵锵之声，手臂一挥后模糊起来，四只手掌的十指全都飞快的扭曲变形，结出一个接一个的古怪法印",
+    "此刻，远处韩立才脸色发白的放开了双手捏掐的一个法印，神色显得萎靡不少"
+   ],
+   "setting_descriptions": [
+    "韩立精光闪动的盯着虫云，眼都不眨一下，但片刻后，他单手一结法印，同时另一只手向虫云虚空一抓，口中低吼一声",
+    "韩立缩在袖袍中的双手一掐诀，并结下一道法印，神识随之响起低沉的咒语声，并通过神识传到了回到了洞口处，正漂浮在石壁前的却大群噬金虫身上"
+   ]
+  },
+  {
+   "id": "artifact_021",
+   "display": "天雷子",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第一百六十三章"
+   },
+   "mention_count": 27,
+   "chapter_hits": 10,
+   "visual_descriptions": [
+    "天雷子，数百年前，某神秘修士无意中截取天地雷电后凝练所成，每一粒都具有莫大威力，据说即使筑基期的修士正面硬抗此雷，也会灰飞烟灭",
+    "韩立看了看这三样东西，又想了想自己损失的天雷子，和银钩及青索两件上品法器，还有被天雷子摧毁的储物袋，他仰天无语",
+    "于是略思量了片刻，她干脆把心一横，突然把手中的小匣子往身上一塞，同时飞快的掏出了一个蓝色的圆珠，高举头顶的厉声说道：“你们不要逼我，这颗天雷子你们都是认识的，我只要求离开这里"
+   ],
+   "setting_descriptions": [
+    "至于那个更想弄到手的天雷子，韩立心里就没有底了",
+    "而且实在不行，他把“天雷子”祭出，消灭其中一人，那不是轻而易举的事"
+   ]
+  },
+  {
+   "id": "artifact_022",
+   "display": "大挪移令",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第二百六十九章"
+   },
+   "mention_count": 27,
+   "chapter_hits": 13,
+   "visual_descriptions": [
+    "当他和曲魂在黄光中开始传送后，他只觉黄濛濛的四周蓦然出现了巨大的压力，但幸亏手中的大挪移令及时的发出了淡淡的青光，让其马上觉得压力全消",
+    "以后被万人同时诅咒的韩立，在一阵白光中，手持大挪移令出现了在了一个陌生的地方",
+    "豁然，他面色大变，突然手中三焰扇一收，却多出了一块蓝灿灿的令牌，正是“大挪移令"
+   ],
+   "setting_descriptions": [
+    "好了，你们可以安心的死去了，这枚大挪移令就由吕某接受了",
+    "大挪移令”这个称呼，韩立从没听过"
+   ]
+  },
+  {
+   "id": "artifact_023",
+   "display": "乾蓝鼎",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第一千九十八章"
+   },
+   "mention_count": 24,
+   "chapter_hits": 10,
+   "visual_descriptions": [
+    "天下间，除了本宫仿制的乾蓝鼎外，在人间应该只有虚天鼎拥有此寒焰的",
+    "铛”的一声轻响传出，鼎上喷出数股青丝，彻底将乾蓝鼎包成了一个青光闪闪的丝球，然后袖袍一拂，就将青球收进了袖中，这才抬首面无表情的望向寒骊上人，嘴角露出一丝冷笑",
+    "这位小极宫大长老心中一松，正想再一次瞬移后，就直接驱使乾蓝鼎将入口打开时，附近的一处玄玉矿上忽然飞出几缕寒光，直往鼎上卷来"
+   ],
+   "setting_descriptions": [
+    "而且下边的突破，师某恐怕还要借助这件‘乾蓝鼎’威能",
+    "虽然入口还是要暂时关闭，但在下将乾蓝鼎放在入口处，几位道友觉得如何"
+   ]
+  },
+  {
+   "id": "artifact_024",
+   "display": "引魂钟",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第六十三章"
+   },
+   "mention_count": 23,
+   "chapter_hits": 8,
+   "visual_descriptions": [
+    "韩立将其平托在手掌上，然后将灵力缓缓注入，不一会儿的功夫后，引魂钟发出淡淡的白光，凭空浮了起来",
+    "韩立见此，冷笑了一声，突然一抬手，露出了那口被青光包裹的“引魂钟",
+    "他以前虽然感应到引魂钟的存在，但不知此钟的具体形状，也不知这就是专门克制这具身体的法器，只是下意识的以为韩立想要动手呢"
+   ],
+   "setting_descriptions": [
+    "韩立仔细端详了一番这个叫“引魂钟”的法器，实在没看出它的厉害之处，按信上所说，此物竟能制住巨汉这么恐怖的怪物，真是不可思议",
+    "于是韩立把从墨大夫那里得到的稀奇古怪的东西，包括“引魂钟”和施展“七鬼噬魂大法”所用的那七把银刃等物品，都当成了“驱物术”驱使的对象，试验了一番，可惜还是没有一样东西能被施法成功"
+   ]
+  },
+  {
+   "id": "artifact_025",
+   "display": "银色巨剑",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第一百八十五章"
+   },
+   "mention_count": 22,
+   "chapter_hits": 11,
+   "visual_descriptions": [
+    "如今的萧二，脸色苍白，正满脸惧色的望着对面之人，一位背着一柄银色巨剑的赤脚大汉",
+    "就是这人，当着萧二的面，已一连击杀了其他两位聚到一起的化刀坞同门，在大汉的银色巨剑之下，不论是什么样的上品法器和防御护罩，似乎都不堪一击，如同薄纸一般的被一一击破，最后，甚至连人都被劈成了两半",
+    "大汉惜字如金的说道，接着银色巨剑从背上一飞冲天，毫不费力的把两件法器击的粉碎，然后顺势把萧二斩为了两截"
+   ],
+   "setting_descriptions": []
+  },
+  {
+   "id": "artifact_026",
+   "display": "化龙玺",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第一千一十八章"
+   },
+   "mention_count": 22,
+   "chapter_hits": 13,
+   "visual_descriptions": [
+    "随即身形一晃，木夫人身形浮现在了此宝之上，手中捧着的化龙玺再次幻化出真龙之影",
+    "并不知道化龙玺来历的徐姓青年，冷冷望了木夫人一眼，此刻他才不管什么魔气不魔气，眼前情形如此混乱，出现的魔物也一个比一个厉害，他已有了撤退离开的心思",
+    "十道不起眼的纤细黑丝击在了旁边那块镶嵌着化龙玺的石碑上，此石碑一阵乌光流转，随即嗡鸣声大响"
+   ],
+   "setting_descriptions": [
+    "但是若想重新加固封印，必须需要昆吾殿中的那只化龙玺才行",
+    "不管怎么说，我们还是要跟着这些人后面，看看能不能将那件化龙玺先一步拿到手吧"
+   ]
+  },
+  {
+   "id": "artifact_027",
+   "display": "赤魂幡",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第一千二百二十三章"
+   },
+   "mention_count": 20,
+   "chapter_hits": 5,
+   "visual_descriptions": [],
+   "setting_descriptions": [
+    "我记得有一种叫做‘赤魂幡’的空间类宝物，和此旗有些类似，可以将其炼制成此宝的，但是……”童子说到这里，声音却顿了一下",
+    "也只有这赤魂幡所用材料和这此旗大半相同，才可以炼制的"
+   ]
+  },
+  {
+   "id": "artifact_028",
+   "display": "天尸珠",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第九百一十四章"
+   },
+   "mention_count": 19,
+   "chapter_hits": 11,
+   "visual_descriptions": [
+    "韩立叹了口气，手掌一翻，一白一金两颗圆珠同时出现在了手中，正是刚刚到手的天尸珠和那枚从九仙宫弟子手中得到的雪晶珠",
+    "但是韩立却是法体双修，再加上龙鳞果、天尸珠、淬骨诀等秘术灵果的改造，即使不动用梵圣真魔功，身体之强横就比白眉青年和莜虹还要优胜数筹的"
+   ],
+   "setting_descriptions": [
+    "而且听说这老魔天尸之体快要大成，以其谨慎的性子，想必快修炼大成的天尸珠也暗藏在了墓室中某处，只要得到了此珠，将其本命元神一除，我们就算不是尸王之体也可以借用此物将躯体修炼到铜头铁臂，水火不浸的，这可是修炼法体的最佳宝物啊",
+    "老夫修炼的功法，并不注重法体锻炼，对这天尸珠可丝毫兴趣也没有"
+   ]
+  },
+  {
+   "id": "artifact_029",
+   "display": "降魔杵",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传仙界篇》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传仙界篇》",
+    "chapter": "第二百三十一章 重水之威"
+   },
+   "mention_count": 19,
+   "chapter_hits": 5,
+   "visual_descriptions": [
+    "伴随着一道金光闪过，一尊高逾三丈，身着光明铠，手持降魔杵的金甲傀儡，便从中跨步而出，挥杵朝着韩立当头砸了下来",
+    "韩立朝着重水真轮的方向抛出一颗黑色圆球后，随后便转而抬起一臂，朝着头顶上方的降魔杵砸了过去",
+    "一只金光灿灿的拳头重重砸在了降魔杵上，顿时激起一阵更加狂暴的气浪激荡"
+   ],
+   "setting_descriptions": [
+    "其手臂之上金鳞翻起，竟是直接变大了一圈，与那降魔杵重重碰撞在了一起",
+    "韩立看着那两尊天王雕像已然临近，脚踩着阴煞鬼物，手中的降魔杵已经高高举起，似乎是要将此物也投掷过来"
+   ]
+  },
+  {
+   "id": "artifact_030",
+   "display": "金蚨子母刃",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第一百六十三章"
+   },
+   "mention_count": 19,
+   "chapter_hits": 15,
+   "visual_descriptions": [
+    "原来是韩立将手中的“金蚨子母刃”驱动了，两道金光就是其中两道子刃而已",
+    "但现在可不是追根寻底之时，无奈之下，只好将拿出的“金光砖”符宝，先收了起来，再把手中的“金蚨子母刃”的母刃一挥，将所有子刃，一窝蜂的都放了出去，化为了八道惊虹金光，气势汹汹的全射向封岳，看看能否依仗这金刃的数量，在乱中取胜",
+    "他用两根手指将刃口处的黑泥轻轻一抹，短刃立即金光闪闪起来，竟是把“金蚨子母刃”的子刃"
+   ],
+   "setting_descriptions": [
+    "金蚨子母刃一套，母刃一把，子刃八把，以精铁精金为原料，由筑基期高手三天三夜炼制而成，只要手持母刃就可同时控制八把子刃攻击敌人，让对手防不胜防，锋利无比",
+    "不过，他并未就此放松了戒备，而是一只手扣了张符箓，另一只手拿出了那套“金蚨子母刃”，以作万全之策用"
+   ]
+  },
+  {
+   "id": "artifact_031",
+   "display": "阳环",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第四百五十六章"
+   },
+   "mention_count": 18,
+   "chapter_hits": 9,
+   "visual_descriptions": [
+    "两仪环分为阴阳二环，阴环在身可不惧元光伤身，阳环在手才可操纵元光攻敌，这枚黑色指环正是那枚阳环",
+    "但就是这点时间，杀心大起的韩立也根本不会给此妖物的，当即两手冲阳环一连打出数道法诀去，让此环滴溜溜在空中一转后，更远处的北极元光马上也呼应的发出刺目银芒，放眼望去，如同浪涛般的此起彼伏，声势好不惊人",
+    "一听这话，韩立神色一动，就用阳环控制北极元光的攻势暂时一缓"
+   ],
+   "setting_descriptions": [
+    "明明是当初老夫赐予他的阴阳环古宝，竟然连名字都改了",
+    "你也不用高兴的太早，此阴环虽然的确有护主克敌的功效，但是却被他身上的一枚阳环所克，到时使用此物来对付他的时候，只能是自寻死路"
+   ]
+  },
+  {
+   "id": "artifact_032",
+   "display": "绿煌剑",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第三百四十三章"
+   },
+   "mention_count": 18,
+   "chapter_hits": 14,
+   "visual_descriptions": [
+    "在众人的惊呼声中，早有防备的韩立另一只手一扬，绿煌剑脱手射出，和黑影撞到了一起"
+   ],
+   "setting_descriptions": [
+    "韩立喜爱异常的把玩了一会儿，才恋恋不舍的将这“绿煌剑”小心的收入了储物袋中，这可是他得到的第一件法宝啊",
+    "韩立当然不知，那御灵宗的修士因为所负伤势太重，肉体马上消亡，那还顾得处理后事，只来得急裹起“绿煌剑”，将金丹内的小半灵气凝聚成绿丸，就慌慌张张的带着二物元神出窍了"
+   ]
+  },
+  {
+   "id": "artifact_033",
+   "display": "聚魂钵",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第三百三十章"
+   },
+   "mention_count": 15,
+   "chapter_hits": 6,
+   "visual_descriptions": [
+    "至于那件漆黑的钵盂，则是件名为“聚魂钵”罕见法器，专门容纳修士魂魄元神用的，只要入了此法器，所有的魂魄元神都会渐渐的灵性全失，从此成为普通的孤魂野鬼，专供邪修之人驱使祭炼",
+    "这个魂器形状，外界之人没有几人亲眼见到过，但自然被大多修士传为成阴气森森，鬼气弥漫了，正好和这盛有上百修士魂魄的“聚魂钵”形象，非常相近",
+    "韩立随意的望了一眼聚魂钵，托着的五指顿时青光一闪，丝丝的阴气，被韩立通过手掌吸入了体内，再缓缓传到另一只抓着骨块的手上"
+   ],
+   "setting_descriptions": [
+    "而这个“聚魂钵”，韩立只是略微观察了一下，就被钵内的阴寒之气，给逼的打了个寒战，急忙将此钵收进了储物袋中",
+    "正是韩立刚到手不久的“聚魂钵"
+   ]
+  },
+  {
+   "id": "artifact_034",
+   "display": "混元钵",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第三百八十章"
+   },
+   "mention_count": 15,
+   "chapter_hits": 10,
+   "visual_descriptions": [
+    "千目妖”虽然被困在了阵中，但似乎也知道黄芒的厉害，周身的眼珠瞬间同时盯向了“混元钵”飞来的方向，数十道赤芒汇集一齐，化为一道粗大的红色光柱，硬生生的顶住了黄芒的前进，一时和驱动法宝的曲魂成了比拼法力的局面",
+    "而这时的混元钵终于击散了没有了后力支持的红色光柱，在曲魂的指挥下巨大化了起来，瞬间化身成了一件直径数丈的巨大圆盘，配合光柱的攻击，狠狠的斜击了下去",
+    "一阵清脆的破裂声传来，光罩虽然在“千目妖”狂喷绿芒支持下，仍然承受不住光柱和“混元钵”的双重攻击，彻底崩溃了"
+   ],
+   "setting_descriptions": [
+    "放心，我这混元钵的速度可并不慢",
+    "因他明显感到，在阵法巨压及对方连番不绝的攻击之下，“混元钵”消耗的法力太大，要支撑不住护体黄芒的消耗了"
+   ]
+  },
+  {
+   "id": "artifact_035",
+   "display": "太南小会",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》",
+    "《凡人修仙传仙界篇》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第一百二十八章"
+   },
+   "mention_count": 13,
+   "chapter_hits": 8,
+   "visual_descriptions": [
+    "说着说着，韩立和此女竟聊起了当年太南小会和血色试炼中的一些往事，均都大为的感慨不已"
+   ],
+   "setting_descriptions": [
+    "不过既然这时来太南谷，那肯定是来参加太南小会的，谁又会不带东西啊",
+    "特别是这次的升仙大会，一个月后也在我们岚州开办，那顺便来此参加太南小会的人，就更多了"
+   ]
+  },
+  {
+   "id": "artifact_036",
+   "display": "低阶法器",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》",
+    "《凡人修仙传仙界篇》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第二百二十一章"
+   },
+   "mention_count": 12,
+   "chapter_hits": 11,
+   "visual_descriptions": [
+    "此妖蛇一头焦黄乱发，面目却是一只狰狞的妇人面容，蛇身两侧生出两只婴儿手般白嫩的手臂，各持一只数尺长的骨矛，上面黑气缭绕，竟是两件低阶法器的样子",
+    "每一根都有三四丈之长，锋利异常，还闪动着淡淡白光，似乎是低阶法器的样子",
+    "这六名异族男子显然臂力过人，不过更让韩立留心的是，他们手腕上各带着一个土黄色的护腕，表面灵光闪动，似乎是一件低阶法器的样子"
+   ],
+   "setting_descriptions": [
+    "而且所挂牌子的口气也不小，竟然自称从低阶法器到顶级法器都能炼制",
+    "这些都是出售符箓、炼器和炼丹原料的，也有那么一两间出售低阶法器的，但店主却多半是没有法力的凡人"
+   ]
+  },
+  {
+   "id": "artifact_037",
+   "display": "婆罗珠",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第四百六十八章"
+   },
+   "mention_count": 12,
+   "chapter_hits": 6,
+   "visual_descriptions": [
+    "虽然他话说的如此自信，但若不是婆罗珠在白影靠近之时忽然灼热了起来"
+   ],
+   "setting_descriptions": [
+    "这是婆罗珠，具有定神安魂的奇效，有这四颗珠子在身，极妙幻境的危险就是突然大上数倍，也应能保你神智清醒",
+    "这婆罗珠的名声他可早就听人说起过，据说只要带了这么一颗在身，在修炼时就可大大减少心魔的干扰，是珍稀之极的宝物"
+   ]
+  },
+  {
+   "id": "artifact_038",
+   "display": "攻击类",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第八百零八章"
+   },
+   "mention_count": 10,
+   "chapter_hits": 3,
+   "visual_descriptions": [
+    "韩立微微一笑，先望了一眼冰笼中的那头雪白冰凤，才从容的说道：“在下手中的确有一件威力不小的攻击类通天灵宝"
+   ],
+   "setting_descriptions": [
+    "好在这禁制虽然厉害，但似乎不是攻击类型的，我们慢慢设法总能出去的",
+    "二弟，你的法宝是攻击类型，全靠你出力了，我二人在一旁辅助"
+   ]
+  },
+  {
+   "id": "artifact_039",
+   "display": "中阶法器",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第二百九十五章"
+   },
+   "mention_count": 10,
+   "chapter_hits": 8,
+   "visual_descriptions": [],
+   "setting_descriptions": [
+    "可怜他平时囊中羞涩无比，不要说上阶法器，就是中阶法器也没能力购置一件啊",
+    "毕竟就是中阶法器，对他们炼气期外事弟子来说，也意味着一大笔灵石"
+   ]
+  },
+  {
+   "id": "artifact_040",
+   "display": "金光砖符宝",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第一百六十五章"
+   },
+   "mention_count": 9,
+   "chapter_hits": 6,
+   "visual_descriptions": [
+    "这张金光砖符宝，是本楼不惜巨价从某个小家族中收购来的，是丝毫未曾动用过的崭新符宝，换取厉兄的这株千年灵草绝对绰绰有余",
+    "特别是那件金光砖符宝，那对他之后的帮助就更大了，他一定是要拿下的",
+    "这时，韩立一点都没犹豫，用手一指，那金光砖符宝立即激射出去，直奔向了还困在土牢术中的络腮胡子，让其惊得脸色如土，魂飞魄散"
+   ],
+   "setting_descriptions": []
+  },
+  {
+   "id": "artifact_041",
+   "display": "青凝镜",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第二百零二章"
+   },
+   "mention_count": 8,
+   "chapter_hits": 5,
+   "visual_descriptions": [
+    "赤脚汉字原本得意狂热的眼神，在见到韩立的小镜子时，马上消逝的无影无踪，并神色大变的失声大叫道：“青凝镜",
+    "然后，用青凝镜将困住了银剑和金刃的青色光华一收，就把巨剑和金刃解放了出来，收进了袋中",
+    "韩立刚将青凝镜和对方的小钟收起后，身后传来了接二连三的爆裂声，这让他身形一顿后，不加思索的往储物袋中一拍，立刻从口袋中又飞出了数只二级傀儡兽来，而原来的八只终于被那血蜘蛛欺进了身前，几下后就被切割啃咬的七零八碎"
+   ],
+   "setting_descriptions": []
+  },
+  {
+   "id": "artifact_042",
+   "display": "六丁天甲符",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第九百六十三章"
+   },
+   "mention_count": 8,
+   "chapter_hits": 3,
+   "visual_descriptions": [],
+   "setting_descriptions": [
+    "而六丁天甲符则不同了，只要能炼制出来，任何人都可以驱使",
+    "的确是六丁天甲符不假"
+   ]
+  },
+  {
+   "id": "artifact_043",
+   "display": "黄罗伞",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第一百八十九章"
+   },
+   "mention_count": 7,
+   "chapter_hits": 2,
+   "visual_descriptions": [],
+   "setting_descriptions": [
+    "这也难怪，自从他得到这个“黄罗伞”以来，就再也没被低阶修仙者伤到过，现在看到韩立的惊容，自然心中畅快之极",
+    "而这“黄罗伞”可是能救他无数次的驾啊"
+   ]
+  },
+  {
+   "id": "artifact_044",
+   "display": "踏云靴",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第一百九十二章"
+   },
+   "mention_count": 5,
+   "chapter_hits": 2,
+   "visual_descriptions": [],
+   "setting_descriptions": [
+    "据我所知，那家伙对这踏云靴可宝贝的很，根本不会外借于人",
+    "他双目死死盯着韩立脚上的灵靴，似乎对这“踏云靴”出现在韩立脚上，至今还不敢确信"
+   ]
+  },
+  {
+   "id": "artifact_045",
+   "display": "太玄八卦图",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第七百三十三章"
+   },
+   "mention_count": 4,
+   "chapter_hits": 1,
+   "visual_descriptions": [],
+   "setting_descriptions": [
+    "这上古修士炼制的太玄八卦图固然是极厉害的古宝，但是使用此宝修士还未真正掌握它的用法，只不过是依靠八卦图的强大灵力，来强行困敌罢了",
+    "这位马道友真是暴敛天物啊，竟然这样催动太玄八卦图"
+   ]
+  },
+  {
+   "id": "artifact_046",
+   "display": "青叶法器",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第一百四十八章"
+   },
+   "mention_count": 3,
+   "chapter_hits": 2,
+   "visual_descriptions": [],
+   "setting_descriptions": [
+    "黄丝衫一件、青叶法器一个、日常精炼工具一套、烈阳剑冷月刀各一把、十倍储物袋一个",
+    "他忽然轻笑了一下后，便从储物袋中拿出了飞行用的青叶法器"
+   ]
+  },
+  {
+   "id": "artifact_047",
+   "display": "元明灯",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第七百四十六章"
+   },
+   "mention_count": 3,
+   "chapter_hits": 3,
+   "visual_descriptions": [],
+   "setting_descriptions": [
+    "这不是我们慕兰的元明灯吗",
+    "竟在点燃的元明灯附近隐匿身形"
+   ]
+  },
+  {
+   "id": "artifact_048",
+   "display": "玄黄镜",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第四百六十六章"
+   },
+   "mention_count": 2,
+   "chapter_hits": 1,
+   "visual_descriptions": [],
+   "setting_descriptions": [
+    "万法门大名鼎鼎的古宝玄黄镜，难道你不知道",
+    "否则，玄黄镜就不会有这般大的名头"
+   ]
+  },
+  {
+   "id": "artifact_049",
+   "display": "玄铁飞天盾",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第一百六十三章"
+   },
+   "mention_count": 2,
+   "chapter_hits": 2,
+   "visual_descriptions": [
+    "如此一来，韩立身外就形成了三层防御，最外层的是精钢巨环，中间是玄铁飞天盾，最里面则就是一开始就使用出的蓝色光罩"
+   ],
+   "setting_descriptions": [
+    "玄铁飞天盾，非常罕见的防御性法器，用大块寒阴之地的玄铁精炼而成，不但牢固无比、坚不可破，而且一经施法驱动，就可围绕四周自动防御"
+   ]
+  },
+  {
+   "id": "artifact_050",
+   "display": "风火轮",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传仙界篇》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传仙界篇》",
+    "chapter": "第九百七十六章 摘心"
+   },
+   "mention_count": 2,
+   "chapter_hits": 2,
+   "visual_descriptions": [
+    "沙心虽然心念如电，金刚傀儡头颅蓦地倒转，八臂如风火轮一样轮转不歇，迎向金刚拳影，却终究慢了一线",
+    "他心头微微一动，八臂如同风火轮一样连转不息，八柄青竹蜂云剑上雷光大作，将头顶上压下来的暗黄巨剑击溃"
+   ],
+   "setting_descriptions": []
+  },
+  {
+   "id": "artifact_051",
+   "display": "高阶法器",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第六百二十五章"
+   },
+   "mention_count": 2,
+   "chapter_hits": 1,
+   "visual_descriptions": [],
+   "setting_descriptions": [
+    "难道也有高阶法器吗",
+    "虽然不知道这位韩师侄是否拥有高阶法器，但是这位师侄出手倒是大方得很"
+   ]
+  },
+  {
+   "id": "artifact_052",
+   "display": "困仙环",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第六百七十九章"
+   },
+   "mention_count": 2,
+   "chapter_hits": 2,
+   "visual_descriptions": [],
+   "setting_descriptions": [
+    "我可没有刚才这位道友有如此好的机缘，得到那种珍稀的宝物，不过妾身倒也精通炼器之术，就炼制了一件尚未认主的困仙环法宝，只要最后将其稍加进行认主仪式，就可当本命法宝使用了",
+    "妇人重新将困仙环化为巴掌大小，托在手掌之上，不慌不忙说道"
+   ]
+  },
+  {
+   "id": "artifact_053",
+   "display": "乌靴",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第一百九十章"
+   },
+   "mention_count": 2,
+   "chapter_hits": 1,
+   "visual_descriptions": [],
+   "setting_descriptions": [
+    "他迟疑了一下，还是几步走了过去，低头捡起了这双乌靴"
+   ]
+  },
+  {
+   "id": "artifact_054",
+   "display": "冷月刀",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第一百四十八章"
+   },
+   "mention_count": 2,
+   "chapter_hits": 2,
+   "visual_descriptions": [
+    "至于在刚入门时，所领取的烈阳剑冷月刀等物品，那只是刀剑上附带些火焰和寒气攻击的最低级法器，根本无法上得了大台面"
+   ],
+   "setting_descriptions": [
+    "黄丝衫一件、青叶法器一个、日常精炼工具一套、烈阳剑冷月刀各一把、十倍储物袋一个"
+   ]
+  },
+  {
+   "id": "artifact_055",
+   "display": "黄丝衫",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第一百四十八章"
+   },
+   "mention_count": 1,
+   "chapter_hits": 1,
+   "visual_descriptions": [],
+   "setting_descriptions": [
+    "黄丝衫一件、青叶法器一个、日常精炼工具一套、烈阳剑冷月刀各一把、十倍储物袋一个"
+   ]
+  },
+  {
+   "id": "artifact_056",
+   "display": "天星城拍卖",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第四百零一章"
+   },
+   "mention_count": 1,
+   "chapter_hits": 1,
+   "visual_descriptions": [],
+   "setting_descriptions": [
+    "此物原想交予天星城拍卖行拍卖的，但没成想，此物连同本门的一大批货物竟然在半路上给劫去了"
+   ]
+  },
+  {
+   "id": "artifact_057",
+   "display": "银月天狼",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第一千四十章"
+   },
+   "mention_count": 1,
+   "chapter_hits": 1,
+   "visual_descriptions": [],
+   "setting_descriptions": [
+    "不过，你的气息竟变得如此弱小，还寄身在四瞳妖狐这种妖兽身上了，不觉得有辱我们银月天狼的身份吗"
+   ]
+  },
+  {
+   "id": "artifact_058",
+   "display": "龙鳞甲",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传仙界篇》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传仙界篇》",
+    "chapter": "第三百三十四章 困龙之斗"
+   },
+   "mention_count": 1,
+   "chapter_hits": 1,
+   "visual_descriptions": [],
+   "setting_descriptions": [
+    "金龙尖齿猛然咬合，虽未能穿透烛龙鳞甲，却死死扣在了其身躯之上"
+   ]
+  },
+  {
+   "id": "artifact_059",
+   "display": "凡器",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第一千二百六十七章"
+   },
+   "mention_count": 1,
+   "chapter_hits": 1,
+   "visual_descriptions": [],
+   "setting_descriptions": [
+    "看来在下是捡到宝了，怪不得小七的凡器伤不了你分毫"
+   ]
+  },
+  {
+   "id": "artifact_060",
+   "display": "玄冰剑",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第一千一百零五章"
+   },
+   "mention_count": 1,
+   "chapter_hits": 1,
+   "visual_descriptions": [],
+   "setting_descriptions": [
+    "虽然本命法宝被毁，但总算收回了近半，但这些玄冰剑是无法驱使应敌了，寒骊师兄，禁制对这人一点作用都没有，而且对方似乎还有看破幻术的神通，我们借用禁制之力隐藏起的行踪，竟一点效用都没有"
+   ]
+  },
+  {
+   "id": "artifact_061",
+   "display": "防御类",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传仙界篇》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传仙界篇》",
+    "chapter": "第四百三十九章 极限"
+   },
+   "mention_count": 1,
+   "chapter_hits": 1,
+   "visual_descriptions": [],
+   "setting_descriptions": [
+    "韩立与人对战，本就以肉身见长，如今修炼了玄仙功法，又又诸多手段加持，他的身躯之强悍就已经不弱于许多防御类灵宝了"
+   ]
+  },
+  {
+   "id": "artifact_062",
+   "display": "银月盘",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第一千九百九十九章"
+   },
+   "mention_count": 1,
+   "chapter_hits": 1,
+   "visual_descriptions": [
+    "而在飞舟船舱的一间密室内，银月盘坐一块翠绿蒲团上，单手掐诀，双目紧闭的在修炼着何种功法，体表五色灵光流转不定，同时一只银色巨狼虚影在背后若隐若现，栩栩如生"
+   ],
+   "setting_descriptions": []
+  },
+  {
+   "id": "artifact_063",
+   "display": "紫金钵",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传仙界篇》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传仙界篇》",
+    "chapter": "第七十四章 出事了"
+   },
+   "mention_count": 1,
+   "chapter_hits": 1,
+   "visual_descriptions": [
+    "片刻之后，其手掌轻轻在紫金钵上一抹，钵内光芒顿时一暗，画面也随即消失"
+   ],
+   "setting_descriptions": []
+  },
+  {
+   "id": "artifact_064",
+   "display": "高阶法宝",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传仙界篇》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传仙界篇》",
+    "chapter": "第四十八章 劫持"
+   },
+   "mention_count": 1,
+   "chapter_hits": 1,
+   "visual_descriptions": [],
+   "setting_descriptions": [
+    "虬须大汉五人心中是又惊又怒，显然没料到一名结丹修士身上，竟有如此多的高阶法宝"
+   ]
+  },
+  {
+   "id": "artifact_065",
+   "display": "通灵火鼎",
+   "category": "artifact",
+   "source_books": [
+    "《凡人修仙传》"
+   ],
+   "first_appearance": {
+    "book": "《凡人修仙传》",
+    "chapter": "第一千八十八章"
+   },
+   "mention_count": 1,
+   "chapter_hits": 1,
+   "visual_descriptions": [
+    "这个人影自是韩立无疑了，而这个赤红小鼎，则是其在昆吾山所收的通灵火鼎"
+   ],
+   "setting_descriptions": []
+  }
+ ]
+}

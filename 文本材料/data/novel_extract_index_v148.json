@@ -1,0 +1,44 @@
+{
+ "schema_version": 55,
+ "extract_version": 148,
+ "source": "《凡人修仙传》《凡人修仙传仙界篇》全本设定提取索引",
+ "disclaimer": "原文引文逐句摘自《凡人修仙传》《凡人修仙传仙界篇》全本扫描，为设定/视觉描述素材，非逐件数值；入包前需人工校订。",
+ "totals": {
+  "entities": 445,
+  "visual_sentences": 848,
+  "by_category": {
+   "法宝": 66,
+   "法术": 98,
+   "材料": 121,
+   "异兽": 62,
+   "设定": 98
+  }
+ },
+ "files": {
+  "artifact": {
+   "file": "novel_extract_artifacts_v148.json",
+   "count": 66,
+   "visual_sentences": 115
+  },
+  "technique": {
+   "file": "novel_extract_techniques_v148.json",
+   "count": 98,
+   "visual_sentences": 172
+  },
+  "material": {
+   "file": "novel_extract_materials_v148.json",
+   "count": 121,
+   "visual_sentences": 164
+  },
+  "beast": {
+   "file": "novel_extract_beasts_v148.json",
+   "count": 62,
+   "visual_sentences": 126
+  },
+  "setting": {
+   "file": "novel_extract_settings_v148.json",
+   "count": 98,
+   "visual_sentences": 271
+  }
+ }
+}
