@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 316,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（乱起·金蛟王·金蛟凶焰·夺宝·极品灵石：第1151–1155章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v315 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1151章 乱起 — 第1155章 极品灵石",
+  "progress": "1155/2005 ≈ 57.6%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1015–setting_1020",
+    "artifacts": "artifact_661–artifact_664",
+    "techniques": "technique_504–technique_506",
+    "materials": "material_526–material_528"
+  },
+  "entries": [
+    {"id": "setting_1015", "display": "托天魔功单脉与六极比肩", "category": "setting", "file": "novel_curated_settings_v316.json"},
+    {"id": "setting_1016", "display": "极品灵石破瓶颈与上古奇阵", "category": "setting", "file": "novel_curated_settings_v316.json"},
+    {"id": "setting_1017", "display": "金蛟王十级与约定作废", "category": "setting", "file": "novel_curated_settings_v316.json"},
+    {"id": "setting_1018", "display": "海族精锐尽出夺矿", "category": "setting", "file": "novel_curated_settings_v316.json"},
+    {"id": "setting_1019", "display": "天地灵兽危险预感", "category": "setting", "file": "novel_curated_settings_v316.json"},
+    {"id": "setting_1020", "display": "姓厉身份与虚天鼎推断", "category": "setting", "file": "novel_curated_settings_v316.json"},
+    {"id": "artifact_661", "display": "金蛟王金枪银电", "category": "artifact", "file": "novel_curated_artifacts_v316.json"},
+    {"id": "artifact_662", "display": "唐长老青镜紫锦帕", "category": "artifact", "file": "novel_curated_artifacts_v316.json"},
+    {"id": "artifact_663", "display": "翠绿木尺银莲佛光", "category": "artifact", "file": "novel_curated_artifacts_v316.json"},
+    {"id": "artifact_664", "display": "银色小盾镜面弹枪", "category": "artifact", "file": "novel_curated_artifacts_v316.json"},
+    {"id": "technique_504", "display": "金蛟凶焰虚空枪拳", "category": "technique", "file": "novel_curated_techniques_v316.json"},
+    {"id": "technique_505", "display": "青大手抓妖与佛光定身", "category": "technique", "file": "novel_curated_techniques_v316.json"},
+    {"id": "technique_506", "display": "神识撕裂与剑网灭龟", "category": "technique", "file": "novel_curated_techniques_v316.json"},
+    {"id": "material_526", "display": "托天魔功玉简", "category": "material", "file": "novel_curated_materials_v316.json"},
+    {"id": "material_527", "display": "拇指大翠绿极品木灵石", "category": "material", "file": "novel_curated_materials_v316.json"},
+    {"id": "material_528", "display": "四臂海马妖青储物袋", "category": "material", "file": "novel_curated_materials_v316.json"}
+  ]
+}
