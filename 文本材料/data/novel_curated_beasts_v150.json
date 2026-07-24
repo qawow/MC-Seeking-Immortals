@@ -1,0 +1,34 @@
+{
+  "schema_version": 55,
+  "extract_version": 150,
+  "source": "《凡人修仙传》— 人工精读提取 · 异兽/灵禽类（第二卷·初踏修仙路：第95–136章）",
+  "method": "沿原文逐段精读，凭理解概括异兽设定；视觉描述为精读时所见原文逐字引用。与 v148/v149 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 2,
+  "entries": [
+    {
+      "id": "beast_005",
+      "display": "云翅鸟",
+      "category": "beast",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第98章 回村"},
+      "setting": "韩立所携的一只灵性十足的黄羽毛小鸟，常栖于其肩头休憩，随韩立离开七玄门、一路东行返回山边小村。",
+      "visual_descriptions": [
+        "在韩立肩头上，站着那只黄羽毛的“云翅鸟”，这只灵性十足的小东西半闭着眼皮，看来正在休憩中。"
+      ],
+      "setting_descriptions": []
+    },
+    {
+      "id": "beast_006",
+      "display": "三尾猫",
+      "category": "beast",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第128章 太南小会"},
+      "setting": "一种妖兽，其胡须是太南小会上可供交易的修仙材料。万小山赴会时便随身携带一束三尾猫胡须以备以物易物。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "初级下阶空白符纸一打、初级下阶隐身符、遁地符各两张、初级中阶连珠雷符一张、初级下阶冰弹符一打、铁精一块、初级朱砂一瓶、妖兽三尾猫的胡须一束、药草……"
+      ]
+    }
+  ]
+}

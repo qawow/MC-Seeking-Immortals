@@ -1,0 +1,20 @@
+{
+  "schema_version": 55,
+  "extract_version": 150,
+  "source": "《凡人修仙传》— 人工精读提取 · 总索引（第二卷·初踏修仙路：第95–136章）",
+  "method": "沿原文逐段精读（驱物术/天眼术→墨府惊蛟会→太南谷太南小会→越国七派→天雾台升仙大会/筑基丹），凭理解概括设定，视觉描述为原文逐字引用。与 v148 关键词扫描版、v149 全书弧线精读版互补。",
+  "disclaimer": "代表性精读而非穷尽全本（4795 章无法逐字读完）；本批覆盖主传第95–136章，入包前仍需人工校订。",
+  "reading_progress": "《凡人修仙传》已逐段精读至第136章（燕家），约全书 6.8%（136/2005）。",
+  "totals": {
+    "entities": 17,
+    "by_category": {"设定": 7, "法术": 4, "材料": 4, "异兽": 2, "法宝": 0}
+  },
+  "note": "本弧线无新法宝条目——暖阳宝玉已录于 v149 materials。",
+  "files": {
+    "setting": "novel_curated_settings_v150.json",
+    "technique": "novel_curated_techniques_v150.json",
+    "material": "novel_curated_materials_v150.json",
+    "beast": "novel_curated_beasts_v150.json"
+  },
+  "docs": "docs/NOVEL_CURATED_EXTRACT_v150.md"
+}
