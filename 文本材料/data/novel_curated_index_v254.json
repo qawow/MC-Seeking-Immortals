@@ -1,0 +1,32 @@
+{
+  "schema_version": 55,
+  "extract_version": 254,
+  "source": "《凡人修仙传》— 人工精读索引（魔影·初斗·双头四臂：第841–845章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v253 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第841–845章",
+  "progress": {
+    "chapters_covered_end": 845,
+    "total_main_chapters": 2005,
+    "approx_percent": 42.1
+  },
+  "count": 16,
+  "entries": [
+    {"id": "setting_643", "display": "气浪惊变与冰山挡灾", "category": "setting", "file": "novel_curated_settings_v254.json"},
+    {"id": "setting_644", "display": "魔化南陇侯追杀元婴", "category": "setting", "file": "novel_curated_settings_v254.json"},
+    {"id": "setting_645", "display": "古魔附身战力", "category": "setting", "file": "novel_curated_settings_v254.json"},
+    {"id": "setting_646", "display": "辟邪神雷对魔焰", "category": "setting", "file": "novel_curated_settings_v254.json"},
+    {"id": "setting_647", "display": "双头四臂魔化", "category": "setting", "file": "novel_curated_settings_v254.json"},
+    {"id": "setting_648", "display": "远方魔吼与腹尸毒云", "category": "setting", "file": "novel_curated_settings_v254.json"},
+    {"id": "artifact_413", "display": "蓝色护身小盾", "category": "artifact", "file": "novel_curated_artifacts_v254.json"},
+    {"id": "artifact_414", "display": "凝光镜", "category": "artifact", "file": "novel_curated_artifacts_v254.json"},
+    {"id": "artifact_415", "display": "铭阳环", "category": "artifact", "file": "novel_curated_artifacts_v254.json"},
+    {"id": "artifact_416", "display": "魔魂污秽古宝组", "category": "artifact", "file": "novel_curated_artifacts_v254.json"},
+    {"id": "technique_318", "display": "冰焰凝山与回收", "category": "technique", "file": "novel_curated_techniques_v254.json"},
+    {"id": "technique_319", "display": "青霞隐匿与明清破隐", "category": "technique", "file": "novel_curated_techniques_v254.json"},
+    {"id": "technique_320", "display": "双头四臂魔功与污秽", "category": "technique", "file": "novel_curated_techniques_v254.json"},
+    {"id": "material_340", "display": "黑红魔焰", "category": "material", "file": "novel_curated_materials_v254.json"},
+    {"id": "material_341", "display": "紫罗极火", "category": "material", "file": "novel_curated_materials_v254.json"},
+    {"id": "material_342", "display": "污秽黑液", "category": "material", "file": "novel_curated_materials_v254.json"}
+  ]
+}
