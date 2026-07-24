@@ -1,0 +1,32 @@
+{
+  "schema_version": 55,
+  "extract_version": 251,
+  "source": "《凡人修仙传》— 人工精读索引（汇合·画轴·神识化千·幻峰：第827–831章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v250 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第827–831章",
+  "progress": {
+    "chapters_covered_end": 831,
+    "total_main_chapters": 2005,
+    "approx_percent": 41.4
+  },
+  "count": 16,
+  "entries": [
+    {"id": "setting_625", "display": "内谷灵禽失控", "category": "setting", "file": "novel_curated_settings_v251.json"},
+    {"id": "setting_626", "display": "罡银沙结晶回收", "category": "setting", "file": "novel_curated_settings_v251.json"},
+    {"id": "setting_627", "display": "紫灵奇香标记追踪", "category": "setting", "file": "novel_curated_settings_v251.json"},
+    {"id": "setting_628", "display": "灵缈园祭坛与禁空", "category": "setting", "file": "novel_curated_settings_v251.json"},
+    {"id": "setting_629", "display": "苍坤化身画轴残魂", "category": "setting", "file": "novel_curated_settings_v251.json"},
+    {"id": "setting_630", "display": "飞鸟标记与幻峰", "category": "setting", "file": "novel_curated_settings_v251.json"},
+    {"id": "artifact_401", "display": "汇合指引透明圆球", "category": "artifact", "file": "novel_curated_artifacts_v251.json"},
+    {"id": "artifact_402", "display": "苍坤画轴", "category": "artifact", "file": "novel_curated_artifacts_v251.json"},
+    {"id": "artifact_403", "display": "御风车", "category": "artifact", "file": "novel_curated_artifacts_v251.json"},
+    {"id": "artifact_404", "display": "幻阵布阵器具", "category": "artifact", "file": "novel_curated_artifacts_v251.json"},
+    {"id": "technique_309", "display": "蛮力消磨金刚罩", "category": "technique", "file": "novel_curated_techniques_v251.json"},
+    {"id": "technique_310", "display": "大衍诀神识化千", "category": "technique", "file": "novel_curated_techniques_v251.json"},
+    {"id": "technique_311", "display": "银月幻术遮峰", "category": "technique", "file": "novel_curated_techniques_v251.json"},
+    {"id": "material_331", "display": "罡银沙结晶", "category": "material", "file": "novel_curated_materials_v251.json"},
+    {"id": "material_332", "display": "养魂木碎屑画轴材", "category": "material", "file": "novel_curated_materials_v251.json"},
+    {"id": "material_333", "display": "妙音门奇香", "category": "material", "file": "novel_curated_materials_v251.json"}
+  ]
+}
