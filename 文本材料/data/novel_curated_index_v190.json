@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 190,
+  "source": "《凡人修仙传》— 人工精读提取索引 v190（主传第476–485章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v189 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第476章 二层",
+    "to_chapter": "第485章 冰封",
+    "chapter_range": "476-485",
+    "main_book_chapters_read_through": 485,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "24.2%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v190.json",
+    "novel_curated_artifacts_v190.json",
+    "novel_curated_techniques_v190.json",
+    "novel_curated_materials_v190.json",
+    "novel_curated_index_v190.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v190.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_259", "display": "内殿二层蛇卫傀儡", "category": "setting"},
+    {"id": "setting_260", "display": "寒骊台与天罡罩", "category": "setting"},
+    {"id": "setting_261", "display": "乾蓝冰焰与虚天鼎洞", "category": "setting"},
+    {"id": "setting_262", "display": "变异灵兽与异化术", "category": "setting"},
+    {"id": "setting_263", "display": "天青花强提金丝蚕", "category": "setting"},
+    {"id": "setting_264", "display": "虚天鼎近洞与鼎内古宝先出", "category": "setting"},
+    {"id": "artifact_157", "display": "蛇卫傀儡青戈", "category": "artifact"},
+    {"id": "artifact_158", "display": "寒骊台壁中古卷轴", "category": "artifact"},
+    {"id": "artifact_159", "display": "狼首玉如意", "category": "artifact"},
+    {"id": "artifact_160", "display": "四方古佩与铜钱古币", "category": "artifact"},
+    {"id": "technique_126", "display": "狂暴之术", "category": "technique"},
+    {"id": "technique_127", "display": "天罗真功与天罗真雷", "category": "technique"},
+    {"id": "technique_128", "display": "异化术", "category": "technique"},
+    {"id": "material_148", "display": "蛇卫傀儡绿宝石", "category": "material"},
+    {"id": "material_149", "display": "金丝蚕", "category": "material"},
+    {"id": "material_150", "display": "化石兽", "category": "material"}
+  ]
+}
