@@ -1,0 +1,120 @@
+{
+  "schema_version": 55,
+  "extract_version": 346,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（灵族援军·再见小兽·噬炎·三族齐聚·各现神通：第1301–1305章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v345 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1301章 灵族援军 — 第1305章 各现神通",
+  "progress": "1305/2005 ≈ 65.1%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1195–setting_1200",
+    "artifacts": "artifact_781–artifact_784",
+    "techniques": "technique_594–technique_596",
+    "materials": "material_616–material_618"
+  },
+  "entries": [
+    {
+      "id": "setting_1195",
+      "display": "混沌谷与炙光潭",
+      "category": "setting",
+      "file": "novel_curated_settings_v346.json"
+    },
+    {
+      "id": "setting_1196",
+      "display": "器灵族玄灵与夜叉大敌",
+      "category": "setting",
+      "file": "novel_curated_settings_v346.json"
+    },
+    {
+      "id": "setting_1197",
+      "display": "蛮荒世界与元婴生存线",
+      "category": "setting",
+      "file": "novel_curated_settings_v346.json"
+    },
+    {
+      "id": "setting_1198",
+      "display": "灵将等阶与人族化神对等",
+      "category": "setting",
+      "file": "novel_curated_settings_v346.json"
+    },
+    {
+      "id": "setting_1199",
+      "display": "大天劫与炼虚度劫",
+      "category": "setting",
+      "file": "novel_curated_settings_v346.json"
+    },
+    {
+      "id": "setting_1200",
+      "display": "三族齐聚与木石傀儡",
+      "category": "setting",
+      "file": "novel_curated_settings_v346.json"
+    },
+    {
+      "id": "artifact_781",
+      "display": "顶阶灵具枪甲毁于剑丝",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v346.json"
+    },
+    {
+      "id": "artifact_782",
+      "display": "噬炎噬火珠夺舍",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v346.json"
+    },
+    {
+      "id": "artifact_783",
+      "display": "黄粱金黄八卦镜",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v346.json"
+    },
+    {
+      "id": "artifact_784",
+      "display": "旭天血莲血河",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v346.json"
+    },
+    {
+      "id": "technique_594",
+      "display": "骅光白色剑丝",
+      "category": "technique",
+      "file": "novel_curated_techniques_v346.json"
+    },
+    {
+      "id": "technique_595",
+      "display": "金刚诀七层极致抗压",
+      "category": "technique",
+      "file": "novel_curated_techniques_v346.json"
+    },
+    {
+      "id": "technique_596",
+      "display": "靳大汉巨大化炼体术",
+      "category": "technique",
+      "file": "novel_curated_techniques_v346.json"
+    },
+    {
+      "id": "material_616",
+      "display": "太乙银精芝",
+      "category": "material",
+      "file": "novel_curated_materials_v346.json"
+    },
+    {
+      "id": "material_617",
+      "display": "豹麟兽变异小兽",
+      "category": "material",
+      "file": "novel_curated_materials_v346.json"
+    },
+    {
+      "id": "material_618",
+      "display": "灵族神血",
+      "category": "material",
+      "file": "novel_curated_materials_v346.json"
+    }
+  ]
+}
