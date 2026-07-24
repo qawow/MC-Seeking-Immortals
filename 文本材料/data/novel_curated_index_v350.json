@@ -1,0 +1,120 @@
+{
+  "schema_version": 55,
+  "extract_version": 350,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（莫名麻烦·豹麟兽·千魂铃·炼体之威·夺得灵地：第1321–1325章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v349 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1321章 莫名麻烦 — 第1325章 夺得灵地",
+  "progress": "1325/2005 ≈ 66.1%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1219–setting_1224",
+    "artifacts": "artifact_797–artifact_800",
+    "techniques": "technique_606–technique_608",
+    "materials": "material_628–material_630"
+  },
+  "entries": [
+    {
+      "id": "setting_1219",
+      "display": "天渊城布局与人妖分治",
+      "category": "setting",
+      "file": "novel_curated_settings_v350.json"
+    },
+    {
+      "id": "setting_1220",
+      "display": "灵地争夺战规则与广武殿",
+      "category": "setting",
+      "file": "novel_curated_settings_v350.json"
+    },
+    {
+      "id": "setting_1221",
+      "display": "翁某师徒与稀薄灵地目的",
+      "category": "setting",
+      "file": "novel_curated_settings_v350.json"
+    },
+    {
+      "id": "setting_1222",
+      "display": "变异豹麟兽收服与灵兽环",
+      "category": "setting",
+      "file": "novel_curated_settings_v350.json"
+    },
+    {
+      "id": "setting_1223",
+      "display": "千魂铃阴魂空间与主魂",
+      "category": "setting",
+      "file": "novel_curated_settings_v350.json"
+    },
+    {
+      "id": "setting_1224",
+      "display": "飞升修士护短与灵地标记注入",
+      "category": "setting",
+      "file": "novel_curated_settings_v350.json"
+    },
+    {
+      "id": "artifact_797",
+      "display": "千魂铃",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v350.json"
+    },
+    {
+      "id": "artifact_798",
+      "display": "断金法轮",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v350.json"
+    },
+    {
+      "id": "artifact_799",
+      "display": "翠色人形傀儡铜牌",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v350.json"
+    },
+    {
+      "id": "artifact_800",
+      "display": "银蝌文黑狼符箓与青冥甲",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v350.json"
+    },
+    {
+      "id": "technique_606",
+      "display": "元婴鬼脸禁制收兽",
+      "category": "technique",
+      "file": "novel_curated_techniques_v350.json"
+    },
+    {
+      "id": "technique_607",
+      "display": "惊神刺",
+      "category": "technique",
+      "file": "novel_curated_techniques_v350.json"
+    },
+    {
+      "id": "technique_608",
+      "display": "金刚诀大成与罗烟步虚空",
+      "category": "technique",
+      "file": "novel_curated_techniques_v350.json"
+    },
+    {
+      "id": "material_628",
+      "display": "黎金沙",
+      "category": "material",
+      "file": "novel_curated_materials_v350.json"
+    },
+    {
+      "id": "material_629",
+      "display": "蓝晶沙",
+      "category": "material",
+      "file": "novel_curated_materials_v350.json"
+    },
+    {
+      "id": "material_630",
+      "display": "灵地标记晶石",
+      "category": "material",
+      "file": "novel_curated_materials_v350.json"
+    }
+  ]
+}
