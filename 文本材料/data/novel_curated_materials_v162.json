@@ -1,0 +1,64 @@
+{
+  "schema_version": 55,
+  "extract_version": 162,
+  "source": "《凡人修仙传》— 人工精读提取 · 材料/物品类（传音符玉牌·无常丹·隐匿符·月亮石：第296–305章）",
+  "method": "沿原文逐段精读，凭理解概括材料设定；视觉描述为精读时所见原文逐字引用。与 v148–v161 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 4,
+  "entries": [
+    {
+      "id": "material_054",
+      "display": "传音符与引荐玉牌",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第297章 裂痕凶讯"},
+      "setting": "韩立拒收双灵根少女为徒后，掏出传音符低语数句，连同一块玉牌交少女，令其持符箓与玉牌赴黄枫谷百药园找马姓前辈（马师兄）试拜师。",
+      "visual_descriptions": [
+        "韩立二话不说的从身上掏出了一块传音符，轻声对符箓低语了几句后，就将此符箓和一块玉牌交给了少女。"
+      ],
+      "setting_descriptions": [
+        "你拿着这符箓和玉牌，可以到黄枫谷百药园找一位姓马的前辈，到时是否拜在其门下，还要看你的造化了？"
+      ]
+    },
+    {
+      "id": "material_055",
+      "display": "无常丹",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第301章 驱毒、解咒"},
+      "setting": "一白一青两瓶瓷瓶装丹药。各服一颗可驱散大部分剧毒，再运功逼出残毒。亦可经特定手法转化为剧毒（见 setting_090）。韩立战利品。",
+      "visual_descriptions": [
+        "就立刻一伸手，从储物袋中摸出了一白一青两个瓷瓶，抛给了黑脸老者。"
+      ],
+      "setting_descriptions": [
+        "这瓶中的丹药各服下一颗，就可驱散大部分毒性，以后慢慢运功再逼出残毒就可以了。",
+        "因为这两瓶丹药的名称就叫“无常丹”，既可以用来做解毒的圣药，也可以通过特定的手法转化为毒药"
+      ]
+    },
+    {
+      "id": "material_056",
+      "display": "隐匿符",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第305章 后手"},
+      "setting": "青年放走五妹时塞给她的符箓，可隐匿行踪。五妹用法力被禁后仍靠此符躲开二哥空中搜索。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "这多亏了青年放他走时，塞给她的一张隐匿符，才可以逃至了这里。",
+        "刚逃出来后不久，女子就发现了从上空掠过的瘦高男子身影，幸亏她眼疾手快的使用了此符，总算侥幸的应付了过去。"
+      ]
+    },
+    {
+      "id": "material_057",
+      "display": "月亮石（照明）",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第303章 震惊"},
+      "setting": "可托于手中发出淡淡白光的照明石材。蒙山五友当场抓内应时手托月亮石照亮墙角。",
+      "visual_descriptions": [
+        "接着眼前大亮，从附近同时走出了数名手托月亮石的人来，在淡淡的白光之下，他们都是不能置信之色。"
+      ],
+      "setting_descriptions": []
+    }
+  ]
+}
