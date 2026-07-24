@@ -1,0 +1,32 @@
+{
+  "schema_version": 55,
+  "extract_version": 273,
+  "source": "《凡人修仙传》— 人工精读索引（剑鸣·跳梁小丑·三尸之威·天机阁·天机府：第936–940章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v272 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第936–940章",
+  "progress": {
+    "chapters_covered_end": 940,
+    "total_main_chapters": 2005,
+    "approx_percent": 46.9
+  },
+  "count": 16,
+  "entries": [
+    {"id": "setting_757", "display": "八大将军与柱南将军", "category": "setting", "file": "novel_curated_settings_v273.json"},
+    {"id": "setting_758", "display": "晋京七层城墙十三区", "category": "setting", "file": "novel_curated_settings_v273.json"},
+    {"id": "setting_759", "display": "孔家伏击枫岳圈套", "category": "setting", "file": "novel_curated_settings_v273.json"},
+    {"id": "setting_760", "display": "三尸黄泉鬼阵与道门退魔", "category": "setting", "file": "novel_curated_settings_v273.json"},
+    {"id": "setting_761", "display": "晋西坊市宝光殿拍卖", "category": "setting", "file": "novel_curated_settings_v273.json"},
+    {"id": "setting_762", "display": "天机阁与天机府", "category": "setting", "file": "novel_curated_settings_v273.json"},
+    {"id": "artifact_489", "display": "本命飞剑龙吟感应", "category": "artifact", "file": "novel_curated_artifacts_v273.json"},
+    {"id": "artifact_490", "display": "晶化妖丹红线飞针", "category": "artifact", "file": "novel_curated_artifacts_v273.json"},
+    {"id": "artifact_491", "display": "青霞袖与青濛濛光手", "category": "artifact", "file": "novel_curated_artifacts_v273.json"},
+    {"id": "artifact_492", "display": "天机府华韵子镇阁宝", "category": "artifact", "file": "novel_curated_artifacts_v273.json"},
+    {"id": "technique_375", "display": "大庚剑阵与婴火培炼", "category": "technique", "file": "novel_curated_techniques_v273.json"},
+    {"id": "technique_376", "display": "梦引术掏空执事", "category": "technique", "file": "novel_curated_techniques_v273.json"},
+    {"id": "technique_377", "display": "敛息无灵气示人", "category": "technique", "file": "novel_curated_techniques_v273.json"},
+    {"id": "material_397", "display": "雷灵晶", "category": "material", "file": "novel_curated_materials_v273.json"},
+    {"id": "material_398", "display": "赤精芝千年火候", "category": "material", "file": "novel_curated_materials_v273.json"},
+    {"id": "material_399", "display": "万年金雷炼晶庚经", "category": "material", "file": "novel_curated_materials_v273.json"}
+  ]
+}
