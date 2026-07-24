@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 229,
+  "source": "《凡人修仙传》— 人工精读提取索引 v229（主传第684–690章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v228 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第684章 魂石与上古傀儡术",
+    "to_chapter": "第690章 大上师",
+    "chapter_range": "684-690",
+    "main_book_chapters_read_through": 690,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "34.4%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v229.json",
+    "novel_curated_artifacts_v229.json",
+    "novel_curated_techniques_v229.json",
+    "novel_curated_materials_v229.json",
+    "novel_curated_index_v229.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v229.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_493", "display": "魂石换上古傀儡术", "category": "setting"},
+    {"id": "setting_494", "display": "庚精拍卖与化一神泥", "category": "setting"},
+    {"id": "setting_495", "display": "南陇侯密会与神识人选", "category": "setting"},
+    {"id": "setting_496", "display": "苍坤上人与坠魔谷生还", "category": "setting"},
+    {"id": "setting_497", "display": "太妙神禁", "category": "setting"},
+    {"id": "setting_498", "display": "荒地法士先锋与黄沙部", "category": "setting"},
+    {"id": "artifact_313", "display": "灵心配", "category": "artifact"},
+    {"id": "artifact_314", "display": "上古傀儡炼制玉简", "category": "artifact"},
+    {"id": "artifact_315", "display": "定星盘", "category": "artifact"},
+    {"id": "artifact_316", "display": "魔尘幡", "category": "artifact"},
+    {"id": "technique_243", "display": "神识合二为一", "category": "technique"},
+    {"id": "technique_244", "display": "红尘万丈", "category": "technique"},
+    {"id": "technique_245", "display": "青芒破禁", "category": "technique"},
+    {"id": "material_265", "display": "万年铁木", "category": "material"},
+    {"id": "material_266", "display": "化一神泥", "category": "material"},
+    {"id": "material_267", "display": "庚精矿石", "category": "material"}
+  ]
+}
