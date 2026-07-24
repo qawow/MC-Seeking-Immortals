@@ -1878,3 +1878,14 @@
 - 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
 - 备份：`.bak/20260725_100000`
 - 文件：`文本材料/data/novel_curated_*_v322.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v322.md`，`文本材料/README_WORLDPACK.md`
+
+## 2026-07-25 · v323 入渊·魔化·收婴·府中·同化（第1186–1190章）
+
+- 方法：沿原文逐段连续精读主传第 1186–1190 章，凭理解概括；视觉描述为原文逐字引用。
+- 产出：高保真条目 16（设定 6 / 法宝 4 / 法术 3 / 材料 3）。
+- ID 区间：setting_1057–1062，artifact_689–692，technique_525–527，material_547–549。
+- 关节点：午时三焰扇斩乳白封印入渊；玄牡感婴见半魔不灭体；三焰扇+风雷翅逼出·赤血剑阴罗幡自爆；玄罡天煞阵困·破灭法目锁瞬移·虚天鼎青丝收婴；柳玉正式收徒赐宝/宋玉阴元丸/慕沛灵侍妾两途；密室主元婴第三目+青柱再同化。
+- 阅读进度：1190/2005 ≈ 59.4%；下一批自第 1191 章。
+- 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
+- 备份：`.bak/20260725_110000`
+- 文件：`文本材料/data/novel_curated_*_v323.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v323.md`，`文本材料/README_WORLDPACK.md`

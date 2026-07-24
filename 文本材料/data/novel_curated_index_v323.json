@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 323,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（入渊·魔化·收婴·府中·同化：第1186–1190章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v322 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1186章 入渊 — 第1190章 同化",
+  "progress": "1190/2005 ≈ 59.4%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1057–setting_1062",
+    "artifacts": "artifact_689–artifact_692",
+    "techniques": "technique_525–technique_527",
+    "materials": "material_547–material_549"
+  },
+  "entries": [
+    {"id": "setting_1057", "display": "万丈魔渊封印与入渊时机", "category": "setting", "file": "novel_curated_settings_v323.json"},
+    {"id": "setting_1058", "display": "魔气灌体失败半魔不灭", "category": "setting", "file": "novel_curated_settings_v323.json"},
+    {"id": "setting_1059", "display": "玄罡天煞阵封出口收婴", "category": "setting", "file": "novel_curated_settings_v323.json"},
+    {"id": "setting_1060", "display": "柳玉正式收徒与宗务代理", "category": "setting", "file": "novel_curated_settings_v323.json"},
+    {"id": "setting_1061", "display": "慕沛灵侍妾两途与颠凤培元", "category": "setting", "file": "novel_curated_settings_v323.json"},
+    {"id": "setting_1062", "display": "第二元婴主元婴再同化", "category": "setting", "file": "novel_curated_settings_v323.json"},
+    {"id": "artifact_689", "display": "玄罡天煞阵旗盘", "category": "artifact", "file": "novel_curated_artifacts_v323.json"},
+    {"id": "artifact_690", "display": "阴罗幡与赤血剑自爆", "category": "artifact", "file": "novel_curated_artifacts_v323.json"},
+    {"id": "artifact_691", "display": "虚天鼎青丝收婴", "category": "artifact", "file": "novel_curated_artifacts_v323.json"},
+    {"id": "artifact_692", "display": "人形傀儡易容韩面", "category": "artifact", "file": "novel_curated_artifacts_v323.json"},
+    {"id": "technique_525", "display": "玄牡化婴感婴秘术", "category": "technique", "file": "novel_curated_techniques_v323.json"},
+    {"id": "technique_526", "display": "破灭法目锁定瞬移", "category": "technique", "file": "novel_curated_techniques_v323.json"},
+    {"id": "technique_527", "display": "主元婴出窍再同化术", "category": "technique", "file": "novel_curated_techniques_v323.json"},
+    {"id": "material_547", "display": "幻灭丹与幻灵草", "category": "material", "file": "novel_curated_materials_v323.json"},
+    {"id": "material_548", "display": "阴元丸处子女修丹", "category": "material", "file": "novel_curated_materials_v323.json"},
+    {"id": "material_549", "display": "魔渊封印石柱材", "category": "material", "file": "novel_curated_materials_v323.json"}
+  ]
+}
