@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 237,
+  "source": "《凡人修仙传》— 人工精读提取索引 v237（主传第741–746章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v236 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第741章 破阵大战（三）",
+    "to_chapter": "第746章 破阵大战（八）",
+    "chapter_range": "741-746",
+    "main_book_chapters_read_through": 746,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "37.2%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v237.json",
+    "novel_curated_artifacts_v237.json",
+    "novel_curated_techniques_v237.json",
+    "novel_curated_materials_v237.json",
+    "novel_curated_index_v237.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v237.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_541", "display": "银戈诱犀与分兵破阵", "category": "setting"},
+    {"id": "setting_542", "display": "四耳金猿器灵之宝", "category": "setting"},
+    {"id": "setting_543", "display": "噬金虫圣虫与黄灵鼎", "category": "setting"},
+    {"id": "setting_544", "display": "白莲秘术与风遁对决", "category": "setting"},
+    {"id": "setting_545", "display": "元明灯慕兰传承之宝", "category": "setting"},
+    {"id": "setting_546", "display": "仲神师灭陆与缩地追击", "category": "setting"},
+    {"id": "artifact_345", "display": "黄灵鼎", "category": "artifact"},
+    {"id": "artifact_346", "display": "白色缎带雪雕", "category": "artifact"},
+    {"id": "artifact_347", "display": "元明灯", "category": "artifact"},
+    {"id": "artifact_348", "display": "四耳金猿短棍", "category": "artifact"},
+    {"id": "technique_267", "display": "上古佛门白莲秘术", "category": "technique"},
+    {"id": "technique_268", "display": "风遁术", "category": "technique"},
+    {"id": "technique_269", "display": "缩地术", "category": "technique"},
+    {"id": "material_289", "display": "突兀噬金圣虫", "category": "material"},
+    {"id": "material_290", "display": "青色灯焰", "category": "material"},
+    {"id": "material_291", "display": "万年灵液", "category": "material"}
+  ]
+}
