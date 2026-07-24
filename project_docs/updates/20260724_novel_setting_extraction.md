@@ -1933,3 +1933,14 @@
 - 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
 - 备份：`.bak/20260725_150000`
 - 文件：`文本材料/data/novel_curated_*_v327.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v327.md`，`文本材料/README_WORLDPACK.md`
+
+## 2026-07-25 · v328 星宫之战七至十一（第1211–1215章）
+
+- 方法：沿原文逐段连续精读主传第 1211–1215 章，凭理解概括；视觉描述为原文逐字引用。
+- 产出：高保真条目 16（设定 6 / 法宝 4 / 法术 3 / 材料 3）。
+- ID 区间：setting_1087–1092，artifact_709–712，technique_540–542，material_562–564。
+- 关节点：西门灭婴震慑装聋·三十六重要柱攻眼；绿蛟兽车灵蟒精魂；三次出手托孤再算一次；中阶符箓抗风火；蓝氏双魔延寿阴女刹阳决；万邀千里单挑·乌袋炼尸；六道极圣六极真魔功圣魔分念附体；三焰扇火鸟灭一魔·元罡盾不支金刚罩·虚天鼎挡八角锤。
+- 阅读进度：1215/2005 ≈ 60.6%；下一批自第 1216 章。
+- 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
+- 备份：`.bak/20260725_160000`
+- 文件：`文本材料/data/novel_curated_*_v328.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v328.md`，`文本材料/README_WORLDPACK.md`

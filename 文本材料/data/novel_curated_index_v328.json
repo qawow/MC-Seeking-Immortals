@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 328,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（星宫之战七至十一：第1211–1215章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v327 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1211章 星宫之战（七） — 第1215章 星宫之战（十一）",
+  "progress": "1215/2005 ≈ 60.6%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1087–setting_1092",
+    "artifacts": "artifact_709–artifact_712",
+    "techniques": "technique_540–technique_542",
+    "materials": "material_562–material_564"
+  },
+  "entries": [
+    {"id": "setting_1087", "display": "傀儡分身灭婴震慑与装聋作哑", "category": "setting", "file": "novel_curated_settings_v328.json"},
+    {"id": "setting_1088", "display": "三次出手承诺与托孤交易", "category": "setting", "file": "novel_curated_settings_v328.json"},
+    {"id": "setting_1089", "display": "蓝氏双魔隐居与延寿", "category": "setting", "file": "novel_curated_settings_v328.json"},
+    {"id": "setting_1090", "display": "万天明即六道极圣夺舍", "category": "setting", "file": "novel_curated_settings_v328.json"},
+    {"id": "setting_1091", "display": "六极真魔功圣魔分念附体", "category": "setting", "file": "novel_curated_settings_v328.json"},
+    {"id": "setting_1092", "display": "中阶符箓抗风火与孤注一掷", "category": "setting", "file": "novel_curated_settings_v328.json"},
+    {"id": "artifact_709", "display": "绿蛟兽车与深海灵蟒精魂", "category": "artifact", "file": "novel_curated_artifacts_v328.json"},
+    {"id": "artifact_710", "display": "蓝魔骨环血海与粉色迷雾", "category": "artifact", "file": "novel_curated_artifacts_v328.json"},
+    {"id": "artifact_711", "display": "乌黑八角锤魔器", "category": "artifact", "file": "novel_curated_artifacts_v328.json"},
+    {"id": "artifact_712", "display": "元罡盾与金刚罩双防", "category": "artifact", "file": "novel_curated_artifacts_v328.json"},
+    {"id": "technique_540", "display": "阴女刹阳决吸元阳", "category": "technique", "file": "novel_curated_techniques_v328.json"},
+    {"id": "technique_541", "display": "六极真魔功变身与魔气", "category": "technique", "file": "novel_curated_techniques_v328.json"},
+    {"id": "technique_542", "display": "三焰扇火鸟灭附体魔", "category": "technique", "file": "novel_curated_techniques_v328.json"},
+    {"id": "material_562", "display": "元磁神光口诀玉简", "category": "material", "file": "novel_curated_materials_v328.json"},
+    {"id": "material_563", "display": "延寿二三百年灵药", "category": "material", "file": "novel_curated_materials_v328.json"},
+    {"id": "material_564", "display": "六道极圣两具炼尸", "category": "material", "file": "novel_curated_materials_v328.json"}
+  ]
+}
