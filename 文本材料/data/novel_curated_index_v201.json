@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 201,
+  "source": "《凡人修仙传》— 人工精读提取索引 v201（主传第523–527章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v200 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第523章 抽魂取丹",
+    "to_chapter": "第527章 真假虫魔",
+    "chapter_range": "523-527",
+    "main_book_chapters_read_through": 527,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "26.3%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v201.json",
+    "novel_curated_artifacts_v201.json",
+    "novel_curated_techniques_v201.json",
+    "novel_curated_materials_v201.json",
+    "novel_curated_index_v201.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v201.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_325", "display": "霓裳草引妖布阵取丹", "category": "setting"},
+    {"id": "setting_326", "display": "虫魔凶名与碧云门灭门战", "category": "setting"},
+    {"id": "setting_327", "display": "深渊妖兽暴动禁区", "category": "setting"},
+    {"id": "setting_328", "display": "假虫魔嫁祸与虚天殿疑踪", "category": "setting"},
+    {"id": "setting_329", "display": "琉璃兽与珊瑚岛猎场", "category": "setting"},
+    {"id": "setting_330", "display": "养魂木乌黑圆珠项链", "category": "setting"},
+    {"id": "artifact_201", "display": "碧绿阵盘与黄光罩", "category": "artifact"},
+    {"id": "artifact_202", "display": "五行环古宝", "category": "artifact"},
+    {"id": "artifact_203", "display": "聚魂钵抽魂", "category": "artifact"},
+    {"id": "artifact_204", "display": "三色甲虫灵兽袋与颈圈", "category": "artifact"},
+    {"id": "technique_159", "display": "七道青光合巨剑分影斩", "category": "technique"},
+    {"id": "technique_160", "display": "甲虫凝矛分追", "category": "technique"},
+    {"id": "technique_161", "display": "敛息隐匿与神识探察", "category": "technique"},
+    {"id": "material_181", "display": "六七级妖丹与材料囤积", "category": "material"},
+    {"id": "material_182", "display": "琉璃兽皮", "category": "material"},
+    {"id": "material_183", "display": "青巨虾鳌与残尸处理", "category": "material"}
+  ]
+}
