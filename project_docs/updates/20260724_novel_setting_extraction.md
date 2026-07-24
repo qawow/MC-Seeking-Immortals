@@ -1548,3 +1548,15 @@
 - 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
 - 备份：`.bak/20260728_220000`
 - 文件：`文本材料/data/novel_curated_*_v293.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v293.md`，`文本材料/README_WORLDPACK.md`
+
+
+## 2026-07-28 · v294 九真伏魔阵·魔现·黑风旗·保身·偷袭（第1041–1045章）
+
+- 方法：沿原文逐段连续精读主传第 1041–1045 章，凭理解概括；视觉描述为原文逐字引用。
+- 产出：高保真条目 16（设定 6 / 法宝 4 / 法术 3 / 材料 3）。
+- ID 区间：setting_883–888，artifact_573–576，technique_438–440，material_460–462。
+- 关节点：九真伏魔阵九巨刃；元刹圣祖精魂占玲珑肉身；黑风旗魔化驱使与空间威能；元神融合谈判与人界元气大变；灰色障壁难破；徐林夜叉圭灵保身联手；明清灵目破叶家幻影；联手偷袭重创双首古魔。
+- 阅读进度：1045/2005 ≈ 52.1%；下一批自第 1046 章。
+- 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
+- 备份：`.bak/20260728_230000`
+- 文件：`文本材料/data/novel_curated_*_v294.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v294.md`，`文本材料/README_WORLDPACK.md`

@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 294,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（九真伏魔阵·魔现·黑风旗·保身·偷袭：第1041–1045章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v293 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1041章 九真伏魔阵 — 第1045章 偷袭",
+  "progress": "1045/2005 ≈ 52.1%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_883–setting_888",
+    "artifacts": "artifact_573–artifact_576",
+    "techniques": "technique_438–technique_440",
+    "materials": "material_460–material_462"
+  },
+  "entries": [
+    {"id": "setting_883", "display": "九真伏魔阵", "category": "setting", "file": "novel_curated_settings_v294.json"},
+    {"id": "setting_884", "display": "元刹圣祖精魂与玲珑肉身", "category": "setting", "file": "novel_curated_settings_v294.json"},
+    {"id": "setting_885", "display": "黑风旗魔化驱使与空间威能", "category": "setting", "file": "novel_curated_settings_v294.json"},
+    {"id": "setting_886", "display": "元神融合与人界元气大变", "category": "setting", "file": "novel_curated_settings_v294.json"},
+    {"id": "setting_887", "display": "灰色障壁与保身联手", "category": "setting", "file": "novel_curated_settings_v294.json"},
+    {"id": "setting_888", "display": "空玄丹士遗躯与银翅夜叉", "category": "setting", "file": "novel_curated_settings_v294.json"},
+    {"id": "artifact_573", "display": "黑风旗", "category": "artifact", "file": "novel_curated_artifacts_v294.json"},
+    {"id": "artifact_574", "display": "九真伏魔金刃", "category": "artifact", "file": "novel_curated_artifacts_v294.json"},
+    {"id": "artifact_575", "display": "化龙玺五爪真龙", "category": "artifact", "file": "novel_curated_artifacts_v294.json"},
+    {"id": "artifact_576", "display": "灵犀孔雀五色灵光", "category": "artifact", "file": "novel_curated_artifacts_v294.json"},
+    {"id": "technique_438", "display": "八麒鹿护尺与灵宝激发", "category": "technique", "file": "novel_curated_techniques_v294.json"},
+    {"id": "technique_439", "display": "黑风旗飓风与神识封锁", "category": "technique", "file": "novel_curated_techniques_v294.json"},
+    {"id": "technique_440", "display": "联手偷袭与明清灵目破影", "category": "technique", "file": "novel_curated_techniques_v294.json"},
+    {"id": "material_460", "display": "灭魂符", "category": "material", "file": "novel_curated_materials_v294.json"},
+    {"id": "material_461", "display": "灰光阵旗", "category": "material", "file": "novel_curated_materials_v294.json"},
+    {"id": "material_462", "display": "赤红火砖", "category": "material", "file": "novel_curated_materials_v294.json"}
+  ]
+}
