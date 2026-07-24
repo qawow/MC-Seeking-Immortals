@@ -1,0 +1,32 @@
+{
+  "schema_version": 55,
+  "extract_version": 265,
+  "source": "《凡人修仙传》— 人工精读索引（圣兽铸身·诱敌·锦帕银蚕·双鼎·惊转：第896–900章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v264 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第896–900章",
+  "progress": {
+    "chapters_covered_end": 900,
+    "total_main_chapters": 2005,
+    "approx_percent": 44.9
+  },
+  "count": 16,
+  "entries": [
+    {"id": "setting_709", "display": "圣兽铸身血祭", "category": "setting", "file": "novel_curated_settings_v265.json"},
+    {"id": "setting_710", "display": "天澜圣兽分神降临", "category": "setting", "file": "novel_curated_settings_v265.json"},
+    {"id": "setting_711", "display": "第二元婴分化诱敌", "category": "setting", "file": "novel_curated_settings_v265.json"},
+    {"id": "setting_712", "display": "双鼎渊源与通灵之宝", "category": "setting", "file": "novel_curated_settings_v265.json"},
+    {"id": "setting_713", "display": "圣女入大晋追鼎", "category": "setting", "file": "novel_curated_settings_v265.json"},
+    {"id": "setting_714", "display": "辽州舜江与护船镖师", "category": "setting", "file": "novel_curated_settings_v265.json"},
+    {"id": "artifact_457", "display": "天澜圣鼎与青沙", "category": "artifact", "file": "novel_curated_artifacts_v265.json"},
+    {"id": "artifact_458", "display": "碧绿手镯古宝", "category": "artifact", "file": "novel_curated_artifacts_v265.json"},
+    {"id": "artifact_459", "display": "银蚕锦帕", "category": "artifact", "file": "novel_curated_artifacts_v265.json"},
+    {"id": "artifact_460", "display": "八卦赤焰铁牌", "category": "artifact", "file": "novel_curated_artifacts_v265.json"},
+    {"id": "technique_351", "display": "假死法诀与器灵化身", "category": "technique", "file": "novel_curated_techniques_v265.json"},
+    {"id": "technique_352", "display": "降灵符半蛟之躯", "category": "technique", "file": "novel_curated_techniques_v265.json"},
+    {"id": "technique_353", "display": "通宝诀一层双鼎反制", "category": "technique", "file": "novel_curated_techniques_v265.json"},
+    {"id": "material_373", "display": "万年灵乳（解封续命）", "category": "material", "file": "novel_curated_materials_v265.json"},
+    {"id": "material_374", "display": "拇指大雷珠", "category": "material", "file": "novel_curated_materials_v265.json"},
+    {"id": "material_375", "display": "圣女成熟体金虫", "category": "material", "file": "novel_curated_materials_v265.json"}
+  ]
+}
