@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 213,
+  "source": "《凡人修仙传》— 人工精读提取索引 v213（主传第583–587章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v212 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第583章 罗睺与大晋皇朝",
+    "to_chapter": "第587章 通灵之气",
+    "chapter_range": "583-587",
+    "main_book_chapters_read_through": 587,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "29.3%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v213.json",
+    "novel_curated_artifacts_v213.json",
+    "novel_curated_techniques_v213.json",
+    "novel_curated_materials_v213.json",
+    "novel_curated_index_v213.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v213.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_397", "display": "阴冥之地来源两假说", "category": "setting"},
+    {"id": "setting_398", "display": "大晋皇朝修士圣地", "category": "setting"},
+    {"id": "setting_399", "display": "绝灵之气不可解", "category": "setting"},
+    {"id": "setting_400", "display": "通玉凤髓与通灵之气", "category": "setting"},
+    {"id": "setting_401", "display": "暴风山脱困险途", "category": "setting"},
+    {"id": "setting_402", "display": "阴风日与骨骼兵器", "category": "setting"},
+    {"id": "artifact_249", "display": "檀云石符圆盘", "category": "artifact"},
+    {"id": "artifact_250", "display": "阴冥兽晶库存制", "category": "artifact"},
+    {"id": "artifact_251", "display": "修士遗物石碑库", "category": "artifact"},
+    {"id": "artifact_252", "display": "沉水阴骨兵器", "category": "artifact"},
+    {"id": "technique_195", "display": "石符阴冥借力", "category": "technique"},
+    {"id": "technique_196", "display": "罗烟步折臂惩戒", "category": "technique"},
+    {"id": "technique_197", "display": "通灵之气暂复法力", "category": "technique"},
+    {"id": "material_217", "display": "沉水阴火浸液", "category": "material"},
+    {"id": "material_218", "display": "通玉灵凤守宫砂", "category": "material"},
+    {"id": "material_219", "display": "元婴心得与妖文碑", "category": "material"}
+  ]
+}
