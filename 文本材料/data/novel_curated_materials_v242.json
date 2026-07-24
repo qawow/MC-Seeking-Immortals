@@ -1,0 +1,55 @@
+{
+  "schema_version": 55,
+  "extract_version": 242,
+  "source": "《凡人修仙传》— 人工精读提取 · 材料类（啼魂尸气·炉鼎·鸣魂珠：第777–782章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v241 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 3,
+  "entries": [
+    {
+      "id": "material_304",
+      "display": "炼尸尸气",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第778章 铜甲尸"},
+      "setting": "铜甲炼尸口手喷黑气成黑云；尸气尽失则死物坠地化灰烟。啼魂巨猿鼻喷黄霞鲸吸，数百腾空炼尸片刻扫空，体形毛发更盛。",
+      "visual_descriptions": [
+        "口中手上同时喷出阵阵黑气，化为巨大黑云向巨猿罩去。",
+        "身上尸气尽失的炼尸，纷纷化为死物的直接从空中坠落而下，在半空中就化为一团团灰烟。"
+      ],
+      "setting_descriptions": [
+        "这些炼尸修为不高，但如此多一齐喷吐尸气，就是元婴期修士见了也应该暂避锋芒。"
+      ]
+    },
+    {
+      "id": "material_305",
+      "display": "血祭炉鼎",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第780章 血鬼与石人"},
+      "setting": "万魂血祭除吸法士精血外，需一名自愿炉鼎。雾中凄厉惨叫一道血光冲天，血雾缩凝方成血鬼。",
+      "visual_descriptions": [
+        "一声凄厉的惨叫声从雾气中传出，一道血光从雾气中冲天而起。"
+      ],
+      "setting_descriptions": [
+        "吸收了如此多法士的精血，再加上一名自愿的炉鼎进行血祭。"
+      ]
+    },
+    {
+      "id": "material_306",
+      "display": "鸣魂珠",
+      "category": "material",
+      "term": "鸣魂珠",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第779章 辣手无情"},
+      "setting": "韩立已彻底炼化，可感啼魂兴奋并控制其收回。临近古灯时暂借银月，黑灰色圆珠白光消失。",
+      "visual_descriptions": [
+        "将一颗黑灰色圆珠往身后一抛，微弱白光闪动，珠子一下消失不见了。"
+      ],
+      "setting_descriptions": [
+        "韩立因为已经彻底炼化了鸣魂珠，自然感应的很清楚。",
+        "这鸣魂珠暂借你一用，我先去灭掉那盏古灯。"
+      ]
+    }
+  ]
+}

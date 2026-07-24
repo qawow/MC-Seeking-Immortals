@@ -1,0 +1,45 @@
+{
+  "schema_version": 55,
+  "extract_version": 242,
+  "source": "《凡人修仙传》— 人工精读提取索引（阴阳魔尸·铜甲尸·抢灯罢战：第777–782章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v241 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": {
+    "start_chapter": 777,
+    "end_chapter": 782,
+    "total_main_chapters": 2005,
+    "progress_approx": "782/2005 ≈ 39.0%"
+  },
+  "count": 16,
+  "by_category": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3
+  },
+  "entries": [
+    {"id": "setting_571", "display": "阴阳双魔与圣禽火鸟护罩", "category": "setting", "file": "novel_curated_settings_v242.json"},
+    {"id": "setting_572", "display": "铜甲炼尸与阴罗黑幡", "category": "setting", "file": "novel_curated_settings_v242.json"},
+    {"id": "setting_573", "display": "啼魂吞尸与辣手灭陆夫人", "category": "setting", "file": "novel_curated_settings_v242.json"},
+    {"id": "setting_574", "display": "万魂血祭与血鬼对石人", "category": "setting", "file": "novel_curated_settings_v242.json"},
+    {"id": "setting_575", "display": "抢灭元明灯与圣禽溃散", "category": "setting", "file": "novel_curated_settings_v242.json"},
+    {"id": "setting_576", "display": "草原有变与双方罢战", "category": "setting", "file": "novel_curated_settings_v242.json"},
+    {"id": "artifact_365", "display": "阴阳双魔尸", "category": "artifact", "file": "novel_curated_artifacts_v242.json"},
+    {"id": "artifact_366", "display": "阴罗小幡与尸袋", "category": "artifact", "file": "novel_curated_artifacts_v242.json"},
+    {"id": "artifact_367", "display": "元明主灯与九灯真伪", "category": "artifact", "file": "novel_curated_artifacts_v242.json"},
+    {"id": "artifact_368", "display": "韩立傀儡与三色虫盾", "category": "artifact", "file": "novel_curated_artifacts_v242.json"},
+    {"id": "technique_282", "display": "万魂血祭化血鬼", "category": "technique", "file": "novel_curated_techniques_v242.json"},
+    {"id": "technique_283", "display": "敛气隐匿近灯", "category": "technique", "file": "novel_curated_techniques_v242.json"},
+    {"id": "technique_284", "display": "明清灵眼破影", "category": "technique", "file": "novel_curated_techniques_v242.json"},
+    {"id": "material_304", "display": "炼尸尸气", "category": "material", "file": "novel_curated_materials_v242.json"},
+    {"id": "material_305", "display": "血祭炉鼎", "category": "material", "file": "novel_curated_materials_v242.json"},
+    {"id": "material_306", "display": "鸣魂珠", "category": "material", "file": "novel_curated_materials_v242.json"}
+  ],
+  "themes": [
+    "阴阳双魔攻灯、圣禽火鸟护罩与雷珠反噬",
+    "阴罗铜甲尸数千、啼魂巨猿吞尸气",
+    "灭陆夫人元婴、云露拦祝神师",
+    "万魂血祭血鬼对石人、敛气抢灭元明主灯",
+    "草原有变第三方捣乱、双方罢战"
+  ]
+}
