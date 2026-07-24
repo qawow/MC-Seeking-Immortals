@@ -1,0 +1,32 @@
+{
+  "schema_version": 55,
+  "extract_version": 288,
+  "source": "《凡人修仙传》— 人工精读索引（巨鼎·太阴真火·阴魄凝形·须弥五行壁·一扇惊敌：第1011–1015章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v287 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1011–1015章",
+  "progress": {
+    "chapters_covered_end": 1015,
+    "total_main_chapters": 2005,
+    "approx_percent": 50.6
+  },
+  "count": 16,
+  "entries": [
+    {"id": "setting_847", "display": "化灵殿巨鼎与火池", "category": "setting", "file": "novel_curated_settings_v288.json"},
+    {"id": "setting_848", "display": "三大真灵之火", "category": "setting", "file": "novel_curated_settings_v288.json"},
+    {"id": "setting_849", "display": "镇魔塔阴魄凝形", "category": "setting", "file": "novel_curated_settings_v288.json"},
+    {"id": "setting_850", "display": "毒圣门夺宝镇魔塔", "category": "setting", "file": "novel_curated_settings_v288.json"},
+    {"id": "setting_851", "display": "第八层祭坛宫殿空间", "category": "setting", "file": "novel_curated_settings_v288.json"},
+    {"id": "setting_852", "display": "白玉广场再围", "category": "setting", "file": "novel_curated_settings_v288.json"},
+    {"id": "artifact_549", "display": "化灵殿火属性巨鼎", "category": "artifact", "file": "novel_curated_artifacts_v288.json"},
+    {"id": "artifact_550", "display": "须弥五行壁", "category": "artifact", "file": "novel_curated_artifacts_v288.json"},
+    {"id": "artifact_551", "display": "毒龙珠", "category": "artifact", "file": "novel_curated_artifacts_v288.json"},
+    {"id": "artifact_552", "display": "绿玉如意", "category": "artifact", "file": "novel_curated_artifacts_v288.json"},
+    {"id": "technique_420", "display": "紫罗极火取鼎", "category": "technique", "file": "novel_curated_techniques_v288.json"},
+    {"id": "technique_421", "display": "阴魄凝形与鬼王分身", "category": "technique", "file": "novel_curated_techniques_v288.json"},
+    {"id": "technique_422", "display": "三焰扇一扇惊敌", "category": "technique", "file": "novel_curated_techniques_v288.json"},
+    {"id": "material_442", "display": "太阴真火", "category": "material", "file": "novel_curated_materials_v288.json"},
+    {"id": "material_443", "display": "万年炼化透明物", "category": "material", "file": "novel_curated_materials_v288.json"},
+    {"id": "material_444", "display": "赤蛟火柱", "category": "material", "file": "novel_curated_materials_v288.json"}
+  ]
+}
