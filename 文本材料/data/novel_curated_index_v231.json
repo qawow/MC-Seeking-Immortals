@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 231,
+  "source": "《凡人修仙传》— 人工精读提取索引 v231（主传第697–704章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v230 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第697章 雷火锥",
+    "to_chapter": "第704章 万尺一线",
+    "chapter_range": "697-704",
+    "main_book_chapters_read_through": 704,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "35.1%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v231.json",
+    "novel_curated_artifacts_v231.json",
+    "novel_curated_techniques_v231.json",
+    "novel_curated_materials_v231.json",
+    "novel_curated_index_v231.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v231.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_505", "display": "苍坤洞府太妙神禁厅", "category": "setting"},
+    {"id": "setting_506", "display": "雷火锥破禁失败", "category": "setting"},
+    {"id": "setting_507", "display": "韩立阵破太妙神禁", "category": "setting"},
+    {"id": "setting_508", "display": "玉矶阁与苍坤遗宝", "category": "setting"},
+    {"id": "setting_509", "display": "玉矶阁内斗与祸水东移", "category": "setting"},
+    {"id": "setting_510", "display": "万尺一线遁术", "category": "setting"},
+    {"id": "artifact_321", "display": "雷火锥", "category": "artifact"},
+    {"id": "artifact_322", "display": "开山旗", "category": "artifact"},
+    {"id": "artifact_323", "display": "青犀甲", "category": "artifact"},
+    {"id": "artifact_324", "display": "寒玉床", "category": "artifact"},
+    {"id": "technique_249", "display": "阵破太妙神禁", "category": "technique"},
+    {"id": "technique_250", "display": "血灵大法", "category": "technique"},
+    {"id": "technique_251", "display": "阴魔斩", "category": "technique"},
+    {"id": "material_271", "display": "阴凝草", "category": "material"},
+    {"id": "material_272", "display": "苍坤玉盒", "category": "material"},
+    {"id": "material_273", "display": "月光石", "category": "material"}
+  ]
+}
