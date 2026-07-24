@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 332,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（无题·半途截杀·斩杀大修·图谋阴罗·雷震子与灭仙珠：第1231–1235章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v331 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1231章 （无题） — 第1235章 雷震子与灭仙珠",
+  "progress": "1235/2005 ≈ 61.6%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1111–setting_1116",
+    "artifacts": "artifact_725–artifact_728",
+    "techniques": "technique_552–technique_554",
+    "materials": "material_574–material_576"
+  },
+  "entries": [
+    {"id": "setting_1111", "display": "火链捆金刚与三焰爆瓶胜元智", "category": "setting", "file": "novel_curated_settings_v332.json"},
+    {"id": "setting_1112", "display": "芥子秘术到手与真假芥子空间", "category": "setting", "file": "novel_curated_settings_v332.json"},
+    {"id": "setting_1113", "display": "阴罗宗主房老魔与半途截杀", "category": "setting", "file": "novel_curated_settings_v332.json"},
+    {"id": "setting_1114", "display": "斩杀房宗主：惊神刺与魔髓飞刀", "category": "setting", "file": "novel_curated_settings_v332.json"},
+    {"id": "setting_1115", "display": "图谋阴罗与半年元婴灯灭", "category": "setting", "file": "novel_curated_settings_v332.json"},
+    {"id": "setting_1116", "display": "雷震子灭仙珠与灵界凡人兵器", "category": "setting", "file": "novel_curated_settings_v332.json"},
+    {"id": "artifact_725", "display": "元智银瓶与七色佛光", "category": "artifact", "file": "novel_curated_artifacts_v332.json"},
+    {"id": "artifact_726", "display": "火丝火链与紫焰寒珠火蟒", "category": "artifact", "file": "novel_curated_artifacts_v332.json"},
+    {"id": "artifact_727", "display": "灭仙珠黑球与摩鸠火红圆球", "category": "artifact", "file": "novel_curated_artifacts_v332.json"},
+    {"id": "artifact_728", "display": "魔髓飞刀斩首与虚天鼎收婴", "category": "artifact", "file": "novel_curated_artifacts_v332.json"},
+    {"id": "technique_552", "display": "大衍决惊神刺", "category": "technique", "file": "novel_curated_techniques_v332.json"},
+    {"id": "technique_553", "display": "破灭法目中断瞬移", "category": "technique", "file": "novel_curated_techniques_v332.json"},
+    {"id": "technique_554", "display": "风雷翅电弧遁与雷球灌注", "category": "technique", "file": "novel_curated_techniques_v332.json"},
+    {"id": "material_574", "display": "芥子空间炼制玉简", "category": "material", "file": "novel_curated_materials_v332.json"},
+    {"id": "material_575", "display": "上古灵酒津龙吟", "category": "material", "file": "novel_curated_materials_v332.json"},
+    {"id": "material_576", "display": "乌甲尸王与铜甲炼尸", "category": "material", "file": "novel_curated_materials_v332.json"}
+  ]
+}
