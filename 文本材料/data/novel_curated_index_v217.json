@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 217,
+  "source": "《凡人修仙传》— 人工精读提取索引 v217（主传第606–612章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v216 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第606章 雪云狐",
+    "to_chapter": "第612章 尸魈",
+    "chapter_range": "606-612",
+    "main_book_chapters_read_through": 612,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "30.5%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v217.json",
+    "novel_curated_artifacts_v217.json",
+    "novel_curated_techniques_v217.json",
+    "novel_curated_materials_v217.json",
+    "novel_curated_index_v217.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v217.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_421", "display": "雪云狐与黄精诱捕", "category": "setting"},
+    {"id": "setting_422", "display": "绿踪沼泽交界瘴气", "category": "setting"},
+    {"id": "setting_423", "display": "外事敛息与制符伪装", "category": "setting"},
+    {"id": "setting_424", "display": "雪云狐清灵之气", "category": "setting"},
+    {"id": "setting_425", "display": "青金石吸灵石室", "category": "setting"},
+    {"id": "setting_426", "display": "幽杀诀与尸魈", "category": "setting"},
+    {"id": "artifact_265", "display": "五行迷踪阵旗", "category": "artifact"},
+    {"id": "artifact_266", "display": "狼首玉如意与土遁器灵", "category": "artifact"},
+    {"id": "artifact_267", "display": "灵眼之玉", "category": "artifact"},
+    {"id": "artifact_268", "display": "天火神链与金符玉盒", "category": "artifact"},
+    {"id": "technique_207", "display": "五行迷踪布阵捕狐", "category": "technique"},
+    {"id": "technique_208", "display": "玉如意土遁追匿", "category": "technique"},
+    {"id": "technique_209", "display": "火球爆散毒雾", "category": "technique"},
+    {"id": "material_229", "display": "五十年黄精", "category": "material"},
+    {"id": "material_230", "display": "祛除瘴气丹药", "category": "material"},
+    {"id": "material_231", "display": "青金石与尸毒绿烟", "category": "material"}
+  ]
+}
