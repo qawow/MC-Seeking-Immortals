@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 187,
+  "source": "《凡人修仙传》— 人工精读提取索引 v187（主传第452–456章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v186 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第452章 雷霆之击",
+    "to_chapter": "第456章 极阴门徒",
+    "chapter_range": "452-456",
+    "main_book_chapters_read_through": 456,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "22.7%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v187.json",
+    "novel_curated_artifacts_v187.json",
+    "novel_curated_techniques_v187.json",
+    "novel_curated_materials_v187.json",
+    "novel_curated_index_v187.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v187.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_241", "display": "阴魂丝禁法与噬金虫解困", "category": "setting"},
+    {"id": "setting_242", "display": "无形法体与口喷辟邪神雷", "category": "setting"},
+    {"id": "setting_243", "display": "九曲灵参本体与炼丹配方", "category": "setting"},
+    {"id": "setting_244", "display": "血玉蜘蛛与取虚天鼎", "category": "setting"},
+    {"id": "setting_245", "display": "玄阴环与阴阳环克制", "category": "setting"},
+    {"id": "setting_246", "display": "冰火道峡谷入口", "category": "setting"},
+    {"id": "artifact_145", "display": "九曲灵参金盒", "category": "artifact"},
+    {"id": "artifact_146", "display": "玄阴环（阴阳环阴环）", "category": "artifact"},
+    {"id": "artifact_147", "display": "碧绿晶珠（厉魂本命）", "category": "artifact"},
+    {"id": "artifact_148", "display": "血玉蜘蛛（取鼎灵兽）", "category": "artifact"},
+    {"id": "technique_117", "display": "口喷辟邪神雷", "category": "technique"},
+    {"id": "technique_118", "display": "玄阴大法黑云光柱", "category": "technique"},
+    {"id": "technique_119", "display": "炼制灵尸法", "category": "technique"},
+    {"id": "material_139", "display": "九曲灵参本体", "category": "material"},
+    {"id": "material_140", "display": "血玉蜘蛛洁白蛛丝", "category": "material"},
+    {"id": "material_141", "display": "九曲灵参银色小花", "category": "material"}
+  ]
+}
