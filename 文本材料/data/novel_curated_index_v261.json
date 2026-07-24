@@ -1,0 +1,32 @@
+{
+  "schema_version": 55,
+  "extract_version": 261,
+  "source": "《凡人修仙传》— 人工精读索引（得灵岛·石碑残片·修幡·远离·苍鹭部：第876–880章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v260 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第876–880章",
+  "progress": {
+    "chapters_covered_end": 880,
+    "total_main_chapters": 2005,
+    "approx_percent": 43.9
+  },
+  "count": 16,
+  "entries": [
+    {"id": "setting_685", "display": "灵鳌岛赠落云与退魔之约", "category": "setting", "file": "novel_curated_settings_v261.json"},
+    {"id": "setting_686", "display": "阵眼祭坛与石碑残片", "category": "setting", "file": "novel_curated_settings_v261.json"},
+    {"id": "setting_687", "display": "第二元婴大成与玄阴变化", "category": "setting", "file": "novel_curated_settings_v261.json"},
+    {"id": "setting_688", "display": "启程大晋与百余年匿迹", "category": "setting", "file": "novel_curated_settings_v261.json"},
+    {"id": "setting_689", "display": "天澜草原与突兀人", "category": "setting", "file": "novel_curated_settings_v261.json"},
+    {"id": "setting_690", "display": "开灵日与天澜圣殿", "category": "setting", "file": "novel_curated_settings_v261.json"},
+    {"id": "artifact_441", "display": "白玉封印阵盘", "category": "artifact", "file": "novel_curated_artifacts_v261.json"},
+    {"id": "artifact_442", "display": "退魔四宝", "category": "artifact", "file": "novel_curated_artifacts_v261.json"},
+    {"id": "artifact_443", "display": "阴罗幡（魔气重修）", "category": "artifact", "file": "novel_curated_artifacts_v261.json"},
+    {"id": "artifact_444", "display": "狼首玉如意", "category": "artifact", "file": "novel_curated_artifacts_v261.json"},
+    {"id": "technique_339", "display": "金蟒清荡魔气", "category": "technique", "file": "novel_curated_techniques_v261.json"},
+    {"id": "technique_340", "display": "阵盘埋封术", "category": "technique", "file": "novel_curated_techniques_v261.json"},
+    {"id": "technique_341", "display": "阴罗幡吸魔修复", "category": "technique", "file": "novel_curated_techniques_v261.json"},
+    {"id": "material_361", "display": "魔髓钻", "category": "material", "file": "novel_curated_materials_v261.json"},
+    {"id": "material_362", "display": "阵眼石碑材料", "category": "material", "file": "novel_curated_materials_v261.json"},
+    {"id": "material_363", "display": "霓裳草催熟六翼霜蚣", "category": "material", "file": "novel_curated_materials_v261.json"}
+  ]
+}
