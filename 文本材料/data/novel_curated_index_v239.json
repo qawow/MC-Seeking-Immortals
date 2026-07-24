@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 239,
+  "source": "《凡人修仙传》— 人工精读提取索引 v239（主传第755–763章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v238 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第755章 雷珠",
+    "to_chapter": "第763章 大战将至",
+    "chapter_range": "755-763",
+    "main_book_chapters_read_through": 763,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "38.1%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v239.json",
+    "novel_curated_artifacts_v239.json",
+    "novel_curated_techniques_v239.json",
+    "novel_curated_materials_v239.json",
+    "novel_curated_index_v239.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v239.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_553", "display": "青焰吸力有限与雷珠炼成", "category": "setting"},
+    {"id": "setting_554", "display": "三大修士聚会与顶尖格局", "category": "setting"},
+    {"id": "setting_555", "display": "生死赌战规则与人质利诱", "category": "setting"},
+    {"id": "setting_556", "display": "庚精换赌战与八级材料交易", "category": "setting"},
+    {"id": "setting_557", "display": "玄天仙藤瓜分与根茎用途", "category": "setting"},
+    {"id": "setting_558", "display": "降灵符战前炼制与失败可重", "category": "setting"},
+    {"id": "artifact_353", "display": "青色雷珠", "category": "artifact"},
+    {"id": "artifact_354", "display": "青王蚕蛹玉盒", "category": "artifact"},
+    {"id": "artifact_355", "display": "玄天仙藤根茎", "category": "artifact"},
+    {"id": "artifact_356", "display": "御风车", "category": "artifact"},
+    {"id": "technique_273", "display": "辟邪神雷炼焰成珠", "category": "technique"},
+    {"id": "technique_274", "display": "太真门静心诀", "category": "technique"},
+    {"id": "technique_275", "display": "降灵符炼制", "category": "technique"},
+    {"id": "material_295", "display": "赌战庚精块", "category": "material"},
+    {"id": "material_296", "display": "八级毒蛟鳞与玄龟壳", "category": "material"},
+    {"id": "material_297", "display": "毒蛟精魂", "category": "material"}
+  ]
+}
