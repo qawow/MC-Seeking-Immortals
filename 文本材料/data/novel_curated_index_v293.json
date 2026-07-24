@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 293,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（联手·破阵脱困·禁魔环冰魂谷·化神·银月雪玲珑梦：第1036–1040章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v292 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1036章 联手 — 第1040章 银月、雪玲、珑梦",
+  "progress": "1040/2005 ≈ 51.9%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_877–setting_882",
+    "artifacts": "artifact_569–artifact_572",
+    "techniques": "technique_435–technique_437",
+    "materials": "material_457–material_459"
+  },
+  "entries": [
+    {"id": "setting_877", "display": "叶家口头联手与八灵尺分赃", "category": "setting", "file": "novel_curated_settings_v293.json"},
+    {"id": "setting_878", "display": "第九层枢纽与八灵尺封印入口", "category": "setting", "file": "novel_curated_settings_v293.json"},
+    {"id": "setting_879", "display": "圣祖分魂脱困与纯阳白骨火", "category": "setting", "file": "novel_curated_settings_v293.json"},
+    {"id": "setting_880", "display": "太一门天魔宗联手封缝", "category": "setting", "file": "novel_curated_settings_v293.json"},
+    {"id": "setting_881", "display": "冰魂谷化神隐修与逆灵通道", "category": "setting", "file": "novel_curated_settings_v293.json"},
+    {"id": "setting_882", "display": "银月雪玲与珑梦同源精魂", "category": "setting", "file": "novel_curated_settings_v293.json"},
+    {"id": "artifact_569", "display": "禁魔环", "category": "artifact", "file": "novel_curated_artifacts_v293.json"},
+    {"id": "artifact_570", "display": "天阿神剑", "category": "artifact", "file": "novel_curated_artifacts_v293.json"},
+    {"id": "artifact_571", "display": "灵龟飞车", "category": "artifact", "file": "novel_curated_artifacts_v293.json"},
+    {"id": "artifact_572", "display": "四象尺仿八灵尺", "category": "artifact", "file": "novel_curated_artifacts_v293.json"},
+    {"id": "technique_435", "display": "石傀儡再生与灭魔金刃", "category": "technique", "file": "novel_curated_techniques_v293.json"},
+    {"id": "technique_436", "display": "纯阳白骨火链禁", "category": "technique", "file": "novel_curated_techniques_v293.json"},
+    {"id": "technique_437", "display": "银月狼族精魂分裂与噬血魂印", "category": "technique", "file": "novel_curated_techniques_v293.json"},
+    {"id": "material_457", "display": "血气丹", "category": "material", "file": "novel_curated_materials_v293.json"},
+    {"id": "material_458", "display": "火精枣", "category": "material", "file": "novel_curated_materials_v293.json"},
+    {"id": "material_459", "display": "元神珠", "category": "material", "file": "novel_curated_materials_v293.json"}
+  ]
+}
