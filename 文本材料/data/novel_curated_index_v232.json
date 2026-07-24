@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 232,
+  "source": "《凡人修仙传》— 人工精读提取索引 v232（主传第705–709章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v231 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第705章 炼婴",
+    "to_chapter": "第709章 雷万鹤的震惊",
+    "chapter_range": "705-709",
+    "main_book_chapters_read_through": 709,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "35.4%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v232.json",
+    "novel_curated_artifacts_v232.json",
+    "novel_curated_techniques_v232.json",
+    "novel_curated_materials_v232.json",
+    "novel_curated_index_v232.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v232.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_511", "display": "阴魔斩断肢黑气", "category": "setting"},
+    {"id": "setting_512", "display": "慕兰凡人抢矿部落", "category": "setting"},
+    {"id": "setting_513", "display": "银月先搜六玉盒", "category": "setting"},
+    {"id": "setting_514", "display": "望月诀与苍坤秘术", "category": "setting"},
+    {"id": "setting_515", "display": "路逢雷万鹤与聂盈", "category": "setting"},
+    {"id": "setting_516", "display": "噬金虫震慑法士", "category": "setting"},
+    {"id": "artifact_325", "display": "紫铖兜", "category": "artifact"},
+    {"id": "artifact_326", "display": "苍坤乌黑指环", "category": "artifact"},
+    {"id": "artifact_327", "display": "黄色羽扇", "category": "artifact"},
+    {"id": "artifact_328", "display": "拘灵弹丸", "category": "artifact"},
+    {"id": "technique_252", "display": "望月诀", "category": "technique"},
+    {"id": "technique_253", "display": "拘灵土龙", "category": "technique"},
+    {"id": "technique_254", "display": "青元剑气破扇", "category": "technique"},
+    {"id": "material_274", "display": "辛辣绿瓷瓶", "category": "material"},
+    {"id": "material_275", "display": "拘灵兽弹丸", "category": "material"},
+    {"id": "material_276", "display": "金色噬金虫", "category": "material"}
+  ]
+}
