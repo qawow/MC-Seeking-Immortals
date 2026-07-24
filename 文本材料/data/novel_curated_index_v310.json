@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 310,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（冰凤之威·空间神通·黄泉鬼母·传送之战·重返故地：第1121–1125章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v309 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1121章 冰凤之威 — 第1125章 重返故地",
+  "progress": "1125/2005 ≈ 56.1%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_979–setting_984",
+    "artifacts": "artifact_637–artifact_640",
+    "techniques": "technique_486–technique_488",
+    "materials": "material_508–material_510"
+  },
+  "entries": [
+    {"id": "setting_979", "display": "冰凤极寒与乾蓝宿仇", "category": "setting", "file": "novel_curated_settings_v310.json"},
+    {"id": "setting_980", "display": "冰凤空间神通", "category": "setting", "file": "novel_curated_settings_v310.json"},
+    {"id": "setting_981", "display": "黄泉鬼母与木芝化身", "category": "setting", "file": "novel_curated_settings_v310.json"},
+    {"id": "setting_982", "display": "虚灵殿三传送阵", "category": "setting", "file": "novel_curated_settings_v310.json"},
+    {"id": "setting_983", "display": "五魔合骷髅抗万妖幡", "category": "setting", "file": "novel_curated_settings_v310.json"},
+    {"id": "setting_984", "display": "虚天殿重逢与渊源", "category": "setting", "file": "novel_curated_settings_v310.json"},
+    {"id": "artifact_637", "display": "冰凤冰羽飞剑", "category": "artifact", "file": "novel_curated_artifacts_v310.json"},
+    {"id": "artifact_638", "display": "四翅六翼霜蚣", "category": "artifact", "file": "novel_curated_artifacts_v310.json"},
+    {"id": "artifact_639", "display": "虚天鼎自发启阵", "category": "artifact", "file": "novel_curated_artifacts_v310.json"},
+    {"id": "artifact_640", "display": "大挪移令", "category": "artifact", "file": "novel_curated_artifacts_v310.json"},
+    {"id": "technique_486", "display": "紫罗极火抗冰凤寒", "category": "technique", "file": "novel_curated_techniques_v310.json"},
+    {"id": "technique_487", "display": "五魔合骷髅斩幡", "category": "technique", "file": "novel_curated_techniques_v310.json"},
+    {"id": "technique_488", "display": "虚天鼎青幕与跨域传送", "category": "technique", "file": "novel_curated_techniques_v310.json"},
+    {"id": "material_508", "display": "冰凤万年玄玉剑材", "category": "material", "file": "novel_curated_materials_v310.json"},
+    {"id": "material_509", "display": "木芝化身", "category": "material", "file": "novel_curated_materials_v310.json"},
+    {"id": "material_510", "display": "破界符残余威能", "category": "material", "file": "novel_curated_materials_v310.json"}
+  ]
+}
