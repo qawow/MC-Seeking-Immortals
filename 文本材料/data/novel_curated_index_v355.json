@@ -1,0 +1,120 @@
+{
+  "schema_version": 55,
+  "extract_version": 355,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（探查·莫名空间·玉骨人魔·空间风暴·骨手：第1346–1350章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v354 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1346章 探查 — 第1350章 骨手",
+  "progress": "1350/2005 ≈ 67.3%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1249–setting_1254",
+    "artifacts": "artifact_817–artifact_820",
+    "techniques": "technique_621–technique_623",
+    "materials": "material_643–material_645"
+  },
+  "entries": [
+    {
+      "id": "setting_1249",
+      "display": "金阙玉书残页四种符箓体系",
+      "category": "setting",
+      "file": "novel_curated_settings_v355.json"
+    },
+    {
+      "id": "setting_1250",
+      "display": "完整太一化清符虚化可调",
+      "category": "setting",
+      "file": "novel_curated_settings_v355.json"
+    },
+    {
+      "id": "setting_1251",
+      "display": "天渊城外人入灵地条律",
+      "category": "setting",
+      "file": "novel_curated_settings_v355.json"
+    },
+    {
+      "id": "setting_1252",
+      "display": "莫名空间与七色光门",
+      "category": "setting",
+      "file": "novel_curated_settings_v355.json"
+    },
+    {
+      "id": "setting_1253",
+      "display": "玉骨人魔与上古禁锢",
+      "category": "setting",
+      "file": "novel_curated_settings_v355.json"
+    },
+    {
+      "id": "setting_1254",
+      "display": "空间风暴塌陷与执法天卫",
+      "category": "setting",
+      "file": "novel_curated_settings_v355.json"
+    },
+    {
+      "id": "artifact_817",
+      "display": "完整太一化清符",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v355.json"
+    },
+    {
+      "id": "artifact_818",
+      "display": "化灵符替身",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v355.json"
+    },
+    {
+      "id": "artifact_819",
+      "display": "玉骨人魔骨手",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v355.json"
+    },
+    {
+      "id": "artifact_820",
+      "display": "金阙玉书完整外页",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v355.json"
+    },
+    {
+      "id": "technique_621",
+      "display": "隐匿遁术与土遁敛息",
+      "category": "technique",
+      "file": "novel_curated_techniques_v355.json"
+    },
+    {
+      "id": "technique_622",
+      "display": "明清灵目极致见禁制",
+      "category": "technique",
+      "file": "novel_curated_techniques_v355.json"
+    },
+    {
+      "id": "technique_623",
+      "display": "元磁神光粘遁与化灵符替身",
+      "category": "technique",
+      "file": "novel_curated_techniques_v355.json"
+    },
+    {
+      "id": "material_643",
+      "display": "淡红兽皮炼符材",
+      "category": "material",
+      "file": "novel_curated_materials_v355.json"
+    },
+    {
+      "id": "material_644",
+      "display": "各色灵粉炼符材",
+      "category": "material",
+      "file": "novel_curated_materials_v355.json"
+    },
+    {
+      "id": "material_645",
+      "display": "雷纹之珠三颗备用",
+      "category": "material",
+      "file": "novel_curated_materials_v355.json"
+    }
+  ]
+}
