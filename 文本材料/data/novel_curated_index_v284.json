@@ -1,0 +1,32 @@
+{
+  "schema_version": 55,
+  "extract_version": 284,
+  "source": "《凡人修仙传》— 人工精读索引（金遁与冰焰之精·灵扇之威·天象巨变·擎天巨山·紫雾：第991–995章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v283 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第991–995章",
+  "progress": {
+    "chapters_covered_end": 995,
+    "total_main_chapters": 2005,
+    "approx_percent": 49.6
+  },
+  "count": 16,
+  "entries": [
+    {"id": "setting_823", "display": "银翅夜叉金遁进阶", "category": "setting", "file": "novel_curated_settings_v284.json"},
+    {"id": "setting_824", "display": "三焰扇灵扇之威", "category": "setting", "file": "novel_curated_settings_v284.json"},
+    {"id": "setting_825", "display": "叶家解禁昆吾天象", "category": "setting", "file": "novel_curated_settings_v284.json"},
+    {"id": "setting_826", "display": "巨型传送与血环碎", "category": "setting", "file": "novel_curated_settings_v284.json"},
+    {"id": "setting_827", "display": "擎天巨山绝对障壁", "category": "setting", "file": "novel_curated_settings_v284.json"},
+    {"id": "setting_828", "display": "万修之门与紫雾兽", "category": "setting", "file": "novel_curated_settings_v284.json"},
+    {"id": "artifact_533", "display": "三焰扇火凤光轮", "category": "artifact", "file": "novel_curated_artifacts_v284.json"},
+    {"id": "artifact_534", "display": "冰焰之精与雪晶珠", "category": "artifact", "file": "novel_curated_artifacts_v284.json"},
+    {"id": "artifact_535", "display": "上古传送符与大挪移令", "category": "artifact", "file": "novel_curated_artifacts_v284.json"},
+    {"id": "artifact_536", "display": "七叔银梭与绿幡", "category": "artifact", "file": "novel_curated_artifacts_v284.json"},
+    {"id": "technique_408", "display": "金遁与金针雨", "category": "technique", "file": "novel_curated_techniques_v284.json"},
+    {"id": "technique_409", "display": "冰焰之精催使", "category": "technique", "file": "novel_curated_techniques_v284.json"},
+    {"id": "technique_410", "display": "煞气之体与明王决", "category": "technique", "file": "novel_curated_techniques_v284.json"},
+    {"id": "material_430", "display": "冰焰之精", "category": "material", "file": "novel_curated_materials_v284.json"},
+    {"id": "material_431", "display": "阴芝马入手", "category": "material", "file": "novel_curated_materials_v284.json"},
+    {"id": "material_432", "display": "万年灵液复力", "category": "material", "file": "novel_curated_materials_v284.json"}
+  ]
+}
