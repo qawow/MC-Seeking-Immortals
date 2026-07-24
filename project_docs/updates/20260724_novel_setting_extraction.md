@@ -1572,3 +1572,15 @@
 - 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
 - 备份：`.bak/20260729_000000`
 - 文件：`文本材料/data/novel_curated_*_v295.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v295.md`，`文本材料/README_WORLDPACK.md`
+
+
+## 2026-07-29 · v296 破壁突变·条件·灵禽与元婴·圣兽之印·叱念真雷（第1051–1055章）
+
+- 方法：沿原文逐段连续精读主传第 1051–1055 章，凭理解概括；视觉描述为原文逐字引用。
+- 产出：高保真条目 16（设定 6 / 法宝 4 / 法术 3 / 材料 3）。
+- ID 区间：setting_895–900，artifact_581–584，technique_444–446，material_466–468。
+- 关节点：风炎龙烈阵+辟邪神雷+魔髓飞刀破封空；万年尸熊（四散）血海偷袭徐林；灵界下界抹忆；噬金虫成熟秘诀交易；灵犀孔雀吞元婴；圣兽之印拒收；叱念真雷种徐林；七妙真人+玄青子破壁入场（章末未结）。
+- 阅读进度：1055/2005 ≈ 52.6%；下一批自第 1056 章。
+- 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
+- 备份：`.bak/20260729_010000`
+- 文件：`文本材料/data/novel_curated_*_v296.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v296.md`，`文本材料/README_WORLDPACK.md`

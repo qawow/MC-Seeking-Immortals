@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 296,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（破壁突变·条件·灵禽与元婴·圣兽之印·叱念真雷：第1051–1055章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v295 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1051章 破壁突变 — 第1055章 叱念真雷",
+  "progress": "1055/2005 ≈ 52.6%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_895–setting_900",
+    "artifacts": "artifact_581–artifact_584",
+    "techniques": "technique_444–technique_446",
+    "materials": "material_466–material_468"
+  },
+  "entries": [
+    {"id": "setting_895", "display": "风炎龙烈阵破壁", "category": "setting", "file": "novel_curated_settings_v296.json"},
+    {"id": "setting_896", "display": "万年尸熊与万妖谷副谷主", "category": "setting", "file": "novel_curated_settings_v296.json"},
+    {"id": "setting_897", "display": "灵界下界记忆抹除", "category": "setting", "file": "novel_curated_settings_v296.json"},
+    {"id": "setting_898", "display": "噬金虫成熟体秘诀交易", "category": "setting", "file": "novel_curated_settings_v296.json"},
+    {"id": "setting_899", "display": "灵犀孔雀寄婴与圣兽之印", "category": "setting", "file": "novel_curated_settings_v296.json"},
+    {"id": "setting_900", "display": "叱念真雷禁制要挟", "category": "setting", "file": "novel_curated_settings_v296.json"},
+    {"id": "artifact_581", "display": "风炎龙烈阵与青阵盘", "category": "artifact", "file": "novel_curated_artifacts_v296.json"},
+    {"id": "artifact_582", "display": "血刃血海鬼脸", "category": "artifact", "file": "novel_curated_artifacts_v296.json"},
+    {"id": "artifact_583", "display": "噬金虫催熟秘诀玉简", "category": "artifact", "file": "novel_curated_artifacts_v296.json"},
+    {"id": "artifact_584", "display": "叱念真雷", "category": "artifact", "file": "novel_curated_artifacts_v296.json"},
+    {"id": "technique_444", "display": "辟邪神雷溶壁", "category": "technique", "file": "novel_curated_techniques_v296.json"},
+    {"id": "technique_445", "display": "灵犀孔雀吞元婴", "category": "technique", "file": "novel_curated_techniques_v296.json"},
+    {"id": "technique_446", "display": "叱念真雷种禁", "category": "technique", "file": "novel_curated_techniques_v296.json"},
+    {"id": "material_466", "display": "噬金虫上古虫卵", "category": "material", "file": "novel_curated_materials_v296.json"},
+    {"id": "material_467", "display": "五行灵气催熟辅材", "category": "material", "file": "novel_curated_materials_v296.json"},
+    {"id": "material_468", "display": "金雷竹小箭", "category": "material", "file": "novel_curated_materials_v296.json"}
+  ]
+}
