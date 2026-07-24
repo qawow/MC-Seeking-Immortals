@@ -1,0 +1,45 @@
+{
+  "schema_version": 55,
+  "extract_version": 248,
+  "source": "《凡人修仙传》— 人工精读提取索引（内谷·巨蟒·罡银沙·元光：第810–815章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v247 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": {
+    "start_chapter": 810,
+    "end_chapter": 815,
+    "total_main_chapters": 2005,
+    "progress_approx": "815/2005 ≈ 40.6%"
+  },
+  "count": 16,
+  "by_category": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3
+  },
+  "entries": [
+    {"id": "setting_607", "display": "内谷与北极元光通道", "category": "setting", "file": "novel_curated_settings_v248.json"},
+    {"id": "setting_608", "display": "灰雾通道与巨蟒古兽", "category": "setting", "file": "novel_curated_settings_v248.json"},
+    {"id": "setting_609", "display": "斩蟒与三首乌蛇辨伪", "category": "setting", "file": "novel_curated_settings_v248.json"},
+    {"id": "setting_610", "display": "罡银沙矿脉与噬金虫吞沙", "category": "setting", "file": "novel_curated_settings_v248.json"},
+    {"id": "setting_611", "display": "北极元光杀机", "category": "setting", "file": "novel_curated_settings_v248.json"},
+    {"id": "setting_612", "display": "多方入内谷并行", "category": "setting", "file": "novel_curated_settings_v248.json"},
+    {"id": "artifact_389", "display": "感应铃", "category": "artifact", "file": "novel_curated_artifacts_v248.json"},
+    {"id": "artifact_390", "display": "两仪环扩罩", "category": "artifact", "file": "novel_curated_artifacts_v248.json"},
+    {"id": "artifact_391", "display": "千重峰古宝", "category": "artifact", "file": "novel_curated_artifacts_v248.json"},
+    {"id": "artifact_392", "display": "飓风旗与碧绿指环", "category": "artifact", "file": "novel_curated_artifacts_v248.json"},
+    {"id": "technique_300", "display": "苍坤通道幻术", "category": "technique", "file": "novel_curated_techniques_v248.json"},
+    {"id": "technique_301", "display": "隔绝声灵大阵", "category": "technique", "file": "novel_curated_techniques_v248.json"},
+    {"id": "technique_302", "display": "噬金虫吞罡银沙口诀", "category": "technique", "file": "novel_curated_techniques_v248.json"},
+    {"id": "material_322", "display": "罡银沙", "category": "material", "file": "novel_curated_materials_v248.json"},
+    {"id": "material_323", "display": "三首蟒青内丹", "category": "material", "file": "novel_curated_materials_v248.json"},
+    {"id": "material_324", "display": "炼晶", "category": "material", "file": "novel_curated_materials_v248.json"}
+  ],
+  "themes": [
+    "内谷禁制、北极元光隐秘通道、两仪环",
+    "灰雾巨蟒、三首乌蛇辨伪、千重峰斩杀",
+    "罡银沙矿脉、噬金虫吞沙口诀、炼晶对比",
+    "感应铃、飓风旗、碧绿指环",
+    "鬼灵门冰缝、紫灵标记、天晶傀儡联东门图"
+  ]
+}
