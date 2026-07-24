@@ -1,0 +1,32 @@
+{
+  "schema_version": 55,
+  "extract_version": 280,
+  "source": "《凡人修仙传》— 人工精读索引（雷火弓·降兽·双蝎山·来客·培婴丹：第971–975章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v279 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第971–975章",
+  "progress": {
+    "chapters_covered_end": 975,
+    "total_main_chapters": 2005,
+    "approx_percent": 48.6
+  },
+  "count": 16,
+  "entries": [
+    {"id": "setting_799", "display": "元罡盾雷火弓逼认输", "category": "setting", "file": "novel_curated_settings_v280.json"},
+    {"id": "setting_800", "display": "大衍坐化嘱托千竹教", "category": "setting", "file": "novel_curated_settings_v280.json"},
+    {"id": "setting_801", "display": "三焰扇天地人三火", "category": "setting", "file": "novel_curated_settings_v280.json"},
+    {"id": "setting_802", "display": "寒髓逼降土甲龙", "category": "setting", "file": "novel_curated_settings_v280.json"},
+    {"id": "setting_803", "display": "南疆双蝎山赴约", "category": "setting", "file": "novel_curated_settings_v280.json"},
+    {"id": "setting_804", "display": "培婴丹与阴芝马之约", "category": "setting", "file": "novel_curated_settings_v280.json"},
+    {"id": "artifact_517", "display": "元罡盾与五行罩", "category": "artifact", "file": "novel_curated_artifacts_v280.json"},
+    {"id": "artifact_518", "display": "雷火弓与金雷竹箭", "category": "artifact", "file": "novel_curated_artifacts_v280.json"},
+    {"id": "artifact_519", "display": "天雷长颈玉瓶", "category": "artifact", "file": "novel_curated_artifacts_v280.json"},
+    {"id": "artifact_520", "display": "白瑶怡冰玉", "category": "artifact", "file": "novel_curated_artifacts_v280.json"},
+    {"id": "technique_396", "display": "聚灵法阵收天雷", "category": "technique", "file": "novel_curated_techniques_v280.json"},
+    {"id": "technique_397", "display": "禁神术降灵兽", "category": "technique", "file": "novel_curated_techniques_v280.json"},
+    {"id": "technique_398", "display": "富长老幽绿火禁", "category": "technique", "file": "novel_curated_techniques_v280.json"},
+    {"id": "material_418", "display": "乌凤尾翎三根", "category": "material", "file": "novel_curated_materials_v280.json"},
+    {"id": "material_419", "display": "培婴丹配方", "category": "material", "file": "novel_curated_materials_v280.json"},
+    {"id": "material_420", "display": "阴芝马血肉", "category": "material", "file": "novel_curated_materials_v280.json"}
+  ]
+}
