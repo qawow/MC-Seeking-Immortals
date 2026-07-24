@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 215,
+  "source": "《凡人修仙传》— 人工精读提取索引 v215（主传第595–600章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v214 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第595章 脱离",
+    "to_chapter": "第600章 入门（中）",
+    "chapter_range": "595-600",
+    "main_book_chapters_read_through": 600,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "29.9%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v215.json",
+    "novel_curated_artifacts_v215.json",
+    "novel_curated_techniques_v215.json",
+    "novel_curated_materials_v215.json",
+    "novel_curated_index_v215.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v215.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_409", "display": "暴风山巅裂缝脱困", "category": "setting"},
+    {"id": "setting_410", "display": "无边海与馨牙兽", "category": "setting"},
+    {"id": "setting_411", "display": "天南四大势力格局", "category": "setting"},
+    {"id": "setting_412", "display": "云梦山灵眼与定灵丹", "category": "setting"},
+    {"id": "setting_413", "display": "丹药抗药性提前失效", "category": "setting"},
+    {"id": "setting_414", "display": "落云宗招收与六奇峰", "category": "setting"},
+    {"id": "artifact_257", "display": "十剑兽筋剑网", "category": "artifact"},
+    {"id": "artifact_258", "display": "风雷翅雷遁脱雾", "category": "artifact"},
+    {"id": "artifact_259", "display": "落云宗锦帕与铜钵", "category": "artifact"},
+    {"id": "artifact_260", "display": "护派雾海开阵旗", "category": "artifact"},
+    {"id": "technique_201", "display": "啼魂银光喷鼻", "category": "technique"},
+    {"id": "technique_202", "display": "无名敛息扮炼气", "category": "technique"},
+    {"id": "technique_203", "display": "三派特点与入门测", "category": "technique"},
+    {"id": "material_223", "display": "馨牙兽异香物", "category": "material"},
+    {"id": "material_224", "display": "灵眼醇液与定灵丹", "category": "material"},
+    {"id": "material_225", "display": "失效妖丹与八级毒蛟丹", "category": "material"}
+  ]
+}
