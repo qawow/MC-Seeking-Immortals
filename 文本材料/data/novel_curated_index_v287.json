@@ -1,0 +1,32 @@
+{
+  "schema_version": 55,
+  "extract_version": 287,
+  "source": "《凡人修仙传》— 人工精读索引（妇人·群魔隐现·玄青子·巨物宫殿破阵·铸灵堂：第1006–1010章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v286 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1006–1010章",
+  "progress": {
+    "chapters_covered_end": 1010,
+    "total_main_chapters": 2005,
+    "approx_percent": 50.4
+  },
+  "count": 16,
+  "entries": [
+    {"id": "setting_841", "display": "紫薇七星大阵", "category": "setting", "file": "novel_curated_settings_v287.json"},
+    {"id": "setting_842", "display": "石灵上古秘术", "category": "setting", "file": "novel_curated_settings_v287.json"},
+    {"id": "setting_843", "display": "困灵阵三妖联手", "category": "setting", "file": "novel_curated_settings_v287.json"},
+    {"id": "setting_844", "display": "化仙宗与太一门对峙", "category": "setting", "file": "novel_curated_settings_v287.json"},
+    {"id": "setting_845", "display": "符箓锁链巨物与祭坛宫殿", "category": "setting", "file": "novel_curated_settings_v287.json"},
+    {"id": "setting_846", "display": "铸灵堂与化灵殿", "category": "setting", "file": "novel_curated_settings_v287.json"},
+    {"id": "artifact_545", "display": "日月梭", "category": "artifact", "file": "novel_curated_artifacts_v287.json"},
+    {"id": "artifact_546", "display": "灵犀孔雀", "category": "artifact", "file": "novel_curated_artifacts_v287.json"},
+    {"id": "artifact_547", "display": "灵龟飞车", "category": "artifact", "file": "novel_curated_artifacts_v287.json"},
+    {"id": "artifact_548", "display": "四灵牌本命牌", "category": "artifact", "file": "novel_curated_artifacts_v287.json"},
+    {"id": "technique_417", "display": "北极元光", "category": "technique", "file": "novel_curated_techniques_v287.json"},
+    {"id": "technique_418", "display": "暴血咒与清虚丹", "category": "technique", "file": "novel_curated_techniques_v287.json"},
+    {"id": "technique_419", "display": "三焰扇融光幕", "category": "technique", "file": "novel_curated_techniques_v287.json"},
+    {"id": "material_439", "display": "虎头蜂与吸血蝠", "category": "material", "file": "novel_curated_materials_v287.json"},
+    {"id": "material_440", "display": "晶碑上古前文", "category": "material", "file": "novel_curated_materials_v287.json"},
+    {"id": "material_441", "display": "万年灵树炼器材", "category": "material", "file": "novel_curated_materials_v287.json"}
+  ]
+}
