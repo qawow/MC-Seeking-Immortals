@@ -1,0 +1,32 @@
+{
+  "schema_version": 55,
+  "extract_version": 274,
+  "source": "《凡人修仙传》— 人工精读索引（地下交易会·芥子空间·不期而遇·威胁·玉佩：第941–945章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v273 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第941–945章",
+  "progress": {
+    "chapters_covered_end": 945,
+    "total_main_chapters": 2005,
+    "approx_percent": 47.1
+  },
+  "count": 16,
+  "entries": [
+    {"id": "setting_763", "display": "晋京明暗交易会", "category": "setting", "file": "novel_curated_settings_v274.json"},
+    {"id": "setting_764", "display": "芥子空间与空间裂缝炼制", "category": "setting", "file": "novel_curated_settings_v274.json"},
+    {"id": "setting_765", "display": "天机府限制与换取", "category": "setting", "file": "novel_curated_settings_v274.json"},
+    {"id": "setting_766", "display": "晋西坊市禁斗三门四宗", "category": "setting", "file": "novel_curated_settings_v274.json"},
+    {"id": "setting_767", "display": "天澜圣女与阴罗宗寻幡", "category": "setting", "file": "novel_curated_settings_v274.json"},
+    {"id": "setting_768", "display": "海外散修厉飞雨与感应珠", "category": "setting", "file": "novel_curated_settings_v274.json"},
+    {"id": "artifact_493", "display": "雷灵晶银石银弧", "category": "artifact", "file": "novel_curated_artifacts_v274.json"},
+    {"id": "artifact_494", "display": "天机府美玉洞府", "category": "artifact", "file": "novel_curated_artifacts_v274.json"},
+    {"id": "artifact_495", "display": "金光长刀障眼包裹", "category": "artifact", "file": "novel_curated_artifacts_v274.json"},
+    {"id": "artifact_496", "display": "蝴蝶玉佩与感应珠", "category": "artifact", "file": "novel_curated_artifacts_v274.json"},
+    {"id": "technique_378", "display": "龟灵诀第七层", "category": "technique", "file": "novel_curated_techniques_v274.json"},
+    {"id": "technique_379", "display": "变容化蓝袍儒生", "category": "technique", "file": "novel_curated_techniques_v274.json"},
+    {"id": "technique_380", "display": "大衍诀神识障眼", "category": "technique", "file": "novel_curated_techniques_v274.json"},
+    {"id": "material_400", "display": "极品赤精芝碧绿木盒", "category": "material", "file": "novel_curated_materials_v274.json"},
+    {"id": "material_401", "display": "雷属性妖兽腹中雷灵晶", "category": "material", "file": "novel_curated_materials_v274.json"},
+    {"id": "material_402", "display": "中阶灵石传送耗", "category": "material", "file": "novel_curated_materials_v274.json"}
+  ]
+}
