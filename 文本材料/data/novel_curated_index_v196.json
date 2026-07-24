@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 196,
+  "source": "《凡人修仙传》— 人工精读提取索引 v196（主传第507–510章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v195 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第507章 柳暗花明",
+    "to_chapter": "第510章 要挟",
+    "chapter_range": "507-510",
+    "main_book_chapters_read_through": 510,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "25.4%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v196.json",
+    "novel_curated_artifacts_v196.json",
+    "novel_curated_techniques_v196.json",
+    "novel_curated_materials_v196.json",
+    "novel_curated_index_v196.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v196.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_295", "display": "星宫黄指环放行与自由时段", "category": "setting"},
+    {"id": "setting_296", "display": "星空殿内殿青黄禁制", "category": "setting"},
+    {"id": "setting_297", "display": "私传外星海五千灵石", "category": "setting"},
+    {"id": "setting_298", "display": "流水阵预警", "category": "setting"},
+    {"id": "setting_299", "display": "假丹境界", "category": "setting"},
+    {"id": "setting_300", "display": "传送阵做手脚与法宝稀缺", "category": "setting"},
+    {"id": "artifact_181", "display": "胡月红光飞刀", "category": "artifact"},
+    {"id": "artifact_182", "display": "传送符", "category": "artifact"},
+    {"id": "artifact_183", "display": "开阵白色玉牌", "category": "artifact"},
+    {"id": "artifact_184", "display": "奇渊传送阵", "category": "artifact"},
+    {"id": "technique_144", "display": "敛息与全敛法力隐匿", "category": "technique"},
+    {"id": "technique_145", "display": "迷魂术半睡半醒吐露心声", "category": "technique"},
+    {"id": "technique_146", "display": "乔装曲姓假丹炼气", "category": "technique"},
+    {"id": "material_166", "display": "五级妖丹", "category": "material"},
+    {"id": "material_167", "display": "私传灵石与珍稀材料抵价", "category": "material"},
+    {"id": "material_168", "display": "噬金虫与药园收束", "category": "material"}
+  ]
+}
