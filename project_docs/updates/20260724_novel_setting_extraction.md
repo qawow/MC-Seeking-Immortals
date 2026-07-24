@@ -1922,3 +1922,14 @@
 - 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
 - 备份：`.bak/20260725_140000`
 - 文件：`文本材料/data/novel_curated_*_v326.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v326.md`，`文本材料/README_WORLDPACK.md`
+
+## 2026-07-25 · v327 星宫之战二至六（第1206–1210章）
+
+- 方法：沿原文逐段连续精读主传第 1206–1210 章，凭理解概括；视觉描述为原文逐字引用。
+- 产出：高保真条目 16（设定 6 / 法宝 4 / 法术 3 / 材料 3）。
+- ID 区间：setting_1081–1086，artifact_705–708，technique_537–539，material_559–561。
+- 关节点：风火天绝阵一百零八铜柱·上古禁断；黄沙须弥幡瞬移·破灭法目两拳；灵舟守柱天瑞岛利诱出世；天风车阵中遁隐；金剑火索八灵尺灭骅元婴·隆血影遁逃；客卿令特制唯一入城；圣殿谈判拒拼命·元磁法诀+山交换牵制；神念标记傀儡杀西门虚天殿旧仇·灵灯熄。
+- 阅读进度：1210/2005 ≈ 60.3%；下一批自第 1211 章。
+- 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
+- 备份：`.bak/20260725_150000`
+- 文件：`文本材料/data/novel_curated_*_v327.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v327.md`，`文本材料/README_WORLDPACK.md`

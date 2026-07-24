@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 327,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（星宫之战二至六：第1206–1210章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v326 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1206章 星宫之战（二） — 第1210章 星宫之战（六）",
+  "progress": "1210/2005 ≈ 60.3%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1081–setting_1086",
+    "artifacts": "artifact_705–artifact_708",
+    "techniques": "technique_537–technique_539",
+    "materials": "material_559–material_561"
+  },
+  "entries": [
+    {"id": "setting_1081", "display": "风火天绝阵与一百零八铜柱", "category": "setting", "file": "novel_curated_settings_v327.json"},
+    {"id": "setting_1082", "display": "逆星盟灵舟守柱与天瑞岛利诱", "category": "setting", "file": "novel_curated_settings_v327.json"},
+    {"id": "setting_1083", "display": "星宫客卿令牌特制唯一", "category": "setting", "file": "novel_curated_settings_v327.json"},
+    {"id": "setting_1084", "display": "星宫圣殿祖师地与长老格局", "category": "setting", "file": "novel_curated_settings_v327.json"},
+    {"id": "setting_1085", "display": "元磁神光与元磁山交换牵制", "category": "setting", "file": "novel_curated_settings_v327.json"},
+    {"id": "setting_1086", "display": "虚天殿旧仇与西门长老陨落", "category": "setting", "file": "novel_curated_settings_v327.json"},
+    {"id": "artifact_705", "display": "黄沙须弥幡瞬移古宝", "category": "artifact", "file": "novel_curated_artifacts_v327.json"},
+    {"id": "artifact_706", "display": "天风车阵中遁隐", "category": "artifact", "file": "novel_curated_artifacts_v327.json"},
+    {"id": "artifact_707", "display": "八卦镜与赤红令牌", "category": "artifact", "file": "novel_curated_artifacts_v327.json"},
+    {"id": "artifact_708", "display": "星宫特制客卿令牌", "category": "artifact", "file": "novel_curated_artifacts_v327.json"},
+    {"id": "technique_537", "display": "破灭法目破瞬移黄云", "category": "technique", "file": "novel_curated_techniques_v327.json"},
+    {"id": "technique_538", "display": "金剑火索八灵尺灭元婴", "category": "technique", "file": "novel_curated_techniques_v327.json"},
+    {"id": "technique_539", "display": "神念标记秘术与傀儡暗杀", "category": "technique", "file": "novel_curated_techniques_v327.json"},
+    {"id": "material_559", "display": "一百零八根风火铜柱", "category": "material", "file": "novel_curated_materials_v327.json"},
+    {"id": "material_560", "display": "天瑞岛灵脉与珍稀材料", "category": "material", "file": "novel_curated_materials_v327.json"},
+    {"id": "material_561", "display": "元磁神光修炼法诀", "category": "material", "file": "novel_curated_materials_v327.json"}
+  ]
+}
