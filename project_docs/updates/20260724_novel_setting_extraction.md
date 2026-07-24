@@ -1656,3 +1656,15 @@
 - 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
 - 备份：`.bak/20260729_070000`
 - 文件：`文本材料/data/novel_curated_*_v302.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v302.md`，`文本材料/README_WORLDPACK.md`
+
+
+## 2026-07-25 · v303 藏经阁·冰海妖兽·冰狞兽·二妖·寒焰修士（第1086–1090章）
+
+- 方法：沿原文逐段连续精读主传第 1086–1090 章，凭理解概括；视觉描述为原文逐字引用。
+- 产出：高保真条目 16（设定 6 / 法宝 4 / 法术 3 / 材料 3）。
+- ID 区间：setting_937–942，artifact_609–612，technique_465–467，material_487–489。
+- 关节点：藏经阁七层非按珍贵分层；冰海约定·十级上古冰凤；雪吼兽巢·三朵玄冰花；冰狞兽紫罗极火失神刺冰封；通灵火鼎火鸦/银盾/三焰扇灭二妖；万妖谷青背苍狼联手双头乌蛟；白梦馨凤离冰焰试探；龙夫人柳翠派·摩鸠大师·五焰齐聚。
+- 阅读进度：1090/2005 ≈ 54.4%；下一批自第 1091 章。
+- 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
+- 备份：`.bak/20260725_025100`
+- 文件：`文本材料/data/novel_curated_*_v303.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v303.md`，`文本材料/README_WORLDPACK.md`
