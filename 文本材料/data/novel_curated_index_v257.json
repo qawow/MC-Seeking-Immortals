@@ -1,0 +1,32 @@
+{
+  "schema_version": 55,
+  "extract_version": 257,
+  "source": "《凡人修仙传》— 人工精读索引（绛云丹·滞留·脱身·天南魔影·漩涡：第856–860章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v256 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第856–860章",
+  "progress": {
+    "chapters_covered_end": 860,
+    "total_main_chapters": 2005,
+    "approx_percent": 42.9
+  },
+  "count": 16,
+  "entries": [
+    {"id": "setting_661", "display": "灵缈园灵药与上古丹方", "category": "setting", "file": "novel_curated_settings_v257.json"},
+    {"id": "setting_662", "display": "滞留·空间薄弱点", "category": "setting", "file": "novel_curated_settings_v257.json"},
+    {"id": "setting_663", "display": "脱身·灵麟山灵泉", "category": "setting", "file": "novel_curated_settings_v257.json"},
+    {"id": "setting_664", "display": "天南魔影·古魔大劫", "category": "setting", "file": "novel_curated_settings_v257.json"},
+    {"id": "setting_665", "display": "无边海大漩涡与七岛", "category": "setting", "file": "novel_curated_settings_v257.json"},
+    {"id": "setting_666", "display": "坠魔谷战后与韩立失踪", "category": "setting", "file": "novel_curated_settings_v257.json"},
+    {"id": "artifact_425", "display": "上古丹方玉简", "category": "artifact", "file": "novel_curated_artifacts_v257.json"},
+    {"id": "artifact_426", "display": "断金戈", "category": "artifact", "file": "novel_curated_artifacts_v257.json"},
+    {"id": "artifact_427", "display": "血魔剑试障", "category": "artifact", "file": "novel_curated_artifacts_v257.json"},
+    {"id": "artifact_428", "display": "三焰扇炼制玉简", "category": "artifact", "file": "novel_curated_artifacts_v257.json"},
+    {"id": "technique_327", "display": "神识搜薄弱点", "category": "technique", "file": "novel_curated_techniques_v257.json"},
+    {"id": "technique_328", "display": "巨剑合雷焰斩障", "category": "technique", "file": "novel_curated_techniques_v257.json"},
+    {"id": "technique_329", "display": "元婴中期破障条件", "category": "technique", "file": "novel_curated_techniques_v257.json"},
+    {"id": "material_349", "display": "菀梦果与上古灵药", "category": "material", "file": "novel_curated_materials_v257.json"},
+    {"id": "material_350", "display": "绛云丹与雪魄丸", "category": "material", "file": "novel_curated_materials_v257.json"},
+    {"id": "material_351", "display": "灵麟山灵泉", "category": "material", "file": "novel_curated_materials_v257.json"}
+  ]
+}
