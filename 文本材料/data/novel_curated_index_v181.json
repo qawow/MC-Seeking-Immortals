@@ -1,0 +1,52 @@
+{
+  "schema_version": 55,
+  "extract_version": 181,
+  "source": "《凡人修仙传》— 人工精读提取索引 v181（主传第412–417章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v180 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第412章 青竹小轩",
+    "to_chapter": "第417章 以阵破阵",
+    "chapter_range": "412-417",
+    "main_book_chapters_read_through": 417,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "20.8%"
+  },
+  "totals": {
+    "entries": 15,
+    "by_category": {
+      "setting": 6,
+      "artifact": 3,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v181.json",
+    "novel_curated_artifacts_v181.json",
+    "novel_curated_techniques_v181.json",
+    "novel_curated_materials_v181.json",
+    "novel_curated_index_v181.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v181.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_205", "display": "青竹蜂云剑套数与同根炼制", "category": "setting"},
+    {"id": "setting_206", "display": "大衍诀第四层入世心魔", "category": "setting"},
+    {"id": "setting_207", "display": "中级符箓与兽皮原料", "category": "setting"},
+    {"id": "setting_208", "display": "乱星海动荡与双圣谣言", "category": "setting"},
+    {"id": "setting_209", "display": "古修士遗址与珍珠地图", "category": "setting"},
+    {"id": "setting_210", "display": "以阵破阵与风土幻阵", "category": "setting"},
+    {"id": "artifact_122", "display": "青竹蜂云剑（七十二把）", "category": "artifact"},
+    {"id": "artifact_123", "display": "珍珠地图", "category": "artifact"},
+    {"id": "artifact_124", "display": "北斗两仪阵旗", "category": "artifact"},
+    {"id": "technique_099", "display": "丹火炼化天雷竹", "category": "technique"},
+    {"id": "technique_100", "display": "精血祭炼飞剑", "category": "technique"},
+    {"id": "technique_101", "display": "控神法阵认主", "category": "technique"},
+    {"id": "material_119", "display": "天雷竹金叶子", "category": "material"},
+    {"id": "material_120", "display": "青竹蜂云剑辅助材料", "category": "material"},
+    {"id": "material_121", "display": "无暇白玉盒", "category": "material"}
+  ]
+}
