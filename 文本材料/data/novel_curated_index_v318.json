@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 318,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（金花老祖·金花鬼鸠·灭杀·银蝌文·鲲鹏之羽：第1161–1165章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v317 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1161章 金花老祖 — 第1165章 鲲鹏之羽",
+  "progress": "1165/2005 ≈ 58.1%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1027–setting_1032",
+    "artifacts": "artifact_669–artifact_672",
+    "techniques": "technique_510–technique_512",
+    "materials": "material_532–material_534"
+  },
+  "entries": [
+    {"id": "setting_1027", "display": "蛮门三弟子互坑与金花联姻", "category": "setting", "file": "novel_curated_settings_v318.json"},
+    {"id": "setting_1028", "display": "魔湖天然神识隔绝", "category": "setting", "file": "novel_curated_settings_v318.json"},
+    {"id": "setting_1029", "display": "蛮洞庚精凑齐大庚剑阵", "category": "setting", "file": "novel_curated_settings_v318.json"},
+    {"id": "setting_1030", "display": "银蝌文灵界独有符文", "category": "setting", "file": "novel_curated_settings_v318.json"},
+    {"id": "setting_1031", "display": "天澜分神降临与化界石", "category": "setting", "file": "novel_curated_settings_v318.json"},
+    {"id": "setting_1032", "display": "游天鲲鹏与混沌万灵榜", "category": "setting", "file": "novel_curated_settings_v318.json"},
+    {"id": "artifact_669", "display": "金花老祖金符与金盾", "category": "artifact", "file": "novel_curated_artifacts_v318.json"},
+    {"id": "artifact_670", "display": "降魔杖七色佛光", "category": "artifact", "file": "novel_curated_artifacts_v318.json"},
+    {"id": "artifact_671", "display": "鬼鸠与啼魂兽对吞", "category": "artifact", "file": "novel_curated_artifacts_v318.json"},
+    {"id": "artifact_672", "display": "拳头大庚精", "category": "artifact", "file": "novel_curated_artifacts_v318.json"},
+    {"id": "technique_510", "display": "紫罗极火大手灭婴", "category": "technique", "file": "novel_curated_techniques_v318.json"},
+    {"id": "technique_511", "display": "虚天鼎青链收金蜂", "category": "technique", "file": "novel_curated_techniques_v318.json"},
+    {"id": "technique_512", "display": "金巨剑电蟒破五行禁", "category": "technique", "file": "novel_curated_techniques_v318.json"},
+    {"id": "material_532", "display": "金花老祖银蝌金符", "category": "material", "file": "novel_curated_materials_v318.json"},
+    {"id": "material_533", "display": "游天鲲鹏残损灵羽", "category": "material", "file": "novel_curated_materials_v318.json"},
+    {"id": "material_534", "display": "化界石分神降临", "category": "material", "file": "novel_curated_materials_v318.json"}
+  ]
+}
