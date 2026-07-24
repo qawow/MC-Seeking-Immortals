@@ -1,0 +1,20 @@
+{
+  "schema_version": 55,
+  "extract_version": 170,
+  "source": "《凡人修仙传》— 人工精读提取 · 总索引（星尘阁九层·蓝夫人·红线遁光针·定颜丹交易→徐店主炼器成败·古传送阵完工·再承诺：第353–356章）",
+  "method": "沿原文逐段精读（四级奇虫材料交徐店主→元武珍品涌市→星尘阁九层→蓝夫人五层·寒晶刃·红绸挡神识→秀儿六层·聚灵丹/真元丹·红线遁光针十三齐祭→定颜丹换购→炼器大败五飞刀→古传送阵修复玉简·阵旗阵盘再诺），凭理解概括设定，视觉描述为原文逐字引用。与 v148–v169 互补。",
+  "disclaimer": "代表性精读而非穷尽全本（4795 章无法逐字读完）；本批覆盖主传第353–356章，入包前仍需人工校订。",
+  "reading_progress": "《凡人修仙传》已逐段精读至第356章（祸福相依），约全书 17.8%（356/2005）。",
+  "totals": {
+    "entities": 17,
+    "by_category": {"设定": 6, "法宝": 4, "法术": 2, "材料": 5}
+  },
+  "note": "本弧线为元武坊市星尘阁交易与炼器收束：四级奇虫材料交徐店主；星尘阁九层/蓝夫人/秀儿；寒晶刃与红线遁光针；定颜丹换真元丹丹方+飞针；炼器大败仅得五白蜘蛛飞刀；古传送阵修好、阵旗阵盘再诺灭付家。",
+  "files": {
+    "setting": "novel_curated_settings_v170.json",
+    "artifact": "novel_curated_artifacts_v170.json",
+    "technique": "novel_curated_techniques_v170.json",
+    "material": "novel_curated_materials_v170.json"
+  },
+  "docs": "docs/NOVEL_CURATED_EXTRACT_v170.md"
+}
