@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 321,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（被擒·第二元婴天煞魔尸·威震天南·炼翅·火灵丝破灭法目：第1176–1180章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v320 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1176章 被擒 — 第1180章 火灵丝与破灭法目",
+  "progress": "1180/2005 ≈ 58.9%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1045–setting_1050",
+    "artifacts": "artifact_681–artifact_684",
+    "techniques": "technique_519–technique_521",
+    "materials": "material_541–material_543"
+  },
+  "entries": [
+    {"id": "setting_1045", "display": "第二元婴夺天煞魔尸始末", "category": "setting", "file": "novel_curated_settings_v321.json"},
+    {"id": "setting_1046", "display": "天南第四大修士大典", "category": "setting", "file": "novel_curated_settings_v321.json"},
+    {"id": "setting_1047", "display": "魏无涯大限与至阳示弱", "category": "setting", "file": "novel_curated_settings_v321.json"},
+    {"id": "setting_1048", "display": "鲲鹏羽炼翅法则未激", "category": "setting", "file": "novel_curated_settings_v321.json"},
+    {"id": "setting_1049", "display": "火灵丝与破灭法目辨识", "category": "setting", "file": "novel_curated_settings_v321.json"},
+    {"id": "setting_1050", "display": "三女被擒投鼠忌器", "category": "setting", "file": "novel_curated_settings_v321.json"},
+    {"id": "artifact_681", "display": "第二元婴黑焰与黑手", "category": "artifact", "file": "novel_curated_artifacts_v321.json"},
+    {"id": "artifact_682", "display": "鬼罗幡救婴护主", "category": "artifact", "file": "novel_curated_artifacts_v321.json"},
+    {"id": "artifact_683", "display": "鲲鹏羽融风雷翅", "category": "artifact", "file": "novel_curated_artifacts_v321.json"},
+    {"id": "artifact_684", "display": "银月第二元婴感应玉佩", "category": "artifact", "file": "novel_curated_artifacts_v321.json"},
+    {"id": "technique_519", "display": "密殿一敌二大修士", "category": "technique", "file": "novel_curated_techniques_v321.json"},
+    {"id": "technique_520", "display": "第二元婴种禁制与困阵", "category": "technique", "file": "novel_curated_techniques_v321.json"},
+    {"id": "technique_521", "display": "青白火柱煅炼风雷翅", "category": "technique", "file": "novel_curated_techniques_v321.json"},
+    {"id": "material_541", "display": "火灵丝半透明胶质", "category": "material", "file": "novel_curated_materials_v321.json"},
+    {"id": "material_542", "display": "破灭法目异种残珠", "category": "material", "file": "novel_curated_materials_v321.json"},
+    {"id": "material_543", "display": "离梦晶与黑白妖丹", "category": "material", "file": "novel_curated_materials_v321.json"}
+  ]
+}
