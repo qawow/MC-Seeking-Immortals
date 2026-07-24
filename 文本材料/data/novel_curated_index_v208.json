@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 208,
+  "source": "《凡人修仙传》— 人工精读提取索引 v208（主传第556–561章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v207 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第556章 求助与交易",
+    "to_chapter": "第561章 诡异错认",
+    "chapter_range": "556-561",
+    "main_book_chapters_read_through": 561,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "28.0%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v208.json",
+    "novel_curated_artifacts_v208.json",
+    "novel_curated_techniques_v208.json",
+    "novel_curated_materials_v208.json",
+    "novel_curated_index_v208.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v208.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_367", "display": "范夫人求杀云天啸交易", "category": "setting"},
+    {"id": "setting_368", "display": "皇明岛单向古传送阵", "category": "setting"},
+    {"id": "setting_369", "display": "风雷翅可脱身元婴初", "category": "setting"},
+    {"id": "setting_370", "display": "噬金虫难啃风灵劲", "category": "setting"},
+    {"id": "setting_371", "display": "裂风本体与蛟族追杀", "category": "setting"},
+    {"id": "setting_372", "display": "内海传送口错认行动组", "category": "setting"},
+    {"id": "artifact_229", "display": "五行环禁锢斩首", "category": "artifact"},
+    {"id": "artifact_230", "display": "碧玉小锤与玉如意", "category": "artifact"},
+    {"id": "artifact_231", "display": "血鹤道袍", "category": "artifact"},
+    {"id": "artifact_232", "display": "大挪移令与传送符", "category": "artifact"},
+    {"id": "technique_180", "display": "青剑秒杀筑基看守", "category": "technique"},
+    {"id": "technique_181", "display": "硬接元婴与雷遁脱身", "category": "technique"},
+    {"id": "technique_182", "display": "大衍诀破迷魂传音", "category": "technique"},
+    {"id": "material_202", "display": "妙音门私藏幻梦石", "category": "material"},
+    {"id": "material_203", "display": "补天丹交易诱饵", "category": "material"},
+    {"id": "material_204", "display": "青焰袖袍标志", "category": "material"}
+  ]
+}
