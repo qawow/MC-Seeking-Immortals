@@ -1,0 +1,70 @@
+{
+  "schema_version": 55,
+  "extract_version": 266,
+  "source": "《凡人修仙传》— 人工精读提取 · 法宝类（镔铁短枪·黄风叉·飞行木板·黑玉棺：第901–905章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v265 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 4,
+  "entries": [
+    {
+      "id": "artifact_461",
+      "display": "王铁枪镔铁短枪",
+      "category": "artifact",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第901章 船上"},
+      "setting": "护船镖师王铁枪兵器：背后两杆镔铁短枪。江湖武艺，非法器；搭档高大峰硬功拳脚。",
+      "visual_descriptions": [
+        "伸手摸了摸背后背着的两杆镔铁短枪后，鬼使神差般的抬腿向声音出处走了过去。"
+      ],
+      "setting_descriptions": [
+        "王铁枪就是这么一名护船的普通镖师，从其名字上就可看出，他自然在枪法上颇有些功夫。"
+      ]
+    },
+    {
+      "id": "artifact_462",
+      "display": "黄风叉",
+      "category": "artifact",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第904章 参王大会"},
+      "setting": "犀灵宗师门亲赐中阶法器：淡黄小叉化黄芒。韩十余火球符→车轮火云→丈许火蟒缠黄芒越勒越紧，法器将毁前马玉林认输。",
+      "visual_descriptions": [
+        "另一只手却从储物袋中掏出一只淡黄色小叉出来。",
+        "那小叉微微颤动几下后，放出淡淡的灵光，忽然化为一道黄芒直奔韩立射来。"
+      ],
+      "setting_descriptions": [
+        "他的这件黄风叉可是师门亲赐的中阶法器。",
+        "叉上黄光只大放片刻，就在交织闪烁中反被火蟒越勒越紧，灵光瞬间黯淡无光起来。"
+      ]
+    },
+    {
+      "id": "artifact_463",
+      "display": "犀灵宗飞行法器",
+      "category": "artifact",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第903章 恶客"},
+      "setting": "马玉林所持木板状/光团飞行法器，载二人上峰。低阶飞行法器价远超普通中阶；小宗低阶多终生仅师门赏赐一件。",
+      "visual_descriptions": [
+        "从峰下冲上来一道团白光来，隐隐有两个人影并排而立的在里面。",
+        "手持一件木板状法器。"
+      ],
+      "setting_descriptions": [
+        "飞行法器的确是稀少的多了，即使低阶的飞行法器价格也远在普通的中阶法器之上。",
+        "能被赐予飞行法器的低阶修士，肯定都是大有来历之人。"
+      ]
+    },
+    {
+      "id": "artifact_464",
+      "display": "黑玉棺",
+      "category": "artifact",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第905章 棺中人"},
+      "setting": "漆黑如墨棺材，地下密室。玉冠男子卧其中，可掩饰尸气；受神识惊扰推盖坐起再合。",
+      "visual_descriptions": [
+        "一个漆黑如墨的棺材突然盖子动了一下，接着一只洁白如玉的手掌从缝隙中伸了出来。"
+      ],
+      "setting_descriptions": [
+        "有这黑玉棺掩饰我的尸气，应该不会引起对方怀疑才是。"
+      ]
+    }
+  ]
+}
