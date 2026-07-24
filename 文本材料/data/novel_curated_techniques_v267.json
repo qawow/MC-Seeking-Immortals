@@ -1,0 +1,56 @@
+{
+  "schema_version": 55,
+  "extract_version": 267,
+  "source": "《凡人修仙传》— 人工精读提取 · 法术类（神念之壁·冥河天尸诀·土遁：第906–910章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v266 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 3,
+  "entries": [
+    {
+      "id": "technique_357",
+      "display": "神识化形神念之壁",
+      "category": "technique",
+      "term": "神念之壁",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第908章 三尸"},
+      "setting": "金泡中米粒绿光（王儿分神）急遁时，韩神念一凝化壁反弹；啼魂霞光卷回吞入。显神识化形术对逃逸分神的拦截。",
+      "visual_descriptions": [
+        "一团米粒大小的绿光突然从中激射而出，直往石室顶部急遁而走。",
+        "绿光仿佛撞到了什么，一个跌跄后从空中被反弹了下来，正是韩立的神识化形术形成的神念之壁。"
+      ],
+      "setting_descriptions": [
+        "啼魂兽鼻子一哼，一片霞光从下方飞射而出，一下将绿光卷回了金泡中，并吞入了腹中。"
+      ]
+    },
+    {
+      "id": "technique_358",
+      "display": "冥河天尸诀",
+      "category": "technique",
+      "term": "冥河天尸诀",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第908章 三尸"},
+      "setting": "炫烨王父传王儿的尸道功法。分神损耗可藉此续修恢复；心性难控则易暴怒。与炼成天尸之体、离魂脱墓一脉。",
+      "visual_descriptions": [
+        "黑气缭绕，一个高大人影蓦然从石棺中站了起来。"
+      ],
+      "setting_descriptions": [
+        "这点分神只要继续修炼你父王传给你的“冥河天尸诀”，不久就会恢复如初的，用不着这般暴怒。"
+      ]
+    },
+    {
+      "id": "technique_359",
+      "display": "土灵之体土遁",
+      "category": "technique",
+      "term": "土遁术",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第907章 上古巨墓"},
+      "setting": "金元土属性散修，天生土灵之体，土遁小有造诣；古墓行尸大杀时自地下遁出独活。常觅上古洞府，灵根劣故大宗不收。",
+      "visual_descriptions": [
+        "幸亏我精通土遁之术，见识不妙，立刻从地下逃了出来。"
+      ],
+      "setting_descriptions": [
+        "偏偏天生的土灵之体，在土遁术上有些小造诣。若不是在下灵根实在低劣，恐怕不少大宗门还会抢着收老夫为徒。"
+      ]
+    }
+  ]
+}
