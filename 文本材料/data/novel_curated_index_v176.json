@@ -1,0 +1,20 @@
+{
+  "schema_version": 55,
+  "extract_version": 176,
+  "source": "《凡人修仙传》— 人工精读提取 · 总索引（出海·婴鲤兽·斗结丹·海猿岛：第378–385章）",
+  "method": "沿原文逐段精读（丹道评鉴降尘丹·出海六连殿阵法师冯三娘·婴鲤兽水罡神雷·干天戈伏妖·乌丑玄阴魔气极阴老祖·鬼头令牌灭口·碧水青甲阵斩杀古长老·降尘丹黄丸·结丹辅药规则三年五年·海猿岛），凭理解概括设定，视觉描述为原文逐字引用。与 v148–v175 互补。",
+  "disclaimer": "代表性精读而非穷尽全本（4795 章无法逐字读完）；本批覆盖主传第378–385章，入包前仍需人工校订。",
+  "reading_progress": "《凡人修仙传》已逐段精读至第385章（海猿岛），约全书 19.2%（385/2005）。",
+  "totals": {
+    "entities": 19,
+    "by_category": {"设定": 7, "法宝": 5, "法术": 3, "材料": 4}
+  },
+  "note": "本弧线：韩立研判降尘丹后应六连殿出海；六遁水波阵困婴鲤兽，干天戈钉兽；极阴岛乌丑以玄阴魔气夺兽，鬼头令牌暴露身份触发灭口；韩立碧水青甲阵斩古长老得五粒降尘丹；远遁海猿岛准备结丹。",
+  "files": {
+    "setting": "novel_curated_settings_v176.json",
+    "artifact": "novel_curated_artifacts_v176.json",
+    "technique": "novel_curated_techniques_v176.json",
+    "material": "novel_curated_materials_v176.json"
+  },
+  "docs": "docs/NOVEL_CURATED_EXTRACT_v176.md"
+}
