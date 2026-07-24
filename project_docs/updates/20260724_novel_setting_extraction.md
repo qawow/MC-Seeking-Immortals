@@ -1632,3 +1632,15 @@
 - 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
 - 备份：`.bak/20260729_050000`
 - 文件：`文本材料/data/novel_curated_*_v300.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v300.md`，`文本材料/README_WORLDPACK.md`
+
+
+## 2026-07-29 · v301 化丹·密室诸宝·收魔·北冥岛·冰城（第1076–1080章）
+
+- 方法：沿原文逐段连续精读主传第 1076–1080 章，凭理解概括；视觉描述为原文逐字引用。
+- 产出：高保真条目 16（设定 6 / 法宝 4 / 法术 3 / 材料 3）。
+- ID 区间：setting_925–930，artifact_601–604，technique_459–461，material_481–483。
+- 关节点：雪连峰雾阵+六翼霜蚣；培婴丹半年炼化元婴壮大；八灵尺佛光通宝诀；青竹蜂云剑重祭；五子同心魔控魔秘术收服；十余年出关赴北冥；蜃楼石/定元牌；降魔杖灭八级妖兽分神；冰城访白瑶怡·碧师叔出场。
+- 阅读进度：1080/2005 ≈ 53.9%；下一批自第 1081 章。
+- 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
+- 备份：`.bak/20260729_060000`
+- 文件：`文本材料/data/novel_curated_*_v301.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v301.md`，`文本材料/README_WORLDPACK.md`

@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 301,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（化丹·密室诸宝·收魔·北冥岛·冰城：第1076–1080章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v300 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1076章 化丹 — 第1080章 冰城",
+  "progress": "1080/2005 ≈ 53.9%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_925–setting_930",
+    "artifacts": "artifact_601–artifact_604",
+    "techniques": "technique_459–technique_461",
+    "materials": "material_481–material_483"
+  },
+  "entries": [
+    {"id": "setting_925", "display": "雪连峰隐居与雾阵守卫", "category": "setting", "file": "novel_curated_settings_v301.json"},
+    {"id": "setting_926", "display": "培婴丹炼化与元婴壮大", "category": "setting", "file": "novel_curated_settings_v301.json"},
+    {"id": "setting_927", "display": "五子同心魔修炼与控魔秘术", "category": "setting", "file": "novel_curated_settings_v301.json"},
+    {"id": "setting_928", "display": "北冥岛与北夜小极宫", "category": "setting", "file": "novel_curated_settings_v301.json"},
+    {"id": "setting_929", "display": "蜃楼石禁制与定元牌", "category": "setting", "file": "novel_curated_settings_v301.json"},
+    {"id": "setting_930", "display": "冰城巨山与宫门禁制", "category": "setting", "file": "novel_curated_settings_v301.json"},
+    {"id": "artifact_601", "display": "八灵尺通宝诀", "category": "artifact", "file": "novel_curated_artifacts_v301.json"},
+    {"id": "artifact_602", "display": "降魔杖", "category": "artifact", "file": "novel_curated_artifacts_v301.json"},
+    {"id": "artifact_603", "display": "定元牌", "category": "artifact", "file": "novel_curated_artifacts_v301.json"},
+    {"id": "artifact_604", "display": "五子魔收纳黑瓶", "category": "artifact", "file": "novel_curated_artifacts_v301.json"},
+    {"id": "technique_459", "display": "培婴丹元婴炼化", "category": "technique", "file": "novel_curated_techniques_v301.json"},
+    {"id": "technique_460", "display": "青竹蜂云剑重祭", "category": "technique", "file": "novel_curated_techniques_v301.json"},
+    {"id": "technique_461", "display": "五子魔控魔秘术", "category": "technique", "file": "novel_curated_techniques_v301.json"},
+    {"id": "material_481", "display": "培婴丹", "category": "material", "file": "novel_curated_materials_v301.json"},
+    {"id": "material_482", "display": "蜃楼石", "category": "material", "file": "novel_curated_materials_v301.json"},
+    {"id": "material_483", "display": "太阴真火", "category": "material", "file": "novel_curated_materials_v301.json"}
+  ]
+}
