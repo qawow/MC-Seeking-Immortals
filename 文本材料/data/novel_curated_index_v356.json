@@ -1,0 +1,120 @@
+{
+  "schema_version": 55,
+  "extract_version": 356,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（百脉炼宝诀·绿影·异族疑云·天广殿·聚会：第1351–1355章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v355 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1351章 百脉炼宝诀 — 第1355章 聚会",
+  "progress": "1355/2005 ≈ 67.6%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1255–setting_1260",
+    "artifacts": "artifact_821–artifact_824",
+    "techniques": "technique_624–technique_626",
+    "materials": "material_646–material_648"
+  },
+  "entries": [
+    {
+      "id": "setting_1255",
+      "display": "百脉炼宝诀与法体双修抉择",
+      "category": "setting",
+      "file": "novel_curated_settings_v356.json"
+    },
+    {
+      "id": "setting_1256",
+      "display": "影族等阶与影傀儡",
+      "category": "setting",
+      "file": "novel_curated_settings_v356.json"
+    },
+    {
+      "id": "setting_1257",
+      "display": "异族探子激增与攻城疑云",
+      "category": "setting",
+      "file": "novel_curated_settings_v356.json"
+    },
+    {
+      "id": "setting_1258",
+      "display": "百族大战历史周期",
+      "category": "setting",
+      "file": "novel_curated_settings_v356.json"
+    },
+    {
+      "id": "setting_1259",
+      "display": "天广殿长老讲道与功绩",
+      "category": "setting",
+      "file": "novel_curated_settings_v356.json"
+    },
+    {
+      "id": "setting_1260",
+      "display": "飞升修士隐秘聚会",
+      "category": "setting",
+      "file": "novel_curated_settings_v356.json"
+    },
+    {
+      "id": "artifact_821",
+      "display": "金阙玉书百脉炼宝诀玉牌",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v356.json"
+    },
+    {
+      "id": "artifact_822",
+      "display": "高阶异灵盘",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v356.json"
+    },
+    {
+      "id": "artifact_823",
+      "display": "铁蜂傀儡与雷符",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v356.json"
+    },
+    {
+      "id": "artifact_824",
+      "display": "功绩玉牌与传道令",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v356.json"
+    },
+    {
+      "id": "technique_624",
+      "display": "梵圣真魔功启修",
+      "category": "technique",
+      "file": "novel_curated_techniques_v356.json"
+    },
+    {
+      "id": "technique_625",
+      "display": "元磁神光克制影族",
+      "category": "technique",
+      "file": "novel_curated_techniques_v356.json"
+    },
+    {
+      "id": "technique_626",
+      "display": "五色寒焰骨戒与禁制收影",
+      "category": "technique",
+      "file": "novel_curated_techniques_v356.json"
+    },
+    {
+      "id": "material_646",
+      "display": "玉清丹化神级炼制",
+      "category": "material",
+      "file": "novel_curated_materials_v356.json"
+    },
+    {
+      "id": "material_647",
+      "display": "珍稀灵药种子交易",
+      "category": "material",
+      "file": "novel_curated_materials_v356.json"
+    },
+    {
+      "id": "material_648",
+      "display": "万年灵药换种子",
+      "category": "material",
+      "file": "novel_curated_materials_v356.json"
+    }
+  ]
+}
