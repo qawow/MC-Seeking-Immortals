@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 329,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（星宫之战十二至十四·灵根与五行合一·破阵：第1216–1220章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v328 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1216章 星宫之战（十二） — 第1220章 破阵",
+  "progress": "1220/2005 ≈ 60.8%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1093–setting_1098",
+    "artifacts": "artifact_713–artifact_716",
+    "techniques": "technique_543–technique_545",
+    "materials": "material_565–material_567"
+  },
+  "entries": [
+    {"id": "setting_1093", "display": "金弧灭圣魔与魔髓飞刀斩刺魔", "category": "setting", "file": "novel_curated_settings_v329.json"},
+    {"id": "setting_1094", "display": "黑风云帕遁与风雷翅电弧追", "category": "setting", "file": "novel_curated_settings_v329.json"},
+    {"id": "setting_1095", "display": "明王三层疾风九变斩臂负担", "category": "setting", "file": "novel_curated_settings_v329.json"},
+    {"id": "setting_1096", "display": "三神白骨幡与五子同心魔对阵", "category": "setting", "file": "novel_curated_settings_v329.json"},
+    {"id": "setting_1097", "display": "明清灵目辨影与辟邪神雷灭魂", "category": "setting", "file": "novel_curated_settings_v329.json"},
+    {"id": "setting_1098", "display": "五行合一·丹灵根器灵根与小天劫", "category": "setting", "file": "novel_curated_settings_v329.json"},
+    {"id": "artifact_713", "display": "魔髓飞刀", "category": "artifact", "file": "novel_curated_artifacts_v329.json"},
+    {"id": "artifact_714", "display": "黑濛濛云帕本命遁", "category": "artifact", "file": "novel_curated_artifacts_v329.json"},
+    {"id": "artifact_715", "display": "三神白骨幡", "category": "artifact", "file": "novel_curated_artifacts_v329.json"},
+    {"id": "artifact_716", "display": "蓝色玉伞与绿色禁锢瓶", "category": "artifact", "file": "novel_curated_artifacts_v329.json"},
+    {"id": "technique_543", "display": "风雷翅雷球合一电弧遁", "category": "technique", "file": "novel_curated_techniques_v329.json"},
+    {"id": "technique_544", "display": "明王三层疾风九变", "category": "technique", "file": "novel_curated_techniques_v329.json"},
+    {"id": "technique_545", "display": "五色寒焰冰刃与五魔噬幡", "category": "technique", "file": "novel_curated_techniques_v329.json"},
+    {"id": "material_565", "display": "魔髓钻", "category": "material", "file": "novel_curated_materials_v329.json"},
+    {"id": "material_566", "display": "双头乌蟒毒雾灵虫", "category": "material", "file": "novel_curated_materials_v329.json"},
+    {"id": "material_567", "display": "丹灵根与器灵根", "category": "material", "file": "novel_curated_materials_v329.json"}
+  ]
+}
