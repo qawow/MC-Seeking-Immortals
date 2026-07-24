@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 331,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（天机殿·意外来客·佛宗高人·交手·金刚：第1226–1230章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v330 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1226章 天机殿 — 第1230章 金刚",
+  "progress": "1230/2005 ≈ 61.3%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1105–setting_1110",
+    "artifacts": "artifact_721–artifact_724",
+    "techniques": "technique_549–technique_551",
+    "materials": "material_571–material_573"
+  },
+  "entries": [
+    {"id": "setting_1105", "display": "大晋三事：鬼罗幡·回阳水·芥子空间", "category": "setting", "file": "novel_curated_settings_v331.json"},
+    {"id": "setting_1106", "display": "天机殿游离芥子空间", "category": "setting", "file": "novel_curated_settings_v331.json"},
+    {"id": "setting_1107", "display": "突兀族高阶集中闭关与天机阁路线", "category": "setting", "file": "novel_curated_settings_v331.json"},
+    {"id": "setting_1108", "display": "芥子法阵布阵器具替代炼法", "category": "setting", "file": "novel_curated_settings_v331.json"},
+    {"id": "setting_1109", "display": "元智焰竹佛宗身份与切磋交易", "category": "setting", "file": "novel_curated_settings_v331.json"},
+    {"id": "setting_1110", "display": "明王四层金身与金刚虚影交手", "category": "setting", "file": "novel_curated_settings_v331.json"},
+    {"id": "artifact_721", "display": "天机殿金甲傀儡武士", "category": "artifact", "file": "novel_curated_artifacts_v331.json"},
+    {"id": "artifact_722", "display": "万年火珊瑚禅杖与翠绿佛珠", "category": "artifact", "file": "novel_curated_artifacts_v331.json"},
+    {"id": "artifact_723", "display": "青竹蜂云剑聚冰巨剑", "category": "artifact", "file": "novel_curated_artifacts_v331.json"},
+    {"id": "artifact_724", "display": "三焰扇火鸟与紫焰寒珠", "category": "artifact", "file": "novel_curated_artifacts_v331.json"},
+    {"id": "technique_549", "display": "明王决第四层金身", "category": "technique", "file": "novel_curated_techniques_v331.json"},
+    {"id": "technique_550", "display": "金刚虚影与白莲瞬移", "category": "technique", "file": "novel_curated_techniques_v331.json"},
+    {"id": "technique_551", "display": "青竹蜂云剑化剑为丝", "category": "technique", "file": "novel_curated_techniques_v331.json"},
+    {"id": "material_571", "display": "太阳精火与回阳水", "category": "material", "file": "novel_curated_materials_v331.json"},
+    {"id": "material_572", "display": "万年火珊瑚", "category": "material", "file": "novel_curated_materials_v331.json"},
+    {"id": "material_573", "display": "万年玄玉寒气极限", "category": "material", "file": "novel_curated_materials_v331.json"}
+  ]
+}
