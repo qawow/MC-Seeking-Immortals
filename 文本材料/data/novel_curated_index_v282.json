@@ -1,0 +1,32 @@
+{
+  "schema_version": 55,
+  "extract_version": 282,
+  "source": "《凡人修仙传》— 人工精读索引（孽猿·五子同心魔·黑晶·尸狼·煞魂丝：第981–985章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v281 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第981–985章",
+  "progress": {
+    "chapters_covered_end": 985,
+    "total_main_chapters": 2005,
+    "approx_percent": 49.1
+  },
+  "count": 16,
+  "entries": [
+    {"id": "setting_811", "display": "上古炼魂活祭洞", "category": "setting", "file": "novel_curated_settings_v282.json"},
+    {"id": "setting_812", "display": "孽猿与干尸重生", "category": "setting", "file": "novel_curated_settings_v282.json"},
+    {"id": "setting_813", "display": "阴罗宗灭何家", "category": "setting", "file": "novel_curated_settings_v282.json"},
+    {"id": "setting_814", "display": "风穴黑晶与阴冥蛾", "category": "setting", "file": "novel_curated_settings_v282.json"},
+    {"id": "setting_815", "display": "阴芝马现踪尸狼", "category": "setting", "file": "novel_curated_settings_v282.json"},
+    {"id": "setting_816", "display": "煞魂丝尸煞对峙", "category": "setting", "file": "novel_curated_settings_v282.json"},
+    {"id": "artifact_525", "display": "蓝元晶飞剑", "category": "artifact", "file": "novel_curated_artifacts_v282.json"},
+    {"id": "artifact_526", "display": "白瑶怡冰扇与玉伞", "category": "artifact", "file": "novel_curated_artifacts_v282.json"},
+    {"id": "artifact_527", "display": "浑天砖与五子同心魔", "category": "artifact", "file": "novel_curated_artifacts_v282.json"},
+    {"id": "artifact_528", "display": "七色灵光法轮", "category": "artifact", "file": "novel_curated_artifacts_v282.json"},
+    {"id": "technique_402", "display": "上古炼魂活祭", "category": "technique", "file": "novel_curated_techniques_v282.json"},
+    {"id": "technique_403", "display": "五子同心魔", "category": "technique", "file": "novel_curated_techniques_v282.json"},
+    {"id": "technique_404", "display": "煞魂丝与尸煞", "category": "technique", "file": "novel_curated_techniques_v282.json"},
+    {"id": "material_424", "display": "蓝元晶", "category": "material", "file": "novel_curated_materials_v282.json"},
+    {"id": "material_425", "display": "阴穴黑晶", "category": "material", "file": "novel_curated_materials_v282.json"},
+    {"id": "material_426", "display": "阴芝马现身", "category": "material", "file": "novel_curated_materials_v282.json"}
+  ]
+}
