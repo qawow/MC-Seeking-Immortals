@@ -1,0 +1,120 @@
+{
+  "schema_version": 55,
+  "extract_version": 344,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（传承珠·虞阳城·飞蝎·重得宝物·天元武具：第1291–1295章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v343 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1291章 传承珠 — 第1295章 天元武具",
+  "progress": "1295/2005 ≈ 64.6%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1183–setting_1188",
+    "artifacts": "artifact_773–artifact_776",
+    "techniques": "technique_588–technique_590",
+    "materials": "material_610–material_612"
+  },
+  "entries": [
+    {
+      "id": "setting_1183",
+      "display": "黑凤传承珠与化形协议",
+      "category": "setting",
+      "file": "novel_curated_settings_v344.json"
+    },
+    {
+      "id": "setting_1184",
+      "display": "虞阳城炼体圣塔与灵具之都",
+      "category": "setting",
+      "file": "novel_curated_settings_v344.json"
+    },
+    {
+      "id": "setting_1185",
+      "display": "灵具师条件与炼制",
+      "category": "setting",
+      "file": "novel_curated_settings_v344.json"
+    },
+    {
+      "id": "setting_1186",
+      "display": "六翼霜蚣成熟体与心神联系",
+      "category": "setting",
+      "file": "novel_curated_settings_v344.json"
+    },
+    {
+      "id": "setting_1187",
+      "display": "落日之墓边境缓冲地",
+      "category": "setting",
+      "file": "novel_curated_settings_v344.json"
+    },
+    {
+      "id": "setting_1188",
+      "display": "落日城分区与天元武具拍卖",
+      "category": "setting",
+      "file": "novel_curated_settings_v344.json"
+    },
+    {
+      "id": "artifact_773",
+      "display": "灭仙珠威慑化神",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v344.json"
+    },
+    {
+      "id": "artifact_774",
+      "display": "金蛟顶阶灵具",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v344.json"
+    },
+    {
+      "id": "artifact_775",
+      "display": "地蛟筋蛟索",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v344.json"
+    },
+    {
+      "id": "artifact_776",
+      "display": "天元武具五件套",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v344.json"
+    },
+    {
+      "id": "technique_588",
+      "display": "迷魂大法与明清灵目反噬",
+      "category": "technique",
+      "file": "novel_curated_techniques_v344.json"
+    },
+    {
+      "id": "technique_589",
+      "display": "金刚诀七层瓶颈与九玄明玉潭",
+      "category": "technique",
+      "file": "novel_curated_techniques_v344.json"
+    },
+    {
+      "id": "technique_590",
+      "display": "荒野击杀妖兽破瓶法",
+      "category": "technique",
+      "file": "novel_curated_techniques_v344.json"
+    },
+    {
+      "id": "material_610",
+      "display": "飞蝎群与聚体蝎王",
+      "category": "material",
+      "file": "novel_curated_materials_v344.json"
+    },
+    {
+      "id": "material_611",
+      "display": "六翼霜蚣虫壳与寒光",
+      "category": "material",
+      "file": "novel_curated_materials_v344.json"
+    },
+    {
+      "id": "material_612",
+      "display": "储物袋与灵兽袋重得",
+      "category": "material",
+      "file": "novel_curated_materials_v344.json"
+    }
+  ]
+}
