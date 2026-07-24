@@ -1,0 +1,20 @@
+{
+  "schema_version": 55,
+  "extract_version": 180,
+  "source": "《凡人修仙传》— 人工精读提取 · 总索引（隐煞门·附身禁神·天都尸火·虚天残图·元磁神光·金雷竹：第404–411章）",
+  "method": "沿原文逐段精读（隐煞门煞妖变身·附身大法禁神牌·天都尸火·寒黎珠·赤火倒戈·十八天都尸·木龙碑·虚天残图·元磁神光·名义长老·膏玉盒·天雷竹等阶金雷竹），凭理解概括设定，视觉描述为原文逐字引用。与 v148–v179 互补。",
+  "disclaimer": "代表性精读而非穷尽全本（4795 章无法逐字读完）；本批覆盖主传第404–411章，入包前仍需人工校订。",
+  "reading_progress": "《凡人修仙传》已逐段精读至第411章（培竹），约全书 20.5%（411/2005）；第412章青竹小轩起为下一批。",
+  "totals": {
+    "entities": 16,
+    "by_category": {"设定": 6, "法宝": 4, "法术": 3, "材料": 3}
+  },
+  "note": "本弧线：邪修岛诡局·隐煞门与妙音门中圈套；极阴附身乌丑出天都尸火禁神牌；赤火倒戈·寒黎珠被夺；十八天都尸拦逃；木龙碑三女遁走；韩立埋岛月余回城；名义长老换含根天雷竹；绿液催成金雷竹。",
+  "files": {
+    "setting": "novel_curated_settings_v180.json",
+    "artifact": "novel_curated_artifacts_v180.json",
+    "technique": "novel_curated_techniques_v180.json",
+    "material": "novel_curated_materials_v180.json"
+  },
+  "docs": "docs/NOVEL_CURATED_EXTRACT_v180.md"
+}
