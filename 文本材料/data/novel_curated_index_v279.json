@@ -1,0 +1,32 @@
+{
+  "schema_version": 55,
+  "extract_version": 279,
+  "source": "《凡人修仙传》— 人工精读索引（灭蛟·裂魂·傀儡大成·苦竹岛·苦竹老人：第966–970章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v278 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第966–970章",
+  "progress": {
+    "chapters_covered_end": 970,
+    "total_main_chapters": 2005,
+    "approx_percent": 48.4
+  },
+  "count": 16,
+  "entries": [
+    {"id": "setting_793", "display": "庚精飞剑斩首赤火蛟", "category": "setting", "file": "novel_curated_settings_v279.json"},
+    {"id": "setting_794", "display": "分魂术精魂融傀儡", "category": "setting", "file": "novel_curated_settings_v279.json"},
+    {"id": "setting_795", "display": "叱灵软玉罡银傀儡成", "category": "setting", "file": "novel_curated_settings_v279.json"},
+    {"id": "setting_796", "display": "苦竹岛万木大阵", "category": "setting", "file": "novel_curated_settings_v279.json"},
+    {"id": "setting_797", "display": "乌凤翎交易受拒", "category": "setting", "file": "novel_curated_settings_v279.json"},
+    {"id": "setting_798", "display": "苦竹老人约战换翎", "category": "setting", "file": "novel_curated_settings_v279.json"},
+    {"id": "artifact_513", "display": "金电网缚蛟魂碧瓶", "category": "artifact", "file": "novel_curated_artifacts_v279.json"},
+    {"id": "artifact_514", "display": "大衍精魂人形傀儡", "category": "artifact", "file": "novel_curated_artifacts_v279.json"},
+    {"id": "artifact_515", "display": "寒竹飞剑剑阵", "category": "artifact", "file": "novel_curated_artifacts_v279.json"},
+    {"id": "artifact_516", "display": "罡银护身银盾", "category": "artifact", "file": "novel_curated_artifacts_v279.json"},
+    {"id": "technique_393", "display": "金霞山灵影术", "category": "technique", "file": "novel_curated_techniques_v279.json"},
+    {"id": "technique_394", "display": "大衍分魂裂魂术", "category": "technique", "file": "novel_curated_techniques_v279.json"},
+    {"id": "technique_395", "display": "紫焰冰封稳精魂", "category": "technique", "file": "novel_curated_techniques_v279.json"},
+    {"id": "material_415", "display": "叱灵软玉化一神泥", "category": "material", "file": "novel_curated_materials_v279.json"},
+    {"id": "material_416", "display": "雪魄丸饲霜蚣", "category": "material", "file": "novel_curated_materials_v279.json"},
+    {"id": "material_417", "display": "天桑神树灵叶", "category": "material", "file": "novel_curated_materials_v279.json"}
+  ]
+}
