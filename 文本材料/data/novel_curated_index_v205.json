@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 205,
+  "source": "《凡人修仙传》— 人工精读提取索引 v205（主传第539–545章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v204 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第539章 震慑群修",
+    "to_chapter": "第545章 风雷翅",
+    "chapter_range": "539-545",
+    "main_book_chapters_read_through": 545,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "27.2%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v205.json",
+    "novel_curated_artifacts_v205.json",
+    "novel_curated_techniques_v205.json",
+    "novel_curated_materials_v205.json",
+    "novel_curated_index_v205.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v205.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_349", "display": "剑威震慑群修", "category": "setting"},
+    {"id": "setting_350", "display": "幻梦石与回内星海传送阵", "category": "setting"},
+    {"id": "setting_351", "display": "妙音门魔道夺权附庸", "category": "setting"},
+    {"id": "setting_352", "display": "侍妾作罢与荒岛洞府", "category": "setting"},
+    {"id": "setting_353", "display": "九级裂风兽风希", "category": "setting"},
+    {"id": "setting_354", "display": "风雷翅炼宝与混沌邪气", "category": "setting"},
+    {"id": "artifact_217", "display": "十二柄青竹蜂云剑合击", "category": "artifact"},
+    {"id": "artifact_218", "display": "三头六臂铜片功法投影", "category": "artifact"},
+    {"id": "artifact_219", "display": "碧焰酒", "category": "artifact"},
+    {"id": "artifact_220", "display": "风雷翅与雷鹏骨翅", "category": "artifact"},
+    {"id": "technique_171", "display": "十二飞剑破白骨阴火", "category": "technique"},
+    {"id": "technique_172", "display": "丹火强炼碧焰酒破瓶颈", "category": "technique"},
+    {"id": "technique_173", "display": "木属性中和风雷炼宝", "category": "technique"},
+    {"id": "material_193", "display": "黑色伴妖草", "category": "material"},
+    {"id": "material_194", "display": "幻梦石", "category": "material"},
+    {"id": "material_195", "display": "梵圣真片与三梵圣功", "category": "material"}
+  ]
+}
