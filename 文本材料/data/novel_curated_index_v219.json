@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 219,
+  "source": "《凡人修仙传》— 人工精读提取索引 v219（主传第618–621章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v218 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第618章 试剑大会",
+    "to_chapter": "第621章 杜东和觐见",
+    "chapter_range": "618-621",
+    "main_book_chapters_read_through": 621,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "31.0%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v219.json",
+    "novel_curated_artifacts_v219.json",
+    "novel_curated_techniques_v219.json",
+    "novel_curated_materials_v219.json",
+    "novel_curated_index_v219.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v219.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_433", "display": "试剑大会与圣树醇液", "category": "setting"},
+    {"id": "setting_434", "display": "明清灵水与定灵丹奖", "category": "setting"},
+    {"id": "setting_435", "display": "点化器灵主魂迁移", "category": "setting"},
+    {"id": "setting_436", "display": "落云内部选拔规则", "category": "setting"},
+    {"id": "setting_437", "display": "敛息不夺冠策略", "category": "setting"},
+    {"id": "setting_438", "display": "洗心殿与言慕婚约", "category": "setting"},
+    {"id": "artifact_273", "display": "峰主传音符", "category": "artifact"},
+    {"id": "artifact_274", "display": "天星带", "category": "artifact"},
+    {"id": "artifact_275", "display": "青竹蜂云剑器灵", "category": "artifact"},
+    {"id": "artifact_276", "display": "点香青铜鼎", "category": "artifact"},
+    {"id": "technique_213", "display": "器灵迁移法阵", "category": "technique"},
+    {"id": "technique_214", "display": "神念惊退杜东", "category": "technique"},
+    {"id": "technique_215", "display": "玄冰诀小成水术", "category": "technique"},
+    {"id": "material_235", "display": "明清灵水配方", "category": "material"},
+    {"id": "material_236", "display": "定灵丹奖品", "category": "material"},
+    {"id": "material_237", "display": "报名檀香", "category": "material"}
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": 55,
+  "extract_version": 219,
+  "source": "《凡人修仙传》— 人工精读提取 · 法宝类（传音符·天星带·青铜鼎：第618–621章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v218 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 4,
+  "entries": [
+    {
+      "id": "artifact_273",
+      "display": "峰主传音符",
+      "category": "artifact",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第619章 明清灵水"},
+      "setting": "药园禁制外传音符所化红光扎入浓雾；峰主亲自发予几乎被遗忘的外事弟子，召集天泉峰全员。",
+      "visual_descriptions": [
+        "药园的禁制外传来一道传音符所化的红光，一头扎进了浓雾之中，随即不见了踪影。"
+      ],
+      "setting_descriptions": [
+        "连我这样几乎快被人遗忘的家伙，都能收到一封峰主亲自发来的传音符"
+      ]
+    },
+    {
+      "id": "artifact_274",
+      "display": "天星带",
+      "category": "artifact",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第620章 半路来客"},
+      "setting": "慕沛灵红色带状法器，涨为红霞罩人共遁；称韩立上阶飞剑非法器专用飞行故载之。言修士绿光拦路。",
+      "visual_descriptions": [
+        "身上的红色带状法器猛然一涨，化为了一片红霞向韩立迎头罩下。",
+        "一道绿光斜着从高空飞遁而下，一下挡在了幕姓女子的遁光之前"
+      ],
+      "setting_descriptions": [
+        "你这件飞剑虽然是上阶法器，但并非专用的飞行法器，还是我用天星带带你一程吧！"
+      ]
+    },
+    {
+      "id": "artifact_275",
+      "display": "青竹蜂云剑器灵",
+      "category": "artifact",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第619章 明清灵水"},
+      "setting": "银月主魂迁入青竹蜂云剑为器灵，威力大增；可藏身剑内与韩立神念对话，亦可附白狐身。韩立点化三日完成。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "青竹蜂云剑即将拥有器灵，威力自然会增加不少",
+        "一化身器灵，藏身飞剑之内，则会不停的和他说话"
+      ]
+    },
+    {
+      "id": "artifact_276",
+      "display": "点香青铜鼎",
+      "category": "artifact",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第621章 杜东和觐见"},
+      "setting": "俞君儿置青铜鼎于洗心殿中，插檀香点燃，一支香时限报名参赛。",
+      "visual_descriptions": [
+        "从储物袋中掏出一个青铜鼎来，放到了大殿中间。然后他在上面插上了一支檀香，手上火光一闪，点燃了它。",
+        "一股青烟，袅袅升空。"
+      ],
+      "setting_descriptions": [
+        "现在给大家一支香的时间考虑，凡是自认条件合格，又愿意参加比试的弟子，可以自行站出来"
+      ]
+    }
+  ]
+}
