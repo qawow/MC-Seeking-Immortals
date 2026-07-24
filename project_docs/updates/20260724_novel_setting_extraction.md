@@ -1644,3 +1644,15 @@
 - 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
 - 备份：`.bak/20260729_060000`
 - 文件：`文本材料/data/novel_curated_*_v301.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v301.md`，`文本材料/README_WORLDPACK.md`
+
+
+## 2026-07-29 · v302 雪猿冰壁·冰灵果·金风狸·寒骊·三大寒焰（第1081–1085章）
+
+- 方法：沿原文逐段连续精读主传第 1081–1085 章，凭理解概括；视觉描述为原文逐字引用。
+- 产出：高保真条目 16（设定 6 / 法宝 4 / 法术 3 / 材料 3）。
+- ID 区间：setting_931–936，artifact_605–608，technique_462–464，material_484–486。
+- 关节点：冰城雪猿/寒骊秘境；虚灵殿似虚天殿；冰灵果连吞；金风狸双生隐匿；寒骊半步化神·乾蓝冰焰蓝鼎；五焰刺激化神交易；三大寒焰·寒髓被盗·万妖谷·虚天鼎喃语。
+- 阅读进度：1085/2005 ≈ 54.1%；下一批自第 1086 章。
+- 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
+- 备份：`.bak/20260729_070000`
+- 文件：`文本材料/data/novel_curated_*_v302.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v302.md`，`文本材料/README_WORLDPACK.md`

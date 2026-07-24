@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 302,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（雪猿冰壁宫殿·冰灵果·金风狸·寒骊上人·三大寒焰：第1081–1085章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v301 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1081章 雪猿、冰壁、宫殿 — 第1085章 三大寒焰",
+  "progress": "1085/2005 ≈ 54.1%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_931–setting_936",
+    "artifacts": "artifact_605–artifact_608",
+    "techniques": "technique_462–technique_464",
+    "materials": "material_484–material_486"
+  },
+  "entries": [
+    {"id": "setting_931", "display": "冰城雪猿与寒骊秘境", "category": "setting", "file": "novel_curated_settings_v302.json"},
+    {"id": "setting_932", "display": "虚灵殿与虚天殿渊源", "category": "setting", "file": "novel_curated_settings_v302.json"},
+    {"id": "setting_933", "display": "金风狸双生隐匿", "category": "setting", "file": "novel_curated_settings_v302.json"},
+    {"id": "setting_934", "display": "寒骊上人半步化神", "category": "setting", "file": "novel_curated_settings_v302.json"},
+    {"id": "setting_935", "display": "三大寒焰与寒髓修炼", "category": "setting", "file": "novel_curated_settings_v302.json"},
+    {"id": "setting_936", "display": "五焰刺激化神法", "category": "setting", "file": "novel_curated_settings_v302.json"},
+    {"id": "artifact_605", "display": "内宫银玉牌", "category": "artifact", "file": "novel_curated_artifacts_v302.json"},
+    {"id": "artifact_606", "display": "束焰蓝鼎", "category": "artifact", "file": "novel_curated_artifacts_v302.json"},
+    {"id": "artifact_607", "display": "藏经阁玉佩", "category": "artifact", "file": "novel_curated_artifacts_v302.json"},
+    {"id": "artifact_608", "display": "冰灵果", "category": "artifact", "file": "novel_curated_artifacts_v302.json"},
+    {"id": "technique_462", "display": "极寒之焰精炼秘术", "category": "technique", "file": "novel_curated_techniques_v302.json"},
+    {"id": "technique_463", "display": "五焰刺激化神秘术", "category": "technique", "file": "novel_curated_techniques_v302.json"},
+    {"id": "technique_464", "display": "神念洞穿反弹", "category": "technique", "file": "novel_curated_techniques_v302.json"},
+    {"id": "material_484", "display": "冰灵果（小极宫）", "category": "material", "file": "novel_curated_materials_v302.json"},
+    {"id": "material_485", "display": "乾蓝冰焰（小极宫）", "category": "material", "file": "novel_curated_materials_v302.json"},
+    {"id": "material_486", "display": "寒髓（小极宫）", "category": "material", "file": "novel_curated_materials_v302.json"}
+  ]
+}
