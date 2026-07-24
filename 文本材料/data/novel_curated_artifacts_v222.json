@@ -1,0 +1,67 @@
+{
+  "schema_version": 55,
+  "extract_version": 222,
+  "source": "《凡人修仙传》— 人工精读提取 · 法宝类（醇液瓶·火蟒·玉盒·绿简：第634–637章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v221 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 4,
+  "entries": [
+    {
+      "id": "artifact_285",
+      "display": "白色醇液小瓶",
+      "category": "artifact",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第634章 算计"},
+      "setting": "卫兄储物袋白瓶装已备醇液；拟自禁制扔出。天煞真君附身后抛予杜东，最终被正魔带走。",
+      "visual_descriptions": [
+        "伸手往储物袋中一模，掏出了一个白色小瓶来。"
+      ],
+      "setting_descriptions": [
+        "在下这就已装好的醇液，从禁制中扔出去。",
+        "将手中装着醇液小瓶，抛给了已经靠向他的杜东二人"
+      ]
+    },
+    {
+      "id": "artifact_286",
+      "display": "火龙童子赤红惊虹",
+      "category": "artifact",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第634章 算计"},
+      "setting": "蓝童子口喷火红惊虹，盘旋化栩栩赤红怪蟒张牙舞爪；可化无数晶莹红线激射。天煞称火龙童子。另口喷炙热红光烫缓紫爪。",
+      "visual_descriptions": [
+        "一道火红惊虹脱口射……原本射出的惊虹一下盘旋后飞回，化为了一条栩栩如生的赤红怪蟒，张牙舞爪着。",
+        "身前惊虹一抖之下，化为无数晶莹红线向天煞真君激射而去。"
+      ],
+      "setting_descriptions": [
+        "本宗主可也对火龙童子的大名，久仰多时。"
+      ]
+    },
+    {
+      "id": "artifact_287",
+      "display": "灵根美玉盒",
+      "category": "artifact",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第635章 得灵根"},
+      "setting": "美玉雕刻盒子，韩立将切下灵根小心放入妥善收好后移植药园。",
+      "visual_descriptions": [
+        "一只美玉雕刻成的盒子出现在了手中。他小心翼翼的将那截灵根放入玉盒中，然后神色郑重的妥善收好。"
+      ],
+      "setting_descriptions": []
+    },
+    {
+      "id": "artifact_288",
+      "display": "卫兄绿色玉简",
+      "category": "artifact",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第635章 得灵根"},
+      "setting": "树后石台微弱绿光玉简，无暗禁；记卫兄功法与丹药心得，含定灵丹明清灵水炼法。似留给落云修士。韩立复制空白玉简后放回。",
+      "visual_descriptions": [
+        "石台上一个闪着微弱绿光的玉简。"
+      ],
+      "setting_descriptions": [
+        "里面竟记载了那披发修士，修炼的功法和一些在丹药上的心得，那定灵丹和明清灵水的炼制之法，赫然就在其中。",
+        "这玉简毫不掩饰的被放在灵树之后，看样子是留给落云宗修士的"
+      ]
+    }
+  ]
+}
