@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 199,
+  "source": "《凡人修仙传》— 人工精读提取索引 v199（主传第517–519章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v198 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第517章 雾中岛",
+    "to_chapter": "第519章 玄阴经",
+    "chapter_range": "517-519",
+    "main_book_chapters_read_through": 519,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "25.9%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v199.json",
+    "novel_curated_artifacts_v199.json",
+    "novel_curated_techniques_v199.json",
+    "novel_curated_materials_v199.json",
+    "novel_curated_index_v199.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v199.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_313", "display": "海渊纵横千万里与海域图", "category": "setting"},
+    {"id": "setting_314", "display": "雾中岛与吞海鱼海雾", "category": "setting"},
+    {"id": "setting_315", "display": "洞府幻象与造雾阵", "category": "setting"},
+    {"id": "setting_316", "display": "五色圆珠疑真补天丹", "category": "setting"},
+    {"id": "setting_317", "display": "金丝蚕二次进化幻焰蛾", "category": "setting"},
+    {"id": "setting_318", "display": "玄阴经肋骨玉简与开鼎无果", "category": "setting"},
+    {"id": "artifact_193", "display": "海域图与妖兽情报玉简", "category": "artifact"},
+    {"id": "artifact_194", "display": "洞府布阵器具与造雾阵旗", "category": "artifact"},
+    {"id": "artifact_195", "display": "玄阴经肋骨玉简", "category": "artifact"},
+    {"id": "artifact_196", "display": "虚天鼎（结丹难开）", "category": "artifact"},
+    {"id": "technique_153", "display": "开山破石半日成府", "category": "technique"},
+    {"id": "technique_154", "display": "聚魂钵阴气灌入激活", "category": "technique"},
+    {"id": "technique_155", "display": "炼晶徐徐炼入飞剑", "category": "technique"},
+    {"id": "material_175", "display": "吞海鱼", "category": "material"},
+    {"id": "material_176", "display": "五色小圆珠（疑真补天丹）", "category": "material"},
+    {"id": "material_177", "display": "九曲灵参本体与白兔化身", "category": "material"}
+  ]
+}
