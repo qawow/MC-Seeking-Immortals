@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 233,
+  "source": "《凡人修仙传》— 人工精读提取索引 v233（主传第710–715章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v232 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第710章 南宫之讯",
+    "to_chapter": "第715章 困心术",
+    "chapter_range": "710-715",
+    "main_book_chapters_read_through": 715,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "35.7%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v233.json",
+    "novel_curated_artifacts_v233.json",
+    "novel_curated_techniques_v233.json",
+    "novel_curated_materials_v233.json",
+    "novel_curated_index_v233.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v233.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_517", "display": "南宫婉双修大典之讯", "category": "setting"},
+    {"id": "setting_518", "display": "天南化神与二百岁元婴", "category": "setting"},
+    {"id": "setting_519", "display": "北凉玲珑山掩月宗", "category": "setting"},
+    {"id": "setting_520", "display": "换形诀化形入山", "category": "setting"},
+    {"id": "setting_521", "display": "南宫婉心魔与真阴之约", "category": "setting"},
+    {"id": "setting_522", "display": "困心术与魏无涯婚局", "category": "setting"},
+    {"id": "artifact_329", "display": "贺礼银剑", "category": "artifact"},
+    {"id": "artifact_330", "display": "掩月管事令牌", "category": "artifact"},
+    {"id": "artifact_331", "display": "困心术令牌", "category": "artifact"},
+    {"id": "artifact_332", "display": "木匣淡银禁符", "category": "artifact"},
+    {"id": "technique_255", "display": "换形诀", "category": "technique"},
+    {"id": "technique_256", "display": "梦引术", "category": "technique"},
+    {"id": "technique_257", "display": "困心术", "category": "technique"},
+    {"id": "material_277", "display": "银月粉红迷雾", "category": "material"},
+    {"id": "material_278", "display": "南宫洞府奇草", "category": "material"},
+    {"id": "material_279", "display": "素女轮回功", "category": "material"}
+  ]
+}
