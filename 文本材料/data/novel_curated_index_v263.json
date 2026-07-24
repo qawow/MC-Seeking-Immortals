@@ -1,0 +1,32 @@
+{
+  "schema_version": 55,
+  "extract_version": 263,
+  "source": "《凡人修仙传》— 人工精读索引（冷漠·驻地·苦毒·昊元丹·冯家密窟：第886–890章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v262 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第886–890章",
+  "progress": {
+    "chapters_covered_end": 890,
+    "total_main_chapters": 2005,
+    "approx_percent": 44.4
+  },
+  "count": 16,
+  "entries": [
+    {"id": "setting_697", "display": "寒雪蜈蚣与猿鹫灭杀", "category": "setting", "file": "novel_curated_settings_v263.json"},
+    {"id": "setting_698", "display": "宁中冯与大晋世家玉佩", "category": "setting", "file": "novel_curated_settings_v263.json"},
+    {"id": "setting_699", "display": "天澜圣殿临时驻地", "category": "setting", "file": "novel_curated_settings_v263.json"},
+    {"id": "setting_700", "display": "十绝毒·苦毒", "category": "setting", "file": "novel_curated_settings_v263.json"},
+    {"id": "setting_701", "display": "冯家与金罗门渊源", "category": "setting", "file": "novel_curated_settings_v263.json"},
+    {"id": "setting_702", "display": "关宁四大世家与密窟钥匙", "category": "setting", "file": "novel_curated_settings_v263.json"},
+    {"id": "artifact_449", "display": "红光寸许银针", "category": "artifact", "file": "novel_curated_artifacts_v263.json"},
+    {"id": "artifact_450", "display": "玲霞佩", "category": "artifact", "file": "novel_curated_artifacts_v263.json"},
+    {"id": "artifact_451", "display": "冯家密窟银钥", "category": "artifact", "file": "novel_curated_artifacts_v263.json"},
+    {"id": "artifact_452", "display": "乌黑三棱钉与火红飞剑", "category": "artifact", "file": "novel_curated_artifacts_v263.json"},
+    {"id": "technique_345", "display": "第二元婴通玄大手", "category": "technique", "file": "novel_curated_techniques_v263.json"},
+    {"id": "technique_346", "display": "隐形石窟法阵", "category": "technique", "file": "novel_curated_techniques_v263.json"},
+    {"id": "technique_347", "display": "昊元丹暂压苦毒针法", "category": "technique", "file": "novel_curated_techniques_v263.json"},
+    {"id": "material_367", "display": "猿鹫利爪与长翎", "category": "material", "file": "novel_curated_materials_v263.json"},
+    {"id": "material_368", "display": "昊元丹", "category": "material", "file": "novel_curated_materials_v263.json"},
+    {"id": "material_369", "display": "舍利子", "category": "material", "file": "novel_curated_materials_v263.json"}
+  ]
+}
