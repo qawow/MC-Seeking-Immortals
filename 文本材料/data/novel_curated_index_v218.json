@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 218,
+  "source": "《凡人修仙传》— 人工精读提取索引 v218（主传第613–617章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v217 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第613章 狐变",
+    "to_chapter": "第617章 去而复返",
+    "chapter_range": "613-617",
+    "main_book_chapters_read_through": 617,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "30.8%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v218.json",
+    "novel_curated_artifacts_v218.json",
+    "novel_curated_techniques_v218.json",
+    "novel_curated_materials_v218.json",
+    "novel_curated_index_v218.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v218.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_427", "display": "尸魈封印与抽魂", "category": "setting"},
+    {"id": "setting_428", "display": "四瞳灵狐与尸魈分神", "category": "setting"},
+    {"id": "setting_429", "display": "银月狼族灵魂吞噬", "category": "setting"},
+    {"id": "setting_430", "display": "器灵主仆与化神自由", "category": "setting"},
+    {"id": "setting_431", "display": "器灵知逆天瓶", "category": "setting"},
+    {"id": "setting_432", "display": "噬金虫不敌尸毒", "category": "setting"},
+    {"id": "artifact_269", "display": "金符玉盒精魂", "category": "artifact"},
+    {"id": "artifact_270", "display": "六道绿甲", "category": "artifact"},
+    {"id": "artifact_271", "display": "银色小钟音波", "category": "artifact"},
+    {"id": "artifact_272", "display": "银狼合体器灵", "category": "artifact"},
+    {"id": "technique_210", "display": "妖狐幻术与银丝", "category": "technique"},
+    {"id": "technique_211", "display": "银狼夺舍灵魂吞噬", "category": "technique"},
+    {"id": "technique_212", "display": "临时禁制与人身化形", "category": "technique"},
+    {"id": "material_232", "display": "尸魈尸毒", "category": "material"},
+    {"id": "material_233", "display": "点化器灵材料", "category": "material"},
+    {"id": "material_234", "display": "碧云袋", "category": "material"}
+  ]
+}
