@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 326,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（二女·闭关·星宫来讯·星海之乱·星宫之战：第1201–1205章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v325 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1201章 二女 — 第1205章 星宫之战（一）",
+  "progress": "1205/2005 ≈ 60.1%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1075–setting_1080",
+    "artifacts": "artifact_701–artifact_704",
+    "techniques": "technique_534–technique_536",
+    "materials": "material_556–material_558"
+  },
+  "entries": [
+    {"id": "setting_1075", "display": "奕梦诀心魔关与董萱儿", "category": "setting", "file": "novel_curated_settings_v326.json"},
+    {"id": "setting_1076", "display": "百余年闭关收获与出关万里符", "category": "setting", "file": "novel_curated_settings_v326.json"},
+    {"id": "setting_1077", "display": "石坚拜师与大衍宝经传承", "category": "setting", "file": "novel_curated_settings_v326.json"},
+    {"id": "setting_1078", "display": "越国上古传送阵重建与霜蚣守", "category": "setting", "file": "novel_curated_settings_v326.json"},
+    {"id": "setting_1079", "display": "星海之乱双圣自爆与万天明", "category": "setting", "file": "novel_curated_settings_v326.json"},
+    {"id": "setting_1080", "display": "天星城被围与元磁山", "category": "setting", "file": "novel_curated_settings_v326.json"},
+    {"id": "artifact_701", "display": "万里符残玉血字传讯", "category": "artifact", "file": "novel_curated_artifacts_v326.json"},
+    {"id": "artifact_702", "display": "木生珠养魂木灵眼树炼成", "category": "artifact", "file": "novel_curated_artifacts_v326.json"},
+    {"id": "artifact_703", "display": "双尾蝎毒钩与昆吾火龙柱", "category": "artifact", "file": "novel_curated_artifacts_v326.json"},
+    {"id": "artifact_704", "display": "乾坤网青丝困结丹", "category": "artifact", "file": "novel_curated_artifacts_v326.json"},
+    {"id": "technique_534", "display": "神念传度秘术渡心魔", "category": "technique", "file": "novel_curated_techniques_v326.json"},
+    {"id": "technique_535", "display": "五魔炼极寒之焰", "category": "technique", "file": "novel_curated_techniques_v326.json"},
+    {"id": "technique_536", "display": "明王三层疾风九变与灵目大成", "category": "technique", "file": "novel_curated_techniques_v326.json"},
+    {"id": "material_556", "display": "绛云丹灵草耗尽难催", "category": "material", "file": "novel_curated_materials_v326.json"},
+    {"id": "material_557", "display": "养魂木与灵眼之树三大灵木", "category": "material", "file": "novel_curated_materials_v326.json"},
+    {"id": "material_558", "display": "元磁山人界奇物", "category": "material", "file": "novel_curated_materials_v326.json"}
+  ]
+}
