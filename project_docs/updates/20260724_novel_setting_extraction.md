@@ -1779,3 +1779,14 @@
 - 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
 - 备份：`.bak/20260725_053000`
 - 文件：`文本材料/data/novel_curated_*_v313.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v313.md`，`文本材料/README_WORLDPACK.md`
+
+## 2026-07-25 · v314 青羽·雷空岛·神念附灵·守株待兔·截杀（第1141–1145章）
+
+- 方法：沿原文逐段连续精读主传第 1141–1145 章，凭理解概括；视觉描述为原文逐字引用。
+- 产出：高保真条目 16（设定 6 / 法宝 4 / 法术 3 / 材料 3）。
+- ID 区间：setting_1003–1008，artifact_653–656，technique_498–500，material_520–522。
+- 关节点：金网+精血符收跨界青羽；鬼雾活体/罗睺猜想；斩六级婴鲤兽；雷空岛八塔坊市换百余高阶灵石；神念寄附噬金虫监视辰京；妙鹤夺舍六连殿；神识化千守株；夜截妙鹤黄昆·风雷翅紫焰开打。
+- 阅读进度：1145/2005 ≈ 57.1%；下一批自第 1146 章。
+- 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
+- 备份：`.bak/20260725_054500`
+- 文件：`文本材料/data/novel_curated_*_v314.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v314.md`，`文本材料/README_WORLDPACK.md`

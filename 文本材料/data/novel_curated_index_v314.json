@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 314,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（青羽·雷空岛·神念附灵·守株待兔·截杀：第1141–1145章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v313 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1141章 青羽 — 第1145章 截杀",
+  "progress": "1145/2005 ≈ 57.1%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1003–setting_1008",
+    "artifacts": "artifact_653–artifact_656",
+    "techniques": "technique_498–technique_500",
+    "materials": "material_520–material_522"
+  },
+  "entries": [
+    {"id": "setting_1003", "display": "鬼雾活体与罗睺传说", "category": "setting", "file": "novel_curated_settings_v314.json"},
+    {"id": "setting_1004", "display": "雷空岛与石城坊市", "category": "setting", "file": "novel_curated_settings_v314.json"},
+    {"id": "setting_1005", "display": "八石塔守护大阵", "category": "setting", "file": "novel_curated_settings_v314.json"},
+    {"id": "setting_1006", "display": "妙鹤夺舍重生与转颜", "category": "setting", "file": "novel_curated_settings_v314.json"},
+    {"id": "setting_1007", "display": "六连殿逆星盟坊市", "category": "setting", "file": "novel_curated_settings_v314.json"},
+    {"id": "setting_1008", "display": "外海夜行妖兽偷袭风险", "category": "setting", "file": "novel_curated_settings_v314.json"},
+    {"id": "artifact_653", "display": "跨界青羽灵翎", "category": "artifact", "file": "novel_curated_artifacts_v314.json"},
+    {"id": "artifact_654", "display": "婴鲤兽四宝与古鼓", "category": "artifact", "file": "novel_curated_artifacts_v314.json"},
+    {"id": "artifact_655", "display": "白哀针", "category": "artifact", "file": "novel_curated_artifacts_v314.json"},
+    {"id": "artifact_656", "display": "妙鹤火红盾与玉锤", "category": "artifact", "file": "novel_curated_artifacts_v314.json"},
+    {"id": "technique_498", "display": "神念寄附灵物", "category": "technique", "file": "novel_curated_techniques_v314.json"},
+    {"id": "technique_499", "display": "神识化千秘术", "category": "technique", "file": "novel_curated_techniques_v314.json"},
+    {"id": "technique_500", "display": "金电网收青羽", "category": "technique", "file": "novel_curated_techniques_v314.json"},
+    {"id": "material_520", "display": "坊市高阶灵石百余", "category": "material", "file": "novel_curated_materials_v314.json"},
+    {"id": "material_521", "display": "六级婴鲤兽妖丹", "category": "material", "file": "novel_curated_materials_v314.json"},
+    {"id": "material_522", "display": "未成熟噬金虫群", "category": "material", "file": "novel_curated_materials_v314.json"}
+  ]
+}
