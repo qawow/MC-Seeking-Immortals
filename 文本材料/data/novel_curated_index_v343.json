@@ -1,0 +1,120 @@
+{
+  "schema_version": 55,
+  "extract_version": 343,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（女童·追杀·黑凤族·九玄明玉潭·斩杀三妖：第1286–1290章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v342 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1286章 女童 — 第1290章 斩杀三妖",
+  "progress": "1290/2005 ≈ 64.3%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1177–setting_1182",
+    "artifacts": "artifact_769–artifact_772",
+    "techniques": "technique_585–technique_587",
+    "materials": "material_607–material_609"
+  },
+  "entries": [
+    {
+      "id": "setting_1177",
+      "display": "安远城破后与天元城调查",
+      "category": "setting",
+      "file": "novel_curated_settings_v343.json"
+    },
+    {
+      "id": "setting_1178",
+      "display": "黛儿半妖与赵城主孙女",
+      "category": "setting",
+      "file": "novel_curated_settings_v343.json"
+    },
+    {
+      "id": "setting_1179",
+      "display": "黑凤族驱兽潮与八级化形",
+      "category": "setting",
+      "file": "novel_curated_settings_v343.json"
+    },
+    {
+      "id": "setting_1180",
+      "display": "凡人城灵气稀薄与大城市无兽潮",
+      "category": "setting",
+      "file": "novel_curated_settings_v343.json"
+    },
+    {
+      "id": "setting_1181",
+      "display": "九玄明玉潭与七叶阴血芝",
+      "category": "setting",
+      "file": "novel_curated_settings_v343.json"
+    },
+    {
+      "id": "setting_1182",
+      "display": "冥尸谷化尸与尸傀分神",
+      "category": "setting",
+      "file": "novel_curated_settings_v343.json"
+    },
+    {
+      "id": "artifact_769",
+      "display": "金玉宗灵心佩",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v343.json"
+    },
+    {
+      "id": "artifact_770",
+      "display": "黑凤血红寻人珠",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v343.json"
+    },
+    {
+      "id": "artifact_771",
+      "display": "黑凤黑火灵禽与手镯",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v343.json"
+    },
+    {
+      "id": "artifact_772",
+      "display": "金刚诀六层信物短剑",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v343.json"
+    },
+    {
+      "id": "technique_585",
+      "display": "金刚诀四层破瓶颈近五层",
+      "category": "technique",
+      "file": "novel_curated_techniques_v343.json"
+    },
+    {
+      "id": "technique_586",
+      "display": "敛息秘术与光影隐形",
+      "category": "technique",
+      "file": "novel_curated_techniques_v343.json"
+    },
+    {
+      "id": "technique_587",
+      "display": "煞气释放与金拳斩三妖",
+      "category": "technique",
+      "file": "novel_curated_techniques_v343.json"
+    },
+    {
+      "id": "material_607",
+      "display": "七叶阴血芝",
+      "category": "material",
+      "file": "novel_curated_materials_v343.json"
+    },
+    {
+      "id": "material_608",
+      "display": "黑凤族半妖血脉",
+      "category": "material",
+      "file": "novel_curated_materials_v343.json"
+    },
+    {
+      "id": "material_609",
+      "display": "沙虫绿液与妖兽丹药赏赐",
+      "category": "material",
+      "file": "novel_curated_materials_v343.json"
+    }
+  ]
+}
