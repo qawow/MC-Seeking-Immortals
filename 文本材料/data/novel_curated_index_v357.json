@@ -1,0 +1,120 @@
+{
+  "schema_version": 55,
+  "extract_version": 357,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（飞升修士·灵虫大成·任务·暗流·紫影圣皇：第1356–1360章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v356 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1356章 飞升修士 — 第1360章 紫影、圣皇",
+  "progress": "1360/2005 ≈ 67.8%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1261–setting_1266",
+    "artifacts": "artifact_825–artifact_828",
+    "techniques": "technique_627–technique_629",
+    "materials": "material_649–material_651"
+  },
+  "entries": [
+    {
+      "id": "setting_1261",
+      "display": "飞升修士处境与雷罗保元计划",
+      "category": "setting",
+      "file": "novel_curated_settings_v357.json"
+    },
+    {
+      "id": "setting_1262",
+      "display": "黑叶森林与天木梦罗",
+      "category": "setting",
+      "file": "novel_curated_settings_v357.json"
+    },
+    {
+      "id": "setting_1263",
+      "display": "玄天斩灵剑与血祭召唤",
+      "category": "setting",
+      "file": "novel_curated_settings_v357.json"
+    },
+    {
+      "id": "setting_1264",
+      "display": "紫影附身雷罗与金越除魔",
+      "category": "setting",
+      "file": "novel_curated_settings_v357.json"
+    },
+    {
+      "id": "setting_1265",
+      "display": "天元圣皇与人族长老会",
+      "category": "setting",
+      "file": "novel_curated_settings_v357.json"
+    },
+    {
+      "id": "setting_1266",
+      "display": "叶颖天凤血与真灵世家暗流",
+      "category": "setting",
+      "file": "novel_curated_settings_v357.json"
+    },
+    {
+      "id": "artifact_825",
+      "display": "灵云舟",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v357.json"
+    },
+    {
+      "id": "artifact_826",
+      "display": "灭尘丹禁制药瓶",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v357.json"
+    },
+    {
+      "id": "artifact_827",
+      "display": "神秘残缺地图玉简",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v357.json"
+    },
+    {
+      "id": "artifact_828",
+      "display": "四神香与收影青玉钵",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v357.json"
+    },
+    {
+      "id": "technique_627",
+      "display": "百脉炼宝诀手掌祭炼",
+      "category": "technique",
+      "file": "novel_curated_techniques_v357.json"
+    },
+    {
+      "id": "technique_628",
+      "display": "梵圣真魔功金身虚影",
+      "category": "technique",
+      "file": "novel_curated_techniques_v357.json"
+    },
+    {
+      "id": "technique_629",
+      "display": "银蝌符箓与天广殿讲道",
+      "category": "technique",
+      "file": "novel_curated_techniques_v357.json"
+    },
+    {
+      "id": "material_649",
+      "display": "噬金虫成熟体六七千",
+      "category": "material",
+      "file": "novel_curated_materials_v357.json"
+    },
+    {
+      "id": "material_650",
+      "display": "黑炎丹三颗",
+      "category": "material",
+      "file": "novel_curated_materials_v357.json"
+    },
+    {
+      "id": "material_651",
+      "display": "万年玄玉换符箓",
+      "category": "material",
+      "file": "novel_curated_materials_v357.json"
+    }
+  ]
+}
