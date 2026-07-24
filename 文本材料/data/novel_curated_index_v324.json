@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 324,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（度劫·连环天雷·怪异金角·取液·化界珠：第1191–1195章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v323 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1191章 度劫 — 第1195章 化界珠和疾风九变",
+  "progress": "1195/2005 ≈ 59.6%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1063–setting_1068",
+    "artifacts": "artifact_693–artifact_696",
+    "techniques": "technique_528–technique_530",
+    "materials": "material_550–material_552"
+  },
+  "entries": [
+    {"id": "setting_1063", "display": "第二元婴附体人形傀儡", "category": "setting", "file": "novel_curated_settings_v324.json"},
+    {"id": "setting_1064", "display": "溪国花雨国交界死地度劫", "category": "setting", "file": "novel_curated_settings_v324.json"},
+    {"id": "setting_1065", "display": "化形连环天雷与种族差异", "category": "setting", "file": "novel_curated_settings_v324.json"},
+    {"id": "setting_1066", "display": "圆月取液与护法消减规则", "category": "setting", "file": "novel_curated_settings_v324.json"},
+    {"id": "setting_1067", "display": "妖兽化形塑体与人形", "category": "setting", "file": "novel_curated_settings_v324.json"},
+    {"id": "setting_1068", "display": "化界珠与空间节点破界", "category": "setting", "file": "novel_curated_settings_v324.json"},
+    {"id": "artifact_693", "display": "八灵尺银莲护体取液", "category": "artifact", "file": "novel_curated_artifacts_v324.json"},
+    {"id": "artifact_694", "display": "深黄葫芦圆钵青玉瓶取液", "category": "artifact", "file": "novel_curated_artifacts_v324.json"},
+    {"id": "artifact_695", "display": "银色小盾消减雷劫", "category": "artifact", "file": "novel_curated_artifacts_v324.json"},
+    {"id": "artifact_696", "display": "变异独角蚯金角", "category": "artifact", "file": "novel_curated_artifacts_v324.json"},
+    {"id": "technique_528", "display": "大衍宝经第二元婴附傀儡", "category": "technique", "file": "novel_curated_techniques_v324.json"},
+    {"id": "technique_529", "display": "失神刺精血催器破月禁", "category": "technique", "file": "novel_curated_techniques_v324.json"},
+    {"id": "technique_530", "display": "疾风九变妖禽身法", "category": "technique", "file": "novel_curated_techniques_v324.json"},
+    {"id": "material_550", "display": "寒髓灵界珍稀度劫药", "category": "material", "file": "novel_curated_materials_v324.json"},
+    {"id": "material_551", "display": "圆月乳白灵液帝流浆类", "category": "material", "file": "novel_curated_materials_v324.json"},
+    {"id": "material_552", "display": "变异独角蚯吸灵金角材", "category": "material", "file": "novel_curated_materials_v324.json"}
+  ]
+}
