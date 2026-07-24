@@ -1,0 +1,20 @@
+{
+  "schema_version": 55,
+  "extract_version": 169,
+  "source": "《凡人修仙传》— 人工精读提取 · 总索引（齐云霄住处付家监视·丝线瞬杀→辛如音守寡·齐云霄之死·龙吟之质·灭付家承诺·云霄心得与阵法玉匣：第350–352章）",
+  "method": "沿原文逐段精读（齐云霄住处破阵·付家一老一青→乌龙夺傀儡吸引·罗烟步丝线瞬杀·铜钱法器→辛如音隐阵传音符·甲尸辨识→齐云霄灵位·守寡·付家结丹破阵·古传送阵近完工·双玉匣换灭付家承诺·龙吟之质把脉），凭理解概括设定，视觉描述为原文逐字引用。与 v148–v168 互补。",
+  "disclaimer": "代表性精读而非穷尽全本（4795 章无法逐字读完）；本批覆盖主传第350–352章，入包前仍需人工校订。",
+  "reading_progress": "《凡人修仙传》已逐段精读至第352章（承诺），约全书 17.6%（352/2005）。",
+  "totals": {
+    "entities": 12,
+    "by_category": {"设定": 5, "法宝": 2, "法术": 2, "材料": 3}
+  },
+  "note": "本弧线为元武国齐云霄线收束：付家监视住处，韩立丝线瞬杀一老一青；辛如音自愿守寡，齐云霄为付家结丹高手破阵后重伤身亡；古传送阵一月完工；双玉匣（云霄心得/阵法心血）换结丹后灭付家承诺；诊出龙吟之质两年将亡。",
+  "files": {
+    "setting": "novel_curated_settings_v169.json",
+    "artifact": "novel_curated_artifacts_v169.json",
+    "technique": "novel_curated_techniques_v169.json",
+    "material": "novel_curated_materials_v169.json"
+  },
+  "docs": "docs/NOVEL_CURATED_EXTRACT_v169.md"
+}
