@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 183,
+  "source": "《凡人修仙传》— 人工精读提取索引 v183（主传第425–428章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v182 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第425章 脂阳鸟",
+    "to_chapter": "第428章 萧诧",
+    "chapter_range": "425-428",
+    "main_book_chapters_read_through": 428,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "21.3%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v183.json",
+    "novel_curated_artifacts_v183.json",
+    "novel_curated_techniques_v183.json",
+    "novel_curated_materials_v183.json",
+    "novel_curated_index_v183.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v183.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_217", "display": "脂阳鸟与驱灵术", "category": "setting"},
+    {"id": "setting_218", "display": "通灵护体飞刀", "category": "setting"},
+    {"id": "setting_219", "display": "玄魂炼妖大法", "category": "setting"},
+    {"id": "setting_220", "display": "煞丹分身可被祖师控制", "category": "setting"},
+    {"id": "setting_221", "display": "玄骨上人萧诧", "category": "setting"},
+    {"id": "setting_222", "display": "九柄青竹蜂云剑极限", "category": "setting"},
+    {"id": "artifact_129", "display": "脂阳鸟画轴", "category": "artifact"},
+    {"id": "artifact_130", "display": "石蝶辟魔宝珠", "category": "artifact"},
+    {"id": "artifact_131", "display": "金雷竹邪箭（萧诧）", "category": "artifact"},
+    {"id": "artifact_132", "display": "引魂钟（再现）", "category": "artifact"},
+    {"id": "technique_105", "display": "白骨傀儡与鬼雾", "category": "technique"},
+    {"id": "technique_106", "display": "玄魂凝骨之术", "category": "technique"},
+    {"id": "technique_107", "display": "青元剑芒与血柱对轰", "category": "technique"},
+    {"id": "material_126", "display": "蓝色止血符", "category": "material"},
+    {"id": "material_127", "display": "脂阳鸟晶珠", "category": "material"},
+    {"id": "material_128", "display": "玄阴经分身玉简", "category": "material"}
+  ]
+}
