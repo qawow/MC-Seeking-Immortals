@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 188,
+  "source": "《凡人修仙传》— 人工精读提取索引 v188（主传第457–467章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v187 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第457章 托天魔功",
+    "to_chapter": "第467章 阁楼重宝",
+    "chapter_range": "457-467",
+    "main_book_chapters_read_through": 467,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "23.3%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v188.json",
+    "novel_curated_artifacts_v188.json",
+    "novel_curated_techniques_v188.json",
+    "novel_curated_materials_v188.json",
+    "novel_curated_index_v188.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v188.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_247", "display": "托天魔功外显形态", "category": "setting"},
+    {"id": "setting_248", "display": "冰火道通道与通行规则", "category": "setting"},
+    {"id": "setting_249", "display": "铁火蚁与黑沙漠", "category": "setting"},
+    {"id": "setting_250", "display": "星宫操纵虚天殿禁制", "category": "setting"},
+    {"id": "setting_251", "display": "银光鼠与血冰林", "category": "setting"},
+    {"id": "setting_252", "display": "三阁楼取宝规则", "category": "setting"},
+    {"id": "artifact_149", "display": "白犀佩（灵犀佩）", "category": "artifact"},
+    {"id": "artifact_150", "display": "寒冰珠", "category": "artifact"},
+    {"id": "artifact_151", "display": "青火雷", "category": "artifact"},
+    {"id": "artifact_152", "display": "鸣魂珠", "category": "artifact"},
+    {"id": "technique_120", "display": "托天魔功", "category": "technique"},
+    {"id": "technique_121", "display": "泰阳诀与泰阳真火", "category": "technique"},
+    {"id": "technique_122", "display": "玄黄镜定魂化晶", "category": "technique"},
+    {"id": "material_142", "display": "炼晶", "category": "material"},
+    {"id": "material_143", "display": "冰雪蟾内丹", "category": "material"},
+    {"id": "material_144", "display": "天青花", "category": "material"}
+  ]
+}
