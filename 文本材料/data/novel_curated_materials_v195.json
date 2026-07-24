@@ -1,0 +1,55 @@
+{
+  "schema_version": 55,
+  "extract_version": 195,
+  "source": "《凡人修仙传》— 人工精读提取 · 材料类（定颜丹·天灵丹·白玉大印：第504–506章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v194 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 3,
+  "entries": [
+    {
+      "id": "material_163",
+      "display": "定颜丹",
+      "category": "material",
+      "term": "定颜丹",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第506章 传送与条件"},
+      "setting": "稀罕丹药，服后容颜不老。韩立曾服一粒，于护法误疑其修阴性驻颜功法。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "只是曾经吞食过一粒定颜丹而已。",
+        "连定颜丹这般稀罕的丹药都有机缘服食。"
+      ]
+    },
+    {
+      "id": "material_164",
+      "display": "天灵丹",
+      "category": "material",
+      "term": "天灵丹",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第505章 凌玉灵"},
+      "setting": "黄脸修士秘制丹药，赠凌玉灵防亏损元气。小瓶盛装。",
+      "visual_descriptions": [
+        "竟从身上掏出了一个小瓶，殷勤的递了过去。"
+      ],
+      "setting_descriptions": [
+        "我这有一颗秘制的天灵丹，凌师弟你先拿去服下，省得亏损了元气。"
+      ]
+    },
+    {
+      "id": "material_165",
+      "display": "白玉大印（本命法宝）",
+      "category": "material",
+      "term": "白玉大印",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第504章 古宝之威"},
+      "setting": "逆星盟精壮大汉本命法宝。脱手涨大数倍，白光萦绕，可轻易压断无雷青竹蜂云剑巨剑。被花篮白光包裹后翻转挣扎无法脱身；大汉弃印遁逃仍被五行环锁杀。韩立收为战利。",
+      "visual_descriptions": [
+        "一件白玉大印脱手而出，随即此宝涨大数倍，白光萦绕向了六道青光。",
+        "光华灿灿的白气很轻易的压倒了青光，巨剑仅支持了片刻时间就寸寸断裂开来。"
+      ],
+      "setting_descriptions": [
+        "大汉正满头大汗的掐诀想要收回自己的大印，可是一时半刻哪有可能成功"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 195,
+  "source": "《凡人修仙传》— 人工精读提取索引 v195（主传第504–506章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v194 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第504章 古宝之威",
+    "to_chapter": "第506章 传送与条件",
+    "chapter_range": "504-506",
+    "main_book_chapters_read_through": 506,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "25.2%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v195.json",
+    "novel_curated_artifacts_v195.json",
+    "novel_curated_techniques_v195.json",
+    "novel_curated_materials_v195.json",
+    "novel_curated_index_v195.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v195.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_289", "display": "结丹期持古宝之稀", "category": "setting"},
+    {"id": "setting_290", "display": "迷幻砚与迷幻墨雾", "category": "setting"},
+    {"id": "setting_291", "display": "五行环瞬套锁元", "category": "setting"},
+    {"id": "setting_292", "display": "青竹蜂云剑无雷局限", "category": "setting"},
+    {"id": "setting_293", "display": "天星城戒严与进城二选", "category": "setting"},
+    {"id": "setting_294", "display": "外星海传送沾血条件", "category": "setting"},
+    {"id": "artifact_177", "display": "迷幻砚", "category": "artifact"},
+    {"id": "artifact_178", "display": "花篮古宝", "category": "artifact"},
+    {"id": "artifact_179", "display": "星宫临时指环", "category": "artifact"},
+    {"id": "artifact_180", "display": "天香索", "category": "artifact"},
+    {"id": "technique_141", "display": "青竹蜂云剑十二剑光", "category": "technique"},
+    {"id": "technique_142", "display": "符文蓝罩硬接", "category": "technique"},
+    {"id": "technique_143", "display": "驻颜功法与定颜丹", "category": "technique"},
+    {"id": "material_163", "display": "定颜丹", "category": "material"},
+    {"id": "material_164", "display": "天灵丹", "category": "material"},
+    {"id": "material_165", "display": "白玉大印（本命法宝）", "category": "material"}
+  ]
+}

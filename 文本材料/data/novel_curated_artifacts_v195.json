@@ -1,0 +1,70 @@
+{
+  "schema_version": 55,
+  "extract_version": 195,
+  "source": "《凡人修仙传》— 人工精读提取 · 法宝类（迷幻砚·花篮·星宫指环·天香索：第504–506章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v194 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 4,
+  "entries": [
+    {
+      "id": "artifact_177",
+      "display": "迷幻砚",
+      "category": "artifact",
+      "term": "迷幻砚",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第504章 古宝之威"},
+      "setting": "逆星盟儒生本命法宝。数寸漆黑方形如砚；黑雾凝怪鸟堕幻。韩立花篮卷鸟后收为战利品。",
+      "visual_descriptions": [
+        "一块数寸大小的方形法宝立刻喷了出来。此物扁扁平平，漆黑如墨，竟是块砚台似的古怪法宝。"
+      ],
+      "setting_descriptions": [
+        "这块“迷幻砚”可是用一种古老的炼制手段，费了九牛二虎之力才侥幸炼成的。"
+      ]
+    },
+    {
+      "id": "artifact_178",
+      "display": "花篮古宝",
+      "category": "artifact",
+      "term": "花篮",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第504章 古宝之威"},
+      "setting": "韩立所持式样古老花篮。光华大起时大片白光从篮中狂渲，可卷尽飞近怪鸟；扔出后白光包裹敌大印令其翻转挣扎无法脱身。",
+      "visual_descriptions": [
+        "一个式样古老的花篮又出现在了手中。",
+        "手中花篮光华大起，大片白光从篮中狂渲而出，一下将那些飞近的怪鸟一只不剩的卷入其中。",
+        "白光一闪，花篮将迎面击来的大印也包裹在了里面，让它在白光中翻转挣扎个不停，可仍无法脱身。"
+      ],
+      "setting_descriptions": [
+        "不可能，你还有其他的古宝。"
+      ]
+    },
+    {
+      "id": "artifact_179",
+      "display": "星宫临时指环",
+      "category": "artifact",
+      "term": "星宫指环",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第506章 传送与条件"},
+      "setting": "于护法所发黄光闪闪指环。戴后暂算星宫一员，大战时凭环执行任务或报名参战；完成同阶击杀后可申请外星海传送。",
+      "visual_descriptions": [
+        "掏出了一个黄光闪闪的指环，不动声色的递了过来。"
+      ],
+      "setting_descriptions": [
+        "你将这新指环戴好，有此指环为凭证，暂时你也算我们星宫的一员。大战开始时，就凭此指环执行任务或者报名参战。"
+      ]
+    },
+    {
+      "id": "artifact_180",
+      "display": "天香索",
+      "category": "artifact",
+      "term": "天香索",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第505章 凌玉灵"},
+      "setting": "星宫外事执法凌玉灵护身法宝。被追杀时用法宝击中仍有天香索护身无大碍。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "虽然被对方用法宝击了一下，但我有天香索护身，没有什么大碍的。"
+      ]
+    }
+  ]
+}
