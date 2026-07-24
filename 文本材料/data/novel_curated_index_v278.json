@@ -1,0 +1,32 @@
+{
+  "schema_version": 55,
+  "extract_version": 278,
+  "source": "《凡人修仙传》— 人工精读索引（李师侄·化神传闻·密符恶蛟·客卿·斗蛟：第961–965章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v277 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第961–965章",
+  "progress": {
+    "chapters_covered_end": 965,
+    "total_main_chapters": 2005,
+    "approx_percent": 48.1
+  },
+  "count": 16,
+  "entries": [
+    {"id": "setting_787", "display": "降灵符骨片归还天符门", "category": "setting", "file": "novel_curated_settings_v278.json"},
+    {"id": "setting_788", "display": "向之礼李师侄化神传闻", "category": "setting", "file": "novel_curated_settings_v278.json"},
+    {"id": "setting_789", "display": "天符门三大密符秘史", "category": "setting", "file": "novel_curated_settings_v278.json"},
+    {"id": "setting_790", "display": "大晋客卿长老制度", "category": "setting", "file": "novel_curated_settings_v278.json"},
+    {"id": "setting_791", "display": "化灵符换客卿一战", "category": "setting", "file": "novel_curated_settings_v278.json"},
+    {"id": "setting_792", "display": "屠蛟大会双八级围攻", "category": "setting", "file": "novel_curated_settings_v278.json"},
+    {"id": "artifact_509", "display": "降灵符四方骨盒", "category": "artifact", "file": "novel_curated_artifacts_v278.json"},
+    {"id": "artifact_510", "display": "天符真人化灵符", "category": "artifact", "file": "novel_curated_artifacts_v278.json"},
+    {"id": "artifact_511", "display": "雪晶珠紫焰火蛟", "category": "artifact", "file": "novel_curated_artifacts_v278.json"},
+    {"id": "artifact_512", "display": "八级赤火蛟本体", "category": "artifact", "file": "novel_curated_artifacts_v278.json"},
+    {"id": "technique_390", "display": "化灵符丹田培炼", "category": "technique", "file": "novel_curated_techniques_v278.json"},
+    {"id": "technique_391", "display": "六丁天甲六层护罩", "category": "technique", "file": "novel_curated_techniques_v278.json"},
+    {"id": "technique_392", "display": "雪晶紫焰凝冰峰", "category": "technique", "file": "novel_curated_techniques_v278.json"},
+    {"id": "material_412", "display": "赤火蛟鳞片", "category": "material", "file": "novel_curated_materials_v278.json"},
+    {"id": "material_413", "display": "蛟类本命鳞片", "category": "material", "file": "novel_curated_materials_v278.json"},
+    {"id": "material_414", "display": "天符门制符典籍玉简", "category": "material", "file": "novel_curated_materials_v278.json"}
+  ]
+}
