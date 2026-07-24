@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 200,
+  "source": "《凡人修仙传》— 人工精读提取索引 v200（主传第520–522章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v199 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第520章 化形之劫",
+    "to_chapter": "第522章 五色珠与新噬金虫",
+    "chapter_range": "520-522",
+    "main_book_chapters_read_through": 522,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "26.0%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v200.json",
+    "novel_curated_artifacts_v200.json",
+    "novel_curated_techniques_v200.json",
+    "novel_curated_materials_v200.json",
+    "novel_curated_index_v200.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v200.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_319", "display": "化形雷劫", "category": "setting"},
+    {"id": "setting_320", "display": "毒蛟与蛟类灵兽", "category": "setting"},
+    {"id": "setting_321", "display": "金霞霍氏联手猎蛟", "category": "setting"},
+    {"id": "setting_322", "display": "金石阵旗稳岛", "category": "setting"},
+    {"id": "setting_323", "display": "铁火蚁进化新噬金虫", "category": "setting"},
+    {"id": "setting_324", "display": "五色珠炼化与霓裳草催生", "category": "setting"},
+    {"id": "artifact_197", "display": "淡黄符文金石阵旗", "category": "artifact"},
+    {"id": "artifact_198", "display": "破天神砂与火红葫芦", "category": "artifact"},
+    {"id": "artifact_199", "display": "鬼头拐杖（化狰狞恶鬼）", "category": "artifact"},
+    {"id": "artifact_200", "display": "金霞青色玉环", "category": "artifact"},
+    {"id": "technique_156", "display": "敛气黯遁窥劫", "category": "technique"},
+    {"id": "technique_157", "display": "血色披风血光遁逃", "category": "technique"},
+    {"id": "technique_158", "display": "金丹丹火炼化五色珠", "category": "technique"},
+    {"id": "material_178", "display": "炼晶入剑完成", "category": "material"},
+    {"id": "material_179", "display": "霓裳草（催生后代）", "category": "material"},
+    {"id": "material_180", "display": "蛟龙精魂与八级妖丹", "category": "material"}
+  ]
+}
