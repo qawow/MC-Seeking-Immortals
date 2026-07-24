@@ -1,0 +1,120 @@
+{
+  "schema_version": 55,
+  "extract_version": 341,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（兽潮·天劫之危·金玉宗·青狼赤蟒豹禽·狂兽之潮：第1276–1280章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v340 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1276章 兽潮 — 第1280章 狂兽之潮（一）",
+  "progress": "1280/2005 ≈ 63.8%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1165–setting_1170",
+    "artifacts": "artifact_761–artifact_764",
+    "techniques": "technique_579–technique_581",
+    "materials": "material_601–material_603"
+  },
+  "entries": [
+    {
+      "id": "setting_1165",
+      "display": "人族三皇境与七妖地",
+      "category": "setting",
+      "file": "novel_curated_settings_v341.json"
+    },
+    {
+      "id": "setting_1166",
+      "display": "超大古仙阵与十大阵眼",
+      "category": "setting",
+      "file": "novel_curated_settings_v341.json"
+    },
+    {
+      "id": "setting_1167",
+      "display": "兽潮成因与大兽潮",
+      "category": "setting",
+      "file": "novel_curated_settings_v341.json"
+    },
+    {
+      "id": "setting_1168",
+      "display": "灵界小天劫与金刚诀自救",
+      "category": "setting",
+      "file": "novel_curated_settings_v341.json"
+    },
+    {
+      "id": "setting_1169",
+      "display": "金玉宗与方夫人算计",
+      "category": "setting",
+      "file": "novel_curated_settings_v341.json"
+    },
+    {
+      "id": "setting_1170",
+      "display": "青狼赤蟒豹禽与变异兽",
+      "category": "setting",
+      "file": "novel_curated_settings_v341.json"
+    },
+    {
+      "id": "artifact_761",
+      "display": "灵界典籍与区域地图",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v341.json"
+    },
+    {
+      "id": "artifact_762",
+      "display": "地蛟筋铁匠改造",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v341.json"
+    },
+    {
+      "id": "artifact_763",
+      "display": "爆晶箭与城防巨弩",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v341.json"
+    },
+    {
+      "id": "artifact_764",
+      "display": "狻狼战兽坐骑",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v341.json"
+    },
+    {
+      "id": "technique_579",
+      "display": "金刚诀巨力试手",
+      "category": "technique",
+      "file": "novel_curated_techniques_v341.json"
+    },
+    {
+      "id": "technique_580",
+      "display": "金刚诀灵气灌体修炼",
+      "category": "technique",
+      "file": "novel_curated_techniques_v341.json"
+    },
+    {
+      "id": "technique_581",
+      "display": "兽潮预警与城防戒严",
+      "category": "technique",
+      "file": "novel_curated_techniques_v341.json"
+    },
+    {
+      "id": "material_601",
+      "display": "银狼与诸色狼兽",
+      "category": "material",
+      "file": "novel_curated_materials_v341.json"
+    },
+    {
+      "id": "material_602",
+      "display": "豹禽剧毒与一级妖兽",
+      "category": "material",
+      "file": "novel_curated_materials_v341.json"
+    },
+    {
+      "id": "material_603",
+      "display": "火老与高阶炼体士传说",
+      "category": "material",
+      "file": "novel_curated_materials_v341.json"
+    }
+  ]
+}
