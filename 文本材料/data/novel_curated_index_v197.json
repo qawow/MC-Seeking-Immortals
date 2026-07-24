@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 197,
+  "source": "《凡人修仙传》— 人工精读提取索引 v197（主传第511–514章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v196 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第511章 再临外海",
+    "to_chapter": "第514章 女修炉鼎",
+    "chapter_range": "511-514",
+    "main_book_chapters_read_through": 514,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "25.6%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v197.json",
+    "novel_curated_artifacts_v197.json",
+    "novel_curated_techniques_v197.json",
+    "novel_curated_materials_v197.json",
+    "novel_curated_index_v197.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v197.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_301", "display": "厌瑙兽神识感应与假符真相", "category": "setting"},
+    {"id": "setting_302", "display": "奇渊传送单向与情报封锁", "category": "setting"},
+    {"id": "setting_303", "display": "黑石城结构与修士乐园", "category": "setting"},
+    {"id": "setting_304", "display": "黑石城禁斗与元婴坐镇", "category": "setting"},
+    {"id": "setting_305", "display": "妖兽海渊与联手势力", "category": "setting"},
+    {"id": "setting_306", "display": "奇渊自给与妖兽幼卵", "category": "setting"},
+    {"id": "artifact_185", "display": "厌瑙兽", "category": "artifact"},
+    {"id": "artifact_186", "display": "感应珠", "category": "artifact"},
+    {"id": "artifact_187", "display": "粉红仕女飞天屏风", "category": "artifact"},
+    {"id": "artifact_188", "display": "明珠轩翠绿色标牌", "category": "artifact"},
+    {"id": "technique_147", "display": "传送阵白光法诀启动", "category": "technique"},
+    {"id": "technique_148", "display": "灭口黄光斩切与火球焚尸", "category": "technique"},
+    {"id": "technique_149", "display": "明夫人媚术收放", "category": "technique"},
+    {"id": "material_169", "display": "紫云鹰幼卵", "category": "material"},
+    {"id": "material_170", "display": "蓝光石", "category": "material"},
+    {"id": "material_171", "display": "七级妖丹（明珠厅天价）", "category": "material"}
+  ]
+}
