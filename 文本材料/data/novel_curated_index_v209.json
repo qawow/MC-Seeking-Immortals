@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 209,
+  "source": "《凡人修仙传》— 人工精读提取索引 v209（主传第562–565章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v208 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第562章 元瑶与青阳门",
+    "to_chapter": "第565章 秘辛",
+    "chapter_range": "562-565",
+    "main_book_chapters_read_through": 565,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "28.2%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v209.json",
+    "novel_curated_artifacts_v209.json",
+    "novel_curated_techniques_v209.json",
+    "novel_curated_materials_v209.json",
+    "novel_curated_index_v209.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v209.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_373", "display": "六道盟执法使任务制", "category": "setting"},
+    {"id": "setting_374", "display": "青阳门与元瑶通缉", "category": "setting"},
+    {"id": "setting_375", "display": "拘灵阵隐匿灵气", "category": "setting"},
+    {"id": "setting_376", "display": "结丹飞剑数量反常", "category": "setting"},
+    {"id": "setting_377", "display": "元瑶妍丽炉鼎秘辛", "category": "setting"},
+    {"id": "setting_378", "display": "修仙界侍妾炉鼎生态", "category": "setting"},
+    {"id": "artifact_233", "display": "青阳雷秘宝", "category": "artifact"},
+    {"id": "artifact_234", "display": "开山钺与黑色怪刃", "category": "artifact"},
+    {"id": "artifact_235", "display": "元瑶阵盘与红色怪锤", "category": "artifact"},
+    {"id": "artifact_236", "display": "万年灵液青瓶与阵法玉简", "category": "artifact"},
+    {"id": "technique_183", "display": "绿芒斩首借头颅", "category": "technique"},
+    {"id": "technique_184", "display": "剑光分影术九十六芒", "category": "technique"},
+    {"id": "technique_185", "display": "拘灵阵破阵黄芒", "category": "technique"},
+    {"id": "material_205", "display": "万年灵液半瓶馈赠", "category": "material"},
+    {"id": "material_206", "display": "六级妖丹主料丹药", "category": "material"},
+    {"id": "material_207", "display": "养魂木安置元神动机", "category": "material"}
+  ]
+}
