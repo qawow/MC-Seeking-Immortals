@@ -1,0 +1,20 @@
+{
+  "schema_version": 55,
+  "extract_version": 178,
+  "source": "《凡人修仙传》— 人工精读提取 · 总索引（天星城圣山·育虫·霓裳草诱妖·外星海杀妖·闭府苦修：第390–397章）",
+  "method": "沿原文逐段精读（天星城身份环·圣山八十一层租住·噬金虫育虫饲灵丸·星空殿传送符·凝翠岛·外星海小团体规则·霓裳草诱妖·千目妖杀取·五年猎丹·三转散功六十年结丹异象），凭理解概括设定，视觉描述为原文逐字引用。与 v148–v177 互补。",
+  "disclaimer": "代表性精读而非穷尽全本（4795 章无法逐字读完）；本批覆盖主传第390–397章，入包前仍需人工校订。",
+  "reading_progress": "《凡人修仙传》已逐段精读至第397章（闭府苦修），约全书 19.8%（397/2005）；六十年结丹异象起为下一批。",
+  "totals": {
+    "entities": 18,
+    "by_category": {"设定": 7, "法宝": 3, "法术": 4, "材料": 4}
+  },
+  "note": "本弧线：入天星城租圣山三十九层洞府；育噬金虫与炼傀儡两年；购妖兽资料与大容量储物袋；星空殿传送凝翠岛；霓裳草+阵法五年猎数百五级妖丹；返城散功闭关六十年再结丹异象。",
+  "files": {
+    "setting": "novel_curated_settings_v178.json",
+    "artifact": "novel_curated_artifacts_v178.json",
+    "technique": "novel_curated_techniques_v178.json",
+    "material": "novel_curated_materials_v178.json"
+  },
+  "docs": "docs/NOVEL_CURATED_EXTRACT_v178.md"
+}
