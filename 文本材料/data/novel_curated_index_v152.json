@@ -1,0 +1,21 @@
+{
+  "schema_version": 55,
+  "extract_version": 152,
+  "source": "《凡人修仙传》— 人工精读提取 · 总索引（一线天→封岳→墨蛟·南宫婉→出禁地：第181–209章）",
+  "method": "沿原文逐段精读（一线天/融灵符→多宝女·封岳·天雷子→地下沼泽·墨蛟·南宫婉·素女轮回功→合力破禁出谷），凭理解概括设定，视觉描述为原文逐字引用。与 v148 关键词扫描版、v149 全书弧线精读版、v150/v151 连续精读互补。",
+  "disclaimer": "代表性精读而非穷尽全本（4795 章无法逐字读完）；本批覆盖主传第181–209章，入包前仍需人工校订。",
+  "reading_progress": "《凡人修仙传》已逐段精读至第209章（回归·出禁地），约全书 10.4%（209/2005）。",
+  "totals": {
+    "entities": 25,
+    "by_category": {"设定": 6, "法宝": 12, "法术": 3, "材料": 2, "异兽": 2}
+  },
+  "note": "本弧线为血色禁地核心段：法器/符宝大爆发（多宝女、封岳、韩立三方斗法）与墨蛟·南宫婉·素女轮回功主线。天雷子按一次性消耗品归入材料类。",
+  "files": {
+    "setting": "novel_curated_settings_v152.json",
+    "artifact": "novel_curated_artifacts_v152.json",
+    "technique": "novel_curated_techniques_v152.json",
+    "material": "novel_curated_materials_v152.json",
+    "beast": "novel_curated_beasts_v152.json"
+  },
+  "docs": "docs/NOVEL_CURATED_EXTRACT_v152.md"
+}
