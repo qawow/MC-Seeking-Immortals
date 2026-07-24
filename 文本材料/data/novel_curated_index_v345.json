@@ -1,0 +1,120 @@
+{
+  "schema_version": 55,
+  "extract_version": 345,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（黄粱灵君·银芯石·灵族浮现·飞蛾·怪蛇水箭：第1296–1300章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v344 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1296章 黄粱灵君 — 第1300章 怪蛇、水箭、银手",
+  "progress": "1300/2005 ≈ 64.8%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1189–setting_1194",
+    "artifacts": "artifact_777–artifact_780",
+    "techniques": "technique_591–technique_593",
+    "materials": "material_613–material_615"
+  },
+  "entries": [
+    {
+      "id": "setting_1189",
+      "display": "黄粱灵君与落日城第一修士",
+      "category": "setting",
+      "file": "novel_curated_settings_v345.json"
+    },
+    {
+      "id": "setting_1190",
+      "display": "穹宇阁与胥老",
+      "category": "setting",
+      "file": "novel_curated_settings_v345.json"
+    },
+    {
+      "id": "setting_1191",
+      "display": "落日之墓入口与禁空",
+      "category": "setting",
+      "file": "novel_curated_settings_v345.json"
+    },
+    {
+      "id": "setting_1192",
+      "display": "灵族五行与器灵族追杀神血",
+      "category": "setting",
+      "file": "novel_curated_settings_v345.json"
+    },
+    {
+      "id": "setting_1193",
+      "display": "圣皇宫命令与灵族叛逆接应",
+      "category": "setting",
+      "file": "novel_curated_settings_v345.json"
+    },
+    {
+      "id": "setting_1194",
+      "display": "琼鼠族与黑凤黛儿血脉",
+      "category": "setting",
+      "file": "novel_curated_settings_v345.json"
+    },
+    {
+      "id": "artifact_777",
+      "display": "黄粱灵君虎龙飞车",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v345.json"
+    },
+    {
+      "id": "artifact_778",
+      "display": "灰战甲与淡银长枪灵具",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v345.json"
+    },
+    {
+      "id": "artifact_779",
+      "display": "黄粱黄色晶手",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v345.json"
+    },
+    {
+      "id": "artifact_780",
+      "display": "蓝城主晶莹冰莲",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v345.json"
+    },
+    {
+      "id": "technique_591",
+      "display": "天心丹临时增神念",
+      "category": "technique",
+      "file": "novel_curated_techniques_v345.json"
+    },
+    {
+      "id": "technique_592",
+      "display": "罗烟步密林鬼魅行",
+      "category": "technique",
+      "file": "novel_curated_techniques_v345.json"
+    },
+    {
+      "id": "technique_593",
+      "display": "生死搏杀顿悟破瓶",
+      "category": "technique",
+      "file": "novel_curated_techniques_v345.json"
+    },
+    {
+      "id": "material_613",
+      "display": "银芯石",
+      "category": "material",
+      "file": "novel_curated_materials_v345.json"
+    },
+    {
+      "id": "material_614",
+      "display": "灰色变异灵具矿石",
+      "category": "material",
+      "file": "novel_curated_materials_v345.json"
+    },
+    {
+      "id": "material_615",
+      "display": "幻焰蛾与蛾粉",
+      "category": "material",
+      "file": "novel_curated_materials_v345.json"
+    }
+  ]
+}
