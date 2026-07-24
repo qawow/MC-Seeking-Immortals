@@ -1,0 +1,108 @@
+{
+  "schema_version": 55,
+  "extract_version": 151,
+  "source": "《凡人修仙传》— 人工精读提取 · 法术/符箓类（太南谷→黄枫谷→血色禁地：第136–181章）",
+  "method": "沿原文逐段精读，凭理解概括法术设定；视觉描述为精读时所见原文逐字引用。与 v148/v149/v150 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 8,
+  "entries": [
+    {
+      "id": "technique_015",
+      "display": "流沙术",
+      "category": "technique",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第138–139章 太南谷习法"},
+      "setting": "初级下阶的地域性法术，可让法力所及的地方化土为沙。威力大小完全视施法者法力深厚而定，大神通者施展，化千里良田为沙漠亦非不可能；只因好学、炼气期低阶修士也可轻易学会，才被列为初级下阶，低阶修士因法力所限范围小得可怜。韩立在太南谷习得，突破第九层法力激增后，已可把桌面大小之地随心变沙。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "“流沙术”和“冰冻术”都是地域性法术，一个可以让法力所及的地方化土为沙，一个可让有水的地方凝结成冰。",
+        "这两个法术的威力大小，完全视施法者的法力深厚而定。若是大神通之人来施展，就是化千里良田为沙漠，凝长江大河为冰川，也不是不可能的。"
+      ]
+    },
+    {
+      "id": "technique_016",
+      "display": "冰冻术",
+      "category": "technique",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第138–139章 太南谷习法"},
+      "setting": "初级下阶的地域性法术，可让有水的地方凝结成冰。与流沙术同理，威力视法力深厚而定，大神通者可凝长江大河为冰川；因好学被列为初级下阶，低阶修士受法力所限范围极小。韩立突破第九层后可把桌面大小之地随心凝冰。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "“流沙术”和“冰冻术”都是地域性法术，一个可以让法力所及的地方化土为沙，一个可让有水的地方凝结成冰。"
+      ]
+    },
+    {
+      "id": "technique_017",
+      "display": "升空术",
+      "category": "technique",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第138章 太南谷习法"},
+      "setting": "韩立在太南谷新学的几种法术之一，属初级下阶辅助身法，使修士腾空跃起、抢占身位或闪避，并非御器飞行。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "分别是“流沙术”、“冰冻术”、“升空术”、“缠绕术”、“传音术”、“匿身术”、“火花术”，以及最难练的“地刺术”。"
+      ]
+    },
+    {
+      "id": "technique_018",
+      "display": "缠绕术",
+      "category": "technique",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第138章 太南谷习法"},
+      "setting": "韩立在太南谷新学的几种法术之一，木属性束缚法术，可缠缚对手限制其行动，属初级下阶斗法手段。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "分别是“流沙术”、“冰冻术”、“升空术”、“缠绕术”、“传音术”、“匿身术”、“火花术”，以及最难练的“地刺术”。"
+      ]
+    },
+    {
+      "id": "technique_019",
+      "display": "传音术",
+      "category": "technique",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第139章 法宝残片"},
+      "setting": "与天眼术相类似的辅助法术，只要略懂法力谁都可学会，韩立轻松上手。此术其实是必须使用“传音符”才可运用的符术，可向特定之人密语传话而不被旁人听闻。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "其中的传音术，就是韩立见过数次的必须使用“传音符”才可运用的符术。"
+      ]
+    },
+    {
+      "id": "technique_020",
+      "display": "匿身术",
+      "category": "technique",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第139章 法宝残片"},
+      "setting": "纯粹的普通法术，让灵力附在全身，使身体变成和周围环境相似的保护颜色，令人不易发觉。此术有些鸡肋，因为天眼术可轻易把它破掉，根本起不了瞒过其他修仙者耳目的目的。韩立在太南谷轻松学会。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "“匿身术”则是纯粹的普通法术，是让灵力附在全身，使身体变成和周围环境相似的保护颜色，让人不易发觉罢了。这个法术有些鸡肋的性质，因为“天眼术”可轻易的把它破掉，根本起不了瞒过其他修仙者耳目的目的。"
+      ]
+    },
+    {
+      "id": "technique_021",
+      "display": "火花术",
+      "category": "technique",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第138章 太南谷习法"},
+      "setting": "韩立在太南谷新学的几种法术之一，火属性基础攻击法术，激射火星火蛇攻敌，属初级下阶斗法手段。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "分别是“流沙术”、“冰冻术”、“升空术”、“缠绕术”、“传音术”、“匿身术”、“火花术”，以及最难练的“地刺术”。"
+      ]
+    },
+    {
+      "id": "technique_022",
+      "display": "地刺术",
+      "category": "technique",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第134章 / 第138章 太南谷习法"},
+      "setting": "初级中阶的土属性法术，自地底突起尖刺突袭对手，是韩立在太南谷新学几种法术中最难练的一种，一时无法领会，只能待日后慢慢推敲研究。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "里面都是些最基础的初级咒决，有七八个下阶位的法术，和一个初级中阶的“地刺术”，记载在书内。",
+        "分别是“流沙术”、“冰冻术”、“升空术”、“缠绕术”、“传音术”、“匿身术”、“火花术”，以及最难练的“地刺术”。"
+      ]
+    }
+  ]
+}

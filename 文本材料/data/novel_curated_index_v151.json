@@ -1,0 +1,21 @@
+{
+  "schema_version": 55,
+  "extract_version": 151,
+  "source": "《凡人修仙传》— 人工精读提取 · 总索引（太南谷交易→黄枫谷→血色禁地试炼：第136–181章）",
+  "method": "沿原文逐段精读（太南谷习法/制符之道→燕家双首鹜→黄枫谷→破禁入血色禁地→乌龙潭），凭理解概括设定，视觉描述为原文逐字引用。与 v148 关键词扫描版、v149 全书弧线精读版、v150 开篇修仙弧互补。",
+  "disclaimer": "代表性精读而非穷尽全本（4795 章无法逐字读完）；本批覆盖主传第136–181章，入包前仍需人工校订。",
+  "reading_progress": "《凡人修仙传》已逐段精读至第181章（乌龙潭·彩蝶与死战），约全书 9.0%（181/2005）。",
+  "totals": {
+    "entities": 27,
+    "by_category": {"设定": 6, "法宝": 5, "法术": 8, "材料": 5, "异兽": 3}
+  },
+  "note": "本弧线法宝类含符宝（无形针符宝）与飞行法宝（天月神舟）；法术类为韩立太南谷所习八种基础法术及符术。",
+  "files": {
+    "setting": "novel_curated_settings_v151.json",
+    "artifact": "novel_curated_artifacts_v151.json",
+    "technique": "novel_curated_techniques_v151.json",
+    "material": "novel_curated_materials_v151.json",
+    "beast": "novel_curated_beasts_v151.json"
+  },
+  "docs": "docs/NOVEL_CURATED_EXTRACT_v151.md"
+}
