@@ -1596,3 +1596,15 @@
 - 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
 - 备份：`.bak/20260729_020000`
 - 文件：`文本材料/data/novel_curated_*_v297.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v297.md`，`文本材料/README_WORLDPACK.md`
+
+
+## 2026-07-29 · v298 三宝联手·魔像·魔威无双·敖啸老祖·大战再起（第1061–1065章）
+
+- 方法：沿原文逐段连续精读主传第 1061–1065 章，凭理解概括；视觉描述为原文逐字引用。
+- 产出：高保真条目 16（设定 6 / 法宝 4 / 法术 3 / 材料 3）。
+- ID 区间：setting_907–912，artifact_589–592，technique_450–452，material_472–474。
+- 关节点：平山印+赤鸣鼓+三焰扇三宝联手；天狼钻/真魔甲；跨空神念魔像捏碎仿灵宝；屠狮禽夜叉孔雀徐；雪玲珑梦融为玲珑；敖啸老祖与逆星盘；噬金虫断柱灭神念；化龙玺再启大战；玲珑索借虚天鼎圣兽分身。
+- 阅读进度：1065/2005 ≈ 53.1%；下一批自第 1066 章。
+- 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
+- 备份：`.bak/20260729_030000`
+- 文件：`文本材料/data/novel_curated_*_v298.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v298.md`，`文本材料/README_WORLDPACK.md`

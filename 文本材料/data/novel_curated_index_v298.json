@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 298,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（三宝联手·魔像·魔威无双·敖啸老祖·大战再起：第1061–1065章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v297 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1061章 三宝联手 — 第1065章 大战再起",
+  "progress": "1065/2005 ≈ 53.1%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_907–setting_912",
+    "artifacts": "artifact_589–artifact_592",
+    "techniques": "technique_450–technique_452",
+    "materials": "material_472–material_474"
+  },
+  "entries": [
+    {"id": "setting_907", "display": "三宝联手抗魔化之躯", "category": "setting", "file": "novel_curated_settings_v298.json"},
+    {"id": "setting_908", "display": "天狼钻与真魔甲", "category": "setting", "file": "novel_curated_settings_v298.json"},
+    {"id": "setting_909", "display": "跨空神念大法与魔像", "category": "setting", "file": "novel_curated_settings_v298.json"},
+    {"id": "setting_910", "display": "雪玲珑梦融合为玲珑", "category": "setting", "file": "novel_curated_settings_v298.json"},
+    {"id": "setting_911", "display": "敖啸老祖与逆星盘资格", "category": "setting", "file": "novel_curated_settings_v298.json"},
+    {"id": "setting_912", "display": "噬金虫断柱与化龙玺再启", "category": "setting", "file": "novel_curated_settings_v298.json"},
+    {"id": "artifact_589", "display": "平山印", "category": "artifact", "file": "novel_curated_artifacts_v298.json"},
+    {"id": "artifact_590", "display": "天狼钻", "category": "artifact", "file": "novel_curated_artifacts_v298.json"},
+    {"id": "artifact_591", "display": "真魔甲", "category": "artifact", "file": "novel_curated_artifacts_v298.json"},
+    {"id": "artifact_592", "display": "逆星盘", "category": "artifact", "file": "novel_curated_artifacts_v298.json"},
+    {"id": "technique_450", "display": "三宝联手压黑光", "category": "technique", "file": "novel_curated_techniques_v298.json"},
+    {"id": "technique_451", "display": "神念凝珠与跨空弹指", "category": "technique", "file": "novel_curated_techniques_v298.json"},
+    {"id": "technique_452", "display": "化灵符替身", "category": "technique", "file": "novel_curated_techniques_v298.json"},
+    {"id": "material_472", "display": "五色灵珠", "category": "material", "file": "novel_curated_materials_v298.json"},
+    {"id": "material_473", "display": "真魔气召唤耗材", "category": "material", "file": "novel_curated_materials_v298.json"},
+    {"id": "material_474", "display": "化龙玺再启枢纽", "category": "material", "file": "novel_curated_materials_v298.json"}
+  ]
+}
