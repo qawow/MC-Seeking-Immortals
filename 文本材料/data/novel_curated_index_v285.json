@@ -1,0 +1,32 @@
+{
+  "schema_version": 55,
+  "extract_version": 285,
+  "source": "《凡人修仙传》— 人工精读索引（毒圣门·分丹·石碑·晶碑·幻妙天象：第996–1000章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v284 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第996–1000章",
+  "progress": {
+    "chapters_covered_end": 1000,
+    "total_main_chapters": 2005,
+    "approx_percent": 49.9
+  },
+  "count": 16,
+  "entries": [
+    {"id": "setting_829", "display": "狮禽兽上古凶禽", "category": "setting", "file": "novel_curated_settings_v285.json"},
+    {"id": "setting_830", "display": "毒圣门感灵珠寻昆吾", "category": "setting", "file": "novel_curated_settings_v285.json"},
+    {"id": "setting_831", "display": "培婴丹分丹", "category": "setting", "file": "novel_curated_settings_v285.json"},
+    {"id": "setting_832", "display": "昆吾石碑现世", "category": "setting", "file": "novel_curated_settings_v285.json"},
+    {"id": "setting_833", "display": "晶碑与万修之门破禁", "category": "setting", "file": "novel_curated_settings_v285.json"},
+    {"id": "setting_834", "display": "幻妙天象与九真伏魔", "category": "setting", "file": "novel_curated_settings_v285.json"},
+    {"id": "artifact_537", "display": "叶家黑血刀", "category": "artifact", "file": "novel_curated_artifacts_v285.json"},
+    {"id": "artifact_538", "display": "培婴丹朱红葫芦", "category": "artifact", "file": "novel_curated_artifacts_v285.json"},
+    {"id": "artifact_539", "display": "隐匿符与冰晶令牌", "category": "artifact", "file": "novel_curated_artifacts_v285.json"},
+    {"id": "artifact_540", "display": "昆吾蓝晶碑", "category": "artifact", "file": "novel_curated_artifacts_v285.json"},
+    {"id": "technique_411", "display": "狮禽兽金波雷遁", "category": "technique", "file": "novel_curated_techniques_v285.json"},
+    {"id": "technique_412", "display": "幻妙天象", "category": "technique", "file": "novel_curated_techniques_v285.json"},
+    {"id": "technique_413", "display": "五子同心魔附身", "category": "technique", "file": "novel_curated_techniques_v285.json"},
+    {"id": "material_433", "display": "感灵珠与飞仙石", "category": "material", "file": "novel_curated_materials_v285.json"},
+    {"id": "material_434", "display": "培婴丹成丹", "category": "material", "file": "novel_curated_materials_v285.json"},
+    {"id": "material_435", "display": "昆吾碑芯蓝晶", "category": "material", "file": "novel_curated_materials_v285.json"}
+  ]
+}
