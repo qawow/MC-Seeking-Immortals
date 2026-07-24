@@ -1,0 +1,32 @@
+{
+  "schema_version": 55,
+  "extract_version": 277,
+  "source": "《凡人修仙传》— 人工精读索引（意外收获·平山印·再遇古魔·魔焰滔滔·天符门：第956–960章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v276 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第956–960章",
+  "progress": {
+    "chapters_covered_end": 960,
+    "total_main_chapters": 2005,
+    "approx_percent": 47.9
+  },
+  "count": 16,
+  "entries": [
+    {"id": "setting_781", "display": "魔髓钻竞换五行玉庚精", "category": "setting", "file": "novel_curated_settings_v277.json"},
+    {"id": "setting_782", "display": "平山印通天灵宝仿制拍卖", "category": "setting", "file": "novel_curated_settings_v277.json"},
+    {"id": "setting_783", "display": "富长老双蝎山四年之约", "category": "setting", "file": "novel_curated_settings_v277.json"},
+    {"id": "setting_784", "display": "古魔分魂再遇金雷竹仇", "category": "setting", "file": "novel_curated_settings_v277.json"},
+    {"id": "setting_785", "display": "恶火头陀被古魔瞬杀", "category": "setting", "file": "novel_curated_settings_v277.json"},
+    {"id": "setting_786", "display": "华云州白竹山天符门", "category": "setting", "file": "novel_curated_settings_v277.json"},
+    {"id": "artifact_505", "display": "极品眩光晶", "category": "artifact", "file": "novel_curated_artifacts_v277.json"},
+    {"id": "artifact_506", "display": "五行玉碧绿木匣", "category": "artifact", "file": "novel_curated_artifacts_v277.json"},
+    {"id": "artifact_507", "display": "大块庚精矿石", "category": "artifact", "file": "novel_curated_artifacts_v277.json"},
+    {"id": "artifact_508", "display": "平山印土黄小印", "category": "artifact", "file": "novel_curated_artifacts_v277.json"},
+    {"id": "technique_387", "display": "明清灵目破眩辨影", "category": "technique", "file": "novel_curated_techniques_v277.json"},
+    {"id": "technique_388", "display": "惊神刺阻古魔紫舌", "category": "technique", "file": "novel_curated_techniques_v277.json"},
+    {"id": "technique_389", "display": "血雾银翅化影遁", "category": "technique", "file": "novel_curated_techniques_v277.json"},
+    {"id": "material_409", "display": "落凤木凝魂石万轮花", "category": "material", "file": "novel_curated_materials_v277.json"},
+    {"id": "material_410", "display": "魔髓钻精粹魔气", "category": "material", "file": "novel_curated_materials_v277.json"},
+    {"id": "material_411", "display": "平山印竞拍材料清单", "category": "material", "file": "novel_curated_materials_v277.json"}
+  ]
+}
