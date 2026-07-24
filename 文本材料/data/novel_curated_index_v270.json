@@ -1,0 +1,32 @@
+{
+  "schema_version": 55,
+  "extract_version": 270,
+  "source": "《凡人修仙传》— 人工精读索引（收宝·甘家·白露书院·皇清观·噬真合元诀：第921–925章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v269 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第921–925章",
+  "progress": {
+    "chapters_covered_end": 925,
+    "total_main_chapters": 2005,
+    "approx_percent": 46.1
+  },
+  "count": 16,
+  "entries": [
+    {"id": "setting_739", "display": "拔毒灵液与双珠处理", "category": "setting", "file": "novel_curated_settings_v270.json"},
+    {"id": "setting_740", "display": "啼魂万年尸焰成罩", "category": "setting", "file": "novel_curated_settings_v270.json"},
+    {"id": "setting_741", "display": "湳郡太昌城甘家暗子", "category": "setting", "file": "novel_curated_settings_v270.json"},
+    {"id": "setting_742", "display": "白露书院与玉田山", "category": "setting", "file": "novel_curated_settings_v270.json"},
+    {"id": "setting_743", "display": "皇清观与三皇观", "category": "setting", "file": "novel_curated_settings_v270.json"},
+    {"id": "setting_744", "display": "噬真合元诀与严尧复仇", "category": "setting", "file": "novel_curated_settings_v270.json"},
+    {"id": "artifact_477", "display": "银色小鼎炼拔毒液", "category": "artifact", "file": "novel_curated_artifacts_v270.json"},
+    {"id": "artifact_478", "display": "雪晶珠丹田培炼", "category": "artifact", "file": "novel_curated_artifacts_v270.json"},
+    {"id": "artifact_479", "display": "金刚罩与万年尸焰", "category": "artifact", "file": "novel_curated_artifacts_v270.json"},
+    {"id": "artifact_480", "display": "半截玉佩信物", "category": "artifact", "file": "novel_curated_artifacts_v270.json"},
+    {"id": "technique_366", "display": "婴火炼拔毒灵液", "category": "technique", "file": "novel_curated_techniques_v270.json"},
+    {"id": "technique_367", "display": "舍利子收宝口诀", "category": "technique", "file": "novel_curated_techniques_v270.json"},
+    {"id": "technique_368", "display": "噬真合元诀", "category": "technique", "file": "novel_curated_techniques_v270.json"},
+    {"id": "material_388", "display": "拔毒灵液药材", "category": "material", "file": "novel_curated_materials_v270.json"},
+    {"id": "material_389", "display": "紫精铜", "category": "material", "file": "novel_curated_materials_v270.json"},
+    {"id": "material_390", "display": "万年尸焰", "category": "material", "file": "novel_curated_materials_v270.json"}
+  ]
+}
