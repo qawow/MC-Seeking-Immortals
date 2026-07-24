@@ -1,0 +1,32 @@
+{
+  "schema_version": 55,
+  "extract_version": 249,
+  "source": "《凡人修仙传》— 人工精读索引（内谷·紫纹蝎·熔岩火蟾：第816–820章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v248 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第816–820章",
+  "progress": {
+    "chapters_covered_end": 820,
+    "total_main_chapters": 2005,
+    "approx_percent": 40.9
+  },
+  "count": 16,
+  "entries": [
+    {"id": "setting_613", "display": "内谷灵气与裂缝密度", "category": "setting", "file": "novel_curated_settings_v249.json"},
+    {"id": "setting_614", "display": "苍坤感应神通与路线图", "category": "setting", "file": "novel_curated_settings_v249.json"},
+    {"id": "setting_615", "display": "飞天紫纹蝎关", "category": "setting", "file": "novel_curated_settings_v249.json"},
+    {"id": "setting_616", "display": "十绝毒碧鸠引蝎", "category": "setting", "file": "novel_curated_settings_v249.json"},
+    {"id": "setting_617", "display": "熔岩火蟾巢穴", "category": "setting", "file": "novel_curated_settings_v249.json"},
+    {"id": "setting_618", "display": "火蟾斩杀与灵盾", "category": "setting", "file": "novel_curated_settings_v249.json"},
+    {"id": "artifact_393", "display": "碧鸠毒瓶", "category": "artifact", "file": "novel_curated_artifacts_v249.json"},
+    {"id": "artifact_394", "display": "水属性诱伏法阵", "category": "artifact", "file": "novel_curated_artifacts_v249.json"},
+    {"id": "artifact_395", "display": "古修青袍与水晶骨骸", "category": "artifact", "file": "novel_curated_artifacts_v249.json"},
+    {"id": "artifact_396", "display": "冰焰合剑斩蟾", "category": "artifact", "file": "novel_curated_artifacts_v249.json"},
+    {"id": "technique_303", "display": "苍坤空间感应神通", "category": "technique", "file": "novel_curated_techniques_v249.json"},
+    {"id": "technique_304", "display": "傀儡涂毒引怪", "category": "technique", "file": "novel_curated_techniques_v249.json"},
+    {"id": "technique_305", "display": "冰焰与火遁克制", "category": "technique", "file": "novel_curated_techniques_v249.json"},
+    {"id": "material_325", "display": "碧鸠之毒", "category": "material", "file": "novel_curated_materials_v249.json"},
+    {"id": "material_326", "display": "火蟾妖丹与断肢", "category": "material", "file": "novel_curated_materials_v249.json"},
+    {"id": "material_327", "display": "熔岩湖灵草", "category": "material", "file": "novel_curated_materials_v249.json"}
+  ]
+}
