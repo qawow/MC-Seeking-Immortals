@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 225,
+  "source": "《凡人修仙传》— 人工精读提取索引 v225（主传第652–658章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v224 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第652章 预兆",
+    "to_chapter": "第658章 故居灵泉",
+    "chapter_range": "652-658",
+    "main_book_chapters_read_through": 658,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "32.8%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v225.json",
+    "novel_curated_artifacts_v225.json",
+    "novel_curated_techniques_v225.json",
+    "novel_curated_materials_v225.json",
+    "novel_curated_index_v225.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v225.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_469", "display": "付家灭族", "category": "setting"},
+    {"id": "setting_470", "display": "银月香雾斩首", "category": "setting"},
+    {"id": "setting_471", "display": "辛如音遗言玉简", "category": "setting"},
+    {"id": "setting_472", "display": "玄牡化婴大法", "category": "setting"},
+    {"id": "setting_473", "display": "梦引术改忆", "category": "setting"},
+    {"id": "setting_474", "display": "收取灵眼之泉", "category": "setting"},
+    {"id": "artifact_297", "display": "铁背圣兽灵兽袋", "category": "artifact"},
+    {"id": "artifact_298", "display": "付天化土遁符", "category": "artifact"},
+    {"id": "artifact_299", "display": "付家老祖首级木盒", "category": "artifact"},
+    {"id": "artifact_300", "display": "灵眼之泉圆珠", "category": "artifact"},
+    {"id": "technique_231", "display": "三色噬金虫剑云", "category": "technique"},
+    {"id": "technique_232", "display": "青虹瞬斩", "category": "technique"},
+    {"id": "technique_233", "display": "梦引术", "category": "technique"},
+    {"id": "material_253", "display": "赠予筑基丹", "category": "material"},
+    {"id": "material_254", "display": "银月粉红香雾", "category": "material"},
+    {"id": "material_255", "display": "蛮荒阵法玉简", "category": "material"}
+  ]
+}

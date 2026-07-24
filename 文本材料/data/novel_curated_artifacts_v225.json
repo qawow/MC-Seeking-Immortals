@@ -1,0 +1,69 @@
+{
+  "schema_version": 55,
+  "extract_version": 225,
+  "source": "《凡人修仙传》— 人工精读提取 · 法宝类（铁背圣兽·灵兽袋·首级盒·灵泉珠：第652–658章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v224 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 4,
+  "entries": [
+    {
+      "id": "artifact_297",
+      "display": "铁背圣兽灵兽袋",
+      "category": "artifact",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第652章 预兆"},
+      "setting": "付家镇族圣兽，唯三叔可驱使。黑黝黝不起眼灵兽袋；大汉死时袋黑光一闪黯淡，内有暴怒嘶吼。韩立顺手收取。",
+      "visual_descriptions": [
+        "大汉则面色凝重的一把抓起腰间的一只灵兽袋，黑黝黝的，毫不起眼。",
+        "大汉手上的灵兽袋刚发出黑色的灵光，就在大汉身死的瞬间，重新黯淡下来，里面隐隐传出一声暴怒的嘶吼之声。"
+      ],
+      "setting_descriptions": [
+        "让他将铁背圣兽装进灵兽袋里，一齐陪我出席祝寿大会。也只有他能驱使了我们付家的镇族圣兽！"
+      ]
+    },
+    {
+      "id": "artifact_298",
+      "display": "付天化土遁符",
+      "category": "artifact",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第653章 灭族（上）"},
+      "setting": "罕见土遁符。黄光一闪人往墙倒射消失，透墙遁地。付天化用以逃命，终被银月追上。",
+      "visual_descriptions": [
+        "手中却忽多出一张黄色符，黄光一闪，人就往后面墙壁倒射而去，蓦然消失不见，仿佛透墙而过一般。"
+      ],
+      "setting_descriptions": [
+        "竟是一张罕见的土遁符。"
+      ]
+    },
+    {
+      "id": "artifact_299",
+      "display": "付家老祖首级木盒",
+      "category": "artifact",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第656章 遗言与赠物"},
+      "setting": "四方木盒装付天化首级，韩立携至辛如音故居祭奠；妇人辨认后惊喜。后在灵位前化为灰烬。",
+      "visual_descriptions": [
+        "一个四方木盒，被韩立不动声色的从储物袋中掏出，直接扔到了桌上。"
+      ],
+      "setting_descriptions": [
+        "里面是付家老祖的首级，付家嫡系满门已被我杀光了。",
+        "将付家老祖的首级化为灰烬后，才悄悄的离开了这里。"
+      ]
+    },
+    {
+      "id": "artifact_300",
+      "display": "灵眼之泉圆珠",
+      "category": "artifact",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第658章 故居灵泉"},
+      "setting": "收泉法诀后泉眼缩为拳头深黄圆珠，玉匣收好。黄枫谷旧洞府灵眼之泉本体。",
+      "visual_descriptions": [
+        "一颗拳头大小的深黄圆珠，轻轻漂浮在那里。",
+        "飞快取出一个玉匣，将圆珠放入其内小心收好"
+      ],
+      "setting_descriptions": [
+        "此次前来，他就是想将此灵泉带走的。"
+      ]
+    }
+  ]
+}
