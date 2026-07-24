@@ -1,0 +1,21 @@
+{
+  "schema_version": 55,
+  "extract_version": 159,
+  "source": "《凡人修仙传》— 人工精读提取 · 总索引（魔道入侵·大衍诀傀儡·灵矿守卫·青阳魔火·白蜘蛛：第262–269章）",
+  "method": "沿原文逐段精读（青火瘴毒退王蝉·金骷髅头符宝→征调令·灵矿守卫→大衍诀·牵魂术·机关傀儡→灵兽山御灵宗暗桩·天南大战→青阳魔火·四煞阵破→撼地符塌隧·白蜘蛛·古传送阵·蓝令牌），凭理解概括设定，视觉描述为原文逐字引用。与 v148–v158 互补。",
+  "disclaimer": "代表性精读而非穷尽全本（4795 章无法逐字读完）；本批覆盖主传第262–269章，入包前仍需人工校订。",
+  "reading_progress": "《凡人修仙传》已逐段精读至第269章（白蜘蛛·古传送阵），约全书 13.4%（269/2005）。",
+  "totals": {
+    "entities": 16,
+    "by_category": {"设定": 6, "法宝": 3, "法术": 3, "材料": 2, "异兽": 2}
+  },
+  "note": "本弧线为魔道入侵全面爆发与韩立实力转型段：王蝉中青火瘴墨蛟之毒退去，韩立获金骷髅头符宝；半路被征调令拦下守卫灵石矿；痛感实力不足，搁置青元剑诀改修大衍诀与傀儡术（牵魂/凝魂/炼魂、二级傀儡需数百年铁木）；灵兽山原为御灵宗暗桩反水，天南大战死伤上万；魔焰门狂焰修士青阳魔火破四煞阵，怜飞花撼地符塌隧；韩立以傀儡兽挖通钟乳洞，遇白蜘蛛守护的古传送阵与蓝灿灿令牌。",
+  "files": {
+    "setting": "novel_curated_settings_v159.json",
+    "artifact": "novel_curated_artifacts_v159.json",
+    "technique": "novel_curated_techniques_v159.json",
+    "material": "novel_curated_materials_v159.json",
+    "beast": "novel_curated_beasts_v159.json"
+  },
+  "docs": "docs/NOVEL_CURATED_EXTRACT_v159.md"
+}
