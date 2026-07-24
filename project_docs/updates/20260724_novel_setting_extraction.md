@@ -1584,3 +1584,15 @@
 - 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
 - 备份：`.bak/20260729_010000`
 - 文件：`文本材料/data/novel_curated_*_v296.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v296.md`，`文本材料/README_WORLDPACK.md`
+
+
+## 2026-07-29 · v297 空间碎裂·第九层·禁魔·赤鸣鼓·真魔之气（第1056–1060章）
+
+- 方法：沿原文逐段连续精读主传第 1056–1060 章，凭理解概括；视觉描述为原文逐字引用。
+- 产出：高保真条目 16（设定 6 / 法宝 4 / 法术 3 / 材料 3）。
+- ID 区间：setting_901–906，artifact_585–588，technique_447–449，material_469–471。
+- 关节点：迷形珠与尸熊入塔；破界符+天阿神剑入第八层；空间碎裂整层传第九层；美玉祭坛/叱灵软玉石碑/化龙玺枢纽；禁魔环束缚与假死诱敌；魔化之躯碎环；赤鸣鼓；身外化身魔功；真魔之气与逆灵通道（章末七妙催玄青子祭新宝）。
+- 阅读进度：1060/2005 ≈ 52.9%；下一批自第 1061 章。
+- 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
+- 备份：`.bak/20260729_020000`
+- 文件：`文本材料/data/novel_curated_*_v297.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v297.md`，`文本材料/README_WORLDPACK.md`
