@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 194,
+  "source": "《凡人修仙传》— 人工精读提取 · 材料类（千叶露·玛瑙角·九曲配方：第500–503章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v193 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 3,
+  "entries": [
+    {
+      "id": "material_160",
+      "display": "千叶露",
+      "category": "material",
+      "term": "千叶露",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第501章 南明岛"},
+      "setting": "九曲灵参配方所需原料之一。南明岛第一大原料铺掌柜百余年未闻此名；疑为上古修士叫法，今已改称他名，需查上古典籍对真身。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "从未听说过‘千叶露’这味原料。",
+        "若是真有什么原料或者灵药晚辈没有听说过，那就十有八九此物乃是上古修士的叫法，现如今已改了其他的称呼。"
+      ]
+    },
+    {
+      "id": "material_161",
+      "display": "玛瑙角",
+      "category": "material",
+      "term": "玛瑙角",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第501章 南明岛"},
+      "setting": "九曲灵参配方所需。珍惜妖兽玛瑙兽所生独角，一般修士无缘一见；需大店铺或拍卖行。韩立结丹后期凝婴前才用九曲灵参，暂不急。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "至于‘玛瑙角’，此物乃是珍惜妖兽玛瑙兽所生的独角，一般修士根本无缘得以一见。"
+      ]
+    },
+    {
+      "id": "material_162",
+      "display": "九曲灵参配方原料缺口",
+      "category": "material",
+      "term": "九曲灵参配方",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第501章 南明岛"},
+      "setting": "玄骨所给九曲灵参配方。仙家灵药配方自上古流传；欠千叶露、玛瑙角等。韩立于南明岛搜刮结丹期丹方及小瓶不可催生之辅材，备外星海长期炼丹。",
+      "visual_descriptions": [
+        "一进此城，就将玄骨老魔所给的九曲灵参配方拿出来细看了一遍。"
+      ],
+      "setting_descriptions": [
+        "毕竟九曲灵参这东西，本就是传说中的仙家灵药。这炼制配方估计也是上古时期一直流传下来的。",
+        "还好这九曲灵参也得等到他到了结丹后期顶峰，开始凝结元婴才能用上"
+      ]
+    }
+  ]
+}

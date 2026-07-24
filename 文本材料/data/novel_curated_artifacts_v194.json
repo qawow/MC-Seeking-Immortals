@@ -1,0 +1,72 @@
+{
+  "schema_version": 55,
+  "extract_version": 194,
+  "source": "《凡人修仙传》— 人工精读提取 · 法宝类（逆星令·妙音腰牌·灵乳赶路：第500–503章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v193 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 4,
+  "entries": [
+    {
+      "id": "artifact_173",
+      "display": "逆星令（鬼牌）",
+      "category": "artifact",
+      "term": "逆星令",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第500章 逆星盟"},
+      "setting": "逆星盟所发令牌，鬼面图案，与六连殿鬼面同源。响应天星令觐见者自动为逆星盟之敌。三仙宗等收到，可玉简复制模样。",
+      "visual_descriptions": [
+        "同样的向其他势力发出了一种叫做逆星令的鬼牌。"
+      ],
+      "setting_descriptions": [
+        "声称凡是响应天星双圣觐见的势力，都将自动成为逆星盟的敌人，不予以放过。"
+      ]
+    },
+    {
+      "id": "artifact_174",
+      "display": "天星令",
+      "category": "artifact",
+      "term": "天星令",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第500章 逆星盟"},
+      "setting": "星宫向各宗派首领与岛屿之主所发强制觐见令。不从则以对星宫不敬剿灭。",
+      "visual_descriptions": [
+        "星宫竟真的向各大小势力发出了天星令"
+      ],
+      "setting_descriptions": [
+        "责令所有宗派首领和岛屿之主在接到天星令时，就必须去天星城觐见天星双圣一次"
+      ]
+    },
+    {
+      "id": "artifact_175",
+      "display": "妙音门客卿长老腰牌",
+      "category": "artifact",
+      "term": "长老腰牌",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第502章 盘查"},
+      "setting": "紫灵仙子所赠，韩立随身。南明岛逆星盟盘查时出示，苍云龙认门中韩、曲两长老画像对照放行。韩立一路以妙音门客卿长老身份应付，不改容貌以免神识看破。",
+      "visual_descriptions": [
+        "这是在下的腰牌，道友请看！"
+      ],
+      "setting_descriptions": [
+        "好在当日紫灵仙子所赠的长老腰牌，韩立随身携带着",
+        "贵门好像有韩、曲两位长老，经常闭关苦修，一向轻易不大显身"
+      ]
+    },
+    {
+      "id": "artifact_176",
+      "display": "血羽披风灵乳赶路",
+      "category": "artifact",
+      "term": "血色披风",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第500章 逆星盟"},
+      "setting": "韩立滴万年灵乳回法力，血色披风古宝全速飞遁，近普通元婴遁速；结丹误认元婴避让。近天星城海域后换普通遁光低调。",
+      "visual_descriptions": [
+        "将血色披风一披，顿时化为一团血光疾射而出，从原地消失得无影无踪。",
+        "路上，还真让一些偶尔碰见的结丹期修士，误将血光中的韩立当成哪位元婴期的前辈高人，纷纷避让三尺"
+      ],
+      "setting_descriptions": [
+        "如此一来，韩立自然大大缩短了原先的路程，几乎和普通的元婴期修士飞遁的速度一般无二。"
+      ]
+    }
+  ]
+}

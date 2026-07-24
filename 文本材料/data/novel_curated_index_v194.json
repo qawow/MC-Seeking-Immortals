@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 194,
+  "source": "《凡人修仙传》— 人工精读提取索引 v194（主传第500–503章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v193 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第500章 逆星盟",
+    "to_chapter": "第503章 冲突再起",
+    "chapter_range": "500-503",
+    "main_book_chapters_read_through": 503,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "25.1%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v194.json",
+    "novel_curated_artifacts_v194.json",
+    "novel_curated_techniques_v194.json",
+    "novel_curated_materials_v194.json",
+    "novel_curated_index_v194.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v194.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_283", "display": "天星令与觐见双圣", "category": "setting"},
+    {"id": "setting_284", "display": "逆星盟", "category": "setting"},
+    {"id": "setting_285", "display": "逆星令与鬼面同源", "category": "setting"},
+    {"id": "setting_286", "display": "南明岛前哨", "category": "setting"},
+    {"id": "setting_287", "display": "八级妖兽成精", "category": "setting"},
+    {"id": "setting_288", "display": "结丹期煞气与七煞决", "category": "setting"},
+    {"id": "artifact_173", "display": "逆星令（鬼牌）", "category": "artifact"},
+    {"id": "artifact_174", "display": "天星令", "category": "artifact"},
+    {"id": "artifact_175", "display": "妙音门客卿长老腰牌", "category": "artifact"},
+    {"id": "artifact_176", "display": "血羽披风灵乳赶路", "category": "artifact"},
+    {"id": "technique_138", "display": "七煞决感应煞气", "category": "technique"},
+    {"id": "technique_139", "display": "敛气之术掩煞", "category": "technique"},
+    {"id": "technique_140", "display": "元婴神识身份盘查", "category": "technique"},
+    {"id": "material_160", "display": "千叶露", "category": "material"},
+    {"id": "material_161", "display": "玛瑙角", "category": "material"},
+    {"id": "material_162", "display": "九曲灵参配方原料缺口", "category": "material"}
+  ]
+}
