@@ -1,0 +1,45 @@
+{
+  "schema_version": 55,
+  "extract_version": 244,
+  "source": "《凡人修仙传》— 人工精读提取索引（玄天峰·剑阵·鬼罗幡·极西：第787–792章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v243 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": {
+    "start_chapter": 787,
+    "end_chapter": 792,
+    "total_main_chapters": 2005,
+    "progress_approx": "792/2005 ≈ 39.5%"
+  },
+  "count": 16,
+  "by_category": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3
+  },
+  "entries": [
+    {"id": "setting_583", "display": "过时不候与特制传送阵", "category": "setting", "file": "novel_curated_settings_v244.json"},
+    {"id": "setting_584", "display": "金雷竹与玉简互诈", "category": "setting", "file": "novel_curated_settings_v244.json"},
+    {"id": "setting_585", "display": "大庚剑阵克魔与灭长老", "category": "setting", "file": "novel_curated_settings_v244.json"},
+    {"id": "setting_586", "display": "啼魂吞魔啖鬼之威", "category": "setting", "file": "novel_curated_settings_v244.json"},
+    {"id": "setting_587", "display": "解咒外物与火蟾内丹", "category": "setting", "file": "novel_curated_settings_v244.json"},
+    {"id": "setting_588", "display": "极西之地与千竹教", "category": "setting", "file": "novel_curated_settings_v244.json"},
+    {"id": "artifact_373", "display": "七龙桩（仿制半成品）", "category": "artifact", "file": "novel_curated_artifacts_v244.json"},
+    {"id": "artifact_374", "display": "大庚剑阵金丝", "category": "artifact", "file": "novel_curated_artifacts_v244.json"},
+    {"id": "artifact_375", "display": "十二鬼罗幡主幡", "category": "artifact", "file": "novel_curated_artifacts_v244.json"},
+    {"id": "artifact_376", "display": "阴罗长老令牌", "category": "artifact", "file": "novel_curated_artifacts_v244.json"},
+    {"id": "technique_288", "display": "半套大庚剑阵", "category": "technique", "file": "novel_curated_techniques_v244.json"},
+    {"id": "technique_289", "display": "血雷子污剑与辟邪互克", "category": "technique", "file": "novel_curated_techniques_v244.json"},
+    {"id": "technique_290", "display": "银月制婴与搜魂", "category": "technique", "file": "novel_curated_techniques_v244.json"},
+    {"id": "material_310", "display": "血雷子", "category": "material", "file": "novel_curated_materials_v244.json"},
+    {"id": "material_311", "display": "上古火蟾内丹", "category": "material", "file": "novel_curated_materials_v244.json"},
+    {"id": "material_312", "display": "玄天仙藤（待救）", "category": "material", "file": "novel_curated_materials_v244.json"}
+  ],
+  "themes": [
+    "过时不候特制传送阵、金雷竹玉简互诈",
+    "七龙桩仿品、半套大庚剑阵金丝克魔",
+    "血雷子与辟邪互克、十二鬼罗幡生魂",
+    "啼魂吞魔啖鬼、搜魂无解咒、火蟾外物破印",
+    "极西之地飓风沙漠与千竹教"
+  ]
+}
