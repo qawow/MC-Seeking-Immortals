@@ -1,0 +1,56 @@
+{
+  "schema_version": 55,
+  "extract_version": 243,
+  "source": "《凡人修仙传》— 人工精读提取 · 材料类（庚精·天地阴露·银粉：第783–786章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v242 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 3,
+  "entries": [
+    {
+      "id": "material_307",
+      "display": "庚精块（炼剑料）",
+      "category": "material",
+      "term": "庚精",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第785章 密室炼剑"},
+      "setting": "大小不一淡金原石。来源含至阳等、慕兰交换、龙晗天道盟再寻。婴火熔后半透明缩小过半，银粉精血处理后成金珠涂剑。",
+      "visual_descriptions": [
+        "那几块大小不一的庚精，出现在了脚下的地面上。",
+        "这块淡金色的原石立刻漂浮而起。"
+      ],
+      "setting_descriptions": [
+        "从至阳上人等手中再加上慕兰人敲来的那些外，从天一城临回来前，龙晗竟还真借助天道盟的势力，帮其也找到了另外一小块。"
+      ]
+    },
+    {
+      "id": "material_308",
+      "display": "天地阴露",
+      "category": "material",
+      "term": "天地阴露",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第784章 南宫惊变"},
+      "setting": "南宫洞府附近小山所采，供修炼大法轮回诀。采时遭黑袍魔修伏击。",
+      "visual_descriptions": [
+        "去洞府附近的一座小山上采取天地阴露，用来修炼大法轮回诀。"
+      ],
+      "setting_descriptions": [
+        "南宫婉像从前一样，去洞府附近的一座小山上采取天地阴露。"
+      ]
+    },
+    {
+      "id": "material_309",
+      "display": "炼剑银粉",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第785章 密室炼剑"},
+      "setting": "玉盒中银灿灿粉末，化银蛇射入庚精熔液，青光大放半透液体射银芒，再法诀催成六枚银珠。",
+      "visual_descriptions": [
+        "盒盖刹那间自行打开，露出了里面银灿灿的粉末。",
+        "这些粉末马上化为一道银蛇，自行射进了空中的透明液体中。"
+      ],
+      "setting_descriptions": [
+        "青光大放，半透明液体射出银色光芒。"
+      ]
+    }
+  ]
+}
