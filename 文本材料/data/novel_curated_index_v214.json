@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 214,
+  "source": "《凡人修仙传》— 人工精读提取索引 v214（主传第588–594章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v213 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第588章 香吻销魂",
+    "to_chapter": "第594章 阴阳轮回诀",
+    "chapter_range": "588-594",
+    "main_book_chapters_read_through": 594,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "29.6%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v214.json",
+    "novel_curated_artifacts_v214.json",
+    "novel_curated_techniques_v214.json",
+    "novel_curated_materials_v214.json",
+    "novel_curated_index_v214.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v214.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_403", "display": "口口相对渡通灵气", "category": "setting"},
+    {"id": "setting_404", "display": "村落修士夺权局", "category": "setting"},
+    {"id": "setting_405", "display": "暴风山亲历险境", "category": "setting"},
+    {"id": "setting_406", "display": "降灵符与密符体系", "category": "setting"},
+    {"id": "setting_407", "display": "啼魂银猿独特进化", "category": "setting"},
+    {"id": "setting_408", "display": "阴阳轮回诀人鬼合修", "category": "setting"},
+    {"id": "artifact_253", "display": "降灵符骨盒", "category": "artifact"},
+    {"id": "artifact_254", "display": "避风珠", "category": "artifact"},
+    {"id": "artifact_255", "display": "婆罗珠", "category": "artifact"},
+    {"id": "artifact_256", "display": "四象蟠龙带", "category": "artifact"},
+    {"id": "technique_198", "display": "噬金虫暗杀", "category": "technique"},
+    {"id": "technique_199", "display": "啼魂啖魂取晶", "category": "technique"},
+    {"id": "technique_200", "display": "兽筋小剑遥控", "category": "technique"},
+    {"id": "material_220", "display": "化形期妖兽精魄", "category": "material"},
+    {"id": "material_221", "display": "火属性高阶兽皮", "category": "material"},
+    {"id": "material_222", "display": "沉水半库与碧蟾肉", "category": "material"}
+  ]
+}
