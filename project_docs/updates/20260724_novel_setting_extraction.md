@@ -1514,3 +1514,14 @@
 - 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
 - 备份：`.bak/20260728_190000`
 - 文件：`文本材料/data/novel_curated_*_v290.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v290.md`，`文本材料/README_WORLDPACK.md`
+
+## 2026-07-28 · v291 降伏·劫杀老魔·五魔合体·血魔珠·破珠（第1026–1030章）
+
+- 方法：沿原文逐段连续精读主传第 1026–1030 章，凭理解概括；视觉描述为原文逐字引用。
+- 产出：高保真条目 16（设定 6 / 法宝 4 / 法术 3 / 材料 3）。
+- ID 区间：setting_865–870，artifact_561–564，technique_429–431，material_451–453。
+- 关节点：本命元牌降伏圭灵（半元神附牌）；不灭之体续臂；日月梭夺路与银牌控阵；北极元光劫杀乾老魔；五魔合体秽阴魔气与化魔无形；银斧虎噬；阳环银链撕影；血魔珠第二肉躯；十八阴罗幡镇宗之规；黑光飞刀破珠；虚天鼎青霞追元婴（章末未结）。
+- 阅读进度：1030/2005 ≈ 51.4%；下一批自第 1031 章「反噬」。
+- 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
+- 备份：`.bak/20260728_200000`
+- 文件：`文本材料/data/novel_curated_*_v291.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v291.md`，`文本材料/README_WORLDPACK.md`

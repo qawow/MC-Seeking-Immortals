@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 291,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（降伏·劫杀老魔·五魔合体·血魔珠·破珠：第1026–1030章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v290 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1026章 降伏 — 第1030章 破珠",
+  "progress": "1030/2005 ≈ 51.4%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_865–setting_870",
+    "artifacts": "artifact_561–artifact_564",
+    "techniques": "technique_429–technique_431",
+    "materials": "material_451–material_453"
+  },
+  "entries": [
+    {"id": "setting_865", "display": "本命元牌降伏圭灵", "category": "setting", "file": "novel_curated_settings_v291.json"},
+    {"id": "setting_866", "display": "北极元光劫杀乾老魔", "category": "setting", "file": "novel_curated_settings_v291.json"},
+    {"id": "setting_867", "display": "五魔合体与秽阴魔气", "category": "setting", "file": "novel_curated_settings_v291.json"},
+    {"id": "setting_868", "display": "血魔珠第二肉躯", "category": "setting", "file": "novel_curated_settings_v291.json"},
+    {"id": "setting_869", "display": "十八阴罗幡镇宗之规", "category": "setting", "file": "novel_curated_settings_v291.json"},
+    {"id": "setting_870", "display": "日月梭夺路与银牌控阵", "category": "setting", "file": "novel_curated_settings_v291.json"},
+    {"id": "artifact_561", "display": "血魔珠", "category": "artifact", "file": "novel_curated_artifacts_v291.json"},
+    {"id": "artifact_562", "display": "阴罗幡主鬼", "category": "artifact", "file": "novel_curated_artifacts_v291.json"},
+    {"id": "artifact_563", "display": "玄岩龟银斧凶刃", "category": "artifact", "file": "novel_curated_artifacts_v291.json"},
+    {"id": "artifact_564", "display": "黑光飞刀破珠", "category": "artifact", "file": "novel_curated_artifacts_v291.json"},
+    {"id": "technique_429", "display": "不灭之体再生", "category": "technique", "file": "novel_curated_techniques_v291.json"},
+    {"id": "technique_430", "display": "巨大术与虎噬", "category": "technique", "file": "novel_curated_techniques_v291.json"},
+    {"id": "technique_431", "display": "阳环银链撕影", "category": "technique", "file": "novel_curated_techniques_v291.json"},
+    {"id": "material_451", "display": "本命元牌灵龟图", "category": "material", "file": "novel_curated_materials_v291.json"},
+    {"id": "material_452", "display": "指血刀", "category": "material", "file": "novel_curated_materials_v291.json"},
+    {"id": "material_453", "display": "万年灵液疗伤", "category": "material", "file": "novel_curated_materials_v291.json"}
+  ]
+}
