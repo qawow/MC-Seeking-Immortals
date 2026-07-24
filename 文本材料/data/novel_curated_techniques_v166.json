@@ -1,0 +1,37 @@
+{
+  "schema_version": 55,
+  "extract_version": 166,
+  "source": "《凡人修仙传》— 人工精读提取 · 法术类（真灵诀·罗烟步四影·控神术潜入：第334–337章）",
+  "method": "沿原文逐段精读，凭理解概括功法设定；视觉描述为精读时所见原文逐字引用。与 v148–v165 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 2,
+  "entries": [
+    {
+      "id": "technique_060",
+      "display": "真灵诀",
+      "category": "technique",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第334章 异变"},
+      "setting": "韩立以青光飞入体内，可令毒素显像于面容，供镜中自观。用于诊断凡人慢性隐毒。",
+      "visual_descriptions": [
+        "一道青光一闪即逝的飞入了孙二体内。"
+      ],
+      "setting_descriptions": [
+        "这是真灵诀，可以让你体内的毒素显像出来。自己照镜子看看吧！"
+      ]
+    },
+    {
+      "id": "technique_061",
+      "display": "罗烟步四影击杀",
+      "category": "technique",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第335章 惊愕"},
+      "setting": "韩立潜入李府时对四名白衣侍卫：身形一晃同时化出四道幻影，各挥掌一扑；四人无声倒地，心脏处各插亮晶晶冰锥，尸罩白霜。再以火球化尸。",
+      "visual_descriptions": [
+        "韩立身形再次一晃，竟同时化出了四道幻影，同时向这四人轻轻挥掌一扑。",
+        "顿时，这几人无声无息的倒地而亡，每个人心脏处都插上了一根亮晶晶的冰锥，尸体还罩上了一层白色的冰霜。"
+      ],
+      "setting_descriptions": []
+    }
+  ]
+}
