@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 206,
+  "source": "《凡人修仙传》— 人工精读提取索引 v206（主传第546–551章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v205 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第546章 梵圣真片",
+    "to_chapter": "第551章 噬蛟",
+    "chapter_range": "546-551",
+    "main_book_chapters_read_through": 551,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "27.5%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v206.json",
+    "novel_curated_artifacts_v206.json",
+    "novel_curated_techniques_v206.json",
+    "novel_curated_materials_v206.json",
+    "novel_curated_index_v206.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v206.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_355", "display": "万妖令与梵圣真片失窃", "category": "setting"},
+    {"id": "setting_356", "display": "混沌魔气挟制", "category": "setting"},
+    {"id": "setting_357", "display": "地火炼器室风雷翅法阵", "category": "setting"},
+    {"id": "setting_358", "display": "风灵劲挟制与暗算三妖", "category": "setting"},
+    {"id": "setting_359", "display": "八级妖体与自治之体", "category": "setting"},
+    {"id": "setting_360", "display": "驱虫术与十余万噬金虫", "category": "setting"},
+    {"id": "artifact_221", "display": "雷鹏骨翅", "category": "artifact"},
+    {"id": "artifact_222", "display": "皇鳞甲", "category": "artifact"},
+    {"id": "artifact_223", "display": "风雷翅初成", "category": "artifact"},
+    {"id": "artifact_224", "display": "风希护身白光", "category": "artifact"},
+    {"id": "technique_174", "display": "风雷合与木灵调和", "category": "technique"},
+    {"id": "technique_175", "display": "辟邪神雷困风灵劲", "category": "technique"},
+    {"id": "technique_176", "display": "噬金虫噬蛟与啼魂锁魂", "category": "technique"},
+    {"id": "material_196", "display": "万年灵液炼宝补给", "category": "material"},
+    {"id": "material_197", "display": "稀释灵液暗算药", "category": "material"},
+    {"id": "material_198", "display": "毒蛟血色妖丹与蛟魂", "category": "material"}
+  ]
+}
