@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 192,
+  "source": "《凡人修仙传》— 人工精读提取索引 v192（主传第492–495章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v191 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第492章 辟邪神雷与修罗圣火",
+    "to_chapter": "第495章 画轴之谜",
+    "chapter_range": "492-495",
+    "main_book_chapters_read_through": 495,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "24.7%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v192.json",
+    "novel_curated_artifacts_v192.json",
+    "novel_curated_techniques_v192.json",
+    "novel_curated_materials_v192.json",
+    "novel_curated_index_v192.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v192.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_271", "display": "五行环克制与局限", "category": "setting"},
+    {"id": "setting_272", "display": "修罗圣火", "category": "setting"},
+    {"id": "setting_273", "display": "辟邪神雷与乾蓝冰焰对峙", "category": "setting"},
+    {"id": "setting_274", "display": "乾蓝珠凝成", "category": "setting"},
+    {"id": "setting_275", "display": "鬼修魂魄与啼魂吸魂", "category": "setting"},
+    {"id": "setting_276", "display": "内殿逃生画轴", "category": "setting"},
+    {"id": "artifact_165", "display": "乾蓝珠", "category": "artifact"},
+    {"id": "artifact_166", "display": "金雷竹小箭（玄骨法宝）", "category": "artifact"},
+    {"id": "artifact_167", "display": "玄骨遗骨肋骨", "category": "artifact"},
+    {"id": "artifact_168", "display": "内殿逃生画轴", "category": "artifact"},
+    {"id": "technique_132", "display": "修罗圣火强行合成", "category": "technique"},
+    {"id": "technique_133", "display": "剑影分光术双巨剑", "category": "technique"},
+    {"id": "technique_134", "display": "啼魂兽吸魂神光", "category": "technique"},
+    {"id": "material_154", "display": "乾蓝珠火种", "category": "material"},
+    {"id": "material_155", "display": "玄骨不灭肋骨", "category": "material"},
+    {"id": "material_156", "display": "极阴追踪暗记", "category": "material"}
+  ]
+}
