@@ -1867,3 +1867,14 @@
 - 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
 - 备份：`.bak/20260725_090000`
 - 文件：`文本材料/data/novel_curated_*_v321.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v321.md`，`文本材料/README_WORLDPACK.md`
+
+## 2026-07-25 · v322 踪讯·重返坠魔·血月觅灵·解救·重临七灵（第1181–1185章）
+
+- 方法：沿原文逐段连续精读主传第 1181–1185 章，凭理解概括；视觉描述为原文逐字引用。
+- 产出：高保真条目 16（设定 6 / 法宝 4 / 法术 3 / 材料 3）。
+- ID 区间：setting_1051–1056，artifact_685–688，technique_522–524，material_544–546。
+- 关节点：火鼎火鸦凝火灵丝两月；吕洛报三女失踪·问金海赵氏标图；神识化千/霜蚣得玄阴黑触须悟第二元婴夺舍；血月觅灵引熔岩湖底蓝幕洞窟；紫焰潜熔金弧电蛟破雾救三女摄银针；魔渊蓝珠裂·推魔气灌体·后期遁速一月抵七灵。
+- 阅读进度：1185/2005 ≈ 59.1%；下一批自第 1186 章。
+- 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
+- 备份：`.bak/20260725_100000`
+- 文件：`文本材料/data/novel_curated_*_v322.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v322.md`，`文本材料/README_WORLDPACK.md`

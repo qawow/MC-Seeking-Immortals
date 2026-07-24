@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 322,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（踪讯·重返坠魔·血月觅灵·解救·重临七灵：第1181–1185章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v321 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1181章 踪讯 — 第1185章 重临七灵",
+  "progress": "1185/2005 ≈ 59.1%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1051–setting_1056",
+    "artifacts": "artifact_685–artifact_688",
+    "techniques": "technique_522–technique_524",
+    "materials": "material_544–material_546"
+  },
+  "entries": [
+    {"id": "setting_1051", "display": "火鼎火鸦凝练火灵丝", "category": "setting", "file": "novel_curated_settings_v322.json"},
+    {"id": "setting_1052", "display": "坠魔谷禁制衰弱与入谷现状", "category": "setting", "file": "novel_curated_settings_v322.json"},
+    {"id": "setting_1053", "display": "黑触须玄阴与第二元婴推断", "category": "setting", "file": "novel_curated_settings_v322.json"},
+    {"id": "setting_1054", "display": "熔岩湖底洞窟关押阵", "category": "setting", "file": "novel_curated_settings_v322.json"},
+    {"id": "setting_1055", "display": "魔气灌体与遁速时差误算", "category": "setting", "file": "novel_curated_settings_v322.json"},
+    {"id": "setting_1056", "display": "金阙半页与化形雷劫之约", "category": "setting", "file": "novel_curated_settings_v322.json"},
+    {"id": "artifact_685", "display": "火红小鼎诞火灵丝", "category": "artifact", "file": "novel_curated_artifacts_v322.json"},
+    {"id": "artifact_686", "display": "血月觅灵玉盘与赤旗", "category": "artifact", "file": "novel_curated_artifacts_v322.json"},
+    {"id": "artifact_687", "display": "第二元婴禁制感应蓝珠", "category": "artifact", "file": "novel_curated_artifacts_v322.json"},
+    {"id": "artifact_688", "display": "三女银针法力禁制", "category": "artifact", "file": "novel_curated_artifacts_v322.json"},
+    {"id": "technique_522", "display": "神识化千与霜蚣感应", "category": "technique", "file": "novel_curated_techniques_v322.json"},
+    {"id": "technique_523", "display": "血月觅灵秘术", "category": "technique", "file": "novel_curated_techniques_v322.json"},
+    {"id": "technique_524", "display": "紫焰潜熔与金弧破雾", "category": "technique", "file": "novel_curated_techniques_v322.json"},
+    {"id": "material_544", "display": "凝练火灵丝辅材膏", "category": "material", "file": "novel_curated_materials_v322.json"},
+    {"id": "material_545", "display": "玄阴浸染霜蚣触须", "category": "material", "file": "novel_curated_materials_v322.json"},
+    {"id": "material_546", "display": "内谷上古修士遗宝", "category": "material", "file": "novel_curated_materials_v322.json"}
+  ]
+}
