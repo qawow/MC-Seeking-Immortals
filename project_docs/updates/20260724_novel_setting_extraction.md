@@ -1620,3 +1620,15 @@
 - 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
 - 备份：`.bak/20260729_040000`
 - 文件：`文本材料/data/novel_curated_*_v299.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v299.md`，`文本材料/README_WORLDPACK.md`
+
+
+## 2026-07-29 · v300 封灵大法·封印·灵魂吞噬·脱困·冰寒之地（第1071–1075章）
+
+- 方法：沿原文逐段连续精读主传第 1071–1075 章，凭理解概括；视觉描述为原文逐字引用。
+- 产出：高保真条目 16（设定 6 / 法宝 4 / 法术 3 / 材料 3）。
+- ID 区间：setting_919–924，artifact_597–600，technique_456–458，material_478–480。
+- 关节点：空间节点登天路；银月夺主导·封灵大法封小瓶；天晶碑激发备用法阵重封；灵魂吞噬夺躯·珑梦为主回灵界；逆星盘真盘开通道·瞬移韩出山；节点玉简；玄冰花/北冥小极宫；霜郡隐居驱李家。
+- 阅读进度：1075/2005 ≈ 53.6%；下一批自第 1076 章。
+- 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
+- 备份：`.bak/20260729_050000`
+- 文件：`文本材料/data/novel_curated_*_v300.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v300.md`，`文本材料/README_WORLDPACK.md`
