@@ -1,0 +1,45 @@
+{
+  "schema_version": 55,
+  "extract_version": 240,
+  "source": "《凡人修仙传》— 人工精读提取索引（阴罗宗·赌战血罩·边界开战：第764–770章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v239 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": {
+    "start_chapter": 764,
+    "end_chapter": 770,
+    "total_main_chapters": 2005,
+    "progress_approx": "770/2005 ≈ 38.4%"
+  },
+  "count": 16,
+  "by_category": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3
+  },
+  "entries": [
+    {"id": "setting_559", "display": "阴罗宗合谋与圣禽鬼罗幡", "category": "setting", "file": "novel_curated_settings_v240.json"},
+    {"id": "setting_560", "display": "天恨潜入资源库与胥国之约", "category": "setting", "file": "novel_curated_settings_v240.json"},
+    {"id": "setting_561", "display": "四大势力杀招与赌战后手", "category": "setting", "file": "novel_curated_settings_v240.json"},
+    {"id": "setting_562", "display": "边界对峙与六七万修仙者", "category": "setting", "file": "novel_curated_settings_v240.json"},
+    {"id": "setting_563", "display": "赌战开局与血罗罩诡计", "category": "setting", "file": "novel_curated_settings_v240.json"},
+    {"id": "setting_564", "display": "大军开战与虚灵兽巨兽冲击", "category": "setting", "file": "novel_curated_settings_v240.json"},
+    {"id": "artifact_357", "display": "降灵符成品", "category": "artifact", "file": "novel_curated_artifacts_v240.json"},
+    {"id": "artifact_358", "display": "破禁珠", "category": "artifact", "file": "novel_curated_artifacts_v240.json"},
+    {"id": "artifact_359", "display": "群攻异宝阵列", "category": "artifact", "file": "novel_curated_artifacts_v240.json"},
+    {"id": "artifact_360", "display": "血罗罩", "category": "artifact", "file": "novel_curated_artifacts_v240.json"},
+    {"id": "technique_276", "display": "血罗罩秘术", "category": "technique", "file": "novel_curated_techniques_v240.json"},
+    {"id": "technique_277", "display": "虚灵兽召唤", "category": "technique", "file": "novel_curated_techniques_v240.json"},
+    {"id": "technique_278", "display": "灵术法阵群攻", "category": "technique", "file": "novel_curated_techniques_v240.json"},
+    {"id": "material_298", "display": "回煞丸", "category": "material", "file": "novel_curated_materials_v240.json"},
+    {"id": "material_299", "display": "魔灵丹与血尸", "category": "material", "file": "novel_curated_materials_v240.json"},
+    {"id": "material_300", "display": "圣灯灵油", "category": "material", "file": "novel_curated_materials_v240.json"}
+  ],
+  "themes": [
+    "阴罗宗房宗主合谋、鬼罗幡生魂与圣灯灵油圣禽",
+    "天恨洗劫阗天资源仓、胥国开宗之约",
+    "破禁珠真品与回煞丸赌战后手",
+    "边界六七万对峙、血尸血罗罩困十元婴",
+    "群攻异宝、蛮荒巨兽与虚灵兽弹丸、灵术法阵"
+  ]
+}
