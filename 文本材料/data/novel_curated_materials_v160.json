@@ -1,0 +1,79 @@
+{
+  "schema_version": 55,
+  "extract_version": 160,
+  "source": "《凡人修仙传》— 人工精读提取 · 材料类（铜精·五彩珠·龙吟草·灵茶·蜘蛛卵：第269–277章）",
+  "method": "沿原文逐段精读，凭理解概括材料设定；视觉描述为精读时所见原文逐字引用。与 v148–v159 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 5,
+  "entries": [
+    {
+      "id": "material_044",
+      "display": "铜精",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第269章 血色"},
+      "setting": "炼制法宝的材料。宣乐遮天钟掺进铜精，故坚固到可困住血色水晶蜘蛛。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "我这件遮天钟可是掺进了炼制法宝的材料铜精，它绝对无法逃脱的！"
+      ]
+    },
+    {
+      "id": "material_045",
+      "display": "五彩小珠（五色骸骨熔珠）",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第271章 大挪移令和古传送阵"},
+      "setting": "韩立以火球烧毁五色骸骨时，骸骨凝结出七八颗五彩小珠子。用途当时未明，韩立好奇收存。",
+      "visual_descriptions": [
+        "结果烈火熔烧过后，骸骨竟然凝结出了七八颗五彩的小珠子出来。"
+      ],
+      "setting_descriptions": []
+    },
+    {
+      "id": "material_046",
+      "display": "龙吟草",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第272章 一年"},
+      "setting": "金鼓原营内交易所陈胖子摊上的药材，韩立以五百颗灵石换得。用于凑齐聚灵丹/古方原料之一。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "陈兄，换那个龙吟草，我已凑够了五百颗灵石了。",
+        "不错，不错！真的是五百灵石！这是龙吟草，好好收起来吧！"
+      ]
+    },
+    {
+      "id": "material_047",
+      "display": "灵茶（含灵气茶叶）",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第275章 茶香"},
+      "setting": "辛如音花近十年研究调制出的茶叶，可让普通茶叶蕴含灵气。清泉茶馆茶香中感应淡淡灵气，每人每日限品一壶；齐云霄处更上等者翠绿欲滴、清香更浓、灵气更盛，喝后满口清爽神志清明。辛如音前两日调制灵茶的上好茶叶用尽后会去碧云山采集。",
+      "visual_descriptions": [
+        "一股扑鼻的茶香就已迎面而来！",
+        "那掌柜下去一会儿后，就端上了两杯翠绿欲滴的茶水来。"
+      ],
+      "setting_descriptions": [
+        "他虽然对茶道了解的不多，但从这茶香中却感应到了淡淡的灵气。",
+        "此茶可不是晚辈调制出来的，而是好友所赠。这茶叶可是在下好友，花了近十年的世间，才研究出来的！",
+        "能让普通茶叶蕴含灵气，这的确是从未听闻过的事情。"
+      ]
+    },
+    {
+      "id": "material_048",
+      "display": "水晶蜘蛛卵",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第271章 大挪移令和古传送阵"},
+      "setting": "钟乳洞石柱后发现的两枚晶莹透明圆卵，拳头般大小，为水晶蜘蛛所产。韩立从灵兽山修士储物袋中找专门盛装灵兽的皮袋收存；回洞府后浸泡灵眼之泉加速孵化，并以控神法阵滴精血控制。卵在灵泉中大了一圈。",
+      "visual_descriptions": [
+        "结果在一根粗状的石柱后面，发现了两枚晶莹透明的圆卵，足有拳头般大小。"
+      ],
+      "setting_descriptions": [
+        "韩立回到洞府的第一件事，就是将那对蜘蛛卵浸泡在了灵眼之泉内，让灵气慢慢滋育其孵化。",
+        "回到洞府内，韩立发现蜘蛛卵似乎大了一圈，看来灵眼之泉对加速孵化，是真的有效。"
+      ]
+    }
+  ]
+}
