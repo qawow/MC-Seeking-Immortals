@@ -1,0 +1,47 @@
+{
+  "schema_version": 55,
+  "extract_version": 227,
+  "source": "《凡人修仙传》— 人工精读提取 · 材料类（霜蚣卵·霓裳草·拜师丹药：第668–675章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v226 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 3,
+  "entries": [
+    {
+      "id": "material_259",
+      "display": "六翼霜蚣虫卵",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第670章 霜花与蓝焰"},
+      "setting": "柳玉从上古荒废洞府得古卵，原以为死卵竟孵化数只。成年神通无穷但培养上千年。韩立催熟换取其产卵自用。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "晚辈从一座上古修士的荒废洞府，寻觅到的诸多此虫古卵。原本以为是死卵，不可能孵化的，但回去一试之下，竟机缘巧合的孵化出了几只来。",
+        "我可以帮道友催熟这几只六翼霜蚣，但是它们产下的虫卵，必须交予我，我另有它用。"
+      ]
+    },
+    {
+      "id": "material_260",
+      "display": "霓裳草催熟",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第671章 虫甲术"},
+      "setting": "对噬金虫有效的霓裳草，韩立用以催熟六翼霜蚣，判断对上古灵虫同类有效。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "他在得到了那些蜈蚣后，就用霓裳草进行了催熟。这些霓裳草对噬金虫有用的话，对六翼霜蚣应该同样有效。"
+      ]
+    },
+    {
+      "id": "material_261",
+      "display": "结丹妖兽丹药",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第671章 虫甲术"},
+      "setting": "韩立拜师礼：两件法宝+数瓶结丹期服用妖兽丹药赐柳眉。此女惊喜，始觉拜师非坏事。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "当即拿出了两件法宝和数瓶结丹期修士服用的妖兽丹药，赐予了此女。"
+      ]
+    }
+  ]
+}

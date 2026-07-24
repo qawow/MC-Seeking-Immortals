@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 227,
+  "source": "《凡人修仙传》— 人工精读提取索引 v227（主传第668–675章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v226 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第668章 五行灵婴",
+    "to_chapter": "第675章 强行交易",
+    "chapter_range": "668-675",
+    "main_book_chapters_read_through": 675,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "33.7%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v227.json",
+    "novel_curated_artifacts_v227.json",
+    "novel_curated_techniques_v227.json",
+    "novel_curated_materials_v227.json",
+    "novel_curated_index_v227.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v227.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_481", "display": "五行灵婴秘法", "category": "setting"},
+    {"id": "setting_482", "display": "柳玉拜师落云", "category": "setting"},
+    {"id": "setting_483", "display": "霜花融焰紫鸟", "category": "setting"},
+    {"id": "setting_484", "display": "第二元婴化身反噬", "category": "setting"},
+    {"id": "setting_485", "display": "阗天城交易会", "category": "setting"},
+    {"id": "setting_486", "display": "强行交易规定", "category": "setting"},
+    {"id": "artifact_305", "display": "三色噬金虫甲", "category": "artifact"},
+    {"id": "artifact_306", "display": "紫焰小鸟", "category": "artifact"},
+    {"id": "artifact_307", "display": "驱虫术玉简", "category": "artifact"},
+    {"id": "artifact_308", "display": "南陇侯麒麟火凤兽车", "category": "artifact"},
+    {"id": "technique_237", "display": "虫甲术", "category": "technique"},
+    {"id": "technique_238", "display": "玄牡化婴侵占同化", "category": "technique"},
+    {"id": "technique_239", "display": "归一诀", "category": "technique"},
+    {"id": "material_259", "display": "六翼霜蚣虫卵", "category": "material"},
+    {"id": "material_260", "display": "霓裳草催熟", "category": "material"},
+    {"id": "material_261", "display": "结丹妖兽丹药", "category": "material"}
+  ]
+}
