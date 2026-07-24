@@ -1955,3 +1955,14 @@
 - 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
 - 备份：`.bak/20260725_170000`
 - 文件：`文本材料/data/novel_curated_*_v329.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v329.md`，`文本材料/README_WORLDPACK.md`
+
+## 2026-07-25 · v330 元磁山·五行之力·赤魂幡·冲击化神·再度远游（第1221–1225章）
+
+- 方法：沿原文逐段连续精读主传第 1221–1225 章，凭理解概括；视觉描述为原文逐字引用。
+- 产出：高保真条目 16（设定 6 / 法宝 4 / 法术 3 / 材料 3）。
+- ID 区间：setting_1099–1104，artifact_717–720，technique_546–548，material_568–570。
+- 关节点：金巨剑破阵眼·五魔噬金克蓝氏·逆星盟半年溃；元磁山五行反噬温凉如玉·双圣阳谋困山；客卿虚名数百万灵石·实则远遁；黑风旗改炼赤魂幡需百万/千万生魂·鬼罗幡万妖幡；五十年冲击化神灵云功亏一篑；魏无涯坐化·再度远游长生更坚。
+- 阅读进度：1225/2005 ≈ 61.1%；下一批自第 1226 章。
+- 版本与协议：文档/设定数据类，不 bump mod_version（0.2.173），PROTOCOL_VERSION 维持 30；无 Gradle。
+- 备份：`.bak/20260725_180000`
+- 文件：`文本材料/data/novel_curated_*_v330.json`，`文本材料/docs/NOVEL_CURATED_EXTRACT_v330.md`，`文本材料/README_WORLDPACK.md`

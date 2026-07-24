@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 330,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（元磁山·五行之力·赤魂幡·冲击化神·再度远游：第1221–1225章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v329 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1221章 元磁山 — 第1225章 再度远游",
+  "progress": "1225/2005 ≈ 61.1%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1099–setting_1104",
+    "artifacts": "artifact_717–artifact_720",
+    "techniques": "technique_546–technique_548",
+    "materials": "material_568–material_570"
+  },
+  "entries": [
+    {"id": "setting_1099", "display": "金巨剑破阵眼与逆星盟溃败", "category": "setting", "file": "novel_curated_settings_v330.json"},
+    {"id": "setting_1100", "display": "元磁山五行之力与灵力反噬", "category": "setting", "file": "novel_curated_settings_v330.json"},
+    {"id": "setting_1101", "display": "天星双圣阳谋困山与客卿虚名", "category": "setting", "file": "novel_curated_settings_v330.json"},
+    {"id": "setting_1102", "display": "赤魂幡改炼黑风旗与生魂祭炼", "category": "setting", "file": "novel_curated_settings_v330.json"},
+    {"id": "setting_1103", "display": "冲击化神天兆灵云功亏一篑", "category": "setting", "file": "novel_curated_settings_v330.json"},
+    {"id": "setting_1104", "display": "再度远游与魏无涯坐化", "category": "setting", "file": "novel_curated_settings_v330.json"},
+    {"id": "artifact_717", "display": "元磁山", "category": "artifact", "file": "novel_curated_artifacts_v330.json"},
+    {"id": "artifact_718", "display": "碧玉门禁制玉牌与蓝色玉钩", "category": "artifact", "file": "novel_curated_artifacts_v330.json"},
+    {"id": "artifact_719", "display": "残缺黑风旗与赤魂幡构想", "category": "artifact", "file": "novel_curated_artifacts_v330.json"},
+    {"id": "artifact_720", "display": "鬼罗幡两杆与万妖幡", "category": "artifact", "file": "novel_curated_artifacts_v330.json"},
+    {"id": "technique_546", "display": "金刚罩隔绝五行", "category": "technique", "file": "novel_curated_techniques_v330.json"},
+    {"id": "technique_547", "display": "元磁神光与五行之力联结", "category": "technique", "file": "novel_curated_techniques_v330.json"},
+    {"id": "technique_548", "display": "冲击化神召唤天地灵云", "category": "technique", "file": "novel_curated_techniques_v330.json"},
+    {"id": "material_568", "display": "月光石与青石元磁洞窟", "category": "material", "file": "novel_curated_materials_v330.json"},
+    {"id": "material_569", "display": "赤魂幡生魂祭炼需求", "category": "material", "file": "novel_curated_materials_v330.json"},
+    {"id": "material_570", "display": "驻颜丹", "category": "material", "file": "novel_curated_materials_v330.json"}
+  ]
+}
