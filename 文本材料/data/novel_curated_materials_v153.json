@@ -1,0 +1,96 @@
+{
+  "schema_version": 55,
+  "extract_version": 153,
+  "source": "《凡人修仙传》— 人工精读提取 · 材料类（出禁地·李化元收徒→地火屋炼丹→筑基→青元剑诀：第209–218章）",
+  "method": "沿原文逐段精读，凭理解概括材料设定；视觉描述为精读时所见原文逐字引用。与 v148–v152 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 7,
+  "entries": [
+    {
+      "id": "material_021",
+      "display": "筑基丹",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第214章 地火之屋"},
+      "setting": "助炼气期弟子洗髓易筋、冲关筑基的珍贵丹药。黄枫谷规定凡上交十株左右灵药者即可换取一枚筑基丹。韩立以血色禁地所得灵药为材，在地火屋银丝鼎中耗时半年亲手炼制，初时二十几次连凝丹都过不了，后凝丹几率狂升、开炉取丹过半一次成功，最终炼出二十几颗蓝灿灿的筑基丹，远超原先七八颗的预想。服之洗髓易筋、逼出灰色杂质，连服八粒后于昏迷中冲关成功、进入筑基期。",
+      "visual_descriptions": [
+        "韩立盘坐在蒲团上，看着漂浮在身前的二十几颗蓝灿灿的筑基丹，一脸的沉思之色。"
+      ],
+      "setting_descriptions": [
+        "凡是上交十株左右灵药的，就可换取一枚筑基丹。"
+      ]
+    },
+    {
+      "id": "material_022",
+      "display": "辟谷丹",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第215章 炼丹与筑基"},
+      "setting": "可令人长时间不食的丹药。韩立以几株从外面收购来的百年草药为借口，从百药园马师伯（小老头）处换得一瓶。在地火屋炼丹期间，腹中饥渴时便服下一粒，可再坚持一个月，支撑他近半年不间断炼丹。炼气期弟子的辟谷一般只能维持一个月。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "韩立觉得腹中开始饥渴时，便会把从小老头那里弄到的一瓶辟谷丹，吃下一粒去，然后又可以再坚持一个月！"
+      ]
+    },
+    {
+      "id": "material_023",
+      "display": "火星砂",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第214章 地火之屋"},
+      "setting": "装于地火屋四壁葫芦中的助燃之物，可暂时加强地火的威力。若炼丹时觉得地火温度不够，可用其提升火力，只是持续时间不会太久。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "这些葫芦内，装的都是火星砂，可以暂时加强地火的威力，若师弟觉得地火温度还不够的话，提升威力，只是持续时间不会太久。"
+      ]
+    },
+    {
+      "id": "material_024",
+      "display": "坞石",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第214章 地火之屋"},
+      "setting": "一种不算稀罕、却非世俗间普通的材料，越国并不出产，都是黄枫谷师祖们从极西之地的他国弄来，很是麻烦。具有耐高温、不怕地火熔炼的古怪特性，触之滑腻冰凉，被用来砌建地火之地的通道与房屋，使此地自开放以来从未出过大事故。",
+      "visual_descriptions": [
+        "韩立不禁用手在一侧的黑石壁上摸了一把，结果滑腻冰凉！"
+      ],
+      "setting_descriptions": [
+        "凭借坞石的耐高温，不怕地火熔炼的古怪特性，这地火之地自从开放以来，还从未出过什么大事故呢！"
+      ]
+    },
+    {
+      "id": "material_025",
+      "display": "血线蛟内丹",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第210章 赌约"},
+      "setting": "血线蛟所结的内丹，一个白乎乎的圆球，是做药引的绝佳之物，被李化元当作三派赌局的赌注之一。",
+      "visual_descriptions": [
+        "一个白乎乎的圆球……这内丹做药引再好不过了。"
+      ],
+      "setting_descriptions": []
+    },
+    {
+      "id": "material_026",
+      "display": "铁精",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第210章 赌约"},
+      "setting": "炼器珍材。李化元在三派赌局中押上的赌注，许下若输则在二十年内叫人送去铁精两块。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "李某会在二十年内，叫人送去铁精两块。"
+      ]
+    },
+    {
+      "id": "material_027",
+      "display": "血色禁地灵药（血兰·天灵果·玉髓芝·紫猴花）",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第210章 赌约"},
+      "setting": "韩立在血色禁地中借嗅灵兽寻得、催熟后用于炼制筑基丹的一批百年以上灵药，其中有血兰（成年百年）、天灵果（三百年）、玉髓芝（四百年）、紫猴花等。上交师门十株左右即可换取一枚筑基丹，余者则被李化元依谢师礼规矩抽取一半。",
+      "visual_descriptions": [],
+      "setting_descriptions": []
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "schema_version": 55,
+  "extract_version": 153,
+  "source": "《凡人修仙传》— 人工精读提取 · 异兽类（出禁地·李化元收徒→地火屋炼丹→筑基→青元剑诀：第209–218章）",
+  "method": "沿原文逐段精读，凭理解概括异兽设定；视觉描述为精读时所见原文逐字引用。与 v148–v152 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 2,
+  "entries": [
+    {
+      "id": "beast_012",
+      "display": "嗅灵兽",
+      "category": "beast",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第211章 谢师礼"},
+      "setting": "一种类似松鼠的奇兽，可在三丈之内闻出任何藏起来的百年以上灵药，即使藏在储物袋内也一样无法幸免。韩立在血色禁地中正是凭它寻得大批灵药，收获惊人，从而赢得三派赌局、被李化元收为记名弟子。",
+      "visual_descriptions": [
+        "这种类似松鼠的奇兽，可以在三丈之内闻出任何藏起来的百年以上灵药，即使是在储物袋内也一样无法幸免。"
+      ],
+      "setting_descriptions": []
+    },
+    {
+      "id": "beast_013",
+      "display": "银甲角蟒",
+      "category": "beast",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第212章 归途"},
+      "setting": "李化元（李师祖）的坐骑，一头可载人飞行的巨蟒，浑身银甲、头生尖角。众弟子出禁地后骑乘它飞行数日，回到黄枫谷。",
+      "visual_descriptions": [
+        "众人再次骑上李师祖的银甲角蟒，飞行了数日后，回到了黄枫谷。"
+      ],
+      "setting_descriptions": []
+    }
+  ]
+}

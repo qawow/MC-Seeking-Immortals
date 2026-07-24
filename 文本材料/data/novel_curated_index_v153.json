@@ -1,0 +1,21 @@
+{
+  "schema_version": 55,
+  "extract_version": 153,
+  "source": "《凡人修仙传》— 人工精读提取 · 总索引（出禁地·李化元收徒→地火屋炼丹→筑基→青元剑诀：第209–218章）",
+  "method": "沿原文逐段精读（出禁地·三派赌局·李化元收记名弟子·谢师礼·嗅灵兽·傀儡弓手→地火之屋·炼丹之道→服丹洗髓·筑基冲关→青元剑诀·剑影分光术·散功缺陷），凭理解概括设定，视觉描述为原文逐字引用。与 v148 关键词扫描版、v149 全书弧线精读版、v150/v151/v152 连续精读互补。",
+  "disclaimer": "代表性精读而非穷尽全本（4795 章无法逐字读完）；本批覆盖主传第209–218章，入包前仍需人工校订。",
+  "reading_progress": "《凡人修仙传》已逐段精读至第218章（筑基成功·青元剑诀缺陷与优势），约全书 10.9%（218/2005）。",
+  "totals": {
+    "entities": 23,
+    "by_category": {"设定": 6, "法宝": 5, "法术": 3, "材料": 7, "异兽": 2}
+  },
+  "note": "本弧线为韩立筑基关键段：出禁地后李化元收记名弟子、三派赌局与谢师礼，继而地火屋半年炼丹、连服八粒筑基丹洗髓易筋、昏迷中冲关筑基，并由马师兄道破青元剑诀（玄剑门残本）的散功缺陷与扩经展脉之利。",
+  "files": {
+    "setting": "novel_curated_settings_v153.json",
+    "artifact": "novel_curated_artifacts_v153.json",
+    "technique": "novel_curated_techniques_v153.json",
+    "material": "novel_curated_materials_v153.json",
+    "beast": "novel_curated_beasts_v153.json"
+  },
+  "docs": "docs/NOVEL_CURATED_EXTRACT_v153.md"
+}

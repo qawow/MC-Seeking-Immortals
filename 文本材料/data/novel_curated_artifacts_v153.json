@@ -1,0 +1,72 @@
+{
+  "schema_version": 55,
+  "extract_version": 153,
+  "source": "《凡人修仙传》— 人工精读提取 · 法宝/法器类（出禁地·李化元收徒→地火屋炼丹→筑基→青元剑诀：第209–218章）",
+  "method": "沿原文逐段精读，凭理解概括法宝设定；视觉描述为精读时所见原文逐字引用。与 v148–v152 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 5,
+  "entries": [
+    {
+      "id": "artifact_025",
+      "display": "碧光刀",
+      "category": "artifact",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第210章 赌约"},
+      "setting": "李化元收韩立为记名弟子时所赐的见面礼，一件碧色长刀，灵光闪闪，是顶级法器。",
+      "visual_descriptions": [
+        "一件碧色的长刀，看其灵光闪闪，绝对是件顶级法器。"
+      ],
+      "setting_descriptions": []
+    },
+    {
+      "id": "artifact_026",
+      "display": "傀儡弓手",
+      "category": "artifact",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第211章 谢师礼"},
+      "setting": "一件上品法器，主要由木头雕刻而成，耳鼻嘴眼俱全，浑身上下穿戴着逼真之极的铁甲铁盔，就连手中长弓也是青铜所制。驱使它须会分神秘术，将一丝神识注入傀儡中方才可驱使运用。韩立在血色禁地中曾以此物对敌。",
+      "visual_descriptions": [
+        "主要是由木头雕刻而成，耳鼻嘴眼俱全……浑身上下，全穿戴着逼真之极的铁甲铁盔。就连手中长弓，也是青铜所制。"
+      ],
+      "setting_descriptions": [
+        "要求会分神秘术，须将一丝神识注入傀儡中，才可驱使运用。"
+      ]
+    },
+    {
+      "id": "artifact_027",
+      "display": "银色书页",
+      "category": "artifact",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第212章 归途"},
+      "setting": "韩立在血色禁地中击杀巨剑门一名赤脚汉子后所得的战利品，一张银光灿灿的书页，上面凸凸凹凹有许多奇特的花纹，看起来甚为神秘，用途一时不明。",
+      "visual_descriptions": [
+        "一张银光灿灿书页……上面凸凸凹凹，有些许多奇特的花纹，看起来甚为神秘。"
+      ],
+      "setting_descriptions": []
+    },
+    {
+      "id": "artifact_028",
+      "display": "铃铛法器",
+      "category": "artifact",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第213章 青元剑诀"},
+      "setting": "韩立所持的一件法器，摇动时发出铃声，可令人如受惊般骤然惊醒。韩立借用地火时，用它在地火屋守门丑汉耳旁轻晃一下，把酣睡的丑汉惊得如同火烧屁股一样蹦了起来。",
+      "visual_descriptions": [
+        "这铃铛的响声，在韩立耳里不算什么。但却让丑汉如同火烧屁股一样，立即蹦了起来。"
+      ],
+      "setting_descriptions": []
+    },
+    {
+      "id": "artifact_029",
+      "display": "银丝鼎",
+      "category": "artifact",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "第214章 地火之屋"},
+      "setting": "韩立早年买来的丹鼎，用作炼制筑基丹的丹炉。炼丹时以漂浮术令其凭空停在地火口圆敦正上方，在地火预热下凭空慢慢旋转，投入数十种灵药粉末后加盖凝丹。韩立正是凭此鼎耗时半年炼出二十几颗筑基丹。",
+      "visual_descriptions": [
+        "韩立从储物袋中，先把当日买来的银丝鼎掏了出来，并往其身上打了一道漂浮术，让其凭空停在圆敦的正上方。"
+      ],
+      "setting_descriptions": []
+    }
+  ]
+}
