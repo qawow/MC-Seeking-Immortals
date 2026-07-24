@@ -1,0 +1,54 @@
+{
+  "schema_version": 55,
+  "extract_version": 184,
+  "source": "《凡人修仙传》— 人工精读提取索引 v184（主传第429–437章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v183 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第429章 残图再现",
+    "to_chapter": "第437章 啼魂",
+    "chapter_range": "429-437",
+    "main_book_chapters_read_through": 437,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "21.8%"
+  },
+  "totals": {
+    "entries": 17,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 4
+    }
+  },
+  "files": [
+    "novel_curated_settings_v184.json",
+    "novel_curated_artifacts_v184.json",
+    "novel_curated_techniques_v184.json",
+    "novel_curated_materials_v184.json",
+    "novel_curated_index_v184.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v184.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_223", "display": "虚天残图锦帕再现", "category": "setting"},
+    {"id": "setting_224", "display": "虚天殿空中宫殿", "category": "setting"},
+    {"id": "setting_225", "display": "虚天殿大厅禁制", "category": "setting"},
+    {"id": "setting_226", "display": "九曲灵参与凝婴", "category": "setting"},
+    {"id": "setting_227", "display": "虚天鼎与补天丹", "category": "setting"},
+    {"id": "setting_228", "display": "星宫外殿监督与鬼冤之地", "category": "setting"},
+    {"id": "artifact_133", "display": "虚天残图锦帕（导航态）", "category": "artifact"},
+    {"id": "artifact_134", "display": "虚天殿金罩与银文匾额", "category": "artifact"},
+    {"id": "artifact_135", "display": "虚天鼎", "category": "artifact"},
+    {"id": "artifact_136", "display": "啼魂兽", "category": "artifact"},
+    {"id": "technique_108", "display": "青元剑芒一击必杀", "category": "technique"},
+    {"id": "technique_109", "display": "肋骨藏宝与黑鸟搜岛", "category": "technique"},
+    {"id": "technique_110", "display": "托天诀与天罗真功", "category": "technique"},
+    {"id": "material_129", "display": "寿元果", "category": "material"},
+    {"id": "material_130", "display": "补天丹", "category": "material"},
+    {"id": "material_131", "display": "九曲灵参（仙草）", "category": "material"},
+    {"id": "material_132", "display": "金丝蚕与异种火蟒", "category": "material"}
+  ]
+}
