@@ -1,0 +1,32 @@
+{
+  "schema_version": 55,
+  "extract_version": 283,
+  "source": "《凡人修仙传》— 人工精读索引（银翅夜叉·银瞳幻术·邪月幻镜·破法一击·随风掩形：第986–990章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v282 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第986–990章",
+  "progress": {
+    "chapters_covered_end": 990,
+    "total_main_chapters": 2005,
+    "approx_percent": 49.4
+  },
+  "count": 16,
+  "entries": [
+    {"id": "setting_817", "display": "啼魂吞尸煞本体", "category": "setting", "file": "novel_curated_settings_v283.json"},
+    {"id": "setting_818", "display": "银翅夜叉广场屠元", "category": "setting", "file": "novel_curated_settings_v283.json"},
+    {"id": "setting_819", "display": "银瞳幻术困斗", "category": "setting", "file": "novel_curated_settings_v283.json"},
+    {"id": "setting_820", "display": "困魔阵互困", "category": "setting", "file": "novel_curated_settings_v283.json"},
+    {"id": "setting_821", "display": "降灵符破法一击", "category": "setting", "file": "novel_curated_settings_v283.json"},
+    {"id": "setting_822", "display": "随风掩形金鳞夜叉", "category": "setting", "file": "novel_curated_settings_v283.json"},
+    {"id": "artifact_529", "display": "邪月幻镜", "category": "artifact", "file": "novel_curated_artifacts_v283.json"},
+    {"id": "artifact_530", "display": "翠竹困魔阵与血环", "category": "artifact", "file": "novel_curated_artifacts_v283.json"},
+    {"id": "artifact_531", "display": "降灵符赤火蛟", "category": "artifact", "file": "novel_curated_artifacts_v283.json"},
+    {"id": "artifact_532", "display": "常芷芳剪刀法宝", "category": "artifact", "file": "novel_curated_artifacts_v283.json"},
+    {"id": "technique_405", "display": "银瞳幻术", "category": "technique", "file": "novel_curated_techniques_v283.json"},
+    {"id": "technique_406", "display": "煞魂丝茧困", "category": "technique", "file": "novel_curated_techniques_v283.json"},
+    {"id": "technique_407", "display": "随风掩形与土遁", "category": "technique", "file": "novel_curated_techniques_v283.json"},
+    {"id": "material_427", "display": "阴芝马仍在狼首", "category": "material", "file": "novel_curated_materials_v283.json"},
+    {"id": "material_428", "display": "尸煞本体气团", "category": "material", "file": "novel_curated_materials_v283.json"},
+    {"id": "material_429", "display": "淡金鳞片与灰珠", "category": "material", "file": "novel_curated_materials_v283.json"}
+  ]
+}
