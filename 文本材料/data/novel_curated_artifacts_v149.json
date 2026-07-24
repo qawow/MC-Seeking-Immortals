@@ -1,0 +1,101 @@
+{
+  "schema_version": 55,
+  "extract_version": 149,
+  "source": "《凡人修仙传》《凡人修仙传仙界篇》— 人工精读提取 · 法宝类",
+  "method": "沿全书弧线逐段精读，凭理解概括法宝设定；视觉描述为精读时所见原文逐字引用。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 8,
+  "entries": [
+    {
+      "id": "artifact_000",
+      "display": "青竹蜂云剑",
+      "category": "artifact",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "结丹期前后（金页剑诀）"},
+      "setting": "韩立的本命飞剑组，以金雷竹、庚精炼成，共七十二口，可化纤细如发的金丝攻敌，亦可布『大庚剑阵』困杀强敌；随修为可重炼去杂、进阶为更高阶剑阵。",
+      "visual_descriptions": [
+        "一道纤细如发的金丝诡异浮现，对准古兽一闪即逝的掠过。",
+        "大庚剑阵，韩立神念一动之下就还原成了三十六口金色飞剑，缩小后自行遁入了袖口中。"
+      ],
+      "setting_descriptions": []
+    },
+    {
+      "id": "artifact_001",
+      "display": "虚天鼎",
+      "category": "artifact",
+      "source_books": ["《凡人修仙传》"],
+      "setting": "乱星海虚天殿中的顶级古宝，炼丹鼎兼空间之宝，为众元婴修士争夺的核心；鼎口放出奇寒，需运足功法抵御。",
+      "visual_descriptions": [
+        "这时虚天鼎已经离洞口很近了，这几位虽是元婴期修士，但为了抵挡洞口放出的奇寒，全都运足了功法，防御宝物一个接一个地祭了出来，身上各种奇光流转不停。"
+      ],
+      "setting_descriptions": []
+    },
+    {
+      "id": "artifact_002",
+      "display": "雪虹绫",
+      "category": "artifact",
+      "source_books": ["《凡人修仙传》"],
+      "setting": "清虚门的飞行法器，展开化作一道白色虹桥载人飞行，银光点点、甚为耀眼，收起后为一件锦缎状物品。",
+      "visual_descriptions": [
+        "他们脚下的星辰，竟是一道白色无暇的虹桥，虹桥上银光点点，甚为耀眼，不知镶嵌着何物。"
+      ],
+      "setting_descriptions": []
+    },
+    {
+      "id": "artifact_003",
+      "display": "银甲角蟒",
+      "category": "artifact",
+      "source_books": ["《凡人修仙传》"],
+      "setting": "黄枫谷李师祖降服驱使的飞行妖兽（结丹期修士实力的象征），二十余丈长，飞行速度远非弟子御器可比，两日即可跨越远途。",
+      "visual_descriptions": [
+        "一只二十余丈长的、银灿灿的巨大怪物，正悬挂在那里，其庞大身躯带来的压抑气势，让众人不禁产生了窒息的感觉。",
+        "竟是只罕见的银色巨蟒，只是此蟒大的实在出奇，在其头部还多了一只乌黑的巨角，显得更加的狰狞可怖。"
+      ],
+      "setting_descriptions": []
+    },
+    {
+      "id": "artifact_004",
+      "display": "御风车",
+      "category": "artifact",
+      "source_books": ["《凡人修仙传》"],
+      "setting": "韩立所用的飞行法宝，祭出化白光破空、疾逾奔雷，不用时可缩小收入袖中。",
+      "visual_descriptions": [
+        "御风车化为一团光球破空射去，转眼间在某个方向的天边，化为一个白色小光点。"
+      ],
+      "setting_descriptions": []
+    },
+    {
+      "id": "artifact_005",
+      "display": "玉带短剑",
+      "category": "artifact",
+      "source_books": ["《凡人修仙传》"],
+      "setting": "韩立早年花重金打造的贴身短剑，一截手指宽、长约一尺半，通体柔韧，平时缠于腰带夹层，危急时抽用。",
+      "visual_descriptions": [
+        "这把剑有一截手指那么宽，长度大约一尺半，通体都柔韧无比，是一把罕见的『玉带短剑』。"
+      ],
+      "setting_descriptions": []
+    },
+    {
+      "id": "artifact_006",
+      "display": "仙牌",
+      "category": "artifact",
+      "source_books": ["《凡人修仙传仙界篇》"],
+      "setting": "飞升仙人登记在册后领取的紫金色玉牌，凭此可自由出入各大仙城免遭盘查、进入特殊之地免缴费用，为飞升仙人独有的待遇；牌上铭印本人全身影像与『飞升』金篆文。",
+      "visual_descriptions": [
+        "多出了一张紫金色的薄薄玉牌……上面赫然铭印着自己的全身影像，栩栩如生，旁边则还标注了自己名字还有『飞升』等几个金篆文。"
+      ],
+      "setting_descriptions": []
+    },
+    {
+      "id": "artifact_007",
+      "display": "元合五极山",
+      "category": "artifact",
+      "source_books": ["《凡人修仙传仙界篇》"],
+      "setting": "韩立飞升后仍安然藏于体内的重宝之一，与掌天瓶等同为压身底牌（精读所及为飞升时的点名，细节待后续篇章补全）。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "掌天瓶元合五极山等重宝全都安然无恙的在其体内。"
+      ]
+    }
+  ]
+}

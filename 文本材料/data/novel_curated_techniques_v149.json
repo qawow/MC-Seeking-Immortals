@@ -1,0 +1,133 @@
+{
+  "schema_version": 55,
+  "extract_version": 149,
+  "source": "《凡人修仙传》《凡人修仙传仙界篇》— 人工精读提取 · 法术/功法类",
+  "method": "沿全书弧线逐段精读，凭理解概括术法设定；视觉描述为精读时所见原文逐字引用。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 11,
+  "entries": [
+    {
+      "id": "technique_000",
+      "display": "长春功",
+      "category": "technique",
+      "source_books": ["《凡人修仙传》"],
+      "setting": "韩立所修的根本功法（墨大夫所传无名口诀），修炼后体内产生一股微凉的能量流，与七玄门『正阳劲』的热流截然不同；运行后精神旺盛、夜视敏锐，分层递进，是韩立踏入修仙之门的根基。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "自己费了九牛二虎之力，也只能在体内产生一丝丝微凉的能量流，这丝能量细微的若有若无，不仔细进行内视的话，自己根本就发现不了。"
+      ]
+    },
+    {
+      "id": "technique_001",
+      "display": "火弹术",
+      "category": "technique",
+      "source_books": ["《凡人修仙传》"],
+      "setting": "韩立早期最常用的攻击法术，掌心凝出小火球射出焚敌，触之即燃、中者化为灰烬；法力流动间可把消耗缩小的火球补回原状，可连续施展。",
+      "visual_descriptions": [
+        "从其掌心处有红光闪烁，就不知是何奇功密术。",
+        "韩立体内法力缓缓流动，把原来因消耗而缩小不少的火球，又补回到了原来的大小。"
+      ],
+      "setting_descriptions": []
+    },
+    {
+      "id": "technique_002",
+      "display": "眨眼剑法",
+      "category": "technique",
+      "source_books": ["《凡人修仙传》"],
+      "setting": "一部以光线与视觉错误克敌制胜的诡异剑法，令人眨眼之间丧命，故得此名。有三不练：真气略有小成者不能练、无大毅力者不能练、无天赋者不能练；藏于近百本同名『眨眼剑谱』的大杂烩秘籍之中。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "这种剑法据书上所说，是利用各种光线和人的视觉错误来克敌制胜，往往让人眨眼之间就失去性命，所以才叫眨眼剑法。"
+      ]
+    },
+    {
+      "id": "technique_003",
+      "display": "大庚剑阵",
+      "category": "technique",
+      "source_books": ["《凡人修仙传》"],
+      "setting": "以青竹蜂云剑布成的困杀剑阵，激发后无论敌人飞遁至何处，皆有剑光所化金丝将其身躯切去一块，层层绞杀；未正式激发时亦足以困敌。",
+      "visual_descriptions": [
+        "虽然尚未正式激发此阵绞杀此兽，但也让此兽无论飞遁到何处，都有剑光所化金丝出现，将那古兽身体狠狠切去一块。"
+      ],
+      "setting_descriptions": []
+    },
+    {
+      "id": "technique_004",
+      "display": "北斗两仪阵",
+      "category": "technique",
+      "source_books": ["《凡人修仙传》"],
+      "setting": "以十余杆阵旗按北斗阵势排列、以阵破阵的破阵之法（得自阵法奇才辛如音的破阵心得）。阵旗发出低鸣，喷射光柱汇成粗大光柱射入敌阵，可层层剥开古阵的障眼幻法。",
+      "visual_descriptions": [
+        "十几道光柱从这些小旗上喷射而出，在半空中汇集成一道粗大的光柱，直直地射进了下方的雾气之中，随即消失的无影无踪。"
+      ],
+      "setting_descriptions": []
+    },
+    {
+      "id": "technique_005",
+      "display": "明清灵眼",
+      "category": "technique",
+      "source_books": ["《凡人修仙传》"],
+      "setting": "韩立修炼的灵目神通，可看破敛息变形、隐匿形迹之物；全力灌注法力时瞳孔暴射出深蓝异芒，可透视物体内部。",
+      "visual_descriptions": [
+        "随后他不甘心将全身法力往双目狂注而入，瞳孔中骤然暴射出了深蓝异刺芒，想借助灵目直接透视此物的内部。"
+      ],
+      "setting_descriptions": []
+    },
+    {
+      "id": "technique_006",
+      "display": "辟邪神雷",
+      "category": "technique",
+      "source_books": ["《凡人修仙传》"],
+      "setting": "韩立掌握的雷法，金色电弧，专克阴魂鬼物，可出其不意击伤强敌。",
+      "visual_descriptions": [
+        "韩立动用风雷翅，出其不意的遁到此鬼身后，一道辟邪神雷将其击伤。"
+      ],
+      "setting_descriptions": []
+    },
+    {
+      "id": "technique_007",
+      "display": "噬灵天火（噬灵火鸟）",
+      "category": "technique",
+      "source_books": ["《凡人修仙传》"],
+      "setting": "阴阳交泰下形成的至阳至阴之火，可化银色火球、亦可凝成噬灵火鸟之形；性极灵，遇玄天之物竟目露惶恐、害怕之极。",
+      "visual_descriptions": [
+        "一团鸡蛋大银色火球在手心浮现而出。",
+        "汹汹燃烧的火球，竟轰的一下化为点点银焰四散开来，在数丈外另一处低空中又一凝聚，化为了那只噬灵火鸟。"
+      ],
+      "setting_descriptions": []
+    },
+    {
+      "id": "technique_008",
+      "display": "破灭法目",
+      "category": "technique",
+      "source_books": ["《凡人修仙传》"],
+      "setting": "韩立修炼的破禁神通，可强行洞穿空间、破开禁制封锁。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "他也顾不得将凶魂全部斩杀干净，就用破灭法目强行将此空间洞穿破开，就此带着此茧跑了出来。"
+      ]
+    },
+    {
+      "id": "technique_009",
+      "display": "炼神术",
+      "category": "technique",
+      "source_books": ["《凡人修仙传》", "《凡人修仙传仙界篇》"],
+      "setting": "一种修炼元神/神识的秘术，分层修炼（第二层需足够肉身强度方可修），在仙界篇中属不容于仙界的禁术，韩立经无常盟辗转求得功法。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "道友想要的炼神术功法，并不在在下身上，此物在在下一位好友身上。"
+      ]
+    },
+    {
+      "id": "technique_010",
+      "display": "垢土化身",
+      "category": "technique",
+      "source_books": ["《凡人修仙传仙界篇》"],
+      "setting": "仙人修炼的分身之法，以一道虚影自分而出、凝成与本体一般无二的化身代为行事；化身实力略逊本体，但对付低阶真仙绰绰有余。",
+      "visual_descriptions": [
+        "一道虚影从其背后一分而出，再一凝后，赫然幻化成另外一名身穿银袍的『高升』。"
+      ],
+      "setting_descriptions": []
+    }
+  ]
+}

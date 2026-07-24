@@ -1,0 +1,120 @@
+{
+  "schema_version": 55,
+  "extract_version": 149,
+  "source": "《凡人修仙传》《凡人修仙传仙界篇》— 人工精读提取 · 材料/灵药类",
+  "method": "沿全书弧线逐段精读，凭理解概括材料设定；视觉描述为精读时所见原文逐字引用。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 10,
+  "entries": [
+    {
+      "id": "material_000",
+      "display": "金雷竹",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "setting": "炼制青竹蜂云剑的核心灵木材料，与庚精同为本命飞剑组的主材；属可遇不可求的珍稀炼器灵材。",
+      "visual_descriptions": [],
+      "setting_descriptions": []
+    },
+    {
+      "id": "material_001",
+      "display": "庚精",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "setting": "提炼极难的金属性炼器精华，李师祖辛苦十来年方提炼出一块，炼入飞剑可大增威能，是结丹修士也珍视的稀材。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "李某辛苦了十来年，就提炼出了这么一块，还便宜了你这牛鼻子！"
+      ]
+    },
+    {
+      "id": "material_002",
+      "display": "铁精",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "setting": "提炼自矿料的炼器精华，可炼入飞剑提升威力；李师祖曾以一块铁精作赌注输与浮云子。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "我那块铁精，炼入到了你的青钧剑，让它威力又大了一分吧！"
+      ]
+    },
+    {
+      "id": "material_003",
+      "display": "灵烛果",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "setting": "坠魔谷所产的天地灵果，可炼制造化丹、生服亦能提升些许修为；其灵木为此界少有、根本无法移植——一旦离开原位立刻枝枯叶黄、化为灰烬，且须以木制器物盛放方能保留药性。",
+      "visual_descriptions": [
+        "此枝条方一接触到地面，蓦然枝枯叶黄，转眼间化为了灰烬。"
+      ],
+      "setting_descriptions": [
+        "这灵烛果甚为奇特，必须用木制东西盛放，否则药性几天都无法保留的。"
+      ]
+    },
+    {
+      "id": "material_004",
+      "display": "玄天仙藤",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "setting": "一界独一无二的玄天灵木，经绿液长年催育开花结果，结出的果实（玄天之物）蕴含天地法则；果实一旦被收走，整根仙藤连同事先切下的所有灵根同时枯萎化灰，决无第二株可存。",
+      "visual_descriptions": [
+        "此物当年在人界一开花结果，被韩立收走了果实后，整根仙藤立刻通体枯萎，化为了灰烬。"
+      ],
+      "setting_descriptions": [
+        "决不可能有两个一般无二的玄天仙藤出现。"
+      ]
+    },
+    {
+      "id": "material_005",
+      "display": "九曲灵参",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "setting": "韩立药园中精心培育的罕见灵药，即便在灵界亦属少见，需小心看护。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "九曲灵参、龙鳞果树等一干灵木即使在灵界也是罕见灵药，不容韩立不小心谨慎的。"
+      ]
+    },
+    {
+      "id": "material_006",
+      "display": "龙鳞果树",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "setting": "韩立药园中的灵木之一，与九曲灵参同为灵界亦罕见的珍稀灵药。",
+      "visual_descriptions": [],
+      "setting_descriptions": []
+    },
+    {
+      "id": "material_007",
+      "display": "土菇花",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "setting": "一种毒草，对普通人毒性很强，对修仙者的元神亦大有妨碍；韩立将其加入五毒水改良成『七毒水』，正是此材使余子童元神无法顺利施法而被灭。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "新加入了一种『土菇花』的材料，这种毒草不仅对普通人有很强的毒性，而且对修仙者的元神也大有妨碍。"
+      ]
+    },
+    {
+      "id": "material_008",
+      "display": "暖阳宝玉",
+      "category": "material",
+      "source_books": ["《凡人修仙传》"],
+      "setting": "墨大夫家传的解毒宝玉，可解其尸虫丸解药所附的罕见阴毒，除此之外别无他法、连传说中的解毒圣药亦不能解；墨大夫将其作为女儿出阁的嫁妆。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "此毒只能由他家传的『暖阳宝玉』可解，除此之外别无他法。"
+      ]
+    },
+    {
+      "id": "material_009",
+      "display": "墨钰晶",
+      "category": "material",
+      "source_books": ["《凡人修仙传仙界篇》"],
+      "setting": "猪豚兽所赠之物，对韩立修炼帮助不小；韩立离岛时以一枚湛清丹药回赠作别。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "小东西，多谢你当年的墨钰晶，对我帮助不小。"
+      ]
+    }
+  ]
+}
