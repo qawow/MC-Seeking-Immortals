@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 216,
+  "source": "《凡人修仙传》— 人工精读提取索引 v216（主传第601–605章）",
+  "method": "沿原文逐段精读，凭理解概括；视觉描述为精读时所见原文逐字引用。与 v148–v215 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "reading_progress": {
+    "book": "《凡人修仙传》",
+    "from_chapter": "第601章 入门（下）",
+    "to_chapter": "第605章 血影遁",
+    "chapter_range": "601-605",
+    "main_book_chapters_read_through": 605,
+    "main_book_total_chapters": 2005,
+    "approx_percent": "30.2%"
+  },
+  "totals": {
+    "entries": 16,
+    "by_category": {
+      "setting": 6,
+      "artifact": 4,
+      "technique": 3,
+      "material": 3
+    }
+  },
+  "files": [
+    "novel_curated_settings_v216.json",
+    "novel_curated_artifacts_v216.json",
+    "novel_curated_techniques_v216.json",
+    "novel_curated_materials_v216.json",
+    "novel_curated_index_v216.json"
+  ],
+  "docs": [
+    "docs/NOVEL_CURATED_EXTRACT_v216.md"
+  ],
+  "entries_summary": [
+    {"id": "setting_415", "display": "问心符与问心术", "category": "setting"},
+    {"id": "setting_416", "display": "落云内外事与锻金之体", "category": "setting"},
+    {"id": "setting_417", "display": "天泉峰药园外事", "category": "setting"},
+    {"id": "setting_418", "display": "石山隐洞与拘灵阵", "category": "setting"},
+    {"id": "setting_419", "display": "风灵劲逼运清除", "category": "setting"},
+    {"id": "setting_420", "display": "血影遁妖族密术", "category": "setting"},
+    {"id": "artifact_261", "display": "问心符", "category": "artifact"},
+    {"id": "artifact_262", "display": "药园黄令牌", "category": "artifact"},
+    {"id": "artifact_263", "display": "隐匿阵旗阵盘", "category": "artifact"},
+    {"id": "artifact_264", "display": "鸣魂珠炼化与绿液", "category": "artifact"},
+    {"id": "technique_204", "display": "问心十问甄别", "category": "technique"},
+    {"id": "technique_205", "display": "剑斩石山建府", "category": "technique"},
+    {"id": "technique_206", "display": "血影遁兼修", "category": "technique"},
+    {"id": "material_226", "display": "玄冰诀玉简", "category": "material"},
+    {"id": "material_227", "display": "九曲灵参丹材", "category": "material"},
+    {"id": "material_228", "display": "霓裳草与灰液邪气", "category": "material"}
+  ]
+}
