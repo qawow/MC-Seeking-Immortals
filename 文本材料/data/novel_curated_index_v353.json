@@ -1,0 +1,120 @@
+{
+  "schema_version": 55,
+  "extract_version": 353,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（神秘雷纹·恶客·心寒入体·拍卖物·拍卖：第1336–1340章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v352 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1336章 神秘雷纹 — 第1340章 拍卖",
+  "progress": "1340/2005 ≈ 66.8%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1237–setting_1242",
+    "artifacts": "artifact_809–artifact_812",
+    "techniques": "technique_615–technique_617",
+    "materials": "material_637–material_639"
+  },
+  "entries": [
+    {
+      "id": "setting_1237",
+      "display": "天雷成木神秘雷纹",
+      "category": "setting",
+      "file": "novel_curated_settings_v353.json"
+    },
+    {
+      "id": "setting_1238",
+      "display": "流沙谷黄鲍赌约求亲",
+      "category": "setting",
+      "file": "novel_curated_settings_v353.json"
+    },
+    {
+      "id": "setting_1239",
+      "display": "心寒入体",
+      "category": "setting",
+      "file": "novel_curated_settings_v353.json"
+    },
+    {
+      "id": "setting_1240",
+      "display": "太玄殿蛮荒拍卖会",
+      "category": "setting",
+      "file": "novel_curated_settings_v353.json"
+    },
+    {
+      "id": "setting_1241",
+      "display": "法体双修与高阶功法抉择",
+      "category": "setting",
+      "file": "novel_curated_settings_v353.json"
+    },
+    {
+      "id": "setting_1242",
+      "display": "化神丹药市场与灵宝竞拍",
+      "category": "setting",
+      "file": "novel_curated_settings_v353.json"
+    },
+    {
+      "id": "artifact_809",
+      "display": "雷纹锦帕与金珠",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v353.json"
+    },
+    {
+      "id": "artifact_810",
+      "display": "绿波刃",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v353.json"
+    },
+    {
+      "id": "artifact_811",
+      "display": "冰晶剑噬灵灌注",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v353.json"
+    },
+    {
+      "id": "artifact_812",
+      "display": "毒蟒令",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v353.json"
+    },
+    {
+      "id": "technique_615",
+      "display": "斩木观雷纹",
+      "category": "technique",
+      "file": "novel_curated_techniques_v353.json"
+    },
+    {
+      "id": "technique_616",
+      "display": "辟邪神雷凝雷纹",
+      "category": "technique",
+      "file": "novel_curated_techniques_v353.json"
+    },
+    {
+      "id": "technique_617",
+      "display": "心寒入体与虬须幻化",
+      "category": "technique",
+      "file": "novel_curated_techniques_v353.json"
+    },
+    {
+      "id": "material_637",
+      "display": "五千年灵草换雷木",
+      "category": "material",
+      "file": "novel_curated_materials_v353.json"
+    },
+    {
+      "id": "material_638",
+      "display": "焕心丹",
+      "category": "material",
+      "file": "novel_curated_materials_v353.json"
+    },
+    {
+      "id": "material_639",
+      "display": "真蟾灵血拍卖",
+      "category": "material",
+      "file": "novel_curated_materials_v353.json"
+    }
+  ]
+}
