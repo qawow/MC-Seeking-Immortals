@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 602,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第124–128章）",
+  "method": "沿原文逐段精读；本索引汇总 v602 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2731", "display": "土孙果功效", "category": "setting", "file": "novel_curated_settings_v602.json"},
+    {"id": "setting_2732", "display": "深海地火炼材", "category": "setting", "file": "novel_curated_settings_v602.json"},
+    {"id": "setting_2733", "display": "地祇化身凝练", "category": "setting", "file": "novel_curated_settings_v602.json"},
+    {"id": "setting_2734", "display": "千重溟涛阵", "category": "setting", "file": "novel_curated_settings_v602.json"},
+    {"id": "setting_2735", "display": "乌蒙岛神像更替", "category": "setting", "file": "novel_curated_settings_v602.json"},
+    {"id": "setting_2736", "display": "破链反哺", "category": "setting", "file": "novel_curated_settings_v602.json"},
+    {"id": "artifact_1805", "display": "白色巨镰", "category": "artifact", "file": "novel_curated_artifacts_v602.json"},
+    {"id": "artifact_1806", "display": "血罡阴雷", "category": "artifact", "file": "novel_curated_artifacts_v602.json"},
+    {"id": "artifact_1807", "display": "鹄骨黑剑", "category": "artifact", "file": "novel_curated_artifacts_v602.json"},
+    {"id": "artifact_1808", "display": "银色破链幡阵", "category": "artifact", "file": "novel_curated_artifacts_v602.json"},
+    {"id": "technique_1362", "display": "神魂绿小人噬精魄", "category": "technique", "file": "novel_curated_techniques_v602.json"},
+    {"id": "technique_1363", "display": "金影拳破化身", "category": "technique", "file": "novel_curated_techniques_v602.json"},
+    {"id": "technique_1364", "display": "神念巨斧破链", "category": "technique", "file": "novel_curated_techniques_v602.json"},
+    {"id": "material_1384", "display": "凝海晶", "category": "material", "file": "novel_curated_materials_v602.json"},
+    {"id": "material_1385", "display": "诞魂花液", "category": "material", "file": "novel_curated_materials_v602.json"},
+    {"id": "material_1386", "display": "罗妇妖精魄", "category": "material", "file": "novel_curated_materials_v602.json"}
+  ]
+}
