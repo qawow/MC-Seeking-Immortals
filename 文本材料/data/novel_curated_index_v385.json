@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 385,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（脱身之计·大战冥雷兽·九宫天乾符·甲元符·冥河神乳：第1496–1500章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v384 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1496章 脱身之计 — 第1500章 冥河神乳",
+  "progress": "1500/2005 ≈ 74.8%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1429–setting_1434",
+    "artifacts": "artifact_937–artifact_940",
+    "techniques": "technique_711–technique_713",
+    "materials": "material_733–material_735"
+  },
+  "entries": [
+    {"id": "setting_1429", "display": "五龙铡真威与雌雄冥雷兽", "category": "setting", "file": "novel_curated_settings_v385.json"},
+    {"id": "setting_1430", "display": "冥雷兽影遁与噬金虫内攻", "category": "setting", "file": "novel_curated_settings_v385.json"},
+    {"id": "setting_1431", "display": "九宫天乾符困敌与白鬼被噬", "category": "setting", "file": "novel_curated_settings_v385.json"},
+    {"id": "setting_1432", "display": "甲元符与神池入口布置", "category": "setting", "file": "novel_curated_settings_v385.json"},
+    {"id": "setting_1433", "display": "神池地下宫殿", "category": "setting", "file": "novel_curated_settings_v385.json"},
+    {"id": "setting_1434", "display": "双兽激战与潜伏绿珠", "category": "setting", "file": "novel_curated_settings_v385.json"},
+    {"id": "artifact_937", "display": "九宫天乾符", "category": "artifact", "file": "novel_curated_artifacts_v385.json"},
+    {"id": "artifact_938", "display": "甲元符", "category": "artifact", "file": "novel_curated_artifacts_v385.json"},
+    {"id": "artifact_939", "display": "万里符", "category": "artifact", "file": "novel_curated_artifacts_v385.json"},
+    {"id": "artifact_940", "display": "青竹蜂云剑与雷珠", "category": "artifact", "file": "novel_curated_artifacts_v385.json"},
+    {"id": "technique_711", "display": "影遁", "category": "technique", "file": "novel_curated_techniques_v385.json"},
+    {"id": "technique_712", "display": "真极之躯与瞬移", "category": "technique", "file": "novel_curated_techniques_v385.json"},
+    {"id": "technique_713", "display": "大衍封印与太一化清隐", "category": "technique", "file": "novel_curated_techniques_v385.json"},
+    {"id": "material_733", "display": "成熟体噬金虫", "category": "material", "file": "novel_curated_materials_v385.json"},
+    {"id": "material_734", "display": "冥河神乳池", "category": "material", "file": "novel_curated_materials_v385.json"},
+    {"id": "material_735", "display": "紫血傀儡临战", "category": "material", "file": "novel_curated_materials_v385.json"}
+  ]
+}
