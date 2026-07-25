@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 579,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第9–13章）",
+  "method": "沿原文逐段精读；本索引汇总 v579 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2593", "display": "湖心道观与唤灵假阵", "category": "setting", "file": "novel_curated_settings_v579.json"},
+    {"id": "setting_2594", "display": "魂灵傀儡与天生魂灵体", "category": "setting", "file": "novel_curated_settings_v579.json"},
+    {"id": "setting_2595", "display": "韩立苏醒与金鳞真身", "category": "setting", "file": "novel_curated_settings_v579.json"},
+    {"id": "setting_2596", "display": "灵寰界与三百年失忆", "category": "setting", "file": "novel_curated_settings_v579.json"},
+    {"id": "setting_2597", "display": "魔光残魂与天魔契约", "category": "setting", "file": "novel_curated_settings_v579.json"},
+    {"id": "setting_2598", "display": "狐耳化形与狐族", "category": "setting", "file": "novel_curated_settings_v579.json"},
+    {"id": "artifact_1713", "display": "金绳与黑盾蛇剑", "category": "artifact", "file": "novel_curated_artifacts_v579.json"},
+    {"id": "artifact_1714", "display": "灰幡骷髅与黑蜈蚣", "category": "artifact", "file": "novel_curated_artifacts_v579.json"},
+    {"id": "artifact_1715", "display": "掌天瓶再现", "category": "artifact", "file": "novel_curated_artifacts_v579.json"},
+    {"id": "artifact_1716", "display": "黑尸葫芦与碧绿虫葫芦", "category": "artifact", "file": "novel_curated_artifacts_v579.json"},
+    {"id": "technique_1293", "display": "狐毫飞针与白毛电弧", "category": "technique", "file": "novel_curated_techniques_v579.json"},
+    {"id": "technique_1294", "display": "影中鬼头与银霞吞魂", "category": "technique", "file": "novel_curated_techniques_v579.json"},
+    {"id": "technique_1295", "display": "金鳞撕幡与搜魂禁煞", "category": "technique", "file": "novel_curated_techniques_v579.json"},
+    {"id": "material_1315", "display": "黑尸腐魂水", "category": "material", "file": "novel_curated_materials_v579.json"},
+    {"id": "material_1316", "display": "乌黑毒球", "category": "material", "file": "novel_curated_materials_v579.json"},
+    {"id": "material_1317", "display": "青红疗伤丹", "category": "material", "file": "novel_curated_materials_v579.json"}
+  ]
+}
