@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 460,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1865–1869章）",
+  "method": "沿原文逐段精读；本索引汇总 v460 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1879", "display": "蜉蝣驱虫双噬金", "category": "setting", "file": "novel_curated_settings_v460.json"},
+    {"id": "setting_1880", "display": "五千噬金换虫王", "category": "setting", "file": "novel_curated_settings_v460.json"},
+    {"id": "setting_1881", "display": "育虫秘术交易成", "category": "setting", "file": "novel_curated_settings_v460.json"},
+    {"id": "setting_1882", "display": "青元封山告辞", "category": "setting", "file": "novel_curated_settings_v460.json"},
+    {"id": "setting_1883", "display": "三百年备战魔劫", "category": "setting", "file": "novel_curated_settings_v460.json"},
+    {"id": "setting_1884", "display": "魔斑提前降世", "category": "setting", "file": "novel_curated_settings_v460.json"},
+    {"id": "artifact_1237", "display": "银葫噬金云", "category": "artifact", "file": "novel_curated_artifacts_v460.json"},
+    {"id": "artifact_1238", "display": "黑风阁", "category": "artifact", "file": "novel_curated_artifacts_v460.json"},
+    {"id": "artifact_1239", "display": "育虫秘术玉简", "category": "artifact", "file": "novel_curated_artifacts_v460.json"},
+    {"id": "artifact_1240", "display": "万灵伞材料", "category": "artifact", "file": "novel_curated_artifacts_v460.json"},
+    {"id": "technique_936", "display": "蜉蝣驱虫术", "category": "technique", "file": "novel_curated_techniques_v460.json"},
+    {"id": "technique_937", "display": "噬金虫王培育", "category": "technique", "file": "novel_curated_techniques_v460.json"},
+    {"id": "technique_938", "display": "神引大法讲道", "category": "technique", "file": "novel_curated_techniques_v460.json"},
+    {"id": "material_958", "display": "紫电虫地蛟虫", "category": "material", "file": "novel_curated_materials_v460.json"},
+    {"id": "material_959", "display": "五瓶冥河灵乳", "category": "material", "file": "novel_curated_materials_v460.json"},
+    {"id": "material_960", "display": "紫金斑纹噬金", "category": "material", "file": "novel_curated_materials_v460.json"}
+  ]
+}
