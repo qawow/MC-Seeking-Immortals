@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 367,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（苦修·天鹏族与供奉·金髓晶虫·石墩·变异：第1406–1410章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v366 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1406章 苦修 — 第1410章 变异",
+  "progress": "1410/2005 ≈ 70.3%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1321–setting_1326",
+    "artifacts": "artifact_865–artifact_868",
+    "techniques": "technique_657–technique_659",
+    "materials": "material_679–material_681"
+  },
+  "entries": [
+    {"id": "setting_1321", "display": "化神中期瓶颈与黑炎丹取舍", "category": "setting", "file": "novel_curated_settings_v367.json"},
+    {"id": "setting_1322", "display": "天鹏族黑隐山供奉与奴痕", "category": "setting", "file": "novel_curated_settings_v367.json"},
+    {"id": "setting_1323", "display": "木铃花与供奉首位", "category": "setting", "file": "novel_curated_settings_v367.json"},
+    {"id": "setting_1324", "display": "黑冥雾与半鬼半妖前辈", "category": "setting", "file": "novel_curated_settings_v367.json"},
+    {"id": "setting_1325", "display": "宝光尊者与珊瑚洞府", "category": "setting", "file": "novel_curated_settings_v367.json"},
+    {"id": "setting_1326", "display": "石墩异宝与噬金虫变异", "category": "setting", "file": "novel_curated_settings_v367.json"},
+    {"id": "artifact_865", "display": "八角法盘与万珑珠警戒阵", "category": "artifact", "file": "novel_curated_artifacts_v367.json"},
+    {"id": "artifact_866", "display": "红线捆妖与火链", "category": "artifact", "file": "novel_curated_artifacts_v367.json"},
+    {"id": "artifact_867", "display": "灰白石墩", "category": "artifact", "file": "novel_curated_artifacts_v367.json"},
+    {"id": "artifact_868", "display": "赤红珊瑚暖顶与夜明珠厅", "category": "artifact", "file": "novel_curated_artifacts_v367.json"},
+    {"id": "technique_657", "display": "百脉炼宝诀熔剑入骨", "category": "technique", "file": "novel_curated_techniques_v367.json"},
+    {"id": "technique_658", "display": "梵圣真魔功金影法相", "category": "technique", "file": "novel_curated_techniques_v367.json"},
+    {"id": "technique_659", "display": "元磁神山碾压海蛟", "category": "technique", "file": "novel_curated_techniques_v367.json"},
+    {"id": "material_679", "display": "金髓晶虫", "category": "material", "file": "novel_curated_materials_v367.json"},
+    {"id": "material_680", "display": "金母珊瑚沙", "category": "material", "file": "novel_curated_materials_v367.json"},
+    {"id": "material_681", "display": "木铃花", "category": "material", "file": "novel_curated_materials_v367.json"}
+  ]
+}
