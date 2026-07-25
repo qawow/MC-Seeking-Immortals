@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 499,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第2061–2065章）",
+  "method": "沿原文逐段精读；本索引汇总 v499 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2113", "display": "矿脉魔灵", "category": "setting", "file": "novel_curated_settings_v499.json"},
+    {"id": "setting_2114", "display": "六弟子陨落", "category": "setting", "file": "novel_curated_settings_v499.json"},
+    {"id": "setting_2115", "display": "重创鹿首兽", "category": "setting", "file": "novel_curated_settings_v499.json"},
+    {"id": "setting_2116", "display": "再约灭魔灵", "category": "setting", "file": "novel_curated_settings_v499.json"},
+    {"id": "setting_2117", "display": "白家宝库选宝", "category": "setting", "file": "novel_curated_settings_v499.json"},
+    {"id": "setting_2118", "display": "异魔金与蓝瀑湖", "category": "setting", "file": "novel_curated_settings_v499.json"},
+    {"id": "artifact_1393", "display": "锁灵盘", "category": "artifact", "file": "novel_curated_artifacts_v499.json"},
+    {"id": "artifact_1394", "display": "阴罗盘", "category": "artifact", "file": "novel_curated_artifacts_v499.json"},
+    {"id": "artifact_1395", "display": "金鲸珠", "category": "artifact", "file": "novel_curated_artifacts_v499.json"},
+    {"id": "artifact_1396", "display": "覆天洁白战甲", "category": "artifact", "file": "novel_curated_artifacts_v499.json"},
+    {"id": "technique_1053", "display": "化剑为丝与银焰", "category": "technique", "file": "novel_curated_techniques_v499.json"},
+    {"id": "technique_1054", "display": "空间之拳", "category": "technique", "file": "novel_curated_techniques_v499.json"},
+    {"id": "technique_1055", "display": "三头六臂法相", "category": "technique", "file": "novel_curated_techniques_v499.json"},
+    {"id": "material_1075", "display": "血炼精金", "category": "material", "file": "novel_curated_materials_v499.json"},
+    {"id": "material_1076", "display": "头颅大异魔金", "category": "material", "file": "novel_curated_materials_v499.json"},
+    {"id": "material_1077", "display": "魔灵根脚晶石", "category": "material", "file": "novel_curated_materials_v499.json"}
+  ]
+}
