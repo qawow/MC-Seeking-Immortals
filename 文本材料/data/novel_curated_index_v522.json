@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 522,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2176–2180章）",
+  "method": "沿原文逐段精读；本索引汇总 v522 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2251", "display": "大乘瓶颈突破与五行之劫", "category": "setting", "file": "novel_curated_settings_v522.json"},
+    {"id": "setting_2252", "display": "五行之劫木水火土", "category": "setting", "file": "novel_curated_settings_v522.json"},
+    {"id": "setting_2253", "display": "真雷劫与心试", "category": "setting", "file": "novel_curated_settings_v522.json"},
+    {"id": "setting_2254", "display": "许芊羽与冰魄许家", "category": "setting", "file": "novel_curated_settings_v522.json"},
+    {"id": "setting_2255", "display": "黑白雷球终劫", "category": "setting", "file": "novel_curated_settings_v522.json"},
+    {"id": "setting_2256", "display": "三山合一与二涅圣体", "category": "setting", "file": "novel_curated_settings_v522.json"},
+    {"id": "artifact_1485", "display": "三座极山品字抗雷", "category": "artifact", "file": "novel_curated_artifacts_v522.json"},
+    {"id": "artifact_1486", "display": "土黄色晶球", "category": "artifact", "file": "novel_curated_artifacts_v522.json"},
+    {"id": "artifact_1487", "display": "许芊羽白色小鼎", "category": "artifact", "file": "novel_curated_artifacts_v522.json"},
+    {"id": "artifact_1488", "display": "漆黑乌环与噬金虫群", "category": "artifact", "file": "novel_curated_artifacts_v522.json"},
+    {"id": "technique_1122", "display": "千丈拳影破金罡", "category": "technique", "file": "novel_curated_techniques_v522.json"},
+    {"id": "technique_1123", "display": "金身音波与金濛飓风", "category": "technique", "file": "novel_curated_techniques_v522.json"},
+    {"id": "technique_1124", "display": "擎天巨刃与倒转银焰", "category": "technique", "file": "novel_curated_techniques_v522.json"},
+    {"id": "material_1144", "display": "金罡之气", "category": "material", "file": "novel_curated_materials_v522.json"},
+    {"id": "material_1145", "display": "千河重水", "category": "material", "file": "novel_curated_materials_v522.json"},
+    {"id": "material_1146", "display": "银月银色符箓", "category": "material", "file": "novel_curated_materials_v522.json"}
+  ]
+}
