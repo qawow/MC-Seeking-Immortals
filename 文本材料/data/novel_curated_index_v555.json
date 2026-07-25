@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 555,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2341–2345章）",
+  "method": "沿原文逐段精读；本索引汇总 v555 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2449", "display": "血鹤城龙蛇混杂", "category": "setting", "file": "novel_curated_settings_v555.json"},
+    {"id": "setting_2450", "display": "萧冥与大乘云集", "category": "setting", "file": "novel_curated_settings_v555.json"},
+    {"id": "setting_2451", "display": "九目血蟾真血", "category": "setting", "file": "novel_curated_settings_v555.json"},
+    {"id": "setting_2452", "display": "万花飞针阵图", "category": "setting", "file": "novel_curated_settings_v555.json"},
+    {"id": "setting_2453", "display": "天鼎宫钥匙与分成", "category": "setting", "file": "novel_curated_settings_v555.json"},
+    {"id": "setting_2454", "display": "清平道人与万花夫人", "category": "setting", "file": "novel_curated_settings_v555.json"},
+    {"id": "artifact_1617", "display": "白骨巨刃与泰岳环", "category": "artifact", "file": "novel_curated_artifacts_v555.json"},
+    {"id": "artifact_1618", "display": "斩麟魔剑与蚀骨魔火", "category": "artifact", "file": "novel_curated_artifacts_v555.json"},
+    {"id": "artifact_1619", "display": "三百六十黑血针阵图", "category": "artifact", "file": "novel_curated_artifacts_v555.json"},
+    {"id": "artifact_1620", "display": "天鼎宫钥匙与淡青小鼎", "category": "artifact", "file": "novel_curated_artifacts_v555.json"},
+    {"id": "technique_1221", "display": "九目血蟾真身", "category": "technique", "file": "novel_curated_techniques_v555.json"},
+    {"id": "technique_1222", "display": "梵圣真魔之体", "category": "technique", "file": "novel_curated_techniques_v555.json"},
+    {"id": "technique_1223", "display": "修为压制隐匿", "category": "technique", "file": "novel_curated_techniques_v555.json"},
+    {"id": "material_1243", "display": "九目血蟾真血", "category": "material", "file": "novel_curated_materials_v555.json"},
+    {"id": "material_1244", "display": "淡金传音符", "category": "material", "file": "novel_curated_materials_v555.json"},
+    {"id": "material_1245", "display": "天鼎真人洞府遗珍", "category": "material", "file": "novel_curated_materials_v555.json"}
+  ]
+}
