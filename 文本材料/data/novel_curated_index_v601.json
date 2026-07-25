@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 601,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第119–123章）",
+  "method": "沿原文逐段精读；本索引汇总 v601 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2725", "display": "红月岛全岛血祭", "category": "setting", "file": "novel_curated_settings_v601.json"},
+    {"id": "setting_2726", "display": "血色怪物再生", "category": "setting", "file": "novel_curated_settings_v601.json"},
+    {"id": "setting_2727", "display": "公输鸿地祇化身", "category": "setting", "file": "novel_curated_settings_v601.json"},
+    {"id": "setting_2728", "display": "蛟三火域灵域", "category": "setting", "file": "novel_curated_settings_v601.json"},
+    {"id": "setting_2729", "display": "无常盟青级升级", "category": "setting", "file": "novel_curated_settings_v601.json"},
+    {"id": "setting_2730", "display": "任务易物阵盘", "category": "setting", "file": "novel_curated_settings_v601.json"},
+    {"id": "artifact_1801", "display": "赤色任务令牌", "category": "artifact", "file": "novel_curated_artifacts_v601.json"},
+    {"id": "artifact_1802", "display": "传物盘", "category": "artifact", "file": "novel_curated_artifacts_v601.json"},
+    {"id": "artifact_1803", "display": "青色牛头面具", "category": "artifact", "file": "novel_curated_artifacts_v601.json"},
+    {"id": "artifact_1804", "display": "玄武龟甲铠", "category": "artifact", "file": "novel_curated_artifacts_v601.json"},
+    {"id": "technique_1359", "display": "替劫之术", "category": "technique", "file": "novel_curated_techniques_v601.json"},
+    {"id": "technique_1360", "display": "金刚吼", "category": "technique", "file": "novel_curated_techniques_v601.json"},
+    {"id": "technique_1361", "display": "半人半蛟剑斩", "category": "technique", "file": "novel_curated_techniques_v601.json"},
+    {"id": "material_1381", "display": "黄褐灵药种子", "category": "material", "file": "novel_curated_materials_v601.json"},
+    {"id": "material_1382", "display": "五色壤", "category": "material", "file": "novel_curated_materials_v601.json"},
+    {"id": "material_1383", "display": "黑海重水经", "category": "material", "file": "novel_curated_materials_v601.json"}
+  ]
+}
