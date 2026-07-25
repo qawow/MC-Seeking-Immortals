@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 539,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2261–2265章）",
+  "method": "沿原文逐段精读；本索引汇总 v539 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2353", "display": "小灵界入口跨大陆测算", "category": "setting", "file": "novel_curated_settings_v539.json"},
+    {"id": "setting_2354", "display": "灵族百万年涌现之疑", "category": "setting", "file": "novel_curated_settings_v539.json"},
+    {"id": "setting_2355", "display": "灵天要塞与七处险关", "category": "setting", "file": "novel_curated_settings_v539.json"},
+    {"id": "setting_2356", "display": "黑水湖与玄蜍兽", "category": "setting", "file": "novel_curated_settings_v539.json"},
+    {"id": "setting_2357", "display": "伏灵山圣地与封山", "category": "setting", "file": "novel_curated_settings_v539.json"},
+    {"id": "setting_2358", "display": "灵王紫气堂与石心交易", "category": "setting", "file": "novel_curated_settings_v539.json"},
+    {"id": "artifact_1553", "display": "卜罗图监察白壁", "category": "artifact", "file": "novel_curated_artifacts_v539.json"},
+    {"id": "artifact_1554", "display": "雷霄符晶莹玉牌", "category": "artifact", "file": "novel_curated_artifacts_v539.json"},
+    {"id": "artifact_1555", "display": "七色令牌与赤焰火链", "category": "artifact", "file": "novel_curated_artifacts_v539.json"},
+    {"id": "artifact_1556", "display": "石心枫叶银玉简", "category": "artifact", "file": "novel_curated_artifacts_v539.json"},
+    {"id": "technique_1173", "display": "雷剑与金毛巨猿破风柱", "category": "technique", "file": "novel_curated_techniques_v539.json"},
+    {"id": "technique_1174", "display": "太一化清符隐匿", "category": "technique", "file": "novel_curated_techniques_v539.json"},
+    {"id": "technique_1175", "display": "莫简离透明液团遁地", "category": "technique", "file": "novel_curated_techniques_v539.json"},
+    {"id": "material_1195", "display": "黑水湖奇毒雾气", "category": "material", "file": "novel_curated_materials_v539.json"},
+    {"id": "material_1196", "display": "太一化清符炼材", "category": "material", "file": "novel_curated_materials_v539.json"},
+    {"id": "material_1197", "display": "紫气堂灵茶", "category": "material", "file": "novel_curated_materials_v539.json"}
+  ]
+}

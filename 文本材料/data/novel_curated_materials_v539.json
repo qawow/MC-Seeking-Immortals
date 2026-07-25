@@ -1,0 +1,53 @@
+{
+  "schema_version": 55,
+  "extract_version": 539,
+  "source": "《凡人修仙传》— 人工精读提取 · 材料类（灵族之行·灵天要塞·伏灵山·乌龙·灵王：卷十一第2261–2265章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v538 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 3,
+  "entries": [
+    {
+      "id": "material_1195",
+      "display": "黑水湖奇毒雾气",
+      "category": "material",
+      "term": "黑水奇毒",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2262章 灵天要塞"},
+      "setting": "漆黑水域淡黄雾气徘徊，诡异声扭曲光幕；奇毒可异宝隔绝，但与玄蜍兽共成险地。",
+      "visual_descriptions": [
+        "一缕缕淡黄色雾气，在光幕外徘徊缭绕着，并时不时有丝丝的诡异声音从黑色水面上直接发出。"
+      ],
+      "setting_descriptions": [
+        "「刚才那一片黑水湖的天然奇毒还算次要，一些奇宝有办法直接隔绝的。」"
+      ]
+    },
+    {
+      "id": "material_1196",
+      "display": "太一化清符炼材",
+      "category": "material",
+      "term": "太一化清材料",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2263章 伏灵山"},
+      "setting": "仙界秘术炼符所需数种材料极为缺少；旧符耗尽，大乘后仅重炼数枚，平常不轻动。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "「但可惜此符炼制所需的几种材料极为的缺少，以前炼制的几枚早就被其消耗一空了。而后来，即使他修为大增后，也不过堪堪重新炼制出数枚来。」"
+      ]
+    },
+    {
+      "id": "material_1197",
+      "display": "紫气堂灵茶",
+      "category": "material",
+      "term": "灵茶",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2265章 灵王"},
+      "setting": "紫气堂四周数尺花树结五色拳头巨花；白毛小猴奉异常清香灵茶。韩一饮而尽，莫不看。",
+      "visual_descriptions": [
+        "在大厅四周各自放置了一盆葱葱绿绿的花树，足有数尺之高，上面结满了五颜六色的拳头大巨花。"
+      ],
+      "setting_descriptions": [
+        "「二位道友见谅，老夫习惯一人独居，只能以一杯清茶待客了。」"
+      ]
+    }
+  ]
+}
