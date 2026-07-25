@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 535,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2241–2245章）",
+  "method": "沿原文逐段精读；本索引汇总 v535 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2329", "display": "根源之火与百脉炼宝诀变身", "category": "setting", "file": "novel_curated_settings_v535.json"},
+    {"id": "setting_2330", "display": "真极肉身与擎天巨棍对轰", "category": "setting", "file": "novel_curated_settings_v535.json"},
+    {"id": "setting_2331", "display": "炼神术仙界禁术七层", "category": "setting", "file": "novel_curated_settings_v535.json"},
+    {"id": "setting_2332", "display": "八元锁魂大阵与真仙元神", "category": "setting", "file": "novel_curated_settings_v535.json"},
+    {"id": "setting_2333", "display": "星空巨变与真仙滞留下界", "category": "setting", "file": "novel_curated_settings_v535.json"},
+    {"id": "setting_2334", "display": "宝花夺始祖与三线牵制", "category": "setting", "file": "novel_curated_settings_v535.json"},
+    {"id": "artifact_1537", "display": "三山融合成擎天巨棍", "category": "artifact", "file": "novel_curated_artifacts_v535.json"},
+    {"id": "artifact_1538", "display": "金阳木木钗", "category": "artifact", "file": "novel_curated_artifacts_v535.json"},
+    {"id": "artifact_1539", "display": "紫芸之精宝符", "category": "artifact", "file": "novel_curated_artifacts_v535.json"},
+    {"id": "artifact_1540", "display": "仙君通界消息宝符", "category": "artifact", "file": "novel_curated_artifacts_v535.json"},
+    {"id": "technique_1161", "display": "神念之链捆缚", "category": "technique", "file": "novel_curated_techniques_v535.json"},
+    {"id": "technique_1162", "display": "天罚之雷五色雷柱", "category": "technique", "file": "novel_curated_techniques_v535.json"},
+    {"id": "technique_1163", "display": "元婴点燃根源之火", "category": "technique", "file": "novel_curated_techniques_v535.json"},
+    {"id": "material_1183", "display": "螟母拇指漆黑晶珠", "category": "material", "file": "novel_curated_materials_v535.json"},
+    {"id": "material_1184", "display": "玉清灯油", "category": "material", "file": "novel_curated_materials_v535.json"},
+    {"id": "material_1185", "display": "紫金银纹战甲鳞片", "category": "material", "file": "novel_curated_materials_v535.json"}
+  ]
+}
