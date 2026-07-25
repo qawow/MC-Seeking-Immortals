@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 366,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（设伏·光阵·猪妖与幼兽·海边·黑色雾海：第1401–1405章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v365 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1401章 设伏 — 第1405章 黑色雾海",
+  "progress": "1405/2005 ≈ 70.1%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1315–setting_1320",
+    "artifacts": "artifact_861–artifact_864",
+    "techniques": "technique_654–technique_656",
+    "materials": "material_676–material_678"
+  },
+  "entries": [
+    {"id": "setting_1315", "display": "猖奴真身与血丝", "category": "setting", "file": "novel_curated_settings_v366.json"},
+    {"id": "setting_1316", "display": "金篆文传送光阵", "category": "setting", "file": "novel_curated_settings_v366.json"},
+    {"id": "setting_1317", "display": "王八猪妖与开灵丹", "category": "setting", "file": "novel_curated_settings_v366.json"},
+    {"id": "setting_1318", "display": "赤红海与银纹龟壳", "category": "setting", "file": "novel_curated_settings_v366.json"},
+    {"id": "setting_1319", "display": "古兽与妖兽之分", "category": "setting", "file": "novel_curated_settings_v366.json"},
+    {"id": "setting_1320", "display": "黑色雾海巨岛", "category": "setting", "file": "novel_curated_settings_v366.json"},
+    {"id": "artifact_861", "display": "三十六幡与金篆法盘", "category": "artifact", "file": "novel_curated_artifacts_v366.json"},
+    {"id": "artifact_862", "display": "金银雷袍", "category": "artifact", "file": "novel_curated_artifacts_v366.json"},
+    {"id": "artifact_863", "display": "银纹灵龟壳", "category": "artifact", "file": "novel_curated_artifacts_v366.json"},
+    {"id": "artifact_864", "display": "真蟾尸符箓保鲜", "category": "artifact", "file": "novel_curated_artifacts_v366.json"},
+    {"id": "technique_654", "display": "鲲鹏虚影助遁", "category": "technique", "file": "novel_curated_techniques_v366.json"},
+    {"id": "technique_655", "display": "大庚剑阵困猖奴", "category": "technique", "file": "novel_curated_techniques_v366.json"},
+    {"id": "technique_656", "display": "金篆传送与雷珠挡拳", "category": "technique", "file": "novel_curated_techniques_v366.json"},
+    {"id": "material_676", "display": "开灵丹", "category": "material", "file": "novel_curated_materials_v366.json"},
+    {"id": "material_677", "display": "银纹龟壳材质", "category": "material", "file": "novel_curated_materials_v366.json"},
+    {"id": "material_678", "display": "真蟾银白灵血", "category": "material", "file": "novel_curated_materials_v366.json"}
+  ]
+}
