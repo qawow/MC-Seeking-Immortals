@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 384,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（阴水葵精与五龙铡·控制·乾坤幡与冥雷兽·诱饵·五龙铡：第1491–1495章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v383 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1491章 阴水葵精与五龙铡 — 第1495章 五龙铡",
+  "progress": "1495/2005 ≈ 74.6%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1423–setting_1428",
+    "artifacts": "artifact_933–artifact_936",
+    "techniques": "technique_708–technique_710",
+    "materials": "material_730–material_732"
+  },
+  "entries": [
+    {"id": "setting_1423", "display": "姜前辈洞窟与五龙铡借出", "category": "setting", "file": "novel_curated_settings_v384.json"},
+    {"id": "setting_1424", "display": "阴骨山脉与残余战力", "category": "setting", "file": "novel_curated_settings_v384.json"},
+    {"id": "setting_1425", "display": "呲咧之目摄魂与控体符", "category": "setting", "file": "novel_curated_settings_v384.json"},
+    {"id": "setting_1426", "display": "魔坟与冥河神乳", "category": "setting", "file": "novel_curated_settings_v384.json"},
+    {"id": "setting_1427", "display": "冥雷兽与诱饵破禁", "category": "setting", "file": "novel_curated_settings_v384.json"},
+    {"id": "setting_1428", "display": "五龙铡瓮中捉鳖", "category": "setting", "file": "novel_curated_settings_v384.json"},
+    {"id": "artifact_933", "display": "五龙铡", "category": "artifact", "file": "novel_curated_artifacts_v384.json"},
+    {"id": "artifact_934", "display": "呲咧凶兽摄魂珠", "category": "artifact", "file": "novel_curated_artifacts_v384.json"},
+    {"id": "artifact_935", "display": "乾坤幡", "category": "artifact", "file": "novel_curated_artifacts_v384.json"},
+    {"id": "artifact_936", "display": "破禁血刃与蓝柱定口", "category": "artifact", "file": "novel_curated_artifacts_v384.json"},
+    {"id": "technique_708", "display": "天花乱叶禁制", "category": "technique", "file": "novel_curated_techniques_v384.json"},
+    {"id": "technique_709", "display": "破灭法目反吸摄神", "category": "technique", "file": "novel_curated_techniques_v384.json"},
+    {"id": "technique_710", "display": "五色晶丝遁法", "category": "technique", "file": "novel_curated_techniques_v384.json"},
+    {"id": "material_730", "display": "阴水葵精", "category": "material", "file": "novel_curated_materials_v384.json"},
+    {"id": "material_731", "display": "冥河神乳", "category": "material", "file": "novel_curated_materials_v384.json"},
+    {"id": "material_732", "display": "控体符与加持血符", "category": "material", "file": "novel_curated_materials_v384.json"}
+  ]
+}
