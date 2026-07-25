@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 450,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1814–1818章）",
+  "method": "沿原文逐段精读；本索引汇总 v450 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1819", "display": "齐天锣压轴交换", "category": "setting", "file": "novel_curated_settings_v450.json"},
+    {"id": "setting_1820", "display": "玄天与灭族之祸", "category": "setting", "file": "novel_curated_settings_v450.json"},
+    {"id": "setting_1821", "display": "阴凤草换双宝", "category": "setting", "file": "novel_curated_settings_v450.json"},
+    {"id": "setting_1822", "display": "袋中胚胎奇宝", "category": "setting", "file": "novel_curated_settings_v450.json"},
+    {"id": "setting_1823", "display": "自由交换与移海扇", "category": "setting", "file": "novel_curated_settings_v450.json"},
+    {"id": "setting_1824", "display": "千万孽云与净明丹", "category": "setting", "file": "novel_curated_settings_v450.json"},
+    {"id": "artifact_1197", "display": "齐天锣", "category": "artifact", "file": "novel_curated_artifacts_v450.json"},
+    {"id": "artifact_1198", "display": "仿制震天槌", "category": "artifact", "file": "novel_curated_artifacts_v450.json"},
+    {"id": "artifact_1199", "display": "金色布袋胚胎", "category": "artifact", "file": "novel_curated_artifacts_v450.json"},
+    {"id": "artifact_1200", "display": "阴魂钵与孽云", "category": "artifact", "file": "novel_curated_artifacts_v450.json"},
+    {"id": "technique_906", "display": "齐天锣增法神通", "category": "technique", "file": "novel_curated_techniques_v450.json"},
+    {"id": "technique_907", "display": "金乌真火", "category": "technique", "file": "novel_curated_techniques_v450.json"},
+    {"id": "technique_908", "display": "噬灵吸纳金乌", "category": "technique", "file": "novel_curated_techniques_v450.json"},
+    {"id": "material_928", "display": "阴凤草", "category": "material", "file": "novel_curated_materials_v450.json"},
+    {"id": "material_929", "display": "雪灵木与地阴晶", "category": "material", "file": "novel_curated_materials_v450.json"},
+    {"id": "material_930", "display": "净明丹", "category": "material", "file": "novel_curated_materials_v450.json"}
+  ]
+}
