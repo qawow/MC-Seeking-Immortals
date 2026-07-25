@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 368,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（金髓炼体·天鹏人·赤融族·暴露·力退赤融：第1411–1415章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v367 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1411章 金髓炼体 — 第1415章 力退赤融",
+  "progress": "1415/2005 ≈ 70.6%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1327–setting_1332",
+    "artifacts": "artifact_869–artifact_872",
+    "techniques": "technique_660–technique_662",
+    "materials": "material_682–material_684"
+  },
+  "entries": [
+    {"id": "setting_1327", "display": "金髓炼体与法相凝实体", "category": "setting", "file": "novel_curated_settings_v368.json"},
+    {"id": "setting_1328", "display": "赤魔海黑冥岛与飞灵族", "category": "setting", "file": "novel_curated_settings_v368.json"},
+    {"id": "setting_1329", "display": "天鹏人外形与化神使者", "category": "setting", "file": "novel_curated_settings_v368.json"},
+    {"id": "setting_1330", "display": "赤融族与鲲鹏圣主陨落", "category": "setting", "file": "novel_curated_settings_v368.json"},
+    {"id": "setting_1331", "display": "困魔网与火龙珠围杀", "category": "setting", "file": "novel_curated_settings_v368.json"},
+    {"id": "setting_1332", "display": "鲲鹏之羽伪装天鹏气息", "category": "setting", "file": "novel_curated_settings_v368.json"},
+    {"id": "artifact_869", "display": "木铃花玉匣", "category": "artifact", "file": "novel_curated_artifacts_v368.json"},
+    {"id": "artifact_870", "display": "困魔筒与困魔网", "category": "artifact", "file": "novel_curated_artifacts_v368.json"},
+    {"id": "artifact_871", "display": "火龙珠", "category": "artifact", "file": "novel_curated_artifacts_v368.json"},
+    {"id": "artifact_872", "display": "通灵之蜂与天鹏晶核", "category": "artifact", "file": "novel_curated_artifacts_v368.json"},
+    {"id": "technique_660", "display": "百脉炼宝诀大成双掌", "category": "technique", "file": "novel_curated_techniques_v368.json"},
+    {"id": "technique_661", "display": "法相金臂虚空扭颈", "category": "technique", "file": "novel_curated_techniques_v368.json"},
+    {"id": "technique_662", "display": "天鹏雷遁与火鸟融合遁", "category": "technique", "file": "novel_curated_techniques_v368.json"},
+    {"id": "material_682", "display": "金髓液滴", "category": "material", "file": "novel_curated_materials_v368.json"},
+    {"id": "material_683", "display": "金母珊瑚沙极品", "category": "material", "file": "novel_curated_materials_v368.json"},
+    {"id": "material_684", "display": "变异噬金虫", "category": "material", "file": "novel_curated_materials_v368.json"}
+  ]
+}
