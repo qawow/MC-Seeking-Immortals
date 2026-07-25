@@ -1,0 +1,120 @@
+{
+  "schema_version": 55,
+  "extract_version": 359,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（抢果·分果·小城·魔影再现·蜃兽：第1366–1370章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v358 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1366章 抢果 — 第1370章 蜃兽",
+  "progress": "1370/2005 ≈ 68.3%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1273–setting_1278",
+    "artifacts": "artifact_833–artifact_836",
+    "techniques": "technique_633–technique_635",
+    "materials": "material_655–material_657"
+  },
+  "entries": [
+    {
+      "id": "setting_1273",
+      "display": "芝龙果虎口夺食",
+      "category": "setting",
+      "file": "novel_curated_settings_v359.json"
+    },
+    {
+      "id": "setting_1274",
+      "display": "芝龙果六枚分果",
+      "category": "setting",
+      "file": "novel_curated_settings_v359.json"
+    },
+    {
+      "id": "setting_1275",
+      "display": "南艮大沙漠与一线天",
+      "category": "setting",
+      "file": "novel_curated_settings_v359.json"
+    },
+    {
+      "id": "setting_1276",
+      "display": "紫云上人影族陷阱城",
+      "category": "setting",
+      "file": "novel_curated_settings_v359.json"
+    },
+    {
+      "id": "setting_1277",
+      "display": "蜃兽幻城与影香追杀",
+      "category": "setting",
+      "file": "novel_curated_settings_v359.json"
+    },
+    {
+      "id": "setting_1278",
+      "display": "真灵血脉分道激战",
+      "category": "setting",
+      "file": "novel_curated_settings_v359.json"
+    },
+    {
+      "id": "artifact_833",
+      "display": "雷纹凝练雷珠",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v359.json"
+    },
+    {
+      "id": "artifact_834",
+      "display": "万年碧灵木",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v359.json"
+    },
+    {
+      "id": "artifact_835",
+      "display": "陇东青色飞车",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v359.json"
+    },
+    {
+      "id": "artifact_836",
+      "display": "真龙血剑与黄铜战甲",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v359.json"
+    },
+    {
+      "id": "technique_633",
+      "display": "血影遁与风雷翅极速",
+      "category": "technique",
+      "file": "novel_curated_techniques_v359.json"
+    },
+    {
+      "id": "technique_634",
+      "display": "疾风九变脱身",
+      "category": "technique",
+      "file": "novel_curated_techniques_v359.json"
+    },
+    {
+      "id": "technique_635",
+      "display": "玄鹰半妖与妖丹自爆",
+      "category": "technique",
+      "file": "novel_curated_techniques_v359.json"
+    },
+    {
+      "id": "material_655",
+      "display": "芝龙果种子催生",
+      "category": "material",
+      "file": "novel_curated_materials_v359.json"
+    },
+    {
+      "id": "material_656",
+      "display": "腾云胶",
+      "category": "material",
+      "file": "novel_curated_materials_v359.json"
+    },
+    {
+      "id": "material_657",
+      "display": "影香",
+      "category": "material",
+      "file": "novel_curated_materials_v359.json"
+    }
+  ]
+}
