@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 570,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2416–2420章）",
+  "method": "沿原文逐段精读；本索引汇总 v570 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2539", "display": "血契定六翼与神魂印记", "category": "setting", "file": "novel_curated_settings_v570.json"},
+    {"id": "setting_2540", "display": "韩立斩阳鹿", "category": "setting", "file": "novel_curated_settings_v570.json"},
+    {"id": "setting_2541", "display": "火须兽与轩九灵", "category": "setting", "file": "novel_curated_settings_v570.json"},
+    {"id": "setting_2542", "display": "真仙解封与血源之力", "category": "setting", "file": "novel_curated_settings_v570.json"},
+    {"id": "setting_2543", "display": "真仙灵域与界面压制", "category": "setting", "file": "novel_curated_settings_v570.json"},
+    {"id": "setting_2544", "display": "极乐梵河界与血玺压阵", "category": "setting", "file": "novel_curated_settings_v570.json"},
+    {"id": "artifact_1677", "display": "烈煞金罡沙与淡黄葫芦", "category": "artifact", "file": "novel_curated_artifacts_v570.json"},
+    {"id": "artifact_1678", "display": "玄天木剑与青剑", "category": "artifact", "file": "novel_curated_artifacts_v570.json"},
+    {"id": "artifact_1679", "display": "解封金符与紫金锁链", "category": "artifact", "file": "novel_curated_artifacts_v570.json"},
+    {"id": "artifact_1680", "display": "万灵血玺全盛与极乐梵河界", "category": "artifact", "file": "novel_curated_artifacts_v570.json"},
+    {"id": "technique_1266", "display": "血契定身与神魂除印", "category": "technique", "file": "novel_curated_techniques_v570.json"},
+    {"id": "technique_1267", "display": "真魔之体三头六臂", "category": "technique", "file": "novel_curated_techniques_v570.json"},
+    {"id": "technique_1268", "display": "真仙灵域与仙灵力转化", "category": "technique", "file": "novel_curated_techniques_v570.json"},
+    {"id": "material_1288", "display": "千年稀材清单", "category": "material", "file": "novel_curated_materials_v570.json"},
+    {"id": "material_1289", "display": "水源丹", "category": "material", "file": "novel_curated_materials_v570.json"},
+    {"id": "material_1290", "display": "血源之力与灵血", "category": "material", "file": "novel_curated_materials_v570.json"}
+  ]
+}
