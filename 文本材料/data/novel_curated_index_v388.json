@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 388,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（子午石·风云再起·木之领域·鬼雾再现·罗睺之谜：第1511–1515章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v387 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1511章 子午石 — 第1515章 罗睺之谜",
+  "progress": "1515/2005 ≈ 75.6%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1447–setting_1452",
+    "artifacts": "artifact_949–artifact_952",
+    "techniques": "technique_720–technique_722",
+    "materials": "material_742–material_744"
+  },
+  "entries": [
+    {"id": "setting_1447", "display": "子午石与梦引血契", "category": "setting", "file": "novel_curated_settings_v388.json"},
+    {"id": "setting_1448", "display": "小神巢与破界接本体", "category": "setting", "file": "novel_curated_settings_v388.json"},
+    {"id": "setting_1449", "display": "木之领域与魔坟本源珠", "category": "setting", "file": "novel_curated_settings_v388.json"},
+    {"id": "setting_1450", "display": "空间节点返灵界", "category": "setting", "file": "novel_curated_settings_v388.json"},
+    {"id": "setting_1451", "display": "冥河黑雾与人界鬼雾", "category": "setting", "file": "novel_curated_settings_v388.json"},
+    {"id": "setting_1452", "display": "罗睺之谜与冥河本源", "category": "setting", "file": "novel_curated_settings_v388.json"},
+    {"id": "artifact_949", "display": "子午石掺灵侍", "category": "artifact", "file": "novel_curated_artifacts_v388.json"},
+    {"id": "artifact_950", "display": "小神巢仿制品", "category": "artifact", "file": "novel_curated_artifacts_v388.json"},
+    {"id": "artifact_951", "display": "天木镜与长青木灵剑", "category": "artifact", "file": "novel_curated_artifacts_v388.json"},
+    {"id": "artifact_952", "display": "风雷翅与鲲鹏青翎", "category": "artifact", "file": "novel_curated_artifacts_v388.json"},
+    {"id": "technique_720", "display": "梦引血契大法", "category": "technique", "file": "novel_curated_techniques_v388.json"},
+    {"id": "technique_721", "display": "青木周天大阵与木之领域", "category": "technique", "file": "novel_curated_techniques_v388.json"},
+    {"id": "technique_722", "display": "鲲鹏变豁免鬼雾", "category": "technique", "file": "novel_curated_techniques_v388.json"},
+    {"id": "material_742", "display": "绿阴丹", "category": "material", "file": "novel_curated_materials_v388.json"},
+    {"id": "material_743", "display": "半枯半茂本体黑松", "category": "material", "file": "novel_curated_materials_v388.json"},
+    {"id": "material_744", "display": "魔坟本源珠", "category": "material", "file": "novel_curated_materials_v388.json"}
+  ]
+}
