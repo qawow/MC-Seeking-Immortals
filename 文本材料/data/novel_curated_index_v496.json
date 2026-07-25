@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 496,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第2046–2050章）",
+  "method": "沿原文逐段精读；本索引汇总 v496 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2095", "display": "幻夜城四大家族", "category": "setting", "file": "novel_curated_settings_v496.json"},
+    {"id": "setting_2096", "display": "万奴塔奴隶市", "category": "setting", "file": "novel_curated_settings_v496.json"},
+    {"id": "setting_2097", "display": "魔晶傀儡", "category": "setting", "file": "novel_curated_settings_v496.json"},
+    {"id": "setting_2098", "display": "韩立强买女奴", "category": "setting", "file": "novel_curated_settings_v496.json"},
+    {"id": "setting_2099", "display": "圣灵院落脚", "category": "setting", "file": "novel_curated_settings_v496.json"},
+    {"id": "setting_2100", "display": "小灵天碎裂界面", "category": "setting", "file": "novel_curated_settings_v496.json"},
+    {"id": "artifact_1381", "display": "白芸馨玉佩", "category": "artifact", "file": "novel_curated_artifacts_v496.json"},
+    {"id": "artifact_1382", "display": "万奴塔铁牌", "category": "artifact", "file": "novel_curated_artifacts_v496.json"},
+    {"id": "artifact_1383", "display": "圣灵院阁楼", "category": "artifact", "file": "novel_curated_artifacts_v496.json"},
+    {"id": "artifact_1384", "display": "八足魔蜥（提及）", "category": "artifact", "file": "novel_curated_artifacts_v496.json"},
+    {"id": "technique_1044", "display": "魔尊气息压塔", "category": "technique", "file": "novel_curated_techniques_v496.json"},
+    {"id": "technique_1045", "display": "破禁与蓝芒摄魂", "category": "technique", "file": "novel_curated_techniques_v496.json"},
+    {"id": "technique_1046", "display": "晶丝搜魂", "category": "technique", "file": "novel_curated_techniques_v496.json"},
+    {"id": "material_1066", "display": "土阴族奴隶", "category": "material", "file": "novel_curated_materials_v496.json"},
+    {"id": "material_1067", "display": "素女轮回功", "category": "material", "file": "novel_curated_materials_v496.json"},
+    {"id": "material_1068", "display": "小灵天界面", "category": "material", "file": "novel_curated_materials_v496.json"}
+  ]
+}
