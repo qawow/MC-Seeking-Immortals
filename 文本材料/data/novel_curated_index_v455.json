@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 455,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1840–1844章）",
+  "method": "沿原文逐段精读；本索引汇总 v455 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1849", "display": "万毒混元身炼体", "category": "setting", "file": "novel_curated_settings_v455.json"},
+    {"id": "setting_1850", "display": "合体中期天象", "category": "setting", "file": "novel_curated_settings_v455.json"},
+    {"id": "setting_1851", "display": "新变异噬金虫", "category": "setting", "file": "novel_curated_settings_v455.json"},
+    {"id": "setting_1852", "display": "魔影圣花银潮", "category": "setting", "file": "novel_curated_settings_v455.json"},
+    {"id": "setting_1853", "display": "地渊攻克与妖王失踪", "category": "setting", "file": "novel_curated_settings_v455.json"},
+    {"id": "setting_1854", "display": "天鹏圣城再访", "category": "setting", "file": "novel_curated_settings_v455.json"},
+    {"id": "artifact_1217", "display": "毒浴金色巨鼎", "category": "artifact", "file": "novel_curated_artifacts_v455.json"},
+    {"id": "artifact_1218", "display": "银鹰古铜战车", "category": "artifact", "file": "novel_curated_artifacts_v455.json"},
+    {"id": "artifact_1219", "display": "逆星盘与蓝玉简", "category": "artifact", "file": "novel_curated_artifacts_v455.json"},
+    {"id": "artifact_1220", "display": "翠绿圣花木匣", "category": "artifact", "file": "novel_curated_artifacts_v455.json"},
+    {"id": "technique_921", "display": "万毒混元浴身", "category": "technique", "file": "novel_curated_techniques_v455.json"},
+    {"id": "technique_922", "display": "噬金隐匿身形", "category": "technique", "file": "novel_curated_techniques_v455.json"},
+    {"id": "technique_923", "display": "天鹏变身圣阶", "category": "technique", "file": "novel_curated_techniques_v455.json"},
+    {"id": "material_943", "display": "寒潭魔蛛妖丹", "category": "material", "file": "novel_curated_materials_v455.json"},
+    {"id": "material_944", "display": "晶月液与红罗仙酒", "category": "material", "file": "novel_curated_materials_v455.json"},
+    {"id": "material_945", "display": "七彩丹", "category": "material", "file": "novel_curated_materials_v455.json"}
+  ]
+}
