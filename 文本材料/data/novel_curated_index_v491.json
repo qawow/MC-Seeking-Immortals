@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 491,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第2021–2025章）",
+  "method": "沿原文逐段精读；本索引汇总 v491 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2065", "display": "玄化封灵符封印仙使", "category": "setting", "file": "novel_curated_settings_v491.json"},
+    {"id": "setting_2066", "display": "真魂之牌与仙界感应", "category": "setting", "file": "novel_curated_settings_v491.json"},
+    {"id": "setting_2067", "display": "草原皓狼兽潮", "category": "setting", "file": "novel_curated_settings_v491.json"},
+    {"id": "setting_2068", "display": "血鸦城与血光晶", "category": "setting", "file": "novel_curated_settings_v491.json"},
+    {"id": "setting_2069", "display": "蝶尾兽潮阻路", "category": "setting", "file": "novel_curated_settings_v491.json"},
+    {"id": "setting_2070", "display": "封魂入城之策", "category": "setting", "file": "novel_curated_settings_v491.json"},
+    {"id": "artifact_1361", "display": "玄化封灵符", "category": "artifact", "file": "novel_curated_artifacts_v491.json"},
+    {"id": "artifact_1362", "display": "驱兽香", "category": "artifact", "file": "novel_curated_artifacts_v491.json"},
+    {"id": "artifact_1363", "display": "真魂之牌与迷你阁楼", "category": "artifact", "file": "novel_curated_artifacts_v491.json"},
+    {"id": "artifact_1364", "display": "魔界地图晶石", "category": "artifact", "file": "novel_curated_artifacts_v491.json"},
+    {"id": "technique_1029", "display": "玄化封灵符催动", "category": "technique", "file": "novel_curated_techniques_v491.json"},
+    {"id": "technique_1030", "display": "擎天电网灭兽潮", "category": "technique", "file": "novel_curated_techniques_v491.json"},
+    {"id": "technique_1031", "display": "封魂大法", "category": "technique", "file": "novel_curated_techniques_v491.json"},
+    {"id": "material_1051", "display": "血光晶", "category": "material", "file": "novel_curated_materials_v491.json"},
+    {"id": "material_1052", "display": "皓狼兽与银颈兽", "category": "material", "file": "novel_curated_materials_v491.json"},
+    {"id": "material_1053", "display": "蝶尾兽毒雾", "category": "material", "file": "novel_curated_materials_v491.json"}
+  ]
+}
