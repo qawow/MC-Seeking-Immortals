@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 569,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2411–2415章）",
+  "method": "沿原文逐段精读；本索引汇总 v569 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2533", "display": "轩九灵与云淡月梳", "category": "setting", "file": "novel_curated_settings_v569.json"},
+    {"id": "setting_2534", "display": "九劫灭真与商盟影子", "category": "setting", "file": "novel_curated_settings_v569.json"},
+    {"id": "setting_2535", "display": "两仪微尘阵献祭真相", "category": "setting", "file": "novel_curated_settings_v569.json"},
+    {"id": "setting_2536", "display": "冰凤六翼万年飞升之赌", "category": "setting", "file": "novel_curated_settings_v569.json"},
+    {"id": "setting_2537", "display": "黑猊兽四真灵", "category": "setting", "file": "novel_curated_settings_v569.json"},
+    {"id": "setting_2538", "display": "激战开局破阵眼布局", "category": "setting", "file": "novel_curated_settings_v569.json"},
+    {"id": "artifact_1673", "display": "阵眼祭坛与银色令牌", "category": "artifact", "file": "novel_curated_artifacts_v569.json"},
+    {"id": "artifact_1674", "display": "避风符与琉璃飞舟", "category": "artifact", "file": "novel_curated_artifacts_v569.json"},
+    {"id": "artifact_1675", "display": "黑白古镜与翠绿巨伞", "category": "artifact", "file": "novel_curated_artifacts_v569.json"},
+    {"id": "artifact_1676", "display": "紫红令牌与玄天残宝阵盘", "category": "artifact", "file": "novel_curated_artifacts_v569.json"},
+    {"id": "technique_1263", "display": "九劫灭真大法", "category": "technique", "file": "novel_curated_techniques_v569.json"},
+    {"id": "technique_1264", "display": "噬金虫王改阵眼豁免", "category": "technique", "file": "novel_curated_techniques_v569.json"},
+    {"id": "technique_1265", "display": "血灵巨人与法则禁锢", "category": "technique", "file": "novel_curated_techniques_v569.json"},
+    {"id": "material_1285", "display": "真魂丹（影子所求）", "category": "material", "file": "novel_curated_materials_v569.json"},
+    {"id": "material_1286", "display": "意念珠与青沌伞分身", "category": "material", "file": "novel_curated_materials_v569.json"},
+    {"id": "material_1287", "display": "赤红小人与玉匣", "category": "material", "file": "novel_curated_materials_v569.json"}
+  ]
+}
