@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 549,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2311–2315章）",
+  "method": "沿原文逐段精读；本索引汇总 v549 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2413", "display": "天地金力炼极元晶", "category": "setting", "file": "novel_curated_settings_v549.json"},
+    {"id": "setting_2414", "display": "青元子地渊渡劫", "category": "setting", "file": "novel_curated_settings_v549.json"},
+    {"id": "setting_2415", "display": "黄元子夺舍血仇", "category": "setting", "file": "novel_curated_settings_v549.json"},
+    {"id": "setting_2416", "display": "十八天煞连环阵", "category": "setting", "file": "novel_curated_settings_v549.json"},
+    {"id": "setting_2417", "display": "韩立入地渊", "category": "setting", "file": "novel_curated_settings_v549.json"},
+    {"id": "setting_2418", "display": "神念窥视大敌", "category": "setting", "file": "novel_curated_settings_v549.json"},
+    {"id": "artifact_1593", "display": "克制天地金力银珠", "category": "artifact", "file": "novel_curated_artifacts_v549.json"},
+    {"id": "artifact_1594", "display": "青元子渡劫幡台", "category": "artifact", "file": "novel_curated_artifacts_v549.json"},
+    {"id": "artifact_1595", "display": "子母尸阴雷", "category": "artifact", "file": "novel_curated_artifacts_v549.json"},
+    {"id": "artifact_1596", "display": "玄天斩灵剑破界", "category": "artifact", "file": "novel_curated_artifacts_v549.json"},
+    {"id": "technique_1203", "display": "辟邪神雷削天力", "category": "technique", "file": "novel_curated_techniques_v549.json"},
+    {"id": "technique_1204", "display": "青蛟剑幕", "category": "technique", "file": "novel_curated_techniques_v549.json"},
+    {"id": "technique_1205", "display": "竖目神念窥视", "category": "technique", "file": "novel_curated_techniques_v549.json"},
+    {"id": "material_1225", "display": "天地金力", "category": "material", "file": "novel_curated_materials_v549.json"},
+    {"id": "material_1226", "display": "金木极元晶", "category": "material", "file": "novel_curated_materials_v549.json"},
+    {"id": "material_1227", "display": "灰白灵焰", "category": "material", "file": "novel_curated_materials_v549.json"}
+  ]
+}
