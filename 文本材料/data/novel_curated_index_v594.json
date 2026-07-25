@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 594,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第84–88章）",
+  "method": "沿原文逐段精读；本索引汇总 v594 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2683", "display": "人面核桃树", "category": "setting", "file": "novel_curated_settings_v594.json"},
+    {"id": "setting_2684", "display": "乌蒙岛与黑风海", "category": "setting", "file": "novel_curated_settings_v594.json"},
+    {"id": "setting_2685", "display": "寒晶族白光庇佑", "category": "setting", "file": "novel_curated_settings_v594.json"},
+    {"id": "setting_2686", "display": "祖神雕像血祭", "category": "setting", "file": "novel_curated_settings_v594.json"},
+    {"id": "setting_2687", "display": "地仙与信念之力", "category": "setting", "file": "novel_curated_settings_v594.json"},
+    {"id": "setting_2688", "display": "地祇化身", "category": "setting", "file": "novel_curated_settings_v594.json"},
+    {"id": "artifact_1773", "display": "血纹盾与血甲祖卫", "category": "artifact", "file": "novel_curated_artifacts_v594.json"},
+    {"id": "artifact_1774", "display": "图哈冰枪与寒晶铠", "category": "artifact", "file": "novel_curated_artifacts_v594.json"},
+    {"id": "artifact_1775", "display": "黑风海地图白珠", "category": "artifact", "file": "novel_curated_artifacts_v594.json"},
+    {"id": "artifact_1776", "display": "寒丘灰白雕像", "category": "artifact", "file": "novel_curated_artifacts_v594.json"},
+    {"id": "technique_1338", "display": "真极之膜退敌", "category": "technique", "file": "novel_curated_techniques_v594.json"},
+    {"id": "technique_1339", "display": "小北斗星光恢复", "category": "technique", "file": "novel_curated_techniques_v594.json"},
+    {"id": "technique_1340", "display": "信念力凝法则", "category": "technique", "file": "novel_curated_techniques_v594.json"},
+    {"id": "material_1360", "display": "人面核桃", "category": "material", "file": "novel_curated_materials_v594.json"},
+    {"id": "material_1361", "display": "白晶石与黄晶沙湖", "category": "material", "file": "novel_curated_materials_v594.json"},
+    {"id": "material_1362", "display": "地仙雕像材料", "category": "material", "file": "novel_curated_materials_v594.json"}
+  ]
+}
