@@ -5,14 +5,34 @@ import com.xunxian.seekingimmortals.sect.SectContributionService;
 import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.io.StringReader;
+import java.lang.reflect.Field;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ShopServiceTest {
+    @Test
+    @SuppressWarnings("unchecked")
+    void clearsPersistedStockCacheWhenServerStops() throws IOException, ReflectiveOperationException {
+        String events = Files.readString(Path.of(
+                "src/main/java/com/xunxian/seekingimmortals/event/ModEvents.java"));
+        Field field = ShopService.class.getDeclaredField("STOCK_CACHE");
+        field.setAccessible(true);
+        Map<String, Object> stockCache = (Map<String, Object>) field.get(null);
+        stockCache.put("world-a/test-shop/test-entry", new Object());
+
+        assertTrue(events.contains("ShopService.clearRuntimeStockCache();"));
+        ShopService.clearRuntimeStockCache();
+        assertTrue(stockCache.isEmpty());
+    }
+
     @Test
     void marketShopCountCoversAllMerchantShops() {
         // Text merchant_shops has 46 ids; 2 are contribution halls and stay out of MARKET_SHOPS.

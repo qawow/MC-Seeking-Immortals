@@ -40,8 +40,8 @@ class CatalogItemDescriptionServiceTest {
                 count++;
             }
         }
-        // Three legacy generic pills were intentionally removed from the bulk catalog.
-        assertEquals(1185, count, "bulk catalog count after legacy pill removal");
+        // Fifteen canonical carriers were added after the legacy pills and Jiangying alias were removed.
+        assertEquals(1200, count, "bulk catalog count after canonical carrier additions");
         assertTrue(placeholders >= 796, "placeholders=" + placeholders);
     }
 

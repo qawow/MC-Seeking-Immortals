@@ -47,7 +47,7 @@ class M13DimensionsAscensionTest {
                 .filter(p -> p.toString().endsWith(".json"))
                 .map(p -> p.getFileName().toString().replace(".json", ""))
                 .collect(Collectors.toCollection(HashSet::new));
-        assertEquals(11, datapack.size());
+        assertEquals(28, datapack.size());
         Set<String> types = Files.list(DATA.resolve("dimension_type"))
                 .filter(p -> p.toString().endsWith(".json"))
                 .map(p -> p.getFileName().toString().replace(".json", ""))

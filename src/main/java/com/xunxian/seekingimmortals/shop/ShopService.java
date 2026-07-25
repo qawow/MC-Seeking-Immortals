@@ -88,6 +88,10 @@ public final class ShopService {
 
     private ShopService() {}
 
+    public static void clearRuntimeStockCache() {
+        STOCK_CACHE.clear();
+    }
+
     public static Shop getShop(String shopId) {
         return CACHE.computeIfAbsent(shopId, ShopService::loadBuiltinShop);
     }

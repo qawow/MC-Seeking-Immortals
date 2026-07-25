@@ -8962,3 +8962,16 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Tests/build   Done   `python3 scripts/generate_ftb_quest_projection.py --check`、任务追踪器/FTB/客户端定向测试通过；最终普通 `./gradlew build --no-daemon --max-workers=1` 在 1 分 17 秒内完成，`BUILD SUCCESSFUL`，`aiPreflight` 记录 `mod_version=0.2.154`。
   Version/protocol   Done   `mod_version=0.2.154`；未改变网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=29` 保持不变。
   Backup   Done   `.bak/20260723_quest_tracker_followup/`、`.bak/20260723_quest_tracker_authored_requirements/`、`.bak/20260723_quest_tracker_manifest/`、`.bak/20260723_quest_tracker_version_docs/`、`.bak/20260723_quest_tracker_narrative_reconcile/`。
+## 576. 2026-07-25 0.2.174 发布审查修复
+
+  Step   Status   Notes
+  ---   ---   ---
+  Credential cleanup   Done   永久删除未跟踪 `报错/` 目录及两个含 Minecraft `--accessToken` 的 ZIP 副本，新增 `.gitignore` 规则；安全原因不保留凭据备份，账号侧撤销/刷新仍需持有人完成。
+  Dialogue audio   Done   五个 22.05 kHz 单声道 PCM WAV 转换为 Vorbis OGG 并替换源文件；`sounds.json` 的五个自有事件均解析到同名 OGG。
+  Dedicated dimensions   Done   21 个专属秘境入口改为精确维度映射，移除 Diyuan、广寒、冥河、古墓等到共享维度的旧软绑定；定向测试校验映射值和目标 JSON 文件。
+  Stock lifecycle   Done   `ServerStoppedEvent` 调用 `ShopService.clearRuntimeStockCache()`；回归测试注入哨兵库存并确认清空，避免集成服务器切换存档时跨世界污染。
+  Build reconciliation   Done   完整构建发现早期批次遗留的三项资源契约漂移；移除误恢复的 `jiangying_pill` 重复载体，保留其到 `jiangchen_pill` 的兼容别名，并将 17 个新增专属维度纳入统一注册表补种与 28 维对账清单。
+  Focused verification   Done   五组秘境、维度、商店、批量载体与说明测试通过；五个音频经 `ffprobe` 确认为 Vorbis、22050 Hz、单声道；工作树（排除备份）无符合访问令牌形态的参数值。
+  Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1` 在 1 分 23 秒内 `BUILD SUCCESSFUL`；236 个测试套件共 1,117 项，failure/error/skipped 均为 0，`aiPreflight` 记录 `0.2.174`。
+  Version/protocol   Done   `mod_version` 从 `0.2.173` 提升至 `0.2.174`；未改变网络包或频道契约，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
+  Backup   Done   `.bak/20260725_201533_review_fixes/`；凭据诊断包因安全要求未备份，五个原 WAV 可从该路径恢复。

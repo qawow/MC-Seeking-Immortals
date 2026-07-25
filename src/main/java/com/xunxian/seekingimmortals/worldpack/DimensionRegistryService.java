@@ -232,6 +232,10 @@ public final class DimensionRegistryService {
         putIfAbsent(map, def(DEMON_RIFT, "魔界裂隙", "ancient_demon_realm", "NASCENT_SOUL", "", "event", "", "", List.of(), true));
         putIfAbsent(map, def(IMMORTAL_REALM, "仙界", "immortal_realm", "GREAT_VEHICLE", "", "reserved", "", "", List.of(), true));
         putIfAbsent(map, def(ASURA_REALM, "修罗界", "secret_realm_instance", "", "", "custom", "", "", List.of(), true));
+        for (String dimensionId : SecretRealmDimensionService.dedicatedDimensionIds()) {
+            putIfAbsent(map, def(dimensionId, dimensionId, "secret_realm_instance",
+                    "", "", "custom", "", "", List.of(), true));
+        }
         putIfAbsent(map, def("seeking_immortals:secret_realm_instance", "秘境实例模板", "secret_realm_instance",
                 "", "", "instanced", "deferred_template", "模板类型，非独立可进入维度", List.of(), false));
         putIfAbsent(map, def("seeking_immortals:yin_underworld", "阴司集群（逻辑）", "yin_underworld_cluster",

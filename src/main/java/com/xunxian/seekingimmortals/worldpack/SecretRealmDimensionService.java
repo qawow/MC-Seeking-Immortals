@@ -10,6 +10,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.levelgen.Heightmap;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
@@ -24,25 +25,30 @@ public final class SecretRealmDimensionService {
 
     private static Map<String, String> buildMap() {
         Map<String, String> map = new HashMap<>();
+        map.put("ancient_cultivator_ruins", SeekingImmortalsMod.MODID + ":secret_realm_ancient_cultivator_ruins");
         map.put("blood_forbidden", SeekingImmortalsMod.MODID + ":secret_realm_blood_forbidden");
-        map.put("void_palace", SeekingImmortalsMod.MODID + ":secret_realm_void_palace");
-        map.put("mist_cave_trial", SeekingImmortalsMod.MODID + ":secret_realm_mist_cave");
-        map.put("fallen_demon_valley", SeekingImmortalsMod.MODID + ":secret_realm_fallen_demon");
+        map.put("chaotic_sea_abyss_rift", SeekingImmortalsMod.MODID + ":secret_realm_chaotic_sea_abyss_rift");
+        map.put("demon_gold_mountain", SeekingImmortalsMod.MODID + ":secret_realm_demon_gold_mountain");
+        map.put("diyuan", SeekingImmortalsMod.MODID + ":secret_realm_diyuan");
         map.put("fallen_demon_depths", SeekingImmortalsMod.MODID + ":secret_realm_fallen_demon");
+        map.put("fallen_demon_valley", SeekingImmortalsMod.MODID + ":secret_realm_fallen_demon_valley");
+        map.put("guanghan_realm", SeekingImmortalsMod.MODID + ":secret_realm_guanghan_realm");
+        map.put("jiuxian_seclusion", SeekingImmortalsMod.MODID + ":secret_realm_jiuxian_seclusion");
+        map.put("kunwu_mountain", SeekingImmortalsMod.MODID + ":secret_realm_kunwu_mountain");
+        map.put("minor_asura_realm", SeekingImmortalsMod.MODID + ":secret_realm_minor_asura_realm");
+        map.put("mist_cave_trial", SeekingImmortalsMod.MODID + ":secret_realm_mist_cave");
+        map.put("nether_river_land", SeekingImmortalsMod.MODID + ":secret_realm_nether_river_land");
+        map.put("seven_meridian_cave", SeekingImmortalsMod.MODID + ":secret_realm_seven_meridian_cave");
+        map.put("spirit_grass_valley", SeekingImmortalsMod.MODID + ":secret_realm_spirit_grass_valley");
+        map.put("thousand_bamboo_puppet_tower", SeekingImmortalsMod.MODID + ":secret_realm_thousand_bamboo_puppet_tower");
+        map.put("tianlan_secret_grotto", SeekingImmortalsMod.MODID + ":secret_realm_tianlan_secret_grotto");
+        map.put("void_palace", SeekingImmortalsMod.MODID + ":secret_realm_void_palace");
+        map.put("wild_ancient_ruins", SeekingImmortalsMod.MODID + ":secret_realm_wild_ancient_ruins");
+        map.put("wild_ancient_tomb", SeekingImmortalsMod.MODID + ":secret_realm_wild_ancient_tomb");
+        map.put("yin_mountain_catacomb", SeekingImmortalsMod.MODID + ":secret_realm_yin_mountain_catacomb");
         map.put("asura_realm", SeekingImmortalsMod.MODID + ":asura_realm");
         map.put("immortal_realm", SeekingImmortalsMod.MODID + ":immortal_realm");
-        // M09 soft bindings to existing M13 pocket dims for author 19 catalog.
         map.put("yinming_pocket", SeekingImmortalsMod.MODID + ":yin_ming_pocket");
-        map.put("nether_river_land", SeekingImmortalsMod.MODID + ":nether_river_pocket");
-        map.put("wild_ancient_tomb", SeekingImmortalsMod.MODID + ":nether_river_pocket");
-        map.put("yin_mountain_catacomb", SeekingImmortalsMod.MODID + ":nether_river_pocket");
-        map.put("minor_asura_realm", SeekingImmortalsMod.MODID + ":asura_realm");
-        map.put("guanghan_realm", SeekingImmortalsMod.MODID + ":tianyuan");
-        map.put("diyuan", SeekingImmortalsMod.MODID + ":spirit_fengyuan");
-        map.put("demon_gold_mountain", SeekingImmortalsMod.MODID + ":spirit_fengyuan");
-        map.put("spirit_grass_valley", SeekingImmortalsMod.MODID + ":spirit_fengyuan");
-        map.put("jiuxian_seclusion", SeekingImmortalsMod.MODID + ":spirit_fengyuan");
-        map.put("chaotic_sea_abyss_rift", SeekingImmortalsMod.MODID + ":demon_rift");
         return Map.copyOf(map);
     }
 
@@ -136,5 +142,9 @@ public final class SecretRealmDimensionService {
 
     public static int dedicatedDimensionCount() {
         return REALM_DIMENSIONS.size();
+    }
+
+    static List<String> dedicatedDimensionIds() {
+        return REALM_DIMENSIONS.values().stream().distinct().toList();
     }
 }

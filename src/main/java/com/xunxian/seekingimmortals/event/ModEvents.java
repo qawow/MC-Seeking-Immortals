@@ -198,6 +198,7 @@ public final class ModEvents {
         ActiveTechniqueEffectVfxService.clearAll();
         TechniqueLifecycleVfxService.clearRuntimeState();
         TechniqueDataManager.invalidateAllCaches();
+        ShopService.clearRuntimeStockCache();
     }
 
     @SubscribeEvent
