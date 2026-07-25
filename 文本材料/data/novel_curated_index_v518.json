@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 518,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第2156–2160章）",
+  "method": "沿原文逐段精读；本索引汇总 v518 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2227", "display": "木灵八子卜算推演", "category": "setting", "file": "novel_curated_settings_v518.json"},
+    {"id": "setting_2228", "display": "联军诱敌与三大圣祖牵制", "category": "setting", "file": "novel_curated_settings_v518.json"},
+    {"id": "setting_2229", "display": "吞天偷袭木棉城圣树", "category": "setting", "file": "novel_curated_settings_v518.json"},
+    {"id": "setting_2230", "display": "绝阵激发与林海树人", "category": "setting", "file": "novel_curated_settings_v518.json"},
+    {"id": "setting_2231", "display": "颠倒换形五岳禁制", "category": "setting", "file": "novel_curated_settings_v518.json"},
+    {"id": "setting_2232", "display": "血柯无量魔功", "category": "setting", "file": "novel_curated_settings_v518.json"},
+    {"id": "artifact_1469", "display": "弧月飞车与漆黑魔舟", "category": "artifact", "file": "novel_curated_artifacts_v518.json"},
+    {"id": "artifact_1470", "display": "擎天玉碗与双头白狼", "category": "artifact", "file": "novel_curated_artifacts_v518.json"},
+    {"id": "artifact_1471", "display": "阵眼青色晶球", "category": "artifact", "file": "novel_curated_artifacts_v518.json"},
+    {"id": "artifact_1472", "display": "铜镜鬼脸与阎都魔炎", "category": "artifact", "file": "novel_curated_artifacts_v518.json"},
+    {"id": "technique_1110", "display": "银火鸟吞阎都魔炎", "category": "technique", "file": "novel_curated_techniques_v518.json"},
+    {"id": "technique_1111", "display": "辟邪神雷与雷阵瞬移", "category": "technique", "file": "novel_curated_techniques_v518.json"},
+    {"id": "technique_1112", "display": "三头六臂金剑斩婴", "category": "technique", "file": "novel_curated_techniques_v518.json"},
+    {"id": "material_1132", "display": "白色木盘", "category": "material", "file": "novel_curated_materials_v518.json"},
+    {"id": "material_1133", "display": "淡黄木剑寒光", "category": "material", "file": "novel_curated_materials_v518.json"},
+    {"id": "material_1134", "display": "翠绿护身小伞", "category": "material", "file": "novel_curated_materials_v518.json"}
+  ]
+}
