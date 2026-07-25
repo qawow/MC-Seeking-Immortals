@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 403,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1586–1590章）",
+  "method": "沿原文逐段精读；本索引汇总 v403 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1537", "display": "晶族与典籍店", "category": "setting", "file": "novel_curated_settings_v403.json"},
+    {"id": "setting_1538", "display": "天外魔甲与魔核", "category": "setting", "file": "novel_curated_settings_v403.json"},
+    {"id": "setting_1539", "display": "魔金山脉", "category": "setting", "file": "novel_curated_settings_v403.json"},
+    {"id": "setting_1540", "display": "通灵傀儡定义", "category": "setting", "file": "novel_curated_settings_v403.json"},
+    {"id": "setting_1541", "display": "八云山灵地", "category": "setting", "file": "novel_curated_settings_v403.json"},
+    {"id": "setting_1542", "display": "跨陆传送四族共管", "category": "setting", "file": "novel_curated_settings_v403.json"},
+    {"id": "artifact_1009", "display": "天外紫魔甲", "category": "artifact", "file": "novel_curated_artifacts_v403.json"},
+    {"id": "artifact_1010", "display": "魔烟鸟", "category": "artifact", "file": "novel_curated_artifacts_v403.json"},
+    {"id": "artifact_1011", "display": "白蛇双形态通灵傀", "category": "artifact", "file": "novel_curated_artifacts_v403.json"},
+    {"id": "artifact_1012", "display": "灵侍半灵傀", "category": "artifact", "file": "novel_curated_artifacts_v403.json"},
+    {"id": "technique_765", "display": "小型空间光阵", "category": "technique", "file": "novel_curated_techniques_v403.json"},
+    {"id": "technique_766", "display": "梵圣法相着魔甲", "category": "technique", "file": "novel_curated_techniques_v403.json"},
+    {"id": "technique_767", "display": "圣阶魔气结界", "category": "technique", "file": "novel_curated_techniques_v403.json"},
+    {"id": "material_787", "display": "魔核与圣阶核", "category": "material", "file": "novel_curated_materials_v403.json"},
+    {"id": "material_788", "display": "寒光晶铁", "category": "material", "file": "novel_curated_materials_v403.json"},
+    {"id": "material_789", "display": "真蟾液与购甲材", "category": "material", "file": "novel_curated_materials_v403.json"}
+  ]
+}
