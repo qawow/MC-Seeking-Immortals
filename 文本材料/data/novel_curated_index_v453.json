@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 453,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1829–1833章）",
+  "method": "沿原文逐段精读；本索引汇总 v453 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1837", "display": "晖芜七十二宝对剑", "category": "setting", "file": "novel_curated_settings_v453.json"},
+    {"id": "setting_1838", "display": "陇老三招约", "category": "setting", "file": "novel_curated_settings_v453.json"},
+    {"id": "setting_1839", "display": "第二化身绿影", "category": "setting", "file": "novel_curated_settings_v453.json"},
+    {"id": "setting_1840", "display": "劳哀挑战谷家", "category": "setting", "file": "novel_curated_settings_v453.json"},
+    {"id": "setting_1841", "display": "梵圣金身逞威", "category": "setting", "file": "novel_curated_settings_v453.json"},
+    {"id": "setting_1842", "display": "万灵殿夜议", "category": "setting", "file": "novel_curated_settings_v453.json"},
+    {"id": "artifact_1209", "display": "元磁太乙双山", "category": "artifact", "file": "novel_curated_artifacts_v453.json"},
+    {"id": "artifact_1210", "display": "银尺破黑洞", "category": "artifact", "file": "novel_curated_artifacts_v453.json"},
+    {"id": "artifact_1211", "display": "劳哀笔尺简锤", "category": "artifact", "file": "novel_curated_artifacts_v453.json"},
+    {"id": "artifact_1212", "display": "千秋黄铜镜", "category": "artifact", "file": "novel_curated_artifacts_v453.json"},
+    {"id": "technique_915", "display": "太乙青光剑气", "category": "technique", "file": "novel_curated_techniques_v453.json"},
+    {"id": "technique_916", "display": "半龙化三招", "category": "technique", "file": "novel_curated_techniques_v453.json"},
+    {"id": "technique_917", "display": "金身漩涡拳影", "category": "technique", "file": "novel_curated_techniques_v453.json"},
+    {"id": "material_937", "display": "真灵之血典籍", "category": "material", "file": "novel_curated_materials_v453.json"},
+    {"id": "material_938", "display": "潜灵令分发", "category": "material", "file": "novel_curated_materials_v453.json"},
+    {"id": "material_939", "display": "五色妖蝶毒粉", "category": "material", "file": "novel_curated_materials_v453.json"}
+  ]
+}
