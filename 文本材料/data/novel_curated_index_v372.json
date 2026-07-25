@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 372,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（忌惮·天鹏圣子·飞灵诸族·玉皇顶·祝音子：第1431–1435章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v371 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1431章 忌惮 — 第1435章 祝音子",
+  "progress": "1435/2005 ≈ 71.6%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1351–setting_1356",
+    "artifacts": "artifact_885–artifact_888",
+    "techniques": "technique_672–technique_674",
+    "materials": "material_694–material_696"
+  },
+  "entries": [
+    {"id": "setting_1351", "display": "五光幻化与青罗果核", "category": "setting", "file": "novel_curated_settings_v372.json"},
+    {"id": "setting_1352", "display": "雷兽身外化身与须弥崩裂", "category": "setting", "file": "novel_curated_settings_v372.json"},
+    {"id": "setting_1353", "display": "天鹏三圣子与副卷留名", "category": "setting", "file": "novel_curated_settings_v372.json"},
+    {"id": "setting_1354", "display": "飞灵诸族与角鹫天钟", "category": "setting", "file": "novel_curated_settings_v372.json"},
+    {"id": "setting_1355", "display": "玉皇顶与联席长老会", "category": "setting", "file": "novel_curated_settings_v372.json"},
+    {"id": "setting_1356", "display": "祝音子与玉皇顶禁斗", "category": "setting", "file": "novel_curated_settings_v372.json"},
+    {"id": "artifact_885", "display": "天鹏之誓赤红匣卷", "category": "artifact", "file": "novel_curated_artifacts_v372.json"},
+    {"id": "artifact_886", "display": "青濛铜镜", "category": "artifact", "file": "novel_curated_artifacts_v372.json"},
+    {"id": "artifact_887", "display": "七色彩虹拱桥", "category": "artifact", "file": "novel_curated_artifacts_v372.json"},
+    {"id": "artifact_888", "display": "迎客灵焰", "category": "artifact", "file": "novel_curated_artifacts_v372.json"},
+    {"id": "technique_672", "display": "精血破五光幻化", "category": "technique", "file": "novel_curated_techniques_v372.json"},
+    {"id": "technique_673", "display": "角鹫天钟降魔", "category": "technique", "file": "novel_curated_techniques_v372.json"},
+    {"id": "technique_674", "display": "天鹏变身法精进", "category": "technique", "file": "novel_curated_techniques_v372.json"},
+    {"id": "material_694", "display": "青罗果核", "category": "material", "file": "novel_curated_materials_v372.json"},
+    {"id": "material_695", "display": "极品灵石补偿袋", "category": "material", "file": "novel_curated_materials_v372.json"},
+    {"id": "material_696", "display": "碧绿疗伤丹药", "category": "material", "file": "novel_curated_materials_v372.json"}
+  ]
+}
