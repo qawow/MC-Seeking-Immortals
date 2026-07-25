@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 488,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第2006–2010章）",
+  "method": "沿原文逐段精读；本索引汇总 v488 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2047", "display": "提前入魔界之约", "category": "setting", "file": "novel_curated_settings_v488.json"},
+    {"id": "setting_2048", "display": "仙使屠灵族吸精元", "category": "setting", "file": "novel_curated_settings_v488.json"},
+    {"id": "setting_2049", "display": "摄灵天网克制灵族", "category": "setting", "file": "novel_curated_settings_v488.json"},
+    {"id": "setting_2050", "display": "圣岛半玄天至宝", "category": "setting", "file": "novel_curated_settings_v488.json"},
+    {"id": "setting_2051", "display": "叶家先祖目睹魔族始祖", "category": "setting", "file": "novel_curated_settings_v488.json"},
+    {"id": "setting_2052", "display": "叶仙子请收天凤血脉", "category": "setting", "file": "novel_curated_settings_v488.json"},
+    {"id": "artifact_1349", "display": "摄灵天网仿制品", "category": "artifact", "file": "novel_curated_artifacts_v488.json"},
+    {"id": "artifact_1350", "display": "金银符罩", "category": "artifact", "file": "novel_curated_artifacts_v488.json"},
+    {"id": "artifact_1351", "display": "黄巾傀儡", "category": "artifact", "file": "novel_curated_artifacts_v488.json"},
+    {"id": "artifact_1352", "display": "三圣灵本体宝物", "category": "artifact", "file": "novel_curated_artifacts_v488.json"},
+    {"id": "technique_1020", "display": "金银符罩开字诀", "category": "technique", "file": "novel_curated_techniques_v488.json"},
+    {"id": "technique_1021", "display": "摄灵天网梵音星辰", "category": "technique", "file": "novel_curated_techniques_v488.json"},
+    {"id": "technique_1022", "display": "卜算之力遮蔽", "category": "technique", "file": "novel_curated_techniques_v488.json"},
+    {"id": "material_1042", "display": "灵族本体精元", "category": "material", "file": "novel_curated_materials_v488.json"},
+    {"id": "material_1043", "display": "天凤血脉后人", "category": "material", "file": "novel_curated_materials_v488.json"},
+    {"id": "material_1044", "display": "治伤灵药与玄天残物", "category": "material", "file": "novel_curated_materials_v488.json"}
+  ]
+}
