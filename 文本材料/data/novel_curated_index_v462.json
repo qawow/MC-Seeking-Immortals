@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 462,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1875+1877–1880章）",
+  "method": "沿原文逐段精读；本索引汇总 v462 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1891", "display": "龙灵丹擎天交易", "category": "setting", "file": "novel_curated_settings_v462.json"},
+    {"id": "setting_1892", "display": "魔蝠破界首侵", "category": "setting", "file": "novel_curated_settings_v462.json"},
+    {"id": "setting_1893", "display": "蝠烈蒙蛮赌约", "category": "setting", "file": "novel_curated_settings_v462.json"},
+    {"id": "setting_1894", "display": "群魔十三波", "category": "setting", "file": "novel_curated_settings_v462.json"},
+    {"id": "setting_1895", "display": "三角巨塔降临", "category": "setting", "file": "novel_curated_settings_v462.json"},
+    {"id": "setting_1896", "display": "血光圣祖建城", "category": "setting", "file": "novel_curated_settings_v462.json"},
+    {"id": "artifact_1245", "display": "龙灵丹金瓶", "category": "artifact", "file": "novel_curated_artifacts_v462.json"},
+    {"id": "artifact_1246", "display": "擎天巨舟", "category": "artifact", "file": "novel_curated_artifacts_v462.json"},
+    {"id": "artifact_1247", "display": "五色圆环盾", "category": "artifact", "file": "novel_curated_artifacts_v462.json"},
+    {"id": "artifact_1248", "display": "血光乌杖", "category": "artifact", "file": "novel_curated_artifacts_v462.json"},
+    {"id": "technique_942", "display": "魔蝠音波破界", "category": "technique", "file": "novel_curated_techniques_v462.json"},
+    {"id": "technique_943", "display": "蝠烈金色音波", "category": "technique", "file": "novel_curated_techniques_v462.json"},
+    {"id": "technique_944", "display": "石魔化土为石", "category": "technique", "file": "novel_curated_techniques_v462.json"},
+    {"id": "material_964", "display": "余瓶冥河灵乳", "category": "material", "file": "novel_curated_materials_v462.json"},
+    {"id": "material_965", "display": "上亿紧缺材料", "category": "material", "file": "novel_curated_materials_v462.json"},
+    {"id": "material_966", "display": "血蝠与银纹雷牛", "category": "material", "file": "novel_curated_materials_v462.json"}
+  ]
+}
