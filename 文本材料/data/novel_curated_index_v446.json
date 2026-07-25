@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 446,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1794–1798章）",
+  "method": "沿原文逐段精读；本索引汇总 v446 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1795", "display": "拒叶家与真灵大典", "category": "setting", "file": "novel_curated_settings_v446.json"},
+    {"id": "setting_1796", "display": "魔劫规划与元刹仇", "category": "setting", "file": "novel_curated_settings_v446.json"},
+    {"id": "setting_1797", "display": "记名弟子海月天器灵", "category": "setting", "file": "novel_curated_settings_v446.json"},
+    {"id": "setting_1798", "display": "隐雷灵根与熔金体", "category": "setting", "file": "novel_curated_settings_v446.json"},
+    {"id": "setting_1799", "display": "黑凤王与黛儿凤灵", "category": "setting", "file": "novel_curated_settings_v446.json"},
+    {"id": "setting_1800", "display": "万宝首拍与泣灵", "category": "setting", "file": "novel_curated_settings_v446.json"},
+    {"id": "artifact_1181", "display": "万宝金色请帖", "category": "artifact", "file": "novel_curated_artifacts_v446.json"},
+    {"id": "artifact_1182", "display": "万剑图参悟", "category": "artifact", "file": "novel_curated_artifacts_v446.json"},
+    {"id": "artifact_1183", "display": "灵兽环与啼魂", "category": "artifact", "file": "novel_curated_artifacts_v446.json"},
+    {"id": "artifact_1184", "display": "化劫傀儡与泣灵", "category": "artifact", "file": "novel_curated_artifacts_v446.json"},
+    {"id": "technique_894", "display": "隐灵根修炼法则", "category": "technique", "file": "novel_curated_techniques_v446.json"},
+    {"id": "technique_895", "display": "念剑诀参悟", "category": "technique", "file": "novel_curated_techniques_v446.json"},
+    {"id": "technique_896", "display": "本命真翎蔽容", "category": "technique", "file": "novel_curated_techniques_v446.json"},
+    {"id": "material_916", "display": "银丝晶", "category": "material", "file": "novel_curated_materials_v446.json"},
+    {"id": "material_917", "display": "晶炎丝", "category": "material", "file": "novel_curated_materials_v446.json"},
+    {"id": "material_918", "display": "泣灵血木", "category": "material", "file": "novel_curated_materials_v446.json"}
+  ]
+}
