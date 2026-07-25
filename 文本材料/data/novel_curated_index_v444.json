@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 444,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1784–1788章）",
+  "method": "沿原文逐段精读；本索引汇总 v444 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1783", "display": "冰髓之体透髓", "category": "setting", "file": "novel_curated_settings_v444.json"},
+    {"id": "setting_1784", "display": "冰髓寒魄双途", "category": "setting", "file": "novel_curated_settings_v444.json"},
+    {"id": "setting_1785", "display": "记名弟子白果儿", "category": "setting", "file": "novel_curated_settings_v444.json"},
+    {"id": "setting_1786", "display": "迎仙宫与飞仙峰", "category": "setting", "file": "novel_curated_settings_v444.json"},
+    {"id": "setting_1787", "display": "万骨真人白骨门", "category": "setting", "file": "novel_curated_settings_v444.json"},
+    {"id": "setting_1788", "display": "黑域交换大会", "category": "setting", "file": "novel_curated_settings_v444.json"},
+    {"id": "artifact_1173", "display": "银针与白色玉盘", "category": "artifact", "file": "novel_curated_artifacts_v444.json"},
+    {"id": "artifact_1174", "display": "炎阳玉与养精丹", "category": "artifact", "file": "novel_curated_artifacts_v444.json"},
+    {"id": "artifact_1175", "display": "迎仙宫五字银牌", "category": "artifact", "file": "novel_curated_artifacts_v444.json"},
+    {"id": "artifact_1176", "display": "万骨骷髅道袍", "category": "artifact", "file": "novel_curated_artifacts_v444.json"},
+    {"id": "technique_888", "display": "五色寒光驱寒毒", "category": "technique", "file": "novel_curated_techniques_v444.json"},
+    {"id": "technique_889", "display": "金雷叩云海禁", "category": "technique", "file": "novel_curated_techniques_v444.json"},
+    {"id": "technique_890", "display": "迎仙宫幻天禁制", "category": "technique", "file": "novel_curated_techniques_v444.json"},
+    {"id": "material_910", "display": "补天丹延寿", "category": "material", "file": "novel_curated_materials_v444.json"},
+    {"id": "material_911", "display": "养精丹与易经丹", "category": "material", "file": "novel_curated_materials_v444.json"},
+    {"id": "material_912", "display": "黑域妖兽材与灵卵", "category": "material", "file": "novel_curated_materials_v444.json"}
+  ]
+}
