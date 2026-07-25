@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 501,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第2071–2075章）",
+  "method": "沿原文逐段精读；本索引汇总 v501 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2125", "display": "兽尊殿", "category": "setting", "file": "novel_curated_settings_v501.json"},
+    {"id": "setting_2126", "display": "出幻啸分头", "category": "setting", "file": "novel_curated_settings_v501.json"},
+    {"id": "setting_2127", "display": "青鸾真血与铁沙岭", "category": "setting", "file": "novel_curated_settings_v501.json"},
+    {"id": "setting_2128", "display": "凌源圣祖化身", "category": "setting", "file": "novel_curated_settings_v501.json"},
+    {"id": "setting_2129", "display": "土龙镇截杀", "category": "setting", "file": "novel_curated_settings_v501.json"},
+    {"id": "setting_2130", "display": "化形兽尊争斗", "category": "setting", "file": "novel_curated_settings_v501.json"},
+    {"id": "artifact_1401", "display": "黑玉舟", "category": "artifact", "file": "novel_curated_artifacts_v501.json"},
+    {"id": "artifact_1402", "display": "浑天珠", "category": "artifact", "file": "novel_curated_artifacts_v501.json"},
+    {"id": "artifact_1403", "display": "追影虫", "category": "artifact", "file": "novel_curated_artifacts_v501.json"},
+    {"id": "artifact_1404", "display": "梵圣六兵刃", "category": "artifact", "file": "novel_curated_artifacts_v501.json"},
+    {"id": "technique_1059", "display": "洞漩魔光", "category": "technique", "file": "novel_curated_techniques_v501.json"},
+    {"id": "technique_1060", "display": "万虚之剑", "category": "technique", "file": "novel_curated_techniques_v501.json"},
+    {"id": "technique_1061", "display": "梵圣真魔功与法相", "category": "technique", "file": "novel_curated_techniques_v501.json"},
+    {"id": "material_1081", "display": "青鸾真血", "category": "material", "file": "novel_curated_materials_v501.json"},
+    {"id": "material_1082", "display": "青魔晶", "category": "material", "file": "novel_curated_materials_v501.json"},
+    {"id": "material_1083", "display": "天凤之血感应", "category": "material", "file": "novel_curated_materials_v501.json"}
+  ]
+}
