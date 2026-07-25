@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 600,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第114–118章）",
+  "method": "沿原文逐段精读；本索引汇总 v600 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2719", "display": "血云入墙强化血幕", "category": "setting", "file": "novel_curated_settings_v600.json"},
+    {"id": "setting_2720", "display": "血法则暴体", "category": "setting", "file": "novel_curated_settings_v600.json"},
+    {"id": "setting_2721", "display": "四真仙陨", "category": "setting", "file": "novel_curated_settings_v600.json"},
+    {"id": "setting_2722", "display": "血晶巨人", "category": "setting", "file": "novel_curated_settings_v600.json"},
+    {"id": "setting_2723", "display": "血湖骷髅蛇女", "category": "setting", "file": "novel_curated_settings_v600.json"},
+    {"id": "setting_2724", "display": "归元血焰", "category": "setting", "file": "novel_curated_settings_v600.json"},
+    {"id": "artifact_1797", "display": "三棱黑锥", "category": "artifact", "file": "novel_curated_artifacts_v600.json"},
+    {"id": "artifact_1798", "display": "紫黑圆钵", "category": "artifact", "file": "novel_curated_artifacts_v600.json"},
+    {"id": "artifact_1799", "display": "白骨拳甲", "category": "artifact", "file": "novel_curated_artifacts_v600.json"},
+    {"id": "artifact_1800", "display": "赤红玄天剑", "category": "artifact", "file": "novel_curated_artifacts_v600.json"},
+    {"id": "technique_1356", "display": "小北斗星元功护心", "category": "technique", "file": "novel_curated_techniques_v600.json"},
+    {"id": "technique_1357", "display": "拳劲破心跳", "category": "technique", "file": "novel_curated_techniques_v600.json"},
+    {"id": "technique_1358", "display": "七星拳碎巨人", "category": "technique", "file": "novel_curated_techniques_v600.json"},
+    {"id": "material_1378", "display": "血晶碎石", "category": "material", "file": "novel_curated_materials_v600.json"},
+    {"id": "material_1379", "display": "紫濛丹药", "category": "material", "file": "novel_curated_materials_v600.json"},
+    {"id": "material_1380", "display": "血色大幡遗物", "category": "material", "file": "novel_curated_materials_v600.json"}
+  ]
+}
