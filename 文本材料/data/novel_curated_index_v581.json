@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 581,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第19–23章）",
+  "method": "沿原文逐段精读；本索引汇总 v581 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2605", "display": "齐煊化神侄孙", "category": "setting", "file": "novel_curated_settings_v581.json"},
+    {"id": "setting_2606", "display": "灵寰界世俗族人规矩", "category": "setting", "file": "novel_curated_settings_v581.json"},
+    {"id": "setting_2607", "display": "冷焰宗实力与仙人祖师", "category": "setting", "file": "novel_curated_settings_v581.json"},
+    {"id": "setting_2608", "display": "灵寰界三大宗门", "category": "setting", "file": "novel_curated_settings_v581.json"},
+    {"id": "setting_2609", "display": "韩立元婴异变", "category": "setting", "file": "novel_curated_settings_v581.json"},
+    {"id": "setting_2610", "display": "风云双煞截杀", "category": "setting", "file": "novel_curated_settings_v581.json"},
+    {"id": "artifact_1721", "display": "灵月飞舟", "category": "artifact", "file": "novel_curated_artifacts_v581.json"},
+    {"id": "artifact_1722", "display": "古韵月乌黑长剑", "category": "artifact", "file": "novel_curated_artifacts_v581.json"},
+    {"id": "artifact_1723", "display": "金色巨塔", "category": "artifact", "file": "novel_curated_artifacts_v581.json"},
+    {"id": "artifact_1724", "display": "银色锦帕", "category": "artifact", "file": "novel_curated_artifacts_v581.json"},
+    {"id": "technique_1299", "display": "白云托人出城", "category": "technique", "file": "novel_curated_techniques_v581.json"},
+    {"id": "technique_1300", "display": "炼神术强侵元婴", "category": "technique", "file": "novel_curated_techniques_v581.json"},
+    {"id": "technique_1301", "display": "火焰鬼爪与百鬼画卷", "category": "technique", "file": "novel_curated_techniques_v581.json"},
+    {"id": "material_1321", "display": "望犀丹", "category": "material", "file": "novel_curated_materials_v581.json"},
+    {"id": "material_1322", "display": "暗金保命丹", "category": "material", "file": "novel_curated_materials_v581.json"},
+    {"id": "material_1323", "display": "青灵石与法力恢复", "category": "material", "file": "novel_curated_materials_v581.json"}
+  ]
+}
