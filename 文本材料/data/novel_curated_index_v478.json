@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 478,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1956–1960章）",
+  "method": "沿原文逐段精读；本索引汇总 v478 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1987", "display": "六极黑甲归身", "category": "setting", "file": "novel_curated_settings_v478.json"},
+    {"id": "setting_1988", "display": "南天之尽入蛮荒", "category": "setting", "file": "novel_curated_settings_v478.json"},
+    {"id": "setting_1989", "display": "雷云子与双重雷阵", "category": "setting", "file": "novel_curated_settings_v478.json"},
+    {"id": "setting_1990", "display": "宝花夺如意刃", "category": "setting", "file": "novel_curated_settings_v478.json"},
+    {"id": "setting_1991", "display": "幻日大法灭血光", "category": "setting", "file": "novel_curated_settings_v478.json"},
+    {"id": "setting_1992", "display": "六极神弓突围", "category": "setting", "file": "novel_curated_settings_v478.json"},
+    {"id": "artifact_1309", "display": "青色三角飞车", "category": "artifact", "file": "novel_curated_artifacts_v478.json"},
+    {"id": "artifact_1310", "display": "粉色巨花座", "category": "artifact", "file": "novel_curated_artifacts_v478.json"},
+    {"id": "artifact_1311", "display": "玄天如意刃残片", "category": "artifact", "file": "novel_curated_artifacts_v478.json"},
+    {"id": "artifact_1312", "display": "青弓白箭", "category": "artifact", "file": "novel_curated_artifacts_v478.json"},
+    {"id": "technique_990", "display": "双重雷阵传送", "category": "technique", "file": "novel_curated_techniques_v478.json"},
+    {"id": "technique_991", "display": "幻日大法", "category": "technique", "file": "novel_curated_techniques_v478.json"},
+    {"id": "technique_992", "display": "精血灭焰", "category": "technique", "file": "novel_curated_techniques_v478.json"},
+    {"id": "material_1012", "display": "摄灵丹与妖丹", "category": "material", "file": "novel_curated_materials_v478.json"},
+    {"id": "material_1013", "display": "天昙花", "category": "material", "file": "novel_curated_materials_v478.json"},
+    {"id": "material_1014", "display": "金色破日圆珠", "category": "material", "file": "novel_curated_materials_v478.json"}
+  ]
+}
