@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 477,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1951–1955章）",
+  "method": "沿原文逐段精读；本索引汇总 v477 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1981", "display": "金蝉脱壳分路", "category": "setting", "file": "novel_curated_settings_v477.json"},
+    {"id": "setting_1982", "display": "魔元大法搜谷", "category": "setting", "file": "novel_curated_settings_v477.json"},
+    {"id": "setting_1983", "display": "第二元婴血影遁", "category": "setting", "file": "novel_curated_settings_v477.json"},
+    {"id": "setting_1984", "display": "大半年远遁僵持", "category": "setting", "file": "novel_curated_settings_v477.json"},
+    {"id": "setting_1985", "display": "分魂感应追踪", "category": "setting", "file": "novel_curated_settings_v477.json"},
+    {"id": "setting_1986", "display": "六极分神入黑棺", "category": "setting", "file": "novel_curated_settings_v477.json"},
+    {"id": "artifact_1305", "display": "太一化清符", "category": "artifact", "file": "novel_curated_artifacts_v477.json"},
+    {"id": "artifact_1306", "display": "石仑图腾", "category": "artifact", "file": "novel_curated_artifacts_v477.json"},
+    {"id": "artifact_1307", "display": "黑色赤练", "category": "artifact", "file": "novel_curated_artifacts_v477.json"},
+    {"id": "artifact_1308", "display": "漆黑玉棺", "category": "artifact", "file": "novel_curated_artifacts_v477.json"},
+    {"id": "technique_987", "display": "魔元大法万鸦", "category": "technique", "file": "novel_curated_techniques_v477.json"},
+    {"id": "technique_988", "display": "血影遁", "category": "technique", "file": "novel_curated_techniques_v477.json"},
+    {"id": "technique_989", "display": "裂婴分魂", "category": "technique", "file": "novel_curated_techniques_v477.json"},
+    {"id": "material_1009", "display": "曲儿与灵躯", "category": "material", "file": "novel_curated_materials_v477.json"},
+    {"id": "material_1010", "display": "真魔晶", "category": "material", "file": "novel_curated_materials_v477.json"},
+    {"id": "material_1011", "display": "六极绿光分神", "category": "material", "file": "novel_curated_materials_v477.json"}
+  ]
+}
