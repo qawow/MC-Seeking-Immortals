@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 459,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1860–1864章）",
+  "method": "沿原文逐段精读；本索引汇总 v459 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1873", "display": "金焰岛金焰候", "category": "setting", "file": "novel_curated_settings_v459.json"},
+    {"id": "setting_1874", "display": "九瞳珠换灵乳", "category": "setting", "file": "novel_curated_settings_v459.json"},
+    {"id": "setting_1875", "display": "虚灵老怪来访", "category": "setting", "file": "novel_curated_settings_v459.json"},
+    {"id": "setting_1876", "display": "虚灵索要灵乳", "category": "setting", "file": "novel_curated_settings_v459.json"},
+    {"id": "setting_1877", "display": "蚀仙丹惊大乘", "category": "setting", "file": "novel_curated_settings_v459.json"},
+    {"id": "setting_1878", "display": "玄天残片与新宝", "category": "setting", "file": "novel_curated_settings_v459.json"},
+    {"id": "artifact_1233", "display": "九瞳珠", "category": "artifact", "file": "novel_curated_artifacts_v459.json"},
+    {"id": "artifact_1234", "display": "金罡灭魔神雷", "category": "artifact", "file": "novel_curated_artifacts_v459.json"},
+    {"id": "artifact_1235", "display": "息壤之土", "category": "artifact", "file": "novel_curated_artifacts_v459.json"},
+    {"id": "artifact_1236", "display": "玄天香炉残片", "category": "artifact", "file": "novel_curated_artifacts_v459.json"},
+    {"id": "technique_933", "display": "金剑斩禁制", "category": "technique", "file": "novel_curated_techniques_v459.json"},
+    {"id": "technique_934", "display": "金焰火遁术", "category": "technique", "file": "novel_curated_techniques_v459.json"},
+    {"id": "technique_935", "display": "虚灵灵压试探", "category": "technique", "file": "novel_curated_techniques_v459.json"},
+    {"id": "material_955", "display": "三瓶冥河灵乳", "category": "material", "file": "novel_curated_materials_v459.json"},
+    {"id": "material_956", "display": "息壤之土", "category": "material", "file": "novel_curated_materials_v459.json"},
+    {"id": "material_957", "display": "蚀毒仙草", "category": "material", "file": "novel_curated_materials_v459.json"}
+  ]
+}
