@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 466,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1896–1900章）",
+  "method": "沿原文逐段精读；本索引汇总 v466 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1915", "display": "母魔合体真身", "category": "setting", "file": "novel_curated_settings_v466.json"},
+    {"id": "setting_1916", "display": "玄天残刃荡魔", "category": "setting", "file": "novel_curated_settings_v466.json"},
+    {"id": "setting_1917", "display": "血光暴怒查魂", "category": "setting", "file": "novel_curated_settings_v466.json"},
+    {"id": "setting_1918", "display": "万象魔骑与珈轮", "category": "setting", "file": "novel_curated_settings_v466.json"},
+    {"id": "setting_1919", "display": "倚天城攻防战", "category": "setting", "file": "novel_curated_settings_v466.json"},
+    {"id": "setting_1920", "display": "土石傀儡冰矛", "category": "setting", "file": "novel_curated_settings_v466.json"},
+    {"id": "artifact_1261", "display": "洞漩金光", "category": "artifact", "file": "novel_curated_artifacts_v466.json"},
+    {"id": "artifact_1262", "display": "玄天紫色断刃", "category": "artifact", "file": "novel_curated_artifacts_v466.json"},
+    {"id": "artifact_1263", "display": "乳白禁制木盒", "category": "artifact", "file": "novel_curated_artifacts_v466.json"},
+    {"id": "artifact_1264", "display": "缴获天鬼门", "category": "artifact", "file": "novel_curated_artifacts_v466.json"},
+    {"id": "technique_954", "display": "母魔骨莲光刃", "category": "technique", "file": "novel_curated_techniques_v466.json"},
+    {"id": "technique_955", "display": "玄天法则一斩", "category": "technique", "file": "novel_curated_techniques_v466.json"},
+    {"id": "technique_956", "display": "芝仙灵躯绿手", "category": "technique", "file": "novel_curated_techniques_v466.json"},
+    {"id": "material_976", "display": "十三虫王候选", "category": "material", "file": "novel_curated_materials_v466.json"},
+    {"id": "material_977", "display": "三尊运送密物", "category": "material", "file": "novel_curated_materials_v466.json"},
+    {"id": "material_978", "display": "赤雷符篆", "category": "material", "file": "novel_curated_materials_v466.json"}
+  ]
+}
