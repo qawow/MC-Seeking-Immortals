@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 520,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第2166–2170章）",
+  "method": "沿原文逐段精读；本索引汇总 v520 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2239", "display": "翎仙子分身幻隐", "category": "setting", "file": "novel_curated_settings_v520.json"},
+    {"id": "setting_2240", "display": "七幡封字火海", "category": "setting", "file": "novel_curated_settings_v520.json"},
+    {"id": "setting_2241", "display": "涅盘变身一阶圣体", "category": "setting", "file": "novel_curated_settings_v520.json"},
+    {"id": "setting_2242", "display": "一号阵眼破与二批七魔", "category": "setting", "file": "novel_curated_settings_v520.json"},
+    {"id": "setting_2243", "display": "眩光魔焰大阵收缩", "category": "setting", "file": "novel_curated_settings_v520.json"},
+    {"id": "setting_2244", "display": "圣树陨落与绝阵将爆", "category": "setting", "file": "novel_curated_settings_v520.json"},
+    {"id": "artifact_1477", "display": "七杆黑红魔幡", "category": "artifact", "file": "novel_curated_artifacts_v520.json"},
+    {"id": "artifact_1478", "display": "白玉瓶与淡银圆环", "category": "artifact", "file": "novel_curated_artifacts_v520.json"},
+    {"id": "artifact_1479", "display": "翎仙子绿盾羽甲与黑球", "category": "artifact", "file": "novel_curated_artifacts_v520.json"},
+    {"id": "artifact_1480", "display": "蟹背银阵与百亩雷阵", "category": "artifact", "file": "novel_curated_artifacts_v520.json"},
+    {"id": "technique_1116", "display": "血色虫影与血丝雾", "category": "technique", "file": "novel_curated_techniques_v520.json"},
+    {"id": "technique_1117", "display": "阁楼金拳破封幕", "category": "technique", "file": "novel_curated_techniques_v520.json"},
+    {"id": "technique_1118", "display": "五真灵合元婴涅盘", "category": "technique", "file": "novel_curated_techniques_v520.json"},
+    {"id": "material_1138", "display": "白骨飞叉", "category": "material", "file": "novel_curated_materials_v520.json"},
+    {"id": "material_1139", "display": "金甲魔兵黑斧", "category": "material", "file": "novel_curated_materials_v520.json"},
+    {"id": "material_1140", "display": "木灵八子精血寿元", "category": "material", "file": "novel_curated_materials_v520.json"}
+  ]
+}
