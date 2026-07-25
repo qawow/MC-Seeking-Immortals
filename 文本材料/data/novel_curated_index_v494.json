@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 494,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第2036–2040章）",
+  "method": "沿原文逐段精读；本索引汇总 v494 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2083", "display": "身外化身与金葫魔尊", "category": "setting", "file": "novel_curated_settings_v494.json"},
+    {"id": "setting_2084", "display": "七杀血煞与黑骨魔虫", "category": "setting", "file": "novel_curated_settings_v494.json"},
+    {"id": "setting_2085", "display": "韩立夺齐四圣砖", "category": "setting", "file": "novel_curated_settings_v494.json"},
+    {"id": "setting_2086", "display": "吸魔蚁海天灾", "category": "setting", "file": "novel_curated_settings_v494.json"},
+    {"id": "setting_2087", "display": "幻夜城两年之约", "category": "setting", "file": "novel_curated_settings_v494.json"},
+    {"id": "setting_2088", "display": "蚁海埋伏与硬闯", "category": "setting", "file": "novel_curated_settings_v494.json"},
+    {"id": "artifact_1373", "display": "护主血玉牌", "category": "artifact", "file": "novel_curated_artifacts_v494.json"},
+    {"id": "artifact_1374", "display": "金色葫芦", "category": "artifact", "file": "novel_curated_artifacts_v494.json"},
+    {"id": "artifact_1375", "display": "紫言鼎困魔", "category": "artifact", "file": "novel_curated_artifacts_v494.json"},
+    {"id": "artifact_1376", "display": "八面黑色令牌", "category": "artifact", "file": "novel_curated_artifacts_v494.json"},
+    {"id": "technique_1038", "display": "金漩吸煞与辟邪神雷", "category": "technique", "file": "novel_curated_techniques_v494.json"},
+    {"id": "technique_1039", "display": "噬金虫灭虫与神念冷哼", "category": "technique", "file": "novel_curated_techniques_v494.json"},
+    {"id": "technique_1040", "display": "雷阵瞬移与天火试蚁", "category": "technique", "file": "novel_curated_techniques_v494.json"},
+    {"id": "material_1060", "display": "吸魔蚁", "category": "material", "file": "novel_curated_materials_v494.json"},
+    {"id": "material_1061", "display": "黑骨魔虫", "category": "material", "file": "novel_curated_materials_v494.json"},
+    {"id": "material_1062", "display": "火麒麟灵骨", "category": "material", "file": "novel_curated_materials_v494.json"}
+  ]
+}
