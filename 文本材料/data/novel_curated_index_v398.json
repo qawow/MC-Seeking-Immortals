@@ -1,0 +1,108 @@
+{
+  "schema_version": 55,
+  "extract_version": 398,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1561–1565章：修复法阵·困境·战舟·追兵·匣中物）",
+  "method": "沿原文逐段精读；索引仅列 id/display/category/file，详目见分卷 JSON。",
+  "disclaimer": "代表性精读而非穷尽全本；入包前仍需人工校订。",
+  "chapter_range": "第1561–1565章",
+  "progress": "1565/2005 ≈ 78.1%",
+  "count": 16,
+  "entries": [
+    {
+      "id": "setting_1507",
+      "display": "春黎剑阵困鲸",
+      "category": "setting",
+      "file": "novel_curated_settings_v398.json"
+    },
+    {
+      "id": "setting_1508",
+      "display": "绿光城中转危局",
+      "category": "setting",
+      "file": "novel_curated_settings_v398.json"
+    },
+    {
+      "id": "setting_1509",
+      "display": "角蚩族吞并天云十三族",
+      "category": "setting",
+      "file": "novel_curated_settings_v398.json"
+    },
+    {
+      "id": "setting_1510",
+      "display": "堡级战舟与三波追兵",
+      "category": "setting",
+      "file": "novel_curated_settings_v398.json"
+    },
+    {
+      "id": "setting_1511",
+      "display": "匣中要物与通灵傀儡",
+      "category": "setting",
+      "file": "novel_curated_settings_v398.json"
+    },
+    {
+      "id": "setting_1512",
+      "display": "绿光城自爆与诱饵逃命",
+      "category": "setting",
+      "file": "novel_curated_settings_v398.json"
+    },
+    {
+      "id": "artifact_989",
+      "display": "春黎青莲剑阵",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v398.json"
+    },
+    {
+      "id": "artifact_990",
+      "display": "元磁神山压血焰虾",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v398.json"
+    },
+    {
+      "id": "artifact_991",
+      "display": "神像傀儡密道",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v398.json"
+    },
+    {
+      "id": "artifact_992",
+      "display": "赤符白玉匣",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v398.json"
+    },
+    {
+      "id": "technique_750",
+      "display": "春黎剑阵幻禁",
+      "category": "technique",
+      "file": "novel_curated_techniques_v398.json"
+    },
+    {
+      "id": "technique_751",
+      "display": "元磁神光克水",
+      "category": "technique",
+      "file": "novel_curated_techniques_v398.json"
+    },
+    {
+      "id": "technique_752",
+      "display": "墨绿族隐匿秘术",
+      "category": "technique",
+      "file": "novel_curated_techniques_v398.json"
+    },
+    {
+      "id": "material_772",
+      "display": "水中葵精护体",
+      "category": "material",
+      "file": "novel_curated_materials_v398.json"
+    },
+    {
+      "id": "material_773",
+      "display": "变异空云晶传送",
+      "category": "material",
+      "file": "novel_curated_materials_v398.json"
+    },
+    {
+      "id": "material_774",
+      "display": "血焰虾硬壳",
+      "category": "material",
+      "file": "novel_curated_materials_v398.json"
+    }
+  ]
+}
