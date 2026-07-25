@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 449,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1809–1813章）",
+  "method": "沿原文逐段精读；本索引汇总 v449 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1813", "display": "天狐心幻与迷天禁", "category": "setting", "file": "novel_curated_settings_v449.json"},
+    {"id": "setting_1814", "display": "黛儿化形酷似婉儿", "category": "setting", "file": "novel_curated_settings_v449.json"},
+    {"id": "setting_1815", "display": "黑域入口与牵引令", "category": "setting", "file": "novel_curated_settings_v449.json"},
+    {"id": "setting_1816", "display": "黑域雾海与巨兽", "category": "setting", "file": "novel_curated_settings_v449.json"},
+    {"id": "setting_1817", "display": "黑域大殿与飞亭", "category": "setting", "file": "novel_curated_settings_v449.json"},
+    {"id": "setting_1818", "display": "黑域交换会黑锣", "category": "setting", "file": "novel_curated_settings_v449.json"},
+    {"id": "artifact_1193", "display": "半须弥珠", "category": "artifact", "file": "novel_curated_artifacts_v449.json"},
+    {"id": "artifact_1194", "display": "避尘绢帕", "category": "artifact", "file": "novel_curated_artifacts_v449.json"},
+    {"id": "artifact_1195", "display": "黑域牵引令", "category": "artifact", "file": "novel_curated_artifacts_v449.json"},
+    {"id": "artifact_1196", "display": "独目怪蛟黑锣", "category": "artifact", "file": "novel_curated_artifacts_v449.json"},
+    {"id": "technique_903", "display": "心幻大法", "category": "technique", "file": "novel_curated_techniques_v449.json"},
+    {"id": "technique_904", "display": "元磁神光遮形", "category": "technique", "file": "novel_curated_techniques_v449.json"},
+    {"id": "technique_905", "display": "黑凤真翎解蔽", "category": "technique", "file": "novel_curated_techniques_v449.json"},
+    {"id": "material_925", "display": "妖兽骸骨与内丹", "category": "material", "file": "novel_curated_materials_v449.json"},
+    {"id": "material_926", "display": "万年灵药", "category": "material", "file": "novel_curated_materials_v449.json"},
+    {"id": "material_927", "display": "黑域黑石", "category": "material", "file": "novel_curated_materials_v449.json"}
+  ]
+}
