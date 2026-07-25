@@ -1,0 +1,57 @@
+{
+  "schema_version": 55,
+  "extract_version": 465,
+  "source": "《凡人修仙传》— 人工精读提取 · 材料类（蚀血魔焰·紫纹噬金·毒骨叉：卷十第1891–1895章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v464 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 3,
+  "entries": [
+    {
+      "id": "material_973",
+      "display": "蚀血魔焰",
+      "category": "material",
+      "term": "蚀血魔焰",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十 第1891章 激战三魔（中）"},
+      "setting": "四大魔焰。血丝入体。异宝可驱。断肢方净。",
+      "visual_descriptions": [
+        "玉臂一脱离此女身躯的瞬间，就「噗嗤」一声，一下被一团血焰包裹，在熊熊燃烧中迅速化为了灰烬。"
+      ],
+      "setting_descriptions": [
+        "「这是魔族四大魔焰之一。一旦沾染，除非传闻中的数种异宝可以护体外，根本无法驱除掉的。」"
+      ]
+    },
+    {
+      "id": "material_974",
+      "display": "紫纹噬金甲虫",
+      "category": "material",
+      "term": "紫纹怪虫",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十 第1894章 惊魔"},
+      "setting": "金光紫纹。克制真魔。魔焰无效。追逃骸骨。",
+      "visual_descriptions": [
+        "此刻却被十几只金光灿灿的紫纹怪虫，追的到处乱窜。",
+        "这些魔头的魔焰毒气等一切攻击，也都对这些灵虫无效似的。"
+      ],
+      "setting_descriptions": [
+        "「这十三具子母真魔的威能，可不下于他召唤来的四只天鬼，竟然被对方区区几只灵虫就逼成了这般模样。」"
+      ]
+    },
+    {
+      "id": "material_975",
+      "display": "剧毒骨叉",
+      "category": "material",
+      "term": "毒骨叉",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十 第1895章 魔阵"},
+      "setting": "绿油叉尖。腥臭剧毒。魔尊忌惮。辟邪可克。",
+      "visual_descriptions": [
+        "有数柄骨叉从中激射而出。……每一柄不过尺许来长，但是尖头处却绿油油一片，并有腥臭之气传来"
+      ],
+      "setting_descriptions": [
+        "「那几柄骨叉看似不起眼，实际上却是连普通魔尊都颇为忌惮的器物」",
+        "「就此化为一股股青烟的毁去了。」"
+      ]
+    }
+  ]
+}

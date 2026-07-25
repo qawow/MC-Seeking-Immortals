@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 465,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1891–1895章）",
+  "method": "沿原文逐段精读；本索引汇总 v465 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1909", "display": "蚀血魔焰断臂", "category": "setting", "file": "novel_curated_settings_v465.json"},
+    {"id": "setting_1910", "display": "金猿双山力压", "category": "setting", "file": "novel_curated_settings_v465.json"},
+    {"id": "setting_1911", "display": "四翅天鹏追杀", "category": "setting", "file": "novel_curated_settings_v465.json"},
+    {"id": "setting_1912", "display": "银焰灭力尊", "category": "setting", "file": "novel_curated_settings_v465.json"},
+    {"id": "setting_1913", "display": "天鬼门与子母真魔", "category": "setting", "file": "novel_curated_settings_v465.json"},
+    {"id": "setting_1914", "display": "临时魔阵困猿", "category": "setting", "file": "novel_curated_settings_v465.json"},
+    {"id": "artifact_1257", "display": "碧天梭", "category": "artifact", "file": "novel_curated_artifacts_v465.json"},
+    {"id": "artifact_1258", "display": "修魔天鬼门", "category": "artifact", "file": "novel_curated_artifacts_v465.json"},
+    {"id": "artifact_1259", "display": "子母真魔幡", "category": "artifact", "file": "novel_curated_artifacts_v465.json"},
+    {"id": "artifact_1260", "display": "银面美女头颅", "category": "artifact", "file": "novel_curated_artifacts_v465.json"},
+    {"id": "technique_951", "display": "金猿双山投掷", "category": "technique", "file": "novel_curated_techniques_v465.json"},
+    {"id": "technique_952", "display": "天鹏风雷极限遁", "category": "technique", "file": "novel_curated_techniques_v465.json"},
+    {"id": "technique_953", "display": "梵圣银焰与辟邪雷", "category": "technique", "file": "novel_curated_techniques_v465.json"},
+    {"id": "material_973", "display": "蚀血魔焰", "category": "material", "file": "novel_curated_materials_v465.json"},
+    {"id": "material_974", "display": "紫纹噬金甲虫", "category": "material", "file": "novel_curated_materials_v465.json"},
+    {"id": "material_975", "display": "剧毒骨叉", "category": "material", "file": "novel_curated_materials_v465.json"}
+  ]
+}
