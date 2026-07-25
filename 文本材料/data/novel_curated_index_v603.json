@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 603,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第129–133章）",
+  "method": "沿原文逐段精读；本索引汇总 v603 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2737", "display": "沙漠大殿感应断链", "category": "setting", "file": "novel_curated_settings_v603.json"},
+    {"id": "setting_2738", "display": "最后一根青黑实体锁链", "category": "setting", "file": "novel_curated_settings_v603.json"},
+    {"id": "setting_2739", "display": "法力解封变仙灵力", "category": "setting", "file": "novel_curated_settings_v603.json"},
+    {"id": "setting_2740", "display": "掌天瓶仙灵力催瓶", "category": "setting", "file": "novel_curated_settings_v603.json"},
+    {"id": "setting_2741", "display": "灵液化晶", "category": "setting", "file": "novel_curated_settings_v603.json"},
+    {"id": "setting_2742", "display": "三大至尊法则", "category": "setting", "file": "novel_curated_settings_v603.json"},
+    {"id": "artifact_1809", "display": "金精血白玉瓷瓶", "category": "artifact", "file": "novel_curated_artifacts_v603.json"},
+    {"id": "artifact_1810", "display": "传讯法盘", "category": "artifact", "file": "novel_curated_artifacts_v603.json"},
+    {"id": "artifact_1811", "display": "莹白玉盒银符封链", "category": "artifact", "file": "novel_curated_artifacts_v603.json"},
+    {"id": "artifact_1812", "display": "掌天瓶银瞳光焰", "category": "artifact", "file": "novel_curated_artifacts_v603.json"},
+    {"id": "technique_1365", "display": "银手神念巨手共拉", "category": "technique", "file": "novel_curated_techniques_v603.json"},
+    {"id": "technique_1366", "display": "真灵虚影助拉链", "category": "technique", "file": "novel_curated_techniques_v603.json"},
+    {"id": "technique_1367", "display": "水蓝光膜抑符文", "category": "technique", "file": "novel_curated_techniques_v603.json"},
+    {"id": "material_1387", "display": "金色精血", "category": "material", "file": "novel_curated_materials_v603.json"},
+    {"id": "material_1388", "display": "时间法则晶粒", "category": "material", "file": "novel_curated_materials_v603.json"},
+    {"id": "material_1389", "display": "重水", "category": "material", "file": "novel_curated_materials_v603.json"}
+  ]
+}
