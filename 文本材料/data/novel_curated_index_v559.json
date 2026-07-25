@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 559,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2361–2365章）",
+  "method": "沿原文逐段精读；本索引汇总 v559 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2473", "display": "血煞尸变与天鼎禁制符文", "category": "setting", "file": "novel_curated_settings_v559.json"},
+    {"id": "setting_2474", "display": "巫灵三圣之陨", "category": "setting", "file": "novel_curated_settings_v559.json"},
+    {"id": "setting_2475", "display": "中枢独立空间与冰魄大乘", "category": "setting", "file": "novel_curated_settings_v559.json"},
+    {"id": "setting_2476", "display": "金塔藏宝与反射禁制", "category": "setting", "file": "novel_curated_settings_v559.json"},
+    {"id": "setting_2477", "display": "昙雷仙果种籽度劫", "category": "setting", "file": "novel_curated_settings_v559.json"},
+    {"id": "setting_2478", "display": "无尘蛊跟踪与五祖联手", "category": "setting", "file": "novel_curated_settings_v559.json"},
+    {"id": "artifact_1633", "display": "天鼎禁制黑玉牌", "category": "artifact", "file": "novel_curated_artifacts_v559.json"},
+    {"id": "artifact_1634", "display": "玲珑金塔与赤红玉简", "category": "artifact", "file": "novel_curated_artifacts_v559.json"},
+    {"id": "artifact_1635", "display": "幽骨剑与透换之术媒介", "category": "artifact", "file": "novel_curated_artifacts_v559.json"},
+    {"id": "artifact_1636", "display": "无尘蛊", "category": "artifact", "file": "novel_curated_artifacts_v559.json"},
+    {"id": "technique_1233", "display": "透换之术", "category": "technique", "file": "novel_curated_techniques_v559.json"},
+    {"id": "technique_1234", "display": "梵圣金漩涡破反射罩", "category": "technique", "file": "novel_curated_techniques_v559.json"},
+    {"id": "technique_1235", "display": "大乘法力威压", "category": "technique", "file": "novel_curated_techniques_v559.json"},
+    {"id": "material_1255", "display": "血煞尸黑丝禁制", "category": "material", "file": "novel_curated_materials_v559.json"},
+    {"id": "material_1256", "display": "昙雷仙果种籽", "category": "material", "file": "novel_curated_materials_v559.json"},
+    {"id": "material_1257", "display": "血红丹药与赤红玉简", "category": "material", "file": "novel_curated_materials_v559.json"}
+  ]
+}
