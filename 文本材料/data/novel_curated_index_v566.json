@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 566,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2396–2400章）",
+  "method": "沿原文逐段精读；本索引汇总 v566 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2515", "display": "血天变局与商盟收缩", "category": "setting", "file": "novel_curated_settings_v566.json"},
+    {"id": "setting_2516", "display": "祸水东移与角蚩血祭", "category": "setting", "file": "novel_curated_settings_v566.json"},
+    {"id": "setting_2517", "display": "完整寄附神魂与金阙玉书", "category": "setting", "file": "novel_curated_settings_v566.json"},
+    {"id": "setting_2518", "display": "角蚩六老祖与三真灵战", "category": "setting", "file": "novel_curated_settings_v566.json"},
+    {"id": "setting_2519", "display": "明尊联手之议", "category": "setting", "file": "novel_curated_settings_v566.json"},
+    {"id": "setting_2520", "display": "法则之链反噬僵局", "category": "setting", "file": "novel_curated_settings_v566.json"},
+    {"id": "artifact_1661", "display": "血痕宗跨大陆法阵", "category": "artifact", "file": "novel_curated_artifacts_v566.json"},
+    {"id": "artifact_1662", "display": "五彩圆珠与金宝塔", "category": "artifact", "file": "novel_curated_artifacts_v566.json"},
+    {"id": "artifact_1663", "display": "玄天残宝与传讯符", "category": "artifact", "file": "novel_curated_artifacts_v566.json"},
+    {"id": "artifact_1664", "display": "紫金锁链与万灵血印", "category": "artifact", "file": "novel_curated_artifacts_v566.json"},
+    {"id": "technique_1254", "display": "冰凤本源灌注", "category": "technique", "file": "novel_curated_techniques_v566.json"},
+    {"id": "technique_1255", "display": "血河赤练与魔像战", "category": "technique", "file": "novel_curated_techniques_v566.json"},
+    {"id": "technique_1256", "display": "法则反噬与血印斩真灵", "category": "technique", "file": "novel_curated_techniques_v566.json"},
+    {"id": "material_1276", "display": "灵界海风与精纯灵气", "category": "material", "file": "novel_curated_materials_v566.json"},
+    {"id": "material_1277", "display": "真魂丹", "category": "material", "file": "novel_curated_materials_v566.json"},
+    {"id": "material_1278", "display": "魔像淡绿晶石碎片", "category": "material", "file": "novel_curated_materials_v566.json"}
+  ]
+}
