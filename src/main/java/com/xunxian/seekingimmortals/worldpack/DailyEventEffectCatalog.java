@@ -85,7 +85,20 @@ public final class DailyEventEffectCatalog {
             "star_palace_patrol_bonus",
             "pvp_disabled_factions",
             "pvp_local",
-            "shop_pearl_raw_stock");
+            "shop_pearl_raw_stock",
+            "soul_burn_risk_tag");
+
+    private static final Set<String> EXECUTED_REWARD_TOKENS = Set.of(
+            "random_low_artifact",
+            "herb_bundle",
+            "talisman_paper_bundle",
+            "random_mid_artifact_chance",
+            "war_scout_token",
+            "low_grade_spirit_stone",
+            "array_core_fragment",
+            "fashi_art_fragment",
+            "war_merit_huangfeng",
+            "anti_fashi_talisman");
 
     private static final Snapshot BUILTIN = loadBuiltin();
 
@@ -259,10 +272,29 @@ public final class DailyEventEffectCatalog {
         return switch (field) {
             case "region", "regions", "weight", "duration_ticks", "duration_days",
                     "spawn_multiplier", "combat_tier", "cost_yin_stone",
-                    "quest_hook", "faction_trigger", "realm_min", "faction_war" -> Coverage.EXECUTED;
-            case "war_phase" -> Coverage.PRESERVED;
+                    "quest_hook", "faction_trigger", "realm_min", "faction_war", "war_phase" -> Coverage.EXECUTED;
+            case "rewards" -> allArrayTokensIn(value, EXECUTED_REWARD_TOKENS)
+                    ? Coverage.EXECUTED : Coverage.PRESERVED;
+            case "rewards_tag" -> value != null && value.isJsonPrimitive()
+                    && "merit_points".equals(normalize(value.getAsString()))
+                    ? Coverage.EXECUTED : Coverage.PRESERVED;
+            case "mechanics" -> allArrayTokensIn(value, EXECUTED_TOKENS)
+                    ? Coverage.EXECUTED : Coverage.PRESERVED;
             default -> Coverage.PRESERVED;
         };
+    }
+
+    private static boolean allArrayTokensIn(JsonElement value, Set<String> supported) {
+        if (value == null || !value.isJsonArray() || value.getAsJsonArray().isEmpty()) {
+            return false;
+        }
+        for (JsonElement element : value.getAsJsonArray()) {
+            if (!element.isJsonPrimitive()
+                    || !supported.contains(normalize(element.getAsString()))) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private static void addScalarToken(List<EffectToken> target, JsonObject object, String field, Source source) {
@@ -532,6 +564,31 @@ public final class DailyEventEffectCatalog {
 
         public String warPhase() {
             return authoredValue("war_phase");
+        }
+
+        public boolean hasAuthoredToken(String field, String token) {
+            String encoded = rawFields.get(normalize(field));
+            String wanted = normalize(token);
+            if (encoded == null || encoded.isBlank() || wanted.isBlank()) {
+                return false;
+            }
+            try {
+                JsonElement parsed = JsonParser.parseString(encoded);
+                if (parsed.isJsonPrimitive()) {
+                    return wanted.equals(normalize(parsed.getAsString()));
+                }
+                if (parsed.isJsonArray()) {
+                    for (JsonElement element : parsed.getAsJsonArray()) {
+                        if (element.isJsonPrimitive()
+                                && wanted.equals(normalize(element.getAsString()))) {
+                            return true;
+                        }
+                    }
+                }
+            } catch (Exception ignored) {
+                return false;
+            }
+            return false;
         }
 
         public boolean hasFactionWar() {

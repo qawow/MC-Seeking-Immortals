@@ -257,6 +257,8 @@ public final class SeekingImmortalsCommand {
                                         .executes(ctx -> regionDailyEventsToggle(ctx.getSource(), true)))
                                 .then(Commands.literal("disable").requires(source -> source.hasPermission(2))
                                         .executes(ctx -> regionDailyEventsToggle(ctx.getSource(), false)))
+                                .then(Commands.literal("claim")
+                                        .executes(ctx -> regionDailyEventsClaim(ctx.getSource())))
                                 .then(Commands.literal("roll").requires(source -> source.hasPermission(2))
                                         .executes(ctx -> regionDailyEventsRoll(ctx.getSource())))))
                 .then(Commands.literal("region")
@@ -1292,6 +1294,13 @@ public final class SeekingImmortalsCommand {
         DailyEventScheduler.rollAllRegions(server.overworld(), true);
         source.sendSuccess(() -> Component.translatable("command.seeking_immortals.region.daily_events.rolled"), true);
         return 1;
+    }
+
+    private static int regionDailyEventsClaim(CommandSourceStack source) throws CommandSyntaxException {
+        var player = source.getPlayerOrException();
+        var result = com.xunxian.seekingimmortals.worldpack.DailyEventRewardService.claimActive(player);
+        com.xunxian.seekingimmortals.worldpack.DailyEventRewardService.sendResult(player, result);
+        return result == com.xunxian.seekingimmortals.worldpack.DailyEventRewardService.ClaimResult.CLAIMED ? 1 : 0;
     }
 
     private static int regionHere(CommandSourceStack source) throws CommandSyntaxException {

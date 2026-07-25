@@ -5600,5 +5600,15 @@
   "message.seeking_immortals.dialogue.travel_prepared": "行程已准备。",
   "message.seeking_immortals.dialogue.reputation_changed": "声望变化：%s。",
   "message.seeking_immortals.dialogue.unavailable": "当前没有可用的对话。",
-  "message.seeking_immortals.dialogue.choice_denied": "该对话选项目前不可用。"
+  "message.seeking_immortals.dialogue.choice_denied": "该对话选项目前不可用。",
+  "item.seeking_immortals.alchemy_furnace_g1": "一阶丹炉（结构载体）",
+  "item.seeking_immortals.earth_fire_alchemy_room": "地火炼丹房（结构载体）",
+  "item.seeking_immortals.refinement_forge_g1": "一阶炼器台（结构载体）",
+  "item.seeking_immortals.yin_essence_ore_block": "阴精矿石块（结构载体）",
+  "message.seeking_immortals.daily_event.reward_claimed": "已结算每日事件「%s」奖励。",
+  "message.seeking_immortals.daily_event.reward_none": "当前事件没有可领取的奖励。",
+  "message.seeking_immortals.daily_event.reward_already_claimed": "本次每日事件奖励已经结算。",
+  "message.seeking_immortals.daily_event.reward_combat_required": "该事件需要击败事件遭遇后才能结算奖励。",
+  "message.seeking_immortals.daily_event.reward_inactive": "当前地域没有可结算的有效每日事件。",
+  "message.seeking_immortals.daily_event.reward_unresolved": "事件奖励配置无法解析，未消耗本次领取机会。"
 }

@@ -50,8 +50,9 @@ public final class SecretRealmSessionService {
         if (!progress.canJoin(def.id(), def.partyLimit(), now)) {
             return Optional.of("party_full:" + def.partyLimit());
         }
-        if (!isOpenWindow(player, def)) {
-            return Optional.of("window_closed:" + def.openCondition());
+        Optional<String> policyDenied = SecretRealmOpenPolicy.validate(player, def);
+        if (policyDenied.isPresent()) {
+            return Optional.of(policyDenied.get() + ":" + def.openCondition());
         }
         return Optional.empty();
     }
@@ -60,28 +61,7 @@ public final class SecretRealmSessionService {
         if (player == null || def == null) {
             return true;
         }
-        if (def.openWindowDays() == null || def.openWindowDays().isEmpty()) {
-            // Cycle ids without numeric windows stay open; daily ticket hints remain soft.
-            return true;
-        }
-        long day = player.serverLevel().getDayTime() / 24000L;
-        int dayOfCycle = (int) (day % 30L) + 1; // soft 30-day cycle window
-        for (Integer windowDay : def.openWindowDays()) {
-            if (windowDay != null && windowDay == dayOfCycle) {
-                return true;
-            }
-        }
-        // If window list is a range-like pair [start,end], accept inclusive span.
-        if (def.openWindowDays().size() >= 2) {
-            int a = def.openWindowDays().get(0);
-            int b = def.openWindowDays().get(1);
-            int min = Math.min(a, b);
-            int max = Math.max(a, b);
-            if (dayOfCycle >= min && dayOfCycle <= max) {
-                return true;
-            }
-        }
-        return false;
+        return SecretRealmOpenPolicy.validate(player, def).isEmpty();
     }
 
     public static SecretRealmProgressSavedData.Session onEnter(ServerPlayer player, String realmId) {

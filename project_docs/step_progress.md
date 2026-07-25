@@ -8988,3 +8988,16 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Verification   Done   编译、任务/投影/视觉定向测试通过；最终普通 `./gradlew build --no-daemon --max-workers=1` `BUILD SUCCESSFUL in 1m 18s`，1,128 项测试 failure/error/skipped 均为 0，`aiPreflight` 记录 `0.2.176`。
   Version/protocol   Done   `mod_version` 从 `0.2.174` 经首次完整构建的 `0.2.175` 升至最终 `0.2.176`；库存/NPC/境界收尾发生在 `0.2.175` 指纹后，按门禁继续升补丁版本。未改包字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
   Live QA   Pending   仍需真实客户端/专服/双客户端检查 NPC 落点与密度、90 类投影可读性、10 类秘境场景、司南方向、HUD 叠层/持物动作、多人事件结算与长时重连；账号侧令牌撤销不属于仓库内可执行动作。
+## 576. 2026-07-26 0.2.179 秘境门禁与每日事件结算闭环
+
+  Step   Status   Notes
+  ---   ---   ---
+  Compatibility assets   Done   四个已注册结构兼容载体补齐复用真实方块模型的物品模型与 zh/en 名称，不删除 registry id，不破坏旧存档。
+  Secret-realm policy   Done   19 个作者秘境进入显式服务端策略；血色禁地/虚天殿使用 5 年/300 年周期，未知 cycle fail-closed，昆吾/广寒由任务/纪事状态开放，夜晚、宗门、鬼道、战争、许可等条件进入权威检查。
+  Daily reward authority   Done   遭遇实体绑定 owner/region/event/until；归属击杀结算战斗奖励，非战斗奖励提供普通玩家 claim 命令；每 roll 持久防重放、未知 token 不认领、满包进入 outbox。
+  Quest hooks   Done   调度器向 `QuestHookRuntime` 传递玩家上下文；`quest_hook`/`faction_trigger` 按 roll 防重放，仅启动或推进精确映射与当前 authored step，未知 hook 不再回退无关主线。
+  War phase/mechanics   Done   `ActivePhase` 具有生产读取端并约束战争奖励；`fashi_array_clash` 的 `soul_burn_risk_tag` 实际施加弱化与小概率灵力损耗。
+  Verification   Done   定向测试和全量测试通过；最终 244 个测试套件共 1,138 项，failure/error/skipped 均为 0。首次普通构建在 1 分 11 秒内成功；地域切换领取加固后构建在 1 分 19 秒内成功；提交前审计再修复虚天钥重复检查并按门禁升至 `0.2.179`，最终普通构建在 1 分 23 秒内成功。
+  Version/protocol   Done   `mod_version` 从 `0.2.176` 经首次构建的 `0.2.177`、领取加固的 `0.2.178` 升至最终 `0.2.179`；无网络包字段/顺序/类型/注册/频道变化，协议保持 `30`。
+  Backup   Done   `.bak/20260726_044217_0.2.177_completion_fixes/`。
+  Live QA/follow-up   Pending   需实机验证 19 个门禁、周期边界、受控单位击杀、多人抢杀、跨日/重连、死亡克隆、满包 outbox 与随机法宝平衡；对话 action 保真和详细任务步骤权威仍待后续批次。

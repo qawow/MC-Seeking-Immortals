@@ -34,6 +34,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
+import java.util.function.Consumer;
 
 /**
  * M10: runtime consumer of spawn_tables.json + region_spawn_tables_v98.
@@ -166,16 +167,22 @@ public final class BeastSpawnTableService {
      * Spawn 1-N wild beasts near player from a matching table.
      */
     public static int spawnNearPlayer(ServerPlayer player, String regionHint, int count) {
-        return spawnNearPlayer(player, regionHint, count, true);
+        return spawnNearPlayer(player, regionHint, count, true, null);
     }
 
     /** Spawns at most {@code count}; daily encounter plans use this exact upper bound. */
     public static int spawnNearPlayerExact(ServerPlayer player, String regionHint, int count) {
-        return spawnNearPlayer(player, regionHint, count, false);
+        return spawnNearPlayer(player, regionHint, count, false, null);
+    }
+
+    /** Exact daily-event spawn with a pre-insertion authority binder. */
+    public static int spawnNearPlayerExact(ServerPlayer player, String regionHint, int count,
+                                           Consumer<CultivationBeastEntity> binder) {
+        return spawnNearPlayer(player, regionHint, count, false, binder);
     }
 
     private static int spawnNearPlayer(ServerPlayer player, String regionHint, int count,
-                                       boolean allowLeylineBonus) {
+                                       boolean allowLeylineBonus, Consumer<CultivationBeastEntity> binder) {
         if (player == null || !(player.level() instanceof ServerLevel level)) {
             return 0;
         }
@@ -229,7 +236,7 @@ public final class BeastSpawnTableService {
             if (prior >= 2 && table.get().weights().size() > 2) {
                 continue;
             }
-            if (spawnWildBeast(level, player, weight, spawned, random)) {
+            if (spawnWildBeast(level, player, weight, spawned, random, binder)) {
                 spawned++;
                 seen.put(weight.beastId(), prior + 1);
             }
@@ -266,7 +273,8 @@ public final class BeastSpawnTableService {
     }
 
     private static boolean spawnWildBeast(ServerLevel level, ServerPlayer player, Weight weight,
-                                          int index, RandomSource random) {
+                                          int index, RandomSource random,
+                                          Consumer<CultivationBeastEntity> binder) {
         CultivationBeastEntity entity = ModEntities.CULTIVATION_BEAST.get().create(level);
         if (entity == null) {
             return false;
@@ -278,6 +286,9 @@ public final class BeastSpawnTableService {
                 random.nextFloat() * 360.0F, 0.0F);
         if (!level.noCollision(entity)) {
             entity.moveTo(entity.getX(), entity.getY() + 1.0D, entity.getZ(), entity.getYRot(), 0.0F);
+        }
+        if (binder != null) {
+            binder.accept(entity);
         }
         if (!level.noCollision(entity) || !level.addFreshEntity(entity)) {
             return false;

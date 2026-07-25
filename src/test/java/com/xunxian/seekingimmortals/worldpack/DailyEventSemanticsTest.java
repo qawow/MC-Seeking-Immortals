@@ -75,7 +75,7 @@ class DailyEventSemanticsTest {
                 .unknownTokens().contains("pvp_disabled_factions"));
         assertFalse(snapshot.find("pearl_diving_mortals").orElseThrow()
                 .unknownTokens().contains("shop_pearl_raw_stock"));
-        assertEquals(DailyEventEffectCatalog.Coverage.PRESERVED,
+        assertEquals(DailyEventEffectCatalog.Coverage.EXECUTED,
                 snapshot.find("mulan_border_patrol").orElseThrow().authoredFields().stream()
                         .filter(field -> "war_phase".equals(field.field()))
                         .findFirst().orElseThrow().coverage());
@@ -166,6 +166,26 @@ class DailyEventSemanticsTest {
         assertFalse(DailyEventEffectExecutor.meetsRealmMinimum(Realm.SOUL_TRANSFORMATION, event.realmMin()));
         assertTrue(DailyEventEffectExecutor.meetsRealmMinimum(Realm.VOID_REFINEMENT, event.realmMin()));
         assertFalse(DailyEventEffectExecutor.meetsRealmMinimum(Realm.TRUE_IMMORTAL, "future_realm"));
+    }
+
+    @Test
+    void warMechanicsAndRewardFieldsAreExecutable() {
+        DailyEventEffectCatalog.Event soulArray = DailyEventEffectCatalog.builtin()
+                .find("mulan_soul_array_supply").orElseThrow();
+        assertEquals("fashi_array_clash", soulArray.warPhase());
+        assertTrue(soulArray.hasAuthoredToken("mechanics", "soul_burn_risk_tag"));
+        assertTrue(DailyEventEncounterService.hasCombatPlan("mulan", soulArray));
+
+        DailyEventEffectCatalog.Event merchant = DailyEventEffectCatalog.builtin()
+                .find("wandering_merchant").orElseThrow();
+        assertFalse(DailyEventEncounterService.hasCombatPlan("tiannan", merchant));
+        assertEquals(List.of("random_low_artifact", "herb_bundle"), merchant.rewards());
+        assertEquals(DailyEventEffectCatalog.Coverage.EXECUTED, merchant.authoredFields().stream()
+                .filter(field -> "rewards".equals(field.field())).findFirst().orElseThrow().coverage());
+        assertEquals(DailyEventEffectCatalog.Coverage.EXECUTED,
+                DailyEventEffectCatalog.builtin().find("merit_convoy_ambush").orElseThrow()
+                        .authoredFields().stream().filter(field -> "rewards_tag".equals(field.field()))
+                        .findFirst().orElseThrow().coverage());
     }
 
     @Test

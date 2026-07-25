@@ -52,4 +52,12 @@ class QuestHookRuntimeTest {
         assertTrue(stageGuard >= 0 && advance > stageGuard,
                 "hook advances must require an already-started chain");
     }
+
+    @Test
+    void dailyHookClaimsAreScopedToTheExactRoll() {
+        assertEquals("tiannan|evt_demonic_scout|48000",
+                QuestHookRuntime.dailyClaimKey("TIANNAN", "EVT_DEMONIC_SCOUT", 48000L));
+        assertTrue(!QuestHookRuntime.dailyClaimKey("tiannan", "evt_demonic_scout", 48000L)
+                .equals(QuestHookRuntime.dailyClaimKey("tiannan", "evt_demonic_scout", 72000L)));
+    }
 }

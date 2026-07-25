@@ -526,6 +526,12 @@ public final class ModEvents {
         }
         if (event.getEntity() instanceof net.minecraft.world.entity.Mob mob && combatOwner != null) {
             ServerPlayer killer = combatOwner;
+            var dailyReward = com.xunxian.seekingimmortals.worldpack.DailyEventRewardService
+                    .claimEncounter(killer, mob);
+            if (dailyReward == com.xunxian.seekingimmortals.worldpack.DailyEventRewardService.ClaimResult.CLAIMED
+                    || dailyReward == com.xunxian.seekingimmortals.worldpack.DailyEventRewardService.ClaimResult.UNRESOLVED) {
+                com.xunxian.seekingimmortals.worldpack.DailyEventRewardService.sendResult(killer, dailyReward);
+            }
             if (com.xunxian.seekingimmortals.worldpack.SecretRealmTrialService.isTrialMob(mob)) {
                 boolean accepted = com.xunxian.seekingimmortals.worldpack.SecretRealmTrialService
                         .onTrialMobKilled(killer, mob);

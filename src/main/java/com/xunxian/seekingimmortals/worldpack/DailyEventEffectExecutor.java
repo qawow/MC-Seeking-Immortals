@@ -341,6 +341,13 @@ public final class DailyEventEffectExecutor {
         if (event.hasToken("tribulation_pressure") || event.hasToken("tribulation_prep_event")) {
             player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 60, 0, false, false, true));
         }
+        if (event.hasAuthoredToken("mechanics", "soul_burn_risk_tag")) {
+            player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 60, 0, false, false, true));
+            if (player.getRandom().nextInt(20) == 0) {
+                CultivationHelper.get(player).ifPresent(cultivation -> cultivation.consumeSpiritualPower(
+                        Math.max(1, cultivation.getMaxSpiritualPower() / 100)));
+            }
+        }
     }
 
     public static double cultivationMultiplier(DailyEventEffectCatalog.Event event) {

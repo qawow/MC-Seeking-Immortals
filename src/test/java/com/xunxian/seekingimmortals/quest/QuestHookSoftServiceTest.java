@@ -25,11 +25,12 @@ class QuestHookSoftServiceTest {
     }
 
     @Test
-    void unknownHooksFallBackToPlayableMainline() {
-        // Wave492: residual hooks no longer soft-only; they map to a playable chain.
-        assertTrue(QuestHookSoftService.mappedChainId("totally_unknown_hook_xyz").isPresent());
-        assertTrue(TextQuestChainService.find(
-                QuestHookSoftService.mappedChainId("totally_unknown_hook_xyz").orElseThrow()).isPresent());
+    void unknownHooksFailClosedInsteadOfStartingAnUnrelatedMainline() {
+        assertTrue(QuestHookSoftService.mappedChainId("totally_unknown_hook_xyz").isEmpty());
+        assertEquals("barbarian_kings_line",
+                QuestHookSoftService.mappedChainId("king_territory_intrusion").orElseThrow());
+        assertEquals("spirit_eighteen_clans",
+                QuestHookSoftService.mappedChainId("ancient_ruin_explore").orElseThrow());
     }
 
     @Test

@@ -91,8 +91,7 @@ public final class QuestHookSoftService {
             return firstPresent("blood_forbidden_campaign", "nether_river_campaign", "diyuan_campaign",
                     "void_palace_campaign");
         }
-        // Wave492: last-resort deterministic map to a playable mainline so hooks are not soft-only dead ends.
-        return firstPresent("huangfeng_cultivation_path", "qixuan_mortal_path", "spirit_realm_rise");
+        return Optional.empty();
     }
 
     public static boolean preview(ServerPlayer player, String hookId) {
@@ -218,6 +217,9 @@ public final class QuestHookSoftService {
         map.put("nether_river_guardian", "ghost_path");
         map.put("kunwu_seal_research", "high_realm_endgame");
         map.put("fallen_demon_scout", "high_realm_endgame");
+        map.put("king_territory_intrusion", "barbarian_kings_line");
+        map.put("ancient_ruin_explore", "spirit_eighteen_clans");
+        map.put("demonic_alliance", "ancient_demon_line");
         map.put("tianyuan_demon_contract", "spirit_realm_rise");
         map.put("treasure_fair_invite", "spirit_realm_rise");
         map.put("diyuan_scout", "spirit_realm_rise");

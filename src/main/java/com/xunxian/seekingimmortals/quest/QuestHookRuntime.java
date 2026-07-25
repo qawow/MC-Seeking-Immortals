@@ -9,6 +9,12 @@ import com.xunxian.seekingimmortals.npc.DialogueBranchService;
 import com.xunxian.seekingimmortals.npc.DialogueNodeReachedEvent;
 import com.xunxian.seekingimmortals.npc.NpcDialogueFlags;
 import com.xunxian.seekingimmortals.region.DailyEventScheduler;
+import com.xunxian.seekingimmortals.worldpack.DailyEventEffectCatalog;
+import com.xunxian.seekingimmortals.worldpack.DailyEventEffectExecutor;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.StringTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -35,6 +41,9 @@ import java.util.Optional;
  * Safe when FTB is absent (no FTB imports).
  */
 public final class QuestHookRuntime {
+    private static final String DAILY_ROOT = "seeking_immortals_daily_quest_hooks";
+    private static final String DAILY_CLAIMS = "Claims";
+    private static final int MAX_DAILY_CLAIMS = 64;
     private static final Map<String, List<String>> HOOK_TO_CHAINS = loadHookToChains();
     private static final Map<String, List<String>> EFFECT_TO_QUESTS = loadEffectQuestLinks();
     private static final Map<String, List<String>> STEP_HOOKS_BY_CHAIN = loadStepHooksByChain();
@@ -86,6 +95,106 @@ public final class QuestHookRuntime {
             return;
         }
         // No-op without player; player path is onPlayerDaily below if needed.
+    }
+
+    /** Player-scoped authored daily hook with a per-roll idempotency ledger. */
+    public static boolean onPlayerDailyEvent(ServerPlayer player, String regionId,
+                                             DailyEventEffectCatalog.Event event, long untilTick) {
+        if (player == null || event == null || untilTick <= player.level().getGameTime()
+                || !event.matchesRegion(regionId) || !DailyEventEffectExecutor.isRealmAllowed(player, event)) {
+            return false;
+        }
+        LinkedHashSet<String> hooks = new LinkedHashSet<>();
+        if (!event.questHook().isBlank()) {
+            hooks.add(event.questHook());
+        }
+        if (!event.factionTrigger().isBlank()) {
+            hooks.add(event.factionTrigger());
+        }
+        if (hooks.isEmpty()) {
+            return false;
+        }
+
+        long now = player.level().getGameTime();
+        String claim = dailyClaimKey(regionId, event.id(), untilTick);
+        CompoundTag root = player.getPersistentData().getCompound(DAILY_ROOT).copy();
+        List<String> claims = readDailyClaims(root, now);
+        if (claims.contains(claim)) {
+            return false;
+        }
+
+        boolean handled = false;
+        for (String rawHook : hooks) {
+            String hook = normalize(rawHook);
+            if (hook.isBlank()) {
+                continue;
+            }
+            LinkedHashSet<String> chains = new LinkedHashSet<>(
+                    HOOK_TO_CHAINS.getOrDefault(hook, List.of()));
+            QuestHookSoftService.mappedChainId(hook).ifPresent(chains::add);
+            for (String chainId : chains) {
+                TextQuestChainService.ChainProgress progress = TextQuestChainService.progressOf(player, chainId);
+                if (progress.stage() <= 0) {
+                    handled |= TextQuestChainService.start(player, chainId);
+                } else if (!progress.complete()
+                        && TextQuestChainService.matchesCurrentStepHook(player, chainId, hook)) {
+                    handled |= TextQuestChainService.advance(player, chainId);
+                }
+            }
+            NpcDialogueFlags.setFlag(player, "hook_" + hook);
+            handled = true;
+        }
+
+        claims.remove(claim);
+        claims.add(claim);
+        writeDailyClaims(root, claims);
+        player.getPersistentData().put(DAILY_ROOT, root);
+        return handled;
+    }
+
+    public static void copyPersistentData(CompoundTag source, CompoundTag target) {
+        if (source == null || target == null) {
+            return;
+        }
+        Tag stored = source.get(DAILY_ROOT);
+        if (stored != null) {
+            target.put(DAILY_ROOT, stored.copy());
+        }
+    }
+
+    static String dailyClaimKey(String regionId, String eventId, long untilTick) {
+        return normalize(regionId) + "|" + normalize(eventId) + "|" + Math.max(0L, untilTick);
+    }
+
+    private static List<String> readDailyClaims(CompoundTag root, long now) {
+        LinkedHashSet<String> claims = new LinkedHashSet<>();
+        ListTag stored = root.getList(DAILY_CLAIMS, Tag.TAG_STRING);
+        for (int i = 0; i < stored.size(); i++) {
+            String claim = stored.getString(i);
+            int split = claim.lastIndexOf('|');
+            if (split <= 0 || split >= claim.length() - 1) {
+                continue;
+            }
+            try {
+                if (Long.parseLong(claim.substring(split + 1)) > now) {
+                    claims.add(claim);
+                }
+            } catch (NumberFormatException ignored) {
+                // Discard malformed entries.
+            }
+        }
+        List<String> ordered = new ArrayList<>(claims);
+        int from = Math.max(0, ordered.size() - MAX_DAILY_CLAIMS);
+        return new ArrayList<>(ordered.subList(from, ordered.size()));
+    }
+
+    private static void writeDailyClaims(CompoundTag root, List<String> claims) {
+        ListTag stored = new ListTag();
+        int from = Math.max(0, claims.size() - MAX_DAILY_CLAIMS);
+        for (int i = from; i < claims.size(); i++) {
+            stored.add(StringTag.valueOf(claims.get(i)));
+        }
+        root.put(DAILY_CLAIMS, stored);
     }
 
     @SubscribeEvent

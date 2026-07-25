@@ -12,6 +12,7 @@ import com.xunxian.seekingimmortals.npc.NpcFavorService;
 import com.xunxian.seekingimmortals.quest.TextQuestChainService;
 import com.xunxian.seekingimmortals.quest.TimelineChronicleService;
 import com.xunxian.seekingimmortals.worldpack.DailyEventEffectExecutor;
+import com.xunxian.seekingimmortals.worldpack.DailyEventRewardService;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
@@ -93,6 +94,8 @@ public final class PlayerPersistentDataClonePolicy {
         NpcFavorService.copyPersistentData(source, target);
         NpcDialogueFlags.copyPersistentData(source, target);
         DailyEventEffectExecutor.copyPersistentData(source, target);
+        DailyEventRewardService.copyPersistentData(source, target);
+        com.xunxian.seekingimmortals.quest.QuestHookRuntime.copyPersistentData(source, target);
 
         for (String key : DURABLE_KEYS) {
             copyKey(source, target, key);

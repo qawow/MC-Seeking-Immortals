@@ -61,6 +61,22 @@ public final class FactionConflictEventService {
         return player != null && hasActiveState(player.getPersistentData().getCompound(ROOT));
     }
 
+    /** Current authored war phase, consumed by encounter reward settlement. */
+    public static Optional<String> activePhase(ServerPlayer player) {
+        if (player == null) {
+            return Optional.empty();
+        }
+        return activePhase(player.getPersistentData().getCompound(ROOT), player.level().getGameTime());
+    }
+
+    static Optional<String> activePhase(CompoundTag root, long gameTime) {
+        if (root == null || root.getLong(ACTIVE_UNTIL) <= gameTime) {
+            return Optional.empty();
+        }
+        String phase = normalize(root.getString(ACTIVE_PHASE));
+        return phase.isBlank() ? Optional.empty() : Optional.of(phase);
+    }
+
     static boolean hasActiveState(CompoundTag root) {
         return root != null && (root.contains(ACTIVE_ID)
                 || root.contains(ACTIVE_REGION)

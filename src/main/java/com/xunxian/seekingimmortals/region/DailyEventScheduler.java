@@ -6,6 +6,7 @@ import com.xunxian.seekingimmortals.worldpack.DailyEventEffectCatalog;
 import com.xunxian.seekingimmortals.worldpack.DailyEventEffectExecutor;
 import com.xunxian.seekingimmortals.worldpack.WorldpackDataService;
 import com.xunxian.seekingimmortals.worldpack.WorldpackSavedData;
+import com.xunxian.seekingimmortals.quest.QuestHookRuntime;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -110,8 +111,10 @@ public final class DailyEventScheduler {
                 || !previous.isActive(gameTime);
         if (!roll.eventId().isBlank()) {
             Optional<DailyEventEffectCatalog.Event> authored = DailyEventEffectCatalog.builtin().find(roll.eventId());
-            authored.ifPresent(event ->
-                    DailyEventEffectExecutor.apply(player, resolvedRegion, event, roll.untilTick(), changed));
+            authored.ifPresent(event -> {
+                DailyEventEffectExecutor.apply(player, resolvedRegion, event, roll.untilTick(), changed);
+                QuestHookRuntime.onPlayerDailyEvent(player, resolvedRegion, event, roll.untilTick());
+            });
             if (authored.isEmpty()) {
                 // Legacy worldpack ids have no typed ownership; clear any
                 // previous authored state before the compatibility multiplier
@@ -177,8 +180,12 @@ public final class DailyEventScheduler {
                             }
                             Optional<DailyEventEffectCatalog.Event> authored =
                                     DailyEventEffectCatalog.builtin().find(roll.eventId());
-                            authored.ifPresent(event -> DailyEventEffectExecutor.apply(
-                                    player, region.id(), event, roll.untilTick(), changed));
+                            authored.ifPresent(event -> {
+                                DailyEventEffectExecutor.apply(
+                                        player, region.id(), event, roll.untilTick(), changed);
+                                QuestHookRuntime.onPlayerDailyEvent(
+                                        player, region.id(), event, roll.untilTick());
+                            });
                             if (authored.isEmpty()) {
                                 DailyEventEffectExecutor.expire(player);
                                 cultivation.setWorldpackDailyEvent(roll.eventId(), roll.untilTick());

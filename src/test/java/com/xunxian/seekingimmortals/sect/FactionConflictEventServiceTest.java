@@ -2,6 +2,7 @@ package com.xunxian.seekingimmortals.sect;
 
 import com.xunxian.seekingimmortals.cultivation.Realm;
 import com.xunxian.seekingimmortals.worldpack.DailyEventEffectExecutor;
+import net.minecraft.nbt.CompoundTag;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -82,5 +83,16 @@ class FactionConflictEventServiceTest {
         assertEquals("void_refinement", gated.realmMin());
         assertFalse(DailyEventEffectExecutor.meetsRealmMinimum(Realm.SOUL_TRANSFORMATION, gated.realmMin()));
         assertTrue(DailyEventEffectExecutor.meetsRealmMinimum(Realm.VOID_REFINEMENT, gated.realmMin()));
+    }
+
+    @Test
+    void authoredWarPhaseIsReadableOnlyWhileActive() {
+        CompoundTag root = new CompoundTag();
+        root.putString("ActivePhase", "fashi_array_clash");
+        root.putLong("ActiveUntil", 200L);
+
+        assertEquals("fashi_array_clash",
+                FactionConflictEventService.activePhase(root, 199L).orElseThrow());
+        assertTrue(FactionConflictEventService.activePhase(root, 200L).isEmpty());
     }
 }

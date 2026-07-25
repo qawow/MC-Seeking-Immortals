@@ -84,7 +84,8 @@ class TrialCombatShellServiceTest {
                 "src", "main", "java", "com", "xunxian", "seekingimmortals",
                 "worldpack", "DailyEventEncounterService.java"));
         assertTrue(source.contains(
-                "BeastSpawnTableService.spawnNearPlayerExact(player, region, plan.count())"));
+                "BeastSpawnTableService.spawnNearPlayerExact(player, region, plan.count(),"));
+        assertTrue(source.contains("DailyEventRewardService.bindEncounter"));
         assertFalse(source.contains("EntityType.WOLF"));
         assertFalse(source.contains("EntityType.FOX"));
     }

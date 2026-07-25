@@ -5600,5 +5600,15 @@
   "message.seeking_immortals.dialogue.travel_prepared": "Travel prepared.",
   "message.seeking_immortals.dialogue.reputation_changed": "Reputation changed by %s.",
   "message.seeking_immortals.dialogue.unavailable": "No dialogue is available right now.",
-  "message.seeking_immortals.dialogue.choice_denied": "That dialogue choice is not currently available."
+  "message.seeking_immortals.dialogue.choice_denied": "That dialogue choice is not currently available.",
+  "item.seeking_immortals.alchemy_furnace_g1": "Tier 1 Alchemy Furnace (Structure Carrier)",
+  "item.seeking_immortals.earth_fire_alchemy_room": "Earth-Fire Alchemy Room (Structure Carrier)",
+  "item.seeking_immortals.refinement_forge_g1": "Tier 1 Refinement Forge (Structure Carrier)",
+  "item.seeking_immortals.yin_essence_ore_block": "Yin Essence Ore Block (Structure Carrier)",
+  "message.seeking_immortals.daily_event.reward_claimed": "Daily event rewards settled for %s.",
+  "message.seeking_immortals.daily_event.reward_none": "The current event has no claimable rewards.",
+  "message.seeking_immortals.daily_event.reward_already_claimed": "This daily event reward has already been settled.",
+  "message.seeking_immortals.daily_event.reward_combat_required": "Defeat the event encounter before claiming this reward.",
+  "message.seeking_immortals.daily_event.reward_inactive": "There is no active daily event reward for this region.",
+  "message.seeking_immortals.daily_event.reward_unresolved": "The event reward configuration could not be resolved; the claim remains available."
 }

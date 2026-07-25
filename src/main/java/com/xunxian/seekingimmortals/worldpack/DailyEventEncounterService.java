@@ -74,7 +74,9 @@ public final class DailyEventEncounterService {
             if (!hasRegionSpawnTable(region)) {
                 return;
             }
-            int spawned = BeastSpawnTableService.spawnNearPlayerExact(player, region, plan.count());
+            int spawned = BeastSpawnTableService.spawnNearPlayerExact(player, region, plan.count(),
+                    entity -> DailyEventRewardService.bindEncounter(
+                            entity, player, claimRegion, id, effectiveUntil));
             if (spawned <= 0) {
                 return;
             }
@@ -96,6 +98,7 @@ public final class DailyEventEncounterService {
                 if (mob == null) {
                     continue;
                 }
+                DailyEventRewardService.bindEncounter(mob, player, claimRegion, id, effectiveUntil);
                 if (mob instanceof Monster monster && !player.isCreative() && !player.isSpectator()) {
                     monster.setTarget(player);
                 }
@@ -123,6 +126,7 @@ public final class DailyEventEncounterService {
                 if (mob instanceof Monster monster && !player.isCreative() && !player.isSpectator()) {
                     monster.setTarget(player);
                 }
+                DailyEventRewardService.bindEncounter(mob, player, claimRegion, id, effectiveUntil);
                 mob.setPersistenceRequired();
                 if (level.addFreshEntity(mob)) {
                     spawned++;
@@ -182,7 +186,23 @@ public final class DailyEventEncounterService {
             return new EncounterPlan(Kind.SHELL, region, 1, null, id + "_ambush",
                     SummonedServitorEntity.Archetype.GENERIC, 1);
         }
+        if (!event.warPhase().isBlank() || id.contains("ambush") || id.contains("duel")
+                || id.contains("patrol") || id.contains("war_merit_muster")) {
+            SummonedServitorEntity.Archetype archetype = id.contains("soul_array")
+                    ? SummonedServitorEntity.Archetype.GHOST
+                    : SummonedServitorEntity.Archetype.GENERIC;
+            return new EncounterPlan(Kind.SHELL, region, 1, null, id + "_encounter",
+                    archetype, Math.max(1, event.combatTier()));
+        }
         return none(region);
+    }
+
+    /** Whether this authored roll must settle through an owned encounter kill. */
+    public static boolean hasCombatPlan(String regionId, DailyEventEffectCatalog.Event event) {
+        if (event == null) {
+            return false;
+        }
+        return plan(regionId, event.id(), event).kind() != Kind.NONE;
     }
 
     private static EncounterPlan legacyPlan(String regionId, String id) {
