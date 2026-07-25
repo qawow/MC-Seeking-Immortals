@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 434,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1741–1745章）",
+  "method": "沿原文逐段精读；本索引汇总 v434 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1723", "display": "白云禁制与广寒令禁", "category": "setting", "file": "novel_curated_settings_v434.json"},
+    {"id": "setting_1724", "display": "北斗石纹密洞入口", "category": "setting", "file": "novel_curated_settings_v434.json"},
+    {"id": "setting_1725", "display": "金篆石壁与玉简复制", "category": "setting", "file": "novel_curated_settings_v434.json"},
+    {"id": "setting_1726", "display": "银光幕与血煞戎汉", "category": "setting", "file": "novel_curated_settings_v434.json"},
+    {"id": "setting_1727", "display": "三广寒令破银罩", "category": "setting", "file": "novel_curated_settings_v434.json"},
+    {"id": "setting_1728", "display": "半部炼神术换金篆文", "category": "setting", "file": "novel_curated_settings_v434.json"},
+    {"id": "artifact_1133", "display": "牛毛银针试探", "category": "artifact", "file": "novel_curated_artifacts_v434.json"},
+    {"id": "artifact_1134", "display": "预警血煞巨刃", "category": "artifact", "file": "novel_curated_artifacts_v434.json"},
+    {"id": "artifact_1135", "display": "破虚灵蛇", "category": "artifact", "file": "novel_curated_artifacts_v434.json"},
+    {"id": "artifact_1136", "display": "血钵刃与银斧", "category": "artifact", "file": "novel_curated_artifacts_v434.json"},
+    {"id": "technique_858", "display": "极山金丝生擒", "category": "technique", "file": "novel_curated_techniques_v434.json"},
+    {"id": "technique_859", "display": "路口阵旗与影傀埋伏", "category": "technique", "file": "novel_curated_techniques_v434.json"},
+    {"id": "technique_860", "display": "洞漩金光灭血煞汉", "category": "technique", "file": "novel_curated_techniques_v434.json"},
+    {"id": "material_880", "display": "密洞通道晶石", "category": "material", "file": "novel_curated_materials_v434.json"},
+    {"id": "material_881", "display": "三枚广寒令", "category": "material", "file": "novel_curated_materials_v434.json"},
+    {"id": "material_882", "display": "炼神术完整玉简", "category": "material", "file": "novel_curated_materials_v434.json"}
+  ]
+}
