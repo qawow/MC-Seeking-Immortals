@@ -1,0 +1,120 @@
+{
+  "schema_version": 55,
+  "extract_version": 363,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（剑阵与血剑·天凤之翎·暗手·木灵之战·人树合一：第1386–1390章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v362 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1386章 剑阵与血剑 — 第1390章 人树合一",
+  "progress": "1390/2005 ≈ 69.3%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1297–setting_1302",
+    "artifacts": "artifact_849–artifact_852",
+    "techniques": "technique_645–technique_647",
+    "materials": "material_667–material_669"
+  },
+  "entries": [
+    {
+      "id": "setting_1297",
+      "display": "大庚剑阵困血剑",
+      "category": "setting",
+      "file": "novel_curated_settings_v363.json"
+    },
+    {
+      "id": "setting_1298",
+      "display": "血剑自爆与血龙逃匿",
+      "category": "setting",
+      "file": "novel_curated_settings_v363.json"
+    },
+    {
+      "id": "setting_1299",
+      "display": "天凤之翎换真龙血",
+      "category": "setting",
+      "file": "novel_curated_settings_v363.json"
+    },
+    {
+      "id": "setting_1300",
+      "display": "噬金虫暗留真灵之血",
+      "category": "setting",
+      "file": "novel_curated_settings_v363.json"
+    },
+    {
+      "id": "setting_1301",
+      "display": "叶家暗手与接应",
+      "category": "setting",
+      "file": "novel_curated_settings_v363.json"
+    },
+    {
+      "id": "setting_1302",
+      "display": "银阶木瑞人树合一",
+      "category": "setting",
+      "file": "novel_curated_settings_v363.json"
+    },
+    {
+      "id": "artifact_849",
+      "display": "血晶摩诃剑自爆",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v363.json"
+    },
+    {
+      "id": "artifact_850",
+      "display": "万年炎玉凤翎盒",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v363.json"
+    },
+    {
+      "id": "artifact_851",
+      "display": "紫金葫芦",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v363.json"
+    },
+    {
+      "id": "artifact_852",
+      "display": "木甲与本命灵树",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v363.json"
+    },
+    {
+      "id": "technique_645",
+      "display": "大庚剑阵真威",
+      "category": "technique",
+      "file": "novel_curated_techniques_v363.json"
+    },
+    {
+      "id": "technique_646",
+      "display": "明清灵目破隐",
+      "category": "technique",
+      "file": "novel_curated_techniques_v363.json"
+    },
+    {
+      "id": "technique_647",
+      "display": "人树合一木灵之体",
+      "category": "technique",
+      "file": "novel_curated_techniques_v363.json"
+    },
+    {
+      "id": "material_667",
+      "display": "天凤之翎到手",
+      "category": "material",
+      "file": "novel_curated_materials_v363.json"
+    },
+    {
+      "id": "material_668",
+      "display": "迷你真龙天凤之血",
+      "category": "material",
+      "file": "novel_curated_materials_v363.json"
+    },
+    {
+      "id": "material_669",
+      "display": "万年炎玉与万年玄玉",
+      "category": "material",
+      "file": "novel_curated_materials_v363.json"
+    }
+  ]
+}
