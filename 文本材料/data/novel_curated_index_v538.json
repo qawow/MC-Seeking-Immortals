@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 538,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2256–2260章）",
+  "method": "沿原文逐段精读；本索引汇总 v538 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2347", "display": "冰髓之体与蛮荒历练", "category": "setting", "file": "novel_curated_settings_v538.json"},
+    {"id": "setting_2348", "display": "六翼大乘与主仆印记", "category": "setting", "file": "novel_curated_settings_v538.json"},
+    {"id": "setting_2349", "display": "素阴星气与真灵之身", "category": "setting", "file": "novel_curated_settings_v538.json"},
+    {"id": "setting_2350", "display": "昊阴之石与元合五极山", "category": "setting", "file": "novel_curated_settings_v538.json"},
+    {"id": "setting_2351", "display": "噬金虫王出世与后手", "category": "setting", "file": "novel_curated_settings_v538.json"},
+    {"id": "setting_2352", "display": "司南四方坛与小灵界", "category": "setting", "file": "novel_curated_settings_v538.json"},
+    {"id": "artifact_1549", "display": "弟子保命圆环", "category": "artifact", "file": "novel_curated_artifacts_v538.json"},
+    {"id": "artifact_1550", "display": "淡黄葫芦与烈煞金罡沙", "category": "artifact", "file": "novel_curated_artifacts_v538.json"},
+    {"id": "artifact_1551", "display": "司南四方坛", "category": "artifact", "file": "novel_curated_artifacts_v538.json"},
+    {"id": "artifact_1552", "display": "测算青古镜", "category": "artifact", "file": "novel_curated_artifacts_v538.json"},
+    {"id": "technique_1170", "display": "六翼蝉翼分身与多臂晶柱", "category": "technique", "file": "novel_curated_techniques_v538.json"},
+    {"id": "technique_1171", "display": "冰凤白凤虚影护体", "category": "technique", "file": "novel_curated_techniques_v538.json"},
+    {"id": "technique_1172", "display": "血符幡阵祭炼虫王", "category": "technique", "file": "novel_curated_techniques_v538.json"},
+    {"id": "material_1192", "display": "昊阴之石", "category": "material", "file": "novel_curated_materials_v538.json"},
+    {"id": "material_1193", "display": "烈煞金罡沙", "category": "material", "file": "novel_curated_materials_v538.json"},
+    {"id": "material_1194", "display": "密云凶林毒雾毒虫", "category": "material", "file": "novel_curated_materials_v538.json"}
+  ]
+}
