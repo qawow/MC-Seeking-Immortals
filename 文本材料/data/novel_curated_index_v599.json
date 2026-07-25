@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 599,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第109–113章）",
+  "method": "沿原文逐段精读；本索引汇总 v599 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2713", "display": "二十八州红月城", "category": "setting", "file": "novel_curated_settings_v599.json"},
+    {"id": "setting_2714", "display": "千光幻波禁", "category": "setting", "file": "novel_curated_settings_v599.json"},
+    {"id": "setting_2715", "display": "水脉交汇坤州", "category": "setting", "file": "novel_curated_settings_v599.json"},
+    {"id": "setting_2716", "display": "甲子天选", "category": "setting", "file": "novel_curated_settings_v599.json"},
+    {"id": "setting_2717", "display": "血祭地宫", "category": "setting", "file": "novel_curated_settings_v599.json"},
+    {"id": "setting_2718", "display": "血眼法则祭", "category": "setting", "file": "novel_curated_settings_v599.json"},
+    {"id": "artifact_1793", "display": "黄镜青如意", "category": "artifact", "file": "novel_curated_artifacts_v599.json"},
+    {"id": "artifact_1794", "display": "青伞护罩", "category": "artifact", "file": "novel_curated_artifacts_v599.json"},
+    {"id": "artifact_1795", "display": "水蓝飞刀", "category": "artifact", "file": "novel_curated_artifacts_v599.json"},
+    {"id": "artifact_1796", "display": "血幡护身", "category": "artifact", "file": "novel_curated_artifacts_v599.json"},
+    {"id": "technique_1353", "display": "黄旗土遁抓人", "category": "technique", "file": "novel_curated_techniques_v599.json"},
+    {"id": "technique_1354", "display": "气息筑基伪装", "category": "technique", "file": "novel_curated_techniques_v599.json"},
+    {"id": "technique_1355", "display": "水法则护罩", "category": "technique", "file": "novel_curated_techniques_v599.json"},
+    {"id": "material_1375", "display": "阴土血泥", "category": "material", "file": "novel_curated_materials_v599.json"},
+    {"id": "material_1376", "display": "兽皮古地图", "category": "material", "file": "novel_curated_materials_v599.json"},
+    {"id": "material_1377", "display": "补充州城玉简", "category": "material", "file": "novel_curated_materials_v599.json"}
+  ]
+}
