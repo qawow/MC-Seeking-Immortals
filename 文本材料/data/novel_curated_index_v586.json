@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 586,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第44–48章）",
+  "method": "沿原文逐段精读；本索引汇总 v586 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2635", "display": "第五玄窍与元婴法链", "category": "setting", "file": "novel_curated_settings_v586.json"},
+    {"id": "setting_2636", "display": "仙界隔元法链老祖", "category": "setting", "file": "novel_curated_settings_v586.json"},
+    {"id": "setting_2637", "display": "修为死结与魔光判断", "category": "setting", "file": "novel_curated_settings_v586.json"},
+    {"id": "setting_2638", "display": "聚星台与星月宝镜两法", "category": "setting", "file": "novel_curated_settings_v586.json"},
+    {"id": "setting_2639", "display": "司马试探与太上勿扰", "category": "setting", "file": "novel_curated_settings_v586.json"},
+    {"id": "setting_2640", "display": "天机瓮寻人与乐儿被劫", "category": "setting", "file": "novel_curated_settings_v586.json"},
+    {"id": "artifact_1741", "display": "隔元法链", "category": "artifact", "file": "novel_curated_artifacts_v586.json"},
+    {"id": "artifact_1742", "display": "蓝色玉尺灵宝", "category": "artifact", "file": "novel_curated_artifacts_v586.json"},
+    {"id": "artifact_1743", "display": "天机瓮", "category": "artifact", "file": "novel_curated_artifacts_v586.json"},
+    {"id": "artifact_1744", "display": "乐儿护身玉牌与白绫", "category": "artifact", "file": "novel_curated_artifacts_v586.json"},
+    {"id": "technique_1314", "display": "炼神晶丝破黑光", "category": "technique", "file": "novel_curated_techniques_v586.json"},
+    {"id": "technique_1315", "display": "三身合一与风刃猎杀", "category": "technique", "file": "novel_curated_techniques_v586.json"},
+    {"id": "technique_1316", "display": "虚空五指与星元拳力", "category": "technique", "file": "novel_curated_techniques_v586.json"},
+    {"id": "material_1336", "display": "阴辰石", "category": "material", "file": "novel_curated_materials_v586.json"},
+    {"id": "material_1337", "display": "云鹤草与年份药力", "category": "material", "file": "novel_curated_materials_v586.json"},
+    {"id": "material_1338", "display": "韩立真灵精血", "category": "material", "file": "novel_curated_materials_v586.json"}
+  ]
+}
