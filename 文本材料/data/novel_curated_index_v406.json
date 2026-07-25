@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 406,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1601–1605章）",
+  "method": "沿原文逐段精读；本索引汇总 v406 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1555", "display": "后天元磁之体", "category": "setting", "file": "novel_curated_settings_v406.json"},
+    {"id": "setting_1556", "display": "三元磁破广寒禁制", "category": "setting", "file": "novel_curated_settings_v406.json"},
+    {"id": "setting_1557", "display": "彩流罂条件与身份", "category": "setting", "file": "novel_curated_settings_v406.json"},
+    {"id": "setting_1558", "display": "四族拍卖鉴定厅", "category": "setting", "file": "novel_curated_settings_v406.json"},
+    {"id": "setting_1559", "display": "三层拍卖殿与沙族主持", "category": "setting", "file": "novel_curated_settings_v406.json"},
+    {"id": "setting_1560", "display": "琉璃天火液瑕疵拍", "category": "setting", "file": "novel_curated_settings_v406.json"},
+    {"id": "artifact_1021", "display": "元磁神山融手", "category": "artifact", "file": "novel_curated_artifacts_v406.json"},
+    {"id": "artifact_1022", "display": "彩流罂眉宇银针", "category": "artifact", "file": "novel_curated_artifacts_v406.json"},
+    {"id": "artifact_1023", "display": "金雷竹拍卖段", "category": "artifact", "file": "novel_curated_artifacts_v406.json"},
+    {"id": "artifact_1024", "display": "琉璃天火液半瓶", "category": "artifact", "file": "novel_curated_artifacts_v406.json"},
+    {"id": "technique_774", "display": "元磁神光对决", "category": "technique", "file": "novel_curated_techniques_v406.json"},
+    {"id": "technique_775", "display": "吸金化玉与元磁之石", "category": "technique", "file": "novel_curated_techniques_v406.json"},
+    {"id": "technique_776", "display": "腾龙丹金雷竹鉴定", "category": "technique", "file": "novel_curated_techniques_v406.json"},
+    {"id": "material_796", "display": "元磁之石", "category": "material", "file": "novel_curated_materials_v406.json"},
+    {"id": "material_797", "display": "凤凰石与金王花", "category": "material", "file": "novel_curated_materials_v406.json"},
+    {"id": "material_798", "display": "琉璃天火液与瑕疵", "category": "material", "file": "novel_curated_materials_v406.json"}
+  ]
+}
