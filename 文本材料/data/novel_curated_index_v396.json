@@ -1,0 +1,108 @@
+{
+  "schema_version": 55,
+  "extract_version": 396,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1551–1555章：黑纱·空云晶·蓝湖岛·怪蛾·激战）",
+  "method": "沿原文逐段精读；索引仅列 id/display/category/file，详目见分卷 JSON。",
+  "disclaimer": "代表性精读而非穷尽全本；入包前仍需人工校订。",
+  "chapter_range": "第1551–1555章",
+  "progress": "1555/2005 ≈ 77.6%",
+  "count": 16,
+  "entries": [
+    {
+      "id": "setting_1495",
+      "display": "黑纱隐形蔽识",
+      "category": "setting",
+      "file": "novel_curated_settings_v396.json"
+    },
+    {
+      "id": "setting_1496",
+      "display": "青筱与银鲨居士",
+      "category": "setting",
+      "file": "novel_curated_settings_v396.json"
+    },
+    {
+      "id": "setting_1497",
+      "display": "空云晶与传送绝地",
+      "category": "setting",
+      "file": "novel_curated_settings_v396.json"
+    },
+    {
+      "id": "setting_1498",
+      "display": "蓝湖岛冷热异象",
+      "category": "setting",
+      "file": "novel_curated_settings_v396.json"
+    },
+    {
+      "id": "setting_1499",
+      "display": "真灵之血吼声反噬",
+      "category": "setting",
+      "file": "novel_curated_settings_v396.json"
+    },
+    {
+      "id": "setting_1500",
+      "display": "双首怪蛾",
+      "category": "setting",
+      "file": "novel_curated_settings_v396.json"
+    },
+    {
+      "id": "artifact_981",
+      "display": "乌罗黑纱（启用）",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v396.json"
+    },
+    {
+      "id": "artifact_982",
+      "display": "银鲨令",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v396.json"
+    },
+    {
+      "id": "artifact_983",
+      "display": "金灿灿小镜",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v396.json"
+    },
+    {
+      "id": "artifact_984",
+      "display": "元磁神山压蛾",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v396.json"
+    },
+    {
+      "id": "technique_744",
+      "display": "噬灵天火炼化邪光",
+      "category": "technique",
+      "file": "novel_curated_techniques_v396.json"
+    },
+    {
+      "id": "technique_745",
+      "display": "怪蛾吼声与无形波动",
+      "category": "technique",
+      "file": "novel_curated_techniques_v396.json"
+    },
+    {
+      "id": "technique_746",
+      "display": "剑灵化虚再生飞剑",
+      "category": "technique",
+      "file": "novel_curated_techniques_v396.json"
+    },
+    {
+      "id": "material_766",
+      "display": "空云晶",
+      "category": "material",
+      "file": "novel_curated_materials_v396.json"
+    },
+    {
+      "id": "material_767",
+      "display": "四种真灵之血纹",
+      "category": "material",
+      "file": "novel_curated_materials_v396.json"
+    },
+    {
+      "id": "material_768",
+      "display": "豹麟兽清场",
+      "category": "material",
+      "file": "novel_curated_materials_v396.json"
+    }
+  ]
+}
