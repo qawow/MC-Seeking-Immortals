@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 572,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2426–2430章）",
+  "method": "沿原文逐段精读；本索引汇总 v572 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2551", "display": "瓶灵与瓶躯壳", "category": "setting", "file": "novel_curated_settings_v572.json"},
+    {"id": "setting_2552", "display": "斩仙之战与真元大损", "category": "setting", "file": "novel_curated_settings_v572.json"},
+    {"id": "setting_2553", "display": "火须子与本命珠", "category": "setting", "file": "novel_curated_settings_v572.json"},
+    {"id": "setting_2554", "display": "天外魔头与九元观", "category": "setting", "file": "novel_curated_settings_v572.json"},
+    {"id": "setting_2555", "display": "天魔契约", "category": "setting", "file": "novel_curated_settings_v572.json"},
+    {"id": "setting_2556", "display": "本命牌与明尊分魂", "category": "setting", "file": "novel_curated_settings_v572.json"},
+    {"id": "artifact_1685", "display": "元合五极山与斩元仙剑", "category": "artifact", "file": "novel_curated_artifacts_v572.json"},
+    {"id": "artifact_1686", "display": "玄天斩灵剑与银笛", "category": "artifact", "file": "novel_curated_artifacts_v572.json"},
+    {"id": "artifact_1687", "display": "真魂丹与银白葫芦", "category": "artifact", "file": "novel_curated_artifacts_v572.json"},
+    {"id": "artifact_1688", "display": "本命牌与盗天瓶收缴", "category": "artifact", "file": "novel_curated_artifacts_v572.json"},
+    {"id": "technique_1272", "display": "涅盘圣体三阶变与青蟠剑阵", "category": "technique", "file": "novel_curated_techniques_v572.json"},
+    {"id": "technique_1273", "display": "灭法之目与洞漩金光", "category": "technique", "file": "novel_curated_techniques_v572.json"},
+    {"id": "technique_1274", "display": "精炎之火与噬灵火鸟", "category": "technique", "file": "novel_curated_techniques_v572.json"},
+    {"id": "material_1294", "display": "真魂丹（斩仙所获）", "category": "material", "file": "novel_curated_materials_v572.json"},
+    {"id": "material_1295", "display": "本命珠与本命晶珠", "category": "material", "file": "novel_curated_materials_v572.json"},
+    {"id": "material_1296", "display": "天魔契约精血与神念", "category": "material", "file": "novel_curated_materials_v572.json"}
+  ]
+}
