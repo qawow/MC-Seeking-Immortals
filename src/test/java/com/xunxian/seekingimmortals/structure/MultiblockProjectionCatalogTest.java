@@ -4,6 +4,8 @@ import net.minecraft.core.BlockPos;
 import com.xunxian.seekingimmortals.block.PortalArrayStructure;
 import org.junit.jupiter.api.Test;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -63,8 +65,9 @@ class MultiblockProjectionCatalogTest {
                 "nether_ferry_gate",
                 "blood_sacrifice_altar",
                 "thunder_tribulation_altar"));
+        expected.addAll(catalogProjectionIds());
 
-        assertEquals(43, MultiblockProjectionCatalog.all().size());
+        assertEquals(expected.size(), MultiblockProjectionCatalog.all().size());
         assertEquals(expected, MultiblockProjectionCatalog.supportedControllerIds());
         for (String id : expected) {
             assertTrue(MultiblockProjectionCatalog.find(id).isPresent(), id);
@@ -92,9 +95,39 @@ class MultiblockProjectionCatalogTest {
 
             MultiblockProjectionCatalog.Cell controller = cellAt(projection, BlockPos.ZERO);
             assertFalse(controller.airRequired(), projection.controllerId());
-            assertEquals(projection.controllerId(), controller.displayBlockId(), projection.controllerId());
+            assertFalse(controller.displayBlockId().isBlank(), projection.controllerId());
             assertTrue(controller.acceptedBlockIds().contains(projection.controllerId()), projection.controllerId());
         }
+    }
+
+    @Test
+    void catalogStationsReuseTheExactRuntimeGeometryForProjection() {
+        for (MultiblockStructureCatalog.StructureEntry entry
+                : MultiblockStructureCatalog.builtin().structures().values()) {
+            if (!CatalogStationGeometry.supports(entry.pattern().validator())) {
+                continue;
+            }
+            CatalogStationGeometry.Geometry geometry = CatalogStationGeometry.compile(entry);
+            MultiblockProjectionCatalog.Projection projection = projection(entry.id());
+            assertEquals(geometry.layers(), projection.layers(), entry.id());
+            assertEquals(geometry.cells().size(), projection.cells().size(), entry.id());
+            for (CatalogStationGeometry.Cell expected : geometry.cells()) {
+                MultiblockProjectionCatalog.Cell actual = cellAt(projection, expected.offset());
+                assertEquals(expected.airRequired(), actual.airRequired(), entry.id());
+                assertEquals(expected.airRequired() ? "" : expected.displayBlockId(),
+                        actual.displayBlockId(), entry.id());
+                assertEquals(expected.acceptedBlockIds(), actual.acceptedBlockIds(), entry.id());
+            }
+        }
+    }
+
+    @Test
+    void clientPreviewAcceptsCatalogStationCarriersAsReachableControllers() throws Exception {
+        String renderer = Files.readString(Path.of(
+                "src/main/java/com/xunxian/seekingimmortals/client/MultiblockProjectionRenderer.java"));
+        assertTrue(renderer.contains("stack.getItem() instanceof CatalogCarrierItem carrier"));
+        assertTrue(renderer.contains("controllerId = carrier.catalogId();"));
+        assertTrue(renderer.contains("MultiblockProjectionCatalog.find(controllerId)"));
     }
 
     @Test
@@ -244,6 +277,13 @@ class MultiblockProjectionCatalogTest {
     private static Set<String> namespaced(Set<String> paths) {
         return paths.stream()
                 .map(path -> MOD_PREFIX + path)
+                .collect(Collectors.toCollection(LinkedHashSet::new));
+    }
+
+    private static Set<String> catalogProjectionIds() {
+        return MultiblockStructureCatalog.builtin().structures().values().stream()
+                .filter(entry -> CatalogStationGeometry.supports(entry.pattern().validator()))
+                .map(entry -> MOD_PREFIX + entry.id())
                 .collect(Collectors.toCollection(LinkedHashSet::new));
     }
 }

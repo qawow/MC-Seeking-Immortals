@@ -10,6 +10,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 
@@ -515,6 +516,56 @@ public final class DailyEventEffectExecutor {
                 .orElse(0.0D);
     }
 
+    public static boolean hasActiveToken(ServerPlayer player, String token) {
+        return activeEvent(player).map(event -> event.hasToken(normalize(token))).orElse(false);
+    }
+
+    public static ItemStack adjustMeritStack(ServerPlayer player, ItemStack original) {
+        if (original == null || original.isEmpty()
+                || !original.is(com.xunxian.seekingimmortals.registry.ModItems.ALLIANCE_MERIT_TOKEN.get())) {
+            return original == null ? ItemStack.EMPTY : original;
+        }
+        ItemStack adjusted = original.copy();
+        int count = activeEvent(player)
+                .map(event -> adjustMeritReward(original.getCount(), event))
+                .orElse(original.getCount());
+        adjusted.setCount(count);
+        return adjusted;
+    }
+
+    public static List<ItemStack> adjustMeritStacks(ServerPlayer player, List<ItemStack> originals) {
+        if (originals == null || originals.isEmpty()) {
+            return List.of();
+        }
+        return originals.stream().map(stack -> adjustMeritStack(player, stack)).toList();
+    }
+
+    public static boolean isPvpAllowed(ServerPlayer attacker, ServerPlayer defender) {
+        Optional<DailyEventEffectCatalog.Event> active = activeEvent(defender);
+        if (active.isEmpty()) {
+            return true;
+        }
+        DailyEventEffectCatalog.Event event = active.get();
+        if (event.hasToken("pvp_local")) {
+            String attackerRegion = com.xunxian.seekingimmortals.region.RegionRegistry.resolveRegionId(
+                    attacker.level(), attacker.blockPosition());
+            String defenderRegion = com.xunxian.seekingimmortals.region.RegionRegistry.resolveRegionId(
+                    defender.level(), defender.blockPosition());
+            if (!attackerRegion.equals(defenderRegion)) {
+                return false;
+            }
+        }
+        if (!event.hasToken("pvp_disabled_factions")) {
+            return true;
+        }
+        Set<String> truceFactions = jsonStrings(event.tokenValue("pvp_disabled_factions").orElse(""));
+        String attackerFaction = playerFaction(attacker);
+        String defenderFaction = playerFaction(defender);
+        return attackerFaction.isBlank() || defenderFaction.isBlank()
+                || !truceFactions.contains(attackerFaction)
+                || !truceFactions.contains(defenderFaction);
+    }
+
     /** Returns the currently active, realm-eligible authored event for cross-service gates. */
     public static Optional<DailyEventEffectCatalog.Event> activeEvent(ServerPlayer player) {
         if (player == null || player.level().isClientSide) {
@@ -562,6 +613,31 @@ public final class DailyEventEffectExecutor {
         } catch (Exception ignored) {
             return "";
         }
+    }
+
+    private static Set<String> jsonStrings(String value) {
+        if (value == null || value.isBlank()) {
+            return Set.of();
+        }
+        try {
+            JsonElement parsed = JsonParser.parseString(value);
+            if (!parsed.isJsonArray()) {
+                return Set.of();
+            }
+            LinkedHashSet<String> values = new LinkedHashSet<>();
+            for (JsonElement element : parsed.getAsJsonArray()) {
+                values.add(normalize(element.getAsString()));
+            }
+            return Set.copyOf(values);
+        } catch (Exception ignored) {
+            return Set.of();
+        }
+    }
+
+    private static String playerFaction(ServerPlayer player) {
+        return CultivationHelper.get(player)
+                .map(cultivation -> normalize(cultivation.getSevenMysteriesQuest().getSectId()))
+                .orElse("");
     }
 
     private static void clearActive(CompoundTag root) {

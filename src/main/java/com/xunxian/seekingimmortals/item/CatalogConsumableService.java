@@ -581,7 +581,15 @@ public final class CatalogConsumableService {
     }
 
     private static boolean starPalacePatrol(ServerPlayer player) {
-        com.xunxian.seekingimmortals.worldpack.ReputationService.add(player, "star_palace", 2);
+        boolean bonus = com.xunxian.seekingimmortals.worldpack.DailyEventEffectExecutor
+                .hasActiveToken(player, "star_palace_patrol_bonus");
+        com.xunxian.seekingimmortals.worldpack.ReputationService.add(player, "star_palace", bonus ? 4 : 2);
+        if (bonus) {
+            com.xunxian.seekingimmortals.item.InventoryDeliveryService.giveOrEnqueue(
+                    player,
+                    new ItemStack(com.xunxian.seekingimmortals.registry.ModItems.ALLIANCE_MERIT_TOKEN.get(), 1),
+                    "daily_star_palace_patrol");
+        }
         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 20 * 60, 0));
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.catalog_consumable.star_palace_patrol"), true);

@@ -79,7 +79,13 @@ public final class DailyEventEffectCatalog {
             "high_herb",
             "huangfeng_entry",
             "treasure_fair_invite",
-            "auction_notice");
+            "auction_notice",
+            "merit_mult_2",
+            "inverse_star_smuggle_chance",
+            "star_palace_patrol_bonus",
+            "pvp_disabled_factions",
+            "pvp_local",
+            "shop_pearl_raw_stock");
 
     private static final Snapshot BUILTIN = loadBuiltin();
 

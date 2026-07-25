@@ -120,6 +120,27 @@ class ClientVisualEngineContractTest {
         assertTrue(network.contains("PROTOCOL_VERSION = \"30\""));
     }
 
+    @Test
+    void authoredOverlayAndModelAnimationHaveDistinctBoundedRuntimes() throws Exception {
+        String engine = read(JAVA_ROOT.resolve(Path.of("client", "ClientVisualEngine.java")));
+        String events = read(JAVA_ROOT.resolve(Path.of("client", "ClientEvents.java")));
+        String overlay = read(JAVA_ROOT.resolve(Path.of("client", "ClientVisualOverlayRuntime.java")));
+        String animation = read(JAVA_ROOT.resolve(Path.of("client", "ClientModelAnimationRuntime.java")));
+
+        assertTrue(engine.contains("VisualAction.SCREEN_OVERLAY"));
+        assertTrue(engine.contains("ClientVisualOverlayRuntime.push("));
+        assertTrue(engine.contains("VisualAction.MODEL_ANIMATION"));
+        assertTrue(engine.contains("ClientModelAnimationRuntime.trigger("));
+        assertTrue(engine.contains("ClientVisualOverlayRuntime.reset();"));
+        assertTrue(engine.contains("ClientModelAnimationRuntime.reset();"));
+        assertTrue(events.contains("registerAboveAll(\"authored_visual_overlay\""));
+        assertTrue(events.contains("ClientVisualOverlayRuntime.tick();"));
+        assertTrue(overlay.contains("Math.min(200, durationTicks)"));
+        assertTrue(overlay.contains("Math.min(96, authoredIntensity)"));
+        assertTrue(animation.contains("MAX_STATES = 128"));
+        assertTrue(animation.contains("living.swing(InteractionHand.MAIN_HAND, true)"));
+    }
+
     private static String read(Path path) throws Exception {
         return Files.readString(path);
     }

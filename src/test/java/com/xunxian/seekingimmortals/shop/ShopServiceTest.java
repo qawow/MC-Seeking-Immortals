@@ -23,12 +23,16 @@ class ShopServiceTest {
     void clearsPersistedStockCacheWhenServerStops() throws IOException, ReflectiveOperationException {
         String events = Files.readString(Path.of(
                 "src/main/java/com/xunxian/seekingimmortals/event/ModEvents.java"));
+        String shop = Files.readString(Path.of(
+                "src/main/java/com/xunxian/seekingimmortals/shop/ShopService.java"));
         Field field = ShopService.class.getDeclaredField("STOCK_CACHE");
         field.setAccessible(true);
         Map<String, Object> stockCache = (Map<String, Object>) field.get(null);
         stockCache.put("world-a/test-shop/test-entry", new Object());
 
         assertTrue(events.contains("ShopService.clearRuntimeStockCache();"));
+        assertTrue(shop.contains("releaseStock(player, shopId, entry);"));
+        assertTrue(shop.contains("persistStock(player.serverLevel(), context.key(), state);"));
         ShopService.clearRuntimeStockCache();
         assertTrue(stockCache.isEmpty());
     }

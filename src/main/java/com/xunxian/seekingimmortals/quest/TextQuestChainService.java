@@ -88,6 +88,10 @@ public final class TextQuestChainService {
         PATH,
         RACE,
         PARENT,
+        KARMA,
+        PARTY,
+        BRANCH,
+        PREREQUISITE,
         DATA
     }
 
@@ -206,7 +210,7 @@ public final class TextQuestChainService {
         }
         ExtendedCatalogService.QuestStartRequirements requirements = chain.startRequirements();
         if (requirements == null) {
-            return StartEligibility.available();
+            return authorityStartEligibility(player, chain);
         }
         String currentRegion = normalize(cultivation.getWorldpackCurrentRegionId());
         if (!requirements.realmMin().isBlank()
@@ -238,7 +242,21 @@ public final class TextQuestChainService {
                 return StartEligibility.blocked(StartGate.PARENT);
             }
         }
-        return StartEligibility.available();
+        return authorityStartEligibility(player, chain);
+    }
+
+    private static StartEligibility authorityStartEligibility(
+            ServerPlayer player, ExtendedCatalogService.QuestChain chain) {
+        return switch (QuestAuthorityCatalog.startGate(player, chain.id())) {
+            case OPEN -> StartEligibility.available();
+            case REALM -> StartEligibility.blocked(StartGate.REALM);
+            case PARENT -> StartEligibility.blocked(StartGate.PARENT);
+            case KARMA -> StartEligibility.blocked(StartGate.KARMA);
+            case PARTY -> StartEligibility.blocked(StartGate.PARTY);
+            case BRANCH -> StartEligibility.blocked(StartGate.BRANCH);
+            case PREREQUISITE -> StartEligibility.blocked(StartGate.PREREQUISITE);
+            case FACTION -> StartEligibility.blocked(StartGate.FACTION);
+        };
     }
 
     static boolean matchesStartRegion(String chainId, String requiredRegion, String currentRegion) {
@@ -275,6 +293,10 @@ public final class TextQuestChainService {
         }
         if (targetStage == 1) {
             return progress.stage() == 0 && meetsStartRequirements(player, chain, false);
+        }
+        if (QuestAuthorityCatalog.stageGate(player, chain.id(), targetStage)
+                != QuestAuthorityCatalog.Gate.OPEN) {
+            return false;
         }
         Optional<StageCost> cost = stageCostFor(chain.id(), targetStage, chain.stepCount());
         return cost.isEmpty() || player.getAbilities().instabuild
@@ -338,7 +360,15 @@ public final class TextQuestChainService {
                     questDisplay(chain), raceDisplay(requirements.raceRequired())), true);
             case PARENT -> player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.text_quest.start_parent_incomplete",
-                    questDisplay(chain), questDisplay(requirements.parentChain())), true);
+                    questDisplay(chain), questDisplay(effectiveParent(requirements))), true);
+            case KARMA -> player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.text_quest.karma_required"), true);
+            case PARTY -> player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.text_quest.party_too_large"), true);
+            case BRANCH -> player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.text_quest.stage_branch_required"), true);
+            case PREREQUISITE -> player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.text_quest.stage_prerequisite_required"), true);
             case DATA -> player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.text_quest.start_no_data"), true);
             case NONE -> {
@@ -346,6 +376,13 @@ public final class TextQuestChainService {
             }
         }
         return false;
+    }
+
+    private static String effectiveParent(ExtendedCatalogService.QuestStartRequirements requirements) {
+        if (requirements == null) {
+            return "";
+        }
+        return requirements.parentChain().isBlank() ? requirements.extendsChain() : requirements.parentChain();
     }
 
     public static boolean advance(ServerPlayer player, String chainId) {
@@ -369,6 +406,11 @@ public final class TextQuestChainService {
                     questDisplay(chain)), false);
             return false;
         } else {
+            QuestAuthorityCatalog.Gate stageGate = QuestAuthorityCatalog.stageGate(player, id, stage + 1);
+            if (stageGate != QuestAuthorityCatalog.Gate.OPEN) {
+                warnStageGate(player, stageGate);
+                return false;
+            }
             // Wave48: consume stage cost before advancing beyond current stage.
             if (!payStageCost(player, id, stage + 1, chain.stepCount())) {
                 return false;
@@ -400,6 +442,18 @@ public final class TextQuestChainService {
         }
         syncTracker(player);
         return true;
+    }
+
+    private static void warnStageGate(ServerPlayer player, QuestAuthorityCatalog.Gate gate) {
+        String key = switch (gate) {
+            case BRANCH -> "message.seeking_immortals.text_quest.stage_branch_required";
+            case PREREQUISITE -> "message.seeking_immortals.text_quest.stage_prerequisite_required";
+            case FACTION -> "message.seeking_immortals.text_quest.stage_faction_required";
+            case PARTY -> "message.seeking_immortals.text_quest.party_too_large";
+            case KARMA -> "message.seeking_immortals.text_quest.karma_required";
+            default -> "message.seeking_immortals.text_quest.start_no_data";
+        };
+        player.displayClientMessage(Component.translatable(key), true);
     }
 
     /**
@@ -833,7 +887,9 @@ public final class TextQuestChainService {
             return;
         }
         for (ItemStack stack : stacks) {
-            InventoryDeliveryService.giveOrEnqueue(player, stack, "quest_chain");
+            InventoryDeliveryService.giveOrEnqueue(player,
+                    com.xunxian.seekingimmortals.worldpack.DailyEventEffectExecutor.adjustMeritStack(player, stack),
+                    "quest_chain");
         }
         markAuthorityReward(player, id);
         // Keep legacy soft-reward tag for older clients/docs that still read it.

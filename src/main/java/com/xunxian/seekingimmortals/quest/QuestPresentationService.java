@@ -319,7 +319,7 @@ public final class QuestPresentationService {
             addRequirement(result,
                     "demonic_karma".equals(karma) ? "需具备魔道因果" : "需满足指定因果条件",
                     "demonic_karma".equals(karma) ? "Requires demonic karma" : "Requires the specified karma condition",
-                    false);
+                    true);
         }
         String parent = normalize(str(chain, "parent_chain"));
         if (!parent.isBlank()) {
@@ -331,7 +331,7 @@ public final class QuestPresentationService {
         if (!extension.isBlank()) {
             addRequirement(result,
                     "剧情承接“" + chainTitle(extension, titlesZh, true) + "”",
-                    "Continues " + chainTitle(extension, titlesEn, false), false);
+                    "Continues " + chainTitle(extension, titlesEn, false), true);
         }
         appendConstraintRequirements(result, object(chain, "constraints"));
         return List.copyOf(result);
@@ -354,7 +354,7 @@ public final class QuestPresentationService {
                 case "loyalist" -> "Requires the Star Palace route";
                 default -> "Requires the specified story route";
             };
-            addRequirement(result, zh, en, false);
+            addRequirement(result, zh, en, true);
         }
         String required = normalize(firstString(step.get("requires")));
         if (!required.isBlank()) {
@@ -362,7 +362,7 @@ public final class QuestPresentationService {
                     "m4_holy_bird_mulan".equals(required) ? "需先完成慕兰圣禽见闻" : "需先完成指定剧情前置",
                     "m4_holy_bird_mulan".equals(required)
                             ? "Requires the Mulan sacred-bird chronicle" : "Requires the specified story prerequisite",
-                    false);
+                    true);
         }
         List<String> branches = stringList(step.get("branch_any"));
         if (!branches.isEmpty()) {
@@ -370,7 +370,7 @@ public final class QuestPresentationService {
             List<String> enNames = branches.stream().map(QuestPresentationService::branchChoiceEn).toList();
             addRequirement(result,
                     "需在" + String.join("、", zhNames) + "中选择一支入门",
-                    "Join one of " + String.join(", ", enNames), false);
+                    "Join one of " + String.join(", ", enNames), true);
         }
         return List.copyOf(result);
     }
@@ -379,7 +379,7 @@ public final class QuestPresentationService {
         int partyMax = positiveInt(constraints, "party_size_max");
         if (partyMax > 0) {
             addRequirement(result, "队伍人数不超过 " + partyMax + " 人",
-                    "Party size at most " + partyMax, false);
+                    "Party size at most " + partyMax, true);
         }
         int cycleYears = positiveInt(constraints, "cycle_years");
         if (cycleYears > 0) {
@@ -394,7 +394,7 @@ public final class QuestPresentationService {
         String minimumRealm = normalize(str(constraints, "realm_min"));
         if (!minimumRealm.isBlank()) {
             addRequirement(result, "场景标注最低境界为" + realmName(minimumRealm, true),
-                    "Scenario minimum realm: " + realmName(minimumRealm, false), false);
+                    "Scenario minimum realm: " + realmName(minimumRealm, false), true);
         }
         if (bool(constraints, "miasma_debuff")) {
             addRequirement(result, "需应对魔瘴侵蚀", "Prepare for demonic miasma", false);

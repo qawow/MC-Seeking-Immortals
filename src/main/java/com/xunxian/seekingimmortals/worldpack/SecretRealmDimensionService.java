@@ -128,13 +128,7 @@ public final class SecretRealmDimensionService {
         int y = target.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z) + 1;
         y = Math.max(target.getMinBuildHeight() + 2, Math.min(target.getMaxBuildHeight() - 2, y));
         BlockPos base = new BlockPos(x, y - 1, z);
-        for (int dx = -2; dx <= 2; dx++) {
-            for (int dz = -2; dz <= 2; dz++) {
-                target.setBlock(base.offset(dx, 0, dz), net.minecraft.world.level.block.Blocks.STONE.defaultBlockState(), 3);
-                target.setBlock(base.offset(dx, 1, dz), net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(), 3);
-                target.setBlock(base.offset(dx, 2, dz), net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(), 3);
-            }
-        }
+        SecretRealmEntrySceneService.ensure(target, realmId, base);
         player.teleportTo(target, x + 0.5D, y, z + 0.5D, player.getYRot(), player.getXRot());
         return player.serverLevel() == target
                 && player.distanceToSqr(x + 0.5D, y, z + 0.5D) <= 16.0D;

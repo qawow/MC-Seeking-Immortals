@@ -20,7 +20,13 @@ class NpcSettlementServiceContractTest {
         assertTrue(source.contains("WorldpackGameplayService.DEFAULT_REGION_ID"));
         assertTrue(source.contains("getEntitiesOfClass(SpiritStoneBankerEntity.class"));
         assertTrue(source.contains("ModEntities.SPIRIT_STONE_BANKER.get().create(overworld)"));
-        assertFalse(source.contains("NamedNpcRegistry.all()"));
+        assertTrue(source.contains("NamedNpcPlacementSavedData.get(player.getServer())"));
+        assertTrue(source.contains("REGIONAL_BATCH_SIZE = 3"));
+        assertTrue(source.contains("placements.find(npc.id())"));
+        assertTrue(source.contains("level.hasChunkAt(placement.pos())"));
+        assertTrue(source.contains("level.getEntity(placement.entityId())"));
+        assertTrue(source.contains("placements.remove(npc.id())"));
+        assertFalse(source.contains("if (placements.contains(npc.id()))"));
     }
 
     @Test
@@ -31,8 +37,18 @@ class NpcSettlementServiceContractTest {
         String villagerBranch = interaction.substring(interaction.indexOf("target instanceof Villager"));
 
         assertTrue(login.contains("NpcSettlementService.ensureStarterHub(serverPlayer)"));
+        assertTrue(login.contains("NpcSettlementService.ensureRegionalRoster(serverPlayer)"));
         assertTrue(villagerBranch.contains("handleLegacyNamedVillagerInteraction"));
         assertFalse(villagerBranch.contains("handleSpiritStoneBankerExchange"));
+    }
+
+    @Test
+    void playerTickOnlyBackfillsRegionalRosterAtLowFrequency() throws Exception {
+        String events = Files.readString(JAVA.resolve("event/ModEvents.java"));
+        String tick = methodSource(events, "public static void onPlayerTick(");
+
+        assertTrue(tick.contains("serverPlayer.tickCount % 600 == 0"));
+        assertTrue(tick.contains("NpcSettlementService.ensureRegionalRoster(serverPlayer)"));
     }
 
     private static String methodSource(String source, String declaration) {

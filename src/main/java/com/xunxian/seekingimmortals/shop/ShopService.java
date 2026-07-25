@@ -297,6 +297,12 @@ public final class ShopService {
                     "message.seeking_immortals.sect.rank_too_low",
                     itemName(result.entry()),
                     Component.translatable(rankDescriptionId(result.entry().rankMin()))));
+            case REALM_LOCKED -> player.sendSystemMessage(Component.translatable(
+                    "message.seeking_immortals.market.realm_locked"));
+            case REPUTATION_LOCKED -> player.sendSystemMessage(Component.translatable(
+                    "message.seeking_immortals.market.reputation_locked"));
+            case ACCESS_DENIED -> player.sendSystemMessage(Component.translatable(
+                    "message.seeking_immortals.market.access_denied"));
             case OUT_OF_STOCK -> player.sendSystemMessage(Component.translatable(
                     "message.seeking_immortals.market.out_of_stock",
                     itemName(result.entry())));
@@ -311,9 +317,11 @@ public final class ShopService {
                 .orElse(0);
         List<ShopEntryData> entries = shop.entries().stream()
                 .map(entry -> {
-                    StockPreview stock = stockPreview(player.serverLevel(), shopId, entry, gameTime);
+                    StockPreview stock = stockPreview(player, shopId, entry, gameTime);
                     boolean blocked = MarketPriceService.isBlockedFromOpenMarket(entry.itemId());
-                    boolean locked = blocked || (entry.hasRankRequirement() && !meetsRankRequirement(entry, sectStage));
+                    boolean locked = blocked
+                            || (entry.hasRankRequirement() && !meetsRankRequirement(entry, sectStage))
+                            || policyStatus(player, shopId, entry) != PurchaseStatus.SUCCESS;
                     return new ShopEntryData(
                             entry.id(),
                             itemDescriptionId(entry),
@@ -340,6 +348,10 @@ public final class ShopService {
             return new PurchaseResult(PurchaseStatus.UNKNOWN_ENTRY, null, null, progress.getContribution());
         }
         Entry entry = entryOptional.get();
+        PurchaseStatus policy = policyStatus(player, shopId, entry);
+        if (policy != PurchaseStatus.SUCCESS) {
+            return new PurchaseResult(policy, entry, null, progress.getContribution());
+        }
         if (!CURRENCY_SECT_CONTRIBUTION.equals(entry.currency())) {
             return new PurchaseResult(PurchaseStatus.UNSUPPORTED_CURRENCY, entry, null, progress.getContribution());
         }
@@ -369,12 +381,13 @@ public final class ShopService {
             return new PurchaseResult(stockReservation.status(), entry, item, progress.getContribution(), stockReservation.remainingStock());
         }
         if (!progress.spendContribution(adjustedCost)) {
-            releaseStock(shopId, entry);
+            releaseStock(player, shopId, entry);
             return new PurchaseResult(PurchaseStatus.NOT_ENOUGH_CURRENCY, entry, item,
                     progress.getContribution(), UNLIMITED_STOCK, adjustedCost);
         }
         giveItem(player, item, entry.count());
         ShopQuotaService.recordBuy(player, shopId, entryId);
+        MerchantShopPolicyCatalog.settleRisk(player, shopId, entry.itemId());
         return new PurchaseResult(PurchaseStatus.SUCCESS, entry, item, progress.getContribution(),
                 stockReservation.remainingStock(), adjustedCost);
     }
@@ -389,6 +402,10 @@ public final class ShopService {
             return new PurchaseResult(PurchaseStatus.UNKNOWN_ENTRY, null, null, -1);
         }
         Entry entry = entryOptional.get();
+        PurchaseStatus policy = policyStatus(player, shopId, entry);
+        if (policy != PurchaseStatus.SUCCESS) {
+            return new PurchaseResult(policy, entry, null, -1);
+        }
         if (MarketPriceService.isBlockedFromOpenMarket(entry.itemId())) {
             return new PurchaseResult(BLOCKED_ITEM_STATUS, entry, null, -1);
         }
@@ -412,11 +429,21 @@ public final class ShopService {
             return new PurchaseResult(stockReservation.status(), entry, item, -1, stockReservation.remainingStock(), adjustedCost);
         }
         if (!consumeItems(player, currencyItem, adjustedCost)) {
-            releaseStock(shopId, entry);
+            releaseStock(player, shopId, entry);
             return new PurchaseResult(PurchaseStatus.NOT_ENOUGH_CURRENCY, entry, item, -1, UNLIMITED_STOCK, adjustedCost);
         }
         giveItem(player, item, entry.count());
+        MerchantShopPolicyCatalog.settleRisk(player, shopId, entry.itemId());
         return new PurchaseResult(PurchaseStatus.SUCCESS, entry, item, -1, stockReservation.remainingStock(), adjustedCost);
+    }
+
+    private static PurchaseStatus policyStatus(ServerPlayer player, String shopId, Entry entry) {
+        return switch (MerchantShopPolicyCatalog.evaluate(player, shopId, entry == null ? "" : entry.itemId())) {
+            case OPEN -> PurchaseStatus.SUCCESS;
+            case REALM_LOCKED -> PurchaseStatus.REALM_LOCKED;
+            case REPUTATION_LOCKED -> PurchaseStatus.REPUTATION_LOCKED;
+            case ACCESS_DENIED -> PurchaseStatus.ACCESS_DENIED;
+        };
     }
 
     public static Component itemName(Entry entry) {
@@ -760,12 +787,13 @@ public final class ShopService {
         if (entry.stock() == UNLIMITED_STOCK) {
             return new StockReservation(PurchaseStatus.SUCCESS, UNLIMITED_STOCK);
         }
-        String key = shopId + "/" + entry.id();
+        StockContext context = stockContext(player, shopId, entry);
+        String key = context.key();
         StockState state = STOCK_CACHE.computeIfAbsent(key,
-                ignored -> loadStockState(player.serverLevel(), key, entry.stock()));
+                ignored -> loadStockState(player.serverLevel(), key, context.maximum()));
         long gameTime = player.serverLevel().getGameTime();
         synchronized (state) {
-            boolean refreshed = state.refreshIfNeeded(entry, gameTime);
+            boolean refreshed = state.refreshIfNeeded(entry, context.maximum(), gameTime);
             if (state.remaining <= 0) {
                 if (refreshed) persistStock(player.serverLevel(), key, state);
                 return new StockReservation(PurchaseStatus.OUT_OF_STOCK, state.remaining);
@@ -779,15 +807,17 @@ public final class ShopService {
         }
     }
 
-    private static StockPreview stockPreview(ServerLevel level, String shopId, Entry entry, long gameTime) {
+    private static StockPreview stockPreview(ServerPlayer player, String shopId, Entry entry, long gameTime) {
         if (entry.stock() == UNLIMITED_STOCK) {
             return new StockPreview(UNLIMITED_STOCK, 0L);
         }
-        String key = shopId + "/" + entry.id();
+        ServerLevel level = player.serverLevel();
+        StockContext context = stockContext(player, shopId, entry);
+        String key = context.key();
         StockState state = STOCK_CACHE.computeIfAbsent(key,
-                ignored -> loadStockState(level, key, entry.stock()));
+                ignored -> loadStockState(level, key, context.maximum()));
         synchronized (state) {
-            if (state.refreshIfNeeded(entry, gameTime)) {
+            if (state.refreshIfNeeded(entry, context.maximum(), gameTime)) {
                 persistStock(level, key, state);
             }
             long nextRefreshTicks = state.nextRefreshGameTime == Long.MAX_VALUE
@@ -795,6 +825,15 @@ public final class ShopService {
                     : Math.max(0L, state.nextRefreshGameTime - gameTime);
             return new StockPreview(state.remaining, nextRefreshTicks);
         }
+    }
+
+    private static StockContext stockContext(ServerPlayer player, String shopId, Entry entry) {
+        boolean pearlBoost = entry.itemId().endsWith(":pearl_raw")
+                && com.xunxian.seekingimmortals.worldpack.DailyEventEffectExecutor
+                .hasActiveToken(player, "shop_pearl_raw_stock");
+        return pearlBoost
+                ? new StockContext(shopId + "/" + entry.id() + "#daily_pearl", Math.max(1, entry.stock() * 2))
+                : new StockContext(shopId + "/" + entry.id(), entry.stock());
     }
 
     /** 从持久化存储加载库存状态；不存在则按默认库存创建。 */
@@ -819,16 +858,18 @@ public final class ShopService {
                 : Component.literal(Integer.toString(Math.max(0, stock)));
     }
 
-    private static void releaseStock(String shopId, Entry entry) {
+    private static void releaseStock(ServerPlayer player, String shopId, Entry entry) {
         if (entry.stock() == UNLIMITED_STOCK) {
             return;
         }
-        StockState state = STOCK_CACHE.get(shopId + "/" + entry.id());
+        StockContext context = stockContext(player, shopId, entry);
+        StockState state = STOCK_CACHE.get(context.key());
         if (state == null) {
             return;
         }
         synchronized (state) {
-            state.remaining = Math.min(entry.stock(), state.remaining + 1);
+            state.remaining = Math.min(context.maximum(), state.remaining + 1);
+            persistStock(player.serverLevel(), context.key(), state);
         }
     }
 
@@ -901,12 +942,17 @@ public final class ShopService {
         BAD_CURRENCY_ITEM,
         NOT_ENOUGH_CURRENCY,
         RANK_TOO_LOW,
+        REALM_LOCKED,
+        REPUTATION_LOCKED,
+        ACCESS_DENIED,
         OUT_OF_STOCK
     }
 
     private record StockReservation(PurchaseStatus status, int remainingStock) {}
 
     private record StockPreview(int remainingStock, long nextRefreshTicks) {}
+
+    private record StockContext(String key, int maximum) {}
 
     private static final class StockState {
         private int remaining;
@@ -917,11 +963,11 @@ public final class ShopService {
         }
 
         /** 若到达刷新时间则补满库存；返回是否发生了刷新。 */
-        private boolean refreshIfNeeded(Entry entry, long gameTime) {
+        private boolean refreshIfNeeded(Entry entry, int maximum, long gameTime) {
             if (entry.refreshTicks() <= 0 || gameTime < nextRefreshGameTime) {
                 return false;
             }
-            remaining = entry.stock();
+            remaining = maximum;
             nextRefreshGameTime = gameTime + entry.refreshTicks();
             return true;
         }

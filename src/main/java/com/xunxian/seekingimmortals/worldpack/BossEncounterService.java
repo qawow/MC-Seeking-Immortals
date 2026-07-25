@@ -211,7 +211,8 @@ public final class BossEncounterService {
                 rewards.add(new ItemStack(ModItems.ALLIANCE_MERIT_TOKEN.get(), firstClear ? 2 : 1));
             }
             SecretRealmRewardService.initializeChest(
-                    chest, player, session, realmId, "boss:" + bossId, false, rewards);
+                    chest, player, session, realmId, "boss:" + bossId, false,
+                    DailyEventEffectExecutor.adjustMeritStacks(player, rewards));
         }
     }
 

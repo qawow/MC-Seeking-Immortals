@@ -8975,3 +8975,16 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1` 在 1 分 23 秒内 `BUILD SUCCESSFUL`；236 个测试套件共 1,117 项，failure/error/skipped 均为 0，`aiPreflight` 记录 `0.2.174`。
   Version/protocol   Done   `mod_version` 从 `0.2.173` 提升至 `0.2.174`；未改变网络包或频道契约，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
   Backup   Done   `.bak/20260725_201533_review_fixes/`；凭据诊断包因安全要求未备份，五个原 WAV 可从该路径恢复。
+## 577. 2026-07-26 0.2.176 全量功能闭环
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   以 `0.2.174` 发布审查修复为基线，现有文件备份于 `.bak/20260725_204810_full_completion_batch1/`，收尾差异备份于 `.bak/20260726_full_completion_followup/`。
+  Facilities/projection   Done   32 类目录 validator 编译为 47 个真实设施几何，失败关闭集合清空；共享几何同步转为投影，43 个旧控制器加 47 个目录设施共 90 个投影，普通 `CatalogCarrierItem` 可直接触发手持预览。
+  NPC placement   Done   地域 NPC 优先旅行锚点，每轮最多生成 3 名；附近同名实体检测与服务器级 SavedData 防止重启、回访和多玩家重复投放，登录及每 600 tick 补齐；仅在记录区块已加载且实体确实失效时解除账本并补生。
+  Shop/event authority   Done   商店执行境界、正负声望、任一访问凭证、商品级门禁、非法标记和风险事件，未知非空境界失败关闭；失败购买按实际事件库存桶回滚并持久化。功勋加倍、逆星走私概率、星宫巡防奖励、地域/势力 PvP、采珠库存均接入真实结算。
+  Quest authority   Done   业力、父链、最低境界、最大队伍、阶段分支、前置和势力条件由服务端执行；FTB 单阶段精确回写调用同一 `stageGate`，不能绕过阶段门禁。
+  Realm/artifact/runtime   Done   23 个秘境显式映射 10 类一次性入口场景；裂隙司南激活后寻找最近已成形空间节点并报告方向/距离；作者 HUD 叠层和模型动作使用独立有界客户端运行时。
+  Verification   Done   编译、任务/投影/视觉定向测试通过；最终普通 `./gradlew build --no-daemon --max-workers=1` `BUILD SUCCESSFUL in 1m 18s`，1,128 项测试 failure/error/skipped 均为 0，`aiPreflight` 记录 `0.2.176`。
+  Version/protocol   Done   `mod_version` 从 `0.2.174` 经首次完整构建的 `0.2.175` 升至最终 `0.2.176`；库存/NPC/境界收尾发生在 `0.2.175` 指纹后，按门禁继续升补丁版本。未改包字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
+  Live QA   Pending   仍需真实客户端/专服/双客户端检查 NPC 落点与密度、90 类投影可读性、10 类秘境场景、司南方向、HUD 叠层/持物动作、多人事件结算与长时重连；账号侧令牌撤销不属于仓库内可执行动作。

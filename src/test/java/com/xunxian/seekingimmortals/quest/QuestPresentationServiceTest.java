@@ -76,13 +76,13 @@ class QuestPresentationServiceTest {
         QuestPresentationService.ChainPresentation demonic =
                 QuestPresentationService.find("demonic_six_expanded").orElseThrow();
         assertTrue(demonic.requirements().stream().anyMatch(value ->
-                value.textZh().contains("魔道因果") && !value.enforced()));
+                value.textZh().contains("魔道因果") && value.enforced()));
         assertTrue(demonic.requirements().stream().noneMatch(value ->
                 value.textZh().contains("demonic_karma") || value.textZh().contains("extends_chain")));
 
         QuestPresentationService.ChainPresentation politics =
                 QuestPresentationService.find("chaotic_sea_politics").orElseThrow();
         assertTrue(politics.stage(3).orElseThrow().requirements().stream().anyMatch(value ->
-                value.textZh().contains("逆星盟") && !value.enforced()));
+                value.textZh().contains("逆星盟") && value.enforced()));
     }
 }

@@ -4,6 +4,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
+import com.xunxian.seekingimmortals.item.CatalogCarrierItem;
 import com.xunxian.seekingimmortals.structure.MultiblockProjectionCatalog;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -243,10 +244,14 @@ public final class MultiblockProjectionRenderer {
         }
         for (InteractionHand hand : InteractionHand.values()) {
             ItemStack stack = minecraft.player.getItemInHand(hand);
-            if (!(stack.getItem() instanceof BlockItem blockItem)) {
+            String controllerId;
+            if (stack.getItem() instanceof BlockItem blockItem) {
+                controllerId = blockId(blockItem.getBlock());
+            } else if (stack.getItem() instanceof CatalogCarrierItem carrier) {
+                controllerId = carrier.catalogId();
+            } else {
                 continue;
             }
-            String controllerId = blockId(blockItem.getBlock());
             Optional<MultiblockProjectionCatalog.Projection> projection =
                     MultiblockProjectionCatalog.find(controllerId);
             if (projection.isEmpty()) {

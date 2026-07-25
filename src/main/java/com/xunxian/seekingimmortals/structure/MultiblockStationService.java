@@ -29,7 +29,7 @@ public final class MultiblockStationService {
     private static final Map<String, ResourceLocation> SINGLE_CORE_BLOCK_IDS = Map.of(
             "low_spirit_iron_ore", new ResourceLocation(SeekingImmortalsMod.MODID, "low_spirit_iron_ore"),
             "yin_essence_ore_block", new ResourceLocation(SeekingImmortalsMod.MODID, "yin_essence_ore"));
-    private static final Set<String> IMPLEMENTED_VALIDATORS = Set.of(
+    private static final Set<String> SPECIALIZED_VALIDATORS = Set.of(
             "alchemy_furnace_shell",
             "altar",
             "array_hub",
@@ -55,39 +55,8 @@ public final class MultiblockStationService {
             "talisman_table",
             "teleport_gate",
             "thunder_tribulation_altar");
-    private static final Set<String> FAIL_CLOSED_VALIDATORS = Set.of(
-            "blood_pool",
-            "brazier",
-            "cultivation_chamber",
-            "defense_wall",
-            "furnace_safety_array",
-            "grand_hall",
-            "greenhouse",
-            "immortal_alchemy_cauldron",
-            "infant_fire_alchemy_room",
-            "kunwu_frost_forge",
-            "pedestal",
-            "rift_core_small",
-            "rift_large",
-            "rift_world_seed",
-            "seal_pillar",
-            "secret_realm_gate",
-            "sect_formation_hub",
-            "small_array_3x3",
-            "small_array_post",
-            "small_array_single",
-            "small_control_2x2",
-            "small_control_post",
-            "small_control_trading",
-            "spirit_beast_pen",
-            "storage",
-            "time_acceleration_array",
-            "tower",
-            "trap_corridor",
-            "trial_ring",
-            "warehouse_loading_bay",
-            "well",
-            "workshop");
+    private static final Set<String> IMPLEMENTED_VALIDATORS = implementedValidatorsInternal();
+    private static final Set<String> FAIL_CLOSED_VALIDATORS = Set.of();
     private static final Set<String> SUPPORTED_VALIDATORS = mergeValidators();
 
     private MultiblockStationService() {}
@@ -176,8 +145,10 @@ public final class MultiblockStationService {
     private static ValidateOutcome validateLive(LevelReader level, MultiblockStructureCatalog.StructureEntry entry, BlockPos origin) {
         MultiblockStructureCatalog.StationPattern pattern = entry.pattern();
         String validator = pattern.validator();
-        if (FAIL_CLOSED_VALIDATORS.contains(validator)) {
-            return new ValidateOutcome(false, "unsupported_validator:" + validator);
+        if (CatalogStationGeometry.supports(validator)) {
+            CatalogStationGeometry.Validation validation =
+                    CatalogStationGeometry.validate(level, entry, origin);
+            return new ValidateOutcome(validation.formed(), validation.detail());
         }
         try {
             return switch (validator) {
@@ -469,6 +440,12 @@ public final class MultiblockStationService {
     private static Set<String> mergeValidators() {
         Set<String> validators = new HashSet<>(IMPLEMENTED_VALIDATORS);
         validators.addAll(FAIL_CLOSED_VALIDATORS);
+        return Set.copyOf(validators);
+    }
+
+    private static Set<String> implementedValidatorsInternal() {
+        Set<String> validators = new HashSet<>(SPECIALIZED_VALIDATORS);
+        validators.addAll(CatalogStationGeometry.validators());
         return Set.copyOf(validators);
     }
 

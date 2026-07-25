@@ -183,17 +183,22 @@ public final class NpcSpawnService {
     }
 
     public static boolean isNearbyNamed(ServerLevel level, BlockPos origin, String namedNpcId) {
+        return findNearbyNamed(level, origin, namedNpcId).isPresent();
+    }
+
+    public static Optional<CultivatorNpcEntity> findNearbyNamed(
+            ServerLevel level, BlockPos origin, String namedNpcId) {
         if (level == null || origin == null || namedNpcId == null || namedNpcId.isBlank()) {
-            return false;
+            return Optional.empty();
         }
         String id = namedNpcId.trim().toLowerCase(Locale.ROOT);
         AABB box = new AABB(origin).inflate(NEARBY_RADIUS);
         for (CultivatorNpcEntity npc : level.getEntitiesOfClass(CultivatorNpcEntity.class, box)) {
             if (id.equals(npc.getNamedNpcId())) {
-                return true;
+                return Optional.of(npc);
             }
         }
-        return false;
+        return Optional.empty();
     }
 
     private static boolean isMerchantRole(NamedNpcRegistry.NamedNpc npc) {

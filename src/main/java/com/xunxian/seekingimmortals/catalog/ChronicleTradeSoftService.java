@@ -407,12 +407,19 @@ public final class ChronicleTradeSoftService {
             ok = TextQuestChainService.advance(player, mapped.get());
         }
         if (ok) {
+            boolean smuggleConcealed = (key.contains("smuggle") || key.contains("mulan"))
+                    && player.getRandom().nextDouble()
+                    < com.xunxian.seekingimmortals.worldpack.DailyEventEffectExecutor.activeSmuggleChance(player);
             player.displayClientMessage(Component.translatable("message.seeking_immortals.trade_route.embarked",
                     entryDisplay(entry, "未知商路"), chainDisplay(mapped.get())), true);
             ReputationService.add(player, "merchant_guild", 1);
-            if (key.contains("smuggle") || key.contains("mulan")) {
+            if ((key.contains("smuggle") || key.contains("mulan")) && !smuggleConcealed) {
                 ReputationService.add(player, "mulan", -1);
                 ReputationService.add(player, "tianlan", -1);
+            } else if (smuggleConcealed) {
+                com.xunxian.seekingimmortals.npc.NpcDialogueFlags.setFlag(player, "daily_smuggle_concealed");
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.trade_route.smuggle_concealed"), true);
             } else if (key.contains("tianyuan") || key.contains("merit") || key.contains("fengyuan")) {
                 ReputationService.add(player, "tianyuan", 1);
             } else if (key.contains("dajin") || key.contains("wanbao") || key.contains("barbarian")) {

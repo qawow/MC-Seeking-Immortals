@@ -278,7 +278,8 @@ public final class SecretRealmTrialService {
         if (level.getBlockEntity(chestPos) instanceof net.minecraft.world.level.block.entity.ChestBlockEntity chest) {
             SecretRealmRewardService.initializeChest(
                     chest, player, session, realmId, encounterId(layer), false,
-                    rewardStacks(realmId, layer, level.random.nextInt(4)));
+                    DailyEventEffectExecutor.adjustMeritStacks(
+                            player, rewardStacks(realmId, layer, level.random.nextInt(4))));
         }
     }
 
@@ -510,7 +511,8 @@ public final class SecretRealmTrialService {
                     if (!(level.getBlockEntity(pos) instanceof net.minecraft.world.level.block.entity.ChestBlockEntity chest)) {
                         continue;
                     }
-                    List<ItemStack> rewards = rewardStacks(realmId, layer, level.random.nextInt(4));
+                    List<ItemStack> rewards = DailyEventEffectExecutor.adjustMeritStacks(
+                            player, rewardStacks(realmId, layer, level.random.nextInt(4)));
                     if (SecretRealmRewardService.unlock(
                             chest, player, realmId, encounterId(layer), rewards)) {
                         return;
@@ -518,7 +520,8 @@ public final class SecretRealmTrialService {
                 }
             }
         }
-        rewardStacks(realmId, layer, level.random.nextInt(4))
+        DailyEventEffectExecutor.adjustMeritStacks(
+                        player, rewardStacks(realmId, layer, level.random.nextInt(4)))
                 .forEach(stack -> InventoryDeliveryService.giveOrEnqueue(player, stack, "secret_realm_trial"));
     }
 

@@ -65,12 +65,16 @@ class DailyEventSemanticsTest {
         assertTrue(snapshot.find("chaotic_sea_beast_tide").orElseThrow().hasToken("spawn_beast_wave"));
         assertTrue(snapshot.find("chaotic_sea_tax_raid").orElseThrow().hasToken("tax_mult"));
         assertTrue(snapshot.find("tianyuan_merit_double_day").orElseThrow().hasToken("merit_mult_2"));
-        assertTrue(snapshot.find("tianyuan_merit_double_day").orElseThrow()
+        assertFalse(snapshot.find("tianyuan_merit_double_day").orElseThrow()
                 .unknownTokens().contains("merit_mult_2"));
-        assertTrue(snapshot.find("chaotic_sea_tax_raid").orElseThrow()
+        assertFalse(snapshot.find("chaotic_sea_tax_raid").orElseThrow()
                 .unknownTokens().contains("inverse_star_smuggle_chance"));
-        assertTrue(snapshot.find("chaotic_sea_beast_tide").orElseThrow()
+        assertFalse(snapshot.find("chaotic_sea_beast_tide").orElseThrow()
                 .unknownTokens().contains("star_palace_patrol_bonus"));
+        assertFalse(snapshot.find("chaotic_sea_ghost_fog_truce").orElseThrow()
+                .unknownTokens().contains("pvp_disabled_factions"));
+        assertFalse(snapshot.find("pearl_diving_mortals").orElseThrow()
+                .unknownTokens().contains("shop_pearl_raw_stock"));
         assertEquals(DailyEventEffectCatalog.Coverage.PRESERVED,
                 snapshot.find("mulan_border_patrol").orElseThrow().authoredFields().stream()
                         .filter(field -> "war_phase".equals(field.field()))

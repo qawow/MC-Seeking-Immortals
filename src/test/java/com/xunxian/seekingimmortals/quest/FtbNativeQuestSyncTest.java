@@ -160,9 +160,14 @@ class FtbNativeQuestSyncTest {
     void explicitWritePathDoesNotReplayHooksOrRequireNpcProximity() throws IOException {
         String source = Files.readString(Path.of(
                 "src/main/java/com/xunxian/seekingimmortals/quest/FtbNativeQuestSync.java"));
+        String nativeSource = Files.readString(Path.of(
+                "src/main/java/com/xunxian/seekingimmortals/quest/TextQuestChainService.java"));
 
         assertFalse(source.contains("QuestHookRuntime"));
         assertFalse(source.contains("TextQuestNpcHookService"));
         assertTrue(source.contains("TextQuestChainService.transitionExact("));
+        assertTrue(nativeSource.contains(
+                "QuestAuthorityCatalog.stageGate(player, chain.id(), targetStage)"));
+        assertTrue(nativeSource.contains("!= QuestAuthorityCatalog.Gate.OPEN"));
     }
 }

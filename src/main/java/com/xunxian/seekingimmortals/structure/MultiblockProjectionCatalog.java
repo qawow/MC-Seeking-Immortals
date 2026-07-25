@@ -141,7 +141,26 @@ public final class MultiblockProjectionCatalog {
         thunderAltar.airAperture(1, 3);
         add(projections, thunderAltar.build());
 
+        addCatalogProjections(projections);
         return Collections.unmodifiableMap(projections);
+    }
+
+    private static void addCatalogProjections(Map<String, Projection> projections) {
+        for (MultiblockStructureCatalog.StructureEntry entry
+                : MultiblockStructureCatalog.builtin().structures().values()) {
+            if (!CatalogStationGeometry.supports(entry.pattern().validator())) {
+                continue;
+            }
+            CatalogStationGeometry.Geometry geometry = CatalogStationGeometry.compile(entry);
+            List<Cell> cells = geometry.cells().stream()
+                    .map(cell -> new Cell(
+                            cell.offset(),
+                            cell.airRequired() ? "" : cell.displayBlockId(),
+                            cell.acceptedBlockIds(),
+                            cell.airRequired()))
+                    .toList();
+            add(projections, new Projection(mod(geometry.stationId()), cells, geometry.layers()));
+        }
     }
 
     private static Projection alchemyFurnace(String controllerPath, int tier, String lidPath) {

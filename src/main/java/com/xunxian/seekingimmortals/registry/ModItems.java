@@ -618,7 +618,8 @@ public final class ModItems {
                     "阴冥渡口符",
                     BulkItemClassifier.consumable("ferry_pass").orElseThrow()));
     public static final RegistryObject<Item> VOID_PALACE_KEY_FRAGMENT = ITEMS.register("void_palace_key_fragment", () -> new Item(new Item.Properties().stacksTo(16).rarity(net.minecraft.world.item.Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> SPACE_RIFT_COMPASS = ITEMS.register("space_rift_compass", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> SPACE_RIFT_COMPASS = ITEMS.register("space_rift_compass",
+            () -> new SpaceRiftCompassItem(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> BORDER_MERIT_TOKEN = ITEMS.register("border_merit_token", () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> SECT_PERMIT = ITEMS.register("sect_permit", () -> new Item(new Item.Properties().stacksTo(16)));
     public static final RegistryObject<Item> INVERSE_STAR_CONTACT = ITEMS.register("inverse_star_contact", () -> new Item(new Item.Properties().stacksTo(16)));

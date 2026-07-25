@@ -122,6 +122,7 @@ public final class ClientEvents {
         event.registerAboveAll("cultivation_health", CultivationHealthOverlay::renderOverlay);
         event.registerAboveAll("technique_skill_bar", TechniqueSkillBarOverlay::renderOverlay);
         event.registerAboveAll("cultivation_hud", CultivationHudOverlay::renderOverlay);
+        event.registerAboveAll("authored_visual_overlay", ClientVisualOverlayRuntime::render);
     }
 
     @SubscribeEvent
@@ -225,6 +226,7 @@ public final class ClientEvents {
         public static void onClientTick(TickEvent.ClientTickEvent event) {
             if (event.phase == TickEvent.Phase.END) {
                 ClientVisualEngine.tick();
+                ClientVisualOverlayRuntime.tick();
                 LodestoneTechniqueVfx.tickProjectiles();
                 MultiblockProjectionRenderer.tick();
             }

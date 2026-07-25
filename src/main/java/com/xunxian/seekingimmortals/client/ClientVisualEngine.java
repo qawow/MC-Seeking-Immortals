@@ -194,6 +194,8 @@ public final class ClientVisualEngine {
         particlesUsed = 0;
         geometryUsed = 0;
         postEffectsUsed = 0;
+        ClientVisualOverlayRuntime.reset();
+        ClientModelAnimationRuntime.reset();
     }
 
     static int remainingParticleBudget(ClientLevel level) {
@@ -352,6 +354,14 @@ public final class ClientVisualEngine {
         ResolvedStyle baseStyle = resolveStyle(packet);
         ResolvedStyle style = timelineEvent == null
                 ? baseStyle : applyTimelineStyle(baseStyle, timelineEvent);
+        if (timelineEvent != null && timelineEvent.action()
+                == com.xunxian.seekingimmortals.visual.VisualAction.SCREEN_OVERLAY) {
+            ClientVisualOverlayRuntime.push(
+                    style.primaryArgb(), timelineEvent.intensity(), timelineEvent.durationTicks());
+        } else if (timelineEvent != null && timelineEvent.action()
+                == com.xunxian.seekingimmortals.visual.VisualAction.MODEL_ANIMATION) {
+            ClientModelAnimationRuntime.trigger(level, packet, timelineEvent);
+        }
         Vec3 target = new Vec3(packet.targetX(), packet.targetY(), packet.targetZ());
         if (!finite(target)) {
             target = anchor;

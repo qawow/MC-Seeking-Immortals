@@ -301,6 +301,9 @@ public final class ModEvents {
                 if (serverPlayer.tickCount % 40 == 0) {
                     com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseExpansionPassive.tick(serverPlayer);
                 }
+                if (serverPlayer.tickCount % 600 == 0) {
+                    NpcSettlementService.ensureRegionalRoster(serverPlayer);
+                }
             }
 
             if (event.player.tickCount % 20 != 0) return;
@@ -461,6 +464,13 @@ public final class ModEvents {
         if (!(sourceEntity instanceof ServerPlayer attacker)) return;
         if (!(event.getEntity() instanceof ServerPlayer defender)) return;
         if (event.getEntity().level().isClientSide) return;
+        if (!DailyEventEffectExecutor.isPvpAllowed(attacker, defender)) {
+            event.setAmount(0.0F);
+            event.setCanceled(true);
+            attacker.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.daily_event.pvp_blocked"), true);
+            return;
+        }
 
         com.xunxian.seekingimmortals.combat.DamageResult result =
                 com.xunxian.seekingimmortals.combat.CombatCalculator.calculateDamage(
@@ -762,6 +772,7 @@ public final class ModEvents {
             TechniqueLifecycleVfxService.restoreSelfBuffs(serverPlayer);
             MultiSwordArraySpell.clear(serverPlayer, false);
             NpcSettlementService.ensureStarterHub(serverPlayer);
+            NpcSettlementService.ensureRegionalRoster(serverPlayer);
         }
         CultivationHelper.get(event.getEntity()).ifPresent(cultivation -> {
             cultivation.ensureRootInitialized(event.getEntity().getRandom());
