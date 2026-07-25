@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 433,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1736–1740章）",
+  "method": "沿原文逐段精读；本索引汇总 v433 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1717", "display": "寻矿窑洞与傀儡采矿", "category": "setting", "file": "novel_curated_settings_v433.json"},
+    {"id": "setting_1718", "display": "混元尺通宝诀", "category": "setting", "file": "novel_curated_settings_v433.json"},
+    {"id": "setting_1719", "display": "戎族菱形战车", "category": "setting", "file": "novel_curated_settings_v433.json"},
+    {"id": "setting_1720", "display": "洞漩金光神通", "category": "setting", "file": "novel_curated_settings_v433.json"},
+    {"id": "setting_1721", "display": "九焰草与灵丹交换", "category": "setting", "file": "novel_curated_settings_v433.json"},
+    {"id": "setting_1722", "display": "密洞炼神术金篆文", "category": "setting", "file": "novel_curated_settings_v433.json"},
+    {"id": "artifact_1129", "display": "混元尺通天灵宝", "category": "artifact", "file": "novel_curated_artifacts_v433.json"},
+    {"id": "artifact_1130", "display": "天罡印救曲儿", "category": "artifact", "file": "novel_curated_artifacts_v433.json"},
+    {"id": "artifact_1131", "display": "戎族黑幡与绿铜镜", "category": "artifact", "file": "novel_curated_artifacts_v433.json"},
+    {"id": "artifact_1132", "display": "元磁极山压飞车", "category": "artifact", "file": "novel_curated_artifacts_v433.json"},
+    {"id": "technique_855", "display": "混元尺真假尺影", "category": "technique", "file": "novel_curated_techniques_v433.json"},
+    {"id": "technique_856", "display": "洞漩金光吸摄", "category": "technique", "file": "novel_curated_techniques_v433.json"},
+    {"id": "technique_857", "display": "青竹剑丝切碎", "category": "technique", "file": "novel_curated_techniques_v433.json"},
+    {"id": "material_877", "display": "黑紫广寒矿石", "category": "material", "file": "novel_curated_materials_v433.json"},
+    {"id": "material_878", "display": "数万飞虹鱼妖丹", "category": "material", "file": "novel_curated_materials_v433.json"},
+    {"id": "material_879", "display": "九焰灵草", "category": "material", "file": "novel_curated_materials_v433.json"}
+  ]
+}
