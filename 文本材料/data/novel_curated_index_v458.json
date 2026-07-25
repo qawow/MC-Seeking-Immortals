@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 458,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1855–1859章）",
+  "method": "沿原文逐段精读；本索引汇总 v458 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1867", "display": "啼魂刑兽再现", "category": "setting", "file": "novel_curated_settings_v458.json"},
+    {"id": "setting_1868", "display": "极山灭敌元婴尽", "category": "setting", "file": "novel_curated_settings_v458.json"},
+    {"id": "setting_1869", "display": "啼魂灵智与飞升", "category": "setting", "file": "novel_curated_settings_v458.json"},
+    {"id": "setting_1870", "display": "五色巨眼摄取", "category": "setting", "file": "novel_curated_settings_v458.json"},
+    {"id": "setting_1871", "display": "青元子元婴再会", "category": "setting", "file": "novel_curated_settings_v458.json"},
+    {"id": "setting_1872", "display": "冥河灵乳借出变故", "category": "setting", "file": "novel_curated_settings_v458.json"},
+    {"id": "artifact_1229", "display": "刑兽骨矛血链", "category": "artifact", "file": "novel_curated_artifacts_v458.json"},
+    {"id": "artifact_1230", "display": "金银双储物环", "category": "artifact", "file": "novel_curated_artifacts_v458.json"},
+    {"id": "artifact_1231", "display": "空间画轴本命", "category": "artifact", "file": "novel_curated_artifacts_v458.json"},
+    {"id": "artifact_1232", "display": "翠绿材料储物环", "category": "artifact", "file": "novel_curated_artifacts_v458.json"},
+    {"id": "technique_930", "display": "刑兽血链捆雷", "category": "technique", "file": "novel_curated_techniques_v458.json"},
+    {"id": "technique_931", "display": "极山投掷杀招", "category": "technique", "file": "novel_curated_techniques_v458.json"},
+    {"id": "technique_932", "display": "元婴固形出窍", "category": "technique", "file": "novel_curated_techniques_v458.json"},
+    {"id": "material_952", "display": "雷兽晶核", "category": "material", "file": "novel_curated_materials_v458.json"},
+    {"id": "material_953", "display": "五色孔雀真血", "category": "material", "file": "novel_curated_materials_v458.json"},
+    {"id": "material_954", "display": "冥河神乳", "category": "material", "file": "novel_curated_materials_v458.json"}
+  ]
+}
