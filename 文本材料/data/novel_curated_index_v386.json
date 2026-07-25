@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 386,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（良机·黄雀·出手·混战·意外迭起：第1501–1505章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v385 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1501章 良机 — 第1505章 意外迭起",
+  "progress": "1505/2005 ≈ 75.1%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1435–setting_1440",
+    "artifacts": "artifact_941–artifact_944",
+    "techniques": "technique_714–technique_716",
+    "materials": "material_736–material_738"
+  },
+  "entries": [
+    {"id": "setting_1435", "display": "神乳与灵脉一体", "category": "setting", "file": "novel_curated_settings_v386.json"},
+    {"id": "setting_1436", "display": "冥雷兽人化与蜉蝣禁制", "category": "setting", "file": "novel_curated_settings_v386.json"},
+    {"id": "setting_1437", "display": "金甲黄雀与五龙铡突袭", "category": "setting", "file": "novel_curated_settings_v386.json"},
+    {"id": "setting_1438", "display": "混战：血剑秽球与鬼兵", "category": "setting", "file": "novel_curated_settings_v386.json"},
+    {"id": "setting_1439", "display": "辟邪破控体救二女", "category": "setting", "file": "novel_curated_settings_v386.json"},
+    {"id": "setting_1440", "display": "木青代僵与合体血傀儡", "category": "setting", "file": "novel_curated_settings_v386.json"},
+    {"id": "artifact_941", "display": "蜉蝣禁制旗盘", "category": "artifact", "file": "novel_curated_artifacts_v386.json"},
+    {"id": "artifact_942", "display": "万年秽气血球", "category": "artifact", "file": "novel_curated_artifacts_v386.json"},
+    {"id": "artifact_943", "display": "阴云囊与白骨幡", "category": "artifact", "file": "novel_curated_artifacts_v386.json"},
+    {"id": "artifact_944", "display": "雷蛟剪与元磁神山", "category": "artifact", "file": "novel_curated_artifacts_v386.json"},
+    {"id": "technique_714", "display": "冥雷兽人化变身", "category": "technique", "file": "novel_curated_techniques_v386.json"},
+    {"id": "technique_715", "display": "鬼王巨化与绿焰锤", "category": "technique", "file": "novel_curated_techniques_v386.json"},
+    {"id": "technique_716", "display": "桃李代僵与翠树护体", "category": "technique", "file": "novel_curated_techniques_v386.json"},
+    {"id": "material_736", "display": "神乳白雾与灵脉", "category": "material", "file": "novel_curated_materials_v386.json"},
+    {"id": "material_737", "display": "七金属傀儡", "category": "material", "file": "novel_curated_materials_v386.json"},
+    {"id": "material_738", "display": "翠玉灵木枝", "category": "material", "file": "novel_curated_materials_v386.json"}
+  ]
+}
