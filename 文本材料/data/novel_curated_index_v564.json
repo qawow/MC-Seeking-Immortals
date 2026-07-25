@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 564,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2386–2390章）",
+  "method": "沿原文逐段精读；本索引汇总 v564 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2503", "display": "黄风图沙漠与马良灵域", "category": "setting", "file": "novel_curated_settings_v564.json"},
+    {"id": "setting_2504", "display": "灭魔惨败与血天封山", "category": "setting", "file": "novel_curated_settings_v564.json"},
+    {"id": "setting_2505", "display": "镇海宫与青蛟殿", "category": "setting", "file": "novel_curated_settings_v564.json"},
+    {"id": "setting_2506", "display": "小灵天入口与通道", "category": "setting", "file": "novel_curated_settings_v564.json"},
+    {"id": "setting_2507", "display": "绿灵族与古树祖灵", "category": "setting", "file": "novel_curated_settings_v564.json"},
+    {"id": "setting_2508", "display": "通道遮蔽与掌印警告", "category": "setting", "file": "novel_curated_settings_v564.json"},
+    {"id": "artifact_1653", "display": "观天镜与传讯阵盘", "category": "artifact", "file": "novel_curated_artifacts_v564.json"},
+    {"id": "artifact_1654", "display": "金品替身仙符", "category": "artifact", "file": "novel_curated_artifacts_v564.json"},
+    {"id": "artifact_1655", "display": "墨灵圣舟", "category": "artifact", "file": "novel_curated_artifacts_v564.json"},
+    {"id": "artifact_1656", "display": "绢帕地图与紫纹巨盾", "category": "artifact", "file": "novel_curated_artifacts_v564.json"},
+    {"id": "technique_1248", "display": "马良灵域与金火山", "category": "technique", "file": "novel_curated_techniques_v564.json"},
+    {"id": "technique_1249", "display": "三头六臂法相与无形剑气", "category": "technique", "file": "novel_curated_techniques_v564.json"},
+    {"id": "technique_1250", "display": "复原禁制与金雷球", "category": "technique", "file": "novel_curated_techniques_v564.json"},
+    {"id": "material_1270", "display": "血红巨蟾残躯", "category": "material", "file": "novel_curated_materials_v564.json"},
+    {"id": "material_1271", "display": "人面蛟银鳞与紫衣后裔", "category": "material", "file": "novel_curated_materials_v564.json"},
+    {"id": "material_1272", "display": "绿叶虚影与绿海之力", "category": "material", "file": "novel_curated_materials_v564.json"}
+  ]
+}
