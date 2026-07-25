@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 604,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第134–138章）",
+  "method": "沿原文逐段精读；本索引汇总 v604 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2743", "display": "时间法则加速炼重水", "category": "setting", "file": "novel_curated_settings_v604.json"},
+    {"id": "setting_2744", "display": "晶粒仅对化身有效", "category": "setting", "file": "novel_curated_settings_v604.json"},
+    {"id": "setting_2745", "display": "聚灵阵辅催瓶化晶", "category": "setting", "file": "novel_curated_settings_v604.json"},
+    {"id": "setting_2746", "display": "黑风岛与黑风城", "category": "setting", "file": "novel_curated_settings_v604.json"},
+    {"id": "setting_2747", "display": "古传送阵百年开启", "category": "setting", "file": "novel_curated_settings_v604.json"},
+    {"id": "setting_2748", "display": "仙界炼丹师分阶", "category": "setting", "file": "novel_curated_settings_v604.json"},
+    {"id": "artifact_1813", "display": "本命八灵缸", "category": "artifact", "file": "novel_curated_artifacts_v604.json"},
+    {"id": "artifact_1814", "display": "星移子母盘", "category": "artifact", "file": "novel_curated_artifacts_v604.json"},
+    {"id": "artifact_1815", "display": "神行玦", "category": "artifact", "file": "novel_curated_artifacts_v604.json"},
+    {"id": "artifact_1816", "display": "浮空云舟", "category": "artifact", "file": "novel_curated_artifacts_v604.json"},
+    {"id": "technique_1368", "display": "八灵缸精血寻剑", "category": "technique", "file": "novel_curated_techniques_v604.json"},
+    {"id": "technique_1369", "display": "鹄骨黑剑巨影斩", "category": "technique", "file": "novel_curated_techniques_v604.json"},
+    {"id": "technique_1370", "display": "幻离阵隐群岛", "category": "technique", "file": "novel_curated_techniques_v604.json"},
+    {"id": "material_1390", "display": "逆天时间晶粒", "category": "material", "file": "novel_curated_materials_v604.json"},
+    {"id": "material_1391", "display": "青花丹", "category": "material", "file": "novel_curated_materials_v604.json"},
+    {"id": "material_1392", "display": "仙元石", "category": "material", "file": "novel_curated_materials_v604.json"}
+  ]
+}
