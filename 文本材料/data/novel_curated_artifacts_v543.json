@@ -1,0 +1,71 @@
+{
+  "schema_version": 55,
+  "extract_version": 543,
+  "source": "《凡人修仙传》— 人工精读提取 · 法宝类（战前·修罗之战一至四：卷十一第2281–2285章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v542 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 4,
+  "entries": [
+    {
+      "id": "artifact_1569",
+      "display": "血燃鬼面香炉",
+      "category": "artifact",
+      "term": "黑色香炉",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2281章 战前"},
+      "setting": "拳大黑炉插鲜红寸香；燃后鬼哭青光化万鬼面蜂，可重生；八血光婴儿变独角恶鬼。",
+      "visual_descriptions": [
+        "一只拳头大的黑色香炉，里面还插着一根纤细香烛。寸许来长，鲜红如血。",
+        "竟幻化成了一只只拳头大的鬼面蜂。……头颅遍布鬼面般花纹，身躯更是若隐若现的模糊不清。"
+      ],
+      "setting_descriptions": [
+        "「远处点点青光一凝后，密密麻麻的鬼头蜂就完好如初的重新浮现而出。」"
+      ]
+    },
+    {
+      "id": "artifact_1570",
+      "display": "黑鳞紫金长棍",
+      "category": "artifact",
+      "term": "紫金长棍",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2282章 修罗之战（一）"},
+      "setting": "紫金长棍虚影千丈砸裂沙漠；可化紫金光幕挡绿丝。",
+      "visual_descriptions": [
+        "手中一闪的多出一杆紫金色长棍……一道千丈长的巨棍虚影从天而降，一闪之下，就擎天神兵般的砸在了地面上。",
+        "一根粗大棍影竟丝毫征兆没有的一闪而现，只是微微一晃后，就化为一片紫金光幕。"
+      ],
+      "setting_descriptions": []
+    },
+    {
+      "id": "artifact_1571",
+      "display": "奕老青灯金镜银卷",
+      "category": "artifact",
+      "term": "青灯金镜",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2283章 修罗之战（二）"},
+      "setting": "青古灯召慕兰紫孔雀；金古镜化上千金镜喷金焰；淡银卷轴出十八银甲士。",
+      "visual_descriptions": [
+        "手中蓦然多出了一盏青色古灯来。",
+        "又喷出一面金色古镜来……手心蓦然多出一幅淡银色卷轴。",
+        "身后虚空中当即无数金影闪动，一面面一般无二金镜浮现而出，密密麻麻，足有上千面之多。",
+        "竟幻化出十八名面无表情的银色甲士。"
+      ],
+      "setting_descriptions": []
+    },
+    {
+      "id": "artifact_1572",
+      "display": "魔晶傀儡储物环",
+      "category": "artifact",
+      "term": "漆黑圆环",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2281章 战前"},
+      "setting": "韩以漆黑圆环付莫，内装数具魔界合体魔晶傀儡，助缠成年修罗蛛。",
+      "visual_descriptions": [
+        "单手一个翻转，手中多出一件漆黑圆环，并直接递给了莫简离。"
+      ],
+      "setting_descriptions": [
+        "「我手中还有几具悍不畏死合体期傀儡……里面正好装着数具，他从魔界得到的合体期魔晶傀儡。」"
+      ]
+    }
+  ]
+}

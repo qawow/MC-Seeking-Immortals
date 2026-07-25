@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 543,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2281–2285章）",
+  "method": "沿原文逐段精读；本索引汇总 v543 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2377", "display": "樱仙子闭关与腾空城", "category": "setting", "file": "novel_curated_settings_v543.json"},
+    {"id": "setting_2378", "display": "修罗之战开打", "category": "setting", "file": "novel_curated_settings_v543.json"},
+    {"id": "setting_2379", "display": "慕兰圣禽古灯", "category": "setting", "file": "novel_curated_settings_v543.json"},
+    {"id": "setting_2380", "display": "飞灵五光族与五色神光", "category": "setting", "file": "novel_curated_settings_v543.json"},
+    {"id": "setting_2381", "display": "韩五色孔雀与紫金巨猿", "category": "setting", "file": "novel_curated_settings_v543.json"},
+    {"id": "setting_2382", "display": "奕老半禽半人五剑", "category": "setting", "file": "novel_curated_settings_v543.json"},
+    {"id": "artifact_1569", "display": "血燃鬼面香炉", "category": "artifact", "file": "novel_curated_artifacts_v543.json"},
+    {"id": "artifact_1570", "display": "黑鳞紫金长棍", "category": "artifact", "file": "novel_curated_artifacts_v543.json"},
+    {"id": "artifact_1571", "display": "奕老青灯金镜银卷", "category": "artifact", "file": "novel_curated_artifacts_v543.json"},
+    {"id": "artifact_1572", "display": "魔晶傀儡储物环", "category": "artifact", "file": "novel_curated_artifacts_v543.json"},
+    {"id": "technique_1185", "display": "洞璇金光", "category": "technique", "file": "novel_curated_techniques_v543.json"},
+    {"id": "technique_1186", "display": "青色剑莲护体", "category": "technique", "file": "novel_curated_techniques_v543.json"},
+    {"id": "technique_1187", "display": "固化天地与巨猿破爪", "category": "technique", "file": "novel_curated_techniques_v543.json"},
+    {"id": "material_1207", "display": "修罗蛛晶核时间之力", "category": "material", "file": "novel_curated_materials_v543.json"},
+    {"id": "material_1208", "display": "五光圣禽真血", "category": "material", "file": "novel_curated_materials_v543.json"},
+    {"id": "material_1209", "display": "鲜红寸香", "category": "material", "file": "novel_curated_materials_v543.json"}
+  ]
+}
