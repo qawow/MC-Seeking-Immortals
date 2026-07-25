@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 528,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2206–2210章）",
+  "method": "沿原文逐段精读；本索引汇总 v528 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2287", "display": "血蛊虫与血天大陆", "category": "setting", "file": "novel_curated_settings_v528.json"},
+    {"id": "setting_2288", "display": "虚天鼎钥匙交易", "category": "setting", "file": "novel_curated_settings_v528.json"},
+    {"id": "setting_2289", "display": "圣岛与混沌万灵榜", "category": "setting", "file": "novel_curated_settings_v528.json"},
+    {"id": "setting_2290", "display": "天书阁换术规矩", "category": "setting", "file": "novel_curated_settings_v528.json"},
+    {"id": "setting_2291", "display": "再入魔界节点", "category": "setting", "file": "novel_curated_settings_v528.json"},
+    {"id": "setting_2292", "display": "螟虫后裔虫云", "category": "setting", "file": "novel_curated_settings_v528.json"},
+    {"id": "artifact_1509", "display": "万年玄冰棺", "category": "artifact", "file": "novel_curated_artifacts_v528.json"},
+    {"id": "artifact_1510", "display": "混沌万灵榜晶壁", "category": "artifact", "file": "novel_curated_artifacts_v528.json"},
+    {"id": "artifact_1511", "display": "逆星盘", "category": "artifact", "file": "novel_curated_artifacts_v528.json"},
+    {"id": "artifact_1512", "display": "天书阁金令牌", "category": "artifact", "file": "novel_curated_artifacts_v528.json"},
+    {"id": "technique_1140", "display": "神念化丝驱蛊", "category": "technique", "file": "novel_curated_techniques_v528.json"},
+    {"id": "technique_1141", "display": "祭雷术下半", "category": "technique", "file": "novel_curated_techniques_v528.json"},
+    {"id": "technique_1142", "display": "三极山灭螟虫云", "category": "technique", "file": "novel_curated_techniques_v528.json"},
+    {"id": "material_1162", "display": "补元丹", "category": "material", "file": "novel_curated_materials_v528.json"},
+    {"id": "material_1163", "display": "异族秘术玉简群", "category": "material", "file": "novel_curated_materials_v528.json"},
+    {"id": "material_1164", "display": "螟虫与双首巨虫", "category": "material", "file": "novel_curated_materials_v528.json"}
+  ]
+}
