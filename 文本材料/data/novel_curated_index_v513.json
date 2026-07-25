@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 513,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第2131–2135章）",
+  "method": "沿原文逐段精读；本索引汇总 v513 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2197", "display": "得晶与真光材料", "category": "setting", "file": "novel_curated_settings_v513.json"},
+    {"id": "setting_2198", "display": "六极蓝瀑密谋宝花", "category": "setting", "file": "novel_curated_settings_v513.json"},
+    {"id": "setting_2199", "display": "血牙米暗售与城规", "category": "setting", "file": "novel_curated_settings_v513.json"},
+    {"id": "setting_2200", "display": "返程通道与木族", "category": "setting", "file": "novel_curated_settings_v513.json"},
+    {"id": "setting_2201", "display": "六绝青雷大阵", "category": "setting", "file": "novel_curated_settings_v513.json"},
+    {"id": "setting_2202", "display": "绝阵困宝花与小灵天", "category": "setting", "file": "novel_curated_settings_v513.json"},
+    {"id": "artifact_1449", "display": "赤金飞舟与蓝焰化鸟", "category": "artifact", "file": "novel_curated_artifacts_v513.json"},
+    {"id": "artifact_1450", "display": "血牙米交易环镯", "category": "artifact", "file": "novel_curated_artifacts_v513.json"},
+    {"id": "artifact_1451", "display": "飞车阵旗与黑符网", "category": "artifact", "file": "novel_curated_artifacts_v513.json"},
+    {"id": "artifact_1452", "display": "六青幡与宝花短锏", "category": "artifact", "file": "novel_curated_artifacts_v513.json"},
+    {"id": "technique_1095", "display": "银焰炼核与惊蛰收形", "category": "technique", "file": "novel_curated_techniques_v513.json"},
+    {"id": "technique_1096", "display": "辟邪神雷破青电", "category": "technique", "file": "novel_curated_techniques_v513.json"},
+    {"id": "technique_1097", "display": "开阵门与黄晕护身", "category": "technique", "file": "novel_curated_techniques_v513.json"},
+    {"id": "material_1117", "display": "淡绿真光晶体", "category": "material", "file": "novel_curated_materials_v513.json"},
+    {"id": "material_1118", "display": "分矿特殊异魔金", "category": "material", "file": "novel_curated_materials_v513.json"},
+    {"id": "material_1119", "display": "上品血牙米整批", "category": "material", "file": "novel_curated_materials_v513.json"}
+  ]
+}
