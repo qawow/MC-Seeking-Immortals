@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 407,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1606–1610章）",
+  "method": "沿原文逐段精读；本索引汇总 v407 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1561", "display": "腾龙丹天价与神秘小瓶", "category": "setting", "file": "novel_curated_settings_v407.json"},
+    {"id": "setting_1562", "display": "云城四大客卿压轴", "category": "setting", "file": "novel_curated_settings_v407.json"},
+    {"id": "setting_1563", "display": "八大奇兽与人面蛟混血", "category": "setting", "file": "novel_curated_settings_v407.json"},
+    {"id": "setting_1564", "display": "大乘期与人面蛟本尊", "category": "setting", "file": "novel_curated_settings_v407.json"},
+    {"id": "setting_1565", "display": "紫狐化形与银月感应", "category": "setting", "file": "novel_curated_settings_v407.json"},
+    {"id": "setting_1566", "display": "地灵族与地幽战车", "category": "setting", "file": "novel_curated_settings_v407.json"},
+    {"id": "artifact_1025", "display": "万兽螺", "category": "artifact", "file": "novel_curated_artifacts_v407.json"},
+    {"id": "artifact_1026", "display": "黑笼与金银细索", "category": "artifact", "file": "novel_curated_artifacts_v407.json"},
+    {"id": "artifact_1027", "display": "地幽战车", "category": "artifact", "file": "novel_curated_artifacts_v407.json"},
+    {"id": "artifact_1028", "display": "金雷竹压轴段", "category": "artifact", "file": "novel_curated_artifacts_v407.json"},
+    {"id": "technique_777", "display": "紫狐隐遁与蛟影", "category": "technique", "file": "novel_curated_techniques_v407.json"},
+    {"id": "technique_778", "display": "人面蛟臂斩与破笼", "category": "technique", "file": "novel_curated_techniques_v407.json"},
+    {"id": "technique_779", "display": "翡青年挡杀与疗伤", "category": "technique", "file": "novel_curated_techniques_v407.json"},
+    {"id": "material_799", "display": "腾龙丹拍卖价", "category": "material", "file": "novel_curated_materials_v407.json"},
+    {"id": "material_800", "display": "金雷竹至木神雷", "category": "material", "file": "novel_curated_materials_v407.json"},
+    {"id": "material_801", "display": "地灵族傀儡材质", "category": "material", "file": "novel_curated_materials_v407.json"}
+  ]
+}
