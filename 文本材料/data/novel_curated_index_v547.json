@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 547,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2301–2305章）",
+  "method": "沿原文逐段精读；本索引汇总 v547 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2401", "display": "山海珠洞天安置", "category": "setting", "file": "novel_curated_settings_v547.json"},
+    {"id": "setting_2402", "display": "灵王晶核换符", "category": "setting", "file": "novel_curated_settings_v547.json"},
+    {"id": "setting_2403", "display": "元魂灯养魂", "category": "setting", "file": "novel_curated_settings_v547.json"},
+    {"id": "setting_2404", "display": "敖啸红云谷陨落", "category": "setting", "file": "novel_curated_settings_v547.json"},
+    {"id": "setting_2405", "display": "无涯海元合岛", "category": "setting", "file": "novel_curated_settings_v547.json"},
+    {"id": "setting_2406", "display": "忘情诀分离", "category": "setting", "file": "novel_curated_settings_v547.json"},
+    {"id": "artifact_1585", "display": "三清雷霄符", "category": "artifact", "file": "novel_curated_artifacts_v547.json"},
+    {"id": "artifact_1586", "display": "元魂灯", "category": "artifact", "file": "novel_curated_artifacts_v547.json"},
+    {"id": "artifact_1587", "display": "敖啸灵核残宝", "category": "artifact", "file": "novel_curated_artifacts_v547.json"},
+    {"id": "artifact_1588", "display": "两仪万引大阵", "category": "artifact", "file": "novel_curated_artifacts_v547.json"},
+    {"id": "technique_1197", "display": "玄武变身", "category": "technique", "file": "novel_curated_techniques_v547.json"},
+    {"id": "technique_1198", "display": "两仪万引大阵", "category": "technique", "file": "novel_curated_techniques_v547.json"},
+    {"id": "technique_1199", "display": "忘情诀分离", "category": "technique", "file": "novel_curated_techniques_v547.json"},
+    {"id": "material_1219", "display": "修罗蛛晶核", "category": "material", "file": "novel_curated_materials_v547.json"},
+    {"id": "material_1220", "display": "玄武真血", "category": "material", "file": "novel_curated_materials_v547.json"},
+    {"id": "material_1221", "display": "空间法则心得", "category": "material", "file": "novel_curated_materials_v547.json"}
+  ]
+}
