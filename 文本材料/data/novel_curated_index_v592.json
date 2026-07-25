@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 592,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第74–78章）",
+  "method": "沿原文逐段精读；本索引汇总 v592 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2671", "display": "十方楼分楼与仙宫令", "category": "setting", "file": "novel_curated_settings_v592.json"},
+    {"id": "setting_2672", "display": "第七玄窍与真极之躯", "category": "setting", "file": "novel_curated_settings_v592.json"},
+    {"id": "setting_2673", "display": "柳乐儿被同族带走", "category": "setting", "file": "novel_curated_settings_v592.json"},
+    {"id": "setting_2674", "display": "飞升与偷渡之法", "category": "setting", "file": "novel_curated_settings_v592.json"},
+    {"id": "setting_2675", "display": "黑雾海与五爪墨龙", "category": "setting", "file": "novel_curated_settings_v592.json"},
+    {"id": "setting_2676", "display": "北斗异象大成", "category": "setting", "file": "novel_curated_settings_v592.json"},
+    {"id": "artifact_1765", "display": "紫金圆钵与金色令牌", "category": "artifact", "file": "novel_curated_artifacts_v592.json"},
+    {"id": "artifact_1766", "display": "八宝玲珑玉与骨甲拳甲", "category": "artifact", "file": "novel_curated_artifacts_v592.json"},
+    {"id": "artifact_1767", "display": "星月宝镜重炼", "category": "artifact", "file": "novel_curated_artifacts_v592.json"},
+    {"id": "artifact_1768", "display": "薄弱节点地图与阵柱", "category": "artifact", "file": "novel_curated_artifacts_v592.json"},
+    {"id": "technique_1332", "display": "小北斗聚星与第七窍", "category": "technique", "file": "novel_curated_techniques_v592.json"},
+    {"id": "technique_1333", "display": "斩蛟收婴与青光瞬现", "category": "technique", "file": "novel_curated_techniques_v592.json"},
+    {"id": "technique_1334", "display": "北斗圆环灌体大成", "category": "technique", "file": "novel_curated_techniques_v592.json"},
+    {"id": "material_1354", "display": "母豆生机", "category": "material", "file": "novel_curated_materials_v592.json"},
+    {"id": "material_1355", "display": "墨蛟妖丹鳞爪", "category": "material", "file": "novel_curated_materials_v592.json"},
+    {"id": "material_1356", "display": "八宝玲珑玉与玄水炼幽录", "category": "material", "file": "novel_curated_materials_v592.json"}
+  ]
+}
