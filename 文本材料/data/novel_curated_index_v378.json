@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 378,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（逃遁·图谋·神雷之谜·再见元瑶·四大妖王：第1461–1465章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v377 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1461章 逃遁 — 第1465章 四大妖王",
+  "progress": "1465/2005 ≈ 73.1%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1387–setting_1392",
+    "artifacts": "artifact_909–artifact_912",
+    "techniques": "technique_690–technique_692",
+    "materials": "material_712–material_714"
+  },
+  "entries": [
+    {"id": "setting_1387", "display": "木青猎肉身与分道逃遁", "category": "setting", "file": "novel_curated_settings_v378.json"},
+    {"id": "setting_1388", "display": "木仙谷软禁与阴刹茶", "category": "setting", "file": "novel_curated_settings_v378.json"},
+    {"id": "setting_1389", "display": "辟邪神雷与冥河计划", "category": "setting", "file": "novel_curated_settings_v378.json"},
+    {"id": "setting_1390", "display": "四大妖王木仙殿聚", "category": "setting", "file": "novel_curated_settings_v378.json"},
+    {"id": "setting_1391", "display": "再见元瑶妍丽", "category": "setting", "file": "novel_curated_settings_v378.json"},
+    {"id": "setting_1392", "display": "冥河禁制与驱雷之道", "category": "setting", "file": "novel_curated_settings_v378.json"},
+    {"id": "artifact_909", "display": "木青金镜", "category": "artifact", "file": "novel_curated_artifacts_v378.json"},
+    {"id": "artifact_910", "display": "阴刹茶", "category": "artifact", "file": "novel_curated_artifacts_v378.json"},
+    {"id": "artifact_911", "display": "木髓酒", "category": "artifact", "file": "novel_curated_artifacts_v378.json"},
+    {"id": "artifact_912", "display": "四妖王身记", "category": "artifact", "file": "novel_curated_artifacts_v378.json"},
+    {"id": "technique_690", "display": "木青黑霞传送阵", "category": "technique", "file": "novel_curated_techniques_v378.json"},
+    {"id": "technique_691", "display": "辟邪神雷克阴魔", "category": "technique", "file": "novel_curated_techniques_v378.json"},
+    {"id": "technique_692", "display": "隔念青幕禁制", "category": "technique", "file": "novel_curated_techniques_v378.json"},
+    {"id": "material_712", "display": "冥焰果收成", "category": "material", "file": "novel_curated_materials_v378.json"},
+    {"id": "material_713", "display": "金雷竹", "category": "material", "file": "novel_curated_materials_v378.json"},
+    {"id": "material_714", "display": "万年灵木之髓", "category": "material", "file": "novel_curated_materials_v378.json"}
+  ]
+}
