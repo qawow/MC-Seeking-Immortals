@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 379,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（邪龙族·木精洞·收雷·血焰山·灵侍：第1466–1470章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v378 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1466章 邪龙族 — 第1470章 灵侍",
+  "progress": "1470/2005 ≈ 73.3%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1393–setting_1398",
+    "artifacts": "artifact_913–artifact_916",
+    "techniques": "technique_693–technique_695",
+    "materials": "material_715–material_717"
+  },
+  "entries": [
+    {"id": "setting_1393", "display": "邪龙族与至木神雷灭迹", "category": "setting", "file": "novel_curated_settings_v379.json"},
+    {"id": "setting_1394", "display": "四大妖王观察与元字传讯", "category": "setting", "file": "novel_curated_settings_v379.json"},
+    {"id": "setting_1395", "display": "木精洞与闭关指点", "category": "setting", "file": "novel_curated_settings_v379.json"},
+    {"id": "setting_1396", "display": "二次小天劫收雷", "category": "setting", "file": "novel_curated_settings_v379.json"},
+    {"id": "setting_1397", "display": "血焰山与紫血傀儡", "category": "setting", "file": "novel_curated_settings_v379.json"},
+    {"id": "setting_1398", "display": "灵侍与融灵入物", "category": "setting", "file": "novel_curated_settings_v379.json"},
+    {"id": "artifact_913", "display": "虚天鼎收劫雷", "category": "artifact", "file": "novel_curated_artifacts_v379.json"},
+    {"id": "artifact_914", "display": "地血黄铃", "category": "artifact", "file": "novel_curated_artifacts_v379.json"},
+    {"id": "artifact_915", "display": "血焰宫顶血红晶石", "category": "artifact", "file": "novel_curated_artifacts_v379.json"},
+    {"id": "artifact_916", "display": "融灵入物竹筒", "category": "artifact", "file": "novel_curated_artifacts_v379.json"},
+    {"id": "technique_693", "display": "辟邪金网吞雷", "category": "technique", "file": "novel_curated_techniques_v379.json"},
+    {"id": "technique_694", "display": "祭雷之诀与驱雷之道", "category": "technique", "file": "novel_curated_techniques_v379.json"},
+    {"id": "technique_695", "display": "印记感应遮蔽", "category": "technique", "file": "novel_curated_techniques_v379.json"},
+    {"id": "material_715", "display": "天雷竹", "category": "material", "file": "novel_curated_materials_v379.json"},
+    {"id": "material_716", "display": "天劫青雷珠", "category": "material", "file": "novel_curated_materials_v379.json"},
+    {"id": "material_717", "display": "阴火殿黑红玉石", "category": "material", "file": "novel_curated_materials_v379.json"}
+  ]
+}
