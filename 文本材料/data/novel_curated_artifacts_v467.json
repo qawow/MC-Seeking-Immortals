@@ -1,0 +1,74 @@
+{
+  "schema_version": 55,
+  "extract_version": 467,
+  "source": "《凡人修仙传》— 人工精读提取 · 法宝类（雪白飞刀·骨锤战车·银幡·破云棱：卷十第1901–1905章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v466 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 4,
+  "entries": [
+    {
+      "id": "artifact_1265",
+      "display": "雪白飞刀",
+      "category": "artifact",
+      "term": "雪白飞刀",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十 第1901章 大敌"},
+      "setting": "飞牙奇寒。无声偷袭。斩断绿腕。冰灵部器。",
+      "visual_descriptions": [
+        "绿濛濛拳头一下和一口雪白飞刀撞到了一起，绿光白芒交织下，一股蓬勃生气和一股白蒙蒙寒气四散而开。",
+        "那口雪白飞刀光芒一颤后，向后倒射而回，并一闪下落在了另外一名诡异出现的人影手上。"
+      ],
+      "setting_descriptions": [
+        "「忽然一股丝毫征兆没有的奇寒一下从背后无声袭来」",
+        "「拳头却也被硬生生的一斩而下了。」"
+      ]
+    },
+    {
+      "id": "artifact_1266",
+      "display": "骨锤与漆黑战车",
+      "category": "artifact",
+      "term": "骨锤战车",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十 第1901章 大敌"},
+      "setting": "铁隆双锤。数丈战车。化黑闪电。遁走载具。",
+      "visual_descriptions": [
+        "双手各持一只乌黑骨锤，用阴森之极的目光望着他和银光仙子二人。",
+        "一只数丈长的漆黑战车一下脱手射出……足下黑色战车一闪之下，竟一声霹雳化为一道黑色闪电的激射而出"
+      ],
+      "setting_descriptions": [
+        "「将手中双锤猛然轰隆一击，然后狂笑一声的说道。」"
+      ]
+    },
+    {
+      "id": "artifact_1267",
+      "display": "银色幡旗",
+      "category": "artifact",
+      "term": "银幡",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十 第1901章 大敌"},
+      "setting": "银光仙子。化银光霞。硬拼魔爪。元气未复。",
+      "visual_descriptions": [
+        "此女手中不知何时多出了一面银色幡旗，并化为一团银色光霞，竟和刚才用巨大魔爪偷袭他们的另一人又硬拼了一招。"
+      ],
+      "setting_descriptions": [
+        "「此女脸色苍白，目中神光有些散乱的模样，明显又再吃了一个不小的亏！」"
+      ]
+    },
+    {
+      "id": "artifact_1268",
+      "display": "破云棱",
+      "category": "artifact",
+      "term": "破云棱",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十 第1904章 圣祖后人"},
+      "setting": "弃城载具。心腹弟子。四长老拖。应急后路。",
+      "visual_descriptions": [
+        "马上利用那几只我们精心准备的「破云棱」载著他们弃城而走。"
+      ],
+      "setting_descriptions": [
+        "「五阳化月之日的前几天，道友将城中积攒的物资和心腹弟子全都集中到一起。」",
+        "「我们几人只要尽力拖住那几名魔尊，这些弟子绝对可以安然撤走的。」"
+      ]
+    }
+  ]
+}
