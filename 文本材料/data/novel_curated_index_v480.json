@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 480,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1966–1970章）",
+  "method": "沿原文逐段精读；本索引汇总 v480 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1999", "display": "潜入魔界弃锁冰河", "category": "setting", "file": "novel_curated_settings_v480.json"},
+    {"id": "setting_2000", "display": "返程灭要塞与魔族谜团", "category": "setting", "file": "novel_curated_settings_v480.json"},
+    {"id": "setting_2001", "display": "圣岛密议与黑雨陨落", "category": "setting", "file": "novel_curated_settings_v480.json"},
+    {"id": "setting_2002", "display": "敖啸降临圣岛", "category": "setting", "file": "novel_curated_settings_v480.json"},
+    {"id": "setting_2003", "display": "殿议调整魔劫后手", "category": "setting", "file": "novel_curated_settings_v480.json"},
+    {"id": "setting_2004", "display": "银月七星月体与心魔", "category": "setting", "file": "novel_curated_settings_v480.json"},
+    {"id": "artifact_1317", "display": "镇魔锁白玉木盒", "category": "artifact", "file": "novel_curated_artifacts_v480.json"},
+    {"id": "artifact_1318", "display": "五色寒焰巨手", "category": "artifact", "file": "novel_curated_artifacts_v480.json"},
+    {"id": "artifact_1319", "display": "莫简离替代灵物玉匣", "category": "artifact", "file": "novel_curated_artifacts_v480.json"},
+    {"id": "artifact_1320", "display": "忘情诀玉简", "category": "artifact", "file": "novel_curated_artifacts_v480.json"},
+    {"id": "technique_996", "display": "魔族化身伪装", "category": "technique", "file": "novel_curated_techniques_v480.json"},
+    {"id": "technique_997", "display": "五色寒焰灭魔", "category": "technique", "file": "novel_curated_techniques_v480.json"},
+    {"id": "technique_998", "display": "忘情诀", "category": "technique", "file": "novel_curated_techniques_v480.json"},
+    {"id": "material_1018", "display": "混沌二气炼化", "category": "material", "file": "novel_curated_materials_v480.json"},
+    {"id": "material_1019", "display": "黄粱石灵替代天地灵物", "category": "material", "file": "novel_curated_materials_v480.json"},
+    {"id": "material_1020", "display": "七星月体", "category": "material", "file": "novel_curated_materials_v480.json"}
+  ]
+}
