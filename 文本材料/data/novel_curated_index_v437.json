@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 437,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1748–1752章）",
+  "method": "沿原文逐段精读；本索引汇总 v437 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1741", "display": "雷云子五雷体与雷光阵", "category": "setting", "file": "novel_curated_settings_v437.json"},
+    {"id": "setting_1742", "display": "百余年横跨风元", "category": "setting", "file": "novel_curated_settings_v437.json"},
+    {"id": "setting_1743", "display": "重返天渊与两族大事", "category": "setting", "file": "novel_curated_settings_v437.json"},
+    {"id": "setting_1744", "display": "青冥卫令入城", "category": "setting", "file": "novel_curated_settings_v437.json"},
+    {"id": "setting_1745", "display": "神念驱逐灵脉", "category": "setting", "file": "novel_curated_settings_v437.json"},
+    {"id": "setting_1746", "display": "炼神术一层将成", "category": "setting", "file": "novel_curated_settings_v437.json"},
+    {"id": "artifact_1145", "display": "青狼傀儡飞车", "category": "artifact", "file": "novel_curated_artifacts_v437.json"},
+    {"id": "artifact_1146", "display": "青冥卫令牌丙五十六", "category": "artifact", "file": "novel_curated_artifacts_v437.json"},
+    {"id": "artifact_1147", "display": "灵压盘与异灵盘", "category": "artifact", "file": "novel_curated_artifacts_v437.json"},
+    {"id": "artifact_1148", "display": "雾阵法盘与九银盘", "category": "artifact", "file": "novel_curated_artifacts_v437.json"},
+    {"id": "technique_867", "display": "青白电弧大手撕龟", "category": "technique", "file": "novel_curated_techniques_v437.json"},
+    {"id": "technique_868", "display": "雷光传送阵", "category": "technique", "file": "novel_curated_techniques_v437.json"},
+    {"id": "technique_869", "display": "神念压禁驱逐", "category": "technique", "file": "novel_curated_techniques_v437.json"},
+    {"id": "material_889", "display": "石元龟妖丹", "category": "material", "file": "novel_curated_materials_v437.json"},
+    {"id": "material_890", "display": "天渊坊市大批材料", "category": "material", "file": "novel_curated_materials_v437.json"},
+    {"id": "material_891", "display": "璃水珠与豹麟兽", "category": "material", "file": "novel_curated_materials_v437.json"}
+  ]
+}
