@@ -1,0 +1,120 @@
+{
+  "schema_version": 55,
+  "extract_version": 364,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（脱身·三炼风雷翅·聚集·图谋真蟾·檀鹤香和黑血蚁：第1391–1395章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v363 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1391章 脱身 — 第1395章 檀鹤香和黑血蚁",
+  "progress": "1395/2005 ≈ 69.6%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1303–setting_1308",
+    "artifacts": "artifact_853–artifact_856",
+    "techniques": "technique_648–technique_650",
+    "materials": "material_670–material_672"
+  },
+  "entries": [
+    {
+      "id": "setting_1303",
+      "display": "噬金虫克木灵体脱身",
+      "category": "setting",
+      "file": "novel_curated_settings_v364.json"
+    },
+    {
+      "id": "setting_1304",
+      "display": "筱虹储物与黑炎丹",
+      "category": "setting",
+      "file": "novel_curated_settings_v364.json"
+    },
+    {
+      "id": "setting_1305",
+      "display": "三炼风雷翅进阶灵宝",
+      "category": "setting",
+      "file": "novel_curated_settings_v364.json"
+    },
+    {
+      "id": "setting_1306",
+      "display": "飞升修士冰山聚集",
+      "category": "setting",
+      "file": "novel_curated_settings_v364.json"
+    },
+    {
+      "id": "setting_1307",
+      "display": "图谋碧眼真蟾",
+      "category": "setting",
+      "file": "novel_curated_settings_v364.json"
+    },
+    {
+      "id": "setting_1308",
+      "display": "檀鹤香引黑血蚁",
+      "category": "setting",
+      "file": "novel_curated_settings_v364.json"
+    },
+    {
+      "id": "artifact_853",
+      "display": "黑炎丹银瓶",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v364.json"
+    },
+    {
+      "id": "artifact_854",
+      "display": "三炼风雷翅",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v364.json"
+    },
+    {
+      "id": "artifact_855",
+      "display": "玄清天雷旗",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v364.json"
+    },
+    {
+      "id": "artifact_856",
+      "display": "百障迷光幡",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v364.json"
+    },
+    {
+      "id": "technique_648",
+      "display": "化灵符替劫脱身",
+      "category": "technique",
+      "file": "novel_curated_techniques_v364.json"
+    },
+    {
+      "id": "technique_649",
+      "display": "银焰炉三炼风雷翅",
+      "category": "technique",
+      "file": "novel_curated_techniques_v364.json"
+    },
+    {
+      "id": "technique_650",
+      "display": "天都环雷阵",
+      "category": "technique",
+      "file": "novel_curated_techniques_v364.json"
+    },
+    {
+      "id": "material_670",
+      "display": "黑炎丹",
+      "category": "material",
+      "file": "novel_curated_materials_v364.json"
+    },
+    {
+      "id": "material_671",
+      "display": "真蟾液与千心花",
+      "category": "material",
+      "file": "novel_curated_materials_v364.json"
+    },
+    {
+      "id": "material_672",
+      "display": "檀鹤香",
+      "category": "material",
+      "file": "novel_curated_materials_v364.json"
+    }
+  ]
+}
