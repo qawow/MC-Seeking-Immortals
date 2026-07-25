@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 418,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1661–1665章）",
+  "method": "沿原文逐段精读；本索引汇总 v418 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1627", "display": "宝花圣祖携黑渊鳄", "category": "setting", "file": "novel_curated_settings_v418.json"},
+    {"id": "setting_1628", "display": "惊蛰诀提炼山岳巨猿真血", "category": "setting", "file": "novel_curated_settings_v418.json"},
+    {"id": "setting_1629", "display": "梵圣法相催玄天残刃", "category": "setting", "file": "novel_curated_settings_v418.json"},
+    {"id": "setting_1630", "display": "元合五极山与大天劫", "category": "setting", "file": "novel_curated_settings_v418.json"},
+    {"id": "setting_1631", "display": "真灵本源晶粒错失", "category": "setting", "file": "novel_curated_settings_v418.json"},
+    {"id": "setting_1632", "display": "许老怪火蛟收元气", "category": "setting", "file": "novel_curated_settings_v418.json"},
+    {"id": "artifact_1069", "display": "法相可催玄天残刃", "category": "artifact", "file": "novel_curated_artifacts_v418.json"},
+    {"id": "artifact_1070", "display": "璃水珠", "category": "artifact", "file": "novel_curated_artifacts_v418.json"},
+    {"id": "artifact_1071", "display": "金阙玉页·元合五极山", "category": "artifact", "file": "novel_curated_artifacts_v418.json"},
+    {"id": "artifact_1072", "display": "许老怪火蛟葫芦", "category": "artifact", "file": "novel_curated_artifacts_v418.json"},
+    {"id": "technique_810", "display": "惊蛰秘术提炼真血", "category": "technique", "file": "novel_curated_techniques_v418.json"},
+    {"id": "technique_811", "display": "梵圣法相催残刃", "category": "technique", "file": "novel_curated_techniques_v418.json"},
+    {"id": "technique_812", "display": "强炼真源晶粒失败", "category": "technique", "file": "novel_curated_techniques_v418.json"},
+    {"id": "material_832", "display": "山岳巨猿真灵之血", "category": "material", "file": "novel_curated_materials_v418.json"},
+    {"id": "material_833", "display": "真灵本源晶粒", "category": "material", "file": "novel_curated_materials_v418.json"},
+    {"id": "material_834", "display": "魔猿干尸炼器材", "category": "material", "file": "novel_curated_materials_v418.json"}
+  ]
+}
