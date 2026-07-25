@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 416,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1651–1655章）",
+  "method": "沿原文逐段精读；本索引汇总 v416 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1615", "display": "五泣陨落与入口埋伏议", "category": "setting", "file": "novel_curated_settings_v416.json"},
+    {"id": "setting_1616", "display": "芝仙巧获", "category": "setting", "file": "novel_curated_settings_v416.json"},
+    {"id": "setting_1617", "display": "三炼虚联手夺芝仙", "category": "setting", "file": "novel_curated_settings_v416.json"},
+    {"id": "setting_1618", "display": "噬灵火鸟吞金乌进化", "category": "setting", "file": "novel_curated_settings_v416.json"},
+    {"id": "setting_1619", "display": "铁翅附身巨蜍与魔鳄圣阶", "category": "setting", "file": "novel_curated_settings_v416.json"},
+    {"id": "setting_1620", "display": "春黎剑阵待圣阶", "category": "setting", "file": "novel_curated_settings_v416.json"},
+    {"id": "artifact_1061", "display": "无主三角铜镜", "category": "artifact", "file": "novel_curated_artifacts_v416.json"},
+    {"id": "artifact_1062", "display": "血焰玉扇", "category": "artifact", "file": "novel_curated_artifacts_v416.json"},
+    {"id": "artifact_1063", "display": "血瑛血葫芦", "category": "artifact", "file": "novel_curated_artifacts_v416.json"},
+    {"id": "artifact_1064", "display": "绿发铜戈与古鼎", "category": "artifact", "file": "novel_curated_artifacts_v416.json"},
+    {"id": "technique_804", "display": "破灭法目破虚空", "category": "technique", "file": "novel_curated_techniques_v416.json"},
+    {"id": "technique_805", "display": "青白电弧化雷鹏", "category": "technique", "file": "novel_curated_techniques_v416.json"},
+    {"id": "technique_806", "display": "五色大手与虚天鼎青丝", "category": "technique", "file": "novel_curated_techniques_v416.json"},
+    {"id": "material_826", "display": "五泣灵角碎片", "category": "material", "file": "novel_curated_materials_v416.json"},
+    {"id": "material_827", "display": "青灵云海芝仙", "category": "material", "file": "novel_curated_materials_v416.json"},
+    {"id": "material_828", "display": "璃水珠", "category": "material", "file": "novel_curated_materials_v416.json"}
+  ]
+}
