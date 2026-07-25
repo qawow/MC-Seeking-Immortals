@@ -1,0 +1,70 @@
+{
+  "schema_version": 55,
+  "extract_version": 542,
+  "source": "《凡人修仙传》— 人工精读提取 · 法宝类（隐秘·玄武真血·车泣子·联手·传讯：卷十一第2276–2280章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v541 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 4,
+  "entries": [
+    {
+      "id": "artifact_1565",
+      "display": "白色玉钵收真血",
+      "category": "artifact",
+      "term": "白色钵盂",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2278章 车泣子"},
+      "setting": "晶莹白钵无声浮现扩至亩许，尽收龟兽血肉，供提炼玄武真血。",
+      "visual_descriptions": [
+        "一只晶莹的白色钵盂竟无声的浮现而出，滴溜溜一转，就化为了亩许的庞然大物。",
+        "龟兽的血肉从空中坠落后，竟一块不漏的都掉入了其中。"
+      ],
+      "setting_descriptions": []
+    },
+    {
+      "id": "artifact_1566",
+      "display": "感应白晶球",
+      "category": "artifact",
+      "term": "白色晶球",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2278章 车泣子"},
+      "setting": "鸡蛋大小白晶球，光晕中米粒光点；与莫简离互感位置，韩循之会合。",
+      "visual_descriptions": [
+        "一颗鸡蛋大小白色晶球就出现在了手心中。晶球表面阵阵光晕流转不定，仔细凝望下，竟可在这些光晕中看到一个个米粒大小的光点闪动不已。"
+      ],
+      "setting_descriptions": [
+        "「要不是他在不久前，身上法器感应到了韩立就在附近处，恐怕也不得不考虑一些真元大损的保命手段了。」"
+      ]
+    },
+    {
+      "id": "artifact_1567",
+      "display": "莫简离白旗与赤锤",
+      "category": "artifact",
+      "term": "白旗赤锤",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2278章 车泣子"},
+      "setting": "白旗抛顶化厚光幕护体；深红小锤击虚空引数百丈红闪电，可溃巨蟾虚影。",
+      "visual_descriptions": [
+        "一手持着一杆白色小旗，一手持着一柄深红色小锤。",
+        "将手中那面白色小旗猛然往头顶处一抛。小旗一个盘旋后，阵阵白色光浪狂涌而下，一下幻化成厚厚光幕的将其护在了原地。",
+        "一道数百丈长红色闪电一闪而下，迅雷不及掩耳的击在了那头巨蟾身上。"
+      ],
+      "setting_descriptions": []
+    },
+    {
+      "id": "artifact_1568",
+      "display": "传讯乳白木牌",
+      "category": "artifact",
+      "term": "传讯木牌",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2280章 传讯"},
+      "setting": "万蜂分身吐乳白木牌点银符文传讯；石城黑石台银芒浮银文，族母奕老得悉四名大乘。",
+      "visual_descriptions": [
+        "吐出了一块乳白色木牌来……木牌表面点点银光一现，竟形成一些米粒大小的银色符文。",
+        "一座漆黑石台上传出低低的嗡鸣声，丝丝的银芒渐渐从上面浮现而出。……一行行银文滴溜溜的浮现而出。"
+      ],
+      "setting_descriptions": [
+        "「四名大乘，竟然有这般多。」"
+      ]
+    }
+  ]
+}

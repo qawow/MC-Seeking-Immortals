@@ -1,0 +1,52 @@
+{
+  "schema_version": 55,
+  "extract_version": 542,
+  "source": "《凡人修仙传》— 人工精读提取 · 材料类（隐秘·玄武真血·车泣子·联手·传讯：卷十一第2276–2280章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v541 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 3,
+  "entries": [
+    {
+      "id": "material_1204",
+      "display": "玄武真血",
+      "category": "material",
+      "term": "玄武真血",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2278章 车泣子"},
+      "setting": "巨龟血肉中提炼，血脉不浓但体量大；供惊蛰诀再进一层。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "「果然以其本体庞大，纵然这玄武真血的血脉不算多浓，但提炼一番后，也够惊蛰诀修炼所用的。」"
+      ]
+    },
+    {
+      "id": "material_1205",
+      "display": "金黄水草朱红异果",
+      "category": "material",
+      "term": "朱红异果",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2277章 玄武真血"},
+      "setting": "湖面金黄水草结三枚朱红异果浓香；引附近异兽惨烈争夺，韩收作交易物。",
+      "visual_descriptions": [
+        "一株不知名金黄色水草，一半没入水中，一半却露出水面之外，上面结着三枚朱红色的异果，散发着一股浓浓的香气。",
+        "围着这株金黄色水草的四周水域中，漂浮着一具具残不全的大小鱼兽尸体，足有三四十具之多的样子。"
+      ],
+      "setting_descriptions": [
+        "「此草对其作用不大，但对一些异兽来说却是珍稀之极……若是遇到合适之人，倒也是一个不错的交易之物。」"
+      ]
+    },
+    {
+      "id": "material_1206",
+      "display": "修罗蛛死卵",
+      "category": "material",
+      "term": "死卵",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2280章 传讯"},
+      "setting": "修罗蛛一族无法孵化的死卵；奕老拟以之打动车泣子入城助战，族母嫌代价大思量。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "「不过就是你们一族，几颗一直无法孵化的死卵而已。留着并无大用的。但以我对车泣子的了解，这些东西却一定可以打动它的。」"
+      ]
+    }
+  ]
+}

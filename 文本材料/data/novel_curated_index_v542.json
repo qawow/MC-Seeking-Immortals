@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 542,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2276–2280章）",
+  "method": "沿原文逐段精读；本索引汇总 v542 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2371", "display": "修罗蛛族母与奕道友", "category": "setting", "file": "novel_curated_settings_v542.json"},
+    {"id": "setting_2372", "display": "空鱼与乾火池隐秘", "category": "setting", "file": "novel_curated_settings_v542.json"},
+    {"id": "setting_2373", "display": "无影与万蜂探查", "category": "setting", "file": "novel_curated_settings_v542.json"},
+    {"id": "setting_2374", "display": "玄武血脉与惊蛰诀", "category": "setting", "file": "novel_curated_settings_v542.json"},
+    {"id": "setting_2375", "display": "车泣子十大凶兽", "category": "setting", "file": "novel_curated_settings_v542.json"},
+    {"id": "setting_2376", "display": "四人联手与阴尸血池", "category": "setting", "file": "novel_curated_settings_v542.json"},
+    {"id": "artifact_1565", "display": "白色玉钵收真血", "category": "artifact", "file": "novel_curated_artifacts_v542.json"},
+    {"id": "artifact_1566", "display": "感应白晶球", "category": "artifact", "file": "novel_curated_artifacts_v542.json"},
+    {"id": "artifact_1567", "display": "莫简离白旗与赤锤", "category": "artifact", "file": "novel_curated_artifacts_v542.json"},
+    {"id": "artifact_1568", "display": "传讯乳白木牌", "category": "artifact", "file": "novel_curated_artifacts_v542.json"},
+    {"id": "technique_1182", "display": "神念晶化巨刃", "category": "technique", "file": "novel_curated_techniques_v542.json"},
+    {"id": "technique_1183", "display": "风雷翅遁走", "category": "technique", "file": "novel_curated_techniques_v542.json"},
+    {"id": "technique_1184", "display": "辟邪神雷克车泣子", "category": "technique", "file": "novel_curated_techniques_v542.json"},
+    {"id": "material_1204", "display": "玄武真血", "category": "material", "file": "novel_curated_materials_v542.json"},
+    {"id": "material_1205", "display": "金黄水草朱红异果", "category": "material", "file": "novel_curated_materials_v542.json"},
+    {"id": "material_1206", "display": "修罗蛛死卵", "category": "material", "file": "novel_curated_materials_v542.json"}
+  ]
+}
