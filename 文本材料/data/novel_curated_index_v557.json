@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 557,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2351–2355章）",
+  "method": "沿原文逐段精读；本索引汇总 v557 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2461", "display": "天鼎宫分宫禁制层", "category": "setting", "file": "novel_curated_settings_v557.json"},
+    {"id": "setting_2462", "display": "宫外诸强与赤雷破门", "category": "setting", "file": "novel_curated_settings_v557.json"},
+    {"id": "setting_2463", "display": "赤雷老祖与噬金虫王交锋", "category": "setting", "file": "novel_curated_settings_v557.json"},
+    {"id": "setting_2464", "display": "血骨门外围截宝阵", "category": "setting", "file": "novel_curated_settings_v557.json"},
+    {"id": "setting_2465", "display": "天鼎宫区域枢纽山", "category": "setting", "file": "novel_curated_settings_v557.json"},
+    {"id": "setting_2466", "display": "巫灵三圣与枢纽对峙", "category": "setting", "file": "novel_curated_settings_v557.json"},
+    {"id": "artifact_1625", "display": "萧冥白玉阵盘", "category": "artifact", "file": "novel_curated_artifacts_v557.json"},
+    {"id": "artifact_1626", "display": "赤雷银镜与青木碗", "category": "artifact", "file": "novel_curated_artifacts_v557.json"},
+    {"id": "artifact_1627", "display": "血芒蛇", "category": "artifact", "file": "novel_curated_artifacts_v557.json"},
+    {"id": "artifact_1628", "display": "血魄合体傀儡与五尾红狐", "category": "artifact", "file": "novel_curated_artifacts_v557.json"},
+    {"id": "technique_1227", "display": "灰霞光幕与辟邪神雷", "category": "technique", "file": "novel_curated_techniques_v557.json"},
+    {"id": "technique_1228", "display": "噬金虫王晶丝剑气", "category": "technique", "file": "novel_curated_techniques_v557.json"},
+    {"id": "technique_1229", "display": "惊蛰诀合梵圣三头六臂", "category": "technique", "file": "novel_curated_techniques_v557.json"},
+    {"id": "material_1249", "display": "血魄精血玉瓶", "category": "material", "file": "novel_curated_materials_v557.json"},
+    {"id": "material_1250", "display": "分宫法器石台", "category": "material", "file": "novel_curated_materials_v557.json"},
+    {"id": "material_1251", "display": "血芒蛇毒血", "category": "material", "file": "novel_curated_materials_v557.json"}
+  ]
+}
