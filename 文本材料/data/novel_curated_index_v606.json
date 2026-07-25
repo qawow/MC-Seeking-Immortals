@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 606,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第144–148章）",
+  "method": "沿原文逐段精读；本索引汇总 v606 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2755", "display": "寻陆雨晴任务", "category": "setting", "file": "novel_curated_settings_v606.json"},
+    {"id": "setting_2756", "display": "韶山三煞", "category": "setting", "file": "novel_curated_settings_v606.json"},
+    {"id": "setting_2757", "display": "黑风海域势力格局", "category": "setting", "file": "novel_curated_settings_v606.json"},
+    {"id": "setting_2758", "display": "青羽岛", "category": "setting", "file": "novel_curated_settings_v606.json"},
+    {"id": "setting_2759", "display": "任务夺功规则", "category": "setting", "file": "novel_curated_settings_v606.json"},
+    {"id": "setting_2760", "display": "陆墨蛟十六线索", "category": "setting", "file": "novel_curated_settings_v606.json"},
+    {"id": "artifact_1821", "display": "黑风令", "category": "artifact", "file": "novel_curated_artifacts_v606.json"},
+    {"id": "artifact_1822", "display": "龙羽飞舟", "category": "artifact", "file": "novel_curated_artifacts_v606.json"},
+    {"id": "artifact_1823", "display": "韶山三煞乐器法宝", "category": "artifact", "file": "novel_curated_artifacts_v606.json"},
+    {"id": "artifact_1824", "display": "血骨巨人", "category": "artifact", "file": "novel_curated_artifacts_v606.json"},
+    {"id": "technique_1374", "display": "破灭法目寻踪", "category": "technique", "file": "novel_curated_techniques_v606.json"},
+    {"id": "technique_1375", "display": "雷鹏雷遁救俘", "category": "technique", "file": "novel_curated_techniques_v606.json"},
+    {"id": "technique_1376", "display": "真极真身斗三煞", "category": "technique", "file": "novel_curated_techniques_v606.json"},
+    {"id": "material_1396", "display": "蓝虎面具影像", "category": "material", "file": "novel_curated_materials_v606.json"},
+    {"id": "material_1397", "display": "侍从黑布残片", "category": "material", "file": "novel_curated_materials_v606.json"},
+    {"id": "material_1398", "display": "紫黑魔焰魔甲", "category": "material", "file": "novel_curated_materials_v606.json"}
+  ]
+}
