@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 588,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第54–58章）",
+  "method": "沿原文逐段精读；本索引汇总 v588 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2647", "display": "吞吐九天魔焰", "category": "setting", "file": "novel_curated_settings_v588.json"},
+    {"id": "setting_2648", "display": "地鬼牌楼倒拔", "category": "setting", "file": "novel_curated_settings_v588.json"},
+    {"id": "setting_2649", "display": "段人离大乘对峙", "category": "setting", "file": "novel_curated_settings_v588.json"},
+    {"id": "setting_2650", "display": "赤血天鬼幡血海空间", "category": "setting", "file": "novel_curated_settings_v588.json"},
+    {"id": "setting_2651", "display": "惊蛰诀真灵现形", "category": "setting", "file": "novel_curated_settings_v588.json"},
+    {"id": "setting_2652", "display": "却之不恭百斤阴辰", "category": "setting", "file": "novel_curated_settings_v588.json"},
+    {"id": "artifact_1749", "display": "紫铜古灯", "category": "artifact", "file": "novel_curated_artifacts_v588.json"},
+    {"id": "artifact_1750", "display": "赤血天鬼幡", "category": "artifact", "file": "novel_curated_artifacts_v588.json"},
+    {"id": "artifact_1751", "display": "白骨飞剑与黑巨印", "category": "artifact", "file": "novel_curated_artifacts_v588.json"},
+    {"id": "artifact_1752", "display": "地鬼令牌", "category": "artifact", "file": "novel_curated_artifacts_v588.json"},
+    {"id": "technique_1320", "display": "魔焰吞吐与金鳞抗剑", "category": "technique", "file": "novel_curated_techniques_v588.json"},
+    {"id": "technique_1321", "display": "惊蛰诀山岳巨猿", "category": "technique", "file": "novel_curated_techniques_v588.json"},
+    {"id": "technique_1322", "display": "圣禽青鸾与青痕", "category": "technique", "file": "novel_curated_techniques_v588.json"},
+    {"id": "material_1342", "display": "精炼阴辰石百斤", "category": "material", "file": "novel_curated_materials_v588.json"},
+    {"id": "material_1343", "display": "云鹤草启灵目", "category": "material", "file": "novel_curated_materials_v588.json"},
+    {"id": "material_1344", "display": "赤血天鬼血玉骨", "category": "material", "file": "novel_curated_materials_v588.json"}
+  ]
+}
