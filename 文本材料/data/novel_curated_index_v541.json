@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 541,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2271–2275章）",
+  "method": "沿原文逐段精读；本索引汇总 v541 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2365", "display": "马良破壁出关", "category": "setting", "file": "novel_curated_settings_v541.json"},
+    {"id": "setting_2366", "display": "小修罗界跨界传送", "category": "setting", "file": "novel_curated_settings_v541.json"},
+    {"id": "setting_2367", "display": "小修罗界三绿阳血霞", "category": "setting", "file": "novel_curated_settings_v541.json"},
+    {"id": "setting_2368", "display": "空鱼一族乾火之地", "category": "setting", "file": "novel_curated_settings_v541.json"},
+    {"id": "setting_2369", "display": "天蛛城与大化白莲", "category": "setting", "file": "novel_curated_settings_v541.json"},
+    {"id": "setting_2370", "display": "修罗蛛变异与收兽", "category": "setting", "file": "novel_curated_settings_v541.json"},
+    {"id": "artifact_1561", "display": "跨界传送法盘", "category": "artifact", "file": "novel_curated_artifacts_v541.json"},
+    {"id": "artifact_1562", "display": "盘丝幡", "category": "artifact", "file": "novel_curated_artifacts_v541.json"},
+    {"id": "artifact_1563", "display": "巨蝠金纹兽皮", "category": "artifact", "file": "novel_curated_artifacts_v541.json"},
+    {"id": "artifact_1564", "display": "蓝光倒钩长鞭", "category": "artifact", "file": "novel_curated_artifacts_v541.json"},
+    {"id": "technique_1179", "display": "五色巨掌压蝠群", "category": "technique", "file": "novel_curated_techniques_v541.json"},
+    {"id": "technique_1180", "display": "太一化清符虚化", "category": "technique", "file": "novel_curated_techniques_v541.json"},
+    {"id": "technique_1181", "display": "神念碾压大化白莲", "category": "technique", "file": "novel_curated_techniques_v541.json"},
+    {"id": "material_1201", "display": "光阴之力晶丝", "category": "material", "file": "novel_curated_materials_v541.json"},
+    {"id": "material_1202", "display": "熔湖极品火灵石", "category": "material", "file": "novel_curated_materials_v541.json"},
+    {"id": "material_1203", "display": "毒蜂犀兽甜香尸毒", "category": "material", "file": "novel_curated_materials_v541.json"}
+  ]
+}
