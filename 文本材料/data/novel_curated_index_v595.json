@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 595,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第89–93章）",
+  "method": "沿原文逐段精读；本索引汇总 v595 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2689", "display": "散仙真仙与玄仙", "category": "setting", "file": "novel_curated_settings_v595.json"},
+    {"id": "setting_2690", "display": "先天后天仙器", "category": "setting", "file": "novel_curated_settings_v595.json"},
+    {"id": "setting_2691", "display": "黑风海域隔绝", "category": "setting", "file": "novel_curated_settings_v595.json"},
+    {"id": "setting_2692", "display": "元婴法则之链", "category": "setting", "file": "novel_curated_settings_v595.json"},
+    {"id": "setting_2693", "display": "地仙两条前提", "category": "setting", "file": "novel_curated_settings_v595.json"},
+    {"id": "setting_2694", "display": "信念之力吐纳", "category": "setting", "file": "novel_curated_settings_v595.json"},
+    {"id": "artifact_1777", "display": "洛蒙蓝晶头颅", "category": "artifact", "file": "novel_curated_artifacts_v595.json"},
+    {"id": "artifact_1778", "display": "万水仙诀玉册", "category": "artifact", "file": "novel_curated_artifacts_v595.json"},
+    {"id": "artifact_1779", "display": "祖神遗物白玉牌", "category": "artifact", "file": "novel_curated_artifacts_v595.json"},
+    {"id": "artifact_1780", "display": "北斗星柱阵", "category": "artifact", "file": "novel_curated_artifacts_v595.json"},
+    {"id": "technique_1341", "display": "隔元天心炼", "category": "technique", "file": "novel_curated_techniques_v595.json"},
+    {"id": "technique_1342", "display": "银丝神念破链", "category": "technique", "file": "novel_curated_techniques_v595.json"},
+    {"id": "technique_1343", "display": "三目探独目法则", "category": "technique", "file": "novel_curated_techniques_v595.json"},
+    {"id": "material_1363", "display": "独目法则白点", "category": "material", "file": "novel_curated_materials_v595.json"},
+    {"id": "material_1364", "display": "云鹤草", "category": "material", "file": "novel_curated_materials_v595.json"},
+    {"id": "material_1365", "display": "先天仙器灵木", "category": "material", "file": "novel_curated_materials_v595.json"}
+  ]
+}
