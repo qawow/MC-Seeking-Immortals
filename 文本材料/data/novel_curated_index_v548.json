@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 548,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2306–2310章）",
+  "method": "沿原文逐段精读；本索引汇总 v548 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2407", "display": "青元宫远游", "category": "setting", "file": "novel_curated_settings_v548.json"},
+    {"id": "setting_2408", "display": "黄元子联手杀青元子", "category": "setting", "file": "novel_curated_settings_v548.json"},
+    {"id": "setting_2409", "display": "赫连商盟跨陆拍卖", "category": "setting", "file": "novel_curated_settings_v548.json"},
+    {"id": "setting_2410", "display": "越隆极元晶求援", "category": "setting", "file": "novel_curated_settings_v548.json"},
+    {"id": "setting_2411", "display": "天鹏赤融争端", "category": "setting", "file": "novel_curated_settings_v548.json"},
+    {"id": "setting_2412", "display": "金罡风魔阵引天力", "category": "setting", "file": "novel_curated_settings_v548.json"},
+    {"id": "artifact_1589", "display": "九幻如意门", "category": "artifact", "file": "novel_curated_artifacts_v548.json"},
+    {"id": "artifact_1590", "display": "极元晶", "category": "artifact", "file": "novel_curated_artifacts_v548.json"},
+    {"id": "artifact_1591", "display": "金风柱", "category": "artifact", "file": "novel_curated_artifacts_v548.json"},
+    {"id": "artifact_1592", "display": "越隆五宝与星罗盘", "category": "artifact", "file": "novel_curated_artifacts_v548.json"},
+    {"id": "technique_1200", "display": "重元塑灵", "category": "technique", "file": "novel_curated_techniques_v548.json"},
+    {"id": "technique_1201", "display": "金罡风魔阵", "category": "technique", "file": "novel_curated_techniques_v548.json"},
+    {"id": "technique_1202", "display": "雷阵虚空传送", "category": "technique", "file": "novel_curated_techniques_v548.json"},
+    {"id": "material_1222", "display": "长元丹", "category": "material", "file": "novel_curated_materials_v548.json"},
+    {"id": "material_1223", "display": "极元晶", "category": "material", "file": "novel_curated_materials_v548.json"},
+    {"id": "material_1224", "display": "金粉与银珠黑网", "category": "material", "file": "novel_curated_materials_v548.json"}
+  ]
+}
