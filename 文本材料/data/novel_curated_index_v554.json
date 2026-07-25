@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 554,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2336–2340章）",
+  "method": "沿原文逐段精读；本索引汇总 v554 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2443", "display": "跨陆传送与商盟放水", "category": "setting", "file": "novel_curated_settings_v554.json"},
+    {"id": "setting_2444", "display": "八鬼噬佛图考验", "category": "setting", "file": "novel_curated_settings_v554.json"},
+    {"id": "setting_2445", "display": "冥界阴司十王与新生小世界", "category": "setting", "file": "novel_curated_settings_v554.json"},
+    {"id": "setting_2446", "display": "赫连商盟仙裔与登天阁", "category": "setting", "file": "novel_curated_settings_v554.json"},
+    {"id": "setting_2447", "display": "血鹤城寻本体", "category": "setting", "file": "novel_curated_settings_v554.json"},
+    {"id": "setting_2448", "display": "血骨门势力", "category": "setting", "file": "novel_curated_settings_v554.json"},
+    {"id": "artifact_1613", "display": "田飞儿绿色圆环", "category": "artifact", "file": "novel_curated_artifacts_v554.json"},
+    {"id": "artifact_1614", "display": "八鬼噬佛图卷轴", "category": "artifact", "file": "novel_curated_artifacts_v554.json"},
+    {"id": "artifact_1615", "display": "强者之战信物法盘", "category": "artifact", "file": "novel_curated_artifacts_v554.json"},
+    {"id": "artifact_1616", "display": "墨灵圣舟", "category": "artifact", "file": "novel_curated_artifacts_v554.json"},
+    {"id": "technique_1218", "display": "黄泉冥风", "category": "technique", "file": "novel_curated_techniques_v554.json"},
+    {"id": "technique_1219", "display": "三头六臂金色法相", "category": "technique", "file": "novel_curated_techniques_v554.json"},
+    {"id": "technique_1220", "display": "碧影改容换颜", "category": "technique", "file": "novel_curated_techniques_v554.json"},
+    {"id": "material_1240", "display": "黄泉阴风墨球", "category": "material", "file": "novel_curated_materials_v554.json"},
+    {"id": "material_1241", "display": "上古祭坛分布玉简", "category": "material", "file": "novel_curated_materials_v554.json"},
+    {"id": "material_1242", "display": "跨陆传送极品灵石", "category": "material", "file": "novel_curated_materials_v554.json"}
+  ]
+}
