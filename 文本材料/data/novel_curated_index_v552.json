@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 552,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2326–2330章）",
+  "method": "沿原文逐段精读；本索引汇总 v552 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2431", "display": "赫连洞天拍卖场", "category": "setting", "file": "novel_curated_settings_v552.json"},
+    {"id": "setting_2432", "display": "三尾媚狐胡玉双", "category": "setting", "file": "novel_curated_settings_v552.json"},
+    {"id": "setting_2433", "display": "黄金雷狮骨髓竞拍", "category": "setting", "file": "novel_curated_settings_v552.json"},
+    {"id": "setting_2434", "display": "商盟四老压场", "category": "setting", "file": "novel_curated_settings_v552.json"},
+    {"id": "setting_2435", "display": "翻天旗阴阳半宝", "category": "setting", "file": "novel_curated_settings_v552.json"},
+    {"id": "setting_2436", "display": "金阙玉书内页", "category": "setting", "file": "novel_curated_settings_v552.json"},
+    {"id": "artifact_1605", "display": "青蛟冲月剑", "category": "artifact", "file": "novel_curated_artifacts_v552.json"},
+    {"id": "artifact_1606", "display": "翻天旗阴旗", "category": "artifact", "file": "novel_curated_artifacts_v552.json"},
+    {"id": "artifact_1607", "display": "金阙玉书页", "category": "artifact", "file": "novel_curated_artifacts_v552.json"},
+    {"id": "artifact_1608", "display": "拍卖竞价圆盘光幕", "category": "artifact", "file": "novel_curated_artifacts_v552.json"},
+    {"id": "technique_1212", "display": "三尾媚狐魅惑", "category": "technique", "file": "novel_curated_techniques_v552.json"},
+    {"id": "technique_1213", "display": "翻天旗黄花吞元气", "category": "technique", "file": "novel_curated_techniques_v552.json"},
+    {"id": "technique_1214", "display": "高塔空间一步入洞天", "category": "technique", "file": "novel_curated_techniques_v552.json"},
+    {"id": "material_1234", "display": "黄金雷狮骨髓", "category": "material", "file": "novel_curated_materials_v552.json"},
+    {"id": "material_1235", "display": "血罡铁", "category": "material", "file": "novel_curated_materials_v552.json"},
+    {"id": "material_1236", "display": "抵天劫特殊材料", "category": "material", "file": "novel_curated_materials_v552.json"}
+  ]
+}
