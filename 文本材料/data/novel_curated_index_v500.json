@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 500,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第2066–2070章）",
+  "method": "沿原文逐段精读；本索引汇总 v500 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2119", "display": "异魔金晶球炼化", "category": "setting", "file": "novel_curated_settings_v500.json"},
+    {"id": "setting_2120", "display": "魔晶傀儡炼制术", "category": "setting", "file": "novel_curated_settings_v500.json"},
+    {"id": "setting_2121", "display": "雾山碰头与夺蜥计划", "category": "setting", "file": "novel_curated_settings_v500.json"},
+    {"id": "setting_2122", "display": "反算赵家", "category": "setting", "file": "novel_curated_settings_v500.json"},
+    {"id": "setting_2123", "display": "宝花拦截林道友", "category": "setting", "file": "novel_curated_settings_v500.json"},
+    {"id": "setting_2124", "display": "洗灵池与二进幻啸", "category": "setting", "file": "novel_curated_settings_v500.json"},
+    {"id": "artifact_1397", "display": "五色霞光玉瓶", "category": "artifact", "file": "novel_curated_artifacts_v500.json"},
+    {"id": "artifact_1398", "display": "锦帛传讯", "category": "artifact", "file": "novel_curated_artifacts_v500.json"},
+    {"id": "artifact_1399", "display": "林道友骨刃飞车", "category": "artifact", "file": "novel_curated_artifacts_v500.json"},
+    {"id": "artifact_1400", "display": "宝花粉红奇花", "category": "artifact", "file": "novel_curated_artifacts_v500.json"},
+    {"id": "technique_1056", "display": "金大手炼晶", "category": "technique", "file": "novel_curated_techniques_v500.json"},
+    {"id": "technique_1057", "display": "伪魔珠掩饰", "category": "technique", "file": "novel_curated_techniques_v500.json"},
+    {"id": "technique_1058", "display": "宝花媚眼摄神", "category": "technique", "file": "novel_curated_techniques_v500.json"},
+    {"id": "material_1078", "display": "淬精丹", "category": "material", "file": "novel_curated_materials_v500.json"},
+    {"id": "material_1079", "display": "万年紫血芝", "category": "material", "file": "novel_curated_materials_v500.json"},
+    {"id": "material_1080", "display": "冰晶之心", "category": "material", "file": "novel_curated_materials_v500.json"}
+  ]
+}
