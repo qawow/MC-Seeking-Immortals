@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 515,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第2141–2145章）",
+  "method": "沿原文逐段精读；本索引汇总 v515 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2209", "display": "通道入口双尊与征用", "category": "setting", "file": "novel_curated_settings_v515.json"},
+    {"id": "setting_2210", "display": "通道吞天巨舟", "category": "setting", "file": "novel_curated_settings_v515.json"},
+    {"id": "setting_2211", "display": "木族惊变与三圣祖", "category": "setting", "file": "novel_curated_settings_v515.json"},
+    {"id": "setting_2212", "display": "元刹本体降临", "category": "setting", "file": "novel_curated_settings_v515.json"},
+    {"id": "setting_2213", "display": "晶像兽化身百千", "category": "setting", "file": "novel_curated_settings_v515.json"},
+    {"id": "setting_2214", "display": "敖啸银月现身", "category": "setting", "file": "novel_curated_settings_v515.json"},
+    {"id": "artifact_1457", "display": "百丈黑战舟与白骨爪", "category": "artifact", "file": "novel_curated_artifacts_v515.json"},
+    {"id": "artifact_1458", "display": "七十二口青小剑", "category": "artifact", "file": "novel_curated_artifacts_v515.json"},
+    {"id": "artifact_1459", "display": "水凝晶殿与白眼锤", "category": "artifact", "file": "novel_curated_artifacts_v515.json"},
+    {"id": "artifact_1460", "display": "青黑极山对白峰", "category": "artifact", "file": "novel_curated_artifacts_v515.json"},
+    {"id": "technique_1101", "display": "巨猿拳影破通道封", "category": "technique", "file": "novel_curated_techniques_v515.json"},
+    {"id": "technique_1102", "display": "银火鸟对水巨手", "category": "technique", "file": "novel_curated_techniques_v515.json"},
+    {"id": "technique_1103", "display": "真灵合身与黄金雷网", "category": "technique", "file": "novel_curated_techniques_v515.json"},
+    {"id": "material_1123", "display": "魔界四大神雷腐朽电", "category": "material", "file": "novel_curated_materials_v515.json"},
+    {"id": "material_1124", "display": "墨绿魔木与紫黑魔气", "category": "material", "file": "novel_curated_materials_v515.json"},
+    {"id": "material_1125", "display": "通灵圣树", "category": "material", "file": "novel_curated_materials_v515.json"}
+  ]
+}
