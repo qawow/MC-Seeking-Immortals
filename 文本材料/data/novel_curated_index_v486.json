@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 486,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1996–2000章）",
+  "method": "沿原文逐段精读；本索引汇总 v486 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2035", "display": "青真阵传送对战匈兄", "category": "setting", "file": "novel_curated_settings_v486.json"},
+    {"id": "setting_2036", "display": "匈兄血纹与血甲", "category": "setting", "file": "novel_curated_settings_v486.json"},
+    {"id": "setting_2037", "display": "七焰扇同心环困血光", "category": "setting", "file": "novel_curated_settings_v486.json"},
+    {"id": "setting_2038", "display": "四色光柱与金漩惊天一击", "category": "setting", "file": "novel_curated_settings_v486.json"},
+    {"id": "setting_2039", "display": "九魔子母枪与黑日", "category": "setting", "file": "novel_curated_settings_v486.json"},
+    {"id": "setting_2040", "display": "涅盘圣体万元之力", "category": "setting", "file": "novel_curated_settings_v486.json"},
+    {"id": "artifact_1341", "display": "七焰扇与同心环", "category": "artifact", "file": "novel_curated_artifacts_v486.json"},
+    {"id": "artifact_1342", "display": "九魔子母枪", "category": "artifact", "file": "novel_curated_artifacts_v486.json"},
+    {"id": "artifact_1343", "display": "焦木傀儡与黑色令牌", "category": "artifact", "file": "novel_curated_artifacts_v486.json"},
+    {"id": "artifact_1344", "display": "金银怪刃与顶阶宝物自爆", "category": "artifact", "file": "novel_curated_artifacts_v486.json"},
+    {"id": "technique_1014", "display": "惊蛰梵圣金漩对匈兄", "category": "technique", "file": "novel_curated_techniques_v486.json"},
+    {"id": "technique_1015", "display": "元婴三灵抗黑日", "category": "technique", "file": "novel_curated_techniques_v486.json"},
+    {"id": "technique_1016", "display": "涅盘圣体二涅变身", "category": "technique", "file": "novel_curated_techniques_v486.json"},
+    {"id": "material_1036", "display": "匈兄残臂血纹", "category": "material", "file": "novel_curated_materials_v486.json"},
+    {"id": "material_1037", "display": "涅盘精血反噬", "category": "material", "file": "novel_curated_materials_v486.json"},
+    {"id": "material_1038", "display": "五灵虚影合涅盘", "category": "material", "file": "novel_curated_materials_v486.json"}
+  ]
+}
