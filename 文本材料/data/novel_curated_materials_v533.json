@@ -1,0 +1,56 @@
+{
+  "schema_version": 55,
+  "extract_version": 533,
+  "source": "《凡人修仙传》— 人工精读提取 · 材料类（女童·虫母之战上中下·骸骨诡影：卷十一第2231–2235章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v532 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 3,
+  "entries": [
+    {
+      "id": "material_1177",
+      "display": "十万年褪壳躯体",
+      "category": "material",
+      "term": "褪壳",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2231章 女童"},
+      "setting": "联手轰灭之白玉巨蚕为螟虫之母十万年前褪壳，本有大用；消失后留拳大黑晶。",
+      "visual_descriptions": [
+        "在符阵中心处，一个山岳般大小的白色巨虫……通体洁白如玉。"
+      ],
+      "setting_descriptions": [
+        "「你们刚才毁坏掉的是本座十万年前褪掉的一副躯壳，原本还有大用的。」"
+      ]
+    },
+    {
+      "id": "material_1178",
+      "display": "房大漆黑晶块",
+      "category": "material",
+      "term": "黑晶块",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2235章 骸骨诡影"},
+      "setting": "万丈骸骨吐房屋大漆黑晶块；可化獠牙黑口吞女童化身，再化晶光没入骸口。与眉心黑晶、拳大黑晶同源异用。",
+      "visual_descriptions": [
+        "吐出一颗漆黑如墨的巨型晶块来，足有房屋般大小。",
+        "下方漆黑晶石猛一晃后，竟一下化为一张长满獠牙的黑色巨口，只是一咬，竟出其不意的将女童一下吞入其中。"
+      ],
+      "setting_descriptions": [
+        "「并化为一团晶光的飞射而回，重新没入巨大骸骨口中。」"
+      ]
+    },
+    {
+      "id": "material_1179",
+      "display": "眉心黑邃晶石",
+      "category": "material",
+      "term": "眉心黑晶",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2231章 女童"},
+      "setting": "女童眉宇嵌漆黑发亮晶石，似巨虫消后黑晶更黑邃缩小数倍，可吸尽光线。",
+      "visual_descriptions": [
+        "眉宇中间却镶嵌有一颗漆黑发亮的晶石……仿佛能将一切光线都能吸入其中一般，体积也缩小了数倍的样子。"
+      ],
+      "setting_descriptions": [
+        "「猛一看似乎和高空中那只巨虫消失后留下的晶石极为相似，只是更加的黑邃。」"
+      ]
+    }
+  ]
+}

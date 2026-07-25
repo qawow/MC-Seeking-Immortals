@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 533,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2231–2235章）",
+  "method": "沿原文逐段精读；本索引汇总 v533 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2317", "display": "螟虫之母元神化身女童", "category": "setting", "file": "novel_curated_settings_v533.json"},
+    {"id": "setting_2318", "display": "螟一二三与多重化身", "category": "setting", "file": "novel_curated_settings_v533.json"},
+    {"id": "setting_2319", "display": "玄天灵域与法则之线", "category": "setting", "file": "novel_curated_settings_v533.json"},
+    {"id": "setting_2320", "display": "万丈白玉虫骸本体", "category": "setting", "file": "novel_curated_settings_v533.json"},
+    {"id": "setting_2321", "display": "仙傀儡蟹道人与黄金巨蟹", "category": "setting", "file": "novel_curated_settings_v533.json"},
+    {"id": "setting_2322", "display": "凤灵盘手脚与水下毁本体策", "category": "setting", "file": "novel_curated_settings_v533.json"},
+    {"id": "artifact_1529", "display": "玄天斩灵剑法则之线", "category": "artifact", "file": "novel_curated_artifacts_v533.json"},
+    {"id": "artifact_1530", "display": "宝花玄天灵域花树", "category": "artifact", "file": "novel_curated_artifacts_v533.json"},
+    {"id": "artifact_1531", "display": "天机枪", "category": "artifact", "file": "novel_curated_artifacts_v533.json"},
+    {"id": "artifact_1532", "display": "土皇钉黄丝网与擎天柱", "category": "artifact", "file": "novel_curated_artifacts_v533.json"},
+    {"id": "technique_1155", "display": "时间法则皮毛与倒退", "category": "technique", "file": "novel_curated_techniques_v533.json"},
+    {"id": "technique_1156", "display": "涅盘圣体极致与法则线斩", "category": "technique", "file": "novel_curated_techniques_v533.json"},
+    {"id": "technique_1157", "display": "黄泉秽焰", "category": "technique", "file": "novel_curated_techniques_v533.json"},
+    {"id": "material_1177", "display": "十万年褪壳躯体", "category": "material", "file": "novel_curated_materials_v533.json"},
+    {"id": "material_1178", "display": "房大漆黑晶块", "category": "material", "file": "novel_curated_materials_v533.json"},
+    {"id": "material_1179", "display": "眉心黑邃晶石", "category": "material", "file": "novel_curated_materials_v533.json"}
+  ]
+}
