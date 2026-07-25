@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 402,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1581–1585章）",
+  "method": "沿原文逐段精读；本索引汇总 v402 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1531", "display": "蕴念珠与孽形兽", "category": "setting", "file": "novel_curated_settings_v402.json"},
+    {"id": "setting_1532", "display": "横水城围攻", "category": "setting", "file": "novel_curated_settings_v402.json"},
+    {"id": "setting_1533", "display": "云城悬浮巨城", "category": "setting", "file": "novel_curated_settings_v402.json"},
+    {"id": "setting_1534", "display": "天云诸族格局", "category": "setting", "file": "novel_curated_settings_v402.json"},
+    {"id": "setting_1535", "display": "凝神归一术", "category": "setting", "file": "novel_curated_settings_v402.json"},
+    {"id": "setting_1536", "display": "再遇向之礼", "category": "setting", "file": "novel_curated_settings_v402.json"},
+    {"id": "artifact_1005", "display": "蓝色人形辟邪傀", "category": "artifact", "file": "novel_curated_artifacts_v402.json"},
+    {"id": "artifact_1006", "display": "蕴念珠", "category": "artifact", "file": "novel_curated_artifacts_v402.json"},
+    {"id": "artifact_1007", "display": "云城之卫巨球", "category": "artifact", "file": "novel_curated_artifacts_v402.json"},
+    {"id": "artifact_1008", "display": "身份牌与万古令", "category": "artifact", "file": "novel_curated_artifacts_v402.json"},
+    {"id": "technique_762", "display": "鹏爪裂舟雷灭", "category": "technique", "file": "novel_curated_techniques_v402.json"},
+    {"id": "technique_763", "display": "万古秘传阵", "category": "technique", "file": "novel_curated_techniques_v402.json"},
+    {"id": "technique_764", "display": "凝神归一术", "category": "technique", "file": "novel_curated_techniques_v402.json"},
+    {"id": "material_784", "display": "孽形兽内丹", "category": "material", "file": "novel_curated_materials_v402.json"},
+    {"id": "material_785", "display": "云城白色材", "category": "material", "file": "novel_curated_materials_v402.json"},
+    {"id": "material_786", "display": "蜂巢沙粒材", "category": "material", "file": "novel_curated_materials_v402.json"}
+  ]
+}
