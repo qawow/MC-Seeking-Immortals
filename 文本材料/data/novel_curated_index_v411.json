@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 411,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1626–1630章）",
+  "method": "沿原文逐段精读；本索引汇总 v411 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1585", "display": "金乌法相与天凤克制", "category": "setting", "file": "novel_curated_settings_v411.json"},
+    {"id": "setting_1586", "display": "魔兽大军外围杀戮", "category": "setting", "file": "novel_curated_settings_v411.json"},
+    {"id": "setting_1587", "display": "真灵之穴与纤纤图谋", "category": "setting", "file": "novel_curated_settings_v411.json"},
+    {"id": "setting_1588", "display": "圣阶黑猿疗伤法阵", "category": "setting", "file": "novel_curated_settings_v411.json"},
+    {"id": "setting_1589", "display": "魔气通道黑石迷宫", "category": "setting", "file": "novel_curated_settings_v411.json"},
+    {"id": "setting_1590", "display": "圭灭越宗与九夜求援", "category": "setting", "file": "novel_curated_settings_v411.json"},
+    {"id": "artifact_1041", "display": "魔麟令", "category": "artifact", "file": "novel_curated_artifacts_v411.json"},
+    {"id": "artifact_1042", "display": "墨麒麟虚影宝", "category": "artifact", "file": "novel_curated_artifacts_v411.json"},
+    {"id": "artifact_1043", "display": "银蝌符箓与甲元符", "category": "artifact", "file": "novel_curated_artifacts_v411.json"},
+    {"id": "artifact_1044", "display": "圣阶紫战甲", "category": "artifact", "file": "novel_curated_artifacts_v411.json"},
+    {"id": "technique_789", "display": "灵漩邪光奇毒", "category": "technique", "file": "novel_curated_techniques_v411.json"},
+    {"id": "technique_790", "display": "变异噬金虫敛息化石", "category": "technique", "file": "novel_curated_techniques_v411.json"},
+    {"id": "technique_791", "display": "三头六臂三色剑斩", "category": "technique", "file": "novel_curated_techniques_v411.json"},
+    {"id": "material_811", "display": "金乌真血与真火", "category": "material", "file": "novel_curated_materials_v411.json"},
+    {"id": "material_812", "display": "人面鹫魔核与细针收存", "category": "material", "file": "novel_curated_materials_v411.json"},
+    {"id": "material_813", "display": "通道漆黑魔气石", "category": "material", "file": "novel_curated_materials_v411.json"}
+  ]
+}
