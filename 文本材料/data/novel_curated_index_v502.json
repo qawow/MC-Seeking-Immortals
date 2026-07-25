@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 502,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第2076–2080章）",
+  "method": "沿原文逐段精读；本索引汇总 v502 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2131", "display": "兽尊殿委托制", "category": "setting", "file": "novel_curated_settings_v502.json"},
+    {"id": "setting_2132", "display": "铁沙岭青翼族", "category": "setting", "file": "novel_curated_settings_v502.json"},
+    {"id": "setting_2133", "display": "熏香寨", "category": "setting", "file": "novel_curated_settings_v502.json"},
+    {"id": "setting_2134", "display": "太一化清符潜入", "category": "setting", "file": "novel_curated_settings_v502.json"},
+    {"id": "setting_2135", "display": "藏灵阁缠斗", "category": "setting", "file": "novel_curated_settings_v502.json"},
+    {"id": "setting_2136", "display": "青鸾真血到手", "category": "setting", "file": "novel_curated_settings_v502.json"},
+    {"id": "artifact_1405", "display": "感应法盘", "category": "artifact", "file": "novel_curated_artifacts_v502.json"},
+    {"id": "artifact_1406", "display": "太一化清符", "category": "artifact", "file": "novel_curated_artifacts_v502.json"},
+    {"id": "artifact_1407", "display": "三首青蛇与雪魔禽", "category": "artifact", "file": "novel_curated_artifacts_v502.json"},
+    {"id": "artifact_1408", "display": "符箓殿堂虚影", "category": "artifact", "file": "novel_curated_artifacts_v502.json"},
+    {"id": "technique_1062", "display": "青竹蜂云剑网", "category": "technique", "file": "novel_curated_techniques_v502.json"},
+    {"id": "technique_1063", "display": "魔风遁与破隐", "category": "technique", "file": "novel_curated_techniques_v502.json"},
+    {"id": "technique_1064", "display": "雷鹏彩凤遁", "category": "technique", "file": "novel_curated_techniques_v502.json"},
+    {"id": "material_1084", "display": "青鸾真血瓶", "category": "material", "file": "novel_curated_materials_v502.json"},
+    {"id": "material_1085", "display": "紫香巨木", "category": "material", "file": "novel_curated_materials_v502.json"},
+    {"id": "material_1086", "display": "豹麟兽合体期", "category": "material", "file": "novel_curated_materials_v502.json"}
+  ]
+}
