@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 417,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1656–1660章）",
+  "method": "沿原文逐段精读；本索引汇总 v417 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1621", "display": "元气之剑斩铁翅化身", "category": "setting", "file": "novel_curated_settings_v417.json"},
+    {"id": "setting_1622", "display": "三圣阶与魔骨珠化身", "category": "setting", "file": "novel_curated_settings_v417.json"},
+    {"id": "setting_1623", "display": "圣祖花树空间苏醒", "category": "setting", "file": "novel_curated_settings_v417.json"},
+    {"id": "setting_1624", "display": "玄天如意刃残片", "category": "setting", "file": "novel_curated_settings_v417.json"},
+    {"id": "setting_1625", "display": "界面通道与巨型法阵", "category": "setting", "file": "novel_curated_settings_v417.json"},
+    {"id": "setting_1626", "display": "琉璃光破虚化与离山", "category": "setting", "file": "novel_curated_settings_v417.json"},
+    {"id": "artifact_1065", "display": "魔骨珠寄附化身", "category": "artifact", "file": "novel_curated_artifacts_v417.json"},
+    {"id": "artifact_1066", "display": "蓝袋琉璃珠", "category": "artifact", "file": "novel_curated_artifacts_v417.json"},
+    {"id": "artifact_1067", "display": "玄天如意刃残片", "category": "artifact", "file": "novel_curated_artifacts_v417.json"},
+    {"id": "artifact_1068", "display": "银灿灿辟雷伞", "category": "artifact", "file": "novel_curated_artifacts_v417.json"},
+    {"id": "technique_807", "display": "祭雷术佯攻", "category": "technique", "file": "novel_curated_techniques_v417.json"},
+    {"id": "technique_808", "display": "风火紫剑融合神通", "category": "technique", "file": "novel_curated_techniques_v417.json"},
+    {"id": "technique_809", "display": "琉璃光破太一虚化", "category": "technique", "file": "novel_curated_techniques_v417.json"},
+    {"id": "material_829", "display": "巨蜍眉宇灵珠", "category": "material", "file": "novel_curated_materials_v417.json"},
+    {"id": "material_830", "display": "芝仙与化形魔魈", "category": "material", "file": "novel_curated_materials_v417.json"},
+    {"id": "material_831", "display": "圣阶魔核交修甲", "category": "material", "file": "novel_curated_materials_v417.json"}
+  ]
+}
