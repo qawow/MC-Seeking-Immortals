@@ -1,0 +1,58 @@
+{
+  "schema_version": 55,
+  "extract_version": 464,
+  "source": "《凡人修仙传》— 人工精读提取 · 材料类（魔晶石·腐丝芝·元磁极山：卷十第1886–1890章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v463 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 3,
+  "entries": [
+    {
+      "id": "material_970",
+      "display": "魔晶石",
+      "category": "material",
+      "term": "魔晶石",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十 第1888章 人魔之战（七）"},
+      "setting": "腰带储物。乌黑晶石。魔界灵石。精纯魔气。",
+      "visual_descriptions": [
+        "魔族的储物法器和灵界的储物镯不同，却是一个个看似腰带的储物法器。",
+        "除了一些乌黑发亮的晶石外，大都是一些阵盘阵旗之类的器具。"
+      ],
+      "setting_descriptions": [
+        "「那些黑色晶石，应该就是传闻中魔界特产的魔晶石了。」",
+        "「此晶石和人界灵界的灵石都是差不多的存在，只是其中充斥的自然只有精纯之极的魔气了。」"
+      ]
+    },
+    {
+      "id": "material_971",
+      "display": "腐丝芝",
+      "category": "material",
+      "term": "腐丝芝",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十 第1889章 初遇魔尊"},
+      "setting": "力尊珍藏。多年珍稀。邀盟重酬。半圣祭利。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "「我那株珍稀多年的腐丝芝，也送与二位道友当做报酬。」",
+        "「看来力尊者真的急于报仇，将此宝也拿出来了。」"
+      ]
+    },
+    {
+      "id": "material_972",
+      "display": "元磁极山",
+      "category": "material",
+      "term": "元磁极山",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十 第1890章 激战三魔（上）"},
+      "setting": "七八丈山。挡血丝。珍材祭炼。通天难伤。",
+      "visual_descriptions": [
+        "一座黑濛濛的小山一下浮现而出，足有七八丈高，将身形全都遮挡其后的样子。",
+        "血丝一下击在山峰中，血芒一闪后，就没入了其中，竟深入数尺之深，才溃散消失掉。"
+      ],
+      "setting_descriptions": [
+        "「正是元磁极山！」",
+        "「此宝经过无数珍稀材料数次祭炼之后，甚至一般的通天灵宝也无法在上面留下伤痕分毫。」"
+      ]
+    }
+  ]
+}

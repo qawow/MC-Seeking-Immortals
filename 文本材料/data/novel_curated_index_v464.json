@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 464,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1886–1890章）",
+  "method": "沿原文逐段精读；本索引汇总 v464 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1903", "display": "血光轮攻与精锐", "category": "setting", "file": "novel_curated_settings_v464.json"},
+    {"id": "setting_1904", "display": "六极攻灵皇城", "category": "setting", "file": "novel_curated_settings_v464.json"},
+    {"id": "setting_1905", "display": "倚天城求援", "category": "setting", "file": "novel_curated_settings_v464.json"},
+    {"id": "setting_1906", "display": "隐秘传送遇伏", "category": "setting", "file": "novel_curated_settings_v464.json"},
+    {"id": "setting_1907", "display": "力尊追凶邀盟", "category": "setting", "file": "novel_curated_settings_v464.json"},
+    {"id": "setting_1908", "display": "三头六臂真身", "category": "setting", "file": "novel_curated_settings_v464.json"},
+    {"id": "artifact_1253", "display": "银色短尺", "category": "artifact", "file": "novel_curated_artifacts_v464.json"},
+    {"id": "artifact_1254", "display": "日月银钩", "category": "artifact", "file": "novel_curated_artifacts_v464.json"},
+    {"id": "artifact_1255", "display": "乌黑巨棍", "category": "artifact", "file": "novel_curated_artifacts_v464.json"},
+    {"id": "artifact_1256", "display": "罗森魔器", "category": "artifact", "file": "novel_curated_artifacts_v464.json"},
+    {"id": "technique_948", "display": "灰晕反弩杀阵", "category": "technique", "file": "novel_curated_techniques_v464.json"},
+    {"id": "technique_949", "display": "血脉秘术追踪", "category": "technique", "file": "novel_curated_techniques_v464.json"},
+    {"id": "technique_950", "display": "三头六臂变身", "category": "technique", "file": "novel_curated_techniques_v464.json"},
+    {"id": "material_970", "display": "魔晶石", "category": "material", "file": "novel_curated_materials_v464.json"},
+    {"id": "material_971", "display": "腐丝芝", "category": "material", "file": "novel_curated_materials_v464.json"},
+    {"id": "material_972", "display": "元磁极山", "category": "material", "file": "novel_curated_materials_v464.json"}
+  ]
+}
