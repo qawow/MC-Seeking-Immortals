@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 438,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1753–1757章）",
+  "method": "沿原文逐段精读；本索引汇总 v438 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1747", "display": "炼神大成七天象", "category": "setting", "file": "novel_curated_settings_v438.json"},
+    {"id": "setting_1748", "display": "真灵世家谷家", "category": "setting", "file": "novel_curated_settings_v438.json"},
+    {"id": "setting_1749", "display": "仙域禁术监察", "category": "setting", "file": "novel_curated_settings_v438.json"},
+    {"id": "setting_1750", "display": "念剑诀与万剑图", "category": "setting", "file": "novel_curated_settings_v438.json"},
+    {"id": "setting_1751", "display": "进阶合体天象战", "category": "setting", "file": "novel_curated_settings_v438.json"},
+    {"id": "setting_1752", "display": "合体后元气化形", "category": "setting", "file": "novel_curated_settings_v438.json"},
+    {"id": "artifact_1149", "display": "九银盘炼神辅", "category": "artifact", "file": "novel_curated_artifacts_v438.json"},
+    {"id": "artifact_1150", "display": "万剑图画轴", "category": "artifact", "file": "novel_curated_artifacts_v438.json"},
+    {"id": "artifact_1151", "display": "赤红鼎炉炼器", "category": "artifact", "file": "novel_curated_artifacts_v438.json"},
+    {"id": "artifact_1152", "display": "青铜残香与护婴宝", "category": "artifact", "file": "novel_curated_artifacts_v438.json"},
+    {"id": "technique_870", "display": "炼神一层合球入眉", "category": "technique", "file": "novel_curated_techniques_v438.json"},
+    {"id": "technique_871", "display": "山岳巨猿吞紫蛟", "category": "technique", "file": "novel_curated_techniques_v438.json"},
+    {"id": "technique_872", "display": "元婴退心魔", "category": "technique", "file": "novel_curated_techniques_v438.json"},
+    {"id": "material_892", "display": "虚灵丹与银色莲蓬", "category": "material", "file": "novel_curated_materials_v438.json"},
+    {"id": "material_893", "display": "红罗果与蚀毒草", "category": "material", "file": "novel_curated_materials_v438.json"},
+    {"id": "material_894", "display": "真灵世家玉简", "category": "material", "file": "novel_curated_materials_v438.json"}
+  ]
+}
