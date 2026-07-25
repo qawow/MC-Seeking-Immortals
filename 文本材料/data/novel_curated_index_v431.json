@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 431,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1726–1730章）",
+  "method": "沿原文逐段精读；本索引汇总 v431 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1705", "display": "合体瓶颈与梵圣甲衣", "category": "setting", "file": "novel_curated_settings_v431.json"},
+    {"id": "setting_1706", "display": "玄天果实泄能斩盘", "category": "setting", "file": "novel_curated_settings_v431.json"},
+    {"id": "setting_1707", "display": "金盘毁灭与骷髅感应", "category": "setting", "file": "novel_curated_settings_v431.json"},
+    {"id": "setting_1708", "display": "傀儡自爆与星空图拓印", "category": "setting", "file": "novel_curated_settings_v431.json"},
+    {"id": "setting_1709", "display": "须弥空间塌陷", "category": "setting", "file": "novel_curated_settings_v431.json"},
+    {"id": "setting_1710", "display": "角蚩分追与锁定", "category": "setting", "file": "novel_curated_settings_v431.json"},
+    {"id": "artifact_1121", "display": "梵圣甲衣", "category": "artifact", "file": "novel_curated_artifacts_v431.json"},
+    {"id": "artifact_1122", "display": "黄金星空圆盘", "category": "artifact", "file": "novel_curated_artifacts_v431.json"},
+    {"id": "artifact_1123", "display": "银蝌短尺", "category": "artifact", "file": "novel_curated_artifacts_v431.json"},
+    {"id": "artifact_1124", "display": "阴灵矛", "category": "artifact", "file": "novel_curated_artifacts_v431.json"},
+    {"id": "technique_849", "display": "自爆法体保元婴", "category": "technique", "file": "novel_curated_techniques_v431.json"},
+    {"id": "technique_850", "display": "玄天之剑斩光柱", "category": "technique", "file": "novel_curated_techniques_v431.json"},
+    {"id": "technique_851", "display": "金身抓吞银尺", "category": "technique", "file": "novel_curated_techniques_v431.json"},
+    {"id": "material_871", "display": "血红金丝怪石", "category": "material", "file": "novel_curated_materials_v431.json"},
+    {"id": "material_872", "display": "翠绿顶阶晶石", "category": "material", "file": "novel_curated_materials_v431.json"},
+    {"id": "material_873", "display": "银甲傀儡残片", "category": "material", "file": "novel_curated_materials_v431.json"}
+  ]
+}
