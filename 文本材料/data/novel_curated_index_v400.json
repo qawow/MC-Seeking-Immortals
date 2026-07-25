@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 400,
+  "source": "《凡人修仙传》— 人工精读提取索引（力压合体·火木相克·混天袋与葫芦·元气之剑·退走：第1571–1575章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v399 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1519", "display": "力压合体初阶", "category": "setting", "file": "novel_curated_settings_v400.json"},
+    {"id": "setting_1520", "display": "火木相克与天地元气", "category": "setting", "file": "novel_curated_settings_v400.json"},
+    {"id": "setting_1521", "display": "春黎吸元与剑阵极限", "category": "setting", "file": "novel_curated_settings_v400.json"},
+    {"id": "setting_1522", "display": "元气之剑杀伤", "category": "setting", "file": "novel_curated_settings_v400.json"},
+    {"id": "setting_1523", "display": "噬金虫逼退合体", "category": "setting", "file": "novel_curated_settings_v400.json"},
+    {"id": "setting_1524", "display": "退走与金甲城", "category": "setting", "file": "novel_curated_settings_v400.json"},
+    {"id": "artifact_997", "display": "元磁神山力压", "category": "artifact", "file": "novel_curated_artifacts_v400.json"},
+    {"id": "artifact_998", "display": "混天袋与金幡", "category": "artifact", "file": "novel_curated_artifacts_v400.json"},
+    {"id": "artifact_999", "display": "元气剑葫", "category": "artifact", "file": "novel_curated_artifacts_v400.json"},
+    {"id": "artifact_1000", "display": "三色风火战甲", "category": "artifact", "file": "novel_curated_artifacts_v400.json"},
+    {"id": "technique_756", "display": "紫雾土遁隐匿", "category": "technique", "file": "novel_curated_techniques_v400.json"},
+    {"id": "technique_757", "display": "火功熔岩与变身", "category": "technique", "file": "novel_curated_techniques_v400.json"},
+    {"id": "technique_758", "display": "元气剑葫之斩", "category": "technique", "file": "novel_curated_techniques_v400.json"},
+    {"id": "material_778", "display": "顶阶木属性灵石", "category": "material", "file": "novel_curated_materials_v400.json"},
+    {"id": "material_779", "display": "成熟体噬金虫", "category": "material", "file": "novel_curated_materials_v400.json"},
+    {"id": "material_780", "display": "破天锤玄天宝", "category": "material", "file": "novel_curated_materials_v400.json"}
+  ]
+}
