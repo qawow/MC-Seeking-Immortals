@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 561,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2371–2375章）",
+  "method": "沿原文逐段精读；本索引汇总 v561 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2485", "display": "万灵血玺与血祭", "category": "setting", "file": "novel_curated_settings_v561.json"},
+    {"id": "setting_2486", "display": "真仙降世与界面压制", "category": "setting", "file": "novel_curated_settings_v561.json"},
+    {"id": "setting_2487", "display": "六翼霜蚣八翼遁与素阴星气", "category": "setting", "file": "novel_curated_settings_v561.json"},
+    {"id": "setting_2488", "display": "屠魔盟与天机碎", "category": "setting", "file": "novel_curated_settings_v561.json"},
+    {"id": "setting_2489", "display": "强者之战与小世界据点", "category": "setting", "file": "novel_curated_settings_v561.json"},
+    {"id": "setting_2490", "display": "阴司五王与冥雄", "category": "setting", "file": "novel_curated_settings_v561.json"},
+    {"id": "artifact_1641", "display": "万灵血玺", "category": "artifact", "file": "novel_curated_artifacts_v561.json"},
+    {"id": "artifact_1642", "display": "第四对晶翼圆珠", "category": "artifact", "file": "novel_curated_artifacts_v561.json"},
+    {"id": "artifact_1643", "display": "天机盘与翠绿玉匣", "category": "artifact", "file": "novel_curated_artifacts_v561.json"},
+    {"id": "artifact_1644", "display": "五阴锁心锤", "category": "artifact", "file": "novel_curated_artifacts_v561.json"},
+    {"id": "technique_1239", "display": "七色晶壁与琉璃巨手", "category": "technique", "file": "novel_curated_techniques_v561.json"},
+    {"id": "technique_1240", "display": "血河吞纳与界力符锁", "category": "technique", "file": "novel_curated_techniques_v561.json"},
+    {"id": "technique_1241", "display": "强者之战双禁制", "category": "technique", "file": "novel_curated_techniques_v561.json"},
+    {"id": "material_1261", "display": "檀香血河", "category": "material", "file": "novel_curated_materials_v561.json"},
+    {"id": "material_1262", "display": "素阴星气", "category": "material", "file": "novel_curated_materials_v561.json"},
+    {"id": "material_1263", "display": "白骨山与阴麟军", "category": "material", "file": "novel_curated_materials_v561.json"}
+  ]
+}
