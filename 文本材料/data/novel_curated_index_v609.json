@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 609,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第159–163章）",
+  "method": "沿原文逐段精读；本索引汇总 v609 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2773", "display": "星移盘远距耗竭", "category": "setting", "file": "novel_curated_settings_v609.json"},
+    {"id": "setting_2774", "display": "黑岩戈壁险地", "category": "setting", "file": "novel_curated_settings_v609.json"},
+    {"id": "setting_2775", "display": "六蟾融火阵", "category": "setting", "file": "novel_curated_settings_v609.json"},
+    {"id": "setting_2776", "display": "甘九真即蛟三", "category": "setting", "file": "novel_curated_settings_v609.json"},
+    {"id": "setting_2777", "display": "黑背铁蜥兽潮", "category": "setting", "file": "novel_curated_settings_v609.json"},
+    {"id": "setting_2778", "display": "迷葬森林飞禽袭", "category": "setting", "file": "novel_curated_settings_v609.json"},
+    {"id": "artifact_1833", "display": "九柄白飞剑", "category": "artifact", "file": "novel_curated_artifacts_v609.json"},
+    {"id": "artifact_1834", "display": "赤红龙镯", "category": "artifact", "file": "novel_curated_artifacts_v609.json"},
+    {"id": "artifact_1835", "display": "血蛟玉佩", "category": "artifact", "file": "novel_curated_artifacts_v609.json"},
+    {"id": "artifact_1836", "display": "青风锁仙符", "category": "artifact", "file": "novel_curated_artifacts_v609.json"},
+    {"id": "technique_1383", "display": "太一化清隐踪", "category": "technique", "file": "novel_curated_techniques_v609.json"},
+    {"id": "technique_1384", "display": "重水纹雷破阵", "category": "technique", "file": "novel_curated_techniques_v609.json"},
+    {"id": "technique_1385", "display": "供奉联手清潮", "category": "technique", "file": "novel_curated_techniques_v609.json"},
+    {"id": "material_1405", "display": "元磁玄铁矿", "category": "material", "file": "novel_curated_materials_v609.json"},
+    {"id": "material_1406", "display": "金睛雪蟾", "category": "material", "file": "novel_curated_materials_v609.json"},
+    {"id": "material_1407", "display": "黑背铁蜥", "category": "material", "file": "novel_curated_materials_v609.json"}
+  ]
+}
