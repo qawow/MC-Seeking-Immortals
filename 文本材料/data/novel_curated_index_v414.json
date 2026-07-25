@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 414,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1641–1645章）",
+  "method": "沿原文逐段精读；本索引汇总 v414 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1603", "display": "真麟本源与分神寄生", "category": "setting", "file": "novel_curated_settings_v414.json"},
+    {"id": "setting_1604", "display": "附身穴灵的天外魔君分魂", "category": "setting", "file": "novel_curated_settings_v414.json"},
+    {"id": "setting_1605", "display": "灵种寄生与黑丝定身", "category": "setting", "file": "novel_curated_settings_v414.json"},
+    {"id": "setting_1606", "display": "啼魂刑兽与天罚神矛", "category": "setting", "file": "novel_curated_settings_v414.json"},
+    {"id": "setting_1607", "display": "大吞灭术与墨麒麟形", "category": "setting", "file": "novel_curated_settings_v414.json"},
+    {"id": "setting_1608", "display": "九夜陨落与魔猿诱饵", "category": "setting", "file": "novel_curated_settings_v414.json"},
+    {"id": "artifact_1053", "display": "天罚神矛骨刺", "category": "artifact", "file": "novel_curated_artifacts_v414.json"},
+    {"id": "artifact_1054", "display": "刑兽血色锁链", "category": "artifact", "file": "novel_curated_artifacts_v414.json"},
+    {"id": "artifact_1055", "display": "百脉炼宝诀元磁神山", "category": "artifact", "file": "novel_curated_artifacts_v414.json"},
+    {"id": "artifact_1056", "display": "水晶光幕与青金双莲", "category": "artifact", "file": "novel_curated_artifacts_v414.json"},
+    {"id": "technique_798", "display": "青竹蜂云剑化莲破网", "category": "technique", "file": "novel_curated_techniques_v414.json"},
+    {"id": "technique_799", "display": "惊神刺破黑袍元神", "category": "technique", "file": "novel_curated_techniques_v414.json"},
+    {"id": "technique_800", "display": "刑兽无意识锁魂噬魔", "category": "technique", "file": "novel_curated_techniques_v414.json"},
+    {"id": "material_820", "display": "真麟本源之力", "category": "material", "file": "novel_curated_materials_v414.json"},
+    {"id": "material_821", "display": "天外魔君魔化之尘", "category": "material", "file": "novel_curated_materials_v414.json"},
+    {"id": "material_822", "display": "魔面五色残片", "category": "material", "file": "novel_curated_materials_v414.json"}
+  ]
+}
