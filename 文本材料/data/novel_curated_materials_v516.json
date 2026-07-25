@@ -1,0 +1,58 @@
+{
+  "schema_version": 55,
+  "extract_version": 516,
+  "source": "《凡人修仙传》— 人工精读提取 · 材料类（敖啸与银月·忘情诀·谈话·木棉城·莫简离：卷十第2146–2150章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v515 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 3,
+  "entries": [
+    {
+      "id": "material_1126",
+      "display": "碧龙茶",
+      "category": "material",
+      "term": "碧龙茶",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十 第2147章 忘情诀"},
+      "setting": "翠绿欲滴灵茶，含特殊灵力；对黄金圣蟹略有裨益。稀少，敖啸存数斤可赠。",
+      "visual_descriptions": [
+        "一杯翠绿欲滴的灵茶。"
+      ],
+      "setting_descriptions": [
+        "「不错，这茶水中的特殊灵力似乎对我略有一些裨益。」",
+        "「这碧龙茶虽然稀少，但是老夫这里还有数斤的。」"
+      ]
+    },
+    {
+      "id": "material_1127",
+      "display": "仙叶酒",
+      "category": "material",
+      "term": "仙叶酒",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十 第2150章 莫简离"},
+      "setting": "木族圣树汁液酿制，浓稠如湖，入喉精纯能量暖遍四肢。百年全族不过百瓶；木族供奉莫简离两瓶洗尘。",
+      "visual_descriptions": [
+        "一杯仿若湖泊般浓稠灵酒。"
+      ],
+      "setting_descriptions": [
+        "「这仙叶酒可是用木族圣树流淌的汁液酿制而成，百年木族全族也不过可得百瓶而已。」",
+        "此酒方一入喉，立刻化为一股精纯能量的遍布身体四肢各处，给人一种暖洋洋的感觉。"
+      ]
+    },
+    {
+      "id": "material_1128",
+      "display": "木族圣树本元",
+      "category": "material",
+      "term": "圣树",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十 第2150章 莫简离"},
+      "setting": "原植木族禁地，魔族入侵后移植木棉城损本元。汁酿仙叶酒；大长老在树中闭关借灵气求复大乘，极难。",
+      "visual_descriptions": [
+        "「木族这株圣树原本是种植在木族禁地之中……只好将圣树本体移植到了木棉城来。」"
+      ],
+      "setting_descriptions": [
+        "「让其本元气损伤不少的。」",
+        "「木族的大长老如今也正在圣树中休养闭关，希望能够借助此树灵气，重新恢复大乘期修为。」"
+      ]
+    }
+  ]
+}

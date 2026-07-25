@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 516,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第2146–2150章）",
+  "method": "沿原文逐段精读；本索引汇总 v516 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2215", "display": "魔化母阵与联军侦察", "category": "setting", "file": "novel_curated_settings_v516.json"},
+    {"id": "setting_2216", "display": "忘情诀与七星月体", "category": "setting", "file": "novel_curated_settings_v516.json"},
+    {"id": "setting_2217", "display": "神念秘术克制忘情", "category": "setting", "file": "novel_curated_settings_v516.json"},
+    {"id": "setting_2218", "display": "拒婚与影卫獠影", "category": "setting", "file": "novel_curated_settings_v516.json"},
+    {"id": "setting_2219", "display": "木棉城联军大营", "category": "setting", "file": "novel_curated_settings_v516.json"},
+    {"id": "setting_2220", "display": "莫简离与仙叶酒", "category": "setting", "file": "novel_curated_settings_v516.json"},
+    {"id": "artifact_1461", "display": "五层银光楼船", "category": "artifact", "file": "novel_curated_artifacts_v516.json"},
+    {"id": "artifact_1462", "display": "碧龙茶与银纱侍女", "category": "artifact", "file": "novel_curated_artifacts_v516.json"},
+    {"id": "artifact_1463", "display": "影卫獠影装备", "category": "artifact", "file": "novel_curated_artifacts_v516.json"},
+    {"id": "artifact_1464", "display": "仙叶酒与紫灵木厅", "category": "artifact", "file": "novel_curated_artifacts_v516.json"},
+    {"id": "technique_1104", "display": "元刹果断退走", "category": "technique", "file": "novel_curated_techniques_v516.json"},
+    {"id": "technique_1105", "display": "镇神术与忘情发作", "category": "technique", "file": "novel_curated_techniques_v516.json"},
+    {"id": "technique_1106", "display": "神念秘术小成", "category": "technique", "file": "novel_curated_techniques_v516.json"},
+    {"id": "material_1126", "display": "碧龙茶", "category": "material", "file": "novel_curated_materials_v516.json"},
+    {"id": "material_1127", "display": "仙叶酒", "category": "material", "file": "novel_curated_materials_v516.json"},
+    {"id": "material_1128", "display": "木族圣树本元", "category": "material", "file": "novel_curated_materials_v516.json"}
+  ]
+}
