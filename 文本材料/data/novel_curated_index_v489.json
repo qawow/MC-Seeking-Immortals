@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 489,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第2011–2015章）",
+  "method": "沿原文逐段精读；本索引汇总 v489 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2053", "display": "两族相聚魔界之行", "category": "setting", "file": "novel_curated_settings_v489.json"},
+    {"id": "setting_2054", "display": "天命铜钱示警", "category": "setting", "file": "novel_curated_settings_v489.json"},
+    {"id": "setting_2055", "display": "紫言鼎炼化魔念", "category": "setting", "file": "novel_curated_settings_v489.json"},
+    {"id": "setting_2056", "display": "玄天之剑未可全控", "category": "setting", "file": "novel_curated_settings_v489.json"},
+    {"id": "setting_2057", "display": "血石山脉节点", "category": "setting", "file": "novel_curated_settings_v489.json"},
+    {"id": "setting_2058", "display": "硬闯魔族要塞", "category": "setting", "file": "novel_curated_settings_v489.json"},
+    {"id": "artifact_1353", "display": "天命铜钱", "category": "artifact", "file": "novel_curated_artifacts_v489.json"},
+    {"id": "artifact_1354", "display": "紫言鼎", "category": "artifact", "file": "novel_curated_artifacts_v489.json"},
+    {"id": "artifact_1355", "display": "烟云幡", "category": "artifact", "file": "novel_curated_artifacts_v489.json"},
+    {"id": "artifact_1356", "display": "伪魔珠", "category": "artifact", "file": "novel_curated_artifacts_v489.json"},
+    {"id": "technique_1023", "display": "青焰炼鼎灭魔念", "category": "technique", "file": "novel_curated_techniques_v489.json"},
+    {"id": "technique_1024", "display": "开坛天卜", "category": "technique", "file": "novel_curated_techniques_v489.json"},
+    {"id": "technique_1025", "display": "烟云幡隐匿", "category": "technique", "file": "novel_curated_techniques_v489.json"},
+    {"id": "material_1045", "display": "培元凝体灵丹", "category": "material", "file": "novel_curated_materials_v489.json"},
+    {"id": "material_1046", "display": "合体古兽精血", "category": "material", "file": "novel_curated_materials_v489.json"},
+    {"id": "material_1047", "display": "震元锏", "category": "material", "file": "novel_curated_materials_v489.json"}
+  ]
+}
