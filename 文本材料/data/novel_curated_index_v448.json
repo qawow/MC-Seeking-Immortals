@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 448,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1804–1808章）",
+  "method": "沿原文逐段精读；本索引汇总 v448 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1807", "display": "千变幻面金臂猿", "category": "setting", "file": "novel_curated_settings_v448.json"},
+    {"id": "setting_1808", "display": "迎仙宫空间禁制", "category": "setting", "file": "novel_curated_settings_v448.json"},
+    {"id": "setting_1809", "display": "月结心玉隔感应", "category": "setting", "file": "novel_curated_settings_v448.json"},
+    {"id": "setting_1810", "display": "半龙化与无情道", "category": "setting", "file": "novel_curated_settings_v448.json"},
+    {"id": "setting_1811", "display": "圣岛与金罡妖猿", "category": "setting", "file": "novel_curated_settings_v448.json"},
+    {"id": "setting_1812", "display": "迷天楼与秦氏姐妹", "category": "setting", "file": "novel_curated_settings_v448.json"},
+    {"id": "artifact_1189", "display": "千变幻面", "category": "artifact", "file": "novel_curated_artifacts_v448.json"},
+    {"id": "artifact_1190", "display": "月结心玉", "category": "artifact", "file": "novel_curated_artifacts_v448.json"},
+    {"id": "artifact_1191", "display": "废灵换擎天舟", "category": "artifact", "file": "novel_curated_artifacts_v448.json"},
+    {"id": "artifact_1192", "display": "迷天石货架", "category": "artifact", "file": "novel_curated_artifacts_v448.json"},
+    {"id": "technique_900", "display": "乌目破空间壁", "category": "technique", "file": "novel_curated_techniques_v448.json"},
+    {"id": "technique_901", "display": "惊蛰决山岳巨猿", "category": "technique", "file": "novel_curated_techniques_v448.json"},
+    {"id": "technique_902", "display": "银焰融虚空", "category": "technique", "file": "novel_curated_techniques_v448.json"},
+    {"id": "material_922", "display": "金臂猿兽皮", "category": "material", "file": "novel_curated_materials_v448.json"},
+    {"id": "material_923", "display": "迷天石", "category": "material", "file": "novel_curated_materials_v448.json"},
+    {"id": "material_924", "display": "器灵废灵", "category": "material", "file": "novel_curated_materials_v448.json"}
+  ]
+}
