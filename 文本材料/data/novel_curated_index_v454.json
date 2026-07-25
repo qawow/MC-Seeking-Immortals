@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 454,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1835–1839章）",
+  "method": "沿原文逐段精读；本索引汇总 v454 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1843", "display": "洗灵池净灵莲", "category": "setting", "file": "novel_curated_settings_v454.json"},
+    {"id": "setting_1844", "display": "伪魔珠化魔", "category": "setting", "file": "novel_curated_settings_v454.json"},
+    {"id": "setting_1845", "display": "魔界之约", "category": "setting", "file": "novel_curated_settings_v454.json"},
+    {"id": "setting_1846", "display": "百年流逝三皇盟", "category": "setting", "file": "novel_curated_settings_v454.json"},
+    {"id": "setting_1847", "display": "白果儿秦氏交易", "category": "setting", "file": "novel_curated_settings_v454.json"},
+    {"id": "setting_1848", "display": "山腹小世界闭关", "category": "setting", "file": "novel_curated_settings_v454.json"},
+    {"id": "artifact_1213", "display": "伪魔珠", "category": "artifact", "file": "novel_curated_artifacts_v454.json"},
+    {"id": "artifact_1214", "display": "残缺玉佩信物", "category": "artifact", "file": "novel_curated_artifacts_v454.json"},
+    {"id": "artifact_1215", "display": "紫色木匣妖丹", "category": "artifact", "file": "novel_curated_artifacts_v454.json"},
+    {"id": "artifact_1216", "display": "金色巨鼎炼液", "category": "artifact", "file": "novel_curated_artifacts_v454.json"},
+    {"id": "technique_918", "display": "伪魔真气化身", "category": "technique", "file": "novel_curated_techniques_v454.json"},
+    {"id": "technique_919", "display": "天凤破碎虚空", "category": "technique", "file": "novel_curated_techniques_v454.json"},
+    {"id": "technique_920", "display": "五色雾海封印", "category": "technique", "file": "novel_curated_techniques_v454.json"},
+    {"id": "material_940", "display": "净灵莲", "category": "material", "file": "novel_curated_materials_v454.json"},
+    {"id": "material_941", "display": "黑绿妖丹", "category": "material", "file": "novel_curated_materials_v454.json"},
+    {"id": "material_942", "display": "灵具备战材", "category": "material", "file": "novel_curated_materials_v454.json"}
+  ]
+}
