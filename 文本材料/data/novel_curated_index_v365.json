@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 365,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（玄涡兽·惊变·斩山之威·夜叉王·猖奴：第1396–1400章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v364 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1396章 玄涡兽 — 第1400章 猖奴",
+  "progress": "1400/2005 ≈ 69.8%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1309–setting_1314",
+    "artifacts": "artifact_857–artifact_860",
+    "techniques": "technique_651–technique_653",
+    "materials": "material_673–material_675"
+  },
+  "entries": [
+    {"id": "setting_1309", "display": "玄涡兽与鼓鸣警戒", "category": "setting", "file": "novel_curated_settings_v365.json"},
+    {"id": "setting_1310", "display": "灵磁石脉禁土遁", "category": "setting", "file": "novel_curated_settings_v365.json"},
+    {"id": "setting_1311", "display": "夜叉前行队斩山", "category": "setting", "file": "novel_curated_settings_v365.json"},
+    {"id": "setting_1312", "display": "天都雷阵溃与巢穴崩", "category": "setting", "file": "novel_curated_settings_v365.json"},
+    {"id": "setting_1313", "display": "夜叉围杀与双幡飓风", "category": "setting", "file": "novel_curated_settings_v365.json"},
+    {"id": "setting_1314", "display": "夜叉王猖奴赌命", "category": "setting", "file": "novel_curated_settings_v365.json"},
+    {"id": "artifact_857", "display": "玄清天雷旗实物", "category": "artifact", "file": "novel_curated_artifacts_v365.json"},
+    {"id": "artifact_858", "display": "祝青夫妇双幡", "category": "artifact", "file": "novel_curated_artifacts_v365.json"},
+    {"id": "artifact_859", "display": "五色玉舟与虬蛟", "category": "artifact", "file": "novel_curated_artifacts_v365.json"},
+    {"id": "artifact_860", "display": "日光佩", "category": "artifact", "file": "novel_curated_artifacts_v365.json"},
+    {"id": "technique_651", "display": "元磁灭玄涡兽", "category": "technique", "file": "novel_curated_techniques_v365.json"},
+    {"id": "technique_652", "display": "斩山之威", "category": "technique", "file": "novel_curated_techniques_v365.json"},
+    {"id": "technique_653", "display": "风雷翅瞬移与真影", "category": "technique", "file": "novel_curated_techniques_v365.json"},
+    {"id": "material_673", "display": "真蟾灵血", "category": "material", "file": "novel_curated_materials_v365.json"},
+    {"id": "material_674", "display": "猖奴", "category": "material", "file": "novel_curated_materials_v365.json"},
+    {"id": "material_675", "display": "化神元婴大补", "category": "material", "file": "novel_curated_materials_v365.json"}
+  ]
+}
