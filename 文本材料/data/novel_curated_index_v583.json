@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 583,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第29–33章）",
+  "method": "沿原文逐段精读；本索引汇总 v583 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2617", "display": "陆崖魂牌碎裂", "category": "setting", "file": "novel_curated_settings_v583.json"},
+    {"id": "setting_2618", "display": "冷焰宗灵焰山脉", "category": "setting", "file": "novel_curated_settings_v583.json"},
+    {"id": "setting_2619", "display": "韩立举田入洞府", "category": "setting", "file": "novel_curated_settings_v583.json"},
+    {"id": "setting_2620", "display": "客卿长老与通易谷", "category": "setting", "file": "novel_curated_settings_v583.json"},
+    {"id": "setting_2621", "display": "逆丹诀分解丹药", "category": "setting", "file": "novel_curated_settings_v583.json"},
+    {"id": "setting_2622", "display": "先天紫气与法力上限", "category": "setting", "file": "novel_curated_settings_v583.json"},
+    {"id": "artifact_1729", "display": "冷焰宗金色令牌", "category": "artifact", "file": "novel_curated_artifacts_v583.json"},
+    {"id": "artifact_1730", "display": "护宗淡金光幕", "category": "artifact", "file": "novel_curated_artifacts_v583.json"},
+    {"id": "artifact_1731", "display": "炼丹室地火丹炉", "category": "artifact", "file": "novel_curated_artifacts_v583.json"},
+    {"id": "artifact_1732", "display": "魄阴芝木匣", "category": "artifact", "file": "novel_curated_artifacts_v583.json"},
+    {"id": "technique_1305", "display": "魔光驱阴孽飞蚁", "category": "technique", "file": "novel_curated_techniques_v583.json"},
+    {"id": "technique_1306", "display": "肉身拳圈举田", "category": "technique", "file": "novel_curated_techniques_v583.json"},
+    {"id": "technique_1307", "display": "烙印幻灵婵变", "category": "technique", "file": "novel_curated_techniques_v583.json"},
+    {"id": "material_1327", "display": "乌云丹", "category": "material", "file": "novel_curated_materials_v583.json"},
+    {"id": "material_1328", "display": "云鹤草", "category": "material", "file": "novel_curated_materials_v583.json"},
+    {"id": "material_1329", "display": "先天紫气", "category": "material", "file": "novel_curated_materials_v583.json"}
+  ]
+}
