@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 565,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2391–2395章）",
+  "method": "沿原文逐段精读；本索引汇总 v565 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2509", "display": "古树祖灵寄附", "category": "setting", "file": "novel_curated_settings_v565.json"},
+    {"id": "setting_2510", "display": "小灵天人族与月仙子", "category": "setting", "file": "novel_curated_settings_v565.json"},
+    {"id": "setting_2511", "display": "南宫婉入小灵天与真灵机缘", "category": "setting", "file": "novel_curated_settings_v565.json"},
+    {"id": "setting_2512", "display": "轮回素女功与石纤云", "category": "setting", "file": "novel_curated_settings_v565.json"},
+    {"id": "setting_2513", "display": "人族撤离与通道后手", "category": "setting", "file": "novel_curated_settings_v565.json"},
+    {"id": "setting_2514", "display": "威震诸族巡行", "category": "setting", "file": "novel_curated_settings_v565.json"},
+    {"id": "artifact_1657", "display": "古树图印与元婴银瓶", "category": "artifact", "file": "novel_curated_artifacts_v565.json"},
+    {"id": "artifact_1658", "display": "飞剑传书与传讯玉佩", "category": "artifact", "file": "novel_curated_artifacts_v565.json"},
+    {"id": "artifact_1659", "display": "真灵晶核", "category": "artifact", "file": "novel_curated_artifacts_v565.json"},
+    {"id": "artifact_1660", "display": "观察法镜与开元丹", "category": "artifact", "file": "novel_curated_artifacts_v565.json"},
+    {"id": "technique_1251", "display": "蟹道人雷阵克祖灵", "category": "technique", "file": "novel_curated_techniques_v565.json"},
+    {"id": "technique_1252", "display": "梵音金手与金雷网", "category": "technique", "file": "novel_curated_techniques_v565.json"},
+    {"id": "technique_1253", "display": "通道遮蔽与启封", "category": "technique", "file": "novel_curated_techniques_v565.json"},
+    {"id": "material_1273", "display": "绿海木灵气", "category": "material", "file": "novel_curated_materials_v565.json"},
+    {"id": "material_1274", "display": "雪松兽与开元丹", "category": "material", "file": "novel_curated_materials_v565.json"},
+    {"id": "material_1275", "display": "罗睺与百头虫尸身", "category": "material", "file": "novel_curated_materials_v565.json"}
+  ]
+}
