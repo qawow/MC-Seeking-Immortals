@@ -1,0 +1,108 @@
+{
+  "schema_version": 55,
+  "extract_version": 394,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1541–1545章：火阳族·大祭司·烈阳神丹·珠儿乌罗·玄剑附臂）",
+  "method": "沿原文逐段精读；索引仅列 id/display/category/file，详目见分卷 JSON。",
+  "disclaimer": "代表性精读而非穷尽全本；入包前仍需人工校订。",
+  "chapter_range": "第1541–1545章",
+  "progress": "1545/2005 ≈ 77.1%",
+  "count": 16,
+  "entries": [
+    {
+      "id": "setting_1483",
+      "display": "火阳族与娲氏",
+      "category": "setting",
+      "file": "novel_curated_settings_v394.json"
+    },
+    {
+      "id": "setting_1484",
+      "display": "上族化形",
+      "category": "setting",
+      "file": "novel_curated_settings_v394.json"
+    },
+    {
+      "id": "setting_1485",
+      "display": "火瑚群岛与火云岛",
+      "category": "setting",
+      "file": "novel_curated_settings_v394.json"
+    },
+    {
+      "id": "setting_1486",
+      "display": "尖齿蝎尾灭族危机",
+      "category": "setting",
+      "file": "novel_curated_settings_v394.json"
+    },
+    {
+      "id": "setting_1487",
+      "display": "乌罗族与乌罗王族",
+      "category": "setting",
+      "file": "novel_curated_settings_v394.json"
+    },
+    {
+      "id": "setting_1488",
+      "display": "玄天果实附臂",
+      "category": "setting",
+      "file": "novel_curated_settings_v394.json"
+    },
+    {
+      "id": "artifact_973",
+      "display": "蛇人骨舟",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v394.json"
+    },
+    {
+      "id": "artifact_974",
+      "display": "破云光柱与青铜锥",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v394.json"
+    },
+    {
+      "id": "artifact_975",
+      "display": "破天弓与骨箭",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v394.json"
+    },
+    {
+      "id": "artifact_976",
+      "display": "白色纱巾白云",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v394.json"
+    },
+    {
+      "id": "technique_738",
+      "display": "娲氏言语石片灌注",
+      "category": "technique",
+      "file": "novel_curated_techniques_v394.json"
+    },
+    {
+      "id": "technique_739",
+      "display": "炼仙果霸道提阶",
+      "category": "technique",
+      "file": "novel_curated_techniques_v394.json"
+    },
+    {
+      "id": "technique_740",
+      "display": "啼魂化身与阵旗护屋",
+      "category": "technique",
+      "file": "novel_curated_techniques_v394.json"
+    },
+    {
+      "id": "material_760",
+      "display": "烈阳神丹",
+      "category": "material",
+      "file": "novel_curated_materials_v394.json"
+    },
+    {
+      "id": "material_761",
+      "display": "炼仙果",
+      "category": "material",
+      "file": "novel_curated_materials_v394.json"
+    },
+    {
+      "id": "material_762",
+      "display": "双头炎蛟内丹",
+      "category": "material",
+      "file": "novel_curated_materials_v394.json"
+    }
+  ]
+}
