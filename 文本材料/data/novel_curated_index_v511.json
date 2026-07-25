@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 511,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第2121–2125章）",
+  "method": "沿原文逐段精读；本索引汇总 v511 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2185", "display": "血牙米暗卖情报交易", "category": "setting", "file": "novel_curated_settings_v511.json"},
+    {"id": "setting_2186", "display": "广源斋跨界与虚弱", "category": "setting", "file": "novel_curated_settings_v511.json"},
+    {"id": "setting_2187", "display": "六极门下备用化身", "category": "setting", "file": "novel_curated_settings_v511.json"},
+    {"id": "setting_2188", "display": "姹女素阴体与魔气灌体", "category": "setting", "file": "novel_curated_settings_v511.json"},
+    {"id": "setting_2189", "display": "阴阳大五行真光", "category": "setting", "file": "novel_curated_settings_v511.json"},
+    {"id": "setting_2190", "display": "螟虫之母与魔界大劫", "category": "setting", "file": "novel_curated_settings_v511.json"},
+    {"id": "artifact_1441", "display": "情报石片与玉盒", "category": "artifact", "file": "novel_curated_artifacts_v511.json"},
+    {"id": "artifact_1442", "display": "焦魔木纺车", "category": "artifact", "file": "novel_curated_artifacts_v511.json"},
+    {"id": "artifact_1443", "display": "四层禁制令牌", "category": "artifact", "file": "novel_curated_artifacts_v511.json"},
+    {"id": "artifact_1444", "display": "广源斋跨界传送物", "category": "artifact", "file": "novel_curated_artifacts_v511.json"},
+    {"id": "technique_1089", "display": "绿丝毁器与逼出绿气", "category": "technique", "file": "novel_curated_techniques_v511.json"},
+    {"id": "technique_1090", "display": "青光复原真容", "category": "technique", "file": "novel_curated_techniques_v511.json"},
+    {"id": "technique_1091", "display": "地煞阴气炼化口诀", "category": "technique", "file": "novel_curated_techniques_v511.json"},
+    {"id": "material_1111", "display": "地煞阴气绿气", "category": "material", "file": "novel_curated_materials_v511.json"},
+    {"id": "material_1112", "display": "焦魔木", "category": "material", "file": "novel_curated_materials_v511.json"},
+    {"id": "material_1113", "display": "真魔气", "category": "material", "file": "novel_curated_materials_v511.json"}
+  ]
+}
