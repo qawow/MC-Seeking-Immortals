@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 390,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（竹叶·离开·雾中·春黎青蟠·回府：第1521–1525章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v389 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1521章 竹叶 — 第1525章 回府",
+  "progress": "1525/2005 ≈ 76.1%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1459–setting_1464",
+    "artifacts": "artifact_957–artifact_960",
+    "techniques": "technique_726–technique_728",
+    "materials": "material_748–material_750"
+  },
+  "entries": [
+    {"id": "setting_1459", "display": "金雷竹叶与域外天魔", "category": "setting", "file": "novel_curated_settings_v390.json"},
+    {"id": "setting_1460", "display": "神乳清单千年交易", "category": "setting", "file": "novel_curated_settings_v390.json"},
+    {"id": "setting_1461", "display": "仿制逆星盘与噬金虫王", "category": "setting", "file": "novel_curated_settings_v390.json"},
+    {"id": "setting_1462", "display": "蜉蝣圣巢仿品虫海", "category": "setting", "file": "novel_curated_settings_v390.json"},
+    {"id": "setting_1463", "display": "黑冥雾海禁空", "category": "setting", "file": "novel_curated_settings_v390.json"},
+    {"id": "setting_1464", "display": "春黎青蟠与淬剑抉择", "category": "setting", "file": "novel_curated_settings_v390.json"},
+    {"id": "artifact_957", "display": "金雷竹叶木匣", "category": "artifact", "file": "novel_curated_artifacts_v390.json"},
+    {"id": "artifact_958", "display": "仿制逆星盘", "category": "artifact", "file": "novel_curated_artifacts_v390.json"},
+    {"id": "artifact_959", "display": "翠绿木质宝塔", "category": "artifact", "file": "novel_curated_artifacts_v390.json"},
+    {"id": "artifact_960", "display": "皓兽弯角双刃", "category": "artifact", "file": "novel_curated_artifacts_v390.json"},
+    {"id": "technique_726", "display": "八幡法阵破空传送", "category": "technique", "file": "novel_curated_techniques_v390.json"},
+    {"id": "technique_727", "display": "春黎青蟠剑阵", "category": "technique", "file": "novel_curated_techniques_v390.json"},
+    {"id": "technique_728", "display": "梵圣真魔法相灭妖", "category": "technique", "file": "novel_curated_techniques_v390.json"},
+    {"id": "material_748", "display": "金雷竹叶", "category": "material", "file": "novel_curated_materials_v390.json"},
+    {"id": "material_749", "display": "冥河神乳交易瓶", "category": "material", "file": "novel_curated_materials_v390.json"},
+    {"id": "material_750", "display": "真蟾灵液与真灵之血", "category": "material", "file": "novel_curated_materials_v390.json"}
+  ]
+}
