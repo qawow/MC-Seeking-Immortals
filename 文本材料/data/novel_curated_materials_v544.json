@@ -1,0 +1,56 @@
+{
+  "schema_version": 55,
+  "extract_version": 544,
+  "source": "《凡人修仙传》— 人工精读提取 · 材料类（修罗之战五至九：卷十一第2286–2290章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v543 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 3,
+  "entries": [
+    {
+      "id": "material_1210",
+      "display": "烈煞金罡沙",
+      "category": "material",
+      "term": "金罡沙",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2290章 修罗之战（九）"},
+      "setting": "淡黄葫芦所喷；土黄色晶粒化飓风巨压困元婴，可加禁制波动；与梵圣六重刃合击重创大成元婴。",
+      "visual_descriptions": [
+        "点点黄光一现……幻化成了一颗颗土黄色晶粒……黄色沙雾一起，竟化为一道飓风。",
+        "一颗颗拳头大晶粒在风中若隐若现，并一下散发出一种诡异的禁制波动。"
+      ],
+      "setting_descriptions": [
+        "「在烈煞金罡沙的诡异力量和梵圣金身六件重刃一击下……元婴遭受了极大重创。」"
+      ]
+    },
+    {
+      "id": "material_1211",
+      "display": "金雷竹飞剑",
+      "category": "material",
+      "term": "金雷竹",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2288章 修罗之战（七）"},
+      "setting": "青竹蜂云剑以金雷竹炼制；被血灵之术污损后可借辟邪神雷类金弧搓净血痕复灵。",
+      "visual_descriptions": [
+        "这一口青竹蜂云剑，表面血痕斑斑，青光微弱，赫然一副灵性受损样子。",
+        "手指间一片金弧缭绕。……表面血痕尽数脱落消失，重新恢复了青濛濛的明亮之色。"
+      ],
+      "setting_descriptions": [
+        "「阁下的本命飞剑就是用那金雷竹炼制而成的。」"
+      ]
+    },
+    {
+      "id": "material_1212",
+      "display": "血色圆球死卵",
+      "category": "material",
+      "term": "血色圆球",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2287章 修罗之战（六）"},
+      "setting": "石城密室门口十余丈许血红色圆球；木牌捏碎后白光裂痕，恐怖气息欲破壳而出。",
+      "visual_descriptions": [
+        "左右摆放着十几颗直径丈许的血红色圆球般。",
+        "这些血色圆球表面白光一现，浮现出一道道白色裂痕，一道道恐怖气息从中一散而出。"
+      ],
+      "setting_descriptions": []
+    }
+  ]
+}
