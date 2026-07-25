@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 527,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2201–2205章）",
+  "method": "沿原文逐段精读；本索引汇总 v527 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2281", "display": "大乘庆典贺礼与许家", "category": "setting", "file": "novel_curated_settings_v527.json"},
+    {"id": "setting_2282", "display": "灵族双问千秋圣女", "category": "setting", "file": "novel_curated_settings_v527.json"},
+    {"id": "setting_2283", "display": "黑枭王夜叉大乘", "category": "setting", "file": "novel_curated_settings_v527.json"},
+    {"id": "setting_2284", "display": "斩大乘与伪虫王追杀", "category": "setting", "file": "novel_curated_settings_v527.json"},
+    {"id": "setting_2285", "display": "开放讲道七昼夜", "category": "setting", "file": "novel_curated_settings_v527.json"},
+    {"id": "setting_2286", "display": "魔界大劫与血魂虚天鼎", "category": "setting", "file": "novel_curated_settings_v527.json"},
+    {"id": "artifact_1505", "display": "虚天宝鼎", "category": "artifact", "file": "novel_curated_artifacts_v527.json"},
+    {"id": "artifact_1506", "display": "黑枭碧绿玉扇", "category": "artifact", "file": "novel_curated_artifacts_v527.json"},
+    {"id": "artifact_1507", "display": "黑枭漆黑战甲与巨砖", "category": "artifact", "file": "novel_curated_artifacts_v527.json"},
+    {"id": "artifact_1508", "display": "傀儡侍女与琥珀灵茶", "category": "artifact", "file": "novel_curated_artifacts_v527.json"},
+    {"id": "technique_1137", "display": "划天为地法则", "category": "technique", "file": "novel_curated_techniques_v527.json"},
+    {"id": "technique_1138", "display": "梵圣金身破法则", "category": "technique", "file": "novel_curated_techniques_v527.json"},
+    {"id": "technique_1139", "display": "念剑诀三晶剑", "category": "technique", "file": "novel_curated_techniques_v527.json"},
+    {"id": "material_1159", "display": "万年寿虫壳", "category": "material", "file": "novel_curated_materials_v527.json"},
+    {"id": "material_1160", "display": "灵族五行灵核与天光灵焰", "category": "material", "file": "novel_curated_materials_v527.json"},
+    {"id": "material_1161", "display": "伪噬金虫王三只", "category": "material", "file": "novel_curated_materials_v527.json"}
+  ]
+}
