@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 590,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第64–68章）",
+  "method": "沿原文逐段精读；本索引汇总 v590 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2659", "display": "三乘同时出手", "category": "setting", "file": "novel_curated_settings_v590.json"},
+    {"id": "setting_2660", "display": "玄黄之索困猿", "category": "setting", "file": "novel_curated_settings_v590.json"},
+    {"id": "setting_2661", "display": "灵婴剑符与雷鹏脱困", "category": "setting", "file": "novel_curated_settings_v590.json"},
+    {"id": "setting_2662", "display": "百目天鬼空间法则", "category": "setting", "file": "novel_curated_settings_v590.json"},
+    {"id": "setting_2663", "display": "追杀与星镜破空", "category": "setting", "file": "novel_curated_settings_v590.json"},
+    {"id": "setting_2664", "display": "金刚吼与破灭法目", "category": "setting", "file": "novel_curated_settings_v590.json"},
+    {"id": "artifact_1757", "display": "玄黄令牌", "category": "artifact", "file": "novel_curated_artifacts_v590.json"},
+    {"id": "artifact_1758", "display": "灵婴剑符卷轴", "category": "artifact", "file": "novel_curated_artifacts_v590.json"},
+    {"id": "artifact_1759", "display": "鬼书与银盘通道", "category": "artifact", "file": "novel_curated_artifacts_v590.json"},
+    {"id": "artifact_1760", "display": "星月宝镜破空", "category": "artifact", "file": "novel_curated_artifacts_v590.json"},
+    {"id": "technique_1326", "display": "惊蛰独角顶剑与金刚吼", "category": "technique", "file": "novel_curated_techniques_v590.json"},
+    {"id": "technique_1327", "display": "雷鹏祭雷与瞬移", "category": "technique", "file": "novel_curated_techniques_v590.json"},
+    {"id": "technique_1328", "display": "百目移空与竖目黑幕", "category": "technique", "file": "novel_curated_techniques_v590.json"},
+    {"id": "material_1348", "display": "玄黄之气", "category": "material", "file": "novel_curated_materials_v590.json"},
+    {"id": "material_1349", "display": "白骨钉与鬼图封印", "category": "material", "file": "novel_curated_materials_v590.json"},
+    {"id": "material_1350", "display": "千年云鹤草续力", "category": "material", "file": "novel_curated_materials_v590.json"}
+  ]
+}
