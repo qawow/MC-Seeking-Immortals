@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 447,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1799–1803章）",
+  "method": "沿原文逐段精读；本索引汇总 v447 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1801", "display": "天奎狼王黑狼化身", "category": "setting", "file": "novel_curated_settings_v447.json"},
+    {"id": "setting_1802", "display": "器灵千秋圣女", "category": "setting", "file": "novel_curated_settings_v447.json"},
+    {"id": "setting_1803", "display": "陇家老祖与战舟图", "category": "setting", "file": "novel_curated_settings_v447.json"},
+    {"id": "setting_1804", "display": "黑域牵引令与散修聚", "category": "setting", "file": "novel_curated_settings_v447.json"},
+    {"id": "setting_1805", "display": "陇外嫁女夺传承", "category": "setting", "file": "novel_curated_settings_v447.json"},
+    {"id": "setting_1806", "display": "神念印记追器灵", "category": "setting", "file": "novel_curated_settings_v447.json"},
+    {"id": "artifact_1185", "display": "万森轮盘通天宝", "category": "artifact", "file": "novel_curated_artifacts_v447.json"},
+    {"id": "artifact_1186", "display": "擎天战舟构造图", "category": "artifact", "file": "novel_curated_artifacts_v447.json"},
+    {"id": "artifact_1187", "display": "黑域牵引令牌", "category": "artifact", "file": "novel_curated_artifacts_v447.json"},
+    {"id": "artifact_1188", "display": "操控青铜铃", "category": "artifact", "file": "novel_curated_artifacts_v447.json"},
+    {"id": "technique_897", "display": "天狼爪与洞天钻", "category": "technique", "file": "novel_curated_techniques_v447.json"},
+    {"id": "technique_898", "display": "附心丝驱虫", "category": "technique", "file": "novel_curated_techniques_v447.json"},
+    {"id": "technique_899", "display": "神念印记追踪", "category": "technique", "file": "novel_curated_techniques_v447.json"},
+    {"id": "material_919", "display": "泣灵血木落袋", "category": "material", "file": "novel_curated_materials_v447.json"},
+    {"id": "material_920", "display": "旭日丹十余瓶", "category": "material", "file": "novel_curated_materials_v447.json"},
+    {"id": "material_921", "display": "灵族灵花灵草", "category": "material", "file": "novel_curated_materials_v447.json"}
+  ]
+}
