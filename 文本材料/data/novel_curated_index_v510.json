@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 510,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第2116–2120章）",
+  "method": "沿原文逐段精读；本索引汇总 v510 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2179", "display": "蓝瀑城禁空与七小姐", "category": "setting", "file": "novel_curated_settings_v510.json"},
+    {"id": "setting_2180", "display": "彩轩阁与血牙米城规", "category": "setting", "file": "novel_curated_settings_v510.json"},
+    {"id": "setting_2181", "display": "无忧私矿与城主矿脉", "category": "setting", "file": "novel_curated_settings_v510.json"},
+    {"id": "setting_2182", "display": "广源斋规矩", "category": "setting", "file": "novel_curated_settings_v510.json"},
+    {"id": "setting_2183", "display": "广源斋伪四象与分层", "category": "setting", "file": "novel_curated_settings_v510.json"},
+    {"id": "setting_2184", "display": "蓝颖与广源斋主人", "category": "setting", "file": "novel_curated_settings_v510.json"},
+    {"id": "artifact_1437", "display": "彩轩阁空间魔器", "category": "artifact", "file": "novel_curated_artifacts_v510.json"},
+    {"id": "artifact_1438", "display": "无忧隔音令牌", "category": "artifact", "file": "novel_curated_artifacts_v510.json"},
+    {"id": "artifact_1439", "display": "四象图与银色古书", "category": "artifact", "file": "novel_curated_artifacts_v510.json"},
+    {"id": "artifact_1440", "display": "拒神念护身异宝", "category": "artifact", "file": "novel_curated_artifacts_v510.json"},
+    {"id": "technique_1086", "display": "七小姐监察处决", "category": "technique", "file": "novel_curated_techniques_v510.json"},
+    {"id": "technique_1087", "display": "心魔血誓与消忆", "category": "technique", "file": "novel_curated_techniques_v510.json"},
+    {"id": "technique_1088", "display": "伪四象眼力鉴定", "category": "technique", "file": "novel_curated_techniques_v510.json"},
+    {"id": "material_1108", "display": "异魔金批量", "category": "material", "file": "novel_curated_materials_v510.json"},
+    {"id": "material_1109", "display": "魔芋茶", "category": "material", "file": "novel_curated_materials_v510.json"},
+    {"id": "material_1110", "display": "城主极品矿脉矿石", "category": "material", "file": "novel_curated_materials_v510.json"}
+  ]
+}
