@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 573,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2431–2435章）",
+  "method": "沿原文逐段精读；本索引汇总 v573 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2557", "display": "第一大乘与真魂丹交易", "category": "setting", "file": "novel_curated_settings_v573.json"},
+    {"id": "setting_2558", "display": "融元仙术与盗天瓶并入掌天瓶", "category": "setting", "file": "novel_curated_settings_v573.json"},
+    {"id": "setting_2559", "display": "灵王镇压真仙与本命牌", "category": "setting", "file": "novel_curated_settings_v573.json"},
+    {"id": "setting_2560", "display": "瓶灵分壳与魔界下落", "category": "setting", "file": "novel_curated_settings_v573.json"},
+    {"id": "setting_2561", "display": "广灵道果大会与再入魔界", "category": "setting", "file": "novel_curated_settings_v573.json"},
+    {"id": "setting_2562", "display": "瓶灵回归与苦灵岛", "category": "setting", "file": "novel_curated_settings_v573.json"},
+    {"id": "artifact_1689", "display": "掌天瓶（融仿后）与青绿瓶", "category": "artifact", "file": "novel_curated_artifacts_v573.json"},
+    {"id": "artifact_1690", "display": "瓶灵淡黄小瓶", "category": "artifact", "file": "novel_curated_artifacts_v573.json"},
+    {"id": "artifact_1691", "display": "本命牌与银色龙鳞信", "category": "artifact", "file": "novel_curated_artifacts_v573.json"},
+    {"id": "artifact_1692", "display": "墨灵圣舟与玄天斩灵剑破界", "category": "artifact", "file": "novel_curated_artifacts_v573.json"},
+    {"id": "technique_1275", "display": "融元仙术", "category": "technique", "file": "novel_curated_techniques_v573.json"},
+    {"id": "technique_1276", "display": "瓶灵追踪秘术", "category": "technique", "file": "novel_curated_techniques_v573.json"},
+    {"id": "technique_1277", "display": "灵王三招试与搜魂半成", "category": "technique", "file": "novel_curated_techniques_v573.json"},
+    {"id": "material_1297", "display": "真魂丹（交易）", "category": "material", "file": "novel_curated_materials_v573.json"},
+    {"id": "material_1298", "display": "封印真仙灵血", "category": "material", "file": "novel_curated_materials_v573.json"},
+    {"id": "material_1299", "display": "广灵道果", "category": "material", "file": "novel_curated_materials_v573.json"}
+  ]
+}
