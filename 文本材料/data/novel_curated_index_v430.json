@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 430,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1721–1725章）",
+  "method": "沿原文逐段精读；本索引汇总 v430 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1699", "display": "屏中须弥与曲儿窃丹", "category": "setting", "file": "novel_curated_settings_v430.json"},
+    {"id": "setting_1700", "display": "破灭法目撕空间禁", "category": "setting", "file": "novel_curated_settings_v430.json"},
+    {"id": "setting_1701", "display": "残刃斩开乌黑巨门", "category": "setting", "file": "novel_curated_settings_v430.json"},
+    {"id": "setting_1702", "display": "星空图与银甲士", "category": "setting", "file": "novel_curated_settings_v430.json"},
+    {"id": "setting_1703", "display": "星空幻境与银蝌法诀", "category": "setting", "file": "novel_curated_settings_v430.json"},
+    {"id": "setting_1704", "display": "乳白光柱淬炼进阶", "category": "setting", "file": "novel_curated_settings_v430.json"},
+    {"id": "artifact_1117", "display": "蛾翅三百六十飞刀", "category": "artifact", "file": "novel_curated_artifacts_v430.json"},
+    {"id": "artifact_1118", "display": "玄天残刃全形斩门", "category": "artifact", "file": "novel_curated_artifacts_v430.json"},
+    {"id": "artifact_1119", "display": "九银甲士傀儡", "category": "artifact", "file": "novel_curated_artifacts_v430.json"},
+    {"id": "artifact_1120", "display": "翠绿太师椅", "category": "artifact", "file": "novel_curated_artifacts_v430.json"},
+    {"id": "technique_846", "display": "曲儿鼎中隐匿窃丹", "category": "technique", "file": "novel_curated_techniques_v430.json"},
+    {"id": "technique_847", "display": "金身残刃月芒斩", "category": "technique", "file": "novel_curated_techniques_v430.json"},
+    {"id": "technique_848", "display": "银蝌法诀催光柱", "category": "technique", "file": "novel_curated_techniques_v430.json"},
+    {"id": "material_868", "display": "第三颗虚灵丹", "category": "material", "file": "novel_curated_materials_v430.json"},
+    {"id": "material_869", "display": "金身赤金液滴", "category": "material", "file": "novel_curated_materials_v430.json"},
+    {"id": "material_870", "display": "紫金符纹金身", "category": "material", "file": "novel_curated_materials_v430.json"}
+  ]
+}
