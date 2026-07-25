@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 413,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1636–1640章）",
+  "method": "沿原文逐段精读；本索引汇总 v413 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1597", "display": "山岳巨猿真灵法相", "category": "setting", "file": "novel_curated_settings_v413.json"},
+    {"id": "setting_1598", "display": "玄天之宝残刃觉醒", "category": "setting", "file": "novel_curated_settings_v413.json"},
+    {"id": "setting_1599", "display": "玄天对决灭圣阶", "category": "setting", "file": "novel_curated_settings_v413.json"},
+    {"id": "setting_1600", "display": "玄天炼器术与金阙玉页", "category": "setting", "file": "novel_curated_settings_v413.json"},
+    {"id": "setting_1601", "display": "山崩与黑光巨怪", "category": "setting", "file": "novel_curated_settings_v413.json"},
+    {"id": "setting_1602", "display": "玄天果实再封印与代价", "category": "setting", "file": "novel_curated_settings_v413.json"},
+    {"id": "artifact_1049", "display": "血色玄天残刃收服", "category": "artifact", "file": "novel_curated_artifacts_v413.json"},
+    {"id": "artifact_1050", "display": "玄天果实所化翠绿剑", "category": "artifact", "file": "novel_curated_artifacts_v413.json"},
+    {"id": "artifact_1051", "display": "虚天宝鼎收紫甲", "category": "artifact", "file": "novel_curated_artifacts_v413.json"},
+    {"id": "artifact_1052", "display": "金阙玉书第三外页", "category": "artifact", "file": "novel_curated_artifacts_v413.json"},
+    {"id": "technique_795", "display": "元磁山剑阵伪装偷袭", "category": "technique", "file": "novel_curated_techniques_v413.json"},
+    {"id": "technique_796", "display": "祭雷配合青丝洞甲", "category": "technique", "file": "novel_curated_techniques_v413.json"},
+    {"id": "technique_797", "display": "玄天炼器术银蝌经", "category": "technique", "file": "novel_curated_techniques_v413.json"},
+    {"id": "material_817", "display": "圣阶魔兽魔核", "category": "material", "file": "novel_curated_materials_v413.json"},
+    {"id": "material_818", "display": "魔猿肉身干尸", "category": "material", "file": "novel_curated_materials_v413.json"},
+    {"id": "material_819", "display": "紫色战甲部件与灵性", "category": "material", "file": "novel_curated_materials_v413.json"}
+  ]
+}
