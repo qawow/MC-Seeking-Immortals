@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 560,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2366–2370章）",
+  "method": "沿原文逐段精读；本索引汇总 v560 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2479", "display": "五祖联手攻韩布局", "category": "setting", "file": "novel_curated_settings_v560.json"},
+    {"id": "setting_2480", "display": "寒武玄龟护罩", "category": "setting", "file": "novel_curated_settings_v560.json"},
+    {"id": "setting_2481", "display": "无垢半尸与替灵大法", "category": "setting", "file": "novel_curated_settings_v560.json"},
+    {"id": "setting_2482", "display": "无垢杀华西与五祖退走", "category": "setting", "file": "novel_curated_settings_v560.json"},
+    {"id": "setting_2483", "display": "血魄回归与提前关宫", "category": "setting", "file": "novel_curated_settings_v560.json"},
+    {"id": "setting_2484", "display": "血骨门截杀与血神大法", "category": "setting", "file": "novel_curated_settings_v560.json"},
+    {"id": "artifact_1637", "display": "华西晶环与星沙", "category": "artifact", "file": "novel_curated_artifacts_v560.json"},
+    {"id": "artifact_1638", "display": "万花黑木钗与清平拂尘镜", "category": "artifact", "file": "novel_curated_artifacts_v560.json"},
+    {"id": "artifact_1639", "display": "无垢绿气圆珠与漆黑阵盘", "category": "artifact", "file": "novel_curated_artifacts_v560.json"},
+    {"id": "artifact_1640", "display": "阴血晶与关宫血玉牌", "category": "artifact", "file": "novel_curated_artifacts_v560.json"},
+    {"id": "technique_1236", "display": "极山光幕与金毛巨猿", "category": "technique", "file": "novel_curated_techniques_v560.json"},
+    {"id": "technique_1237", "display": "梵圣金身金刃飓风", "category": "technique", "file": "novel_curated_techniques_v560.json"},
+    {"id": "technique_1238", "display": "真灵变与银焰火鸟", "category": "technique", "file": "novel_curated_techniques_v560.json"},
+    {"id": "material_1258", "display": "阴血晶", "category": "material", "file": "novel_curated_materials_v560.json"},
+    {"id": "material_1259", "display": "阵盘黑烟", "category": "material", "file": "novel_curated_materials_v560.json"},
+    {"id": "material_1260", "display": "黄金巨蟹雷光", "category": "material", "file": "novel_curated_materials_v560.json"}
+  ]
+}
