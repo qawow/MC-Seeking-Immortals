@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 587,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第49–53章）",
+  "method": "沿原文逐段精读；本索引汇总 v587 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2641", "display": "齐煊要挟与聚星台情报", "category": "setting", "file": "novel_curated_settings_v587.json"},
+    {"id": "setting_2642", "display": "紫冥塔伏杀破塔", "category": "setting", "file": "novel_curated_settings_v587.json"},
+    {"id": "setting_2643", "display": "小挪移入天鬼殿", "category": "setting", "file": "novel_curated_settings_v587.json"},
+    {"id": "setting_2644", "display": "九大鬼王天柱一指破", "category": "setting", "file": "novel_curated_settings_v587.json"},
+    {"id": "setting_2645", "display": "天鬼广场碾压炼虚", "category": "setting", "file": "novel_curated_settings_v587.json"},
+    {"id": "setting_2646", "display": "魔焰谷地鬼镇魂", "category": "setting", "file": "novel_curated_settings_v587.json"},
+    {"id": "artifact_1745", "display": "紫冥塔", "category": "artifact", "file": "novel_curated_artifacts_v587.json"},
+    {"id": "artifact_1746", "display": "精炎火弓", "category": "artifact", "file": "novel_curated_artifacts_v587.json"},
+    {"id": "artifact_1747", "display": "小挪移虚灵盘", "category": "artifact", "file": "novel_curated_artifacts_v587.json"},
+    {"id": "artifact_1748", "display": "九大鬼王天柱", "category": "artifact", "file": "novel_curated_artifacts_v587.json"},
+    {"id": "technique_1317", "display": "五岳山峰与肉身破塔", "category": "technique", "file": "novel_curated_techniques_v587.json"},
+    {"id": "technique_1318", "display": "神识镇压与一指破阵", "category": "technique", "file": "novel_curated_techniques_v587.json"},
+    {"id": "technique_1319", "display": "残影连拳与地鬼血海", "category": "technique", "file": "novel_curated_techniques_v587.json"},
+    {"id": "material_1339", "display": "九天魔焰", "category": "material", "file": "novel_curated_materials_v587.json"},
+    {"id": "material_1340", "display": "鬼王天柱黑晶石", "category": "material", "file": "novel_curated_materials_v587.json"},
+    {"id": "material_1341", "display": "紫云貂", "category": "material", "file": "novel_curated_materials_v587.json"}
+  ]
+}
