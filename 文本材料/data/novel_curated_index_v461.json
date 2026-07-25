@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 461,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1870–1874章）",
+  "method": "沿原文逐段精读；本索引汇总 v461 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1885", "display": "十三紫纹候选", "category": "setting", "file": "novel_curated_settings_v461.json"},
+    {"id": "setting_1886", "display": "蛮荒六翅蜈蚣", "category": "setting", "file": "novel_curated_settings_v461.json"},
+    {"id": "setting_1887", "display": "深海法体重生", "category": "setting", "file": "novel_curated_settings_v461.json"},
+    {"id": "setting_1888", "display": "宝花圣祖夺花", "category": "setting", "file": "novel_curated_settings_v461.json"},
+    {"id": "setting_1889", "display": "门人迁天渊", "category": "setting", "file": "novel_curated_settings_v461.json"},
+    {"id": "setting_1890", "display": "天渊长老与陇家", "category": "setting", "file": "novel_curated_settings_v461.json"},
+    {"id": "artifact_1241", "display": "青色控虫巨鼎", "category": "artifact", "file": "novel_curated_artifacts_v461.json"},
+    {"id": "artifact_1242", "display": "传讯火球", "category": "artifact", "file": "novel_curated_artifacts_v461.json"},
+    {"id": "artifact_1243", "display": "水晶球银莲蓬", "category": "artifact", "file": "novel_curated_artifacts_v461.json"},
+    {"id": "artifact_1244", "display": "黑灵花", "category": "artifact", "file": "novel_curated_artifacts_v461.json"},
+    {"id": "technique_939", "display": "改版育虫秘术", "category": "technique", "file": "novel_curated_techniques_v461.json"},
+    {"id": "technique_940", "display": "六翅寒焰冰封", "category": "technique", "file": "novel_curated_techniques_v461.json"},
+    {"id": "technique_941", "display": "擎天巨剑破空", "category": "technique", "file": "novel_curated_techniques_v461.json"},
+    {"id": "material_961", "display": "十三紫纹甲虫", "category": "material", "file": "novel_curated_materials_v461.json"},
+    {"id": "material_962", "display": "紫阴矿脉", "category": "material", "file": "novel_curated_materials_v461.json"},
+    {"id": "material_963", "display": "灵乳改质三成", "category": "material", "file": "novel_curated_materials_v461.json"}
+  ]
+}
