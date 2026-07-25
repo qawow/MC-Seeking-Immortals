@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 525,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2191–2195章）",
+  "method": "沿原文逐段精读；本索引汇总 v525 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2269", "display": "真龙之岛空间", "category": "setting", "file": "novel_curated_settings_v525.json"},
+    {"id": "setting_2270", "display": "天渊城战后修复", "category": "setting", "file": "novel_curated_settings_v525.json"},
+    {"id": "setting_2271", "display": "圣岛征召与隐雷根", "category": "setting", "file": "novel_curated_settings_v525.json"},
+    {"id": "setting_2272", "display": "杜宇与浩然荡邪功", "category": "setting", "file": "novel_curated_settings_v525.json"},
+    {"id": "setting_2273", "display": "两族大乘危机与圣岛筹划", "category": "setting", "file": "novel_curated_settings_v525.json"},
+    {"id": "setting_2274", "display": "一击之约与竞技殿", "category": "setting", "file": "novel_curated_settings_v525.json"},
+    {"id": "artifact_1497", "display": "碧绿玉舟", "category": "artifact", "file": "novel_curated_artifacts_v525.json"},
+    {"id": "artifact_1498", "display": "圣岛白玉巨船", "category": "artifact", "file": "novel_curated_artifacts_v525.json"},
+    {"id": "artifact_1499", "display": "杜宇玉书与白砚", "category": "artifact", "file": "novel_curated_artifacts_v525.json"},
+    {"id": "artifact_1500", "display": "竞技大殿光罩", "category": "artifact", "file": "novel_curated_artifacts_v525.json"},
+    {"id": "technique_1131", "display": "罡风洗礼稳元婴", "category": "technique", "file": "novel_curated_techniques_v525.json"},
+    {"id": "technique_1132", "display": "浩然荡邪功", "category": "technique", "file": "novel_curated_techniques_v525.json"},
+    {"id": "technique_1133", "display": "紫金巨掌压虚空", "category": "technique", "file": "novel_curated_techniques_v525.json"},
+    {"id": "material_1153", "display": "天机门新型傀儡", "category": "material", "file": "novel_curated_materials_v525.json"},
+    {"id": "material_1154", "display": "隐雷根体质", "category": "material", "file": "novel_curated_materials_v525.json"},
+    {"id": "material_1155", "display": "玄天残片至宝", "category": "material", "file": "novel_curated_materials_v525.json"}
+  ]
+}

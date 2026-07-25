@@ -1,0 +1,54 @@
+{
+  "schema_version": 55,
+  "extract_version": 525,
+  "source": "《凡人修仙传》— 人工精读提取 · 材料类（返回·圣岛使者·杜宇·翻脸·以大欺小：卷十一第2191–2195章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v524 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 3,
+  "entries": [
+    {
+      "id": "material_1153",
+      "display": "天机门新型傀儡",
+      "category": "material",
+      "term": "新型傀儡",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2191章 返回"},
+      "setting": "天渊城战后：地下傀儡损毁仅修两成，无用部分炼化材料；天机门定做十万新型傀儡已入库。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "「本城地下的那些傀儡，则因为损坏太多，至今才不过能修复十成中的两成而已，其余报废傀儡……都已经炼化成材料了。」",
+        "「上次让天机门定做的十万新型傀儡，则一个月前已经入库好了。」"
+      ]
+    },
+    {
+      "id": "material_1154",
+      "display": "隐雷根体质",
+      "category": "material",
+      "term": "隐雷根",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2194章 翻脸"},
+      "setting": "韩门下海月天：罕见隐雷根，可助人抵挡真雷劫威能；化神期酒醉泄露；强提境界助渡劫需透支潜力寿元。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "「你门下是否有名一名弟子，是传闻中的隐雷根？」",
+        "「你们说的是我门下的海月天。不错，他的确是隐雷根。」",
+        "「有关隐雷根修士的奇异之处，我想韩道友应该比我等更加的清楚。」"
+      ]
+    },
+    {
+      "id": "material_1155",
+      "display": "玄天残片至宝",
+      "category": "material",
+      "term": "玄天残片",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2195章 以大欺小"},
+      "setting": "杜宇白砚由玄天残片炼制，比通天灵宝更罕见；内盛银汁，金银符文狂涌。与玉书通天灵宝并列其底牌。",
+      "visual_descriptions": [
+        "竟幻化出一只洁白如玉的砚台。里面银光濛濛，竟仿佛装满不知名的银汁。"
+      ],
+      "setting_descriptions": [
+        "一件却是更加罕见的玄天残片炼制的至宝。"
+      ]
+    }
+  ]
+}
