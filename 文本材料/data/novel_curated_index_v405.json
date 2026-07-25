@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 405,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1596–1600章）",
+  "method": "沿原文逐段精读；本索引汇总 v405 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1549", "display": "广寒令驱动与交换", "category": "setting", "file": "novel_curated_settings_v405.json"},
+    {"id": "setting_1550", "display": "第二广寒令后手", "category": "setting", "file": "novel_curated_settings_v405.json"},
+    {"id": "setting_1551", "display": "云梦山洞府与协议", "category": "setting", "file": "novel_curated_settings_v405.json"},
+    {"id": "setting_1552", "display": "四族拍卖会", "category": "setting", "file": "novel_curated_settings_v405.json"},
+    {"id": "setting_1553", "display": "拍卖大厅空间法宝", "category": "setting", "file": "novel_curated_settings_v405.json"},
+    {"id": "setting_1554", "display": "段天刃锁定与醇香阁", "category": "setting", "file": "novel_curated_settings_v405.json"},
+    {"id": "artifact_1017", "display": "第二广寒令玉匣", "category": "artifact", "file": "novel_curated_artifacts_v405.json"},
+    {"id": "artifact_1018", "display": "拍卖殿黄圆环", "category": "artifact", "file": "novel_curated_artifacts_v405.json"},
+    {"id": "artifact_1019", "display": "黑纱幻化长袍", "category": "artifact", "file": "novel_curated_artifacts_v405.json"},
+    {"id": "artifact_1020", "display": "九香灵酒", "category": "artifact", "file": "novel_curated_artifacts_v405.json"},
+    {"id": "technique_771", "display": "洞府十余层禁制", "category": "technique", "file": "novel_curated_techniques_v405.json"},
+    {"id": "technique_772", "display": "黑纱结合幻化术", "category": "technique", "file": "novel_curated_techniques_v405.json"},
+    {"id": "technique_773", "display": "段天刃掌力锁定", "category": "technique", "file": "novel_curated_techniques_v405.json"},
+    {"id": "material_793", "display": "腾龙丹与极品灵石筹", "category": "material", "file": "novel_curated_materials_v405.json"},
+    {"id": "material_794", "display": "万妙丹", "category": "material", "file": "novel_curated_materials_v405.json"},
+    {"id": "material_795", "display": "广寒独有炼器材", "category": "material", "file": "novel_curated_materials_v405.json"}
+  ]
+}
