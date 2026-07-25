@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 558,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2356–2360章）",
+  "method": "沿原文逐段精读；本索引汇总 v558 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2467", "display": "血狱镇压上古强敌", "category": "setting", "file": "novel_curated_settings_v558.json"},
+    {"id": "setting_2468", "display": "中枢传送被改与上次残留", "category": "setting", "file": "novel_curated_settings_v558.json"},
+    {"id": "setting_2469", "display": "血红巨碑中枢塔", "category": "setting", "file": "novel_curated_settings_v558.json"},
+    {"id": "setting_2470", "display": "血狱铁笼与天巫骸骨", "category": "setting", "file": "novel_curated_settings_v558.json"},
+    {"id": "setting_2471", "display": "巨碑内厅与上次死战", "category": "setting", "file": "novel_curated_settings_v558.json"},
+    {"id": "setting_2472", "display": "冰雪分宫与五行罡光罩", "category": "setting", "file": "novel_curated_settings_v558.json"},
+    {"id": "artifact_1629", "display": "玄天斩灵剑", "category": "artifact", "file": "novel_curated_artifacts_v558.json"},
+    {"id": "artifact_1630", "display": "血狱铁笼", "category": "artifact", "file": "novel_curated_artifacts_v558.json"},
+    {"id": "artifact_1631", "display": "青罡风鬼头木牌", "category": "artifact", "file": "novel_curated_artifacts_v558.json"},
+    {"id": "artifact_1632", "display": "巫灵灵虫短剑与幽冥葫芦", "category": "artifact", "file": "novel_curated_artifacts_v558.json"},
+    {"id": "technique_1230", "display": "巫道八臂青魔变", "category": "technique", "file": "novel_curated_techniques_v558.json"},
+    {"id": "technique_1231", "display": "六道金刃归一斩", "category": "technique", "file": "novel_curated_techniques_v558.json"},
+    {"id": "technique_1232", "display": "精纯辟邪神雷禁制", "category": "technique", "file": "novel_curated_techniques_v558.json"},
+    {"id": "material_1252", "display": "吞骨蝶与血灵", "category": "material", "file": "novel_curated_materials_v558.json"},
+    {"id": "material_1253", "display": "天巫翠绿骸骨", "category": "material", "file": "novel_curated_materials_v558.json"},
+    {"id": "material_1254", "display": "冰魄残留精血与残阵", "category": "material", "file": "novel_curated_materials_v558.json"}
+  ]
+}
