@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 498,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第2056–2060章）",
+  "method": "沿原文逐段精读；本索引汇总 v498 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2107", "display": "三大魔害", "category": "setting", "file": "novel_curated_settings_v498.json"},
+    {"id": "setting_2108", "display": "银川绿洲据点", "category": "setting", "file": "novel_curated_settings_v498.json"},
+    {"id": "setting_2109", "display": "火云矿脉入口", "category": "setting", "file": "novel_curated_settings_v498.json"},
+    {"id": "setting_2110", "display": "白家弟子骸骨", "category": "setting", "file": "novel_curated_settings_v498.json"},
+    {"id": "setting_2111", "display": "熔岩湖极品火云石", "category": "setting", "file": "novel_curated_settings_v498.json"},
+    {"id": "setting_2112", "display": "鹿首绿焰魔兽", "category": "setting", "file": "novel_curated_settings_v498.json"},
+    {"id": "artifact_1389", "display": "司魂佩", "category": "artifact", "file": "novel_curated_artifacts_v498.json"},
+    {"id": "artifact_1390", "display": "栾龙蓝钵与血鼓", "category": "artifact", "file": "novel_curated_artifacts_v498.json"},
+    {"id": "artifact_1391", "display": "覆天黑戟与白甲", "category": "artifact", "file": "novel_curated_artifacts_v498.json"},
+    {"id": "artifact_1392", "display": "绿焰石砖墙", "category": "artifact", "file": "novel_curated_artifacts_v498.json"},
+    {"id": "technique_1050", "display": "隐匿与联手阵", "category": "technique", "file": "novel_curated_techniques_v498.json"},
+    {"id": "technique_1051", "display": "五色莲与青剑", "category": "technique", "file": "novel_curated_techniques_v498.json"},
+    {"id": "technique_1052", "display": "广阴雷网与血雪", "category": "technique", "file": "novel_curated_techniques_v498.json"},
+    {"id": "material_1072", "display": "千年血牙米", "category": "material", "file": "novel_curated_materials_v498.json"},
+    {"id": "material_1073", "display": "极品火云石", "category": "material", "file": "novel_curated_materials_v498.json"},
+    {"id": "material_1074", "display": "血罗蜂", "category": "material", "file": "novel_curated_materials_v498.json"}
+  ]
+}
