@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 577,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（外传一至第3章）",
+  "method": "沿原文逐段精读；本索引汇总 v577 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2581", "display": "飞仙台与仙牌", "category": "setting", "file": "novel_curated_settings_v577.json"},
+    {"id": "setting_2582", "display": "仙域仙宫与道祖秩序", "category": "setting", "file": "novel_curated_settings_v577.json"},
+    {"id": "setting_2583", "display": "真仙阶位与伪仙", "category": "setting", "file": "novel_curated_settings_v577.json"},
+    {"id": "setting_2584", "display": "石矶殿与仙家功法", "category": "setting", "file": "novel_curated_settings_v577.json"},
+    {"id": "setting_2585", "display": "北寒奇寒与血刀会", "category": "setting", "file": "novel_curated_settings_v577.json"},
+    {"id": "setting_2586", "display": "失忆韩立与石头哥哥", "category": "setting", "file": "novel_curated_settings_v577.json"},
+    {"id": "artifact_1705", "display": "仙牌与记忆石", "category": "artifact", "file": "novel_curated_artifacts_v577.json"},
+    {"id": "artifact_1706", "display": "雪孔雀与垢土化身", "category": "artifact", "file": "novel_curated_artifacts_v577.json"},
+    {"id": "artifact_1707", "display": "青蛇拨浪鼓", "category": "artifact", "file": "novel_curated_artifacts_v577.json"},
+    {"id": "artifact_1708", "display": "火云符与黑色钩网", "category": "artifact", "file": "novel_curated_artifacts_v577.json"},
+    {"id": "technique_1287", "display": "仙家功法与仙灵力", "category": "technique", "file": "novel_curated_techniques_v577.json"},
+    {"id": "technique_1288", "display": "木遁与草蛇幻术", "category": "technique", "file": "novel_curated_techniques_v577.json"},
+    {"id": "technique_1289", "display": "失忆肉身碾压", "category": "technique", "file": "novel_curated_techniques_v577.json"},
+    {"id": "material_1309", "display": "仙灵晶", "category": "material", "file": "novel_curated_materials_v577.json"},
+    {"id": "material_1310", "display": "叱血丹", "category": "material", "file": "novel_curated_materials_v577.json"},
+    {"id": "material_1311", "display": "墨绿小饰物", "category": "material", "file": "novel_curated_materials_v577.json"}
+  ]
+}

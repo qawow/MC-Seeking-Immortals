@@ -1,0 +1,56 @@
+{
+  "schema_version": 55,
+  "extract_version": 577,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取 · 材料类（外传一·二·狐女·石头哥哥·远去：仙界篇外传至第3章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v576 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 3,
+  "entries": [
+    {
+      "id": "material_1309",
+      "display": "仙灵晶",
+      "category": "material",
+      "term": "仙灵晶",
+      "source_books": ["《凡人修仙传仙界篇》"],
+      "first_appearance": {"book": "《凡人修仙传仙界篇》", "chapter": "仙界篇外传一"},
+      "setting": "初临仙界日常消耗；真元未化尽时尤重；依附势力以缓压力。",
+      "visual_descriptions": [
+        "「否则道友是初临仙界，光是日常的仙灵晶消耗，恐怕也是一笔不小的数目。」"
+      ],
+      "setting_descriptions": [
+        "「必定会选择仙域某一势力依附，等体内真元彻底转化完成后，才会再考虑其他的事情。」"
+      ]
+    },
+    {
+      "id": "material_1310",
+      "display": "叱血丹",
+      "category": "material",
+      "term": "叱血丹",
+      "source_books": ["《凡人修仙传仙界篇》"],
+      "first_appearance": {"book": "《凡人修仙传仙界篇》", "chapter": "第一章 狐女"},
+      "setting": "血刀会活捉妖狐任务奖励之一；另含内堂资格与一千灵石。",
+      "visual_descriptions": [
+        "「若能活捉此妖狐，不仅可成为内堂弟子，还能获一枚叱血丹和一千灵石奖励吧。」"
+      ],
+      "setting_descriptions": [
+        "「所有灵石奖励给两位平分，如何？」"
+      ]
+    },
+    {
+      "id": "material_1311",
+      "display": "墨绿小饰物",
+      "category": "material",
+      "term": "墨绿饰物",
+      "source_books": ["《凡人修仙传仙界篇》"],
+      "first_appearance": {"book": "《凡人修仙传仙界篇》", "chapter": "第三章 远去"},
+      "setting": "失忆韩立胸前隐露；晶莹剔透墨绿；柳乐儿欲看未敢。与掌天瓶意象呼应。",
+      "visual_descriptions": [
+        "高大青年胸前，隐约露出一个墨绿色的小饰物，晶莹剔透，不知是什么。"
+      ],
+      "setting_descriptions": [
+        "「她想要掀开衣服看个仔细，不过又有些不敢。」",
+        "「掌天瓶、元合五极山等重宝全都安然无恙的在其体内。」"
+      ]
+    }
+  ]
+}
