@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 546,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2296–2300章）",
+  "method": "沿原文逐段精读；本索引汇总 v546 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2395", "display": "车泣子巢穴玉简", "category": "setting", "file": "novel_curated_settings_v546.json"},
+    {"id": "setting_2396", "display": "修罗蛛临时交易会", "category": "setting", "file": "novel_curated_settings_v546.json"},
+    {"id": "setting_2397", "display": "寒潭第二件圣物", "category": "setting", "file": "novel_curated_settings_v546.json"},
+    {"id": "setting_2398", "display": "空鱼族熔岩洞天", "category": "setting", "file": "novel_curated_settings_v546.json"},
+    {"id": "setting_2399", "display": "山海珠洞天之宝", "category": "setting", "file": "novel_curated_settings_v546.json"},
+    {"id": "setting_2400", "display": "仙界青年下界血祭", "category": "setting", "file": "novel_curated_settings_v546.json"},
+    {"id": "artifact_1581", "display": "山海珠", "category": "artifact", "file": "novel_curated_artifacts_v546.json"},
+    {"id": "artifact_1582", "display": "镂灵石", "category": "artifact", "file": "novel_curated_artifacts_v546.json"},
+    {"id": "artifact_1583", "display": "车泣子巢穴玉简", "category": "artifact", "file": "novel_curated_artifacts_v546.json"},
+    {"id": "artifact_1584", "display": "金筒翠签八卦", "category": "artifact", "file": "novel_curated_artifacts_v546.json"},
+    {"id": "technique_1194", "display": "噬灵真火汲寒", "category": "technique", "file": "novel_curated_techniques_v546.json"},
+    {"id": "technique_1195", "display": "避火术分熔岩", "category": "technique", "file": "novel_curated_techniques_v546.json"},
+    {"id": "technique_1196", "display": "山海珠祭炼法诀", "category": "technique", "file": "novel_curated_techniques_v546.json"},
+    {"id": "material_1216", "display": "镂灵石", "category": "material", "file": "novel_curated_materials_v546.json"},
+    {"id": "material_1217", "display": "奇寒晶球外壳", "category": "material", "file": "novel_curated_materials_v546.json"},
+    {"id": "material_1218", "display": "空鱼族精血", "category": "material", "file": "novel_curated_materials_v546.json"}
+  ]
+}
