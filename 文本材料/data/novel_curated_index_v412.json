@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 412,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1631–1635章）",
+  "method": "沿原文逐段精读；本索引汇总 v412 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1591", "display": "三元斩与紫残刃", "category": "setting", "file": "novel_curated_settings_v412.json"},
+    {"id": "setting_1592", "display": "穴灵与真灵之穴开启", "category": "setting", "file": "novel_curated_settings_v412.json"},
+    {"id": "setting_1593", "display": "魂体分元大法", "category": "setting", "file": "novel_curated_settings_v412.json"},
+    {"id": "setting_1594", "display": "妖猿灵目破幻", "category": "setting", "file": "novel_curated_settings_v412.json"},
+    {"id": "setting_1595", "display": "圣阶魔猿跌境与至宝", "category": "setting", "file": "novel_curated_settings_v412.json"},
+    {"id": "setting_1596", "display": "血床与紫甲护体", "category": "setting", "file": "novel_curated_settings_v412.json"},
+    {"id": "artifact_1045", "display": "紫色残刃与内蕴灵物", "category": "artifact", "file": "novel_curated_artifacts_v412.json"},
+    {"id": "artifact_1046", "display": "血红大床", "category": "artifact", "file": "novel_curated_artifacts_v412.json"},
+    {"id": "artifact_1047", "display": "化灵符挡穿心", "category": "artifact", "file": "novel_curated_artifacts_v412.json"},
+    {"id": "artifact_1048", "display": "辟邪雷珠与祭雷术", "category": "artifact", "file": "novel_curated_artifacts_v412.json"},
+    {"id": "technique_792", "display": "三元斩融合真元", "category": "technique", "file": "novel_curated_techniques_v412.json"},
+    {"id": "technique_793", "display": "剑灵化虚遁擒", "category": "technique", "file": "novel_curated_techniques_v412.json"},
+    {"id": "technique_794", "display": "春黎剑阵新变木甲", "category": "technique", "file": "novel_curated_techniques_v412.json"},
+    {"id": "material_814", "display": "八足元兽与不死鸟灵血", "category": "material", "file": "novel_curated_materials_v412.json"},
+    {"id": "material_815", "display": "木灵气符箓", "category": "material", "file": "novel_curated_materials_v412.json"},
+    {"id": "material_816", "display": "紫色战甲未知材料", "category": "material", "file": "novel_curated_materials_v412.json"}
+  ]
+}
