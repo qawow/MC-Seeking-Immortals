@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 597,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第99–103章）",
+  "method": "沿原文逐段精读；本索引汇总 v597 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2701", "display": "金猿破冰认主", "category": "setting", "file": "novel_curated_settings_v597.json"},
+    {"id": "setting_2702", "display": "无常盟组织", "category": "setting", "file": "novel_curated_settings_v597.json"},
+    {"id": "setting_2703", "display": "面具只认不认人", "category": "setting", "file": "novel_curated_settings_v597.json"},
+    {"id": "setting_2704", "display": "迟到即死", "category": "setting", "file": "novel_curated_settings_v597.json"},
+    {"id": "setting_2705", "display": "红月岛主公输鸿", "category": "setting", "file": "novel_curated_settings_v597.json"},
+    {"id": "setting_2706", "display": "海榕岛集合", "category": "setting", "file": "novel_curated_settings_v597.json"},
+    {"id": "artifact_1785", "display": "弯月龙纹环刃", "category": "artifact", "file": "novel_curated_artifacts_v597.json"},
+    {"id": "artifact_1786", "display": "蛟十五牛头面具", "category": "artifact", "file": "novel_curated_artifacts_v597.json"},
+    {"id": "artifact_1787", "display": "火红龙形飞舟", "category": "artifact", "file": "novel_curated_artifacts_v597.json"},
+    {"id": "artifact_1788", "display": "八角白色晶盾", "category": "artifact", "file": "novel_curated_artifacts_v597.json"},
+    {"id": "technique_1347", "display": "金猿吼碎水鬼", "category": "technique", "file": "novel_curated_techniques_v597.json"},
+    {"id": "technique_1348", "display": "寒冰白龙", "category": "technique", "file": "novel_curated_techniques_v597.json"},
+    {"id": "technique_1349", "display": "蛟三火掌诛元婴", "category": "technique", "file": "novel_curated_techniques_v597.json"},
+    {"id": "material_1369", "display": "诞魂花三道金纹", "category": "material", "file": "novel_curated_materials_v597.json"},
+    {"id": "material_1370", "display": "洛蒙阴魂气息", "category": "material", "file": "novel_curated_materials_v597.json"},
+    {"id": "material_1371", "display": "红月岛情报玉简", "category": "material", "file": "novel_curated_materials_v597.json"}
+  ]
+}
