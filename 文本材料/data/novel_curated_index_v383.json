@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 383,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（鬼女·蜉蝣族·重聚·虫影·蜉蝣族与虫海：第1486–1490章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v382 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1486章 鬼女 — 第1490章 蜉蝣族与虫海",
+  "progress": "1490/2005 ≈ 74.3%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1417–setting_1422",
+    "artifacts": "artifact_929–artifact_932",
+    "techniques": "technique_705–technique_707",
+    "materials": "material_727–material_729"
+  },
+  "entries": [
+    {"id": "setting_1417", "display": "白袍鬼女与半面容", "category": "setting", "file": "novel_curated_settings_v383.json"},
+    {"id": "setting_1418", "display": "蜉蝣族圣地与血甲傀儡军", "category": "setting", "file": "novel_curated_settings_v383.json"},
+    {"id": "setting_1419", "display": "六足飓风与金蜉首级", "category": "setting", "file": "novel_curated_settings_v383.json"},
+    {"id": "setting_1420", "display": "天蜉投影与翅翼尖鸣", "category": "setting", "file": "novel_curated_settings_v383.json"},
+    {"id": "setting_1421", "display": "六足蜉蝣出身与本体", "category": "setting", "file": "novel_curated_settings_v383.json"},
+    {"id": "setting_1422", "display": "虫海与圣地驻守", "category": "setting", "file": "novel_curated_settings_v383.json"},
+    {"id": "artifact_929", "display": "鬼女一尘白袍", "category": "artifact", "file": "novel_curated_artifacts_v383.json"},
+    {"id": "artifact_930", "display": "紫甲金锤与三武将傀儡", "category": "artifact", "file": "novel_curated_artifacts_v383.json"},
+    {"id": "artifact_931", "display": "阴云囊", "category": "artifact", "file": "novel_curated_artifacts_v383.json"},
+    {"id": "artifact_932", "display": "灵兽环与青色雷珠", "category": "artifact", "file": "novel_curated_artifacts_v383.json"},
+    {"id": "technique_705", "display": "破灭法目逼影", "category": "technique", "file": "novel_curated_techniques_v383.json"},
+    {"id": "technique_706", "display": "金鳞护喉与噬灵银焰", "category": "technique", "file": "novel_curated_techniques_v383.json"},
+    {"id": "technique_707", "display": "惊神刺破尖鸣与双层光罩", "category": "technique", "file": "novel_curated_techniques_v383.json"},
+    {"id": "material_727", "display": "金蜉血色首级", "category": "material", "file": "novel_curated_materials_v383.json"},
+    {"id": "material_728", "display": "血甲傀儡血箭", "category": "material", "file": "novel_curated_materials_v383.json"},
+    {"id": "material_729", "display": "冥河神乳与圣地圣物", "category": "material", "file": "novel_curated_materials_v383.json"}
+  ]
+}
