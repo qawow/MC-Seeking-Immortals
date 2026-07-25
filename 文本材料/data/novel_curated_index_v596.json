@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 596,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第94–98章）",
+  "method": "沿原文逐段精读；本索引汇总 v596 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2695", "display": "诞魂花年份", "category": "setting", "file": "novel_curated_settings_v596.json"},
+    {"id": "setting_2696", "display": "洛蒙秘境遗言", "category": "setting", "file": "novel_curated_settings_v596.json"},
+    {"id": "setting_2697", "display": "掌天瓶仙界异变", "category": "setting", "file": "novel_curated_settings_v596.json"},
+    {"id": "setting_2698", "display": "三祖神联手", "category": "setting", "file": "novel_curated_settings_v596.json"},
+    {"id": "setting_2699", "display": "寒冰柔水法则", "category": "setting", "file": "novel_curated_settings_v596.json"},
+    {"id": "setting_2700", "display": "地祇材料偏法则", "category": "setting", "file": "novel_curated_settings_v596.json"},
+    {"id": "artifact_1781", "display": "秘境钥匙白玉牌", "category": "artifact", "file": "novel_curated_artifacts_v596.json"},
+    {"id": "artifact_1782", "display": "洛蒙遗骸玉简", "category": "artifact", "file": "novel_curated_artifacts_v596.json"},
+    {"id": "artifact_1783", "display": "无相水鬼", "category": "artifact", "file": "novel_curated_artifacts_v596.json"},
+    {"id": "artifact_1784", "display": "掌天瓶绿液", "category": "artifact", "file": "novel_curated_artifacts_v596.json"},
+    {"id": "technique_1344", "display": "白莲破玉禁", "category": "technique", "file": "novel_curated_techniques_v596.json"},
+    {"id": "technique_1345", "display": "信念低语参悟", "category": "technique", "file": "novel_curated_techniques_v596.json"},
+    {"id": "technique_1346", "display": "真极之膜隔寒", "category": "technique", "file": "novel_curated_techniques_v596.json"},
+    {"id": "material_1366", "display": "诞魂花与诞魂液", "category": "material", "file": "novel_curated_materials_v596.json"},
+    {"id": "material_1367", "display": "人面核桃土法则", "category": "material", "file": "novel_curated_materials_v596.json"},
+    {"id": "material_1368", "display": "子午明神丹", "category": "material", "file": "novel_curated_materials_v596.json"}
+  ]
+}
