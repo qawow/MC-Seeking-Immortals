@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 529,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2211–2215章）",
+  "method": "沿原文逐段精读；本索引汇总 v529 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2293", "display": "螟虫异变与圣祖失踪", "category": "setting", "file": "novel_curated_settings_v529.json"},
+    {"id": "setting_2294", "display": "黑葫城虫海围城", "category": "setting", "file": "novel_curated_settings_v529.json"},
+    {"id": "setting_2295", "display": "始印之地与元魇秘讯", "category": "setting", "file": "novel_curated_settings_v529.json"},
+    {"id": "setting_2296", "display": "邪莲圣祖与朝天峰", "category": "setting", "file": "novel_curated_settings_v529.json"},
+    {"id": "setting_2297", "display": "白光界与圣祖聚会", "category": "setting", "file": "novel_curated_settings_v529.json"},
+    {"id": "setting_2298", "display": "血色自爆螟虫威胁", "category": "setting", "file": "novel_curated_settings_v529.json"},
+    {"id": "artifact_1513", "display": "魔族区域地图石片", "category": "artifact", "file": "novel_curated_artifacts_v529.json"},
+    {"id": "artifact_1514", "display": "黑葫城百塔电弧阵", "category": "artifact", "file": "novel_curated_artifacts_v529.json"},
+    {"id": "artifact_1515", "display": "朝天峰翠绿宫殿", "category": "artifact", "file": "novel_curated_artifacts_v529.json"},
+    {"id": "artifact_1516", "display": "宝花特制克自爆螟虫宝物", "category": "artifact", "file": "novel_curated_artifacts_v529.json"},
+    {"id": "technique_1143", "display": "梵圣法相音波灭虫", "category": "technique", "file": "novel_curated_techniques_v529.json"},
+    {"id": "technique_1144", "display": "梵圣法相银焰火海", "category": "technique", "file": "novel_curated_techniques_v529.json"},
+    {"id": "technique_1145", "display": "晶丝搜魂双首螟虫", "category": "technique", "file": "novel_curated_techniques_v529.json"},
+    {"id": "material_1165", "display": "双首螟虫", "category": "material", "file": "novel_curated_materials_v529.json"},
+    {"id": "material_1166", "display": "血色自爆螟虫", "category": "material", "file": "novel_curated_materials_v529.json"},
+    {"id": "material_1167", "display": "螟虫之母泄漏气息", "category": "material", "file": "novel_curated_materials_v529.json"}
+  ]
+}
