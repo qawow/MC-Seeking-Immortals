@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 481,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1971–1975章）",
+  "method": "沿原文逐段精读；本索引汇总 v481 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2005", "display": "敖啸暗派与獠影影卫", "category": "setting", "file": "novel_curated_settings_v481.json"},
+    {"id": "setting_2006", "display": "火离宗奔天渊秘阵", "category": "setting", "file": "novel_curated_settings_v481.json"},
+    {"id": "setting_2007", "display": "豹麟合体渡劫化女童", "category": "setting", "file": "novel_curated_settings_v481.json"},
+    {"id": "setting_2008", "display": "救火离灭魔入城", "category": "setting", "file": "novel_curated_settings_v481.json"},
+    {"id": "setting_2009", "display": "天渊萧杀与韩立归塔", "category": "setting", "file": "novel_curated_settings_v481.json"},
+    {"id": "setting_2010", "display": "青龙上人纠缠冰凤", "category": "setting", "file": "novel_curated_settings_v481.json"},
+    {"id": "artifact_1321", "display": "天干双剑", "category": "artifact", "file": "novel_curated_artifacts_v481.json"},
+    {"id": "artifact_1322", "display": "三戟飞叉", "category": "artifact", "file": "novel_curated_artifacts_v481.json"},
+    {"id": "artifact_1323", "display": "天渊长老传送阵", "category": "artifact", "file": "novel_curated_artifacts_v481.json"},
+    {"id": "artifact_1324", "display": "青铜狼首面具", "category": "artifact", "file": "novel_curated_artifacts_v481.json"},
+    {"id": "technique_999", "display": "獠影虚影潜行", "category": "technique", "file": "novel_curated_techniques_v481.json"},
+    {"id": "technique_1000", "display": "辟邪神雷清场", "category": "technique", "file": "novel_curated_techniques_v481.json"},
+    {"id": "technique_1001", "display": "豹麟虚影碎魔", "category": "technique", "file": "novel_curated_techniques_v481.json"},
+    {"id": "material_1021", "display": "暗兽之王妖丹", "category": "material", "file": "novel_curated_materials_v481.json"},
+    {"id": "material_1022", "display": "冰凤元阴之气", "category": "material", "file": "novel_curated_materials_v481.json"},
+    {"id": "material_1023", "display": "敖啸搜罗清单玉简", "category": "material", "file": "novel_curated_materials_v481.json"}
+  ]
+}
