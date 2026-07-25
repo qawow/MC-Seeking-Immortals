@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 484,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1986–1990章）",
+  "method": "沿原文逐段精读；本索引汇总 v484 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2023", "display": "九九八十一雷蛟后期劫", "category": "setting", "file": "novel_curated_settings_v484.json"},
+    {"id": "setting_2024", "display": "天外魔头催化心魔", "category": "setting", "file": "novel_curated_settings_v484.json"},
+    {"id": "setting_2025", "display": "二重变身灭心魔", "category": "setting", "file": "novel_curated_settings_v484.json"},
+    {"id": "setting_2026", "display": "渡劫成功重铸元神", "category": "setting", "file": "novel_curated_settings_v484.json"},
+    {"id": "setting_2027", "display": "第一魔尊匈兄受聘", "category": "setting", "file": "novel_curated_settings_v484.json"},
+    {"id": "setting_2028", "display": "出关受邀长老会", "category": "setting", "file": "novel_curated_settings_v484.json"},
+    {"id": "artifact_1333", "display": "银焰火鸟", "category": "artifact", "file": "novel_curated_artifacts_v484.json"},
+    {"id": "artifact_1334", "display": "五色骷髅寒焰", "category": "artifact", "file": "novel_curated_artifacts_v484.json"},
+    {"id": "artifact_1335", "display": "黑幽冰香", "category": "artifact", "file": "novel_curated_artifacts_v484.json"},
+    {"id": "artifact_1336", "display": "青黑极山抗雷", "category": "artifact", "file": "novel_curated_artifacts_v484.json"},
+    {"id": "technique_1008", "display": "惊蛰梵圣二重变身", "category": "technique", "file": "novel_curated_techniques_v484.json"},
+    {"id": "technique_1009", "display": "青蟠剑阵御雷", "category": "technique", "file": "novel_curated_techniques_v484.json"},
+    {"id": "technique_1010", "display": "元神虚影吞元气", "category": "technique", "file": "novel_curated_techniques_v484.json"},
+    {"id": "material_1030", "display": "黑幽冰香残香", "category": "material", "file": "novel_curated_materials_v484.json"},
+    {"id": "material_1031", "display": "天地元气光点", "category": "material", "file": "novel_curated_materials_v484.json"},
+    {"id": "material_1032", "display": "五极山未炼三座", "category": "material", "file": "novel_curated_materials_v484.json"}
+  ]
+}
