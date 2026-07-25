@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 593,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第79–83章）",
+  "method": "沿原文逐段精读；本索引汇总 v593 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2677", "display": "真极之膜与破空", "category": "setting", "file": "novel_curated_settings_v593.json"},
+    {"id": "setting_2678", "display": "界面间隙与仙界气息", "category": "setting", "file": "novel_curated_settings_v593.json"},
+    {"id": "setting_2679", "display": "黄色神秘气泡", "category": "setting", "file": "novel_curated_settings_v593.json"},
+    {"id": "setting_2680", "display": "独目巨人", "category": "setting", "file": "novel_curated_settings_v593.json"},
+    {"id": "setting_2681", "display": "三首半人马", "category": "setting", "file": "novel_curated_settings_v593.json"},
+    {"id": "setting_2682", "display": "掌天瓶吞时光线", "category": "setting", "file": "novel_curated_settings_v593.json"},
+    {"id": "artifact_1769", "display": "界空灵纹阵与近百星月镜", "category": "artifact", "file": "novel_curated_artifacts_v593.json"},
+    {"id": "artifact_1770", "display": "破天拳甲破墙", "category": "artifact", "file": "novel_curated_artifacts_v593.json"},
+    {"id": "artifact_1771", "display": "八宝玲珑骨甲护罩", "category": "artifact", "file": "novel_curated_artifacts_v593.json"},
+    {"id": "artifact_1772", "display": "掌天瓶与独目玉盒", "category": "artifact", "file": "novel_curated_artifacts_v593.json"},
+    {"id": "technique_1335", "display": "破灭法目破虚空", "category": "technique", "file": "novel_curated_techniques_v593.json"},
+    {"id": "technique_1336", "display": "灵目法目合网", "category": "technique", "file": "novel_curated_techniques_v593.json"},
+    {"id": "technique_1337", "display": "太一化清符隐匿", "category": "technique", "file": "novel_curated_techniques_v593.json"},
+    {"id": "material_1357", "display": "天星丹", "category": "material", "file": "novel_curated_materials_v593.json"},
+    {"id": "material_1358", "display": "黄色晶沙与独目", "category": "material", "file": "novel_curated_materials_v593.json"},
+    {"id": "material_1359", "display": "气泡岛灵材", "category": "material", "file": "novel_curated_materials_v593.json"}
+  ]
+}
