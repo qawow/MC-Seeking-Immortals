@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 524,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2186–2190章）",
+  "method": "沿原文逐段精读；本索引汇总 v524 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2263", "display": "进阶大乘与三阳灌体", "category": "setting", "file": "novel_curated_settings_v524.json"},
+    {"id": "setting_2264", "display": "蟹道人认主条件", "category": "setting", "file": "novel_curated_settings_v524.json"},
+    {"id": "setting_2265", "display": "魔族撤离与神秘誓约", "category": "setting", "file": "novel_curated_settings_v524.json"},
+    {"id": "setting_2266", "display": "洞天鼠王即天澜圣兽", "category": "setting", "file": "novel_curated_settings_v524.json"},
+    {"id": "setting_2267", "display": "半步噬金虫王", "category": "setting", "file": "novel_curated_settings_v524.json"},
+    {"id": "setting_2268", "display": "广灵道果大会与真龙之岛", "category": "setting", "file": "novel_curated_settings_v524.json"},
+    {"id": "artifact_1493", "display": "玄天剑青晕灭心魔", "category": "artifact", "file": "novel_curated_artifacts_v524.json"},
+    {"id": "artifact_1494", "display": "霜蚣本命魂牌", "category": "artifact", "file": "novel_curated_artifacts_v524.json"},
+    {"id": "artifact_1495", "display": "蟹道人蓝色玉简清单", "category": "artifact", "file": "novel_curated_artifacts_v524.json"},
+    {"id": "artifact_1496", "display": "真龙银鳞请帖", "category": "artifact", "file": "novel_curated_artifacts_v524.json"},
+    {"id": "technique_1128", "display": "元婴神游万里", "category": "technique", "file": "novel_curated_techniques_v524.json"},
+    {"id": "technique_1129", "display": "虚空凝固缓时", "category": "technique", "file": "novel_curated_techniques_v524.json"},
+    {"id": "technique_1130", "display": "逆灵真阴大法", "category": "technique", "file": "novel_curated_techniques_v524.json"},
+    {"id": "material_1150", "display": "太阳真精与天地元气", "category": "material", "file": "novel_curated_materials_v524.json"},
+    {"id": "material_1151", "display": "七首枭内丹", "category": "material", "file": "novel_curated_materials_v524.json"},
+    {"id": "material_1152", "display": "真龙真鳞", "category": "material", "file": "novel_curated_materials_v524.json"}
+  ]
+}
