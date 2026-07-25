@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 381,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（心机难测·二女来访·血食·惊空魔·冥河禁制：第1476–1480章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v380 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1476章 心机难测 — 第1480章 冥河禁制和八门引雷阵",
+  "progress": "1480/2005 ≈ 73.8%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1405–setting_1410",
+    "artifacts": "artifact_921–artifact_924",
+    "techniques": "technique_699–technique_701",
+    "materials": "material_721–material_723"
+  },
+  "entries": [
+    {"id": "setting_1405", "display": "四妖王心机与魔坟", "category": "setting", "file": "novel_curated_settings_v381.json"},
+    {"id": "setting_1406", "display": "元瑶阴阳轮回与自救", "category": "setting", "file": "novel_curated_settings_v381.json"},
+    {"id": "setting_1407", "display": "七层血祭与四王大军", "category": "setting", "file": "novel_curated_settings_v381.json"},
+    {"id": "setting_1408", "display": "惊空魔与空间裂缝", "category": "setting", "file": "novel_curated_settings_v381.json"},
+    {"id": "setting_1409", "display": "冥河水面与针鱼", "category": "setting", "file": "novel_curated_settings_v381.json"},
+    {"id": "setting_1410", "display": "八门引雷阵与破禁阵列", "category": "setting", "file": "novel_curated_settings_v381.json"},
+    {"id": "artifact_921", "display": "木青储物珠", "category": "artifact", "file": "novel_curated_artifacts_v381.json"},
+    {"id": "artifact_922", "display": "养魂木传讯匣", "category": "artifact", "file": "novel_curated_artifacts_v381.json"},
+    {"id": "artifact_923", "display": "鬼婆翠绿木灵珠", "category": "artifact", "file": "novel_curated_artifacts_v381.json"},
+    {"id": "artifact_924", "display": "六足破障器与血火雷", "category": "artifact", "file": "novel_curated_artifacts_v381.json"},
+    {"id": "technique_699", "display": "五色孔雀变身", "category": "technique", "file": "novel_curated_techniques_v381.json"},
+    {"id": "technique_700", "display": "血祭引惊空魔", "category": "technique", "file": "novel_curated_techniques_v381.json"},
+    {"id": "technique_701", "display": "八门引雷阵", "category": "technique", "file": "novel_curated_techniques_v381.json"},
+    {"id": "material_721", "display": "玄天果木棍", "category": "material", "file": "novel_curated_materials_v381.json"},
+    {"id": "material_722", "display": "万年醉灵药", "category": "material", "file": "novel_curated_materials_v381.json"},
+    {"id": "material_723", "display": "血食血球与皮袋血", "category": "material", "file": "novel_curated_materials_v381.json"}
+  ]
+}
