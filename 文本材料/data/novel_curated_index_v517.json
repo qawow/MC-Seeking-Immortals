@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 517,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第2151–2155章）",
+  "method": "沿原文逐段精读；本索引汇总 v517 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2221", "display": "大乘培育与圣岛惯例", "category": "setting", "file": "novel_curated_settings_v517.json"},
+    {"id": "setting_2222", "display": "魔族增援与三大始祖", "category": "setting", "file": "novel_curated_settings_v517.json"},
+    {"id": "setting_2223", "display": "螟虫之母与魔化出路", "category": "setting", "file": "novel_curated_settings_v517.json"},
+    {"id": "setting_2224", "display": "木界三十六天绝阵", "category": "setting", "file": "novel_curated_settings_v517.json"},
+    {"id": "setting_2225", "display": "三大阵眼与二号阵眼", "category": "setting", "file": "novel_curated_settings_v517.json"},
+    {"id": "setting_2226", "display": "联军出征与引诱", "category": "setting", "file": "novel_curated_settings_v517.json"},
+    {"id": "artifact_1465", "display": "巨树阁楼临时住处", "category": "artifact", "file": "novel_curated_artifacts_v517.json"},
+    {"id": "artifact_1466", "display": "青光岛青色云团", "category": "artifact", "file": "novel_curated_artifacts_v517.json"},
+    {"id": "artifact_1467", "display": "子寒绿袍金腰带", "category": "artifact", "file": "novel_curated_artifacts_v517.json"},
+    {"id": "artifact_1468", "display": "阵眼玉简与灵脉高台", "category": "artifact", "file": "novel_curated_artifacts_v517.json"},
+    {"id": "technique_1107", "display": "绝阵激活与绿气光幕", "category": "technique", "file": "novel_curated_techniques_v517.json"},
+    {"id": "technique_1108", "display": "五色虹桥汇灵", "category": "technique", "file": "novel_curated_techniques_v517.json"},
+    {"id": "technique_1109", "display": "圣祖化身破阵预判", "category": "technique", "file": "novel_curated_techniques_v517.json"},
+    {"id": "material_1129", "display": "三十六颗后备圣树", "category": "material", "file": "novel_curated_materials_v517.json"},
+    {"id": "material_1130", "display": "碧绿阵旗与淡银灵纹", "category": "material", "file": "novel_curated_materials_v517.json"},
+    {"id": "material_1131", "display": "淡黄木与翠绿大殿材", "category": "material", "file": "novel_curated_materials_v517.json"}
+  ]
+}
