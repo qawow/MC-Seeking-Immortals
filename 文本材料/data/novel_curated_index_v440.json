@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 440,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1764–1768章）",
+  "method": "沿原文逐段精读；本索引汇总 v440 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1759", "display": "万宝大会与妖材", "category": "setting", "file": "novel_curated_settings_v440.json"},
+    {"id": "setting_1760", "display": "金越禅师再邀", "category": "setting", "file": "novel_curated_settings_v440.json"},
+    {"id": "setting_1761", "display": "许芊羽与冰魄后人", "category": "setting", "file": "novel_curated_settings_v440.json"},
+    {"id": "setting_1762", "display": "魔劫预警与两族大乘", "category": "setting", "file": "novel_curated_settings_v440.json"},
+    {"id": "setting_1763", "display": "枫林城与精铜矿", "category": "setting", "file": "novel_curated_settings_v440.json"},
+    {"id": "setting_1764", "display": "迷蜃幻境护族", "category": "setting", "file": "novel_curated_settings_v440.json"},
+    {"id": "artifact_1157", "display": "材料清单玉简", "category": "artifact", "file": "novel_curated_artifacts_v440.json"},
+    {"id": "artifact_1158", "display": "聚仙阁禁制阁楼", "category": "artifact", "file": "novel_curated_artifacts_v440.json"},
+    {"id": "artifact_1159", "display": "许家碧绿令牌", "category": "artifact", "file": "novel_curated_artifacts_v440.json"},
+    {"id": "artifact_1160", "display": "上古阵法典籍", "category": "artifact", "file": "novel_curated_artifacts_v440.json"},
+    {"id": "technique_876", "display": "青霞遁与合体气", "category": "technique", "file": "novel_curated_techniques_v440.json"},
+    {"id": "technique_877", "display": "合体心得交流", "category": "technique", "file": "novel_curated_techniques_v440.json"},
+    {"id": "technique_878", "display": "破迷蜃薄弱点", "category": "technique", "file": "novel_curated_techniques_v440.json"},
+    {"id": "material_898", "display": "异兽灵骨与妖丹", "category": "material", "file": "novel_curated_materials_v440.json"},
+    {"id": "material_899", "display": "精铜矿脉地", "category": "material", "file": "novel_curated_materials_v440.json"},
+    {"id": "material_900", "display": "聚仙阁灵茶", "category": "material", "file": "novel_curated_materials_v440.json"}
+  ]
+}
