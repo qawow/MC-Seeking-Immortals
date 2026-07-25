@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 456,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1845–1849章）",
+  "method": "沿原文逐段精读；本索引汇总 v456 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1855", "display": "半部法诀换入渊", "category": "setting", "file": "novel_curated_settings_v456.json"},
+    {"id": "setting_1856", "display": "地渊矿脉半封闭", "category": "setting", "file": "novel_curated_settings_v456.json"},
+    {"id": "setting_1857", "display": "金峰坐镇与矿劫", "category": "setting", "file": "novel_curated_settings_v456.json"},
+    {"id": "setting_1858", "display": "毒兰沼泽与人字峰", "category": "setting", "file": "novel_curated_settings_v456.json"},
+    {"id": "setting_1859", "display": "巨坑天雷击杀", "category": "setting", "file": "novel_curated_settings_v456.json"},
+    {"id": "setting_1860", "display": "逆星盘坐标传送", "category": "setting", "file": "novel_curated_settings_v456.json"},
+    {"id": "artifact_1221", "display": "半部法诀玉简", "category": "artifact", "file": "novel_curated_artifacts_v456.json"},
+    {"id": "artifact_1222", "display": "香女茶皮袋", "category": "artifact", "file": "novel_curated_artifacts_v456.json"},
+    {"id": "artifact_1223", "display": "蓝色通行玉牌", "category": "artifact", "file": "novel_curated_artifacts_v456.json"},
+    {"id": "artifact_1224", "display": "金黄绞禽镜", "category": "artifact", "file": "novel_curated_artifacts_v456.json"},
+    {"id": "technique_924", "display": "五色禁音光幕", "category": "technique", "file": "novel_curated_techniques_v456.json"},
+    {"id": "technique_925", "display": "压境变容假侍卫", "category": "technique", "file": "novel_curated_techniques_v456.json"},
+    {"id": "technique_926", "display": "逆星五色传送阵", "category": "technique", "file": "novel_curated_techniques_v456.json"},
+    {"id": "material_946", "display": "香女茶", "category": "material", "file": "novel_curated_materials_v456.json"},
+    {"id": "material_947", "display": "地渊珍稀矿石", "category": "material", "file": "novel_curated_materials_v456.json"},
+    {"id": "material_948", "display": "蓝色残刃法宝", "category": "material", "file": "novel_curated_materials_v456.json"}
+  ]
+}
