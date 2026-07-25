@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 428,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1711–1715章）",
+  "method": "沿原文逐段精读；本索引汇总 v428 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1687", "display": "仙人药园五柱禁", "category": "setting", "file": "novel_curated_settings_v428.json"},
+    {"id": "setting_1688", "display": "巨猿掷山破柱", "category": "setting", "file": "novel_curated_settings_v428.json"},
+    {"id": "setting_1689", "display": "红罗果与红罗仙酒", "category": "setting", "file": "novel_curated_settings_v428.json"},
+    {"id": "setting_1690", "display": "蚀毒草灵界灭绝", "category": "setting", "file": "novel_curated_settings_v428.json"},
+    {"id": "setting_1691", "display": "单株灵药自灭禁", "category": "setting", "file": "novel_curated_settings_v428.json"},
+    {"id": "setting_1692", "display": "银色莲蓬灵泉", "category": "setting", "file": "novel_curated_settings_v428.json"},
+    {"id": "artifact_1109", "display": "元磁极山蛮力投掷", "category": "artifact", "file": "novel_curated_artifacts_v428.json"},
+    {"id": "artifact_1110", "display": "储药玉匣与碧绿玉铲", "category": "artifact", "file": "novel_curated_artifacts_v428.json"},
+    {"id": "artifact_1111", "display": "蓝色玉瓶收泉", "category": "artifact", "file": "novel_curated_artifacts_v428.json"},
+    {"id": "artifact_1112", "display": "石锤溶毁与银镜爆", "category": "artifact", "file": "novel_curated_artifacts_v428.json"},
+    {"id": "technique_840", "display": "噬灵火鸟破五色幕", "category": "technique", "file": "novel_curated_techniques_v428.json"},
+    {"id": "technique_841", "display": "法相金身抓灭紫电", "category": "technique", "file": "novel_curated_techniques_v428.json"},
+    {"id": "technique_842", "display": "山岳巨猿幻化术", "category": "technique", "file": "novel_curated_techniques_v428.json"},
+    {"id": "material_862", "display": "红罗果", "category": "material", "file": "novel_curated_materials_v428.json"},
+    {"id": "material_863", "display": "蚀毒草", "category": "material", "file": "novel_curated_materials_v428.json"},
+    {"id": "material_864", "display": "银色莲蓬与莲藕", "category": "material", "file": "novel_curated_materials_v428.json"}
+  ]
+}
