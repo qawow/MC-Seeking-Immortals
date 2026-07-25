@@ -1,0 +1,68 @@
+{
+  "schema_version": 55,
+  "extract_version": 540,
+  "source": "《凡人修仙传》— 人工精读提取 · 法宝类（血燃与黑鳞·小修罗界·冰峰·金翰仙宫·九元观：卷十一第2266–2270章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v539 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 4,
+  "entries": [
+    {
+      "id": "artifact_1557",
+      "display": "灵王珍宝目录玉简",
+      "category": "artifact",
+      "term": "目录玉简",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2266章 血燃与黑鳞"},
+      "setting": "翠绿玉简列各界罕见材料宝物；韩神念查阅后仍选三清雷霄符。",
+      "visual_descriptions": [
+        "一团青光从中一飞而出。……化为了一块翠绿色玉简的落到了手中。"
+      ],
+      "setting_descriptions": [
+        "「在下手中除了那几枚三清雷霄符外，还另有一些各界间都十分罕见的材料和宝物，诸位道友可要先看一看这些东西目录。」"
+      ]
+    },
+    {
+      "id": "artifact_1558",
+      "display": "修罗之心",
+      "category": "artifact",
+      "term": "修罗之心",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2267章 小修罗界"},
+      "setting": "拳头大血红多孔石块；灵王两块，改进可分半供四人各待十余日入小修罗界。",
+      "visual_descriptions": [
+        "一块拳头大的血红石块状东西，表面粗糙无比，隐约有无数细小孔洞的模样。"
+      ],
+      "setting_descriptions": [
+        "「修罗之心，这是修罗之心！灵兄从何处得到的此物！」"
+      ]
+    },
+    {
+      "id": "artifact_1559",
+      "display": "冰峰金符与符链",
+      "category": "artifact",
+      "term": "金符冰峰",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2268章 冰峰"},
+      "setting": "千余丈晶莹冰峰半透明，巨大金色符文笼罩；内金袍青年被符链捆身，眉宇金花纹同形。",
+      "visual_descriptions": [
+        "一座千余丈高的晶莹冰峰……被一枚巨大的金色符文笼罩住大半山体。",
+        "昏迷不醒的被一道道符链捆束住全身，他眉宇处，赫然有一个和冰壁上符文形状一般无二的金色花纹来。"
+      ],
+      "setting_descriptions": []
+    },
+    {
+      "id": "artifact_1560",
+      "display": "降仙台与本命魂牌",
+      "category": "artifact",
+      "term": "降仙台",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2270章 九元观"},
+      "setting": "仙界下界传送设施，需准确坐标；叛徒本命魂牌曾失感应，数百年前再有裂痕反应。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "「只要有了其准确位置，多花费些仙灵石，直接动用降仙台传过去就是了。」",
+        "「虽然有他本命魂牌在手，但不知被什么逆天宝物或者秘术遮掩下，竟一直无法感应到其生死存在了。……这叛徒虽然真魂牌出现裂痕，但看情形一时半会还不会真的陨落掉。」"
+      ]
+    }
+  ]
+}

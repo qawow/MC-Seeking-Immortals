@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 540,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2266–2270章）",
+  "method": "沿原文逐段精读；本索引汇总 v540 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2359", "display": "灵王同心化身接见", "category": "setting", "file": "novel_curated_settings_v540.json"},
+    {"id": "setting_2360", "display": "光阴之丝与光阴之河", "category": "setting", "file": "novel_curated_settings_v540.json"},
+    {"id": "setting_2361", "display": "小修罗界与修罗蛛", "category": "setting", "file": "novel_curated_settings_v540.json"},
+    {"id": "setting_2362", "display": "修罗之心跨界传送", "category": "setting", "file": "novel_curated_settings_v540.json"},
+    {"id": "setting_2363", "display": "冰峰炼化金仙真魂", "category": "setting", "file": "novel_curated_settings_v540.json"},
+    {"id": "setting_2364", "display": "金翰仙宫与九元观", "category": "setting", "file": "novel_curated_settings_v540.json"},
+    {"id": "artifact_1557", "display": "灵王珍宝目录玉简", "category": "artifact", "file": "novel_curated_artifacts_v540.json"},
+    {"id": "artifact_1558", "display": "修罗之心", "category": "artifact", "file": "novel_curated_artifacts_v540.json"},
+    {"id": "artifact_1559", "display": "冰峰金符与符链", "category": "artifact", "file": "novel_curated_artifacts_v540.json"},
+    {"id": "artifact_1560", "display": "降仙台与本命魂牌", "category": "artifact", "file": "novel_curated_artifacts_v540.json"},
+    {"id": "technique_1176", "display": "黑鳞神念目光秘术", "category": "technique", "file": "novel_curated_techniques_v540.json"},
+    {"id": "technique_1177", "display": "同心化身乳白晶丝", "category": "technique", "file": "novel_curated_techniques_v540.json"},
+    {"id": "technique_1178", "display": "灵域第三层化灵境", "category": "technique", "file": "novel_curated_techniques_v540.json"},
+    {"id": "material_1198", "display": "光阴之丝", "category": "material", "file": "novel_curated_materials_v540.json"},
+    {"id": "material_1199", "display": "修罗蛛晶核", "category": "material", "file": "novel_curated_materials_v540.json"},
+    {"id": "material_1200", "display": "仙界下界灵符丹药", "category": "material", "file": "novel_curated_materials_v540.json"}
+  ]
+}
