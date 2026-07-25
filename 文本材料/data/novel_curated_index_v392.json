@@ -1,0 +1,28 @@
+{
+  "schema_version": 55,
+  "extract_version": 392,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1531–1535章：腾龙丹·角蚩海王·九幽冥尸·离意·新飞剑）",
+  "method": "沿原文逐段精读；索引仅列 id/display/category/file，详目见分卷 JSON。",
+  "disclaimer": "代表性精读而非穷尽全本；入包前仍需人工校订。",
+  "chapter_range": "第1531–1535章",
+  "progress": "1535/2005 ≈ 76.6%",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1471", "display": "梵圣法相实体材料", "category": "setting", "file": "novel_curated_settings_v392.json"},
+    {"id": "setting_1472", "display": "芝龙果与腾龙丹", "category": "setting", "file": "novel_curated_settings_v392.json"},
+    {"id": "setting_1473", "display": "角蚩族与海王族", "category": "setting", "file": "novel_curated_settings_v392.json"},
+    {"id": "setting_1474", "display": "真灵阴气与九头鸟冥尸", "category": "setting", "file": "novel_curated_settings_v392.json"},
+    {"id": "setting_1475", "display": "种剑成剑灵化虚", "category": "setting", "file": "novel_curated_settings_v392.json"},
+    {"id": "setting_1476", "display": "韩立离岛远走沿海", "category": "setting", "file": "novel_curated_settings_v392.json"},
+    {"id": "artifact_965", "display": "万珑珠监控禁制", "category": "artifact", "file": "novel_curated_artifacts_v392.json"},
+    {"id": "artifact_966", "display": "青玉瓶与蓝葫芦", "category": "artifact", "file": "novel_curated_artifacts_v392.json"},
+    {"id": "artifact_967", "display": "海王金三叉戟", "category": "artifact", "file": "novel_curated_artifacts_v392.json"},
+    {"id": "artifact_968", "display": "种剑后青竹蜂云剑", "category": "artifact", "file": "novel_curated_artifacts_v392.json"},
+    {"id": "technique_732", "display": "纳元术收真灵阴气", "category": "technique", "file": "novel_curated_techniques_v392.json"},
+    {"id": "technique_733", "display": "九头鸟冥尸战法", "category": "technique", "file": "novel_curated_techniques_v392.json"},
+    {"id": "technique_734", "display": "剑灵化虚", "category": "technique", "file": "novel_curated_techniques_v392.json"},
+    {"id": "material_754", "display": "芝龙果", "category": "material", "file": "novel_curated_materials_v392.json"},
+    {"id": "material_755", "display": "腾龙丹", "category": "material", "file": "novel_curated_materials_v392.json"},
+    {"id": "material_756", "display": "真灵阴气", "category": "material", "file": "novel_curated_materials_v392.json"}
+  ]
+}
