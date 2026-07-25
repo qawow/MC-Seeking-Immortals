@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 435,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1746–1750章）",
+  "method": "沿原文逐段精读；本索引汇总 v435 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1729", "display": "炼神术三层与弥刚凝魂", "category": "setting", "file": "novel_curated_settings_v435.json"},
+    {"id": "setting_1730", "display": "广寒界关闭天兆", "category": "setting", "file": "novel_curated_settings_v435.json"},
+    {"id": "setting_1731", "display": "云城角蚩之乱", "category": "setting", "file": "novel_curated_settings_v435.json"},
+    {"id": "setting_1732", "display": "通灵战堡与弃城", "category": "setting", "file": "novel_curated_settings_v435.json"},
+    {"id": "setting_1733", "display": "虚天鼎与冰魄信物", "category": "setting", "file": "novel_curated_settings_v435.json"},
+    {"id": "setting_1734", "display": "伏蛟城与向之礼约", "category": "setting", "file": "novel_curated_settings_v435.json"},
+    {"id": "artifact_1137", "display": "王级暗兽妖丹", "category": "artifact", "file": "novel_curated_artifacts_v435.json"},
+    {"id": "artifact_1138", "display": "螳螂六兽飞车", "category": "artifact", "file": "novel_curated_artifacts_v435.json"},
+    {"id": "artifact_1139", "display": "冰魄玉盒与信笺", "category": "artifact", "file": "novel_curated_artifacts_v435.json"},
+    {"id": "artifact_1140", "display": "雷鸣珍稀材料匣", "category": "artifact", "file": "novel_curated_artifacts_v435.json"},
+    {"id": "technique_861", "display": "金身合击灭王兽", "category": "technique", "file": "novel_curated_techniques_v435.json"},
+    {"id": "technique_862", "display": "青剑虚空斩首", "category": "technique", "file": "novel_curated_techniques_v435.json"},
+    {"id": "technique_863", "display": "元磁神光隔音幕", "category": "technique", "file": "novel_curated_techniques_v435.json"},
+    {"id": "material_883", "display": "弥刚丹与凝魂丸丹方", "category": "material", "file": "novel_curated_materials_v435.json"},
+    {"id": "material_884", "display": "拇指大金色妖丹", "category": "material", "file": "novel_curated_materials_v435.json"},
+    {"id": "material_885", "display": "云城之卫残骸", "category": "material", "file": "novel_curated_materials_v435.json"}
+  ]
+}
