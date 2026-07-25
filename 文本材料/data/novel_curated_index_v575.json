@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 575,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2441–2445章）",
+  "method": "沿原文逐段精读；本索引汇总 v575 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2569", "display": "广灵道体与神识隐患", "category": "setting", "file": "novel_curated_settings_v575.json"},
+    {"id": "setting_2570", "display": "人族之变与青元宫源流", "category": "setting", "file": "novel_curated_settings_v575.json"},
+    {"id": "setting_2571", "display": "炼神术第三层与通仙宝符", "category": "setting", "file": "novel_curated_settings_v575.json"},
+    {"id": "setting_2572", "display": "分魂破界与人界旧识", "category": "setting", "file": "novel_curated_settings_v575.json"},
+    {"id": "setting_2573", "display": "韩家宗祠与玉牌机缘", "category": "setting", "file": "novel_curated_settings_v575.json"},
+    {"id": "setting_2574", "display": "飞升之劫与观摩群强", "category": "setting", "file": "novel_curated_settings_v575.json"},
+    {"id": "artifact_1697", "display": "通仙宝符与漆黑钵盂", "category": "artifact", "file": "novel_curated_artifacts_v575.json"},
+    {"id": "artifact_1698", "display": "昊阴寒魄山", "category": "artifact", "file": "novel_curated_artifacts_v575.json"},
+    {"id": "artifact_1699", "display": "五色星盘与跨界法阵", "category": "artifact", "file": "novel_curated_artifacts_v575.json"},
+    {"id": "artifact_1700", "display": "韩鸣玉牌与神剑剑鞘", "category": "artifact", "file": "novel_curated_artifacts_v575.json"},
+    {"id": "technique_1281", "display": "炼神术第三层与五藏锻元功", "category": "technique", "file": "novel_curated_techniques_v575.json"},
+    {"id": "technique_1282", "display": "分魂搜魂与千丈青手", "category": "technique", "file": "novel_curated_techniques_v575.json"},
+    {"id": "technique_1283", "display": "飞升之劫五色云团", "category": "technique", "file": "novel_curated_techniques_v575.json"},
+    {"id": "material_1303", "display": "昊阴之石", "category": "material", "file": "novel_curated_materials_v575.json"},
+    {"id": "material_1304", "display": "北极元晶", "category": "material", "file": "novel_curated_materials_v575.json"},
+    {"id": "material_1305", "display": "广灵道果与真魂丹（度劫备）", "category": "material", "file": "novel_curated_materials_v575.json"}
+  ]
+}
