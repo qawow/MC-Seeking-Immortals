@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 534,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2236–2240章）",
+  "method": "沿原文逐段精读；本索引汇总 v534 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2323", "display": "怪虫投影与真仙插手疑", "category": "setting", "file": "novel_curated_settings_v534.json"},
+    {"id": "setting_2324", "display": "银纱女子吞噬元神与三头重组", "category": "setting", "file": "novel_curated_settings_v534.json"},
+    {"id": "setting_2325", "display": "真伪玄天灵域对撞", "category": "setting", "file": "novel_curated_settings_v534.json"},
+    {"id": "setting_2326", "display": "真极之躯与土皇钉对", "category": "setting", "file": "novel_curated_settings_v534.json"},
+    {"id": "setting_2327", "display": "玄仙与炼仙大道", "category": "setting", "file": "novel_curated_settings_v534.json"},
+    {"id": "setting_2328", "display": "宝花梵尼十三光轮催本源", "category": "setting", "file": "novel_curated_settings_v534.json"},
+    {"id": "artifact_1533", "display": "土皇钉一对与本源催动", "category": "artifact", "file": "novel_curated_artifacts_v534.json"},
+    {"id": "artifact_1534", "display": "灰丝弥天巨网", "category": "artifact", "file": "novel_curated_artifacts_v534.json"},
+    {"id": "artifact_1535", "display": "残缺玉牌与裂纹天机枪", "category": "artifact", "file": "novel_curated_artifacts_v534.json"},
+    {"id": "artifact_1536", "display": "土皇钉注灵花树", "category": "artifact", "file": "novel_curated_artifacts_v534.json"},
+    {"id": "technique_1158", "display": "时间法则逆反弹绿线", "category": "technique", "file": "novel_curated_techniques_v534.json"},
+    {"id": "technique_1159", "display": "仿轩元神光金漩涡", "category": "technique", "file": "novel_curated_techniques_v534.json"},
+    {"id": "technique_1160", "display": "梵尼十三光轮本源一指", "category": "technique", "file": "novel_curated_techniques_v534.json"},
+    {"id": "material_1180", "display": "玉骨真极之躯", "category": "material", "file": "novel_curated_materials_v534.json"},
+    {"id": "material_1181", "display": "体内漆黑晶核", "category": "material", "file": "novel_curated_materials_v534.json"},
+    {"id": "material_1182", "display": "三头蝉翼重组虫躯", "category": "material", "file": "novel_curated_materials_v534.json"}
+  ]
+}
