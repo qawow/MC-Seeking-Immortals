@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 443,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1779–1783章）",
+  "method": "沿原文逐段精读；本索引汇总 v443 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1777", "display": "三对三救果儿", "category": "setting", "file": "novel_curated_settings_v443.json"},
+    {"id": "setting_1778", "display": "白果儿寒毒", "category": "setting", "file": "novel_curated_settings_v443.json"},
+    {"id": "setting_1779", "display": "天元圣皇车驾", "category": "setting", "file": "novel_curated_settings_v443.json"},
+    {"id": "setting_1780", "display": "酒皇与红罗约", "category": "setting", "file": "novel_curated_settings_v443.json"},
+    {"id": "setting_1781", "display": "枯眼望气品韩", "category": "setting", "file": "novel_curated_settings_v443.json"},
+    {"id": "setting_1782", "display": "金广宗田青叶", "category": "setting", "file": "novel_curated_settings_v443.json"},
+    {"id": "artifact_1169", "display": "桃僵李代符", "category": "artifact", "file": "novel_curated_artifacts_v443.json"},
+    {"id": "artifact_1170", "display": "血蜂皮袋与青古镜", "category": "artifact", "file": "novel_curated_artifacts_v443.json"},
+    {"id": "artifact_1171", "display": "圣字银幡兽车", "category": "artifact", "file": "novel_curated_artifacts_v443.json"},
+    {"id": "artifact_1172", "display": "虎魄灵酒与赤红酒壶", "category": "artifact", "file": "novel_curated_artifacts_v443.json"},
+    {"id": "technique_885", "display": "五色寒焰冻蜂", "category": "technique", "file": "novel_curated_techniques_v443.json"},
+    {"id": "technique_886", "display": "青丝斩首与金雷灭影", "category": "technique", "file": "novel_curated_techniques_v443.json"},
+    {"id": "technique_887", "display": "枯眼大法与望气之术", "category": "technique", "file": "novel_curated_techniques_v443.json"},
+    {"id": "material_907", "display": "红罗灵果", "category": "material", "file": "novel_curated_materials_v443.json"},
+    {"id": "material_908", "display": "九香灵酒", "category": "material", "file": "novel_curated_materials_v443.json"},
+    {"id": "material_909", "display": "血参换药求寒毒", "category": "material", "file": "novel_curated_materials_v443.json"}
+  ]
+}
