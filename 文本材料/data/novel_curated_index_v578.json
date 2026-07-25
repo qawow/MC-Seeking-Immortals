@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 578,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第4–8章）",
+  "method": "沿原文逐段精读；本索引汇总 v578 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2587", "display": "相依岁月与石头哥哥", "category": "setting", "file": "novel_curated_settings_v578.json"},
+    {"id": "setting_2588", "display": "明远城与丰国", "category": "setting", "file": "novel_curated_settings_v578.json"},
+    {"id": "setting_2589", "display": "神魂封闭与凡医束手", "category": "setting", "file": "novel_curated_settings_v578.json"},
+    {"id": "setting_2590", "display": "余府与七小姐", "category": "setting", "file": "novel_curated_settings_v578.json"},
+    {"id": "setting_2591", "display": "白石真人与唤灵法阵", "category": "setting", "file": "novel_curated_settings_v578.json"},
+    {"id": "setting_2592", "display": "冷焰宗试炼阴影", "category": "setting", "file": "novel_curated_settings_v578.json"},
+    {"id": "artifact_1709", "display": "墨绿小饰与绿绳", "category": "artifact", "file": "novel_curated_artifacts_v578.json"},
+    {"id": "artifact_1710", "display": "八卦照妖铜镜", "category": "artifact", "file": "novel_curated_artifacts_v578.json"},
+    {"id": "artifact_1711", "display": "引气符", "category": "artifact", "file": "novel_curated_artifacts_v578.json"},
+    {"id": "artifact_1712", "display": "青铜圆镜", "category": "artifact", "file": "novel_curated_artifacts_v578.json"},
+    {"id": "technique_1290", "display": "肉身神力拦马", "category": "technique", "file": "novel_curated_techniques_v578.json"},
+    {"id": "technique_1291", "display": "眉心神魂查探", "category": "technique", "file": "novel_curated_techniques_v578.json"},
+    {"id": "technique_1292", "display": "唤灵法阵", "category": "technique", "file": "novel_curated_techniques_v578.json"},
+    {"id": "material_1312", "display": "青风马", "category": "material", "file": "novel_curated_materials_v578.json"},
+    {"id": "material_1313", "display": "焦糊丹灰", "category": "material", "file": "novel_curated_materials_v578.json"},
+    {"id": "material_1314", "display": "黄花藤环", "category": "material", "file": "novel_curated_materials_v578.json"}
+  ]
+}
