@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 421,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1676–1680章）",
+  "method": "沿原文逐段精读；本索引汇总 v421 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1645", "display": "魔婴附法相金身", "category": "setting", "file": "novel_curated_settings_v421.json"},
+    {"id": "setting_1646", "display": "芝仙灵躯替身与曲儿", "category": "setting", "file": "novel_curated_settings_v421.json"},
+    {"id": "setting_1647", "display": "广寒开启护送与双队", "category": "setting", "file": "novel_curated_settings_v421.json"},
+    {"id": "setting_1648", "display": "广寒仪启界入海", "category": "setting", "file": "novel_curated_settings_v421.json"},
+    {"id": "setting_1649", "display": "入界分队与合击半月", "category": "setting", "file": "novel_curated_settings_v421.json"},
+    {"id": "setting_1650", "display": "广寒海域与小岛海兽", "category": "setting", "file": "novel_curated_settings_v421.json"},
+    {"id": "artifact_1081", "display": "天罡印", "category": "artifact", "file": "novel_curated_artifacts_v421.json"},
+    {"id": "artifact_1082", "display": "碧玉扇", "category": "artifact", "file": "novel_curated_artifacts_v421.json"},
+    {"id": "artifact_1083", "display": "广寒仪", "category": "artifact", "file": "novel_curated_artifacts_v421.json"},
+    {"id": "artifact_1084", "display": "柳水儿淡黄圆盘", "category": "artifact", "file": "novel_curated_artifacts_v421.json"},
+    {"id": "technique_819", "display": "催动广寒令开裂痕", "category": "technique", "file": "novel_curated_techniques_v421.json"},
+    {"id": "technique_820", "display": "石昆黄甲一拳平岛", "category": "technique", "file": "novel_curated_techniques_v421.json"},
+    {"id": "technique_821", "display": "双层光罩遮掩战阵", "category": "technique", "file": "novel_curated_techniques_v421.json"},
+    {"id": "material_841", "display": "芝仙灵躯躯壳", "category": "material", "file": "novel_curated_materials_v421.json"},
+    {"id": "material_842", "display": "传送法阵巨晶石", "category": "material", "file": "novel_curated_materials_v421.json"},
+    {"id": "material_843", "display": "催熟灵液灌注灵躯", "category": "material", "file": "novel_curated_materials_v421.json"}
+  ]
+}
