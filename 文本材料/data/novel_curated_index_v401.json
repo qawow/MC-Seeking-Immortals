@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 401,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1576–1580章）",
+  "method": "沿原文逐段精读；本索引汇总 v401 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1525", "display": "角蚩区域封锁", "category": "setting", "file": "novel_curated_settings_v401.json"},
+    {"id": "setting_1526", "display": "万古甲天木傀儡", "category": "setting", "file": "novel_curated_settings_v401.json"},
+    {"id": "setting_1527", "display": "战舟传送与小队", "category": "setting", "file": "novel_curated_settings_v401.json"},
+    {"id": "setting_1528", "display": "鲲鹏变连灭同阶", "category": "setting", "file": "novel_curated_settings_v401.json"},
+    {"id": "setting_1529", "display": "通灵傀儡与换血诱降", "category": "setting", "file": "novel_curated_settings_v401.json"},
+    {"id": "setting_1530", "display": "远距辟邪神雷灭影", "category": "setting", "file": "novel_curated_settings_v401.json"},
+    {"id": "artifact_1001", "display": "金球护身与蓝巨伞", "category": "artifact", "file": "novel_curated_artifacts_v401.json"},
+    {"id": "artifact_1002", "display": "小型堡级战舟", "category": "artifact", "file": "novel_curated_artifacts_v401.json"},
+    {"id": "artifact_1003", "display": "晶鳞盾化巨盾", "category": "artifact", "file": "novel_curated_artifacts_v401.json"},
+    {"id": "artifact_1004", "display": "黑幡阴雾与臂套", "category": "artifact", "file": "novel_curated_artifacts_v401.json"},
+    {"id": "technique_759", "display": "青竹剑丝连斩", "category": "technique", "file": "novel_curated_techniques_v401.json"},
+    {"id": "technique_760", "display": "惊蛰鲲鹏变", "category": "technique", "file": "novel_curated_techniques_v401.json"},
+    {"id": "technique_761", "display": "摄魂神光克阴", "category": "technique", "file": "novel_curated_techniques_v401.json"},
+    {"id": "material_781", "display": "战舟坚韧材料", "category": "material", "file": "novel_curated_materials_v401.json"},
+    {"id": "material_782", "display": "傀儡驱动灵石", "category": "material", "file": "novel_curated_materials_v401.json"},
+    {"id": "material_783", "display": "火属性巨斧材", "category": "material", "file": "novel_curated_materials_v401.json"}
+  ]
+}
