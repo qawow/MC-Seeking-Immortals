@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 423,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1686–1690章）",
+  "method": "沿原文逐段精读；本索引汇总 v423 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1657", "display": "暗兽森林昼夜与青夜蟒", "category": "setting", "file": "novel_curated_settings_v423.json"},
+    {"id": "setting_1658", "display": "暗兽三阶与夜行策略", "category": "setting", "file": "novel_curated_settings_v423.json"},
+    {"id": "setting_1659", "display": "千变幻面化兽皮", "category": "setting", "file": "novel_curated_settings_v423.json"},
+    {"id": "setting_1660", "display": "猎取暗兽皮与三隐", "category": "setting", "file": "novel_curated_settings_v423.json"},
+    {"id": "setting_1661", "display": "王级暗兽意外冲撞", "category": "setting", "file": "novel_curated_settings_v423.json"},
+    {"id": "setting_1662", "display": "两只王兽与银目追击", "category": "setting", "file": "novel_curated_settings_v423.json"},
+    {"id": "artifact_1089", "display": "千变幻面", "category": "artifact", "file": "novel_curated_artifacts_v423.json"},
+    {"id": "artifact_1090", "display": "观战青银镜", "category": "artifact", "file": "novel_curated_artifacts_v423.json"},
+    {"id": "artifact_1091", "display": "柳水儿蓝色晶球", "category": "artifact", "file": "novel_curated_artifacts_v423.json"},
+    {"id": "artifact_1092", "display": "乌罗黑纱", "category": "artifact", "file": "novel_curated_artifacts_v423.json"},
+    {"id": "technique_825", "display": "暗兽分影与蝙蝠磨杀", "category": "technique", "file": "novel_curated_techniques_v423.json"},
+    {"id": "technique_826", "display": "春黎剑阵隔念猎兽", "category": "technique", "file": "novel_curated_techniques_v423.json"},
+    {"id": "technique_827", "display": "太一化清配黑纱隐遁", "category": "technique", "file": "novel_curated_techniques_v423.json"},
+    {"id": "material_847", "display": "青夜蟒内丹", "category": "material", "file": "novel_curated_materials_v423.json"},
+    {"id": "material_848", "display": "暗兽完整毛皮", "category": "material", "file": "novel_curated_materials_v423.json"},
+    {"id": "material_849", "display": "七种灵兽之皮", "category": "material", "file": "novel_curated_materials_v423.json"}
+  ]
+}
