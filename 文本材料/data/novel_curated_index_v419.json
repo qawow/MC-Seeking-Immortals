@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 419,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1666–1670章）",
+  "method": "沿原文逐段精读；本索引汇总 v419 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1633", "display": "芝仙要挟与用途探查", "category": "setting", "file": "novel_curated_settings_v419.json"},
+    {"id": "setting_1634", "display": "芝仙元神分裂妥协", "category": "setting", "file": "novel_curated_settings_v419.json"},
+    {"id": "setting_1635", "display": "芝仙助九曲灵参开灵智", "category": "setting", "file": "novel_curated_settings_v419.json"},
+    {"id": "setting_1636", "display": "圣阶魔核炼化修甲", "category": "setting", "file": "novel_curated_settings_v419.json"},
+    {"id": "setting_1637", "display": "跨界魔念降临魔甲", "category": "setting", "file": "novel_curated_settings_v419.json"},
+    {"id": "setting_1638", "display": "云族与本命云兽", "category": "setting", "file": "novel_curated_settings_v419.json"},
+    {"id": "artifact_1073", "display": "禁制青玉瓶囚芝仙", "category": "artifact", "file": "novel_curated_artifacts_v419.json"},
+    {"id": "artifact_1074", "display": "银钵试炼芝仙灵血", "category": "artifact", "file": "novel_curated_artifacts_v419.json"},
+    {"id": "artifact_1075", "display": "修甲黑法阵与青铜鼎", "category": "artifact", "file": "novel_curated_artifacts_v419.json"},
+    {"id": "artifact_1076", "display": "修补完成天外魔甲", "category": "artifact", "file": "novel_curated_artifacts_v419.json"},
+    {"id": "technique_813", "display": "噬金虫银火鸟监芝仙", "category": "technique", "file": "novel_curated_techniques_v419.json"},
+    {"id": "technique_814", "display": "麒麟虚影黑青火炼核", "category": "technique", "file": "novel_curated_techniques_v419.json"},
+    {"id": "technique_815", "display": "辟邪神雷千雷轰顶", "category": "technique", "file": "novel_curated_techniques_v419.json"},
+    {"id": "material_835", "display": "芝仙乳白灵血", "category": "material", "file": "novel_curated_materials_v419.json"},
+    {"id": "material_836", "display": "晶体化圣阶魔核", "category": "material", "file": "novel_curated_materials_v419.json"},
+    {"id": "material_837", "display": "法阵乌黑晶石", "category": "material", "file": "novel_curated_materials_v419.json"}
+  ]
+}
