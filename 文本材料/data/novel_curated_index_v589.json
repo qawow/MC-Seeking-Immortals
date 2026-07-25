@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 589,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第59–63章）",
+  "method": "沿原文逐段精读；本索引汇总 v589 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2653", "display": "借聚星台与浣星石", "category": "setting", "file": "novel_curated_settings_v589.json"},
+    {"id": "setting_2654", "display": "十方楼通缉与仙界联手", "category": "setting", "file": "novel_curated_settings_v589.json"},
+    {"id": "setting_2655", "display": "三宗大乘暗流", "category": "setting", "file": "novel_curated_settings_v589.json"},
+    {"id": "setting_2656", "display": "百里八峰困阵", "category": "setting", "file": "novel_curated_settings_v589.json"},
+    {"id": "setting_2657", "display": "撒豆成兵黄巾道兵", "category": "setting", "file": "novel_curated_settings_v589.json"},
+    {"id": "setting_2658", "display": "星元六层大成七层启", "category": "setting", "file": "novel_curated_settings_v589.json"},
+    {"id": "artifact_1753", "display": "星月宝镜六面", "category": "artifact", "file": "novel_curated_artifacts_v589.json"},
+    {"id": "artifact_1754", "display": "道兵黄葫芦", "category": "artifact", "file": "novel_curated_artifacts_v589.json"},
+    {"id": "artifact_1755", "display": "通缉金箔", "category": "artifact", "file": "novel_curated_artifacts_v589.json"},
+    {"id": "artifact_1756", "display": "流光铁盾", "category": "artifact", "file": "novel_curated_artifacts_v589.json"},
+    {"id": "technique_1323", "display": "聚星台星元灌体", "category": "technique", "file": "novel_curated_techniques_v589.json"},
+    {"id": "technique_1324", "display": "六玄窍破道兵", "category": "technique", "file": "novel_curated_techniques_v589.json"},
+    {"id": "technique_1325", "display": "银月洞天与八峰困", "category": "technique", "file": "novel_curated_techniques_v589.json"},
+    {"id": "material_1345", "display": "浣星石", "category": "material", "file": "novel_curated_materials_v589.json"},
+    {"id": "material_1346", "display": "兵豆与黄巾道兵", "category": "material", "file": "novel_curated_materials_v589.json"},
+    {"id": "material_1347", "display": "昊元石与黑水灵茶", "category": "material", "file": "novel_curated_materials_v589.json"}
+  ]
+}
