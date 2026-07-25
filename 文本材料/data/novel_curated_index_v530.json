@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 530,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2216–2220章）",
+  "method": "沿原文逐段精读；本索引汇总 v530 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2299", "display": "圣祖聚会与天鸦界援手", "category": "setting", "file": "novel_curated_settings_v530.json"},
+    {"id": "setting_2300", "display": "黄沙老怪与土乾神卫", "category": "setting", "file": "novel_curated_settings_v530.json"},
+    {"id": "setting_2301", "display": "落星幡与小幻天镜", "category": "setting", "file": "novel_curated_settings_v530.json"},
+    {"id": "setting_2302", "display": "上古封印灵性与两全其美", "category": "setting", "file": "novel_curated_settings_v530.json"},
+    {"id": "setting_2303", "display": "铜鸦老人与四禽", "category": "setting", "file": "novel_curated_settings_v530.json"},
+    {"id": "setting_2304", "display": "宝花韩立密约与出征", "category": "setting", "file": "novel_curated_settings_v530.json"},
+    {"id": "artifact_1517", "display": "落星幡", "category": "artifact", "file": "novel_curated_artifacts_v530.json"},
+    {"id": "artifact_1518", "display": "小幻天镜", "category": "artifact", "file": "novel_curated_artifacts_v530.json"},
+    {"id": "artifact_1519", "display": "元魇秘讯黑晶球", "category": "artifact", "file": "novel_curated_artifacts_v530.json"},
+    {"id": "artifact_1520", "display": "赤红晶翎", "category": "artifact", "file": "novel_curated_artifacts_v530.json"},
+    {"id": "technique_1146", "display": "飞书玉片传讯", "category": "technique", "file": "novel_curated_techniques_v530.json"},
+    {"id": "technique_1147", "display": "神念冷哼震慑", "category": "technique", "file": "novel_curated_techniques_v530.json"},
+    {"id": "technique_1148", "display": "宝花粉丝隔音禁制", "category": "technique", "file": "novel_curated_techniques_v530.json"},
+    {"id": "material_1168", "display": "神胶丹", "category": "material", "file": "novel_curated_materials_v530.json"},
+    {"id": "material_1169", "display": "檀香果", "category": "material", "file": "novel_curated_materials_v530.json"},
+    {"id": "material_1170", "display": "翎羽战甲", "category": "material", "file": "novel_curated_materials_v530.json"}
+  ]
+}
