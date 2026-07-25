@@ -1,0 +1,56 @@
+{
+  "schema_version": 55,
+  "extract_version": 598,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取 · 材料类（朝圣·接头·血色空间·脱困·诡异：第104–108章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v597 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 3,
+  "entries": [
+    {
+      "id": "material_1372",
+      "display": "云蓝天晶",
+      "category": "material",
+      "term": "云蓝天晶",
+      "source_books": ["《凡人修仙传仙界篇》"],
+      "first_appearance": {"book": "《凡人修仙传仙界篇》", "chapter": "第一百零八章 诡异"},
+      "setting": "制蛟九蓝晶飞舟通体材料；灵宝级近仙器。晶莹剔透流线型。",
+      "visual_descriptions": [
+        "一艘十余丈长的蓝晶飞舟，通体呈流线型，晶莹剔透，灵光四溢。"
+      ],
+      "setting_descriptions": [
+        "「此舟通体由云蓝天晶所制，虽算不上仙器，不过应该也相差不远了吧。」"
+      ]
+    },
+    {
+      "id": "material_1373",
+      "display": "护神魂白玉",
+      "category": "material",
+      "term": "莹白美玉",
+      "source_books": ["《凡人修仙传仙界篇》"],
+      "first_appearance": {"book": "《凡人修仙传仙界篇》", "chapter": "第一百零六章 血色空间"},
+      "setting": "蛟九金线穿系挂颈；白玉莹光笼身抗血腥戾气。激战中玉渐黯淡红芒渐盛于眼。",
+      "visual_descriptions": [
+        "一块被金线穿系着的莹白美玉，挂在了脖颈之上。白玉莹光一闪，散发出一片晶莹光芒，将他整个人笼罩了进去。",
+        "胸口处悬挂的白玉却变得有些黯淡，不如先前那般晶莹剔透了。"
+      ],
+      "setting_descriptions": [
+        "「二位道友小心，不要只注意那些血鬼，此处的气息也有些不对劲。」"
+      ]
+    },
+    {
+      "id": "material_1374",
+      "display": "青色潜入面具",
+      "category": "material",
+      "term": "青色面具",
+      "source_books": ["《凡人修仙传仙界篇》"],
+      "first_appearance": {"book": "《凡人修仙传仙界篇》", "chapter": "第一百零八章 诡异"},
+      "setting": "无常盟潜入人员所戴；通体青色与蛟系幽蓝面具不同。尸旁数张。",
+      "visual_descriptions": [
+        "身旁还放着数张通体呈青色的面具，看起来与韩立几人所戴的不太一样。"
+      ],
+      "setting_descriptions": [
+        "「这些应该就是盟中的那些潜入人员了。」"
+      ]
+    }
+  ]
+}
