@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 591,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第69–73章）",
+  "method": "沿原文逐段精读；本索引汇总 v591 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2665", "display": "天魁厚土阵破阵", "category": "setting", "file": "novel_curated_settings_v591.json"},
+    {"id": "setting_2666", "display": "银月漩涡与天外飞豆", "category": "setting", "file": "novel_curated_settings_v591.json"},
+    {"id": "setting_2667", "display": "黄巾道将与涅槃圣体", "category": "setting", "file": "novel_curated_settings_v591.json"},
+    {"id": "setting_2668", "display": "神念晶丝收服大乘", "category": "setting", "file": "novel_curated_settings_v591.json"},
+    {"id": "setting_2669", "display": "天鬼宗灭门", "category": "setting", "file": "novel_curated_settings_v591.json"},
+    {"id": "setting_2670", "display": "冷焰接管与优待", "category": "setting", "file": "novel_curated_settings_v591.json"},
+    {"id": "artifact_1761", "display": "银拂尘与白玉如意", "category": "artifact", "file": "novel_curated_artifacts_v591.json"},
+    {"id": "artifact_1762", "display": "黄巾母豆", "category": "artifact", "file": "novel_curated_artifacts_v591.json"},
+    {"id": "artifact_1763", "display": "通仙界传送阵", "category": "artifact", "file": "novel_curated_artifacts_v591.json"},
+    {"id": "artifact_1764", "display": "桃木古剑与魂牌", "category": "artifact", "file": "novel_curated_artifacts_v591.json"},
+    {"id": "technique_1329", "display": "巨猿破阵与精炎缚人", "category": "technique", "file": "novel_curated_techniques_v591.json"},
+    {"id": "technique_1330", "display": "青鸾风刃与涅槃六臂", "category": "technique", "file": "novel_curated_techniques_v591.json"},
+    {"id": "technique_1331", "display": "破幕一掌与精炎焚宗", "category": "technique", "file": "novel_curated_techniques_v591.json"},
+    {"id": "material_1351", "display": "玄黄雾丝", "category": "material", "file": "novel_curated_materials_v591.json"},
+    {"id": "material_1352", "display": "云鹤草与先天紫气", "category": "material", "file": "novel_curated_materials_v591.json"},
+    {"id": "material_1353", "display": "魂牌分魂精血", "category": "material", "file": "novel_curated_materials_v591.json"}
+  ]
+}
