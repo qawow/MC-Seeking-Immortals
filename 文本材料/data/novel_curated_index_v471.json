@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 471,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1921–1925章）",
+  "method": "沿原文逐段精读；本索引汇总 v471 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1945", "display": "塔内时差与脱困", "category": "setting", "file": "novel_curated_settings_v471.json"},
+    {"id": "setting_1946", "display": "冰寒九天僵局", "category": "setting", "file": "novel_curated_settings_v471.json"},
+    {"id": "setting_1947", "display": "血腥魔影降临", "category": "setting", "file": "novel_curated_settings_v471.json"},
+    {"id": "setting_1948", "display": "合息兽被收", "category": "setting", "file": "novel_curated_settings_v471.json"},
+    {"id": "setting_1949", "display": "分界镜报沙翁", "category": "setting", "file": "novel_curated_settings_v471.json"},
+    {"id": "setting_1950", "display": "倚天城破局", "category": "setting", "file": "novel_curated_settings_v471.json"},
+    {"id": "artifact_1281", "display": "晶莹飞刀冰寒巨刃", "category": "artifact", "file": "novel_curated_artifacts_v471.json"},
+    {"id": "artifact_1282", "display": "血红晶石与血舟", "category": "artifact", "file": "novel_curated_artifacts_v471.json"},
+    {"id": "artifact_1283", "display": "分界镜", "category": "artifact", "file": "novel_curated_artifacts_v471.json"},
+    {"id": "artifact_1284", "display": "千妙海云与九宫天乾符", "category": "artifact", "file": "novel_curated_artifacts_v471.json"},
+    {"id": "technique_969", "display": "青蟠剑阵化龙", "category": "technique", "file": "novel_curated_techniques_v471.json"},
+    {"id": "technique_970", "display": "五子同心魔新寒焰", "category": "technique", "file": "novel_curated_techniques_v471.json"},
+    {"id": "technique_971", "display": "鲲鹏变身与三身追逃", "category": "technique", "file": "novel_curated_techniques_v471.json"},
+    {"id": "material_991", "display": "化血冥卫不死之身", "category": "material", "file": "novel_curated_materials_v471.json"},
+    {"id": "material_992", "display": "一百零八精金甲士虚影", "category": "material", "file": "novel_curated_materials_v471.json"},
+    {"id": "material_993", "display": "血红圆珠与玉符", "category": "material", "file": "novel_curated_materials_v471.json"}
+  ]
+}
