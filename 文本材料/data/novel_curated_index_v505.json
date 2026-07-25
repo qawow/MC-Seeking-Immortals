@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 505,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第2091–2095章）",
+  "method": "沿原文逐段精读；本索引汇总 v505 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2149", "display": "困灵谷灵压", "category": "setting", "file": "novel_curated_settings_v505.json"},
+    {"id": "setting_2150", "display": "灵王与陨界石", "category": "setting", "file": "novel_curated_settings_v505.json"},
+    {"id": "setting_2151", "display": "灵王附体伪仙儡", "category": "setting", "file": "novel_curated_settings_v505.json"},
+    {"id": "setting_2152", "display": "池底黑阵", "category": "setting", "file": "novel_curated_settings_v505.json"},
+    {"id": "setting_2153", "display": "宝花现身", "category": "setting", "file": "novel_curated_settings_v505.json"},
+    {"id": "setting_2154", "display": "三大始祖格局", "category": "setting", "file": "novel_curated_settings_v505.json"},
+    {"id": "artifact_1417", "display": "涅盘珠", "category": "artifact", "file": "novel_curated_artifacts_v505.json"},
+    {"id": "artifact_1418", "display": "锢灵瓶", "category": "artifact", "file": "novel_curated_artifacts_v505.json"},
+    {"id": "artifact_1419", "display": "极山与虫盾", "category": "artifact", "file": "novel_curated_artifacts_v505.json"},
+    {"id": "artifact_1420", "display": "粉红巨花", "category": "artifact", "file": "novel_curated_artifacts_v505.json"},
+    {"id": "technique_1071", "display": "九头魔蟾法相", "category": "technique", "file": "novel_curated_techniques_v505.json"},
+    {"id": "technique_1072", "display": "伪仙儡自爆", "category": "technique", "file": "novel_curated_techniques_v505.json"},
+    {"id": "technique_1073", "display": "真龙天凤极防", "category": "technique", "file": "novel_curated_techniques_v505.json"},
+    {"id": "material_1093", "display": "陨界石", "category": "material", "file": "novel_curated_materials_v505.json"},
+    {"id": "material_1094", "display": "参天造化露", "category": "material", "file": "novel_curated_materials_v505.json"},
+    {"id": "material_1095", "display": "掌心剑影异变", "category": "material", "file": "novel_curated_materials_v505.json"}
+  ]
+}
