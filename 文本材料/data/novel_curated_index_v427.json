@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 427,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1706–1710章）",
+  "method": "沿原文逐段精读；本索引汇总 v427 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1681", "display": "万阶攀登肉身竞速", "category": "setting", "file": "novel_curated_settings_v427.json"},
+    {"id": "setting_1682", "display": "紫宫银蝌真仙遗", "category": "setting", "file": "novel_curated_settings_v427.json"},
+    {"id": "setting_1683", "display": "广场幻阵破灭灵目合", "category": "setting", "file": "novel_curated_settings_v427.json"},
+    {"id": "setting_1684", "display": "主殿紫电禁制", "category": "setting", "file": "novel_curated_settings_v427.json"},
+    {"id": "setting_1685", "display": "甲衣草与黑幽冰香", "category": "setting", "file": "novel_curated_settings_v427.json"},
+    {"id": "setting_1686", "display": "绿玉神像与金剑图", "category": "setting", "file": "novel_curated_settings_v427.json"},
+    {"id": "artifact_1105", "display": "天外魔甲挡紫电", "category": "artifact", "file": "novel_curated_artifacts_v427.json"},
+    {"id": "artifact_1106", "display": "水晶盾溶毁", "category": "artifact", "file": "novel_curated_artifacts_v427.json"},
+    {"id": "artifact_1107", "display": "金剑万剑图", "category": "artifact", "file": "novel_curated_artifacts_v427.json"},
+    {"id": "artifact_1108", "display": "黑幽冰香与玉匣", "category": "artifact", "file": "novel_curated_artifacts_v427.json"},
+    {"id": "technique_837", "display": "梵圣法相金甲加身", "category": "technique", "file": "novel_curated_techniques_v427.json"},
+    {"id": "technique_838", "display": "破灭明清合目破幻", "category": "technique", "file": "novel_curated_techniques_v427.json"},
+    {"id": "technique_839", "display": "符箓封印金剑图", "category": "technique", "file": "novel_curated_techniques_v427.json"},
+    {"id": "material_859", "display": "甲衣草", "category": "material", "file": "novel_curated_materials_v427.json"},
+    {"id": "material_860", "display": "雪木架与半成品宝", "category": "material", "file": "novel_curated_materials_v427.json"},
+    {"id": "material_861", "display": "石昆血瓶秘丹", "category": "material", "file": "novel_curated_materials_v427.json"}
+  ]
+}
