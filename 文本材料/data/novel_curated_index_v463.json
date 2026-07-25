@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 463,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1881–1885章）",
+  "method": "沿原文逐段精读；本索引汇总 v463 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1897", "display": "海中万丈兽首", "category": "setting", "file": "novel_curated_settings_v463.json"},
+    {"id": "setting_1898", "display": "天渊观天备战", "category": "setting", "file": "novel_curated_settings_v463.json"},
+    {"id": "setting_1899", "display": "五超魔兽与魔人", "category": "setting", "file": "novel_curated_settings_v463.json"},
+    {"id": "setting_1900", "display": "双头蜥毒虫试探", "category": "setting", "file": "novel_curated_settings_v463.json"},
+    {"id": "setting_1901", "display": "七星精火大阵", "category": "setting", "file": "novel_curated_settings_v463.json"},
+    {"id": "setting_1902", "display": "火海覆军复命", "category": "setting", "file": "novel_curated_settings_v463.json"},
+    {"id": "artifact_1249", "display": "金葫五行飞剑", "category": "artifact", "file": "novel_curated_artifacts_v463.json"},
+    {"id": "artifact_1250", "display": "万剑图", "category": "artifact", "file": "novel_curated_artifacts_v463.json"},
+    {"id": "artifact_1251", "display": "金旭宝镜", "category": "artifact", "file": "novel_curated_artifacts_v463.json"},
+    {"id": "artifact_1252", "display": "混魔旗与小旗", "category": "artifact", "file": "novel_curated_artifacts_v463.json"},
+    {"id": "technique_945", "display": "念剑诀催图", "category": "technique", "file": "novel_curated_techniques_v463.json"},
+    {"id": "technique_946", "display": "堡垒雷电网", "category": "technique", "file": "novel_curated_techniques_v463.json"},
+    {"id": "technique_947", "display": "七星火鸟一击", "category": "technique", "file": "novel_curated_techniques_v463.json"},
+    {"id": "material_967", "display": "五行珍稀材料", "category": "material", "file": "novel_curated_materials_v463.json"},
+    {"id": "material_968", "display": "变异毒液魔虫", "category": "material", "file": "novel_curated_materials_v463.json"},
+    {"id": "material_969", "display": "乳白巨型蜗牛", "category": "material", "file": "novel_curated_materials_v463.json"}
+  ]
+}
