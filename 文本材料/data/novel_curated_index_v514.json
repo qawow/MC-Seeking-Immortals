@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 514,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第2136–2140章）",
+  "method": "沿原文逐段精读；本索引汇总 v514 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2203", "display": "太玄罡木证小灵天", "category": "setting", "file": "novel_curated_settings_v514.json"},
+    {"id": "setting_2204", "display": "蟹道人灵液供奉契约", "category": "setting", "file": "novel_curated_settings_v514.json"},
+    {"id": "setting_2205", "display": "玄天灵域与天魂丹", "category": "setting", "file": "novel_curated_settings_v514.json"},
+    {"id": "setting_2206", "display": "放六极与放宝花", "category": "setting", "file": "novel_curated_settings_v514.json"},
+    {"id": "setting_2207", "display": "宝花旧党与摄灵貂", "category": "setting", "file": "novel_curated_settings_v514.json"},
+    {"id": "setting_2208", "display": "跨界通道要塞突变", "category": "setting", "file": "novel_curated_settings_v514.json"},
+    {"id": "artifact_1453", "display": "震元锏与银佛巨掌", "category": "artifact", "file": "novel_curated_artifacts_v514.json"},
+    {"id": "artifact_1454", "display": "青黑极山与梵圣芝仙", "category": "artifact", "file": "novel_curated_artifacts_v514.json"},
+    {"id": "artifact_1455", "display": "金银令箭与摄灵貂", "category": "artifact", "file": "novel_curated_artifacts_v514.json"},
+    {"id": "artifact_1456", "display": "探查铜镜与白玉魔舟", "category": "artifact", "file": "novel_curated_artifacts_v514.json"},
+    {"id": "technique_1098", "display": "黄金巨蟹破阵与六雷蛟", "category": "technique", "file": "novel_curated_techniques_v514.json"},
+    {"id": "technique_1099", "display": "玄天灵域散字", "category": "technique", "file": "novel_curated_techniques_v514.json"},
+    {"id": "technique_1100", "display": "金银光雨破禁与雷球开云", "category": "technique", "file": "novel_curated_techniques_v514.json"},
+    {"id": "material_1120", "display": "太玄罡木", "category": "material", "file": "novel_curated_materials_v514.json"},
+    {"id": "material_1121", "display": "天魂丹", "category": "material", "file": "novel_curated_materials_v514.json"},
+    {"id": "material_1122", "display": "金银符文光雨", "category": "material", "file": "novel_curated_materials_v514.json"}
+  ]
+}
