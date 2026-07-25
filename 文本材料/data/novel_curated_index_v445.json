@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 445,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1789–1793章）",
+  "method": "沿原文逐段精读；本索引汇总 v445 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1789", "display": "天狐花仙子拉拢", "category": "setting", "file": "novel_curated_settings_v445.json"},
+    {"id": "setting_1790", "display": "昊阴寒魄与五极山", "category": "setting", "file": "novel_curated_settings_v445.json"},
+    {"id": "setting_1791", "display": "洞天鼠王神秘", "category": "setting", "file": "novel_curated_settings_v445.json"},
+    {"id": "setting_1792", "display": "玄武霸皇与骖灵后", "category": "setting", "file": "novel_curated_settings_v445.json"},
+    {"id": "setting_1793", "display": "千灵柳青与叶颖", "category": "setting", "file": "novel_curated_settings_v445.json"},
+    {"id": "setting_1794", "display": "魔劫与灵皇诱饵", "category": "setting", "file": "novel_curated_settings_v445.json"},
+    {"id": "artifact_1177", "display": "昊阴寒魄与元合五极", "category": "artifact", "file": "novel_curated_artifacts_v445.json"},
+    {"id": "artifact_1178", "display": "红罗仙酒酿成", "category": "artifact", "file": "novel_curated_artifacts_v445.json"},
+    {"id": "artifact_1179", "display": "千灵傀儡化身", "category": "artifact", "file": "novel_curated_artifacts_v445.json"},
+    {"id": "artifact_1180", "display": "迎仙禁制银牌", "category": "artifact", "file": "novel_curated_artifacts_v445.json"},
+    {"id": "technique_891", "display": "万幻玄妙之术", "category": "technique", "file": "novel_curated_techniques_v445.json"},
+    {"id": "technique_892", "display": "天狐锁真元", "category": "technique", "file": "novel_curated_techniques_v445.json"},
+    {"id": "technique_893", "display": "涅盘圣灵大法", "category": "technique", "file": "novel_curated_techniques_v445.json"},
+    {"id": "material_913", "display": "红罗仙酒成品", "category": "material", "file": "novel_curated_materials_v445.json"},
+    {"id": "material_914", "display": "昊阴之石", "category": "material", "file": "novel_curated_materials_v445.json"},
+    {"id": "material_915", "display": "草魂丹三十", "category": "material", "file": "novel_curated_materials_v445.json"}
+  ]
+}
