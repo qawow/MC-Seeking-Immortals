@@ -1,0 +1,54 @@
+{
+  "schema_version": 55,
+  "extract_version": 551,
+  "source": "《凡人修仙传》— 人工精读提取 · 法术类（赤融山脉·黑焦峰·香女·意外之讯·碧影：卷十一第2321–2325章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v550 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 3,
+  "entries": [
+    {
+      "id": "technique_1209",
+      "display": "擎天剑光破空出冥河",
+      "category": "technique",
+      "term": "绿濛濛剑光",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2321章 赤融山脉"},
+      "setting": "韩七日后以绿濛濛擎天剑光斩开冥河虚空漆黑裂缝，墨灵圣舟没入飞出，裂缝弥合。",
+      "visual_descriptions": [
+        "忽然一道绿濛濛的擎天剑光一扫而过后，灰濛濛虚空竟硬生生的被一斩而开，现出一条奇长的漆黑裂缝来。"
+      ],
+      "setting_descriptions": [
+        "「下方原本一直悬浮在低空处黑色巨舟当即嗡嗡声一响，徐徐的向漆黑裂缝一飞而去。」"
+      ]
+    },
+    {
+      "id": "technique_1210",
+      "display": "石壁法诀放大窥影",
+      "category": "technique",
+      "term": "石壁窥影",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2322章 黑焦峰"},
+      "setting": "明尊大厅石壁可显卫士与巨舟画面；法诀打入后影像放大十余倍，辨认韩立面容并对照玉简画像。",
+      "visual_descriptions": [
+        "黑色巨舟上人影立刻以不可思议的速度飞快拉近，一下仿佛放大十几倍般的在石壁上变得清晰了许多。"
+      ],
+      "setting_descriptions": [
+        "「咦，此人的相貌我有些熟悉，似乎在什么地方看到过？」"
+      ]
+    },
+    {
+      "id": "technique_1211",
+      "display": "血天巫法木偶道",
+      "category": "technique",
+      "term": "巫法之道",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2325章 碧影"},
+      "setting": "血天隐秘传承；血魄曾见修士凭几个木偶法器令强敌飞灰湮灭；风元上古亦有而遭大能联灭。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "「此人仅凭几个木偶般法器，就轻易的让众多强敌飞灰湮灭掉，的确是十分诡异的神通。」",
+        "「这种传承上古时候在我们风元大陆也曾经出现过几次的，但好像立刻就被当时大陆上的大能者联手给灭掉了。」"
+      ]
+    }
+  ]
+}

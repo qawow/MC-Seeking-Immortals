@@ -1,0 +1,72 @@
+{
+  "schema_version": 55,
+  "extract_version": 551,
+  "source": "《凡人修仙传》— 人工精读提取 · 法宝类（赤融山脉·黑焦峰·香女·意外之讯·碧影：卷十一第2321–2325章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v550 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 4,
+  "entries": [
+    {
+      "id": "artifact_1601",
+      "display": "赫连客卿白令牌",
+      "category": "artifact",
+      "term": "白濛濛令牌",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2322章 黑焦峰"},
+      "setting": "血魄所持客卿信物；白濛濛一面精美灵纹、一面淡银「盟」字；验后可入黑焦峰禁区并由卫士引路。",
+      "visual_descriptions": [
+        "却是一块白濛濛令牌，一面铭印着不知名的精美灵纹，一面却有一个淡银色的「盟」字。"
+      ],
+      "setting_descriptions": [
+        "「原来是客卿大人，这自然有资格进入禁地的。」"
+      ]
+    },
+    {
+      "id": "artifact_1602",
+      "display": "玄天门光门",
+      "category": "artifact",
+      "term": "玄天门",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2322章 黑焦峰"},
+      "setting": "黑焦峰前乳白巨门近千丈；附近百座浮空建筑与巨鹰卫士；入门传送至地下洞天石台法阵。",
+      "visual_descriptions": [
+        "浮现而出一个乳白色的巨大光门来，足有近千丈之高。",
+        "在光门附近，则漂浮着密密麻麻上百座大小不一的古怪建筑，或呈圆形，或成四方状。"
+      ],
+      "setting_descriptions": [
+        "「从这玄天门进去，就可直接进入禁区了。」"
+      ]
+    },
+    {
+      "id": "artifact_1603",
+      "display": "接引巨型玉盘",
+      "category": "artifact",
+      "term": "白濛濛玉盘",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2323章 香女"},
+      "setting": "迎宾处上空天音符文凝白濛濛巨型玉盘；飞云光阵现身接引；盘载人至金碧大殿，殿中多座同型玉盘。",
+      "visual_descriptions": [
+        "无数白色符文狂涌而出，滴溜溜一转后，竟幻化出一面白濛濛的巨型玉盘来。",
+        "此殿足有数亩大小，但中间位置排列着数座外形一般无二的巨型玉盘。"
+      ],
+      "setting_descriptions": [
+        "「晚辈飞云奉命前来接引前辈到天字号贵宾阁去。」"
+      ]
+    },
+    {
+      "id": "artifact_1604",
+      "display": "七窍心音壁",
+      "category": "artifact",
+      "term": "七窍心音壁",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2325章 碧影"},
+      "setting": "明尊大厅石壁可跨陆显影传音；跨大陆耗灵力极大，不宜久用；用以向血天碧影示韩影像与情报。",
+      "visual_descriptions": [
+        "石壁上嗡鸣声大起，表面一层白雾滚滚翻滚下，忽然幻化出一个模糊不清的人影来。"
+      ],
+      "setting_descriptions": [
+        "「这七窍心音壁虽然玄妙万分，但是跨越大陆联系的话，还是消耗灵力太大了。」"
+      ]
+    }
+  ]
+}
