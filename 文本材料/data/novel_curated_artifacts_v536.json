@@ -1,0 +1,69 @@
+{
+  "schema_version": 55,
+  "extract_version": 536,
+  "source": "《凡人修仙传》— 人工精读提取 · 法宝类（重回广源·紫灵之心·最后进化·旧敌·秘藏现：卷十一第2246–2250章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v535 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 4,
+  "entries": [
+    {
+      "id": "artifact_1541",
+      "display": "泣灵秘图四晶砖",
+      "category": "artifact",
+      "term": "泣灵晶砖",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2247章 紫灵之心"},
+      "setting": "四块巴掌晶砖铭泣灵圣祖秘图；湖上点「开」凝亩许五色光阵喷灰柱开入口，入后复化为砖随人。无图难发现秘藏。",
+      "visual_descriptions": [
+        "四块晶砖瞬间激射而出，散发五色光霞的滴溜溜一转后，竟悬浮在湖面上方不动了。",
+        "四块晶砖上狂涌而出无数的符文，再一盘旋飞舞下，忽然凝聚成一座亩许大小的五色光阵来。"
+      ],
+      "setting_descriptions": [
+        "「它们上面铭印有魔界泣灵圣祖遗留的一处宝藏秘图。」"
+      ]
+    },
+    {
+      "id": "artifact_1542",
+      "display": "白色玉舟无视禁空",
+      "category": "artifact",
+      "term": "白玉飞舟",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2246章 重回广源"},
+      "setting": "表面晶莹符文异于魔界飞舟，可无视蓝瀑湖禁空禁制疾飞；两丈许巨猿傀儡操纵。",
+      "visual_descriptions": [
+        "一艘表面晶莹，表面符文大异于魔界普通飞舟的白色飞船，正以一个不可思议的速度在湖面之上破空飞行，竟视笼罩整个湖面的巨大禁空禁制如无物。",
+        "两只丈许高巨猿傀儡一动不动的站在那里，足下淡淡灵光闪动不已。"
+      ],
+      "setting_descriptions": [
+        "「敢这般大模大样无视禁令的，当然只有那些和蓝瀑圣祖同级的其他圣祖大人。」"
+      ]
+    },
+    {
+      "id": "artifact_1543",
+      "display": "传闻墨灵圣舟",
+      "category": "artifact",
+      "term": "墨灵圣舟",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2249章 旧敌"},
+      "setting": "泣灵圣祖曾拥飞行异宝，号称能排进魔界前三；韩立寻秘藏所望之一。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "「听闻当年号称能排进魔界前三的飞行异宝「墨灵圣舟」是其所拥有的。若是能得到此宝话，也算不虚此行了。」"
+      ]
+    },
+    {
+      "id": "artifact_1544",
+      "display": "黑鳄所借克禁玄天之宝",
+      "category": "artifact",
+      "term": "克禁玄天",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2246章 重回广源"},
+      "setting": "宝花借黑鳄玄天之宝破六极第七化身禁制，宝上做手脚防卷逃。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "「他若是手中有一件正好克制你所布禁制的玄天之宝呢！」",
+        "「我在那玄天之宝上做了些手脚，为何不敢借给黑鳄一用的。」"
+      ]
+    }
+  ]
+}

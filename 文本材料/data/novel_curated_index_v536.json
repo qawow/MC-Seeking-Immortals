@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 536,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2246–2250章）",
+  "method": "沿原文逐段精读；本索引汇总 v536 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2335", "display": "六极第七化身与宝花复仇", "category": "setting", "file": "novel_curated_settings_v536.json"},
+    {"id": "setting_2336", "display": "紫灵留魔界谋飞升", "category": "setting", "file": "novel_curated_settings_v536.json"},
+    {"id": "setting_2337", "display": "准噬金虫王争吞螟核", "category": "setting", "file": "novel_curated_settings_v536.json"},
+    {"id": "setting_2338", "display": "元刹自废与荒地旧敌", "category": "setting", "file": "novel_curated_settings_v536.json"},
+    {"id": "setting_2339", "display": "泣灵秘藏冰原热湖入口", "category": "setting", "file": "novel_curated_settings_v536.json"},
+    {"id": "setting_2340", "display": "广源斋与泣灵秘图", "category": "setting", "file": "novel_curated_settings_v536.json"},
+    {"id": "artifact_1541", "display": "泣灵秘图四晶砖", "category": "artifact", "file": "novel_curated_artifacts_v536.json"},
+    {"id": "artifact_1542", "display": "白色玉舟无视禁空", "category": "artifact", "file": "novel_curated_artifacts_v536.json"},
+    {"id": "artifact_1543", "display": "传闻墨灵圣舟", "category": "artifact", "file": "novel_curated_artifacts_v536.json"},
+    {"id": "artifact_1544", "display": "黑鳄所借克禁玄天之宝", "category": "artifact", "file": "novel_curated_artifacts_v536.json"},
+    {"id": "technique_1164", "display": "玄天花瓣巨刃灭六极", "category": "technique", "file": "novel_curated_techniques_v536.json"},
+    {"id": "technique_1165", "display": "元刹蓝爪黑焰分尸", "category": "technique", "file": "novel_curated_techniques_v536.json"},
+    {"id": "technique_1166", "display": "秘图开字五色光阵", "category": "technique", "file": "novel_curated_techniques_v536.json"},
+    {"id": "material_1186", "display": "螟母精华黑晶核", "category": "material", "file": "novel_curated_materials_v536.json"},
+    {"id": "material_1187", "display": "冰角熊幼兽", "category": "material", "file": "novel_curated_materials_v536.json"},
+    {"id": "material_1188", "display": "泣灵迷宫黑气圆柱", "category": "material", "file": "novel_curated_materials_v536.json"}
+  ]
+}
