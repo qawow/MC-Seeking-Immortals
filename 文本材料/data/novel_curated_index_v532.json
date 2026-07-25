@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 532,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2226–2230章）",
+  "method": "沿原文逐段精读；本索引汇总 v532 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2311", "display": "五人面虫尽灭", "category": "setting", "file": "novel_curated_settings_v532.json"},
+    {"id": "setting_2312", "display": "太乙白金爪印与更强凶虫", "category": "setting", "file": "novel_curated_settings_v532.json"},
+    {"id": "setting_2313", "display": "阵眼临时修复与地下石林", "category": "setting", "file": "novel_curated_settings_v532.json"},
+    {"id": "setting_2314", "display": "封印失控与螟虫之母苏醒在即", "category": "setting", "file": "novel_curated_settings_v532.json"},
+    {"id": "setting_2315", "display": "螟虫之母空间裂缝与白玉巨蚕", "category": "setting", "file": "novel_curated_settings_v532.json"},
+    {"id": "setting_2316", "display": "联手一击与黑晶异变", "category": "setting", "file": "novel_curated_settings_v532.json"},
+    {"id": "artifact_1525", "display": "擎天青印", "category": "artifact", "file": "novel_curated_artifacts_v532.json"},
+    {"id": "artifact_1526", "display": "凤灵宝盘", "category": "artifact", "file": "novel_curated_artifacts_v532.json"},
+    {"id": "artifact_1527", "display": "土皇钉", "category": "artifact", "file": "novel_curated_artifacts_v532.json"},
+    {"id": "artifact_1528", "display": "万兽牌", "category": "artifact", "file": "novel_curated_artifacts_v532.json"},
+    {"id": "technique_1152", "display": "金漩吸音波与青丝斩首", "category": "technique", "file": "novel_curated_techniques_v532.json"},
+    {"id": "technique_1153", "display": "蟹道人银矛雷电灭蓝甲", "category": "technique", "file": "novel_curated_techniques_v532.json"},
+    {"id": "technique_1154", "display": "玄天斩灵剑绿线切母", "category": "technique", "file": "novel_curated_techniques_v532.json"},
+    {"id": "material_1174", "display": "太乙白金", "category": "material", "file": "novel_curated_materials_v532.json"},
+    {"id": "material_1175", "display": "血红古灯与青铜柱", "category": "material", "file": "novel_curated_materials_v532.json"},
+    {"id": "material_1176", "display": "漆黑晶石", "category": "material", "file": "novel_curated_materials_v532.json"}
+  ]
+}
