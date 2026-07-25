@@ -1,0 +1,71 @@
+{
+  "schema_version": 55,
+  "extract_version": 545,
+  "source": "《凡人修仙传》— 人工精读提取 · 法宝类（时空之力·空鱼圣物·寒潭打捞：卷十一第2291–2295章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v544 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 4,
+  "entries": [
+    {
+      "id": "artifact_1577",
+      "display": "牵魂幡",
+      "category": "artifact",
+      "term": "血红小幡",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2291章 时空之力"},
+      "setting": "樱儿血道法宝；狼怪血雾入幡化丈许鬼脸，喷血霞摄元婴入鬼口；可收口吸入体内。",
+      "visual_descriptions": [
+        "一下多出了一杆血红色小幡来。",
+        "血幡迎风一涨，化为了丈许之巨……狰狞鬼脸。……大口一张，一股血红霞光一喷而出……将少女手中元婴一卷其中。"
+      ],
+      "setting_descriptions": [
+        "「牵魂幡，你想对老夫用那化魂大法！」"
+      ]
+    },
+    {
+      "id": "artifact_1578",
+      "display": "慕兰古灯",
+      "category": "artifact",
+      "term": "青色古灯",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2292章 空鱼圣物"},
+      "setting": "奕老无后法力支持，紫孔雀被韩银巨鸟吞噬，古灯坠下被韩收入袖中。",
+      "visual_descriptions": [
+        "那头召唤出的紫色孔雀……终于一声哀鸣的被银色巨鸟硬生生吞噬了进去。「砰」的一声后，那盏古灯从高空一坠而下。"
+      ],
+      "setting_descriptions": [
+        "「韩立没客气的单手一抓，就将此宝摄入了袖口中。」"
+      ]
+    },
+    {
+      "id": "artifact_1579",
+      "display": "纯阳四宝镇潭",
+      "category": "artifact",
+      "term": "纯阳之宝",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2294章 打捞"},
+      "setting": "寒潭边埋如意、镜子、晶球、圆环四件纯阳宝；撤出则寒气十倍；催动化四团赤红骄阳融冰。",
+      "visual_descriptions": [
+        "竟是一柄如意，一面镜子，一颗晶球以及一只圆环。这四件宝物均散发着阵阵炙热气息。",
+        "四件宝物顿时一闪后，化为滚滚的四团火球……化为了四团赤红骄阳高挂虚空之中。"
+      ],
+      "setting_descriptions": [
+        "「这几件器物就是贵族埋下的纯阳之宝吧。」"
+      ]
+    },
+    {
+      "id": "artifact_1580",
+      "display": "青色丝网打捞",
+      "category": "artifact",
+      "term": "青色丝网",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2294章 打捞"},
+      "setting": "族母喷青色丝网入符文球，化漏斗五色云团出五根艳丽晶丝下沉摄宝。",
+      "visual_descriptions": [
+        "檀口一张，一张青色丝网一喷而出。",
+        "符文之球……忽然幻化漏斗状的一块五色云团。……五根拇指粗细的艳丽晶丝从中一冒而出。"
+      ],
+      "setting_descriptions": []
+    }
+  ]
+}

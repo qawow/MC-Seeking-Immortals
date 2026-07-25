@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 545,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2291–2295章）",
+  "method": "沿原文逐段精读；本索引汇总 v545 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2389", "display": "时空法则融合", "category": "setting", "file": "novel_curated_settings_v545.json"},
+    {"id": "setting_2390", "display": "牵魂幡化魂大法", "category": "setting", "file": "novel_curated_settings_v545.json"},
+    {"id": "setting_2391", "display": "空鱼圣物换晶核", "category": "setting", "file": "novel_curated_settings_v545.json"},
+    {"id": "setting_2392", "display": "上古古战场群岛", "category": "setting", "file": "novel_curated_settings_v545.json"},
+    {"id": "setting_2393", "display": "寒潭奇寒打捞阵", "category": "setting", "file": "novel_curated_settings_v545.json"},
+    {"id": "setting_2394", "display": "寒潭空间之石", "category": "setting", "file": "novel_curated_settings_v545.json"},
+    {"id": "artifact_1577", "display": "牵魂幡", "category": "artifact", "file": "novel_curated_artifacts_v545.json"},
+    {"id": "artifact_1578", "display": "慕兰古灯", "category": "artifact", "file": "novel_curated_artifacts_v545.json"},
+    {"id": "artifact_1579", "display": "纯阳四宝镇潭", "category": "artifact", "file": "novel_curated_artifacts_v545.json"},
+    {"id": "artifact_1580", "display": "青色丝网打捞", "category": "artifact", "file": "novel_curated_artifacts_v545.json"},
+    {"id": "technique_1191", "display": "时空抓元婴", "category": "technique", "file": "novel_curated_techniques_v545.json"},
+    {"id": "technique_1192", "display": "时空秘术提境", "category": "technique", "file": "novel_curated_techniques_v545.json"},
+    {"id": "technique_1193", "display": "六柱注力摄宝", "category": "technique", "file": "novel_curated_techniques_v545.json"},
+    {"id": "material_1213", "display": "成年修罗蛛晶核", "category": "material", "file": "novel_curated_materials_v545.json"},
+    {"id": "material_1214", "display": "空鱼圣物空间石", "category": "material", "file": "novel_curated_materials_v545.json"},
+    {"id": "material_1215", "display": "本命晶核", "category": "material", "file": "novel_curated_materials_v545.json"}
+  ]
+}
