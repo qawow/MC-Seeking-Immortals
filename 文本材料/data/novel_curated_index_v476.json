@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 476,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1946–1950章）",
+  "method": "沿原文逐段精读；本索引汇总 v476 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1975", "display": "七日提取混沌二气", "category": "setting", "file": "novel_curated_settings_v476.json"},
+    {"id": "setting_1976", "display": "元刹破禁截气", "category": "setting", "file": "novel_curated_settings_v476.json"},
+    {"id": "setting_1977", "display": "石殿追杀与瞬移", "category": "setting", "file": "novel_curated_settings_v476.json"},
+    {"id": "setting_1978", "display": "元刹血光联手", "category": "setting", "file": "novel_curated_settings_v476.json"},
+    {"id": "setting_1979", "display": "乾坤盘埋伏与天凤破空", "category": "setting", "file": "novel_curated_settings_v476.json"},
+    {"id": "setting_1980", "display": "两月狼狈逃遁", "category": "setting", "file": "novel_curated_settings_v476.json"},
+    {"id": "artifact_1301", "display": "白色丝帕异宝", "category": "artifact", "file": "novel_curated_artifacts_v476.json"},
+    {"id": "artifact_1302", "display": "灰白石殿", "category": "artifact", "file": "novel_curated_artifacts_v476.json"},
+    {"id": "artifact_1303", "display": "乾坤盘", "category": "artifact", "file": "novel_curated_artifacts_v476.json"},
+    {"id": "artifact_1304", "display": "血光晶卫", "category": "artifact", "file": "novel_curated_artifacts_v476.json"},
+    {"id": "technique_984", "display": "金身取气秘术", "category": "technique", "file": "novel_curated_techniques_v476.json"},
+    {"id": "technique_985", "display": "天凤破空遁", "category": "technique", "file": "novel_curated_techniques_v476.json"},
+    {"id": "technique_986", "display": "分身迷魂幻化", "category": "technique", "file": "novel_curated_techniques_v476.json"},
+    {"id": "material_1006", "display": "混沌二气青团", "category": "material", "file": "novel_curated_materials_v476.json"},
+    {"id": "material_1007", "display": "数千成熟体噬金虫", "category": "material", "file": "novel_curated_materials_v476.json"},
+    {"id": "material_1008", "display": "豹麟兽醒言", "category": "material", "file": "novel_curated_materials_v476.json"}
+  ]
+}
