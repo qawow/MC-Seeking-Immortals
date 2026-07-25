@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 553,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2331–2335章）",
+  "method": "沿原文逐段精读；本索引汇总 v553 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2437", "display": "祖龙之血压轴揭秘", "category": "setting", "file": "novel_curated_settings_v553.json"},
+    {"id": "setting_2438", "display": "拍卖场公然劫宝", "category": "setting", "file": "novel_curated_settings_v553.json"},
+    {"id": "setting_2439", "display": "商盟重诺悬赏", "category": "setting", "file": "novel_curated_settings_v553.json"},
+    {"id": "setting_2440", "display": "五藏锻元功鸡肋仙术", "category": "setting", "file": "novel_curated_settings_v553.json"},
+    {"id": "setting_2441", "display": "魇龙之血真相", "category": "setting", "file": "novel_curated_settings_v553.json"},
+    {"id": "setting_2442", "display": "田飞儿与广灵道果", "category": "setting", "file": "novel_curated_settings_v553.json"},
+    {"id": "artifact_1609", "display": "银色灵血钵盂", "category": "artifact", "file": "novel_curated_artifacts_v553.json"},
+    {"id": "artifact_1610", "display": "墨绿阵盘巨木", "category": "artifact", "file": "novel_curated_artifacts_v553.json"},
+    {"id": "artifact_1611", "display": "青色晶球与银色巨锤", "category": "artifact", "file": "novel_curated_artifacts_v553.json"},
+    {"id": "artifact_1612", "display": "广灵道果龙鳞请帖", "category": "artifact", "file": "novel_curated_artifacts_v553.json"},
+    {"id": "technique_1215", "display": "五藏锻元功", "category": "technique", "file": "novel_curated_techniques_v553.json"},
+    {"id": "technique_1216", "display": "墨绿巨木借物瞬移", "category": "technique", "file": "novel_curated_techniques_v553.json"},
+    {"id": "technique_1217", "display": "拟物秘术化饰物", "category": "technique", "file": "novel_curated_techniques_v553.json"},
+    {"id": "material_1237", "display": "魇龙之血", "category": "material", "file": "novel_curated_materials_v553.json"},
+    {"id": "material_1238", "display": "灵血侵泡万年灵乳", "category": "material", "file": "novel_curated_materials_v553.json"},
+    {"id": "material_1239", "display": "广灵道果", "category": "material", "file": "novel_curated_materials_v553.json"}
+  ]
+}
