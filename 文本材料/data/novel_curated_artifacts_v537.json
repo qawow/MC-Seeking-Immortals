@@ -1,0 +1,73 @@
+{
+  "schema_version": 55,
+  "extract_version": 537,
+  "source": "《凡人修仙传》— 人工精读提取 · 法宝类（巨傀儡·傀儡大军·返回·三清雷霄符·灵族之行：卷十一第2251–2255章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v536 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 4,
+  "entries": [
+    {
+      "id": "artifact_1545",
+      "display": "火元晶朱红大门",
+      "category": "artifact",
+      "term": "火元晶门",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2251章 巨傀儡"},
+      "setting": "柱林尽头数十丈朱红门遍布漆黑魔纹，火元晶炼制；银焰一点化火焰巨门缓开，后接赤焰火海。",
+      "visual_descriptions": [
+        "现出一扇数十丈高的朱红大门，但表面遍布漆黑魔纹。",
+        "无数赤红火焰狂涌而出，竟瞬间化为了一座火焰巨门。"
+      ],
+      "setting_descriptions": [
+        "「火元晶，此门竟然是用这种材料炼制而成的。」"
+      ]
+    },
+    {
+      "id": "artifact_1546",
+      "display": "玄天残片青戈圣器",
+      "category": "artifact",
+      "term": "青戈",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2253章 返回"},
+      "setting": "泣灵殿三中之一：锈迹斑斑青色古戈，溶入玄天残片的圣器；韩赠银月。",
+      "visual_descriptions": [
+        "一柄锈迹斑斑的青色古戈。"
+      ],
+      "setting_descriptions": [
+        "「这件宝物应该是一件溶入玄天残片的圣器，对我没有太大作用了，但应该正好适合你的。」"
+      ]
+    },
+    {
+      "id": "artifact_1547",
+      "display": "墨灵圣舟与淡黄葫芦",
+      "category": "artifact",
+      "term": "墨灵圣舟",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2253章 返回"},
+      "setting": "半尺漆黑飞舟即墨灵圣舟，催动涨千丈、银幡傀儡卫士、空间破界；另有淡黄葫芦韩收起。",
+      "visual_descriptions": [
+        "一条不过半尺长的漆黑飞舟。",
+        "体表漆黑符文滚滚一冒后，体形就开始疯狂巨涨起来。"
+      ],
+      "setting_descriptions": [
+        "「那条漆黑的迷你飞舟，显然就应该是传闻中的「墨灵圣舟」了。」"
+      ]
+    },
+    {
+      "id": "artifact_1548",
+      "display": "傀儡核金球",
+      "category": "artifact",
+      "term": "魔晶金球",
+      "source_books": ["《凡人修仙传》"],
+      "first_appearance": {"book": "《凡人修仙传》", "chapter": "卷十一 第2252章 傀儡大军"},
+      "setting": "顶阶魔晶傀儡爆裂后飞出拳头大金光团，表面精美符文与孔洞，轻飘飘似空；傀儡奥妙所在。",
+      "visual_descriptions": [
+        "一颗拳头大小的金色光团从碎片中激射而出……赫然是一颗表面遍布精美符文和孔洞的金球。",
+        "此球托在手上轻飘飘的，毫无分量，竟仿佛里面全是空的一般。"
+      ],
+      "setting_descriptions": [
+        "「果然和一般的傀儡大不一样，奥妙大概全在此物上了。」"
+      ]
+    }
+  ]
+}
