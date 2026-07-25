@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 562,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2376–2380章）",
+  "method": "沿原文逐段精读；本索引汇总 v562 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2491", "display": "强者之战开局与五峰对位", "category": "setting", "file": "novel_curated_settings_v562.json"},
+    {"id": "setting_2492", "display": "五尊阴魔与血幡", "category": "setting", "file": "novel_curated_settings_v562.json"},
+    {"id": "setting_2493", "display": "第二元神与上古凶兽遗骸", "category": "setting", "file": "novel_curated_settings_v562.json"},
+    {"id": "setting_2494", "display": "千鬼之力与千命", "category": "setting", "file": "novel_curated_settings_v562.json"},
+    {"id": "setting_2495", "display": "涅盘三阶变与玄天斩灵剑杀王", "category": "setting", "file": "novel_curated_settings_v562.json"},
+    {"id": "setting_2496", "display": "莲台血骨与生灭虚空", "category": "setting", "file": "novel_curated_settings_v562.json"},
+    {"id": "artifact_1645", "display": "血红狼牙棒与血幡", "category": "artifact", "file": "novel_curated_artifacts_v562.json"},
+    {"id": "artifact_1646", "display": "血色骨珠与墨绿斩灵剑", "category": "artifact", "file": "novel_curated_artifacts_v562.json"},
+    {"id": "artifact_1647", "display": "血红鬼脸圆珠", "category": "artifact", "file": "novel_curated_artifacts_v562.json"},
+    {"id": "artifact_1648", "display": "血钵与乳白阵盘", "category": "artifact", "file": "novel_curated_artifacts_v562.json"},
+    {"id": "technique_1242", "display": "吼声真空罩与吞噬天地", "category": "technique", "file": "novel_curated_techniques_v562.json"},
+    {"id": "technique_1243", "display": "元磁神光与梵圣银焰", "category": "technique", "file": "novel_curated_techniques_v562.json"},
+    {"id": "technique_1244", "display": "百脉宝决与六漩涡法则", "category": "technique", "file": "novel_curated_techniques_v562.json"},
+    {"id": "material_1264", "display": "阴魔骷髅与血焰", "category": "material", "file": "novel_curated_materials_v562.json"},
+    {"id": "material_1265", "display": "黑甲赤翅怪虫", "category": "material", "file": "novel_curated_materials_v562.json"},
+    {"id": "material_1266", "display": "上古凶兽遗骸元神", "category": "material", "file": "novel_curated_materials_v562.json"}
+  ]
+}
