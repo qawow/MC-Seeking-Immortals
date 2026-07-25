@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 468,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1906–1910章）",
+  "method": "沿原文逐段精读；本索引汇总 v468 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1927", "display": "第十层幻术禁制", "category": "setting", "file": "novel_curated_settings_v468.json"},
+    {"id": "setting_1928", "display": "车骑恭圣祖", "category": "setting", "file": "novel_curated_settings_v468.json"},
+    {"id": "setting_1929", "display": "镇魔锁玄天半宝", "category": "setting", "file": "novel_curated_settings_v468.json"},
+    {"id": "setting_1930", "display": "混沌二气与黄泉地火", "category": "setting", "file": "novel_curated_settings_v468.json"},
+    {"id": "setting_1931", "display": "阴阳二刹到谷", "category": "setting", "file": "novel_curated_settings_v468.json"},
+    {"id": "setting_1932", "display": "倚天城总动员", "category": "setting", "file": "novel_curated_settings_v468.json"},
+    {"id": "artifact_1269", "display": "镇魔锁木盒", "category": "artifact", "file": "novel_curated_artifacts_v468.json"},
+    {"id": "artifact_1270", "display": "金银符箓金砖", "category": "artifact", "file": "novel_curated_artifacts_v468.json"},
+    {"id": "artifact_1271", "display": "倚天城监军光幕", "category": "artifact", "file": "novel_curated_artifacts_v468.json"},
+    {"id": "artifact_1272", "display": "四大宗门谢礼镯", "category": "artifact", "file": "novel_curated_artifacts_v468.json"},
+    {"id": "technique_960", "display": "神念化身入锁", "category": "technique", "file": "novel_curated_techniques_v468.json"},
+    {"id": "technique_961", "display": "金色雷网封锁", "category": "technique", "file": "novel_curated_techniques_v468.json"},
+    {"id": "technique_962", "display": "倚天城战备变阵", "category": "technique", "file": "novel_curated_techniques_v468.json"},
+    {"id": "material_982", "display": "混沌阴阳二气", "category": "material", "file": "novel_curated_materials_v468.json"},
+    {"id": "material_983", "display": "三十二炼虚金傀儡", "category": "material", "file": "novel_curated_materials_v468.json"},
+    {"id": "material_984", "display": "子母连环阵紫玉", "category": "material", "file": "novel_curated_materials_v468.json"}
+  ]
+}
