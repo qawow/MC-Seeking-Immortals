@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 387,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（困敌脱身·转轮聚阴阵·施法除患·淬晶砖·韩立实力：第1506–1510章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v386 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1506章 困敌脱身 — 第1510章 韩立实力",
+  "progress": "1510/2005 ≈ 75.3%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1441–setting_1446",
+    "artifacts": "artifact_945–artifact_948",
+    "techniques": "technique_717–technique_719",
+    "materials": "material_739–material_741"
+  },
+  "entries": [
+    {"id": "setting_1441", "display": "甲元影傀困敌脱身", "category": "setting", "file": "novel_curated_settings_v387.json"},
+    {"id": "setting_1442", "display": "九宫假兽火鸟连环困血傀", "category": "setting", "file": "novel_curated_settings_v387.json"},
+    {"id": "setting_1443", "display": "阴气丘陵与转轮聚阴阵", "category": "setting", "file": "novel_curated_settings_v387.json"},
+    {"id": "setting_1444", "display": "施法除患逼出印记", "category": "setting", "file": "novel_curated_settings_v387.json"},
+    {"id": "setting_1445", "display": "淬晶砖与神乳分配", "category": "setting", "file": "novel_curated_settings_v387.json"},
+    {"id": "setting_1446", "display": "韩立法体双修实力评价", "category": "setting", "file": "novel_curated_settings_v387.json"},
+    {"id": "artifact_945", "display": "九宫天乾符银阵", "category": "artifact", "file": "novel_curated_artifacts_v387.json"},
+    {"id": "artifact_946", "display": "噬灵火鸟与雷珠", "category": "artifact", "file": "novel_curated_artifacts_v387.json"},
+    {"id": "artifact_947", "display": "转轮聚阴阵旗幡与圆珠", "category": "artifact", "file": "novel_curated_artifacts_v387.json"},
+    {"id": "artifact_948", "display": "淬晶砖", "category": "artifact", "file": "novel_curated_artifacts_v387.json"},
+    {"id": "technique_717", "display": "银针青符惊神刺唤醒", "category": "technique", "file": "novel_curated_techniques_v387.json"},
+    {"id": "technique_718", "display": "阴气入体秘术驱印记", "category": "technique", "file": "novel_curated_techniques_v387.json"},
+    {"id": "technique_719", "display": "啼魂巨猿与豹麟残影驱鬼", "category": "technique", "file": "novel_curated_techniques_v387.json"},
+    {"id": "material_739", "display": "丘陵精纯阴气", "category": "material", "file": "novel_curated_materials_v387.json"},
+    {"id": "material_740", "display": "淬晶砖中鲜红神乳", "category": "material", "file": "novel_curated_materials_v387.json"},
+    {"id": "material_741", "display": "五色小旗与金剑", "category": "material", "file": "novel_curated_materials_v387.json"}
+  ]
+}
