@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 495,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第2041–2045章）",
+  "method": "沿原文逐段精读；本索引汇总 v495 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2089", "display": "变异魔蚁与蚁海余波", "category": "setting", "file": "novel_curated_settings_v495.json"},
+    {"id": "setting_2090", "display": "泣灵秘藏图还原", "category": "setting", "file": "novel_curated_settings_v495.json"},
+    {"id": "setting_2091", "display": "百脉炼宝决与炼神术", "category": "setting", "file": "novel_curated_settings_v495.json"},
+    {"id": "setting_2092", "display": "幻夜白家与紫灵果", "category": "setting", "file": "novel_curated_settings_v495.json"},
+    {"id": "setting_2093", "display": "覆天居士与锻天魔功", "category": "setting", "file": "novel_curated_settings_v495.json"},
+    {"id": "setting_2094", "display": "金曦鼠争夺", "category": "setting", "file": "novel_curated_settings_v495.json"},
+    {"id": "artifact_1377", "display": "白骨巨盾", "category": "artifact", "file": "novel_curated_artifacts_v495.json"},
+    {"id": "artifact_1378", "display": "海家漆黑古镜", "category": "artifact", "file": "novel_curated_artifacts_v495.json"},
+    {"id": "artifact_1379", "display": "八荒黄木舟", "category": "artifact", "file": "novel_curated_artifacts_v495.json"},
+    {"id": "artifact_1380", "display": "夜魇狮皮袋", "category": "artifact", "file": "novel_curated_artifacts_v495.json"},
+    {"id": "technique_1041", "display": "百脉炼宝决", "category": "technique", "file": "novel_curated_techniques_v495.json"},
+    {"id": "technique_1042", "display": "魔爪破蝠与血影遁", "category": "technique", "file": "novel_curated_techniques_v495.json"},
+    {"id": "technique_1043", "display": "炼神术第二层", "category": "technique", "file": "novel_curated_techniques_v495.json"},
+    {"id": "material_1063", "display": "风炎晶", "category": "material", "file": "novel_curated_materials_v495.json"},
+    {"id": "material_1064", "display": "紫灵果", "category": "material", "file": "novel_curated_materials_v495.json"},
+    {"id": "material_1065", "display": "金曦鼠", "category": "material", "file": "novel_curated_materials_v495.json"}
+  ]
+}
