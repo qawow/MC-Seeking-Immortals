@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 371,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（须弥洞天图·雷兽·五色天雷·降兽·引雷珠：第1426–1430章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v370 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1426章 须弥洞天图 — 第1430章 引雷珠",
+  "progress": "1430/2005 ≈ 71.3%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1345–setting_1350",
+    "artifacts": "artifact_881–artifact_884",
+    "techniques": "technique_669–technique_671",
+    "materials": "material_691–material_693"
+  },
+  "entries": [
+    {"id": "setting_1345", "display": "须弥洞天图与五光族", "category": "setting", "file": "novel_curated_settings_v371.json"},
+    {"id": "setting_1346", "display": "雷兽与雷电之灵", "category": "setting", "file": "novel_curated_settings_v371.json"},
+    {"id": "setting_1347", "display": "缚雷焦光大阵", "category": "setting", "file": "novel_curated_settings_v371.json"},
+    {"id": "setting_1348", "display": "飞灵族晶核", "category": "setting", "file": "novel_curated_settings_v371.json"},
+    {"id": "setting_1349", "display": "五色天雷模拟", "category": "setting", "file": "novel_curated_settings_v371.json"},
+    {"id": "setting_1350", "display": "引雷珠背刺与降兽酬劳", "category": "setting", "file": "novel_curated_settings_v371.json"},
+    {"id": "artifact_881", "display": "须弥洞天图", "category": "artifact", "file": "novel_curated_artifacts_v371.json"},
+    {"id": "artifact_882", "display": "黑星匕", "category": "artifact", "file": "novel_curated_artifacts_v371.json"},
+    {"id": "artifact_883", "display": "翠绿封印木牌", "category": "artifact", "file": "novel_curated_artifacts_v371.json"},
+    {"id": "artifact_884", "display": "引雷珠", "category": "artifact", "file": "novel_curated_artifacts_v371.json"},
+    {"id": "technique_669", "display": "须弥图激发五色天雷", "category": "technique", "file": "novel_curated_techniques_v371.json"},
+    {"id": "technique_670", "display": "黑星匕注雷抽精魂", "category": "technique", "file": "novel_curated_techniques_v371.json"},
+    {"id": "technique_671", "display": "三法相全盛威压", "category": "technique", "file": "novel_curated_techniques_v371.json"},
+    {"id": "material_691", "display": "青罗果实物", "category": "material", "file": "novel_curated_materials_v371.json"},
+    {"id": "material_692", "display": "冰心晶与紫光铁", "category": "material", "file": "novel_curated_materials_v371.json"},
+    {"id": "material_693", "display": "毫芒兽", "category": "material", "file": "novel_curated_materials_v371.json"}
+  ]
+}
