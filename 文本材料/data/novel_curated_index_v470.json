@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 470,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1916–1920章）",
+  "method": "沿原文逐段精读；本索引汇总 v470 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1939", "display": "合息黄风撕军", "category": "setting", "file": "novel_curated_settings_v470.json"},
+    {"id": "setting_1940", "display": "化血冥卫血冥大阵", "category": "setting", "file": "novel_curated_settings_v470.json"},
+    {"id": "setting_1941", "display": "珈轮战魔破城", "category": "setting", "file": "novel_curated_settings_v470.json"},
+    {"id": "setting_1942", "display": "七彩塔内幻兽空间", "category": "setting", "file": "novel_curated_settings_v470.json"},
+    {"id": "setting_1943", "display": "七层塔内傀儡闯关", "category": "setting", "file": "novel_curated_settings_v470.json"},
+    {"id": "setting_1944", "display": "圣祖魔音隔空", "category": "setting", "file": "novel_curated_settings_v470.json"},
+    {"id": "artifact_1277", "display": "黑甲金叉与雷狼皮袋", "category": "artifact", "file": "novel_curated_artifacts_v470.json"},
+    {"id": "artifact_1278", "display": "青龙双剑青蛟金凤", "category": "artifact", "file": "novel_curated_artifacts_v470.json"},
+    {"id": "artifact_1279", "display": "破灭法目寻节点", "category": "artifact", "file": "novel_curated_artifacts_v470.json"},
+    {"id": "artifact_1280", "display": "紫言鼎失主与银尺", "category": "artifact", "file": "novel_curated_artifacts_v470.json"},
+    {"id": "technique_966", "display": "合息黄云防御与巨掌", "category": "technique", "file": "novel_curated_techniques_v470.json"},
+    {"id": "technique_967", "display": "青莲剑阵斩幻兽", "category": "technique", "file": "novel_curated_techniques_v470.json"},
+    {"id": "technique_968", "display": "山岳巨猿联防反杀", "category": "technique", "file": "novel_curated_techniques_v470.json"},
+    {"id": "material_988", "display": "化血冥卫", "category": "material", "file": "novel_curated_materials_v470.json"},
+    {"id": "material_989", "display": "珈轮战魔化兽", "category": "material", "file": "novel_curated_materials_v470.json"},
+    {"id": "material_990", "display": "琉璃傀儡与紫纹虫", "category": "material", "file": "novel_curated_materials_v470.json"}
+  ]
+}
