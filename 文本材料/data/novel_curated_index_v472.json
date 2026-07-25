@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 472,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1926–1930章）",
+  "method": "沿原文逐段精读；本索引汇总 v472 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1951", "display": "神念入锁问计", "category": "setting", "file": "novel_curated_settings_v472.json"},
+    {"id": "setting_1952", "display": "车骑恭交易条件", "category": "setting", "file": "novel_curated_settings_v472.json"},
+    {"id": "setting_1953", "display": "紫言鼎彩光塔玄天残宝", "category": "setting", "file": "novel_curated_settings_v472.json"},
+    {"id": "setting_1954", "display": "分元斩尸大法", "category": "setting", "file": "novel_curated_settings_v472.json"},
+    {"id": "setting_1955", "display": "锁内第二圣祖", "category": "setting", "file": "novel_curated_settings_v472.json"},
+    {"id": "setting_1956", "display": "引念夺鼎与血海僵持", "category": "setting", "file": "novel_curated_settings_v472.json"},
+    {"id": "artifact_1285", "display": "血色小舟飞行异宝", "category": "artifact", "file": "novel_curated_artifacts_v472.json"},
+    {"id": "artifact_1286", "display": "紫言鼎暗神念", "category": "artifact", "file": "novel_curated_artifacts_v472.json"},
+    {"id": "artifact_1287", "display": "引念血符晶球", "category": "artifact", "file": "novel_curated_artifacts_v472.json"},
+    {"id": "artifact_1288", "display": "空间指环自爆", "category": "artifact", "file": "novel_curated_artifacts_v472.json"},
+    {"id": "technique_972", "display": "分元斩尸裂念", "category": "technique", "file": "novel_curated_techniques_v472.json"},
+    {"id": "technique_973", "display": "引念秘术夺紫言", "category": "technique", "file": "novel_curated_techniques_v472.json"},
+    {"id": "technique_974", "display": "青蟠剑幕挡血海", "category": "technique", "file": "novel_curated_techniques_v472.json"},
+    {"id": "material_994", "display": "镇魔锁内双圣祖", "category": "material", "file": "novel_curated_materials_v472.json"},
+    {"id": "material_995", "display": "血海奇毒与血蚕", "category": "material", "file": "novel_curated_materials_v472.json"},
+    {"id": "material_996", "display": "巨角触手魔影", "category": "material", "file": "novel_curated_materials_v472.json"}
+  ]
+}
