@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 422,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1681–1685章）",
+  "method": "沿原文逐段精读；本索引汇总 v422 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1651", "display": "章鱼海兽不灭触手", "category": "setting", "file": "novel_curated_settings_v422.json"},
+    {"id": "setting_1652", "display": "元磁神光切磋定主辅", "category": "setting", "file": "novel_curated_settings_v422.json"},
+    {"id": "setting_1653", "display": "镇海猿天吼神通", "category": "setting", "file": "novel_curated_settings_v422.json"},
+    {"id": "setting_1654", "display": "广寒图定位八凶海万禽岭", "category": "setting", "file": "novel_curated_settings_v422.json"},
+    {"id": "setting_1655", "display": "暗兽森林与旭日沙漠抉择", "category": "setting", "file": "novel_curated_settings_v422.json"},
+    {"id": "setting_1656", "display": "广寒界中诸族并行", "category": "setting", "file": "novel_curated_settings_v422.json"},
+    {"id": "artifact_1085", "display": "广寒图", "category": "artifact", "file": "novel_curated_artifacts_v422.json"},
+    {"id": "artifact_1086", "display": "晶族定位玉盘", "category": "artifact", "file": "novel_curated_artifacts_v422.json"},
+    {"id": "artifact_1087", "display": "章鱼赤红长枪", "category": "artifact", "file": "novel_curated_artifacts_v422.json"},
+    {"id": "artifact_1088", "display": "枯木族红色小幡", "category": "artifact", "file": "novel_curated_artifacts_v422.json"},
+    {"id": "technique_822", "display": "五色寒焰凝冰川", "category": "technique", "file": "novel_curated_techniques_v422.json"},
+    {"id": "technique_823", "display": "元磁光轮符文吞球", "category": "technique", "file": "novel_curated_techniques_v422.json"},
+    {"id": "technique_824", "display": "金光冷哼破天吼", "category": "technique", "file": "novel_curated_techniques_v422.json"},
+    {"id": "material_844", "display": "章鱼绿血绿气", "category": "material", "file": "novel_curated_materials_v422.json"},
+    {"id": "material_845", "display": "巨树翠绿晶体", "category": "material", "file": "novel_curated_materials_v422.json"},
+    {"id": "material_846", "display": "玄天分身逆天宝材", "category": "material", "file": "novel_curated_materials_v422.json"}
+  ]
+}
