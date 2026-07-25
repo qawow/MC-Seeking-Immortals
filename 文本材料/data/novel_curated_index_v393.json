@@ -1,0 +1,108 @@
+{
+  "schema_version": 55,
+  "extract_version": 393,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1536–1540章：血云·玄天之争·灵剑现世·大难逃脱·蛇人）",
+  "method": "沿原文逐段精读；索引仅列 id/display/category/file，详目见分卷 JSON。",
+  "disclaimer": "代表性精读而非穷尽全本；入包前仍需人工校订。",
+  "chapter_range": "第1536–1540章",
+  "progress": "1540/2005 ≈ 76.8%",
+  "count": 16,
+  "entries": [
+    {
+      "id": "setting_1477",
+      "display": "血祭召玄天斩灵剑",
+      "category": "setting",
+      "file": "novel_curated_settings_v393.json"
+    },
+    {
+      "id": "setting_1478",
+      "display": "圣魔驭日",
+      "category": "setting",
+      "file": "novel_curated_settings_v393.json"
+    },
+    {
+      "id": "setting_1479",
+      "display": "玄天果实化剑",
+      "category": "setting",
+      "file": "novel_curated_settings_v393.json"
+    },
+    {
+      "id": "setting_1480",
+      "display": "种剑辟邪神雷增益",
+      "category": "setting",
+      "file": "novel_curated_settings_v393.json"
+    },
+    {
+      "id": "setting_1481",
+      "display": "飞灵配合二次血祭",
+      "category": "setting",
+      "file": "novel_curated_settings_v393.json"
+    },
+    {
+      "id": "setting_1482",
+      "display": "蛇人异族",
+      "category": "setting",
+      "file": "novel_curated_settings_v393.json"
+    },
+    {
+      "id": "artifact_969",
+      "display": "玄天果实（斩灵剑）",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v393.json"
+    },
+    {
+      "id": "artifact_970",
+      "display": "血祭光阵与黑洞",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v393.json"
+    },
+    {
+      "id": "artifact_971",
+      "display": "破灭法目破匹练",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v393.json"
+    },
+    {
+      "id": "artifact_972",
+      "display": "蛇人银叉与爆炎石",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v393.json"
+    },
+    {
+      "id": "technique_735",
+      "display": "圣魔驭日",
+      "category": "technique",
+      "file": "novel_curated_techniques_v393.json"
+    },
+    {
+      "id": "technique_736",
+      "display": "剑灵化虚斩血丝",
+      "category": "technique",
+      "file": "novel_curated_techniques_v393.json"
+    },
+    {
+      "id": "technique_737",
+      "display": "破灭法目破禁",
+      "category": "technique",
+      "file": "novel_curated_techniques_v393.json"
+    },
+    {
+      "id": "material_757",
+      "display": "玄天果实",
+      "category": "material",
+      "file": "novel_curated_materials_v393.json"
+    },
+    {
+      "id": "material_758",
+      "display": "血祭精血云",
+      "category": "material",
+      "file": "novel_curated_materials_v393.json"
+    },
+    {
+      "id": "material_759",
+      "display": "蛇人爆炎石片",
+      "category": "material",
+      "file": "novel_curated_materials_v393.json"
+    }
+  ]
+}
