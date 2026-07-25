@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 550,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2316–2320章）",
+  "method": "沿原文逐段精读；本索引汇总 v550 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2419", "display": "三尸阴雷破天煞首阵", "category": "setting", "file": "novel_curated_settings_v550.json"},
+    {"id": "setting_2420", "display": "谷外大战三对一", "category": "setting", "file": "novel_curated_settings_v550.json"},
+    {"id": "setting_2421", "display": "不灭之体与噬金斩杀", "category": "setting", "file": "novel_curated_settings_v550.json"},
+    {"id": "setting_2422", "display": "九幻分化凝真尸阴雷", "category": "setting", "file": "novel_curated_settings_v550.json"},
+    {"id": "setting_2423", "display": "三元涅盘灭黄元子", "category": "setting", "file": "novel_curated_settings_v550.json"},
+    {"id": "setting_2424", "display": "青元渡劫与金焰候退", "category": "setting", "file": "novel_curated_settings_v550.json"},
+    {"id": "artifact_1597", "display": "三颗子母尸阴雷", "category": "artifact", "file": "novel_curated_artifacts_v550.json"},
+    {"id": "artifact_1598", "display": "三全令牌幡旗阵", "category": "artifact", "file": "novel_curated_artifacts_v550.json"},
+    {"id": "artifact_1599", "display": "赤红晶环玄天残宝", "category": "artifact", "file": "novel_curated_artifacts_v550.json"},
+    {"id": "artifact_1600", "display": "不灭墨绿战甲骨盾", "category": "artifact", "file": "novel_curated_artifacts_v550.json"},
+    {"id": "technique_1206", "display": "梵圣金身三头六臂", "category": "technique", "file": "novel_curated_techniques_v550.json"},
+    {"id": "technique_1207", "display": "金毛巨猿与三元涅盘", "category": "technique", "file": "novel_curated_techniques_v550.json"},
+    {"id": "technique_1208", "display": "化血炼蛇与逼毒", "category": "technique", "file": "novel_curated_techniques_v550.json"},
+    {"id": "material_1228", "display": "化血炼蛇血毒", "category": "material", "file": "novel_curated_materials_v550.json"},
+    {"id": "material_1229", "display": "黄元子洁白储物镯", "category": "material", "file": "novel_curated_materials_v550.json"},
+    {"id": "material_1230", "display": "不灭黑色储物镯", "category": "material", "file": "novel_curated_materials_v550.json"}
+  ]
+}
