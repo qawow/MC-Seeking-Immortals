@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 506,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第2096–2100章）",
+  "method": "沿原文逐段精读；本索引汇总 v506 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2155", "display": "涅盘圣体与玄天剑", "category": "setting", "file": "novel_curated_settings_v506.json"},
+    {"id": "setting_2156", "display": "宝花索药交易", "category": "setting", "file": "novel_curated_settings_v506.json"},
+    {"id": "setting_2157", "display": "洗灵池隐患", "category": "setting", "file": "novel_curated_settings_v506.json"},
+    {"id": "setting_2158", "display": "洗灵池下空间", "category": "setting", "file": "novel_curated_settings_v506.json"},
+    {"id": "setting_2159", "display": "魔界大劫计划", "category": "setting", "file": "novel_curated_settings_v506.json"},
+    {"id": "setting_2160", "display": "灵药三方交易", "category": "setting", "file": "novel_curated_settings_v506.json"},
+    {"id": "artifact_1421", "display": "玄天斩灵剑", "category": "artifact", "file": "novel_curated_artifacts_v506.json"},
+    {"id": "artifact_1422", "display": "粉红枝条", "category": "artifact", "file": "novel_curated_artifacts_v506.json"},
+    {"id": "artifact_1423", "display": "破患玉简", "category": "artifact", "file": "novel_curated_artifacts_v506.json"},
+    {"id": "artifact_1424", "display": "五色寒冰匣", "category": "artifact", "file": "novel_curated_artifacts_v506.json"},
+    {"id": "technique_1074", "display": "涅盘圣体", "category": "technique", "file": "novel_curated_techniques_v506.json"},
+    {"id": "technique_1075", "display": "玄天剑幕", "category": "technique", "file": "novel_curated_techniques_v506.json"},
+    {"id": "technique_1076", "display": "魔拳抗始祖", "category": "technique", "file": "novel_curated_techniques_v506.json"},
+    {"id": "material_1096", "display": "天音雷核", "category": "material", "file": "novel_curated_materials_v506.json"},
+    {"id": "material_1097", "display": "炼魔草", "category": "material", "file": "novel_curated_materials_v506.json"},
+    {"id": "material_1098", "display": "银蓬与太虚妙灵丹", "category": "material", "file": "novel_curated_materials_v506.json"}
+  ]
+}
