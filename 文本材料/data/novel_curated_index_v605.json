@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 605,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第139–143章）",
+  "method": "沿原文逐段精读；本索引汇总 v605 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2749", "display": "仙界炼丹三阶", "category": "setting", "file": "novel_curated_settings_v605.json"},
+    {"id": "setting_2750", "display": "道丹与道纹", "category": "setting", "file": "novel_curated_settings_v605.json"},
+    {"id": "setting_2751", "display": "道丹天成与丹方", "category": "setting", "file": "novel_curated_settings_v605.json"},
+    {"id": "setting_2752", "display": "仙元石凝练代价", "category": "setting", "file": "novel_curated_settings_v605.json"},
+    {"id": "setting_2753", "display": "酉阳山临时洞府", "category": "setting", "file": "novel_curated_settings_v605.json"},
+    {"id": "setting_2754", "display": "传送名额三途", "category": "setting", "file": "novel_curated_settings_v605.json"},
+    {"id": "artifact_1817", "display": "酉阳山洞府圆牌", "category": "artifact", "file": "novel_curated_artifacts_v605.json"},
+    {"id": "artifact_1818", "display": "紫铜炼丹炉", "category": "artifact", "file": "novel_curated_artifacts_v605.json"},
+    {"id": "artifact_1819", "display": "水灵钟", "category": "artifact", "file": "novel_curated_artifacts_v605.json"},
+    {"id": "artifact_1820", "display": "阴寒白珠", "category": "artifact", "file": "novel_curated_artifacts_v605.json"},
+    {"id": "technique_1371", "display": "华阳丹比试炼制", "category": "technique", "file": "novel_curated_techniques_v605.json"},
+    {"id": "technique_1372", "display": "归元丹辅催瓶", "category": "technique", "file": "novel_curated_techniques_v605.json"},
+    {"id": "technique_1373", "display": "灵压示真仙", "category": "technique", "file": "novel_curated_techniques_v605.json"},
+    {"id": "material_1393", "display": "归元丹", "category": "material", "file": "novel_curated_materials_v605.json"},
+    {"id": "material_1394", "display": "望元丹与整骨散", "category": "material", "file": "novel_curated_materials_v605.json"},
+    {"id": "material_1395", "display": "华阳丹", "category": "material", "file": "novel_curated_materials_v605.json"}
+  ]
+}
