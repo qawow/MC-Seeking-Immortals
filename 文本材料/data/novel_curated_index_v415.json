@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 415,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1646–1650章）",
+  "method": "沿原文逐段精读；本索引汇总 v415 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1609", "display": "五泣率群堵截与九夜定位珠", "category": "setting", "file": "novel_curated_settings_v415.json"},
+    {"id": "setting_1610", "display": "芝仙法盘争夺与深谷", "category": "setting", "file": "novel_curated_settings_v415.json"},
+    {"id": "setting_1611", "display": "三魔合遁与定位盘", "category": "setting", "file": "novel_curated_settings_v415.json"},
+    {"id": "setting_1612", "display": "千蜂分身术", "category": "setting", "file": "novel_curated_settings_v415.json"},
+    {"id": "setting_1613", "display": "啼魂沉睡与噬灵炼金乌火", "category": "setting", "file": "novel_curated_settings_v415.json"},
+    {"id": "setting_1614", "display": "韩立雾海瞬杀三魔", "category": "setting", "file": "novel_curated_settings_v415.json"},
+    {"id": "artifact_1057", "display": "血红尖锥飞车", "category": "artifact", "file": "novel_curated_artifacts_v415.json"},
+    {"id": "artifact_1058", "display": "三角合遁铜镜", "category": "artifact", "file": "novel_curated_artifacts_v415.json"},
+    {"id": "artifact_1059", "display": "五泣牛角双锤", "category": "artifact", "file": "novel_curated_artifacts_v415.json"},
+    {"id": "artifact_1060", "display": "太一化清符", "category": "artifact", "file": "novel_curated_artifacts_v415.json"},
+    {"id": "technique_801", "display": "麒麟符与黑旗合影", "category": "technique", "file": "novel_curated_techniques_v415.json"},
+    {"id": "technique_802", "display": "晶族白球分身遁", "category": "technique", "file": "novel_curated_techniques_v415.json"},
+    {"id": "technique_803", "display": "风雷翅雷遁与瞬杀连招", "category": "technique", "file": "novel_curated_techniques_v415.json"},
+    {"id": "material_823", "display": "魔鹰淡黑魔核", "category": "material", "file": "novel_curated_materials_v415.json"},
+    {"id": "material_824", "display": "青蜂毒丝与毒刺", "category": "material", "file": "novel_curated_materials_v415.json"},
+    {"id": "material_825", "display": "九夜血红定位珠", "category": "material", "file": "novel_curated_materials_v415.json"}
+  ]
+}
