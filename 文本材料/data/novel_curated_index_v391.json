@@ -1,0 +1,28 @@
+{
+  "schema_version": 55,
+  "extract_version": 391,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1526–1530章：重炼神山·种剑·进阶炼虚·祭炼·血杏与奴痕）",
+  "method": "沿原文逐段精读；索引仅列 id/display/category/file，详目见分卷 JSON。",
+  "disclaimer": "代表性精读而非穷尽全本；入包前仍需人工校订。",
+  "chapter_range": "第1526–1530章",
+  "progress": "1530/2005 ≈ 76.3%",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1465", "display": "石墩重炼元磁神山", "category": "setting", "file": "novel_curated_settings_v391.json"},
+    {"id": "setting_1466", "display": "种剑三法与金雷竹", "category": "setting", "file": "novel_curated_settings_v391.json"},
+    {"id": "setting_1467", "display": "进阶炼虚天象", "category": "setting", "file": "novel_curated_settings_v391.json"},
+    {"id": "setting_1468", "display": "炼虚掌控天地元气", "category": "setting", "file": "novel_curated_settings_v391.json"},
+    {"id": "setting_1469", "display": "血杏与献宝求援", "category": "setting", "file": "novel_curated_settings_v391.json"},
+    {"id": "setting_1470", "display": "奴痕清除与鲲鹏威", "category": "setting", "file": "novel_curated_settings_v391.json"},
+    {"id": "artifact_961", "display": "蓝蛟灰白石墩", "category": "artifact", "file": "novel_curated_artifacts_v391.json"},
+    {"id": "artifact_962", "display": "元磁神山炉鼎化", "category": "artifact", "file": "novel_curated_artifacts_v391.json"},
+    {"id": "artifact_963", "display": "青罗果核玉盒", "category": "artifact", "file": "novel_curated_artifacts_v391.json"},
+    {"id": "artifact_964", "display": "血杏木盒", "category": "artifact", "file": "novel_curated_artifacts_v391.json"},
+    {"id": "technique_729", "display": "种剑移花接木", "category": "technique", "file": "novel_curated_techniques_v391.json"},
+    {"id": "technique_730", "display": "炼虚进阶真灵天象", "category": "technique", "file": "novel_curated_techniques_v391.json"},
+    {"id": "technique_731", "display": "青鹏虚影除奴痕", "category": "technique", "file": "novel_curated_techniques_v391.json"},
+    {"id": "material_751", "display": "天罗丹", "category": "material", "file": "novel_curated_materials_v391.json"},
+    {"id": "material_752", "display": "黑炎丹", "category": "material", "file": "novel_curated_materials_v391.json"},
+    {"id": "material_753", "display": "血杏", "category": "material", "file": "novel_curated_materials_v391.json"}
+  ]
+}
