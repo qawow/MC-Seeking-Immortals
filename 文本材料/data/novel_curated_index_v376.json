@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 376,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（小兽与冰煞·冰煞妖王·进阶·碧木妖·血傀儡：第1451–1455章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v375 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1451章 小兽与冰煞 — 第1455章 血傀儡",
+  "progress": "1455/2005 ≈ 72.6%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1375–setting_1380",
+    "artifacts": "artifact_901–artifact_904",
+    "techniques": "technique_684–technique_686",
+    "materials": "material_706–material_708"
+  },
+  "entries": [
+    {"id": "setting_1375", "display": "金冥蛾与万藤道异变", "category": "setting", "file": "novel_curated_settings_v376.json"},
+    {"id": "setting_1376", "display": "豹麟兽噬冰煞", "category": "setting", "file": "novel_curated_settings_v376.json"},
+    {"id": "setting_1377", "display": "冰煞妖王", "category": "setting", "file": "novel_curated_settings_v376.json"},
+    {"id": "setting_1378", "display": "涅肉槃香与灵兽进阶", "category": "setting", "file": "novel_curated_settings_v376.json"},
+    {"id": "setting_1379", "display": "碧木妖与炼虚侏儒", "category": "setting", "file": "novel_curated_settings_v376.json"},
+    {"id": "setting_1380", "display": "地血血傀儡", "category": "setting", "file": "novel_curated_settings_v376.json"},
+    {"id": "artifact_901", "display": "费夜巨剑与合鸟金光", "category": "artifact", "file": "novel_curated_artifacts_v376.json"},
+    {"id": "artifact_902", "display": "十方灭炎阵", "category": "artifact", "file": "novel_curated_artifacts_v376.json"},
+    {"id": "artifact_903", "display": "虚天鼎青丝", "category": "artifact", "file": "novel_curated_artifacts_v376.json"},
+    {"id": "artifact_904", "display": "血傀儡甲刃", "category": "artifact", "file": "novel_curated_artifacts_v376.json"},
+    {"id": "technique_684", "display": "七窍通玄诀与七首虚影", "category": "technique", "file": "novel_curated_techniques_v376.json"},
+    {"id": "technique_685", "display": "黑白拳影碎冰凤", "category": "technique", "file": "novel_curated_techniques_v376.json"},
+    {"id": "technique_686", "display": "大庚剑阵绞杀血傀儡", "category": "technique", "file": "novel_curated_techniques_v376.json"},
+    {"id": "material_706", "display": "冰煞妖王本源之气", "category": "material", "file": "novel_curated_materials_v376.json"},
+    {"id": "material_707", "display": "涅肉槃香", "category": "material", "file": "novel_curated_materials_v376.json"},
+    {"id": "material_708", "display": "血傀儡精血", "category": "material", "file": "novel_curated_materials_v376.json"}
+  ]
+}
