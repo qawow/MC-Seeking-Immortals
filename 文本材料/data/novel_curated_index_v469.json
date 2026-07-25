@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 469,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1911–1915章）",
+  "method": "沿原文逐段精读；本索引汇总 v469 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1933", "display": "五阳化月总攻", "category": "setting", "file": "novel_curated_settings_v469.json"},
+    {"id": "setting_1934", "display": "银色护城光罩", "category": "setting", "file": "novel_curated_settings_v469.json"},
+    {"id": "setting_1935", "display": "铸血塑灵化龙", "category": "setting", "file": "novel_curated_settings_v469.json"},
+    {"id": "setting_1936", "display": "阴阳二刹合围", "category": "setting", "file": "novel_curated_settings_v469.json"},
+    {"id": "setting_1937", "display": "合息兽出封", "category": "setting", "file": "novel_curated_settings_v469.json"},
+    {"id": "setting_1938", "display": "魔化精锐出动", "category": "setting", "file": "novel_curated_settings_v469.json"},
+    {"id": "artifact_1273", "display": "三色火蜂葫芦", "category": "artifact", "file": "novel_curated_artifacts_v469.json"},
+    {"id": "artifact_1274", "display": "紫言鼎", "category": "artifact", "file": "novel_curated_artifacts_v469.json"},
+    {"id": "artifact_1275", "display": "七彩玲珑宝塔", "category": "artifact", "file": "novel_curated_artifacts_v469.json"},
+    {"id": "artifact_1276", "display": "血魂符控兽", "category": "artifact", "file": "novel_curated_artifacts_v469.json"},
+    {"id": "technique_963", "display": "惊神刺斩烟尊", "category": "technique", "file": "novel_curated_techniques_v469.json"},
+    {"id": "technique_964", "display": "紫言鼎古文反射", "category": "technique", "file": "novel_curated_techniques_v469.json"},
+    {"id": "technique_965", "display": "九柱解封合息", "category": "technique", "file": "novel_curated_techniques_v469.json"},
+    {"id": "material_985", "display": "三百超级魔兽", "category": "material", "file": "novel_curated_materials_v469.json"},
+    {"id": "material_986", "display": "绿色信号光球", "category": "material", "file": "novel_curated_materials_v469.json"},
+    {"id": "material_987", "display": "魔化紫丹", "category": "material", "file": "novel_curated_materials_v469.json"}
+  ]
+}
