@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 582,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第24–28章）",
+  "method": "沿原文逐段精读；本索引汇总 v582 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2611", "display": "韩立碾压风云双煞", "category": "setting", "file": "novel_curated_settings_v582.json"},
+    {"id": "setting_2612", "display": "齐煊召陆崖追杀", "category": "setting", "file": "novel_curated_settings_v582.json"},
+    {"id": "setting_2613", "display": "黄澜古漠与阴孽飞蚁", "category": "setting", "file": "novel_curated_settings_v582.json"},
+    {"id": "setting_2614", "display": "陆崖化神初期长老", "category": "setting", "file": "novel_curated_settings_v582.json"},
+    {"id": "setting_2615", "display": "担五岳压五鬼", "category": "setting", "file": "novel_curated_settings_v582.json"},
+    {"id": "setting_2616", "display": "冷焰宗峰主议事", "category": "setting", "file": "novel_curated_settings_v582.json"},
+    {"id": "artifact_1725", "display": "百鬼图", "category": "artifact", "file": "novel_curated_artifacts_v582.json"},
+    {"id": "artifact_1726", "display": "寒焰骨叉与噬骨阴针", "category": "artifact", "file": "novel_curated_artifacts_v582.json"},
+    {"id": "artifact_1727", "display": "黄铜小钟", "category": "artifact", "file": "novel_curated_artifacts_v582.json"},
+    {"id": "artifact_1728", "display": "白色空间符箓", "category": "artifact", "file": "novel_curated_artifacts_v582.json"},
+    {"id": "technique_1302", "display": "白玉傀儡法阵", "category": "technique", "file": "novel_curated_techniques_v582.json"},
+    {"id": "technique_1303", "display": "黄澜幻阵与磨盘巨石", "category": "technique", "file": "novel_curated_techniques_v582.json"},
+    {"id": "technique_1304", "display": "五鬼搬山秘术", "category": "technique", "file": "novel_curated_techniques_v582.json"},
+    {"id": "material_1324", "display": "元灵丹", "category": "material", "file": "novel_curated_materials_v582.json"},
+    {"id": "material_1325", "display": "阴孽飞蚁", "category": "material", "file": "novel_curated_materials_v582.json"},
+    {"id": "material_1326", "display": "普通铁精暗器", "category": "material", "file": "novel_curated_materials_v582.json"}
+  ]
+}
