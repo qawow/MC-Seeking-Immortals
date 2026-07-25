@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 404,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1591–1595章）",
+  "method": "沿原文逐段精读；本索引汇总 v404 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1543", "display": "跨陆传送客卿路径", "category": "setting", "file": "novel_curated_settings_v404.json"},
+    {"id": "setting_1544", "display": "通灵傀认主与天鹏法", "category": "setting", "file": "novel_curated_settings_v404.json"},
+    {"id": "setting_1545", "display": "广寒令规则与锁定", "category": "setting", "file": "novel_curated_settings_v404.json"},
+    {"id": "setting_1546", "display": "十三族客卿争抢", "category": "setting", "file": "novel_curated_settings_v404.json"},
+    {"id": "setting_1547", "display": "广寒界真仙附属残空", "category": "setting", "file": "novel_curated_settings_v404.json"},
+    {"id": "setting_1548", "display": "广寒开启与危险", "category": "setting", "file": "novel_curated_settings_v404.json"},
+    {"id": "artifact_1013", "display": "娃娃白衣通灵傀", "category": "artifact", "file": "novel_curated_artifacts_v404.json"},
+    {"id": "artifact_1014", "display": "广寒令金银牌", "category": "artifact", "file": "novel_curated_artifacts_v404.json"},
+    {"id": "artifact_1015", "display": "元磁小山封禁", "category": "artifact", "file": "novel_curated_artifacts_v404.json"},
+    {"id": "artifact_1016", "display": "通灵殿上族九阶卫", "category": "artifact", "file": "novel_curated_artifacts_v404.json"},
+    {"id": "technique_768", "display": "天鹏族强认主法", "category": "technique", "file": "novel_curated_techniques_v404.json"},
+    {"id": "technique_769", "display": "五色寒焰破匣", "category": "technique", "file": "novel_curated_techniques_v404.json"},
+    {"id": "technique_770", "display": "琉璃幻目与观神", "category": "technique", "file": "novel_curated_techniques_v404.json"},
+    {"id": "material_790", "display": "广寒令冰火材", "category": "material", "file": "novel_curated_materials_v404.json"},
+    {"id": "material_791", "display": "赤符白玉匣", "category": "material", "file": "novel_curated_materials_v404.json"},
+    {"id": "material_792", "display": "广寒界灵药材", "category": "material", "file": "novel_curated_materials_v404.json"}
+  ]
+}
