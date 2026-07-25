@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 608,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第154–158章）",
+  "method": "沿原文逐段精读；本索引汇总 v608 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2767", "display": "北寒三宗时间传承", "category": "setting", "file": "novel_curated_settings_v608.json"},
+    {"id": "setting_2768", "display": "烛龙道内门门槛", "category": "setting", "file": "novel_curated_settings_v608.json"},
+    {"id": "setting_2769", "display": "天星塔跨海传送", "category": "setting", "file": "novel_curated_settings_v608.json"},
+    {"id": "setting_2770", "display": "荒澜大陆与雷暴海洋", "category": "setting", "file": "novel_curated_settings_v608.json"},
+    {"id": "setting_2771", "display": "仙栈与仙令", "category": "setting", "file": "novel_curated_settings_v608.json"},
+    {"id": "setting_2772", "display": "星移盘距离限制", "category": "setting", "file": "novel_curated_settings_v608.json"},
+    {"id": "artifact_1829", "display": "重水纹雷", "category": "artifact", "file": "novel_curated_artifacts_v608.json"},
+    {"id": "artifact_1830", "display": "仙令", "category": "artifact", "file": "novel_curated_artifacts_v608.json"},
+    {"id": "artifact_1831", "display": "循踪玉简", "category": "artifact", "file": "novel_curated_artifacts_v608.json"},
+    {"id": "artifact_1832", "display": "丞全商会飞舟", "category": "artifact", "file": "novel_curated_artifacts_v608.json"},
+    {"id": "technique_1380", "display": "重水纹雷炼制", "category": "technique", "file": "novel_curated_techniques_v608.json"},
+    {"id": "technique_1381", "display": "重水微尘回收", "category": "technique", "file": "novel_curated_techniques_v608.json"},
+    {"id": "technique_1382", "display": "无常盟传讯接任", "category": "technique", "file": "novel_curated_techniques_v608.json"},
+    {"id": "material_1402", "display": "移星石", "category": "material", "file": "novel_curated_materials_v608.json"},
+    {"id": "material_1403", "display": "银蝌灵文符箓", "category": "material", "file": "novel_curated_materials_v608.json"},
+    {"id": "material_1404", "display": "荒澜地图玉简", "category": "material", "file": "novel_curated_materials_v608.json"}
+  ]
+}
