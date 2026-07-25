@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 504,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第2086–2090章）",
+  "method": "沿原文逐段精读；本索引汇总 v504 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2143", "display": "洗灵池山谷", "category": "setting", "file": "novel_curated_settings_v504.json"},
+    {"id": "setting_2144", "display": "元魇始祖", "category": "setting", "file": "novel_curated_settings_v504.json"},
+    {"id": "setting_2145", "display": "伪仙儡与半儡", "category": "setting", "file": "novel_curated_settings_v504.json"},
+    {"id": "setting_2146", "display": "玄天黑匕杀伐", "category": "setting", "file": "novel_curated_settings_v504.json"},
+    {"id": "setting_2147", "display": "困灵谷封禁", "category": "setting", "file": "novel_curated_settings_v504.json"},
+    {"id": "setting_2148", "display": "宝花观战", "category": "setting", "file": "novel_curated_settings_v504.json"},
+    {"id": "artifact_1413", "display": "金沙斧与感应珠", "category": "artifact", "file": "novel_curated_artifacts_v504.json"},
+    {"id": "artifact_1414", "display": "黑魔匕", "category": "artifact", "file": "novel_curated_artifacts_v504.json"},
+    {"id": "artifact_1415", "display": "紫言鼎", "category": "artifact", "file": "novel_curated_artifacts_v504.json"},
+    {"id": "artifact_1416", "display": "万年朽珠", "category": "artifact", "file": "novel_curated_artifacts_v504.json"},
+    {"id": "technique_1068", "display": "半龙体与天凤甲", "category": "technique", "file": "novel_curated_techniques_v504.json"},
+    {"id": "technique_1069", "display": "紫言禁字与魔甲金身", "category": "technique", "file": "novel_curated_techniques_v504.json"},
+    {"id": "technique_1070", "display": "金毛巨猿极山", "category": "technique", "file": "novel_curated_techniques_v504.json"},
+    {"id": "material_1090", "display": "五色灵气晶粒", "category": "material", "file": "novel_curated_materials_v504.json"},
+    {"id": "material_1091", "display": "魔魂驱动伪仙儡", "category": "material", "file": "novel_curated_materials_v504.json"},
+    {"id": "material_1092", "display": "真龙天凤真血", "category": "material", "file": "novel_curated_materials_v504.json"}
+  ]
+}
