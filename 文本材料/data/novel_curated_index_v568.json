@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 568,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2406–2410章）",
+  "method": "沿原文逐段精读；本索引汇总 v568 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2527", "display": "甲豚第一太上长老之陨", "category": "setting", "file": "novel_curated_settings_v568.json"},
+    {"id": "setting_2528", "display": "金符残魂与灵族禁囚", "category": "setting", "file": "novel_curated_settings_v568.json"},
+    {"id": "setting_2529", "display": "商盟化整为零与天外天集结", "category": "setting", "file": "novel_curated_settings_v568.json"},
+    {"id": "setting_2530", "display": "鸣煞之地与提纯辟邪神雷", "category": "setting", "file": "novel_curated_settings_v568.json"},
+    {"id": "setting_2531", "display": "天外天与天忌造化之身", "category": "setting", "file": "novel_curated_settings_v568.json"},
+    {"id": "setting_2532", "display": "群强云集与两仪灭尘", "category": "setting", "file": "novel_curated_settings_v568.json"},
+    {"id": "artifact_1669", "display": "万灵血玺与白骨飞车", "category": "artifact", "file": "novel_curated_artifacts_v568.json"},
+    {"id": "artifact_1670", "display": "离风神舟与紫金符箓", "category": "artifact", "file": "novel_curated_artifacts_v568.json"},
+    {"id": "artifact_1671", "display": "碧波车与土龟内丹", "category": "artifact", "file": "novel_curated_artifacts_v568.json"},
+    {"id": "artifact_1672", "display": "两仪灭尘与玄天之宝", "category": "artifact", "file": "novel_curated_artifacts_v568.json"},
+    {"id": "technique_1260", "display": "血玺触手锁骨龙", "category": "technique", "file": "novel_curated_techniques_v568.json"},
+    {"id": "technique_1261", "display": "提纯辟邪神雷破虚空", "category": "technique", "file": "novel_curated_techniques_v568.json"},
+    {"id": "technique_1262", "display": "造化之身与土龟猎杀", "category": "technique", "file": "novel_curated_techniques_v568.json"},
+    {"id": "material_1282", "display": "提纯紫金辟邪神雷", "category": "material", "file": "novel_curated_materials_v568.json"},
+    {"id": "material_1283", "display": "土龟兽内丹", "category": "material", "file": "novel_curated_materials_v568.json"},
+    {"id": "material_1284", "display": "鸣煞阴煞之气", "category": "material", "file": "novel_curated_materials_v568.json"}
+  ]
+}
