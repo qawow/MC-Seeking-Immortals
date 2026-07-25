@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 475,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1941–1945章）",
+  "method": "沿原文逐段精读；本索引汇总 v475 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1969", "display": "黄粱石灵渡劫现身", "category": "setting", "file": "novel_curated_settings_v475.json"},
+    {"id": "setting_1970", "display": "石灵瞬息幻术", "category": "setting", "file": "novel_curated_settings_v475.json"},
+    {"id": "setting_1971", "display": "擒获石灵与祭雷术", "category": "setting", "file": "novel_curated_settings_v475.json"},
+    {"id": "setting_1972", "display": "锁内风邪与牵机大法", "category": "setting", "file": "novel_curated_settings_v475.json"},
+    {"id": "setting_1973", "display": "元刹魔女伏杀黑雨", "category": "setting", "file": "novel_curated_settings_v475.json"},
+    {"id": "setting_1974", "display": "韩立黄泉取气布防", "category": "setting", "file": "novel_curated_settings_v475.json"},
+    {"id": "artifact_1297", "display": "银色巨钟", "category": "artifact", "file": "novel_curated_artifacts_v475.json"},
+    {"id": "artifact_1298", "display": "银霄雷网擒灵", "category": "artifact", "file": "novel_curated_artifacts_v475.json"},
+    {"id": "artifact_1299", "display": "黑色古镜收婴", "category": "artifact", "file": "novel_curated_artifacts_v475.json"},
+    {"id": "artifact_1300", "display": "青冥令护婴", "category": "artifact", "file": "novel_curated_artifacts_v475.json"},
+    {"id": "technique_981", "display": "破灭法目破妖目", "category": "technique", "file": "novel_curated_techniques_v475.json"},
+    {"id": "technique_982", "display": "辟邪神雷电网", "category": "technique", "file": "novel_curated_techniques_v475.json"},
+    {"id": "technique_983", "display": "牵机大法卸力", "category": "technique", "file": "novel_curated_techniques_v475.json"},
+    {"id": "material_1003", "display": "黄粱石灵本体", "category": "material", "file": "novel_curated_materials_v475.json"},
+    {"id": "material_1004", "display": "三头六臂黑甲魔影", "category": "material", "file": "novel_curated_materials_v475.json"},
+    {"id": "material_1005", "display": "千丈石巨人长老", "category": "material", "file": "novel_curated_materials_v475.json"}
+  ]
+}
