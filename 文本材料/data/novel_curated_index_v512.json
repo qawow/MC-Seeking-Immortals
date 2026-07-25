@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 512,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第2126–2130章）",
+  "method": "沿原文逐段精读；本索引汇总 v512 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2191", "display": "无忧异魔金交易与标记", "category": "setting", "file": "novel_curated_settings_v512.json"},
+    {"id": "setting_2192", "display": "紫灵查底与私矿实情", "category": "setting", "file": "novel_curated_settings_v512.json"},
+    {"id": "setting_2193", "display": "矿奴夫妇泄密与真伪秘术", "category": "setting", "file": "novel_curated_settings_v512.json"},
+    {"id": "setting_2194", "display": "私矿通道与指引符箓", "category": "setting", "file": "novel_curated_settings_v512.json"},
+    {"id": "setting_2195", "display": "地煞阴气伤奴与分矿", "category": "setting", "file": "novel_curated_settings_v512.json"},
+    {"id": "setting_2196", "display": "磁光兽与真光本体", "category": "setting", "file": "novel_curated_settings_v512.json"},
+    {"id": "artifact_1445", "display": "储物镯与禁制令牌", "category": "artifact", "file": "novel_curated_artifacts_v512.json"},
+    {"id": "artifact_1446", "display": "矿道指引符箓", "category": "artifact", "file": "novel_curated_artifacts_v512.json"},
+    {"id": "artifact_1447", "display": "青猿傀儡与豹麟兽", "category": "artifact", "file": "novel_curated_artifacts_v512.json"},
+    {"id": "artifact_1448", "display": "元磁极山与金巨剑", "category": "artifact", "file": "novel_curated_artifacts_v512.json"},
+    {"id": "technique_1092", "display": "神念标记与言真伪", "category": "technique", "file": "novel_curated_techniques_v512.json"},
+    {"id": "technique_1093", "display": "土遁破障与金柱开道", "category": "technique", "file": "novel_curated_techniques_v512.json"},
+    {"id": "technique_1094", "display": "金毛巨猿与魔相妖目", "category": "technique", "file": "novel_curated_techniques_v512.json"},
+    {"id": "material_1114", "display": "特殊气息异魔金", "category": "material", "file": "novel_curated_materials_v512.json"},
+    {"id": "material_1115", "display": "阴阳大五行真光本体", "category": "material", "file": "novel_curated_materials_v512.json"},
+    {"id": "material_1116", "display": "磁光兽体表矿石", "category": "material", "file": "novel_curated_materials_v512.json"}
+  ]
+}
