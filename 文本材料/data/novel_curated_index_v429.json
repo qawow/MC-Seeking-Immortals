@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 429,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1716–1720章）",
+  "method": "沿原文逐段精读；本索引汇总 v429 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1693", "display": "三人平衡与主殿破门", "category": "setting", "file": "novel_curated_settings_v429.json"},
+    {"id": "setting_1694", "display": "主殿屏风与金鼎", "category": "setting", "file": "novel_curated_settings_v429.json"},
+    {"id": "setting_1695", "display": "虚灵丹与晶月液", "category": "setting", "file": "novel_curated_settings_v429.json"},
+    {"id": "setting_1696", "display": "玲珑钥开鼎", "category": "setting", "file": "novel_curated_settings_v429.json"},
+    {"id": "setting_1697", "display": "混沌万灵榜", "category": "setting", "file": "novel_curated_settings_v429.json"},
+    {"id": "setting_1698", "display": "屏中洞天", "category": "setting", "file": "novel_curated_settings_v429.json"},
+    {"id": "artifact_1113", "display": "龙凤玲珑钥", "category": "artifact", "file": "novel_curated_artifacts_v429.json"},
+    {"id": "artifact_1114", "display": "虚天宝鼎收金团", "category": "artifact", "file": "novel_curated_artifacts_v429.json"},
+    {"id": "artifact_1115", "display": "葫种剑金葫", "category": "artifact", "file": "novel_curated_artifacts_v429.json"},
+    {"id": "artifact_1116", "display": "紫金瓶与虚灵丹", "category": "artifact", "file": "novel_curated_artifacts_v429.json"},
+    {"id": "technique_843", "display": "三金戈钉电网", "category": "technique", "file": "novel_curated_techniques_v429.json"},
+    {"id": "technique_844", "display": "破禁符白莲爆", "category": "technique", "file": "novel_curated_techniques_v429.json"},
+    {"id": "technique_845", "display": "五色寒焰定虚灵丹", "category": "technique", "file": "novel_curated_techniques_v429.json"},
+    {"id": "material_865", "display": "凝翠草化形小马", "category": "material", "file": "novel_curated_materials_v429.json"},
+    {"id": "material_866", "display": "虚灵丹", "category": "material", "file": "novel_curated_materials_v429.json"},
+    {"id": "material_867", "display": "晶月液", "category": "material", "file": "novel_curated_materials_v429.json"}
+  ]
+}
