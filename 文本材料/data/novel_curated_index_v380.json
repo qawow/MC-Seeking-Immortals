@@ -1,0 +1,40 @@
+{
+  "schema_version": 55,
+  "extract_version": 380,
+  "source": "《凡人修仙传》— 人工精读提取 · 索引（紫血傀儡·两种符箓·祭雷之术·冥河之地·黑木金猿：第1471–1475章）",
+  "method": "沿原文逐段精读，凭理解概括设定；与 v148–v379 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "chapter_range": "第1471章 紫血傀儡 — 第1475章 黑木与金猿",
+  "progress": "1475/2005 ≈ 73.6%",
+  "counts": {
+    "settings": 6,
+    "artifacts": 4,
+    "techniques": 3,
+    "materials": 3,
+    "total": 16
+  },
+  "id_ranges": {
+    "settings": "setting_1399–setting_1404",
+    "artifacts": "artifact_917–artifact_920",
+    "techniques": "technique_696–technique_698",
+    "materials": "material_718–material_720"
+  },
+  "entries": [
+    {"id": "setting_1399", "display": "紫血傀儡与血炼堂", "category": "setting", "file": "novel_curated_settings_v380.json"},
+    {"id": "setting_1400", "display": "金铭符阵与神雷灌注", "category": "setting", "file": "novel_curated_settings_v380.json"},
+    {"id": "setting_1401", "display": "甲元符与九宫天乾符", "category": "setting", "file": "novel_curated_settings_v380.json"},
+    {"id": "setting_1402", "display": "祭雷之术演示", "category": "setting", "file": "novel_curated_settings_v380.json"},
+    {"id": "setting_1403", "display": "冥河之地与万丈阴水", "category": "setting", "file": "novel_curated_settings_v380.json"},
+    {"id": "setting_1404", "display": "木青本体黑木与金灵", "category": "setting", "file": "novel_curated_settings_v380.json"},
+    {"id": "artifact_917", "display": "灵侍封印金匣", "category": "artifact", "file": "novel_curated_artifacts_v380.json"},
+    {"id": "artifact_918", "display": "金阙玉书外页", "category": "artifact", "file": "novel_curated_artifacts_v380.json"},
+    {"id": "artifact_919", "display": "五色孔雀真血瓶", "category": "artifact", "file": "novel_curated_artifacts_v380.json"},
+    {"id": "artifact_920", "display": "祭雷金球", "category": "artifact", "file": "novel_curated_artifacts_v380.json"},
+    {"id": "technique_696", "display": "金铭符阵铭印术", "category": "technique", "file": "novel_curated_techniques_v380.json"},
+    {"id": "technique_697", "display": "祭雷成球与金柱", "category": "technique", "file": "novel_curated_techniques_v380.json"},
+    {"id": "technique_698", "display": "五色神光与惊蛰增幅", "category": "technique", "file": "novel_curated_techniques_v380.json"},
+    {"id": "material_718", "display": "风火兽皮", "category": "material", "file": "novel_curated_materials_v380.json"},
+    {"id": "material_719", "display": "符阵紫液", "category": "material", "file": "novel_curated_materials_v380.json"},
+    {"id": "material_720", "display": "地渊傀儡材与药材", "category": "material", "file": "novel_curated_materials_v380.json"}
+  ]
+}
