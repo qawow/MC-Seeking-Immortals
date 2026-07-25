@@ -1,0 +1,108 @@
+{
+  "schema_version": 55,
+  "extract_version": 395,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1546–1550章：以火化丹·乌甲兽·敌现·灵漩邪光·斩杀）",
+  "method": "沿原文逐段精读；索引仅列 id/display/category/file，详目见分卷 JSON。",
+  "disclaimer": "代表性精读而非穷尽全本；入包前仍需人工校订。",
+  "chapter_range": "第1546–1550章",
+  "progress": "1550/2005 ≈ 77.3%",
+  "count": 16,
+  "entries": [
+    {
+      "id": "setting_1489",
+      "display": "噬灵天火化烈阳丹",
+      "category": "setting",
+      "file": "novel_curated_settings_v395.json"
+    },
+    {
+      "id": "setting_1490",
+      "display": "火阳全城戒备",
+      "category": "setting",
+      "file": "novel_curated_settings_v395.json"
+    },
+    {
+      "id": "setting_1491",
+      "display": "乌罗族与乌甲兽",
+      "category": "setting",
+      "file": "novel_curated_settings_v395.json"
+    },
+    {
+      "id": "setting_1492",
+      "display": "乌罗王族金银双瞳",
+      "category": "setting",
+      "file": "novel_curated_settings_v395.json"
+    },
+    {
+      "id": "setting_1493",
+      "display": "灵漩邪光",
+      "category": "setting",
+      "file": "novel_curated_settings_v395.json"
+    },
+    {
+      "id": "setting_1494",
+      "display": "剑灵化虚斩王族",
+      "category": "setting",
+      "file": "novel_curated_settings_v395.json"
+    },
+    {
+      "id": "artifact_977",
+      "display": "烈阳神丹玉盒",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v395.json"
+    },
+    {
+      "id": "artifact_978",
+      "display": "赤色晶球监察阵",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v395.json"
+    },
+    {
+      "id": "artifact_979",
+      "display": "赤红石棍与银长刃",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v395.json"
+    },
+    {
+      "id": "artifact_980",
+      "display": "乌罗蔽识黑纱巾",
+      "category": "artifact",
+      "file": "novel_curated_artifacts_v395.json"
+    },
+    {
+      "id": "technique_741",
+      "display": "噬灵天火化丹与吞邪光",
+      "category": "technique",
+      "file": "novel_curated_techniques_v395.json"
+    },
+    {
+      "id": "technique_742",
+      "display": "灵漩邪光攻防",
+      "category": "technique",
+      "file": "novel_curated_techniques_v395.json"
+    },
+    {
+      "id": "technique_743",
+      "display": "剑灵化虚洞穿光晕",
+      "category": "technique",
+      "file": "novel_curated_techniques_v395.json"
+    },
+    {
+      "id": "material_763",
+      "display": "烈阳神丹（炼化后）",
+      "category": "material",
+      "file": "novel_curated_materials_v395.json"
+    },
+    {
+      "id": "material_764",
+      "display": "乌甲兽",
+      "category": "material",
+      "file": "novel_curated_materials_v395.json"
+    },
+    {
+      "id": "material_765",
+      "display": "乌罗人面蜈蚣元神",
+      "category": "material",
+      "file": "novel_curated_materials_v395.json"
+    }
+  ]
+}
