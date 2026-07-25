@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 574,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2436–2440章）",
+  "method": "沿原文逐段精读；本索引汇总 v574 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2563", "display": "魔族三始祖与涅盘圣体", "category": "setting", "file": "novel_curated_settings_v574.json"},
+    {"id": "setting_2564", "display": "龙岛与道果大会", "category": "setting", "file": "novel_curated_settings_v574.json"},
+    {"id": "setting_2565", "display": "狞马与风灵车", "category": "setting", "file": "novel_curated_settings_v574.json"},
+    {"id": "setting_2566", "display": "真麟留影与飞升之劫", "category": "setting", "file": "novel_curated_settings_v574.json"},
+    {"id": "setting_2567", "display": "道果争夺与道牌", "category": "setting", "file": "novel_curated_settings_v574.json"},
+    {"id": "setting_2568", "display": "广灵道果", "category": "setting", "file": "novel_curated_settings_v574.json"},
+    {"id": "artifact_1693", "display": "银色请帖鳞片与风灵车", "category": "artifact", "file": "novel_curated_artifacts_v574.json"},
+    {"id": "artifact_1694", "display": "真麟留影鳞片", "category": "artifact", "file": "novel_curated_artifacts_v574.json"},
+    {"id": "artifact_1695", "display": "掌天瓶道果战与道牌", "category": "artifact", "file": "novel_curated_artifacts_v574.json"},
+    {"id": "artifact_1696", "display": "万年金桑液与玉盒道果", "category": "artifact", "file": "novel_curated_artifacts_v574.json"},
+    {"id": "technique_1278", "display": "掌天瓶法则吸摄", "category": "technique", "file": "novel_curated_techniques_v574.json"},
+    {"id": "technique_1279", "display": "墨绿锁链与青刃飓风", "category": "technique", "file": "novel_curated_techniques_v574.json"},
+    {"id": "technique_1280", "display": "涅盘三阶变道果战", "category": "technique", "file": "novel_curated_techniques_v574.json"},
+    {"id": "material_1300", "display": "风精金与龙岛材料", "category": "material", "file": "novel_curated_materials_v574.json"},
+    {"id": "material_1301", "display": "万年金桑液", "category": "material", "file": "novel_curated_materials_v574.json"},
+    {"id": "material_1302", "display": "广灵道果（得果）", "category": "material", "file": "novel_curated_materials_v574.json"}
+  ]
+}
