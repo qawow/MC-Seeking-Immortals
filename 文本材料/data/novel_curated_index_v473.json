@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 473,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1931–1935章）",
+  "method": "沿原文逐段精读；本索引汇总 v473 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1957", "display": "血舟护幕与魔甲鬼头变身", "category": "setting", "file": "novel_curated_settings_v473.json"},
+    {"id": "setting_1958", "display": "彩光塔金篆文法则光晕", "category": "setting", "file": "novel_curated_settings_v473.json"},
+    {"id": "setting_1959", "display": "万剑图困塔与九宫逆转", "category": "setting", "file": "novel_curated_settings_v473.json"},
+    {"id": "setting_1960", "display": "三化身联手不敌退走", "category": "setting", "file": "novel_curated_settings_v473.json"},
+    {"id": "setting_1961", "display": "夺回紫言鼎与临时封印", "category": "setting", "file": "novel_curated_settings_v473.json"},
+    {"id": "setting_1962", "display": "黄泉地火与废城旧识", "category": "setting", "file": "novel_curated_settings_v473.json"},
+    {"id": "artifact_1289", "display": "血舟护幕与血海巨棍", "category": "artifact", "file": "novel_curated_artifacts_v473.json"},
+    {"id": "artifact_1290", "display": "八青鬼头项链", "category": "artifact", "file": "novel_curated_artifacts_v473.json"},
+    {"id": "artifact_1291", "display": "万剑图卷轴", "category": "artifact", "file": "novel_curated_artifacts_v473.json"},
+    {"id": "artifact_1292", "display": "紫言鼎封印玉盒", "category": "artifact", "file": "novel_curated_artifacts_v473.json"},
+    {"id": "technique_975", "display": "金刚吼音波", "category": "technique", "file": "novel_curated_techniques_v473.json"},
+    {"id": "technique_976", "display": "三头六臂困塔", "category": "technique", "file": "novel_curated_techniques_v473.json"},
+    {"id": "technique_977", "display": "念剑诀与擎天巨剑", "category": "technique", "file": "novel_curated_techniques_v473.json"},
+    {"id": "material_997", "display": "灰色独角魔蟒", "category": "material", "file": "novel_curated_materials_v473.json"},
+    {"id": "material_998", "display": "十三紫纹噬金虫", "category": "material", "file": "novel_curated_materials_v473.json"},
+    {"id": "material_999", "display": "玄天残刃断刃", "category": "material", "file": "novel_curated_materials_v473.json"}
+  ]
+}
