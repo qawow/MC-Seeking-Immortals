@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 531,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2221–2225章）",
+  "method": "沿原文逐段精读；本索引汇总 v531 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2305", "display": "虫海分兵诱敌与精锐突进", "category": "setting", "file": "novel_curated_settings_v531.json"},
+    {"id": "setting_2306", "display": "落星幡小幻天镜战自爆螟虫", "category": "setting", "file": "novel_curated_settings_v531.json"},
+    {"id": "setting_2307", "display": "始印之地与上古地宫", "category": "setting", "file": "novel_curated_settings_v531.json"},
+    {"id": "setting_2308", "display": "地宫分路任务", "category": "setting", "file": "novel_curated_settings_v531.json"},
+    {"id": "setting_2309", "display": "人面虫直系后裔", "category": "setting", "file": "novel_curated_settings_v531.json"},
+    {"id": "setting_2310", "display": "炼神术第二层异响", "category": "setting", "file": "novel_curated_settings_v531.json"},
+    {"id": "artifact_1521", "display": "落星幡实战星河与时空风暴", "category": "artifact", "file": "novel_curated_artifacts_v531.json"},
+    {"id": "artifact_1522", "display": "小幻天镜圆月金光", "category": "artifact", "file": "novel_curated_artifacts_v531.json"},
+    {"id": "artifact_1523", "display": "银灿灿阵盘", "category": "artifact", "file": "novel_curated_artifacts_v531.json"},
+    {"id": "artifact_1524", "display": "冥河沙殿堂", "category": "artifact", "file": "novel_curated_artifacts_v531.json"},
+    {"id": "technique_1149", "display": "祭雷术金柱灭人面虫", "category": "technique", "file": "novel_curated_techniques_v531.json"},
+    {"id": "technique_1150", "display": "辟邪神雷金蟒探殿", "category": "technique", "file": "novel_curated_techniques_v531.json"},
+    {"id": "technique_1151", "display": "青竹蜂云剑试甲", "category": "technique", "file": "novel_curated_techniques_v531.json"},
+    {"id": "material_1171", "display": "赤红自爆螟虫", "category": "material", "file": "novel_curated_materials_v531.json"},
+    {"id": "material_1172", "display": "冥河沙", "category": "material", "file": "novel_curated_materials_v531.json"},
+    {"id": "material_1173", "display": "银色魔界花树", "category": "material", "file": "novel_curated_materials_v531.json"}
+  ]
+}
