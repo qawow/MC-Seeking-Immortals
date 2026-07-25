@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 441,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第1769–1773章）",
+  "method": "沿原文逐段精读；本索引汇总 v441 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1765", "display": "乾蓝冰焰证血脉", "category": "setting", "file": "novel_curated_settings_v441.json"},
+    {"id": "setting_1766", "display": "金符血解与血魂瓶", "category": "setting", "file": "novel_curated_settings_v441.json"},
+    {"id": "setting_1767", "display": "血魂大法与血晶棺", "category": "setting", "file": "novel_curated_settings_v441.json"},
+    {"id": "setting_1768", "display": "许家宗庙密卫", "category": "setting", "file": "novel_curated_settings_v441.json"},
+    {"id": "setting_1769", "display": "血池法阵唤醒", "category": "setting", "file": "novel_curated_settings_v441.json"},
+    {"id": "setting_1770", "display": "血躯凝成苏醒", "category": "setting", "file": "novel_curated_settings_v441.json"},
+    {"id": "artifact_1161", "display": "异族金符封印", "category": "artifact", "file": "novel_curated_artifacts_v441.json"},
+    {"id": "artifact_1162", "display": "血魂瓶与血红小瓶", "category": "artifact", "file": "novel_curated_artifacts_v441.json"},
+    {"id": "artifact_1163", "display": "血晶棺", "category": "artifact", "file": "novel_curated_artifacts_v441.json"},
+    {"id": "artifact_1164", "display": "三杆血幡", "category": "artifact", "file": "novel_curated_artifacts_v441.json"},
+    {"id": "technique_879", "display": "乾蓝冰焰虚空冻", "category": "technique", "file": "novel_curated_techniques_v441.json"},
+    {"id": "technique_880", "display": "天戈符参悟", "category": "technique", "file": "novel_curated_techniques_v441.json"},
+    {"id": "technique_881", "display": "元婴豹麟助幡", "category": "technique", "file": "novel_curated_techniques_v441.json"},
+    {"id": "material_901", "display": "冰魄血脉精血", "category": "material", "file": "novel_curated_materials_v441.json"},
+    {"id": "material_902", "display": "血池灵液", "category": "material", "file": "novel_curated_materials_v441.json"},
+    {"id": "material_903", "display": "广寒银蝌符箓", "category": "material", "file": "novel_curated_materials_v441.json"}
+  ]
+}
