@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 409,
+  "source": "《凡人修仙传》— 人工精读提取索引（第1616–1620章）",
+  "method": "沿原文逐段精读；本索引汇总 v409 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_1573", "display": "谷圣族悬赏芝仙", "category": "setting", "file": "novel_curated_settings_v409.json"},
+    {"id": "setting_1574", "display": "雷云镇规矩与闵执事", "category": "setting", "file": "novel_curated_settings_v409.json"},
+    {"id": "setting_1575", "display": "韩力压九阶立威", "category": "setting", "file": "novel_curated_settings_v409.json"},
+    {"id": "setting_1576", "display": "辟雷伞认主与测试", "category": "setting", "file": "novel_curated_settings_v409.json"},
+    {"id": "setting_1577", "display": "魔金山脉阴阳界", "category": "setting", "file": "novel_curated_settings_v409.json"},
+    {"id": "setting_1578", "display": "魔鸦与三头獾伴生", "category": "setting", "file": "novel_curated_settings_v409.json"},
+    {"id": "artifact_1033", "display": "芝仙追踪法盘", "category": "artifact", "file": "novel_curated_artifacts_v409.json"},
+    {"id": "artifact_1034", "display": "辟雷伞", "category": "artifact", "file": "novel_curated_artifacts_v409.json"},
+    {"id": "artifact_1035", "display": "元磁山镇九阶", "category": "artifact", "file": "novel_curated_artifacts_v409.json"},
+    {"id": "artifact_1036", "display": "三人遁具与战甲", "category": "artifact", "file": "novel_curated_artifacts_v409.json"},
+    {"id": "technique_783", "display": "元磁光手破黄掌", "category": "technique", "file": "novel_curated_techniques_v409.json"},
+    {"id": "technique_784", "display": "明清灵目探魔雾", "category": "technique", "file": "novel_curated_techniques_v409.json"},
+    {"id": "technique_785", "display": "白珠飓风风刃", "category": "technique", "file": "novel_curated_techniques_v409.json"},
+    {"id": "material_805", "display": "万年碧莲花与万妙丹悬赏", "category": "material", "file": "novel_curated_materials_v409.json"},
+    {"id": "material_806", "display": "芝仙血与形貌石片", "category": "material", "file": "novel_curated_materials_v409.json"},
+    {"id": "material_807", "display": "魔金山脉魔兽材料", "category": "material", "file": "novel_curated_materials_v409.json"}
+  ]
+}
