@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 521,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2171–2175章）",
+  "method": "沿原文逐段精读；本索引汇总 v521 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2245", "display": "木族分裂与附庸隐居", "category": "setting", "file": "novel_curated_settings_v521.json"},
+    {"id": "setting_2246", "display": "人妖交界隐秘洞府", "category": "setting", "file": "novel_curated_settings_v521.json"},
+    {"id": "setting_2247", "display": "异魔金催至后期大圆满", "category": "setting", "file": "novel_curated_settings_v521.json"},
+    {"id": "setting_2248", "display": "百脉炼宝诀大成", "category": "setting", "file": "novel_curated_settings_v521.json"},
+    {"id": "setting_2249", "display": "翻天台与度劫准备", "category": "setting", "file": "novel_curated_settings_v521.json"},
+    {"id": "setting_2250", "display": "天地灵潮与元气漩涡", "category": "setting", "file": "novel_curated_settings_v521.json"},
+    {"id": "artifact_1481", "display": "碧玉飞舟", "category": "artifact", "file": "novel_curated_artifacts_v521.json"},
+    {"id": "artifact_1482", "display": "血牙米玉盒", "category": "artifact", "file": "novel_curated_artifacts_v521.json"},
+    {"id": "artifact_1483", "display": "银白鼎炉与第三座极山", "category": "artifact", "file": "novel_curated_artifacts_v521.json"},
+    {"id": "artifact_1484", "display": "翻天台四色巨幡", "category": "artifact", "file": "novel_curated_artifacts_v521.json"},
+    {"id": "technique_1119", "display": "炼神术第二层", "category": "technique", "file": "novel_curated_techniques_v521.json"},
+    {"id": "technique_1120", "display": "青元剑诀与梵圣真魔重参", "category": "technique", "file": "novel_curated_techniques_v521.json"},
+    {"id": "technique_1121", "display": "元婴引电与金漩吸灵", "category": "technique", "file": "novel_curated_techniques_v521.json"},
+    {"id": "material_1141", "display": "异魔金晶珠", "category": "material", "file": "novel_curated_materials_v521.json"},
+    {"id": "material_1142", "display": "阴阳大五行真光晶核", "category": "material", "file": "novel_curated_materials_v521.json"},
+    {"id": "material_1143", "display": "青鸾真血", "category": "material", "file": "novel_curated_materials_v521.json"}
+  ]
+}
