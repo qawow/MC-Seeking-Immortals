@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 571,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十一第2421–2425章）",
+  "method": "沿原文逐段精读；本索引汇总 v571 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2545", "display": "玺印之威与群强联手", "category": "setting", "file": "novel_curated_settings_v571.json"},
+    {"id": "setting_2546", "display": "九劫灭灵与禁元灯", "category": "setting", "file": "novel_curated_settings_v571.json"},
+    {"id": "setting_2547", "display": "群强之陨与仙灵宝鉴", "category": "setting", "file": "novel_curated_settings_v571.json"},
+    {"id": "setting_2548", "display": "阵眼献祭与影子明尊", "category": "setting", "file": "novel_curated_settings_v571.json"},
+    {"id": "setting_2549", "display": "两仪微尘自爆与重伤真仙", "category": "setting", "file": "novel_curated_settings_v571.json"},
+    {"id": "setting_2550", "display": "掌天瓶与盗天瓶", "category": "setting", "file": "novel_curated_settings_v571.json"},
+    {"id": "artifact_1681", "display": "银钧天书", "category": "artifact", "file": "novel_curated_artifacts_v571.json"},
+    {"id": "artifact_1682", "display": "禁元灯与冰昙花种子", "category": "artifact", "file": "novel_curated_artifacts_v571.json"},
+    {"id": "artifact_1683", "display": "仙灵宝鉴与墨绿小瓶", "category": "artifact", "file": "novel_curated_artifacts_v571.json"},
+    {"id": "artifact_1684", "display": "掌天瓶与盗天瓶", "category": "artifact", "file": "novel_curated_artifacts_v571.json"},
+    {"id": "technique_1269", "display": "九劫灭灵大法与九劫真焰", "category": "technique", "file": "novel_curated_techniques_v571.json"},
+    {"id": "technique_1270", "display": "两仪微尘献祭自爆", "category": "technique", "file": "novel_curated_techniques_v571.json"},
+    {"id": "technique_1271", "display": "金蝉脱壳与噬金剑气", "category": "technique", "file": "novel_curated_techniques_v571.json"},
+    {"id": "material_1291", "display": "冰昙花种子", "category": "material", "file": "novel_curated_materials_v571.json"},
+    {"id": "material_1292", "display": "九劫真焰", "category": "material", "file": "novel_curated_materials_v571.json"},
+    {"id": "material_1293", "display": "真魂丹（蟹道人所言）", "category": "material", "file": "novel_curated_materials_v571.json"}
+  ]
+}
