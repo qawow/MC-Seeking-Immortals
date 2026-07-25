@@ -40,6 +40,7 @@ import com.xunxian.seekingimmortals.npc.NpcFavorService;
 import com.xunxian.seekingimmortals.npc.NpcSpawnService;
 import com.xunxian.seekingimmortals.phase.SoftPhaseShellService;
 import com.xunxian.seekingimmortals.quest.MainStorySoftService;
+import com.xunxian.seekingimmortals.quest.DetailedQuestRuntimeService;
 import com.xunxian.seekingimmortals.quest.QuestHookSoftService;
 import com.xunxian.seekingimmortals.quest.QuestService;
 import com.xunxian.seekingimmortals.quest.SevenMysteriesQuest;
@@ -163,6 +164,29 @@ public final class SeekingImmortalsCommand {
                                                         .executes(ctx -> textQuestHookAccept(ctx.getSource(), StringArgumentType.getString(ctx, "id")))))
                                         .then(Commands.argument("id", StringArgumentType.word())
                                                 .executes(ctx -> textQuestHookPreview(ctx.getSource(), StringArgumentType.getString(ctx, "id")))))
+                                .then(Commands.literal("playable")
+                                        .executes(ctx -> detailedQuestList(ctx.getSource()))
+                                        .then(Commands.literal("list")
+                                                .executes(ctx -> detailedQuestList(ctx.getSource())))
+                                        .then(Commands.literal("status")
+                                                .then(Commands.argument("id", StringArgumentType.word())
+                                                        .executes(ctx -> detailedQuestStatus(ctx.getSource(),
+                                                                StringArgumentType.getString(ctx, "id")))))
+                                        .then(Commands.literal("claim")
+                                                .then(Commands.argument("id", StringArgumentType.word())
+                                                        .executes(ctx -> detailedQuestClaim(ctx.getSource(),
+                                                                StringArgumentType.getString(ctx, "id")))))
+                                        .then(Commands.literal("start").requires(source -> source.hasPermission(2))
+                                                .then(Commands.argument("id", StringArgumentType.word())
+                                                        .executes(ctx -> detailedQuestStart(ctx.getSource(),
+                                                                StringArgumentType.getString(ctx, "id")))))
+                                        .then(Commands.literal("prove").requires(source -> source.hasPermission(2))
+                                                .then(Commands.argument("id", StringArgumentType.word())
+                                                        .then(Commands.argument("step", IntegerArgumentType.integer(1, 95))
+                                                                .executes(ctx -> detailedQuestProve(
+                                                                        ctx.getSource(),
+                                                                        StringArgumentType.getString(ctx, "id"),
+                                                                        IntegerArgumentType.getInteger(ctx, "step")))))))
                                 .then(Commands.literal("spawn_npc").requires(source -> source.hasPermission(2))
                                         .then(Commands.argument("id", StringArgumentType.word())
                                                 .executes(ctx -> textQuestSpawnNpc(ctx.getSource(), StringArgumentType.getString(ctx, "id")))))
@@ -664,6 +688,57 @@ public final class SeekingImmortalsCommand {
 
     private static int textQuestStart(CommandSourceStack source, String id) throws CommandSyntaxException {
         return TextQuestChainService.start(source.getPlayerOrException(), id) ? 1 : 0;
+    }
+
+    private static int detailedQuestList(CommandSourceStack source) throws CommandSyntaxException {
+        ServerPlayer player = source.getPlayerOrException();
+        source.sendSuccess(() -> Component.translatable(
+                "command.seeking_immortals.detailed_quest.header",
+                DetailedQuestRuntimeService.chainCount(), DetailedQuestRuntimeService.stepCount()), false);
+        for (DetailedQuestRuntimeService.Progress progress : DetailedQuestRuntimeService.listProgress(player)) {
+            DetailedQuestRuntimeService.Chain chain = DetailedQuestRuntimeService.find(progress.id()).orElse(null);
+            if (chain == null) {
+                continue;
+            }
+            MutableComponent line;
+            if (progress.complete()) {
+                line = Component.translatable("command.seeking_immortals.detailed_quest.line.complete",
+                        chain.display(), progress.stepCount());
+            } else if (progress.started()) {
+                line = Component.translatable("command.seeking_immortals.detailed_quest.line.active",
+                        chain.display(), progress.stage(), progress.stepCount());
+            } else {
+                line = Component.translatable("command.seeking_immortals.detailed_quest.line.unclaimed",
+                        chain.display(), progress.stepCount());
+            }
+            source.sendSuccess(() -> line, false);
+        }
+        return 1;
+    }
+
+    private static int detailedQuestStatus(CommandSourceStack source, String id) throws CommandSyntaxException {
+        ServerPlayer player = source.getPlayerOrException();
+        if (DetailedQuestRuntimeService.find(id).isEmpty()) {
+            source.sendFailure(Component.translatable("message.seeking_immortals.detailed_quest.unknown", id));
+            return 0;
+        }
+        return DetailedQuestRuntimeService.showCurrentStep(player, id) ? 1 : 0;
+    }
+
+    private static int detailedQuestClaim(CommandSourceStack source, String id) throws CommandSyntaxException {
+        return DetailedQuestRuntimeService.advance(source.getPlayerOrException(), id,
+                DetailedQuestRuntimeService.Evidence.of()) ? 1 : 0;
+    }
+
+    private static int detailedQuestStart(CommandSourceStack source, String id) throws CommandSyntaxException {
+        return DetailedQuestRuntimeService.start(source.getPlayerOrException(), id,
+                DetailedQuestRuntimeService.Evidence.of()) ? 1 : 0;
+    }
+
+    private static int detailedQuestProve(CommandSourceStack source, String id, int step)
+            throws CommandSyntaxException {
+        String evidence = "quest_step_" + id.trim().toLowerCase(Locale.ROOT) + "_" + step;
+        return DetailedQuestRuntimeService.recordAndAdvance(source.getPlayerOrException(), evidence) > 0 ? 1 : 0;
     }
 
     private static int textQuestAdvance(CommandSourceStack source, String id) throws CommandSyntaxException {

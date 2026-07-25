@@ -16,6 +16,8 @@ class SecretRealmEntrySceneServiceTest {
                 SecretRealmEntrySceneService.profileFor("thousand_bamboo_puppet_tower"));
         assertEquals(SecretRealmEntrySceneService.Profile.CATACOMB,
                 SecretRealmEntrySceneService.profileFor("yin_mountain_catacomb"));
-        assertTrue(SecretRealmEntrySceneService.profileCount() >= 21);
+        assertEquals(SecretRealmEntrySceneService.Profile.CATACOMB,
+                SecretRealmEntrySceneService.profileFor("yinyang_ku"));
+        assertTrue(SecretRealmEntrySceneService.profileCount() >= 24);
     }
 }

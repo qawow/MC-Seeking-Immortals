@@ -23,6 +23,9 @@ class WorldpackDataServiceTest {
         assertFalse(snapshot.dailyEvents().isEmpty());
         assertTrue(snapshot.findRegion("qinglan_mountains").isPresent());
         assertTrue(snapshot.findSecretRealm("mist_cave_trial").isPresent());
+        WorldpackDataService.SecretRealm yinyang = snapshot.findSecretRealm("yinyang_ku").orElseThrow();
+        assertEquals("dajin", yinyang.regionId());
+        assertEquals("nascent_soul", yinyang.minRealm());
     }
 
     @Test

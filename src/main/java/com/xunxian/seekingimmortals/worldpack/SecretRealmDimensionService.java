@@ -45,6 +45,7 @@ public final class SecretRealmDimensionService {
         map.put("void_palace", SeekingImmortalsMod.MODID + ":secret_realm_void_palace");
         map.put("wild_ancient_ruins", SeekingImmortalsMod.MODID + ":secret_realm_wild_ancient_ruins");
         map.put("wild_ancient_tomb", SeekingImmortalsMod.MODID + ":secret_realm_wild_ancient_tomb");
+        map.put("yinyang_ku", SeekingImmortalsMod.MODID + ":secret_realm_yinyang_ku");
         map.put("yin_mountain_catacomb", SeekingImmortalsMod.MODID + ":secret_realm_yin_mountain_catacomb");
         map.put("asura_realm", SeekingImmortalsMod.MODID + ":asura_realm");
         map.put("immortal_realm", SeekingImmortalsMod.MODID + ":immortal_realm");

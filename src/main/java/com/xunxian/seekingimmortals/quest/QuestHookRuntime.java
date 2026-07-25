@@ -5,6 +5,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
+import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
+import com.xunxian.seekingimmortals.cultivation.Realm;
+import com.xunxian.seekingimmortals.cultivation.RealmStage;
 import com.xunxian.seekingimmortals.npc.DialogueBranchService;
 import com.xunxian.seekingimmortals.npc.DialogueNodeReachedEvent;
 import com.xunxian.seekingimmortals.npc.NpcDialogueFlags;
@@ -47,6 +50,34 @@ public final class QuestHookRuntime {
     private static final Map<String, List<String>> HOOK_TO_CHAINS = loadHookToChains();
     private static final Map<String, List<String>> EFFECT_TO_QUESTS = loadEffectQuestLinks();
     private static final Map<String, List<String>> STEP_HOOKS_BY_CHAIN = loadStepHooksByChain();
+    private static final Map<String, List<String>> REGION_TO_DETAILED_CHAINS = Map.ofEntries(
+            Map.entry("qinglan_mountains", List.of("mortal_qixuan_entry")),
+            Map.entry("qixuan_village", List.of("mortal_qixuan_entry")),
+            Map.entry("tiannan", List.of("mortal_qixuan_entry")),
+            Map.entry("chaotic_sea", List.of("xutian_window_prepare")),
+            Map.entry("dajin", List.of("kunwu_clue_assemble", "yinyang_ku_intel")),
+            Map.entry("great_jin_central", List.of("kunwu_clue_assemble", "yinyang_ku_intel")),
+            Map.entry("kunwu", List.of("kunwu_clue_assemble")),
+            Map.entry("fallen_demon_valley", List.of("zhuimo_token")),
+            Map.entry("extreme_west", List.of("qianzhu_tower_trial")),
+            Map.entry("extreme_west_thousand_bamboo", List.of("qianzhu_tower_trial")),
+            Map.entry("tianyuan", List.of("tianyuan_landing_register")));
+    private static final Map<String, List<String>> REALM_TO_DETAILED_CHAINS = Map.ofEntries(
+            Map.entry("blood_forbidden", List.of("blood_forbidden_run", "nangong_wan_weight_optional")),
+            Map.entry("void_palace", List.of("xutian_window_prepare")),
+            Map.entry("kunwu_mountain", List.of("kunwu_clue_assemble")),
+            Map.entry("fallen_demon_valley", List.of("zhuimo_token", "lingzhu_fruit_run")),
+            Map.entry("yinyang_ku", List.of("yinyang_ku_intel", "peiying_material_hunt")),
+            Map.entry("thousand_bamboo_puppet_tower", List.of("qianzhu_tower_trial")),
+            Map.entry("guanghan_realm", List.of("guanghan_endgame_path")));
+    private static final Map<String, List<String>> REALM_ENTRY_EVIDENCE = Map.ofEntries(
+            Map.entry("blood_forbidden", List.of("blood_forbidden_entry_stele")),
+            Map.entry("void_palace", List.of("xutian_palace_gate_fragment")),
+            Map.entry("kunwu_mountain", List.of("dajin_kunwu_approach")),
+            Map.entry("fallen_demon_valley", List.of("fallen_demon_rift")),
+            Map.entry("yinyang_ku", List.of("yinyang_cave_gate")),
+            Map.entry("thousand_bamboo_puppet_tower", List.of("qz_l1")),
+            Map.entry("guanghan_realm", List.of("gh_approach")));
     private static boolean registered;
 
     private QuestHookRuntime() {}
@@ -86,6 +117,64 @@ public final class QuestHookRuntime {
         return EFFECT_TO_QUESTS.getOrDefault(normalize(effectKey), List.of());
     }
 
+    static List<String> detailedChainsForRegion(String regionId) {
+        return REGION_TO_DETAILED_CHAINS.getOrDefault(normalize(regionId), List.of());
+    }
+
+    static List<String> detailedChainsForSecretRealm(String realmId) {
+        return REALM_TO_DETAILED_CHAINS.getOrDefault(normalize(realmId), List.of());
+    }
+
+    /** Called only after a server-authoritative region transition or resolved login location. */
+    public static void onRegionReached(ServerPlayer player, String regionId) {
+        if (player == null) {
+            return;
+        }
+        String region = normalize(regionId);
+        DetailedQuestRuntimeService.recordAndAdvance(player, region);
+        startDetailedChains(player, detailedChainsForRegion(region),
+                DetailedQuestRuntimeService.Evidence.of(region));
+        CultivationHelper.get(player).ifPresent(cultivation -> {
+            if (isHighRealmPathEligible(cultivation.getRealm(), cultivation.getStage())) {
+                startDetailedChains(player, List.of("deity_huoyu_path"),
+                        DetailedQuestRuntimeService.Evidence.of(region, cultivation.getRealm().getDesignId()));
+            }
+        });
+    }
+
+    /** Called after the secret-realm session exists; entry evidence is never accepted before teleport success. */
+    public static void onSecretRealmEnter(ServerPlayer player, String realmId) {
+        if (player == null) {
+            return;
+        }
+        String realm = normalize(realmId);
+        DetailedQuestRuntimeService.recordAndAdvance(player, realm);
+        List<String> chains = detailedChainsForSecretRealm(realm);
+        DetailedQuestRuntimeService.Evidence evidence = DetailedQuestRuntimeService.Evidence.of(realm);
+        startDetailedChains(player, chains, evidence);
+        for (String entryEvidence : REALM_ENTRY_EVIDENCE.getOrDefault(realm, List.of())) {
+            DetailedQuestRuntimeService.recordAndAdvance(player, entryEvidence);
+        }
+        startDetailedChains(player, chains, evidence);
+    }
+
+    static boolean isHighRealmPathEligible(Realm realm, RealmStage stage) {
+        if (realm == null) {
+            return false;
+        }
+        return realm == Realm.SOUL_TRANSFORMATION
+                || realm == Realm.NASCENT_SOUL && (stage == RealmStage.LATE || stage == RealmStage.PEAK);
+    }
+
+    private static void startDetailedChains(ServerPlayer player, List<String> chainIds,
+                                            DetailedQuestRuntimeService.Evidence evidence) {
+        for (String chainId : chainIds) {
+            if (DetailedQuestRuntimeService.canStart(player, chainId, evidence)) {
+                DetailedQuestRuntimeService.start(player, chainId, evidence);
+            }
+        }
+    }
+
     /** M06 daily event subscription. */
     public static void onDailyEvent(String regionId, String eventId) {
         // Daily events do not have a single player context; mark soft region flag only.
@@ -95,6 +184,15 @@ public final class QuestHookRuntime {
             return;
         }
         // No-op without player; player path is onPlayerDaily below if needed.
+    }
+
+    @SubscribeEvent
+    public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
+        if (!(event.getEntity() instanceof ServerPlayer player)) {
+            return;
+        }
+        CultivationHelper.get(player).ifPresent(cultivation ->
+                onRegionReached(player, cultivation.getWorldpackCurrentRegionId()));
     }
 
     /** Player-scoped authored daily hook with a per-roll idempotency ledger. */
@@ -219,7 +317,7 @@ public final class QuestHookRuntime {
             return;
         }
         for (DialogueBranchService.Effect effect : node.get().effects()) {
-            handleDialogueEffect(player, effect);
+            handleDialogueEffect(player, event.getNpcId(), event.getTreeId(), event.getNodeId(), effect);
         }
     }
 
@@ -263,6 +361,7 @@ public final class QuestHookRuntime {
         }
         tryAdvanceByHook(player, "craft_" + itemId);
         tryAdvanceByHook(player, "refine_" + itemId);
+        DetailedQuestRuntimeService.recordAndAdvance(player, itemId);
         if (itemId.contains("pill") || itemId.contains("dan")) {
             tryAdvanceByHook(player, "alchemy_apprentice");
             tryAdvanceByHook(player, "alchemy_loop");
@@ -287,6 +386,7 @@ public final class QuestHookRuntime {
         }
         tryAdvanceByHook(player, "gather_" + itemId);
         tryAdvanceByHook(player, "collect_" + itemId);
+        DetailedQuestRuntimeService.recordAndAdvance(player, itemId);
         if (itemId.contains("herb") || itemId.contains("grass") || itemId.contains("spirit_grass")) {
             tryAdvanceByHook(player, "gather_spirit_herb");
         }
@@ -303,13 +403,23 @@ public final class QuestHookRuntime {
         tryAdvanceByHook(player, "secret_" + realm);
         tryAdvanceByHook(player, realm + "_" + layerKey);
         tryAdvanceByHook(player, "trial_" + layerKey);
+        DetailedQuestRuntimeService.recordAndAdvance(player, realm);
+        DetailedQuestRuntimeService.recordAndAdvance(player, layerKey);
+        DetailedQuestRuntimeService.recordAndAdvance(player, realm + "_" + layerKey);
+        if ("blood_forbidden".equals(realm) && "bf_water_jiao".equals(layerKey)) {
+            DetailedQuestRuntimeService.Evidence waterEvidence =
+                    DetailedQuestRuntimeService.Evidence.of("bf_water_jiao");
+            startDetailedChains(player, List.of("nangong_wan_weight_optional"), waterEvidence);
+            DetailedQuestRuntimeService.advance(player, "nangong_wan_weight_optional", waterEvidence);
+        }
         if ("core".equals(layerKey) || "boss".equals(layerKey)) {
             tryAdvanceByHook(player, "secret_realm_clear");
             tryStartOrAdvanceChain(player, realm.contains("blood") ? "blood_forbidden_campaign" : "");
         }
     }
 
-    private static void handleDialogueEffect(ServerPlayer player, DialogueBranchService.Effect effect) {
+    private static void handleDialogueEffect(ServerPlayer player, String npcId, String treeId, String nodeId,
+                                             DialogueBranchService.Effect effect) {
         if (effect == null) {
             return;
         }
@@ -318,28 +428,42 @@ public final class QuestHookRuntime {
             return;
         }
         List<String> questIds = resolveQuestIds(effect);
+        String destination = effectDestination(type, effect);
+        DetailedQuestRuntimeService.Evidence evidence = DetailedQuestRuntimeService.Evidence.of(
+                npcId, treeId, nodeId, destination, type + ":" + destination);
 
         switch (type) {
             case "offer_quest", "open_quest", "open_quest_board" -> {
                 for (String questId : questIds) {
-                    tryStartOrAdvanceChain(player, questId);
-                    // Playable ids may not be in the 62-chain index; mark dialogue flag as soft accept.
+                    if (DetailedQuestRuntimeService.find(questId).isPresent()) {
+                        DetailedQuestRuntimeService.start(player, questId, evidence);
+                    } else {
+                        tryStartChain(player, questId);
+                    }
                     NpcDialogueFlags.setFlag(player, "quest_offered_" + normalize(questId));
                 }
             }
             case "turnin_quests" -> {
                 for (String questId : questIds) {
-                    tryAdvanceActive(player, questId);
+                    if (DetailedQuestRuntimeService.find(questId).isEmpty()) {
+                        tryAdvanceActive(player, questId);
+                    }
                 }
-                // If no explicit ids, advance any active chain bound to current dialogue NPC.
-                if (questIds.isEmpty()) {
-                    advanceActiveNearNpc(player);
-                }
+                DetailedQuestRuntimeService.turnIn(player, questIds, npcId, evidence);
+                advanceSingleCanonicalForNpc(player, questIds, npcId);
             }
             default -> {
-                // Other effects may still map via effect catalog.
                 for (String questId : questIds) {
-                    tryStartOrAdvanceChain(player, questId);
+                    if (DetailedQuestRuntimeService.find(questId).isPresent()) {
+                        boolean active = DetailedQuestRuntimeService.progressOf(player, questId).started();
+                        if (!active) {
+                            DetailedQuestRuntimeService.start(player, questId, evidence);
+                        } else {
+                            DetailedQuestRuntimeService.advance(player, questId, evidence);
+                        }
+                    } else {
+                        tryAdvanceActive(player, questId);
+                    }
                 }
             }
         }
@@ -400,13 +524,23 @@ public final class QuestHookRuntime {
         }
     }
 
-    private static void advanceActiveNearNpc(ServerPlayer player) {
+    private static void advanceSingleCanonicalForNpc(ServerPlayer player, List<String> explicitIds, String npcId) {
+        if (explicitIds != null && !explicitIds.isEmpty()) {
+            return;
+        }
+        String npc = normalize(npcId);
+        if (npc.isBlank()) {
+            return;
+        }
+        List<String> matches = new ArrayList<>();
         for (TextQuestChainService.ChainProgress progress : TextQuestChainService.listProgress(player)) {
-            if (progress.stage() <= 0 || progress.complete()) {
-                continue;
+            if (progress.stage() > 0 && !progress.complete()
+                    && npc.equals(normalize(TextQuestChainService.getNpc(player, progress.id())))) {
+                matches.add(progress.id());
             }
-            TextQuestChainService.advance(player, progress.id());
-            break;
+        }
+        if (matches.size() == 1) {
+            tryAdvanceActive(player, matches.get(0));
         }
     }
 
@@ -428,6 +562,7 @@ public final class QuestHookRuntime {
         for (String chainId : chains) {
             tryAdvanceActive(player, chainId, hook);
         }
+        DetailedQuestRuntimeService.recordAndAdvance(player, hook);
         // Soft flag so dialogue conditions / future UI can see the hook fire.
         NpcDialogueFlags.setFlag(player, "hook_" + hook);
     }
@@ -474,6 +609,16 @@ public final class QuestHookRuntime {
             TextQuestChainService.start(player, id);
         } else if (!progress.complete()) {
             TextQuestChainService.advance(player, id);
+        }
+    }
+
+    private static void tryStartChain(ServerPlayer player, String chainId) {
+        String id = normalize(chainId);
+        if (id.isBlank() || TextQuestChainService.find(id).isEmpty()) {
+            return;
+        }
+        if (TextQuestChainService.progressOf(player, id).stage() <= 0) {
+            TextQuestChainService.start(player, id);
         }
     }
 

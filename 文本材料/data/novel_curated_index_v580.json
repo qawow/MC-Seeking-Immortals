@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 580,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第14–18章）",
+  "method": "沿原文逐段精读；本索引汇总 v580 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2599", "display": "余府夜袭灭门", "category": "setting", "file": "novel_curated_settings_v580.json"},
+    {"id": "setting_2600", "display": "冷焰宗与接引令牌", "category": "setting", "file": "novel_curated_settings_v580.json"},
+    {"id": "setting_2601", "display": "天鬼宗与丰国血洗", "category": "setting", "file": "novel_curated_settings_v580.json"},
+    {"id": "setting_2602", "display": "红袍上人与余家供奉", "category": "setting", "file": "novel_curated_settings_v580.json"},
+    {"id": "setting_2603", "display": "灵寰界剑修威名", "category": "setting", "file": "novel_curated_settings_v580.json"},
+    {"id": "setting_2604", "display": "蛟元珠护送之请", "category": "setting", "file": "novel_curated_settings_v580.json"},
+    {"id": "artifact_1717", "display": "天鬼仿骨刀", "category": "artifact", "file": "novel_curated_artifacts_v580.json"},
+    {"id": "artifact_1718", "display": "黑弓符箭", "category": "artifact", "file": "novel_curated_artifacts_v580.json"},
+    {"id": "artifact_1719", "display": "冷焰接引令与天鬼令", "category": "artifact", "file": "novel_curated_artifacts_v580.json"},
+    {"id": "artifact_1720", "display": "赤红火珠与火龙", "category": "artifact", "file": "novel_curated_artifacts_v580.json"},
+    {"id": "technique_1296", "display": "隔空指风", "category": "technique", "file": "novel_curated_techniques_v580.json"},
+    {"id": "technique_1297", "display": "金鳞拳影灭二修", "category": "technique", "file": "novel_curated_techniques_v580.json"},
+    {"id": "technique_1298", "display": "血云鬼影与隐匿鬼物", "category": "technique", "file": "novel_curated_techniques_v580.json"},
+    {"id": "material_1318", "display": "蛟元珠", "category": "material", "file": "novel_curated_materials_v580.json"},
+    {"id": "material_1319", "display": "螺旋火锥", "category": "material", "file": "novel_curated_materials_v580.json"},
+    {"id": "material_1320", "display": "灰白骨刀残烬", "category": "material", "file": "novel_curated_materials_v580.json"}
+  ]
+}

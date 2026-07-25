@@ -360,6 +360,7 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
             }
             // Hostile trial shells do not require an owner and stay in arena AI.
             if (hostileTrial) {
+                enforceDialogueTarget();
                 // M10: phased boss skills for secret-realm bosses.
                 com.xunxian.seekingimmortals.beast.BeastBossService.tickBossSkills(this);
                 return;
@@ -371,6 +372,36 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
                 }
             }
         }
+    }
+
+    private void enforceDialogueTarget() {
+        CompoundTag data = getPersistentData();
+        if (!data.hasUUID(com.xunxian.seekingimmortals.npc.DialogueWorldActionService.HOSTILE_PLAYER)
+                || !(level() instanceof ServerLevel serverLevel)) {
+            return;
+        }
+        ServerPlayer bound = serverLevel.getServer().getPlayerList().getPlayer(
+                data.getUUID(com.xunxian.seekingimmortals.npc.DialogueWorldActionService.HOSTILE_PLAYER));
+        if (bound == null || bound.serverLevel() != serverLevel || bound.isCreative() || bound.isSpectator()) {
+            setTarget(null);
+            getNavigation().stop();
+            return;
+        }
+        if (getTarget() != bound && distanceToSqr(bound) <= 48.0D * 48.0D) {
+            setTarget(bound);
+        }
+    }
+
+    @Override
+    public boolean canAttack(LivingEntity target) {
+        CompoundTag data = getPersistentData();
+        if (data.hasUUID(com.xunxian.seekingimmortals.npc.DialogueWorldActionService.HOSTILE_PLAYER)) {
+            return target instanceof Player player
+                    && data.getUUID(com.xunxian.seekingimmortals.npc.DialogueWorldActionService.HOSTILE_PLAYER)
+                    .equals(player.getUUID())
+                    && super.canAttack(target);
+        }
+        return super.canAttack(target);
     }
 
     private boolean applyRegistryState(ServerLevel serverLevel) {

@@ -171,6 +171,7 @@ public final class SecretRealmTrialService {
                 || id.contains("king_")
                 || id.contains("chaotic")
                 || id.contains("yinming")
+                || id.contains("yinyang")
                 || id.contains("spirit_realm")
                 || id.contains("huangfeng")
                 || id.contains("trial")

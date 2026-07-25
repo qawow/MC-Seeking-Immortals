@@ -214,6 +214,16 @@ public final class ItemCatalogService {
         putAlias(aliases, "refinement_forge_g3", "refinement_forge");
         putAlias(aliases, "alchemy_furnace_g2", "alchemy_furnace");
         putAlias(aliases, "alchemy_furnace_g3", "alchemy_furnace");
+        // Playable v141 quest rewards reuse registered compatibility carriers.
+        putAlias(aliases, "blood_forbidden_token", "mortal_quest_token");
+        putAlias(aliases, "black_jiao_sinew", "beast_tendon");
+        putAlias(aliases, "jiao_pearl", "water_pearl");
+        putAlias(aliases, "court_warrant_gray", "bounty_token");
+        putAlias(aliases, "zhui_mo_ling", "fallen_demon_scout_report");
+        putAlias(aliases, "lingzhu_fruit", "fire_spirit_fruit");
+        putAlias(aliases, "yin_zhi_horse_live", "beast_contract_token");
+        putAlias(aliases, "peiying_dan", "nascent_soul_pill");
+        putAlias(aliases, "puppet_core_embryo_broken", "puppet_core_spirit");
 
         JsonObject bulkRoot = readJson("assets/" + SeekingImmortalsMod.MODID + "/catalog_bulk_items.json");
         if (bulkRoot != null) {

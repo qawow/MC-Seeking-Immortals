@@ -33,6 +33,7 @@ class SecretRealmDimensionServiceTest {
                 Map.entry("void_palace", "secret_realm_void_palace"),
                 Map.entry("wild_ancient_ruins", "secret_realm_wild_ancient_ruins"),
                 Map.entry("wild_ancient_tomb", "secret_realm_wild_ancient_tomb"),
+                Map.entry("yinyang_ku", "secret_realm_yinyang_ku"),
                 Map.entry("yin_mountain_catacomb", "secret_realm_yin_mountain_catacomb"));
 
         expected.forEach((realmId, dimensionPath) -> {
@@ -44,6 +45,6 @@ class SecretRealmDimensionServiceTest {
                     "src/main/resources/data/seeking_immortals/dimension",
                     dimensionPath + ".json")), dimensionPath);
         });
-        assertEquals(24, SecretRealmDimensionService.dedicatedDimensionCount());
+        assertEquals(25, SecretRealmDimensionService.dedicatedDimensionCount());
     }
 }

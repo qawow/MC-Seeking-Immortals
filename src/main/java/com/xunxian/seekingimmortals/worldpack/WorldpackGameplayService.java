@@ -241,6 +241,7 @@ public final class WorldpackGameplayService {
             refreshDailyEvent(player, cultivation, savedData, snapshot, region.id());
             player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.travel_success", display(region)));
             ReputationService.onPortalTravel(player, region.id());
+            com.xunxian.seekingimmortals.quest.QuestHookRuntime.onRegionReached(player, region.id());
             sync(player, false);
             success[0] = true;
         }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.no_data")));

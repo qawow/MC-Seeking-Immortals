@@ -1,3 +1,18 @@
+## 576. 2026-07-26 0.2.181 详细任务与对话世界动作权威化
+
+  Step   Status   Notes
+  ---   ---   ---
+  Detailed quest catalog   Done   `quest_chains_playable_v141.json` 的 23 链/95 步全部加载；15 类前置和 9 类需求均显式解释，未知令牌失败关闭，不解析中文叙事猜状态。
+  Progress/rewards   Done   阶段、证据、奖励幂等账本可持久化/克隆；贡献 25/500 精确扣除，概率物品按 UUID+账本键确定性结算，九个作者奖励 id 映射现有物品，满足前置的 `next_chains` 自动衔接。
+  Dialogue authority   Done   offer 只启动，turn-in 只处理显式 ID 或唯一 NPC 地点匹配；结构标记需真实锚点/成型结构，提示/异常/疑点有界持久化，战斗壳最多 2 个、绑定玩家、5 分钟冷却，未知动作拒绝。
+  Reachability   Done   登录/地域成功、飞升成功和秘境会话建立后使用显式映射启动新手、准备、高阶与秘境链；血色水潭层启动可选链，不再依赖不存在的对话 effect。
+  Yin-Yang Cavern   Done   worldpack 注册 `yinyang_ku`、大晋/元婴门槛、任务 flag 门禁、独立 `secret_realm_yinyang_ku` 维度和 CATACOMB 入口场景；进入后满足 `in_yinyang_ku` 并启动培婴材料链。
+  Commands/tests   Done   `/seeking_immortals quest text playable` 提供 list/status/claim 与管理员 start/prove；任务、对话、克隆、秘境维度/入口、worldpack、JSON 资源定向测试通过。
+  Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1` 在 1 分 20 秒内成功；248 个测试套件共 1,151 项，failure/error/skipped 均为 0，`aiPreflight` 记录 `0.2.181`。
+  Version/protocol   Done   `mod_version=0.2.179 -> 0.2.181`；未改变网络字段、顺序、类型、注册或频道行为，协议保持 `30`。
+  Backup   Done   `.bak/20260726_053041_0.2.180_detailed_quests_dialogue/`，并包含并发 v571 文档之后的补充文档快照。
+  Follow-up   Pending   无结构化叙事步骤仍需逐条补自然服务端事件；阴阳窟当前使用通用试炼壳，专属夜叉/阴芝马活捕/协作炼丹、客户端和专服实机验收仍待后续。
+
 ## 575. 2026-07-23 0.2.162 全域作者视觉生命周期收口
 
   Step   Status   Notes

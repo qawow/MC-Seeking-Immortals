@@ -3,6 +3,7 @@ package com.xunxian.seekingimmortals.worldpack;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.ProgressionGateApi;
 import com.xunxian.seekingimmortals.cultivation.Realm;
+import com.xunxian.seekingimmortals.npc.NpcDialogueFlags;
 import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -35,6 +36,10 @@ public final class SecretRealmSessionService {
     public static Optional<String> validateOpen(ServerPlayer player, String realmId) {
         if (player == null || realmId == null || realmId.isBlank()) {
             return Optional.of("unknown_realm");
+        }
+        if ("yinyang_ku".equals(realmId.trim().toLowerCase(Locale.ROOT))
+                && !NpcDialogueFlags.hasFlag(player, "yinyang_ku_entry")) {
+            return Optional.of("quest_locked");
         }
         Optional<SecretRealmCatalogService.RealmDef> defOpt = SecretRealmCatalogService.find(realmId);
         if (defOpt.isEmpty()) {
@@ -78,6 +83,7 @@ public final class SecretRealmSessionService {
         }
         // Reset per-session clear latch.
         player.getPersistentData().put(SESSION_CLEAR_ROOT, new net.minecraft.nbt.CompoundTag());
+        com.xunxian.seekingimmortals.quest.QuestHookRuntime.onSecretRealmEnter(player, realmId);
         // Mid-layer traps via M07 free fields.
         int traps = SecretRealmTrapService.activateAllLayerTraps(player, realmId);
         if (traps > 0) {

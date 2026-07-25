@@ -38,6 +38,7 @@ public final class SecretRealmEntrySceneService {
             Map.entry("kunwu_mountain", Profile.FROST_TEMPLE),
             Map.entry("nether_river_land", Profile.CATACOMB),
             Map.entry("wild_ancient_tomb", Profile.CATACOMB),
+            Map.entry("yinyang_ku", Profile.CATACOMB),
             Map.entry("yin_mountain_catacomb", Profile.CATACOMB),
             Map.entry("thousand_bamboo_puppet_tower", Profile.PUPPET_TOWER),
             Map.entry("spirit_grass_valley", Profile.SPIRIT_GARDEN),

@@ -1,6 +1,8 @@
 package com.xunxian.seekingimmortals.persistence;
 
 import com.xunxian.seekingimmortals.catalog.ManualCatalogService;
+import com.xunxian.seekingimmortals.npc.DialogueWorldActionService;
+import com.xunxian.seekingimmortals.quest.DetailedQuestRuntimeService;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
@@ -104,6 +106,18 @@ class PlayerPersistentDataClonePolicyTest {
         eventSemantics.putDouble("BreakthroughBonus", 0.05D);
         eventSemantics.putDouble("SmuggleChance", 0.2D);
         source.put(DAILY_EVENT_SEMANTICS, eventSemantics);
+        List<String> detailedRuntimeKeys = List.of(
+                DetailedQuestRuntimeService.ROOT_TAG,
+                DetailedQuestRuntimeService.REWARD_TAG,
+                DetailedQuestRuntimeService.EVIDENCE_TAG,
+                DialogueWorldActionService.MARKERS_TAG,
+                DialogueWorldActionService.HINTS_TAG,
+                DialogueWorldActionService.ANOMALIES_TAG,
+                DialogueWorldActionService.SUSPICION_TAG,
+                DialogueWorldActionService.COMBAT_TAG);
+        for (int index = 0; index < detailedRuntimeKeys.size(); index++) {
+            source.put(detailedRuntimeKeys.get(index), intTag("value", 50 + index));
+        }
         source.putInt("seeking_immortals_unknown_clone_data", 19);
         source.putInt("seeking_immortals_dialogue_session", 23);
         source.putInt("seeking_immortals_text_dialogue_session", 29);
@@ -120,6 +134,7 @@ class PlayerPersistentDataClonePolicyTest {
         expectedTargetKeys.addAll(dynamicKeys);
         expectedTargetKeys.add(ManualCatalogService.STUDIED_TAG);
         expectedTargetKeys.add(DAILY_EVENT_SEMANTICS);
+        expectedTargetKeys.addAll(detailedRuntimeKeys);
         assertEquals(expectedTargetKeys, target.getAllKeys());
 
         for (String key : EXPECTED_DURABLE_KEYS) {
@@ -153,6 +168,13 @@ class PlayerPersistentDataClonePolicyTest {
         eventSemantics.getList("AppliedFlags", Tag.TAG_STRING).clear();
         assertEquals("mulan_border_patrol", copiedSemantics.getString("ActiveId"));
         assertEquals(1, copiedSemantics.getList("AppliedFlags", Tag.TAG_STRING).size());
+        for (int index = 0; index < detailedRuntimeKeys.size(); index++) {
+            String key = detailedRuntimeKeys.get(index);
+            assertNotSame(source.get(key), target.get(key), key);
+            assertEquals(50 + index, target.getCompound(key).getInt("value"), key);
+            source.getCompound(key).putInt("value", -1);
+            assertEquals(50 + index, target.getCompound(key).getInt("value"), key);
+        }
 
         assertFalse(target.contains("seeking_immortals_unknown_clone_data"));
         assertFalse(target.contains("seeking_immortals_dialogue_session"));

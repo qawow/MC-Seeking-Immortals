@@ -139,32 +139,31 @@ public final class DialogueActionExecutor {
             }
             case MARK_STRUCTURE -> {
                 String structure = firstNonBlank(effect.param("structure"), effect.param("id"), "marked_structure");
-                NpcDialogueFlags.setFlag(player, "mark_" + normalize(structure));
-                player.displayClientMessage(Component.translatable(
-                        "message.seeking_immortals.dialogue.location_marked"), false);
-                yield true;
+                yield DialogueWorldActionService.markStructure(player, structure);
             }
-            case HINT, ANOMALY_LOG -> {
-                player.displayClientMessage(Component.translatable(
-                        "message.seeking_immortals.dialogue.ellipsis"), false);
-                yield true;
+            case HINT -> {
+                String hint = firstNonBlank(effect.param("hint"), effect.param("structure"),
+                        effect.param("id"), treeId + ":" + nodeId);
+                yield DialogueWorldActionService.recordHint(player, hint);
             }
-            case CALL_GUARD, COMBAT_FLAG, COMBAT_OR_ARREST, ADD_SUSPICION -> {
-                NpcFavorService.add(player, npcId, -5);
-                String rep = NamedNpcRegistry.find(npcId)
-                        .map(NamedNpcRegistry.NamedNpc::reputationTrack)
-                        .orElse("");
-                if (!rep.isBlank()) {
-                    ReputationService.add(player, ReputationUnlockService.reputationKey(rep), -3);
-                }
+            case ANOMALY_LOG -> DialogueWorldActionService.recordAnomaly(
+                    player, npcId, treeId, nodeId);
+            case CALL_GUARD, COMBAT_FLAG, COMBAT_OR_ARREST -> {
+                boolean triggered = DialogueWorldActionService.triggerCombat(player, npcId, treeId, type);
                 player.displayClientMessage(Component.translatable(
                         "message.seeking_immortals.dialogue.tension"), false);
+                yield triggered;
+            }
+            case ADD_SUSPICION -> {
+                int amount = Math.max(1, effect.paramInt("amount", 10));
+                DialogueWorldActionService.addSuspicion(player, npcId, amount);
+                DialogueWorldActionService.applyHostilityPenalty(player, npcId);
                 yield true;
             }
             default -> {
-                // Unknown effects are soft-accepted for forward compatibility with M09/M11 consumers.
-                NpcDialogueFlags.setFlag(player, "effect_" + type);
-                yield true;
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.dialogue.effect_unsupported", type), false);
+                yield false;
             }
         };
     }
