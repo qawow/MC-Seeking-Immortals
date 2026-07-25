@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 487,
+  "source": "《凡人修仙传》— 人工精读提取索引（卷十第2001–2005章）",
+  "method": "沿原文逐段精读；本索引汇总 v487 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2041", "display": "天戈符斩魔狮元神", "category": "setting", "file": "novel_curated_settings_v487.json"},
+    {"id": "setting_2042", "display": "涅盘真血催动之法", "category": "setting", "file": "novel_curated_settings_v487.json"},
+    {"id": "setting_2043", "display": "太极圣宝困血光", "category": "setting", "file": "novel_curated_settings_v487.json"},
+    {"id": "setting_2044", "display": "噬金虫群灭血光化身", "category": "setting", "file": "novel_curated_settings_v487.json"},
+    {"id": "setting_2045", "display": "天渊大胜与追杀", "category": "setting", "file": "novel_curated_settings_v487.json"},
+    {"id": "setting_2046", "display": "陇家老祖提前之约", "category": "setting", "file": "novel_curated_settings_v487.json"},
+    {"id": "artifact_1345", "display": "天戈符祭出", "category": "artifact", "file": "novel_curated_artifacts_v487.json"},
+    {"id": "artifact_1346", "display": "玄天圣宝太极图", "category": "artifact", "file": "novel_curated_artifacts_v487.json"},
+    {"id": "artifact_1347", "display": "血色骷髅与黑色大印", "category": "artifact", "file": "novel_curated_artifacts_v487.json"},
+    {"id": "artifact_1348", "display": "乌环噬金虫巢", "category": "artifact", "file": "novel_curated_artifacts_v487.json"},
+    {"id": "technique_1017", "display": "银针符箓镇压药力", "category": "technique", "file": "novel_curated_techniques_v487.json"},
+    {"id": "technique_1018", "display": "噬金虫群盾鹰阵", "category": "technique", "file": "novel_curated_techniques_v487.json"},
+    {"id": "technique_1019", "display": "太极图浓缩压杀", "category": "technique", "file": "novel_curated_techniques_v487.json"},
+    {"id": "material_1039", "display": "反噬后丹药群", "category": "material", "file": "novel_curated_materials_v487.json"},
+    {"id": "material_1040", "display": "谷金精血催圣宝", "category": "material", "file": "novel_curated_materials_v487.json"},
+    {"id": "material_1041", "display": "魔界两样灵物", "category": "material", "file": "novel_curated_materials_v487.json"}
+  ]
+}
