@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 657,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第399–403章）",
+  "method": "沿原文逐段精读；本索引汇总 v657 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_3061", "display": "红月入口", "category": "setting", "file": "novel_curated_settings_v657.json"},
+    {"id": "setting_3062", "display": "九柱封印", "category": "setting", "file": "novel_curated_settings_v657.json"},
+    {"id": "setting_3063", "display": "欲盖弥彰", "category": "setting", "file": "novel_curated_settings_v657.json"},
+    {"id": "setting_3064", "display": "三方对峙", "category": "setting", "file": "novel_curated_settings_v657.json"},
+    {"id": "setting_3065", "display": "渠灵灭雪", "category": "setting", "file": "novel_curated_settings_v657.json"},
+    {"id": "setting_3066", "display": "太乙丹闻", "category": "setting", "file": "novel_curated_settings_v657.json"},
+    {"id": "artifact_2025", "display": "道丹玉盘", "category": "artifact", "file": "novel_curated_artifacts_v657.json"},
+    {"id": "artifact_2026", "display": "御水车", "category": "artifact", "file": "novel_curated_artifacts_v657.json"},
+    {"id": "artifact_2027", "display": "渠灵白蛇", "category": "artifact", "file": "novel_curated_artifacts_v657.json"},
+    {"id": "artifact_2028", "display": "黑幕封门", "category": "artifact", "file": "novel_curated_artifacts_v657.json"},
+    {"id": "technique_1527", "display": "清明灵目", "category": "technique", "file": "novel_curated_techniques_v657.json"},
+    {"id": "technique_1528", "display": "雷阵瞬移", "category": "technique", "file": "novel_curated_techniques_v657.json"},
+    {"id": "technique_1529", "display": "噬金斩宝", "category": "technique", "file": "novel_curated_techniques_v657.json"},
+    {"id": "material_1549", "display": "虚元丹成", "category": "material", "file": "novel_curated_materials_v657.json"},
+    {"id": "material_1550", "display": "墨钰晶", "category": "material", "file": "novel_curated_materials_v657.json"},
+    {"id": "material_1551", "display": "冰蓝岩", "category": "material", "file": "novel_curated_materials_v657.json"}
+  ]
+}
