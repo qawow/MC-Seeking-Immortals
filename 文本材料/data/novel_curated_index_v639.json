@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 639,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第309–313章）",
+  "method": "沿原文逐段精读；本索引汇总 v639 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2953", "display": "真仙后期", "category": "setting", "file": "novel_curated_settings_v639.json"},
+    {"id": "setting_2954", "display": "双母豆花", "category": "setting", "file": "novel_curated_settings_v639.json"},
+    {"id": "setting_2955", "display": "植豆入傀", "category": "setting", "file": "novel_curated_settings_v639.json"},
+    {"id": "setting_2956", "display": "雷豆变异", "category": "setting", "file": "novel_curated_settings_v639.json"},
+    {"id": "setting_2957", "display": "雷夔铭刻", "category": "setting", "file": "novel_curated_settings_v639.json"},
+    {"id": "setting_2958", "display": "母豆调剂", "category": "setting", "file": "novel_curated_settings_v639.json"},
+    {"id": "artifact_1953", "display": "黄豆葫芦", "category": "artifact", "file": "novel_curated_artifacts_v639.json"},
+    {"id": "artifact_1954", "display": "雷甲道兵", "category": "artifact", "file": "novel_curated_artifacts_v639.json"},
+    {"id": "artifact_1955", "display": "虎首面具", "category": "artifact", "file": "novel_curated_artifacts_v639.json"},
+    {"id": "artifact_1956", "display": "融合石片", "category": "artifact", "file": "novel_curated_artifacts_v639.json"},
+    {"id": "technique_1473", "display": "时间晶丝", "category": "technique", "file": "novel_curated_techniques_v639.json"},
+    {"id": "technique_1474", "display": "铭雷锁元", "category": "technique", "file": "novel_curated_techniques_v639.json"},
+    {"id": "technique_1475", "display": "金雷锁元", "category": "technique", "file": "novel_curated_techniques_v639.json"},
+    {"id": "material_1495", "display": "幽雾草", "category": "material", "file": "novel_curated_materials_v639.json"},
+    {"id": "material_1496", "display": "入沙葵", "category": "material", "file": "novel_curated_materials_v639.json"},
+    {"id": "material_1497", "display": "无量沙", "category": "material", "file": "novel_curated_materials_v639.json"}
+  ]
+}
