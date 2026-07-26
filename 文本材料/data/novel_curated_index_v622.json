@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 622,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第224–228章）",
+  "method": "沿原文逐段精读；本索引汇总 v622 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2851", "display": "无常盟销赃", "category": "setting", "file": "novel_curated_settings_v622.json"},
+    {"id": "setting_2852", "display": "真传试炼暗卫", "category": "setting", "file": "novel_curated_settings_v622.json"},
+    {"id": "setting_2853", "display": "欧阳道主轮值", "category": "setting", "file": "novel_curated_settings_v622.json"},
+    {"id": "setting_2854", "display": "仙俗收礼", "category": "setting", "file": "novel_curated_settings_v622.json"},
+    {"id": "setting_2855", "display": "三路试炼线", "category": "setting", "file": "novel_curated_settings_v622.json"},
+    {"id": "setting_2856", "display": "白奉义失踪", "category": "setting", "file": "novel_curated_settings_v622.json"},
+    {"id": "artifact_1885", "display": "孙克三宝", "category": "artifact", "file": "novel_curated_artifacts_v622.json"},
+    {"id": "artifact_1886", "display": "白素媛环纱", "category": "artifact", "file": "novel_curated_artifacts_v622.json"},
+    {"id": "artifact_1887", "display": "戚紫轮印", "category": "artifact", "file": "novel_curated_artifacts_v622.json"},
+    {"id": "artifact_1888", "display": "巨型飞舟", "category": "artifact", "file": "novel_curated_artifacts_v622.json"},
+    {"id": "technique_1422", "display": "驱水透影", "category": "technique", "file": "novel_curated_techniques_v622.json"},
+    {"id": "technique_1423", "display": "无形剑气杀", "category": "technique", "file": "novel_curated_techniques_v622.json"},
+    {"id": "technique_1424", "display": "幽游玄功", "category": "technique", "file": "novel_curated_techniques_v622.json"},
+    {"id": "material_1444", "display": "火涎仙酒", "category": "material", "file": "novel_curated_materials_v622.json"},
+    {"id": "material_1445", "display": "螳螂冰肢", "category": "material", "file": "novel_curated_materials_v622.json"},
+    {"id": "material_1446", "display": "仙元石五十", "category": "material", "file": "novel_curated_materials_v622.json"}
+  ]
+}
