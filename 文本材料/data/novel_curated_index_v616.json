@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 616,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第194–198章）",
+  "method": "沿原文逐段精读；本索引汇总 v616 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2815", "display": "仙元殿摩邪", "category": "setting", "file": "novel_curated_settings_v616.json"},
+    {"id": "setting_2816", "display": "赤霞火脉溶洞", "category": "setting", "file": "novel_curated_settings_v616.json"},
+    {"id": "setting_2817", "display": "真言化轮经本源", "category": "setting", "file": "novel_curated_settings_v616.json"},
+    {"id": "setting_2818", "display": "火土药圃困局", "category": "setting", "file": "novel_curated_settings_v616.json"},
+    {"id": "setting_2819", "display": "影砚强敌与失忆", "category": "setting", "file": "novel_curated_settings_v616.json"},
+    {"id": "setting_2820", "display": "叶风狗屎运", "category": "setting", "file": "novel_curated_settings_v616.json"},
+    {"id": "artifact_1861", "display": "银色雷珠", "category": "artifact", "file": "novel_curated_artifacts_v616.json"},
+    {"id": "artifact_1862", "display": "蟹道人核心", "category": "artifact", "file": "novel_curated_artifacts_v616.json"},
+    {"id": "artifact_1863", "display": "影之力砚台", "category": "artifact", "file": "novel_curated_artifacts_v616.json"},
+    {"id": "artifact_1864", "display": "火红阵旗与巨笔", "category": "artifact", "file": "novel_curated_artifacts_v616.json"},
+    {"id": "technique_1404", "display": "银紫雷电巨剑", "category": "technique", "file": "novel_curated_techniques_v616.json"},
+    {"id": "technique_1405", "display": "真言宝轮神通", "category": "technique", "file": "novel_curated_techniques_v616.json"},
+    {"id": "technique_1406", "display": "太一化清隐搜魂", "category": "technique", "file": "novel_curated_techniques_v616.json"},
+    {"id": "material_1426", "display": "火精", "category": "material", "file": "novel_curated_materials_v616.json"},
+    {"id": "material_1427", "display": "精炎火鸟", "category": "material", "file": "novel_curated_materials_v616.json"},
+    {"id": "material_1428", "display": "注解经", "category": "material", "file": "novel_curated_materials_v616.json"}
+  ]
+}
