@@ -1,7 +1,6 @@
 package com.xunxian.seekingimmortals.client;
 
 import com.xunxian.seekingimmortals.client.ui.UiTheme;
-import com.xunxian.seekingimmortals.client.ui.UiThemeConfig;
 import com.xunxian.seekingimmortals.network.AttemptBreakthroughPacket;
 import com.xunxian.seekingimmortals.network.ModNetwork;
 import com.xunxian.seekingimmortals.network.SetMovementSpeedScalePacket;
@@ -119,8 +118,9 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
                 layout.header().right() - themeButtonWidth, layout.header().y(),
                 themeButtonWidth, themeButtonHeight, themeButtonLabel(),
                 button -> {
-                    UiThemeConfig.select(UiTheme.active().next());
-                    button.setMessage(themeButtonLabel());
+                    if (minecraft != null) {
+                        minecraft.setScreen(new UiThemeSelectScreen(this));
+                    }
                 }));
 
         movementSpeedSlider = new MovementSpeedSlider(layout.slider().x(), layout.slider().y(),
@@ -236,7 +236,7 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
                 : "screen.seeking_immortals.cultivation_stats.close");
     }
 
-    /** 主题按钮标签: 「界面主题: <主题名>」，点击轮换六套主题。 */
+    /** 主题按钮标签: 「界面主题: <主题名>」，点击打开列表式主题选择界面。 */
     static Component themeButtonLabel() {
         return Component.translatable("screen.seeking_immortals.ui_theme.button",
                 Component.translatable(UiTheme.active().displayNameKey()));

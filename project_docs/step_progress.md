@@ -9166,3 +9166,14 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Verification   Done   `./gradlew build --no-daemon --max-workers=1` `BUILD SUCCESSFUL in 1m 28s`；期间 `authoredSpellEffectsCheck` 与 `authoredVisualCatalogCheck` 因并行会话输入过期，重跑两个生成器（2,292 profiles / 5,727 profiles）后通过，生成文件归属并行批次不入本批提交。
   Version/protocol   Done   `mod_version` 0.2.194 → `0.2.195`；纯显示层改动，未触网络包，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
   Backup   Done   `.bak/20260726_themes2/`。
+
+## 590. 2026-07-26 0.2.197 界面主题列表式选择界面
+
+  Step   Status   Notes
+  ---   ---   ---
+  Screen   Done   新增 `client/UiThemeSelectScreen`（AbstractJournalScreen 子屏，JADE_SLIP 静室场景）：ScrollableListPanel 行列表展示全部 11 套主题，每行绘制静室场景 panel/accent/cinnabar 三色样块 + 主题名，当前主题行高亮并标「当前」；点选行即 `UiThemeConfig.select(theme)` 立即换肤并持久化，整屏随新主题重绘充当实时预览；滚轮/拖拽滚动，「完成」按钮或 Esc 返回父屏。
+  Entry rewire   Done   修仙面板页眉主题按钮由循环切换（`UiTheme.active().next()`）改为打开 `new UiThemeSelectScreen(this)`；`themeButtonLabel()` 保留仍显示当前主题名；移除 CultivationStatsScreen 的 UiThemeConfig 未用导入。
+  Localization   Done   zh/en 双语补 `ui_theme.title`（界面主题/UI Theme）、`ui_theme.hint`（点选主题立即应用并保存）、`ui_theme.current`（当前/Current）三键。
+  Verification   Done   `./gradlew build --no-daemon --max-workers=1` `BUILD SUCCESSFUL in 1m 29s`（InkPaletteTest 5 用例继续全绿）；期间 `authoredSpellEffectsCheck` 因并行会话输入过期，重跑两个生成器（2,292 / 5,727 profiles）后通过，生成 JSON 归属并行批次不入本批提交。
+  Version/protocol   Done   `mod_version` 0.2.195 → `0.2.197`（0.2.196 已被并行会话在工作树占用，本批取下一空位）；纯客户端显示层改动，未触网络包，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
+  Backup   Done   `.bak/20260726_themelist/`。
