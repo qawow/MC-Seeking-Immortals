@@ -401,6 +401,257 @@ def technique_timeline(raw: dict[str, Any], profile: dict[str, Any]) -> list[dic
     return sorted(events, key=lambda event: (event["start_tick"], event["ordinal"]))
 
 
+# The compiler intentionally produces a small executable vocabulary.  These
+# are primitives, not finished spell templates: one source quote can combine
+# several of them and can alter path, scale, count, colour, and motion.
+PROGRAM_RULES = (
+    ("spatial_rift", ("空间裂", "虚空裂", "撕裂空间", "破碎虚空", "空间波动")),
+    ("ice_prison", ("冰牢", "冰狱", "冰封", "冰墙", "玄冰", "寒冰")),
+    ("blood_sea", ("血海", "血河", "血池", "血浪", "血潮")),
+    ("tree_avatar", ("巨树", "古树", "树影", "树根", "藤蔓")),
+    ("flame_bird", ("火鸟", "炎鸟", "朱雀", "凤凰", "火凤", "金乌")),
+    ("beast_phantom", ("兽影", "虎影", "巨猿", "魔猿", "麒麟", "玄武", "白虎")),
+    ("insect_swarm", ("虫云", "虫群", "蜂群", "蚁群", "噬金虫")),
+    ("lightning_storm", ("雷海", "雷云", "千雷", "雷柱", "雷暴", "雷雨", "雷霆")),
+    ("tidal_wave", ("巨浪", "海浪", "浪潮", "海潮", "洪水", "水幕", "水墙", "海啸")),
+    ("mountain_meteor", ("山岳", "山峰", "巨山", "陨石", "流星", "坠星")),
+    ("giant_claw", ("巨爪", "鬼爪", "火焰鬼爪")),
+    ("giant_hand", ("巨手", "大手", "巨掌", "佛掌", "血掌", "擎天手")),
+    ("eye_gaze", ("法目", "灵目", "天眼", "灵眼", "竖目", "瞳孔", "目光")),
+    ("sound_wave", ("梵音", "禅音", "魔啸", "长啸", "怒吼", "咆哮", "钟鸣", "铃声", "传音")),
+    ("lotus_mandala", ("莲花", "金莲", "青莲", "血莲", "莲台", "莲瓣")),
+    ("mirror_disc", ("宝镜", "古镜", "镜光", "镜面", "水镜", "明镜")),
+    ("scripture_glyph", ("经文", "书卷", "典籍", "墨字", "金文", "古字", "符字", "真言")),
+    ("magnetic_field", ("元磁", "磁力", "磁光", "磁场", "两极")),
+    ("wheel_disc", ("宝轮", "法轮", "光轮", "圆盘", "轮盘", "日轮", "月轮")),
+    ("wing_fan", ("双翼", "羽翼", "翅膀", "羽翅", "风雷翅", "羽扇")),
+    ("spear_spike", ("金针", "银针", "灵针", "飞针", "长矛", "冰矛", "冰锥", "地刺", "骨刺")),
+    ("orb_projectile", ("光球", "火球", "雷球", "水球", "圆球", "灵珠", "宝珠", "圆珠")),
+    ("mist_veil", ("雾气", "迷雾", "云雾", "雾幕", "烟幕", "霞光", "隐踪", "隐匿")),
+    ("fist_barrage", ("拳影", "掌影")),
+    ("sword_rain", ("剑雨", "剑阵", "密密麻麻剑")),
+    ("serpent_dragon", ("火龙", "水龙", "火蛇", "蛟龙", "巨蟒", "毒蛇")),
+    ("cloud_vortex", ("漩涡", "云团", "血云", "黑云")),
+    ("rune_orbit", ("符文", "符箓", "符印", "法阵", "阵法", "阵图")),
+    ("chain_net", ("锁链", "电网", "光丝", "丝线", "丝连")),
+    ("beam_lance", ("光柱", "光束", "剑虹", "剑光")),
+    ("projectile_swarm", ("飞射", "箭雨", "无数", "密密麻麻")),
+    ("body_aura", ("鳞片", "金身", "铠甲", "护体")),
+    ("spirit_avatar", ("法相", "鬼影", "骷髅", "化身", "人形", "女子")),
+    ("ground_field", ("地面", "大地", "领域", "地网")),
+)
+
+PROGRAM_SHAPES = {name for name, _ in PROGRAM_RULES} | {
+    "aura_burst", "single_projectile", "array_rings", "chain_links", "summon_gate",
+    "serpent_dragon", "sphere_field", "seal_cage", "barrier_plane", "body_shell",
+    "afterimage_path", "layered_afterimages", "channel_stream", "blade_arc",
+    "impact_arcs", "rising_motes", "cleansing_ring", "burning_talisman",
+}
+
+PROGRAM_COLOR_RULES = (
+    ("绿金", "heal"), ("疗愈", "heal"), ("治愈", "heal"), ("诡绿", "poison"),
+    ("毒", "poison"), ("紫金", "thunder"), ("紫电", "thunder"), ("雷", "thunder"),
+    ("幽紫", "yin"), ("阴", "yin"), ("魂", "soul"), ("灵魂", "soul"),
+    ("火", "fire"), ("赤", "fire"), ("橙红", "fire"), ("水", "water"),
+    ("澄蓝", "water"), ("蓝白", "water"), ("木", "wood"), ("碧", "wood"),
+    ("青绿", "wood"), ("金属", "metal"), ("银金", "metal"), ("金", "metal"),
+    ("土", "earth"), ("褐", "earth"), ("尘", "earth"), ("冰", "water"),
+    ("寒", "water"), ("青白", "qi"), ("淡青", "qi"), ("黑", "yin"),
+    ("白", "qi"), ("紫", "yin"), ("红", "fire"), ("蓝", "water"), ("绿", "wood"),
+)
+
+
+def program_path(text: str) -> str:
+    if any(token in text for token in ("盘旋", "环绕", "旋转", "回旋", "绕")):
+        return "ORBIT"
+    if any(token in text for token in ("螺旋", " spiral", "盘绕")):
+        return "SPIRAL"
+    if any(token in text for token in ("扩散", "爆散", "散开", "铺开", "张开")):
+        return "EXPAND"
+    if any(token in text for token in ("汇聚", "聚拢", "收束", "凝聚")):
+        return "CONVERGE"
+    if any(token in text for token in ("升起", "上升", "腾起", "冲天", "浮起")):
+        return "RISE"
+    if any(token in text for token in ("坠落", "落下", "砸下", "从天")):
+        return "FALL"
+    if any(token in text for token in ("散落", "四射", "飞散", "四处")):
+        return "SCATTER"
+    if any(token in text for token in ("波动", "波纹", "脉动", "起伏")):
+        return "WAVE"
+    if any(token in text for token in ("飞向", "射向", "冲向", "扑向", "贯穿", "穿过")):
+        return "TRACK"
+    if any(token in text for token in ("轨迹", "飞射", "射出", "光束", "光柱")):
+        return "DIRECT"
+    return "STATIC"
+
+
+def program_motion(text: str, inferred: bool) -> str:
+    if any(token in text for token in ("渐渐凝聚", "凝聚清晰", "显现", "成型")):
+        return "MATERIALIZE"
+    if any(token in text for token in ("消散", "消失", "溃散", "化为虚影", "散去")):
+        return "DISSOLVE"
+    if any(token in text for token in ("闪烁", "忽明忽暗", "闪动")):
+        return "FLICKER"
+    if any(token in text for token in ("脉动", "呼吸", "一缩一涨")):
+        return "PULSE"
+    if any(token in text for token in ("加速", "骤快", "疾驰")):
+        return "ACCELERATE"
+    if any(token in text for token in ("缓慢", "渐慢", "迟缓")):
+        return "DECELERATE"
+    return "STEADY" if not inferred else "PULSE"
+
+
+def program_anchor(text: str, path: str, trigger: str) -> str:
+    if any(token in text for token in ("暗角", "镜头", "屏幕", "视野")):
+        return "SCREEN"
+    if trigger == "IMPACT" or any(token in text for token in ("敌人", "目标", "对方", "身上")):
+        return "TARGET"
+    if path in {"DIRECT", "TRACK", "WAVE"}:
+        return "PATH"
+    if any(token in text for token in ("掌心", "手中", "自身", "周身", "体内")):
+        return "CASTER"
+    return "MIDPOINT"
+
+
+def program_copies(text: str) -> int:
+    if any(token in text for token in ("无数", "漫天", "铺天盖地", "千", "万")):
+        return 20
+    if any(token in text for token in ("百", "数十", "密密麻麻")):
+        return 12
+    for token, value in (("九", 9), ("八", 8), ("七", 7), ("六", 6), ("五", 5),
+                         ("四", 4), ("三", 3), ("两", 2), ("二", 2)):
+        if token in text:
+            return value
+    return 1
+
+
+def program_scale(text: str, base_radius: float) -> tuple[float, float, float]:
+    tier = 1.0
+    if any(token in text for token in ("千丈", "万丈", "遮天", "天地", "山岳般")):
+        tier = 3.2
+    elif any(token in text for token in ("百丈", "巨大", "硕大", "漫天", "房屋般")):
+        tier = 2.2
+    elif any(token in text for token in ("数十丈", "大片", "云团", "漩涡")):
+        tier = 1.6
+    elif any(token in text for token in ("细小", "微弱", "一缕", "丝")):
+        tier = 0.55
+    return (max(0.2, min(4.8, tier * max(0.55, base_radius))),
+            max(0.2, min(4.8, tier * (1.0 if "轨迹" not in text else 1.4))),
+            max(0.2, min(4.8, tier * (1.25 if any(t in text for t in ("高", "天", "云")) else 0.85))))
+
+
+def program_palette(text: str, fallback: str, argbs: dict[str, int]) -> tuple[str, str]:
+    keys = []
+    for token, key in PROGRAM_COLOR_RULES:
+        if token in text and key in argbs and key not in keys:
+            keys.append(key)
+    primary = keys[0] if keys else fallback
+    secondary = keys[1] if len(keys) > 1 else fallback
+    return primary, secondary
+
+
+def program_primitives(text: str, base_shape: str) -> tuple[list[str], list[str]]:
+    selected: list[str] = []
+    evidence: list[str] = []
+    for primitive, terms in PROGRAM_RULES:
+        hits = [term for term in terms if term in text]
+        if hits:
+            selected.append(primitive)
+            evidence.extend(hits[:3])
+    secondary = (
+        ("aura_burst", ("光点", "灵光", "光芒", "闪白")),
+        ("mist_veil", ("雾", "烟", "霜雾", "余烬")),
+        ("impact_arcs", ("爆裂", "爆开", "爆散", "震")),
+        ("layered_afterimages", ("残影", "虚影", "透明", "影子")),
+    )
+    for primitive, terms in secondary:
+        hits = [term for term in terms if term in text]
+        if hits and primitive not in selected:
+            selected.append(primitive)
+            evidence.extend(hits[:2])
+    if not selected:
+        selected.append(base_shape if base_shape in PROGRAM_SHAPES else "aura_burst")
+        evidence.append("profile_shape:" + (base_shape or "aura_burst"))
+    return selected[:4], evidence[:10]
+
+
+def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
+                        timeline: list[dict[str, Any]], argbs: dict[str, int]) -> dict[str, Any]:
+    source_values = raw.get("visual_descriptions", []) if isinstance(raw, dict) else []
+    sources = [clean(value) for value in source_values if clean(value)]
+    inferred = clean(raw.get("visual_source_kind")) in {"novel_setting_fallback", "technique_description"}
+    if not sources:
+        sources = [clean(event.get("source")) for event in timeline if clean(event.get("source"))]
+        inferred = True
+    if not timeline:
+        return {"compiler": "semantic_layers_v2", "source_quote_count": len(sources),
+                "covered_quote_count": len(sources), "inferred_fallback": inferred, "layers": []}
+    base_shape = norm(profile.get("shape"))
+    fallback_palette = norm(profile.get("palette_key")) or "qi"
+    layers: list[dict[str, Any]] = []
+    seen_quote_layers = 0
+    for source_index, source in enumerate(sources):
+        matching = [index for index, event in enumerate(timeline) if clean(event.get("source")) == source]
+        event_index = matching[0] if matching else source_index % len(timeline)
+        event = timeline[event_index]
+        trigger = clean(event.get("trigger"))
+        primitive_ids, evidence = program_primitives(source, base_shape)
+        path = program_path(source)
+        anchor = program_anchor(source, path, trigger)
+        motion = program_motion(source, inferred)
+        copies = program_copies(source)
+        radius, length, height = program_scale(source, float(profile.get("radius", 0.9) or 0.9))
+        primary_key, secondary_key = program_palette(source, fallback_palette, argbs)
+        digest = hashlib.sha256(f"{profile.get('id')}:{source_index}:{source}".encode("utf-8")).digest()
+        phase = int.from_bytes(digest[:2], "big") % 360
+        speed = 0.3 if "缓" in source or "慢" in source else 1.0
+        if any(token in source for token in ("骤", "疾", "瞬", "一闪")):
+            speed = 2.0
+        spread = 180.0 if path in {"SCATTER", "EXPAND"} else (360.0 if path == "ORBIT" else 18.0)
+        rotation = 360.0 if path in {"ORBIT", "SPIRAL"} else (phase if path == "WAVE" else 0.0)
+        for primitive_index, primitive in enumerate(primitive_ids):
+            layers.append({
+                "layer_index": len(layers),
+                "event_ordinal": int(event.get("ordinal", event_index)),
+                "primitive": primitive,
+                "anchor": anchor,
+                "path": path,
+                "motion": motion,
+                "copies": copies if primitive_index == 0 else max(1, copies // 2),
+                "radius_scale": radius / max(0.1, float(profile.get("radius", 0.9) or 0.9)),
+                "length_scale": length,
+                "height_scale": height,
+                "speed": speed,
+                "spread_degrees": spread,
+                "rotation_degrees": rotation,
+                "vertical_offset": 0.0 if anchor in {"TARGET", "PATH"} else (0.18 if "地面" not in source else 0.03),
+                "jitter": 0.06 if motion in {"FLICKER", "PULSE"} else 0.02,
+                "primary_argb": int(argbs.get(primary_key, argbs[fallback_palette])),
+                "secondary_argb": int(argbs.get(secondary_key, argbs[fallback_palette])),
+                "evidence_terms": evidence + ["quote_index:" + str(source_index)],
+                "source_quote": source,
+                "inferred": inferred,
+            })
+        seen_quote_layers += 1
+    if not layers:
+        layers.append({
+            "layer_index": 0, "event_ordinal": 0, "primitive": base_shape if base_shape in PROGRAM_SHAPES else "aura_burst",
+            "anchor": "CASTER", "path": "STATIC", "motion": "PULSE", "copies": 1,
+            "radius_scale": 1.0, "length_scale": 1.0, "height_scale": 1.0, "speed": 0.5,
+            "spread_degrees": 0.0, "rotation_degrees": 0.0, "vertical_offset": 0.0, "jitter": 0.0,
+            "primary_argb": int(argbs.get(fallback_palette, 0xffd9ffff)),
+            "secondary_argb": int(argbs.get(fallback_palette, 0xffd9ffff)),
+            "evidence_terms": ["generated_fallback"], "source_quote": "", "inferred": True,
+        })
+    return {
+        "compiler": "semantic_layers_v2",
+        "source_quote_count": len(sources) if not inferred else len(sources),
+        "covered_quote_count": seen_quote_layers,
+        "inferred_fallback": inferred,
+        "layers": layers,
+    }
+
+
 def artifact_timeline(raw: dict[str, Any], profile: dict[str, Any]) -> tuple[list[dict[str, Any]], dict[str, str], dict[str, str]]:
     events: list[dict[str, Any]] = []
     states: dict[str, str] = {}
@@ -526,6 +777,10 @@ def make_profile(domain: str, profile: dict[str, Any], raw: dict[str, Any], colo
         timeline = consumable_timeline(raw, profile)
         states = {}
         state_sources = {}
+    visual_program = make_visual_program(profile, raw, timeline, argbs) \
+        if domain == "TECHNIQUE" else {"compiler": "none_v1", "source_quote_count": 0,
+        "covered_quote_count": 0, "inferred_fallback": True,
+                                        "layers": []}
     return {
         "key": f"{domain.lower()}:{profile_id}",
         "domain": domain,
@@ -546,6 +801,7 @@ def make_profile(domain: str, profile: dict[str, Any], raw: dict[str, Any], colo
         "telegraphed": bool(profile.get("telegraphed", profile.get("has_telegraph", False))),
         "radius": max(0.1, min(8.0, float(profile.get("radius", 0.9) or 0.9))),
         "intensity": max(1, min(64, int(profile.get("intensity", 16) or 16))),
+        "visual_program": visual_program,
         "timeline": timeline,
         "states": states,
         "state_sources": state_sources,

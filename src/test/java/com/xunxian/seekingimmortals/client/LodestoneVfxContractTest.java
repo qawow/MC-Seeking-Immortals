@@ -113,10 +113,10 @@ class LodestoneVfxContractTest {
     void authoredSpellShapesReachDistinctClientGeometry() throws Exception {
         String renderer = read(JAVA_ROOT.resolve(Path.of("client", "LodestoneTechniqueVfx.java")));
 
-        assertTrue(renderer.contains("map(profile -> profile.shape())"));
-        assertTrue(renderer.contains("emitAuthoredShape(level, active.shape"));
-        assertTrue(renderer.indexOf("emitAuthoredShape(level, active.shape")
-                < renderer.indexOf("embellish(level, packet.kind()"));
+        assertTrue(renderer.contains("VisualProgram visualProgram"));
+        assertTrue(renderer.contains("emitVisualProgram(level, packet, active"));
+        assertTrue(renderer.contains("if (active.authoredProgram)"));
+        assertTrue(renderer.contains("layer.primitive().id()"));
 
         for (String branch : List.of(
                 "case \"giant_claw\" -> giantClawShape(",

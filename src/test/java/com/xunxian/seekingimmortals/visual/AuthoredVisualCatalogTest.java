@@ -176,7 +176,37 @@ class AuthoredVisualCatalogTest {
                 assertTrue(event.intensity() > 0, profile.key());
             }
             profile.states().values().forEach(action -> assertNotNull(action, profile.key()));
+            if (profile.domain() == VisualDomain.TECHNIQUE) {
+                assertTrue(profile.visualProgram().executable(), profile.key());
+                assertEquals(profile.visualProgram().sourceQuoteCount(),
+                        profile.visualProgram().coveredQuoteCount(), profile.key());
+                assertEquals("semantic_layers_v2", profile.visualProgram().compiler(), profile.key());
+                assertTrue(profile.visualProgram().layers().stream()
+                        .allMatch(layer -> layer.eventOrdinal() < profile.timeline().size()), profile.key());
+            }
         }
+    }
+
+    @Test
+    void authoredTechniqueQuotesCompileToMultipleTypedLayers() {
+        long authored = AuthoredVisualCatalog.profiles().values().stream()
+                .filter(profile -> profile.domain() == VisualDomain.TECHNIQUE)
+                .filter(profile -> profile.authored() && !profile.visualProgram().inferredFallback())
+                .count();
+        long directQuotes = AuthoredVisualCatalog.profiles().values().stream()
+                .filter(profile -> profile.domain() == VisualDomain.TECHNIQUE)
+                .mapToLong(profile -> profile.visualProgram().sourceQuoteCount())
+                .sum();
+        long covered = AuthoredVisualCatalog.profiles().values().stream()
+                .filter(profile -> profile.domain() == VisualDomain.TECHNIQUE)
+                .mapToLong(profile -> profile.visualProgram().coveredQuoteCount())
+                .sum();
+        assertEquals(1761, authored);
+        assertEquals(directQuotes, covered);
+        assertTrue(directQuotes >= 9000);
+        assertTrue(AuthoredVisualCatalog.profiles().values().stream()
+                .filter(profile -> profile.domain() == VisualDomain.TECHNIQUE)
+                .anyMatch(profile -> profile.visualProgram().layers().size() >= 4));
     }
 
     @Test

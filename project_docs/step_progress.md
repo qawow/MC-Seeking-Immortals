@@ -9031,3 +9031,15 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Version/protocol   Done   `mod_version` 从 `0.2.176` 经首次构建的 `0.2.177`、领取加固的 `0.2.178` 升至最终 `0.2.179`；无网络包字段/顺序/类型/注册/频道变化，协议保持 `30`。
   Backup   Done   `.bak/20260726_044217_0.2.177_completion_fixes/`。
   Live QA/follow-up   Pending   需实机验证 19 个门禁、周期边界、受控单位击杀、多人抢杀、跨日/重连、死亡克隆、满包 outbox 与随机法宝平衡；对话 action 保真和详细任务步骤权威仍待后续批次。
+
+## 578. 2026-07-26 0.2.185 原著法术逐条视觉程序化
+
+  Step   Status   Notes
+  ---   ---   ---
+  Source compiler   Done   术法统一目录为每段视觉引文生成 `semantic_layers_v2` 程序；13,614 个 layer 覆盖 2,247 个术法和 9,838 段引文，保存 primitive、锚点、路径、数量、尺度、速度、旋转、颜色、证据词和来源事件；同步纳入当前 v647 精读生成指纹。
+  Runtime renderer   Done   新增 `VisualPrimitive`、`VisualProgram`、`VisualProgramLayer` 类型；客户端按现有 profileKey 与 timeline ordinal 选择程序，执行 DIRECT/ORBIT/CONVERGE/EXPAND/RISE/FALL/SCATTER/WAVE 等路径，并按每事件预算分配 layer。无程序的非术法资料仍使用旧共享后备，作者术法不再以单一 shape/motif 作为最终渲染。
+  Contracts   Done   目录解析器严格检查程序闭包、颜色范围、事件 ordinal 与逐条引文覆盖；新增全量术法程序契约和 renderer 接入断言。
+  Verification   Done   生成器检查、目录/客户端定向测试、Java 编译通过；普通 `./gradlew build --no-daemon --max-workers=1` 在 1 分 21 秒内 `BUILD SUCCESSFUL`，1,161 项测试和资源/作者目录预检全部通过，`aiPreflight` 记录 `0.2.185`。
+  Version/protocol   Done   `mod_version` 升至 `0.2.185`；未改变网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
+  Backup   Done   代码/资源备份位于 `.bak/20260726_105049_0.2.184_visual_program/`、`.bak/20260726_110843_0.2.185_generated_refresh/` 和 `.bak/20260726_111408_0.2.185_visual_test_reconcile/`；文档备份位于 `.bak/20260726_110407_0.2.185_visual_program_docs/`。
+  Remaining risk   Pending   尚未完成真实客户端逐术法逐镜头截图签字；生成器是词法/结构化推断，不能替代原著没有给出细节时的人工视觉审阅。

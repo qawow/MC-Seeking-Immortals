@@ -385,7 +385,8 @@ public final class ClientVisualEngine {
                 (float) Math.min(32.0D, packet.scale() * style.radiusScale()),
                 intensity, packet.seed() ^ (GOLDEN_SEED * (pulse + 1L))
                         ^ (timelineEvent == null ? 0L : ((long) timelineEvent.ordinal() << 32)));
-        LodestoneTechniqueVfx.handleProfile(packet.profileKey(), styled, style.primaryArgb());
+        int eventOrdinal = timelineEvent == null ? -1 : timelineEvent.ordinal();
+        LodestoneTechniqueVfx.handleProfile(packet.profileKey(), styled, style.primaryArgb(), eventOrdinal);
     }
 
     private static ResolvedStyle applyTimelineStyle(ResolvedStyle base,

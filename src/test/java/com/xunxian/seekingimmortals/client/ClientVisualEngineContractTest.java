@@ -67,7 +67,7 @@ class ClientVisualEngineContractTest {
         assertTrue(engine.contains("AuthoredVisualCatalog.resolve(domain + \":\" + id)"));
         assertTrue(engine.contains("unified.primaryArgbInt()"));
         assertTrue(engine.contains("style.primaryArgb()"));
-        assertTrue(engine.contains("handleProfile(packet.profileKey(), styled, style.primaryArgb())"));
+        assertTrue(engine.contains("handleProfile(packet.profileKey(), styled, style.primaryArgb(), eventOrdinal)"));
 
         String techniqueRenderer = read(JAVA_ROOT.resolve(Path.of("client", "LodestoneTechniqueVfx.java")));
         String geometry = read(JAVA_ROOT.resolve(Path.of("client", "LodestoneWorldGeometry.java")));

@@ -203,6 +203,7 @@ public final class AuthoredVisualCatalog {
         }
 
         List<VisualTimelineEvent> timeline = parseTimeline(object.get("timeline"));
+        VisualProgram visualProgram = parseVisualProgram(object.get("visual_program"), timeline, domain);
         Map<String, VisualAction> states = parseStates(object.get("states"));
         Map<String, String> stateSources = parseProfileStringMap(object.get("state_sources"),
                 key + ".state_sources");
@@ -212,7 +213,79 @@ public final class AuthoredVisualCatalog {
                 optionalString(object, "display"), authored, fallback, paletteFallback,
                 family, motif, optionalString(object, "shape"), particle, trail,
                 optionalString(object, "color_prose"), paletteKey, argb, telegraphed,
-                radius, intensity, timeline, states, stateSources, sources);
+                radius, intensity, visualProgram, timeline, states, stateSources, sources);
+    }
+
+    private static VisualProgram parseVisualProgram(JsonElement element,
+                                                    List<VisualTimelineEvent> timeline,
+                                                    VisualDomain domain) {
+        if (element == null) {
+            if (domain == VisualDomain.TECHNIQUE) {
+                throw new IllegalArgumentException("TECHNIQUE profile requires visual_program");
+            }
+            return VisualProgram.empty();
+        }
+        if (!element.isJsonObject()) {
+            throw new IllegalArgumentException("visual_program must be an object");
+        }
+        JsonObject object = element.getAsJsonObject();
+        String compiler = requiredString(object, "compiler");
+        int sourceQuoteCount = requiredInteger(object, "source_quote_count");
+        int coveredQuoteCount = requiredInteger(object, "covered_quote_count");
+        boolean inferredFallback = requiredBoolean(object, "inferred_fallback");
+        JsonElement layerElement = object.get("layers");
+        if (layerElement == null || !layerElement.isJsonArray()) {
+            throw new IllegalArgumentException("visual_program.layers must be an array");
+        }
+        List<VisualProgramLayer> layers = new ArrayList<>();
+        JsonArray array = layerElement.getAsJsonArray();
+        for (int index = 0; index < array.size(); index++) {
+            JsonElement value = array.get(index);
+            if (value == null || !value.isJsonObject()) {
+                throw new IllegalArgumentException("visual_program.layers[" + index + "] must be an object");
+            }
+            JsonObject layer = value.getAsJsonObject();
+            int layerIndex = requiredInteger(layer, "layer_index");
+            int eventOrdinal = requiredInteger(layer, "event_ordinal");
+            if (eventOrdinal < 0 || eventOrdinal >= timeline.size()) {
+                throw new IllegalArgumentException("visual program event ordinal outside timeline");
+            }
+            VisualPrimitive primitive = VisualPrimitive.parse(requiredString(layer, "primitive"));
+            VisualProgramLayer.Anchor anchor = VisualProgramLayer.Anchor.parse(requiredString(layer, "anchor"));
+            VisualProgramLayer.Path path = VisualProgramLayer.Path.parse(requiredString(layer, "path"));
+            VisualProgramLayer.Motion motion = VisualProgramLayer.Motion.parse(requiredString(layer, "motion"));
+            long primaryArgb = requiredUnsignedLong(layer, "primary_argb");
+            long secondaryArgb = requiredUnsignedLong(layer, "secondary_argb");
+            List<String> evidence = stringList(layer.get("evidence_terms"), "evidence_terms");
+            String sourceQuote = optionalString(layer, "source_quote");
+            boolean inferred = requiredBoolean(layer, "inferred");
+            layers.add(new VisualProgramLayer(layerIndex, eventOrdinal, primitive, anchor, path, motion,
+                    requiredInteger(layer, "copies"), requiredDouble(layer, "radius_scale"),
+                    requiredDouble(layer, "length_scale"), requiredDouble(layer, "height_scale"),
+                    requiredDouble(layer, "speed"), requiredDouble(layer, "spread_degrees"),
+                    requiredDouble(layer, "rotation_degrees"), requiredDouble(layer, "vertical_offset"),
+                    requiredDouble(layer, "jitter"), primaryArgb, secondaryArgb, evidence,
+                    sourceQuote, inferred));
+        }
+        return new VisualProgram(compiler, sourceQuoteCount, coveredQuoteCount,
+                inferredFallback, layers);
+    }
+
+    private static List<String> stringList(JsonElement element, String field) {
+        if (element == null || !element.isJsonArray()) {
+            throw new IllegalArgumentException(field + " must be an array");
+        }
+        List<String> values = new ArrayList<>();
+        for (JsonElement value : element.getAsJsonArray()) {
+            if (value == null || !value.isJsonPrimitive() || !value.getAsJsonPrimitive().isString()) {
+                throw new IllegalArgumentException(field + " must contain strings");
+            }
+            String text = value.getAsString().trim();
+            if (!text.isBlank()) {
+                values.add(text);
+            }
+        }
+        return values;
     }
 
     private static List<VisualTimelineEvent> parseTimeline(JsonElement element) {

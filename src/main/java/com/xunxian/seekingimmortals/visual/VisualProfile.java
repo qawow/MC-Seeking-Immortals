@@ -30,6 +30,7 @@ public record VisualProfile(
         boolean telegraphed,
         double radius,
         int intensity,
+        VisualProgram visualProgram,
         List<VisualTimelineEvent> timeline,
         Map<String, VisualAction> states,
         Map<String, String> stateSources,
@@ -64,6 +65,7 @@ public record VisualProfile(
         if (intensity < 1 || intensity > 64) {
             throw new IllegalArgumentException("profile intensity must be between 1 and 64");
         }
+        visualProgram = visualProgram == null ? VisualProgram.empty() : visualProgram;
         List<VisualTimelineEvent> ordered = new ArrayList<>(timeline == null ? List.of() : timeline);
         ordered.sort(Comparator.comparingInt(VisualTimelineEvent::startTick)
                 .thenComparingInt(VisualTimelineEvent::ordinal));

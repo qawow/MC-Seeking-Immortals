@@ -4,6 +4,9 @@ import com.xunxian.seekingimmortals.network.TechniqueVfxPacket;
 import com.xunxian.seekingimmortals.registry.ModParticles;
 import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
 import com.xunxian.seekingimmortals.visual.AuthoredVisualCatalog;
+import com.xunxian.seekingimmortals.visual.VisualProfile;
+import com.xunxian.seekingimmortals.visual.VisualProgram;
+import com.xunxian.seekingimmortals.visual.VisualProgramLayer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.ParticleStatus;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -65,12 +68,18 @@ public final class LodestoneTechniqueVfx {
         int primaryArgb = profileKey == null ? 0
                 : AuthoredVisualCatalog.resolve(profileKey.toString())
                 .map(profile -> profile.primaryArgbInt()).orElse(0);
-        handleProfile(profileKey, packet, primaryArgb);
+        handleProfile(profileKey, packet, primaryArgb, -1);
     }
 
     /** Same bridge with a pre-resolved exact authored palette to avoid duplicate catalog lookup. */
     public static void handleProfile(ResourceLocation profileKey, TechniqueVfxPacket packet,
                                      int primaryArgb) {
+        handleProfile(profileKey, packet, primaryArgb, -1);
+    }
+
+    /** Resolves the local authored event ordinal without adding fields to the wire packet. */
+    public static void handleProfile(ResourceLocation profileKey, TechniqueVfxPacket packet,
+                                     int primaryArgb, int eventOrdinal) {
         Minecraft minecraft = Minecraft.getInstance();
         ClientLevel level = minecraft.level;
         if (level == null || minecraft.player == null || packet == null) {
@@ -88,10 +97,13 @@ public final class LodestoneTechniqueVfx {
             ACTIVE_VFX.remove(0);
             activeVfxCursor = Math.max(0, activeVfxCursor - 1);
         }
-        String shape = profileKey == null ? "" : AuthoredVisualCatalog.resolve(profileKey.toString())
-                .map(profile -> profile.shape()).orElse("");
+        VisualProfile profile = profileKey == null ? null
+                : AuthoredVisualCatalog.resolve(profileKey.toString()).orElse(null);
+        VisualProgram visualProgram = profile == null ? VisualProgram.empty() : profile.visualProgram();
+        List<VisualProgramLayer> programLayers = visualProgram.forEvent(eventOrdinal);
         ACTIVE_VFX.add(new ActiveVfx(packet, start, end, rhythm,
-                PaletteColors.fromArgb(primaryArgb), shape));
+                PaletteColors.fromArgb(primaryArgb), profile == null ? "" : profile.shape(),
+                visualProgram.executable(), programLayers));
         LodestoneWorldGeometry.addProfileIntent(profileKey, packet, primaryArgb,
                 rhythm.anticipationTicks(), rhythm.releaseTicks(), rhythm.sustainTicks(),
                 rhythm.afterglowTicks());
@@ -240,6 +252,14 @@ public final class LodestoneTechniqueVfx {
     private static void emitPacket(Minecraft minecraft, ClientLevel level, ActiveVfx active,
                                    int intensity, Random random, boolean shake) {
         TechniqueVfxPacket packet = active.packet;
+        if (active.authoredProgram) {
+            emitAuthoredLayers(level, packet, active.start, active.end, intensity, random, Phase.RELEASE);
+            emitVisualProgram(level, packet, active, intensity, random, Phase.RELEASE);
+            if (shake && packet.kind() == TechniqueVfxPacket.Kind.IMPACT && intensity >= 32) {
+                addScreenshake(minecraft, level, active.start, intensity, false);
+            }
+            return;
+        }
         emitAuthoredLayers(level, packet, active.start, active.end, intensity, random, Phase.RELEASE);
         emitAuthoredShape(level, active.shape, packet.family(), active.start, active.end,
                 packet.radius(), intensity, random);
@@ -327,16 +347,21 @@ public final class LodestoneTechniqueVfx {
         private final Rhythm rhythm;
         private final PaletteColors paletteOverride;
         private final String shape;
+        private final boolean authoredProgram;
+        private final List<VisualProgramLayer> programLayers;
         private int age;
 
         private ActiveVfx(TechniqueVfxPacket packet, Vec3 start, Vec3 end, Rhythm rhythm,
-                          PaletteColors paletteOverride, String shape) {
+                          PaletteColors paletteOverride, String shape,
+                          boolean authoredProgram, List<VisualProgramLayer> programLayers) {
             this.packet = packet;
             this.start = start;
             this.end = end;
             this.rhythm = rhythm;
             this.paletteOverride = paletteOverride;
             this.shape = shape == null ? "" : shape.trim().toLowerCase(Locale.ROOT);
+            this.authoredProgram = authoredProgram;
+            this.programLayers = programLayers == null ? List.of() : List.copyOf(programLayers);
         }
 
         private void tick(Minecraft minecraft, ClientLevel level) {
@@ -363,9 +388,11 @@ public final class LodestoneTechniqueVfx {
                         if (localAge == 0 || localAge == rhythm.anticipationTicks() - 1) {
                             int pulse = Math.max(1, authoredIntensity / 3);
                             emitAuthoredLayers(level, packet, start, end, pulse, random, Phase.ANTICIPATION);
-                            embellish(level, packet.kind(), packet.motif(), packet.family(), start, end,
-                                    packet.radius(), pulse, random);
-                            cast(level, packet.family(), start, end, packet.radius(), pulse, random);
+                            if (!authoredProgram) {
+                                embellish(level, packet.kind(), packet.motif(), packet.family(), start, end,
+                                        packet.radius(), pulse, random);
+                                cast(level, packet.family(), start, end, packet.radius(), pulse, random);
+                            }
                         }
                     }
                     case RELEASE -> {
@@ -387,15 +414,24 @@ public final class LodestoneTechniqueVfx {
                         if (localAge % rhythm.sustainInterval() == 0) {
                             int pulse = Math.max(1, authoredIntensity / 3);
                             emitAuthoredLayers(level, packet, start, end, pulse, random, Phase.SUSTAIN);
-                            sustain(level, packet, start, end, pulse, random);
+                            if (authoredProgram) {
+                                emitVisualProgram(level, packet, this, pulse, random, Phase.SUSTAIN);
+                            } else {
+                                sustain(level, packet, start, end, pulse, random);
+                            }
                         }
                     }
                     case AFTERGLOW -> {
                         if (localAge == 0 || (localAge & 1) == 0) {
                             emitAuthoredLayers(level, packet, start, end,
                                     Math.max(1, authoredIntensity / 4), random, Phase.AFTERGLOW);
-                            dissipate(level, packet.family(), start, packet.radius(),
-                                    Math.max(1, authoredIntensity / 4), random);
+                            if (authoredProgram) {
+                                emitVisualProgram(level, packet, this,
+                                        Math.max(1, authoredIntensity / 4), random, Phase.AFTERGLOW);
+                            } else {
+                                dissipate(level, packet.family(), start, packet.radius(),
+                                        Math.max(1, authoredIntensity / 4), random);
+                            }
                         }
                     }
                 }
@@ -1505,6 +1541,140 @@ public final class LodestoneTechniqueVfx {
         rotatingRing(level, family, center.add(0.0D, 1.2D, 0.0D), safeRadius * 0.72D,
                 Math.min(20, Math.max(10, intensity / 3)), -phase * 1.4D, random);
     }
+
+    /** Executes source-derived layers; the old shape/motif switch is intentionally bypassed. */
+    private static void emitVisualProgram(ClientLevel level, TechniqueVfxPacket packet,
+                                          ActiveVfx active, int intensity, Random random,
+                                          Phase phase) {
+        if (active.programLayers.isEmpty()) {
+            return;
+        }
+        int layerCount = active.programLayers.size();
+        for (int index = 0; index < layerCount && budgetAvailable(level); index++) {
+            VisualProgramLayer layer = active.programLayers.get(index);
+            int remainingLayers = layerCount - index;
+            int remaining = activeEmissionBudget == null ? 8 : activeEmissionBudget.remaining;
+            int quota = Math.max(1, Math.min(8, remaining / Math.max(1, remainingLayers)));
+            withSubBudget(quota, () -> emitProgramLayer(level, packet, active, layer,
+                    intensity, random, phase));
+        }
+    }
+
+    private static void emitProgramLayer(ClientLevel level, TechniqueVfxPacket packet,
+                                         ActiveVfx active, VisualProgramLayer layer,
+                                         int intensity, Random random, Phase phase) {
+        if (!budgetAvailable(level)) {
+            return;
+        }
+        int quota = activeEmissionBudget == null ? 4 : Math.max(1, activeEmissionBudget.remaining);
+        int copies = Math.min(layer.copies(), Math.max(1, quota / 3));
+        int layerIntensity = Math.max(2, intensity / Math.max(1, copies));
+        PaletteColors previous = activePaletteOverride;
+        PaletteColors layerPalette = PaletteColors.fromArgb((int) layer.primaryArgb());
+        if (layerPalette != null) {
+            activePaletteOverride = layerPalette;
+        }
+        try {
+            for (int copy = 0; copy < copies && budgetAvailable(level); copy++) {
+                ProgramCoordinates coordinates = programCoordinates(level, active, layer, copy, random, phase);
+                float radius = (float) Math.max(0.1D, packet.radius() * layer.radiusScale()
+                        * motionRadius(layer.motion(), phase));
+                emitAuthoredShape(level, layer.primitive().id(), packet.family(),
+                        coordinates.start(), coordinates.end(), radius,
+                        layerIntensity, random);
+            }
+        } finally {
+            activePaletteOverride = previous;
+        }
+    }
+
+    private static float motionRadius(VisualProgramLayer.Motion motion, Phase phase) {
+        return switch (motion) {
+            case MATERIALIZE -> phase == Phase.AFTERGLOW ? 0.72F : 1.0F;
+            case DISSOLVE -> phase == Phase.AFTERGLOW ? 1.18F : 1.0F;
+            case PULSE -> phase == Phase.SUSTAIN ? 1.12F : 1.0F;
+            default -> 1.0F;
+        };
+    }
+
+    private static ProgramCoordinates programCoordinates(ClientLevel level, ActiveVfx active,
+                                                         VisualProgramLayer layer, int copy,
+                                                         Random random, Phase phase) {
+        Vec3 start = active.start;
+        Vec3 end = active.end;
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 side = perpendicular(direction);
+        Vec3 up = normalized(side.cross(direction), new Vec3(0.0D, 1.0D, 0.0D));
+        Vec3 base = switch (layer.anchor()) {
+            case TARGET -> end;
+            case MIDPOINT -> start.lerp(end, 0.5D);
+            case PATH -> start.lerp(end, 0.35D);
+            case SCREEN, CASTER -> start;
+        };
+        base = base.add(0.0D, layer.verticalOffset(), 0.0D);
+        double copies = Math.max(1, layer.copies());
+        double angle = Math.toRadians(layer.rotationDegrees())
+                + level.getGameTime() * layer.speed() * 0.08D
+                + (Math.PI * 2.0D * copy / copies);
+        Vec3 radial = side.scale(Math.cos(angle)).add(up.scale(Math.sin(angle)));
+        double spread = Math.toRadians(layer.spreadDegrees());
+        if (spread > 0.0D && layer.copies() > 1) {
+            radial = side.scale(Math.cos(angle * spread / Math.PI))
+                    .add(up.scale(Math.sin(angle * spread / Math.PI)));
+        }
+        if (layer.jitter() > 0.0D) {
+            base = base.add(randomOffset(random, layer.jitter() * 0.35D));
+        }
+        double radius = Math.max(0.1D, active.packet.radius() * layer.radiusScale());
+        Vec3 source = start;
+        Vec3 target = end;
+        switch (layer.path()) {
+            case STATIC -> source = target = base;
+            case CONVERGE -> {
+                source = base.add(radial.scale(radius * 0.65D));
+                target = base;
+            }
+            case EXPAND -> {
+                source = base;
+                target = base.add(radial.scale(radius * layer.lengthScale()));
+            }
+            case RISE -> {
+                source = base;
+                target = base.add(up.scale(layer.heightScale() * radius));
+            }
+            case FALL -> {
+                source = base.add(up.scale(layer.heightScale() * radius));
+                target = base;
+            }
+            case ORBIT -> source = target = base.add(radial.scale(radius * layer.radiusScale()));
+            case SPIRAL -> {
+                source = start.add(radial.scale(radius * 0.3D));
+                target = end.add(radial.scale(radius * layer.lengthScale() * 0.45D));
+            }
+            case SCATTER -> {
+                source = base;
+                target = base.add(randomDirection(random).scale(radius * layer.lengthScale()));
+            }
+            case WAVE -> {
+                double wave = Math.sin(angle * 2.0D) * radius * 0.22D;
+                source = start.add(radial.scale(wave));
+                target = end.add(radial.scale(wave));
+            }
+            case DIRECT, TRACK -> {
+                source = start;
+                target = end;
+            }
+        }
+        if (layer.lengthScale() != 1.0D && layer.path() != VisualProgramLayer.Path.STATIC) {
+            target = source.add(target.subtract(source).scale(layer.lengthScale()));
+        }
+        if (phase == Phase.AFTERGLOW && layer.motion() == VisualProgramLayer.Motion.DISSOLVE) {
+            source = source.lerp(target, 0.15D);
+        }
+        return new ProgramCoordinates(source, target);
+    }
+
+    private record ProgramCoordinates(Vec3 start, Vec3 end) {}
 
     private static void emitAuthoredLayers(ClientLevel level, TechniqueVfxPacket packet,
                                            Vec3 start, Vec3 end, int intensity, Random random,
