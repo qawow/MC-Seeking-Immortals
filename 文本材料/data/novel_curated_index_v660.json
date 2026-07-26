@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 660,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第414–418章）",
+  "method": "沿原文逐段精读；本索引汇总 v660 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_3079", "display": "摄灵破禁", "category": "setting", "file": "novel_curated_settings_v660.json"},
+    {"id": "setting_3080", "display": "星光共鸣", "category": "setting", "file": "novel_curated_settings_v660.json"},
+    {"id": "setting_3081", "display": "真正幽寒宫", "category": "setting", "file": "novel_curated_settings_v660.json"},
+    {"id": "setting_3082", "display": "银天阶梯", "category": "setting", "file": "novel_curated_settings_v660.json"},
+    {"id": "setting_3083", "display": "禁空秘境", "category": "setting", "file": "novel_curated_settings_v660.json"},
+    {"id": "setting_3084", "display": "血寒追兵", "category": "setting", "file": "novel_curated_settings_v660.json"},
+    {"id": "artifact_2037", "display": "五行灵宝", "category": "artifact", "file": "novel_curated_artifacts_v660.json"},
+    {"id": "artifact_2038", "display": "星元石板", "category": "artifact", "file": "novel_curated_artifacts_v660.json"},
+    {"id": "artifact_2039", "display": "金色大幡", "category": "artifact", "file": "novel_curated_artifacts_v660.json"},
+    {"id": "artifact_2040", "display": "七曜星环", "category": "artifact", "file": "novel_curated_artifacts_v660.json"},
+    {"id": "technique_1536", "display": "星元拳劲", "category": "technique", "file": "novel_curated_techniques_v660.json"},
+    {"id": "technique_1537", "display": "山岳巨猿", "category": "technique", "file": "novel_curated_techniques_v660.json"},
+    {"id": "technique_1538", "display": "真极之膜", "category": "technique", "file": "novel_curated_techniques_v660.json"},
+    {"id": "material_1558", "display": "兽胎玄元丹", "category": "material", "file": "novel_curated_materials_v660.json"},
+    {"id": "material_1559", "display": "巨灵大力符", "category": "material", "file": "novel_curated_materials_v660.json"},
+    {"id": "material_1560", "display": "封丹玉盒", "category": "material", "file": "novel_curated_materials_v660.json"}
+  ]
+}
