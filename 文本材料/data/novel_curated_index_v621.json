@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 621,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第219–223章）",
+  "method": "沿原文逐段精读；本索引汇总 v621 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2845", "display": "蜃元兽幻术杀", "category": "setting", "file": "novel_curated_settings_v621.json"},
+    {"id": "setting_2846", "display": "水晶宫巢穴", "category": "setting", "file": "novel_curated_settings_v621.json"},
+    {"id": "setting_2847", "display": "火云岭矿脉", "category": "setting", "file": "novel_curated_settings_v621.json"},
+    {"id": "setting_2848", "display": "九转仙元阵", "category": "setting", "file": "novel_curated_settings_v621.json"},
+    {"id": "setting_2849", "display": "道兵换酒方", "category": "setting", "file": "novel_curated_settings_v621.json"},
+    {"id": "setting_2850", "display": "黑帝本命印记", "category": "setting", "file": "novel_curated_settings_v621.json"},
+    {"id": "artifact_1881", "display": "青竹剑后天", "category": "artifact", "file": "novel_curated_artifacts_v621.json"},
+    {"id": "artifact_1882", "display": "金色通天剑", "category": "artifact", "file": "novel_curated_artifacts_v621.json"},
+    {"id": "artifact_1883", "display": "黑帝屠仙刃", "category": "artifact", "file": "novel_curated_artifacts_v621.json"},
+    {"id": "artifact_1884", "display": "仙酒法宝杯", "category": "artifact", "file": "novel_curated_artifacts_v621.json"},
+    {"id": "technique_1419", "display": "山岳巨猿变", "category": "technique", "file": "novel_curated_techniques_v621.json"},
+    {"id": "technique_1420", "display": "念剑斩印", "category": "technique", "file": "novel_curated_techniques_v621.json"},
+    {"id": "technique_1421", "display": "封宝青符", "category": "technique", "file": "novel_curated_techniques_v621.json"},
+    {"id": "material_1441", "display": "火元晶", "category": "material", "file": "novel_curated_materials_v621.json"},
+    {"id": "material_1442", "display": "紫黑妖核", "category": "material", "file": "novel_curated_materials_v621.json"},
+    {"id": "material_1443", "display": "暗金花瓣金", "category": "material", "file": "novel_curated_materials_v621.json"}
+  ]
+}
