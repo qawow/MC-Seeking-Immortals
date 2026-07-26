@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 653,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第379–383章）",
+  "method": "沿原文逐段精读；本索引汇总 v653 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_3037", "display": "软禁炼丹", "category": "setting", "file": "novel_curated_settings_v653.json"},
+    {"id": "setting_3038", "display": "红月虚元", "category": "setting", "file": "novel_curated_settings_v653.json"},
+    {"id": "setting_3039", "display": "冥寒仙府", "category": "setting", "file": "novel_curated_settings_v653.json"},
+    {"id": "setting_3040", "display": "各方入海", "category": "setting", "file": "novel_curated_settings_v653.json"},
+    {"id": "setting_3041", "display": "虚元丹成", "category": "setting", "file": "novel_curated_settings_v653.json"},
+    {"id": "setting_3042", "display": "千年自由", "category": "setting", "file": "novel_curated_settings_v653.json"},
+    {"id": "artifact_2009", "display": "辟邪骨舟", "category": "artifact", "file": "novel_curated_artifacts_v653.json"},
+    {"id": "artifact_2010", "display": "定风珠赠", "category": "artifact", "file": "novel_curated_artifacts_v653.json"},
+    {"id": "artifact_2011", "display": "元合挡劫", "category": "artifact", "file": "novel_curated_artifacts_v653.json"},
+    {"id": "artifact_2012", "display": "金虫囚链", "category": "artifact", "file": "novel_curated_artifacts_v653.json"},
+    {"id": "technique_1515", "display": "炼神小成", "category": "technique", "file": "novel_curated_techniques_v653.json"},
+    {"id": "technique_1516", "display": "十八道纹", "category": "technique", "file": "novel_curated_techniques_v653.json"},
+    {"id": "technique_1517", "display": "九柱禁咒", "category": "technique", "file": "novel_curated_techniques_v653.json"},
+    {"id": "material_1537", "display": "黑髓晶", "category": "material", "file": "novel_curated_materials_v653.json"},
+    {"id": "material_1538", "display": "虚元丹", "category": "material", "file": "novel_curated_materials_v653.json"},
+    {"id": "material_1539", "display": "参天丹", "category": "material", "file": "novel_curated_materials_v653.json"}
+  ]
+}
