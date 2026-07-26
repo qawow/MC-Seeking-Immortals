@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 642,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第324–328章）",
+  "method": "沿原文逐段精读；本索引汇总 v642 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2971", "display": "雷魄炼化", "category": "setting", "file": "novel_curated_settings_v642.json"},
+    {"id": "setting_2972", "display": "一息十块", "category": "setting", "file": "novel_curated_settings_v642.json"},
+    {"id": "setting_2973", "display": "讲道盛会", "category": "setting", "file": "novel_curated_settings_v642.json"},
+    {"id": "setting_2974", "display": "真仙三衰", "category": "setting", "file": "novel_curated_settings_v642.json"},
+    {"id": "setting_2975", "display": "天人五衰", "category": "setting", "file": "novel_curated_settings_v642.json"},
+    {"id": "setting_2976", "display": "道主叛变", "category": "setting", "file": "novel_curated_settings_v642.json"},
+    {"id": "artifact_1965", "display": "金鳞锁", "category": "artifact", "file": "novel_curated_artifacts_v642.json"},
+    {"id": "artifact_1966", "display": "青风符", "category": "artifact", "file": "novel_curated_artifacts_v642.json"},
+    {"id": "artifact_1967", "display": "五色驼", "category": "artifact", "file": "novel_curated_artifacts_v642.json"},
+    {"id": "artifact_1968", "display": "墨云砚", "category": "artifact", "file": "novel_curated_artifacts_v642.json"},
+    {"id": "technique_1482", "display": "四兽禁幕", "category": "technique", "file": "novel_curated_techniques_v642.json"},
+    {"id": "technique_1483", "display": "百里讲道", "category": "technique", "file": "novel_curated_techniques_v642.json"},
+    {"id": "technique_1484", "display": "锁龙定字", "category": "technique", "file": "novel_curated_techniques_v642.json"},
+    {"id": "material_1504", "display": "拘雷木", "category": "material", "file": "novel_curated_materials_v642.json"},
+    {"id": "material_1505", "display": "伏天厚土", "category": "material", "file": "novel_curated_materials_v642.json"},
+    {"id": "material_1506", "display": "五色丹", "category": "material", "file": "novel_curated_materials_v642.json"}
+  ]
+}
