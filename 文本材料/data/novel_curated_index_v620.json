@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 620,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第214–218章）",
+  "method": "沿原文逐段精读；本索引汇总 v620 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2839", "display": "六团道纹一倍迟缓", "category": "setting", "file": "novel_curated_settings_v620.json"},
+    {"id": "setting_2840", "display": "十四道纹三倍迟缓", "category": "setting", "file": "novel_curated_settings_v620.json"},
+    {"id": "setting_2841", "display": "钟鸣山脉地鸣", "category": "setting", "file": "novel_curated_settings_v620.json"},
+    {"id": "setting_2842", "display": "常规执事任务", "category": "setting", "file": "novel_curated_settings_v620.json"},
+    {"id": "setting_2843", "display": "云湖岛与蜃元兽", "category": "setting", "file": "novel_curated_settings_v620.json"},
+    {"id": "setting_2844", "display": "掌天瓶与真轮", "category": "setting", "file": "novel_curated_settings_v620.json"},
+    {"id": "artifact_1877", "display": "银白朱红双葫芦", "category": "artifact", "file": "novel_curated_artifacts_v620.json"},
+    {"id": "artifact_1878", "display": "星脉盆栽灵药", "category": "artifact", "file": "novel_curated_artifacts_v620.json"},
+    {"id": "artifact_1879", "display": "蜃元兽灵壳", "category": "artifact", "file": "novel_curated_artifacts_v620.json"},
+    {"id": "artifact_1880", "display": "牛头面具", "category": "artifact", "file": "novel_curated_artifacts_v620.json"},
+    {"id": "technique_1416", "display": "真轮迟缓域试", "category": "technique", "file": "novel_curated_techniques_v620.json"},
+    {"id": "technique_1417", "display": "婴火炼剑", "category": "technique", "file": "novel_curated_techniques_v620.json"},
+    {"id": "technique_1418", "display": "点眉止火", "category": "technique", "file": "novel_curated_techniques_v620.json"},
+    {"id": "material_1438", "display": "淡金灵液", "category": "material", "file": "novel_curated_materials_v620.json"},
+    {"id": "material_1439", "display": "黑沉沙", "category": "material", "file": "novel_curated_materials_v620.json"},
+    {"id": "material_1440", "display": "仙元石三十", "category": "material", "file": "novel_curated_materials_v620.json"}
+  ]
+}
