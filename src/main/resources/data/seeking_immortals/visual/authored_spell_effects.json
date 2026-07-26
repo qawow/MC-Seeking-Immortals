@@ -525,6 +525,16 @@
     "文本材料/data/novel_curated_techniques_v650.json": "9a46480921b2a70d0151cd9ff02632851d464e11d693b7040c36e3187bb779fe",
     "文本材料/data/novel_curated_techniques_v651.json": "f8781135e55d1acb783194a316d16518bba042fd2769b813d48455f5fe01e298",
     "文本材料/data/novel_curated_techniques_v652.json": "b6715b5d3494bef635046b70afceadcbc4fd46e3ae5771b555eb47105221b617",
+    "文本材料/data/novel_curated_techniques_v653.json": "6c54db0b906979ddcaf81ff7f3dbf30a048b5c8ab64fa2d4c7e4cb907882af43",
+    "文本材料/data/novel_curated_techniques_v654.json": "02c0b1760167347491228e2a292c37a9be984a93001789667a15ff4041d7f1a8",
+    "文本材料/data/novel_curated_techniques_v655.json": "1d0ad2d9997e4c4e705b4baf3080066551ddc25bb032bc3a71d793e06fd9909d",
+    "文本材料/data/novel_curated_techniques_v656.json": "302012f03932ea33acea15c5c727943d2b00f3b16b7cf28c50ab0d1938da0527",
+    "文本材料/data/novel_curated_techniques_v657.json": "d54f302d55bd5be7e8fe2f294ed2acfb717de241b3319647028b9366f7abf541",
+    "文本材料/data/novel_curated_techniques_v658.json": "56bf4fb083e1bbbcf0645b9ab6d7b704f1333b0eba074e6a3897eb49f15203df",
+    "文本材料/data/novel_curated_techniques_v659.json": "d81899bac14efc50551507760929f46ec5df6aaa720dba835ccb0fa26d60c76a",
+    "文本材料/data/novel_curated_techniques_v660.json": "283fd430b9699f9966193b5876707a594c5843c4b19ca51c6dbb8ce271af839c",
+    "文本材料/data/novel_curated_techniques_v661.json": "7569eee9ea023db616418a4c819dee569fa8f2253742bc25f7a9d1e212138935",
+    "文本材料/data/novel_curated_techniques_v662.json": "6fc578babcca879f45c31a1ab211a24c70c2b02b073bb67c16e732a7b3481974",
     "文本材料/data/item_descriptions_v118.json": "91ffe8557119b562cf4d88f08d3b5e0a80bd3b400837bd3ce5e4f636853c8e6e",
     "文本材料/data/item_descriptions_v119.json": "cd2197614fb8369530bdee0014f9b17c4bb0b6a7ccca46d482796fb382dd5e8a",
     "文本材料/data/item_descriptions_v120.json": "ac7e7fae670c4792785f3f8a392b802ea790c3a665abc64696aa52ae889e4332",
@@ -532,8 +542,8 @@
     "文本材料/data/item_descriptions_v122.json": "bd75a2525ccc5240030abbf6b44f7e02571001fd174d947bf22101d70d3eabcd"
   },
   "java_source_audit": {
-    "file_count": 617,
-    "aggregate_sha256": "07b8da078f6ea1f29fbeb147859c1c67a885fd7e1229df3565c2c6e96b729152",
+    "file_count": 619,
+    "aggregate_sha256": "8e0c94353b8b6d20103ef717f80abe9ef3a8a72282349513988ca684ecaadf77",
     "spell_related_file_count": 181,
     "spell_effect_class_count": 53,
     "skill_effect_registry_registration_count": 373,
@@ -723,12 +733,12 @@
   },
   "counts": {
     "corpus": 747,
-    "novel": 1515,
-    "total": 2262,
-    "novel_direct_visual": 1432,
+    "novel": 1545,
+    "total": 2292,
+    "novel_direct_visual": 1462,
     "novel_setting_fallback": 83,
-    "novel_visual_quotes": 3636,
-    "unique_visual_signatures": 2262
+    "novel_visual_quotes": 3714,
+    "unique_visual_signatures": 2292
   },
   "constraints": {
     "old_profile_reuse": false,
@@ -123140,6 +123150,389 @@
       }
     },
     {
+      "id": "technique_1515",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1515",
+      "display": "炼神小成",
+      "term": "炼神术第四层十年小成",
+      "school": "novel_curated_techniques_v653",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（软禁·隐患·各方势力·替代方案·离去：第379–383章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v653.json",
+      "source_version": 653,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "他整个脑袋如今被一团柔和而明亮的晶光笼罩，使得脸庞看起来显得有些朦胧不清。",
+        "环绕在其脑袋附近的晶光一闪，顿时宛如长鲸吸水一般，尽数没入了其眉心处。"
+      ],
+      "setting_descriptions": [
+        "「这十年里几乎日夜不停的苦修，这第四层炼神术，终于略有小成了。」",
+        "「这第四层炼神术远比前三层要玄奥精深得多，修炼难度更是前三层功法的十倍以上。」"
+      ],
+      "setting": "典载四层难度为前三十倍以上，小成常需数十年至百年；韩十年如水到渠成达小成，神识隐患受控、运转流畅。缘由暂归天赋/体质（如大衍诀）。",
+      "family": "SOUL",
+      "motif": "GENERIC",
+      "effect_type": "utility",
+      "target": "self",
+      "particle": "soul_wisps",
+      "trail": "soul_afterimage",
+      "shape": "aura_burst",
+      "color": "幽蓝魂光",
+      "telegraphed": false,
+      "radius": 2.15,
+      "intensity": 21,
+      "scale_tier": 1,
+      "visual_signature": "13319983bb37845d2e629f1b73a5ba37bd53e6e58ba5953ba61af53ea925a42c",
+      "frames": [
+        {
+          "name": "起手",
+          "frame": "0-3",
+          "vis": "他整个脑袋如今被一团柔和而明亮的晶光笼罩，使得脸庞看起来显得有些朦胧不清。"
+        },
+        {
+          "name": "命中",
+          "frame": "4-7",
+          "vis": "环绕在其脑袋附近的晶光一闪，顿时宛如长鲸吸水一般，尽数没入了其眉心处。"
+        }
+      ],
+      "mechanics": {
+        "operation": "CULTIVATE",
+        "delivery": "SELF",
+        "duration_ticks": 210,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "generic",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "utility",
+        "element": "soul",
+        "target": "self",
+        "cost": 17,
+        "cooldown_ticks": 85,
+        "damage_base": 0.0,
+        "range": 21.0,
+        "radius": 2.15,
+        "primary_status": "confusion",
+        "secondary_status": "weakness"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v653.json"
+      }
+    },
+    {
+      "id": "technique_1516",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1516",
+      "display": "十八道纹",
+      "term": "十八团道纹迟滞炼丹",
+      "school": "novel_curated_techniques_v653",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（软禁·隐患·各方势力·替代方案·离去：第379–383章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v653.json",
+      "source_version": 653,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "宝轮上面的三百六十团时间道纹，此刻只有十八团处于明亮状态，其余的时间道纹尽数暗淡无光。",
+        "一道晶丝从其指尖飞出，一闪的缠绕在了圆轮上，散发出强烈的时间法则气息。",
+        "一股金色波纹从真言宝轮中涌出，朝着周围扩散而去，笼罩住了丹炉，丹炉内的一切变化顿时一慢。"
+      ],
+      "setting_descriptions": [
+        "「只要接下去再恢复个十余团，达到十八团的程度，便可满足他对于炼丹关键过程精确控制的要求了。」",
+        "「看来时间晶丝和真言宝轮息息相关，恐怕只有等宝轮上的所有时间道纹尽数恢复过来，这时间晶丝也才会恢复如初。」"
+      ],
+      "setting": "晶壁后道纹仅余数团，复至十八团即可精确控炼丹关键过程。催宝轮金波罩炉使内变化一慢；晶丝缠轮，须道纹尽复才全盛。虚元丹过程简于时间道丹。",
+      "family": "METAL",
+      "motif": "HEAL",
+      "effect_type": "craft_gate",
+      "target": "self",
+      "particle": "metal_spark",
+      "trail": "sword_thin",
+      "shape": "scripture_glyph",
+      "color": "银金锋芒",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 14,
+      "scale_tier": 0,
+      "visual_signature": "3e0d7b48418630fa8a41be8d74009831be75ee68ee995cd00fece6fe40740fed",
+      "frames": [
+        {
+          "name": "起手",
+          "frame": "0-3",
+          "vis": "宝轮上面的三百六十团时间道纹，此刻只有十八团处于明亮状态，其余的时间道纹尽数暗淡无光。"
+        },
+        {
+          "name": "出击",
+          "frame": "4-7",
+          "vis": "一道晶丝从其指尖飞出，一闪的缠绕在了圆轮上，散发出强烈的时间法则气息。"
+        },
+        {
+          "name": "命中",
+          "frame": "8-11",
+          "vis": "一股金色波纹从真言宝轮中涌出，朝着周围扩散而去，笼罩住了丹炉，丹炉内的一切变化顿时一慢。"
+        }
+      ],
+      "mechanics": {
+        "operation": "CRAFT",
+        "delivery": "SELF",
+        "duration_ticks": 80,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "generic",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "craft_gate",
+        "element": "metal",
+        "target": "self",
+        "cost": 8,
+        "cooldown_ticks": 50,
+        "damage_base": 0.0,
+        "range": 14.0,
+        "radius": 0.9,
+        "primary_status": "armor_break",
+        "secondary_status": "bleeding"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v653.json"
+      }
+    },
+    {
+      "id": "technique_1517",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1517",
+      "display": "九柱禁咒",
+      "term": "秘境九道金柱梵音禁咒",
+      "school": "novel_curated_techniques_v653",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（软禁·隐患·各方势力·替代方案·离去：第379–383章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v653.json",
+      "source_version": 653,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "耀眼的金色光芒从其身上散发而出，并且朝着半空飞射而出，形成一道巨大金色光柱。",
+        "九道金色光柱冲天而起……转眼间形成一个覆盖整个秘境天空的巨大金色光阵。",
+        "阵阵的梵音之声从金色光阵中散发而出，让人听闻之后，身心空明。"
+      ],
+      "setting_descriptions": [
+        "「快，启动禁咒！」",
+        "「黑云中散发出的庞大法则气息，也被金色霞光所禁锢，只在秘境范围内激荡，没有传递到外面。」"
+      ],
+      "setting": "蛟三喝启禁咒，己身大金柱+秘境八道共九道冲天，结覆盖天空的金光阵，梵音空明。禁锢丹劫黑云与法则不外泄；碎裂可再生。",
+      "family": "METAL",
+      "motif": "FORMATION",
+      "effect_type": "utility",
+      "target": "self",
+      "particle": "metal_spark",
+      "trail": "sword_thin",
+      "shape": "sound_wave",
+      "color": "银金锋芒",
+      "telegraphed": true,
+      "radius": 4.65,
+      "intensity": 35,
+      "scale_tier": 3,
+      "visual_signature": "b78e651830796c72dee08a8bea3f7a152cfbd637a927ca0ee2639439fab3ae8b",
+      "frames": [
+        {
+          "name": "出击",
+          "frame": "0-3",
+          "vis": "耀眼的金色光芒从其身上散发而出，并且朝着半空飞射而出，形成一道巨大金色光柱。"
+        },
+        {
+          "name": "成型",
+          "frame": "4-7",
+          "vis": "九道金色光柱冲天而起……转眼间形成一个覆盖整个秘境天空的巨大金色光阵。"
+        },
+        {
+          "name": "命中",
+          "frame": "8-11",
+          "vis": "阵阵的梵音之声从金色光阵中散发而出，让人听闻之后，身心空明。"
+        }
+      ],
+      "mechanics": {
+        "operation": "CULTIVATE",
+        "delivery": "SELF",
+        "duration_ticks": 350,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "beast",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "utility",
+        "element": "metal",
+        "target": "self",
+        "cost": 35,
+        "cooldown_ticks": 155,
+        "damage_base": 0.0,
+        "range": 35.0,
+        "radius": 4.65,
+        "primary_status": "armor_break",
+        "secondary_status": "bleeding"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v653.json"
+      }
+    },
+    {
+      "id": "technique_1518",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1518",
+      "display": "雷阵传送",
+      "term": "拘雷木金色雷电传送阵",
+      "school": "novel_curated_techniques_v654",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（异常·偶遇·警觉·乱局·深入惊风：第384–388章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v654.json",
+      "source_version": 654,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "遁光中骤然浮现出一道道金色雷光，凝聚成一个雷电法阵，无数金色符文在里面跳动。",
+        "凭空发出一声霹雳之声，接着金光闪动下，浮现出一道道金色雷电，交织缠绕下，形成了一个玄奥的雷电法阵。"
+      ],
+      "setting_descriptions": [
+        "「金色雷光一阵波动后，韩立的身影消失无踪。」",
+        "「那套拘雷木传送法阵，在他来乌蒙岛的路上正好顺路，也已经收取了起来。」"
+      ],
+      "setting": "遁光中金雷凝玄奥法阵、金符跳动，身影消失；远方霹雳金光再成阵现身。韩离黑风后数万里一跳，又用于往返乌蒙；拘雷木套阵途中收取。",
+      "family": "THUNDER",
+      "motif": "FORMATION",
+      "effect_type": "field",
+      "target": "area",
+      "particle": "thunder_arc",
+      "trail": "thunder_jagged",
+      "shape": "rune_orbit",
+      "color": "紫金雷光",
+      "telegraphed": false,
+      "radius": 4.9,
+      "intensity": 28,
+      "scale_tier": 2,
+      "visual_signature": "14536fcadf404f997e040653ab8f2f589c66cbf73f3e4dadd22a21c6488369dd",
+      "frames": [
+        {
+          "name": "成型",
+          "frame": "0-3",
+          "vis": "遁光中骤然浮现出一道道金色雷光，凝聚成一个雷电法阵，无数金色符文在里面跳动。"
+        },
+        {
+          "name": "成型",
+          "frame": "4-8",
+          "vis": "凭空发出一声霹雳之声，接着金光闪动下，浮现出一道道金色雷电，交织缠绕下，形成了一个玄奥的雷电法阵。"
+        },
+        {
+          "name": "回收",
+          "frame": "9-12",
+          "vis": "余光、残焰或灵气按原路径收束消散。"
+        }
+      ],
+      "mechanics": {
+        "operation": "ATTACK",
+        "delivery": "FIELD",
+        "duration_ticks": 280,
+        "projectile_count": 1,
+        "max_targets": 20,
+        "summon_archetype": "generic",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "field",
+        "element": "thunder",
+        "target": "area",
+        "cost": 26,
+        "cooldown_ticks": 120,
+        "damage_base": 24.0,
+        "range": 28.0,
+        "radius": 4.9,
+        "primary_status": "stunned",
+        "secondary_status": "weakness"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v654.json"
+      }
+    },
+    {
+      "id": "technique_1519",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1519",
+      "display": "辟邪神雷",
+      "term": "辟邪神雷克阴兽",
+      "school": "novel_curated_techniques_v654",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（异常·偶遇·警觉·乱局·深入惊风：第384–388章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v654.json",
+      "source_version": 654,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "一道金色电弧从指间疾射而出，一闪即逝的打在黑气之上，正是辟邪神雷。",
+        "「呲啦」一阵脆响，黑气仿佛遇到了克星，立刻溃散开来。",
+        "青色巨剑瞬间化为了一柄金色雷剑，斩在了黑色光柱上。"
+      ],
+      "setting_descriptions": [
+        "「幸好韩立的辟邪神雷能够克制这些阴兽，一路行来倒也没有太过费事。」",
+        "「此蛇看起来似乎是此处阴寒之气凝聚成的怪物，并无实体，和寻常妖兽大不相同。」"
+      ],
+      "setting": "惊风深处阴兽（黑三角蛇、黑蛤蟆等）虚实难杀、捏碎复聚；指间金电辟邪神雷一击即溃如遇克星。青竹蜂云剑可附金雷成雷剑。",
+      "family": "THUNDER",
+      "motif": "BUDDHIST",
+      "effect_type": "utility_combat",
+      "target": "single",
+      "particle": "thunder_arc",
+      "trail": "thunder_jagged",
+      "shape": "beam_lance",
+      "color": "紫金雷光",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 14,
+      "scale_tier": 0,
+      "visual_signature": "5a59784c0f77f829d9321f7e3ee4f3e1f2484f7a648d8de8c3b5f4bc7bf17ed4",
+      "frames": [
+        {
+          "name": "起手",
+          "frame": "0-3",
+          "vis": "一道金色电弧从指间疾射而出，一闪即逝的打在黑气之上，正是辟邪神雷。"
+        },
+        {
+          "name": "回收",
+          "frame": "4-7",
+          "vis": "「呲啦」一阵脆响，黑气仿佛遇到了克星，立刻溃散开来。"
+        },
+        {
+          "name": "成型",
+          "frame": "8-11",
+          "vis": "青色巨剑瞬间化为了一柄金色雷剑，斩在了黑色光柱上。"
+        },
+        {
+          "name": "回收",
+          "frame": "12-15",
+          "vis": "余光、残焰或灵气按原路径收束消散。"
+        }
+      ],
+      "mechanics": {
+        "operation": "ATTACK",
+        "delivery": "TARGETED",
+        "duration_ticks": 80,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "beast",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "utility_combat",
+        "element": "thunder",
+        "target": "single",
+        "cost": 8,
+        "cooldown_ticks": 50,
+        "damage_base": 10.0,
+        "range": 14.0,
+        "radius": 0.9,
+        "primary_status": "stunned",
+        "secondary_status": "weakness"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v654.json"
+      }
+    },
+    {
       "id": "technique_152",
       "namespace": "novel",
       "qualified_id": "novel:technique_152",
@@ -123209,6 +123602,792 @@
       }
     },
     {
+      "id": "technique_1520",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1520",
+      "display": "清明灵目",
+      "term": "清明灵目探惊风",
+      "school": "novel_curated_techniques_v654",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（异常·偶遇·警觉·乱局·深入惊风：第384–388章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v654.json",
+      "source_version": 654,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "所幸他还有清明灵目，双眸中蓝光闪烁，无需神识也能清晰感知周围各处的阴风动向。",
+        "同时双目一闪，射出两道尺许长的蓝光，查看着周围的动静。"
+      ],
+      "setting_descriptions": [
+        "「否则他恐怕已是寸步难行了。」",
+        "「到了此时，即便他有清明灵目，也看不出多远。」"
+      ],
+      "setting": "神识不可外放触鬼啸时，双眸蓝光可清晰感阴风动向，否则寸步难行。雾浓如实质时蓝光尺许仍难远视。",
+      "family": "SOUL",
+      "motif": "PROJECTILE",
+      "effect_type": "aoe",
+      "target": "area",
+      "particle": "soul_wisps",
+      "trail": "soul_afterimage",
+      "shape": "eye_gaze",
+      "color": "幽蓝魂光",
+      "telegraphed": false,
+      "radius": 2.4,
+      "intensity": 14,
+      "scale_tier": 0,
+      "visual_signature": "8a370311ace47b4327e33d6f5a3ea663157d43f5eb7b6e2f6796c731bf8b324e",
+      "frames": [
+        {
+          "name": "起手",
+          "frame": "0-3",
+          "vis": "所幸他还有清明灵目，双眸中蓝光闪烁，无需神识也能清晰感知周围各处的阴风动向。"
+        },
+        {
+          "name": "出击",
+          "frame": "4-7",
+          "vis": "同时双目一闪，射出两道尺许长的蓝光，查看着周围的动静。"
+        },
+        {
+          "name": "回收",
+          "frame": "8-11",
+          "vis": "余光、残焰或灵气按原路径收束消散。"
+        }
+      ],
+      "mechanics": {
+        "operation": "ATTACK",
+        "delivery": "AREA",
+        "duration_ticks": 80,
+        "projectile_count": 1,
+        "max_targets": 8,
+        "summon_archetype": "ghost",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "aoe",
+        "element": "soul",
+        "target": "area",
+        "cost": 8,
+        "cooldown_ticks": 50,
+        "damage_base": 10.0,
+        "range": 14.0,
+        "radius": 2.4,
+        "primary_status": "confusion",
+        "secondary_status": "weakness"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v654.json"
+      }
+    },
+    {
+      "id": "technique_1521",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1521",
+      "display": "雷鹏变",
+      "term": "惊蛰雷鹏变与风雷翅",
+      "school": "novel_curated_techniques_v655",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（雾影重重·鬼首·出手相助·仙府临世·折返：第389–393章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v655.json",
+      "source_version": 655,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "整个人就地虚空一滚，周身银光一闪，赫然化为一只银色巨禽，身上到处跳动着银色电弧。正是十二种惊蛰变化中的雷鹏变身！",
+        "双翅蓦的一展，翅羽间霹雳之声大起，竟有另外一对晶莹羽翅在背部浮现而出，正是风雷翅。"
+      ],
+      "setting_descriptions": [
+        "「四只翅膀同时一展，韩立身上雷光大盛，顿时从原地消失无踪。」",
+        "「落魄惊风中到处都有未知的危险，他原本不敢随意施展雷遁之术，但此刻面对的他无法匹敌的对手，情急之下，也顾不得那许多了。」"
+      ],
+      "setting": "十二惊蛰变化之一：就地虚空一滚周身银光化银巨禽，银电跳动。背再出一对晶羽风雷翅，四翅齐展雷遁瞬移。惊风中本不敢乱雷遁，遇不敌阴魅始用。",
+      "family": "THUNDER",
+      "motif": "TELEPORT",
+      "effect_type": "transform",
+      "target": "self",
+      "particle": "thunder_arc",
+      "trail": "movement_wind",
+      "shape": "wing_fan",
+      "color": "紫金雷光",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 14,
+      "scale_tier": 0,
+      "visual_signature": "bca3333cc907614008ad84822bd19f88f75256b9c434fd514b081e68a329c527",
+      "frames": [
+        {
+          "name": "成型",
+          "frame": "0-4",
+          "vis": "整个人就地虚空一滚，周身银光一闪，赫然化为一只银色巨禽，身上到处跳动着银色电弧。正是十二种惊蛰变化中的雷鹏变身！"
+        },
+        {
+          "name": "成型",
+          "frame": "5-8",
+          "vis": "双翅蓦的一展，翅羽间霹雳之声大起，竟有另外一对晶莹羽翅在背部浮现而出，正是风雷翅。"
+        },
+        {
+          "name": "回收",
+          "frame": "9-12",
+          "vis": "余光、残焰或灵气按原路径收束消散。"
+        }
+      ],
+      "mechanics": {
+        "operation": "TRANSFORM",
+        "delivery": "SELF",
+        "duration_ticks": 140,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "generic",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "transform",
+        "element": "thunder",
+        "target": "self",
+        "cost": 8,
+        "cooldown_ticks": 50,
+        "damage_base": 0.0,
+        "range": 14.0,
+        "radius": 0.9,
+        "primary_status": "resistance",
+        "secondary_status": "damage_boost"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v655.json"
+      }
+    },
+    {
+      "id": "technique_1522",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1522",
+      "display": "青色剑莲",
+      "term": "青竹蜂云剑剑莲",
+      "school": "novel_curated_techniques_v655",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（雾影重重·鬼首·出手相助·仙府临世·折返：第389–393章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v655.json",
+      "source_version": 655,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "青色光团滴溜溜旋转下，蓦然化为一座亩许大小的青色剑莲。",
+        "青色剑莲莲瓣尽数绽放……一道道巨大青色剑气浮现而出，同时上面浮现出金色电弧。",
+        "青色剑莲猛地一阵剧烈颤抖，随即竟仿佛瓷器般碎裂解体，再次化为了七十二柄青色小剑。"
+      ],
+      "setting_descriptions": [
+        "「这些掺杂着辟邪神雷的剑气落在鬼首外的黑雾之中，仿佛泥牛入海般没入其中，除了引得黑雾翻滚更为剧烈几分外，似乎无法伤害其分毫。」"
+      ],
+      "setting": "诸剑汇成亩许青光团旋为剑莲，莲瓣绽放大剑气+辟邪神雷如雨。对阴魅黑雾如泥牛入海；鬼首黑音波震碎剑莲复七十二小剑。",
+      "family": "METAL",
+      "motif": "BUDDHIST",
+      "effect_type": "utility_combat",
+      "target": "single",
+      "particle": "metal_spark",
+      "trail": "sword_thin",
+      "shape": "lotus_mandala",
+      "color": "银金锋芒",
+      "telegraphed": true,
+      "radius": 4.65,
+      "intensity": 35,
+      "scale_tier": 3,
+      "visual_signature": "fc9023cc46db4dcae77fb94ddc7dfcd23dedbaea8cd75c154d383a1268ebffb5",
+      "frames": [
+        {
+          "name": "成型",
+          "frame": "0-3",
+          "vis": "青色光团滴溜溜旋转下，蓦然化为一座亩许大小的青色剑莲。"
+        },
+        {
+          "name": "成型",
+          "frame": "4-7",
+          "vis": "青色剑莲莲瓣尽数绽放……一道道巨大青色剑气浮现而出，同时上面浮现出金色电弧。"
+        },
+        {
+          "name": "成型",
+          "frame": "8-11",
+          "vis": "青色剑莲猛地一阵剧烈颤抖，随即竟仿佛瓷器般碎裂解体，再次化为了七十二柄青色小剑。"
+        },
+        {
+          "name": "回收",
+          "frame": "12-15",
+          "vis": "余光、残焰或灵气按原路径收束消散。"
+        }
+      ],
+      "mechanics": {
+        "operation": "ATTACK",
+        "delivery": "TARGETED",
+        "duration_ticks": 230,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "ghost",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "utility_combat",
+        "element": "metal",
+        "target": "single",
+        "cost": 35,
+        "cooldown_ticks": 155,
+        "damage_base": 31.0,
+        "range": 35.0,
+        "radius": 4.65,
+        "primary_status": "armor_break",
+        "secondary_status": "bleeding"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v655.json"
+      }
+    },
+    {
+      "id": "technique_1523",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1523",
+      "display": "赤晶破魅",
+      "term": "呼言赤色晶丝破阴魅",
+      "school": "novel_curated_techniques_v655",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（雾影重重·鬼首·出手相助·仙府临世·折返：第389–393章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v655.json",
+      "source_version": 655,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "一道赤色光芒立刻从中电射而出，里面无数赤色符文闪烁。赤色符文翻滚之间，赫然朝着一处凝聚而去，蓦然化为一道赤色晶丝。",
+        "一道巨大赤色火柱豁然从鬼首体内爆发炸开，仿佛火山喷发般冲天而起。"
+      ],
+      "setting_descriptions": [
+        "「鬼首身周缭绕着的黑色火焰，丝毫无法阻挡赤色晶丝分毫。」",
+        "「随着一声尖锐叫声从黑焰深处传出，一团黑影从中飞射而出……朝着黑色雾海深处迅疾飞射而去。」"
+      ],
+      "setting": "黄光团出赤光无数赤符凝赤色晶丝，透黑焰没入鬼首；内轰鸣后赤火柱火山喷发冲天，鬼首崩溃。残影弃战遁雾深。",
+      "family": "FIRE",
+      "motif": "TALISMAN",
+      "effect_type": "utility_combat",
+      "target": "single",
+      "particle": "fire_ember",
+      "trail": "talisman_ash",
+      "shape": "rune_orbit",
+      "color": "赤金火焰",
+      "telegraphed": true,
+      "radius": 4.65,
+      "intensity": 35,
+      "scale_tier": 3,
+      "visual_signature": "deebecbf4cf8619cf7ed5b3c341df2723736bef3b2510b9e7396e1417bf20694",
+      "frames": [
+        {
+          "name": "成型",
+          "frame": "0-4",
+          "vis": "一道赤色光芒立刻从中电射而出，里面无数赤色符文闪烁。赤色符文翻滚之间，赫然朝着一处凝聚而去，蓦然化为一道赤色晶丝。"
+        },
+        {
+          "name": "命中",
+          "frame": "5-8",
+          "vis": "一道巨大赤色火柱豁然从鬼首体内爆发炸开，仿佛火山喷发般冲天而起。"
+        }
+      ],
+      "mechanics": {
+        "operation": "ATTACK",
+        "delivery": "TARGETED",
+        "duration_ticks": 230,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "ghost",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "utility_combat",
+        "element": "fire",
+        "target": "single",
+        "cost": 35,
+        "cooldown_ticks": 155,
+        "damage_base": 31.0,
+        "range": 35.0,
+        "radius": 4.65,
+        "primary_status": "burning",
+        "secondary_status": "weakness"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v655.json"
+      }
+    },
+    {
+      "id": "technique_1524",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1524",
+      "display": "真轮重塑",
+      "term": "八环法阵重塑重水真轮",
+      "school": "novel_curated_techniques_v656",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（暂别·重塑·准备·有备无患·临近：第394–398章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v656.json",
+      "source_version": 656,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "这个法阵内有八个圆环图案，散发出阵阵蓝色霞光。",
+        "两团火焰融合到了一起，化为一团数尺大小的火球，青蓝两色交织，包裹住重水真轮。",
+        "化身头顶的蓝色晶丝赫然飞射而出，融入了重水真轮内。"
+      ],
+      "setting_descriptions": [
+        "「地祇化身将通过信仰之力凝聚的那一根水法则之丝，也一下打入了重水真轮中，使得其中水之法则之力大增。」",
+        "「辛苦了一个多月，终于大功告成。」"
+      ],
+      "setting": "八环蓝阵+青婴火与化身蓝焰合煅；环出金符凝球爆蓝焰汇真轮。八水法则材入火柱融液入轮；化身水法则丝打入稳定。精血定形得九道纹。",
+      "family": "WATER",
+      "motif": "FORMATION",
+      "effect_type": "field",
+      "target": "area",
+      "particle": "water_mist",
+      "trail": "none",
+      "shape": "rune_orbit",
+      "color": "澄蓝水光",
+      "telegraphed": false,
+      "radius": 3.65,
+      "intensity": 21,
+      "scale_tier": 1,
+      "visual_signature": "bc2fd5bcc0e380e1c9d7cf5af6ee8fc506b18825fa6144d0f84a36b18763f000",
+      "frames": [
+        {
+          "name": "起手",
+          "frame": "0-2",
+          "vis": "这个法阵内有八个圆环图案，散发出阵阵蓝色霞光。"
+        },
+        {
+          "name": "成型",
+          "frame": "3-6",
+          "vis": "两团火焰融合到了一起，化为一团数尺大小的火球，青蓝两色交织，包裹住重水真轮。"
+        },
+        {
+          "name": "出击",
+          "frame": "7-10",
+          "vis": "化身头顶的蓝色晶丝赫然飞射而出，融入了重水真轮内。"
+        },
+        {
+          "name": "回收",
+          "frame": "11-14",
+          "vis": "余光、残焰或灵气按原路径收束消散。"
+        }
+      ],
+      "mechanics": {
+        "operation": "ATTACK",
+        "delivery": "FIELD",
+        "duration_ticks": 210,
+        "projectile_count": 1,
+        "max_targets": 14,
+        "summon_archetype": "generic",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "field",
+        "element": "water",
+        "target": "area",
+        "cost": 17,
+        "cooldown_ticks": 85,
+        "damage_base": 17.0,
+        "range": 21.0,
+        "radius": 3.65,
+        "primary_status": "slowness",
+        "secondary_status": "weakness"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v656.json"
+      }
+    },
+    {
+      "id": "technique_1525",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1525",
+      "display": "晶粒加速",
+      "term": "时间晶粒加速凝二层重水",
+      "school": "novel_curated_techniques_v656",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（暂别·重塑·准备·有备无患·临近：第394–398章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v656.json",
+      "source_version": 656,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "时间晶粒飞射到了地祇化身头顶，晶粒中的金色晶丝一闪，融入蓝色光丝之中。",
+        "蓝色光丝立刻光芒大放，表面浮现出一层金光。",
+        "一层重水立刻剧烈翻滚，飞快凝练缩小，化为二层重水，速度比之前快了不知多少倍。"
+      ],
+      "setting_descriptions": [
+        "「还好时间晶粒对凝练二层重水一样有用，否则就有些头疼了。」",
+        "「海底虽然安静安全，但那里日光月光都照射不下去，无法凝结绿液。」"
+      ],
+      "setting": "化身法则丝大损后凝二层极缓。掌天瓶绿液→时间晶粒入蓝光丝，丝表金光，一层重水剧翻速成二层，不知快多少倍。岛礁凝绿液、海底无日。",
+      "family": "WATER",
+      "motif": "CHAIN",
+      "effect_type": "summon",
+      "target": "single",
+      "particle": "water_mist",
+      "trail": "none",
+      "shape": "chain_net",
+      "color": "澄蓝水光",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 14,
+      "scale_tier": 0,
+      "visual_signature": "ba068bdba61dfadeb031178b40a5f2020da25b519e16c15e2abd65cbd664879f",
+      "frames": [
+        {
+          "name": "出击",
+          "frame": "0-3",
+          "vis": "时间晶粒飞射到了地祇化身头顶，晶粒中的金色晶丝一闪，融入蓝色光丝之中。"
+        },
+        {
+          "name": "成型",
+          "frame": "4-6",
+          "vis": "蓝色光丝立刻光芒大放，表面浮现出一层金光。"
+        },
+        {
+          "name": "成型",
+          "frame": "7-10",
+          "vis": "一层重水立刻剧烈翻滚，飞快凝练缩小，化为二层重水，速度比之前快了不知多少倍。"
+        },
+        {
+          "name": "回收",
+          "frame": "11-14",
+          "vis": "余光、残焰或灵气按原路径收束消散。"
+        }
+      ],
+      "mechanics": {
+        "operation": "SUMMON",
+        "delivery": "SUMMON",
+        "duration_ticks": 80,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "generic",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "summon",
+        "element": "water",
+        "target": "single",
+        "cost": 8,
+        "cooldown_ticks": 50,
+        "damage_base": 0.0,
+        "range": 14.0,
+        "radius": 0.9,
+        "primary_status": "slowness",
+        "secondary_status": "weakness"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v656.json"
+      }
+    },
+    {
+      "id": "technique_1526",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1526",
+      "display": "隐岛禁制",
+      "term": "荒岛多层隐匿禁制",
+      "school": "novel_curated_techniques_v656",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（暂别·重塑·准备·有备无患·临近：第394–398章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v656.json",
+      "source_version": 656,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "一层宛如黄云般的禁制光芒浮现而出，笼罩住了了整座荒岛。",
+        "黄云禁制之外，虚空又是一阵波动，浮现出了一层厚厚青色禁制。青色禁制之外浮现出无数白色霞光。",
+        "最外面是一层犹如水幕般的蓝色禁制……整个岛屿顿时缓缓消失，和附近海域融为了一体。"
+      ],
+      "setting_descriptions": [
+        "「荒岛内的一切立刻彻底和外界隔绝开来，别说外面的声音，就是天地灵气也彻底隔离，仿佛是两个空间一般。」",
+        "「这些禁制正是当年韩立用来守护临时洞府的，此刻布置在荒岛附近，轻车熟路。」"
+      ],
+      "setting": "厚摞阵旗盘布岛：黄云禁→青禁→白霞禁…共七八层，外层蓝水幕使岛与海融隐。隔音隔灵如两空间。当年临时洞府同套。",
+      "family": "WATER",
+      "motif": "FORMATION",
+      "effect_type": "utility",
+      "target": "self",
+      "particle": "water_mist",
+      "trail": "none",
+      "shape": "mist_veil",
+      "color": "澄蓝水光",
+      "telegraphed": true,
+      "radius": 5.9,
+      "intensity": 42,
+      "scale_tier": 4,
+      "visual_signature": "b43bb63170307efd32ce421a642e652ca2e38de1d8dc03c81338a7638fcf9934",
+      "frames": [
+        {
+          "name": "成型",
+          "frame": "0-3",
+          "vis": "一层宛如黄云般的禁制光芒浮现而出，笼罩住了了整座荒岛。"
+        },
+        {
+          "name": "成型",
+          "frame": "4-7",
+          "vis": "黄云禁制之外，虚空又是一阵波动，浮现出了一层厚厚青色禁制。青色禁制之外浮现出无数白色霞光。"
+        },
+        {
+          "name": "回收",
+          "frame": "8-11",
+          "vis": "最外面是一层犹如水幕般的蓝色禁制……整个岛屿顿时缓缓消失，和附近海域融为了一体。"
+        }
+      ],
+      "mechanics": {
+        "operation": "CONCEAL",
+        "delivery": "SELF",
+        "duration_ticks": 420,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "generic",
+        "terrain_mode": "water"
+      },
+      "functional": {
+        "type": "utility",
+        "element": "water",
+        "target": "self",
+        "cost": 44,
+        "cooldown_ticks": 190,
+        "damage_base": 0.0,
+        "range": 42.0,
+        "radius": 5.9,
+        "primary_status": "slowness",
+        "secondary_status": "weakness"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v656.json"
+      }
+    },
+    {
+      "id": "technique_1527",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1527",
+      "display": "清明灵目",
+      "term": "清明灵目探灵力痕迹",
+      "school": "novel_curated_techniques_v657",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（另一个消息·集合·欲盖弥彰·入口·封锁：第399–403章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v657.json",
+      "source_version": 657,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "韩立口中双目蓝光大放，射出数尺长的蓝芒，朝着周围望去。",
+        "韩立深吸了一口气，双目蓝芒闪烁，竭力运转清明灵目。",
+        "韩立面色严肃，眼中蓝光闪烁，散发出一圈圈蓝色光波。"
+      ],
+      "setting_descriptions": [
+        "「不过此神通乃是灵目探查，并无气息外泄的情况，还请几位前辈放心。」",
+        "「师叔过奖了，在下的灵目哪能看到如此之远，只不过是善于探查灵力波动，找到了那人飞过后，留下的一些蛛丝马迹罢了。」",
+        "「他如今修为大增，清明灵目神通也随之飞涨，已经不用和破灭法目结合，也能看到这些薄弱的灵力痕迹。」"
+      ],
+      "setting": "双目蓝芒数尺，灵目探查无气息外泄。修为大增后不必合破灭法目即可见薄弱灵力痕迹，追遁光蛛丝与海沟内多人痕迹。旭阳子初斥后服。",
+      "family": "WATER",
+      "motif": "PROJECTILE",
+      "effect_type": "scan",
+      "target": "self",
+      "particle": "water_mist",
+      "trail": "none",
+      "shape": "eye_gaze",
+      "color": "澄蓝水光",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 14,
+      "scale_tier": 0,
+      "visual_signature": "5b026f0c7f402a6c2cca69a4ae7c15a5b5a5a490af53b843e886b05d38e61716",
+      "frames": [
+        {
+          "name": "出击",
+          "frame": "0-3",
+          "vis": "韩立口中双目蓝光大放，射出数尺长的蓝芒，朝着周围望去。"
+        },
+        {
+          "name": "出击",
+          "frame": "4-7",
+          "vis": "韩立深吸了一口气，双目蓝芒闪烁，竭力运转清明灵目。"
+        },
+        {
+          "name": "命中",
+          "frame": "8-11",
+          "vis": "韩立面色严肃，眼中蓝光闪烁，散发出一圈圈蓝色光波。"
+        }
+      ],
+      "mechanics": {
+        "operation": "DETECT",
+        "delivery": "SELF",
+        "duration_ticks": 80,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "generic",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "scan",
+        "element": "water",
+        "target": "self",
+        "cost": 8,
+        "cooldown_ticks": 50,
+        "damage_base": 0.0,
+        "range": 14.0,
+        "radius": 0.9,
+        "primary_status": "slowness",
+        "secondary_status": "weakness"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v657.json"
+      }
+    },
+    {
+      "id": "technique_1528",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1528",
+      "display": "雷阵瞬移",
+      "term": "金色雷阵瞬移遁法",
+      "school": "novel_curated_techniques_v657",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（另一个消息·集合·欲盖弥彰·入口·封锁：第399–403章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v657.json",
+      "source_version": 657,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "下一刻，韩立没有过多耽搁的双手十指一阵车轮般掐动，体表浮现出一道道金色雷电，然后朝着周围扩散开来，瞬间形成一个金色雷阵。",
+        "伴随着一声雷鸣，金色雷阵骤然光芒大放。而他的身影则伴随着雷阵的出现，一个模糊后，便消失无踪了。",
+        "虚空波动，一道道金色雷电浮现而出，随即凝聚成一个金色雷阵。韩立的身影在雷阵中浮现而出。"
+      ],
+      "setting_descriptions": [
+        "「他长出了一口气后，单手一挥，一团浓郁青光飞射而出，迅疾无比的绕着岛屿转了一圈。」"
+      ],
+      "setting": "收阵旗后十指车轮掐诀，体表金雷扩散成雷阵；雷鸣光放后身影模糊消失。可于乌蒙海面虚空金雷再凝阵现身。韩炼虚元后以此离岛。",
+      "family": "THUNDER",
+      "motif": "FORMATION",
+      "effect_type": "movement",
+      "target": "self",
+      "particle": "thunder_arc",
+      "trail": "thunder_jagged",
+      "shape": "array_rings",
+      "color": "紫金雷光",
+      "telegraphed": true,
+      "radius": 2.15,
+      "intensity": 21,
+      "scale_tier": 1,
+      "visual_signature": "b7617076cffc331f2209df692570477a7d7ab820beeb5f07960fdb7a6f929f72",
+      "frames": [
+        {
+          "name": "成型",
+          "frame": "0-4",
+          "vis": "下一刻，韩立没有过多耽搁的双手十指一阵车轮般掐动，体表浮现出一道道金色雷电，然后朝着周围扩散开来，瞬间形成一个金色雷阵。"
+        },
+        {
+          "name": "回收",
+          "frame": "5-8",
+          "vis": "伴随着一声雷鸣，金色雷阵骤然光芒大放。而他的身影则伴随着雷阵的出现，一个模糊后，便消失无踪了。"
+        },
+        {
+          "name": "成型",
+          "frame": "9-12",
+          "vis": "虚空波动，一道道金色雷电浮现而出，随即凝聚成一个金色雷阵。韩立的身影在雷阵中浮现而出。"
+        },
+        {
+          "name": "回收",
+          "frame": "13-16",
+          "vis": "余光、残焰或灵气按原路径收束消散。"
+        }
+      ],
+      "mechanics": {
+        "operation": "MOVE",
+        "delivery": "MOVEMENT",
+        "duration_ticks": 130,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "generic",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "movement",
+        "element": "thunder",
+        "target": "self",
+        "cost": 17,
+        "cooldown_ticks": 85,
+        "damage_base": 0.0,
+        "range": 21.0,
+        "radius": 2.15,
+        "primary_status": "stunned",
+        "secondary_status": "weakness"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v657.json"
+      }
+    },
+    {
+      "id": "technique_1529",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1529",
+      "display": "噬金斩宝",
+      "term": "噬金甲虫晶光斩宝",
+      "school": "novel_curated_techniques_v657",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（另一个消息·集合·欲盖弥彰·入口·封锁：第399–403章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v657.json",
+      "source_version": 657,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "一团金光飞射而出，化为一头数十丈大小的金色巨虫，挡在那灵宝洪流之前。",
+        "两道晶光飞射而出，斩在两件灵宝之上。「嗤啦」一声轻响，两件灵宝仿佛泥捏一般，轻易被晶光斩成两截。",
+        "两道十几丈长的粗大晶光飞射而出……然后赫然化为十几道较小的晶光，分别朝着雪家众人斩去。"
+      ],
+      "setting_descriptions": [
+        "「别犯浑！此女非我们可以力敌，快分散逃走！能逃一个是一个！」",
+        "「来了何必还走？都给我留下吧。」"
+      ],
+      "setting": "渠灵袖出数十丈金巨虫挡灵宝洪流，甲上无痕；前爪挥两道晶光斩灵宝如泥。再挥粗晶光一颤化为十余小晶光，速极斩护体与人成莹光尽灭。",
+      "family": "METAL",
+      "motif": "BLADE",
+      "effect_type": "projectile",
+      "target": "single",
+      "particle": "metal_spark",
+      "trail": "sword_thin",
+      "shape": "projectile_swarm",
+      "color": "银金锋芒",
+      "telegraphed": false,
+      "radius": 3.4,
+      "intensity": 28,
+      "scale_tier": 2,
+      "visual_signature": "6c7433984fcaab0e0a6adc054c78d8eaffa38db38767ec275bb868cc4cf6caee",
+      "frames": [
+        {
+          "name": "出击",
+          "frame": "0-3",
+          "vis": "一团金光飞射而出，化为一头数十丈大小的金色巨虫，挡在那灵宝洪流之前。"
+        },
+        {
+          "name": "出击",
+          "frame": "4-8",
+          "vis": "两道晶光飞射而出，斩在两件灵宝之上。「嗤啦」一声轻响，两件灵宝仿佛泥捏一般，轻易被晶光斩成两截。"
+        },
+        {
+          "name": "出击",
+          "frame": "9-12",
+          "vis": "两道十几丈长的粗大晶光飞射而出……然后赫然化为十几道较小的晶光，分别朝着雪家众人斩去。"
+        },
+        {
+          "name": "回收",
+          "frame": "13-16",
+          "vis": "余光、残焰或灵气按原路径收束消散。"
+        }
+      ],
+      "mechanics": {
+        "operation": "ATTACK",
+        "delivery": "PROJECTILE",
+        "duration_ticks": 180,
+        "projectile_count": 8,
+        "max_targets": 1,
+        "summon_archetype": "generic",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "projectile",
+        "element": "metal",
+        "target": "single",
+        "cost": 26,
+        "cooldown_ticks": 120,
+        "damage_base": 24.0,
+        "range": 28.0,
+        "radius": 3.4,
+        "primary_status": "armor_break",
+        "secondary_status": "bleeding"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v657.json"
+      }
+    },
+    {
       "id": "technique_153",
       "namespace": "novel",
       "qualified_id": "novel:technique_153",
@@ -123275,6 +124454,774 @@
       "tags": [],
       "sources": {
         "primary": "文本材料/data/novel_curated_techniques_v199.json"
+      }
+    },
+    {
+      "id": "technique_1530",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1530",
+      "display": "威压破禁",
+      "term": "众势威压压迫黑幕",
+      "school": "novel_curated_techniques_v658",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（僵持·齐聚·请进·一个请求·入府：第404–408章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v658.json",
+      "source_version": 658,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "庞大无比的威压从众人身上散发而出，彼此连接在一起，朝着黑色禁制压迫而去。",
+        "虚空似乎也承受不住这股威压，轻轻颤动不已，整个洞窟也隆隆晃动起来。",
+        "黑色禁制一阵波动，表面黑光闪烁不已。"
+      ],
+      "setting_descriptions": [
+        "「萧晋寒，你施展阴谋，封印仙府入口，想要独占仙府，可惜人算不如天算，如今形势倒转，快些将禁止打开。」",
+        "「在场诸位道友，我等暂且联手，先逼迫北寒仙宫打开禁制，一同进入仙府。至于在里面能得到多少宝物，便各凭本事。」"
+      ],
+      "setting": "封倡联手逼开禁。众落幕前，庞大威压相连压迫黑幕；虚空颤、洞窟隆隆晃，幕黑光闪。封喝萧开禁，幕未开；后萧自撤。",
+      "family": "VOID",
+      "motif": "FORMATION",
+      "effect_type": "utility_combat",
+      "target": "single",
+      "particle": "space_glitch",
+      "trail": "none",
+      "shape": "array_rings",
+      "color": "幽紫虚空裂光",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 14,
+      "scale_tier": 0,
+      "visual_signature": "122f6c270f739b6051acd860cb75431da8985a0f963bfdd6b7bdac1aff29418b",
+      "frames": [
+        {
+          "name": "起手",
+          "frame": "0-3",
+          "vis": "庞大无比的威压从众人身上散发而出，彼此连接在一起，朝着黑色禁制压迫而去。"
+        },
+        {
+          "name": "出击",
+          "frame": "4-7",
+          "vis": "虚空似乎也承受不住这股威压，轻轻颤动不已，整个洞窟也隆隆晃动起来。"
+        },
+        {
+          "name": "命中",
+          "frame": "8-10",
+          "vis": "黑色禁制一阵波动，表面黑光闪烁不已。"
+        }
+      ],
+      "mechanics": {
+        "operation": "ATTACK",
+        "delivery": "TARGETED",
+        "duration_ticks": 80,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "generic",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "utility_combat",
+        "element": "void",
+        "target": "single",
+        "cost": 8,
+        "cooldown_ticks": 50,
+        "damage_base": 10.0,
+        "range": 14.0,
+        "radius": 0.9,
+        "primary_status": "levitation",
+        "secondary_status": "blindness"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v658.json"
+      }
+    },
+    {
+      "id": "technique_1531",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1531",
+      "display": "心魔起誓",
+      "term": "心魔起誓立信",
+      "school": "novel_curated_techniques_v658",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（僵持·齐聚·请进·一个请求·入府：第404–408章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v658.json",
+      "source_version": 658,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "陆雨晴语气郑重的传音说道。"
+      ],
+      "setting_descriptions": [
+        "「我愿意以心魔起誓，只要有一字虚假，日后定然被心魔侵袭，死无葬身之地。」",
+        "「我们陆家镇守黑风海域，其实比北寒仙宫的人更早发现了此处入口的所在，并且当时从此处得到了一面石碑，上面记载了仙府内的部分地图，还有其他一些信息。」"
+      ],
+      "setting": "陆雨晴为证石碑地图信息非虚，愿以心魔起誓：一字虚假则日后心魔侵袭、死无葬身。韩信后请呼言纳陆入十二。",
+      "family": "WATER",
+      "motif": "GENERIC",
+      "effect_type": "utility",
+      "target": "self",
+      "particle": "water_mist",
+      "trail": "none",
+      "shape": "sound_wave",
+      "color": "澄蓝水光",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 14,
+      "scale_tier": 0,
+      "visual_signature": "ecf0a16c328eabedd39ba074d1e1da67ff8f37a6695da3bf7ab47d0e1bb52080",
+      "frames": [
+        {
+          "name": "起手",
+          "frame": "0-2",
+          "vis": "陆雨晴语气郑重的传音说道。"
+        },
+        {
+          "name": "回收",
+          "frame": "3-6",
+          "vis": "余光、残焰或灵气按原路径收束消散。"
+        }
+      ],
+      "mechanics": {
+        "operation": "CULTIVATE",
+        "delivery": "SELF",
+        "duration_ticks": 140,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "generic",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "utility",
+        "element": "water",
+        "target": "self",
+        "cost": 8,
+        "cooldown_ticks": 50,
+        "damage_base": 0.0,
+        "range": 14.0,
+        "radius": 0.9,
+        "primary_status": "slowness",
+        "secondary_status": "weakness"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v658.json"
+      }
+    },
+    {
+      "id": "technique_1532",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1532",
+      "display": "火袍御寒",
+      "term": "真焰宗火袍热浪御寒",
+      "school": "novel_curated_techniques_v658",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（僵持·齐聚·请进·一个请求·入府：第404–408章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v658.json",
+      "source_version": 658,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "真焰宗等人身上的赤红长袍光芒大盛，表面隐隐有虚化的火焰纹路涌动，从中传出阵阵热浪涟漪。",
+        "可尽管如此，他们的模样也没好到哪里去，除了旭阳子等三名金仙神色稍好一些外，其他几人皆是面色青白，通体瑟瑟。",
+        "陆雨晴身上已经放出了护体灵光，却仍是冻得美眸轻颤，睫毛上都结出了一层晶莹冰花。"
+      ],
+      "setting_descriptions": [
+        "「好冷啊……」",
+        "「古道友，劳烦你催动山河图，护住大家。」"
+      ],
+      "setting": "入府暴雪中，真焰赤袍光盛，虚化火焰纹涌、热浪涟漪。金仙稍好，余面色青白瑟瑟。山河幕后寒隔。",
+      "family": "FIRE",
+      "motif": "FORMATION",
+      "effect_type": "utility",
+      "target": "self",
+      "particle": "fire_ember",
+      "trail": "none",
+      "shape": "body_aura",
+      "color": "赤金火焰",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 14,
+      "scale_tier": 0,
+      "visual_signature": "4834076518c70b8a8716a9417c21ffaf94e910c8c95cd38ee2babb672bf15650",
+      "frames": [
+        {
+          "name": "起手",
+          "frame": "0-3",
+          "vis": "真焰宗等人身上的赤红长袍光芒大盛，表面隐隐有虚化的火焰纹路涌动，从中传出阵阵热浪涟漪。"
+        },
+        {
+          "name": "出击",
+          "frame": "4-8",
+          "vis": "可尽管如此，他们的模样也没好到哪里去，除了旭阳子等三名金仙神色稍好一些外，其他几人皆是面色青白，通体瑟瑟。"
+        },
+        {
+          "name": "命中",
+          "frame": "9-12",
+          "vis": "陆雨晴身上已经放出了护体灵光，却仍是冻得美眸轻颤，睫毛上都结出了一层晶莹冰花。"
+        }
+      ],
+      "mechanics": {
+        "operation": "CULTIVATE",
+        "delivery": "SELF",
+        "duration_ticks": 140,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "generic",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "utility",
+        "element": "fire",
+        "target": "self",
+        "cost": 8,
+        "cooldown_ticks": 50,
+        "damage_base": 0.0,
+        "range": 14.0,
+        "radius": 0.9,
+        "primary_status": "burning",
+        "secondary_status": "weakness"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v658.json"
+      }
+    },
+    {
+      "id": "technique_1533",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1533",
+      "display": "雷翅稳身",
+      "term": "青白雷翅抗风暴",
+      "school": "novel_curated_techniques_v659",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（失散·雪狮·眼熟·跟随·传言：第409–413章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v659.json",
+      "source_version": 659,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "韩立身上青光大盛，背后电弧闪烁，一对青白雷翅浮现而出，在狂风暴雪之中急速扇动，竭力稳住了身形。",
+        "被这股大力这么一撞，韩立在风雷翅帮助下才稳住的身形顿时一晃……随即身不由己地跌入了一股空间风暴之中。"
+      ],
+      "setting_descriptions": [
+        "「天旋地转之间，韩立耳畔的嗡鸣之声再次大作……就头脑一阵昏沉，失去了知觉。」"
+      ],
+      "setting": "雪龙砸散后，韩体青光大盛、背后电弧，一对青白雷翅急扇，狂风暴雪中暂稳身。被陆撞后仍跌入空间风暴。",
+      "family": "WIND",
+      "motif": "FORMATION",
+      "effect_type": "utility",
+      "target": "single",
+      "particle": "qi_soft",
+      "trail": "movement_wind",
+      "shape": "wing_fan",
+      "color": "淡青风痕",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 14,
+      "scale_tier": 0,
+      "visual_signature": "3dc1684d01e214c83b9c7029f9004e24e29e314eef3b3f426ac31665f785f6da",
+      "frames": [
+        {
+          "name": "成型",
+          "frame": "0-3",
+          "vis": "韩立身上青光大盛，背后电弧闪烁，一对青白雷翅浮现而出，在狂风暴雪之中急速扇动，竭力稳住了身形。"
+        },
+        {
+          "name": "命中",
+          "frame": "4-8",
+          "vis": "被这股大力这么一撞，韩立在风雷翅帮助下才稳住的身形顿时一晃……随即身不由己地跌入了一股空间风暴之中。"
+        }
+      ],
+      "mechanics": {
+        "operation": "DEFEND",
+        "delivery": "TARGETED",
+        "duration_ticks": 140,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "beast",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "utility",
+        "element": "wind",
+        "target": "single",
+        "cost": 8,
+        "cooldown_ticks": 50,
+        "damage_base": 0.0,
+        "range": 14.0,
+        "radius": 0.9,
+        "primary_status": "levitation",
+        "secondary_status": "slowness"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v659.json"
+      }
+    },
+    {
+      "id": "technique_1534",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1534",
+      "display": "金雷碎魄",
+      "term": "青竹蜂云剑金雷碎寒魄",
+      "school": "novel_curated_techniques_v659",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（失散·雪狮·眼熟·跟随·传言：第409–413章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v659.json",
+      "source_version": 659,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "青色长剑立即一阵颤鸣，剑身之上一缕缕金色电光乍现而出，化为一片金色电网的倾泻而下，顿时将雪狮的头颅淹没了进去。",
+        "周围不断聚集而至的雪白流光在触及金色电网后，纷纷爆裂开来，无法侵入分毫。",
+        "雪狮头颅中的寒魄晶石，也在金色电光交织的轰击之下，彻底崩碎成了齑粉。"
+      ],
+      "setting_descriptions": [
+        "「柳大哥好厉害！」",
+        "「柳大哥的攻击威力太强大，这头寒兽的寒魄已经全部消融了，半点都没剩下。」"
+      ],
+      "setting": "剑刺左眼劈头钉寒魄寸许未穿；掐剑诀剑身金电成电网倾泻，阻雪白流光，轰击崩碎寒魄。兽化积雪。",
+      "family": "METAL",
+      "motif": "CHAIN",
+      "effect_type": "chain",
+      "target": "area",
+      "particle": "metal_spark",
+      "trail": "sword_thin",
+      "shape": "chain_net",
+      "color": "银金锋芒",
+      "telegraphed": false,
+      "radius": 2.15,
+      "intensity": 21,
+      "scale_tier": 1,
+      "visual_signature": "fb7b610c177260996447e098979de685615bbb7c073218223189a8763be24481",
+      "frames": [
+        {
+          "name": "成型",
+          "frame": "0-4",
+          "vis": "青色长剑立即一阵颤鸣，剑身之上一缕缕金色电光乍现而出，化为一片金色电网的倾泻而下，顿时将雪狮的头颅淹没了进去。"
+        },
+        {
+          "name": "命中",
+          "frame": "5-8",
+          "vis": "周围不断聚集而至的雪白流光在触及金色电网后，纷纷爆裂开来，无法侵入分毫。"
+        },
+        {
+          "name": "命中",
+          "frame": "9-12",
+          "vis": "雪狮头颅中的寒魄晶石，也在金色电光交织的轰击之下，彻底崩碎成了齑粉。"
+        }
+      ],
+      "mechanics": {
+        "operation": "ATTACK",
+        "delivery": "CHAIN",
+        "duration_ticks": 130,
+        "projectile_count": 1,
+        "max_targets": 4,
+        "summon_archetype": "generic",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "chain",
+        "element": "metal",
+        "target": "area",
+        "cost": 17,
+        "cooldown_ticks": 85,
+        "damage_base": 17.0,
+        "range": 21.0,
+        "radius": 2.15,
+        "primary_status": "armor_break",
+        "secondary_status": "bleeding"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v659.json"
+      }
+    },
+    {
+      "id": "technique_1535",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1535",
+      "display": "星窍护体",
+      "term": "冷焰星辰玄窍护体",
+      "school": "novel_curated_techniques_v659",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（失散·雪狮·眼熟·跟随·传言：第409–413章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v659.json",
+      "source_version": 659,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "其胸腹处七颗蓝色星辰图案骤然亮起，紧接着体表亮起十数处蓝色光点，脖颈下方也不例外。",
+        "一层如同星辉般的白色光芒立即浮现，堪堪覆盖住他的体表。",
+        "其脚底白光乍泄，星辰之力凝如实质，在触碰到雪猿头颅时，立即绽放出夺目光芒来。"
+      ],
+      "setting_descriptions": [
+        "「冷焰老祖周身光芒大作，玄窍上的蓝色光点也是一个接着一个亮了起来，比韩立上一次见到时，似乎还多了一些。」"
+      ],
+      "setting": "冷焰胸腹七蓝星辰亮，体表十余蓝光点（含颈下）出星辉白光护体，挡雪鸠钩爪。拳端白光砸冰丝箭；脚底星力踩爆雪猿头。玄窍似比前更多。",
+      "family": "LIGHT",
+      "motif": "SHIELD",
+      "effect_type": "shield",
+      "target": "self",
+      "particle": "heal_motes",
+      "trail": "none",
+      "shape": "eye_gaze",
+      "color": "乳白金光",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 14,
+      "scale_tier": 0,
+      "visual_signature": "53cc6d0d2ac94fdfef21707b0ef081b54c5122cbd6612516ebb885a71102cf72",
+      "frames": [
+        {
+          "name": "起手",
+          "frame": "0-3",
+          "vis": "其胸腹处七颗蓝色星辰图案骤然亮起，紧接着体表亮起十数处蓝色光点，脖颈下方也不例外。"
+        },
+        {
+          "name": "成型",
+          "frame": "4-7",
+          "vis": "一层如同星辉般的白色光芒立即浮现，堪堪覆盖住他的体表。"
+        },
+        {
+          "name": "命中",
+          "frame": "8-11",
+          "vis": "其脚底白光乍泄，星辰之力凝如实质，在触碰到雪猿头颅时，立即绽放出夺目光芒来。"
+        }
+      ],
+      "mechanics": {
+        "operation": "DEFEND",
+        "delivery": "SELF",
+        "duration_ticks": 140,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "beast",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "shield",
+        "element": "light",
+        "target": "self",
+        "cost": 8,
+        "cooldown_ticks": 50,
+        "damage_base": 0.0,
+        "range": 14.0,
+        "radius": 0.9,
+        "primary_status": "resistance",
+        "secondary_status": "damage_boost"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v659.json"
+      }
+    },
+    {
+      "id": "technique_1536",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1536",
+      "display": "星元拳劲",
+      "term": "大周天星元功拳劲破剑莲",
+      "school": "novel_curated_techniques_v660",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（暴露·一言不合·联手·追兵·攀峰：第414–418章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v660.json",
+      "source_version": 660,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "胸腹之上浮现出十八点星光，整个人蓦然间拔高了一分，二话不说的冲虚空一拳捣出。",
+        "金色剑莲下坠之势猛地一颤，停滞于半空中，随即寸寸碎裂开来。",
+        "周围的空气瞬间变得坚固无比，似乎化为了钢铁一般。"
+      ],
+      "setting_descriptions": [
+        "「这是……大周天星元功！」",
+        "「其心中一凛之下，脑海中某种秘术已下意识的运转起来，浩瀚的神识之力一个运转，眼前幻觉顿时消失。」"
+      ],
+      "setting": "熊山剑气成金莲罩下，剑意致幻。韩神识破幻，胸腹十八星光拔高，一拳虚空扭曲波纹，剑莲寸碎；拳劲续轰使气如钢。熊山称此为大周天星元功。",
+      "family": "METAL",
+      "motif": "MARTIAL",
+      "effect_type": "melee",
+      "target": "area",
+      "particle": "metal_spark",
+      "trail": "sword_thin",
+      "shape": "impact_arcs",
+      "color": "银金锋芒",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 14,
+      "scale_tier": 0,
+      "visual_signature": "14c333cce7c3941a9169d1697e1be7b940367fde706eb82409ff9892c8a4c277",
+      "frames": [
+        {
+          "name": "成型",
+          "frame": "0-3",
+          "vis": "胸腹之上浮现出十八点星光，整个人蓦然间拔高了一分，二话不说的冲虚空一拳捣出。"
+        },
+        {
+          "name": "出击",
+          "frame": "4-7",
+          "vis": "金色剑莲下坠之势猛地一颤，停滞于半空中，随即寸寸碎裂开来。"
+        },
+        {
+          "name": "成型",
+          "frame": "8-11",
+          "vis": "周围的空气瞬间变得坚固无比，似乎化为了钢铁一般。"
+        },
+        {
+          "name": "回收",
+          "frame": "12-15",
+          "vis": "余光、残焰或灵气按原路径收束消散。"
+        }
+      ],
+      "mechanics": {
+        "operation": "ATTACK",
+        "delivery": "AREA",
+        "duration_ticks": 80,
+        "projectile_count": 1,
+        "max_targets": 8,
+        "summon_archetype": "generic",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "melee",
+        "element": "metal",
+        "target": "area",
+        "cost": 8,
+        "cooldown_ticks": 50,
+        "damage_base": 10.0,
+        "range": 14.0,
+        "radius": 0.9,
+        "primary_status": "armor_break",
+        "secondary_status": "bleeding"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v660.json"
+      }
+    },
+    {
+      "id": "technique_1537",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1537",
+      "display": "山岳巨猿",
+      "term": "山岳巨猿金拳破星幕",
+      "school": "novel_curated_techniques_v660",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（暴露·一言不合·联手·追兵·攀峰：第414–418章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v660.json",
+      "source_version": 660,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "他全身浮现出一层金光，身躯飞快膨胀，转瞬间变大了数倍，同时体表浮现出一层金色绒毛，化为了山岳巨猿形态。",
+        "半空之中金光一闪，一只巨大无比的金色拳影浮现而出，拳影上缠绕着丝丝星光之力。",
+        "一股青色狂风蜂拥而出，随即化为了一条青色风龙，狠狠击下。"
+      ],
+      "setting_descriptions": [
+        "「若是不能一举将其破除，它很快便会恢复到之前的状态，大家别留手了！」",
+        "「星辰光幕剧烈扭曲，上面终于浮现出一道道裂纹。」"
+      ],
+      "setting": "破末层星辰光幕时，韩体金光膨胀数倍、金绒毛成山岳巨猿，十八星点辉映；捶胸低吼出巨大金拳影缠星光，合力裂幕。陆青羽扇成风龙。",
+      "family": "EARTH",
+      "motif": "MARTIAL",
+      "effect_type": "melee",
+      "target": "single",
+      "particle": "earth_dust",
+      "trail": "heavy_weapon",
+      "shape": "beast_phantom",
+      "color": "土黄岩尘",
+      "telegraphed": true,
+      "radius": 4.65,
+      "intensity": 35,
+      "scale_tier": 3,
+      "visual_signature": "3a0ae08e4228ad4e1f54ba8a2bd991212c5732ef5c7e21f574013d87f4656b46",
+      "frames": [
+        {
+          "name": "成型",
+          "frame": "0-4",
+          "vis": "他全身浮现出一层金光，身躯飞快膨胀，转瞬间变大了数倍，同时体表浮现出一层金色绒毛，化为了山岳巨猿形态。"
+        },
+        {
+          "name": "成型",
+          "frame": "5-8",
+          "vis": "半空之中金光一闪，一只巨大无比的金色拳影浮现而出，拳影上缠绕着丝丝星光之力。"
+        },
+        {
+          "name": "成型",
+          "frame": "9-12",
+          "vis": "一股青色狂风蜂拥而出，随即化为了一条青色风龙，狠狠击下。"
+        },
+        {
+          "name": "回收",
+          "frame": "13-16",
+          "vis": "余光、残焰或灵气按原路径收束消散。"
+        }
+      ],
+      "mechanics": {
+        "operation": "ATTACK",
+        "delivery": "CONTACT",
+        "duration_ticks": 230,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "beast",
+        "terrain_mode": "rock"
+      },
+      "functional": {
+        "type": "melee",
+        "element": "earth",
+        "target": "single",
+        "cost": 35,
+        "cooldown_ticks": 155,
+        "damage_base": 31.0,
+        "range": 35.0,
+        "radius": 4.65,
+        "primary_status": "slowness",
+        "secondary_status": "weakness"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v660.json"
+      }
+    },
+    {
+      "id": "technique_1538",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1538",
+      "display": "真极之膜",
+      "term": "冷焰真极之膜与熊山炼体",
+      "school": "novel_curated_techniques_v660",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（暴露·一言不合·联手·追兵·攀峰：第414–418章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v660.json",
+      "source_version": 660,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "身体表面浮现出一层晶膜，正是真极之膜。冷焰老祖身躯变大了一圈，手脚也粗壮了不少。",
+        "皮肤也变成金色，并浮现出一道道花纹，整个人看起来好像一尊黄金雕像。",
+        "熊山原本矮小的身躯赫然飞快长高了不少，化为一个长手长脚的雄壮黄金大汉。"
+      ],
+      "setting_descriptions": [
+        "「这是个相当不弱的炼体秘术……熊山并不会这个炼体神通，应该所在这些年里特意练成的。」"
+      ],
+      "setting": "冷焰体表晶膜真极之膜，身大一圈手脚粗壮加速攀。熊山炼体秘术：皮肤金纹如金雕像，再变长手长脚黄金大汉。二者皆为攀银阶多年准备。",
+      "family": "EARTH",
+      "motif": "GENERIC",
+      "effect_type": "utility",
+      "target": "self",
+      "particle": "earth_dust",
+      "trail": "heavy_weapon",
+      "shape": "aura_burst",
+      "color": "土黄岩尘",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 14,
+      "scale_tier": 0,
+      "visual_signature": "c9a973470a5706572c839c07e64ffd47e6cc73c91b5bcd958f644223ef334ec7",
+      "frames": [
+        {
+          "name": "成型",
+          "frame": "0-3",
+          "vis": "身体表面浮现出一层晶膜，正是真极之膜。冷焰老祖身躯变大了一圈，手脚也粗壮了不少。"
+        },
+        {
+          "name": "成型",
+          "frame": "4-7",
+          "vis": "皮肤也变成金色，并浮现出一道道花纹，整个人看起来好像一尊黄金雕像。"
+        },
+        {
+          "name": "成型",
+          "frame": "8-11",
+          "vis": "熊山原本矮小的身躯赫然飞快长高了不少，化为一个长手长脚的雄壮黄金大汉。"
+        },
+        {
+          "name": "回收",
+          "frame": "12-15",
+          "vis": "余光、残焰或灵气按原路径收束消散。"
+        }
+      ],
+      "mechanics": {
+        "operation": "CULTIVATE",
+        "delivery": "SELF",
+        "duration_ticks": 140,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "generic",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "utility",
+        "element": "earth",
+        "target": "self",
+        "cost": 8,
+        "cooldown_ticks": 50,
+        "damage_base": 0.0,
+        "range": 14.0,
+        "radius": 0.9,
+        "primary_status": "slowness",
+        "secondary_status": "weakness"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v660.json"
+      }
+    },
+    {
+      "id": "technique_1539",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1539",
+      "display": "真灵叠变",
+      "term": "多真灵虚影叠变抱双攀峰",
+      "school": "novel_curated_techniques_v661",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（禁斗·登顶·大千世界·故技重施·诱饵：第419–423章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v661.json",
+      "source_version": 661,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "体表再次浮现出一层耀眼的紫金光芒。数声清鸣低吼声从紫金光芒中传出，随即天龙，彩凤、青鸾，雷鹏等数种不同虚影浮现而出。",
+        "体表顿时浮现出一层层紫金色鳞片，双肩和肋下一个模糊后，分别长出了另外两颗狰狞头颅和四条紫金长臂。"
+      ],
+      "setting_descriptions": [
+        "「韩道友的肉身，竟然强大到了这个程度，在下真是佩服！」",
+        "「新生的四条手臂抱住冷焰老祖和陆雨晴，大步前进，速度比起之前，竟然丝毫不慢。」"
+      ],
+      "setting": "抱冷焰+陆双人时紫金光现天龙彩凤青鸾雷鹏等虚影融入；身大数倍紫金鳞、双肩肋下再生两狰狞头颅与四紫金臂，四臂抱人攀登不慢。",
+      "family": "METAL",
+      "motif": "MARTIAL",
+      "effect_type": "summon",
+      "target": "single",
+      "particle": "metal_spark",
+      "trail": "sword_thin",
+      "shape": "body_aura",
+      "color": "银金锋芒",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 14,
+      "scale_tier": 0,
+      "visual_signature": "d1773ffb963ccd687fc4240b2866995c867130966f9e8415e8b0c1cf84adfbe9",
+      "frames": [
+        {
+          "name": "成型",
+          "frame": "0-4",
+          "vis": "体表再次浮现出一层耀眼的紫金光芒。数声清鸣低吼声从紫金光芒中传出，随即天龙，彩凤、青鸾，雷鹏等数种不同虚影浮现而出。"
+        },
+        {
+          "name": "成型",
+          "frame": "5-9",
+          "vis": "体表顿时浮现出一层层紫金色鳞片，双肩和肋下一个模糊后，分别长出了另外两颗狰狞头颅和四条紫金长臂。"
+        },
+        {
+          "name": "回收",
+          "frame": "10-13",
+          "vis": "余光、残焰或灵气按原路径收束消散。"
+        }
+      ],
+      "mechanics": {
+        "operation": "SUMMON",
+        "delivery": "SUMMON",
+        "duration_ticks": 80,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "beast",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "summon",
+        "element": "metal",
+        "target": "single",
+        "cost": 8,
+        "cooldown_ticks": 50,
+        "damage_base": 0.0,
+        "range": 14.0,
+        "radius": 0.9,
+        "primary_status": "armor_break",
+        "secondary_status": "bleeding"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v661.json"
       }
     },
     {
@@ -123351,6 +125298,388 @@
       "tags": [],
       "sources": {
         "primary": "文本材料/data/novel_curated_techniques_v199.json"
+      }
+    },
+    {
+      "id": "technique_1540",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1540",
+      "display": "银雷破门",
+      "term": "五指银雷球破殿门",
+      "school": "novel_curated_techniques_v661",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（禁斗·登顶·大千世界·故技重施·诱饵：第419–423章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v661.json",
+      "source_version": 661,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "五个手指之上同时浮现出五个银光灿灿的雷球，猛然朝着殿门之上拍了下去。",
+        "被韩立掌心拍中的地方凹陷下去了一个深坑，上面浮现出五团黑色焦痕，符文已经被灼烧得一塌糊涂了。"
+      ],
+      "setting_descriptions": [
+        "「韩立略一打量后，便发现并不是什么难以破解的高深禁制。」",
+        "「狂涌而出的紫金电芒，将散乱的银色电丝尽数吞噬。」"
+      ],
+      "setting": "五指各出银光雷球拍紫金门，门向内开、凹深坑五黑焦痕，符文尽灼。再用于封殿紫金幕则反噬麻痹。",
+      "family": "THUNDER",
+      "motif": "TALISMAN",
+      "effect_type": "utility_combat",
+      "target": "single",
+      "particle": "thunder_arc",
+      "trail": "talisman_ash",
+      "shape": "orb_projectile",
+      "color": "紫金雷光",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 14,
+      "scale_tier": 0,
+      "visual_signature": "b2af0536121c68f6669d6784a5bf42f189a5be67e71799af30d29fa50fb7ab85",
+      "frames": [
+        {
+          "name": "成型",
+          "frame": "0-3",
+          "vis": "五个手指之上同时浮现出五个银光灿灿的雷球，猛然朝着殿门之上拍了下去。"
+        },
+        {
+          "name": "成型",
+          "frame": "4-7",
+          "vis": "被韩立掌心拍中的地方凹陷下去了一个深坑，上面浮现出五团黑色焦痕，符文已经被灼烧得一塌糊涂了。"
+        },
+        {
+          "name": "回收",
+          "frame": "8-11",
+          "vis": "余光、残焰或灵气按原路径收束消散。"
+        }
+      ],
+      "mechanics": {
+        "operation": "ATTACK",
+        "delivery": "TARGETED",
+        "duration_ticks": 80,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "generic",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "utility_combat",
+        "element": "thunder",
+        "target": "single",
+        "cost": 8,
+        "cooldown_ticks": 50,
+        "damage_base": 10.0,
+        "range": 14.0,
+        "radius": 0.9,
+        "primary_status": "stunned",
+        "secondary_status": "weakness"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v661.json"
+      }
+    },
+    {
+      "id": "technique_1541",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1541",
+      "display": "逆转真轮",
+      "term": "逆转真轮加速避拳",
+      "school": "novel_curated_techniques_v661",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（禁斗·登顶·大千世界·故技重施·诱饵：第419–423章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v661.json",
+      "source_version": 661,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "韩立的身影却是突然一个模糊，瞬间出现在了铜人背后，朝着其后脊正中的位置，一拳砸了下去。",
+        "铜人傀儡后背玄窍上涌出大量星辉，与韩立拳头上的星辰之力剧烈冲撞……绽放出一大片耀眼夺目的蓝色光焰。"
+      ],
+      "setting_descriptions": [
+        "「方才若不是他在千钧一发之际，逆转体内真轮，加速了自己的时间流速，先一步避让开铜人傀儡的拳头。」",
+        "「这铜人傀儡居然能够使用星辰之力，周身之上竟似乎也开辟出了玄窍。」"
+      ],
+      "setting": "与铜人对星拳将败时身模糊现其背后击脊。靠逆转体内真轮加速时间流速先避。巨猿+蓝光膜+星窍仍力逊铜人。",
+      "family": "FIRE",
+      "motif": "SUMMON",
+      "effect_type": "melee",
+      "target": "single",
+      "particle": "fire_ember",
+      "trail": "none",
+      "shape": "summon_gate",
+      "color": "赤金火焰",
+      "telegraphed": false,
+      "radius": 3.4,
+      "intensity": 28,
+      "scale_tier": 2,
+      "visual_signature": "ae9a9514c99d2abe5e5730c8ab9f2e62ed08524af416f7f132e6d047772f9f0b",
+      "frames": [
+        {
+          "name": "命中",
+          "frame": "0-3",
+          "vis": "韩立的身影却是突然一个模糊，瞬间出现在了铜人背后，朝着其后脊正中的位置，一拳砸了下去。"
+        },
+        {
+          "name": "命中",
+          "frame": "4-8",
+          "vis": "铜人傀儡后背玄窍上涌出大量星辉，与韩立拳头上的星辰之力剧烈冲撞……绽放出一大片耀眼夺目的蓝色光焰。"
+        }
+      ],
+      "mechanics": {
+        "operation": "ATTACK",
+        "delivery": "CONTACT",
+        "duration_ticks": 180,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "beast",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "melee",
+        "element": "fire",
+        "target": "single",
+        "cost": 26,
+        "cooldown_ticks": 120,
+        "damage_base": 24.0,
+        "range": 28.0,
+        "radius": 3.4,
+        "primary_status": "burning",
+        "secondary_status": "weakness"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v661.json"
+      }
+    },
+    {
+      "id": "technique_1542",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1542",
+      "display": "真轮涟漪",
+      "term": "真言宝轮金色涟漪缓时",
+      "school": "novel_curated_techniques_v662",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（携手一击·觅宝·壁画·药园·断树：第424–428章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v662.json",
+      "source_version": 662,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "身后金光剧烈涌动，一道金色宝轮浮现而出，上面仅剩地还能使用的十数团道纹同时大亮，从中散发出一层金色涟漪。",
+        "金仙傀儡的手臂在穿入涟漪中时，顿时像是陷入了光阴长河之中，变得缓慢无比。"
+      ],
+      "setting_descriptions": [
+        "「被其禁锢其中的那只手臂竟然再次朝前突进起来，速度虽然不算快，却明显将宝轮对其的影响降低了百倍。」",
+        "「这种情况在以前可是从未出现过的。」"
+      ],
+      "setting": "身后金宝轮出，仅余十余道纹亮，金涟漪笼身。铜人手刀入涟如陷光阴长河变缓；然其星点更亮、焰转蓝切涟，影响降百倍。前所未见。",
+      "family": "METAL",
+      "motif": "SUMMON",
+      "effect_type": "utility",
+      "target": "self",
+      "particle": "metal_spark",
+      "trail": "sword_thin",
+      "shape": "scripture_glyph",
+      "color": "银金锋芒",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 14,
+      "scale_tier": 0,
+      "visual_signature": "d242e9f2e0a5d3b585890963a8022eb69c4d2acdb3947eeeee54b577ad69a625",
+      "frames": [
+        {
+          "name": "成型",
+          "frame": "0-4",
+          "vis": "身后金光剧烈涌动，一道金色宝轮浮现而出，上面仅剩地还能使用的十数团道纹同时大亮，从中散发出一层金色涟漪。"
+        },
+        {
+          "name": "命中",
+          "frame": "5-8",
+          "vis": "金仙傀儡的手臂在穿入涟漪中时，顿时像是陷入了光阴长河之中，变得缓慢无比。"
+        }
+      ],
+      "mechanics": {
+        "operation": "CULTIVATE",
+        "delivery": "SELF",
+        "duration_ticks": 140,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "generic",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "utility",
+        "element": "metal",
+        "target": "self",
+        "cost": 8,
+        "cooldown_ticks": 50,
+        "damage_base": 0.0,
+        "range": 14.0,
+        "radius": 0.9,
+        "primary_status": "armor_break",
+        "secondary_status": "bleeding"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v662.json"
+      }
+    },
+    {
+      "id": "technique_1543",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1543",
+      "display": "摄灵破园",
+      "term": "大五行摄灵真光破药园",
+      "school": "novel_curated_techniques_v662",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（携手一击·觅宝·壁画·药园·断树：第424–428章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v662.json",
+      "source_version": 662,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "五色光芒在半空中翻滚交织之下，很快融合在了一起，化为了一个巨大的五色光团……很快达到了百丈大小。",
+        "这些光芒随即凝聚到了一起，化为一支支丈许大小的五色光箭，然后猛然如雨而落。",
+        "化为一根足有百丈大小的巨箭……星辰光幕再也无法支撑下去……光幕随之寸寸碎裂而开。"
+      ],
+      "setting_descriptions": [
+        "「韩某以前修炼过一门五行齐施的神通，所以领悟的稍微快了一些。」",
+        "「难怪这星辰禁制如此轻易便被破解了，原来事先已经有人破开过一次？」"
+      ],
+      "setting": "韩凭元磁神光触类旁通，大半时辰悟口诀。五宝成百丈五色光团，光柱化五色光箭再融百丈巨箭，星幕寸裂。因先客已破只复小半故易。",
+      "family": "WATER",
+      "motif": "SHIELD",
+      "effect_type": "projectile",
+      "target": "single",
+      "particle": "water_mist",
+      "trail": "none",
+      "shape": "body_shell",
+      "color": "澄蓝水光",
+      "telegraphed": true,
+      "radius": 4.65,
+      "intensity": 35,
+      "scale_tier": 3,
+      "visual_signature": "775bcacbeaf6178fd27f312fb20ade68700e396a615b5d7e9eec0ca429ebe21b",
+      "frames": [
+        {
+          "name": "成型",
+          "frame": "0-4",
+          "vis": "五色光芒在半空中翻滚交织之下，很快融合在了一起，化为了一个巨大的五色光团……很快达到了百丈大小。"
+        },
+        {
+          "name": "成型",
+          "frame": "5-8",
+          "vis": "这些光芒随即凝聚到了一起，化为一支支丈许大小的五色光箭，然后猛然如雨而落。"
+        },
+        {
+          "name": "成型",
+          "frame": "9-12",
+          "vis": "化为一根足有百丈大小的巨箭……星辰光幕再也无法支撑下去……光幕随之寸寸碎裂而开。"
+        },
+        {
+          "name": "回收",
+          "frame": "13-16",
+          "vis": "余光、残焰或灵气按原路径收束消散。"
+        }
+      ],
+      "mechanics": {
+        "operation": "ATTACK",
+        "delivery": "PROJECTILE",
+        "duration_ticks": 230,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "generic",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "projectile",
+        "element": "water",
+        "target": "single",
+        "cost": 35,
+        "cooldown_ticks": 155,
+        "damage_base": 31.0,
+        "range": 35.0,
+        "radius": 4.65,
+        "primary_status": "slowness",
+        "secondary_status": "weakness"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v662.json"
+      }
+    },
+    {
+      "id": "technique_1544",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1544",
+      "display": "剑莲破禁",
+      "term": "青竹蜂云剑阵化剑莲破药田",
+      "school": "novel_curated_techniques_v662",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（携手一击·觅宝·壁画·药园·断树：第424–428章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v662.json",
+      "source_version": 662,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "七十二口青竹蜂云剑顿时从袖口中狂涌而出，往空中一个盘旋后，就化为一座青濛濛剑阵。",
+        "青色剑阵猛地缩小，往中心处汇聚而去，滴溜溜一转后，蓦然化为一座巨大青色剑莲。",
+        "每一个莲瓣上都浮现出一道道耀眼无比的金色电弧……每一个莲瓣都牢牢钳住红色光罩，然后旋转撕扯。"
+      ],
+      "setting_descriptions": [
+        "「韩立全力催动的青竹风云剑阵威力何等厉害，这些禁制剧烈颤动，光芒飞快暗淡。」",
+        "「红色光罩顿时剧烈扭曲，坚持了一会，终于「砰」的一声巨响，碎裂开来。」"
+      ],
+      "setting": "七十二剑化青濛剑阵罩田，剑气破外围禁制数息。深处红罩难碎时剑阵缩成巨青剑莲，莲瓣金电钳罩旋转撕扯至碎。",
+      "family": "METAL",
+      "motif": "FORMATION",
+      "effect_type": "field",
+      "target": "area",
+      "particle": "metal_spark",
+      "trail": "sword_thin",
+      "shape": "lotus_mandala",
+      "color": "银金锋芒",
+      "telegraphed": true,
+      "radius": 6.15,
+      "intensity": 35,
+      "scale_tier": 3,
+      "visual_signature": "1092bb1b91e03f0b354de989ccefa35e58cc6071a5309ed71d0feee5264f3c3d",
+      "frames": [
+        {
+          "name": "成型",
+          "frame": "0-3",
+          "vis": "七十二口青竹蜂云剑顿时从袖口中狂涌而出，往空中一个盘旋后，就化为一座青濛濛剑阵。"
+        },
+        {
+          "name": "成型",
+          "frame": "4-7",
+          "vis": "青色剑阵猛地缩小，往中心处汇聚而去，滴溜溜一转后，蓦然化为一座巨大青色剑莲。"
+        },
+        {
+          "name": "成型",
+          "frame": "8-11",
+          "vis": "每一个莲瓣上都浮现出一道道耀眼无比的金色电弧……每一个莲瓣都牢牢钳住红色光罩，然后旋转撕扯。"
+        },
+        {
+          "name": "回收",
+          "frame": "12-15",
+          "vis": "余光、残焰或灵气按原路径收束消散。"
+        }
+      ],
+      "mechanics": {
+        "operation": "ATTACK",
+        "delivery": "FIELD",
+        "duration_ticks": 350,
+        "projectile_count": 1,
+        "max_targets": 26,
+        "summon_archetype": "generic",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "field",
+        "element": "metal",
+        "target": "area",
+        "cost": 35,
+        "cooldown_ticks": 155,
+        "damage_base": 31.0,
+        "range": 35.0,
+        "radius": 6.15,
+        "primary_status": "armor_break",
+        "secondary_status": "bleeding"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v662.json"
       }
     },
     {

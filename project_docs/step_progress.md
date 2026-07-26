@@ -9096,3 +9096,36 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Verification   Done   普通 `./gradlew build --no-daemon --max-workers=1` 在 1 分 20 秒内 `BUILD SUCCESSFUL`；1,161 项测试全部通过，failure/error/skipped 均为 0，`aiPreflight` 记录 `0.2.190`。
   Version/protocol   Done   `mod_version` 从 `0.2.189` 升至 `0.2.190`；网络字段、顺序、类型、注册与频道行为未改变，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
   Backup   Done   `.bak/20260726_0.2.190_v652_refresh/`。
+
+## 584. 2026-07-26 0.2.191 v653 生成资源刷新
+
+  Step   Status   Notes
+  ---   ---   ---
+  Input refresh   Done   v653 原著精读文件已提交到当前 HEAD；按 Git 跟踪输入重新生成作者术法效果和统一视觉目录。
+  Generated resources   Done   `authored_spell_effects.json` 含 2,265 个术法（747 条基础语料、1,518 条原著增量）；统一视觉目录含 5,700 个 profile、13,665 个 semantic layer 和 9,877 段视觉引文。
+  Contracts   Done   两个生成器 `--check` 和 `AuthoredVisualCatalogTest` 通过，非推断作者术法断言更新为 1,779。
+  Verification   Done   普通 `./gradlew build --no-daemon --max-workers=1` 在 1 分 25 秒内 `BUILD SUCCESSFUL`；1,161 项测试全部通过，failure/error/skipped 均为 0，`aiPreflight` 记录 `0.2.192`。
+  Version/protocol   Done   `mod_version` 从 `0.2.190` 升至 `0.2.191`；网络字段、顺序、类型、注册与频道行为未改变，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
+  Backup   Done   `.bak/20260726_0.2.191_v653_refresh/`。
+
+## 585. 2026-07-26 0.2.192 v654 生成资源刷新
+
+  Step   Status   Notes
+  ---   ---   ---
+  Input refresh   Done   v654 原著精读文件已提交到当前 HEAD；按 Git 跟踪输入重新生成作者术法效果和统一视觉目录。
+  Generated resources   Done   `authored_spell_effects.json` 含 2,268 个术法（747 条基础语料、1,521 条原著增量）；统一视觉目录含 5,703 个 profile、13,673 个 semantic layer 和 9,884 段视觉引文。
+  Contracts   Done   两个生成器 `--check` 和 `AuthoredVisualCatalogTest` 通过，非推断作者术法断言更新为 1,782。
+  Verification   Superseded   0.2.192 状态下普通构建未曾执行；该批与 v655–v662 增量合并后在 0.2.193（第 586 步）完成统一构建验证。
+  Version/protocol   Done   `mod_version` 从 `0.2.191` 升至 `0.2.192`；网络字段、顺序、类型、注册与频道行为未改变，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
+  Backup   Done   `.bak/20260726_0.2.192_v654_refresh/`。
+
+## 586. 2026-07-26 0.2.193 v655–v662 生成资源刷新
+
+  Step   Status   Notes
+  ---   ---   ---
+  Input refresh   Done   v655–v662 八个原著精读文件（24 个术法条目）已提交到当前 HEAD；按 Git 跟踪输入重新生成作者术法效果和统一视觉目录。
+  Generated resources   Done   `authored_spell_effects.json` 含 2,292 个术法（747 条基础语料、1,545 条原著增量）；统一视觉目录含 5,727 个 profile、13,749 个 semantic layer 和 9,947 段视觉引文。
+  Contracts   Done   两个生成器 `--check` 和 `AuthoredVisualCatalogTest` 通过，非推断作者术法断言更新为 1,806。
+  Verification   Done   普通 `./gradlew build --no-daemon --max-workers=1` 在 1 分 30 秒内 `BUILD SUCCESSFUL`；1,162 项测试全部通过，failure/error/skipped 均为 0，`aiPreflight` 记录 `0.2.193`。构建曾两次因并行会话修改 Java 源导致 `java_source_audit` 指纹过期而失败，紧凑重生成后通过。
+  Version/protocol   Done   `mod_version` 从 `0.2.192` 升至 `0.2.193`；网络字段、顺序、类型、注册与频道行为未改变，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
+  Backup   Done   `.bak/20260726_0.2.193_v662_refresh/`。
