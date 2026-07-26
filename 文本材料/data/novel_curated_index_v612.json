@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 612,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第174–178章）",
+  "method": "沿原文逐段精读；本索引汇总 v612 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2791", "display": "域外天魔幻境", "category": "setting", "file": "novel_curated_settings_v612.json"},
+    {"id": "setting_2792", "display": "方磐背后主使", "category": "setting", "file": "novel_curated_settings_v612.json"},
+    {"id": "setting_2793", "display": "荒澜世俗城规", "category": "setting", "file": "novel_curated_settings_v612.json"},
+    {"id": "setting_2794", "display": "亟雷树与雷鸣城", "category": "setting", "file": "novel_curated_settings_v612.json"},
+    {"id": "setting_2795", "display": "雷暴海洋天险", "category": "setting", "file": "novel_curated_settings_v612.json"},
+    {"id": "setting_2796", "display": "弥天巨眼与深海雷兽", "category": "setting", "file": "novel_curated_settings_v612.json"},
+    {"id": "artifact_1845", "display": "跨海雷舟", "category": "artifact", "file": "novel_curated_artifacts_v612.json"},
+    {"id": "artifact_1846", "display": "方磐乌黑长刀", "category": "artifact", "file": "novel_curated_artifacts_v612.json"},
+    {"id": "artifact_1847", "display": "紫色雷电蚌珠", "category": "artifact", "file": "novel_curated_artifacts_v612.json"},
+    {"id": "artifact_1848", "display": "太一化清符", "category": "artifact", "file": "novel_curated_artifacts_v612.json"},
+    {"id": "technique_1392", "display": "控阵化尊逼问", "category": "technique", "file": "novel_curated_techniques_v612.json"},
+    {"id": "technique_1393", "display": "炼神术稳魂", "category": "technique", "file": "novel_curated_techniques_v612.json"},
+    {"id": "technique_1394", "display": "魔神夺珠斩兽", "category": "technique", "file": "novel_curated_techniques_v612.json"},
+    {"id": "material_1414", "display": "亟雷木与树液", "category": "material", "file": "novel_curated_materials_v612.json"},
+    {"id": "material_1415", "display": "诞魂花液养魂灵液", "category": "material", "file": "novel_curated_materials_v612.json"},
+    {"id": "material_1416", "display": "红鹤酒", "category": "material", "file": "novel_curated_materials_v612.json"}
+  ]
+}
