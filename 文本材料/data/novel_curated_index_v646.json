@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 646,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第344–348章）",
+  "method": "沿原文逐段精读；本索引汇总 v646 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2995", "display": "观月园", "category": "setting", "file": "novel_curated_settings_v646.json"},
+    {"id": "setting_2996", "display": "陶羽身份", "category": "setting", "file": "novel_curated_settings_v646.json"},
+    {"id": "setting_2997", "display": "悬赏厉飞雨", "category": "setting", "file": "novel_curated_settings_v646.json"},
+    {"id": "setting_2998", "display": "观澜城", "category": "setting", "file": "novel_curated_settings_v646.json"},
+    {"id": "setting_2999", "display": "黑风变故", "category": "setting", "file": "novel_curated_settings_v646.json"},
+    {"id": "setting_3000", "display": "烛龙道沦", "category": "setting", "file": "novel_curated_settings_v646.json"},
+    {"id": "artifact_1981", "display": "七曜星环", "category": "artifact", "file": "novel_curated_artifacts_v646.json"},
+    {"id": "artifact_1982", "display": "修罗幡", "category": "artifact", "file": "novel_curated_artifacts_v646.json"},
+    {"id": "artifact_1983", "display": "风雷翅", "category": "artifact", "file": "novel_curated_artifacts_v646.json"},
+    {"id": "artifact_1984", "display": "黑风令", "category": "artifact", "file": "novel_curated_artifacts_v646.json"},
+    {"id": "technique_1494", "display": "声波铃", "category": "technique", "file": "novel_curated_techniques_v646.json"},
+    {"id": "technique_1495", "display": "气息共鸣", "category": "technique", "file": "novel_curated_techniques_v646.json"},
+    {"id": "technique_1496", "display": "五极重炼", "category": "technique", "file": "novel_curated_techniques_v646.json"},
+    {"id": "material_1516", "display": "寒魄晶", "category": "material", "file": "novel_curated_materials_v646.json"},
+    {"id": "material_1517", "display": "道丹七材", "category": "material", "file": "novel_curated_materials_v646.json"},
+    {"id": "material_1518", "display": "天造参", "category": "material", "file": "novel_curated_materials_v646.json"}
+  ]
+}
