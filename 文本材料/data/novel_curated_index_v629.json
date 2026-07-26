@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 629,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第259–263章）",
+  "method": "沿原文逐段精读；本索引汇总 v629 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2893", "display": "银质丹炉", "category": "setting", "file": "novel_curated_settings_v629.json"},
+    {"id": "setting_2894", "display": "熔金炼剑", "category": "setting", "file": "novel_curated_settings_v629.json"},
+    {"id": "setting_2895", "display": "第十二仙窍", "category": "setting", "file": "novel_curated_settings_v629.json"},
+    {"id": "setting_2896", "display": "九首蛇妖", "category": "setting", "file": "novel_curated_settings_v629.json"},
+    {"id": "setting_2897", "display": "二十四道纹", "category": "setting", "file": "novel_curated_settings_v629.json"},
+    {"id": "setting_2898", "display": "青光绝空阵", "category": "setting", "file": "novel_curated_settings_v629.json"},
+    {"id": "artifact_1913", "display": "蜂云剑再炼", "category": "artifact", "file": "novel_curated_artifacts_v629.json"},
+    {"id": "artifact_1914", "display": "银质丹炉", "category": "artifact", "file": "novel_curated_artifacts_v629.json"},
+    {"id": "artifact_1915", "display": "九首蛇蜕", "category": "artifact", "file": "novel_curated_artifacts_v629.json"},
+    {"id": "artifact_1916", "display": "精炎火鸟", "category": "artifact", "file": "novel_curated_artifacts_v629.json"},
+    {"id": "technique_1443", "display": "熔金阵图", "category": "technique", "file": "novel_curated_techniques_v629.json"},
+    {"id": "technique_1444", "display": "真轮十倍迟", "category": "technique", "file": "novel_curated_techniques_v629.json"},
+    {"id": "technique_1445", "display": "九剑青光幕", "category": "technique", "file": "novel_curated_techniques_v629.json"},
+    {"id": "material_1465", "display": "斛纹精金", "category": "material", "file": "novel_curated_materials_v629.json"},
+    {"id": "material_1466", "display": "琅铣云石", "category": "material", "file": "novel_curated_materials_v629.json"},
+    {"id": "material_1467", "display": "幽蓝灵草", "category": "material", "file": "novel_curated_materials_v629.json"}
+  ]
+}
