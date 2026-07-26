@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 611,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第169–173章）",
+  "method": "沿原文逐段精读；本索引汇总 v611 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2785", "display": "高阶水属困阵", "category": "setting", "file": "novel_curated_settings_v611.json"},
+    {"id": "setting_2786", "display": "真仙后期章鱼异种", "category": "setting", "file": "novel_curated_settings_v611.json"},
+    {"id": "setting_2787", "display": "青蛟丹与二十四窍", "category": "setting", "file": "novel_curated_settings_v611.json"},
+    {"id": "setting_2788", "display": "隔元链与神魂印记", "category": "setting", "file": "novel_curated_settings_v611.json"},
+    {"id": "setting_2789", "display": "魑蠡幻光阵", "category": "setting", "file": "novel_curated_settings_v611.json"},
+    {"id": "setting_2790", "display": "阵中阵九宫天乾", "category": "setting", "file": "novel_curated_settings_v611.json"},
+    {"id": "artifact_1841", "display": "重水蛟龙", "category": "artifact", "file": "novel_curated_artifacts_v611.json"},
+    {"id": "artifact_1842", "display": "重水雷珠绝杀", "category": "artifact", "file": "novel_curated_artifacts_v611.json"},
+    {"id": "artifact_1843", "display": "银色画卷仙器", "category": "artifact", "file": "novel_curated_artifacts_v611.json"},
+    {"id": "artifact_1844", "display": "暗金鳞甲", "category": "artifact", "file": "novel_curated_artifacts_v611.json"},
+    {"id": "technique_1389", "display": "示弱诱入困杀", "category": "technique", "file": "novel_curated_techniques_v611.json"},
+    {"id": "technique_1390", "display": "引兽迁怒", "category": "technique", "file": "novel_curated_techniques_v611.json"},
+    {"id": "technique_1391", "display": "星辰阵破链", "category": "technique", "file": "novel_curated_techniques_v611.json"},
+    {"id": "material_1411", "display": "青蛟丹", "category": "material", "file": "novel_curated_materials_v611.json"},
+    {"id": "material_1412", "display": "幻阵彩晶石柱", "category": "material", "file": "novel_curated_materials_v611.json"},
+    {"id": "material_1413", "display": "章鱼墨汁", "category": "material", "file": "novel_curated_materials_v611.json"}
+  ]
+}
