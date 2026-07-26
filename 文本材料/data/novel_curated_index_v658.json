@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 658,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第404–408章）",
+  "method": "沿原文逐段精读；本索引汇总 v658 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_3067", "display": "坐山观虎", "category": "setting", "file": "novel_curated_settings_v658.json"},
+    {"id": "setting_3068", "display": "三绝金仙", "category": "setting", "file": "novel_curated_settings_v658.json"},
+    {"id": "setting_3069", "display": "八荒流离", "category": "setting", "file": "novel_curated_settings_v658.json"},
+    {"id": "setting_3070", "display": "十二名额", "category": "setting", "file": "novel_curated_settings_v658.json"},
+    {"id": "setting_3071", "display": "仙府现世", "category": "setting", "file": "novel_curated_settings_v658.json"},
+    {"id": "setting_3072", "display": "暴雪初入", "category": "setting", "file": "novel_curated_settings_v658.json"},
+    {"id": "artifact_2029", "display": "九寰玄藏", "category": "artifact", "file": "novel_curated_artifacts_v658.json"},
+    {"id": "artifact_2030", "display": "彩牢封门", "category": "artifact", "file": "novel_curated_artifacts_v658.json"},
+    {"id": "artifact_2031", "display": "山河护幕", "category": "artifact", "file": "novel_curated_artifacts_v658.json"},
+    {"id": "artifact_2032", "display": "渠灵金袋", "category": "artifact", "file": "novel_curated_artifacts_v658.json"},
+    {"id": "technique_1530", "display": "威压破禁", "category": "technique", "file": "novel_curated_techniques_v658.json"},
+    {"id": "technique_1531", "display": "心魔起誓", "category": "technique", "file": "novel_curated_techniques_v658.json"},
+    {"id": "technique_1532", "display": "火袍御寒", "category": "technique", "file": "novel_curated_techniques_v658.json"},
+    {"id": "material_1552", "display": "仙府石碑", "category": "material", "file": "novel_curated_materials_v658.json"},
+    {"id": "material_1553", "display": "真言后篇", "category": "material", "file": "novel_curated_materials_v658.json"},
+    {"id": "material_1554", "display": "冥寒之气", "category": "material", "file": "novel_curated_materials_v658.json"}
+  ]
+}
