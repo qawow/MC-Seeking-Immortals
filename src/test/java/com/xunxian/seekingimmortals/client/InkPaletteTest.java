@@ -10,14 +10,14 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * Palette validator for all six UI themes: every theme × scene combination
+ * Palette validator for all UI themes: every theme × scene combination
  * ships a complete, opaque, high-contrast token set with no neon and with
  * stable within-theme semantic colors (cinnabar/warning). Contrast direction
  * depends on theme brightness class:
  * <ul>
- *   <li>light paper (云笈墨卷 / 符箓黄纸 / 水墨山水): light panel, dark ink</li>
+ *   <li>light paper (云笈墨卷 / 符箓黄纸 / 水墨山水 / 黄枫秋色 / 青元剑光): light panel, dark ink</li>
  *   <li>mid stone (洞府石刻): mid panel, light ink</li>
- *   <li>dark ground (玄夜星图 / 青铜鼎彝): dark panel, light ink</li>
+ *   <li>dark ground (玄夜星图 / 青铜鼎彝 / 掌天瓶露 / 血色禁地 / 噬金虫甲): dark panel, light ink</li>
  * </ul>
  */
 class InkPaletteTest {
@@ -56,7 +56,9 @@ class InkPaletteTest {
     private static boolean isLightTheme(UiTheme theme) {
         return theme == UiTheme.INKSCROLL
                 || theme == UiTheme.TALISMAN_PAPER
-                || theme == UiTheme.INKWASH_LANDSCAPE;
+                || theme == UiTheme.INKWASH_LANDSCAPE
+                || theme == UiTheme.MAPLE_VALLEY
+                || theme == UiTheme.AZURE_SWORD;
     }
 
     private static boolean isMidTheme(UiTheme theme) {

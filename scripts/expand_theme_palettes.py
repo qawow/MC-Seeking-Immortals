@@ -62,6 +62,17 @@ THEME_SEMANTICS = {
                  (0x7A, 0x46, 0x38), (0x8E, 0x4A, 0x3A)),
     "inkwash": ((0x3A, 0x6A, 0x72), (0x9E, 0x32, 0x26), (0xC0, 0x50, 0x38), (0x9A, 0x70, 0x20),
                 (0x7A, 0x46, 0x38), (0x8E, 0x4A, 0x3A)),
+    # 凡人修仙传 batch 2
+    "vial": ((0x7A, 0xC0, 0x96), (0xB0, 0x44, 0x34), (0xDC, 0x6C, 0x4C), (0xC0, 0xA0, 0x48),
+             (0x22, 0x34, 0x28), (0x1A, 0x2C, 0x20)),
+    "blood": ((0x6E, 0xA8, 0xA0), (0xB8, 0x38, 0x30), (0xE0, 0x60, 0x48), (0xC8, 0x98, 0x48),
+              (0x40, 0x26, 0x2A), (0x38, 0x1E, 0x22)),
+    "maple": ((0x3E, 0x6E, 0x58), (0xA0, 0x30, 0x24), (0xC2, 0x52, 0x36), (0x96, 0x6E, 0x1E),
+              (0x7C, 0x50, 0x30), (0x8E, 0x56, 0x32)),
+    "azure": ((0x38, 0x6E, 0x78), (0x9E, 0x34, 0x28), (0xC0, 0x54, 0x3A), (0x98, 0x72, 0x22),
+              (0x3C, 0x5A, 0x5C), (0x34, 0x52, 0x54)),
+    "beetle": ((0x7A, 0xA8, 0x88), (0xB2, 0x42, 0x30), (0xDC, 0x6A, 0x46), (0xCC, 0xA0, 0x40),
+               (0x36, 0x30, 0x24), (0x2E, 0x28, 0x1E)),
 }
 
 # (theme, scene) -> (base/panel, text/paper, accent, material)
@@ -79,9 +90,20 @@ THEMES = {
                  "#E8D8A0 #342C1C #B07828", "#ECDCB0 #362418 #C03020"],
     "inkwash": ["#E0EAE6 #28322E #4A8868", "#EAE8DA #302E26 #3E6A88",
                 "#E8DFC2 #342E20 #A87848", "#E6DED6 #342822 #A83C30"],
+    # 凡人修仙传 batch 2 — 掌天瓶/血色禁地/黄枫谷/青元剑光/噬金虫
+    "vial": ["#0E1C16 #D4E8DA #56A878", "#101E14 #D8E4D0 #78A860",
+             "#16201A #E0DEC4 #B0A050", "#1A1614 #E6D4C8 #C04834"],
+    "blood": ["#200E12 #E8D6D2 #A85868", "#1E1210 #E4D8CC #B06848",
+              "#241012 #ECD8C0 #C08850", "#280C0C #F0D0C4 #CC4030"],
+    "maple": ["#F0E2C0 #322A1E #987830", "#EEDEB4 #342C1C #B05828",
+              "#E8D4A4 #362A18 #A87020", "#ECD8B0 #38241A #B83424"],
+    "azure": ["#DEEAEC #26323A #3E7488", "#E2ECE4 #2A342C #48887C",
+              "#E6E4D0 #322F20 #8A7838", "#E4DEDA #342826 #A04034"],
+    "beetle": ["#16141A #E0DCE8 #9098A8", "#181610 #E4E0CC #A89048",
+               "#1C160E #ECDEBC #C89838", "#1C1010 #E8D2C8 #C04838"],
 }
 
-DARK_THEMES = {"night", "bronze", "cave"}
+DARK_THEMES = {"night", "bronze", "cave", "vial", "blood", "beetle"}
 
 
 def expand(theme, scene_idx, base, text, accent):
@@ -132,7 +154,7 @@ def expand(theme, scene_idx, base, text, accent):
         row_a, row_h_a, row_s_a = (0x1F, 0x3D, 0x61)  # 12%/24%/38% of accent
     divider_glow_a = 0x55
     sheen = 0x2AFFFFFF
-    if theme in ("night", "bronze"):
+    if theme in ("night", "bronze", "vial", "blood", "beetle"):
         sheen = 0x1AFFFFFF
     if theme == "cave":
         sheen = 0x20FFFFFF

@@ -9153,3 +9153,16 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Verification   Done   docs-only 变更，无代码/资源改动，无需构建；本会话早前 0.2.193 构建绿（1,162 测试）作为复核数据基线。
   Version/protocol   Done   docs-only，`mod_version=0.2.194` 不变，`ModNetwork.PROTOCOL_VERSION=30` 不变。
   Backup   Done   `.bak/20260726_gap_docs_reconcile/`。
+
+## 589. 2026-07-26 0.2.195 凡人修仙传主题第二批（五套新界面主题）
+
+  Step   Status   Notes
+  ---   ---   ---
+  Theme design   Done   取材《凡人修仙传》标志性意象新增五套主题：`mystic_vial` 掌天瓶露（瓶壁深绿+翠液微光，暗调）、`blood_trial` 血色禁地（暗赤血雾+赤脉，暗调）、`maple_valley` 黄枫秋色（暖黄纸+枫红，亮调）、`azure_sword` 青元剑光（淡青绢+剑光掠痕，亮调）、`gold_beetle` 噬金虫甲（漆黑甲壳+金屑，暗调）。主题总数 6 → 11。
+  Palette pipeline   Done   `scripts/expand_theme_palettes.py` 扩展 THEME_SEMANTICS/THEMES/DARK_THEMES 五个新条目并运行，生成 5×4 场景 46-token 色板固化进 `UiTheme.java` 五个新枚举常量；`texturePrefix()` 穷举 switch 补五个 case。
+  Textures   Done   `scripts/generate_ink_ui_textures.py` 新增 `vial_glass`/`blood_mist`/`maple_paper`/`sword_silk`/`chitin` 五种贴图配方与 theme_tiles 注册（种子 601+/701+/801+/901+/1001+），生成 20 张新 32×32 平铺贴图 `{vial,blood,maple,azure,beetle}_{quiet,field,ledger,omen}.png`。
+  Localization   Done   zh/en 双语补五个主题名键（掌天瓶露/血色禁地/黄枫秋色/青元剑光/噬金虫甲）。
+  Tests   Done   `InkPaletteTest` 亮度分档扩类：maple_valley/azure_sword 归亮纸档，其余三套走暗底档；5 用例全绿（11 主题 × 4 场景全组合自动覆盖，切换按钮循环与 byId 兜底自动纳入新常量）。
+  Verification   Done   `./gradlew build --no-daemon --max-workers=1` `BUILD SUCCESSFUL in 1m 28s`；期间 `authoredSpellEffectsCheck` 与 `authoredVisualCatalogCheck` 因并行会话输入过期，重跑两个生成器（2,292 profiles / 5,727 profiles）后通过，生成文件归属并行批次不入本批提交。
+  Version/protocol   Done   `mod_version` 0.2.194 → `0.2.195`；纯显示层改动，未触网络包，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
+  Backup   Done   `.bak/20260726_themes2/`。
