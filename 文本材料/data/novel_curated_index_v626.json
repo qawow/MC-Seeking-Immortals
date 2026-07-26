@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 626,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第244–248章）",
+  "method": "沿原文逐段精读；本索引汇总 v626 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2875", "display": "金峰戍雷阵", "category": "setting", "file": "novel_curated_settings_v626.json"},
+    {"id": "setting_2876", "display": "融合禁制", "category": "setting", "file": "novel_curated_settings_v626.json"},
+    {"id": "setting_2877", "display": "合手谷炼丹", "category": "setting", "file": "novel_curated_settings_v626.json"},
+    {"id": "setting_2878", "display": "燃婴血丹", "category": "setting", "file": "novel_curated_settings_v626.json"},
+    {"id": "setting_2879", "display": "玄仙肉身", "category": "setting", "file": "novel_curated_settings_v626.json"},
+    {"id": "setting_2880", "display": "金篆符箓", "category": "setting", "file": "novel_curated_settings_v626.json"},
+    {"id": "artifact_1901", "display": "五彩金丹炉", "category": "artifact", "file": "novel_curated_artifacts_v626.json"},
+    {"id": "artifact_1902", "display": "锁龙棍阵", "category": "artifact", "file": "novel_curated_artifacts_v626.json"},
+    {"id": "artifact_1903", "display": "霸下大旗", "category": "artifact", "file": "novel_curated_artifacts_v626.json"},
+    {"id": "artifact_1904", "display": "星河银剑", "category": "artifact", "file": "novel_curated_artifacts_v626.json"},
+    {"id": "technique_1434", "display": "雷阵穿阵", "category": "technique", "file": "novel_curated_techniques_v626.json"},
+    {"id": "technique_1435", "display": "紫金雷龙鞭", "category": "technique", "file": "novel_curated_techniques_v626.json"},
+    {"id": "technique_1436", "display": "真轮挡金篆", "category": "technique", "file": "novel_curated_techniques_v626.json"},
+    {"id": "material_1456", "display": "拘雷木", "category": "material", "file": "novel_curated_materials_v626.json"},
+    {"id": "material_1457", "display": "星河罡银", "category": "material", "file": "novel_curated_materials_v626.json"},
+    {"id": "material_1458", "display": "暖阳御寒", "category": "material", "file": "novel_curated_materials_v626.json"}
+  ]
+}

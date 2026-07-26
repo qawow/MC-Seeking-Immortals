@@ -1,0 +1,51 @@
+{
+  "schema_version": 55,
+  "extract_version": 626,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取 · 材料类（判断·入谷·燃婴血丹·避其锋芒·临死一击：第244–248章）",
+  "method": "沿原文逐段精读，凭理解概括设定；视觉描述为精读时所见原文逐字引用。与 v148–v625 互补。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 3,
+  "entries": [
+    {
+      "id": "material_1456",
+      "display": "拘雷木",
+      "category": "material",
+      "term": "拘雷木",
+      "source_books": ["《凡人修仙传仙界篇》"],
+      "first_appearance": {"book": "《凡人修仙传仙界篇》", "chapter": "第二百四十四章 判断"},
+      "setting": "金峰戍雷阵阵基材料，需八十一根。寻常破阵找阵枢或阵基破绽即可拆解；潜入同化则需改气息为雷属性。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "「以八十一根拘雷木为阵基。」",
+        "「寻常破阵只需要找到这两者中任意一处破绽，即可将大阵拆解。」"
+      ]
+    },
+    {
+      "id": "material_1457",
+      "display": "星河罡银",
+      "category": "material",
+      "term": "星河罡银",
+      "source_books": ["《凡人修仙传仙界篇》"],
+      "first_appearance": {"book": "《凡人修仙传仙界篇》", "chapter": "第二百四十六章 燃婴血丹"},
+      "setting": "铸造银白飞剑的主材。韩无常盟任务所得法宝以此炼成，品质远逊青竹蜂云剑。",
+      "visual_descriptions": [],
+      "setting_descriptions": [
+        "「乃是以星河罡银为主材铸造的一件法宝。」"
+      ]
+    },
+    {
+      "id": "material_1458",
+      "display": "暖阳御寒",
+      "category": "material",
+      "term": "暖阳玉佩与赤炎腰带",
+      "source_books": ["《凡人修仙传仙界篇》"],
+      "first_appearance": {"book": "《凡人修仙传仙界篇》", "chapter": "第二百四十四章 判断"},
+      "setting": "冥寒极寒下修士御寒之物：火龙造型暖阳玉佩、赤炎晶丝腰带、灵纹白色雪袍。另有雪白巨型雪犀、雪雕冰狐等耐寒坐骑。",
+      "visual_descriptions": [
+        "有的在袖内悬挂有一枚火龙造型的暖阳玉佩，有的在腰间缠有一条赤炎晶丝编织的腰带，还有的则在身外披上一件灵纹遍布的白色雪袍。",
+        "一头通体雪白的巨型雪犀从漫天风雪中现出身来。"
+      ],
+      "setting_descriptions": []
+    }
+  ]
+}
