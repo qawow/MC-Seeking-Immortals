@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 659,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第409–413章）",
+  "method": "沿原文逐段精读；本索引汇总 v659 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_3073", "display": "雪龙失散", "category": "setting", "file": "novel_curated_settings_v659.json"},
+    {"id": "setting_3074", "display": "幽寒境", "category": "setting", "file": "novel_curated_settings_v659.json"},
+    {"id": "setting_3075", "display": "寒兽寒魄", "category": "setting", "file": "novel_curated_settings_v659.json"},
+    {"id": "setting_3076", "display": "洗劫殿阁", "category": "setting", "file": "novel_curated_settings_v659.json"},
+    {"id": "setting_3077", "display": "假借混入", "category": "setting", "file": "novel_curated_settings_v659.json"},
+    {"id": "setting_3078", "display": "幽寒雾海", "category": "setting", "file": "novel_curated_settings_v659.json"},
+    {"id": "artifact_2033", "display": "青鸢飞舟", "category": "artifact", "file": "novel_curated_artifacts_v659.json"},
+    {"id": "artifact_2034", "display": "重水隐舟", "category": "artifact", "file": "novel_curated_artifacts_v659.json"},
+    {"id": "artifact_2035", "display": "碧玉飞车", "category": "artifact", "file": "novel_curated_artifacts_v659.json"},
+    {"id": "artifact_2036", "display": "寒魄晶石", "category": "artifact", "file": "novel_curated_artifacts_v659.json"},
+    {"id": "technique_1533", "display": "雷翅稳身", "category": "technique", "file": "novel_curated_techniques_v659.json"},
+    {"id": "technique_1534", "display": "金雷碎魄", "category": "technique", "file": "novel_curated_techniques_v659.json"},
+    {"id": "technique_1535", "display": "星窍护体", "category": "technique", "file": "novel_curated_techniques_v659.json"},
+    {"id": "material_1555", "display": "古怪雪花", "category": "material", "file": "novel_curated_materials_v659.json"},
+    {"id": "material_1556", "display": "黑海镜面", "category": "material", "file": "novel_curated_materials_v659.json"},
+    {"id": "material_1557", "display": "雾海寒气", "category": "material", "file": "novel_curated_materials_v659.json"}
+  ]
+}
