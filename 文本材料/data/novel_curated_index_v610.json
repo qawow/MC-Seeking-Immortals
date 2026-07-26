@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 610,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第164–168章）",
+  "method": "沿原文逐段精读；本索引汇总 v610 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2779", "display": "铁蜥王与兽潮终结", "category": "setting", "file": "novel_curated_settings_v610.json"},
+    {"id": "setting_2780", "display": "无垠沙海罡风灾", "category": "setting", "file": "novel_curated_settings_v610.json"},
+    {"id": "setting_2781", "display": "明丘城与传送塔", "category": "setting", "file": "novel_curated_settings_v610.json"},
+    {"id": "setting_2782", "display": "速之法则分身", "category": "setting", "file": "novel_curated_settings_v610.json"},
+    {"id": "setting_2783", "display": "封婴之仇与失忆", "category": "setting", "file": "novel_curated_settings_v610.json"},
+    {"id": "setting_2784", "display": "血燃息破雷阵", "category": "setting", "file": "novel_curated_settings_v610.json"},
+    {"id": "artifact_1837", "display": "地网伞", "category": "artifact", "file": "novel_curated_artifacts_v610.json"},
+    {"id": "artifact_1838", "display": "隔元法链", "category": "artifact", "file": "novel_curated_artifacts_v610.json"},
+    {"id": "artifact_1839", "display": "方磐黑刀", "category": "artifact", "file": "novel_curated_artifacts_v610.json"},
+    {"id": "artifact_1840", "display": "黄色掘地幡", "category": "artifact", "file": "novel_curated_artifacts_v610.json"},
+    {"id": "technique_1386", "display": "白光掩杀双王", "category": "technique", "file": "novel_curated_techniques_v610.json"},
+    {"id": "technique_1387", "display": "雷鹏雷电法阵", "category": "technique", "file": "novel_curated_techniques_v610.json"},
+    {"id": "technique_1388", "display": "山岳巨猿变", "category": "technique", "file": "novel_curated_techniques_v610.json"},
+    {"id": "material_1408", "display": "归元丹", "category": "material", "file": "novel_curated_materials_v610.json"},
+    {"id": "material_1409", "display": "绿光疗伤符", "category": "material", "file": "novel_curated_materials_v610.json"},
+    {"id": "material_1410", "display": "寻踪罗盘", "category": "material", "file": "novel_curated_materials_v610.json"}
+  ]
+}
