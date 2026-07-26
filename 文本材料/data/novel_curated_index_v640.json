@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 640,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第314–318章）",
+  "method": "沿原文逐段精读；本索引汇总 v640 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2959", "display": "三元融合", "category": "setting", "file": "novel_curated_settings_v640.json"},
+    {"id": "setting_2960", "display": "百里讲道", "category": "setting", "file": "novel_curated_settings_v640.json"},
+    {"id": "setting_2961", "display": "白玉城", "category": "setting", "file": "novel_curated_settings_v640.json"},
+    {"id": "setting_2962", "display": "天蝎派", "category": "setting", "file": "novel_curated_settings_v640.json"},
+    {"id": "setting_2963", "display": "气息隐匿", "category": "setting", "file": "novel_curated_settings_v640.json"},
+    {"id": "setting_2964", "display": "真仙交换", "category": "setting", "file": "novel_curated_settings_v640.json"},
+    {"id": "artifact_1957", "display": "天蝎令", "category": "artifact", "file": "novel_curated_artifacts_v640.json"},
+    {"id": "artifact_1958", "display": "落魂幡", "category": "artifact", "file": "novel_curated_artifacts_v640.json"},
+    {"id": "artifact_1959", "display": "少女道兵", "category": "artifact", "file": "novel_curated_artifacts_v640.json"},
+    {"id": "artifact_1960", "display": "金仙蟹傀", "category": "artifact", "file": "novel_curated_artifacts_v640.json"},
+    {"id": "technique_1476", "display": "植豆融合阵", "category": "technique", "file": "novel_curated_techniques_v640.json"},
+    {"id": "technique_1477", "display": "蜀天幻术", "category": "technique", "file": "novel_curated_techniques_v640.json"},
+    {"id": "technique_1478", "display": "屏风异境", "category": "technique", "file": "novel_curated_techniques_v640.json"},
+    {"id": "material_1498", "display": "绯云火晶", "category": "material", "file": "novel_curated_materials_v640.json"},
+    {"id": "material_1499", "display": "万轮果", "category": "material", "file": "novel_curated_materials_v640.json"},
+    {"id": "material_1500", "display": "落英花", "category": "material", "file": "novel_curated_materials_v640.json"}
+  ]
+}
