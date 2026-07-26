@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 624,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第234–238章）",
+  "method": "沿原文逐段精读；本索引汇总 v624 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2863", "display": "真轮吞重水", "category": "setting", "file": "novel_curated_settings_v624.json"},
+    {"id": "setting_2864", "display": "葫芦峰", "category": "setting", "file": "novel_curated_settings_v624.json"},
+    {"id": "setting_2865", "display": "地丹师", "category": "setting", "file": "novel_curated_settings_v624.json"},
+    {"id": "setting_2866", "display": "法则炼丹", "category": "setting", "file": "novel_curated_settings_v624.json"},
+    {"id": "setting_2867", "display": "天寒池", "category": "setting", "file": "novel_curated_settings_v624.json"},
+    {"id": "setting_2868", "display": "无常盟任务", "category": "setting", "file": "novel_curated_settings_v624.json"},
+    {"id": "artifact_1893", "display": "酿酒石炉", "category": "artifact", "file": "novel_curated_artifacts_v624.json"},
+    {"id": "artifact_1894", "display": "黄色葫芦", "category": "artifact", "file": "novel_curated_artifacts_v624.json"},
+    {"id": "artifact_1895", "display": "紫铜丹炉", "category": "artifact", "file": "novel_curated_artifacts_v624.json"},
+    {"id": "artifact_1896", "display": "感应符箓", "category": "artifact", "file": "novel_curated_artifacts_v624.json"},
+    {"id": "technique_1428", "display": "真轮全开", "category": "technique", "file": "novel_curated_techniques_v624.json"},
+    {"id": "technique_1429", "display": "婴火炼丹", "category": "technique", "file": "novel_curated_techniques_v624.json"},
+    {"id": "technique_1430", "display": "剑网挡蓝光", "category": "technique", "file": "novel_curated_techniques_v624.json"},
+    {"id": "material_1450", "display": "统元丹", "category": "material", "file": "novel_curated_materials_v624.json"},
+    {"id": "material_1451", "display": "春霖朕灵丹", "category": "material", "file": "novel_curated_materials_v624.json"},
+    {"id": "material_1452", "display": "黑星藻象鼻", "category": "material", "file": "novel_curated_materials_v624.json"}
+  ]
+}
