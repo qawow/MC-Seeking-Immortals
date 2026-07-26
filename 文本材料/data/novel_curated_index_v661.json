@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 661,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第419–423章）",
+  "method": "沿原文逐段精读；本索引汇总 v661 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_3085", "display": "兽胎玄元丹效", "category": "setting", "file": "novel_curated_settings_v661.json"},
+    {"id": "setting_3086", "display": "禁斗紫雷", "category": "setting", "file": "novel_curated_settings_v661.json"},
+    {"id": "setting_3087", "display": "广寒相似", "category": "setting", "file": "novel_curated_settings_v661.json"},
+    {"id": "setting_3088", "display": "大千世界", "category": "setting", "file": "novel_curated_settings_v661.json"},
+    {"id": "setting_3089", "display": "金仙铜人", "category": "setting", "file": "novel_curated_settings_v661.json"},
+    {"id": "setting_3090", "display": "功法诱饵", "category": "setting", "file": "novel_curated_settings_v661.json"},
+    {"id": "artifact_2041", "display": "替命傀儡", "category": "artifact", "file": "novel_curated_artifacts_v661.json"},
+    {"id": "artifact_2042", "display": "真实之眼", "category": "artifact", "file": "novel_curated_artifacts_v661.json"},
+    {"id": "artifact_2043", "display": "星元下半板", "category": "artifact", "file": "novel_curated_artifacts_v661.json"},
+    {"id": "artifact_2044", "display": "巨猿傀儡", "category": "artifact", "file": "novel_curated_artifacts_v661.json"},
+    {"id": "technique_1539", "display": "真灵叠变", "category": "technique", "file": "novel_curated_techniques_v661.json"},
+    {"id": "technique_1540", "display": "银雷破门", "category": "technique", "file": "novel_curated_techniques_v661.json"},
+    {"id": "technique_1541", "display": "逆转真轮", "category": "technique", "file": "novel_curated_techniques_v661.json"},
+    {"id": "material_1561", "display": "星力丹", "category": "material", "file": "novel_curated_materials_v661.json"},
+    {"id": "material_1562", "display": "血色疗伤丹", "category": "material", "file": "novel_curated_materials_v661.json"},
+    {"id": "material_1563", "display": "紫金殿材", "category": "material", "file": "novel_curated_materials_v661.json"}
+  ]
+}
