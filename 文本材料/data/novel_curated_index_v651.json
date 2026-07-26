@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 651,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第369–373章）",
+  "method": "沿原文逐段精读；本索引汇总 v651 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_3025", "display": "金源附身", "category": "setting", "file": "novel_curated_settings_v651.json"},
+    {"id": "setting_3026", "display": "铁兽门", "category": "setting", "file": "novel_curated_settings_v651.json"},
+    {"id": "setting_3027", "display": "虚实难辨", "category": "setting", "file": "novel_curated_settings_v651.json"},
+    {"id": "setting_3028", "display": "仙窍二次", "category": "setting", "file": "novel_curated_settings_v651.json"},
+    {"id": "setting_3029", "display": "真极之铠", "category": "setting", "file": "novel_curated_settings_v651.json"},
+    {"id": "setting_3030", "display": "炼神应答", "category": "setting", "file": "novel_curated_settings_v651.json"},
+    {"id": "artifact_2001", "display": "真言虚影", "category": "artifact", "file": "novel_curated_artifacts_v651.json"},
+    {"id": "artifact_2002", "display": "聚星石台", "category": "artifact", "file": "novel_curated_artifacts_v651.json"},
+    {"id": "artifact_2003", "display": "七曜星环", "category": "artifact", "file": "novel_curated_artifacts_v651.json"},
+    {"id": "artifact_2004", "display": "猫脸面具", "category": "artifact", "file": "novel_curated_artifacts_v651.json"},
+    {"id": "technique_1509", "display": "神识驱云", "category": "technique", "file": "novel_curated_techniques_v651.json"},
+    {"id": "technique_1510", "display": "神念剑杀", "category": "technique", "file": "novel_curated_techniques_v651.json"},
+    {"id": "technique_1511", "display": "大周天功", "category": "technique", "file": "novel_curated_techniques_v651.json"},
+    {"id": "material_1531", "display": "噬灵花", "category": "material", "file": "novel_curated_materials_v651.json"},
+    {"id": "material_1532", "display": "天星石", "category": "material", "file": "novel_curated_materials_v651.json"},
+    {"id": "material_1533", "display": "龙胆花药", "category": "material", "file": "novel_curated_materials_v651.json"}
+  ]
+}
