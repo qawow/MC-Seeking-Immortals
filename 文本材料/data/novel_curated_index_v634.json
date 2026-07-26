@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 634,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第284–288章）",
+  "method": "沿原文逐段精读；本索引汇总 v634 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2923", "display": "十方灭杀令", "category": "setting", "file": "novel_curated_settings_v634.json"},
+    {"id": "setting_2924", "display": "阵岛化傀", "category": "setting", "file": "novel_curated_settings_v634.json"},
+    {"id": "setting_2925", "display": "金焰破阵", "category": "setting", "file": "novel_curated_settings_v634.json"},
+    {"id": "setting_2926", "display": "二金一巅", "category": "setting", "file": "novel_curated_settings_v634.json"},
+    {"id": "setting_2927", "display": "人皮换身", "category": "setting", "file": "novel_curated_settings_v634.json"},
+    {"id": "setting_2928", "display": "逆转截杀", "category": "setting", "file": "novel_curated_settings_v634.json"},
+    {"id": "artifact_1933", "display": "银雪仙剑", "category": "artifact", "file": "novel_curated_artifacts_v634.json"},
+    {"id": "artifact_1934", "display": "重力金环", "category": "artifact", "file": "novel_curated_artifacts_v634.json"},
+    {"id": "artifact_1935", "display": "血色油伞", "category": "artifact", "file": "novel_curated_artifacts_v634.json"},
+    {"id": "artifact_1936", "display": "幽磷骨火", "category": "artifact", "file": "novel_curated_artifacts_v634.json"},
+    {"id": "technique_1458", "display": "雪莲对剑", "category": "technique", "file": "novel_curated_techniques_v634.json"},
+    {"id": "technique_1459", "display": "重水碎斧", "category": "technique", "file": "novel_curated_techniques_v634.json"},
+    {"id": "technique_1460", "display": "精炎噬火", "category": "technique", "file": "novel_curated_techniques_v634.json"},
+    {"id": "material_1480", "display": "金腐丹", "category": "material", "file": "novel_curated_materials_v634.json"},
+    {"id": "material_1481", "display": "土斧矿材", "category": "material", "file": "novel_curated_materials_v634.json"},
+    {"id": "material_1482", "display": "机关飞舟", "category": "material", "file": "novel_curated_materials_v634.json"}
+  ]
+}
