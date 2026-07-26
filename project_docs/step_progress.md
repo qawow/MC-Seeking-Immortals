@@ -9043,3 +9043,23 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Version/protocol   Done   `mod_version` 升至 `0.2.185`；未改变网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
   Backup   Done   代码/资源备份位于 `.bak/20260726_105049_0.2.184_visual_program/`、`.bak/20260726_110843_0.2.185_generated_refresh/` 和 `.bak/20260726_111408_0.2.185_visual_test_reconcile/`；文档备份位于 `.bak/20260726_110407_0.2.185_visual_program_docs/`。
   Remaining risk   Pending   尚未完成真实客户端逐术法逐镜头截图签字；生成器是词法/结构化推断，不能替代原著没有给出细节时的人工视觉审阅。
+
+## 579. 2026-07-26 0.2.186 生成输入稳定性
+
+  Step   Status   Notes
+  ---   ---   ---
+  Reproducible input   Done   `generate_authored_spell_effects.py` 在 Git 工作树中通过关闭 `core.quotePath` 的 `git ls-files --cached` 读取已跟踪原著技术文件；共享工作树中尚未提交的 scratch 文件不会令构建无故 stale，v649 已提交并纳入本次生成。
+  Verification   Done   v649 资源共 2,253 个术法（747 条基础语料、1,506 条原著增量），统一视觉目录共 5,688 个 profile；两个生成器 `--check` 已通过。视觉 layer 与引文总数由生成器输出校验并随资源保存；普通构建将在本批提交前重新执行。
+  Version/protocol   Done   `mod_version` 升至 `0.2.186`；网络字段、顺序、类型、注册与频道行为未改变，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
+  Backup   Done   `.bak/20260726_112044_0.2.185_generator_stability/`。
+
+## 580. 2026-07-26 0.2.187 v649 生成资源刷新
+
+  Step   Status   Notes
+  ---   ---   ---
+  Input refresh   Done   v649 原著精读文件已提交到当前 HEAD；按 Git 跟踪输入重新生成作者术法效果和统一视觉目录，避免共享工作树 scratch 文件污染结果。
+  Generated resources   Done   `authored_spell_effects.json` 含 2,253 个术法（747 条基础语料、1,506 条原著增量）；统一视觉目录含 5,688 个 profile、13,633 个 semantic layer 和 9,851 段视觉引文。
+  Contracts   Done   两个生成器 `--check` 和 `AuthoredVisualCatalogTest` 通过，非推断作者术法断言更新为 1,767。
+  Verification   Done   普通 `./gradlew build --no-daemon --max-workers=1` 在 1 分 25 秒内 `BUILD SUCCESSFUL`；1,161 项测试全部通过，failure/error/skipped 均为 0，`aiPreflight` 记录 `0.2.187`。
+  Version/protocol   Done   `mod_version` 从 `0.2.186` 升至 `0.2.187`；网络字段、顺序、类型、注册与频道行为未改变，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
+  Backup   Done   `.bak/20260726_0.2.187_v649_refresh/`。

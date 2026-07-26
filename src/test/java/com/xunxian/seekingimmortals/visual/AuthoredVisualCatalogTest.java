@@ -201,7 +201,7 @@ class AuthoredVisualCatalogTest {
                 .filter(profile -> profile.domain() == VisualDomain.TECHNIQUE)
                 .mapToLong(profile -> profile.visualProgram().coveredQuoteCount())
                 .sum();
-        assertEquals(1761, authored);
+        assertEquals(1767, authored);
         assertEquals(directQuotes, covered);
         assertTrue(directQuotes >= 9000);
         assertTrue(AuthoredVisualCatalog.profiles().values().stream()

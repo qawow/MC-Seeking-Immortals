@@ -520,6 +520,8 @@
     "文本材料/data/novel_curated_techniques_v645.json": "9897e768958c301c8361065172cadd03353841385d093838c03e7882d31ed4f1",
     "文本材料/data/novel_curated_techniques_v646.json": "7c123487a974ff3107548d36e989b3eba275470c8cd06b94f19d1a5783542c01",
     "文本材料/data/novel_curated_techniques_v647.json": "2ea9eb982db0952041d82e8e77a7f6f2c8a6f32c365f48ddaaf518ffebcd0ecf",
+    "文本材料/data/novel_curated_techniques_v648.json": "92941c69cb07d1469f95993e043a21a5beca49d4a6a36f48e1dd3b192fa87d4f",
+    "文本材料/data/novel_curated_techniques_v649.json": "551b4db033ee78ac0f8446a07faa7f5cf183fd129bdac736d04cdc23eeff4763",
     "文本材料/data/item_descriptions_v118.json": "91ffe8557119b562cf4d88f08d3b5e0a80bd3b400837bd3ce5e4f636853c8e6e",
     "文本材料/data/item_descriptions_v119.json": "cd2197614fb8369530bdee0014f9b17c4bb0b6a7ccca46d482796fb382dd5e8a",
     "文本材料/data/item_descriptions_v120.json": "ac7e7fae670c4792785f3f8a392b802ea790c3a665abc64696aa52ae889e4332",
@@ -718,12 +720,12 @@
   },
   "counts": {
     "corpus": 747,
-    "novel": 1500,
-    "total": 2247,
-    "novel_direct_visual": 1417,
+    "novel": 1506,
+    "total": 2253,
+    "novel_direct_visual": 1423,
     "novel_setting_fallback": 83,
-    "novel_visual_quotes": 3605,
-    "unique_visual_signatures": 2247
+    "novel_visual_quotes": 3618,
+    "unique_visual_signatures": 2253
   },
   "constraints": {
     "old_profile_reuse": false,
@@ -121949,6 +121951,451 @@
       "tags": [],
       "sources": {
         "primary": "文本材料/data/novel_curated_techniques_v198.json"
+      }
+    },
+    {
+      "id": "technique_1500",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1500",
+      "display": "重水凝练",
+      "term": "黑海重水经四层凝练术",
+      "school": "novel_curated_techniques_v648",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（选址·封岛·万轮丹·最后一步·豚兽赠石：第354–358章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v648.json",
+      "source_version": 648,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "他身上重新泛起蓝光，头顶的法则之丝嗡嗡轻颤，散发出耀眼蓝光，幻化成一个小小蓝色漩涡。",
+        "周围海水再次翻涌起来，形成一个巨大漩涡，以地祇化身为中心，水流旋转汇聚而来。",
+        "在化身两手间，一点黑色重水在渐渐浮现而出，并以肉眼可见的速度缓缓变大起来。"
+      ],
+      "setting_descriptions": [
+        "「这一口袋的重水，距离提炼出一条小溪数量的四层重水以进阶第五层，也差不了太多了。」"
+      ],
+      "setting": "地祇化身盘膝蓝光，顶法则丝成小蓝漩涡，周海水巨漩涡汇聚；双手间黑重点渐大。第四层后速度三倍。满天水袋重水距提炼「小溪量四层重水」进第五层不远。韩再供两袋+时间晶粒。",
+      "family": "WATER",
+      "motif": "DOMAIN",
+      "effect_type": "domain",
+      "target": "area",
+      "particle": "water_mist",
+      "trail": "none",
+      "shape": "cloud_vortex",
+      "color": "澄蓝水光",
+      "telegraphed": true,
+      "radius": 6.15,
+      "intensity": 35,
+      "scale_tier": 3,
+      "visual_signature": "77bc6d8d08b1cc4aa3df3761e4fbc4dc867655da87a0c751726c785f58c6bcd1",
+      "frames": [
+        {
+          "name": "大招预兆",
+          "frame": "0-3",
+          "vis": "他身上重新泛起蓝光，头顶的法则之丝嗡嗡轻颤，散发出耀眼蓝光，幻化成一个小小蓝色漩涡。"
+        },
+        {
+          "name": "成型",
+          "frame": "4-7",
+          "vis": "周围海水再次翻涌起来，形成一个巨大漩涡，以地祇化身为中心，水流旋转汇聚而来。"
+        },
+        {
+          "name": "成型",
+          "frame": "8-11",
+          "vis": "在化身两手间，一点黑色重水在渐渐浮现而出，并以肉眼可见的速度缓缓变大起来。"
+        },
+        {
+          "name": "回收",
+          "frame": "12-15",
+          "vis": "余光、残焰或灵气按原路径收束消散。"
+        }
+      ],
+      "mechanics": {
+        "operation": "ATTACK",
+        "delivery": "FIELD",
+        "duration_ticks": 350,
+        "projectile_count": 1,
+        "max_targets": 26,
+        "summon_archetype": "generic",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "domain",
+        "element": "water",
+        "target": "area",
+        "cost": 35,
+        "cooldown_ticks": 155,
+        "damage_base": 31.0,
+        "range": 35.0,
+        "radius": 6.15,
+        "primary_status": "slowness",
+        "secondary_status": "weakness"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v648.json"
+      }
+    },
+    {
+      "id": "technique_1501",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1501",
+      "display": "真言三重",
+      "term": "真言化轮经第三重参悟",
+      "school": "novel_curated_techniques_v648",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（选址·封岛·万轮丹·最后一步·豚兽赠石：第354–358章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v648.json",
+      "source_version": 648,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "一层柔和的金光泛起，笼罩住了他的身体。",
+        "韩立全身金光缭绕，全身上下散发出一阵庞大无比的威压。他的身躯上下，一个个金色光点闪烁不已。"
+      ],
+      "setting_descriptions": [
+        "「他虽已突破到了真仙后期，但是一直并未真正开始修炼《真言化轮经》的第三重功法，因为这第三重功法远比前两重要晦涩难明。」",
+        "「短短五百多年间，就一气呵成的接连打通了十一个仙窍。」"
+      ],
+      "setting": "韩虽真仙后期却未真正修第三重——远比前两重晦涩，尚未参透。催熟万轮主材期间静参三十余年。服万轮丹后默运经法周身柔和金光；五百余年接连打通十一仙窍。",
+      "family": "METAL",
+      "motif": "DAO",
+      "effect_type": "utility",
+      "target": "self",
+      "particle": "metal_spark",
+      "trail": "sword_thin",
+      "shape": "scripture_glyph",
+      "color": "银金锋芒",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 14,
+      "scale_tier": 0,
+      "visual_signature": "808b679402f73a8588b6e78787185c172cbd9f6873cd602dec0a9ac329e70815",
+      "frames": [
+        {
+          "name": "起手",
+          "frame": "0-2",
+          "vis": "一层柔和的金光泛起，笼罩住了他的身体。"
+        },
+        {
+          "name": "命中",
+          "frame": "3-6",
+          "vis": "韩立全身金光缭绕，全身上下散发出一阵庞大无比的威压。他的身躯上下，一个个金色光点闪烁不已。"
+        }
+      ],
+      "mechanics": {
+        "operation": "CULTIVATE",
+        "delivery": "SELF",
+        "duration_ticks": 140,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "generic",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "utility",
+        "element": "metal",
+        "target": "self",
+        "cost": 8,
+        "cooldown_ticks": 50,
+        "damage_base": 0.0,
+        "range": 14.0,
+        "radius": 0.9,
+        "primary_status": "armor_break",
+        "secondary_status": "bleeding"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v648.json"
+      }
+    },
+    {
+      "id": "technique_1502",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1502",
+      "display": "大周天功",
+      "term": "大周天星元功半部",
+      "school": "novel_curated_techniques_v648",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（选址·封岛·万轮丹·最后一步·豚兽赠石：第354–358章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v648.json",
+      "source_version": 648,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "是一块青灰色的石板，两面都刻满了密密麻麻的古篆小字，正是当年他从冷焰老祖那里得来的那部《大周天星元功》。"
+      ],
+      "setting_descriptions": [
+        "「如其所料，《大周天星元功》和当年的《小北斗星元功》果然是一脉相承的功法，而且更加玄妙，其中也记载了打通玄窍的法门。」",
+        "「当年他在灵寰界偶得《小北斗星元功》后，修炼出了七个玄窍，之后再修炼时打通起初的七个仙窍，几乎没有花费多少力气。」"
+      ],
+      "setting": "青灰石板两面古篆小字，冷焰老祖遗迹所得半部。承《小北斗星元功》，更玄妙，记打通玄窍法门，仅至十八玄窍。韩忆当年小北斗七玄窍助初七仙窍几乎不费力，拟以第三十六玄窍助第三十六仙窍。",
+      "family": "FIRE",
+      "motif": "RAIN",
+      "effect_type": "utility",
+      "target": "self",
+      "particle": "fire_ember",
+      "trail": "none",
+      "shape": "projectile_swarm",
+      "color": "赤金火焰",
+      "telegraphed": false,
+      "radius": 3.4,
+      "intensity": 28,
+      "scale_tier": 2,
+      "visual_signature": "3c487b742bc9c93e6deb6ca9ce405843db35e105ca1e91fa8a6b7e95c191ccaf",
+      "frames": [
+        {
+          "name": "起手",
+          "frame": "0-4",
+          "vis": "是一块青灰色的石板，两面都刻满了密密麻麻的古篆小字，正是当年他从冷焰老祖那里得来的那部《大周天星元功》。"
+        },
+        {
+          "name": "回收",
+          "frame": "5-8",
+          "vis": "余光、残焰或灵气按原路径收束消散。"
+        }
+      ],
+      "mechanics": {
+        "operation": "CULTIVATE",
+        "delivery": "SELF",
+        "duration_ticks": 280,
+        "projectile_count": 8,
+        "max_targets": 1,
+        "summon_archetype": "generic",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "utility",
+        "element": "fire",
+        "target": "self",
+        "cost": 26,
+        "cooldown_ticks": 120,
+        "damage_base": 0.0,
+        "range": 28.0,
+        "radius": 3.4,
+        "primary_status": "burning",
+        "secondary_status": "weakness"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v648.json"
+      }
+    },
+    {
+      "id": "technique_1503",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1503",
+      "display": "晶粒增纹",
+      "term": "时间晶粒增真言道纹",
+      "school": "novel_curated_techniques_v649",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（回复·凑齐·丹劫·迁思回虑·劫至：第359–363章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v649.json",
+      "source_version": 649,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "宝轮中心区域浮现出一团耀眼金色光团，上面金光流溢，闪烁不定，随即化为一个金色竖目，看向了韩立中的时间晶粒。",
+        "「咔」的一声轻响，晶粒碎裂，一缕金丝从中飞出，射入了金色竖目中。",
+        "片刻之后，宝轮上浮现出一团耀眼白光，随即化为一团半透明的时间道纹。"
+      ],
+      "setting_descriptions": [
+        "「果然如他所料，真言宝轮可以继续以晶粒增加时间道纹。」"
+      ],
+      "setting": "掌天瓶聚绿液三日异象成晶粒；催宝轮中心金竖目视晶粒，「咔」碎裂金丝射入竖目，震身后出半透明新道纹。真仙后期聚晶不再掏空。可续增至三百六十极限。",
+      "family": "METAL",
+      "motif": "DAO",
+      "effect_type": "utility",
+      "target": "self",
+      "particle": "metal_spark",
+      "trail": "sword_thin",
+      "shape": "eye_gaze",
+      "color": "银金锋芒",
+      "telegraphed": false,
+      "radius": 2.15,
+      "intensity": 21,
+      "scale_tier": 1,
+      "visual_signature": "e2f80f144141f53368a29e4ce2b9266420e9a8e047e4d827a0126cbee8413ce5",
+      "frames": [
+        {
+          "name": "成型",
+          "frame": "0-4",
+          "vis": "宝轮中心区域浮现出一团耀眼金色光团，上面金光流溢，闪烁不定，随即化为一个金色竖目，看向了韩立中的时间晶粒。"
+        },
+        {
+          "name": "出击",
+          "frame": "5-8",
+          "vis": "「咔」的一声轻响，晶粒碎裂，一缕金丝从中飞出，射入了金色竖目中。"
+        },
+        {
+          "name": "成型",
+          "frame": "9-12",
+          "vis": "片刻之后，宝轮上浮现出一团耀眼白光，随即化为一团半透明的时间道纹。"
+        },
+        {
+          "name": "回收",
+          "frame": "13-16",
+          "vis": "余光、残焰或灵气按原路径收束消散。"
+        }
+      ],
+      "mechanics": {
+        "operation": "CULTIVATE",
+        "delivery": "SELF",
+        "duration_ticks": 210,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "generic",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "utility",
+        "element": "metal",
+        "target": "self",
+        "cost": 17,
+        "cooldown_ticks": 85,
+        "damage_base": 0.0,
+        "range": 21.0,
+        "radius": 2.15,
+        "primary_status": "armor_break",
+        "secondary_status": "bleeding"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v649.json"
+      }
+    },
+    {
+      "id": "technique_1504",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1504",
+      "display": "金雷隐身",
+      "term": "蟹道人金雷纱衣隐虚空",
+      "school": "novel_curated_techniques_v649",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（回复·凑齐·丹劫·迁思回虑·劫至：第359–363章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v649.json",
+      "source_version": 649,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "蟹道人从里面缓步走出，全身上下被一道道纤细无比的金色雷光缭绕，仿佛披了一层金色纱衣一般。",
+        "金色纱衣笼罩之下，其身体看起来竟然有些若隐若现，似乎随时会融入虚空中消失不见一般。"
+      ],
+      "setting_descriptions": [
+        "「放心，除非有远超金仙境的存在出现，否则我自会拦下。」",
+        "「因为他的神识竟突然之间，无法感应到蟹道人的位置了。」"
+      ],
+      "setting": "蟹道人数百年闭关出，纤细金雷缭绕如金纱衣，身形若隐若现似融虚空。护法时金雷入虚空，韩神识难感，须炼神术方隐约察微弱雷波。自称除非远超金仙否则可拦。",
+      "family": "VOID",
+      "motif": "TELEPORT",
+      "effect_type": "utility",
+      "target": "single",
+      "particle": "space_glitch",
+      "trail": "movement_wind",
+      "shape": "afterimage_path",
+      "color": "幽紫虚空裂光",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 14,
+      "scale_tier": 0,
+      "visual_signature": "c95794d17e547a01364bae3526a47243b257f218538c65aa233c34b323ee8831",
+      "frames": [
+        {
+          "name": "起手",
+          "frame": "0-3",
+          "vis": "蟹道人从里面缓步走出，全身上下被一道道纤细无比的金色雷光缭绕，仿佛披了一层金色纱衣一般。"
+        },
+        {
+          "name": "回收",
+          "frame": "4-7",
+          "vis": "金色纱衣笼罩之下，其身体看起来竟然有些若隐若现，似乎随时会融入虚空中消失不见一般。"
+        }
+      ],
+      "mechanics": {
+        "operation": "DEFEND",
+        "delivery": "TARGETED",
+        "duration_ticks": 140,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "generic",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "utility",
+        "element": "void",
+        "target": "single",
+        "cost": 8,
+        "cooldown_ticks": 50,
+        "damage_base": 0.0,
+        "range": 14.0,
+        "radius": 0.9,
+        "primary_status": "levitation",
+        "secondary_status": "blindness"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v649.json"
+      }
+    },
+    {
+      "id": "technique_1505",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1505",
+      "display": "真实回溯",
+      "term": "真实之眼时光回溯炼丹",
+      "school": "novel_curated_techniques_v649",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（回复·凑齐·丹劫·迁思回虑·劫至：第359–363章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v649.json",
+      "source_version": 649,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "金色竖目表面光芒一闪，缓缓睁开，露出里面的眼球。耀眼的金光从眼球中散发而出，无数奇异金色符文在眼球上流转，仿佛星空之中无数星辰闪动。",
+        "下一刻废丹忽的凭空转动起来，表面绿光一闪，一股绿色灵液从里面分离而出。"
+      ],
+      "setting_descriptions": [
+        "「洞府周围布下的数层禁制，在真实之眼下形同虚设，轻易便被看穿，不仅如此，禁制上的所有灵力流动都清晰呈现而出，如反掌观纹。」",
+        "「他的炼丹之术不知不觉间往前跨出一大步，突破了瓶颈，进入一个全新的境界。」"
+      ],
+      "setting": "竖目睁开眼球金符如星空；实质金光打废丹，逆向分离材料重现融合变化至晶粒凝练。可穿透数层禁制观灵力流动。韩每月反复观看，逐步破关至成丹，炼丹术破瓶颈。",
+      "family": "METAL",
+      "motif": "FORMATION",
+      "effect_type": "craft_gate",
+      "target": "self",
+      "particle": "metal_spark",
+      "trail": "sword_thin",
+      "shape": "rune_orbit",
+      "color": "银金锋芒",
+      "telegraphed": false,
+      "radius": 3.4,
+      "intensity": 28,
+      "scale_tier": 2,
+      "visual_signature": "c9b64f3b96a9f69e4198050553e1d292c17972dde20873c3a9056af90583da55",
+      "frames": [
+        {
+          "name": "起手",
+          "frame": "0-4",
+          "vis": "金色竖目表面光芒一闪，缓缓睁开，露出里面的眼球。耀眼的金光从眼球中散发而出，无数奇异金色符文在眼球上流转，仿佛星空之中无数星辰闪动。"
+        },
+        {
+          "name": "命中",
+          "frame": "5-8",
+          "vis": "下一刻废丹忽的凭空转动起来，表面绿光一闪，一股绿色灵液从里面分离而出。"
+        }
+      ],
+      "mechanics": {
+        "operation": "CRAFT",
+        "delivery": "SELF",
+        "duration_ticks": 180,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "generic",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "craft_gate",
+        "element": "metal",
+        "target": "self",
+        "cost": 26,
+        "cooldown_ticks": 120,
+        "damage_base": 0.0,
+        "range": 28.0,
+        "radius": 3.4,
+        "primary_status": "armor_break",
+        "secondary_status": "bleeding"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v649.json"
       }
     },
     {

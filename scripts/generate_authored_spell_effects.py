@@ -13,6 +13,7 @@ import argparse
 import hashlib
 import json
 import re
+import subprocess
 from collections import Counter
 from pathlib import Path
 from typing import Any, Iterable
@@ -755,9 +756,26 @@ def version_of(path: Path) -> int:
     return int(match.group(1)) if match else -1
 
 
+def tracked_novel_technique_paths() -> list[Path]:
+    """Use committed inputs in a Git checkout so concurrent scratch files cannot stale builds."""
+    try:
+        result = subprocess.run(
+            ["git", "-c", "core.quotePath=false", "ls-files", "--cached", "--",
+             "文本材料/data/novel_curated_techniques_v*.json"],
+            cwd=ROOT, check=True, capture_output=True, text=True,
+        )
+    except (OSError, subprocess.CalledProcessError):
+        result = None
+    if result is not None:
+        tracked = [ROOT / line.strip() for line in result.stdout.splitlines() if line.strip()]
+        if tracked:
+            return sorted((path for path in tracked if path.is_file()), key=version_of)
+    return sorted(MATERIAL_DIR.glob("novel_curated_techniques_v*.json"), key=version_of)
+
+
 def load_novel() -> tuple[list[dict[str, Any]], list[Path]]:
     profiles: list[dict[str, Any]] = []
-    paths = sorted(MATERIAL_DIR.glob("novel_curated_techniques_v*.json"), key=version_of)
+    paths = tracked_novel_technique_paths()
     for path in paths:
         payload = read_json(path)
         extract_version = int(payload.get("extract_version", version_of(path)))
