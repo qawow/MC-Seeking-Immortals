@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 615,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第189–193章）",
+  "method": "沿原文逐段精读；本索引汇总 v615 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2809", "display": "墨灵山河图分色", "category": "setting", "file": "novel_curated_settings_v615.json"},
+    {"id": "setting_2810", "display": "御龙峰三层藏经", "category": "setting", "file": "novel_curated_settings_v615.json"},
+    {"id": "setting_2811", "display": "无相真轮经", "category": "setting", "file": "novel_curated_settings_v615.json"},
+    {"id": "setting_2812", "display": "蒲灵谷仆从制", "category": "setting", "file": "novel_curated_settings_v615.json"},
+    {"id": "setting_2813", "display": "赤霞峰火瘴", "category": "setting", "file": "novel_curated_settings_v615.json"},
+    {"id": "setting_2814", "display": "豢兽园内外园", "category": "setting", "file": "novel_curated_settings_v615.json"},
+    {"id": "artifact_1857", "display": "执事长老令", "category": "artifact", "file": "novel_curated_artifacts_v615.json"},
+    {"id": "artifact_1858", "display": "灵述牌", "category": "artifact", "file": "novel_curated_artifacts_v615.json"},
+    {"id": "artifact_1859", "display": "火灵玦", "category": "artifact", "file": "novel_curated_artifacts_v615.json"},
+    {"id": "artifact_1860", "display": "双首狮鹰本命牌", "category": "artifact", "file": "novel_curated_artifacts_v615.json"},
+    {"id": "technique_1401", "display": "墨灵山河图实景", "category": "technique", "file": "novel_curated_techniques_v615.json"},
+    {"id": "technique_1402", "display": "袖袍无形山", "category": "technique", "file": "novel_curated_techniques_v615.json"},
+    {"id": "technique_1403", "display": "灵述复制秘典", "category": "technique", "file": "novel_curated_techniques_v615.json"},
+    {"id": "material_1423", "display": "清林丹", "category": "material", "file": "novel_curated_materials_v615.json"},
+    {"id": "material_1424", "display": "蒲灵草", "category": "material", "file": "novel_curated_materials_v615.json"},
+    {"id": "material_1425", "display": "双首狮鹰兽", "category": "material", "file": "novel_curated_materials_v615.json"}
+  ]
+}
