@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 614,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第184–188章）",
+  "method": "沿原文逐段精读；本索引汇总 v614 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2803", "display": "烛龙道宗门", "category": "setting", "file": "novel_curated_settings_v614.json"},
+    {"id": "setting_2804", "display": "钟鸣山脉", "category": "setting", "file": "novel_curated_settings_v614.json"},
+    {"id": "setting_2805", "display": "周天仙台测资", "category": "setting", "file": "novel_curated_settings_v614.json"},
+    {"id": "setting_2806", "display": "月华仙体", "category": "setting", "file": "novel_curated_settings_v614.json"},
+    {"id": "setting_2807", "display": "内门执事与功绩点", "category": "setting", "file": "novel_curated_settings_v614.json"},
+    {"id": "setting_2808", "display": "元神灯与白奉义", "category": "setting", "file": "novel_curated_settings_v614.json"},
+    {"id": "artifact_1853", "display": "烛龙令", "category": "artifact", "file": "novel_curated_artifacts_v614.json"},
+    {"id": "artifact_1854", "display": "白色飞鸟玉梭", "category": "artifact", "file": "novel_curated_artifacts_v614.json"},
+    {"id": "artifact_1855", "display": "五焰光轮回收", "category": "artifact", "file": "novel_curated_artifacts_v614.json"},
+    {"id": "artifact_1856", "display": "如意环", "category": "artifact", "file": "novel_curated_artifacts_v614.json"},
+    {"id": "technique_1398", "display": "魔光吞魔", "category": "technique", "file": "novel_curated_techniques_v614.json"},
+    {"id": "technique_1399", "display": "临传阁传送", "category": "technique", "file": "novel_curated_techniques_v614.json"},
+    {"id": "technique_1400", "display": "金仙魅惑", "category": "technique", "file": "novel_curated_techniques_v614.json"},
+    {"id": "material_1420", "display": "魔契石", "category": "material", "file": "novel_curated_materials_v614.json"},
+    {"id": "material_1421", "display": "红色半月玉玦", "category": "material", "file": "novel_curated_materials_v614.json"},
+    {"id": "material_1422", "display": "时间法则晶粒", "category": "material", "file": "novel_curated_materials_v614.json"}
+  ]
+}
