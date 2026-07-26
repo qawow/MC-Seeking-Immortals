@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 619,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第209–213章）",
+  "method": "沿原文逐段精读；本索引汇总 v619 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2833", "display": "千锋聚灵剑阵", "category": "setting", "file": "novel_curated_settings_v619.json"},
+    {"id": "setting_2834", "display": "祭剑台", "category": "setting", "file": "novel_curated_settings_v619.json"},
+    {"id": "setting_2835", "display": "剑影阵图与万剑图", "category": "setting", "file": "novel_curated_settings_v619.json"},
+    {"id": "setting_2836", "display": "剑阵反转夺剑", "category": "setting", "file": "novel_curated_settings_v619.json"},
+    {"id": "setting_2837", "display": "逐锋赔偿", "category": "setting", "file": "novel_curated_settings_v619.json"},
+    {"id": "setting_2838", "display": "青竹剑归", "category": "setting", "file": "novel_curated_settings_v619.json"},
+    {"id": "artifact_1873", "display": "熊山本命金剑", "category": "artifact", "file": "novel_curated_artifacts_v619.json"},
+    {"id": "artifact_1874", "display": "镇剑石", "category": "artifact", "file": "novel_curated_artifacts_v619.json"},
+    {"id": "artifact_1875", "display": "青竹巨剑", "category": "artifact", "file": "novel_curated_artifacts_v619.json"},
+    {"id": "artifact_1876", "display": "摩邪黑雷剑", "category": "artifact", "file": "novel_curated_artifacts_v619.json"},
+    {"id": "technique_1413", "display": "抹印抽剑元", "category": "technique", "file": "novel_curated_techniques_v619.json"},
+    {"id": "technique_1414", "display": "万剑图小阵", "category": "technique", "file": "novel_curated_techniques_v619.json"},
+    {"id": "technique_1415", "display": "辟邪神雷合剑", "category": "technique", "file": "novel_curated_techniques_v619.json"},
+    {"id": "material_1435", "display": "仙元石阵枢", "category": "material", "file": "novel_curated_materials_v619.json"},
+    {"id": "material_1436", "display": "精纯剑元", "category": "material", "file": "novel_curated_materials_v619.json"},
+    {"id": "material_1437", "display": "坟茔禁锢", "category": "material", "file": "novel_curated_materials_v619.json"}
+  ]
+}
