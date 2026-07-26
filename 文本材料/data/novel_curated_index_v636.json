@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 636,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第294–298章）",
+  "method": "沿原文逐段精读；本索引汇总 v636 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2935", "display": "金仙仙傀", "category": "setting", "file": "novel_curated_settings_v636.json"},
+    {"id": "setting_2936", "display": "大周天功", "category": "setting", "file": "novel_curated_settings_v636.json"},
+    {"id": "setting_2937", "display": "冷焰重逢", "category": "setting", "file": "novel_curated_settings_v636.json"},
+    {"id": "setting_2938", "display": "屠仙刃主", "category": "setting", "file": "novel_curated_settings_v636.json"},
+    {"id": "setting_2939", "display": "雾气法则", "category": "setting", "file": "novel_curated_settings_v636.json"},
+    {"id": "setting_2940", "display": "飞天幻图", "category": "setting", "file": "novel_curated_settings_v636.json"},
+    {"id": "artifact_1941", "display": "黑帝屠仙刃", "category": "artifact", "file": "novel_curated_artifacts_v636.json"},
+    {"id": "artifact_1942", "display": "星元功板", "category": "artifact", "file": "novel_curated_artifacts_v636.json"},
+    {"id": "artifact_1943", "display": "漩涡黑旗", "category": "artifact", "file": "novel_curated_artifacts_v636.json"},
+    {"id": "artifact_1944", "display": "雪狮傀儡", "category": "artifact", "file": "novel_curated_artifacts_v636.json"},
+    {"id": "technique_1464", "display": "星元对拳", "category": "technique", "file": "novel_curated_techniques_v636.json"},
+    {"id": "technique_1465", "display": "青剑对刀", "category": "technique", "file": "novel_curated_techniques_v636.json"},
+    {"id": "technique_1466", "display": "真轮大江", "category": "technique", "file": "novel_curated_techniques_v636.json"},
+    {"id": "material_1486", "display": "隔元法链", "category": "material", "file": "novel_curated_materials_v636.json"},
+    {"id": "material_1487", "display": "银甲圆球", "category": "material", "file": "novel_curated_materials_v636.json"},
+    {"id": "material_1488", "display": "青色木甲", "category": "material", "file": "novel_curated_materials_v636.json"}
+  ]
+}
