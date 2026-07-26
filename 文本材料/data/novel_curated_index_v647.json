@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 647,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第349–353章）",
+  "method": "沿原文逐段精读；本索引汇总 v647 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_3001", "display": "感应法阵", "category": "setting", "file": "novel_curated_settings_v647.json"},
+    {"id": "setting_3002", "display": "护城大阵", "category": "setting", "file": "novel_curated_settings_v647.json"},
+    {"id": "setting_3003", "display": "轮回介入", "category": "setting", "file": "novel_curated_settings_v647.json"},
+    {"id": "setting_3004", "display": "幻瞳鬼目", "category": "setting", "file": "novel_curated_settings_v647.json"},
+    {"id": "setting_3005", "display": "乌蒙兴盛", "category": "setting", "file": "novel_curated_settings_v647.json"},
+    {"id": "setting_3006", "display": "青羽争霸", "category": "setting", "file": "novel_curated_settings_v647.json"},
+    {"id": "artifact_1985", "display": "黑雷幡", "category": "artifact", "file": "novel_curated_artifacts_v647.json"},
+    {"id": "artifact_1986", "display": "青羽扇", "category": "artifact", "file": "novel_curated_artifacts_v647.json"},
+    {"id": "artifact_1987", "display": "蓝冰镜", "category": "artifact", "file": "novel_curated_artifacts_v647.json"},
+    {"id": "artifact_1988", "display": "雨晴令", "category": "artifact", "file": "novel_curated_artifacts_v647.json"},
+    {"id": "technique_1497", "display": "风暴幻术", "category": "technique", "file": "novel_curated_techniques_v647.json"},
+    {"id": "technique_1498", "display": "雷遁穿城", "category": "technique", "file": "novel_curated_techniques_v647.json"},
+    {"id": "technique_1499", "display": "隐身水影", "category": "technique", "file": "novel_curated_techniques_v647.json"},
+    {"id": "material_1519", "display": "空间阵具", "category": "material", "file": "novel_curated_materials_v647.json"},
+    {"id": "material_1520", "display": "蓝隐阵旗", "category": "material", "file": "novel_curated_materials_v647.json"},
+    {"id": "material_1521", "display": "水法则丝", "category": "material", "file": "novel_curated_materials_v647.json"}
+  ]
+}
