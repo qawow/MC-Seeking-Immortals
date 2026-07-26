@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 633,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第279–283章）",
+  "method": "沿原文逐段精读；本索引汇总 v633 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2917", "display": "母豆发芽", "category": "setting", "file": "novel_curated_settings_v633.json"},
+    {"id": "setting_2918", "display": "豆兵变异", "category": "setting", "file": "novel_curated_settings_v633.json"},
+    {"id": "setting_2919", "display": "圣傀门岛", "category": "setting", "file": "novel_curated_settings_v633.json"},
+    {"id": "setting_2920", "display": "驻守三年", "category": "setting", "file": "novel_curated_settings_v633.json"},
+    {"id": "setting_2921", "display": "白家老祖", "category": "setting", "file": "novel_curated_settings_v633.json"},
+    {"id": "setting_2922", "display": "任务狂人", "category": "setting", "file": "novel_curated_settings_v633.json"},
+    {"id": "artifact_1929", "display": "弯月灵舟", "category": "artifact", "file": "novel_curated_artifacts_v633.json"},
+    {"id": "artifact_1930", "display": "赤青面具", "category": "artifact", "file": "novel_curated_artifacts_v633.json"},
+    {"id": "artifact_1931", "display": "阵枢白塔", "category": "artifact", "file": "novel_curated_artifacts_v633.json"},
+    {"id": "artifact_1932", "display": "仙傀侍从", "category": "artifact", "file": "novel_curated_artifacts_v633.json"},
+    {"id": "technique_1455", "display": "剑影剥岩", "category": "technique", "file": "novel_curated_techniques_v633.json"},
+    {"id": "technique_1456", "display": "雪莲虚步", "category": "technique", "file": "novel_curated_techniques_v633.json"},
+    {"id": "technique_1457", "display": "护岛展开", "category": "technique", "file": "novel_curated_techniques_v633.json"},
+    {"id": "material_1477", "display": "金龙胆", "category": "material", "file": "novel_curated_materials_v633.json"},
+    {"id": "material_1478", "display": "红毛酒", "category": "material", "file": "novel_curated_materials_v633.json"},
+    {"id": "material_1479", "display": "蓝晶灵石", "category": "material", "file": "novel_curated_materials_v633.json"}
+  ]
+}
