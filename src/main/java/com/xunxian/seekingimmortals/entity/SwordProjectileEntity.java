@@ -18,6 +18,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MoverType;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.level.Level;
@@ -105,13 +106,39 @@ public class SwordProjectileEntity extends Projectile {
         super.onHitEntity(result);
         Entity target = result.getEntity();
         Entity owner = getOwner();
-        if (target == owner) return;
+        if (!canDamageTarget(target)) return;
         boolean damaged = target.hurt(level().damageSources().indirectMagic(this, owner), (float) damage);
         if (damaged && slowsTarget && target instanceof LivingEntity living) {
             living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 1));
         }
         spawnImpactVisual(result.getLocation());
         discard();
+    }
+
+    @Override
+    protected boolean canHitEntity(Entity target) {
+        return super.canHitEntity(target) && canDamageTarget(target);
+    }
+
+    private boolean canDamageTarget(Entity target) {
+        Entity owner = getOwner();
+        if (target == null || target == owner || target.isSpectator()) {
+            return false;
+        }
+        if (owner instanceof LivingEntity livingOwner && livingOwner.isAlliedTo(target)) {
+            return false;
+        }
+        if (owner instanceof Player caster && target instanceof SummonedServitorEntity servitor
+                && servitor.getOwnerUUID().filter(caster.getUUID()::equals).isPresent()) {
+            return false;
+        }
+        if (owner instanceof Player caster && target instanceof CultivationBeastEntity beast
+                && beast.isCompanion()
+                && beast.getOwnerUUID().filter(caster.getUUID()::equals).isPresent()) {
+            return false;
+        }
+        return !(owner instanceof Player caster && target instanceof Player playerTarget)
+                || caster.canHarmPlayer(playerTarget);
     }
 
     @Override

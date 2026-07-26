@@ -5,6 +5,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
+import com.xunxian.seekingimmortals.skill.effect.AuthoredSpellEffectCatalog;
 import net.minecraft.server.MinecraftServer;
 
 import java.io.BufferedReader;
@@ -219,7 +220,26 @@ public final class TechniqueDataManager {
                 SeekingImmortalsMod.LOGGER.warn("Failed to load text-material technique data from {}", path, exception);
             }
         }
+        AuthoredSpellEffectCatalog.profiles().values().stream()
+                .filter(profile -> "novel".equals(profile.namespace()))
+                .forEach(profile -> entries.putIfAbsent(profile.id(), fromAuthoredProfile(profile)));
         return Map.copyOf(entries);
+    }
+
+    private static TechniqueEntry fromAuthoredProfile(AuthoredSpellEffectCatalog.Profile profile) {
+        AuthoredSpellEffectCatalog.Functional functional = profile.functional();
+        Set<String> tags = new LinkedHashSet<>(profile.tags());
+        tags.add("authored");
+        tags.add(profile.namespace());
+        tags.add(profile.family().name().toLowerCase(Locale.ROOT));
+        tags.add(profile.motif().name().toLowerCase(Locale.ROOT));
+        String source = profile.source().isBlank() ? profile.sourceFile() : profile.source();
+        return new TechniqueEntry(
+                profile.id(), profile.display(), source, functional.element(),
+                Math.max(1, profile.scaleTier() + 1), functional.cost(), Realm.QI_REFINING,
+                "", "authored_" + profile.namespace(), functional.type(), functional.element(),
+                functional.cooldownTicks(), functional.damageBase(), profile.shape(), tags,
+                functional.target(), Double.toString(functional.range()));
     }
 
     private static Map<String, SourceSummary> buildSourceSummaries(Map<String, TechniqueEntry> entries) {

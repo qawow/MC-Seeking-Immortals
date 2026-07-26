@@ -4,6 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.network.TechniqueVfxPacket;
+import com.xunxian.seekingimmortals.skill.effect.AuthoredSpellEffectCatalog;
 import com.xunxian.seekingimmortals.skill.effect.TechniqueVfxPalette;
 import org.junit.jupiter.api.Test;
 
@@ -29,11 +30,13 @@ class AuthoredVisualCatalogTest {
     @Test
     void unifiedCatalogLoadsEveryDomainWithoutCollapsingSharedIds() {
         AuthoredVisualCatalog.Snapshot catalog = AuthoredVisualCatalog.builtin();
+        int techniqueCount = AuthoredSpellEffectCatalog.builtin().counts().total();
+        int totalCount = 3779 - 344 + techniqueCount;
 
         assertEquals(3, catalog.schemaVersion());
-        assertEquals(3779, catalog.declaredProfileCount());
-        assertEquals(3779, catalog.count());
-        assertEquals(344, catalog.count(VisualDomain.TECHNIQUE));
+        assertEquals(totalCount, catalog.declaredProfileCount());
+        assertEquals(totalCount, catalog.count());
+        assertEquals(techniqueCount, catalog.count(VisualDomain.TECHNIQUE));
         assertEquals(217, catalog.count(VisualDomain.ARTIFACT));
         assertEquals(114, catalog.count(VisualDomain.PILL));
         assertEquals(57, catalog.count(VisualDomain.CONSUMABLE));
@@ -51,7 +54,7 @@ class AuthoredVisualCatalogTest {
         assertEquals(56, catalog.count(VisualDomain.FORMATION));
         assertEquals(7, catalog.count(VisualDomain.TRIBULATION));
         assertEquals(Map.ofEntries(
-                Map.entry(VisualDomain.TECHNIQUE, 344),
+                Map.entry(VisualDomain.TECHNIQUE, techniqueCount),
                 Map.entry(VisualDomain.ARTIFACT, 217),
                 Map.entry(VisualDomain.PILL, 114),
                 Map.entry(VisualDomain.CONSUMABLE, 57),

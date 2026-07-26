@@ -40,8 +40,8 @@ class CatalogItemDescriptionServiceTest {
                 count++;
             }
         }
-        // Fifteen canonical carriers were added after the legacy pills and Jiangying alias were removed.
-        assertEquals(1200, count, "bulk catalog count after canonical carrier additions");
+        // Dedicated ModItems registrations must not remain duplicated in the bulk registry.
+        assertEquals(1189, count, "bulk catalog count after removing dedicated registrations");
         assertTrue(placeholders >= 796, "placeholders=" + placeholders);
     }
 

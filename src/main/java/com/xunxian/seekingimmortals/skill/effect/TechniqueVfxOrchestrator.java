@@ -123,10 +123,30 @@ public final class TechniqueVfxOrchestrator {
                 TechniqueVfxPacket.TrailStyle.DEFAULT,
                 false,
                 plannedRange, radius, intensity);
+        AuthoredSpellEffectCatalog.Profile authored = AuthoredSpellEffectCatalog.find(id).orElse(null);
+        if (authored != null) {
+            return applyAuthoredSpellProfile(authored, secondary);
+        }
         return AuthoredTechniqueVfxCatalog.find(id)
                 .map(profile -> applyAuthoredProfile(
                         fallback, profile, type, safeTarget, blob, secondary, lockedSkillMotif))
                 .orElse(fallback);
+    }
+
+    private static VisualPlan applyAuthoredSpellProfile(AuthoredSpellEffectCatalog.Profile profile,
+                                                        boolean secondary) {
+        AuthoredSpellEffectCatalog.Functional functional = profile.functional();
+        Kind kind = inferKind(functional.type(), functional.target(),
+                join(profile.id(), profile.shape(), profile.source()), profile.motif());
+        if (kind == Kind.CAST) {
+            kind = Kind.BURST;
+        }
+        int intensity = secondary
+                ? Math.max(8, (int) Math.round(profile.intensity() * 0.72D))
+                : profile.intensity();
+        return new VisualPlan(
+                profile.family(), profile.motif(), kind, profile.particle(), profile.trail(),
+                profile.telegraphed(), functional.range(), functional.radius(), intensity);
     }
 
     private static VisualPlan applyAuthoredProfile(VisualPlan fallback,

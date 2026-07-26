@@ -1,3 +1,18 @@
+## 577. 2026-07-26 0.2.184 全量作者法术功能与独立视觉接线
+
+  Step   Status   Notes
+  ---   ---   ---
+  Full source projection   Done   动态扫描至 v641，确定性生成 2,229 个 profile：747 条基础语料、1,482 条原著法术；1,401 条保留直接视觉、81 条使用设定回退、3,575 段视觉引文，ID/签名/源哈希闭合。
+  Typed runtime catalog   Done   严格解析 namespace、family/motif、effect/target、particle/trail、shape、逐帧、功能数值和边界；Gradle `check` 接入 `authoredSpellEffectsCheck`。
+  Server execution   Done   原著增量进入 `TechniqueDataManager`，全目录优先解析为 `AuthoredSpellEffect`；攻击、防御、恢复/净化、移动、召唤/指令、侦测/隐匿、变化、地形、封印、吸取、炼制/修炼辅助和传音均有服务端权威路径，伤害保持施法者归因。
+  Visual projection   Done   术法域由旧 344 条扩至 2,229 条，统一视觉目录为 5,664 条；52 种作者 shape 全部闭合到客户端预算内几何，泛化 `aura_burst`/`single_projectile` 数量受契约约束。
+  Registry/resource fixes   Done   从 bulk 目录移除 11 个已有专用 `ModItems` 注册，避免启动时变为 `air`；修正 12 个粒子描述的 sprite 路径，并加入 JSON/PNG 对账测试。
+  Verification   Done   三个生成器 `--check`、法术/视觉定向测试和全量 `./gradlew test --no-daemon --max-workers=1` 通过 1,160 项；专服达到 `Done`，75 秒客户端完成资源图集加载且无本模组缺失粒子/纹理或渲染崩溃，OpenAL 仅受无声卡环境限制。
+  Final build   Done   `0.2.184` 首次重跑被构建期间出现的 v641 一致性检查拦截；同步 v641 后普通构建在 1 分 24 秒内成功，250 个套件/1,160 项测试无失败或错误，产出 `seeking_immortals-0.2.184.jar`。
+  Version/protocol   Done   `mod_version=0.2.181 -> 0.2.184`；`0.2.183` 构建后因 v640 输入推进而再升一个补丁版。未改变包字段、顺序、类型、注册或频道行为，协议保持 `30`。
+  Backup   Done   `.bak/20260726_062239_0.2.182_spell_visual_rebuild/`。
+  Follow-up   Pending   共享功能族和 52 种几何不等于逐条专属模型/AI；需真人单机/多人抽检命中、数值、墙体位置、领域友敌、透明排序、低粒子档、密集施法预算与原著表现保真度。
+
 ## 576. 2026-07-26 0.2.181 详细任务与对话世界动作权威化
 
   Step   Status   Notes

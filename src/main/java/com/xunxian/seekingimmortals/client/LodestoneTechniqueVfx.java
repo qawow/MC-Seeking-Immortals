@@ -31,6 +31,7 @@ import team.lodestar.lodestone.systems.screenshake.PositionedScreenshakeInstance
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 @OnlyIn(Dist.CLIENT)
@@ -87,8 +88,10 @@ public final class LodestoneTechniqueVfx {
             ACTIVE_VFX.remove(0);
             activeVfxCursor = Math.max(0, activeVfxCursor - 1);
         }
+        String shape = profileKey == null ? "" : AuthoredVisualCatalog.resolve(profileKey.toString())
+                .map(profile -> profile.shape()).orElse("");
         ACTIVE_VFX.add(new ActiveVfx(packet, start, end, rhythm,
-                PaletteColors.fromArgb(primaryArgb)));
+                PaletteColors.fromArgb(primaryArgb), shape));
         LodestoneWorldGeometry.addProfileIntent(profileKey, packet, primaryArgb,
                 rhythm.anticipationTicks(), rhythm.releaseTicks(), rhythm.sustainTicks(),
                 rhythm.afterglowTicks());
@@ -238,6 +241,8 @@ public final class LodestoneTechniqueVfx {
                                    int intensity, Random random, boolean shake) {
         TechniqueVfxPacket packet = active.packet;
         emitAuthoredLayers(level, packet, active.start, active.end, intensity, random, Phase.RELEASE);
+        emitAuthoredShape(level, active.shape, packet.family(), active.start, active.end,
+                packet.radius(), intensity, random);
         // The authored semantic motif is emitted once at release; the timeline supplies the
         // quieter pulses before and after it.
         embellish(level, packet.kind(), packet.motif(), packet.family(), active.start, active.end,
@@ -321,15 +326,17 @@ public final class LodestoneTechniqueVfx {
         private final Vec3 end;
         private final Rhythm rhythm;
         private final PaletteColors paletteOverride;
+        private final String shape;
         private int age;
 
         private ActiveVfx(TechniqueVfxPacket packet, Vec3 start, Vec3 end, Rhythm rhythm,
-                          PaletteColors paletteOverride) {
+                          PaletteColors paletteOverride, String shape) {
             this.packet = packet;
             this.start = start;
             this.end = end;
             this.rhythm = rhythm;
             this.paletteOverride = paletteOverride;
+            this.shape = shape == null ? "" : shape.trim().toLowerCase(Locale.ROOT);
         }
 
         private void tick(Minecraft minecraft, ClientLevel level) {
@@ -651,6 +658,596 @@ public final class LodestoneTechniqueVfx {
             case TALISMAN -> talismanMotif(level, family, start, end, radius, intensity, random);
             case ILLUSION -> illusionMotif(level, family, start, radius, intensity, random);
             case MARTIAL -> martialMotif(level, family, start, radius, intensity, random);
+        }
+    }
+
+    private static void emitAuthoredShape(ClientLevel level, String shape,
+                                          TechniqueVfxPalette.Family family,
+                                          Vec3 start, Vec3 end, float radius,
+                                          int intensity, Random random) {
+        switch (shape) {
+            case "aura_burst" -> auraBurstShape(level, family, start, radius, intensity, random);
+            case "single_projectile" -> singleProjectileShape(level, family, start, end, radius, intensity, random);
+            case "giant_claw" -> giantClawShape(level, family, start, end, radius, intensity, random);
+            case "giant_hand" -> giantHandShape(level, family, start, end, radius, intensity, random);
+            case "fist_barrage" -> barrageShape(level, family, start, end, radius, intensity, random, false);
+            case "sword_rain", "projectile_swarm", "falling_barrage" ->
+                    barrageShape(level, family, start, end, radius, intensity, random, true);
+            case "cloud_vortex" -> vortexShape(level, family, start, radius, intensity, random);
+            case "rune_orbit", "array_rings" -> runeOrbitShape(level, family, start, radius, intensity, random);
+            case "chain_net", "chain_links" -> chainNetShape(level, family, start, end, radius, intensity, random);
+            case "spirit_avatar", "summon_gate" -> spiritAvatarShape(level, family, start, radius, intensity, random);
+            case "serpent_dragon" -> serpentShape(level, family, start, end, radius, intensity, random);
+            case "eye_gaze" -> eyeGazeShape(level, family, start, end, radius, intensity, random);
+            case "sound_wave" -> soundWaveShape(level, family, start, end, radius, intensity, random);
+            case "lotus_mandala" -> lotusShape(level, family, start, radius, intensity, random);
+            case "mountain_meteor" -> mountainShape(level, family, start, end, radius, intensity, random);
+            case "mirror_disc" -> mirrorShape(level, family, start, end, radius, intensity, random);
+            case "mist_veil" -> mistVeilShape(level, family, start, end, radius, intensity, random);
+            case "flame_bird" -> flameBirdShape(level, family, start, end, radius, intensity, random);
+            case "beast_phantom" -> beastPhantomShape(level, family, start, end, radius, intensity, random);
+            case "spatial_rift" -> spatialRiftShape(level, family, start, end, radius, intensity, random);
+            case "ice_prison" -> icePrisonShape(level, family, start, end, radius, intensity, random);
+            case "blood_sea" -> bloodSeaShape(level, family, start, radius, intensity, random);
+            case "tree_avatar" -> treeAvatarShape(level, family, start, radius, intensity, random);
+            case "scripture_glyph" -> scriptureGlyphShape(level, family, start, end, radius, intensity, random);
+            case "magnetic_field" -> magneticFieldShape(level, family, start, radius, intensity, random);
+            case "lightning_storm" -> lightningStormShape(level, family, start, end, radius, intensity, random);
+            case "wheel_disc" -> wheelDiscShape(level, family, start, end, radius, intensity, random);
+            case "spear_spike" -> spearSpikeShape(level, family, start, end, radius, intensity, random);
+            case "wing_fan" -> wingFanShape(level, family, start, end, radius, intensity, random);
+            case "insect_swarm" -> insectSwarmShape(level, family, start, end, radius, intensity, random);
+            case "tidal_wave" -> tidalWaveShape(level, family, start, end, radius, intensity, random);
+            case "orb_projectile" -> orbProjectileShape(level, family, start, end, radius, intensity, random);
+            case "ground_field", "sphere_field" ->
+                    domainMotif(level, family, start, radius, intensity, random, true);
+            case "seal_cage", "barrier_plane" -> cageShape(level, family, start, end, radius, intensity, random);
+            case "body_aura", "body_shell" -> shieldMotif(level, family, start, radius, intensity, random);
+            case "afterimage_path", "layered_afterimages" ->
+                    teleportMotif(level, family, start, end, radius, intensity, random);
+            case "beam_lance", "channel_stream" ->
+                    channelMotif(level, family, start, end, intensity, random);
+            case "blade_arc", "impact_arcs" ->
+                    bladeMotif(level, family, start, end, radius, intensity, random);
+            case "rising_motes" -> healMotif(level, family, start, radius, intensity, random, false);
+            case "cleansing_ring" -> healMotif(level, family, start, radius, intensity, random, true);
+            case "burning_talisman" -> talismanMotif(level, family, start, end, radius, intensity, random);
+            default -> {
+            }
+        }
+    }
+
+    private static void giantClawShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                       Vec3 start, Vec3 end, float radius,
+                                       int intensity, Random random) {
+        Vec3 center = start.distanceToSqr(end) < 0.04D ? start : end;
+        double size = Math.max(0.9D, Math.min(4.0D, radius));
+        Vec3 palm = center.add(0.0D, 1.2D + size * 0.45D, 0.0D);
+        ring(level, family, palm, size * 0.38D,
+                Math.min(18, Math.max(8, intensity / 3)), random, 0.18F, 18);
+        for (int finger = 0; finger < 5 && budgetAvailable(level); finger++) {
+            double lateral = (finger - 2.0D) * size * 0.18D;
+            double forward = (finger % 2 == 0 ? 0.20D : -0.08D) * size;
+            Vec3 knuckle = palm.add(lateral, 0.0D, forward);
+            Vec3 tip = center.add(lateral * 1.35D, 0.15D, forward + size * 0.36D);
+            shortLine(level, family, knuckle, tip,
+                    Math.min(7, Math.max(3, intensity / 7)), random);
+        }
+    }
+
+    private static void barrageShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                     Vec3 start, Vec3 end, float radius,
+                                     int intensity, Random random, boolean falling) {
+        Vec3 center = start.distanceToSqr(end) < 0.04D ? start : end;
+        Vec3 direction = falling ? new Vec3(0.0D, -1.0D, 0.0D)
+                : normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        int streaks = Math.min(12, Math.max(4, intensity / 4));
+        double spread = Math.max(0.8D, Math.min(4.5D, radius));
+        for (int i = 0; i < streaks && budgetAvailable(level); i++) {
+            Vec3 offset = randomOffset(random, spread);
+            Vec3 tip = falling ? center.add(offset.x, 2.0D + random.nextDouble() * 1.8D, offset.z)
+                    : start.add(offset.scale(0.22D));
+            Vec3 tail = falling ? tip.add(direction.scale(1.2D + random.nextDouble()))
+                    : end.add(offset.scale(0.65D));
+            shortLine(level, family, tip, tail, 3, random);
+        }
+    }
+
+    private static void vortexShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                    Vec3 center, float radius, int intensity, Random random) {
+        double safeRadius = Math.max(1.0D, Math.min(5.0D, radius));
+        int layers = Math.min(5, Math.max(3, intensity / 10));
+        for (int layer = 0; layer < layers && budgetAvailable(level); layer++) {
+            double progress = layer / (double) Math.max(1, layers - 1);
+            rotatingRing(level, family, center.add(0.0D, 0.16D + layer * 0.38D, 0.0D),
+                    safeRadius * (1.0D - progress * 0.62D),
+                    Math.min(18, Math.max(8, intensity / 3)),
+                    level.getGameTime() * 0.18D + layer * 0.72D, random);
+        }
+    }
+
+    private static void runeOrbitShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                       Vec3 center, float radius, int intensity, Random random) {
+        double safeRadius = Math.max(0.8D, Math.min(5.0D, radius));
+        double phase = level.getGameTime() * 0.14D;
+        rotatingRing(level, family, center.add(0.0D, 0.12D, 0.0D), safeRadius,
+                Math.min(20, Math.max(10, intensity / 2)), phase, random);
+        rotatingRing(level, family, center.add(0.0D, 0.2D, 0.0D), safeRadius * 0.55D,
+                Math.min(16, Math.max(8, intensity / 3)), -phase * 1.35D, random);
+        for (int node = 0; node < 6 && budgetAvailable(level); node++) {
+            double angle = phase + Math.PI * 2.0D * node / 6.0D;
+            Vec3 point = center.add(Math.cos(angle) * safeRadius, 0.24D,
+                    Math.sin(angle) * safeRadius);
+            spawn(level, LodestoneParticleRegistry.STAR_PARTICLE, family, point, Vec3.ZERO,
+                    0.20F, 0.94F, 22, (float) angle);
+        }
+    }
+
+    private static void chainNetShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                      Vec3 start, Vec3 end, float radius,
+                                      int intensity, Random random) {
+        Vec3 center = start.distanceToSqr(end) < 0.04D ? start : start.add(end).scale(0.5D);
+        Vec3 forward = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 side = perpendicular(forward);
+        double half = Math.max(0.8D, Math.min(4.0D, radius));
+        int strands = Math.min(5, Math.max(3, intensity / 10));
+        for (int i = 0; i < strands && budgetAvailable(level); i++) {
+            double offset = -half + half * 2.0D * i / Math.max(1.0D, strands - 1.0D);
+            shortLine(level, family, center.add(side.scale(offset)).add(0.0D, -half * 0.45D, 0.0D),
+                    center.add(side.scale(offset)).add(0.0D, half * 0.45D, 0.0D), 4, random);
+            shortLine(level, family, center.add(side.scale(-half)).add(0.0D, offset * 0.45D, 0.0D),
+                    center.add(side.scale(half)).add(0.0D, offset * 0.45D, 0.0D), 4, random);
+        }
+    }
+
+    private static void spiritAvatarShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                          Vec3 center, float radius,
+                                          int intensity, Random random) {
+        double scale = Math.max(0.9D, Math.min(3.6D, radius * 0.8D));
+        Vec3 hips = center.add(0.0D, 0.35D, 0.0D);
+        Vec3 shoulders = hips.add(0.0D, scale * 0.85D, 0.0D);
+        Vec3 head = shoulders.add(0.0D, scale * 0.42D, 0.0D);
+        shortLine(level, family, hips, head, 7, random);
+        shortLine(level, family, shoulders.add(-scale * 0.5D, -scale * 0.15D, 0.0D),
+                shoulders.add(scale * 0.5D, -scale * 0.15D, 0.0D), 7, random);
+        verticalRing(level, family, head, new Vec3(0.0D, 0.0D, 1.0D), scale * 0.24D,
+                Math.min(16, Math.max(8, intensity / 3)), random, 0.18F);
+    }
+
+    private static void serpentShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                     Vec3 start, Vec3 end, float radius,
+                                     int intensity, Random random) {
+        Vec3 target = start.distanceToSqr(end) < 0.04D ? start.add(0.0D, 2.5D, 0.0D) : end;
+        Vec3 delta = target.subtract(start);
+        Vec3 direction = normalized(delta, new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 side = perpendicular(direction);
+        Vec3 up = normalized(direction.cross(side), new Vec3(0.0D, 1.0D, 0.0D));
+        int points = Math.min(24, Math.max(10, intensity / 2));
+        double waveRadius = Math.max(0.16D, Math.min(0.75D, radius * 0.16D));
+        for (int i = 0; i <= points && budgetAvailable(level); i++) {
+            double progress = i / (double) points;
+            double angle = progress * Math.PI * 5.0D;
+            Vec3 point = start.add(delta.scale(progress))
+                    .add(side.scale(Math.cos(angle) * waveRadius))
+                    .add(up.scale(Math.sin(angle) * waveRadius));
+            spawn(level, LodestoneParticleRegistry.WISP_PARTICLE, family, point,
+                    direction.scale(0.012D), 0.22F, 0.84F, 18, (float) angle);
+        }
+    }
+
+    private static void cageShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                  Vec3 start, Vec3 end, float radius,
+                                  int intensity, Random random) {
+        Vec3 center = start.distanceToSqr(end) < 0.04D ? start : end;
+        double safeRadius = Math.max(0.9D, Math.min(4.0D, radius));
+        int bars = Math.min(10, Math.max(6, intensity / 5));
+        for (int i = 0; i < bars && budgetAvailable(level); i++) {
+            double angle = Math.PI * 2.0D * i / bars;
+            Vec3 base = center.add(Math.cos(angle) * safeRadius, 0.05D,
+                    Math.sin(angle) * safeRadius);
+            shortLine(level, family, base, base.add(0.0D, 2.0D + safeRadius * 0.25D, 0.0D),
+                    5, random);
+        }
+        ring(level, family, center.add(0.0D, 2.0D + safeRadius * 0.25D, 0.0D), safeRadius,
+                Math.min(20, Math.max(10, intensity / 2)), random, 0.15F, 20);
+    }
+
+    private static void auraBurstShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                       Vec3 center, float radius, int intensity, Random random) {
+        double safeRadius = Math.max(0.7D, Math.min(4.2D, radius));
+        int rays = Math.min(12, Math.max(6, intensity / 4));
+        ring(level, family, center.add(0.0D, 0.12D, 0.0D), safeRadius,
+                Math.min(22, Math.max(10, intensity / 2)), random, 0.15F, 18);
+        for (int i = 0; i < rays && budgetAvailable(level); i++) {
+            double angle = Math.PI * 2.0D * i / rays;
+            Vec3 direction = new Vec3(Math.cos(angle), 0.16D + (i % 3) * 0.08D, Math.sin(angle)).normalize();
+            shortLine(level, family, center.add(0.0D, 0.18D, 0.0D),
+                    center.add(0.0D, 0.18D, 0.0D).add(direction.scale(safeRadius)), 3, random);
+        }
+    }
+
+    private static void singleProjectileShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                              Vec3 start, Vec3 end, float radius,
+                                              int intensity, Random random) {
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 tip = start.distanceToSqr(end) < 0.04D ? start.add(direction.scale(1.2D)) : end;
+        shortLine(level, family, start, tip, Math.min(16, Math.max(6, intensity / 3)), random);
+        verticalRing(level, family, tip, direction, Math.max(0.16D, Math.min(0.5D, radius * 0.22D)),
+                Math.min(12, Math.max(6, intensity / 5)), random, 0.16F);
+    }
+
+    private static void eyeGazeShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                     Vec3 start, Vec3 end, float radius,
+                                     int intensity, Random random) {
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 center = start.add(0.0D, 1.25D, 0.0D).add(direction.scale(0.35D));
+        Vec3 side = perpendicular(direction);
+        Vec3 up = normalized(direction.cross(side), new Vec3(0.0D, 1.0D, 0.0D));
+        double width = Math.max(0.45D, Math.min(1.3D, radius * 0.45D));
+        Vec3 left = center.subtract(side.scale(width));
+        Vec3 right = center.add(side.scale(width));
+        shortLine(level, family, left, center.add(up.scale(width * 0.42D)), 5, random);
+        shortLine(level, family, center.add(up.scale(width * 0.42D)), right, 5, random);
+        shortLine(level, family, right, center.subtract(up.scale(width * 0.42D)), 5, random);
+        shortLine(level, family, center.subtract(up.scale(width * 0.42D)), left, 5, random);
+        verticalRing(level, family, center, direction, width * 0.24D,
+                Math.min(12, Math.max(7, intensity / 4)), random, 0.18F);
+        if (start.distanceToSqr(end) >= 0.04D) {
+            shortLine(level, family, center, end, Math.min(18, Math.max(6, intensity / 3)), random);
+        }
+    }
+
+    private static void soundWaveShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                       Vec3 start, Vec3 end, float radius,
+                                       int intensity, Random random) {
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        double length = Math.max(1.4D, Math.min(6.0D, start.distanceTo(end)));
+        int waves = Math.min(5, Math.max(3, intensity / 10));
+        for (int i = 0; i < waves && budgetAvailable(level); i++) {
+            double progress = (i + 1.0D) / (waves + 1.0D);
+            Vec3 center = start.add(0.0D, 1.1D, 0.0D).add(direction.scale(length * progress));
+            verticalRing(level, family, center, direction,
+                    Math.max(0.3D, radius * (0.18D + progress * 0.32D)),
+                    Math.min(16, Math.max(8, intensity / 4)), random, 0.14F);
+        }
+    }
+
+    private static void lotusShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                   Vec3 center, float radius, int intensity, Random random) {
+        double size = Math.max(0.75D, Math.min(3.2D, radius));
+        int petals = Math.min(12, Math.max(8, intensity / 4));
+        ring(level, family, center.add(0.0D, 0.18D, 0.0D), size * 0.36D,
+                petals, random, 0.16F, 22);
+        for (int i = 0; i < petals && budgetAvailable(level); i++) {
+            double angle = Math.PI * 2.0D * i / petals;
+            Vec3 base = center.add(Math.cos(angle) * size * 0.22D, 0.18D,
+                    Math.sin(angle) * size * 0.22D);
+            Vec3 tip = center.add(Math.cos(angle) * size, 0.08D + (i % 2) * 0.2D,
+                    Math.sin(angle) * size);
+            shortLine(level, family, base, tip, 4, random);
+        }
+    }
+
+    private static void giantHandShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                       Vec3 start, Vec3 end, float radius,
+                                       int intensity, Random random) {
+        Vec3 center = start.distanceToSqr(end) < 0.04D ? start.add(0.0D, 1.4D, 0.0D) : end;
+        double size = Math.max(0.9D, Math.min(3.8D, radius));
+        verticalRing(level, family, center, new Vec3(0.0D, 0.0D, 1.0D), size * 0.42D,
+                Math.min(18, Math.max(9, intensity / 3)), random, 0.2F);
+        for (int finger = 0; finger < 5 && budgetAvailable(level); finger++) {
+            double x = (finger - 2.0D) * size * 0.17D;
+            Vec3 base = center.add(x, size * 0.18D, 0.0D);
+            Vec3 tip = center.add(x * 1.15D, size * (0.72D + (2 - Math.abs(finger - 2)) * 0.08D), 0.0D);
+            shortLine(level, family, base, tip, 5, random);
+        }
+    }
+
+    private static void mountainShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                      Vec3 start, Vec3 end, float radius,
+                                      int intensity, Random random) {
+        Vec3 center = start.distanceToSqr(end) < 0.04D ? start : end;
+        double size = Math.max(0.9D, Math.min(4.5D, radius));
+        Vec3 apex = center.add(0.0D, 1.4D + size * 0.55D, 0.0D);
+        Vec3[] base = {center.add(size, 0.05D, 0.0D), center.add(-size, 0.05D, 0.0D),
+                center.add(0.0D, 0.05D, size), center.add(0.0D, 0.05D, -size)};
+        for (Vec3 point : base) {
+            shortLine(level, family, point, apex, Math.min(8, Math.max(4, intensity / 6)), random);
+        }
+        ring(level, family, center.add(0.0D, 0.06D, 0.0D), size,
+                Math.min(20, Math.max(10, intensity / 3)), random, 0.14F, 20);
+    }
+
+    private static void mirrorShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                    Vec3 start, Vec3 end, float radius,
+                                    int intensity, Random random) {
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 center = start.add(0.0D, 1.0D, 0.0D).add(direction.scale(0.7D));
+        double size = Math.max(0.55D, Math.min(1.8D, radius * 0.55D));
+        verticalRing(level, family, center, direction, size,
+                Math.min(22, Math.max(12, intensity / 3)), random, 0.17F);
+        Vec3 side = perpendicular(direction);
+        Vec3 up = normalized(direction.cross(side), new Vec3(0.0D, 1.0D, 0.0D));
+        shortLine(level, family, center.subtract(side.scale(size * 0.75D)),
+                center.add(side.scale(size * 0.75D)), 7, random);
+        shortLine(level, family, center.subtract(up.scale(size * 0.75D)),
+                center.add(up.scale(size * 0.75D)), 7, random);
+    }
+
+    private static void mistVeilShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                      Vec3 start, Vec3 end, float radius,
+                                      int intensity, Random random) {
+        Vec3 center = start.distanceToSqr(end) < 0.04D ? start.add(0.0D, 0.9D, 0.0D)
+                : start.add(end).scale(0.5D);
+        double spread = Math.max(0.8D, Math.min(4.2D, radius));
+        int count = Math.min(28, Math.max(10, intensity / 2));
+        for (int i = 0; i < count && budgetAvailable(level); i++) {
+            Vec3 offset = randomOffset(random, spread).multiply(1.0D, 0.38D, 1.0D);
+            spawn(level, LodestoneParticleRegistry.WISP_PARTICLE, family, center.add(offset),
+                    new Vec3(0.0D, 0.006D + random.nextDouble() * 0.012D, 0.0D),
+                    0.25F, 0.48F, 28 + random.nextInt(12), random.nextFloat());
+        }
+    }
+
+    private static void flameBirdShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                       Vec3 start, Vec3 end, float radius,
+                                       int intensity, Random random) {
+        Vec3 target = start.distanceToSqr(end) < 0.04D ? start.add(0.0D, 1.8D, 1.5D) : end;
+        Vec3 direction = normalized(target.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 side = perpendicular(direction);
+        Vec3 body = start.add(target).scale(0.5D);
+        shortLine(level, family, start, target, Math.min(16, Math.max(7, intensity / 3)), random);
+        for (int feather = 1; feather <= 4 && budgetAvailable(level); feather++) {
+            double length = Math.max(0.55D, radius * (0.18D + feather * 0.08D));
+            Vec3 back = direction.scale(-0.35D * feather);
+            shortLine(level, family, body.add(back), body.add(back).add(side.scale(length)), 4, random);
+            shortLine(level, family, body.add(back), body.add(back).subtract(side.scale(length)), 4, random);
+        }
+    }
+
+    private static void beastPhantomShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                          Vec3 start, Vec3 end, float radius,
+                                          int intensity, Random random) {
+        Vec3 center = start.distanceToSqr(end) < 0.04D ? start : end;
+        double size = Math.max(0.8D, Math.min(3.0D, radius * 0.7D));
+        Vec3 bodyStart = center.add(-size * 0.65D, 0.75D, 0.0D);
+        Vec3 bodyEnd = center.add(size * 0.55D, 0.8D, 0.0D);
+        shortLine(level, family, bodyStart, bodyEnd, 8, random);
+        verticalRing(level, family, bodyEnd.add(size * 0.28D, 0.18D, 0.0D),
+                new Vec3(0.0D, 0.0D, 1.0D), size * 0.24D,
+                Math.min(12, Math.max(7, intensity / 4)), random, 0.17F);
+        for (double x : new double[]{-0.45D, 0.35D}) {
+            shortLine(level, family, center.add(x * size, 0.7D, 0.0D),
+                    center.add(x * size, 0.05D, size * 0.18D), 4, random);
+            shortLine(level, family, center.add(x * size, 0.7D, 0.0D),
+                    center.add(x * size, 0.05D, -size * 0.18D), 4, random);
+        }
+        shortLine(level, family, bodyStart, bodyStart.add(-size * 0.55D, 0.45D, 0.0D), 5, random);
+    }
+
+    private static void spatialRiftShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                         Vec3 start, Vec3 end, float radius,
+                                         int intensity, Random random) {
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 center = start.distanceToSqr(end) < 0.04D ? start.add(0.0D, 1.1D, 0.0D)
+                : start.add(end).scale(0.5D);
+        Vec3 side = perpendicular(direction);
+        double height = Math.max(1.1D, Math.min(3.6D, radius));
+        Vec3 previousLeft = center.add(side.scale(-0.12D)).add(0.0D, -height, 0.0D);
+        Vec3 previousRight = center.add(side.scale(0.12D)).add(0.0D, -height, 0.0D);
+        int segments = Math.min(10, Math.max(6, intensity / 5));
+        for (int i = 1; i <= segments && budgetAvailable(level); i++) {
+            double y = -height + height * 2.0D * i / segments;
+            double jag = (i % 2 == 0 ? 1.0D : -1.0D) * (0.12D + random.nextDouble() * 0.18D);
+            Vec3 left = center.add(side.scale(jag - 0.14D)).add(0.0D, y, 0.0D);
+            Vec3 right = center.add(side.scale(jag + 0.14D)).add(0.0D, y, 0.0D);
+            shortLine(level, family, previousLeft, left, 3, random);
+            shortLine(level, family, previousRight, right, 3, random);
+            previousLeft = left;
+            previousRight = right;
+        }
+    }
+
+    private static void icePrisonShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                       Vec3 start, Vec3 end, float radius,
+                                       int intensity, Random random) {
+        cageShape(level, family, start, end, radius, intensity, random);
+        Vec3 center = start.distanceToSqr(end) < 0.04D ? start : end;
+        double size = Math.max(0.8D, Math.min(3.6D, radius));
+        int spikes = Math.min(10, Math.max(6, intensity / 5));
+        for (int i = 0; i < spikes && budgetAvailable(level); i++) {
+            double angle = Math.PI * 2.0D * i / spikes;
+            Vec3 base = center.add(Math.cos(angle) * size, 0.05D, Math.sin(angle) * size);
+            Vec3 tip = base.add(Math.cos(angle) * 0.35D, 1.1D + (i % 3) * 0.35D,
+                    Math.sin(angle) * 0.35D);
+            shortLine(level, family, base, tip, 4, random);
+        }
+    }
+
+    private static void bloodSeaShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                      Vec3 center, float radius, int intensity, Random random) {
+        double size = Math.max(1.0D, Math.min(5.2D, radius));
+        double phase = level.getGameTime() * 0.16D;
+        rotatingRing(level, family, center.add(0.0D, 0.08D, 0.0D), size,
+                Math.min(24, Math.max(12, intensity / 2)), phase, random);
+        rotatingRing(level, family, center.add(0.0D, 0.22D, 0.0D), size * 0.66D,
+                Math.min(20, Math.max(10, intensity / 3)), -phase * 1.4D, random);
+        for (int i = 0; i < Math.min(10, Math.max(5, intensity / 5)) && budgetAvailable(level); i++) {
+            Vec3 offset = randomOffset(random, size);
+            shortLine(level, family, center.add(offset.x, 0.02D, offset.z),
+                    center.add(offset.x, 0.35D + random.nextDouble() * 0.75D, offset.z), 3, random);
+        }
+    }
+
+    private static void treeAvatarShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                        Vec3 center, float radius, int intensity, Random random) {
+        double size = Math.max(1.0D, Math.min(4.0D, radius));
+        Vec3 trunkBase = center.add(0.0D, 0.05D, 0.0D);
+        Vec3 crown = center.add(0.0D, 1.5D + size * 0.45D, 0.0D);
+        shortLine(level, family, trunkBase, crown, 9, random);
+        int branches = Math.min(10, Math.max(6, intensity / 5));
+        for (int i = 0; i < branches && budgetAvailable(level); i++) {
+            double angle = Math.PI * 2.0D * i / branches;
+            Vec3 root = center.add(0.0D, 0.8D + (i % 3) * size * 0.18D, 0.0D);
+            Vec3 tip = root.add(Math.cos(angle) * size * 0.72D, size * 0.25D,
+                    Math.sin(angle) * size * 0.72D);
+            shortLine(level, family, root, tip, 4, random);
+        }
+        ring(level, family, trunkBase, size * 0.82D,
+                Math.min(18, Math.max(9, intensity / 3)), random, 0.13F, 22);
+    }
+
+    private static void scriptureGlyphShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                            Vec3 start, Vec3 end, float radius,
+                                            int intensity, Random random) {
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 center = start.add(0.0D, 1.1D, 0.0D).add(direction.scale(0.5D));
+        Vec3 side = perpendicular(direction);
+        Vec3 up = normalized(direction.cross(side), new Vec3(0.0D, 1.0D, 0.0D));
+        double size = Math.max(0.55D, Math.min(1.7D, radius * 0.5D));
+        Vec3 left = center.subtract(side.scale(size));
+        Vec3 right = center.add(side.scale(size));
+        shortLine(level, family, left.add(up.scale(size)), right.add(up.scale(size)), 7, random);
+        shortLine(level, family, left.subtract(up.scale(size)), right.subtract(up.scale(size)), 7, random);
+        shortLine(level, family, left.add(up.scale(size)), left.subtract(up.scale(size)), 7, random);
+        shortLine(level, family, right.add(up.scale(size)), right.subtract(up.scale(size)), 7, random);
+        for (int row = -1; row <= 1; row++) {
+            shortLine(level, family, center.add(side.scale(-size * 0.55D)).add(up.scale(row * size * 0.45D)),
+                    center.add(side.scale(size * 0.55D)).add(up.scale(row * size * 0.45D)), 5, random);
+        }
+    }
+
+    private static void magneticFieldShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                           Vec3 center, float radius, int intensity, Random random) {
+        double size = Math.max(0.9D, Math.min(4.0D, radius));
+        double phase = level.getGameTime() * 0.18D;
+        rotatingRing(level, family, center.add(0.0D, 0.75D, 0.0D), size,
+                Math.min(22, Math.max(10, intensity / 2)), phase, random);
+        verticalRing(level, family, center.add(0.0D, 0.75D, 0.0D), new Vec3(1.0D, 0.0D, 0.0D),
+                size * 0.72D, Math.min(18, Math.max(9, intensity / 3)), random, 0.15F);
+        shortLine(level, family, center.add(-size, 0.75D, 0.0D),
+                center.add(size, 0.75D, 0.0D), Math.min(14, Math.max(6, intensity / 4)), random);
+    }
+
+    private static void lightningStormShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                            Vec3 start, Vec3 end, float radius,
+                                            int intensity, Random random) {
+        Vec3 center = start.distanceToSqr(end) < 0.04D ? start : end;
+        double size = Math.max(1.0D, Math.min(4.8D, radius));
+        vortexShape(level, family, center.add(0.0D, 2.2D, 0.0D), radius, Math.min(intensity, 30), random);
+        int bolts = Math.min(10, Math.max(4, intensity / 5));
+        for (int i = 0; i < bolts && budgetAvailable(level); i++) {
+            Vec3 offset = randomOffset(random, size);
+            Vec3 top = center.add(offset.x, 2.3D + random.nextDouble(), offset.z);
+            Vec3 mid = center.add(offset.x + (random.nextDouble() - 0.5D) * 0.5D, 1.1D, offset.z);
+            Vec3 bottom = center.add(offset.x, 0.05D, offset.z);
+            shortLine(level, family, top, mid, 3, random);
+            shortLine(level, family, mid, bottom, 3, random);
+        }
+    }
+
+    private static void wheelDiscShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                       Vec3 start, Vec3 end, float radius,
+                                       int intensity, Random random) {
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 center = start.add(0.0D, 1.0D, 0.0D).add(direction.scale(0.55D));
+        Vec3 side = perpendicular(direction);
+        Vec3 up = normalized(direction.cross(side), new Vec3(0.0D, 1.0D, 0.0D));
+        double size = Math.max(0.7D, Math.min(2.6D, radius * 0.7D));
+        verticalRing(level, family, center, direction, size,
+                Math.min(24, Math.max(12, intensity / 2)), random, 0.17F);
+        verticalRing(level, family, center, direction, size * 0.42D,
+                Math.min(16, Math.max(8, intensity / 3)), random, 0.15F);
+        for (int i = 0; i < 8 && budgetAvailable(level); i++) {
+            double angle = Math.PI * 2.0D * i / 8.0D;
+            Vec3 tip = center.add(side.scale(Math.cos(angle) * size)).add(up.scale(Math.sin(angle) * size));
+            shortLine(level, family, center, tip, 4, random);
+        }
+    }
+
+    private static void spearSpikeShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                        Vec3 start, Vec3 end, float radius,
+                                        int intensity, Random random) {
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 tip = start.distanceToSqr(end) < 0.04D ? start.add(direction.scale(2.0D)) : end;
+        Vec3 side = perpendicular(direction);
+        double head = Math.max(0.18D, Math.min(0.65D, radius * 0.24D));
+        shortLine(level, family, start, tip, Math.min(18, Math.max(8, intensity / 3)), random);
+        Vec3 neck = tip.subtract(direction.scale(head * 1.4D));
+        shortLine(level, family, tip, neck.add(side.scale(head)), 4, random);
+        shortLine(level, family, tip, neck.subtract(side.scale(head)), 4, random);
+    }
+
+    private static void wingFanShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                     Vec3 start, Vec3 end, float radius,
+                                     int intensity, Random random) {
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 center = start.add(0.0D, 1.0D, 0.0D);
+        Vec3 side = perpendicular(direction);
+        double size = Math.max(0.8D, Math.min(3.5D, radius));
+        shortLine(level, family, center.subtract(direction.scale(size * 0.4D)),
+                center.add(direction.scale(size * 0.45D)), 7, random);
+        for (int feather = 1; feather <= 6 && budgetAvailable(level); feather++) {
+            double progress = feather / 6.0D;
+            Vec3 root = center.subtract(direction.scale(progress * size * 0.35D));
+            Vec3 forward = direction.scale(size * (0.12D + progress * 0.22D));
+            shortLine(level, family, root, root.add(side.scale(size * progress)).add(forward), 4, random);
+            shortLine(level, family, root, root.subtract(side.scale(size * progress)).add(forward), 4, random);
+        }
+    }
+
+    private static void insectSwarmShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                         Vec3 start, Vec3 end, float radius,
+                                         int intensity, Random random) {
+        Vec3 center = start.distanceToSqr(end) < 0.04D ? start.add(0.0D, 1.0D, 0.0D)
+                : start.add(end).scale(0.5D);
+        double spread = Math.max(0.7D, Math.min(3.8D, radius));
+        int count = Math.min(30, Math.max(12, intensity / 2));
+        for (int i = 0; i < count && budgetAvailable(level); i++) {
+            double angle = random.nextDouble() * Math.PI * 2.0D;
+            Vec3 offset = randomOffset(random, spread).multiply(1.0D, 0.55D, 1.0D);
+            Vec3 velocity = new Vec3(Math.cos(angle), (random.nextDouble() - 0.5D) * 0.03D,
+                    Math.sin(angle)).scale(0.018D);
+            spawn(level, i % 4 == 0 ? LodestoneParticleRegistry.STAR_PARTICLE
+                            : LodestoneParticleRegistry.WISP_PARTICLE,
+                    family, center.add(offset), velocity, 0.12F, 0.78F,
+                    18 + random.nextInt(12), (float) angle);
+        }
+    }
+
+    private static void tidalWaveShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                       Vec3 start, Vec3 end, float radius,
+                                       int intensity, Random random) {
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 side = perpendicular(direction);
+        Vec3 center = start.distanceToSqr(end) < 0.04D ? start : start.add(end).scale(0.5D);
+        double width = Math.max(1.0D, Math.min(4.8D, radius));
+        int segments = Math.min(18, Math.max(10, intensity / 3));
+        Vec3 previous = center.subtract(side.scale(width));
+        for (int i = 1; i <= segments && budgetAvailable(level); i++) {
+            double progress = i / (double) segments;
+            double height = Math.sin(progress * Math.PI) * (0.8D + width * 0.3D);
+            Vec3 point = center.add(side.scale(-width + width * 2.0D * progress))
+                    .add(direction.scale(Math.sin(progress * Math.PI * 2.0D) * 0.25D))
+                    .add(0.0D, height, 0.0D);
+            shortLine(level, family, previous, point, 3, random);
+            previous = point;
+        }
+    }
+
+    private static void orbProjectileShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                           Vec3 start, Vec3 end, float radius,
+                                           int intensity, Random random) {
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 center = start.distanceToSqr(end) < 0.04D ? start.add(direction.scale(0.8D)) : end;
+        double size = Math.max(0.22D, Math.min(0.9D, radius * 0.28D));
+        verticalRing(level, family, center, direction, size,
+                Math.min(18, Math.max(9, intensity / 3)), random, 0.19F);
+        ring(level, family, center, size * 0.86D,
+                Math.min(16, Math.max(8, intensity / 4)), random, 0.16F, 20);
+        if (start.distanceToSqr(end) >= 0.04D) {
+            helix(level, family, start, end, size * 0.24D,
+                    Math.min(18, Math.max(8, intensity / 3)), random);
         }
     }
 

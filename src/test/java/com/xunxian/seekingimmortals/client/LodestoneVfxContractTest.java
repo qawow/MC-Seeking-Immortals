@@ -1,11 +1,16 @@
 package com.xunxian.seekingimmortals.client;
 
+import com.google.gson.JsonParser;
 import net.minecraft.world.phys.Vec3;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -14,6 +19,33 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class LodestoneVfxContractTest {
     private static final Path JAVA_ROOT = Path.of(
             "src", "main", "java", "com", "xunxian", "seekingimmortals");
+    private static final Path ASSET_ROOT = Path.of(
+            "src", "main", "resources", "assets", "seeking_immortals");
+    private static final Path AUTHORED_SPELLS = Path.of(
+            "src", "main", "resources", "data", "seeking_immortals", "visual",
+            "authored_spell_effects.json");
+
+    @Test
+    void customParticleDescriptionsResolveTheirTextureSprites() throws Exception {
+        Path descriptions = ASSET_ROOT.resolve("particles");
+        try (var files = Files.list(descriptions)) {
+            List<Path> jsonFiles = files
+                    .filter(path -> path.toString().endsWith(".json"))
+                    .sorted()
+                    .toList();
+            assertFalse(jsonFiles.isEmpty());
+            for (Path jsonFile : jsonFiles) {
+                String id = jsonFile.getFileName().toString().replaceFirst("\\.json$", "");
+                var textures = JsonParser.parseString(read(jsonFile))
+                        .getAsJsonObject()
+                        .getAsJsonArray("textures");
+                assertEquals(1, textures.size(), jsonFile.toString());
+                assertEquals("seeking_immortals:" + id, textures.get(0).getAsString(), jsonFile.toString());
+                assertTrue(Files.isRegularFile(ASSET_ROOT.resolve(Path.of(
+                        "textures", "particle", id + ".png"))), id);
+            }
+        }
+    }
 
     @Test
     void lodestoneRuntimeImportsStayClientOnly() throws Exception {
@@ -75,6 +107,66 @@ class LodestoneVfxContractTest {
         assertTrue(renderer.contains("Math.min(intensity, 35)"));
         assertTrue(renderer.indexOf("embellish(level, packet.kind()")
                 < renderer.indexOf("switch (packet.kind())"));
+    }
+
+    @Test
+    void authoredSpellShapesReachDistinctClientGeometry() throws Exception {
+        String renderer = read(JAVA_ROOT.resolve(Path.of("client", "LodestoneTechniqueVfx.java")));
+
+        assertTrue(renderer.contains("map(profile -> profile.shape())"));
+        assertTrue(renderer.contains("emitAuthoredShape(level, active.shape"));
+        assertTrue(renderer.indexOf("emitAuthoredShape(level, active.shape")
+                < renderer.indexOf("embellish(level, packet.kind()"));
+
+        for (String branch : List.of(
+                "case \"giant_claw\" -> giantClawShape(",
+                "case \"fist_barrage\" -> barrageShape(",
+                "case \"sword_rain\", \"projectile_swarm\", \"falling_barrage\" ->",
+                "case \"cloud_vortex\" -> vortexShape(",
+                "case \"rune_orbit\", \"array_rings\" -> runeOrbitShape(",
+                "case \"chain_net\", \"chain_links\" -> chainNetShape(",
+                "case \"spirit_avatar\", \"summon_gate\" -> spiritAvatarShape(",
+                "case \"serpent_dragon\" -> serpentShape(",
+                "case \"ground_field\", \"sphere_field\" ->",
+                "case \"seal_cage\", \"barrier_plane\" -> cageShape(")) {
+            assertTrue(renderer.contains(branch), branch);
+        }
+        for (String helper : List.of(
+                "giantClawShape", "barrageShape", "vortexShape", "runeOrbitShape",
+                "chainNetShape", "spiritAvatarShape", "serpentShape", "cageShape")) {
+            assertTrue(renderer.contains("private static void " + helper + "("), helper);
+        }
+    }
+
+    @Test
+    void everyGeneratedSpellShapeHasAnExplicitRendererBranch() throws Exception {
+        var profiles = JsonParser.parseString(read(AUTHORED_SPELLS))
+                .getAsJsonObject().getAsJsonArray("profiles");
+        Set<String> generated = new HashSet<>();
+        int auraBursts = 0;
+        int singleProjectiles = 0;
+        for (var element : profiles) {
+            String shape = element.getAsJsonObject().get("shape").getAsString();
+            generated.add(shape);
+            auraBursts += "aura_burst".equals(shape) ? 1 : 0;
+            singleProjectiles += "single_projectile".equals(shape) ? 1 : 0;
+        }
+
+        String renderer = read(JAVA_ROOT.resolve(Path.of("client", "LodestoneTechniqueVfx.java")));
+        int switchStart = renderer.indexOf("private static void emitAuthoredShape");
+        int switchEnd = renderer.indexOf("private static void giantClawShape", switchStart);
+        String authoredSwitch = renderer.substring(switchStart, switchEnd);
+        Matcher matcher = Pattern.compile("\\\"([a-z_]+)\\\"").matcher(authoredSwitch);
+        Set<String> rendered = new HashSet<>();
+        while (matcher.find()) {
+            rendered.add(matcher.group(1));
+        }
+
+        assertEquals(generated, rendered);
+        assertTrue(generated.size() >= 50, generated.toString());
+        assertTrue(auraBursts < profiles.size() * 0.15D, "aura_burst=" + auraBursts);
+        assertTrue(singleProjectiles < profiles.size() * 0.10D,
+                "single_projectile=" + singleProjectiles);
     }
 
     @Test

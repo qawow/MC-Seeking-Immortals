@@ -3,13 +3,9 @@ package com.xunxian.seekingimmortals.skill;
 import com.xunxian.seekingimmortals.cultivation.TechniqueDataManager;
 import com.xunxian.seekingimmortals.skill.effect.AbstractTechniqueEffectResolver;
 import com.xunxian.seekingimmortals.skill.effect.SkillEffect;
-import com.xunxian.seekingimmortals.skill.effect.spell.CommandTechniqueSpell;
-import com.xunxian.seekingimmortals.skill.effect.spell.ElementalBeamSpell;
-import com.xunxian.seekingimmortals.skill.effect.spell.ElementalConeSpell;
+import com.xunxian.seekingimmortals.skill.effect.spell.AuthoredSpellEffect;
 import com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell;
-import com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell;
 import com.xunxian.seekingimmortals.skill.effect.spell.SpellEffect;
-import com.xunxian.seekingimmortals.skill.effect.spell.WallTechniqueSpell;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;
@@ -91,15 +87,15 @@ class M02TechniqueCorpusTest {
         Map<String, TechniqueDataManager.TechniqueEntry> techniques = TechniqueDataManager.builtinTechniques();
 
         SkillEffect command = AbstractTechniqueEffectResolver.resolve(required(techniques, "beast_tame_bond"));
-        assertInstanceOf(CommandTechniqueSpell.class, command,
-                "command corpus entry must not execute its legacy fireball alias");
+        assertInstanceOf(AuthoredSpellEffect.class, command,
+                "command corpus entry must use the authored data-driven executor");
         var commandSpec = AbstractTechniqueEffectResolver.runtimeSpec(required(techniques, "beast_tame_bond"));
         assertEquals("command", commandSpec.type());
         assertTrue(commandSpec.tags().contains("beast"));
 
         SkillEffect wall = AbstractTechniqueEffectResolver.resolve(required(techniques, "tianfu_paper_shield_wall"));
-        assertInstanceOf(WallTechniqueSpell.class, wall,
-                "wall corpus entry must not execute its legacy fireball alias");
+        assertInstanceOf(AuthoredSpellEffect.class, wall,
+                "wall corpus entry must use the authored data-driven executor");
         var wallSpec = AbstractTechniqueEffectResolver.runtimeSpec(required(techniques, "tianfu_paper_shield_wall"));
         assertEquals("wall", wallSpec.type());
         assertTrue(wallSpec.tags().contains("defense"));
@@ -120,25 +116,25 @@ class M02TechniqueCorpusTest {
                     authored.getKey() + " type=" + entry.effectType()
                             + " must fail closed instead of becoming a projectile");
             if (resolved != null) {
-                assertInstanceOf(SelfBuffSpell.class, resolved,
-                        authored.getKey() + " must execute its authored non-projectile family");
+                assertInstanceOf(AuthoredSpellEffect.class, resolved,
+                        authored.getKey() + " must execute through its authored plan");
             }
         }
 
         TechniqueDataManager.TechniqueEntry beam = required(techniques, "wuxing_metal_edge");
         assertEquals("beam", beam.effectType());
-        assertInstanceOf(ElementalBeamSpell.class, AbstractTechniqueEffectResolver.resolve(beam),
-                "authored beam must materialise as a server ray, not silently resolve null");
+        assertInstanceOf(AuthoredSpellEffect.class, AbstractTechniqueEffectResolver.resolve(beam),
+                "authored beam must use the data-driven server executor");
 
         TechniqueDataManager.TechniqueEntry cone = required(techniques, "luoyun_spirit_flame_combat");
         assertEquals("cone", cone.effectType());
-        assertInstanceOf(ElementalConeSpell.class, AbstractTechniqueEffectResolver.resolve(cone),
-                "authored cone must materialise as cone geometry, not silently resolve null");
+        assertInstanceOf(AuthoredSpellEffect.class, AbstractTechniqueEffectResolver.resolve(cone),
+                "authored cone must use the data-driven server executor");
 
         TechniqueDataManager.TechniqueEntry buff = required(techniques, "inverse_star_veil_trace");
         assertEquals("buff_self", buff.effectType());
-        assertInstanceOf(SelfBuffSpell.class, AbstractTechniqueEffectResolver.resolve(buff),
-                "authored buff must materialise without requiring a live Forge registry");
+        assertInstanceOf(AuthoredSpellEffect.class, AbstractTechniqueEffectResolver.resolve(buff),
+                "authored buff must use the data-driven server executor");
     }
 
     @Test

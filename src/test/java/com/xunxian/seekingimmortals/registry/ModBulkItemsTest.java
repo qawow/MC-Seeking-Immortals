@@ -35,6 +35,11 @@ class ModBulkItemsTest {
             "little_green_bottle",
             "mystic_green_liquid"
     );
+    private static final Set<String> DEDICATED_REGISTRATIONS = Set.of(
+            "void_crystal", "dragon_blood_grass", "blood_qi_pill", "body_tempering_pill",
+            "forget_dust_pill", "ice_fire_pill", "marrow_repair_pill", "poison_dragon_pearl",
+            "pressure_resist_pill", "soul_gathering_pill", "spirit_realm_condense_pill"
+    );
 
     @Test
     void catalogBulkItemsJsonCoversExpandedCarriers() throws Exception {
@@ -68,6 +73,9 @@ class ModBulkItemsTest {
         assertTrue(ids.contains("market_stall_counter"));
         assertTrue(hasDingshenGrade);
         assertFalse(ids.contains("jiangying_pill"), "duplicate Jiangchen alias must not be registered");
+        for (String id : DEDICATED_REGISTRATIONS) {
+            assertFalse(ids.contains(id), "dedicated ModItems id must not be bulk-registered: " + id);
+        }
     }
 
     @Test

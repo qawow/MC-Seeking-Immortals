@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""Compile the authored v118-v122 visual projections into one typed catalog.
+"""Compile every authored visual domain into one typed runtime catalog.
 
-The three historical generators remain the source-compatible projections used by
-the existing runtime.  This compiler consumes their deterministic output and
-adds a domain-qualified, event-oriented projection.  Runtime code therefore
-reads enums/numbers/resource refs and never interprets author prose.
+Technique visuals come from the complete spell-effect compiler. Other historical
+domains retain their source-compatible projections. Runtime code therefore reads
+enums, numbers, and resource references without interpreting author prose.
 """
 
 from __future__ import annotations
@@ -28,7 +27,7 @@ OUTPUT = VISUAL_DIR / "authored_visual_catalog.json"
 CROSSWALK = ROOT / "scripts/authored_visual_crosswalk.json"
 
 OLD_SOURCES = {
-    "TECHNIQUE": VISUAL_DIR / "authored_technique_vfx_profiles.json",
+    "TECHNIQUE": VISUAL_DIR / "authored_spell_effects.json",
     "ARTIFACT": VISUAL_DIR / "authored_artifact_vfx_profiles.json",
     "PILL": VISUAL_DIR / "authored_consumable_vfx_profiles.json",
     "CONSUMABLE": VISUAL_DIR / "authored_consumable_vfx_profiles.json",
@@ -46,7 +45,7 @@ DOMAIN_ORDER = {
     "VEHICLE": 14, "FORMATION": 15, "TRIBULATION": 16,
 }
 CANONICAL_COUNTS = {
-    "TECHNIQUE": 344, "ARTIFACT": 217, "PILL": 114, "CONSUMABLE": 57,
+    "TECHNIQUE": 0, "ARTIFACT": 217, "PILL": 114, "CONSUMABLE": 57,
     "METHOD": 136, "HERB": 79, "MATERIAL": 457, "BEAST": 1890,
     "NPC": 179, "REALM": 19, "ZONE": 75, "BOSS": 27, "STATUS": 22,
     "STRUCTURE": 92, "VEHICLE": 8, "FORMATION": 56, "TRIBULATION": 7,
@@ -307,7 +306,7 @@ def choose_raw(candidates: list[dict[str, Any]], profile: dict[str, Any]) -> dic
 
 def parse_range(value: Any) -> tuple[int, int]:
     text = clean(value).upper().replace(" ", "")
-    match = re.fullmatch(r"F(\d+)(?:-(\d+))?", text)
+    match = re.fullmatch(r"F?(\d+)(?:-(\d+))?", text)
     if match:
         start = int(match.group(1))
         end = int(match.group(2) or match.group(1))
@@ -390,9 +389,12 @@ def technique_timeline(raw: dict[str, Any], profile: dict[str, Any]) -> list[dic
         start, duration = parse_range(frame.get("frame"))
         trigger = trigger_for(frame.get("name", ""), frame.get("frame", ""))
         action = action_for(trigger, text=clean(frame.get("vis")))
+        base_intensity = max(1, min(64, int(profile.get("intensity", 16) or 16)))
+        intensity = min(64, base_intensity + 4) if trigger == "IMPACT" else base_intensity
         events.append(timeline_event(ordinal, trigger, start, duration, action,
                                      norm(profile.get("particle")), norm(profile.get("trail")),
-                                     clean(frame.get("vis")), intensity=20 if trigger == "IMPACT" else 14))
+                                     clean(frame.get("vis")), intensity=intensity,
+                                     radius=float(profile.get("radius", 0.9) or 0.9)))
     if not events:
         events.append(timeline_event(0, "USE", 0, 1, "BURST", norm(profile.get("particle")),
                                      norm(profile.get("trail")), "generated fallback event"))
@@ -1135,7 +1137,8 @@ def compile_catalog() -> dict[str, Any]:
             profile_id = norm(source_profile.get("id"))
             if not profile_id:
                 continue
-            raw = choose_raw(raw_indexes[domain].get(profile_id, []), source_profile)
+            raw = source_profile if domain == "TECHNIQUE" else choose_raw(
+                raw_indexes[domain].get(profile_id, []), source_profile)
             profiles.append(make_profile(domain, source_profile, raw, colors, argbs))
     new_profiles, new_aliases, new_source_paths = compile_new_domains(crosswalk, colors, argbs)
     profiles.extend(new_profiles)
@@ -1175,6 +1178,7 @@ def compile_catalog() -> dict[str, Any]:
     source_hashes = {str(path.relative_to(ROOT)): digest(path) for path in source_paths}
     counts = {domain: sum(1 for profile in profiles if profile["domain"] == domain) for domain in DOMAIN_ORDER}
     expected = dict(CANONICAL_COUNTS)
+    expected["TECHNIQUE"] = len(old["TECHNIQUE"])
     if counts != expected:
         raise ValueError(f"canonical visual counts mismatch: expected {expected}, got {counts}")
     invalid_families = sorted({profile["family"] for profile in profiles
@@ -1185,7 +1189,7 @@ def compile_catalog() -> dict[str, Any]:
         raise ValueError(f"renderer enum closure failed: families={invalid_families}, motifs={invalid_motifs}")
     return {
         "schema_version": 3,
-        "description": "v118-v122 作者视觉资料与运行时权威目录的统一类型化运行时目录",
+        "description": "全量作者法术效果与其余视觉资料的统一类型化运行时目录",
         "source_hashes": source_hashes,
         "palette": {
             key: {"rgb": colors[key], "argb": argbs[key]}
@@ -1198,7 +1202,7 @@ def compile_catalog() -> dict[str, Any]:
         },
         "counts": counts,
         "profile_count": len(profiles),
-        "canonical_counts": dict(CANONICAL_COUNTS),
+        "canonical_counts": expected,
         "raw_visual_counts": crosswalk.get("raw_card_counts", {}),
         "unmapped_visuals": crosswalk.get("unmapped_visuals", {}),
         "fallback_recipe_version": "deterministic_v1",
@@ -1208,24 +1212,25 @@ def compile_catalog() -> dict[str, Any]:
     }
 
 
-def encoded() -> str:
-    return json.dumps(compile_catalog(), ensure_ascii=False, indent=2) + "\n"
+def encoded(catalog: dict[str, Any]) -> str:
+    return json.dumps(catalog, ensure_ascii=False, indent=2) + "\n"
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="fail if generated output is stale")
     args = parser.parse_args()
-    content = encoded()
+    catalog = compile_catalog()
+    content = encoded(catalog)
     if args.check:
         if not OUTPUT.exists() or OUTPUT.read_text(encoding="utf-8") != content:
             print(f"stale generated file: {OUTPUT.relative_to(ROOT)}")
             return 1
-        print(f"authored visual catalog is current: {len(compile_catalog()['profiles'])} profiles")
+        print(f"authored visual catalog is current: {len(catalog['profiles'])} profiles")
         return 0
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(content, encoding="utf-8")
-    print(f"wrote {OUTPUT.relative_to(ROOT)} ({len(compile_catalog()['profiles'])} profiles)")
+    print(f"wrote {OUTPUT.relative_to(ROOT)} ({len(catalog['profiles'])} profiles)")
     return 0
 
 

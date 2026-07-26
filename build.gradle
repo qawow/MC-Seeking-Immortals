@@ -103,6 +103,17 @@ tasks.named('check') {
     dependsOn tasks.named('authoredVfxCheck')
 }
 
+tasks.register('authoredSpellEffectsCheck', Exec) {
+    group = 'verification'
+    description = 'Checks the complete authored spell effect catalog against all text-material sources.'
+    executable 'python3'
+    args '-B', file('scripts/generate_authored_spell_effects.py').absolutePath, '--check'
+}
+
+tasks.named('check') {
+    dependsOn tasks.named('authoredSpellEffectsCheck')
+}
+
 tasks.register('authoredArtifactVfxCheck', Exec) {
     group = 'verification'
     description = 'Checks that the authored artifact VFX catalog matches text-material sources.'

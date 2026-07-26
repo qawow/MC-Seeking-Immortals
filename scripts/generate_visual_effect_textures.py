@@ -165,7 +165,7 @@ def generated_files() -> dict[Path, bytes]:
     files: dict[Path, bytes] = {}
     for name in PARTICLES:
         files[PARTICLE_DIR / f"{name}.png"] = encode(render_particle(name))
-        definition = {"textures": [f"seeking_immortals:particle/{name}"]}
+        definition = {"textures": [f"seeking_immortals:{name}"]}
         files[PARTICLE_DEFINITION_DIR / f"{name}.json"] = (
             json.dumps(definition, indent=2, sort_keys=True) + "\n"
         ).encode("utf-8")

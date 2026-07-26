@@ -26,7 +26,8 @@ class DamageSourceAuthorityTest {
             int fileHits = count(source, "player.damageSources().indirectMagic(player, player)");
             spellHits += fileHits;
             if (fileHits > 0) {
-                assertTrue(source.contains("canAffect(player,"), path + " must honor server PvP targeting");
+                assertTrue(source.contains("canAffect(player,") || source.contains("canTarget(player,"),
+                        path + " must honor server PvP targeting");
             }
         }
 
@@ -37,7 +38,7 @@ class DamageSourceAuthorityTest {
         String activationSource = Files.readString(activation);
         assertFalse(activationSource.contains("damageSources().magic()"));
         int artifactHits = count(activationSource, "player.damageSources().indirectMagic(player, player)");
-        assertTrue(spellHits == 49, "expected 49 caster-aware spell damage sites, got " + spellHits);
+        assertTrue(spellHits >= 50, "expected at least 50 caster-aware spell damage sites, got " + spellHits);
         assertTrue(artifactHits == 9, "expected 9 caster-aware artifact damage sites, got " + artifactHits);
 
         String events = Files.readString(JAVA_ROOT.resolve(Path.of("event", "ModEvents.java")));

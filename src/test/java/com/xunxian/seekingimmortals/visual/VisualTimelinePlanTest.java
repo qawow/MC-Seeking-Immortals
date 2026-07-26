@@ -75,14 +75,16 @@ class VisualTimelinePlanTest {
         VisualTimelinePlan.Plan plan = VisualTimelinePlan.select(profile, "CAST", false);
 
         assertFalse(plan.looping());
-        assertEquals(27, plan.durationTicks());
-        assertEquals(List.of(0, 5, 13, 21, 23), plan.entries().stream()
+        int expectedDuration = profile.timeline().stream()
+                .mapToInt(event -> event.startTick() + event.durationTicks()).max().orElseThrow();
+        assertEquals(expectedDuration, plan.durationTicks());
+        assertEquals(profile.timeline().stream().map(VisualTimelineEvent::startTick).toList(), plan.entries().stream()
                 .map(VisualTimelinePlan.Entry::startTick).toList());
-        assertEquals(List.of(0, 1, 2, 3, 4), plan.entries().stream()
+        assertEquals(profile.timeline().stream().map(VisualTimelineEvent::ordinal).toList(), plan.entries().stream()
                 .map(entry -> entry.event().ordinal()).toList());
-        assertFalse(plan.expired(26));
-        assertTrue(plan.expired(27));
-        assertTrue(plan.activeAt(27).isEmpty());
+        assertFalse(plan.expired(expectedDuration - 1));
+        assertTrue(plan.expired(expectedDuration));
+        assertTrue(plan.activeAt(expectedDuration).isEmpty());
     }
 
     @Test
@@ -90,17 +92,19 @@ class VisualTimelinePlanTest {
         VisualProfile profile = AuthoredVisualCatalog.resolve("technique:fireball").orElseThrow();
 
         VisualTimelinePlan.Plan plan = VisualTimelinePlan.select(profile, "IMPACT", false);
+        VisualTimelineEvent expected = profile.timeline().stream()
+                .filter(event -> event.trigger() == VisualTrigger.IMPACT).findFirst().orElseThrow();
 
-        assertEquals(2, plan.durationTicks());
+        assertEquals(expected.durationTicks(), plan.durationTicks());
         assertEquals(1, plan.entries().size());
         VisualTimelinePlan.Entry impact = plan.entries().get(0);
         assertEquals(0, impact.startTick());
-        assertEquals(3, impact.event().ordinal());
-        assertEquals(21, impact.event().startTick());
+        assertEquals(expected.ordinal(), impact.event().ordinal());
+        assertEquals(expected.startTick(), impact.event().startTick());
         assertEquals(VisualAction.FLASH, impact.event().action());
-        assertEquals(List.of(impact), plan.activeAt(1));
-        assertTrue(plan.activeAt(2).isEmpty());
-        assertTrue(plan.expired(2));
+        assertEquals(List.of(impact), plan.activeAt(expected.durationTicks() - 1));
+        assertTrue(plan.activeAt(expected.durationTicks()).isEmpty());
+        assertTrue(plan.expired(expected.durationTicks()));
     }
 
     @Test

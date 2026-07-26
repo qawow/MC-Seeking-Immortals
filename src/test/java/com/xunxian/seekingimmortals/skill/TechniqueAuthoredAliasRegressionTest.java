@@ -3,8 +3,7 @@ package com.xunxian.seekingimmortals.skill;
 import com.xunxian.seekingimmortals.cultivation.TechniqueDataManager;
 import com.xunxian.seekingimmortals.skill.effect.AbstractTechniqueEffectResolver;
 import com.xunxian.seekingimmortals.skill.effect.SkillEffect;
-import com.xunxian.seekingimmortals.skill.effect.spell.AreaDebuffSpell;
-import com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell;
+import com.xunxian.seekingimmortals.skill.effect.spell.AuthoredSpellEffect;
 import com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell;
 import org.junit.jupiter.api.Test;
 
@@ -31,10 +30,10 @@ class TechniqueAuthoredAliasRegressionTest {
         assertFalse(stasisEffect instanceof ElementalProjectileSpell);
         // Pure JVM tests may fail closed while vanilla particle registries are unbootstrapped.
         if (slowEffect != null) {
-            assertInstanceOf(ElementalAreaSpell.class, slowEffect);
+            assertInstanceOf(AuthoredSpellEffect.class, slowEffect);
         }
         if (stasisEffect != null) {
-            assertInstanceOf(AreaDebuffSpell.class, stasisEffect);
+            assertInstanceOf(AuthoredSpellEffect.class, stasisEffect);
         }
     }
 }

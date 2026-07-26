@@ -5632,5 +5632,6 @@
   "message.seeking_immortals.daily_event.reward_already_claimed": "This daily event reward has already been settled.",
   "message.seeking_immortals.daily_event.reward_combat_required": "Defeat the event encounter before claiming this reward.",
   "message.seeking_immortals.daily_event.reward_inactive": "There is no active daily event reward for this region.",
-  "message.seeking_immortals.daily_event.reward_unresolved": "The event reward configuration could not be resolved; the claim remains available."
+  "message.seeking_immortals.daily_event.reward_unresolved": "The event reward configuration could not be resolved; the claim remains available.",
+  "message.seeking_immortals.spell.authored.success": "%s cast successfully."
 }

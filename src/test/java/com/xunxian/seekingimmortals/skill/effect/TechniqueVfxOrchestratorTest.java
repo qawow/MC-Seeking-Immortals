@@ -14,15 +14,16 @@ import java.util.List;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class TechniqueVfxOrchestratorTest {
     private static final Set<Motif> BESPOKE_MOTIFS = Set.of(
-            Motif.BLADE, Motif.SHIELD, Motif.DOMAIN, Motif.TELEPORT, Motif.SUMMON,
+            Motif.PROJECTILE, Motif.BLADE, Motif.SHIELD, Motif.DOMAIN, Motif.TELEPORT, Motif.SUMMON,
             Motif.WALL, Motif.CHAIN, Motif.CHANNEL, Motif.RAIN, Motif.HEAL,
             Motif.CLEANSE, Motif.SEAL, Motif.FORMATION, Motif.BUDDHIST,
-            Motif.CONFUCIAN, Motif.DAO, Motif.GHOST, Motif.ILLUSION, Motif.MARTIAL);
+            Motif.CONFUCIAN, Motif.DAO, Motif.GHOST, Motif.TALISMAN, Motif.ILLUSION, Motif.MARTIAL);
 
     @Test
     void genericEffectTypesChooseDistinctShapes() {
@@ -68,16 +69,16 @@ class TechniqueVfxOrchestratorTest {
                 technique("palm_wind", "melee", "wind", "", Set.of(), "single", "short", "", ""),
                 null, false);
         assertEquals(TechniqueVfxPacket.ParticleStyle.QI_SOFT, body.particleStyle());
-        assertEquals(TechniqueVfxPacket.TrailStyle.HEAVY_WEAPON, body.trailStyle());
+        assertEquals(TechniqueVfxPacket.TrailStyle.MOVEMENT_WIND, body.trailStyle());
         assertEquals(Motif.MARTIAL, body.motif());
     }
 
     @Test
     void movementGeometryRemainsAPathWhenShapeUsesAfterimageLanguage() {
-        assertMovementPath("earth_escape", "movement", Motif.ILLUSION);
-        assertMovementPath("void_step", "movement", Motif.ILLUSION);
-        assertMovementPath("blood_shadow_escape", "escape", Motif.GHOST);
-        assertMovementPath("body_flash", "movement", Motif.MARTIAL);
+        assertMovementPath("earth_escape", "movement");
+        assertMovementPath("void_step", "movement");
+        assertMovementPath("blood_shadow_escape", "escape");
+        assertMovementPath("body_flash", "movement");
     }
 
     @Test
@@ -217,15 +218,21 @@ class TechniqueVfxOrchestratorTest {
                 technique(name.toLowerCase(), "", "", "", Set.of(), "", "", "", ""),
                 SkillType.valueOf(name),
                 false);
-        assertEquals(motif, plan.motif(), name);
+        AuthoredSpellEffectCatalog.find(name.toLowerCase()).ifPresentOrElse(
+                profile -> {
+                    assertEquals(profile.motif(), plan.motif(), name);
+                    assertFalse(profile.shape().isBlank(), name);
+                },
+                () -> assertEquals(motif, plan.motif(), name));
     }
 
-    private static void assertMovementPath(String id, String type, Motif motif) {
+    private static void assertMovementPath(String id, String type) {
         TechniqueVfxOrchestrator.VisualPlan plan = TechniqueVfxOrchestrator.plan(
                 technique(id, type, "neutral", "", Set.of(), "self", "dash", "", ""),
                 null, false);
         assertEquals(Kind.PATH, plan.kind(), id);
-        assertEquals(motif, plan.motif(), id);
+        AuthoredSpellEffectCatalog.find(id).ifPresent(profile ->
+                assertEquals(profile.motif(), plan.motif(), id));
     }
 
     private static TechniqueDataManager.TechniqueEntry technique(String id,

@@ -5632,5 +5632,6 @@
   "message.seeking_immortals.daily_event.reward_already_claimed": "本次每日事件奖励已经结算。",
   "message.seeking_immortals.daily_event.reward_combat_required": "该事件需要击败事件遭遇后才能结算奖励。",
   "message.seeking_immortals.daily_event.reward_inactive": "当前地域没有可结算的有效每日事件。",
-  "message.seeking_immortals.daily_event.reward_unresolved": "事件奖励配置无法解析，未消耗本次领取机会。"
+  "message.seeking_immortals.daily_event.reward_unresolved": "事件奖励配置无法解析，未消耗本次领取机会。",
+  "message.seeking_immortals.spell.authored.success": "%s 施展成功。"
 }

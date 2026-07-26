@@ -49,6 +49,7 @@ import com.xunxian.seekingimmortals.skill.SkillType;
 import com.xunxian.seekingimmortals.skill.effect.ActiveTechniqueEffectVfxService;
 import com.xunxian.seekingimmortals.skill.effect.TechniqueLifecycleVfxService;
 import com.xunxian.seekingimmortals.skill.effect.spell.AuraBodyShieldSpell;
+import com.xunxian.seekingimmortals.skill.effect.spell.AuthoredSpellFieldService;
 import com.xunxian.seekingimmortals.skill.effect.spell.FlyingSwordAdvancedSpell;
 import com.xunxian.seekingimmortals.skill.effect.spell.FlyingSwordBeginnerSpell;
 import com.xunxian.seekingimmortals.skill.effect.spell.MultiSwordArraySpell;
@@ -174,6 +175,7 @@ public final class ModEvents {
     public static void onLevelUnload(net.minecraftforge.event.level.LevelEvent.Unload event) {
         if (event.getLevel() instanceof ServerLevel serverLevel && !serverLevel.isClientSide()) {
             ActiveTechniqueEffectVfxService.clearLevel(serverLevel);
+            AuthoredSpellFieldService.clearLevel(serverLevel);
             FormationFieldService.unload(serverLevel);
         }
     }
@@ -189,6 +191,7 @@ public final class ModEvents {
     public static void onServerTick(TickEvent.ServerTickEvent event) {
         if (event.phase == TickEvent.Phase.END) {
             ActiveTechniqueEffectVfxService.serverTick(event.getServer());
+            AuthoredSpellFieldService.serverTick(event.getServer());
             TechniqueLifecycleVfxService.serverTick(event.getServer());
         }
     }
@@ -196,6 +199,7 @@ public final class ModEvents {
     @SubscribeEvent
     public static void onServerStopped(ServerStoppedEvent event) {
         ActiveTechniqueEffectVfxService.clearAll();
+        AuthoredSpellFieldService.clearAll();
         TechniqueLifecycleVfxService.clearRuntimeState();
         TechniqueDataManager.invalidateAllCaches();
         ShopService.clearRuntimeStockCache();

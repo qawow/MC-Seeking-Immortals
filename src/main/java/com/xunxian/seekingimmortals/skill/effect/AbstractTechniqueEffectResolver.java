@@ -6,6 +6,7 @@ import com.xunxian.seekingimmortals.registry.ModMobEffects;
 import com.xunxian.seekingimmortals.skill.CultivationSkill;
 import com.xunxian.seekingimmortals.skill.SkillType;
 import com.xunxian.seekingimmortals.skill.effect.spell.AreaDebuffSpell;
+import com.xunxian.seekingimmortals.skill.effect.spell.AuthoredSpellEffect;
 import com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell;
 import com.xunxian.seekingimmortals.skill.effect.spell.ElementalBeamSpell;
 import com.xunxian.seekingimmortals.skill.effect.spell.ElementalConeSpell;
@@ -64,6 +65,14 @@ public final class AbstractTechniqueEffectResolver {
         SkillEffect cached = BY_TECHNIQUE_ID.get(techniqueId);
         if (cached != null) {
             return cached;
+        }
+        AuthoredSpellEffectCatalog.Profile authored = AuthoredSpellEffectCatalog.find(techniqueId).orElse(null);
+        if (authored != null) {
+            SkillEffect effect = new AuthoredSpellEffect(authored);
+            if (!techniqueId.isBlank()) {
+                BY_TECHNIQUE_ID.put(techniqueId, effect);
+            }
+            return effect;
         }
         SkillType typed = resolveSkillType(technique);
         if (typed != null) {

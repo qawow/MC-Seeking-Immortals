@@ -22,6 +22,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MoverType;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.level.Level;
@@ -130,7 +131,7 @@ public class CultivationFireballEntity extends Projectile {
         super.onHitEntity(result);
         Entity target = result.getEntity();
         Entity owner = getOwner();
-        if (target == owner) {
+        if (!canDamageTarget(target)) {
             return;
         }
 
@@ -156,7 +157,7 @@ public class CultivationFireballEntity extends Projectile {
         SpellElement element = getElement();
         AABB area = new AABB(center, center).inflate(element.splashRadius);
         List<LivingEntity> targets = level().getEntitiesOfClass(LivingEntity.class, area,
-                entity -> entity.isAlive() && entity != owner && entity != directTarget);
+                entity -> entity.isAlive() && entity != directTarget && canDamageTarget(entity));
         for (LivingEntity living : targets) {
             double distance = Math.sqrt(living.distanceToSqr(center));
             double falloff = Math.max(0.25D, 1.0D - distance / Math.max(0.1D, element.splashRadius));
@@ -167,6 +168,32 @@ public class CultivationFireballEntity extends Projectile {
                 }
             }
         }
+    }
+
+    @Override
+    protected boolean canHitEntity(Entity target) {
+        return super.canHitEntity(target) && canDamageTarget(target);
+    }
+
+    private boolean canDamageTarget(Entity target) {
+        Entity owner = getOwner();
+        if (target == null || target == owner || target.isSpectator()) {
+            return false;
+        }
+        if (owner instanceof LivingEntity livingOwner && livingOwner.isAlliedTo(target)) {
+            return false;
+        }
+        if (owner instanceof Player caster && target instanceof SummonedServitorEntity servitor
+                && servitor.getOwnerUUID().filter(caster.getUUID()::equals).isPresent()) {
+            return false;
+        }
+        if (owner instanceof Player caster && target instanceof CultivationBeastEntity beast
+                && beast.isCompanion()
+                && beast.getOwnerUUID().filter(caster.getUUID()::equals).isPresent()) {
+            return false;
+        }
+        return !(owner instanceof Player caster && target instanceof Player playerTarget)
+                || caster.canHarmPlayer(playerTarget);
     }
 
     private void finishImpact(Vec3 position) {
