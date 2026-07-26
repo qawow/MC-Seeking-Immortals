@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 625,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第239–243章）",
+  "method": "沿原文逐段精读；本索引汇总 v625 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2869", "display": "龙神殿", "category": "setting", "file": "novel_curated_settings_v625.json"},
+    {"id": "setting_2870", "display": "道主派系", "category": "setting", "file": "novel_curated_settings_v625.json"},
+    {"id": "setting_2871", "display": "寒月潭", "category": "setting", "file": "novel_curated_settings_v625.json"},
+    {"id": "setting_2872", "display": "冥寒大陆", "category": "setting", "file": "novel_curated_settings_v625.json"},
+    {"id": "setting_2873", "display": "烟陵冰极", "category": "setting", "file": "novel_curated_settings_v625.json"},
+    {"id": "setting_2874", "display": "蛟十五声名", "category": "setting", "file": "novel_curated_settings_v625.json"},
+    {"id": "artifact_1897", "display": "明王傀儡", "category": "artifact", "file": "novel_curated_artifacts_v625.json"},
+    {"id": "artifact_1898", "display": "琅铣云石", "category": "artifact", "file": "novel_curated_artifacts_v625.json"},
+    {"id": "artifact_1899", "display": "金纹灵舟", "category": "artifact", "file": "novel_curated_artifacts_v625.json"},
+    {"id": "artifact_1900", "display": "恶鬼令牌", "category": "artifact", "file": "novel_curated_artifacts_v625.json"},
+    {"id": "technique_1431", "display": "千丈雷剑", "category": "technique", "file": "novel_curated_techniques_v625.json"},
+    {"id": "technique_1432", "display": "熔金炼剑术", "category": "technique", "file": "novel_curated_techniques_v625.json"},
+    {"id": "technique_1433", "display": "七杀剑阵", "category": "technique", "file": "novel_curated_techniques_v625.json"},
+    {"id": "material_1453", "display": "雷蝠晶珠", "category": "material", "file": "novel_curated_materials_v625.json"},
+    {"id": "material_1454", "display": "斛纹精金", "category": "material", "file": "novel_curated_materials_v625.json"},
+    {"id": "material_1455", "display": "寒豚尸身", "category": "material", "file": "novel_curated_materials_v625.json"}
+  ]
+}
