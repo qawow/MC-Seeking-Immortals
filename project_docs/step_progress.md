@@ -9129,3 +9129,16 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Verification   Done   普通 `./gradlew build --no-daemon --max-workers=1` 在 1 分 30 秒内 `BUILD SUCCESSFUL`；1,162 项测试全部通过，failure/error/skipped 均为 0，`aiPreflight` 记录 `0.2.193`。构建曾两次因并行会话修改 Java 源导致 `java_source_audit` 指纹过期而失败，紧凑重生成后通过。
   Version/protocol   Done   `mod_version` 从 `0.2.192` 升至 `0.2.193`；网络字段、顺序、类型、注册与频道行为未改变，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
   Backup   Done   `.bak/20260726_0.2.193_v662_refresh/`。
+
+## 587. 2026-07-26 0.2.194 六套界面主题与游戏内切换
+
+  Step   Status   Notes
+  ---   ---   ---
+  Theme layer   Done   新增 `client/ui/UiTheme` 枚举：云笈墨卷基线 + 玄夜星图/青铜鼎彝/洞府石刻/符箓黄纸/水墨山水五套主题，每套内嵌 4 个场景（静室/行录/账房/凶兆）完整 46 token 色板；`InkScene.palette()` 经 `UiTheme.active().paletteFor(scene)` 解析，基线走 `basePalette()` 零回归。
+  Textures   Done   `scripts/generate_ink_ui_textures.py` 扩展生成 20 张主题纸面/底材贴图（night/bronze/cave/talisman/inkwash × quiet/field/ledger/omen）；`ImmortalUiSkin` 新增 `themedTexture`/`coolSlipTexture` 主题贴图解析与缓存，7 处硬编码 `JADE_TEXTURE` 调用点全部改走主题解析。
+  Switch & persistence   Done   修仙面板页眉右侧新增「界面主题」循环按钮，点击即时切换并更新标签；`client/ui/UiThemeConfig` 持久化到 `config/seeking_immortals-ui-theme.properties`，`ClientEvents.onClientSetup` 启动加载，损坏配置安全回退基线。纯客户端装饰层，服务端零参与。
+  Localization   Done   zh/en 双语补齐 `screen.seeking_immortals.ui_theme.button` 与六个主题名键。
+  Tests   Done   `InkPaletteTest` 参数化为 6 主题 × 4 场景全组合：透明度/对比方向（亮纸墨字、中调石刻、暗底亮字三档）、无霓虹、场景内区分、主题内语义色恒定、`byId`/`next` 全循环覆盖。
+  Verification   Done   普通 `./gradlew build --no-daemon --max-workers=1` `BUILD SUCCESSFUL in 1m 17s`，1,162 项测试 0 失败/错误/跳过（含新版 InkPaletteTest 5 用例）；期间 `authoredSpellEffectsCheck` 因并行会话提交 v655–v662 输入过期，重跑生成器后恢复。
+  Version/protocol   Done   `mod_version` 升至 `0.2.194`（0.2.193 已被并行生成资源批次占用）；纯显示层改动，未触网络包，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
+  Backup   Done   `.bak/20260726_uitheme/`。

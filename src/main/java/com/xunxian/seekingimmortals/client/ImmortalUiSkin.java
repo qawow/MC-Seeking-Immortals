@@ -139,6 +139,7 @@ public final class ImmortalUiSkin {
     private static final ResourceLocation OMEN_TEXTURE =
             new ResourceLocation(SeekingImmortalsMod.MODID, "textures/gui/ink/paper_dry.png");
     private static final int MATERIAL_TILE = 32;
+    private static final Map<String, ResourceLocation> THEME_TEXTURE_CACHE = new ConcurrentHashMap<>();
 
     private static final Map<String, ResourceLocation> SKILL_ICON_CACHE = new ConcurrentHashMap<>();
     private static final java.util.Set<String> KNOWN_SKILL_ICONS = loadKnownSkillIcons();
@@ -174,6 +175,11 @@ public final class ImmortalUiSkin {
         if (!CLIMATE_STACK.isEmpty()) {
             CLIMATE_STACK.pop();
         }
+        applyPalette(palette());
+    }
+
+    /** 主题切换后重绑全部 {@code JOURNAL_*} / HUD 别名（场景栈保持不变）。 */
+    public static void refreshPalette() {
         applyPalette(palette());
     }
 
@@ -284,21 +290,42 @@ public final class ImmortalUiSkin {
     }
 
     private static ResourceLocation grainTexture(UiClimate.Material material) {
-        return switch (material) {
+        return themedTexture(material, switch (material) {
             case JADE -> JADE_TEXTURE;
             case LACQUER -> LACQUER_TEXTURE;
             case SEAL -> OMEN_TEXTURE;
             case BAMBOO -> BAMBOO_TEXTURE;
-        };
+        });
     }
 
     private static ResourceLocation bodyTexture(UiClimate.Material material) {
-        return switch (material) {
+        return themedTexture(material, switch (material) {
             case JADE -> JADE_TEXTURE;
             case LACQUER -> LACQUER_TEXTURE;
             case SEAL -> OMEN_TEXTURE;
             case BAMBOO -> PAPER_TEXTURE;
+        });
+    }
+
+    /** 主题化底纹：非基线主题按 {@code <prefix>_<scene>.png} 选纸/底纹瓦片。 */
+    private static ResourceLocation themedTexture(UiClimate.Material material, ResourceLocation baseline) {
+        String prefix = com.xunxian.seekingimmortals.client.ui.UiTheme.active().texturePrefix();
+        if (prefix == null) {
+            return baseline;
+        }
+        String scene = switch (material) {
+            case JADE -> "quiet";
+            case BAMBOO -> "field";
+            case LACQUER -> "ledger";
+            case SEAL -> "omen";
         };
+        return THEME_TEXTURE_CACHE.computeIfAbsent(prefix + "_" + scene,
+                key -> new ResourceLocation(SeekingImmortalsMod.MODID, "textures/gui/ink/" + key + ".png"));
+    }
+
+    /** 玉签轨/呼吸牍等冷纸底纹的主题化入口（基线为 JADE_TEXTURE）。 */
+    private static ResourceLocation coolSlipTexture() {
+        return themedTexture(UiClimate.Material.JADE, JADE_TEXTURE);
     }
 
     public static void drawPanel(GuiGraphics graphics, int x, int y, int width, int height) {
@@ -769,7 +796,7 @@ public final class ImmortalUiSkin {
         }
         if (width > 6 && height > 6) {
             graphics.fill(x + 3, y + 3, x + width - 3, y + height - 3, p.hudInner());
-            drawTiledTexture(graphics, JADE_TEXTURE, x + 3, y + 3, width - 6, height - 6);
+            drawTiledTexture(graphics, coolSlipTexture(), x + 3, y + 3, width - 6, height - 6);
             if (width >= 40 && height >= 20) {
                 drawTiledTexture(graphics, grainTexture(p.material()), x + 3, y + 3, width - 6, height - 6);
             }
@@ -812,7 +839,7 @@ public final class ImmortalUiSkin {
         }
         if (width > 6 && height > 6) {
             graphics.fill(x + 3, y + 3, x + width - 3, y + height - 3, p.hudInner());
-            drawTiledTexture(graphics, JADE_TEXTURE, x + 3, y + 3, width - 6, height - 6);
+            drawTiledTexture(graphics, coolSlipTexture(), x + 3, y + 3, width - 6, height - 6);
             if (width >= 48) {
                 drawTiledTexture(graphics, grainTexture(p.material()), x + 3, y + 3, width - 6, height - 6);
             }
@@ -838,7 +865,7 @@ public final class ImmortalUiSkin {
         }
         if (width > 4 && height > 4) {
             graphics.fill(x + 2, y + 2, x + width - 2, y + height - 2, p.hudInner());
-            drawTiledTexture(graphics, JADE_TEXTURE, x + 2, y + 2, width - 4, height - 4);
+            drawTiledTexture(graphics, coolSlipTexture(), x + 2, y + 2, width - 4, height - 4);
             if (height >= 48) {
                 drawTiledTexture(graphics, grainTexture(p.material()), x + 2, y + 2, width - 4, height - 4);
             }
@@ -865,7 +892,7 @@ public final class ImmortalUiSkin {
         }
         if (width > 4 && height > 4) {
             graphics.fill(x + 2, y + 2, x + width - 2, y + height - 2, p.hudSkillInner());
-            drawTiledTexture(graphics, JADE_TEXTURE, x + 2, y + 2, width - 4, height - 4);
+            drawTiledTexture(graphics, coolSlipTexture(), x + 2, y + 2, width - 4, height - 4);
         }
         if (width >= 6 && height >= 10) {
             graphics.fill(x + width - 3, y + 3, x + width - 2, y + height - 3, p.accent());
@@ -882,7 +909,7 @@ public final class ImmortalUiSkin {
         int fill = filled ? p.hudSlotFilled() : p.hudSlotEmpty();
         drawBox(graphics, x, y, size, size, fill, border);
         if (size > 4) {
-            drawTiledTexture(graphics, JADE_TEXTURE, x + 1, y + 1, size - 2, size - 2);
+            drawTiledTexture(graphics, coolSlipTexture(), x + 1, y + 1, size - 2, size - 2);
         }
         if (size >= 6) {
             graphics.fill(x + 1, y + 1, x + size - 1, y + 2, filled ? p.accent() : p.hudEdge());
@@ -903,7 +930,7 @@ public final class ImmortalUiSkin {
         int fill = filled ? p.hudSkillSlotFilled() : p.hudSkillSlotEmpty();
         drawBox(graphics, x, y, size, size, fill, border);
         if (filled && size > 4) {
-            drawTiledTexture(graphics, JADE_TEXTURE, x + 1, y + 1, size - 2, size - 2);
+            drawTiledTexture(graphics, coolSlipTexture(), x + 1, y + 1, size - 2, size - 2);
         }
         if (size >= 6) {
             graphics.fill(x + 1, y + 1, x + size - 1, y + 2, filled ? p.accent() : p.hudEdge());
@@ -1024,7 +1051,7 @@ public final class ImmortalUiSkin {
         if (width <= 0 || height <= 0) return;
         UiClimate.Palette p = palette();
         graphics.fill(x, y, x + width, y + height, p.hudInner());
-        drawTiledTexture(graphics, JADE_TEXTURE, x, y, width, height);
+        drawTiledTexture(graphics, coolSlipTexture(), x, y, width, height);
     }
 
     private static void drawBox(GuiGraphics graphics, int x, int y, int width, int height,

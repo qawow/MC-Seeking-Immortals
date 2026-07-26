@@ -1,5 +1,7 @@
 package com.xunxian.seekingimmortals.client;
 
+import com.xunxian.seekingimmortals.client.ui.UiTheme;
+import com.xunxian.seekingimmortals.client.ui.UiThemeConfig;
 import com.xunxian.seekingimmortals.network.AttemptBreakthroughPacket;
 import com.xunxian.seekingimmortals.network.ModNetwork;
 import com.xunxian.seekingimmortals.network.SetMovementSpeedScalePacket;
@@ -110,6 +112,16 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
         addRenderableWidget(ImmortalButton.secondary(layout.closeButton().x(), layout.closeButton().y(),
                 layout.closeButton().width(), layout.closeButton().height(), closeButtonLabel(returnToInventory),
                 button -> onClose()));
+
+        int themeButtonHeight = 14;
+        int themeButtonWidth = Math.min(118, Math.max(60, layout.header().width() / 4));
+        addRenderableWidget(ImmortalButton.secondary(
+                layout.header().right() - themeButtonWidth, layout.header().y(),
+                themeButtonWidth, themeButtonHeight, themeButtonLabel(),
+                button -> {
+                    UiThemeConfig.select(UiTheme.active().next());
+                    button.setMessage(themeButtonLabel());
+                }));
 
         movementSpeedSlider = new MovementSpeedSlider(layout.slider().x(), layout.slider().y(),
                 layout.slider().width(), layout.slider().height(),
@@ -222,6 +234,12 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
         return Component.translatable(returnToInventory
                 ? "screen.seeking_immortals.cultivation_stats.back_to_inventory"
                 : "screen.seeking_immortals.cultivation_stats.close");
+    }
+
+    /** 主题按钮标签: 「界面主题: <主题名>」，点击轮换六套主题。 */
+    static Component themeButtonLabel() {
+        return Component.translatable("screen.seeking_immortals.ui_theme.button",
+                Component.translatable(UiTheme.active().displayNameKey()));
     }
 
     private void selectTab(StatsTab tab) {

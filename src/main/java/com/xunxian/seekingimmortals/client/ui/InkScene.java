@@ -95,7 +95,13 @@ public enum InkScene {
         this.palette = palette;
     }
 
+    /** Palette resolved through the active {@link UiTheme}; INKSCROLL keeps the baseline. */
     public UiClimate.Palette palette() {
+        return UiTheme.active().paletteFor(this);
+    }
+
+    /** The stored 云笈墨卷 baseline palette, independent of the active theme. */
+    public UiClimate.Palette basePalette() {
         return palette;
     }
 

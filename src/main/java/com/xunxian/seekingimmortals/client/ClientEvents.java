@@ -95,6 +95,7 @@ public final class ClientEvents {
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
+            com.xunxian.seekingimmortals.client.ui.UiThemeConfig.load();
             MenuScreens.register(ModMenus.ALCHEMY_FURNACE.get(), AlchemyFurnaceScreen::new);
             MenuScreens.register(ModMenus.STORAGE_BRACELET.get(), StorageBraceletScreenMenu::new);
             MenuScreens.register(ModMenus.MARKET_HALL.get(), MarketHallScreen::new);
