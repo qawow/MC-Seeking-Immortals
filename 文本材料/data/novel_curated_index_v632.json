@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 632,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第274–278章）",
+  "method": "沿原文逐段精读；本索引汇总 v632 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2911", "display": "晶壁观道", "category": "setting", "file": "novel_curated_settings_v632.json"},
+    {"id": "setting_2912", "display": "大耳僧讲道", "category": "setting", "file": "novel_curated_settings_v632.json"},
+    {"id": "setting_2913", "display": "偷道八窍", "category": "setting", "file": "novel_curated_settings_v632.json"},
+    {"id": "setting_2914", "display": "道纹百年复", "category": "setting", "file": "novel_curated_settings_v632.json"},
+    {"id": "setting_2915", "display": "法言天地", "category": "setting", "file": "novel_curated_settings_v632.json"},
+    {"id": "setting_2916", "display": "道丹主引", "category": "setting", "file": "novel_curated_settings_v632.json"},
+    {"id": "artifact_1925", "display": "晶莹光壁", "category": "artifact", "file": "novel_curated_artifacts_v632.json"},
+    {"id": "artifact_1926", "display": "碧玉念珠", "category": "artifact", "file": "novel_curated_artifacts_v632.json"},
+    {"id": "artifact_1927", "display": "紫玉丹板", "category": "artifact", "file": "novel_curated_artifacts_v632.json"},
+    {"id": "artifact_1928", "display": "念羽长成", "category": "artifact", "file": "novel_curated_artifacts_v632.json"},
+    {"id": "technique_1452", "display": "法言言咒", "category": "technique", "file": "novel_curated_techniques_v632.json"},
+    {"id": "technique_1453", "display": "聆听妙音", "category": "technique", "file": "novel_curated_techniques_v632.json"},
+    {"id": "technique_1454", "display": "光壁回溯试", "category": "technique", "file": "novel_curated_techniques_v632.json"},
+    {"id": "material_1474", "display": "雷池金液", "category": "material", "file": "novel_curated_materials_v632.json"},
+    {"id": "material_1475", "display": "焰灵元水石", "category": "material", "file": "novel_curated_materials_v632.json"},
+    {"id": "material_1476", "display": "承菀玉衡丹", "category": "material", "file": "novel_curated_materials_v632.json"}
+  ]
+}
