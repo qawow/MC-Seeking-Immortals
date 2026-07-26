@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 618,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第204–208章）",
+  "method": "沿原文逐段精读；本索引汇总 v618 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2827", "display": "天剑峰", "category": "setting", "file": "novel_curated_settings_v618.json"},
+    {"id": "setting_2828", "display": "土生与散修派系", "category": "setting", "file": "novel_curated_settings_v618.json"},
+    {"id": "setting_2829", "display": "逆元石剑测试", "category": "setting", "file": "novel_curated_settings_v618.json"},
+    {"id": "setting_2830", "display": "无生剑宗", "category": "setting", "file": "novel_curated_settings_v618.json"},
+    {"id": "setting_2831", "display": "天剑冢", "category": "setting", "file": "novel_curated_settings_v618.json"},
+    {"id": "setting_2832", "display": "青竹蜂云剑现踪", "category": "setting", "file": "novel_curated_settings_v618.json"},
+    {"id": "artifact_1869", "display": "逆元石剑", "category": "artifact", "file": "novel_curated_artifacts_v618.json"},
+    {"id": "artifact_1870", "display": "天剑冢开钥", "category": "artifact", "file": "novel_curated_artifacts_v618.json"},
+    {"id": "artifact_1871", "display": "青竹蜂云剑", "category": "artifact", "file": "novel_curated_artifacts_v618.json"},
+    {"id": "artifact_1872", "display": "天剑冢飞剑群", "category": "artifact", "file": "novel_curated_artifacts_v618.json"},
+    {"id": "technique_1410", "display": "御剑驱逆元", "category": "technique", "file": "novel_curated_techniques_v618.json"},
+    {"id": "technique_1411", "display": "假败四剑", "category": "technique", "file": "novel_curated_techniques_v618.json"},
+    {"id": "technique_1412", "display": "开天剑冢", "category": "technique", "file": "novel_curated_techniques_v618.json"},
+    {"id": "material_1432", "display": "天剑峰金岩", "category": "material", "file": "novel_curated_materials_v618.json"},
+    {"id": "material_1433", "display": "半月金符箓", "category": "material", "file": "novel_curated_materials_v618.json"},
+    {"id": "material_1434", "display": "功绩五百祭剑", "category": "material", "file": "novel_curated_materials_v618.json"}
+  ]
+}
