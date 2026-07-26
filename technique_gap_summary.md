@@ -1,5 +1,29 @@
 # 术法实现缺口总结报告
 
+> ## ⚠️ 2026-07-26 复核对账（0.2.193，协议 30）
+>
+> 本报告正文是 2026-07-21（0.2.112 时代）的历史快照，其核心论断已过时。以下为逐项复核结论；正文保留仅作历史参考，与本节冲突时以本节为准。
+>
+> ### 已解决（核心论断作废）
+>
+> - **"97.3% 术法数据无法被运行时消费" — 已作废。** 当前运行时解析入口是 `skill/effect/AbstractTechniqueEffectResolver.resolve()`，解析顺序为：① `AuthoredSpellEffectCatalog.find(techniqueId)`（authored 专属效果）→ ② SkillType 别名注册表（generic 形态会被 `shouldPreferAuthoredRuntime()` 覆盖回 authored 语义）→ ③ `createForTechnique()` 通用运行时兜底。`visual/authored_spell_effects.json` 现含 **2,292** 条 profile（语料 747 条全覆盖 + 1,545 条原著扩展），即 **747/747 = 100% 语料术法可运行时执行**，接线不再依赖 `registerTechniqueAlias()`。
+> - **别名接线现状（次要通道）**：`SkillEffectRegistry` 现有 614 处 `registerTechniqueAlias` 调用、611 个唯一 ID，覆盖语料 **591/747（79.1%）**，远非旧报告的 20 条。未别名的 156 条（111 条 `_v129_*`、7 条 `_auto_*`、38 条无类型）全部经 authored catalog 通道解析，无功能缺口。
+> - **元素 VFX 覆盖**：authored 运行时使用 `TechniqueVfxPalette.Family`，共 **15 族**：FIRE/WATER/METAL/WOOD/EARTH/WIND/ICE/THUNDER/LIGHT/DARK/SOUL/BLOOD/VOID/ILLUSION/NEUTRAL——旧报告点名缺失的 EARTH/SOUL/BLOOD/VOID/NEUTRAL 均已覆盖。旧的 `CultivationFireballEntity.SpellElement` 枚举也已扩到 13 项（含 EARTH(8)），仅作为遗留投射物通道存在。
+> - **终极技/秘术/召唤等"完全未接线"分类**：随 authored catalog 全覆盖一并作废；这些类型均有 authored profile 与专属/通用运行时（`DEDICATED_ONLY_TYPES` 含 ultimate、secret_art、talisman_consume 等）。
+>
+> ### 仍待办（有效遗留项）
+>
+> - **YIN/YANG 无字面枚举成员**：`TechniqueVfxPalette.Family` 与 `SpellElement` 均无字面 YIN/YANG（阴阳系映射到 DARK/LIGHT/ILLUSION 等近似族）。属表现精度问题，非功能阻塞。
+> - **CAST_* 符箓 effectKey 真实深度**（正文第四节）：仍未逐一运行时验证，保留为待验证项。
+> - **召唤实体存在性**（正文第五节）：`ModEntities` 现注册 13 个实体；正文所列 18 个召唤标识与实体注册表的映射仍未逐一核对，保留为待验证项。
+> - **damage_base/tags 等 JSON 字段消费、Spell 基类架构**（正文第九节技术债）：方向性建议仍有效，但优先级需按 authored 通道现状重估。
+>
+> ### 复核依据
+>
+> 0.2.193 构建绿（1,162 测试全过）；`authored_visual_catalog.json` 5,727 profile / 13,749 语义层 / 9,947 原文引用；JUnit 基线 1,806 条非推断 authored 术法。复核脚本见 `.bak/tmp_gap_recheck.py`、`.bak/tmp_gap_breakdown.py`、`.bak/tmp_authored_coverage.py`（不入库）。
+
+---
+
 ## 执行摘要
 
 本报告基于对 `/root/mc-mod/src/main/resources/data/seeking_immortals/text_material/techniques/` 目录下所有 JSON 术法数据和 `SkillEffectRegistry.java` 的全面审查，评估了 747 条术法的实现状态。

@@ -9142,3 +9142,14 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Verification   Done   普通 `./gradlew build --no-daemon --max-workers=1` `BUILD SUCCESSFUL in 1m 17s`，1,162 项测试 0 失败/错误/跳过（含新版 InkPaletteTest 5 用例）；期间 `authoredSpellEffectsCheck` 因并行会话提交 v655–v662 输入过期，重跑生成器后恢复。
   Version/protocol   Done   `mod_version` 升至 `0.2.194`（0.2.193 已被并行生成资源批次占用）；纯显示层改动，未触网络包，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
   Backup   Done   `.bak/20260726_uitheme/`。
+
+## 588. 2026-07-26 0.2.112 时代缺口文档对账（docs-only）
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope   Done   对仓库根目录两份 2026-07-21（0.2.112/协议 26 时代）审查文档 `technique_gap_summary.md` 与 `功法系统缺口清单.md` 逐项复核，在文首插入 2026-07-26 对账节，标注已解决/仍待办；正文保留为历史快照。
+  术法接线复核   Done   旧报告"97.3% 术法未接线"论断作废：`AbstractTechniqueEffectResolver` 现以 `AuthoredSpellEffectCatalog`（2,292 profile）优先解析，语料 747/747 全部可运行时执行；`registerTechniqueAlias` 实为 614 处调用/611 唯一 ID/覆盖语料 591 条，未别名 156 条均走 authored 通道。元素族 15 种（含 EARTH/SOUL/BLOOD/VOID/NEUTRAL），仅 YIN/YANG 无字面成员。CAST_* effectKey 深度与 18 个召唤实体映射（ModEntities 现 13 实体）保留为待验证项。
+  功法数据复核   Done   `text_material/cultivation_methods.json`（136 功法）：`setting.layers_max` 已 136/136 配置（82 个 >1 层），matrices 136/136 非空——旧清单"119 缺层数、14 空矩阵"作废。仍待办：`cultivation_costs` 0/136、`purity_min` 与 `same_sect` 数据与 Java 均不存在、转修网络仅长春功一条 `must_convert_after`。旧文引用的 `TechniqueGateService` 不存在，实际为 `cultivation/ProgressionGateApi`。
+  Verification   Done   docs-only 变更，无代码/资源改动，无需构建；本会话早前 0.2.193 构建绿（1,162 测试）作为复核数据基线。
+  Version/protocol   Done   docs-only，`mod_version=0.2.194` 不变，`ModNetwork.PROTOCOL_VERSION=30` 不变。
+  Backup   Done   `.bak/20260726_gap_docs_reconcile/`。
