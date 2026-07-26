@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 655,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第389–393章）",
+  "method": "沿原文逐段精读；本索引汇总 v655 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_3049", "display": "黑雾漩涡", "category": "setting", "file": "novel_curated_settings_v655.json"},
+    {"id": "setting_3050", "display": "阴魅", "category": "setting", "file": "novel_curated_settings_v655.json"},
+    {"id": "setting_3051", "display": "冥寒仙府", "category": "setting", "file": "novel_curated_settings_v655.json"},
+    {"id": "setting_3052", "display": "真言九重", "category": "setting", "file": "novel_curated_settings_v655.json"},
+    {"id": "setting_3053", "display": "冥寒山河", "category": "setting", "file": "novel_curated_settings_v655.json"},
+    {"id": "setting_3054", "display": "折返入府", "category": "setting", "file": "novel_curated_settings_v655.json"},
+    {"id": "artifact_2017", "display": "阴魅三叉", "category": "artifact", "file": "novel_curated_artifacts_v655.json"},
+    {"id": "artifact_2018", "display": "辟邪黄舟", "category": "artifact", "file": "novel_curated_artifacts_v655.json"},
+    {"id": "artifact_2019", "display": "七曜星环", "category": "artifact", "file": "novel_curated_artifacts_v655.json"},
+    {"id": "artifact_2020", "display": "冥寒图钥", "category": "artifact", "file": "novel_curated_artifacts_v655.json"},
+    {"id": "technique_1521", "display": "雷鹏变", "category": "technique", "file": "novel_curated_techniques_v655.json"},
+    {"id": "technique_1522", "display": "青色剑莲", "category": "technique", "file": "novel_curated_techniques_v655.json"},
+    {"id": "technique_1523", "display": "赤晶破魅", "category": "technique", "file": "novel_curated_techniques_v655.json"},
+    {"id": "material_1543", "display": "阴兽绿珠", "category": "material", "file": "novel_curated_materials_v655.json"},
+    {"id": "material_1544", "display": "六合玄丹", "category": "material", "file": "novel_curated_materials_v655.json"},
+    {"id": "material_1545", "display": "辟邪骸晶", "category": "material", "file": "novel_curated_materials_v655.json"}
+  ]
+}
