@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 627,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第249–253章）",
+  "method": "沿原文逐段精读；本索引汇总 v627 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2881", "display": "摄灵返源", "category": "setting", "file": "novel_curated_settings_v627.json"},
+    {"id": "setting_2882", "display": "金仙化身", "category": "setting", "file": "novel_curated_settings_v627.json"},
+    {"id": "setting_2883", "display": "青光领域", "category": "setting", "file": "novel_curated_settings_v627.json"},
+    {"id": "setting_2884", "display": "木法树人", "category": "setting", "file": "novel_curated_settings_v627.json"},
+    {"id": "setting_2885", "display": "道丹残丹", "category": "setting", "file": "novel_curated_settings_v627.json"},
+    {"id": "setting_2886", "display": "平遥子", "category": "setting", "file": "novel_curated_settings_v627.json"},
+    {"id": "artifact_1905", "display": "三元大稷幡", "category": "artifact", "file": "novel_curated_artifacts_v627.json"},
+    {"id": "artifact_1906", "display": "黄龙大印", "category": "artifact", "file": "novel_curated_artifacts_v627.json"},
+    {"id": "artifact_1907", "display": "阵枢灵宝", "category": "artifact", "file": "novel_curated_artifacts_v627.json"},
+    {"id": "artifact_1908", "display": "天绝晶沙葫", "category": "artifact", "file": "novel_curated_artifacts_v627.json"},
+    {"id": "technique_1437", "display": "真轮水刃斩", "category": "technique", "file": "novel_curated_techniques_v627.json"},
+    {"id": "technique_1438", "display": "重力千峰", "category": "technique", "file": "novel_curated_techniques_v627.json"},
+    {"id": "technique_1439", "display": "三色光幕阵", "category": "technique", "file": "novel_curated_techniques_v627.json"},
+    {"id": "material_1459", "display": "拘雷木料", "category": "material", "file": "novel_curated_materials_v627.json"},
+    {"id": "material_1460", "display": "虬龙草", "category": "material", "file": "novel_curated_materials_v627.json"},
+    {"id": "material_1461", "display": "十方楼令", "category": "material", "file": "novel_curated_materials_v627.json"}
+  ]
+}
