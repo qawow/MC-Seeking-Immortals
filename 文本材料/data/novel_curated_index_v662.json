@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 662,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第424–428章）",
+  "method": "沿原文逐段精读；本索引汇总 v662 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_3091", "display": "铜人全醒", "category": "setting", "file": "novel_curated_settings_v662.json"},
+    {"id": "setting_3092", "display": "后殿星台", "category": "setting", "file": "novel_curated_settings_v662.json"},
+    {"id": "setting_3093", "display": "铜铃魂阁", "category": "setting", "file": "novel_curated_settings_v662.json"},
+    {"id": "setting_3094", "display": "仙战壁画", "category": "setting", "file": "novel_curated_settings_v662.json"},
+    {"id": "setting_3095", "display": "药园星幕", "category": "setting", "file": "novel_curated_settings_v662.json"},
+    {"id": "setting_3096", "display": "先客断树", "category": "setting", "file": "novel_curated_settings_v662.json"},
+    {"id": "artifact_2045", "display": "蟹道人金蟹", "category": "artifact", "file": "novel_curated_artifacts_v662.json"},
+    {"id": "artifact_2046", "display": "星空屏风", "category": "artifact", "file": "novel_curated_artifacts_v662.json"},
+    {"id": "artifact_2047", "display": "五行补宝", "category": "artifact", "file": "novel_curated_artifacts_v662.json"},
+    {"id": "artifact_2048", "display": "豆兵葫芦", "category": "artifact", "file": "novel_curated_artifacts_v662.json"},
+    {"id": "technique_1542", "display": "真轮涟漪", "category": "technique", "file": "novel_curated_techniques_v662.json"},
+    {"id": "technique_1543", "display": "摄灵破园", "category": "technique", "file": "novel_curated_techniques_v662.json"},
+    {"id": "technique_1544", "display": "剑莲破禁", "category": "technique", "file": "novel_curated_techniques_v662.json"},
+    {"id": "material_1564", "display": "天星石", "category": "material", "file": "novel_curated_materials_v662.json"},
+    {"id": "material_1565", "display": "狂焰极目草", "category": "material", "file": "novel_curated_materials_v662.json"},
+    {"id": "material_1566", "display": "断树竹根", "category": "material", "file": "novel_curated_materials_v662.json"}
+  ]
+}
