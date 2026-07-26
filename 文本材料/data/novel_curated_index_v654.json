@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 654,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第384–388章）",
+  "method": "沿原文逐段精读；本索引汇总 v654 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_3043", "display": "棋盘海", "category": "setting", "file": "novel_curated_settings_v654.json"},
+    {"id": "setting_3044", "display": "传送闭千", "category": "setting", "file": "novel_curated_settings_v654.json"},
+    {"id": "setting_3045", "display": "黑风乱局", "category": "setting", "file": "novel_curated_settings_v654.json"},
+    {"id": "setting_3046", "display": "八荒流离", "category": "setting", "file": "novel_curated_settings_v654.json"},
+    {"id": "setting_3047", "display": "黑幽间", "category": "setting", "file": "novel_curated_settings_v654.json"},
+    {"id": "setting_3048", "display": "惊风分区", "category": "setting", "file": "novel_curated_settings_v654.json"},
+    {"id": "artifact_2013", "display": "青鸢飞舟", "category": "artifact", "file": "novel_curated_artifacts_v654.json"},
+    {"id": "artifact_2014", "display": "天水袋", "category": "artifact", "file": "novel_curated_artifacts_v654.json"},
+    {"id": "artifact_2015", "display": "真极之膜", "category": "artifact", "file": "novel_curated_artifacts_v654.json"},
+    {"id": "artifact_2016", "display": "火剑灵符", "category": "artifact", "file": "novel_curated_artifacts_v654.json"},
+    {"id": "technique_1518", "display": "雷阵传送", "category": "technique", "file": "novel_curated_techniques_v654.json"},
+    {"id": "technique_1519", "display": "辟邪神雷", "category": "technique", "file": "novel_curated_techniques_v654.json"},
+    {"id": "technique_1520", "display": "清明灵目", "category": "technique", "file": "novel_curated_techniques_v654.json"},
+    {"id": "material_1540", "display": "金魂丹材", "category": "material", "file": "novel_curated_materials_v654.json"},
+    {"id": "material_1541", "display": "重水", "category": "material", "file": "novel_curated_materials_v654.json"},
+    {"id": "material_1542", "display": "阴兽残气", "category": "material", "file": "novel_curated_materials_v654.json"}
+  ]
+}
