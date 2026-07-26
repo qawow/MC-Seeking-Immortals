@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 650,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第364–368章）",
+  "method": "沿原文逐段精读；本索引汇总 v650 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_3019", "display": "丹劫抗衡", "category": "setting", "file": "novel_curated_settings_v650.json"},
+    {"id": "setting_3020", "display": "海域暗流", "category": "setting", "file": "novel_curated_settings_v650.json"},
+    {"id": "setting_3021", "display": "神识提前", "category": "setting", "file": "novel_curated_settings_v650.json"},
+    {"id": "setting_3022", "display": "时间法则", "category": "setting", "file": "novel_curated_settings_v650.json"},
+    {"id": "setting_3023", "display": "掌天异变", "category": "setting", "file": "novel_curated_settings_v650.json"},
+    {"id": "setting_3024", "display": "时间石碑", "category": "setting", "file": "novel_curated_settings_v650.json"},
+    {"id": "artifact_1997", "display": "元合抗劫", "category": "artifact", "file": "novel_curated_artifacts_v650.json"},
+    {"id": "artifact_1998", "display": "时间晶丝", "category": "artifact", "file": "novel_curated_artifacts_v650.json"},
+    {"id": "artifact_1999", "display": "掌天晶壁", "category": "artifact", "file": "novel_curated_artifacts_v650.json"},
+    {"id": "artifact_2000", "display": "虎首面具", "category": "artifact", "file": "novel_curated_artifacts_v650.json"},
+    {"id": "technique_1506", "display": "光丝锁纹", "category": "technique", "file": "novel_curated_techniques_v650.json"},
+    {"id": "technique_1507", "display": "风空传送", "category": "technique", "file": "novel_curated_techniques_v650.json"},
+    {"id": "technique_1508", "display": "炼神危机", "category": "technique", "file": "novel_curated_techniques_v650.json"},
+    {"id": "material_1528", "display": "仙元石补", "category": "material", "file": "novel_curated_materials_v650.json"},
+    {"id": "material_1529", "display": "道丹符盒", "category": "material", "file": "novel_curated_materials_v650.json"},
+    {"id": "material_1530", "display": "精血催宝", "category": "material", "file": "novel_curated_materials_v650.json"}
+  ]
+}
