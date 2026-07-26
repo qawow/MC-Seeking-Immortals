@@ -969,22 +969,60 @@
     {
       "method_id": "lieyan_gong",
       "display": "烈焰功",
-      "total_layers": 1,
+      "total_layers": 5,
+      "path": "elemental",
+      "school": "elemental",
+      "note": "0.2.198 手作五层带（火种→真火大成），取代 v125 自动单层 NASCENT_SOUL 带",
       "layers": [
         {
           "layer": 1,
-          "layer_name": "烈焰功·NASCENT_SOUL带",
+          "layer_name": "火种初燃",
+          "realm_band": "QI_REFINING",
+          "unlock_technique_ids": [
+            "spark_art",
+            "fire_bullet_art"
+          ],
+          "note": "火花/火弹入门，对应描述“可修火弹”"
+        },
+        {
+          "layer": 2,
+          "layer_name": "聚炎成环",
+          "realm_band": "QI_REFINING",
+          "unlock_technique_ids": [
+            "flame_ring",
+            "fire_talisman"
+          ],
+          "note": "火环与烈火符"
+        },
+        {
+          "layer": 3,
+          "layer_name": "燎原火雨",
+          "realm_band": "FOUNDATION",
+          "unlock_technique_ids": [
+            "fire_rain",
+            "elemental_burst_fire"
+          ],
+          "note": "火雨与炎爆，对应描述“炎爆一类”"
+        },
+        {
+          "layer": 4,
+          "layer_name": "遁焰通灵",
+          "realm_band": "FOUNDATION",
+          "unlock_technique_ids": [
+            "fire_escape"
+          ],
+          "note": "火遁保命"
+        },
+        {
+          "layer": 5,
+          "layer_name": "真火大成",
           "realm_band": "NASCENT_SOUL",
           "unlock_technique_ids": [
             "lieyan_true_fire_secret"
           ],
-          "note": "自动生成：该境界及以下已挂接术法"
+          "note": "烈焰真火秘，元婴带压轴"
         }
-      ],
-      "layer_model": "auto_realm_bands",
-      "path": "elemental",
-      "school": "elemental",
-      "v125_auto": true
+      ]
     },
     {
       "method_id": "beast_transformation_art",
@@ -7630,6 +7668,15 @@
         "realm_band": "QI_REFINING"
       }
     ],
+    "elemental_burst_fire": [
+      {
+        "method_id": "lieyan_gong",
+        "method_display": "烈焰功",
+        "layer": 3,
+        "layer_name": "燎原火雨",
+        "realm_band": "FOUNDATION"
+      }
+    ],
     "evil_ward_thunder": [
       {
         "method_id": "five_elements_root_art",
@@ -7705,6 +7752,42 @@
         "realm_band": "VOID_REFINEMENT"
       }
     ],
+    "fire_bullet_art": [
+      {
+        "method_id": "lieyan_gong",
+        "method_display": "烈焰功",
+        "layer": 1,
+        "layer_name": "火种初燃",
+        "realm_band": "QI_REFINING"
+      }
+    ],
+    "fire_escape": [
+      {
+        "method_id": "lieyan_gong",
+        "method_display": "烈焰功",
+        "layer": 4,
+        "layer_name": "遁焰通灵",
+        "realm_band": "FOUNDATION"
+      }
+    ],
+    "fire_rain": [
+      {
+        "method_id": "lieyan_gong",
+        "method_display": "烈焰功",
+        "layer": 3,
+        "layer_name": "燎原火雨",
+        "realm_band": "FOUNDATION"
+      }
+    ],
+    "fire_talisman": [
+      {
+        "method_id": "lieyan_gong",
+        "method_display": "烈焰功",
+        "layer": 2,
+        "layer_name": "聚炎成环",
+        "realm_band": "QI_REFINING"
+      }
+    ],
     "fireball": [
       {
         "method_id": "changchun_gong",
@@ -7757,6 +7840,15 @@
         "method_display": "太虚功",
         "layer": 1,
         "layer_name": "太虚功·QI_REFINING带",
+        "realm_band": "QI_REFINING"
+      }
+    ],
+    "flame_ring": [
+      {
+        "method_id": "lieyan_gong",
+        "method_display": "烈焰功",
+        "layer": 2,
+        "layer_name": "聚炎成环",
         "realm_band": "QI_REFINING"
       }
     ],
@@ -9245,8 +9337,8 @@
       {
         "method_id": "lieyan_gong",
         "method_display": "烈焰功",
-        "layer": 1,
-        "layer_name": "烈焰功·NASCENT_SOUL带",
+        "layer": 5,
+        "layer_name": "真火大成",
         "realm_band": "NASCENT_SOUL"
       }
     ],
@@ -11234,6 +11326,15 @@
         "layer": 4,
         "layer_name": null,
         "realm_band": "NASCENT_SOUL"
+      }
+    ],
+    "spark_art": [
+      {
+        "method_id": "lieyan_gong",
+        "method_display": "烈焰功",
+        "layer": 1,
+        "layer_name": "火种初燃",
+        "realm_band": "QI_REFINING"
       }
     ],
     "spirit_art_array_anchor": [
@@ -13788,7 +13889,7 @@
   },
   "counts": {
     "methods_tabulated": 136,
-    "techniques_indexed": 394,
+    "techniques_indexed": 401,
     "empty_method_tables_after_0_2_107": 0
   },
   "v126": {

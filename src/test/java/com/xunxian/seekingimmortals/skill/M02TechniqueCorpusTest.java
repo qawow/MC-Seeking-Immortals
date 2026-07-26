@@ -8,6 +8,7 @@ import com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell;
 import com.xunxian.seekingimmortals.skill.effect.spell.SpellEffect;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -279,6 +280,17 @@ class M02TechniqueCorpusTest {
                 MethodLayerTechniqueService.requiredRealmForLayer("qingyuan_sword_art", 9));
         assertEquals("DEITY_TRANSFORMATION",
                 MethodLayerTechniqueService.requiredRealmForLayer("qingyuan_sword_art", 13));
+        assertEquals(5, MethodLayerTechniqueService.maxLayers("lieyan_gong"));
+        assertEquals("QI_REFINING", MethodLayerTechniqueService.requiredRealmForLayer("lieyan_gong", 2));
+        assertEquals("FOUNDATION", MethodLayerTechniqueService.requiredRealmForLayer("lieyan_gong", 3));
+        assertEquals("NASCENT_SOUL", MethodLayerTechniqueService.requiredRealmForLayer("lieyan_gong", 5));
+        assertEquals("真火大成", MethodLayerTechniqueService.layerNameForLayer("lieyan_gong", 5));
+        assertTrue(MethodLayerTechniqueService.techniquesForLayer("lieyan_gong", 1).contains("spark_art"));
+        assertFalse(MethodLayerTechniqueService.techniquesForLayer("lieyan_gong", 1)
+                .contains("lieyan_true_fire_secret"));
+        assertTrue(MethodLayerTechniqueService.techniquesForLayer("lieyan_gong", 5)
+                .containsAll(List.of("spark_art", "fire_bullet_art", "flame_ring", "fire_talisman",
+                        "fire_rain", "elemental_burst_fire", "fire_escape", "lieyan_true_fire_secret")));
     }
 
     /** Avoid direct ManualCatalogService static init surprises in pure unit tests. */

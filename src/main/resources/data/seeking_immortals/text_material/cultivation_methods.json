@@ -673,7 +673,7 @@
         "structural_note": false,
         "lore_ref": null,
         "source_detail": null,
-        "layers_max": 1
+        "layers_max": 5
       },
       "learn_requirements": {
         "realm_min": "QI_REFINING",
@@ -709,6 +709,33 @@
       "matrices": [
         {
           "layer": 1,
+          "techniques": [
+            "spark_art",
+            "fire_bullet_art"
+          ]
+        },
+        {
+          "layer": 2,
+          "techniques": [
+            "flame_ring",
+            "fire_talisman"
+          ]
+        },
+        {
+          "layer": 3,
+          "techniques": [
+            "fire_rain",
+            "elemental_burst_fire"
+          ]
+        },
+        {
+          "layer": 4,
+          "techniques": [
+            "fire_escape"
+          ]
+        },
+        {
+          "layer": 5,
           "techniques": [
             "lieyan_true_fire_secret"
           ]

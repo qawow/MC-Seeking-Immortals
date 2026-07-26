@@ -9177,3 +9177,15 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Verification   Done   `./gradlew build --no-daemon --max-workers=1` `BUILD SUCCESSFUL in 1m 29s`（InkPaletteTest 5 用例继续全绿）；期间 `authoredSpellEffectsCheck` 因并行会话输入过期，重跑两个生成器（2,292 / 5,727 profiles）后通过，生成 JSON 归属并行批次不入本批提交。
   Version/protocol   Done   `mod_version` 0.2.195 → `0.2.197`（0.2.196 已被并行会话在工作树占用，本批取下一空位）；纯客户端显示层改动，未触网络包，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
   Backup   Done   `.bak/20260726_themelist/`。
+
+## 591. 2026-07-26 0.2.198 烈焰功五层层数带深化（P1 首项）
+
+  Step   Status   Notes
+  ---   ---   ---
+  Design   Done   烈焰功由 v125 自动生成的退化单层矩阵（唯一层挂 NASCENT_SOUL，与 realm_min QI_REFINING 的入门定位矛盾）深化为五层真实层数带：1 火种初燃 QI_REFINING（spark_art/fire_bullet_art）、2 聚炎成环 QI_REFINING（flame_ring/fire_talisman）、3 燎原火雨 FOUNDATION（fire_rain/elemental_burst_fire）、4 遁焰通灵 FOUNDATION（fire_escape）、5 真火大成 NASCENT_SOUL（lieyan_true_fire_secret）。层 1/3 呼应描述"可修火弹、炎爆一类"；8 个术法 id 全部在运行时数据集存在（矩阵 0 孤儿不变量保持）；境界带字符串均经 Realm.fromDesignId 可解析。
+  Data   Done   `cultivation_methods.json` lieyan_gong `setting.layers_max` 1→5、matrices 五层镜像；矩阵 v130 lieyan_gong 表重写（移除 auto_realm_bands/v125_auto 标记）、`technique_unlock_index` +7 条目（字母序）且压轴条目层号 1→5、`counts.techniques_indexed` 394→401。stageCount==maxLayers==5 走 actualThreshold 精确逐层映射。
+  Tests   Done   `M02TechniqueCorpusTest.methodsSkillTreesAndConflictMatrixAreWired` 新增烈焰功断言（maxLayers=5、层 2/3/5 境界带、层 5 层名、层 1 含 spark_art 不含压轴、层 5 累积 8 术法全含）；6 用例 0 失败 0 错误。
+  Regen   Done   两个 authored 生成器重跑（visual catalog 指纹跟踪 cultivation_methods.json；spell effects 含并行会话 Java 审计刷新），profile 数不变 5,727 / 2,292，五个 `--check` 全过。
+  Verification   Done   `./gradlew build` `BUILD SUCCESSFUL in 1m 31s`。
+  Version/protocol   Done   `mod_version` 0.2.197 → `0.2.198`（0.2.196 预留被 aiPreflight 指纹门槛推进，见更新记）；数据包/测试/生成资源改动，未触网络包，`ModNetwork.PROTOCOL_VERSION=30` 不变。
+  Backup   Done   `.bak/20260726_0.2.198_lieyan_layers/`。

@@ -542,8 +542,8 @@
     "文本材料/data/item_descriptions_v122.json": "bd75a2525ccc5240030abbf6b44f7e02571001fd174d947bf22101d70d3eabcd"
   },
   "java_source_audit": {
-    "file_count": 619,
-    "aggregate_sha256": "8e0c94353b8b6d20103ef717f80abe9ef3a8a72282349513988ca684ecaadf77",
+    "file_count": 620,
+    "aggregate_sha256": "b96d0c33a518310dff67420b6ff8065abe8f9655708cb698ff69711ab0a52e18",
     "spell_related_file_count": 181,
     "spell_effect_class_count": 53,
     "skill_effect_registry_registration_count": 373,
