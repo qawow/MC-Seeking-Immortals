@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 638,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第304–308章）",
+  "method": "沿原文逐段精读；本索引汇总 v638 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_2947", "display": "三涅变身", "category": "setting", "file": "novel_curated_settings_v638.json"},
+    {"id": "setting_2948", "display": "灵煞晶丝", "category": "setting", "file": "novel_curated_settings_v638.json"},
+    {"id": "setting_2949", "display": "天翻地覆", "category": "setting", "file": "novel_curated_settings_v638.json"},
+    {"id": "setting_2950", "display": "斩重銮", "category": "setting", "file": "novel_curated_settings_v638.json"},
+    {"id": "setting_2951", "display": "连协仙傀", "category": "setting", "file": "novel_curated_settings_v638.json"},
+    {"id": "setting_2952", "display": "雷改仙傀", "category": "setting", "file": "novel_curated_settings_v638.json"},
+    {"id": "artifact_1949", "display": "血刀本命", "category": "artifact", "file": "novel_curated_artifacts_v638.json"},
+    {"id": "artifact_1950", "display": "血色晶盾", "category": "artifact", "file": "novel_curated_artifacts_v638.json"},
+    {"id": "artifact_1951", "display": "遁影玉佩", "category": "artifact", "file": "novel_curated_artifacts_v638.json"},
+    {"id": "artifact_1952", "display": "土黄圆球", "category": "artifact", "file": "novel_curated_artifacts_v638.json"},
+    {"id": "technique_1470", "display": "青蟠剑阵", "category": "technique", "file": "novel_curated_techniques_v638.json"},
+    {"id": "technique_1471", "display": "真轮迟滞", "category": "technique", "file": "novel_curated_techniques_v638.json"},
+    {"id": "technique_1472", "display": "破灭法目", "category": "technique", "file": "novel_curated_techniques_v638.json"},
+    {"id": "material_1492", "display": "隔元宝录", "category": "material", "file": "novel_curated_materials_v638.json"},
+    {"id": "material_1493", "display": "赤红晶石", "category": "material", "file": "novel_curated_materials_v638.json"},
+    {"id": "material_1494", "display": "雷蚌紫珠", "category": "material", "file": "novel_curated_materials_v638.json"}
+  ]
+}
