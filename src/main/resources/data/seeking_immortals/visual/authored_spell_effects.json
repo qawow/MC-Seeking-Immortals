@@ -522,6 +522,9 @@
     "文本材料/data/novel_curated_techniques_v647.json": "2ea9eb982db0952041d82e8e77a7f6f2c8a6f32c365f48ddaaf518ffebcd0ecf",
     "文本材料/data/novel_curated_techniques_v648.json": "92941c69cb07d1469f95993e043a21a5beca49d4a6a36f48e1dd3b192fa87d4f",
     "文本材料/data/novel_curated_techniques_v649.json": "551b4db033ee78ac0f8446a07faa7f5cf183fd129bdac736d04cdc23eeff4763",
+    "文本材料/data/novel_curated_techniques_v650.json": "9a46480921b2a70d0151cd9ff02632851d464e11d693b7040c36e3187bb779fe",
+    "文本材料/data/novel_curated_techniques_v651.json": "f8781135e55d1acb783194a316d16518bba042fd2769b813d48455f5fe01e298",
+    "文本材料/data/novel_curated_techniques_v652.json": "b6715b5d3494bef635046b70afceadcbc4fd46e3ae5771b555eb47105221b617",
     "文本材料/data/item_descriptions_v118.json": "91ffe8557119b562cf4d88f08d3b5e0a80bd3b400837bd3ce5e4f636853c8e6e",
     "文本材料/data/item_descriptions_v119.json": "cd2197614fb8369530bdee0014f9b17c4bb0b6a7ccca46d482796fb382dd5e8a",
     "文本材料/data/item_descriptions_v120.json": "ac7e7fae670c4792785f3f8a392b802ea790c3a665abc64696aa52ae889e4332",
@@ -720,12 +723,12 @@
   },
   "counts": {
     "corpus": 747,
-    "novel": 1506,
-    "total": 2253,
-    "novel_direct_visual": 1423,
+    "novel": 1515,
+    "total": 2262,
+    "novel_direct_visual": 1432,
     "novel_setting_fallback": 83,
-    "novel_visual_quotes": 3618,
-    "unique_visual_signatures": 2253
+    "novel_visual_quotes": 3636,
+    "unique_visual_signatures": 2262
   },
   "constraints": {
     "old_profile_reuse": false,
@@ -122399,6 +122402,311 @@
       }
     },
     {
+      "id": "technique_1506",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1506",
+      "display": "光丝锁纹",
+      "term": "真言金丝缠锁道丹道纹",
+      "school": "novel_curated_techniques_v650",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（孤注一掷·暗流·提前发作·服丹·你醒了：第364–368章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v650.json",
+      "source_version": 650,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "金色霞光立刻分裂开来，化为数十道，每一道霞光随即一凝，化为一根闪闪发亮的金色光丝。",
+        "一股耀眼金光从中涌出，再次一闪化为数十道金色光丝，迅疾无比的缠绕住了道丹，将其层层包裹在里面，形成一个拳头大小的金色圆球。"
+      ],
+      "setting_descriptions": [
+        "「每一根金色光丝都散发出强烈的时间法则之力，几乎形成了实质一般。」",
+        "「蟹道人两手一挥，身上金黄两色光芒大放，两道光柱从其掌心飞射而出，没入韩立体内。」"
+      ],
+      "setting": "催宝轮倍许时间力，金霞分数十道凝实质金光丝，缠两道颤动金道纹稍稳药力。末劫后仙灵力尽，再化金丝裹丹成拳大金球；蟹道人输精纯仙灵力后得稳。",
+      "family": "METAL",
+      "motif": "CHAIN",
+      "effect_type": "control",
+      "target": "single",
+      "particle": "metal_spark",
+      "trail": "sword_thin",
+      "shape": "scripture_glyph",
+      "color": "银金锋芒",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 14,
+      "scale_tier": 0,
+      "visual_signature": "cfedc5e225fa5b3ca247c20b902983d3c3cd32ce69e2e79d9f571eb059772ded",
+      "frames": [
+        {
+          "name": "成型",
+          "frame": "0-3",
+          "vis": "金色霞光立刻分裂开来，化为数十道，每一道霞光随即一凝，化为一根闪闪发亮的金色光丝。"
+        },
+        {
+          "name": "成型",
+          "frame": "4-8",
+          "vis": "一股耀眼金光从中涌出，再次一闪化为数十道金色光丝，迅疾无比的缠绕住了道丹，将其层层包裹在里面，形成一个拳头大小的金色圆球。"
+        },
+        {
+          "name": "回收",
+          "frame": "9-12",
+          "vis": "余光、残焰或灵气按原路径收束消散。"
+        }
+      ],
+      "mechanics": {
+        "operation": "SEAL",
+        "delivery": "TARGETED",
+        "duration_ticks": 80,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "generic",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "control",
+        "element": "metal",
+        "target": "single",
+        "cost": 8,
+        "cooldown_ticks": 50,
+        "damage_base": 10.0,
+        "range": 14.0,
+        "radius": 0.9,
+        "primary_status": "armor_break",
+        "secondary_status": "bleeding"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v650.json"
+      }
+    },
+    {
+      "id": "technique_1507",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1507",
+      "display": "风空传送",
+      "term": "葛羽风属性空间传送阵",
+      "school": "novel_curated_techniques_v650",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（孤注一掷·暗流·提前发作·服丹·你醒了：第364–368章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v650.json",
+      "source_version": 650,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "一道道青色旋风凭空浮现而出，发出呜呜呼啸之声。青色旋风彼此连接，转眼间形成一个青色法阵，一股空间之力在青色法阵中激荡。",
+        "身上青光一闪，形成一股青色旋风。旋风一转，包裹着他的身体化为一道青色幻影，从原地凭空无踪。"
+      ],
+      "setting_descriptions": [
+        "「这青色法阵和他的雷光法阵很是相似，不过此人用的是风属性之力和空间之力结合，声势不小。」"
+      ],
+      "setting": "青旋风互连成阵，风属性+空间力，声势大、似韩雷光阵。葛羽凭此极速赶丹劫异象。离时青旋风裹身化幻影凭空消失。",
+      "family": "WIND",
+      "motif": "FORMATION",
+      "effect_type": "field",
+      "target": "area",
+      "particle": "qi_soft",
+      "trail": "movement_wind",
+      "shape": "rune_orbit",
+      "color": "淡青风痕",
+      "telegraphed": false,
+      "radius": 2.4,
+      "intensity": 14,
+      "scale_tier": 0,
+      "visual_signature": "0bfa20bb1d6142058475db21692118aca2db5bbf9d628e28be6212183679bf4c",
+      "frames": [
+        {
+          "name": "成型",
+          "frame": "0-4",
+          "vis": "一道道青色旋风凭空浮现而出，发出呜呜呼啸之声。青色旋风彼此连接，转眼间形成一个青色法阵，一股空间之力在青色法阵中激荡。"
+        },
+        {
+          "name": "成型",
+          "frame": "5-8",
+          "vis": "身上青光一闪，形成一股青色旋风。旋风一转，包裹着他的身体化为一道青色幻影，从原地凭空无踪。"
+        },
+        {
+          "name": "回收",
+          "frame": "9-12",
+          "vis": "余光、残焰或灵气按原路径收束消散。"
+        }
+      ],
+      "mechanics": {
+        "operation": "ATTACK",
+        "delivery": "FIELD",
+        "duration_ticks": 140,
+        "projectile_count": 1,
+        "max_targets": 8,
+        "summon_archetype": "generic",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "field",
+        "element": "wind",
+        "target": "area",
+        "cost": 8,
+        "cooldown_ticks": 50,
+        "damage_base": 10.0,
+        "range": 14.0,
+        "radius": 2.4,
+        "primary_status": "levitation",
+        "secondary_status": "slowness"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v650.json"
+      }
+    },
+    {
+      "id": "technique_1508",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1508",
+      "display": "炼神危机",
+      "term": "炼神术第三层神识暴乱",
+      "school": "novel_curated_techniques_v650",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（孤注一掷·暗流·提前发作·服丹·你醒了：第364–368章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v650.json",
+      "source_version": 650,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "他感觉仿佛有无数小刀，疯狂在脑海中搅动般剧痛。",
+        "其双目泛起一层淡淡的血光。"
+      ],
+      "setting_descriptions": [
+        "「显然这一切，都是炼神术造成的。」",
+        "「想要解决，只有去修炼第四层的炼神术。」",
+        "「烛龙道的传功殿中虽然有炼神术，不过被列为了禁书……而且只有前三层的半部功法。」"
+      ],
+      "setting": "催炼神术后神识如万刀搅脑；血目发狂一炷香毁岛屠妖。再运则绞痛。修第四层可解；北寒少载、烛龙道禁书仅半部。韩隐晦发无常盟寻后半部。",
+      "family": "SOUL",
+      "motif": "BUDDHIST",
+      "effect_type": "utility",
+      "target": "self",
+      "particle": "soul_wisps",
+      "trail": "soul_afterimage",
+      "shape": "eye_gaze",
+      "color": "幽蓝魂光",
+      "telegraphed": false,
+      "radius": 3.4,
+      "intensity": 28,
+      "scale_tier": 2,
+      "visual_signature": "46fdada901974f2766118989b4ebf39bf9159f09185812bfb3936f65e2256847",
+      "frames": [
+        {
+          "name": "起手",
+          "frame": "0-2",
+          "vis": "他感觉仿佛有无数小刀，疯狂在脑海中搅动般剧痛。"
+        },
+        {
+          "name": "命中",
+          "frame": "3-5",
+          "vis": "其双目泛起一层淡淡的血光。"
+        }
+      ],
+      "mechanics": {
+        "operation": "CULTIVATE",
+        "delivery": "SELF",
+        "duration_ticks": 280,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "beast",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "utility",
+        "element": "soul",
+        "target": "self",
+        "cost": 26,
+        "cooldown_ticks": 120,
+        "damage_base": 0.0,
+        "range": 28.0,
+        "radius": 3.4,
+        "primary_status": "confusion",
+        "secondary_status": "weakness"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v650.json"
+      }
+    },
+    {
+      "id": "technique_1509",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1509",
+      "display": "神识驱云",
+      "term": "神识强驱天地灵气白云飞行",
+      "school": "novel_curated_techniques_v651",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（师与徒·因果缘·虚实难辨·意外收获·有消息了：第369–373章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v651.json",
+      "source_version": 651,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "附近数十里内的天地灵气一阵波动，尽数汇聚而来，化为一团白云。",
+        "白云微一翻滚，化为一道白光飞射而出，朝着远处迅疾无比的飞去。",
+        "韩立的神识蜂拥而出，化为一圈圈无形波纹，包裹住了身体……他的身上灵光一起，身形赫然化为透明状。"
+      ],
+      "setting_descriptions": [
+        "「这是他以前学过的一个秘术，能够以神识之力强行驱动天地灵气。」",
+        "「此术对神念消耗很大。」"
+      ],
+      "setting": "以神识强驱四周灵气成白云载人疾飞；耗神念大。附身法力浅、无储物器时赖此飞行。亦可化无形波纹裹身透明隐匿。",
+      "family": "SOUL",
+      "motif": "PROJECTILE",
+      "effect_type": "movement",
+      "target": "self",
+      "particle": "soul_wisps",
+      "trail": "soul_afterimage",
+      "shape": "projectile_swarm",
+      "color": "幽蓝魂光",
+      "telegraphed": true,
+      "radius": 5.9,
+      "intensity": 42,
+      "scale_tier": 4,
+      "visual_signature": "eca785d50adbd48834f7635cf5151318677313304dc739e917ceb88605d330d2",
+      "frames": [
+        {
+          "name": "成型",
+          "frame": "0-3",
+          "vis": "附近数十里内的天地灵气一阵波动，尽数汇聚而来，化为一团白云。"
+        },
+        {
+          "name": "出击",
+          "frame": "4-7",
+          "vis": "白云微一翻滚，化为一道白光飞射而出，朝着远处迅疾无比的飞去。"
+        },
+        {
+          "name": "成型",
+          "frame": "8-11",
+          "vis": "韩立的神识蜂拥而出，化为一圈圈无形波纹，包裹住了身体……他的身上灵光一起，身形赫然化为透明状。"
+        },
+        {
+          "name": "回收",
+          "frame": "12-15",
+          "vis": "余光、残焰或灵气按原路径收束消散。"
+        }
+      ],
+      "mechanics": {
+        "operation": "MOVE",
+        "delivery": "MOVEMENT",
+        "duration_ticks": 280,
+        "projectile_count": 12,
+        "max_targets": 1,
+        "summon_archetype": "generic",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "movement",
+        "element": "soul",
+        "target": "self",
+        "cost": 44,
+        "cooldown_ticks": 190,
+        "damage_base": 0.0,
+        "range": 42.0,
+        "radius": 5.9,
+        "primary_status": "confusion",
+        "secondary_status": "weakness"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v651.json"
+      }
+    },
+    {
       "id": "technique_151",
       "namespace": "novel",
       "qualified_id": "novel:technique_151",
@@ -122467,6 +122775,368 @@
       "tags": [],
       "sources": {
         "primary": "文本材料/data/novel_curated_techniques_v198.json"
+      }
+    },
+    {
+      "id": "technique_1510",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1510",
+      "display": "神念剑杀",
+      "term": "眉心晶剑虚影灭魂",
+      "school": "novel_curated_techniques_v651",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（师与徒·因果缘·虚实难辨·意外收获·有消息了：第369–373章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v651.json",
+      "source_version": 651,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "韩立蓦然一转头颅，瞳孔一缩，目光落在了披发男子身上，同时眉心处浮现出一层晶光。",
+        "一道晶莹的小剑虚影从眉心处一飞而出，一晃之下，竟如瞬移般横跨数百丈远的出现在披发男子身后，并一个闪动直接没入了其脑海之中。"
+      ],
+      "setting_descriptions": [
+        "「整个过程前后不过一个呼吸间工夫，且无声无息，丝毫声响都未发出来。」",
+        "「披发男子已经没有了呼吸，身上也感应不到一丝一毫的生机。」"
+      ],
+      "setting": "眉心晶光出小剑虚影，瞬移数百丈没入目标脑海，无声一息内绝生机。韩以此杀王执事，灰发老者神识亦难察隐身者。",
+      "family": "SOUL",
+      "motif": "TELEPORT",
+      "effect_type": "utility_combat",
+      "target": "single",
+      "particle": "soul_wisps",
+      "trail": "movement_wind",
+      "shape": "eye_gaze",
+      "color": "幽蓝魂光",
+      "telegraphed": true,
+      "radius": 4.65,
+      "intensity": 35,
+      "scale_tier": 3,
+      "visual_signature": "d0beb9983fc23c6fa2f644f2bc531f131df1444f3b061dfa5c4b5c86932c3e15",
+      "frames": [
+        {
+          "name": "成型",
+          "frame": "0-3",
+          "vis": "韩立蓦然一转头颅，瞳孔一缩，目光落在了披发男子身上，同时眉心处浮现出一层晶光。"
+        },
+        {
+          "name": "成型",
+          "frame": "4-8",
+          "vis": "一道晶莹的小剑虚影从眉心处一飞而出，一晃之下，竟如瞬移般横跨数百丈远的出现在披发男子身后，并一个闪动直接没入了其脑海之中。"
+        },
+        {
+          "name": "回收",
+          "frame": "9-12",
+          "vis": "余光、残焰或灵气按原路径收束消散。"
+        }
+      ],
+      "mechanics": {
+        "operation": "ATTACK",
+        "delivery": "TARGETED",
+        "duration_ticks": 230,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "ghost",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "utility_combat",
+        "element": "soul",
+        "target": "single",
+        "cost": 35,
+        "cooldown_ticks": 155,
+        "damage_base": 31.0,
+        "range": 35.0,
+        "radius": 4.65,
+        "primary_status": "confusion",
+        "secondary_status": "weakness"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v651.json"
+      }
+    },
+    {
+      "id": "technique_1511",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1511",
+      "display": "大周天功",
+      "term": "大周天星元功凝玄窍",
+      "school": "novel_curated_techniques_v651",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（师与徒·因果缘·虚实难辨·意外收获·有消息了：第369–373章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v651.json",
+      "source_version": 651,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "半空垂落的星光之柱缓缓一分为七，化为七道小些的光柱，没入他的身体。",
+        "韩立身上立刻浮现出七个蓝色光点，正是之前打通的七处玄窍所在。",
+        "石台之上，他盘膝而坐，身上此刻蓝光闪烁。七个蓝色光点比之前明亮了几乎倍许。"
+      ],
+      "setting_descriptions": [
+        "「此功法中也有前七个玄窍的凝练之法，而且比起《小北斗星元功》要复杂不少，也更加玄妙。」",
+        "「五年苦修，《大周天星元功》的前半部功法，他终于已彻底修成。」"
+      ],
+      "setting": "完整版小北斗；前七玄窍凝练更复杂玄妙。星柱一分七入七窍，撕裂痛。重炼使已通窍扩、真极膜厚；五年成前半十八窍。因窍与仙窍重合故易。盟寻后续无人应。",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "effect_type": "utility",
+      "target": "self",
+      "particle": "qi_soft",
+      "trail": "none",
+      "shape": "beam_lance",
+      "color": "青白灵光",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 14,
+      "scale_tier": 0,
+      "visual_signature": "41ee175d851ed959bb19246c5b87cfd0ef10a0035882b9ef8546f8ef8de86a0b",
+      "frames": [
+        {
+          "name": "成型",
+          "frame": "0-3",
+          "vis": "半空垂落的星光之柱缓缓一分为七，化为七道小些的光柱，没入他的身体。"
+        },
+        {
+          "name": "成型",
+          "frame": "4-7",
+          "vis": "韩立身上立刻浮现出七个蓝色光点，正是之前打通的七处玄窍所在。"
+        },
+        {
+          "name": "命中",
+          "frame": "8-11",
+          "vis": "石台之上，他盘膝而坐，身上此刻蓝光闪烁。七个蓝色光点比之前明亮了几乎倍许。"
+        }
+      ],
+      "mechanics": {
+        "operation": "CULTIVATE",
+        "delivery": "SELF",
+        "duration_ticks": 140,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "generic",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "utility",
+        "element": "neutral",
+        "target": "self",
+        "cost": 8,
+        "cooldown_ticks": 50,
+        "damage_base": 0.0,
+        "range": 14.0,
+        "radius": 0.9,
+        "primary_status": "weakness",
+        "secondary_status": "slowness"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v651.json"
+      }
+    },
+    {
+      "id": "technique_1512",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1512",
+      "display": "炼神四层",
+      "term": "炼神术第四层口诀",
+      "school": "novel_curated_techniques_v652",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（交易·后半部·轮回之子·释疑·地榜：第374–378章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v652.json",
+      "source_version": 652,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "玉简内的禁制果然已经消除，一片玄奥无比的口诀清晰的出现在他眼前。",
+        "口诀不长，只有数千字，他很快便尽数看完，而且记在了脑海中。"
+      ],
+      "setting_descriptions": [
+        "「加入之人可以免费得到一层炼神术口诀，这玉简中的是炼神术第四层的口诀。」",
+        "「炼神术的问题一直是压在他心中的大石，如今这块大石终于被移开。」"
+      ],
+      "setting": "入殿免费一层，得第四层数千字口诀。可解第三层后神识反噬危机。地榜四层二千贡献、五层一万。韩独摸索至三层令蛟三惊为奇才。",
+      "family": "SOUL",
+      "motif": "FORMATION",
+      "effect_type": "debuff",
+      "target": "single",
+      "particle": "soul_wisps",
+      "trail": "soul_afterimage",
+      "shape": "array_rings",
+      "color": "幽蓝魂光",
+      "telegraphed": false,
+      "radius": 2.15,
+      "intensity": 21,
+      "scale_tier": 1,
+      "visual_signature": "0f8aff956cbea2f13d2eace5343b7d0bf69684d95b08f928191baac91bfb640a",
+      "frames": [
+        {
+          "name": "成型",
+          "frame": "0-3",
+          "vis": "玉简内的禁制果然已经消除，一片玄奥无比的口诀清晰的出现在他眼前。"
+        },
+        {
+          "name": "命中",
+          "frame": "4-7",
+          "vis": "口诀不长，只有数千字，他很快便尽数看完，而且记在了脑海中。"
+        }
+      ],
+      "mechanics": {
+        "operation": "SEAL",
+        "delivery": "TARGETED",
+        "duration_ticks": 130,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "beast",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "debuff",
+        "element": "soul",
+        "target": "single",
+        "cost": 17,
+        "cooldown_ticks": 85,
+        "damage_base": 17.0,
+        "range": 21.0,
+        "radius": 2.15,
+        "primary_status": "confusion",
+        "secondary_status": "weakness"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v652.json"
+      }
+    },
+    {
+      "id": "technique_1513",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1513",
+      "display": "山岳炼体",
+      "term": "地榜山岳炼体诀",
+      "school": "novel_curated_techniques_v652",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（交易·后半部·轮回之子·释疑·地榜：第374–378章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v652.json",
+      "source_version": 652,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "『山岳炼体诀，土属性玄仙功法，以山岳之精淬炼肉身……可修至金仙境。一百五十点！』"
+      ],
+      "setting_descriptions": [
+        "「上面的这些功法，秘术都是宗门多年苦心收集，其价值几何就不用我多说了。」"
+      ],
+      "setting": "地榜土属性玄仙功法，以山岳之精淬肉身，可修至金仙，标价一百五十贡献点。韩浏览所见之一，未换。",
+      "family": "EARTH",
+      "motif": "MARTIAL",
+      "effect_type": "melee",
+      "target": "single",
+      "particle": "earth_dust",
+      "trail": "heavy_weapon",
+      "shape": "mountain_meteor",
+      "color": "土黄岩尘",
+      "telegraphed": false,
+      "radius": 0.9,
+      "intensity": 14,
+      "scale_tier": 0,
+      "visual_signature": "a5aa5003c21598ff38e8fa85ea7d1562e18fe635bd87846122138ec1e56a7320",
+      "frames": [
+        {
+          "name": "起手",
+          "frame": "0-3",
+          "vis": "『山岳炼体诀，土属性玄仙功法，以山岳之精淬炼肉身……可修至金仙境。一百五十点！』"
+        },
+        {
+          "name": "回收",
+          "frame": "4-7",
+          "vis": "余光、残焰或灵气按原路径收束消散。"
+        }
+      ],
+      "mechanics": {
+        "operation": "ATTACK",
+        "delivery": "CONTACT",
+        "duration_ticks": 80,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "generic",
+        "terrain_mode": "rock"
+      },
+      "functional": {
+        "type": "melee",
+        "element": "earth",
+        "target": "single",
+        "cost": 8,
+        "cooldown_ticks": 50,
+        "damage_base": 10.0,
+        "range": 14.0,
+        "radius": 0.9,
+        "primary_status": "slowness",
+        "secondary_status": "weakness"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v652.json"
+      }
+    },
+    {
+      "id": "technique_1514",
+      "namespace": "novel",
+      "qualified_id": "novel:technique_1514",
+      "display": "太虚灵目",
+      "term": "地榜太虚灵目秘术",
+      "school": "novel_curated_techniques_v652",
+      "source": "《凡人修仙传仙界篇》— 人工精读提取 · 法术类（交易·后半部·轮回之子·释疑·地榜：第374–378章）",
+      "source_file": "文本材料/data/novel_curated_techniques_v652.json",
+      "source_version": 652,
+      "visual_source_kind": "direct_novel_quote",
+      "visual_descriptions": [
+        "『太虚灵目，修至大成境界，能洞察天地，无所不窥。两百点！』"
+      ],
+      "setting_descriptions": [
+        "「至于后面标注的点数是兑换所需贡献点，道友每完成一件轮回殿任务，都可得到一些贡献点。」"
+      ],
+      "setting": "地榜秘术，大成可洞察天地无所不窥，标价两百贡献点。韩浏览所见之一，未换。",
+      "family": "NEUTRAL",
+      "motif": "GENERIC",
+      "effect_type": "utility",
+      "target": "self",
+      "particle": "qi_soft",
+      "trail": "none",
+      "shape": "eye_gaze",
+      "color": "青白灵光",
+      "telegraphed": true,
+      "radius": 5.9,
+      "intensity": 42,
+      "scale_tier": 4,
+      "visual_signature": "f7dd64248ebf9e346d6cb1f44819ad06dcbe6acc565b9c6a4ee811beb1ec86a2",
+      "frames": [
+        {
+          "name": "大招预兆",
+          "frame": "0-3",
+          "vis": "『太虚灵目，修至大成境界，能洞察天地，无所不窥。两百点！』"
+        },
+        {
+          "name": "回收",
+          "frame": "4-7",
+          "vis": "余光、残焰或灵气按原路径收束消散。"
+        }
+      ],
+      "mechanics": {
+        "operation": "DETECT",
+        "delivery": "SELF",
+        "duration_ticks": 280,
+        "projectile_count": 1,
+        "max_targets": 1,
+        "summon_archetype": "generic",
+        "terrain_mode": "none"
+      },
+      "functional": {
+        "type": "utility",
+        "element": "neutral",
+        "target": "self",
+        "cost": 44,
+        "cooldown_ticks": 190,
+        "damage_base": 0.0,
+        "range": 42.0,
+        "radius": 5.9,
+        "primary_status": "weakness",
+        "secondary_status": "slowness"
+      },
+      "tags": [],
+      "sources": {
+        "primary": "文本材料/data/novel_curated_techniques_v652.json"
       }
     },
     {
