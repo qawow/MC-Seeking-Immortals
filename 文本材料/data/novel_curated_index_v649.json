@@ -1,0 +1,26 @@
+{
+  "schema_version": 55,
+  "extract_version": 649,
+  "source": "《凡人修仙传仙界篇》— 人工精读提取索引（第359–363章）",
+  "method": "沿原文逐段精读；本索引汇总 v649 全部 16 条。",
+  "disclaimer": "代表性精读而非穷尽全本；每条均为精读所及，入包前仍需人工校订。",
+  "count": 16,
+  "entries": [
+    {"id": "setting_3013", "display": "道纹极限", "category": "setting", "file": "novel_curated_settings_v649.json"},
+    {"id": "setting_3014", "display": "墨钰晶秘", "category": "setting", "file": "novel_curated_settings_v649.json"},
+    {"id": "setting_3015", "display": "丹劫成因", "category": "setting", "file": "novel_curated_settings_v649.json"},
+    {"id": "setting_3016", "display": "道丹炼法", "category": "setting", "file": "novel_curated_settings_v649.json"},
+    {"id": "setting_3017", "display": "时光回溯", "category": "setting", "file": "novel_curated_settings_v649.json"},
+    {"id": "setting_3018", "display": "金云丹劫", "category": "setting", "file": "novel_curated_settings_v649.json"},
+    {"id": "artifact_1993", "display": "暖玉盒", "category": "artifact", "file": "novel_curated_artifacts_v649.json"},
+    {"id": "artifact_1994", "display": "青灵膏玉", "category": "artifact", "file": "novel_curated_artifacts_v649.json"},
+    {"id": "artifact_1995", "display": "二品道丹", "category": "artifact", "file": "novel_curated_artifacts_v649.json"},
+    {"id": "artifact_1996", "display": "七曜星幕", "category": "artifact", "file": "novel_curated_artifacts_v649.json"},
+    {"id": "technique_1503", "display": "晶粒增纹", "category": "technique", "file": "novel_curated_techniques_v649.json"},
+    {"id": "technique_1504", "display": "金雷隐身", "category": "technique", "file": "novel_curated_techniques_v649.json"},
+    {"id": "technique_1505", "display": "真实回溯", "category": "technique", "file": "novel_curated_techniques_v649.json"},
+    {"id": "material_1525", "display": "墨钰晶", "category": "material", "file": "novel_curated_materials_v649.json"},
+    {"id": "material_1526", "display": "露凝草", "category": "material", "file": "novel_curated_materials_v649.json"},
+    {"id": "material_1527", "display": "豆兵母豆", "category": "material", "file": "novel_curated_materials_v649.json"}
+  ]
+}
