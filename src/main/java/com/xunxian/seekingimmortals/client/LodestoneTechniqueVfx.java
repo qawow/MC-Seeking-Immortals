@@ -1668,6 +1668,10 @@ public final class LodestoneTechniqueVfx {
                 jadeSlipShape(level, family, start, end, radius, intensity, random);
                 yield true;
             }
+            case FIRE_PLUME -> {
+                firePlumeShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
             default -> false;
         };
     }
@@ -1939,6 +1943,36 @@ public final class LodestoneTechniqueVfx {
         shortLine(level, family, a.lerp(b, 0.5D), d.lerp(c, 0.5D), 3, random);
         spawn(level, LodestoneParticleRegistry.TWINKLE_PARTICLE, family, center,
                 Vec3.ZERO, 0.14F, 0.8F, 18, random.nextFloat());
+    }
+
+
+    /** 火焰 silhouette: rising plume column with ember scatter. */
+    private static void firePlumeShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                       Vec3 start, Vec3 end, float radius,
+                                       int intensity, Random random) {
+        Vec3 center = start.distanceToSqr(end) < 0.04D ? start : end;
+        double size = Math.max(0.6D, Math.min(2.8D, radius * 0.85D));
+        int tongues = Math.min(10, Math.max(5, intensity / 4));
+        for (int i = 0; i < tongues && budgetAvailable(level); i++) {
+            double angle = Math.PI * 2.0D * i / tongues;
+            Vec3 base = center.add(Math.cos(angle) * size * 0.18D, 0.05D,
+                    Math.sin(angle) * size * 0.18D);
+            Vec3 tip = base.add((random.nextDouble() - 0.5D) * 0.25D,
+                    size * (0.7D + random.nextDouble() * 0.5D),
+                    (random.nextDouble() - 0.5D) * 0.25D);
+            shortLine(level, family, base, tip, 5, random);
+        }
+        ring(level, family, center.add(0.0D, 0.08D, 0.0D), size * 0.35D,
+                Math.min(14, Math.max(6, intensity / 4)), random, 0.15F, 16);
+        for (int i = 0; i < Math.min(8, Math.max(3, intensity / 6)) && budgetAvailable(level); i++) {
+            Vec3 ember = center.add(randomOffset(random, size * 0.4D))
+                    .add(0.0D, size * (0.3D + random.nextDouble() * 0.8D), 0.0D);
+            spawn(level, LodestoneParticleRegistry.WISP_PARTICLE, family, ember,
+                    new Vec3((random.nextDouble() - 0.5D) * 0.02D,
+                            0.02D + random.nextDouble() * 0.02D,
+                            (random.nextDouble() - 0.5D) * 0.02D),
+                    0.18F, 0.72F, 22, random.nextFloat());
+        }
     }
 
     private static float motionRadius(VisualProgramLayer.Motion motion, Phase phase) {

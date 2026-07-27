@@ -9225,3 +9225,13 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Version/protocol   Done   `mod_version` 0.2.200→`0.2.201`；PROTOCOL_VERSION=30。
   Backup   Done   `.bak/20260727_021500/`。
 
+## 595. 2026-07-27 0.2.202 fire_plume 与飞剑词表扩
+
+  Step   Status   Notes
+  ---   ---   ---
+  Fire plume   Done   新 primitive fire_plume + firePlumeShape；1483 L0 红→金火焰柱。
+  Sword tokens   Done   flying_sword 词表扩；命中 180。
+  Verification   Done   ./gradlew build BUILD SUCCESSFUL。
+  Version/protocol   Done   mod_version 0.2.201→0.2.202；PROTOCOL_VERSION=30。
+  Backup   Done   .bak/20260727_022800/。
+

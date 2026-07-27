@@ -413,7 +413,8 @@ PROGRAM_RULES = (
     ("banner_streamer", ("幡旗", "杆幡", "黑幡", "灵幡", "宝幡", "玉竹幡", "竹幡", "血幡")),
     ("seal_stamp", ("法印一闪", "大印一压", "大印落下", "法印一", "玉印", "宝印", "印诀", "金印", "血印", "印玺")),
     ("bridge_arc", ("虹桥", "光桥", "玉桥", "虹桥光", "长虹光", "七彩桥", "光桥一")),
-    ("flying_sword", ("飞剑", "青色小剑", "金色小剑", "小剑", "剑影", "剑气纵横", "口剑")),
+    ("flying_sword", ("飞剑", "青色小剑", "金色小剑", "小剑", "剑影", "剑气纵横", "口剑", "剑芒", "剑刃飞", "飞出一剑")),
+    ("fire_plume", ("赤红火焰", "真火", "赤焰", "火焰从", "火柱", "火海", "烈焰", "三昧真火", "丹火", "青焰", "火球爆")),
     ("formation_banner", ("阵旗", "令旗", "旗阵", "大旗", "战旗", "令旗一")),
     ("pagoda_tower", ("宝塔", "浮屠", "金塔", "玉塔", "玲珑塔", "小塔", "塔影")),
     ("blood_thread", ("血丝", "精血丝", "血线", "血丝一", "血丝密")),
@@ -647,7 +648,7 @@ def program_palette(text: str, fallback: str, argbs: dict[str, int]) -> tuple[st
 
 _FIGURE_PRIMITIVES = {
     "cauldron_vessel", "bell_chime", "gourd_vessel", "light_curtain", "halo_ring",
-    "banner_streamer", "seal_stamp", "bridge_arc", "flying_sword", "formation_banner",
+    "banner_streamer", "seal_stamp", "bridge_arc", "flying_sword", "fire_plume", "formation_banner",
     "pagoda_tower", "blood_thread", "jade_slip", "burning_talisman",
     "giant_claw", "giant_hand", "serpent_dragon", "flame_bird", "beast_phantom",
     "lotus_mandala", "wheel_disc", "mirror_disc", "sword_rain", "ice_prison",
