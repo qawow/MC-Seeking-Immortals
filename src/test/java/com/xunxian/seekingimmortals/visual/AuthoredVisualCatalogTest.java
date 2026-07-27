@@ -1184,6 +1184,88 @@ class AuthoredVisualCatalogTest {
                 .anyMatch(layer -> layer.primitive() == VisualPrimitive.GIANT_SWORD));
     }
 
+    @Test
+    void ruyiHooksAndWhipsKeepBodiesCompanionsPathsAndLocalColors() {
+        AuthoredVisualCatalog.Snapshot catalog = AuthoredVisualCatalog.builtin();
+        long qi = catalog.palette("qi").orElseThrow().argb();
+        long earth = catalog.palette("earth").orElseThrow().argb();
+        long fire = catalog.palette("fire").orElseThrow().argb();
+        long yin = catalog.palette("yin").orElseThrow().argb();
+
+        List<VisualProgramLayer> ruyiLayers = catalog.profiles().values().stream()
+                .filter(profile -> profile.domain() == VisualDomain.TECHNIQUE)
+                .flatMap(profile -> profile.visualProgram().layers().stream())
+                .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_RUYI)
+                .toList();
+        assertEquals(6, ruyiLayers.size());
+        assertTrue(ruyiLayers.stream().allMatch(layer -> layer.copies() == 1
+                && layer.path() == VisualProgramLayer.Path.STATIC));
+        VisualProgramLayer redYellowRuyi = figureLayer(
+                catalog, "technique_503", VisualPrimitive.MAGIC_RUYI, "红黄两色玉如意");
+        assertEquals(fire, redYellowRuyi.primaryArgb());
+        assertEquals(earth, redYellowRuyi.secondaryArgb());
+        VisualProgramLayer bloodRuyi = figureLayer(
+                catalog, "technique_866", VisualPrimitive.MAGIC_RUYI, "白色光霞");
+        assertEquals(fire, bloodRuyi.primaryArgb());
+        assertEquals(qi, bloodRuyi.secondaryArgb());
+        assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_137").orElseThrow()
+                .visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("分别召唤出红黄两只小狼"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.SUMMON_GATE));
+
+        List<VisualProgramLayer> hookLayers = catalog.profiles().values().stream()
+                .filter(profile -> profile.domain() == VisualDomain.TECHNIQUE)
+                .flatMap(profile -> profile.visualProgram().layers().stream())
+                .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_HOOK)
+                .toList();
+        assertEquals(5, hookLayers.size());
+        assertTrue(hookLayers.stream().allMatch(layer -> layer.copies() == 1
+                && layer.path() == VisualProgramLayer.Path.DIRECT
+                && layer.primaryArgb() == yin && layer.secondaryArgb() == yin));
+
+        List<VisualProgramLayer> whipLayers = catalog.profiles().values().stream()
+                .filter(profile -> profile.domain() == VisualDomain.TECHNIQUE)
+                .flatMap(profile -> profile.visualProgram().layers().stream())
+                .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_WHIP)
+                .toList();
+        assertEquals(5, whipLayers.size());
+        VisualProgramLayer fireWhip = figureLayer(catalog, "huoyuan_fire_whip",
+                VisualPrimitive.MAGIC_WHIP, "火元功火鞭");
+        assertEquals(fire, fireWhip.primaryArgb());
+        assertEquals(fire, fireWhip.secondaryArgb());
+        assertEquals(VisualProgramLayer.Path.DIRECT, fireWhip.path());
+        VisualProfile swordTethers = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_200").orElseThrow();
+        assertEquals(3, swordTethers.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.FLYING_SWORD).count());
+        assertEquals(3, swordTethers.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_WHIP).count());
+        VisualProfile braceletWhip = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_578").orElseThrow();
+        assertTrue(braceletWhip.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.MAGIC_WHIP
+                        && layer.path() == VisualProgramLayer.Path.DIRECT));
+        assertTrue(braceletWhip.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.WHEEL_DISC));
+
+        VisualProfile timeSkull = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_1155").orElseThrow();
+        assertTrue(timeSkull.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.GHOST_HEAD));
+        assertTrue(timeSkull.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.AFTERIMAGE_PATH));
+
+        assertFalse(catalog.find(VisualDomain.TECHNIQUE, "technique_1327").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.MAGIC_HOOK));
+        assertFalse(catalog.find(VisualDomain.TECHNIQUE, "technique_1389").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.MAGIC_WHIP));
+        assertFalse(catalog.find(VisualDomain.TECHNIQUE, "technique_1483").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.MAGIC_RUYI));
+    }
+
     private static VisualProgramLayer giantSwordLayer(
             AuthoredVisualCatalog.Snapshot catalog, String id, String sourceToken) {
         return figureLayer(catalog, id, VisualPrimitive.GIANT_SWORD, sourceToken);

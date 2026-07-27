@@ -416,6 +416,9 @@ PROGRAM_RULES = (
     ("ritual_coffin", ("寒玉棺", "石棺中")),
     ("magic_staff", ("乌黑禅杖", "降魔巨杖", "降魔杖", "此宝就化为十余丈之长，水缸般粗细的庞然巨物")),
     ("magic_bow", ("手持一把大弓",)),
+    ("magic_ruyi", ("玉如意", "白色如意", "空中的如意", "刻在如意一侧")),
+    ("magic_hook", ("摄魂钩", "钩锁神识边缘")),
+    ("magic_whip", ("火鞭", "纤细的兽筋", "丝线状兽筋", "兽筋一绷一拉", "兽筋一下弹射而出")),
     ("magic_fan", ("三焰扇", "青色羽扇", "羽扇", "从扇子狂涌而出", "从扇上浮现",
                    "三色光焰从扇面上", "三色火焰在扇面上", "单手持扇", "三色火柱从扇面上")),
     ("magic_umbrella", ("玉伞",)),
@@ -449,7 +452,7 @@ PROGRAM_RULES = (
     ("burning_talisman", ("符纸", "符火", "符焰", "燃符", "焚符", "符纸燃烧", "高阶符箓")),
     ("talisman_brush", ("蓝濛濛灵符笔", "灵符笔", "笔尖处")),
     ("spirit_qin", ("通体晶莹的白色古琴", "白色古琴")),
-    ("ghost_head", ("巨大鬼头", "狰狞鬼头", "鬼头虚影", "骷髅头虚影", "巨型骷髅头", "白骨骷髅头", "巨大骷髅头", "骷髅头", "鬼头", "鬼首")),
+    ("ghost_head", ("巨大鬼头", "狰狞鬼头", "鬼头虚影", "骷髅头虚影", "巨型骷髅头", "白骨骷髅头", "巨大骷髅头", "巨大白骨头", "骷髅头", "鬼头", "鬼首")),
     ("shield_plate", ("龟壳法器", "铜盾", "巨大血色光盾", "血色光盾",
                       "巨大盾牌", "银盾", "盾牌", "盾面")),
     ("spirit_armor", ("赤金色的精美战甲", "精美之极的全身战甲", "漆黑如墨的黑色战甲",
@@ -574,6 +577,13 @@ def program_path(text: str) -> str:
 
 
 def program_primitive_path(primitive: str, text: str, fallback: str) -> str:
+    if primitive == "magic_ruyi":
+        return "STATIC"
+    if primitive == "magic_hook":
+        return "DIRECT"
+    if primitive == "magic_whip" and any(token in text for token in (
+            "火鞭", "兽筋一绷一拉", "兽筋一下弹射而出")):
+        return "DIRECT"
     if primitive != "giant_sword":
         return fallback
     if any(token in text for token in (
@@ -850,6 +860,9 @@ _PRIMITIVE_PALETTE_FALLBACK = {
     "magic_ruler": "qi",
     "magic_staff": "metal",
     "magic_bow": "metal",
+    "magic_ruyi": "qi",
+    "magic_hook": "yin",
+    "magic_whip": "earth",
     "magic_fan": "qi",
     "magic_umbrella": "qi",
     "magic_scissors": "metal",
@@ -866,7 +879,8 @@ _PRIMITIVE_PALETTE_FALLBACK = {
 _LOCAL_PALETTE_PRIMITIVES = frozenset({
     "giant_sword",
     "ritual_bowl", "ritual_lamp", "ritual_coffin", "magic_ruler", "magic_staff",
-    "magic_bow", "magic_fan", "magic_umbrella", "magic_scissors", "command_token",
+    "magic_bow", "magic_ruyi", "magic_hook", "magic_whip",
+    "magic_fan", "magic_umbrella", "magic_scissors", "command_token",
     "magic_brick", "bell_chime", "magic_scroll", "formation_disc", "spiked_club",
     "talisman_brush", "spirit_qin", "giant_hammer",
 })
@@ -898,7 +912,8 @@ def program_palette_source(text: str, primitive: str, matched_terms: list[str]) 
 _FIGURE_PRIMITIVES = {
     "cauldron_vessel", "alchemy_furnace", "bell_chime", "gourd_vessel", "light_curtain", "halo_ring",
     "ritual_bowl", "ritual_lamp", "ritual_coffin", "magic_ruler", "magic_staff",
-    "magic_bow", "magic_fan", "magic_umbrella", "magic_scissors",
+    "magic_bow", "magic_ruyi", "magic_hook", "magic_whip",
+    "magic_fan", "magic_umbrella", "magic_scissors",
     "banner_streamer", "seal_stamp", "command_token", "magic_brick", "seal_cage", "bridge_arc",
     "magic_gong", "magic_mask", "magic_cloth", "rune_pillar", "spirit_armor",
     "flying_sword", "giant_sword", "fire_plume", "formation_banner",
@@ -934,7 +949,8 @@ def program_primitives(text: str, base_shape: str) -> tuple[list[str], list[str]
         ("impact_arcs", ("一团刺目爆裂而开", "刺目耀眼的光团")),
         ("layered_afterimages", ("残影重重", "层层虚影")),
         ("afterimage_path", ("人就化为一股轻风", "瞬间化为一缕清风从莲影中",
-                             "最终化为了一道几乎淡若不见的虚影", "血色披风")),
+                             "最终化为了一道几乎淡若不见的虚影", "血色披风",
+                             "黑袍妇人正在拼命飞遁中")),
         ("magnetic_field", ("灰色光浪从底部滚滚而出", "粗大灰霞飞卷而上")),
         ("blade_arc", ("凭空被斩切了开来",)),
         ("blade_arc", ("巨剑的猛击之下", "光片丝毫停顿没有")),
@@ -945,7 +961,8 @@ def program_primitives(text: str, base_shape: str) -> tuple[list[str], list[str]
         ("projectile_swarm", ("三种不同电弧就同时击在了雷兽身体上",)),
         ("spirit_avatar", ("浑身生满妖目的淡银色佛像",)),
         ("eye_gaze", ("浑身生满妖目的淡银色佛像",)),
-        ("summon_gate", ("十余头傀儡兽和傀儡士兵",)),
+        ("summon_gate", ("十余头傀儡兽和傀儡士兵",
+                         "分别召唤出红黄两只小狼")),
         ("lightning_storm", (
             "剑面上弹射出了数十道淡金色的细长电弧",
             "剑身表面金光狂闪，无数电弧狂涌而出",
@@ -1012,7 +1029,7 @@ def program_primitives(text: str, base_shape: str) -> tuple[list[str], list[str]
         keep_extra = {"lotus_mandala", "sword_rain", "projectile_swarm", "fire_plume",
                       "light_curtain", "spirit_avatar", "ghost_head", "wheel_disc",
                       "ritual_bowl", "magic_ruler", "magic_staff", "giant_hammer",
-                      "bell_chime"}
+                      "bell_chime", "magic_whip"}
         selected = [p for p in selected if p == "flying_sword" or p in keep_extra]
     elif "giant_sword" in selected:
         explicit_small_swords = any(token in text for token in (
@@ -1308,6 +1325,19 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
                 primary_key, secondary_key = "metal", "qi"
             elif primitive == "magic_bow" and "箭矢状红芒" in source:
                 primary_key, secondary_key = "metal", "fire"
+            elif primitive == "magic_ruyi" and "红黄两色玉如意" in source:
+                primary_key, secondary_key = "fire", "earth"
+            elif (primitive == "magic_ruyi" and "数团精血" in source
+                    and "白色光霞" in source):
+                primary_key, secondary_key = "fire", "qi"
+            elif primitive == "magic_ruyi" and "白色如意" in source:
+                primary_key = secondary_key = "qi"
+            elif primitive == "magic_hook":
+                primary_key = secondary_key = "yin"
+            elif primitive == "magic_whip" and "火鞭" in source:
+                primary_key = secondary_key = "fire"
+            elif primitive == "magic_whip":
+                primary_key = secondary_key = "earth"
             elif primitive == "magic_fan" and "青色羽扇" in source:
                 primary_key = secondary_key = "wood"
             elif (primitive == "magic_fan" and any(token in source for token in (
@@ -1344,6 +1374,8 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
                 (primitive == "shield_plate" and "铜盾" in source and "强烈的黄芒" in source)
                 or (primitive == "orb_projectile" and any(token in source for token in (
                     "黑白圆石", "奇寒无比", "白茫茫的奇寒")))
+                or (primitive == "magic_ruyi" and "数团精血" in source
+                    and "白色光霞" in source)
             )
             if ((primitive in _LOCAL_PALETTE_PRIMITIVES or exact_local_palette) and matched_terms
                     and primary_key != primitive_fallback and secondary_key == primitive_fallback):
@@ -1354,6 +1386,8 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
             if not matched_terms and primitive_index > 0:
                 copies = max(1, copies // 2)
             if primitive == "formation_disc" and "法盘" in source:
+                copies = 1
+            if primitive in {"magic_ruyi", "magic_hook", "magic_whip"}:
                 copies = 1
             if (primitive == "projectile_swarm"
                     and "十几团灵光飞射而出" in source):

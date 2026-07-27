@@ -9425,3 +9425,17 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Tests/build   Done   两个生成器 `--check`、`AuthoredVisualCatalogTest`/`LodestoneVfxContractTest` 定向测试及干净快照普通完整构建通过；`BUILD SUCCESSFUL in 1m 25s`，251 个套件、1,172 项测试 failure/error/skipped 均为 0。
   Version/protocol   Done   `mod_version` 0.2.218→0.2.219；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
   Artifact/backup   Done   `seeking_immortals-0.2.219.jar` SHA-256 `d7196c8c76e6a7aada4d261196a22677d224fe092d37de12f743c020d5edd668`；备份 `.bak/20260728_063259_0.2.219_giant_sword_geometry/` 与 `.bak/20260728_064815_0.2.219_companion_fidelity/`。
+
+## 611. 2026-07-28 0.2.220 如意、摄魂钩与火鞭兽筋独立轮廓
+
+  Step   Status   Notes
+  ---   ---   ---
+  Source boundary   Done   全量回读玉如意/白色如意/狼首如意、摄魂钩、火鞭、纤细/丝线状兽筋与巨大白骨头引文；完整短语排除 `爪如钩`、`鞭炮` 和 `金冠` 等字面误配。
+  Compiler   Done   新增 `magic_ruyi=6`、`magic_hook=5`、`magic_whip=5`，巨大白骨头复用 `ghost_head`；剑语境允许兽筋与飞剑共存，三个具名器物 copies 均为 1。
+  Runtime   Done   如意使用长柄、云首、端环与冠星，摄魂钩使用钩杆、内弯尖、链环与钩芒，火鞭使用波动鞭身、握柄环与击打星芒；三者进入层内分发和每份至少 2 粒的复杂轮廓预算。
+  Path/palette   Done   如意固定 `STATIC`，摄魂钩固定 `DIRECT`，火鞭与弹射兽筋固定 `DIRECT`；红黄如意 `fire→earth`、精血祭如意 `fire→qi`、摄魂钩 yin、火鞭 fire、兽筋 earth。
+  Companion fidelity   Done   狼首如意保留红黄双狼 `summon_gate`，巨大白骨头同句保留 `afterimage_path`；三组飞剑牵丝各保留飞剑与兽筋，弹射兽筋后仍保留淡黄手镯。
+  Diff/contracts   Done   相对 0.2.219 恰有 12 个预期 technique ID、17 条语义引文组变化，非目标 ID 和非 `visual_program` profile 字段变化为 0；目录为 5,727 profiles、10,867 术法层、97 primitive，`ghost_head=33`。
+  Tests/build   Done   两个生成器 `--check`、`AuthoredVisualCatalogTest`/`LodestoneVfxContractTest` 定向测试及干净快照完整构建通过；`BUILD SUCCESSFUL in 1m 25s`，251 个套件、1,173 项测试 failure/error/skipped 均为 0。
+  Version/protocol   Done   `mod_version` 0.2.219→0.2.220；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
+  Artifact/backup   Done   `seeking_immortals-0.2.220.jar` SHA-256 `950442b7d7e7d2422f62314e64b9e5536e0ceeadcc2573c4e141105b52197088`；备份 `.bak/20260728_070601_0.2.220_ruyi_hook_whip/`。
