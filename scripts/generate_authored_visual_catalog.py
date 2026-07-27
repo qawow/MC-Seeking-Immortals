@@ -408,7 +408,7 @@ PROGRAM_RULES = (
     ("cauldron_vessel", ("青铜鼎", "巨鼎", "宝鼎", "炼丹鼎", "灵鼎", "双鼎", "黑鼎", "小鼎", "鼎中")),
     ("bell_chime", ("黑色小钟", "金钟", "铜钟", "灵钟", "宝钟", "古钟", "黑钟", "小钟", "梵钟")),
     ("gourd_vessel", ("葫芦", "玉葫芦", "宝葫芦", "灵葫芦", "玉瓶", "宝瓶", "灵瓶", "净瓶", "玉净瓶")),
-    ("light_curtain", ("光幕", "光墙", "光帘", "五色光幕", "护幕", "屏障光", "一片光华", "光幕一", "光幕竟")),
+    ("light_curtain", ("光幕", "光墙", "光帘", "五色光幕", "护幕", "屏障光", "一片光华", "光幕一", "光幕竟", "蓝色霞光", "五色霞光", "霞光一片")),
     ("halo_ring", ("光环", "光圈", "圆环光", "血色光环", "金光圈", "光环一", "光环凭空")),
     ("banner_streamer", ("幡旗", "杆幡", "黑幡", "灵幡", "宝幡", "玉竹幡", "竹幡", "血幡")),
     ("seal_stamp", ("法印一闪", "大印一压", "大印落下", "法印一", "玉印", "宝印", "印诀", "金印", "血印", "印玺")),
@@ -447,13 +447,13 @@ PROGRAM_RULES = (
     ("fist_barrage", ("拳影", "掌影")),
     ("cloud_vortex", ("漩涡", "云团", "血云", "黑云")),
     ("rune_orbit", ("符文", "符箓", "符印", "法阵", "阵法", "阵图")),
-    ("chain_net", ("锁链", "电网", "光丝", "丝线", "丝连")),
+    ("chain_net", ("锁链", "电网", "锁链网", "铁链", "灵链", "缚仙索", "缠丝成网")),
     ("beam_lance", ("光柱", "光束", "剑虹", "剑光")),
     ("projectile_swarm", ("飞射", "箭雨", "无数", "密密麻麻")),
     ("body_aura", ("鳞片", "金身", "铠甲", "护体")),
     ("spirit_avatar", ("法相", "鬼影", "骷髅", "化身", "人形", "女子")),
     ("ground_field", ("地面", "大地", "领域", "地网")),
-    ("mist_veil", ("雾气", "迷雾", "云雾", "雾幕", "烟幕", "霞光", "隐踪", "隐匿")),
+    ("mist_veil", ("迷雾", "云雾", "雾幕", "烟幕", "雾气腾", "黑雾", "血雾", "毒雾", "雾团", "隐踪匿迹", "隐匿身形")),
 )
 
 PROGRAM_SHAPES = {name for name, _ in PROGRAM_RULES} | {
@@ -681,18 +681,35 @@ def program_primitives(text: str, base_shape: str) -> tuple[list[str], list[str]
     if not selected:
         selected.append(base_shape if base_shape in PROGRAM_SHAPES else "aura_burst")
         evidence.append("profile_shape:" + (base_shape or "aura_burst"))
-    # Force sword-swarm quotes onto flying_sword even if beam_lance/sword_rain also hit.
-    if any(tok in text for tok in ("飞剑", "小剑", "口剑", "剑芒", "剑影")):
+    # Force sword-centric quotes onto flying_sword as the lead silhouette.
+    swordish = any(tok in text for tok in (
+        "飞剑", "小剑", "口剑", "剑芒", "剑影", "剑诀", "青元剑", "青竹剑", "液态飞剑",
+        "剑光分化", "一模一样的剑", "真假难辨的剑", "指剑", "刃指", "小剑阵", "剑阵"))
+    if swordish:
         if "flying_sword" not in selected:
             selected.insert(0, "flying_sword")
             evidence.append("forced:flying_sword")
-        elif selected[0] != "flying_sword":
-            selected = ["flying_sword"] + [p for p in selected if p != "flying_sword"]
-    # Prefer authored figure silhouettes as the lead layer so copies/geometry attach
-    # to the named prop (飞剑/鼎/光幕) rather than a co-mentioned lotus/aura.
+        selected = ["flying_sword"] + [p for p in selected if p != "flying_sword"]
+        # Suppress co-mentioned generic beam/swarm/rain/aura/mist so the sword quote
+        # does not spend its 4-layer budget on non-sword geometry.
+        suppress = {
+            "beam_lance", "sword_rain", "projectile_swarm", "aura_burst",
+            "mist_veil", "chain_net", "impact_arcs", "single_projectile",
+        }
+        selected = [p for p in selected if p not in suppress or p == "flying_sword"]
+        # Keep only sword-relevant companions (lotus if 莲花, rain if 剑阵/剑雨).
+        keep_extra = {"lotus_mandala", "sword_rain", "projectile_swarm", "fire_plume",
+                      "light_curtain", "spirit_avatar", "wheel_disc"}
+        selected = [p for p in selected if p == "flying_sword" or p in keep_extra]
+    # Prefer authored figure silhouettes as the lead layer.
     figures = [p for p in selected if p in _FIGURE_PRIMITIVES]
     others = [p for p in selected if p not in _FIGURE_PRIMITIVES]
     ordered = figures + others
+    # When a figure leads, drop pure-generic secondaries that only restate light/fog.
+    if ordered and ordered[0] in _FIGURE_PRIMITIVES:
+        generic = {"aura_burst", "mist_veil", "impact_arcs", "layered_afterimages"}
+        head, tail = ordered[0], [p for p in ordered[1:] if p not in generic]
+        ordered = [head] + tail
     return ordered[:4], evidence[:10]
 
 

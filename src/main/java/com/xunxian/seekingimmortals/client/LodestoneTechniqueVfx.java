@@ -1955,15 +1955,16 @@ public final class LodestoneTechniqueVfx {
                                        int intensity, Random random) {
         Vec3 center = start.distanceToSqr(end) < 0.04D ? start : end;
         double size = Math.max(0.6D, Math.min(2.8D, radius * 0.85D));
-        int tongues = Math.min(10, Math.max(5, intensity / 4));
+        int tongues = Math.min(14, Math.max(7, intensity / 3));
         for (int i = 0; i < tongues && budgetAvailable(level); i++) {
-            double angle = Math.PI * 2.0D * i / tongues;
-            Vec3 base = center.add(Math.cos(angle) * size * 0.18D, 0.05D,
-                    Math.sin(angle) * size * 0.18D);
-            Vec3 tip = base.add((random.nextDouble() - 0.5D) * 0.25D,
-                    size * (0.7D + random.nextDouble() * 0.5D),
-                    (random.nextDouble() - 0.5D) * 0.25D);
-            shortLine(level, family, base, tip, 5, random);
+            double angle = Math.PI * 2.0D * i / tongues + random.nextDouble() * 0.2D;
+            double radial = size * (0.08D + (i % 3) * 0.06D);
+            Vec3 base = center.add(Math.cos(angle) * radial, 0.05D,
+                    Math.sin(angle) * radial);
+            Vec3 tip = base.add((random.nextDouble() - 0.5D) * 0.3D,
+                    size * (0.85D + random.nextDouble() * 0.65D),
+                    (random.nextDouble() - 0.5D) * 0.3D);
+            shortLine(level, family, base, tip, 6, random);
         }
         ring(level, family, center.add(0.0D, 0.08D, 0.0D), size * 0.35D,
                 Math.min(14, Math.max(6, intensity / 4)), random, 0.15F, 16);

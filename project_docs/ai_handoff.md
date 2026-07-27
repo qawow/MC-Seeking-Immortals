@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-27f: `0.2.205` 剑语境纯飞剑化（误配 180→0），mist 再收窄，chain 去丝线误配，fire_plume 加厚。flying_sword 289 层；1186×72；1483 火柱红→金。`mod_version=0.2.205`；协议 30。`.bak/20260727_024500/`，`project_docs/updates/20260727_0.2.205_sword_pure.md`。
+
 > CURRENT TRUTH 2026-07-27e: `0.2.203` 收窄 mist/impact 过配（1988→618 / 1184→278），强制飞剑置顶，鼎几何加厚。`mod_version=0.2.203`；协议 30。`.bak/20260727_023500/`，`project_docs/updates/20260727_0.2.203_narrow_generic.md`。
 
 > CURRENT TRUTH 2026-07-27d: `0.2.202` fire_plume + 飞剑词表扩。technique_1483 L0=fire_plume 红→金；flying_sword 180 / fire_plume 76。`mod_version=0.2.202`；协议 30。回滚 `.bak/20260727_022800/`，见 `project_docs/updates/20260727_0.2.202_fire_plume.md`。

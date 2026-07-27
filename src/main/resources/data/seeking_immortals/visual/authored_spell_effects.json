@@ -543,7 +543,7 @@
   },
   "java_source_audit": {
     "file_count": 620,
-    "aggregate_sha256": "09ffeb99c4b3324875adda2c540bfe4f27c1a57ca15ea3f78a97382ae3f58ed6",
+    "aggregate_sha256": "f91bf8b7aa5c2cf99dd904be8b88fbbcfee031883dfb51dfbdf7fd8aca9566d6",
     "spell_related_file_count": 181,
     "spell_effect_class_count": 53,
     "skill_effect_registry_registration_count": 373,

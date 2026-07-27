@@ -9244,3 +9244,13 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Version/protocol   Done   0.2.202→0.2.203；PROTOCOL_VERSION=30。
   Backup   Done   .bak/20260727_023500/。
 
+## 597. 2026-07-27 0.2.205 剑语境纯飞剑化
+
+  Step   Status   Notes
+  ---   ---   ---
+  Sword pure   Done   剑语境强制 flying_sword 主层并抑制 beam/swarm/mist/chain；误配清零。
+  Mist/chain   Done   mist 去霞光/裸雾；chain 去丝线；霞光归 light_curtain。
+  Verification   Done   ./gradlew build BUILD SUCCESSFUL @ 0.2.205。
+  Version/protocol   Done   0.2.203→0.2.205；PROTOCOL_VERSION=30。
+  Backup   Done   .bak/20260727_024500/。
+
