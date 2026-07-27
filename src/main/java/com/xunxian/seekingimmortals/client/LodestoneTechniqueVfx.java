@@ -1746,7 +1746,7 @@ public final class LodestoneTechniqueVfx {
                     EYE_GAZE, LOTUS_MANDALA, MOUNTAIN_METEOR, MIRROR_DISC, FLAME_BIRD,
                     BEAST_PHANTOM, WING_FAN, SEAL_CAGE, BARRIER_PLANE,
                     CAULDRON_VESSEL, BELL_CHIME, GOURD_VESSEL, LIGHT_CURTAIN,
-                    HALO_RING, BANNER_STREAMER, SEAL_STAMP, FLYING_SWORD,
+                    HALO_RING, BANNER_STREAMER, SEAL_STAMP, FLYING_SWORD, GIANT_SWORD,
                     FORMATION_BANNER, PAGODA_TOWER, JADE_SLIP, FIRE_PLUME,
                     GHOST_HEAD, SHIELD_PLATE, FLYING_BLADE, GIANT_AXE,
                     RITUAL_BOWL, MAGIC_RULER, GIANT_HAMMER, MAGIC_STAFF,
@@ -1829,6 +1829,10 @@ public final class LodestoneTechniqueVfx {
             }
             case FLYING_SWORD -> {
                 flyingSwordShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case GIANT_SWORD -> {
+                giantSwordShape(level, family, start, end, radius, intensity, random);
                 yield true;
             }
             case FORMATION_BANNER -> {
@@ -2207,6 +2211,42 @@ public final class LodestoneTechniqueVfx {
                                         direction.scale(-0.008D), 0.10F, 0.55F, 12, random.nextFloat());
                             }
                         }));
+    }
+
+    /** Giant sword silhouette: broad tapered blade, spine, crossguard, grip and pommel. */
+    private static void giantSwordShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                        Vec3 start, Vec3 end, float radius,
+                                        int intensity, Random random) {
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 1.0D, 0.0D));
+        Vec3 side = perpendicular(direction);
+        double length = Math.max(2.2D, Math.min(6.0D, radius * 1.85D));
+        Vec3 hilt = start;
+        Vec3 tip = start.distanceToSqr(end) < 0.04D
+                ? start.add(direction.scale(length)) : end;
+        double bladeLength = Math.max(1.4D, hilt.distanceTo(tip));
+        double halfWidth = Math.max(0.32D, Math.min(1.35D,
+                Math.max(radius * 0.34D, bladeLength * 0.14D)));
+        Vec3 shoulder = hilt.lerp(tip, 0.22D);
+        Vec3 left = shoulder.subtract(side.scale(halfWidth));
+        Vec3 right = shoulder.add(side.scale(halfWidth));
+        Vec3 gripEnd = hilt.subtract(direction.scale(Math.min(0.72D, bladeLength * 0.16D)));
+        Vec3 guardLeft = hilt.subtract(side.scale(halfWidth * 1.18D));
+        Vec3 guardRight = hilt.add(side.scale(halfWidth * 1.18D));
+        emitFigureComponents(level, 263, List.of(
+                () -> shortLine(level, family, left, tip,
+                        Math.min(12, Math.max(5, intensity / 4)), random),
+                () -> shortLine(level, family, right, tip,
+                        Math.min(12, Math.max(5, intensity / 4)), random)),
+                List.of(
+                        () -> shortLine(level, family, shoulder, tip, 7, random),
+                        () -> shortLine(level, family, guardLeft, guardRight, 6, random),
+                        () -> shortLine(level, family, hilt, gripEnd, 5, random),
+                        () -> spawn(level, LodestoneParticleRegistry.STAR_PARTICLE, family,
+                                gripEnd, direction.scale(-0.008D), 0.18F, 0.9F, 22,
+                                random.nextFloat()),
+                        () -> spawn(level, LodestoneParticleRegistry.TWINKLE_PARTICLE, family,
+                                tip, direction.scale(0.018D), 0.20F, 0.92F, 20,
+                                random.nextFloat())));
     }
 
     /** 阵旗 silhouette: pole + rectangular flag plane + flutter tips. */
@@ -3248,10 +3288,14 @@ public final class LodestoneTechniqueVfx {
             base = base.add(randomOffset(random, layer.jitter() * 0.35D));
         }
         double radius = Math.max(0.1D, active.packet.radius() * layer.radiusScale());
+        Vec3 copyOffset = layer.copies() > 1
+                ? radial.scale(Math.min(radius * 0.78D,
+                radius * (0.24D + Math.sqrt(copies) * 0.045D)))
+                : Vec3.ZERO;
         Vec3 source = start;
         Vec3 target = end;
         switch (layer.path()) {
-            case STATIC -> source = target = base;
+            case STATIC -> source = target = base.add(copyOffset);
             case CONVERGE -> {
                 source = base.add(radial.scale(radius * 0.65D));
                 target = base;
@@ -3261,12 +3305,12 @@ public final class LodestoneTechniqueVfx {
                 target = base.add(radial.scale(radius * layer.lengthScale()));
             }
             case RISE -> {
-                source = base;
-                target = base.add(up.scale(layer.heightScale() * radius));
+                source = base.add(copyOffset);
+                target = source.add(up.scale(layer.heightScale() * radius));
             }
             case FALL -> {
-                source = base.add(up.scale(layer.heightScale() * radius));
-                target = base;
+                target = base.add(copyOffset);
+                source = target.add(up.scale(layer.heightScale() * radius));
             }
             case ORBIT -> source = target = base.add(radial.scale(radius * layer.radiusScale()));
             case SPIRAL -> {
@@ -3283,8 +3327,8 @@ public final class LodestoneTechniqueVfx {
                 target = end.add(radial.scale(wave));
             }
             case DIRECT, TRACK -> {
-                source = start;
-                target = end;
+                source = start.add(copyOffset);
+                target = end.add(copyOffset);
             }
         }
         if (layer.lengthScale() != 1.0D && layer.path() != VisualProgramLayer.Path.STATIC) {

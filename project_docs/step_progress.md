@@ -9412,3 +9412,16 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Tests/build   Done   生成器 `--check` 与目录定向测试通过；干净快照普通完整构建 `BUILD SUCCESSFUL in 1m 30s`，251 个套件、1,171 项测试 failure/error/skipped 均为 0。
   Version/protocol   Done   `mod_version` 0.2.217→0.2.218；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
   Artifact/backup   Done   `seeking_immortals-0.2.218.jar` SHA-256 `e3694d1baadfb3a1907e653d12971fa8eff92e93f0e9656056d51ef8ff611bf4`；备份 `.bak/20260728_060819_0.2.218_existing_object_reuse/`。
+
+## 610. 2026-07-28 0.2.219 巨剑独立几何与伴随层保真
+
+  Step   Status   Notes
+  ---   ---   ---
+  Source boundary   Done   精确审计原文 `巨剑`、`石剑`、`巨大光剑` 及三口异形剑；仅可执行“巨剑门重劈”允许 `巨剑门` 命中，普通宗门叙事 `technique_024` 明确排除。
+  Dedicated geometry   Done   新增 `GIANT_SWORD` 层内 primitive 与宽收尖剑身、剑脊、护手、握柄、剑首 Lodestone 几何；STATIC/DIRECT/TRACK/RISE/FALL 的多副本加入方位偏移，重复物体不再完全重叠。
+  Shape/count fidelity   Done   金/黑/红巨大光剑为三层重叠，薄金/长青/厚黑三剑垂直分离；六口金剑、四柄石剑、两把同形巨剑为 6/4/2，前置飞剑分别为 7/12/36/72。飞剑与巨剑共存时移除重复通用弹群。
+  Companion fidelity   Done   保留传送阵角符纹、12 份迷蒙青光、单道十丈青虹、金雷弧、电蟒、银火球/火鸟/银焰、黑光柱、灰丝/金丝、血线、空间裂缝与撞击光团；无数黑符为 20，单道乌光为 1，全部使用物件局部调色。
+  Diff/contracts   Done   相对 0.2.218 恰有 39 个预期 technique ID、56 条语义引文组变化，非目标 ID 和非 `visual_program` profile 字段变化为 0；`authored_spell_effects.json` 仅 Java 审计摘要变化。5,727 profiles、2,292 techniques、1,806 authored、9,947/9,947 引文保持，术法层数 10,800→10,860，primitive 93→94，`giant_sword=60`。
+  Tests/build   Done   两个生成器 `--check`、`AuthoredVisualCatalogTest`/`LodestoneVfxContractTest` 定向测试及干净快照普通完整构建通过；`BUILD SUCCESSFUL in 1m 25s`，251 个套件、1,172 项测试 failure/error/skipped 均为 0。
+  Version/protocol   Done   `mod_version` 0.2.218→0.2.219；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
+  Artifact/backup   Done   `seeking_immortals-0.2.219.jar` SHA-256 `d7196c8c76e6a7aada4d261196a22677d224fe092d37de12f743c020d5edd668`；备份 `.bak/20260728_063259_0.2.219_giant_sword_geometry/` 与 `.bak/20260728_064815_0.2.219_companion_fidelity/`。

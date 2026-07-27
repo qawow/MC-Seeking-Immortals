@@ -432,6 +432,8 @@ PROGRAM_RULES = (
     ("magic_mask", ("一张青色面具",)),
     ("seal_cage", ("铁笼", "黑笼", "金色囚笼")),
     ("bridge_arc", ("虹桥", "光桥", "玉桥", "虹桥光", "长虹光", "七彩桥", "光桥一")),
+    ("giant_sword", ("一口薄如纸片，金光闪闪，一口狭窄奇长，青光灿灿，最后一口倒是奇厚无锋，漆黑如墨",
+                     "巨大光剑", "巨剑", "石剑")),
     ("flying_sword", ("青竹蜂云剑", "飞剑", "青色小剑", "金色小剑", "小剑", "小青剑", "口剑", "剑影", "剑气纵横", "剑芒", "剑刃飞", "飞出一剑", "剑光分化", "分化出", "剑光在其", "化为三十六道", "化为七十二")),
     ("fire_plume", ("赤红火焰", "真火", "赤焰", "火焰从", "火柱", "火海", "烈焰", "三昧真火", "丹火", "青焰", "火球爆",
                     "银白火焰便如飞鸟一般飞入丹炉", "熊熊银焰", "银焰翻滚的巨大火炉")),
@@ -569,6 +571,26 @@ def program_path(text: str) -> str:
     if any(token in text for token in ("轨迹", "飞射", "射出", "光束", "光柱", "血色披风")):
         return "DIRECT"
     return "STATIC"
+
+
+def program_primitive_path(primitive: str, text: str, fallback: str) -> str:
+    if primitive != "giant_sword":
+        return fallback
+    if any(token in text for token in (
+            "六口丈许长金色巨剑", "四柄石剑身上爆发")):
+        return "ORBIT"
+    if any(token in text for token in (
+            "从天上狠斩下来", "从空中沉声落下", "一斩而下",
+            "从虚空中一闪的斩下", "半截剑身无声无息的滑落下")):
+        return "FALL"
+    if "从地下激射而出" in text or "冲天而起" in text:
+        return "RISE"
+    if any(token in text for token in (
+            "斩向", "斩在", "斩过", "划开", "飞斩而去", "一斩而去",
+            "虚空一斩", "追到黑烟", "破天而去", "直斩空中",
+            "狠狠斩下", "狠狠一斩", "斩击处")):
+        return "TRACK"
+    return fallback
 
 
 def program_motion(text: str, inferred: bool) -> str:
@@ -821,6 +843,7 @@ def program_palette(text: str, fallback: str, argbs: dict[str, int]) -> tuple[st
 
 
 _PRIMITIVE_PALETTE_FALLBACK = {
+    "giant_sword": "qi",
     "ritual_bowl": "yin",
     "ritual_lamp": "qi",
     "ritual_coffin": "yin",
@@ -841,6 +864,7 @@ _PRIMITIVE_PALETTE_FALLBACK = {
 }
 
 _LOCAL_PALETTE_PRIMITIVES = frozenset({
+    "giant_sword",
     "ritual_bowl", "ritual_lamp", "ritual_coffin", "magic_ruler", "magic_staff",
     "magic_bow", "magic_fan", "magic_umbrella", "magic_scissors", "command_token",
     "magic_brick", "bell_chime", "magic_scroll", "formation_disc", "spiked_club",
@@ -877,7 +901,7 @@ _FIGURE_PRIMITIVES = {
     "magic_bow", "magic_fan", "magic_umbrella", "magic_scissors",
     "banner_streamer", "seal_stamp", "command_token", "magic_brick", "seal_cage", "bridge_arc",
     "magic_gong", "magic_mask", "magic_cloth", "rune_pillar", "spirit_armor",
-    "flying_sword", "fire_plume", "formation_banner",
+    "flying_sword", "giant_sword", "fire_plume", "formation_banner",
     "pagoda_tower", "blood_thread", "jade_slip", "magic_scroll", "burning_talisman",
     "formation_disc", "spiked_club",
     "talisman_brush", "spirit_qin",
@@ -907,7 +931,7 @@ def program_primitives(text: str, base_shape: str) -> tuple[list[str], list[str]
         ("mist_veil", ("化为一团黑色雾气将其身形一罩",)),
         ("mist_veil", ("下方雾海一阵翻滚",)),
         ("impact_arcs", ("爆裂开来", "轰然爆开", "爆散而开", "震碎虚空", "五道粗大金弧")),
-        ("impact_arcs", ("一团刺目爆裂而开",)),
+        ("impact_arcs", ("一团刺目爆裂而开", "刺目耀眼的光团")),
         ("layered_afterimages", ("残影重重", "层层虚影")),
         ("afterimage_path", ("人就化为一股轻风", "瞬间化为一缕清风从莲影中",
                              "最终化为了一道几乎淡若不见的虚影", "血色披风")),
@@ -922,6 +946,27 @@ def program_primitives(text: str, base_shape: str) -> tuple[list[str], list[str]
         ("spirit_avatar", ("浑身生满妖目的淡银色佛像",)),
         ("eye_gaze", ("浑身生满妖目的淡银色佛像",)),
         ("summon_gate", ("十余头傀儡兽和傀儡士兵",)),
+        ("lightning_storm", (
+            "剑面上弹射出了数十道淡金色的细长电弧",
+            "剑身表面金光狂闪，无数电弧狂涌而出",
+            "雷电巨剑", "粗大金色电弧", "紫色火焰和金色电弧",
+            "金色电弧在剑身上浮现", "无数电弧闪动不已",
+            "化为一道金色雷电", "耀目的金色电弧一下弹射而出",
+        )),
+        ("serpent_dragon", ("两条电蟒摇头摆尾的往青色巨剑", "化为一条栩栩如生的电蟒")),
+        ("fire_plume", ("巨剑表面一层银焰冒出", "剑上泛出的紫色火焰")),
+        ("chain_net", ("上百条灰丝出来。众丝线", "密密麻麻金丝终于靠拢")),
+        ("spatial_rift", ("黑乎乎的细长裂缝", "长约十几丈的空间缝隙")),
+        ("afterimage_path", ("翠绿长虹破天而去", "化为一道金紫色惊虹",
+                             "化为一道十丈长的青虹")),
+        ("layered_afterimages", ("飞射出一把一般无二的巨剑",)),
+        ("ground_field", ("巨剑开山",)),
+        ("blade_arc", ("巨剑门重劈",)),
+        ("projectile_swarm", ("百余道青光聚到一起", "化为两道金光同时激射向下",
+                              "数十根青丝一闪即逝的从虚空中激射而出",
+                              "一道道迷蒙的青色灵光如剑般飞出")),
+        ("rune_orbit", ("传送阵的一角",)),
+        ("flying_blade", ("六口金刃骤然间融合一体",)),
     )
     for primitive, terms in secondary:
         hits = [term for term in terms if term in text]
@@ -931,6 +976,9 @@ def program_primitives(text: str, base_shape: str) -> tuple[list[str], list[str]
     if "chain_net" in selected and any(token in text for token in (
             "丝网般的无数白痕", "自投罗网", "蛛网般爬满")):
         selected.remove("chain_net")
+    if ("giant_sword" in selected and "巨剑门" in text
+            and "巨剑门重劈" not in text):
+        selected.remove("giant_sword")
     if not selected:
         # Avoid dumping every underspecified card onto aura_burst: pick a calmer default
         # from the text when possible.
@@ -947,7 +995,7 @@ def program_primitives(text: str, base_shape: str) -> tuple[list[str], list[str]
     swordish = any(tok in text for tok in (
         "飞剑", "小剑", "口剑", "剑芒", "剑影", "剑诀", "青元剑", "青竹剑", "液态飞剑",
         "剑光分化", "一模一样的剑", "真假难辨的剑", "指剑", "刃指", "小剑阵", "剑阵"))
-    if swordish:
+    if swordish and "giant_sword" not in selected:
         if "flying_sword" not in selected:
             selected.insert(0, "flying_sword")
             evidence.append("forced:flying_sword")
@@ -966,6 +1014,20 @@ def program_primitives(text: str, base_shape: str) -> tuple[list[str], list[str]
                       "ritual_bowl", "magic_ruler", "magic_staff", "giant_hammer",
                       "bell_chime"}
         selected = [p for p in selected if p == "flying_sword" or p in keep_extra]
+    elif "giant_sword" in selected:
+        explicit_small_swords = any(token in text for token in (
+            "飞剑", "小剑", "口剑", "青竹蜂云剑", "青色小剑", "金色小剑"))
+        if not explicit_small_swords:
+            selected = [p for p in selected if p != "flying_sword"]
+        elif "flying_sword" in selected:
+            selected = [p for p in selected if p != "projectile_swarm"]
+        selected = ["giant_sword"] + [p for p in selected if p != "giant_sword"]
+        if any(token in text for token in (
+                "上百条灰丝出来。众丝线", "密密麻麻金丝终于靠拢")):
+            selected = [p for p in selected if p != "projectile_swarm"]
+        if any(token in text for token in (
+                "无数电弧狂涌而出", "无数电弧闪动不已")):
+            selected = [p for p in selected if p != "projectile_swarm"]
     if "bell_chime" in selected and any(token in text for token in ("铃铛", "黄钟")):
         if any(token in text for token in ("声波法则", "钟音")) and "sound_wave" not in selected:
             selected.append("sound_wave")
@@ -1009,6 +1071,13 @@ def program_primitives(text: str, base_shape: str) -> tuple[list[str], list[str]
             tail = [primitive for primitive in tail if primitive != "projectile_swarm"]
             if "mist_veil" in ordered[1:] and "血雾" in text:
                 tail.append("mist_veil")
+        if head == "giant_sword":
+            if ("layered_afterimages" in ordered[1:]
+                    and "飞射出一把一般无二的巨剑" in text):
+                tail.append("layered_afterimages")
+            if ("impact_arcs" in ordered[1:]
+                    and any(token in text for token in ("爆裂开来", "刺目耀眼的光团"))):
+                tail.append("impact_arcs")
         if head == "wheel_disc" and "impact_arcs" in ordered[1:] and any(
                 token in text for token in ("爆裂开来", "爆裂开", "爆裂")):
             tail.append("impact_arcs")
@@ -1038,7 +1107,6 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
         trigger = clean(event.get("trigger"))
         primitive_ids, evidence = program_primitives(source, base_shape)
         path = program_path(source)
-        anchor = program_anchor(source, path, trigger)
         motion = program_motion(source, inferred)
         radius, length, height = program_scale(source, float(profile.get("radius", 0.9) or 0.9))
         digest = hashlib.sha256(f"{profile.get('id')}:{source_index}:{source}".encode("utf-8")).digest()
@@ -1058,7 +1126,83 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
                 _EXACT_LOCAL_PALETTE_FALLBACKS[primitive]
                 if exact_local_palette else _PRIMITIVE_PALETTE_FALLBACK.get(primitive, fallback_palette))
             palette_source = program_palette_source(source, primitive, matched_terms)
-            if (exact_local_palette and primitive == "rune_pillar"
+            if primitive == "giant_sword":
+                if "石剑" in source:
+                    primary_key = "earth"
+                    secondary_key = "yin" if "黑色光芒" in source else "earth"
+                elif "巨大光剑" in source and "金、黑、红三色交错" in source:
+                    primary_key, secondary_key = "metal", "fire"
+                elif "一口薄如纸片，金光闪闪" in source:
+                    primary_key = secondary_key = "metal"
+                elif any(token in source for token in (
+                        "青色巨剑", "绿色的巨剑", "青光巨剑", "翠绿长虹",
+                        "墨绿之光", "青色光柱", "青濛濛", "青光濛濛")):
+                    primary_key = "wood"
+                    secondary_key = "thunder" if any(token in source for token in (
+                        "金色雷剑", "金色电弧", "金弧", "霹雳")) else "wood"
+                elif "雷电巨剑" in source:
+                    primary_key, secondary_key = "thunder", "yin"
+                elif "雪白巨剑" in source:
+                    primary_key, secondary_key = "qi", "water"
+                elif "银色巨剑" in source:
+                    primary_key = secondary_key = "qi"
+                elif any(token in source for token in ("金色巨剑", "金色霞光", "金色雷电")):
+                    primary_key = "metal"
+                    secondary_key = "thunder" if any(token in source for token in (
+                        "雷", "电弧", "金弧")) else "metal"
+                elif "血剑" in source:
+                    primary_key = secondary_key = "fire"
+                elif "紫色火焰" in source:
+                    primary_key, secondary_key = "metal", "fire"
+                elif "金紫色惊虹" in source:
+                    primary_key, secondary_key = "metal", "yin"
+                elif any(token in source for token in ("金色电弧", "金弧", "霹雳")):
+                    primary_key, secondary_key = "metal", "thunder"
+                elif any(token in source for token in ("淡金色雷弧", "淡金色的细长电弧")):
+                    primary_key, secondary_key = "metal", "thunder"
+                elif "巨剑表面一层银焰" in source:
+                    primary_key, secondary_key = "qi", "fire"
+                elif "百丈巨剑" in source and "青龙上人" in source:
+                    primary_key = secondary_key = "wood"
+                elif "空间缝隙" in source and "巨剑斩击处" in source:
+                    primary_key = secondary_key = "wood"
+                else:
+                    primary_key, secondary_key = program_palette(
+                        palette_source, primitive_fallback, argbs)
+            elif primitive == "lightning_storm" and "giant_sword" in primitive_ids:
+                primary_key, secondary_key = "metal", "thunder"
+            elif primitive == "serpent_dragon" and "电蟒" in source:
+                primary_key, secondary_key = "metal", "thunder"
+            elif (primitive in {"orb_projectile", "flame_bird", "fire_plume"}
+                    and "giant_sword" in primitive_ids and "银色火球" in source):
+                primary_key, secondary_key = "qi", "fire"
+            elif (primitive in {"flying_sword", "projectile_swarm", "beam_lance"}
+                    and "giant_sword" in primitive_ids
+                    and any(token in source for token in (
+                        "这些小剑围着他身体", "六道青光却清鸣发出",
+                        "七道青光从手中飞射而出", "百余道青光聚到一起",
+                        "一道道迷蒙的青色灵光如剑般飞出",
+                        "数十根青丝一闪即逝的从虚空中激射而出",
+                        "七十二青色小剑", "七十二口青色小剑",
+                        "七十二口青濛濛小剑", "所有青色飞剑",
+                        "一道碗口粗的青色光柱"))):
+                primary_key = secondary_key = "wood"
+            elif (primitive == "afterimage_path"
+                    and "化为一道十丈长的青虹" in source):
+                primary_key = secondary_key = "wood"
+            elif (primitive in {"beam_lance", "projectile_swarm"}
+                    and "斩在了黑色光柱上" in source):
+                primary_key = secondary_key = "yin"
+            elif (primitive in {"beam_lance", "projectile_swarm"}
+                    and "无数黑色符文" in source and "一道粗大乌光" in source):
+                primary_key = secondary_key = "yin"
+            elif primitive == "chain_net" and "上百条灰丝出来。众丝线" in source:
+                primary_key = secondary_key = "yin"
+            elif primitive == "chain_net" and "密密麻麻金丝终于靠拢" in source:
+                primary_key = secondary_key = "metal"
+            elif primitive == "blood_thread" and "脖颈处一丝血线" in source:
+                primary_key = secondary_key = "fire"
+            elif (exact_local_palette and primitive == "rune_pillar"
                     and "巨大水晶柱" in matched_terms):
                 primary_key, secondary_key = "water", "qi"
             elif (exact_local_palette and primitive == "rune_pillar"
@@ -1253,6 +1397,66 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
                 copies = 1
             if primitive == "summon_gate" and "十余头傀儡兽和傀儡士兵" in source:
                 copies = 1
+            if primitive == "giant_sword":
+                copies = 1
+                if "六口丈许长金色巨剑" in source:
+                    copies = 6
+                elif ("两道一模一样的巨剑" in source
+                      or "两把巨剑同时" in source
+                      or "飞射出一把一般无二的巨剑" in source):
+                    copies = 2
+                elif "四柄石剑身上爆发" in source:
+                    copies = 4
+            if primitive == "flying_sword" and "这些小剑围着他身体" in source:
+                copies = 7
+            if primitive == "flying_sword" and "数十口金色飞剑" in source:
+                copies = 12
+            if primitive == "flying_sword" and "三十六口金色飞剑" in source:
+                copies = 36
+            if primitive == "flying_sword" and any(token in source for token in (
+                    "七十二青色小剑", "七十二口青濛濛小剑", "所有青色飞剑")):
+                copies = 72
+            if (primitive == "beam_lance" and "其中六道瞬间合成一柄巨大青色巨剑" in source
+                    and "另外六道" in source):
+                copies = 6
+            if primitive == "projectile_swarm" and "七道青光从手中飞射而出" in source:
+                copies = 7
+            if primitive == "projectile_swarm" and "百余道青光聚到一起" in source:
+                copies = 12
+            if primitive == "projectile_swarm" and "化为两道金光同时激射向下" in source:
+                copies = 2
+            if (primitive == "projectile_swarm"
+                    and "数十根青丝一闪即逝的从虚空中激射而出" in source):
+                copies = 12
+            if primitive == "lightning_storm" and "巨剑" in source:
+                if "无数电弧" in source:
+                    copies = 20
+                elif any(token in source for token in (
+                        "数十道淡金色的细长电弧", "粗大金色电弧")):
+                    copies = 12
+                else:
+                    copies = 1
+            if primitive == "serpent_dragon" and "两条电蟒" in source:
+                copies = 2
+            if primitive == "serpent_dragon" and "一条栩栩如生的电蟒" in source:
+                copies = 1
+            if primitive == "chain_net" and "上百条灰丝" in source:
+                copies = 12
+            if primitive == "chain_net" and "无数金丝切割在巨剑" in source:
+                copies = 20
+            if primitive == "flying_blade" and "六口金刃骤然间融合一体" in source:
+                copies = 6
+            if (primitive == "rune_orbit" and "无数黑色符文" in source
+                    and "一道粗大乌光" in source):
+                copies = 20
+            if (primitive in {"beam_lance", "projectile_swarm"}
+                    and "无数黑色符文" in source and "一道粗大乌光" in source):
+                copies = 1
+            if (primitive == "projectile_swarm"
+                    and "一道道迷蒙的青色灵光如剑般飞出" in source):
+                copies = 12
+            if primitive == "afterimage_path" and "化为一道十丈长的青虹" in source:
+                copies = 1
             if primitive == "impact_arcs" and "银色圆环" in source:
                 copies = 1
             if primitive == "impact_arcs" and "一团刺目爆裂而开" in source:
@@ -1263,21 +1467,25 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
                 copies = 1
             if primitive == "afterimage_path" and "血色披风" in source:
                 copies = 1
+            layer_path = program_primitive_path(primitive, source, path)
+            layer_anchor = program_anchor(source, layer_path, trigger)
+            layer_spread = 360.0 if layer_path == "ORBIT" else spread
+            layer_rotation = 360.0 if layer_path in {"ORBIT", "SPIRAL"} else rotation
             layers.append({
                 "layer_index": len(layers),
                 "event_ordinal": int(event.get("ordinal", event_index)),
                 "primitive": primitive,
-                "anchor": anchor,
-                "path": path,
+                "anchor": layer_anchor,
+                "path": layer_path,
                 "motion": motion,
                 "copies": copies,
                 "radius_scale": radius / max(0.1, float(profile.get("radius", 0.9) or 0.9)),
                 "length_scale": length,
                 "height_scale": height,
                 "speed": speed,
-                "spread_degrees": spread,
-                "rotation_degrees": rotation,
-                "vertical_offset": 0.0 if anchor in {"TARGET", "PATH"} else (0.18 if "地面" not in source else 0.03),
+                "spread_degrees": layer_spread,
+                "rotation_degrees": layer_rotation,
+                "vertical_offset": 0.0 if layer_anchor in {"TARGET", "PATH"} else (0.18 if "地面" not in source else 0.03),
                 "jitter": 0.06 if motion in {"FLICKER", "PULSE"} else 0.02,
                 "primary_argb": int(argbs.get(primary_key, argbs[fallback_palette])),
                 "secondary_argb": int(argbs.get(secondary_key, argbs[fallback_palette])),
@@ -1285,6 +1493,27 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
                 "source_quote": source,
                 "inferred": inferred,
             })
+            giant_variants = None
+            if primitive == "giant_sword" and "金、黑、红三色交错" in source:
+                giant_variants = (("metal", 0.0), ("yin", 0.0), ("fire", 0.0))
+            elif primitive == "giant_sword" and "一口薄如纸片，金光闪闪" in source:
+                giant_variants = (("metal", -0.32), ("wood", 0.0), ("yin", 0.32))
+            if giant_variants:
+                base_layer = layers[-1]
+                base_layer["primary_argb"] = int(argbs[giant_variants[0][0]])
+                base_layer["secondary_argb"] = int(argbs[giant_variants[0][0]])
+                base_layer["vertical_offset"] += giant_variants[0][1]
+                base_layer["evidence_terms"] = base_layer["evidence_terms"] + ["color_variant:0"]
+                for variant_index, (variant_key, variant_offset) in enumerate(giant_variants[1:], start=1):
+                    variant = base_layer.copy()
+                    variant["layer_index"] = len(layers)
+                    variant["primary_argb"] = int(argbs[variant_key])
+                    variant["secondary_argb"] = int(argbs[variant_key])
+                    variant["vertical_offset"] = (0.0 if layer_anchor in {"TARGET", "PATH"}
+                                                  else (0.18 if "地面" not in source else 0.03)) + variant_offset
+                    variant["evidence_terms"] = base_layer["evidence_terms"][:-1] + [
+                        "color_variant:" + str(variant_index)]
+                    layers.append(variant)
         seen_quote_layers += 1
     if not layers:
         layers.append({

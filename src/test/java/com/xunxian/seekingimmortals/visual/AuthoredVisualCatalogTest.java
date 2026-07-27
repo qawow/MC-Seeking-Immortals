@@ -1072,6 +1072,134 @@ class AuthoredVisualCatalogTest {
     }
 
     @Test
+    void giantSwordsKeepAuthoredBodiesCountsCompanionsAndLocalColors() {
+        AuthoredVisualCatalog.Snapshot catalog = AuthoredVisualCatalog.builtin();
+        long qi = catalog.palette("qi").orElseThrow().argb();
+        long wood = catalog.palette("wood").orElseThrow().argb();
+        long earth = catalog.palette("earth").orElseThrow().argb();
+        long metal = catalog.palette("metal").orElseThrow().argb();
+        long fire = catalog.palette("fire").orElseThrow().argb();
+        long thunder = catalog.palette("thunder").orElseThrow().argb();
+        long yin = catalog.palette("yin").orElseThrow().argb();
+
+        List<VisualProgramLayer> triColor = catalog.find(
+                        VisualDomain.TECHNIQUE, "technique_053").orElseThrow()
+                .visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.GIANT_SWORD)
+                .filter(layer -> layer.sourceQuote().contains("金、黑、红三色交错"))
+                .toList();
+        assertEquals(3, triColor.size());
+        assertEquals(3, triColor.stream().map(VisualProgramLayer::primaryArgb).distinct().count());
+        assertTrue(triColor.stream().anyMatch(layer -> layer.primaryArgb() == metal));
+        assertTrue(triColor.stream().anyMatch(layer -> layer.primaryArgb() == yin));
+        assertTrue(triColor.stream().anyMatch(layer -> layer.primaryArgb() == fire));
+
+        List<VisualProgramLayer> distinctSwords = catalog.find(
+                        VisualDomain.TECHNIQUE, "technique_791").orElseThrow()
+                .visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.GIANT_SWORD)
+                .filter(layer -> layer.sourceQuote().contains("一口薄如纸片"))
+                .toList();
+        assertEquals(3, distinctSwords.size());
+        assertEquals(3, distinctSwords.stream().map(VisualProgramLayer::primaryArgb).distinct().count());
+        assertEquals(3, distinctSwords.stream().map(VisualProgramLayer::verticalOffset).distinct().count());
+
+        VisualProgramLayer sixSwords = giantSwordLayer(catalog, "technique_1112", "六口丈许长金色巨剑");
+        assertEquals(6, sixSwords.copies());
+        assertEquals(VisualProgramLayer.Path.ORBIT, sixSwords.path());
+        assertEquals(metal, sixSwords.primaryArgb());
+        VisualProgramLayer fourStoneSwords = giantSwordLayer(
+                catalog, "technique_1411", "四柄石剑身上爆发");
+        assertEquals(4, fourStoneSwords.copies());
+        assertEquals(VisualProgramLayer.Path.ORBIT, fourStoneSwords.path());
+        assertEquals(earth, fourStoneSwords.primaryArgb());
+        assertEquals(yin, fourStoneSwords.secondaryArgb());
+        assertEquals(2, giantSwordLayer(catalog, "technique_159", "一般无二的巨剑").copies());
+
+        assertEquals(7, figureLayer(catalog, "technique_103", VisualPrimitive.FLYING_SWORD,
+                "这些小剑围着他身体").copies());
+        assertEquals(12, figureLayer(catalog, "technique_328", VisualPrimitive.FLYING_SWORD,
+                "数十口金色飞剑").copies());
+        assertEquals(36, figureLayer(catalog, "technique_512", VisualPrimitive.FLYING_SWORD,
+                "三十六口金色飞剑").copies());
+        assertEquals(72, figureLayer(catalog, "technique_1003", VisualPrimitive.FLYING_SWORD,
+                "七十二口青色小剑").copies());
+        assertFalse(catalog.find(VisualDomain.TECHNIQUE, "technique_328").orElseThrow()
+                .visualProgram().layers().stream().anyMatch(
+                        layer -> layer.sourceQuote().contains("数十口金色飞剑")
+                                && layer.primitive() == VisualPrimitive.PROJECTILE_SWARM));
+        assertFalse(catalog.find(VisualDomain.TECHNIQUE, "technique_512").orElseThrow()
+                .visualProgram().layers().stream().anyMatch(
+                        layer -> layer.sourceQuote().contains("三十六口金色飞剑")
+                                && layer.primitive() == VisualPrimitive.PROJECTILE_SWARM));
+
+        VisualProgramLayer lightning = figureLayer(catalog, "technique_1003",
+                VisualPrimitive.LIGHTNING_STORM, "无数电弧狂涌而出");
+        assertEquals(metal, lightning.primaryArgb());
+        assertEquals(thunder, lightning.secondaryArgb());
+        VisualProgramLayer pythons = figureLayer(catalog, "technique_1003",
+                VisualPrimitive.SERPENT_DRAGON, "两条电蟒");
+        assertEquals(2, pythons.copies());
+        assertEquals(metal, pythons.primaryArgb());
+        assertEquals(thunder, pythons.secondaryArgb());
+        for (VisualPrimitive primitive : List.of(
+                VisualPrimitive.ORB_PROJECTILE, VisualPrimitive.FLAME_BIRD,
+                VisualPrimitive.FIRE_PLUME)) {
+            VisualProgramLayer silverFire = figureLayer(
+                    catalog, "technique_1003", primitive, "银色火球");
+            assertEquals(qi, silverFire.primaryArgb(), primitive.name());
+            assertEquals(fire, silverFire.secondaryArgb(), primitive.name());
+        }
+
+        assertEquals(wood, figureLayer(catalog, "technique_1411",
+                VisualPrimitive.PROJECTILE_SWARM, "迷蒙的青色灵光").primaryArgb());
+        assertEquals(wood, figureLayer(catalog, "technique_234",
+                VisualPrimitive.PROJECTILE_SWARM, "百余道青光").primaryArgb());
+        assertEquals(wood, figureLayer(catalog, "technique_234",
+                VisualPrimitive.AFTERIMAGE_PATH, "十丈长的青虹").primaryArgb());
+        assertEquals(wood, giantSwordLayer(catalog, "technique_759", "青光濛濛").primaryArgb());
+        assertEquals(yin, figureLayer(catalog, "technique_1519",
+                VisualPrimitive.BEAM_LANCE, "黑色光柱").primaryArgb());
+        assertEquals(yin, figureLayer(catalog, "technique_404",
+                VisualPrimitive.CHAIN_NET, "上百条灰丝").primaryArgb());
+        assertEquals(metal, figureLayer(catalog, "technique_645",
+                VisualPrimitive.CHAIN_NET, "密密麻麻金丝").primaryArgb());
+        assertEquals(fire, figureLayer(catalog, "technique_977",
+                VisualPrimitive.BLOOD_THREAD, "脖颈处一丝血线").primaryArgb());
+
+        VisualProgramLayer blackRunes = figureLayer(catalog, "technique_1310",
+                VisualPrimitive.RUNE_ORBIT, "无数黑色符文");
+        assertEquals(20, blackRunes.copies());
+        assertEquals(yin, blackRunes.primaryArgb());
+        VisualProgramLayer blackRay = figureLayer(catalog, "technique_1310",
+                VisualPrimitive.PROJECTILE_SWARM, "一道粗大乌光");
+        assertEquals(1, blackRay.copies());
+        assertEquals(yin, blackRay.primaryArgb());
+        assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_076").orElseThrow()
+                .visualProgram().layers().stream().anyMatch(
+                        layer -> layer.primitive() == VisualPrimitive.RUNE_ORBIT
+                                && layer.sourceQuote().contains("传送阵的一角")));
+        assertFalse(catalog.find(VisualDomain.TECHNIQUE, "technique_024").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.GIANT_SWORD));
+    }
+
+    private static VisualProgramLayer giantSwordLayer(
+            AuthoredVisualCatalog.Snapshot catalog, String id, String sourceToken) {
+        return figureLayer(catalog, id, VisualPrimitive.GIANT_SWORD, sourceToken);
+    }
+
+    private static VisualProgramLayer figureLayer(AuthoredVisualCatalog.Snapshot catalog,
+                                                  String id, VisualPrimitive primitive,
+                                                  String sourceToken) {
+        return catalog.find(VisualDomain.TECHNIQUE, id).orElseThrow()
+                .visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == primitive)
+                .filter(layer -> layer.sourceQuote().contains(sourceToken))
+                .findFirst().orElseThrow();
+    }
+
+    @Test
     void paletteArgbValuesExactlyMatchV118() throws Exception {
         JsonObject source = JsonParser.parseString(Files.readString(Path.of(
                 "文本材料", "data", "visual_style_v118.json"))).getAsJsonObject()
