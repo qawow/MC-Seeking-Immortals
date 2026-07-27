@@ -1753,7 +1753,8 @@ public final class LodestoneTechniqueVfx {
                     RITUAL_LAMP, SPIRIT_QIN, RITUAL_COFFIN, TALISMAN_BRUSH,
                     MAGIC_FAN, ALCHEMY_FURNACE, MAGIC_SCROLL, FORMATION_DISC,
                     SPIKED_CLUB, COMMAND_TOKEN, MAGIC_SCISSORS, MAGIC_BRICK,
-                    MAGIC_UMBRELLA, MAGIC_BOW, MAGIC_RUYI, MAGIC_HOOK, MAGIC_WHIP -> 2;
+                    MAGIC_UMBRELLA, MAGIC_BOW, MAGIC_RUYI, MAGIC_HOOK, MAGIC_WHIP,
+                    MAGIC_VAJRA, MAGIC_BOX, SPIKED_SHIELD -> 2;
             default -> 1;
         };
     }
@@ -1809,6 +1810,10 @@ public final class LodestoneTechniqueVfx {
             }
             case MAGIC_STAFF -> {
                 magicStaffShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case MAGIC_VAJRA -> {
+                magicVajraShape(level, family, start, end, radius, intensity, random);
                 yield true;
             }
             case MAGIC_FAN -> {
@@ -1879,6 +1884,10 @@ public final class LodestoneTechniqueVfx {
                 shieldPlateShape(level, family, start, end, radius, intensity, random);
                 yield true;
             }
+            case SPIKED_SHIELD -> {
+                spikedShieldShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
             case FLYING_BLADE -> {
                 flyingBladeShape(level, family, start, end, radius, intensity, random);
                 yield true;
@@ -1905,6 +1914,10 @@ public final class LodestoneTechniqueVfx {
             }
             case MAGIC_BRICK -> {
                 magicBrickShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case MAGIC_BOX -> {
+                magicBoxShape(level, family, start, end, radius, intensity, random);
                 yield true;
             }
             case MAGIC_UMBRELLA -> {
@@ -2436,6 +2449,45 @@ public final class LodestoneTechniqueVfx {
                                 0.11F, 0.72F, 16, random.nextFloat())));
     }
 
+    /** Bristled shield silhouette: round barrier, rotating spike tips, and radial quills. */
+    private static void spikedShieldShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                          Vec3 start, Vec3 end, float radius,
+                                          int intensity, Random random) {
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 side = perpendicular(direction);
+        Vec3 up = normalized(direction.cross(side), new Vec3(0.0D, 1.0D, 0.0D));
+        double size = Math.max(0.62D, Math.min(2.4D, radius * 0.78D));
+        Vec3 center = (start.distanceToSqr(end) < 0.04D ? start : end).add(up.scale(size * 0.78D));
+        int spikeCount = Math.min(16, Math.max(10, intensity / 3));
+        List<Runnable> details = new ArrayList<>();
+        for (int spike = 0; spike < spikeCount; spike++) {
+            int index = spike;
+            double angle = Math.PI * 2.0D * index / spikeCount;
+            Vec3 rim = center.add(side.scale(Math.cos(angle) * size * 0.58D))
+                    .add(up.scale(Math.sin(angle) * size * 0.58D));
+            Vec3 tip = center.add(side.scale(Math.cos(angle) * size * 1.02D))
+                    .add(up.scale(Math.sin(angle) * size * 1.02D));
+            details.add(() -> shortLine(level, family, rim, tip, 3, random));
+        }
+        details.add(() -> spawn(level, LodestoneParticleRegistry.TWINKLE_PARTICLE, family,
+                center, direction.scale(-0.006D), 0.18F, 0.9F, 22, random.nextFloat()));
+        emitFigureComponents(level, 117, List.of(
+                () -> verticalRing(level, family, center, direction,
+                        size * 0.58D, spikeCount, random, 0.15F),
+                () -> {
+                    int samples = budgetedSamples(spikeCount);
+                    for (int sample = 0; sample < samples && budgetAvailable(level); sample++) {
+                        int index = ringSampleIndex(level, sample, samples, spikeCount);
+                        double angle = Math.PI * 2.0D * index / spikeCount;
+                        Vec3 tip = center.add(side.scale(Math.cos(angle) * size * 1.02D))
+                                .add(up.scale(Math.sin(angle) * size * 1.02D));
+                        spawn(level, LodestoneParticleRegistry.STAR_PARTICLE, family, tip,
+                                tip.subtract(center).normalize().scale(0.012D),
+                                0.14F, 0.88F, 20, phaseAsFloat(angle));
+                    }
+                }), details);
+    }
+
     /** 飞刀 silhouette: broad triangular blade with a luminous point. */
     private static void flyingBladeShape(ClientLevel level, TechniqueVfxPalette.Family family,
                                          Vec3 start, Vec3 end, float radius,
@@ -2605,6 +2657,43 @@ public final class LodestoneTechniqueVfx {
                 0.18F, 0.9F, 24, random.nextFloat()));
         emitFigureComponents(level, 151,
                 List.of(() -> shortLine(level, family, butt, crown, 9, random)), details);
+    }
+
+    /** Vajra silhouette: central grip, paired collars and symmetric four-pronged crowns. */
+    private static void magicVajraShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                        Vec3 start, Vec3 end, float radius,
+                                        int intensity, Random random) {
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 side = perpendicular(direction);
+        Vec3 up = normalized(side.cross(direction), new Vec3(0.0D, 1.0D, 0.0D));
+        double size = Math.max(0.75D, Math.min(3.0D, radius * 0.84D));
+        Vec3 center = (start.distanceToSqr(end) < 0.04D ? start : start.lerp(end, 0.38D))
+                .add(0.0D, 0.58D, 0.0D);
+        Vec3 tailCollar = center.subtract(direction.scale(size * 0.44D));
+        Vec3 headCollar = center.add(direction.scale(size * 0.44D));
+        Vec3 tailTip = center.subtract(direction.scale(size * 1.02D));
+        Vec3 headTip = center.add(direction.scale(size * 1.02D));
+        List<Runnable> details = new ArrayList<>();
+        details.add(() -> verticalRing(level, family, tailCollar, direction, size * 0.18D,
+                Math.min(12, Math.max(6, intensity / 4)), random, 0.13F));
+        details.add(() -> verticalRing(level, family, headCollar, direction, size * 0.18D,
+                Math.min(12, Math.max(6, intensity / 4)), random, 0.13F));
+        details.add(() -> verticalRing(level, family, center, direction, size * 0.22D,
+                Math.min(12, Math.max(6, intensity / 4)), random, 0.14F));
+        for (int prong = 0; prong < 4; prong++) {
+            double angle = Math.PI * 2.0D * prong / 4.0D;
+            Vec3 flare = side.scale(Math.cos(angle) * size * 0.3D)
+                    .add(up.scale(Math.sin(angle) * size * 0.3D));
+            Vec3 headRoot = headCollar.add(flare);
+            Vec3 tailRoot = tailCollar.add(flare);
+            details.add(() -> shortLine(level, family, headRoot, headTip, 5, random));
+            details.add(() -> shortLine(level, family, tailRoot, tailTip, 5, random));
+        }
+        details.add(() -> spawn(level, LodestoneParticleRegistry.STAR_PARTICLE, family,
+                headTip, direction.scale(0.018D), 0.18F, 0.9F, 22, random.nextFloat()));
+        emitFigureComponents(level, 251, List.of(
+                () -> shortLine(level, family, tailTip, headTip, 9, random),
+                () -> shortLine(level, family, tailCollar, headCollar, 7, random)), details);
     }
 
     /** Ancient lamp silhouette: pedestal, suspended body, handle and living flame. */
@@ -3011,6 +3100,50 @@ public final class LodestoneTechniqueVfx {
         emitFigureComponents(level, 223, List.of(
                 () -> shortLine(level, family, backLowLeft, frontLowLeft, 7, random),
                 () -> shortLine(level, family, backHighRight, frontHighRight, 7, random)), details);
+    }
+
+    /** Sealed box silhouette: deep case, raised lid seam, hinge and central ward. */
+    private static void magicBoxShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                      Vec3 start, Vec3 end, float radius,
+                                      int intensity, Random random) {
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 side = perpendicular(direction);
+        Vec3 up = normalized(side.cross(direction), new Vec3(0.0D, 1.0D, 0.0D));
+        Vec3 center = (start.distanceToSqr(end) < 0.04D ? start : start.lerp(end, 0.46D))
+                .add(0.0D, 0.42D, 0.0D);
+        double size = Math.max(0.62D, Math.min(2.6D, radius * 0.72D));
+        double halfLength = size * 0.7D;
+        double halfWidth = size * 0.48D;
+        double halfHeight = size * 0.3D;
+        Vec3 back = center.subtract(direction.scale(halfLength));
+        Vec3 front = center.add(direction.scale(halfLength));
+        Vec3 backLowLeft = back.subtract(side.scale(halfWidth)).subtract(up.scale(halfHeight));
+        Vec3 backLowRight = back.add(side.scale(halfWidth)).subtract(up.scale(halfHeight));
+        Vec3 backHighLeft = back.subtract(side.scale(halfWidth)).add(up.scale(halfHeight));
+        Vec3 backHighRight = back.add(side.scale(halfWidth)).add(up.scale(halfHeight));
+        Vec3 frontLowLeft = front.subtract(side.scale(halfWidth)).subtract(up.scale(halfHeight));
+        Vec3 frontLowRight = front.add(side.scale(halfWidth)).subtract(up.scale(halfHeight));
+        Vec3 frontHighLeft = front.subtract(side.scale(halfWidth)).add(up.scale(halfHeight));
+        Vec3 frontHighRight = front.add(side.scale(halfWidth)).add(up.scale(halfHeight));
+        Vec3 lidRidgeBack = back.add(up.scale(halfHeight + size * 0.12D));
+        Vec3 lidRidgeFront = front.add(up.scale(halfHeight + size * 0.12D));
+        List<Runnable> details = new ArrayList<>();
+        details.add(() -> shortLine(level, family, backLowLeft, backLowRight, 4, random));
+        details.add(() -> shortLine(level, family, frontLowLeft, frontLowRight, 4, random));
+        details.add(() -> shortLine(level, family, backHighLeft, backHighRight, 4, random));
+        details.add(() -> shortLine(level, family, frontHighLeft, frontHighRight, 4, random));
+        details.add(() -> shortLine(level, family, backLowLeft, backHighLeft, 3, random));
+        details.add(() -> shortLine(level, family, frontLowRight, frontHighRight, 3, random));
+        details.add(() -> shortLine(level, family, lidRidgeBack, lidRidgeFront, 7, random));
+        details.add(() -> verticalRing(level, family, back, direction, size * 0.12D,
+                Math.min(10, Math.max(5, intensity / 5)), random, 0.12F));
+        details.add(() -> verticalRing(level, family, front, direction, size * 0.14D,
+                Math.min(10, Math.max(5, intensity / 5)), random, 0.13F));
+        details.add(() -> spawn(level, LodestoneParticleRegistry.TWINKLE_PARTICLE, family,
+                lidRidgeFront, up.scale(0.012D), 0.17F, 0.86F, 22, random.nextFloat()));
+        emitFigureComponents(level, 257, List.of(
+                () -> shortLine(level, family, backLowLeft, frontLowLeft, 8, random),
+                () -> shortLine(level, family, backHighRight, frontHighRight, 8, random)), details);
     }
 
     /** Jade umbrella silhouette: domed rim, radial ribs, central shaft and cut glint. */

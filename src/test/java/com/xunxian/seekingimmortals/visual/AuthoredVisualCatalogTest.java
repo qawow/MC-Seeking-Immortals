@@ -1266,6 +1266,152 @@ class AuthoredVisualCatalogTest {
                 .anyMatch(layer -> layer.primitive() == VisualPrimitive.MAGIC_RUYI));
     }
 
+    @Test
+    void vajraBoxesFlagsWheelsAndShieldsKeepAuthoredCompanions() {
+        AuthoredVisualCatalog.Snapshot catalog = AuthoredVisualCatalog.builtin();
+        long qi = catalog.palette("qi").orElseThrow().argb();
+        long water = catalog.palette("water").orElseThrow().argb();
+        long wood = catalog.palette("wood").orElseThrow().argb();
+        long metal = catalog.palette("metal").orElseThrow().argb();
+        long thunder = catalog.palette("thunder").orElseThrow().argb();
+        long yin = catalog.palette("yin").orElseThrow().argb();
+        long soul = catalog.palette("soul").orElseThrow().argb();
+        List<VisualProgramLayer> allLayers = catalog.profiles().values().stream()
+                .filter(profile -> profile.domain() == VisualDomain.TECHNIQUE)
+                .flatMap(profile -> profile.visualProgram().layers().stream())
+                .toList();
+
+        assertEquals(4, allLayers.stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_VAJRA).count());
+        assertEquals(12, allLayers.stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_BOX).count());
+        assertEquals(1, allLayers.stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.SPIKED_SHIELD).count());
+        assertTrue(allLayers.stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_VAJRA)
+                .allMatch(layer -> layer.copies() == 1
+                        && layer.path() == VisualProgramLayer.Path.DIRECT
+                        && layer.primaryArgb() == qi && layer.secondaryArgb() == qi));
+        VisualProfile vajra = catalog.find(
+                VisualDomain.TECHNIQUE, "dajin_buddhist_vajra").orElseThrow();
+        assertEquals(4, vajra.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.IMPACT_ARCS).count());
+
+        VisualProfile boxedScripture = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_031").orElseThrow();
+        assertEquals(1, figureLayer(catalog, "technique_031",
+                VisualPrimitive.MAGIC_BOX, "一个玉盒内").copies());
+        VisualProgramLayer glyphs = figureLayer(catalog, "technique_031",
+                VisualPrimitive.SCRIPTURE_GLYPH, "密密麻麻的古文");
+        assertEquals(12, glyphs.copies());
+        assertEquals(metal, glyphs.primaryArgb());
+        assertFalse(boxedScripture.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.PROJECTILE_SWARM));
+
+        VisualProgramLayer boxedSoul = figureLayer(catalog, "technique_960",
+                VisualPrimitive.SPIRIT_AVATAR, "金色元婴");
+        assertEquals(1, boxedSoul.copies());
+        assertEquals(VisualProgramLayer.Path.STATIC, boxedSoul.path());
+        assertEquals(metal, boxedSoul.primaryArgb());
+        VisualProgramLayer fiveEyes = figureLayer(catalog, "technique_960",
+                VisualPrimitive.EYE_GAZE, "五色眼珠");
+        assertEquals(5, fiveEyes.copies());
+        assertEquals(VisualProgramLayer.Path.ORBIT, fiveEyes.path());
+        assertEquals(qi, fiveEyes.primaryArgb());
+
+        VisualProgramLayer bristledShield = figureLayer(catalog, "technique_026",
+                VisualPrimitive.SPIKED_SHIELD, "刺猬一样的芒刺状");
+        assertEquals(1, bristledShield.copies());
+        assertEquals(VisualProgramLayer.Path.STATIC, bristledShield.path());
+        assertEquals(wood, bristledShield.primaryArgb());
+        assertEquals(soul, bristledShield.secondaryArgb());
+        assertFalse(catalog.find(VisualDomain.TECHNIQUE, "technique_026").orElseThrow()
+                .visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("刺猬一样的芒刺状"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.SHIELD_PLATE));
+        VisualProgramLayer iceShield = figureLayer(catalog, "ice_jade_shield",
+                VisualPrimitive.SHIELD_PLATE, "冰玉盾");
+        assertEquals(water, iceShield.primaryArgb());
+        assertEquals(qi, iceShield.secondaryArgb());
+        assertEquals(metal, figureLayer(catalog, "sword_shield",
+                VisualPrimitive.SHIELD_PLATE, "剑盾").primaryArgb());
+        for (String id : List.of("tianque_shield_bash", "wuzang_organ_shield")) {
+            VisualProfile profile = catalog.find(VisualDomain.TECHNIQUE, id).orElseThrow();
+            assertTrue(profile.visualProgram().layers().stream()
+                    .anyMatch(layer -> layer.primitive() == VisualPrimitive.SHIELD_PLATE));
+            assertTrue(profile.visualProgram().layers().stream()
+                    .anyMatch(layer -> layer.primitive() == VisualPrimitive.IMPACT_ARCS));
+        }
+
+        VisualProgramLayer hallFlags = figureLayer(catalog, "technique_456",
+                VisualPrimitive.FORMATION_BANNER, "一叠法旗");
+        assertEquals(6, hallFlags.copies());
+        assertEquals(wood, hallFlags.primaryArgb());
+        VisualProgramLayer hallCurtain = figureLayer(catalog, "technique_456",
+                VisualPrimitive.LIGHT_CURTAIN, "一层青色霞光");
+        assertEquals(1, hallCurtain.copies());
+        assertEquals(wood, hallCurtain.primaryArgb());
+
+        VisualProgramLayer returnedBlackFlag = figureLayer(catalog, "technique_801",
+                VisualPrimitive.FORMATION_BANNER, "重新化为一张符箓");
+        assertEquals(VisualProgramLayer.Path.FALL, returnedBlackFlag.path());
+        assertEquals(yin, returnedBlackFlag.primaryArgb());
+        VisualProgramLayer blackOrbs = figureLayer(catalog, "technique_987",
+                VisualPrimitive.ORB_PROJECTILE, "六团黑色光球");
+        assertEquals(6, blackOrbs.copies());
+        assertEquals(yin, blackOrbs.primaryArgb());
+        VisualProgramLayer demonCloud = figureLayer(catalog, "technique_987",
+                VisualPrimitive.CLOUD_VORTEX, "一团魔云");
+        assertEquals(1, demonCloud.copies());
+        assertEquals(yin, demonCloud.primaryArgb());
+
+        VisualProgramLayer eightBanners = figureLayer(catalog, "technique_726",
+                VisualPrimitive.BANNER_STREAMER, "八只巨幡滴溜溜一转");
+        assertEquals(8, eightBanners.copies());
+        assertEquals(VisualProgramLayer.Path.ORBIT, eightBanners.path());
+        VisualProgramLayer eightBeams = figureLayer(catalog, "technique_726",
+                VisualPrimitive.BEAM_LANCE, "八道碗口粗光柱");
+        assertEquals(8, eightBeams.copies());
+        assertEquals(VisualProgramLayer.Path.DIRECT, eightBeams.path());
+        VisualProgramLayer raisedSword = figureLayer(catalog, "technique_726",
+                VisualPrimitive.GIANT_SWORD, "青色光剑瞬间竖立");
+        assertEquals(VisualProgramLayer.Path.RISE, raisedSword.path());
+        assertEquals(wood, raisedSword.primaryArgb());
+        assertFalse(catalog.find(VisualDomain.TECHNIQUE, "technique_726").orElseThrow()
+                .visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("青色光剑瞬间竖立"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.PROJECTILE_SWARM));
+
+        VisualProgramLayer bannerArc = figureLayer(catalog, "technique_1097",
+                VisualPrimitive.LIGHTNING_STORM, "粗若蛟龙的青色电弧");
+        assertEquals(1, bannerArc.copies());
+        assertEquals(VisualProgramLayer.Path.DIRECT, bannerArc.path());
+        assertEquals(wood, bannerArc.primaryArgb());
+        assertEquals(thunder, bannerArc.secondaryArgb());
+        assertFalse(catalog.find(VisualDomain.TECHNIQUE, "technique_1097").orElseThrow()
+                .visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("粗若蛟龙"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.SERPENT_DRAGON));
+        assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_341").orElseThrow()
+                .visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("幡面上浮现"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.BANNER_STREAMER));
+
+        VisualProgramLayer timeWheel = figureLayer(catalog, "technique_1444",
+                VisualPrimitive.WHEEL_DISC, "二十四团半透明符纹");
+        assertEquals(1, timeWheel.copies());
+        assertEquals(VisualProgramLayer.Path.ORBIT, timeWheel.path());
+        VisualProgramLayer timeRunes = figureLayer(catalog, "technique_1444",
+                VisualPrimitive.RUNE_ORBIT, "二十四团半透明符纹");
+        assertEquals(24, timeRunes.copies());
+        assertEquals(VisualProgramLayer.Path.WAVE, timeRunes.path());
+        VisualProgramLayer giantNails = figureLayer(catalog, "technique_504",
+                VisualPrimitive.SPEAR_SPIKE, "金色巨钉");
+        assertEquals(5, giantNails.copies());
+        assertEquals(VisualProgramLayer.Path.DIRECT, giantNails.path());
+        assertEquals(metal, giantNails.primaryArgb());
+    }
+
     private static VisualProgramLayer giantSwordLayer(
             AuthoredVisualCatalog.Snapshot catalog, String id, String sourceToken) {
         return figureLayer(catalog, id, VisualPrimitive.GIANT_SWORD, sourceToken);

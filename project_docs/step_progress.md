@@ -9439,3 +9439,16 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Tests/build   Done   两个生成器 `--check`、`AuthoredVisualCatalogTest`/`LodestoneVfxContractTest` 定向测试及干净快照完整构建通过；`BUILD SUCCESSFUL in 1m 25s`，251 个套件、1,173 项测试 failure/error/skipped 均为 0。
   Version/protocol   Done   `mod_version` 0.2.219→0.2.220；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
   Artifact/backup   Done   `seeking_immortals-0.2.220.jar` SHA-256 `950442b7d7e7d2422f62314e64b9e5536e0ceeadcc2573c4e141105b52197088`；备份 `.bak/20260728_070601_0.2.220_ruyi_hook_whip/`。
+
+## 612. 2026-07-28 0.2.221 金刚杵、法盒、旗幡与盾器保真
+
+  Step   Status   Notes
+  ---   ---   ---
+  Residual inventory   Done   回读金刚杵、玉/木/金属盒匣、小旗/法旗、阴罗幡/巨幡、冰玉/剑/元罡/芒刺盾、圆轮和巨钉引文；明确排除“粗若蛟龙”字面龙形及“无数倍”弹群。
+  Compiler   Done   新增 `magic_vajra=4`、`magic_box=12`、`spiked_shield=1`；精确复用旗幡、盾、圆轮与针矛几何，删除会重染旧旗盾的通用调色分支。
+  Companion fidelity   Done   法盒保留 1 元婴、5 五色眼珠和 12 古文；6 法旗保留青幕，黑旗保留 6 黑球/魔云，八幡保留 8 光柱/青巨剑，圆轮保留 24 符纹，盾术保留冲击。
+  Runtime   Done   金刚杵使用双端四棱杵冠，法盒使用立体盒体/盖脊/封印环，刺盾使用盾环、跨帧芒刺端点和放射刺线；三者接入层内分派与复杂轮廓 2 粒最低预算。
+  Diff audit   Done   相对 `0.2.220` 恰有 34 个预期 ID、49 条引文组变化，非目标 ID 与非程序 profile 字段为 0；5,727 profiles、2,292 techniques、1,806 authored、9,947/9,947 引文不变，术法程序 10,903 层、100 primitive。
+  Verification   Done   两个生成器检查、Java 编译与两组定向测试通过；`./gradlew build --no-daemon --max-workers=1` `BUILD SUCCESSFUL in 1m 28s`，251 套件/1,174 测试均通过；JAR SHA-256 `0b646365bebcd192539e8ceb892d7c078d6ef950df4c3f9d5ca6bf684793edb6`。
+  Version/protocol   Done   `mod_version` 0.2.220→0.2.221；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
+  Backup   Done   `.bak/20260728_072735_0.2.221_vajra_boxes_flags/`；隔离构建快照 `/tmp/mc-mod-0.2.219-audit.yb1NTV`。
