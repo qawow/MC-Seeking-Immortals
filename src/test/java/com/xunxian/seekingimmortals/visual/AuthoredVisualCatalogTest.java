@@ -285,6 +285,82 @@ class AuthoredVisualCatalogTest {
                 .filter(layer -> layer.sourceQuote().contains("八个白森森的骷髅头"))
                 .anyMatch(layer -> layer.primitive() == VisualPrimitive.GHOST_HEAD
                         || layer.primitive() == VisualPrimitive.SPIRIT_AVATAR));
+
+        VisualProfile mixedImplements = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_308").orElseThrow();
+        VisualProgramLayer blackStaff = mixedImplements.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_STAFF)
+                .findFirst().orElseThrow();
+        assertEquals(1, blackStaff.copies());
+        assertEquals(catalog.palette("yin").orElseThrow().argb(), blackStaff.primaryArgb());
+
+        VisualProfile demonStaff = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_479").orElseThrow();
+        VisualProgramLayer enlargedStaff = demonStaff.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_STAFF)
+                .filter(layer -> layer.sourceQuote().contains("十余丈之长"))
+                .findFirst().orElseThrow();
+        assertEquals(1, enlargedStaff.copies());
+        assertTrue(enlargedStaff.lengthScale() > 1.0D);
+        assertEquals(catalog.palette("metal").orElseThrow().argb(),
+                enlargedStaff.primaryArgb());
+        assertEquals(catalog.palette("qi").orElseThrow().argb(),
+                enlargedStaff.secondaryArgb());
+        assertTrue(demonStaff.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.MAGIC_STAFF
+                        && layer.sourceQuote().contains("降魔巨杖")
+                        && layer.copies() == 1));
+
+        VisualProfile windEscape = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_268").orElseThrow();
+        assertTrue(windEscape.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("手捧古灯"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.RITUAL_LAMP));
+        assertTrue(windEscape.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("脚踩白莲"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.LOTUS_MANDALA));
+        assertTrue(windEscape.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("化为一股轻风"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.AFTERIMAGE_PATH));
+
+        VisualProfile soulReturn = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_186").orElseThrow();
+        VisualProgramLayer jadeCoffin = soulReturn.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.RITUAL_COFFIN)
+                .findFirst().orElseThrow();
+        assertEquals(1, jadeCoffin.copies());
+        assertEquals(catalog.palette("water").orElseThrow().argb(),
+                jadeCoffin.primaryArgb());
+        VisualProfile corpseArt = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_358").orElseThrow();
+        assertTrue(corpseArt.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.RITUAL_COFFIN));
+        assertTrue(corpseArt.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.SPIRIT_AVATAR));
+
+        VisualProfile talismanCraft = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_275").orElseThrow();
+        VisualProgramLayer blueBrush = talismanCraft.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.TALISMAN_BRUSH)
+                .filter(layer -> layer.sourceQuote().contains("六七寸长"))
+                .findFirst().orElseThrow();
+        assertEquals(1, blueBrush.copies());
+        assertEquals(catalog.palette("water").orElseThrow().argb(), blueBrush.primaryArgb());
+        VisualProgramLayer glyphBrush = talismanCraft.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.TALISMAN_BRUSH)
+                .filter(layer -> layer.sourceQuote().contains("金色符文"))
+                .findFirst().orElseThrow();
+        assertEquals(catalog.palette("water").orElseThrow().argb(), glyphBrush.primaryArgb());
+        assertEquals(catalog.palette("metal").orElseThrow().argb(), glyphBrush.secondaryArgb());
+
+        VisualProgramLayer whiteQin = catalog.find(
+                        VisualDomain.TECHNIQUE, "technique_1487").orElseThrow()
+                .visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.SPIRIT_QIN)
+                .findFirst().orElseThrow();
+        assertEquals(1, whiteQin.copies());
+        assertEquals(catalog.palette("qi").orElseThrow().argb(), whiteQin.primaryArgb());
+        assertEquals(catalog.palette("qi").orElseThrow().argb(), whiteQin.secondaryArgb());
         assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_056").orElseThrow()
                 .visualProgram().layers().stream()
                 .anyMatch(layer -> layer.primitive() == VisualPrimitive.SHIELD_PLATE));

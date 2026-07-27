@@ -9327,3 +9327,18 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Verification   Done   最终 `./gradlew build --no-daemon --max-workers=1` `BUILD SUCCESSFUL in 1m 24s`；251 个测试套件、1,167 项测试，failure/error/skipped 均为 0，全部生成资源检查通过。
   Version/protocol   Done   首次 `0.2.211` 构建后又收紧生成差异，版本指纹门禁拒绝复用该版本；未使用跳过参数，最终 `mod_version=0.2.212`。未修改网络包字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
   Backup   Done   `.bak/20260728_0.2.211_named_relic_figures/`。
+
+## 604. 2026-07-28 0.2.213 杖、灯、琴、棺、符笔具名轮廓
+
+  Step   Status   Notes
+  ---   ---   ---
+  Residual inventory   Done   回读 v210/v237/v239/v250/v267/v307/v643 原文并扫描全量术法引文；确认乌黑禅杖/降魔杖、古灯、白琴、寒玉棺/石棺、灵符笔仅命中明确物件，未采用宽泛“此宝/灯/琴/棺/笔”规则。
+  Compiler   Done   新增 `magic_staff=3`、`ritual_lamp=1`、`spirit_qin=1`、`ritual_coffin=2`、`talisman_brush=2`；白莲及两条化风原句补精确伴随，三头六臂/石棺句补高大人影。符笔 copies 7→1，降魔杖错误剑雨 copies 7→1。
+  Runtime   Done   五种轮廓加入 `VisualPrimitive`、层内 `emitFigurePrimitive` 和复杂轮廓预算；长杖、灯、琴、棺、笔均以贯穿长轴为核心，细节跨帧轮转，琴自带外扩声波，笔自带符光。
+  Palette   Done   乌黑禅杖局部 yin，降魔杖 metal→qi，古灯 qi，白琴 qi，寒玉棺 water，石棺 yin，蓝笔 water→metal；不继承同句目标/光幕杂色。
+  Diff audit   Done   5,727 profiles、2,292 术法、1,806 authored、9,947/9,947 引文不变；术法程序 10,687 层、78 primitive；相对备份仅 13 个明确引文组变化。
+  Caps/contracts   Done   `emitAuthoredShape` 的 52-shape switch 未改；每层 8 粒、单事件 7/16/30、named copies 72 和全局公平预算保持。
+  Tests   Done   两个生成器 `--check`、Java/test 编译、`AuthoredVisualCatalogTest` 与 `LodestoneVfxContractTest` 定向执行通过。
+  Verification   Done   最终 `./gradlew build --no-daemon --max-workers=1` `BUILD SUCCESSFUL in 1m 34s`；251 个测试套件、1,167 项测试，failure/error/skipped 均为 0；产物 `seeking_immortals-0.2.213.jar`。
+  Version/protocol   Done   `mod_version` 0.2.212→0.2.213；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
+  Backup   Done   `.bak/20260728_035739_0.2.213_named_instruments/`。

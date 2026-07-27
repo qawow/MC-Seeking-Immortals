@@ -146,17 +146,21 @@ class LodestoneVfxContractTest {
         assertTrue(renderer.contains("minimumCopyBudget(layer.primitive())"));
         assertTrue(renderer.contains("withSubBudget(copyQuota"));
         assertTrue(renderer.contains("VfxBudgetPlan.components("));
-        assertTrue(occurrences(renderer, "emitFigureComponents(level") >= 24);
+        assertTrue(occurrences(renderer, "emitFigureComponents(level") >= 29);
         assertTrue(renderer.contains("int samples = budgetedSamples(points + 1)"));
         assertTrue(renderer.contains("lineSampleProgress(sample, samples)"));
         assertTrue(renderer.contains("status == ParticleStatus.MINIMAL ? 7"));
         assertTrue(renderer.contains("status == ParticleStatus.DECREASED ? 16 : 30"));
         for (String helper : List.of(
-                "ritualBowlShape", "magicRulerShape", "giantHammerShape")) {
+                "ritualBowlShape", "magicRulerShape", "giantHammerShape",
+                "magicStaffShape", "ritualLampShape", "spiritQinShape",
+                "ritualCoffinShape", "talismanBrushShape")) {
             assertTrue(renderer.contains("private static void " + helper + "("), helper);
         }
         for (String branch : List.of(
-                "case RITUAL_BOWL ->", "case MAGIC_RULER ->", "case GIANT_HAMMER ->")) {
+                "case RITUAL_BOWL ->", "case MAGIC_RULER ->", "case GIANT_HAMMER ->",
+                "case MAGIC_STAFF ->", "case RITUAL_LAMP ->", "case SPIRIT_QIN ->",
+                "case RITUAL_COFFIN ->", "case TALISMAN_BRUSH ->")) {
             assertTrue(renderer.contains(branch), branch);
         }
     }

@@ -409,6 +409,9 @@ PROGRAM_RULES = (
     ("bell_chime", ("黑色小钟", "金钟", "铜钟", "灵钟", "宝钟", "古钟", "黑钟", "小钟", "梵钟")),
     ("gourd_vessel", ("葫芦", "玉葫芦", "宝葫芦", "灵葫芦", "玉瓶", "宝瓶", "灵瓶", "净瓶", "玉净瓶", "掌天瓶", "小瓶", "瓶影")),
     ("ritual_bowl", ("漆黑钵盂", "乌黑圆钵", "碧绿圆钵", "银色圆钵", "圆钵", "钵盂")),
+    ("ritual_lamp", ("手捧古灯",)),
+    ("ritual_coffin", ("寒玉棺", "石棺中")),
+    ("magic_staff", ("乌黑禅杖", "降魔巨杖", "降魔杖", "此宝就化为十余丈之长，水缸般粗细的庞然巨物")),
     ("light_curtain", ("光幕", "光墙", "光帘", "五色光幕", "护幕", "屏障光", "一片光华", "光幕一", "光幕竟", "蓝色霞光", "五色霞光", "霞光一片")),
     ("halo_ring", ("光环", "光圈", "圆环光", "血色光环", "金光圈", "光环一", "光环凭空")),
     ("magic_ruler", ("混元尺", "银色巨尺", "巨大银尺", "半截银尺", "巨尺", "尺影")),
@@ -422,6 +425,8 @@ PROGRAM_RULES = (
     ("blood_thread", ("血丝", "精血丝", "血线", "血丝一", "血丝密")),
     ("jade_slip", ("玉简", "青色玉简", "古玉简", "玉简一闪", "传法玉简")),
     ("burning_talisman", ("符纸", "符火", "符焰", "燃符", "焚符", "符纸燃烧", "高阶符箓")),
+    ("talisman_brush", ("蓝濛濛灵符笔", "灵符笔", "笔尖处")),
+    ("spirit_qin", ("通体晶莹的白色古琴", "白色古琴")),
     ("ghost_head", ("巨大鬼头", "狰狞鬼头", "鬼头虚影", "骷髅头虚影", "巨型骷髅头", "白骨骷髅头", "巨大骷髅头", "骷髅头", "鬼头", "鬼首")),
     ("shield_plate", ("巨大血色光盾", "血色光盾", "巨大盾牌", "银盾", "盾牌", "盾面")),
     ("flying_blade", ("厚背长刀", "长刀虚影", "飞刀", "宝刀", "魔刀", "血刀", "刀影", "巨刃", "月刃", "弯刀")),
@@ -432,7 +437,7 @@ PROGRAM_RULES = (
     ("serpent_dragon", ("青龙虚影", "巨龙虚影", "龙形虚影", "五爪青龙", "龙影", "火龙", "水龙", "雷龙", "冰龙", "风龙", "血龙", "蛟龙", "火蛇", "灵蛇", "雷蛇", "青蛇", "黑蛇", "巨蛇", "蟒蛇", "巨蟒", "毒蛇")),
     ("flame_bird", ("火鸟", "炎鸟", "朱雀", "凤凰", "火凤", "金乌")),
     ("beast_phantom", ("兽影", "虎影", "巨猿", "魔猿", "麒麟", "玄武", "白虎")),
-    ("lotus_mandala", ("莲花", "金莲", "青莲", "血莲", "莲台", "莲瓣")),
+    ("lotus_mandala", ("莲花", "白莲", "金莲", "青莲", "血莲", "莲台", "莲瓣")),
     ("wheel_disc", ("宝轮", "法轮", "光轮", "圆盘", "轮盘", "日轮", "月轮")),
     ("mirror_disc", ("宝镜", "古镜", "镜光", "镜面", "水镜", "明镜")),
     ("sword_rain", ("剑雨", "剑阵", "密密麻麻剑")),
@@ -458,7 +463,7 @@ PROGRAM_RULES = (
     ("beam_lance", ("光柱", "光束", "剑虹", "剑光")),
     ("projectile_swarm", ("飞射", "箭雨", "无数", "密密麻麻")),
     ("body_aura", ("鳞片", "金身", "铠甲", "护体")),
-    ("spirit_avatar", ("法相", "鬼影", "骷髅", "化身", "人形", "女子")),
+    ("spirit_avatar", ("法相", "鬼影", "骷髅", "化身", "人形", "女子", "高大人影")),
     ("ground_field", ("地面", "大地", "领域", "地网")),
     ("mist_veil", ("迷雾", "云雾", "雾幕", "烟幕", "雾气腾", "黑雾", "血雾", "毒雾", "雾团", "隐踪匿迹", "隐匿身形")),
 )
@@ -687,10 +692,18 @@ def program_palette(text: str, fallback: str, argbs: dict[str, int]) -> tuple[st
 
 _PRIMITIVE_PALETTE_FALLBACK = {
     "ritual_bowl": "yin",
+    "ritual_lamp": "qi",
+    "ritual_coffin": "yin",
     "magic_ruler": "qi",
+    "magic_staff": "metal",
+    "talisman_brush": "water",
+    "spirit_qin": "qi",
 }
 
-_LOCAL_PALETTE_PRIMITIVES = frozenset({"ritual_bowl", "magic_ruler", "giant_hammer"})
+_LOCAL_PALETTE_PRIMITIVES = frozenset({
+    "ritual_bowl", "ritual_lamp", "ritual_coffin", "magic_ruler", "magic_staff",
+    "talisman_brush", "spirit_qin", "giant_hammer",
+})
 
 
 def program_palette_source(text: str, primitive: str, matched_terms: list[str]) -> str:
@@ -704,16 +717,18 @@ def program_palette_source(text: str, primitive: str, matched_terms: list[str]) 
     if primitive == "giant_hammer":
         # Its white skulls and green flames deliberately follow the hammer noun.
         return text[max(0, index - 20):min(len(text), index + len(term) + 48)]
-    # Bowl/ruler colors are adjectival. Keep the window tight enough that a nearby
-    # black mountain cannot recolor its separately authored silver ruler.
+    # Object colors are adjectival. Keep the window tight enough that a nearby
+    # mountain, aura, or target cannot recolor a separately authored implement.
     return text[max(0, index - 6):index + len(term)]
 
 
 _FIGURE_PRIMITIVES = {
     "cauldron_vessel", "bell_chime", "gourd_vessel", "light_curtain", "halo_ring",
-    "ritual_bowl", "magic_ruler", "banner_streamer", "seal_stamp", "bridge_arc",
+    "ritual_bowl", "ritual_lamp", "ritual_coffin", "magic_ruler", "magic_staff",
+    "banner_streamer", "seal_stamp", "bridge_arc",
     "flying_sword", "fire_plume", "formation_banner",
     "pagoda_tower", "blood_thread", "jade_slip", "burning_talisman",
+    "talisman_brush", "spirit_qin",
     "ghost_head", "shield_plate", "flying_blade", "giant_axe", "giant_hammer",
     "giant_claw", "giant_hand", "serpent_dragon", "flame_bird", "beast_phantom",
     "lotus_mandala", "wheel_disc", "mirror_disc", "sword_rain", "ice_prison",
@@ -738,6 +753,7 @@ def program_primitives(text: str, base_shape: str) -> tuple[list[str], list[str]
         ("mist_veil", ("迷雾笼罩", "烟幕弥漫", "余烬飘散", "雾气腾腾")),
         ("impact_arcs", ("爆裂开来", "轰然爆开", "爆散而开", "震碎虚空")),
         ("layered_afterimages", ("残影重重", "层层虚影")),
+        ("afterimage_path", ("人就化为一股轻风", "瞬间化为一缕清风从莲影中")),
     )
     for primitive, terms in secondary:
         hits = [term for term in terms if term in text]
@@ -776,7 +792,7 @@ def program_primitives(text: str, base_shape: str) -> tuple[list[str], list[str]
         # "剑影如山峰" or "剑群如蜂群" into literal mountains or insect swarms.
         keep_extra = {"lotus_mandala", "sword_rain", "projectile_swarm", "fire_plume",
                       "light_curtain", "spirit_avatar", "ghost_head", "wheel_disc",
-                      "ritual_bowl", "magic_ruler", "giant_hammer"}
+                      "ritual_bowl", "magic_ruler", "magic_staff", "giant_hammer"}
         selected = [p for p in selected if p == "flying_sword" or p in keep_extra]
     # The eight skulls are mounted details of the authored green-flame hammer. Rendering
     # a second free-floating ghost-head swarm would duplicate the same source object.
@@ -837,6 +853,11 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
             if (primitive in {"ritual_bowl", "magic_ruler"}
                     and any(token in palette_source for token in ("银色", "银的", "银尺", "银钵"))):
                 primary_key = secondary_key = "qi"
+            elif primitive == "magic_staff" and "七色佛光" in source:
+                primary_key, secondary_key = "metal", "qi"
+            elif (primitive == "talisman_brush" and "金色符文" in source
+                    and "笔尖" in source):
+                primary_key, secondary_key = "water", "metal"
             else:
                 primary_key, secondary_key = program_palette(
                     palette_source, primitive_fallback, argbs)
