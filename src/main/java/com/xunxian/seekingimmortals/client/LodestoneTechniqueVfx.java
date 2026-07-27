@@ -1692,12 +1692,15 @@ public final class LodestoneTechniqueVfx {
                     Math.sin(angle) * size * 0.42D);
             shortLine(level, family, base, base.add(0.0D, size * 0.55D, 0.0D), 4, random);
         }
-        for (int i = 0; i < Math.min(6, Math.max(2, intensity / 8)) && budgetAvailable(level); i++) {
-            Vec3 vapor = center.add(randomOffset(random, size * 0.25D)).add(0.0D, size * 1.05D, 0.0D);
+        for (int i = 0; i < Math.min(10, Math.max(4, intensity / 5)) && budgetAvailable(level); i++) {
+            Vec3 vapor = center.add(randomOffset(random, size * 0.28D)).add(0.0D, size * 1.05D, 0.0D);
             spawn(level, LodestoneParticleRegistry.WISP_PARTICLE, family, vapor,
-                    new Vec3(0.0D, 0.012D + random.nextDouble() * 0.01D, 0.0D),
+                    new Vec3((random.nextDouble()-0.5D)*0.01D, 0.014D + random.nextDouble() * 0.012D, (random.nextDouble()-0.5D)*0.01D),
                     0.18F, 0.62F, 28, random.nextFloat());
         }
+        // rim glints
+        ring(level, family, center.add(0.0D, size * 0.95D, 0.0D), size * 0.68D,
+                Math.min(12, Math.max(6, intensity / 5)), random, 0.11F, 16);
     }
 
     /** 钟 silhouette: dome body + hanging rim + outward chime rings. */

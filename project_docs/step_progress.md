@@ -9235,3 +9235,12 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Version/protocol   Done   mod_version 0.2.201→0.2.202；PROTOCOL_VERSION=30。
   Backup   Done   .bak/20260727_022800/。
 
+## 596. 2026-07-27 0.2.203 收窄 mist/impact 与强制飞剑
+
+  Step   Status   Notes
+  ---   ---   ---
+  Narrow   Done   mist 1988→618，impact 1184→278；飞剑语境强制 flying_sword。
+  Verification   Done   ./gradlew build BUILD SUCCESSFUL。
+  Version/protocol   Done   0.2.202→0.2.203；PROTOCOL_VERSION=30。
+  Backup   Done   .bak/20260727_023500/。
+

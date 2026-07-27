@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-27e: `0.2.203` 收窄 mist/impact 过配（1988→618 / 1184→278），强制飞剑置顶，鼎几何加厚。`mod_version=0.2.203`；协议 30。`.bak/20260727_023500/`，`project_docs/updates/20260727_0.2.203_narrow_generic.md`。
+
 > CURRENT TRUTH 2026-07-27d: `0.2.202` fire_plume + 飞剑词表扩。technique_1483 L0=fire_plume 红→金；flying_sword 180 / fire_plume 76。`mod_version=0.2.202`；协议 30。回滚 `.bak/20260727_022800/`，见 `project_docs/updates/20260727_0.2.202_fire_plume.md`。
 
 > CURRENT TRUTH 2026-07-27c: `0.2.201` 形象优先与几何加厚。PROGRAM_RULES/program_primitives 使飞剑/鼎/光幕等为 L0；飞剑与光幕几何加厚。technique_1186 L0=flying_sword×72。`mod_version=0.2.201`；协议 30。回滚 `.bak/20260727_021500/`，见 `project_docs/updates/20260727_0.2.201_figure_priority.md`。

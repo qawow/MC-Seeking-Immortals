@@ -413,7 +413,7 @@ PROGRAM_RULES = (
     ("banner_streamer", ("幡旗", "杆幡", "黑幡", "灵幡", "宝幡", "玉竹幡", "竹幡", "血幡")),
     ("seal_stamp", ("法印一闪", "大印一压", "大印落下", "法印一", "玉印", "宝印", "印诀", "金印", "血印", "印玺")),
     ("bridge_arc", ("虹桥", "光桥", "玉桥", "虹桥光", "长虹光", "七彩桥", "光桥一")),
-    ("flying_sword", ("飞剑", "青色小剑", "金色小剑", "小剑", "剑影", "剑气纵横", "口剑", "剑芒", "剑刃飞", "飞出一剑")),
+    ("flying_sword", ("飞剑", "青色小剑", "金色小剑", "小剑", "小青剑", "口剑", "剑影", "剑气纵横", "剑芒", "剑刃飞", "飞出一剑", "剑光分化", "分化出", "剑光在其", "化为三十六道", "化为七十二")),
     ("fire_plume", ("赤红火焰", "真火", "赤焰", "火焰从", "火柱", "火海", "烈焰", "三昧真火", "丹火", "青焰", "火球爆")),
     ("formation_banner", ("阵旗", "令旗", "旗阵", "大旗", "战旗", "令旗一")),
     ("pagoda_tower", ("宝塔", "浮屠", "金塔", "玉塔", "玲珑塔", "小塔", "塔影")),
@@ -623,7 +623,7 @@ def _color_key_at(text: str, index: int, argbs: dict[str, int]) -> str | None:
 def program_palette(text: str, fallback: str, argbs: dict[str, int]) -> tuple[str, str]:
     # Prefer explicit gradient phrases: 由红转金 / 自赤转金 / 从绿变乌黑.
     import re
-    for match in re.finditer(r"(?:由|自|从)(.{1,4}?)(?:转|变|化)(.{1,4})", text):
+    for match in re.finditer(r"(?:由|自|从|继而由|继而自)(.{1,6}?)(?:转|变|化作|化为)(.{1,6})", text):
         left = match.group(1)
         right = match.group(2)
         pk = sk = None
@@ -669,9 +669,9 @@ def program_primitives(text: str, base_shape: str) -> tuple[list[str], list[str]
         # Narrowed in 0.2.200: bare 光芒/灵光 used to force aura_burst on almost every
         # quote that only mentioned light as an adjective. Keep only explicit mote bursts.
         ("aura_burst", ("光点", "光屑", "星点", "闪白光点")),
-        ("mist_veil", ("雾气", "迷雾", "烟幕", "霜雾", "余烬")),
-        ("impact_arcs", ("爆裂", "爆开", "爆散", "震碎")),
-        ("layered_afterimages", ("残影重重", "层层虚影", "透明影子")),
+        ("mist_veil", ("迷雾笼罩", "烟幕弥漫", "霜雾", "余烬飘")),
+        ("impact_arcs", ("爆裂开来", "轰然爆开", "爆散而开", "震碎虚空")),
+        ("layered_afterimages", ("残影重重", "层层虚影")),
     )
     for primitive, terms in secondary:
         hits = [term for term in terms if term in text]
@@ -681,6 +681,13 @@ def program_primitives(text: str, base_shape: str) -> tuple[list[str], list[str]
     if not selected:
         selected.append(base_shape if base_shape in PROGRAM_SHAPES else "aura_burst")
         evidence.append("profile_shape:" + (base_shape or "aura_burst"))
+    # Force sword-swarm quotes onto flying_sword even if beam_lance/sword_rain also hit.
+    if any(tok in text for tok in ("飞剑", "小剑", "口剑", "剑芒", "剑影")):
+        if "flying_sword" not in selected:
+            selected.insert(0, "flying_sword")
+            evidence.append("forced:flying_sword")
+        elif selected[0] != "flying_sword":
+            selected = ["flying_sword"] + [p for p in selected if p != "flying_sword"]
     # Prefer authored figure silhouettes as the lead layer so copies/geometry attach
     # to the named prop (飞剑/鼎/光幕) rather than a co-mentioned lotus/aura.
     figures = [p for p in selected if p in _FIGURE_PRIMITIVES]
