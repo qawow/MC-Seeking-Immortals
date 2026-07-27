@@ -405,44 +405,6 @@ def technique_timeline(raw: dict[str, Any], profile: dict[str, Any]) -> list[dic
 # are primitives, not finished spell templates: one source quote can combine
 # several of them and can alter path, scale, count, colour, and motion.
 PROGRAM_RULES = (
-    ("spatial_rift", ("空间裂", "虚空裂", "撕裂空间", "破碎虚空", "空间波动")),
-    ("ice_prison", ("冰牢", "冰狱", "冰封", "冰墙", "玄冰", "寒冰")),
-    ("blood_sea", ("血海", "血河", "血池", "血浪", "血潮")),
-    ("tree_avatar", ("巨树", "古树", "树影", "树根", "藤蔓")),
-    ("flame_bird", ("火鸟", "炎鸟", "朱雀", "凤凰", "火凤", "金乌")),
-    ("beast_phantom", ("兽影", "虎影", "巨猿", "魔猿", "麒麟", "玄武", "白虎")),
-    ("insect_swarm", ("虫云", "虫群", "蜂群", "蚁群", "噬金虫")),
-    ("lightning_storm", ("雷海", "雷云", "千雷", "雷柱", "雷暴", "雷雨", "雷霆")),
-    ("tidal_wave", ("巨浪", "海浪", "浪潮", "海潮", "洪水", "水幕", "水墙", "海啸")),
-    ("mountain_meteor", ("山岳", "山峰", "巨山", "陨石", "流星", "坠星")),
-    ("giant_claw", ("巨爪", "鬼爪", "火焰鬼爪")),
-    ("giant_hand", ("巨手", "大手", "巨掌", "佛掌", "血掌", "擎天手")),
-    ("eye_gaze", ("法目", "灵目", "天眼", "灵眼", "竖目", "瞳孔", "目光")),
-    ("sound_wave", ("梵音", "禅音", "魔啸", "长啸", "怒吼", "咆哮", "钟鸣", "铃声", "传音")),
-    ("lotus_mandala", ("莲花", "金莲", "青莲", "血莲", "莲台", "莲瓣")),
-    ("mirror_disc", ("宝镜", "古镜", "镜光", "镜面", "水镜", "明镜")),
-    ("scripture_glyph", ("经文", "书卷", "典籍", "墨字", "金文", "古字", "符字", "真言")),
-    ("magnetic_field", ("元磁", "磁力", "磁光", "磁场", "两极")),
-    ("wheel_disc", ("宝轮", "法轮", "光轮", "圆盘", "轮盘", "日轮", "月轮")),
-    ("wing_fan", ("双翼", "羽翼", "翅膀", "羽翅", "风雷翅", "羽扇")),
-    ("spear_spike", ("金针", "银针", "灵针", "飞针", "长矛", "冰矛", "冰锥", "地刺", "骨刺")),
-    ("orb_projectile", ("光球", "火球", "雷球", "水球", "圆球", "灵珠", "宝珠", "圆珠")),
-    ("mist_veil", ("雾气", "迷雾", "云雾", "雾幕", "烟幕", "霞光", "隐踪", "隐匿")),
-    ("fist_barrage", ("拳影", "掌影")),
-    ("sword_rain", ("剑雨", "剑阵", "密密麻麻剑")),
-    ("serpent_dragon", ("火龙", "水龙", "火蛇", "蛟龙", "巨蟒", "毒蛇")),
-    ("cloud_vortex", ("漩涡", "云团", "血云", "黑云")),
-    ("rune_orbit", ("符文", "符箓", "符印", "法阵", "阵法", "阵图")),
-    ("chain_net", ("锁链", "电网", "光丝", "丝线", "丝连")),
-    ("beam_lance", ("光柱", "光束", "剑虹", "剑光")),
-    ("projectile_swarm", ("飞射", "箭雨", "无数", "密密麻麻")),
-    ("body_aura", ("鳞片", "金身", "铠甲", "护体")),
-    ("spirit_avatar", ("法相", "鬼影", "骷髅", "化身", "人形", "女子")),
-    ("ground_field", ("地面", "大地", "领域", "地网")),
-    # semantic_layers_v3 — authored figure silhouettes (layer-scoped dispatch). These tokens
-    # take priority over generic swarm/aura fallbacks so the named vessels, banners,
-    # seals, curtains and haloes render with their own geometry rather than degrading
-    # to the closest existing primitive (defect 4 audit).
     ("cauldron_vessel", ("青铜鼎", "巨鼎", "宝鼎", "炼丹鼎", "灵鼎", "双鼎", "黑鼎", "小鼎", "鼎中")),
     ("bell_chime", ("黑色小钟", "金钟", "铜钟", "灵钟", "宝钟", "古钟", "黑钟", "小钟", "梵钟")),
     ("gourd_vessel", ("葫芦", "玉葫芦", "宝葫芦", "灵葫芦", "玉瓶", "宝瓶", "灵瓶", "净瓶", "玉净瓶")),
@@ -451,13 +413,46 @@ PROGRAM_RULES = (
     ("banner_streamer", ("幡旗", "杆幡", "黑幡", "灵幡", "宝幡", "玉竹幡", "竹幡", "血幡")),
     ("seal_stamp", ("法印一闪", "大印一压", "大印落下", "法印一", "玉印", "宝印", "印诀", "金印", "血印", "印玺")),
     ("bridge_arc", ("虹桥", "光桥", "玉桥", "虹桥光", "长虹光", "七彩桥", "光桥一")),
-    # 0.2.200 deeper figures — layer-scoped only (not spell-effects shape).
     ("flying_sword", ("飞剑", "青色小剑", "金色小剑", "小剑", "剑影", "剑气纵横", "口剑")),
     ("formation_banner", ("阵旗", "令旗", "旗阵", "大旗", "战旗", "令旗一")),
     ("pagoda_tower", ("宝塔", "浮屠", "金塔", "玉塔", "玲珑塔", "小塔", "塔影")),
     ("blood_thread", ("血丝", "精血丝", "血线", "血丝一", "血丝密")),
     ("jade_slip", ("玉简", "青色玉简", "古玉简", "玉简一闪", "传法玉简")),
     ("burning_talisman", ("符纸", "符火", "符焰", "燃符", "焚符", "符纸燃烧", "高阶符箓")),
+    ("giant_claw", ("巨爪", "鬼爪", "火焰鬼爪")),
+    ("giant_hand", ("巨手", "大手", "巨掌", "佛掌", "血掌", "擎天手")),
+    ("serpent_dragon", ("火龙", "水龙", "火蛇", "蛟龙", "巨蟒", "毒蛇")),
+    ("flame_bird", ("火鸟", "炎鸟", "朱雀", "凤凰", "火凤", "金乌")),
+    ("beast_phantom", ("兽影", "虎影", "巨猿", "魔猿", "麒麟", "玄武", "白虎")),
+    ("lotus_mandala", ("莲花", "金莲", "青莲", "血莲", "莲台", "莲瓣")),
+    ("wheel_disc", ("宝轮", "法轮", "光轮", "圆盘", "轮盘", "日轮", "月轮")),
+    ("mirror_disc", ("宝镜", "古镜", "镜光", "镜面", "水镜", "明镜")),
+    ("sword_rain", ("剑雨", "剑阵", "密密麻麻剑")),
+    ("ice_prison", ("冰牢", "冰狱", "冰封", "冰墙", "玄冰", "寒冰")),
+    ("blood_sea", ("血海", "血河", "血池", "血浪", "血潮")),
+    ("tree_avatar", ("巨树", "古树", "树影", "树根", "藤蔓")),
+    ("spatial_rift", ("空间裂", "虚空裂", "撕裂空间", "破碎虚空", "空间波动")),
+    ("lightning_storm", ("雷海", "雷云", "千雷", "雷柱", "雷暴", "雷雨", "雷霆")),
+    ("mountain_meteor", ("山岳", "山峰", "巨山", "陨石", "流星", "坠星")),
+    ("insect_swarm", ("虫云", "虫群", "蜂群", "蚁群", "噬金虫")),
+    ("tidal_wave", ("巨浪", "海浪", "浪潮", "海潮", "洪水", "水幕", "水墙", "海啸")),
+    ("magnetic_field", ("元磁", "磁力", "磁光", "磁场", "两极")),
+    ("scripture_glyph", ("经文", "书卷", "典籍", "墨字", "金文", "古字", "符字", "真言")),
+    ("wing_fan", ("双翼", "羽翼", "翅膀", "羽翅", "风雷翅", "羽扇")),
+    ("spear_spike", ("金针", "银针", "灵针", "飞针", "长矛", "冰矛", "冰锥", "地刺", "骨刺")),
+    ("orb_projectile", ("光球", "火球", "雷球", "水球", "圆球", "灵珠", "宝珠", "圆珠")),
+    ("eye_gaze", ("法目", "灵目", "天眼", "灵眼", "竖目", "瞳孔", "目光")),
+    ("sound_wave", ("梵音", "禅音", "魔啸", "长啸", "怒吼", "咆哮", "钟鸣", "铃声", "传音")),
+    ("fist_barrage", ("拳影", "掌影")),
+    ("cloud_vortex", ("漩涡", "云团", "血云", "黑云")),
+    ("rune_orbit", ("符文", "符箓", "符印", "法阵", "阵法", "阵图")),
+    ("chain_net", ("锁链", "电网", "光丝", "丝线", "丝连")),
+    ("beam_lance", ("光柱", "光束", "剑虹", "剑光")),
+    ("projectile_swarm", ("飞射", "箭雨", "无数", "密密麻麻")),
+    ("body_aura", ("鳞片", "金身", "铠甲", "护体")),
+    ("spirit_avatar", ("法相", "鬼影", "骷髅", "化身", "人形", "女子")),
+    ("ground_field", ("地面", "大地", "领域", "地网")),
+    ("mist_veil", ("雾气", "迷雾", "云雾", "雾幕", "烟幕", "霞光", "隐踪", "隐匿")),
 )
 
 PROGRAM_SHAPES = {name for name, _ in PROGRAM_RULES} | {
@@ -650,6 +645,17 @@ def program_palette(text: str, fallback: str, argbs: dict[str, int]) -> tuple[st
     return primary, secondary
 
 
+_FIGURE_PRIMITIVES = {
+    "cauldron_vessel", "bell_chime", "gourd_vessel", "light_curtain", "halo_ring",
+    "banner_streamer", "seal_stamp", "bridge_arc", "flying_sword", "formation_banner",
+    "pagoda_tower", "blood_thread", "jade_slip", "burning_talisman",
+    "giant_claw", "giant_hand", "serpent_dragon", "flame_bird", "beast_phantom",
+    "lotus_mandala", "wheel_disc", "mirror_disc", "sword_rain", "ice_prison",
+    "blood_sea", "tree_avatar", "spatial_rift", "lightning_storm", "mountain_meteor",
+    "insect_swarm", "tidal_wave", "spirit_avatar", "pagoda_tower",
+}
+
+
 def program_primitives(text: str, base_shape: str) -> tuple[list[str], list[str]]:
     selected: list[str] = []
     evidence: list[str] = []
@@ -662,9 +668,9 @@ def program_primitives(text: str, base_shape: str) -> tuple[list[str], list[str]
         # Narrowed in 0.2.200: bare 光芒/灵光 used to force aura_burst on almost every
         # quote that only mentioned light as an adjective. Keep only explicit mote bursts.
         ("aura_burst", ("光点", "光屑", "星点", "闪白光点")),
-        ("mist_veil", ("雾", "烟", "霜雾", "余烬")),
+        ("mist_veil", ("雾气", "迷雾", "烟幕", "霜雾", "余烬")),
         ("impact_arcs", ("爆裂", "爆开", "爆散", "震碎")),
-        ("layered_afterimages", ("残影", "虚影", "透明影子")),
+        ("layered_afterimages", ("残影重重", "层层虚影", "透明影子")),
     )
     for primitive, terms in secondary:
         hits = [term for term in terms if term in text]
@@ -674,7 +680,12 @@ def program_primitives(text: str, base_shape: str) -> tuple[list[str], list[str]
     if not selected:
         selected.append(base_shape if base_shape in PROGRAM_SHAPES else "aura_burst")
         evidence.append("profile_shape:" + (base_shape or "aura_burst"))
-    return selected[:4], evidence[:10]
+    # Prefer authored figure silhouettes as the lead layer so copies/geometry attach
+    # to the named prop (飞剑/鼎/光幕) rather than a co-mentioned lotus/aura.
+    figures = [p for p in selected if p in _FIGURE_PRIMITIVES]
+    others = [p for p in selected if p not in _FIGURE_PRIMITIVES]
+    ordered = figures + others
+    return ordered[:4], evidence[:10]
 
 
 def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],

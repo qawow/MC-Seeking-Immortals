@@ -9215,3 +9215,13 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Version/protocol   Done   `mod_version` 0.2.199→`0.2.200`；PROTOCOL_VERSION=30 不变。
   Backup   Done   `.bak/20260727_020000/`。
 
+## 594. 2026-07-27 0.2.201 形象优先与几何加厚
+
+  Step   Status   Notes
+  ---   ---   ---
+  Rule order   Done   PROGRAM_RULES 具名形象前置；program_primitives figure 集合置 L0。
+  Geometry   Done   飞剑脊线+拖尾；光幕竖帘与上下边框加厚。
+  Verification   Done   `./gradlew build` BUILD SUCCESSFUL；1186 L0=flying_sword×72。
+  Version/protocol   Done   `mod_version` 0.2.200→`0.2.201`；PROTOCOL_VERSION=30。
+  Backup   Done   `.bak/20260727_021500/`。
+

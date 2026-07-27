@@ -1744,14 +1744,19 @@ public final class LodestoneTechniqueVfx {
         Vec3 side = perpendicular(direction);
         double width = Math.max(1.0D, Math.min(4.5D, radius * 1.4D));
         double height = Math.max(1.4D, Math.min(3.6D, radius * 1.1D));
-        int bars = Math.min(12, Math.max(6, intensity / 4));
+        int bars = Math.min(16, Math.max(8, intensity / 3));
         for (int i = 0; i < bars && budgetAvailable(level); i++) {
             double t = (i / (double) Math.max(1, bars - 1)) * 2.0D - 1.0D;
             Vec3 base = center.add(side.scale(t * width * 0.5D));
-            shortLine(level, family, base, base.add(0.0D, height, 0.0D), 5, random);
+            shortLine(level, family, base, base.add(0.0D, height, 0.0D), 6, random);
         }
+        // top and bottom rims
+        shortLine(level, family, center.add(side.scale(-width * 0.5D)).add(0.0D, height, 0.0D),
+                center.add(side.scale(width * 0.5D)).add(0.0D, height, 0.0D), 6, random);
+        shortLine(level, family, center.add(side.scale(-width * 0.5D)),
+                center.add(side.scale(width * 0.5D)), 6, random);
         ring(level, family, center.add(0.0D, height * 0.5D, 0.0D), width * 0.55D,
-                Math.min(16, Math.max(8, intensity / 3)), random, 0.12F, 18);
+                Math.min(18, Math.max(10, intensity / 3)), random, 0.12F, 18);
     }
 
     /** 光环 silhouette: single controlled annular disc (not multi-ring burst). */
@@ -1834,18 +1839,27 @@ public final class LodestoneTechniqueVfx {
     }
 
 
-    /** 飞剑 silhouette: slender blade streak with tip spark. */
+    /** 飞剑 silhouette: slender blade streak with tip spark and trailing afterimage. */
     private static void flyingSwordShape(ClientLevel level, TechniqueVfxPalette.Family family,
                                          Vec3 start, Vec3 end, float radius,
                                          int intensity, Random random) {
         Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
         Vec3 tip = start.distanceToSqr(end) < 0.04D ? start.add(direction.scale(1.6D + radius * 0.4D)) : end;
         Vec3 side = perpendicular(direction);
-        shortLine(level, family, start, tip, Math.min(14, Math.max(6, intensity / 3)), random);
+        shortLine(level, family, start, tip, Math.min(18, Math.max(8, intensity / 2)), random);
         shortLine(level, family, tip.subtract(direction.scale(0.35D)).add(side.scale(0.12D)), tip, 3, random);
         shortLine(level, family, tip.subtract(direction.scale(0.35D)).subtract(side.scale(0.12D)), tip, 3, random);
+        // spine ridge
+        shortLine(level, family, start.add(side.scale(0.04D)), tip.add(side.scale(0.02D)), 6, random);
         spawn(level, LodestoneParticleRegistry.STAR_PARTICLE, family, tip,
                 direction.scale(0.02D), 0.16F, 0.88F, 16, random.nextFloat());
+        // faint trail motes
+        for (int i = 0; i < 3 && budgetAvailable(level); i++) {
+            double t = 0.25D + i * 0.22D;
+            Vec3 point = start.lerp(tip, t).add(randomOffset(random, 0.05D));
+            spawn(level, LodestoneParticleRegistry.SPARKLE_PARTICLE, family, point,
+                    direction.scale(-0.008D), 0.10F, 0.55F, 12, random.nextFloat());
+        }
     }
 
     /** 阵旗 silhouette: pole + rectangular flag plane + flutter tips. */

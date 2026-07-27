@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-27c: `0.2.201` 形象优先与几何加厚。PROGRAM_RULES/program_primitives 使飞剑/鼎/光幕等为 L0；飞剑与光幕几何加厚。technique_1186 L0=flying_sword×72。`mod_version=0.2.201`；协议 30。回滚 `.bak/20260727_021500/`，见 `project_docs/updates/20260727_0.2.201_figure_priority.md`。
+
 > CURRENT TRUTH 2026-07-27b: `0.2.200` semantic_layers_v3 保真深化。copies 上限 24→72（七十二口剑=72）；由X转Y 双色解析；新增飞剑/阵旗/宝塔/血丝/玉简/燃符层内形象；aura_burst 次级过配 3040→775。authored=1806 directQuotes=9947 shape 52。`mod_version=0.2.200`；协议 30 不变。回滚 `.bak/20260727_020000/`，详见 `project_docs/updates/20260727_0.2.200_vfx_v3_deeper.md`。
 
 > CURRENT TRUTH 2026-07-27: `0.2.199` semantic_layers_v3 法术特效忠实还原。修复 copies 配额截断、secondaryArgb 梯度丢弃、复合数词解析缺失；新增鼎/钟/葫芦/光幕/光环/幡/印/虹桥 8 个层内形象 primitive（不改 spell-effects shape 集，generated==rendered 仍 52）。TECHNIQUE 2292 全 compiler=v3，authored=1806，directQuotes=9947；palette 11 键不变。`mod_version=0.2.199`；未改包字段，`ModNetwork.PROTOCOL_VERSION=30`。回滚 `.bak/20260726_232106/`，详见 `project_docs/updates/20260727_0.2.199_vfx_v3_fidelity.md`。
