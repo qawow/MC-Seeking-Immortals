@@ -9357,3 +9357,18 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Verification   Done   最终 `./gradlew build --no-daemon --max-workers=1` `BUILD SUCCESSFUL in 1m 32s`；251 个测试套件、1,167 项测试，failure/error/skipped 均为 0；产物 `seeking_immortals-0.2.214.jar`。
   Version/protocol   Done   `mod_version` 0.2.213→0.2.214；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
   Backup   Done   `.bak/20260728_041355_0.2.214_named_objects/`。
+
+## 606. 2026-07-28 0.2.215 令牌、剪、砖、伞、弓具名轮廓
+
+  Step   Status   Notes
+  ---   ---   ---
+  Residual inventory   Done   逐条回读令牌/玉牌、剪刀、砖形法宝、玉伞、大弓与银铃引文；排除“弩箭般”“杀手锏”“自投罗网”等比喻和非显形叙述。
+  Compiler   Done   新增 `command_token=12`、`magic_scissors=2`、`magic_brick=3`、`magic_umbrella=1`、`magic_bow=1`；陶羽银铃并入 `bell_chime`，23 个差异组仅涉及 21 个预期 ID。
+  Runtime   Done   五种轮廓加入 `VisualPrimitive`、层内分发和复杂轮廓预算；令牌边框/印记、剪刀双刃/指环、砖体八边、伞盖伞骨、弓弦红箭均采用完整核心与跨帧细节。
+  Companion fidelity   Done   黑令雾遁、灰令磁浪、金令翼蛟、金银令光柱、雷剪鸣响/双蛟、晶砖修复光环、火砖撞光幕、玉伞斩弧、傀儡黄刀和银铃声波/飞剑均保留。
+  Counts/palette   Done   令牌/玉牌均为 1 份；百余丈金剪从误读 12 修为 1，两条/六条雷蛟分别为 2/6；血令 fire、黑/灰令 yin、雷剪 thunder、晶砖 water、火砖 fire、玉伞 qi→metal、大弓 metal→fire、银铃 metal。
+  Caps/contracts   Done   `emitAuthoredShape` 的 52-shape switch 未改；每层 8 粒、单事件 7/16/30、named copies 72 和全局公平预算保持。
+  Tests   Done   两个生成器 `--check`、Java/test 编译、`AuthoredVisualCatalogTest` 与 `LodestoneVfxContractTest` 定向执行通过。
+  Verification   Done   最终 `./gradlew build --no-daemon --max-workers=1` `BUILD SUCCESSFUL in 1m 26s`；251 个测试套件、1,167 项测试，failure/error/skipped 均为 0；产物 `seeking_immortals-0.2.215.jar`。
+  Version/protocol   Done   `mod_version` 0.2.214→0.2.215；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
+  Backup   Done   `.bak/20260728_043057_0.2.215_tokens_tools/`。

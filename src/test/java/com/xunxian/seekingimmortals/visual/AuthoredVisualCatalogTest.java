@@ -464,6 +464,110 @@ class AuthoredVisualCatalogTest {
                 .anyMatch(layer -> layer.primitive() == VisualPrimitive.SPIKED_CLUB));
         assertTrue(windClub.visualProgram().layers().stream()
                 .anyMatch(layer -> layer.primitive() == VisualPrimitive.SOUND_WAVE));
+
+        VisualProfile tokenEscape = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_1050").orElseThrow();
+        VisualProgramLayer blackToken = tokenEscape.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.COMMAND_TOKEN)
+                .findFirst().orElseThrow();
+        assertEquals(1, blackToken.copies());
+        assertEquals(catalog.palette("yin").orElseThrow().argb(), blackToken.primaryArgb());
+        assertTrue(tokenEscape.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.AFTERIMAGE_PATH));
+        assertTrue(tokenEscape.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.MIST_VEIL));
+        VisualProfile wingedJiaoToken = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_753").orElseThrow();
+        assertTrue(wingedJiaoToken.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.COMMAND_TOKEN));
+        assertTrue(wingedJiaoToken.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.SERPENT_DRAGON));
+        assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_965").orElseThrow()
+                .visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("金银令牌"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.BEAM_LANCE));
+        assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_316").orElseThrow()
+                .visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.COMMAND_TOKEN)
+                .anyMatch(layer -> layer.primaryArgb()
+                        == catalog.palette("fire").orElseThrow().argb()));
+
+        VisualProgramLayer goldScissors = catalog.find(
+                        VisualDomain.TECHNIQUE, "technique_1081").orElseThrow()
+                .visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_SCISSORS)
+                .findFirst().orElseThrow();
+        assertEquals(1, goldScissors.copies());
+        assertEquals(catalog.palette("metal").orElseThrow().argb(),
+                goldScissors.primaryArgb());
+        VisualProfile thunderScissors = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_683").orElseThrow();
+        assertTrue(thunderScissors.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_SCISSORS)
+                .anyMatch(layer -> layer.copies() == 1
+                        && layer.primaryArgb() == catalog.palette("thunder").orElseThrow().argb()));
+        assertTrue(thunderScissors.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.SERPENT_DRAGON)
+                .anyMatch(layer -> layer.copies() == 2));
+        assertTrue(thunderScissors.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.SOUND_WAVE));
+        assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_1098").orElseThrow()
+                .visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.SERPENT_DRAGON)
+                .anyMatch(layer -> layer.copies() == 6));
+
+        VisualProfile healingBrick = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_1200").orElseThrow();
+        assertTrue(healingBrick.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_BRICK)
+                .anyMatch(layer -> layer.copies() == 1
+                        && layer.primaryArgb() == catalog.palette("water").orElseThrow().argb()));
+        assertTrue(healingBrick.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.HALO_RING));
+        VisualProfile fireBrick = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_750").orElseThrow();
+        assertTrue(fireBrick.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_BRICK)
+                .anyMatch(layer -> layer.primaryArgb()
+                        == catalog.palette("fire").orElseThrow().argb()));
+        assertTrue(fireBrick.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.LIGHT_CURTAIN));
+
+        VisualProfile splitUmbrella = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_544").orElseThrow();
+        VisualProgramLayer jadeUmbrella = splitUmbrella.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_UMBRELLA)
+                .findFirst().orElseThrow();
+        assertEquals(catalog.palette("qi").orElseThrow().argb(),
+                jadeUmbrella.primaryArgb());
+        assertEquals(catalog.palette("metal").orElseThrow().argb(),
+                jadeUmbrella.secondaryArgb());
+        assertTrue(splitUmbrella.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.BLADE_ARC));
+
+        VisualProfile puppetWeapons = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_049").orElseThrow();
+        VisualProgramLayer drawnBow = puppetWeapons.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_BOW)
+                .findFirst().orElseThrow();
+        assertEquals(catalog.palette("metal").orElseThrow().argb(), drawnBow.primaryArgb());
+        assertEquals(catalog.palette("fire").orElseThrow().argb(), drawnBow.secondaryArgb());
+        assertTrue(puppetWeapons.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.FLYING_BLADE));
+
+        VisualProfile silverBell = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_1494").orElseThrow();
+        assertTrue(silverBell.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("铃铛"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.BELL_CHIME
+                        && layer.copies() == 1
+                        && layer.primaryArgb() == catalog.palette("metal").orElseThrow().argb()));
+        assertTrue(silverBell.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("声波法则"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.SOUND_WAVE
+                        && layer.copies() == 1));
+        assertTrue(silverBell.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.FLYING_SWORD));
         assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_056").orElseThrow()
                 .visualProgram().layers().stream()
                 .anyMatch(layer -> layer.primitive() == VisualPrimitive.SHIELD_PLATE));

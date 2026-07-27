@@ -407,19 +407,27 @@ def technique_timeline(raw: dict[str, Any], profile: dict[str, Any]) -> list[dic
 PROGRAM_RULES = (
     ("cauldron_vessel", ("青铜鼎", "巨鼎", "宝鼎", "炼丹鼎", "灵鼎", "双鼎", "黑鼎", "小鼎", "鼎中")),
     ("alchemy_furnace", ("丹炉", "巨大火炉", "火炉中")),
-    ("bell_chime", ("黑色小钟", "金钟", "铜钟", "灵钟", "宝钟", "古钟", "黑钟", "小钟", "梵钟")),
+    ("bell_chime", ("黑色小钟", "金钟", "铜钟", "灵钟", "宝钟", "古钟", "黑钟", "小钟", "梵钟",
+                    "陶羽银铃铛", "银铃铛", "这铃铛俨然")),
     ("gourd_vessel", ("葫芦", "玉葫芦", "宝葫芦", "灵葫芦", "玉瓶", "宝瓶", "灵瓶", "净瓶", "玉净瓶", "掌天瓶", "小瓶", "瓶影")),
     ("ritual_bowl", ("漆黑钵盂", "乌黑圆钵", "碧绿圆钵", "银色圆钵", "圆钵", "钵盂")),
     ("ritual_lamp", ("手捧古灯",)),
     ("ritual_coffin", ("寒玉棺", "石棺中")),
     ("magic_staff", ("乌黑禅杖", "降魔巨杖", "降魔杖", "此宝就化为十余丈之长，水缸般粗细的庞然巨物")),
+    ("magic_bow", ("手持一把大弓",)),
     ("magic_fan", ("三焰扇", "青色羽扇", "羽扇", "从扇子狂涌而出", "从扇上浮现",
                    "三色光焰从扇面上", "三色火焰在扇面上", "单手持扇", "三色火柱从扇面上")),
+    ("magic_umbrella", ("玉伞",)),
+    ("magic_brick", ("淡蓝色晶砖", "金砖", "火红砖块")),
     ("light_curtain", ("光幕", "光墙", "光帘", "五色光幕", "护幕", "屏障光", "一片光华", "光幕一", "光幕竟", "蓝色霞光", "五色霞光", "霞光一片")),
-    ("halo_ring", ("光环", "光圈", "圆环光", "血色光环", "金光圈", "光环一", "光环凭空")),
+    ("halo_ring", ("光环", "光圈", "圆环光", "血色光环", "金光圈", "光环一", "光环凭空",
+                   "一圈圈淡蓝色光晕")),
     ("magic_ruler", ("混元尺", "银色巨尺", "巨大银尺", "半截银尺", "巨尺", "尺影")),
+    ("magic_scissors", ("金色剪刀", "青色剪刀")),
     ("banner_streamer", ("幡旗", "杆幡", "黑幡", "灵幡", "宝幡", "玉竹幡", "竹幡", "血幡")),
     ("seal_stamp", ("法印一闪", "大印一压", "大印落下", "法印一", "玉印", "宝印", "印诀", "金印", "血印", "印玺")),
+    ("command_token", ("黑色令牌", "长老令牌", "禁制令牌", "令牌上血光", "手中令牌",
+                       "金色令牌", "从令牌一面", "金银令牌", "玉牌")),
     ("bridge_arc", ("虹桥", "光桥", "玉桥", "虹桥光", "长虹光", "七彩桥", "光桥一")),
     ("flying_sword", ("青竹蜂云剑", "飞剑", "青色小剑", "金色小剑", "小剑", "小青剑", "口剑", "剑影", "剑气纵横", "剑芒", "剑刃飞", "飞出一剑", "剑光分化", "分化出", "剑光在其", "化为三十六道", "化为七十二")),
     ("fire_plume", ("赤红火焰", "真火", "赤焰", "火焰从", "火柱", "火海", "烈焰", "三昧真火", "丹火", "青焰", "火球爆",
@@ -442,7 +450,7 @@ PROGRAM_RULES = (
     ("spiked_club", ("狼牙棒",)),
     ("giant_claw", ("巨爪", "鬼爪", "火焰鬼爪")),
     ("giant_hand", ("巨手", "大手", "巨掌", "佛掌", "血掌", "擎天手")),
-    ("serpent_dragon", ("青龙虚影", "巨龙虚影", "龙形虚影", "五爪青龙", "龙影", "火龙", "水龙", "雷龙", "冰龙", "风龙", "血龙", "蛟龙", "火蛇", "灵蛇", "雷蛇", "青蛇", "黑蛇", "巨蛇", "蟒蛇", "巨蟒", "毒蛇")),
+    ("serpent_dragon", ("青龙虚影", "巨龙虚影", "龙形虚影", "五爪青龙", "怪蛟虚影", "龙影", "火龙", "水龙", "雷龙", "冰龙", "风龙", "血龙", "蛟龙", "青色雷蛟", "火蛇", "灵蛇", "雷蛇", "青蛇", "黑蛇", "巨蛇", "蟒蛇", "巨蟒", "毒蛇")),
     ("flame_bird", ("火鸟", "炎鸟", "朱雀", "凤凰", "火凤", "金乌")),
     ("beast_phantom", ("兽影", "虎影", "巨猿", "魔猿", "麒麟", "玄武", "白虎")),
     ("lotus_mandala", ("莲花", "白莲", "金莲", "青莲", "血莲", "莲台", "莲瓣")),
@@ -463,7 +471,7 @@ PROGRAM_RULES = (
     ("spear_spike", ("金针", "银针", "灵针", "飞针", "长矛", "冰矛", "冰锥", "地刺", "骨刺")),
     ("orb_projectile", ("光球", "火球", "雷球", "水球", "圆球", "灵珠", "宝珠", "圆珠")),
     ("eye_gaze", ("法目", "灵目", "天眼", "灵眼", "竖目", "瞳孔", "目光")),
-    ("sound_wave", ("梵音", "禅音", "魔啸", "长啸", "怒吼", "咆哮", "钟鸣", "铃声", "传音")),
+    ("sound_wave", ("梵音", "禅音", "魔啸", "长啸", "怒吼", "咆哮", "钟鸣", "铃声", "传音", "声波法则")),
     ("fist_barrage", ("拳影", "掌影")),
     ("cloud_vortex", ("漩涡", "云团", "血云", "黑云")),
     ("rune_orbit", ("符文", "符箓", "符印", "法阵", "阵法", "阵图")),
@@ -601,6 +609,10 @@ def program_copies(text: str, evidence_terms: list[str] | tuple[str, ...] = ()) 
                 if index < 0:
                     break
                 prefix = text[max(0, index - 20):index]
+                if term == "青色雷蛟":
+                    local_count = re.search(r"(?P<count>六|两)条[^，。；：、]{0,16}$", prefix)
+                    if local_count:
+                        return _copies_from_text(local_count.group("count"))
                 count = re.search(
                     r"(?P<count>一百零八|一百八|三百六十|三百六|七十二|三十六|二十四|十八|十二|数百|上百|百余|数十|千万|千|万|百|九|八|七|六|五|四|三|两|二|一)"
                     r"(?:口|柄|把|只|颗|枚|道|团|朵|座|条|头|面|杆|株|缕|片|层|尊|具|根|个|束|股|对|排)"
@@ -704,7 +716,13 @@ _PRIMITIVE_PALETTE_FALLBACK = {
     "ritual_coffin": "yin",
     "magic_ruler": "qi",
     "magic_staff": "metal",
+    "magic_bow": "metal",
     "magic_fan": "qi",
+    "magic_umbrella": "qi",
+    "magic_scissors": "metal",
+    "command_token": "qi",
+    "magic_brick": "metal",
+    "bell_chime": "metal",
     "magic_scroll": "metal",
     "formation_disc": "qi",
     "spiked_club": "metal",
@@ -714,7 +732,8 @@ _PRIMITIVE_PALETTE_FALLBACK = {
 
 _LOCAL_PALETTE_PRIMITIVES = frozenset({
     "ritual_bowl", "ritual_lamp", "ritual_coffin", "magic_ruler", "magic_staff",
-    "magic_fan", "magic_scroll", "formation_disc", "spiked_club",
+    "magic_bow", "magic_fan", "magic_umbrella", "magic_scissors", "command_token",
+    "magic_brick", "bell_chime", "magic_scroll", "formation_disc", "spiked_club",
     "talisman_brush", "spirit_qin", "giant_hammer",
 })
 
@@ -738,7 +757,8 @@ def program_palette_source(text: str, primitive: str, matched_terms: list[str]) 
 _FIGURE_PRIMITIVES = {
     "cauldron_vessel", "alchemy_furnace", "bell_chime", "gourd_vessel", "light_curtain", "halo_ring",
     "ritual_bowl", "ritual_lamp", "ritual_coffin", "magic_ruler", "magic_staff",
-    "magic_fan", "banner_streamer", "seal_stamp", "bridge_arc",
+    "magic_bow", "magic_fan", "magic_umbrella", "magic_scissors",
+    "banner_streamer", "seal_stamp", "command_token", "magic_brick", "bridge_arc",
     "flying_sword", "fire_plume", "formation_banner",
     "pagoda_tower", "blood_thread", "jade_slip", "magic_scroll", "burning_talisman",
     "formation_disc", "spiked_club",
@@ -766,10 +786,15 @@ def program_primitives(text: str, base_shape: str) -> tuple[list[str], list[str]
         ("aura_burst", ("光点迸", "光屑飞", "星点洒", "闪白光点爆", "掌心聚光点", "光点密布")),
         ("mist_veil", ("迷雾笼罩", "烟幕弥漫", "余烬飘散", "雾气腾腾")),
         ("mist_veil", ("丹炉顶部的空隙中，开始升起一团淡紫色雾气", "丹炉内紫雾由淡转浓")),
+        ("mist_veil", ("化为一团黑色雾气将其身形一罩",)),
         ("impact_arcs", ("爆裂开来", "轰然爆开", "爆散而开", "震碎虚空")),
         ("layered_afterimages", ("残影重重", "层层虚影")),
-        ("afterimage_path", ("人就化为一股轻风", "瞬间化为一缕清风从莲影中")),
-        ("sound_wave", ("狼牙棒一挥，顿时一股狂风呼啸",)),
+        ("afterimage_path", ("人就化为一股轻风", "瞬间化为一缕清风从莲影中",
+                             "最终化为了一道几乎淡若不见的虚影")),
+        ("magnetic_field", ("灰色光浪从底部滚滚而出", "粗大灰霞飞卷而上")),
+        ("blade_arc", ("凭空被斩切了开来",)),
+        ("sound_wave", ("狼牙棒一挥，顿时一股狂风呼啸", "声波法则",
+                        "一声雷鸣后，剪刀化为")),
     )
     for primitive, terms in secondary:
         hits = [term for term in terms if term in text]
@@ -808,8 +833,13 @@ def program_primitives(text: str, base_shape: str) -> tuple[list[str], list[str]
         # "剑影如山峰" or "剑群如蜂群" into literal mountains or insect swarms.
         keep_extra = {"lotus_mandala", "sword_rain", "projectile_swarm", "fire_plume",
                       "light_curtain", "spirit_avatar", "ghost_head", "wheel_disc",
-                      "ritual_bowl", "magic_ruler", "magic_staff", "giant_hammer"}
+                      "ritual_bowl", "magic_ruler", "magic_staff", "giant_hammer",
+                      "bell_chime"}
         selected = [p for p in selected if p == "flying_sword" or p in keep_extra]
+    if "bell_chime" in selected and "铃铛" in text:
+        if "声波法则" in text and "sound_wave" not in selected:
+            selected.append("sound_wave")
+        selected = ["bell_chime"] + [p for p in selected if p != "bell_chime"]
     # The eight skulls are mounted details of the authored green-flame hammer. Rendering
     # a second free-floating ghost-head swarm would duplicate the same source object.
     if "giant_hammer" in selected and "锤" in text:
@@ -825,7 +855,7 @@ def program_primitives(text: str, base_shape: str) -> tuple[list[str], list[str]
     if ordered and ordered[0] in _FIGURE_PRIMITIVES:
         generic = {"aura_burst", "mist_veil", "impact_arcs", "layered_afterimages"}
         head, tail = ordered[0], [p for p in ordered[1:] if p not in generic]
-        if head == "alchemy_furnace" and "mist_veil" in ordered[1:]:
+        if head in {"alchemy_furnace", "command_token"} and "mist_veil" in ordered[1:]:
             tail.append("mist_veil")
         ordered = [head] + tail
     return ordered[:4], evidence[:10]
@@ -873,11 +903,24 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
                 primary_key = secondary_key = "qi"
             elif primitive == "magic_staff" and "七色佛光" in source:
                 primary_key, secondary_key = "metal", "qi"
+            elif primitive == "magic_bow" and "箭矢状红芒" in source:
+                primary_key, secondary_key = "metal", "fire"
             elif primitive == "magic_fan" and "青色羽扇" in source:
                 primary_key = secondary_key = "wood"
             elif (primitive == "magic_fan" and any(token in source for token in (
                     "三焰扇", "三色火凤", "三色光焰", "三色火焰", "三色火柱"))):
                 primary_key, secondary_key = "fire", "qi"
+            elif primitive == "magic_umbrella" and "金光在玉伞" in source:
+                primary_key, secondary_key = "qi", "metal"
+            elif primitive == "magic_scissors" and "青色剪刀" in source:
+                primary_key = secondary_key = "thunder"
+            elif (primitive == "command_token"
+                    and any(token in source for token in ("灰丝", "灰色光浪"))):
+                primary_key = secondary_key = "yin"
+            elif primitive == "command_token" and "令牌上血光" in source:
+                primary_key = secondary_key = "fire"
+            elif primitive == "command_token" and "玉牌上最后一层蓝光" in source:
+                primary_key = secondary_key = "water"
             elif primitive == "formation_disc" and "青光阵盘" in source:
                 primary_key = secondary_key = "wood"
             elif (primitive == "talisman_brush" and "金色符文" in source
