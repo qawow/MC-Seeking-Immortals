@@ -151,6 +151,14 @@ class LodestoneVfxContractTest {
         assertTrue(renderer.contains("lineSampleProgress(sample, samples)"));
         assertTrue(renderer.contains("status == ParticleStatus.MINIMAL ? 7"));
         assertTrue(renderer.contains("status == ParticleStatus.DECREASED ? 16 : 30"));
+        for (String helper : List.of(
+                "ritualBowlShape", "magicRulerShape", "giantHammerShape")) {
+            assertTrue(renderer.contains("private static void " + helper + "("), helper);
+        }
+        for (String branch : List.of(
+                "case RITUAL_BOWL ->", "case MAGIC_RULER ->", "case GIANT_HAMMER ->")) {
+            assertTrue(renderer.contains(branch), branch);
+        }
     }
 
     @Test

@@ -20,7 +20,8 @@ public enum VisualPrimitive {
     HALO_RING, BANNER_STREAMER, SEAL_STAMP, BRIDGE_ARC,
     // 0.2.200 deeper figure silhouettes
     FLYING_SWORD, FORMATION_BANNER, PAGODA_TOWER, BLOOD_THREAD, JADE_SLIP, FIRE_PLUME,
-    GHOST_HEAD, SHIELD_PLATE, FLYING_BLADE, GIANT_AXE;
+    GHOST_HEAD, SHIELD_PLATE, FLYING_BLADE, GIANT_AXE,
+    RITUAL_BOWL, MAGIC_RULER, GIANT_HAMMER;
 
     public static VisualPrimitive parse(String value) {
         if (value == null || value.isBlank()) {

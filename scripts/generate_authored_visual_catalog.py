@@ -408,8 +408,10 @@ PROGRAM_RULES = (
     ("cauldron_vessel", ("青铜鼎", "巨鼎", "宝鼎", "炼丹鼎", "灵鼎", "双鼎", "黑鼎", "小鼎", "鼎中")),
     ("bell_chime", ("黑色小钟", "金钟", "铜钟", "灵钟", "宝钟", "古钟", "黑钟", "小钟", "梵钟")),
     ("gourd_vessel", ("葫芦", "玉葫芦", "宝葫芦", "灵葫芦", "玉瓶", "宝瓶", "灵瓶", "净瓶", "玉净瓶", "掌天瓶", "小瓶", "瓶影")),
+    ("ritual_bowl", ("漆黑钵盂", "乌黑圆钵", "碧绿圆钵", "银色圆钵", "圆钵", "钵盂")),
     ("light_curtain", ("光幕", "光墙", "光帘", "五色光幕", "护幕", "屏障光", "一片光华", "光幕一", "光幕竟", "蓝色霞光", "五色霞光", "霞光一片")),
     ("halo_ring", ("光环", "光圈", "圆环光", "血色光环", "金光圈", "光环一", "光环凭空")),
+    ("magic_ruler", ("混元尺", "银色巨尺", "巨大银尺", "半截银尺", "巨尺", "尺影")),
     ("banner_streamer", ("幡旗", "杆幡", "黑幡", "灵幡", "宝幡", "玉竹幡", "竹幡", "血幡")),
     ("seal_stamp", ("法印一闪", "大印一压", "大印落下", "法印一", "玉印", "宝印", "印诀", "金印", "血印", "印玺")),
     ("bridge_arc", ("虹桥", "光桥", "玉桥", "虹桥光", "长虹光", "七彩桥", "光桥一")),
@@ -424,6 +426,7 @@ PROGRAM_RULES = (
     ("shield_plate", ("巨大血色光盾", "血色光盾", "巨大盾牌", "银盾", "盾牌", "盾面")),
     ("flying_blade", ("厚背长刀", "长刀虚影", "飞刀", "宝刀", "魔刀", "血刀", "刀影", "巨刃", "月刃", "弯刀")),
     ("giant_axe", ("神念巨斧", "晶莹巨斧", "黑色巨斧", "巨斧", "战斧", "大斧", "斧影")),
+    ("giant_hammer", ("八骷髅锤", "绿焰锤", "单手提着一柄大锤", "一柄大锤", "黑色巨锤", "巨大锤", "巨锤", "大锤", "锤影", "锤子")),
     ("giant_claw", ("巨爪", "鬼爪", "火焰鬼爪")),
     ("giant_hand", ("巨手", "大手", "巨掌", "佛掌", "血掌", "擎天手")),
     ("serpent_dragon", ("青龙虚影", "巨龙虚影", "龙形虚影", "五爪青龙", "龙影", "火龙", "水龙", "雷龙", "冰龙", "风龙", "血龙", "蛟龙", "火蛇", "灵蛇", "雷蛇", "青蛇", "黑蛇", "巨蛇", "蟒蛇", "巨蟒", "毒蛇")),
@@ -682,11 +685,36 @@ def program_palette(text: str, fallback: str, argbs: dict[str, int]) -> tuple[st
     return primary, secondary
 
 
+_PRIMITIVE_PALETTE_FALLBACK = {
+    "ritual_bowl": "yin",
+    "magic_ruler": "qi",
+}
+
+_LOCAL_PALETTE_PRIMITIVES = frozenset({"ritual_bowl", "magic_ruler", "giant_hammer"})
+
+
+def program_palette_source(text: str, primitive: str, matched_terms: list[str]) -> str:
+    """Bind colors to the matched object instead of unrelated objects in the quote."""
+    if primitive not in _LOCAL_PALETTE_PRIMITIVES or not matched_terms:
+        return text
+    term = matched_terms[0]
+    index = text.find(term)
+    if index < 0:
+        return text
+    if primitive == "giant_hammer":
+        # Its white skulls and green flames deliberately follow the hammer noun.
+        return text[max(0, index - 20):min(len(text), index + len(term) + 48)]
+    # Bowl/ruler colors are adjectival. Keep the window tight enough that a nearby
+    # black mountain cannot recolor its separately authored silver ruler.
+    return text[max(0, index - 6):index + len(term)]
+
+
 _FIGURE_PRIMITIVES = {
     "cauldron_vessel", "bell_chime", "gourd_vessel", "light_curtain", "halo_ring",
-    "banner_streamer", "seal_stamp", "bridge_arc", "flying_sword", "fire_plume", "formation_banner",
+    "ritual_bowl", "magic_ruler", "banner_streamer", "seal_stamp", "bridge_arc",
+    "flying_sword", "fire_plume", "formation_banner",
     "pagoda_tower", "blood_thread", "jade_slip", "burning_talisman",
-    "ghost_head", "shield_plate", "flying_blade", "giant_axe",
+    "ghost_head", "shield_plate", "flying_blade", "giant_axe", "giant_hammer",
     "giant_claw", "giant_hand", "serpent_dragon", "flame_bird", "beast_phantom",
     "lotus_mandala", "wheel_disc", "mirror_disc", "sword_rain", "ice_prison",
     "blood_sea", "tree_avatar", "spatial_rift", "lightning_storm", "mountain_meteor",
@@ -744,10 +772,16 @@ def program_primitives(text: str, base_shape: str) -> tuple[list[str], list[str]
             "mist_veil", "chain_net", "impact_arcs", "single_projectile",
         }
         selected = [p for p in selected if p not in suppress or p == "flying_sword"]
-        # Keep only sword-relevant companions (lotus if 莲花, rain if 剑阵/剑雨).
+        # Preserve narrowly evidenced companions without turning sword similes such as
+        # "剑影如山峰" or "剑群如蜂群" into literal mountains or insect swarms.
         keep_extra = {"lotus_mandala", "sword_rain", "projectile_swarm", "fire_plume",
-                      "light_curtain", "spirit_avatar", "ghost_head", "wheel_disc"}
+                      "light_curtain", "spirit_avatar", "ghost_head", "wheel_disc",
+                      "ritual_bowl", "magic_ruler", "giant_hammer"}
         selected = [p for p in selected if p == "flying_sword" or p in keep_extra]
+    # The eight skulls are mounted details of the authored green-flame hammer. Rendering
+    # a second free-floating ghost-head swarm would duplicate the same source object.
+    if "giant_hammer" in selected and "锤" in text:
+        selected = [p for p in selected if p not in {"ghost_head", "spirit_avatar"}]
     if "ghost_head" in selected and "spirit_avatar" in selected and not any(
             token in text for token in ("法相", "鬼影", "化身", "人形", "女子", "骨架")):
         selected.remove("spirit_avatar")
@@ -788,7 +822,6 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
         anchor = program_anchor(source, path, trigger)
         motion = program_motion(source, inferred)
         radius, length, height = program_scale(source, float(profile.get("radius", 0.9) or 0.9))
-        primary_key, secondary_key = program_palette(source, fallback_palette, argbs)
         digest = hashlib.sha256(f"{profile.get('id')}:{source_index}:{source}".encode("utf-8")).digest()
         phase = int.from_bytes(digest[:2], "big") % 360
         speed = 0.3 if "缓" in source or "慢" in source else 1.0
@@ -799,6 +832,17 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
         for primitive_index, primitive in enumerate(primitive_ids):
             matched_terms = [term for rule, terms in PROGRAM_RULES if rule == primitive
                              for term in terms if term in source]
+            primitive_fallback = _PRIMITIVE_PALETTE_FALLBACK.get(primitive, fallback_palette)
+            palette_source = program_palette_source(source, primitive, matched_terms)
+            if (primitive in {"ritual_bowl", "magic_ruler"}
+                    and any(token in palette_source for token in ("银色", "银的", "银尺", "银钵"))):
+                primary_key = secondary_key = "qi"
+            else:
+                primary_key, secondary_key = program_palette(
+                    palette_source, primitive_fallback, argbs)
+            if (primitive in _LOCAL_PALETTE_PRIMITIVES and matched_terms
+                    and primary_key != primitive_fallback and secondary_key == primitive_fallback):
+                secondary_key = primary_key
             copies = program_copies(source, matched_terms)
             if not matched_terms and primitive_index > 0:
                 copies = max(1, copies // 2)

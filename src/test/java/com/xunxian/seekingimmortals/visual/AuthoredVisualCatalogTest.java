@@ -229,6 +229,62 @@ class AuthoredVisualCatalogTest {
                 .filter(layer -> layer.primitive() == VisualPrimitive.GIANT_AXE)
                 .filter(layer -> layer.sourceQuote().contains("两柄晶莹巨斧"))
                 .findFirst().orElseThrow().copies());
+
+        VisualProfile bowls = catalog.find(VisualDomain.TECHNIQUE, "technique_834").orElseThrow();
+        VisualProgramLayer blackBowl = bowls.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.RITUAL_BOWL)
+                .filter(layer -> layer.sourceQuote().contains("乌黑圆钵"))
+                .findFirst().orElseThrow();
+        assertEquals(1, blackBowl.copies());
+        assertEquals(catalog.palette("yin").orElseThrow().argb(), blackBowl.primaryArgb());
+        VisualProgramLayer openedBowl = bowls.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.RITUAL_BOWL)
+                .filter(layer -> layer.sourceQuote().contains("从圆钵里面"))
+                .findFirst().orElseThrow();
+        assertEquals(catalog.palette("yin").orElseThrow().argb(), openedBowl.primaryArgb());
+        assertEquals(catalog.palette("yin").orElseThrow().argb(), openedBowl.secondaryArgb());
+        assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_343").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.RITUAL_BOWL));
+        VisualProfile mixedRelics = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_308").orElseThrow();
+        assertTrue(mixedRelics.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.RITUAL_BOWL));
+        assertTrue(mixedRelics.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.FLYING_SWORD));
+        assertEquals(catalog.palette("qi").orElseThrow().argb(),
+                mixedRelics.visualProgram().layers().stream()
+                        .filter(layer -> layer.primitive() == VisualPrimitive.RITUAL_BOWL)
+                        .findFirst().orElseThrow().primaryArgb());
+
+        VisualProfile rulers = catalog.find(VisualDomain.TECHNIQUE, "technique_855").orElseThrow();
+        assertEquals(2, rulers.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_RULER)
+                .filter(layer -> layer.sourceQuote().contains("两道尺影"))
+                .findFirst().orElseThrow().copies());
+        assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_861").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.MAGIC_RULER
+                        && layer.copies() == 1
+                        && layer.primaryArgb() == catalog.palette("qi").orElseThrow().argb()
+                        && layer.secondaryArgb() == catalog.palette("qi").orElseThrow().argb()));
+
+        VisualProfile hammer = catalog.find(VisualDomain.TECHNIQUE, "technique_715").orElseThrow();
+        assertEquals(1, hammer.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.GIANT_HAMMER)
+                .filter(layer -> layer.sourceQuote().contains("单手提着一柄大锤"))
+                .findFirst().orElseThrow().copies());
+        VisualProgramLayer skullHammer = hammer.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.GIANT_HAMMER)
+                .filter(layer -> layer.sourceQuote().contains("八个白森森的骷髅头"))
+                .findFirst().orElseThrow();
+        assertEquals(1, skullHammer.copies());
+        assertEquals(catalog.palette("qi").orElseThrow().argb(), skullHammer.primaryArgb());
+        assertEquals(catalog.palette("wood").orElseThrow().argb(), skullHammer.secondaryArgb());
+        assertFalse(hammer.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("八个白森森的骷髅头"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.GHOST_HEAD
+                        || layer.primitive() == VisualPrimitive.SPIRIT_AVATAR));
         assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_056").orElseThrow()
                 .visualProgram().layers().stream()
                 .anyMatch(layer -> layer.primitive() == VisualPrimitive.SHIELD_PLATE));

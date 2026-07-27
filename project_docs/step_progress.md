@@ -9312,3 +9312,18 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Verification   Done   预算规划与 Lodestone 契约回归通过；`./gradlew build --no-daemon --max-workers=1` `BUILD SUCCESSFUL in 1m 32s`，1,167 项测试 0 失败/错误/跳过。
   Version/protocol   Done   `mod_version` 0.2.209→0.2.210；未修改网络包字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
   Backup   Done   `.bak/20260728_0.2.210_vfx_copy_density/`（从 `a0a4868e` 导出的精确基线）。
+
+## 603. 2026-07-28 0.2.212 钵、尺、锤具名法器轮廓
+
+  Step   Status   Notes
+  ---   ---   ---
+  Residual inventory   Done   对 5,727 profile / 9,947 术法引文组做结构化残差统计并回读 v167、v262、v386、v426、v433、v435、v470 原文；确认钵盂/圆钵、混元尺/尺影、大锤/锤影仍被 mist/projectile/beam/claw 等通用 primitive 吞并。
+  Compiler   Done   `PROGRAM_RULES`、`PROGRAM_SHAPES` 与 figure 优先集增加 `ritual_bowl` 5 层、`magic_ruler` 6 层、`giant_hammer` 4 层；局部颜色只读取命中物件邻域，黑钵跨句保持阴色、银钵/银尺使用银白 qi、八骷髅锤保持白→绿；锤上骷髅不再重复为独立鬼首/灵体。
+  Count fidelity   Done   巨人“七八丈”不再串成 8 柄锤，千丈黑峰不再串成 20 口尺；单锤=1、单尺=1、两道尺影=2、密密麻麻锤影=12。与 `bee1100f` 基线逐引文对比恰有 15 组变化，无 163 层全局银色调色扩散，也无“剑影如山峰/剑群如蜂群”字面误配。
+  Runtime   Done   `VisualPrimitive` 与层内 `emitFigurePrimitive` 补三种类型；钵使用开口环、双侧盆身、内旋内容与升腾物，尺使用双边、端帽、中心脊和五档刻度，锤使用柄/头核心及 8 个跨帧骷髅焰节点。三者进入每份至少 2 粒的复杂轮廓调度。
+  Caps/contracts   Done   `emitAuthoredShape` 的 52 种生成 shape 未改；每层 8 粒、单事件 MINIMAL 7 / DECREASED 16 / ALL 30、named copies 72 上限与 `ClientVisualEngine` 公平预算均保持。
+  Tests   Done   `AuthoredVisualCatalogTest` 固定 technique_063/308/343/715/834/855/861 的形状、局部颜色、数量与复合锤去重；`LodestoneVfxContractTest` 固定三条层内分支和 helper。
+  Regen   Done   作者术法效果 2,292 profiles、统一视觉目录 5,727 profiles 当前；术法视觉 10,677 层、73 种 primitive，authored=1,806、directQuotes=9,947。
+  Verification   Done   最终 `./gradlew build --no-daemon --max-workers=1` `BUILD SUCCESSFUL in 1m 24s`；251 个测试套件、1,167 项测试，failure/error/skipped 均为 0，全部生成资源检查通过。
+  Version/protocol   Done   首次 `0.2.211` 构建后又收紧生成差异，版本指纹门禁拒绝复用该版本；未使用跳过参数，最终 `mod_version=0.2.212`。未修改网络包字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
+  Backup   Done   `.bak/20260728_0.2.211_named_relic_figures/`。
