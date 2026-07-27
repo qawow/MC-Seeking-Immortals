@@ -763,12 +763,15 @@ public final class LodestoneTechniqueVfx {
         ring(level, family, palm, size * 0.38D,
                 Math.min(18, Math.max(8, intensity / 3)), random, 0.18F, 18);
         for (int finger = 0; finger < 5 && budgetAvailable(level); finger++) {
-            double lateral = (finger - 2.0D) * size * 0.18D;
-            double forward = (finger % 2 == 0 ? 0.20D : -0.08D) * size;
-            Vec3 knuckle = palm.add(lateral, 0.0D, forward);
-            Vec3 tip = center.add(lateral * 1.35D, 0.15D, forward + size * 0.36D);
-            shortLine(level, family, knuckle, tip,
-                    Math.min(7, Math.max(3, intensity / 7)), random);
+            double lateral = (finger - 2.0D) * size * 0.2D;
+            double forward = (finger % 2 == 0 ? 0.22D : -0.1D) * size;
+            Vec3 knuckle = palm.add(lateral, 0.05D, forward);
+            Vec3 mid = center.add(lateral * 1.05D, 0.35D, forward + size * 0.18D);
+            Vec3 tip = center.add(lateral * 1.45D, 0.08D, forward + size * 0.42D);
+            shortLine(level, family, knuckle, mid, Math.min(5, Math.max(3, intensity / 8)), random);
+            shortLine(level, family, mid, tip, Math.min(6, Math.max(3, intensity / 7)), random);
+            spawn(level, LodestoneParticleRegistry.SPARKLE_PARTICLE, family, tip,
+                    new Vec3(0.0D, -0.01D, 0.0D), 0.12F, 0.75F, 14, random.nextFloat());
         }
     }
 
@@ -838,38 +841,55 @@ public final class LodestoneTechniqueVfx {
     }
 
     private static void spiritAvatarShape(ClientLevel level, TechniqueVfxPalette.Family family,
-                                          Vec3 center, float radius,
-                                          int intensity, Random random) {
-        double scale = Math.max(0.9D, Math.min(3.6D, radius * 0.8D));
-        Vec3 hips = center.add(0.0D, 0.35D, 0.0D);
-        Vec3 shoulders = hips.add(0.0D, scale * 0.85D, 0.0D);
-        Vec3 head = shoulders.add(0.0D, scale * 0.42D, 0.0D);
-        shortLine(level, family, hips, head, 7, random);
-        shortLine(level, family, shoulders.add(-scale * 0.5D, -scale * 0.15D, 0.0D),
-                shoulders.add(scale * 0.5D, -scale * 0.15D, 0.0D), 7, random);
-        verticalRing(level, family, head, new Vec3(0.0D, 0.0D, 1.0D), scale * 0.24D,
-                Math.min(16, Math.max(8, intensity / 3)), random, 0.18F);
+                                          Vec3 center, float radius, int intensity, Random random) {
+        double size = Math.max(0.9D, Math.min(3.2D, radius * 1.05D));
+        shortLine(level, family, center, center.add(0.0D, size * 1.6D, 0.0D),
+                Math.min(14, Math.max(7, intensity / 3)), random);
+        shortLine(level, family,
+                center.add(-size * 0.55D, size * 1.15D, 0.0D),
+                center.add(size * 0.55D, size * 1.15D, 0.0D), 6, random);
+        ring(level, family, center.add(0.0D, size * 1.75D, 0.0D), size * 0.22D,
+                Math.min(12, Math.max(6, intensity / 4)), random, 0.14F, 20);
+        shortLine(level, family, center.add(-size * 0.5D, size * 1.1D, 0.0D),
+                center.add(-size * 0.95D, size * 0.55D, 0.15D), 5, random);
+        shortLine(level, family, center.add(size * 0.5D, size * 1.1D, 0.0D),
+                center.add(size * 0.95D, size * 0.55D, 0.15D), 5, random);
+        rotatingRing(level, family, center.add(0.0D, size * 0.7D, 0.0D), size * 0.7D,
+                Math.min(16, Math.max(8, intensity / 3)), level.getGameTime() * 0.07D, random);
+        for (int i = 0; i < 4 && budgetAvailable(level); i++) {
+            spawn(level, LodestoneParticleRegistry.WISP_PARTICLE, family,
+                    center.add(randomOffset(random, size * 0.3D)).add(0.0D, size * 0.9D, 0.0D),
+                    new Vec3(0.0D, 0.01D, 0.0D), 0.16F, 0.55F, 24, random.nextFloat());
+        }
     }
 
     private static void serpentShape(ClientLevel level, TechniqueVfxPalette.Family family,
                                      Vec3 start, Vec3 end, float radius,
                                      int intensity, Random random) {
-        Vec3 target = start.distanceToSqr(end) < 0.04D ? start.add(0.0D, 2.5D, 0.0D) : end;
-        Vec3 delta = target.subtract(start);
-        Vec3 direction = normalized(delta, new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 tip = start.distanceToSqr(end) < 0.04D ? start.add(direction.scale(2.4D)) : end;
         Vec3 side = perpendicular(direction);
-        Vec3 up = normalized(direction.cross(side), new Vec3(0.0D, 1.0D, 0.0D));
-        int points = Math.min(24, Math.max(10, intensity / 2));
-        double waveRadius = Math.max(0.16D, Math.min(0.75D, radius * 0.16D));
-        for (int i = 0; i <= points && budgetAvailable(level); i++) {
-            double progress = i / (double) points;
-            double angle = progress * Math.PI * 5.0D;
-            Vec3 point = start.add(delta.scale(progress))
-                    .add(side.scale(Math.cos(angle) * waveRadius))
-                    .add(up.scale(Math.sin(angle) * waveRadius));
-            spawn(level, LodestoneParticleRegistry.WISP_PARTICLE, family, point,
-                    direction.scale(0.012D), 0.22F, 0.84F, 18, (float) angle);
+        Vec3 up = normalized(side.cross(direction), new Vec3(0.0D, 1.0D, 0.0D));
+        int segments = Math.min(18, Math.max(10, intensity / 2));
+        double amp = Math.max(0.25D, Math.min(1.1D, radius * 0.35D));
+        Vec3 prev = start;
+        for (int i = 1; i <= segments && budgetAvailable(level); i++) {
+            double progress = i / (double) segments;
+            double wave = Math.sin(progress * Math.PI * 3.0D) * amp;
+            Vec3 point = start.lerp(tip, progress)
+                    .add(side.scale(wave))
+                    .add(up.scale(Math.sin(progress * Math.PI) * amp * 0.35D));
+            shortLine(level, family, prev, point, 3, random);
+            if (i % 3 == 0) {
+                spawn(level, LodestoneParticleRegistry.WISP_PARTICLE, family, point,
+                        direction.scale(0.01D), 0.14F, 0.7F, 16, random.nextFloat());
+            }
+            prev = point;
         }
+        verticalRing(level, family, tip, direction, Math.max(0.2D, amp * 0.55D),
+                Math.min(12, Math.max(6, intensity / 5)), random, 0.14F);
+        spawn(level, LodestoneParticleRegistry.STAR_PARTICLE, family, tip,
+                direction.scale(0.02D), 0.18F, 0.9F, 18, random.nextFloat());
     }
 
     private static void cageShape(ClientLevel level, TechniqueVfxPalette.Family family,
@@ -1044,17 +1064,36 @@ public final class LodestoneTechniqueVfx {
     private static void flameBirdShape(ClientLevel level, TechniqueVfxPalette.Family family,
                                        Vec3 start, Vec3 end, float radius,
                                        int intensity, Random random) {
-        Vec3 target = start.distanceToSqr(end) < 0.04D ? start.add(0.0D, 1.8D, 1.5D) : end;
-        Vec3 direction = normalized(target.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 center = start.distanceToSqr(end) < 0.04D ? start.add(0.0D, 1.0D, 0.0D)
+                : start.lerp(end, 0.45D).add(0.0D, 0.8D, 0.0D);
         Vec3 side = perpendicular(direction);
-        Vec3 body = start.add(target).scale(0.5D);
-        shortLine(level, family, start, target, Math.min(16, Math.max(7, intensity / 3)), random);
-        for (int feather = 1; feather <= 4 && budgetAvailable(level); feather++) {
-            double length = Math.max(0.55D, radius * (0.18D + feather * 0.08D));
-            Vec3 back = direction.scale(-0.35D * feather);
-            shortLine(level, family, body.add(back), body.add(back).add(side.scale(length)), 4, random);
-            shortLine(level, family, body.add(back), body.add(back).subtract(side.scale(length)), 4, random);
+        Vec3 up = normalized(side.cross(direction), new Vec3(0.0D, 1.0D, 0.0D));
+        double size = Math.max(0.8D, Math.min(3.0D, radius));
+        // body
+        shortLine(level, family, center.subtract(direction.scale(size * 0.4D)),
+                center.add(direction.scale(size * 0.5D)), 7, random);
+        // wings
+        for (int wing = -1; wing <= 1; wing += 2) {
+            for (int i = 0; i < 5 && budgetAvailable(level); i++) {
+                double span = (0.3D + i * 0.15D) * size;
+                double sweep = (i * 0.12D) * size;
+                Vec3 root = center.add(direction.scale(-0.1D * size));
+                Vec3 tip = root.add(side.scale(wing * span)).add(up.scale(0.15D * size - i * 0.03D))
+                        .add(direction.scale(-sweep));
+                shortLine(level, family, root, tip, 4, random);
+            }
         }
+        // tail fire
+        for (int i = 0; i < 4 && budgetAvailable(level); i++) {
+            Vec3 tail = center.subtract(direction.scale(size * (0.5D + i * 0.12D)))
+                    .add(side.scale((i - 1.5D) * 0.08D));
+            spawn(level, LodestoneParticleRegistry.WISP_PARTICLE, family, tail,
+                    direction.scale(-0.015D).add(0.0D, 0.01D, 0.0D), 0.16F, 0.7F, 20, random.nextFloat());
+        }
+        spawn(level, LodestoneParticleRegistry.STAR_PARTICLE, family,
+                center.add(direction.scale(size * 0.5D)), direction.scale(0.02D),
+                0.17F, 0.88F, 16, random.nextFloat());
     }
 
     private static void beastPhantomShape(ClientLevel level, TechniqueVfxPalette.Family family,

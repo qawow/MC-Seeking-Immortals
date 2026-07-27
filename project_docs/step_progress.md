@@ -9264,3 +9264,13 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Version/protocol   Done   0.2.205→0.2.206；PROTOCOL_VERSION=30。
   Backup   Done   .bak/20260727_025800/。
 
+## 599. 2026-07-28 0.2.207 强轮廓几何加厚与瓶器补词
+
+  Step   Status   Notes
+  ---   ---   ---
+  Figure matching   Done   `gourd_vessel` 补入掌天瓶/小瓶/瓶影，原著明确瓶器不再退回通用光效。
+  Geometry   Done   `giantClawShape` 补指节折线与指尖星芒；`serpentShape` 改为分段蜿蜒躯干、首端光环与星点；`spiritAvatarShape` 补躯干、肩臂、头环、腰环及游离灵光；`flameBirdShape` 补躯干、双翼羽线、尾焰与喙端星芒。
+  Regen   Done   作者术法效果与统一视觉目录重新生成并通过一致性检查：2,292 / 5,727 profiles。
+  Verification   Done   首次构建进程曾被系统以 exit 137 终止；以 `./gradlew build --no-daemon --max-workers=1` 重试后 `BUILD SUCCESSFUL in 1m 41s`，1,162 项测试 0 失败/错误/跳过。
+  Version/protocol   Done   `mod_version` 0.2.206→0.2.207；未修改网络包字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
+  Backup   Done   源码批次 `.bak/20260727_030800/`；进度文档 `.bak/20260728_0.2.207_vfx_geometry/`。
