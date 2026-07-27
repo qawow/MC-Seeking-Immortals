@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-27g: `0.2.206` aura 746→443、mist 514→205；lotus/halo 几何加厚；fallback 护体/遁/阵分流。`mod_version=0.2.206`；协议 30。`.bak/20260727_025800/`。
+
 > CURRENT TRUTH 2026-07-27f: `0.2.205` 剑语境纯飞剑化（误配 180→0），mist 再收窄，chain 去丝线误配，fire_plume 加厚。flying_sword 289 层；1186×72；1483 火柱红→金。`mod_version=0.2.205`；协议 30。`.bak/20260727_024500/`，`project_docs/updates/20260727_0.2.205_sword_pure.md`。
 
 > CURRENT TRUTH 2026-07-27e: `0.2.203` 收窄 mist/impact 过配（1988→618 / 1184→278），强制飞剑置顶，鼎几何加厚。`mod_version=0.2.203`；协议 30。`.bak/20260727_023500/`，`project_docs/updates/20260727_0.2.203_narrow_generic.md`。

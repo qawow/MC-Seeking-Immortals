@@ -951,17 +951,32 @@ public final class LodestoneTechniqueVfx {
 
     private static void lotusShape(ClientLevel level, TechniqueVfxPalette.Family family,
                                    Vec3 center, float radius, int intensity, Random random) {
-        double size = Math.max(0.75D, Math.min(3.2D, radius));
-        int petals = Math.min(12, Math.max(8, intensity / 4));
-        ring(level, family, center.add(0.0D, 0.18D, 0.0D), size * 0.36D,
-                petals, random, 0.16F, 22);
+        double size = Math.max(0.85D, Math.min(3.6D, radius * 1.05D));
+        int petals = Math.min(16, Math.max(10, intensity / 3));
+        // dual calyx rings
+        ring(level, family, center.add(0.0D, 0.16D, 0.0D), size * 0.32D,
+                petals, random, 0.15F, 22);
+        ring(level, family, center.add(0.0D, 0.22D, 0.0D), size * 0.48D,
+                Math.min(18, petals + 2), random, 0.13F, 24);
         for (int i = 0; i < petals && budgetAvailable(level); i++) {
             double angle = Math.PI * 2.0D * i / petals;
-            Vec3 base = center.add(Math.cos(angle) * size * 0.22D, 0.18D,
-                    Math.sin(angle) * size * 0.22D);
-            Vec3 tip = center.add(Math.cos(angle) * size, 0.08D + (i % 2) * 0.2D,
-                    Math.sin(angle) * size);
-            shortLine(level, family, base, tip, 4, random);
+            Vec3 base = center.add(Math.cos(angle) * size * 0.2D, 0.18D,
+                    Math.sin(angle) * size * 0.2D);
+            Vec3 mid = center.add(Math.cos(angle) * size * 0.55D, 0.35D + (i % 3) * 0.04D,
+                    Math.sin(angle) * size * 0.55D);
+            Vec3 tip = center.add(Math.cos(angle) * size * 0.92D, 0.22D,
+                    Math.sin(angle) * size * 0.92D);
+            shortLine(level, family, base, mid, 4, random);
+            shortLine(level, family, mid, tip, 3, random);
+        }
+        // stamen core
+        spawn(level, LodestoneParticleRegistry.STAR_PARTICLE, family,
+                center.add(0.0D, 0.4D, 0.0D), new Vec3(0.0D, 0.01D, 0.0D),
+                0.2F, 0.9F, 26, random.nextFloat());
+        for (int i = 0; i < 5 && budgetAvailable(level); i++) {
+            spawn(level, LodestoneParticleRegistry.TWINKLE_PARTICLE, family,
+                    center.add(randomOffset(random, size * 0.15D)).add(0.0D, 0.45D, 0.0D),
+                    new Vec3(0.0D, 0.008D, 0.0D), 0.12F, 0.7F, 18, random.nextFloat());
         }
     }
 
@@ -1771,13 +1786,22 @@ public final class LodestoneTechniqueVfx {
                                       Vec3 start, Vec3 end, float radius,
                                       int intensity, Random random) {
         Vec3 center = start.distanceToSqr(end) < 0.04D ? start : end;
-        double size = Math.max(0.8D, Math.min(4.0D, radius * 1.2D));
-        rotatingRing(level, family, center.add(0.0D, 0.35D, 0.0D), size,
-                Math.min(28, Math.max(14, intensity / 2)), level.getGameTime() * 0.08D, random);
-        ring(level, family, center.add(0.0D, 0.35D, 0.0D), size * 0.92D,
-                Math.min(20, Math.max(10, intensity / 3)), random, 0.14F, 24);
-        ring(level, family, center.add(0.0D, 0.35D, 0.0D), size * 1.08D,
-                Math.min(16, Math.max(8, intensity / 4)), random, 0.11F, 20);
+        double size = Math.max(0.9D, Math.min(4.5D, radius * 1.35D));
+        double y = 0.4D;
+        rotatingRing(level, family, center.add(0.0D, y, 0.0D), size,
+                Math.min(32, Math.max(16, intensity / 2)), level.getGameTime() * 0.1D, random);
+        ring(level, family, center.add(0.0D, y, 0.0D), size * 0.88D,
+                Math.min(24, Math.max(12, intensity / 2)), random, 0.15F, 26);
+        ring(level, family, center.add(0.0D, y, 0.0D), size * 1.05D,
+                Math.min(20, Math.max(10, intensity / 3)), random, 0.12F, 22);
+        ring(level, family, center.add(0.0D, y, 0.0D), size * 1.18D,
+                Math.min(14, Math.max(8, intensity / 4)), random, 0.1F, 18);
+        // downward press glints (十丈光环一压)
+        for (int i = 0; i < 6 && budgetAvailable(level); i++) {
+            double angle = Math.PI * 2.0D * i / 6.0D;
+            Vec3 from = center.add(Math.cos(angle) * size, y, Math.sin(angle) * size);
+            shortLine(level, family, from, from.add(0.0D, -0.55D, 0.0D), 3, random);
+        }
     }
 
     /** 幡 silhouette: pole + hanging banner plane + streamer tips. */

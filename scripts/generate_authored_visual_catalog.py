@@ -668,8 +668,9 @@ def program_primitives(text: str, base_shape: str) -> tuple[list[str], list[str]
     secondary = (
         # Narrowed in 0.2.200: bare 光芒/灵光 used to force aura_burst on almost every
         # quote that only mentioned light as an adjective. Keep only explicit mote bursts.
-        ("aura_burst", ("光点", "光屑", "星点", "闪白光点")),
-        ("mist_veil", ("迷雾笼罩", "烟幕弥漫", "霜雾", "余烬飘")),
+        # Template cards often say "光点/闪白" generically — require concrete burst verbs.
+        ("aura_burst", ("光点迸", "光屑飞", "星点洒", "闪白光点爆", "掌心聚光点", "光点密布")),
+        ("mist_veil", ("迷雾笼罩", "烟幕弥漫", "余烬飘散", "雾气腾腾")),
         ("impact_arcs", ("爆裂开来", "轰然爆开", "爆散而开", "震碎虚空")),
         ("layered_afterimages", ("残影重重", "层层虚影")),
     )
@@ -679,8 +680,17 @@ def program_primitives(text: str, base_shape: str) -> tuple[list[str], list[str]
             selected.append(primitive)
             evidence.extend(hits[:2])
     if not selected:
-        selected.append(base_shape if base_shape in PROGRAM_SHAPES else "aura_burst")
-        evidence.append("profile_shape:" + (base_shape or "aura_burst"))
+        # Avoid dumping every underspecified card onto aura_burst: pick a calmer default
+        # from the text when possible.
+        if any(t in text for t in ("护体", "周身", "金身", "鳞片", "铠甲")):
+            selected.append("body_aura")
+        elif any(t in text for t in ("遁", "身形", "隐", "影遁", "残影")):
+            selected.append("afterimage_path")
+        elif any(t in text for t in ("阵", "符", "法阵")):
+            selected.append("rune_orbit")
+        else:
+            selected.append(base_shape if base_shape in PROGRAM_SHAPES else "aura_burst")
+        evidence.append("profile_shape:" + (base_shape or selected[-1]))
     # Force sword-centric quotes onto flying_sword as the lead silhouette.
     swordish = any(tok in text for tok in (
         "飞剑", "小剑", "口剑", "剑芒", "剑影", "剑诀", "青元剑", "青竹剑", "液态飞剑",

@@ -9254,3 +9254,13 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Version/protocol   Done   0.2.203→0.2.205；PROTOCOL_VERSION=30。
   Backup   Done   .bak/20260727_024500/。
 
+## 598. 2026-07-27 0.2.206 aura/mist 再收窄与莲台光环加厚
+
+  Step   Status   Notes
+  ---   ---   ---
+  Narrow   Done   aura 746→443，mist 514→205；fallback 护体/遁/阵分流。
+  Geometry   Done   lotus 双萼+花蕊；halo 三环+下压。
+  Verification   Done   ./gradlew build BUILD SUCCESSFUL。
+  Version/protocol   Done   0.2.205→0.2.206；PROTOCOL_VERSION=30。
+  Backup   Done   .bak/20260727_025800/。
+
