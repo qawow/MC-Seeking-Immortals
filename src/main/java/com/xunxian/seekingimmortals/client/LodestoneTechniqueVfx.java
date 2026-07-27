@@ -1703,7 +1703,8 @@ public final class LodestoneTechniqueVfx {
         int samplePhase = (int) (level.getGameTime() + active.age
                 + layer.primitive().ordinal() * 31L);
         List<Integer> sampledCopies = VfxBudgetPlan.sampledCopies(
-                namedCopies, quota, namedCopies == 1 ? 1 : 2, samplePhase);
+                namedCopies, quota, namedCopies == 1 ? 1 : minimumCopyBudget(layer.primitive()),
+                samplePhase);
         int layerIntensity = Math.max(2, intensity / Math.max(1, sampledCopies.size()));
         PaletteColors previous = activePaletteOverride;
         // primary→secondary gradient: secondaryArgb is the authored END color, never a
@@ -1737,6 +1738,19 @@ public final class LodestoneTechniqueVfx {
         } finally {
             activePaletteOverride = previous;
         }
+    }
+
+    private static int minimumCopyBudget(VisualPrimitive primitive) {
+        return switch (primitive) {
+            case GIANT_CLAW, GIANT_HAND, SPIRIT_AVATAR, SUMMON_GATE, SERPENT_DRAGON,
+                    EYE_GAZE, LOTUS_MANDALA, MOUNTAIN_METEOR, MIRROR_DISC, FLAME_BIRD,
+                    BEAST_PHANTOM, WING_FAN, SEAL_CAGE, BARRIER_PLANE,
+                    CAULDRON_VESSEL, BELL_CHIME, GOURD_VESSEL, LIGHT_CURTAIN,
+                    HALO_RING, BANNER_STREAMER, SEAL_STAMP, FLYING_SWORD,
+                    FORMATION_BANNER, PAGODA_TOWER, JADE_SLIP, FIRE_PLUME,
+                    GHOST_HEAD, SHIELD_PLATE, FLYING_BLADE, GIANT_AXE -> 2;
+            default -> 1;
+        };
     }
 
     /**

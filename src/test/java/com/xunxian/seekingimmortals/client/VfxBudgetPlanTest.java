@@ -22,6 +22,7 @@ class VfxBudgetPlanTest {
         assertEquals(72, seen.size());
         assertEquals(List.of(0, 18, 36, 54),
                 VfxBudgetPlan.sampledCopies(72, 8, 2, 0));
+        assertEquals(8, VfxBudgetPlan.sampledCopies(12, 8, 1, 0).size());
     }
 
     @Test

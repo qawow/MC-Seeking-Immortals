@@ -143,6 +143,7 @@ class LodestoneVfxContractTest {
         String renderer = read(JAVA_ROOT.resolve(Path.of("client", "LodestoneTechniqueVfx.java")));
 
         assertTrue(renderer.contains("VfxBudgetPlan.sampledCopies("));
+        assertTrue(renderer.contains("minimumCopyBudget(layer.primitive())"));
         assertTrue(renderer.contains("withSubBudget(copyQuota"));
         assertTrue(renderer.contains("VfxBudgetPlan.components("));
         assertTrue(occurrences(renderer, "emitFigureComponents(level") >= 24);

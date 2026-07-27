@@ -9301,3 +9301,14 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Verification   Done   预算规划与 Lodestone 契约定向测试通过；`./gradlew build --no-daemon --max-workers=1` `BUILD SUCCESSFUL in 1m 23s`，1,167 项测试 0 失败/错误/跳过，全部生成资源检查通过。
   Version/protocol   Done   `mod_version` 0.2.208→0.2.209；未修改网络包字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
   Backup   Done   `.bak/20260728_0.2.209_vfx_budget_scheduler/`。
+
+## 602. 2026-07-28 0.2.210 复杂轮廓与简单重复体密度分流
+
+  Step   Status   Notes
+  ---   ---   ---
+  Density split   Done   `minimumCopyBudget` 只对 29 类具名/强轮廓返回 2；简单弹体、弹雨、光点等返回 1，保留大数量描述的同帧密度。
+  Regression   Done   72 柄飞剑在 8 粒层预算下抽样 4 份且每份可辨识；12 份简单火球抽样 8 份，不再被统一 2 粒策略减为 4 份。
+  Caps/fairness   Done   仍遵守每层最多 8 粒、单事件 7/16/30 粒及 `ClientVisualEngine` 总预算；只改变预算切分，不提高上限。
+  Verification   Done   预算规划与 Lodestone 契约回归通过；`./gradlew build --no-daemon --max-workers=1` `BUILD SUCCESSFUL in 1m 32s`，1,167 项测试 0 失败/错误/跳过。
+  Version/protocol   Done   `mod_version` 0.2.209→0.2.210；未修改网络包字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
+  Backup   Done   `.bak/20260728_0.2.210_vfx_copy_density/`（从 `a0a4868e` 导出的精确基线）。
