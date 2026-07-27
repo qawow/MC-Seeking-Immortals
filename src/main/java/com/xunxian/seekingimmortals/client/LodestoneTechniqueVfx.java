@@ -1750,7 +1750,9 @@ public final class LodestoneTechniqueVfx {
                     FORMATION_BANNER, PAGODA_TOWER, JADE_SLIP, FIRE_PLUME,
                     GHOST_HEAD, SHIELD_PLATE, FLYING_BLADE, GIANT_AXE,
                     RITUAL_BOWL, MAGIC_RULER, GIANT_HAMMER, MAGIC_STAFF,
-                    RITUAL_LAMP, SPIRIT_QIN, RITUAL_COFFIN, TALISMAN_BRUSH -> 2;
+                    RITUAL_LAMP, SPIRIT_QIN, RITUAL_COFFIN, TALISMAN_BRUSH,
+                    MAGIC_FAN, ALCHEMY_FURNACE, MAGIC_SCROLL, FORMATION_DISC,
+                    SPIKED_CLUB -> 2;
             default -> 1;
         };
     }
@@ -1766,6 +1768,10 @@ public final class LodestoneTechniqueVfx {
         return switch (primitive) {
             case CAULDRON_VESSEL -> {
                 cauldronVesselShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case ALCHEMY_FURNACE -> {
+                alchemyFurnaceShape(level, family, start, end, radius, intensity, random);
                 yield true;
             }
             case BELL_CHIME -> {
@@ -1804,6 +1810,10 @@ public final class LodestoneTechniqueVfx {
                 magicStaffShape(level, family, start, end, radius, intensity, random);
                 yield true;
             }
+            case MAGIC_FAN -> {
+                magicFanShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
             case BANNER_STREAMER -> {
                 bannerStreamerShape(level, family, start, end, radius, intensity, random);
                 yield true;
@@ -1824,6 +1834,10 @@ public final class LodestoneTechniqueVfx {
                 formationBannerShape(level, family, start, end, radius, intensity, random);
                 yield true;
             }
+            case FORMATION_DISC -> {
+                formationDiscShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
             case PAGODA_TOWER -> {
                 pagodaTowerShape(level, family, start, end, radius, intensity, random);
                 yield true;
@@ -1834,6 +1848,10 @@ public final class LodestoneTechniqueVfx {
             }
             case JADE_SLIP -> {
                 jadeSlipShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case MAGIC_SCROLL -> {
+                magicScrollShape(level, family, start, end, radius, intensity, random);
                 yield true;
             }
             case FIRE_PLUME -> {
@@ -1866,6 +1884,10 @@ public final class LodestoneTechniqueVfx {
             }
             case GIANT_HAMMER -> {
                 giantHammerShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case SPIKED_CLUB -> {
+                spikedClubShape(level, family, start, end, radius, intensity, random);
                 yield true;
             }
             default -> false;
@@ -2623,6 +2645,178 @@ public final class LodestoneTechniqueVfx {
         }
         emitFigureComponents(level, 173,
                 List.of(() -> shortLine(level, family, butt, tip, 8, random)), details);
+    }
+
+    /** Folding fan silhouette: pivot, radial ribs, curved rim and trailing handle. */
+    private static void magicFanShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                      Vec3 start, Vec3 end, float radius,
+                                      int intensity, Random random) {
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 side = perpendicular(direction);
+        Vec3 up = normalized(side.cross(direction), new Vec3(0.0D, 1.0D, 0.0D));
+        Vec3 pivot = (start.distanceToSqr(end) < 0.04D ? start : start.lerp(end, 0.3D))
+                .add(0.0D, 0.35D, 0.0D);
+        double size = Math.max(0.75D, Math.min(2.8D, radius * 0.72D));
+        List<Vec3> tips = new ArrayList<>();
+        for (int rib = 0; rib < 7; rib++) {
+            double angle = -Math.PI * 0.38D + Math.PI * 0.76D * rib / 6.0D;
+            tips.add(pivot.add(side.scale(Math.sin(angle) * size))
+                    .add(up.scale(Math.cos(angle) * size))
+                    .add(direction.scale(size * 0.08D)));
+        }
+        List<Runnable> details = new ArrayList<>();
+        for (int rib = 0; rib < tips.size(); rib++) {
+            if (rib != tips.size() / 2) {
+                Vec3 tip = tips.get(rib);
+                details.add(() -> shortLine(level, family, pivot, tip, 5, random));
+            }
+            if (rib > 0) {
+                Vec3 previous = tips.get(rib - 1);
+                Vec3 tip = tips.get(rib);
+                details.add(() -> shortLine(level, family, previous, tip, 3, random));
+            }
+        }
+        details.add(() -> shortLine(level, family, pivot,
+                pivot.subtract(up.scale(size * 0.42D)), 4, random));
+        details.add(() -> spawn(level, LodestoneParticleRegistry.STAR_PARTICLE, family,
+                pivot, Vec3.ZERO, 0.16F, 0.88F, 22, random.nextFloat()));
+        Vec3 centerTip = tips.get(tips.size() / 2);
+        emitFigureComponents(level, 179,
+                List.of(() -> shortLine(level, family, pivot, centerTip, 7, random)), details);
+    }
+
+    /** Alchemy furnace silhouette: squat chamber, fire mouth, lid and vapor chimney. */
+    private static void alchemyFurnaceShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                            Vec3 start, Vec3 end, float radius,
+                                            int intensity, Random random) {
+        Vec3 center = start.distanceToSqr(end) < 0.04D ? start : end;
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        double size = Math.max(0.65D, Math.min(2.7D, radius * 0.72D));
+        Vec3 base = center.add(0.0D, size * 0.08D, 0.0D);
+        Vec3 chamber = center.add(0.0D, size * 0.62D, 0.0D);
+        Vec3 lid = center.add(0.0D, size * 1.2D, 0.0D);
+        Vec3 chimney = center.add(0.0D, size * 1.72D, 0.0D);
+        List<Runnable> details = new ArrayList<>();
+        details.add(() -> ring(level, family, base, size * 0.58D,
+                Math.min(14, Math.max(7, intensity / 4)), random, 0.13F, 22));
+        details.add(() -> ring(level, family, chamber, size * 0.68D,
+                Math.min(16, Math.max(8, intensity / 3)), random, 0.15F, 24));
+        details.add(() -> ring(level, family, lid, size * 0.52D,
+                Math.min(14, Math.max(7, intensity / 4)), random, 0.13F, 22));
+        details.add(() -> verticalRing(level, family,
+                chamber.subtract(direction.scale(size * 0.58D)), direction,
+                size * 0.24D, Math.min(12, Math.max(6, intensity / 5)), random, 0.16F));
+        details.add(() -> ring(level, family, chimney, size * 0.22D,
+                Math.min(10, Math.max(5, intensity / 5)), random, 0.12F, 20));
+        details.add(() -> spawn(level, LodestoneParticleRegistry.WISP_PARTICLE, family,
+                chimney.add(randomOffset(random, size * 0.18D)),
+                new Vec3(0.0D, 0.018D, 0.0D), 0.18F, 0.68F, 28,
+                random.nextFloat()));
+        emitFigureComponents(level, 181,
+                List.of(() -> shortLine(level, family, base, chimney, 9, random)), details);
+    }
+
+    /** Unfurled scroll silhouette: central sheet, rods, side edges and inscribed glyphs. */
+    private static void magicScrollShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                         Vec3 start, Vec3 end, float radius,
+                                         int intensity, Random random) {
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 side = perpendicular(direction);
+        Vec3 up = normalized(side.cross(direction), new Vec3(0.0D, 1.0D, 0.0D));
+        Vec3 center = (start.distanceToSqr(end) < 0.04D ? start : end)
+                .add(0.0D, 0.9D, 0.0D);
+        double size = Math.max(0.65D, Math.min(2.5D, radius * 0.64D));
+        double halfWidth = size * 0.52D;
+        double halfHeight = size * 0.72D;
+        Vec3 top = center.add(up.scale(halfHeight));
+        Vec3 bottom = center.subtract(up.scale(halfHeight));
+        Vec3 topLeft = top.subtract(side.scale(halfWidth));
+        Vec3 topRight = top.add(side.scale(halfWidth));
+        Vec3 bottomLeft = bottom.subtract(side.scale(halfWidth));
+        Vec3 bottomRight = bottom.add(side.scale(halfWidth));
+        List<Runnable> details = new ArrayList<>();
+        details.add(() -> shortLine(level, family, topLeft, bottomLeft, 6, random));
+        details.add(() -> shortLine(level, family, topRight, bottomRight, 6, random));
+        details.add(() -> shortLine(level, family,
+                topLeft.subtract(side.scale(size * 0.18D)),
+                topRight.add(side.scale(size * 0.18D)), 6, random));
+        details.add(() -> shortLine(level, family,
+                bottomLeft.subtract(side.scale(size * 0.18D)),
+                bottomRight.add(side.scale(size * 0.18D)), 6, random));
+        for (int glyph = -1; glyph <= 1; glyph++) {
+            Vec3 glyphCenter = center.add(up.scale(glyph * size * 0.32D));
+            details.add(() -> shortLine(level, family,
+                    glyphCenter.subtract(side.scale(size * 0.22D)),
+                    glyphCenter.add(side.scale(size * 0.22D)), 3, random));
+        }
+        details.add(() -> spawn(level, LodestoneParticleRegistry.TWINKLE_PARTICLE, family,
+                center, Vec3.ZERO, 0.16F, 0.84F, 22, random.nextFloat()));
+        emitFigureComponents(level, 191,
+                List.of(() -> shortLine(level, family, top, bottom, 8, random)), details);
+    }
+
+    /** Formation disc silhouette: counter-rotating rings, axial marks and rune nodes. */
+    private static void formationDiscShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                           Vec3 start, Vec3 end, float radius,
+                                           int intensity, Random random) {
+        Vec3 center = (start.distanceToSqr(end) < 0.04D ? start : end)
+                .add(0.0D, 0.24D, 0.0D);
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 side = perpendicular(direction);
+        double size = Math.max(0.65D, Math.min(3.2D, radius * 0.82D));
+        List<Runnable> details = new ArrayList<>();
+        details.add(() -> rotatingRing(level, family, center, size * 0.58D,
+                Math.min(16, Math.max(8, intensity / 3)),
+                -level.getGameTime() * 0.13D, random));
+        details.add(() -> shortLine(level, family,
+                center.subtract(side.scale(size * 0.82D)),
+                center.add(side.scale(size * 0.82D)), 6, random));
+        details.add(() -> shortLine(level, family,
+                center.add(0.0D, 0.0D, -size * 0.82D),
+                center.add(0.0D, 0.0D, size * 0.82D), 6, random));
+        for (int node = 0; node < 8; node++) {
+            double angle = Math.PI * 2.0D * node / 8.0D;
+            Vec3 point = center.add(Math.cos(angle) * size * 0.82D, 0.04D,
+                    Math.sin(angle) * size * 0.82D);
+            details.add(() -> spawn(level, LodestoneParticleRegistry.STAR_PARTICLE, family,
+                    point, Vec3.ZERO, 0.14F, 0.86F, 22, (float) angle));
+        }
+        emitFigureComponents(level, 193,
+                List.of(() -> rotatingRing(level, family, center, size * 0.82D,
+                        Math.min(20, Math.max(10, intensity / 2)),
+                        level.getGameTime() * 0.1D, random)), details);
+    }
+
+    /** Spiked club silhouette: long haft, reinforced head and rotating tooth points. */
+    private static void spikedClubShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                        Vec3 start, Vec3 end, float radius,
+                                        int intensity, Random random) {
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 1.0D, 0.0D));
+        Vec3 side = perpendicular(direction);
+        Vec3 up = normalized(side.cross(direction), new Vec3(0.0D, 0.0D, 1.0D));
+        double size = Math.max(0.9D, Math.min(3.7D, radius * 1.08D));
+        Vec3 center = start.distanceToSqr(end) < 0.04D
+                ? start.add(0.0D, size * 0.82D, 0.0D)
+                : start.lerp(end, 0.5D);
+        Vec3 butt = center.subtract(direction.scale(size * 0.82D));
+        Vec3 headBase = center.add(direction.scale(size * 0.34D));
+        Vec3 headTip = center.add(direction.scale(size * 0.92D));
+        List<Runnable> details = new ArrayList<>();
+        details.add(() -> verticalRing(level, family,
+                headBase.lerp(headTip, 0.5D), direction, size * 0.24D,
+                Math.min(14, Math.max(7, intensity / 4)), random, 0.15F));
+        for (int tooth = 0; tooth < 8; tooth++) {
+            double angle = Math.PI * 2.0D * tooth / 8.0D;
+            Vec3 radial = side.scale(Math.cos(angle)).add(up.scale(Math.sin(angle)));
+            Vec3 root = headBase.lerp(headTip, 0.25D + (tooth % 3) * 0.22D);
+            details.add(() -> shortLine(level, family, root,
+                    root.add(radial.scale(size * 0.3D)), 2, random));
+        }
+        details.add(() -> spawn(level, LodestoneParticleRegistry.STAR_PARTICLE, family,
+                headTip, direction.scale(0.012D), 0.17F, 0.88F, 22,
+                random.nextFloat()));
+        emitFigureComponents(level, 197,
+                List.of(() -> shortLine(level, family, butt, headTip, 9, random)), details);
     }
 
     private static float motionRadius(VisualProgramLayer.Motion motion, Phase phase) {

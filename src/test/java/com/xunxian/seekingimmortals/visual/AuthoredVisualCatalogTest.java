@@ -361,6 +361,109 @@ class AuthoredVisualCatalogTest {
         assertEquals(1, whiteQin.copies());
         assertEquals(catalog.palette("qi").orElseThrow().argb(), whiteQin.primaryArgb());
         assertEquals(catalog.palette("qi").orElseThrow().argb(), whiteQin.secondaryArgb());
+
+        VisualProgramLayer threeFlameFan = catalog.find(
+                        VisualDomain.TECHNIQUE, "technique_446").orElseThrow()
+                .visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_FAN)
+                .findFirst().orElseThrow();
+        assertEquals(1, threeFlameFan.copies());
+        assertEquals(catalog.palette("fire").orElseThrow().argb(),
+                threeFlameFan.primaryArgb());
+        assertEquals(catalog.palette("qi").orElseThrow().argb(),
+                threeFlameFan.secondaryArgb());
+        VisualProfile greenFan = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_980").orElseThrow();
+        assertTrue(greenFan.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("青色羽扇"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.MAGIC_FAN
+                        && layer.primaryArgb() == catalog.palette("wood").orElseThrow().argb()));
+        assertFalse(greenFan.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("青色羽扇"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.WING_FAN));
+        VisualProfile fanFire = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_565").orElseThrow();
+        assertTrue(fanFire.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("单手持扇"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.MAGIC_FAN));
+        assertTrue(fanFire.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("单手持扇"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.FIRE_PLUME));
+
+        VisualProfile alchemy = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_1371").orElseThrow();
+        VisualProgramLayer silverFlameFurnace = alchemy.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.ALCHEMY_FURNACE)
+                .filter(layer -> layer.sourceQuote().contains("银白火焰"))
+                .findFirst().orElseThrow();
+        assertEquals(1, silverFlameFurnace.copies());
+        assertEquals(catalog.palette("metal").orElseThrow().argb(),
+                silverFlameFurnace.primaryArgb());
+        assertEquals(catalog.palette("fire").orElseThrow().argb(),
+                silverFlameFurnace.secondaryArgb());
+        assertTrue(alchemy.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("淡紫色雾气"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.MIST_VEIL));
+        VisualProfile fireFurnace = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_649").orElseThrow();
+        assertTrue(fireFurnace.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("巨大火炉"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.ALCHEMY_FURNACE
+                        && layer.copies() == 1));
+        assertTrue(fireFurnace.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("巨大火炉"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.FIRE_PLUME));
+
+        VisualProfile ghostScroll = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_1301").orElseThrow();
+        assertTrue(ghostScroll.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.MAGIC_SCROLL
+                        && layer.copies() == 1
+                        && layer.primaryArgb() == catalog.palette("yin").orElseThrow().argb()));
+        assertTrue(ghostScroll.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.PROJECTILE_SWARM
+                        && layer.copies() == 12));
+        assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_911").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.MAGIC_SCROLL
+                        && layer.primaryArgb() == catalog.palette("metal").orElseThrow().argb()));
+
+        VisualProfile waterFormation = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_102").orElseThrow();
+        assertTrue(waterFormation.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("阵旗、阵盘"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.FORMATION_DISC
+                        && layer.primaryArgb() == catalog.palette("water").orElseThrow().argb()));
+        assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_1382").orElseThrow()
+                .visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("青光阵盘"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.FORMATION_DISC
+                        && layer.primaryArgb() == catalog.palette("wood").orElseThrow().argb()));
+        VisualProfile nodeRelease = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_572").orElseThrow();
+        assertTrue(nodeRelease.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("阵旗阵盘"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.FORMATION_DISC));
+        assertTrue(nodeRelease.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("阵旗阵盘"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.BEAM_LANCE));
+
+        VisualProfile giantClub = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_703").orElseThrow();
+        VisualProgramLayer longClub = giantClub.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.SPIKED_CLUB)
+                .findFirst().orElseThrow();
+        assertEquals(1, longClub.copies());
+        assertTrue(longClub.lengthScale() > 1.0D);
+        assertEquals(catalog.palette("metal").orElseThrow().argb(), longClub.primaryArgb());
+        assertTrue(giantClub.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.GROUND_FIELD));
+        VisualProfile windClub = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_582").orElseThrow();
+        assertTrue(windClub.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.SPIKED_CLUB));
+        assertTrue(windClub.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.SOUND_WAVE));
         assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_056").orElseThrow()
                 .visualProgram().layers().stream()
                 .anyMatch(layer -> layer.primitive() == VisualPrimitive.SHIELD_PLATE));

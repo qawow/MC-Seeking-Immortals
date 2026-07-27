@@ -9342,3 +9342,18 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Verification   Done   最终 `./gradlew build --no-daemon --max-workers=1` `BUILD SUCCESSFUL in 1m 34s`；251 个测试套件、1,167 项测试，failure/error/skipped 均为 0；产物 `seeking_immortals-0.2.213.jar`。
   Version/protocol   Done   `mod_version` 0.2.212→0.2.213；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
   Backup   Done   `.bak/20260728_035739_0.2.213_named_instruments/`。
+
+## 605. 2026-07-28 0.2.214 扇、炉、卷、盘、棒具名轮廓
+
+  Step   Status   Notes
+  ---   ---   ---
+  Residual inventory   Done   全量扫描并回读明确扇体、丹炉/火炉、画卷/卷轴、阵盘和狼牙棒引文；使用完整短语，排除 94 处扇面 AOE、画卷比喻、“一阵盘旋”和已碎裂阵盘。
+  Compiler   Done   新增 `magic_fan=10`、`alchemy_furnace=8`、`magic_scroll=3`、`formation_disc=8`、`spiked_club=2`；31 个差异引文组只涉及 20 个预期 ID。
+  Runtime   Done   五种轮廓加入 `VisualPrimitive`、层内分发和复杂轮廓预算；折扇扇骨/弧沿、炉腔/炉口、展开卷轴、双环八节点阵盘、长柄尖齿棒均采用完整核心路径与跨帧细节。
+  Companion fidelity   Done   三焰扇保留火鸟/火柱/光幕，丹炉保留银焰/紫雾，百鬼卷保留 12 份鬼图，阵旗阵盘保留旗/光柱，狼牙棒保留狂风/地坑。
+  Palette   Done   三焰扇 fire→qi、青羽扇 wood、炉体随银焰/紫雾、黑卷 yin、金卷 metal、水阵盘 water、青光阵盘 wood、狼牙棒 metal。
+  Caps/contracts   Done   `emitAuthoredShape` 的 52-shape switch 未改；每层 8 粒、单事件 7/16/30、named copies 72 和全局公平预算保持。
+  Tests   Done   两个生成器 `--check`、Java/test 编译、`AuthoredVisualCatalogTest` 与 `LodestoneVfxContractTest` 定向执行通过。
+  Verification   Done   最终 `./gradlew build --no-daemon --max-workers=1` `BUILD SUCCESSFUL in 1m 32s`；251 个测试套件、1,167 项测试，failure/error/skipped 均为 0；产物 `seeking_immortals-0.2.214.jar`。
+  Version/protocol   Done   `mod_version` 0.2.213→0.2.214；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
+  Backup   Done   `.bak/20260728_041355_0.2.214_named_objects/`。
