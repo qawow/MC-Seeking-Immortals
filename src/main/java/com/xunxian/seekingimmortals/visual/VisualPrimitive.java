@@ -14,7 +14,10 @@ public enum VisualPrimitive {
     TIDAL_WAVE, ORB_PROJECTILE, GROUND_FIELD, SPHERE_FIELD, SEAL_CAGE, BARRIER_PLANE,
     BODY_AURA, BODY_SHELL, AFTERIMAGE_PATH, LAYERED_AFTERIMAGES,
     BEAM_LANCE, CHANNEL_STREAM, BLADE_ARC, IMPACT_ARCS, RISING_MOTES,
-    CLEANSING_RING, BURNING_TALISMAN;
+    CLEANSING_RING, BURNING_TALISMAN,
+    // semantic_layers_v3 figure silhouettes (layer-scoped dispatch only).
+    CAULDRON_VESSEL, BELL_CHIME, GOURD_VESSEL, LIGHT_CURTAIN,
+    HALO_RING, BANNER_STREAMER, SEAL_STAMP, BRIDGE_ARC;
 
     public static VisualPrimitive parse(String value) {
         if (value == null || value.isBlank()) {

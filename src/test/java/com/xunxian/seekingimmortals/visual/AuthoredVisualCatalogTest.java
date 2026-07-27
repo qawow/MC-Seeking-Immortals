@@ -180,7 +180,7 @@ class AuthoredVisualCatalogTest {
                 assertTrue(profile.visualProgram().executable(), profile.key());
                 assertEquals(profile.visualProgram().sourceQuoteCount(),
                         profile.visualProgram().coveredQuoteCount(), profile.key());
-                assertEquals("semantic_layers_v2", profile.visualProgram().compiler(), profile.key());
+                assertEquals("semantic_layers_v3", profile.visualProgram().compiler(), profile.key());
                 assertTrue(profile.visualProgram().layers().stream()
                         .allMatch(layer -> layer.eventOrdinal() < profile.timeline().size()), profile.key());
             }

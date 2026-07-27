@@ -9189,3 +9189,17 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Verification   Done   `./gradlew build` `BUILD SUCCESSFUL in 1m 31s`。
   Version/protocol   Done   `mod_version` 0.2.197 → `0.2.198`（0.2.196 预留被 aiPreflight 指纹门槛推进，见更新记）；数据包/测试/生成资源改动，未触网络包，`ModNetwork.PROTOCOL_VERSION=30` 不变。
   Backup   Done   `.bak/20260726_0.2.198_lieyan_layers/`。
+
+## 592. 2026-07-27 0.2.199 semantic_layers_v3 法术特效忠实还原
+
+  Step   Status   Notes
+  ---   ---   ---
+  Inventory   Done   三路只读审计确认缺陷：copies quota/3 截断、secondaryArgb 未渲染、program_copies 漏复合数词、鼎/钟/葫芦/光幕等无 primitive；契约钉 1806/≥9000 仅依赖 visual_source_kind+descriptions，改 primitive 安全。
+  Generator   Done   `generate_authored_visual_catalog.py` compiler→v3；PROGRAM_RULES/SHAPES 加 8 形象 + falling_barrage；颜色词扩展仍映射 11 色板；program_copies 复合数词优先；program_scale 补丈档。
+  Runtime   Done   VisualPrimitive 8 常量；LodestoneTechniqueVfx dual fromArgb 梯度、namedCopies+stride 忠实发射、emitFigurePrimitive 层内分发（不入 emitAuthoredShape 契约区）+ 8 helper 几何。
+  Tests   Done   AuthoredVisualCatalogTest compiler 钉改为 semantic_layers_v3。
+  Regen   Done   spell effects 2292 / visual catalog 5727 重生成；shape 仍 52（aura 197 / single 93）；TECHNIQUE 全 v3；authored 1806 directQuotes 9947。
+  Verification   Done   `./gradlew build` BUILD SUCCESSFUL（aiPreflight + 全部 authored --check + JUnit）。
+  Version/protocol   Done   `mod_version` 0.2.198 → `0.2.199`；未触网络包，`ModNetwork.PROTOCOL_VERSION=30` 不变。
+  Backup   Done   `.bak/20260726_232106/`。
+

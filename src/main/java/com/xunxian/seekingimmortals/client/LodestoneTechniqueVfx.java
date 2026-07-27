@@ -7,6 +7,7 @@ import com.xunxian.seekingimmortals.visual.AuthoredVisualCatalog;
 import com.xunxian.seekingimmortals.visual.VisualProfile;
 import com.xunxian.seekingimmortals.visual.VisualProgram;
 import com.xunxian.seekingimmortals.visual.VisualProgramLayer;
+import com.xunxian.seekingimmortals.visual.VisualPrimitive;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.ParticleStatus;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -1566,25 +1567,249 @@ public final class LodestoneTechniqueVfx {
         if (!budgetAvailable(level)) {
             return;
         }
-        int quota = activeEmissionBudget == null ? 4 : Math.max(1, activeEmissionBudget.remaining);
-        int copies = Math.min(layer.copies(), Math.max(1, quota / 3));
-        int layerIntensity = Math.max(2, intensity / Math.max(1, copies));
+        // Faithful copies: honor layer.copies() up to the VisualProgramLayer hard cap (24).
+        // When the remaining particle quota is smaller than the named count, stride-sample
+        // so the full ring of copies still appears across successive ticks of the event.
+        int quota = activeEmissionBudget == null ? 8 : Math.max(1, activeEmissionBudget.remaining);
+        int namedCopies = Math.max(1, Math.min(24, layer.copies()));
+        int stride = Math.max(1, (namedCopies + quota - 1) / Math.max(1, quota));
+        int layerIntensity = Math.max(2, intensity / Math.max(1, Math.min(namedCopies, quota)));
         PaletteColors previous = activePaletteOverride;
-        PaletteColors layerPalette = PaletteColors.fromArgb((int) layer.primaryArgb());
+        // primary→secondary gradient: secondaryArgb is the authored END color, never a
+        // synthetic fade of primary (semantic_layers_v3 fidelity fix).
+        PaletteColors layerPalette = PaletteColors.fromArgb(
+                (int) layer.primaryArgb(), (int) layer.secondaryArgb());
         if (layerPalette != null) {
             activePaletteOverride = layerPalette;
         }
         try {
-            for (int copy = 0; copy < copies && budgetAvailable(level); copy++) {
+            long tick = level.getGameTime();
+            int phaseOffset = (int) (tick % Math.max(1, stride));
+            for (int copy = 0; copy < namedCopies && budgetAvailable(level); copy++) {
+                if (stride > 1 && ((copy + phaseOffset) % stride) != 0) {
+                    continue;
+                }
                 ProgramCoordinates coordinates = programCoordinates(level, active, layer, copy, random, phase);
                 float radius = (float) Math.max(0.1D, packet.radius() * layer.radiusScale()
                         * motionRadius(layer.motion(), phase));
+                // Layer-scoped figure dispatch for v3 silhouettes. These never enter the
+                // emitAuthoredShape switch (which is contract-pinned to the 52 spell shapes).
+                if (emitFigurePrimitive(level, layer.primitive(), packet.family(),
+                        coordinates.start(), coordinates.end(), radius, layerIntensity, random)) {
+                    continue;
+                }
                 emitAuthoredShape(level, layer.primitive().id(), packet.family(),
                         coordinates.start(), coordinates.end(), radius,
                         layerIntensity, random);
             }
         } finally {
             activePaletteOverride = previous;
+        }
+    }
+
+    /**
+     * Renders semantic_layers_v3 figure silhouettes (鼎/钟/葫芦/光幕/光环/幡/印/虹桥).
+     * Returns true when the primitive was handled so emitAuthoredShape is skipped.
+     */
+    private static boolean emitFigurePrimitive(ClientLevel level, VisualPrimitive primitive,
+                                               TechniqueVfxPalette.Family family,
+                                               Vec3 start, Vec3 end, float radius,
+                                               int intensity, Random random) {
+        return switch (primitive) {
+            case CAULDRON_VESSEL -> {
+                cauldronVesselShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case BELL_CHIME -> {
+                bellChimeShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case GOURD_VESSEL -> {
+                gourdVesselShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case LIGHT_CURTAIN -> {
+                lightCurtainShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case HALO_RING -> {
+                haloRingShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case BANNER_STREAMER -> {
+                bannerStreamerShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case SEAL_STAMP -> {
+                sealStampShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case BRIDGE_ARC -> {
+                bridgeArcShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            default -> false;
+        };
+    }
+
+    /** 鼎 silhouette: bowl body + three legs + rising vapor. */
+    private static void cauldronVesselShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                            Vec3 start, Vec3 end, float radius,
+                                            int intensity, Random random) {
+        Vec3 center = start.distanceToSqr(end) < 0.04D ? start : end;
+        double size = Math.max(0.55D, Math.min(2.4D, radius * 0.7D));
+        ring(level, family, center.add(0.0D, size * 0.55D, 0.0D), size * 0.55D,
+                Math.min(18, Math.max(8, intensity / 3)), random, 0.16F, 22);
+        ring(level, family, center.add(0.0D, size * 0.95D, 0.0D), size * 0.62D,
+                Math.min(16, Math.max(8, intensity / 3)), random, 0.14F, 20);
+        for (int leg = 0; leg < 3 && budgetAvailable(level); leg++) {
+            double angle = Math.PI * 2.0D * leg / 3.0D + Math.PI / 6.0D;
+            Vec3 base = center.add(Math.cos(angle) * size * 0.42D, 0.02D,
+                    Math.sin(angle) * size * 0.42D);
+            shortLine(level, family, base, base.add(0.0D, size * 0.55D, 0.0D), 4, random);
+        }
+        for (int i = 0; i < Math.min(6, Math.max(2, intensity / 8)) && budgetAvailable(level); i++) {
+            Vec3 vapor = center.add(randomOffset(random, size * 0.25D)).add(0.0D, size * 1.05D, 0.0D);
+            spawn(level, LodestoneParticleRegistry.WISP_PARTICLE, family, vapor,
+                    new Vec3(0.0D, 0.012D + random.nextDouble() * 0.01D, 0.0D),
+                    0.18F, 0.62F, 28, random.nextFloat());
+        }
+    }
+
+    /** 钟 silhouette: dome body + hanging rim + outward chime rings. */
+    private static void bellChimeShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                       Vec3 start, Vec3 end, float radius,
+                                       int intensity, Random random) {
+        Vec3 center = start.distanceToSqr(end) < 0.04D ? start : end;
+        double size = Math.max(0.45D, Math.min(2.0D, radius * 0.55D));
+        Vec3 apex = center.add(0.0D, size * 1.4D, 0.0D);
+        ring(level, family, apex.subtract(0.0D, size * 0.15D, 0.0D), size * 0.22D,
+                Math.min(12, Math.max(6, intensity / 4)), random, 0.14F, 18);
+        ring(level, family, center.add(0.0D, size * 0.55D, 0.0D), size * 0.55D,
+                Math.min(16, Math.max(8, intensity / 3)), random, 0.15F, 20);
+        ring(level, family, center.add(0.0D, size * 0.15D, 0.0D), size * 0.72D,
+                Math.min(18, Math.max(8, intensity / 3)), random, 0.13F, 22);
+        shortLine(level, family, apex, center.add(0.0D, size * 0.15D, 0.0D), 5, random);
+        rotatingRing(level, family, center.add(0.0D, size * 0.35D, 0.0D), size * 1.15D,
+                Math.min(14, Math.max(6, intensity / 4)), level.getGameTime() * 0.12D, random);
+    }
+
+    /** 葫芦 silhouette: dual bulb body + neck spout + rising mist. */
+    private static void gourdVesselShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                         Vec3 start, Vec3 end, float radius,
+                                         int intensity, Random random) {
+        Vec3 center = start.distanceToSqr(end) < 0.04D ? start : end;
+        double size = Math.max(0.4D, Math.min(1.8D, radius * 0.5D));
+        ring(level, family, center.add(0.0D, size * 0.35D, 0.0D), size * 0.48D,
+                Math.min(14, Math.max(6, intensity / 4)), random, 0.15F, 20);
+        ring(level, family, center.add(0.0D, size * 0.95D, 0.0D), size * 0.32D,
+                Math.min(12, Math.max(6, intensity / 4)), random, 0.14F, 18);
+        shortLine(level, family,
+                center.add(0.0D, size * 1.15D, 0.0D),
+                center.add(0.0D, size * 1.55D, 0.0D), 4, random);
+        for (int i = 0; i < Math.min(5, Math.max(2, intensity / 8)) && budgetAvailable(level); i++) {
+            Vec3 mist = center.add(randomOffset(random, size * 0.2D)).add(0.0D, size * 1.55D, 0.0D);
+            spawn(level, LodestoneParticleRegistry.WISP_PARTICLE, family, mist,
+                    new Vec3((random.nextDouble() - 0.5D) * 0.01D, 0.015D, (random.nextDouble() - 0.5D) * 0.01D),
+                    0.16F, 0.58F, 26, random.nextFloat());
+        }
+    }
+
+    /** 光幕 silhouette: vertical planar curtain of bars + rim. */
+    private static void lightCurtainShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                          Vec3 start, Vec3 end, float radius,
+                                          int intensity, Random random) {
+        Vec3 center = start.distanceToSqr(end) < 0.04D ? start : end;
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 side = perpendicular(direction);
+        double width = Math.max(1.0D, Math.min(4.5D, radius * 1.4D));
+        double height = Math.max(1.4D, Math.min(3.6D, radius * 1.1D));
+        int bars = Math.min(12, Math.max(6, intensity / 4));
+        for (int i = 0; i < bars && budgetAvailable(level); i++) {
+            double t = (i / (double) Math.max(1, bars - 1)) * 2.0D - 1.0D;
+            Vec3 base = center.add(side.scale(t * width * 0.5D));
+            shortLine(level, family, base, base.add(0.0D, height, 0.0D), 5, random);
+        }
+        ring(level, family, center.add(0.0D, height * 0.5D, 0.0D), width * 0.55D,
+                Math.min(16, Math.max(8, intensity / 3)), random, 0.12F, 18);
+    }
+
+    /** 光环 silhouette: single controlled annular disc (not multi-ring burst). */
+    private static void haloRingShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                      Vec3 start, Vec3 end, float radius,
+                                      int intensity, Random random) {
+        Vec3 center = start.distanceToSqr(end) < 0.04D ? start : end;
+        double size = Math.max(0.8D, Math.min(4.0D, radius * 1.2D));
+        rotatingRing(level, family, center.add(0.0D, 0.35D, 0.0D), size,
+                Math.min(28, Math.max(14, intensity / 2)), level.getGameTime() * 0.08D, random);
+        ring(level, family, center.add(0.0D, 0.35D, 0.0D), size * 0.92D,
+                Math.min(20, Math.max(10, intensity / 3)), random, 0.14F, 24);
+        ring(level, family, center.add(0.0D, 0.35D, 0.0D), size * 1.08D,
+                Math.min(16, Math.max(8, intensity / 4)), random, 0.11F, 20);
+    }
+
+    /** 幡 silhouette: pole + hanging banner plane + streamer tips. */
+    private static void bannerStreamerShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                            Vec3 start, Vec3 end, float radius,
+                                            int intensity, Random random) {
+        Vec3 center = start.distanceToSqr(end) < 0.04D ? start : end;
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 side = perpendicular(direction);
+        double height = Math.max(1.2D, Math.min(3.5D, radius * 1.3D));
+        double width = Math.max(0.4D, Math.min(1.6D, radius * 0.55D));
+        Vec3 base = center;
+        Vec3 top = center.add(0.0D, height, 0.0D);
+        shortLine(level, family, base, top, Math.min(10, Math.max(5, intensity / 4)), random);
+        shortLine(level, family, top, top.add(side.scale(width)), 5, random);
+        shortLine(level, family, top.add(side.scale(width * 0.15D)),
+                top.add(side.scale(width)).add(0.0D, -height * 0.55D, 0.0D), 6, random);
+        shortLine(level, family, top.add(side.scale(width * 0.55D)),
+                top.add(side.scale(width * 1.1D)).add(0.0D, -height * 0.7D, 0.0D), 5, random);
+        for (int i = 0; i < Math.min(4, Math.max(2, intensity / 10)) && budgetAvailable(level); i++) {
+            Vec3 tip = top.add(side.scale(width * (0.4D + i * 0.2D)))
+                    .add(0.0D, -height * (0.4D + i * 0.12D), 0.0D);
+            spawn(level, LodestoneParticleRegistry.WISP_PARTICLE, family, tip,
+                    side.scale(0.008D).add(0.0D, -0.006D, 0.0D), 0.14F, 0.66F, 22, random.nextFloat());
+        }
+    }
+
+    /** 印 silhouette: square stamp face + downward press ray. */
+    private static void sealStampShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                       Vec3 start, Vec3 end, float radius,
+                                       int intensity, Random random) {
+        Vec3 center = start.distanceToSqr(end) < 0.04D ? start : end;
+        double size = Math.max(0.35D, Math.min(1.6D, radius * 0.45D));
+        Vec3 face = center.add(0.0D, size * 1.2D, 0.0D);
+        // Square face as four edges.
+        Vec3 a = face.add(-size, 0.0D, -size);
+        Vec3 b = face.add(size, 0.0D, -size);
+        Vec3 c = face.add(size, 0.0D, size);
+        Vec3 d = face.add(-size, 0.0D, size);
+        shortLine(level, family, a, b, 4, random);
+        shortLine(level, family, b, c, 4, random);
+        shortLine(level, family, c, d, 4, random);
+        shortLine(level, family, d, a, 4, random);
+        shortLine(level, family, face, center, Math.min(8, Math.max(4, intensity / 5)), random);
+        ring(level, family, center.add(0.0D, 0.05D, 0.0D), size * 0.85D,
+                Math.min(14, Math.max(6, intensity / 4)), random, 0.13F, 16);
+    }
+
+    /** 虹桥 silhouette: arched path of particles from start to end. */
+    private static void bridgeArcShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                       Vec3 start, Vec3 end, float radius,
+                                       int intensity, Random random) {
+        Vec3 from = start;
+        Vec3 to = start.distanceToSqr(end) < 0.04D ? start.add(2.5D, 0.0D, 0.0D) : end;
+        Vec3 delta = to.subtract(from);
+        double rise = Math.max(0.8D, Math.min(3.0D, radius * 0.9D + delta.length() * 0.18D));
+        int points = Math.min(18, Math.max(8, intensity / 3));
+        for (int i = 0; i <= points && budgetAvailable(level); i++) {
+            double t = i / (double) points;
+            double arch = Math.sin(Math.PI * t) * rise;
+            Vec3 point = from.add(delta.scale(t)).add(0.0D, arch, 0.0D);
+            spawn(level, i % 3 == 0 ? LodestoneParticleRegistry.TWINKLE_PARTICLE
+                            : LodestoneParticleRegistry.SPARKLE_PARTICLE,
+                    family, point, new Vec3(0.0D, 0.004D, 0.0D), 0.14F, 0.78F, 22, (float) t);
         }
     }
 
@@ -2259,12 +2484,27 @@ public final class LodestoneTechniqueVfx {
     private record PaletteColors(float startR, float startG, float startB,
                                  float endR, float endG, float endB) {
         private static PaletteColors fromArgb(int argb) {
-            if (argb == 0) {
+            return fromArgb(argb, 0);
+        }
+
+        /**
+         * Builds a start→end gradient. When {@code secondaryArgb} is non-zero it is used
+         * as the END color (authored secondary); otherwise END is a soft fade of START
+         * (legacy single-color path).
+         */
+        private static PaletteColors fromArgb(int primaryArgb, int secondaryArgb) {
+            if (primaryArgb == 0) {
                 return null;
             }
-            float r = ((argb >>> 16) & 0xFF) / 255.0F;
-            float g = ((argb >>> 8) & 0xFF) / 255.0F;
-            float b = (argb & 0xFF) / 255.0F;
+            float r = ((primaryArgb >>> 16) & 0xFF) / 255.0F;
+            float g = ((primaryArgb >>> 8) & 0xFF) / 255.0F;
+            float b = (primaryArgb & 0xFF) / 255.0F;
+            if (secondaryArgb != 0 && secondaryArgb != primaryArgb) {
+                float er = ((secondaryArgb >>> 16) & 0xFF) / 255.0F;
+                float eg = ((secondaryArgb >>> 8) & 0xFF) / 255.0F;
+                float eb = (secondaryArgb & 0xFF) / 255.0F;
+                return new PaletteColors(r, g, b, er, eg, eb);
+            }
             return new PaletteColors(r, g, b,
                     Math.min(1.0F, r * 0.68F + 0.32F),
                     Math.min(1.0F, g * 0.68F + 0.32F),

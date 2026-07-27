@@ -439,6 +439,18 @@ PROGRAM_RULES = (
     ("body_aura", ("鳞片", "金身", "铠甲", "护体")),
     ("spirit_avatar", ("法相", "鬼影", "骷髅", "化身", "人形", "女子")),
     ("ground_field", ("地面", "大地", "领域", "地网")),
+    # semantic_layers_v3 — authored figure silhouettes (layer-scoped dispatch). These tokens
+    # take priority over generic swarm/aura fallbacks so the named vessels, banners,
+    # seals, curtains and haloes render with their own geometry rather than degrading
+    # to the closest existing primitive (defect 4 audit).
+    ("cauldron_vessel", ("青铜鼎", "巨鼎", "宝鼎", "炼丹鼎", "灵鼎", "双鼎", "黑鼎", "小鼎", "鼎中")),
+    ("bell_chime", ("黑色小钟", "金钟", "铜钟", "灵钟", "宝钟", "古钟", "黑钟", "小钟", "梵钟")),
+    ("gourd_vessel", ("葫芦", "玉葫芦", "宝葫芦", "灵葫芦", "玉瓶", "宝瓶", "灵瓶", "净瓶", "玉净瓶")),
+    ("light_curtain", ("光幕", "光墙", "光帘", "五色光幕", "护幕", "屏障光", "一片光华", "光幕一", "光幕竟")),
+    ("halo_ring", ("光环", "光圈", "圆环光", "血色光环", "金光圈", "光环一", "光环凭空")),
+    ("banner_streamer", ("幡旗", "幡", "旗阵", "杆幡", "黑幡", "灵幡", "宝幡", "玉竹幡")),
+    ("seal_stamp", ("法印一闪", "大印一压", "大印落下", "法印一", "玉印", "宝印", "印诀", "金印", "血印", "印玺")),
+    ("bridge_arc", ("虹桥", "光桥", "玉桥", "虹桥光", "长虹光", "七彩桥", "光桥一")),
 )
 
 PROGRAM_SHAPES = {name for name, _ in PROGRAM_RULES} | {
@@ -446,12 +458,19 @@ PROGRAM_SHAPES = {name for name, _ in PROGRAM_RULES} | {
     "serpent_dragon", "sphere_field", "seal_cage", "barrier_plane", "body_shell",
     "afterimage_path", "layered_afterimages", "channel_stream", "blade_arc",
     "impact_arcs", "rising_motes", "cleansing_ring", "burning_talisman",
+    "falling_barrage",
 }
 
 PROGRAM_COLOR_RULES = (
+    # Longer multi-char tokens first so first-match-wins picks the richer mapping.
     ("绿金", "heal"), ("疗愈", "heal"), ("治愈", "heal"), ("诡绿", "poison"),
     ("毒", "poison"), ("紫金", "thunder"), ("紫电", "thunder"), ("雷", "thunder"),
     ("幽紫", "yin"), ("阴", "yin"), ("魂", "soul"), ("灵魂", "soul"),
+    ("赤金", "metal"), ("金红", "fire"), ("紫红", "fire"), ("血红", "fire"),
+    ("苍青", "wood"), ("碧青", "wood"), ("青金", "metal"), ("银白", "metal"),
+    ("淡金", "metal"), ("淡蓝", "water"), ("深蓝", "water"), ("湛蓝", "water"),
+    ("玄黑", "yin"), ("墨黑", "yin"), ("乌黑", "yin"), ("雪白", "qi"),
+    ("乳白", "qi"), ("五色", "qi"), ("七彩", "qi"), ("血色", "fire"),
     ("火", "fire"), ("赤", "fire"), ("橙红", "fire"), ("水", "water"),
     ("澄蓝", "water"), ("蓝白", "water"), ("木", "wood"), ("碧", "wood"),
     ("青绿", "wood"), ("金属", "metal"), ("银金", "metal"), ("金", "metal"),
@@ -513,7 +532,27 @@ def program_anchor(text: str, path: str, trigger: str) -> str:
     return "MIDPOINT"
 
 
+# Chinese compound numerals that appear as exact counts in source quotes
+# (七十二口剑 / 三十六口金光 / 十八团道纹). Matched before single-digit rules so
+# "七十二" is never reduced to the leading "七". Cap is VisualProgramLayer's 24.
+# Longer / more-specific tokens first. 十八 before 三百六十 so a quote that
+# names both ("三百六十团…只有十八团明亮") keeps the lit count, not the total.
+_COMPOSITE_COPIES = (
+    ("一百零八", 24), ("一百八", 24),
+    ("七十二口", 24), ("七十二", 24),
+    ("三十六口", 24), ("三十六", 24),
+    ("二十四", 24),
+    ("十八团", 18), ("十八", 18),
+    ("十二道", 12), ("十二", 12),
+    ("三百六十", 24), ("三百六", 24),
+)
+
+
 def program_copies(text: str) -> int:
+    # Exact composite numerals first (七十二 / 三十六 / 十八).
+    for token, value in _COMPOSITE_COPIES:
+        if token in text:
+            return value
     if any(token in text for token in ("无数", "漫天", "铺天盖地", "千", "万")):
         return 20
     if any(token in text for token in ("百", "数十", "密密麻麻")):
@@ -531,8 +570,12 @@ def program_scale(text: str, base_radius: float) -> tuple[float, float, float]:
         tier = 3.2
     elif any(token in text for token in ("百丈", "巨大", "硕大", "漫天", "房屋般")):
         tier = 2.2
-    elif any(token in text for token in ("数十丈", "大片", "云团", "漩涡")):
+    elif any(token in text for token in ("数十丈", "十丈", "大片", "云团", "漩涡")):
         tier = 1.6
+    elif any(token in text for token in ("数丈", "丈许", "半人高", "人高")):
+        tier = 1.4
+    elif "丈" in text:
+        tier = 1.4
     elif any(token in text for token in ("细小", "微弱", "一缕", "丝")):
         tier = 0.55
     return (max(0.2, min(4.8, tier * max(0.55, base_radius))),
@@ -584,7 +627,7 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
         sources = [clean(event.get("source")) for event in timeline if clean(event.get("source"))]
         inferred = True
     if not timeline:
-        return {"compiler": "semantic_layers_v2", "source_quote_count": len(sources),
+        return {"compiler": "semantic_layers_v3", "source_quote_count": len(sources),
                 "covered_quote_count": len(sources), "inferred_fallback": inferred, "layers": []}
     base_shape = norm(profile.get("shape"))
     fallback_palette = norm(profile.get("palette_key")) or "qi"
@@ -644,7 +687,7 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
             "evidence_terms": ["generated_fallback"], "source_quote": "", "inferred": True,
         })
     return {
-        "compiler": "semantic_layers_v2",
+        "compiler": "semantic_layers_v3",
         "source_quote_count": len(sources) if not inferred else len(sources),
         "covered_quote_count": seen_quote_layers,
         "inferred_fallback": inferred,
