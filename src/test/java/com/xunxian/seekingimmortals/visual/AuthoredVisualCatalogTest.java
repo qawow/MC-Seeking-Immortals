@@ -697,6 +697,241 @@ class AuthoredVisualCatalogTest {
     }
 
     @Test
+    void existingObjectGeometryKeepsAuthoredCountsAndCompanions() {
+        AuthoredVisualCatalog.Snapshot catalog = AuthoredVisualCatalog.builtin();
+        long qi = catalog.palette("qi").orElseThrow().argb();
+        long earth = catalog.palette("earth").orElseThrow().argb();
+        long metal = catalog.palette("metal").orElseThrow().argb();
+        long thunder = catalog.palette("thunder").orElseThrow().argb();
+        long water = catalog.palette("water").orElseThrow().argb();
+        long yin = catalog.palette("yin").orElseThrow().argb();
+
+        List.of("technique_764", "technique_765", "technique_768", "technique_873")
+                .forEach(id -> assertTrue(catalog.find(VisualDomain.TECHNIQUE, id)
+                        .orElseThrow().visualProgram().layers().stream()
+                        .filter(layer -> layer.sourceQuote().contains("法盘"))
+                        .anyMatch(layer -> layer.primitive() == VisualPrimitive.FORMATION_DISC
+                                && layer.copies() == 1 && layer.primaryArgb() == qi), id));
+        VisualProfile inspection = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_764").orElseThrow();
+        assertTrue(inspection.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("数股神念之力"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.CHANNEL_STREAM
+                        && layer.path() == VisualProgramLayer.Path.TRACK));
+        VisualProfile fiveColorArray = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_765").orElseThrow();
+        assertTrue(fiveColorArray.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("法盘顿时光芒大放"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.RUNE_ORBIT
+                        && layer.copies() == 1
+                        && layer.path() == VisualProgramLayer.Path.ORBIT));
+        VisualProfile discVolley = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_768").orElseThrow();
+        assertTrue(discVolley.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("十几团灵光"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.PROJECTILE_SWARM
+                        && layer.copies() == 12));
+        assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_873").orElseThrow()
+                .visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("雾海一阵翻滚"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.MIST_VEIL
+                        && layer.path() == VisualProgramLayer.Path.EXPAND));
+
+        VisualProfile puppetDefense = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_073").orElseThrow();
+        assertTrue(puppetDefense.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("龟壳法器"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.SHIELD_PLATE
+                        && layer.copies() == 1 && layer.primaryArgb() == earth));
+        assertTrue(puppetDefense.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("四只傀儡兽"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.BEAST_PHANTOM
+                        && layer.copies() == 4));
+        assertTrue(puppetDefense.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("四道碗口粗的光柱"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.BEAM_LANCE
+                        && layer.copies() == 4));
+        VisualProgramLayer glowingCopperShield = catalog.find(
+                        VisualDomain.TECHNIQUE, "technique_053").orElseThrow()
+                .visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.SHIELD_PLATE)
+                .filter(layer -> layer.sourceQuote().contains("铜盾"))
+                .findFirst().orElseThrow();
+        assertEquals(1, glowingCopperShield.copies());
+        assertEquals(metal, glowingCopperShield.primaryArgb());
+        assertEquals(earth, glowingCopperShield.secondaryArgb());
+        assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_189").orElseThrow()
+                .visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("铜盾"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.SHIELD_PLATE
+                        && layer.copies() == 1 && layer.primaryArgb() == metal));
+
+        VisualProfile controlledThreads = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_428").orElseThrow();
+        assertTrue(controlledThreads.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("指环一个盘旋"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.WHEEL_DISC
+                        && layer.copies() == 1 && layer.primaryArgb() == yin));
+        assertTrue(controlledThreads.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("数十丈范围的银色光丝"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.CHAIN_NET
+                        && layer.copies() == 1 && layer.primaryArgb() == qi));
+
+        VisualProfile thunderDaggers = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_670").orElseThrow();
+        assertTrue(thunderDaggers.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("五口黑色匕首"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.FLYING_BLADE
+                        && layer.copies() == 5 && layer.primaryArgb() == yin
+                        && layer.secondaryArgb() == thunder
+                        && layer.path() == VisualProgramLayer.Path.TRACK));
+        assertTrue(thunderDaggers.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("三种不同电弧"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.PROJECTILE_SWARM
+                        && layer.copies() == 5));
+        VisualProfile sixteenBlades = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_475").orElseThrow();
+        List<VisualProgramLayer> iceBlades = sixteenBlades.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.FLYING_BLADE)
+                .toList();
+        assertEquals(3, iceBlades.size());
+        assertTrue(iceBlades.stream().allMatch(layer -> layer.copies() == 16));
+        assertEquals(2, iceBlades.stream()
+                .filter(layer -> layer.secondaryArgb() == water).count());
+        VisualProfile bladeBuddha = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_1277").orElseThrow();
+        assertTrue(bladeBuddha.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("一圈晶莹的短刃"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.FLYING_BLADE
+                        && layer.copies() == 12));
+        assertTrue(bladeBuddha.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.SPIRIT_AVATAR));
+        assertTrue(bladeBuddha.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.EYE_GAZE));
+
+        VisualProfile puppetArmy = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_066").orElseThrow();
+        assertTrue(puppetArmy.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("十余头傀儡兽"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.BEAST_PHANTOM
+                        && layer.copies() == 12));
+        assertTrue(puppetArmy.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("十余头傀儡兽"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.SUMMON_GATE
+                        && layer.copies() == 1));
+        assertFalse(catalog.find(VisualDomain.TECHNIQUE, "technique_030").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.BEAST_PHANTOM));
+        assertFalse(catalog.find(VisualDomain.TECHNIQUE, "technique_1296").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.FLYING_BLADE));
+    }
+
+    @Test
+    void crystalOrbsKeepBodiesContentsAndIndependentCounts() {
+        AuthoredVisualCatalog.Snapshot catalog = AuthoredVisualCatalog.builtin();
+        long fire = catalog.palette("fire").orElseThrow().argb();
+        long metal = catalog.palette("metal").orElseThrow().argb();
+        long qi = catalog.palette("qi").orElseThrow().argb();
+        long water = catalog.palette("water").orElseThrow().argb();
+        long wood = catalog.palette("wood").orElseThrow().argb();
+        long yin = catalog.palette("yin").orElseThrow().argb();
+
+        VisualProgramLayer sealedGreenQi = catalog.find(
+                        VisualDomain.TECHNIQUE, "technique_1034").orElseThrow()
+                .visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.ORB_PROJECTILE)
+                .filter(layer -> layer.sourceQuote().contains("黑色晶球"))
+                .findFirst().orElseThrow();
+        assertEquals(1, sealedGreenQi.copies());
+        assertEquals(yin, sealedGreenQi.primaryArgb());
+        assertEquals(wood, sealedGreenQi.secondaryArgb());
+
+        VisualProfile whiteOrb = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_1048").orElseThrow();
+        assertEquals(2, whiteOrb.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.ORB_PROJECTILE)
+                .count());
+        assertTrue(whiteOrb.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("白色晶球"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.ORB_PROJECTILE
+                        && layer.copies() == 1 && layer.primaryArgb() == qi));
+        assertTrue(whiteOrb.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("一道金色光柱"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.BEAM_LANCE
+                        && layer.primaryArgb() == metal));
+        assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_1205").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.ORB_PROJECTILE
+                        && layer.copies() == 1 && layer.primaryArgb() == wood));
+
+        VisualProfile blueOrbAndMouse = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_830").orElseThrow();
+        assertTrue(blueOrbAndMouse.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("蓝色晶球"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.ORB_PROJECTILE
+                        && layer.copies() == 1 && layer.primaryArgb() == water));
+        assertTrue(blueOrbAndMouse.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("晶莹玉鼠"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.BEAST_PHANTOM
+                        && layer.copies() == 1));
+        assertTrue(blueOrbAndMouse.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("黑色光柱一击在光团上"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.BEAM_LANCE
+                        && layer.primaryArgb() == yin));
+
+        VisualProfile brokenOrb = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_973").orElseThrow();
+        assertEquals(2, brokenOrb.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.ORB_PROJECTILE)
+                .count());
+        assertTrue(brokenOrb.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("一团刺目爆裂而开"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.IMPACT_ARCS
+                        && layer.copies() == 1));
+        assertTrue(brokenOrb.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("血色符文"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.ORB_PROJECTILE
+                        && layer.secondaryArgb() == fire));
+
+        List<VisualProgramLayer> coldOrbs = catalog.find(
+                        VisualDomain.TECHNIQUE, "technique_980").orElseThrow()
+                .visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.ORB_PROJECTILE)
+                .toList();
+        assertEquals(2, coldOrbs.size());
+        assertTrue(coldOrbs.stream().allMatch(layer -> layer.copies() == 1
+                && layer.primaryArgb() == water && layer.secondaryArgb() == qi));
+
+        VisualProfile yinYangStone = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_1198").orElseThrow();
+        assertTrue(yinYangStone.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.ORB_PROJECTILE
+                        && layer.copies() == 1 && layer.primaryArgb() == yin
+                        && layer.secondaryArgb() == qi));
+        assertTrue(yinYangStone.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.RUNE_ORBIT
+                        && layer.copies() == 20 && layer.primaryArgb() == metal
+                        && layer.secondaryArgb() == qi));
+        assertFalse(yinYangStone.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.PROJECTILE_SWARM));
+
+        VisualProgramLayer blackCore = catalog.find(
+                        VisualDomain.TECHNIQUE, "technique_1333").orElseThrow()
+                .visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.ORB_PROJECTILE)
+                .filter(layer -> layer.sourceQuote().contains("黑色晶核"))
+                .findFirst().orElseThrow();
+        assertEquals(1, blackCore.copies());
+        assertEquals(yin, blackCore.primaryArgb());
+        assertEquals(VisualProgramLayer.Path.DIRECT, blackCore.path());
+        assertFalse(catalog.find(VisualDomain.TECHNIQUE, "technique_1333").orElseThrow()
+                .visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("黑色晶核"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.MIST_VEIL));
+    }
+
+    @Test
     void namedGongMaskClothPillarsAndArmorUseDedicatedFigures() {
         AuthoredVisualCatalog.Snapshot catalog = AuthoredVisualCatalog.builtin();
         long qi = catalog.palette("qi").orElseThrow().argb();

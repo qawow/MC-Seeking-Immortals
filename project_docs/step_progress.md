@@ -9399,3 +9399,16 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Tests/build   Done   当前目录定向 `AuthoredVisualCatalogTest`/`LodestoneVfxContractTest` 通过；干净快照内两份目录重生成、生成器检查及普通完整构建通过，最终 `BUILD SUCCESSFUL in 1m 23s`，251 个套件、1,169 项测试 failure/error/skipped 均为 0。首次快照启动仅因归档后的临时 `gradlew` 无执行位返回 126，恢复临时权限后构建成功。
   Version/protocol   Done   `mod_version` 0.2.216→0.2.217；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
   Artifact/backup   Done   `seeking_immortals-0.2.217.jar` SHA-256 `7c52451ae6661935649decfc6e0cb23d1f28b07d2f97cabe2f60193de8f2e3ac`；备份 `.bak/20260728_053500_0.2.217_named_armor_pillars/`。
+
+## 609. 2026-07-28 0.2.218 既有物件几何精确复用
+
+  Step   Status   Notes
+  ---   ---   ---
+  Source boundary   Done   全量术法引文确认法盘恰 4 条、晶球 8 条，晶核/圆石/指环/龟壳法器各 1 条；傀儡兽只接实际显形句，排除两条功法说明和普通手持匕首。
+  Compiler   Done   复用 `formation_disc` 8→12、`shield_plate` 6→9、`wheel_disc` 45→44、`flying_blade` 24→29、`orb_projectile` 257→268、`beast_phantom` 117→120；未增加 Java primitive 或 helper。
+  Counts/palette   Done   法盘主体 1 / 灵光 12、龟壳盾 1 / 傀儡兽 4 / 光柱 4、傀儡军 12、指环与银丝各 1、黑匕首 5、冰化短刃 16、佛像环刃 12；局部渐变保留铜盾金属→黄芒、黑球→绿气、黑白石、奇寒球和阴雷匕首。
+  Companion fidelity   Done   保留神念扫描、五色阵、雾海开路、铜盾斩击、匕首电弧、淡银佛像/妖目、傀儡召唤门、玉鼠/黑柱、晶球符文与单次爆裂；无数符文只驱动 20 份符文，不复制圆石。
+  Diff/contracts   Done   20 个预期 technique ID、27 条语义引文组变化，非目标 ID 0；5,727 profiles、2,292 techniques、1,806 authored、9,947/9,947 引文、93 primitive 保持，术法层数 10,779→10,800。
+  Tests/build   Done   生成器 `--check` 与目录定向测试通过；干净快照普通完整构建 `BUILD SUCCESSFUL in 1m 30s`，251 个套件、1,171 项测试 failure/error/skipped 均为 0。
+  Version/protocol   Done   `mod_version` 0.2.217→0.2.218；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
+  Artifact/backup   Done   `seeking_immortals-0.2.218.jar` SHA-256 `e3694d1baadfb3a1907e653d12971fa8eff92e93f0e9656056d51ef8ff611bf4`；备份 `.bak/20260728_060819_0.2.218_existing_object_reuse/`。
