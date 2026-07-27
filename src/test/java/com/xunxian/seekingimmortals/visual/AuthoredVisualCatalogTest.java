@@ -210,6 +210,46 @@ class AuthoredVisualCatalogTest {
     }
 
     @Test
+    void namedFiguresKeepTheirOwnLocalCounts() {
+        AuthoredVisualCatalog.Snapshot catalog = AuthoredVisualCatalog.builtin();
+        VisualProfile ghost = catalog.find(VisualDomain.TECHNIQUE, "technique_065").orElseThrow();
+        VisualProgramLayer loneGhost = ghost.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.GHOST_HEAD)
+                .filter(layer -> layer.sourceQuote().contains("上百颗火球"))
+                .findFirst().orElseThrow();
+        VisualProgramLayer fireballs = ghost.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.ORB_PROJECTILE)
+                .filter(layer -> layer.sourceQuote().contains("上百颗火球"))
+                .findFirst().orElseThrow();
+        assertEquals(1, loneGhost.copies());
+        assertEquals(12, fireballs.copies());
+
+        VisualProfile axes = catalog.find(VisualDomain.TECHNIQUE, "technique_1342").orElseThrow();
+        assertEquals(2, axes.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.GIANT_AXE)
+                .filter(layer -> layer.sourceQuote().contains("两柄晶莹巨斧"))
+                .findFirst().orElseThrow().copies());
+        assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_056").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.SHIELD_PLATE));
+        assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_1082").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.FLYING_BLADE));
+        assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_1186").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.FLYING_SWORD
+                        && layer.copies() == 72));
+        assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_1432").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.FLYING_SWORD
+                        && layer.copies() == 72));
+        assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_1388").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.BEAST_PHANTOM
+                        && layer.copies() == 1));
+    }
+
+    @Test
     void paletteArgbValuesExactlyMatchV118() throws Exception {
         JsonObject source = JsonParser.parseString(Files.readString(Path.of(
                 "文本材料", "data", "visual_style_v118.json"))).getAsJsonObject()

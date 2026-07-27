@@ -1662,7 +1662,7 @@ public final class LodestoneTechniqueVfx {
     }
 
     /**
-     * Renders semantic_layers_v3 figure silhouettes (鼎/钟/葫芦/光幕/光环/幡/印/虹桥).
+     * Renders semantic_layers_v3 figure silhouettes before the contract-pinned shape switch.
      * Returns true when the primitive was handled so emitAuthoredShape is skipped.
      */
     private static boolean emitFigurePrimitive(ClientLevel level, VisualPrimitive primitive,
@@ -1724,6 +1724,22 @@ public final class LodestoneTechniqueVfx {
             }
             case FIRE_PLUME -> {
                 firePlumeShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case GHOST_HEAD -> {
+                ghostHeadShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case SHIELD_PLATE -> {
+                shieldPlateShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case FLYING_BLADE -> {
+                flyingBladeShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case GIANT_AXE -> {
+                giantAxeShape(level, family, start, end, radius, intensity, random);
                 yield true;
             }
             default -> false;
@@ -2040,6 +2056,83 @@ public final class LodestoneTechniqueVfx {
                             (random.nextDouble() - 0.5D) * 0.02D),
                     0.18F, 0.72F, 22, random.nextFloat());
         }
+    }
+
+    /** 鬼首 silhouette: four-point skull, paired eyes, and jaw. */
+    private static void ghostHeadShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                       Vec3 start, Vec3 end, float radius,
+                                       int intensity, Random random) {
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 side = perpendicular(direction);
+        Vec3 up = normalized(side.cross(direction), new Vec3(0.0D, 1.0D, 0.0D));
+        double size = Math.max(0.45D, Math.min(1.8D, radius * 0.62D));
+        Vec3 center = (start.distanceToSqr(end) < 0.04D ? start : start.lerp(end, 0.55D))
+                .add(up.scale(size * 0.8D));
+        verticalRing(level, family, center, direction, size * 0.55D, 4, random, 0.14F);
+        spawn(level, LodestoneParticleRegistry.STAR_PARTICLE, family,
+                center.add(side.scale(size * 0.2D)).add(up.scale(size * 0.1D)),
+                Vec3.ZERO, 0.13F, 0.9F, 18, random.nextFloat());
+        spawn(level, LodestoneParticleRegistry.STAR_PARTICLE, family,
+                center.subtract(side.scale(size * 0.2D)).add(up.scale(size * 0.1D)),
+                Vec3.ZERO, 0.13F, 0.9F, 18, random.nextFloat());
+        shortLine(level, family,
+                center.subtract(side.scale(size * 0.22D)).subtract(up.scale(size * 0.28D)),
+                center.add(side.scale(size * 0.22D)).subtract(up.scale(size * 0.28D)), 1, random);
+    }
+
+    /** 盾牌 silhouette: frontal rim, central boss, and reinforcing bar. */
+    private static void shieldPlateShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                         Vec3 start, Vec3 end, float radius,
+                                         int intensity, Random random) {
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 side = perpendicular(direction);
+        Vec3 up = normalized(side.cross(direction), new Vec3(0.0D, 1.0D, 0.0D));
+        double size = Math.max(0.55D, Math.min(2.2D, radius * 0.72D));
+        Vec3 center = (start.distanceToSqr(end) < 0.04D ? start : end).add(up.scale(size * 0.75D));
+        verticalRing(level, family, center, direction, size * 0.62D, 4, random, 0.15F);
+        spawn(level, LodestoneParticleRegistry.TWINKLE_PARTICLE, family, center,
+                Vec3.ZERO, 0.18F, 0.92F, 20, random.nextFloat());
+        shortLine(level, family, center.subtract(up.scale(size * 0.42D)),
+                center.add(up.scale(size * 0.42D)), 1, random);
+        spawn(level, LodestoneParticleRegistry.SPARKLE_PARTICLE, family,
+                center.subtract(up.scale(size * 0.58D)), Vec3.ZERO,
+                0.11F, 0.72F, 16, random.nextFloat());
+    }
+
+    /** 飞刀 silhouette: broad triangular blade with a luminous point. */
+    private static void flyingBladeShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                         Vec3 start, Vec3 end, float radius,
+                                         int intensity, Random random) {
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 side = perpendicular(direction);
+        double length = Math.max(1.0D, Math.min(3.5D, radius * 1.15D));
+        double width = Math.max(0.18D, Math.min(0.65D, radius * 0.24D));
+        Vec3 heel = start;
+        Vec3 tip = start.distanceToSqr(end) < 0.04D ? start.add(direction.scale(length)) : end;
+        shortLine(level, family, heel, tip, 2, random);
+        shortLine(level, family, heel.add(side.scale(width)), tip, 1, random);
+        shortLine(level, family, heel.subtract(side.scale(width)), tip, 1, random);
+        spawn(level, LodestoneParticleRegistry.STAR_PARTICLE, family, tip,
+                direction.scale(0.02D), 0.16F, 0.9F, 18, random.nextFloat());
+    }
+
+    /** 巨斧 silhouette: long haft and a two-edge axe head. */
+    private static void giantAxeShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                      Vec3 start, Vec3 end, float radius,
+                                      int intensity, Random random) {
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 1.0D, 0.0D));
+        Vec3 side = perpendicular(direction);
+        double size = Math.max(0.8D, Math.min(3.0D, radius));
+        Vec3 center = start.distanceToSqr(end) < 0.04D ? start.add(0.0D, size * 0.65D, 0.0D)
+                : start.lerp(end, 0.5D);
+        Vec3 butt = center.subtract(direction.scale(size * 0.75D));
+        Vec3 head = center.add(direction.scale(size * 0.55D));
+        Vec3 bladeTip = head.add(side.scale(size * 0.62D));
+        shortLine(level, family, butt, head, 2, random);
+        shortLine(level, family, head.add(direction.scale(size * 0.2D)), bladeTip, 1, random);
+        shortLine(level, family, head.subtract(direction.scale(size * 0.2D)), bladeTip, 1, random);
+        spawn(level, LodestoneParticleRegistry.TWINKLE_PARTICLE, family, bladeTip,
+                side.scale(0.015D), 0.17F, 0.9F, 20, random.nextFloat());
     }
 
     private static float motionRadius(VisualProgramLayer.Motion motion, Phase phase) {

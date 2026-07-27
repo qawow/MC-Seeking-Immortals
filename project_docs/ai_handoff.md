@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-28: `0.2.208` 将同句多对象 copies 从整句数字改为“数词+量词+命中名词”的局部绑定，清除帧号、层数、五行色、尺寸与三头六臂等串数，同时保留百颗火球=12、单鬼头=1、两柄巨斧=2、七十二柄飞剑=72。新增 ghost_head / shield_plate / flying_blade / giant_axe 四种 8 粒预算内完整轮廓，扩充青龙虚影等龙蛇语义；当前层数 10,670，鬼首 33、盾牌 6、飞刀 24、巨斧 8、龙蛇 86。`mod_version=0.2.208`；协议 30。回滚 `.bak/20260728_0.2.208_vfx_figures_counts/`，详见 `project_docs/updates/20260728_0.2.208_vfx_local_counts_figures.md`。
+
 > CURRENT TRUTH 2026-07-27g: `0.2.206` aura 746→443、mist 514→205；lotus/halo 几何加厚；fallback 护体/遁/阵分流。`mod_version=0.2.206`；协议 30。`.bak/20260727_025800/`。
 
 > CURRENT TRUTH 2026-07-27f: `0.2.205` 剑语境纯飞剑化（误配 180→0），mist 再收窄，chain 去丝线误配，fire_plume 加厚。flying_sword 289 层；1186×72；1483 火柱红→金。`mod_version=0.2.205`；协议 30。`.bak/20260727_024500/`，`project_docs/updates/20260727_0.2.205_sword_pure.md`。

@@ -413,16 +413,20 @@ PROGRAM_RULES = (
     ("banner_streamer", ("幡旗", "杆幡", "黑幡", "灵幡", "宝幡", "玉竹幡", "竹幡", "血幡")),
     ("seal_stamp", ("法印一闪", "大印一压", "大印落下", "法印一", "玉印", "宝印", "印诀", "金印", "血印", "印玺")),
     ("bridge_arc", ("虹桥", "光桥", "玉桥", "虹桥光", "长虹光", "七彩桥", "光桥一")),
-    ("flying_sword", ("飞剑", "青色小剑", "金色小剑", "小剑", "小青剑", "口剑", "剑影", "剑气纵横", "剑芒", "剑刃飞", "飞出一剑", "剑光分化", "分化出", "剑光在其", "化为三十六道", "化为七十二")),
+    ("flying_sword", ("青竹蜂云剑", "飞剑", "青色小剑", "金色小剑", "小剑", "小青剑", "口剑", "剑影", "剑气纵横", "剑芒", "剑刃飞", "飞出一剑", "剑光分化", "分化出", "剑光在其", "化为三十六道", "化为七十二")),
     ("fire_plume", ("赤红火焰", "真火", "赤焰", "火焰从", "火柱", "火海", "烈焰", "三昧真火", "丹火", "青焰", "火球爆")),
     ("formation_banner", ("阵旗", "令旗", "旗阵", "大旗", "战旗", "令旗一")),
     ("pagoda_tower", ("宝塔", "浮屠", "金塔", "玉塔", "玲珑塔", "小塔", "塔影")),
     ("blood_thread", ("血丝", "精血丝", "血线", "血丝一", "血丝密")),
     ("jade_slip", ("玉简", "青色玉简", "古玉简", "玉简一闪", "传法玉简")),
     ("burning_talisman", ("符纸", "符火", "符焰", "燃符", "焚符", "符纸燃烧", "高阶符箓")),
+    ("ghost_head", ("巨大鬼头", "狰狞鬼头", "鬼头虚影", "骷髅头虚影", "巨型骷髅头", "白骨骷髅头", "巨大骷髅头", "骷髅头", "鬼头", "鬼首")),
+    ("shield_plate", ("巨大血色光盾", "血色光盾", "巨大盾牌", "银盾", "盾牌", "盾面")),
+    ("flying_blade", ("厚背长刀", "长刀虚影", "飞刀", "宝刀", "魔刀", "血刀", "刀影", "巨刃", "月刃", "弯刀")),
+    ("giant_axe", ("神念巨斧", "晶莹巨斧", "黑色巨斧", "巨斧", "战斧", "大斧", "斧影")),
     ("giant_claw", ("巨爪", "鬼爪", "火焰鬼爪")),
     ("giant_hand", ("巨手", "大手", "巨掌", "佛掌", "血掌", "擎天手")),
-    ("serpent_dragon", ("火龙", "水龙", "火蛇", "蛟龙", "巨蟒", "毒蛇")),
+    ("serpent_dragon", ("青龙虚影", "巨龙虚影", "龙形虚影", "五爪青龙", "龙影", "火龙", "水龙", "雷龙", "冰龙", "风龙", "血龙", "蛟龙", "火蛇", "灵蛇", "雷蛇", "青蛇", "黑蛇", "巨蛇", "蟒蛇", "巨蟒", "毒蛇")),
     ("flame_bird", ("火鸟", "炎鸟", "朱雀", "凤凰", "火凤", "金乌")),
     ("beast_phantom", ("兽影", "虎影", "巨猿", "魔猿", "麒麟", "玄武", "白虎")),
     ("lotus_mandala", ("莲花", "金莲", "青莲", "血莲", "莲台", "莲瓣")),
@@ -551,8 +555,7 @@ _COMPOSITE_COPIES = (
 )
 
 
-def program_copies(text: str) -> int:
-    # Exact composite numerals first (七十二 / 三十六 / 十八).
+def _copies_from_text(text: str) -> int:
     for token, value in _COMPOSITE_COPIES:
         if token in text:
             return value
@@ -565,6 +568,39 @@ def program_copies(text: str) -> int:
         if token in text:
             return value
     return 1
+
+
+def program_copies(text: str, evidence_terms: list[str] | tuple[str, ...] = ()) -> int:
+    # Bind counts through an object classifier instead of leaking unrelated numerals
+    # (百颗火球 / one ghost, or one three-headed six-armed ape) across the quote.
+    if evidence_terms:
+        for term in evidence_terms:
+            if term.startswith(("无数", "漫天", "铺天盖地", "密密麻麻", "千", "万")):
+                return _copies_from_text(term)
+            if term == "双鼎":
+                return 2
+            offset = 0
+            while True:
+                index = text.find(term, offset)
+                if index < 0:
+                    break
+                prefix = text[max(0, index - 20):index]
+                count = re.search(
+                    r"(?P<count>一百零八|一百八|三百六十|三百六|七十二|三十六|二十四|十八|十二|数百|上百|百余|数十|千万|千|万|百|九|八|七|六|五|四|三|两|二|一)"
+                    r"(?:口|柄|把|只|颗|枚|道|团|朵|座|条|头|面|杆|株|缕|片|层|尊|具|根|个|束|股|对|排)"
+                    r"(?:[赤红橙黄绿青蓝紫黑白金银灰血墨乌碧苍淡深亮暗晶莹剔透大小巨迷怪异狰狞粗细长短灵魔鬼阴阳玄]{0,8}|(?:车轮|拳头|脸盆|拇指)(?:般)?大小的?)$",
+                    prefix)
+                if count:
+                    return _copies_from_text(count.group("count"))
+                mass = re.search(
+                    r"(?P<count>无数|漫天|铺天盖地|密密麻麻)"
+                    r"[赤红橙黄绿青蓝紫黑白金银灰血墨乌碧苍淡深亮暗晶莹剔透大小巨迷怪异狰狞粗细长短灵魔鬼阴阳玄]{0,8}$",
+                    prefix)
+                if mass:
+                    return _copies_from_text(mass.group("count"))
+                offset = index + len(term)
+        return 1
+    return _copies_from_text(text)
 
 
 def program_scale(text: str, base_radius: float) -> tuple[float, float, float]:
@@ -650,6 +686,7 @@ _FIGURE_PRIMITIVES = {
     "cauldron_vessel", "bell_chime", "gourd_vessel", "light_curtain", "halo_ring",
     "banner_streamer", "seal_stamp", "bridge_arc", "flying_sword", "fire_plume", "formation_banner",
     "pagoda_tower", "blood_thread", "jade_slip", "burning_talisman",
+    "ghost_head", "shield_plate", "flying_blade", "giant_axe",
     "giant_claw", "giant_hand", "serpent_dragon", "flame_bird", "beast_phantom",
     "lotus_mandala", "wheel_disc", "mirror_disc", "sword_rain", "ice_prison",
     "blood_sea", "tree_avatar", "spatial_rift", "lightning_storm", "mountain_meteor",
@@ -709,8 +746,11 @@ def program_primitives(text: str, base_shape: str) -> tuple[list[str], list[str]
         selected = [p for p in selected if p not in suppress or p == "flying_sword"]
         # Keep only sword-relevant companions (lotus if 莲花, rain if 剑阵/剑雨).
         keep_extra = {"lotus_mandala", "sword_rain", "projectile_swarm", "fire_plume",
-                      "light_curtain", "spirit_avatar", "wheel_disc"}
+                      "light_curtain", "spirit_avatar", "ghost_head", "wheel_disc"}
         selected = [p for p in selected if p == "flying_sword" or p in keep_extra]
+    if "ghost_head" in selected and "spirit_avatar" in selected and not any(
+            token in text for token in ("法相", "鬼影", "化身", "人形", "女子", "骨架")):
+        selected.remove("spirit_avatar")
     # Prefer authored figure silhouettes as the lead layer.
     figures = [p for p in selected if p in _FIGURE_PRIMITIVES]
     others = [p for p in selected if p not in _FIGURE_PRIMITIVES]
@@ -747,7 +787,6 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
         path = program_path(source)
         anchor = program_anchor(source, path, trigger)
         motion = program_motion(source, inferred)
-        copies = program_copies(source)
         radius, length, height = program_scale(source, float(profile.get("radius", 0.9) or 0.9))
         primary_key, secondary_key = program_palette(source, fallback_palette, argbs)
         digest = hashlib.sha256(f"{profile.get('id')}:{source_index}:{source}".encode("utf-8")).digest()
@@ -758,6 +797,11 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
         spread = 180.0 if path in {"SCATTER", "EXPAND"} else (360.0 if path == "ORBIT" else 18.0)
         rotation = 360.0 if path in {"ORBIT", "SPIRAL"} else (phase if path == "WAVE" else 0.0)
         for primitive_index, primitive in enumerate(primitive_ids):
+            matched_terms = [term for rule, terms in PROGRAM_RULES if rule == primitive
+                             for term in terms if term in source]
+            copies = program_copies(source, matched_terms)
+            if not matched_terms and primitive_index > 0:
+                copies = max(1, copies // 2)
             layers.append({
                 "layer_index": len(layers),
                 "event_ordinal": int(event.get("ordinal", event_index)),
@@ -765,7 +809,7 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
                 "anchor": anchor,
                 "path": path,
                 "motion": motion,
-                "copies": copies if primitive_index == 0 else max(1, copies // 2),
+                "copies": copies,
                 "radius_scale": radius / max(0.1, float(profile.get("radius", 0.9) or 0.9)),
                 "length_scale": length,
                 "height_scale": height,
@@ -776,7 +820,7 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
                 "jitter": 0.06 if motion in {"FLICKER", "PULSE"} else 0.02,
                 "primary_argb": int(argbs.get(primary_key, argbs[fallback_palette])),
                 "secondary_argb": int(argbs.get(secondary_key, argbs[fallback_palette])),
-                "evidence_terms": evidence + ["quote_index:" + str(source_index)],
+                "evidence_terms": (matched_terms[:3] or evidence) + ["quote_index:" + str(source_index)],
                 "source_quote": source,
                 "inferred": inferred,
             })

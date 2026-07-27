@@ -9274,3 +9274,16 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Verification   Done   首次构建进程曾被系统以 exit 137 终止；以 `./gradlew build --no-daemon --max-workers=1` 重试后 `BUILD SUCCESSFUL in 1m 41s`，1,162 项测试 0 失败/错误/跳过。
   Version/protocol   Done   `mod_version` 0.2.206→0.2.207；未修改网络包字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
   Backup   Done   源码批次 `.bak/20260727_030800/`；进度文档 `.bak/20260728_0.2.207_vfx_geometry/`。
+
+## 600. 2026-07-28 0.2.208 局部数量绑定与四种具名轮廓
+
+  Step   Status   Notes
+  ---   ---   ---
+  Figure inventory   Done   原著引文残余审计确认鬼头/骷髅头、盾牌、明确刀体、巨斧仍被 orb/mist/rune/chain 等通用 primitive 吞并；舟船与令牌多为叙事背景，本批不做宽泛映射。
+  Compiler   Done   新增 `ghost_head` 33 层、`shield_plate` 6 层、`flying_blade` 24 层、`giant_axe` 8 层；龙蛇词族扩展后 `serpent_dragon` 66→86，飞剑补青竹蜂云剑后 289→302。
+  Count binding   Done   matched primitive 只从附近“数词+合法量词+命中名词”取 copies；百颗火球/单鬼头、两柄巨斧、两处七十二柄飞剑与单只三头六臂巨猿均由目录测试固定，清除帧号、层数、五行色、数丈等跨对象串数。
+  Runtime   Done   `VisualPrimitive` 与 `emitFigurePrimitive` 补四种类型；鬼首、盾牌、飞刀、巨斧 helper 均把完整主体控制在单层 8 粒预算内。
+  Regen   Done   作者术法效果 2,292 profiles、统一视觉目录 5,727 profiles 重生成；术法视觉 10,670 层，其中直接层 9,984。
+  Verification   Done   `./gradlew build --no-daemon --max-workers=1` `BUILD SUCCESSFUL in 1m 28s`；1,163 项测试 0 失败/错误/跳过，全部生成资源检查通过。
+  Version/protocol   Done   `mod_version` 0.2.207→0.2.208；未修改网络包字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
+  Backup   Done   `.bak/20260728_0.2.208_vfx_figures_counts/`。
