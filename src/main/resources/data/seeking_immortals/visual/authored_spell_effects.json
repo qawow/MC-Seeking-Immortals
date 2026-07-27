@@ -542,9 +542,9 @@
     "文本材料/data/item_descriptions_v122.json": "bd75a2525ccc5240030abbf6b44f7e02571001fd174d947bf22101d70d3eabcd"
   },
   "java_source_audit": {
-    "file_count": 620,
-    "aggregate_sha256": "a155e8d013a761734e377960eec429ad881c64739abd21fc479d12a858b098d5",
-    "spell_related_file_count": 181,
+    "file_count": 621,
+    "aggregate_sha256": "53c7e6a60f2f91bc3a3db3b78b1b5e7126b5cb4eebe4a433bf9ae63cb5df60ec",
+    "spell_related_file_count": 182,
     "spell_effect_class_count": 53,
     "skill_effect_registry_registration_count": 373,
     "spell_related_files": [
@@ -600,6 +600,7 @@
       "src/main/java/com/xunxian/seekingimmortals/client/ModParticleProviders.java",
       "src/main/java/com/xunxian/seekingimmortals/client/TechniqueEditScreen.java",
       "src/main/java/com/xunxian/seekingimmortals/client/TechniqueSkillBarOverlay.java",
+      "src/main/java/com/xunxian/seekingimmortals/client/VfxBudgetPlan.java",
       "src/main/java/com/xunxian/seekingimmortals/combat/status/SeekingStatusEffect.java",
       "src/main/java/com/xunxian/seekingimmortals/combat/status/StatusCatalogService.java",
       "src/main/java/com/xunxian/seekingimmortals/combat/status/StatusRegistry.java",

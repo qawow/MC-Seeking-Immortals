@@ -139,6 +139,20 @@ class LodestoneVfxContractTest {
     }
 
     @Test
+    void figureRenderingSharesQuotasWithoutDroppingLateComponents() throws Exception {
+        String renderer = read(JAVA_ROOT.resolve(Path.of("client", "LodestoneTechniqueVfx.java")));
+
+        assertTrue(renderer.contains("VfxBudgetPlan.sampledCopies("));
+        assertTrue(renderer.contains("withSubBudget(copyQuota"));
+        assertTrue(renderer.contains("VfxBudgetPlan.components("));
+        assertTrue(occurrences(renderer, "emitFigureComponents(level") >= 24);
+        assertTrue(renderer.contains("int samples = budgetedSamples(points + 1)"));
+        assertTrue(renderer.contains("lineSampleProgress(sample, samples)"));
+        assertTrue(renderer.contains("status == ParticleStatus.MINIMAL ? 7"));
+        assertTrue(renderer.contains("status == ParticleStatus.DECREASED ? 16 : 30"));
+    }
+
+    @Test
     void everyGeneratedSpellShapeHasAnExplicitRendererBranch() throws Exception {
         var profiles = JsonParser.parseString(read(AUTHORED_SPELLS))
                 .getAsJsonObject().getAsJsonArray("profiles");

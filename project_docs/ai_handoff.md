@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-28: `0.2.209` 修复作者术法层内 8 粒配额导致的轮廓后半段永久饥饿。`VfxBudgetPlan` 将具名 copies 做跨帧分层抽样，并为每个选中副本建立独立子预算；核心/细节组件按可用粒子分配，核心优先保留双采样，细节随帧轮转。线段、圆环、竖环与螺旋在低配额下改为覆盖完整几何区间。29 处强轮廓接入组件调度，事件总上限仍为 MINIMAL 7 / DECREASED 16 / ALL 30，公平事件游标不变。`mod_version=0.2.209`；协议 30。回滚 `.bak/20260728_0.2.209_vfx_budget_scheduler/`，详见 `project_docs/updates/20260728_0.2.209_vfx_budget_scheduler.md`。
+
 > CURRENT TRUTH 2026-07-28: `0.2.208` 将同句多对象 copies 从整句数字改为“数词+量词+命中名词”的局部绑定，清除帧号、层数、五行色、尺寸与三头六臂等串数，同时保留百颗火球=12、单鬼头=1、两柄巨斧=2、七十二柄飞剑=72。新增 ghost_head / shield_plate / flying_blade / giant_axe 四种 8 粒预算内完整轮廓，扩充青龙虚影等龙蛇语义；当前层数 10,670，鬼首 33、盾牌 6、飞刀 24、巨斧 8、龙蛇 86。`mod_version=0.2.208`；协议 30。回滚 `.bak/20260728_0.2.208_vfx_figures_counts/`，详见 `project_docs/updates/20260728_0.2.208_vfx_local_counts_figures.md`。
 
 > CURRENT TRUTH 2026-07-27g: `0.2.206` aura 746→443、mist 514→205；lotus/halo 几何加厚；fallback 护体/遁/阵分流。`mod_version=0.2.206`；协议 30。`.bak/20260727_025800/`。

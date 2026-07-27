@@ -9287,3 +9287,17 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Verification   Done   `./gradlew build --no-daemon --max-workers=1` `BUILD SUCCESSFUL in 1m 28s`；1,163 项测试 0 失败/错误/跳过，全部生成资源检查通过。
   Version/protocol   Done   `mod_version` 0.2.207→0.2.208；未修改网络包字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
   Backup   Done   `.bak/20260728_0.2.208_vfx_figures_counts/`。
+
+## 601. 2026-07-28 0.2.209 轮廓预算调度与跨帧完整性
+
+  Step   Status   Notes
+  ---   ---   ---
+  Budget diagnosis   Done   单事件总预算虽有界，但视觉程序每层最多 8 粒；旧 helper 的首个高采样 ring/line 会耗尽层预算，使眼、翼、尾、鼎足等后置识别组件永不执行。
+  Copy allocation   Done   `VfxBudgetPlan.sampledCopies` 对最多 72 份具名对象做空间分层与跨帧轮转；每个选中副本使用独立 `withSubBudget`，复杂首副本不再吞掉其余副本份额。
+  Component allocation   Done   核心组件优先双采样，剩余预算轮转细节；29 处具名/强轮廓接入，包括爪、手、法眼、莲台、灵体、龙蛇、山岳、镜盘、火鸟、兽影、翼扇、牢笼及全部 v3 层内形象。
+  Sparse geometry   Done   ring / rotatingRing / verticalRing / helix / shortLine 在配额不足时覆盖完整圆周或路径，不再仅绘制起点附近连续样本。
+  Caps/fairness   Done   MINIMAL/DECREASED/ALL 单事件上限仍为 7/16/30；`ClientVisualEngine` 总预算、公平事件游标和 8 粒层上限均未放宽。
+  Regen   Done   作者术法效果 2,292 profiles、统一视觉目录 5,727 profiles 重新生成。
+  Verification   Done   预算规划与 Lodestone 契约定向测试通过；`./gradlew build --no-daemon --max-workers=1` `BUILD SUCCESSFUL in 1m 23s`，1,167 项测试 0 失败/错误/跳过，全部生成资源检查通过。
+  Version/protocol   Done   `mod_version` 0.2.208→0.2.209；未修改网络包字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
+  Backup   Done   `.bak/20260728_0.2.209_vfx_budget_scheduler/`。
