@@ -9385,3 +9385,17 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Tests/build   Done   两个生成器 `--check`、`AuthoredVisualCatalogTest`、`LodestoneVfxContractTest` 及完整构建通过；最终 `BUILD SUCCESSFUL in 1m 22s`，251 个套件、1,168 项测试 failure/error/skipped 均为 0。
   Version/protocol   Done   `mod_version` 0.2.215→0.2.216；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
   Artifact/backup   Done   `seeking_immortals-0.2.216.jar` SHA-256 `2416e566cd560ba3b15e1413f6d7fd64a23aa2246a8c159ae05bb12376eb562d`；备份 `.bak/20260728_044650_0.2.216_existing_geometry/`。
+
+## 608. 2026-07-28 0.2.217 锣、面具、织物、符柱与战甲轮廓
+
+  Step   Status   Notes
+  ---   ---   ---
+  Source boundary   Done   回读黑色巨锣、青色面具、四方锦帕/黑纱/血披风、水晶/青铜/金色/石质巨柱与七类显形成甲引文；排除巨柱般手指、野猪面具、普通面纱、鼓起/尖锥般等比喻或静态目标。
+  Compiler   Done   新增 `magic_gong=1`、`magic_mask=1`、`magic_cloth=5`、`rune_pillar=6`、`spirit_armor=7`；17 个预期 ID、21 条引文组变化，结构化审计非目标变化 0。
+  Runtime   Done   五种 primitive 加入 `VisualPrimitive` 与层内分发；锣含悬架/双环/锣心/槌，面具含面框/眼缝/额印/下颌，织物含波动经纬与封印，符柱含柱轴/柱础/柱头/旋转符环，战甲含胸甲/肩甲/腰封/头盔/胸印。
+  Counts/palette   Done   石柱林 20、青铜柱 72、金柱/缠龙 7、蟠龙 8、带环石柱 12；血披风与遁光各 1，锦帕金弧 5、银丝网 20、爆裂 1，虫甲灵虫 20。水晶柱 water→qi、青铜/金柱 metal、石柱 earth、黑锣/黑纱/黑甲 yin、青面具 water、黄甲 earth。
+  Companion fidelity   Done   血披风保留 `afterimage_path`，锦帕保留符文/金弧/银丝网/爆裂，虫甲保留 `insect_swarm`，水晶柱保留内部 `spirit_avatar`，战甲保留符文、血雾与金属尖鸣；金龙不再被同句黑火染红。
+  Contracts   Done   5,727 profiles、2,292 techniques、1,806 authored、9,947/9,947 引文不变；术法程序 10,779 层、93 primitive；52-shape、每层 8 粒、事件 7/16/30 与 72 copies 上限未改。
+  Tests/build   Done   当前目录定向 `AuthoredVisualCatalogTest`/`LodestoneVfxContractTest` 通过；干净快照内两份目录重生成、生成器检查及普通完整构建通过，最终 `BUILD SUCCESSFUL in 1m 23s`，251 个套件、1,169 项测试 failure/error/skipped 均为 0。首次快照启动仅因归档后的临时 `gradlew` 无执行位返回 126，恢复临时权限后构建成功。
+  Version/protocol   Done   `mod_version` 0.2.216→0.2.217；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
+  Artifact/backup   Done   `seeking_immortals-0.2.217.jar` SHA-256 `7c52451ae6661935649decfc6e0cb23d1f28b07d2f97cabe2f60193de8f2e3ac`；备份 `.bak/20260728_053500_0.2.217_named_armor_pillars/`。
