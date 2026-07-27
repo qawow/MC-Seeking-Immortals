@@ -9372,3 +9372,16 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Verification   Done   最终 `./gradlew build --no-daemon --max-workers=1` `BUILD SUCCESSFUL in 1m 26s`；251 个测试套件、1,167 项测试，failure/error/skipped 均为 0；产物 `seeking_immortals-0.2.215.jar`。
   Version/protocol   Done   `mod_version` 0.2.214→0.2.215；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
   Backup   Done   `.bak/20260728_043057_0.2.215_tokens_tools/`。
+
+## 607. 2026-07-28 0.2.216 既有几何漏映射修复
+
+  Step   Status   Notes
+  ---   ---   ---
+  Source boundary   Done   全量回读实体巨网/丝网/光网/雷网/火网、晶冰火水雷枪、短枪/箭/戈/骨矛、物理圆环/手镯、铁笼/黑笼/金囚笼和黄钟引文；明确排除白痕/裂隙/罗网、弩箭比喻和杀手锏。
+  Compiler   Done   复用 `chain_net=558`、`spear_spike=157`、`wheel_disc=45`、`seal_cage=23`、`bell_chime=5` 的既有 Lodestone 几何；59 个变化引文组仅涉及 48 个预期 ID，非目标变化 0。
+  Counts/palette   Done   无数/千余兵器=20，一根根/一杆杆/一支支=12，九傀儡长戈=9，六雷枪=6，三短戈/金戈=3；黑雷网 yin→thunder、金雷网 metal→thunder、银火网 qi→fire、黑线火网 yin→fire，冰水枪 water、青箭 wood、黑环 yin、兽筋镯 earth。
+  Companion fidelity   Done   黑环保留 20 份巨型甲虫，黑笼保留蛟影，金囚笼保留赤金火焰龙首，银环保留 1 份爆裂弧，黄钟保留声波；水枪被元磁光晕吞没和五具骨架佩五环均保留原主体。
+  Diff/contracts   Done   5,727 profiles、2,292 techniques、1,806 authored、9,947/9,947 引文不变；术法程序 10,763 层、88 primitive；52-shape、每层 8 粒、事件 7/16/30、72 copies 上限均未改。
+  Tests/build   Done   两个生成器 `--check`、`AuthoredVisualCatalogTest`、`LodestoneVfxContractTest` 及完整构建通过；最终 `BUILD SUCCESSFUL in 1m 22s`，251 个套件、1,168 项测试 failure/error/skipped 均为 0。
+  Version/protocol   Done   `mod_version` 0.2.215→0.2.216；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
+  Artifact/backup   Done   `seeking_immortals-0.2.216.jar` SHA-256 `2416e566cd560ba3b15e1413f6d7fd64a23aa2246a8c159ae05bb12376eb562d`；备份 `.bak/20260728_044650_0.2.216_existing_geometry/`。

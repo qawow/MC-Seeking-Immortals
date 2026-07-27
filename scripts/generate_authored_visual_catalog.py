@@ -408,7 +408,7 @@ PROGRAM_RULES = (
     ("cauldron_vessel", ("青铜鼎", "巨鼎", "宝鼎", "炼丹鼎", "灵鼎", "双鼎", "黑鼎", "小鼎", "鼎中")),
     ("alchemy_furnace", ("丹炉", "巨大火炉", "火炉中")),
     ("bell_chime", ("黑色小钟", "金钟", "铜钟", "灵钟", "宝钟", "古钟", "黑钟", "小钟", "梵钟",
-                    "陶羽银铃铛", "银铃铛", "这铃铛俨然")),
+                    "陶羽银铃铛", "银铃铛", "这铃铛俨然", "一口黄钟", "黄钟只是")),
     ("gourd_vessel", ("葫芦", "玉葫芦", "宝葫芦", "灵葫芦", "玉瓶", "宝瓶", "灵瓶", "净瓶", "玉净瓶", "掌天瓶", "小瓶", "瓶影")),
     ("ritual_bowl", ("漆黑钵盂", "乌黑圆钵", "碧绿圆钵", "银色圆钵", "圆钵", "钵盂")),
     ("ritual_lamp", ("手捧古灯",)),
@@ -428,6 +428,7 @@ PROGRAM_RULES = (
     ("seal_stamp", ("法印一闪", "大印一压", "大印落下", "法印一", "玉印", "宝印", "印诀", "金印", "血印", "印玺")),
     ("command_token", ("黑色令牌", "长老令牌", "禁制令牌", "令牌上血光", "手中令牌",
                        "金色令牌", "从令牌一面", "金银令牌", "玉牌")),
+    ("seal_cage", ("铁笼", "黑笼", "金色囚笼")),
     ("bridge_arc", ("虹桥", "光桥", "玉桥", "虹桥光", "长虹光", "七彩桥", "光桥一")),
     ("flying_sword", ("青竹蜂云剑", "飞剑", "青色小剑", "金色小剑", "小剑", "小青剑", "口剑", "剑影", "剑气纵横", "剑芒", "剑刃飞", "飞出一剑", "剑光分化", "分化出", "剑光在其", "化为三十六道", "化为七十二")),
     ("fire_plume", ("赤红火焰", "真火", "赤焰", "火焰从", "火柱", "火海", "烈焰", "三昧真火", "丹火", "青焰", "火球爆",
@@ -450,11 +451,12 @@ PROGRAM_RULES = (
     ("spiked_club", ("狼牙棒",)),
     ("giant_claw", ("巨爪", "鬼爪", "火焰鬼爪")),
     ("giant_hand", ("巨手", "大手", "巨掌", "佛掌", "血掌", "擎天手")),
-    ("serpent_dragon", ("青龙虚影", "巨龙虚影", "龙形虚影", "五爪青龙", "怪蛟虚影", "龙影", "火龙", "水龙", "雷龙", "冰龙", "风龙", "血龙", "蛟龙", "青色雷蛟", "火蛇", "灵蛇", "雷蛇", "青蛇", "黑蛇", "巨蛇", "蟒蛇", "巨蟒", "毒蛇")),
+    ("serpent_dragon", ("青龙虚影", "巨龙虚影", "龙形虚影", "五爪青龙", "怪蛟虚影", "蛟影一吸收", "龙影", "火龙", "水龙", "雷龙", "冰龙", "风龙", "血龙", "蛟龙", "青色雷蛟", "火蛇", "灵蛇", "雷蛇", "青蛇", "黑蛇", "巨蛇", "蟒蛇", "巨蟒", "毒蛇")),
     ("flame_bird", ("火鸟", "炎鸟", "朱雀", "凤凰", "火凤", "金乌")),
     ("beast_phantom", ("兽影", "虎影", "巨猿", "魔猿", "麒麟", "玄武", "白虎")),
     ("lotus_mandala", ("莲花", "白莲", "金莲", "青莲", "血莲", "莲台", "莲瓣")),
-    ("wheel_disc", ("宝轮", "法轮", "光轮", "圆盘", "轮盘", "日轮", "月轮")),
+    ("wheel_disc", ("宝轮", "法轮", "光轮", "圆盘", "轮盘", "日轮", "月轮",
+                    "漆黑圆环", "黑乎乎的圆环", "黑乎乎圆环", "银色圆环", "淡黄色手镯", "巨大云环")),
     ("mirror_disc", ("宝镜", "古镜", "镜光", "镜面", "水镜", "明镜")),
     ("sword_rain", ("剑雨", "剑阵", "密密麻麻剑")),
     ("ice_prison", ("冰牢", "冰狱", "冰封", "冰墙", "玄冰", "寒冰")),
@@ -463,23 +465,27 @@ PROGRAM_RULES = (
     ("spatial_rift", ("空间裂", "虚空裂", "撕裂空间", "破碎虚空", "空间波动")),
     ("lightning_storm", ("雷海", "雷云", "千雷", "雷柱", "雷暴", "雷雨", "雷霆")),
     ("mountain_meteor", ("山岳", "山峰", "巨山", "陨石", "流星", "坠星")),
-    ("insect_swarm", ("虫云", "虫群", "蜂群", "蚁群", "噬金虫")),
+    ("insect_swarm", ("虫云", "虫群", "蜂群", "蚁群", "噬金虫", "巨型甲虫")),
     ("tidal_wave", ("巨浪", "海浪", "浪潮", "海潮", "洪水", "水幕", "水墙", "海啸")),
-    ("magnetic_field", ("元磁", "磁力", "磁光", "磁场", "两极")),
+    ("magnetic_field", ("元磁", "磁力", "磁光", "磁场", "两极",
+                        "灰色光晕。此光晕滴溜溜一转")),
     ("scripture_glyph", ("经文", "书卷", "典籍", "墨字", "金文", "古字", "符字", "真言")),
     ("wing_fan", ("双翼", "羽翼", "翅膀", "羽翅", "风雷翅")),
-    ("spear_spike", ("金针", "银针", "灵针", "飞针", "长矛", "冰矛", "冰锥", "地刺", "骨刺")),
+    ("spear_spike", ("金针", "银针", "灵针", "飞针", "长矛", "冰矛", "冰锥", "地刺", "骨刺",
+                     "晶枪", "冰枪", "火枪", "水枪", "雷枪", "短枪", "长箭", "光箭", "巨箭",
+                     "黑色弩箭", "短戈", "长戈", "金戈", "骨矛")),
     ("orb_projectile", ("光球", "火球", "雷球", "水球", "圆球", "灵珠", "宝珠", "圆珠")),
     ("eye_gaze", ("法目", "灵目", "天眼", "灵眼", "竖目", "瞳孔", "目光")),
-    ("sound_wave", ("梵音", "禅音", "魔啸", "长啸", "怒吼", "咆哮", "钟鸣", "铃声", "传音", "声波法则")),
+    ("sound_wave", ("梵音", "禅音", "魔啸", "长啸", "怒吼", "咆哮", "钟鸣", "钟音", "铃声", "传音", "声波法则")),
     ("fist_barrage", ("拳影", "掌影")),
     ("cloud_vortex", ("漩涡", "云团", "血云", "黑云")),
     ("rune_orbit", ("符文", "符箓", "符印", "法阵", "阵法", "阵图")),
-    ("chain_net", ("锁链", "电网", "锁链网", "铁链", "灵链", "缚仙索", "缠丝成网")),
+    ("chain_net", ("锁链", "电网", "锁链网", "铁链", "灵链", "缚仙索", "缠丝成网",
+                   "巨网", "丝网", "光网", "雷网", "火网")),
     ("beam_lance", ("光柱", "光束", "剑虹", "剑光")),
     ("projectile_swarm", ("飞射", "箭雨", "无数", "密密麻麻")),
     ("body_aura", ("鳞片", "金身", "铠甲", "护体")),
-    ("spirit_avatar", ("法相", "鬼影", "骷髅", "化身", "人形", "女子", "高大人影")),
+    ("spirit_avatar", ("法相", "鬼影", "骷髅", "化身", "人形", "女子", "高大人影", "五具骨架")),
     ("ground_field", ("地面", "大地", "领域", "地网")),
     ("mist_veil", ("迷雾", "云雾", "雾幕", "烟幕", "雾气腾", "黑雾", "血雾", "毒雾", "雾团", "隐踪匿迹", "隐匿身形")),
 )
@@ -578,6 +584,27 @@ _COMPOSITE_COPIES = (
     ("三百六十", 72), ("三百六", 72),
 )
 
+_MASS_WEAPON_TERMS = frozenset({
+    "冰枪", "水枪", "雷枪", "短枪", "长箭", "光箭", "巨箭",
+    "黑色弩箭", "短戈", "长戈", "金戈", "骨矛",
+})
+
+_EXACT_LOCAL_PALETTE_TERMS = {
+    "chain_net": frozenset({"巨网", "丝网", "光网", "雷网", "火网"}),
+    "spear_spike": frozenset({
+        "晶枪", "冰枪", "火枪", "水枪", "雷枪", "短枪", "长箭", "光箭", "巨箭",
+        "黑色弩箭", "短戈", "长戈", "金戈", "骨矛",
+    }),
+    "wheel_disc": frozenset({
+        "漆黑圆环", "黑乎乎的圆环", "黑乎乎圆环", "银色圆环", "淡黄色手镯", "巨大云环",
+    }),
+    "seal_cage": frozenset({"铁笼", "黑笼", "金色囚笼"}),
+}
+
+_EXACT_LOCAL_PALETTE_FALLBACKS = {
+    "chain_net": "qi", "spear_spike": "qi", "wheel_disc": "qi", "seal_cage": "metal",
+}
+
 
 def _copies_from_text(text: str) -> int:
     for token, value in _COMPOSITE_COPIES:
@@ -609,6 +636,26 @@ def program_copies(text: str, evidence_terms: list[str] | tuple[str, ...] = ()) 
                 if index < 0:
                     break
                 prefix = text[max(0, index - 20):index]
+                if term == "巨型甲虫" and any(token in text for token in ("上千只", "千余只")):
+                    return 20
+                if term == "五具骨架":
+                    return 5
+                if term in _MASS_WEAPON_TERMS:
+                    weapon_prefix = text[max(0, index - 40):index]
+                    if re.search(r"(?:无数|千余)(?:根)?[^，。；：、]{0,20}$", weapon_prefix):
+                        return 20
+                    if re.search(r"(?:数百余|一根根|一杆杆|一支支)[^，。；：、]{0,24}$", weapon_prefix):
+                        return 12
+                    if term == "雷枪" and re.search(r"六杆[^，。；：、]{0,12}$", weapon_prefix):
+                        return 6
+                    if term == "短枪" and re.search(r"十二杆[^，。；：、]{0,20}$", weapon_prefix):
+                        return 12
+                    if term in {"短戈", "金戈"} and (
+                            re.search(r"三柄[^，。；：、]{0,16}$", weapon_prefix)
+                            or "三道金芒" in text):
+                        return 3
+                    if term == "长戈" and "九具傀儡" in text and "银色长戈" in text:
+                        return 9
                 if term == "青色雷蛟":
                     local_count = re.search(r"(?P<count>六|两)条[^，。；：、]{0,16}$", prefix)
                     if local_count:
@@ -740,15 +787,22 @@ _LOCAL_PALETTE_PRIMITIVES = frozenset({
 
 def program_palette_source(text: str, primitive: str, matched_terms: list[str]) -> str:
     """Bind colors to the matched object instead of unrelated objects in the quote."""
-    if primitive not in _LOCAL_PALETTE_PRIMITIVES or not matched_terms:
+    exact_terms = _EXACT_LOCAL_PALETTE_TERMS.get(primitive, frozenset())
+    exact_matches = [term for term in matched_terms if term in exact_terms]
+    if (primitive not in _LOCAL_PALETTE_PRIMITIVES and not exact_matches) or not matched_terms:
         return text
-    term = matched_terms[0]
+    term = exact_matches[0] if exact_matches else matched_terms[0]
     index = text.find(term)
     if index < 0:
         return text
     if primitive == "giant_hammer":
         # Its white skulls and green flames deliberately follow the hammer noun.
         return text[max(0, index - 20):min(len(text), index + len(term) + 48)]
+    if primitive == "chain_net":
+        # Net colours are often carried by the threads that form it, not by the noun.
+        return text[max(0, index - 48):min(len(text), index + len(term) + 12)]
+    if primitive in {"seal_cage", "wheel_disc", "spear_spike"}:
+        return text[max(0, index - 16):index + len(term)]
     # Object colors are adjectival. Keep the window tight enough that a nearby
     # mountain, aura, or target cannot recolor a separately authored implement.
     return text[max(0, index - 6):index + len(term)]
@@ -758,7 +812,7 @@ _FIGURE_PRIMITIVES = {
     "cauldron_vessel", "alchemy_furnace", "bell_chime", "gourd_vessel", "light_curtain", "halo_ring",
     "ritual_bowl", "ritual_lamp", "ritual_coffin", "magic_ruler", "magic_staff",
     "magic_bow", "magic_fan", "magic_umbrella", "magic_scissors",
-    "banner_streamer", "seal_stamp", "command_token", "magic_brick", "bridge_arc",
+    "banner_streamer", "seal_stamp", "command_token", "magic_brick", "seal_cage", "bridge_arc",
     "flying_sword", "fire_plume", "formation_banner",
     "pagoda_tower", "blood_thread", "jade_slip", "magic_scroll", "burning_talisman",
     "formation_disc", "spiked_club",
@@ -801,6 +855,9 @@ def program_primitives(text: str, base_shape: str) -> tuple[list[str], list[str]
         if hits and primitive not in selected:
             selected.append(primitive)
             evidence.extend(hits[:2])
+    if "chain_net" in selected and any(token in text for token in (
+            "丝网般的无数白痕", "自投罗网", "蛛网般爬满")):
+        selected.remove("chain_net")
     if not selected:
         # Avoid dumping every underspecified card onto aura_burst: pick a calmer default
         # from the text when possible.
@@ -836,10 +893,13 @@ def program_primitives(text: str, base_shape: str) -> tuple[list[str], list[str]
                       "ritual_bowl", "magic_ruler", "magic_staff", "giant_hammer",
                       "bell_chime"}
         selected = [p for p in selected if p == "flying_sword" or p in keep_extra]
-    if "bell_chime" in selected and "铃铛" in text:
-        if "声波法则" in text and "sound_wave" not in selected:
+    if "bell_chime" in selected and any(token in text for token in ("铃铛", "黄钟")):
+        if any(token in text for token in ("声波法则", "钟音")) and "sound_wave" not in selected:
             selected.append("sound_wave")
         selected = ["bell_chime"] + [p for p in selected if p != "bell_chime"]
+    if "wheel_disc" in selected and any(token in text for token in (
+            "漆黑圆环", "黑乎乎的圆环", "黑乎乎圆环", "银色圆环", "淡黄色手镯", "巨大云环")):
+        selected = ["wheel_disc"] + [p for p in selected if p != "wheel_disc"]
     # The eight skulls are mounted details of the authored green-flame hammer. Rendering
     # a second free-floating ghost-head swarm would duplicate the same source object.
     if "giant_hammer" in selected and "锤" in text:
@@ -857,6 +917,9 @@ def program_primitives(text: str, base_shape: str) -> tuple[list[str], list[str]
         head, tail = ordered[0], [p for p in ordered[1:] if p not in generic]
         if head in {"alchemy_furnace", "command_token"} and "mist_veil" in ordered[1:]:
             tail.append("mist_veil")
+        if head == "wheel_disc" and "impact_arcs" in ordered[1:] and any(
+                token in text for token in ("爆裂开来", "爆裂开", "爆裂")):
+            tail.append("impact_arcs")
         ordered = [head] + tail
     return ordered[:4], evidence[:10]
 
@@ -896,9 +959,56 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
         for primitive_index, primitive in enumerate(primitive_ids):
             matched_terms = [term for rule, terms in PROGRAM_RULES if rule == primitive
                              for term in terms if term in source]
-            primitive_fallback = _PRIMITIVE_PALETTE_FALLBACK.get(primitive, fallback_palette)
+            exact_local_palette = any(
+                term in _EXACT_LOCAL_PALETTE_TERMS.get(primitive, frozenset())
+                for term in matched_terms)
+            primitive_fallback = (
+                _EXACT_LOCAL_PALETTE_FALLBACKS[primitive]
+                if exact_local_palette else _PRIMITIVE_PALETTE_FALLBACK.get(primitive, fallback_palette))
             palette_source = program_palette_source(source, primitive, matched_terms)
-            if (primitive in {"ritual_bowl", "magic_ruler"}
+            if (exact_local_palette and primitive == "spear_spike"
+                    and any(term in matched_terms for term in ("冰枪", "水枪"))):
+                primary_key = secondary_key = "water"
+            elif exact_local_palette and primitive == "spear_spike" and "火枪" in matched_terms:
+                primary_key = secondary_key = "fire"
+            elif exact_local_palette and primitive == "spear_spike" and "雷枪" in matched_terms:
+                primary_key, secondary_key = "thunder", "metal" if "金色" in source else "thunder"
+            elif (exact_local_palette and primitive == "spear_spike"
+                    and "长箭" in matched_terms and "青色长箭" in source):
+                primary_key = secondary_key = "wood"
+            elif exact_local_palette and primitive == "chain_net" and "银色火网" in source:
+                primary_key, secondary_key = "qi", "fire"
+            elif exact_local_palette and primitive == "chain_net" and "黑色雷网" in source:
+                primary_key, secondary_key = "yin", "thunder"
+            elif exact_local_palette and primitive == "chain_net" and "金色雷网" in source:
+                primary_key, secondary_key = "metal", "thunder"
+            elif exact_local_palette and primitive == "chain_net" and "黑蓝" in source:
+                primary_key, secondary_key = "yin", "water"
+            elif exact_local_palette and primitive == "chain_net" and "蓝色丝网" in source:
+                primary_key = secondary_key = "water"
+            elif exact_local_palette and primitive == "chain_net" and "青色丝网" in source:
+                primary_key = secondary_key = "wood"
+            elif exact_local_palette and primitive == "chain_net" and "红色丝网" in source:
+                primary_key = secondary_key = "fire"
+            elif exact_local_palette and primitive == "chain_net" and "灰色丝网" in source:
+                primary_key = secondary_key = "yin"
+            elif (exact_local_palette and primitive == "chain_net"
+                    and "黑色细线" in source and "火网" in source):
+                primary_key, secondary_key = "yin", "fire"
+            elif (exact_local_palette and primitive == "chain_net"
+                    and "青濛濛剑丝" in source and "巨网" in source):
+                primary_key = secondary_key = "wood"
+            elif (exact_local_palette and primitive == "chain_net"
+                    and any(token in source for token in ("迎着巨网一抓", "触手形成的巨网"))):
+                primary_key = secondary_key = primitive_fallback
+            elif exact_local_palette and primitive == "chain_net" and "煞气" in source:
+                primary_key = secondary_key = "soul"
+            elif exact_local_palette and primitive == "wheel_disc" and "淡黄色手镯" in source:
+                primary_key = secondary_key = "earth"
+            elif exact_local_palette and primitive == "wheel_disc" and "巨大云环" in source:
+                primary_key = secondary_key = "qi"
+            elif (((primitive in {"ritual_bowl", "magic_ruler"})
+                    or (exact_local_palette and primitive in {"spear_spike", "wheel_disc", "chain_net"}))
                     and any(token in palette_source for token in ("银色", "银的", "银尺", "银钵"))):
                 primary_key = secondary_key = "qi"
             elif primitive == "magic_staff" and "七色佛光" in source:
@@ -929,11 +1039,13 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
             else:
                 primary_key, secondary_key = program_palette(
                     palette_source, primitive_fallback, argbs)
-            if (primitive in _LOCAL_PALETTE_PRIMITIVES and matched_terms
+            if ((primitive in _LOCAL_PALETTE_PRIMITIVES or exact_local_palette) and matched_terms
                     and primary_key != primitive_fallback and secondary_key == primitive_fallback):
                 if not (primitive == "magic_fan" and primary_key == "fire"):
                     secondary_key = primary_key
             copies = program_copies(source, matched_terms)
+            if primitive == "impact_arcs" and "银色圆环" in source:
+                copies = 1
             if not matched_terms and primitive_index > 0:
                 copies = max(1, copies // 2)
             layers.append({

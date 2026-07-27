@@ -589,6 +589,114 @@ class AuthoredVisualCatalogTest {
     }
 
     @Test
+    void existingGeometryCoversAuthoredNetsWeaponsRingsCagesAndYellowBell() {
+        AuthoredVisualCatalog.Snapshot catalog = AuthoredVisualCatalog.builtin();
+
+        VisualProgramLayer goldenThunderNet = catalog.find(
+                        VisualDomain.TECHNIQUE, "technique_961").orElseThrow()
+                .visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.CHAIN_NET)
+                .filter(layer -> layer.sourceQuote().contains("一张金色雷网"))
+                .findFirst().orElseThrow();
+        assertEquals(1, goldenThunderNet.copies());
+        assertEquals(catalog.palette("metal").orElseThrow().argb(), goldenThunderNet.primaryArgb());
+        assertEquals(catalog.palette("thunder").orElseThrow().argb(), goldenThunderNet.secondaryArgb());
+        VisualProgramLayer silverFireNet = catalog.find(
+                        VisualDomain.TECHNIQUE, "technique_1337").orElseThrow()
+                .visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.CHAIN_NET)
+                .findFirst().orElseThrow();
+        assertEquals(catalog.palette("qi").orElseThrow().argb(), silverFireNet.primaryArgb());
+        assertEquals(catalog.palette("fire").orElseThrow().argb(), silverFireNet.secondaryArgb());
+
+        VisualProfile iceGuns = catalog.find(VisualDomain.TECHNIQUE, "technique_278").orElseThrow();
+        assertTrue(iceGuns.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.SPEAR_SPIKE)
+                .anyMatch(layer -> layer.sourceQuote().contains("一根根小树粗细的冰枪")
+                        && layer.copies() == 12
+                        && layer.primaryArgb() == catalog.palette("water").orElseThrow().argb()));
+        assertTrue(iceGuns.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.SPEAR_SPIKE)
+                .anyMatch(layer -> layer.sourceQuote().contains("千余根巨大冰枪")
+                        && layer.copies() == 20));
+        assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_728").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.SPEAR_SPIKE
+                        && layer.copies() == 6));
+        assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_833").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.SPEAR_SPIKE
+                        && layer.copies() == 12));
+        List<VisualProgramLayer> tripleGlaives = catalog.find(
+                        VisualDomain.TECHNIQUE, "technique_843").orElseThrow()
+                .visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.SPEAR_SPIKE)
+                .toList();
+        assertEquals(3, tripleGlaives.size());
+        assertTrue(tripleGlaives.stream().allMatch(layer -> layer.copies() == 3));
+        assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_848").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.SPEAR_SPIKE
+                        && layer.copies() == 9));
+
+        VisualProfile beetleRing = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_1039").orElseThrow();
+        assertTrue(beetleRing.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.WHEEL_DISC
+                        && layer.copies() == 1
+                        && layer.primaryArgb() == catalog.palette("yin").orElseThrow().argb()));
+        assertTrue(beetleRing.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.INSECT_SWARM
+                        && layer.copies() == 20));
+        VisualProfile brokenRing = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_1320").orElseThrow();
+        assertTrue(brokenRing.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.WHEEL_DISC
+                        && layer.copies() == 1));
+        assertTrue(brokenRing.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.IMPACT_ARCS
+                        && layer.copies() == 1));
+        assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_578").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.WHEEL_DISC
+                        && layer.primaryArgb() == catalog.palette("earth").orElseThrow().argb()));
+
+        VisualProfile blackCage = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_777").orElseThrow();
+        assertTrue(blackCage.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.SEAL_CAGE));
+        assertTrue(blackCage.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("蛟影一吸收"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.SERPENT_DRAGON));
+        VisualProfile goldCage = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_1486").orElseThrow();
+        assertTrue(goldCage.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.SEAL_CAGE));
+        assertTrue(goldCage.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.FIRE_PLUME));
+
+        VisualProfile yellowBell = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_673").orElseThrow();
+        assertTrue(yellowBell.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.BELL_CHIME
+                        && layer.copies() == 1
+                        && layer.primaryArgb() == catalog.palette("metal").orElseThrow().argb()));
+        assertTrue(yellowBell.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("钟音爆发"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.SOUND_WAVE));
+
+        assertFalse(catalog.find(VisualDomain.TECHNIQUE, "technique_853").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.CHAIN_NET));
+        assertFalse(catalog.find(VisualDomain.TECHNIQUE, "technique_182").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.CHAIN_NET));
+        assertFalse(catalog.find(VisualDomain.TECHNIQUE, "technique_1003").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.SPEAR_SPIKE));
+    }
+
+    @Test
     void paletteArgbValuesExactlyMatchV118() throws Exception {
         JsonObject source = JsonParser.parseString(Files.readString(Path.of(
                 "文本材料", "data", "visual_style_v118.json"))).getAsJsonObject()
