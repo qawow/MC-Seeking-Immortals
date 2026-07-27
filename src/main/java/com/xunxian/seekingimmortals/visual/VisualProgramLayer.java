@@ -31,7 +31,8 @@ public record VisualProgramLayer(
                 || path == null || motion == null) {
             throw new IllegalArgumentException("invalid visual program identity");
         }
-        copies = Math.max(1, Math.min(24, copies));
+        // Raised 24→72 so authored exact counts (七十二口剑) survive into runtime.
+        copies = Math.max(1, Math.min(72, copies));
         radiusScale = bound(radiusScale, 0.1D, 8.0D);
         lengthScale = bound(lengthScale, 0.1D, 8.0D);
         heightScale = bound(heightScale, 0.1D, 8.0D);

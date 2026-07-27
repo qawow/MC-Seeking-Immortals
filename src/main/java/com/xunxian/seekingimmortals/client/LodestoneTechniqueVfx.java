@@ -1567,11 +1567,11 @@ public final class LodestoneTechniqueVfx {
         if (!budgetAvailable(level)) {
             return;
         }
-        // Faithful copies: honor layer.copies() up to the VisualProgramLayer hard cap (24).
+        // Faithful copies: honor layer.copies() up to the VisualProgramLayer hard cap (72).
         // When the remaining particle quota is smaller than the named count, stride-sample
         // so the full ring of copies still appears across successive ticks of the event.
         int quota = activeEmissionBudget == null ? 8 : Math.max(1, activeEmissionBudget.remaining);
-        int namedCopies = Math.max(1, Math.min(24, layer.copies()));
+        int namedCopies = Math.max(1, Math.min(72, layer.copies()));
         int stride = Math.max(1, (namedCopies + quota - 1) / Math.max(1, quota));
         int layerIntensity = Math.max(2, intensity / Math.max(1, Math.min(namedCopies, quota)));
         PaletteColors previous = activePaletteOverride;
@@ -1646,6 +1646,26 @@ public final class LodestoneTechniqueVfx {
             }
             case BRIDGE_ARC -> {
                 bridgeArcShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case FLYING_SWORD -> {
+                flyingSwordShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case FORMATION_BANNER -> {
+                formationBannerShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case PAGODA_TOWER -> {
+                pagodaTowerShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case BLOOD_THREAD -> {
+                bloodThreadShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case JADE_SLIP -> {
+                jadeSlipShape(level, family, start, end, radius, intensity, random);
                 yield true;
             }
             default -> false;
@@ -1811,6 +1831,100 @@ public final class LodestoneTechniqueVfx {
                             : LodestoneParticleRegistry.SPARKLE_PARTICLE,
                     family, point, new Vec3(0.0D, 0.004D, 0.0D), 0.14F, 0.78F, 22, (float) t);
         }
+    }
+
+
+    /** 飞剑 silhouette: slender blade streak with tip spark. */
+    private static void flyingSwordShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                         Vec3 start, Vec3 end, float radius,
+                                         int intensity, Random random) {
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 tip = start.distanceToSqr(end) < 0.04D ? start.add(direction.scale(1.6D + radius * 0.4D)) : end;
+        Vec3 side = perpendicular(direction);
+        shortLine(level, family, start, tip, Math.min(14, Math.max(6, intensity / 3)), random);
+        shortLine(level, family, tip.subtract(direction.scale(0.35D)).add(side.scale(0.12D)), tip, 3, random);
+        shortLine(level, family, tip.subtract(direction.scale(0.35D)).subtract(side.scale(0.12D)), tip, 3, random);
+        spawn(level, LodestoneParticleRegistry.STAR_PARTICLE, family, tip,
+                direction.scale(0.02D), 0.16F, 0.88F, 16, random.nextFloat());
+    }
+
+    /** 阵旗 silhouette: pole + rectangular flag plane + flutter tips. */
+    private static void formationBannerShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                             Vec3 start, Vec3 end, float radius,
+                                             int intensity, Random random) {
+        Vec3 center = start.distanceToSqr(end) < 0.04D ? start : end;
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 side = perpendicular(direction);
+        double height = Math.max(1.4D, Math.min(3.8D, radius * 1.4D));
+        double width = Math.max(0.5D, Math.min(1.8D, radius * 0.6D));
+        Vec3 top = center.add(0.0D, height, 0.0D);
+        shortLine(level, family, center, top, Math.min(12, Math.max(6, intensity / 4)), random);
+        shortLine(level, family, top, top.add(side.scale(width)), 5, random);
+        shortLine(level, family, top.add(side.scale(width * 0.1D)),
+                top.add(side.scale(width)).add(0.0D, -height * 0.45D, 0.0D), 6, random);
+        shortLine(level, family, top.add(side.scale(width * 0.55D)),
+                top.add(side.scale(width * 1.05D)).add(0.0D, -height * 0.65D, 0.0D), 5, random);
+        ring(level, family, center.add(0.0D, 0.05D, 0.0D), 0.18D, 6, random, 0.12F, 14);
+    }
+
+    /** 宝塔 silhouette: stacked square tiers tapering upward. */
+    private static void pagodaTowerShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                         Vec3 start, Vec3 end, float radius,
+                                         int intensity, Random random) {
+        Vec3 center = start.distanceToSqr(end) < 0.04D ? start : end;
+        double base = Math.max(0.5D, Math.min(2.2D, radius * 0.65D));
+        int tiers = Math.min(5, Math.max(3, intensity / 10));
+        for (int t = 0; t < tiers && budgetAvailable(level); t++) {
+            double progress = t / (double) Math.max(1, tiers - 1);
+            double size = base * (1.0D - progress * 0.55D);
+            double y = 0.15D + t * (base * 0.55D);
+            Vec3 face = center.add(0.0D, y, 0.0D);
+            Vec3 a = face.add(-size, 0.0D, -size);
+            Vec3 b = face.add(size, 0.0D, -size);
+            Vec3 c = face.add(size, 0.0D, size);
+            Vec3 d = face.add(-size, 0.0D, size);
+            shortLine(level, family, a, b, 3, random);
+            shortLine(level, family, b, c, 3, random);
+            shortLine(level, family, c, d, 3, random);
+            shortLine(level, family, d, a, 3, random);
+        }
+        shortLine(level, family, center, center.add(0.0D, base * tiers * 0.55D + 0.4D, 0.0D), 5, random);
+    }
+
+    /** 血丝 silhouette: thin converging threads toward target. */
+    private static void bloodThreadShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                         Vec3 start, Vec3 end, float radius,
+                                         int intensity, Random random) {
+        Vec3 tip = start.distanceToSqr(end) < 0.04D ? start.add(0.0D, 0.2D, 1.2D) : end;
+        int threads = Math.min(10, Math.max(4, intensity / 4));
+        for (int i = 0; i < threads && budgetAvailable(level); i++) {
+            Vec3 origin = start.add(randomOffset(random, Math.max(0.3D, radius * 0.45D)));
+            shortLine(level, family, origin, tip, 4, random);
+        }
+    }
+
+    /** 玉简 silhouette: flat rectangular slip with edge glow. */
+    private static void jadeSlipShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                      Vec3 start, Vec3 end, float radius,
+                                      int intensity, Random random) {
+        Vec3 center = start.distanceToSqr(end) < 0.04D ? start.add(0.0D, 1.0D, 0.0D)
+                : start.lerp(end, 0.5D).add(0.0D, 0.6D, 0.0D);
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 side = perpendicular(direction);
+        Vec3 up = normalized(side.cross(direction), new Vec3(0.0D, 1.0D, 0.0D));
+        double w = Math.max(0.18D, Math.min(0.55D, radius * 0.22D));
+        double h = Math.max(0.35D, Math.min(1.0D, radius * 0.4D));
+        Vec3 a = center.add(side.scale(-w)).add(up.scale(-h));
+        Vec3 b = center.add(side.scale(w)).add(up.scale(-h));
+        Vec3 c = center.add(side.scale(w)).add(up.scale(h));
+        Vec3 d = center.add(side.scale(-w)).add(up.scale(h));
+        shortLine(level, family, a, b, 3, random);
+        shortLine(level, family, b, c, 4, random);
+        shortLine(level, family, c, d, 3, random);
+        shortLine(level, family, d, a, 4, random);
+        shortLine(level, family, a.lerp(b, 0.5D), d.lerp(c, 0.5D), 3, random);
+        spawn(level, LodestoneParticleRegistry.TWINKLE_PARTICLE, family, center,
+                Vec3.ZERO, 0.14F, 0.8F, 18, random.nextFloat());
     }
 
     private static float motionRadius(VisualProgramLayer.Motion motion, Phase phase) {

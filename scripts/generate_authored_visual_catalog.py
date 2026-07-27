@@ -448,9 +448,16 @@ PROGRAM_RULES = (
     ("gourd_vessel", ("葫芦", "玉葫芦", "宝葫芦", "灵葫芦", "玉瓶", "宝瓶", "灵瓶", "净瓶", "玉净瓶")),
     ("light_curtain", ("光幕", "光墙", "光帘", "五色光幕", "护幕", "屏障光", "一片光华", "光幕一", "光幕竟")),
     ("halo_ring", ("光环", "光圈", "圆环光", "血色光环", "金光圈", "光环一", "光环凭空")),
-    ("banner_streamer", ("幡旗", "幡", "旗阵", "杆幡", "黑幡", "灵幡", "宝幡", "玉竹幡")),
+    ("banner_streamer", ("幡旗", "杆幡", "黑幡", "灵幡", "宝幡", "玉竹幡", "竹幡", "血幡")),
     ("seal_stamp", ("法印一闪", "大印一压", "大印落下", "法印一", "玉印", "宝印", "印诀", "金印", "血印", "印玺")),
     ("bridge_arc", ("虹桥", "光桥", "玉桥", "虹桥光", "长虹光", "七彩桥", "光桥一")),
+    # 0.2.200 deeper figures — layer-scoped only (not spell-effects shape).
+    ("flying_sword", ("飞剑", "青色小剑", "金色小剑", "小剑", "剑影", "剑气纵横", "口剑")),
+    ("formation_banner", ("阵旗", "令旗", "旗阵", "大旗", "战旗", "令旗一")),
+    ("pagoda_tower", ("宝塔", "浮屠", "金塔", "玉塔", "玲珑塔", "小塔", "塔影")),
+    ("blood_thread", ("血丝", "精血丝", "血线", "血丝一", "血丝密")),
+    ("jade_slip", ("玉简", "青色玉简", "古玉简", "玉简一闪", "传法玉简")),
+    ("burning_talisman", ("符纸", "符火", "符焰", "燃符", "焚符", "符纸燃烧", "高阶符箓")),
 )
 
 PROGRAM_SHAPES = {name for name, _ in PROGRAM_RULES} | {
@@ -534,17 +541,17 @@ def program_anchor(text: str, path: str, trigger: str) -> str:
 
 # Chinese compound numerals that appear as exact counts in source quotes
 # (七十二口剑 / 三十六口金光 / 十八团道纹). Matched before single-digit rules so
-# "七十二" is never reduced to the leading "七". Cap is VisualProgramLayer's 24.
+# "七十二" is never reduced to the leading "七". Cap is VisualProgramLayer's 72.
 # Longer / more-specific tokens first. 十八 before 三百六十 so a quote that
 # names both ("三百六十团…只有十八团明亮") keeps the lit count, not the total.
 _COMPOSITE_COPIES = (
-    ("一百零八", 24), ("一百八", 24),
-    ("七十二口", 24), ("七十二", 24),
-    ("三十六口", 24), ("三十六", 24),
+    ("一百零八", 72), ("一百八", 72),
+    ("七十二口", 72), ("七十二", 72),
+    ("三十六口", 36), ("三十六", 36),
     ("二十四", 24),
     ("十八团", 18), ("十八", 18),
     ("十二道", 12), ("十二", 12),
-    ("三百六十", 24), ("三百六", 24),
+    ("三百六十", 72), ("三百六", 72),
 )
 
 
@@ -583,7 +590,57 @@ def program_scale(text: str, base_radius: float) -> tuple[float, float, float]:
             max(0.2, min(4.8, tier * (1.25 if any(t in text for t in ("高", "天", "云")) else 0.85))))
 
 
+# Color-word map used by 由X转Y / 自X转Y gradient extraction (must stay inside the
+# 11-key v118 palette — never invent ARGB ints).
+_COLOR_WORD = (
+    ("绿金", "heal"), ("紫金", "thunder"), ("紫电", "thunder"), ("赤金", "metal"),
+    ("金红", "fire"), ("紫红", "fire"), ("血红", "fire"), ("血色", "fire"),
+    ("苍青", "wood"), ("碧青", "wood"), ("青金", "metal"), ("银白", "metal"),
+    ("淡金", "metal"), ("淡蓝", "water"), ("深蓝", "water"), ("湛蓝", "water"),
+    ("玄黑", "yin"), ("墨黑", "yin"), ("乌黑", "yin"), ("雪白", "qi"),
+    ("乳白", "qi"), ("澄蓝", "water"), ("蓝白", "water"), ("青绿", "wood"),
+    ("银金", "metal"), ("青白", "qi"), ("淡青", "qi"), ("橙红", "fire"),
+    ("赤红", "fire"), ("金色", "metal"), ("青色", "wood"), ("红色", "fire"),
+    ("蓝色", "water"), ("绿色", "wood"), ("黑色", "yin"), ("白色", "qi"),
+    ("紫色", "yin"), ("火", "fire"), ("赤", "fire"), ("红", "fire"),
+    ("金", "metal"), ("水", "water"), ("蓝", "water"), ("木", "wood"),
+    ("碧", "wood"), ("绿", "wood"), ("土", "earth"), ("褐", "earth"),
+    ("冰", "water"), ("寒", "water"), ("黑", "yin"), ("白", "qi"),
+    ("紫", "yin"), ("雷", "thunder"), ("阴", "yin"), ("魂", "soul"),
+    ("毒", "poison"),
+)
+
+
+def _color_key_at(text: str, index: int, argbs: dict[str, int]) -> str | None:
+    """Longest-match color token starting at index."""
+    best = None
+    best_len = 0
+    for token, key in _COLOR_WORD:
+        if key not in argbs:
+            continue
+        if text.startswith(token, index) and len(token) > best_len:
+            best = key
+            best_len = len(token)
+    return best
+
+
 def program_palette(text: str, fallback: str, argbs: dict[str, int]) -> tuple[str, str]:
+    # Prefer explicit gradient phrases: 由红转金 / 自赤转金 / 从绿变乌黑.
+    import re
+    for match in re.finditer(r"(?:由|自|从)(.{1,4}?)(?:转|变|化)(.{1,4})", text):
+        left = match.group(1)
+        right = match.group(2)
+        pk = sk = None
+        for i in range(len(left)):
+            pk = _color_key_at(left, i, argbs)
+            if pk:
+                break
+        for i in range(len(right)):
+            sk = _color_key_at(right, i, argbs)
+            if sk:
+                break
+        if pk and sk and pk != sk:
+            return pk, sk
     keys = []
     for token, key in PROGRAM_COLOR_RULES:
         if token in text and key in argbs and key not in keys:
@@ -602,10 +659,12 @@ def program_primitives(text: str, base_shape: str) -> tuple[list[str], list[str]
             selected.append(primitive)
             evidence.extend(hits[:3])
     secondary = (
-        ("aura_burst", ("光点", "灵光", "光芒", "闪白")),
+        # Narrowed in 0.2.200: bare 光芒/灵光 used to force aura_burst on almost every
+        # quote that only mentioned light as an adjective. Keep only explicit mote bursts.
+        ("aura_burst", ("光点", "光屑", "星点", "闪白光点")),
         ("mist_veil", ("雾", "烟", "霜雾", "余烬")),
-        ("impact_arcs", ("爆裂", "爆开", "爆散", "震")),
-        ("layered_afterimages", ("残影", "虚影", "透明", "影子")),
+        ("impact_arcs", ("爆裂", "爆开", "爆散", "震碎")),
+        ("layered_afterimages", ("残影", "虚影", "透明影子")),
     )
     for primitive, terms in secondary:
         hits = [term for term in terms if term in text]

@@ -9203,3 +9203,15 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Version/protocol   Done   `mod_version` 0.2.198 → `0.2.199`；未触网络包，`ModNetwork.PROTOCOL_VERSION=30` 不变。
   Backup   Done   `.bak/20260726_232106/`。
 
+## 593. 2026-07-27 0.2.200 semantic_layers_v3 保真深化
+
+  Step   Status   Notes
+  ---   ---   ---
+  Copies cap   Done   VisualProgramLayer / 运行时 namedCopies / 复合数词表 24→72；七十二=72、三十六=36。
+  Gradient parse   Done   program_palette 优先 由/自/从…转/变/化… 提取双色板键。
+  New figures   Done   flying_sword / formation_banner / pagoda_tower / blood_thread / jade_slip / burning_talisman + 运行时 helper；不改 spell shape 集。
+  Aura narrow   Done   secondary aura 去掉裸光芒/灵光；aura 层 3040→775。
+  Verification   Done   `./gradlew build` BUILD SUCCESSFUL。
+  Version/protocol   Done   `mod_version` 0.2.199→`0.2.200`；PROTOCOL_VERSION=30 不变。
+  Backup   Done   `.bak/20260727_020000/`。
+
