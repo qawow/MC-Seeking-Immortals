@@ -420,6 +420,15 @@ PROGRAM_RULES = (
                     "整座大殿无数蓝色符文飘舞而出",
                     "幻化成了一座布置典雅的精美殿堂",
                     "金色宫殿也寸寸崩碎")),
+    ("fortress_wall", ("一截截高大城墙和一座座形态各异的建筑一落而下",
+                       "一堵堵土墙凭空从地下冒出",
+                       "一面长约百里的巨大城墙拔地而起")),
+    ("magic_gate", ("黑色门扉赫然从屏风上飞射而出",
+                    "显出一扇两丈来高的石门来",
+                    "石门也仿佛纸糊的一般",
+                    "殿门就轻易的打开了",
+                    "石门上符文一阵飘动后缓缓的打开",
+                    "现出了一扇白濛濛的高大光门")),
     ("ritual_bowl", ("聚魂钵", "漆黑钵盂", "乌黑圆钵", "碧绿圆钵", "银色圆钵", "圆钵", "钵盂")),
     ("ritual_altar", ("七八丈高的碧绿石台", "巨大祭坛同时散发", "整个高台仿佛被银浆浇筑",
                       "整个聚星台骤然大亮", "一方不大不小的金色高台", "整座金色高台顿时光芒大作",
@@ -670,6 +679,14 @@ def program_primitive_path(primitive: str, text: str, fallback: str) -> str:
         if "破空而走" in text:
             return "DIRECT"
         return "STATIC"
+    if primitive == "fortress_wall":
+        if any(token in text for token in ("从地下冒出", "拔地而起")):
+            return "RISE"
+        if "一落而下" in text:
+            return "FALL"
+        return fallback
+    if primitive == "magic_gate":
+        return "DIRECT" if "黑色门扉赫然从屏风上飞射而出" in text else "STATIC"
     if primitive == "light_curtain" and "五色光罩从大殿底部浮现" in text:
         return "RISE"
     if primitive == "orb_projectile" and "化为一团巨型光球" in text:
@@ -862,6 +879,15 @@ _EXACT_LOCAL_PALETTE_TERMS = {
         "十余头傀儡兽", "四只傀儡兽", "晶莹玉鼠",
         "迷你绿色雷兽虚影", "雷兽精魂",
     }),
+    "fortress_wall": frozenset({
+        "一截截高大城墙和一座座形态各异的建筑一落而下",
+        "一堵堵土墙凭空从地下冒出", "一面长约百里的巨大城墙拔地而起",
+    }),
+    "magic_gate": frozenset({
+        "黑色门扉赫然从屏风上飞射而出", "显出一扇两丈来高的石门来",
+        "石门也仿佛纸糊的一般", "殿门就轻易的打开了",
+        "石门上符文一阵飘动后缓缓的打开", "现出了一扇白濛濛的高大光门",
+    }),
     "seal_cage": frozenset({"铁笼", "黑笼", "金色囚笼"}),
     "serpent_dragon": frozenset({"金龙缠绕", "金色蟠龙"}),
     "magic_gong": frozenset({"黑色巨锣"}),
@@ -884,6 +910,7 @@ _EXACT_LOCAL_PALETTE_FALLBACKS = {
     "flying_blade": "qi", "orb_projectile": "qi",
     "beast_phantom": "qi",
     "magic_gong": "yin", "magic_mask": "water", "magic_cloth": "qi",
+    "fortress_wall": "earth", "magic_gate": "qi",
     "rune_pillar": "earth", "spirit_armor": "metal", "serpent_dragon": "metal",
 }
 
@@ -1059,6 +1086,8 @@ _PRIMITIVE_PALETTE_FALLBACK = {
     "magic_boat": "qi",
     "magic_chariot": "metal",
     "magic_hall": "earth",
+    "fortress_wall": "earth",
+    "magic_gate": "qi",
     "ritual_bowl": "yin",
     "ritual_altar": "earth",
     "ritual_lamp": "qi",
@@ -1090,7 +1119,8 @@ _PRIMITIVE_PALETTE_FALLBACK = {
 
 _LOCAL_PALETTE_PRIMITIVES = frozenset({
     "giant_sword", "confucian_sage", "formation_rod", "rune_stele",
-    "magic_boat", "magic_chariot", "magic_hall", "ritual_bowl", "ritual_altar",
+    "magic_boat", "magic_chariot", "magic_hall", "fortress_wall", "magic_gate",
+    "ritual_bowl", "ritual_altar",
     "ritual_lamp", "ritual_coffin",
     "magic_ruler", "magic_staff", "magic_vajra", "puppet_figure",
     "magic_bow", "magic_ruyi", "magic_hook", "magic_whip", "magic_rope", "magic_box",
@@ -1131,7 +1161,7 @@ def program_palette_source(text: str, primitive: str, matched_terms: list[str]) 
 
 _FIGURE_PRIMITIVES = {
     "cauldron_vessel", "alchemy_furnace", "bell_chime", "gourd_vessel", "magic_boat",
-    "magic_chariot", "magic_hall",
+    "magic_chariot", "magic_hall", "fortress_wall", "magic_gate",
     "confucian_sage", "formation_rod", "rune_stele",
     "light_curtain", "halo_ring", "ritual_bowl", "ritual_altar", "ritual_lamp",
     "ritual_coffin", "magic_ruler", "magic_staff", "magic_vajra", "puppet_figure",
@@ -1347,6 +1377,32 @@ def program_primitives(text: str, base_shape: str,
     elif profile_id == "technique_1451" and "金色宫殿也寸寸崩碎" in text:
         selected = ["magic_hall", "projectile_swarm"]
         evidence.append("forced:illusion_hall_collapse")
+    if profile_id == "technique_1241" and "一截截高大城墙和一座座形态各异的建筑一落而下" in text:
+        selected = ["fortress_wall"]
+        evidence.append("forced:falling_fortress_wall")
+    elif profile_id == "technique_944" and any(token in text for token in (
+            "一堵堵土墙凭空从地下冒出", "一面长约百里的巨大城墙拔地而起")):
+        selected = ["fortress_wall"]
+        evidence.append("forced:rising_fortress_wall")
+    elif profile_id == "technique_1478" and "黑色门扉赫然从屏风上飞射而出" in text:
+        selected = ["magic_gate"]
+        evidence.append("forced:screen_double_gate")
+    elif profile_id == "technique_297" and "显出一扇两丈来高的石门来" in text:
+        selected = ["magic_gate"]
+        evidence.append("forced:stone_gate_materialize")
+    elif profile_id == "technique_468" and "石门也仿佛纸糊的一般" in text:
+        selected = ["magic_gate"]
+        evidence.append("forced:stone_gate_open")
+    elif profile_id == "technique_611" and any(token in text for token in (
+            "殿门就轻易的打开了", "石门上符文一阵飘动后缓缓的打开")):
+        selected = ["magic_gate", "rune_orbit"]
+        evidence.append("forced:rune_gate_open")
+    elif profile_id == "technique_838" and "现出了一扇白濛濛的高大光门" in text:
+        selected = ["magic_gate", "chain_net"]
+        evidence.append("forced:white_light_gate")
+    if (profile_id == "technique_468" and "一股白茫茫的寒风就从里面席卷出来" in text):
+        selected = [primitive for primitive in selected if primitive != "projectile_swarm"]
+        evidence.append("forced:cold_wind_not_projectiles")
     if not selected:
         # Avoid dumping every underspecified card onto aura_burst: pick a calmer default
         # from the text when possible.
@@ -1546,6 +1602,19 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
                     primary_key, secondary_key = "metal", "earth"
                 else:
                     primary_key = secondary_key = "earth"
+            elif primitive == "fortress_wall" and profile_id in {"technique_1241", "technique_944"}:
+                primary_key, secondary_key = "earth", "metal"
+            elif primitive == "magic_gate":
+                if profile_id == "technique_1478":
+                    primary_key, secondary_key = "yin", "qi"
+                elif profile_id == "technique_468":
+                    primary_key, secondary_key = "earth", "water"
+                elif profile_id == "technique_838":
+                    primary_key = secondary_key = "qi"
+                elif profile_id == "technique_611":
+                    primary_key, secondary_key = "water", "qi"
+                else:
+                    primary_key, secondary_key = "earth", "qi"
             elif primitive == "confucian_sage":
                 primary_key = secondary_key = "qi"
             elif (profile_id == "technique_962"
@@ -2032,6 +2101,7 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
                 or (primitive == "magic_needle" and profile_id == "technique_505")
                 or (primitive == "magic_chariot" and profile_id == "technique_962")
                 or (primitive == "magic_hall" and profile_id == "technique_1451")
+                or primitive in {"fortress_wall", "magic_gate"}
             )
             if ((primitive in _LOCAL_PALETTE_PRIMITIVES or exact_local_palette) and matched_terms
                     and primary_key != primitive_fallback and secondary_key == primitive_fallback):
@@ -2291,6 +2361,10 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
                 copies = 12
             if primitive == "magic_hall":
                 copies = 1
+            if primitive == "fortress_wall":
+                copies = 1
+            if primitive == "magic_gate":
+                copies = 1
             if (profile_id == "technique_962"
                     and "整座大殿……徐徐的从土中直接拔地而起" in source
                     and primitive in {"light_curtain", "orb_projectile"}):
@@ -2316,6 +2390,10 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
                     layer_motion = "MATERIALIZE"
                 elif profile_id in {"technique_859", "technique_1104", "technique_1451"}:
                     layer_motion = "DISSOLVE"
+            elif primitive == "fortress_wall" and profile_id == "technique_1241":
+                layer_motion = "MATERIALIZE"
+            elif primitive == "magic_gate" and profile_id in {"technique_297", "technique_838"}:
+                layer_motion = "MATERIALIZE"
             layer_vertical_offset = (0.0 if layer_anchor in {"TARGET", "PATH"}
                                      else (0.18 if "地面" not in source else 0.03))
             if transformed_defense:
@@ -2336,6 +2414,8 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
                     layer_vertical_offset = 0.03
                 elif profile_id == "technique_1451":
                     layer_vertical_offset = 0.03 if primitive == "magic_hall" else 0.85
+            if primitive in {"fortress_wall", "magic_gate"}:
+                layer_vertical_offset = 0.03
             layers.append({
                 "layer_index": len(layers),
                 "event_ordinal": int(event.get("ordinal", event_index)),

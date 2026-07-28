@@ -9538,3 +9538,18 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Artifact   Done   JAR SHA-256 `9483cd6d22050309b031002257d6d8f896cadb09fe23c92e31a5993f3edff412`；视觉目录/术法效果目录 SHA-256 为 `b79cf31ce01910205232b776b0a350b9ce4ba350c45adcd593bc84e692cb9430` / `9c85169a16f50276aacc273543c2bf951118c2a52864cfbd646a7e09ec0d2274`。
   Version/protocol   Done   `mod_version` 0.2.226→0.2.227；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
   Backup   Done   `.bak/20260728_180403_0.2.227_magic_halls/`；隔离快照 `/tmp/mc-mod-0.2.227-audit.1zKqnF`。
+
+## 619. 2026-07-29 0.2.228 施法城墙、门扉与通道独立轮廓
+
+  Step   Status   Notes
+  ---   ---   ---
+  Source boundary   Done   回读要塞落下、百里石墙拔起、屏风双门飞出、隐匿石门显形、虚灵殿石门开启、青冥佩两次开门与破幻白光门九条直接引文；被击穿/切碎/穿越或仅作背景目标的门墙明确排除。
+  Compiler   Done   新增 `fortress_wall=2`、`magic_gate=6`；七个 profile 使用精确长令牌与 profile 边界，不按裸词“门/墙”扩散。虚灵殿寒风中“无数猛兽”误生的弹群已删除。
+  Runtime   Done   城墙几何包含前后墙基、分段立面、城垛、墙顶纵线和加高角楼；门扉几何包含门槛、双柱、门楣、分开的双门板、门内光环和向后延伸通道。两者接入 figure 分发和复杂轮廓最低 2 粒预算，固定 52-shape switch 未改。
+  Path/motion   Done   要塞为 `FALL/MATERIALIZE`，百里墙为 `RISE/STEADY`；屏风门为 `DIRECT/STEADY`，隐匿石门和白光门为 `STATIC/MATERIALIZE`，其余开启门为 `STATIC/STEADY`。
+  Counts/palette   Done   墙门主体全部单份；要塞/石墙为 `earth→metal`，黑门 `yin→qi`，隐门 `earth→qi`，虚灵殿门 `earth→water`，青冥佩门 `water→qi`，白光门为 qi；符文、黑蓝巨网、寒冰与地面结晶伴随层保留。
+  Diff/contracts   Done   相对 0.2.227 恰有 7 个预期 profile、9 条去索引引文组变化，非程序字段变化 0；视觉顶层仅 `source_hashes`，术法目录 2,292 profile 全不变且仅 `java_source_audit` 更新。目录为 5,727 profiles、10,990 层、112 primitive。
+  Verification   Done   生成器顺序重生成及 `--check`、结构化差异审计、共享树定向测试与隔离快照完整构建均通过；最终 `BUILD SUCCESSFUL in 2m 19s`，251 套件/1,180 测试 failure/error/skipped 均为 0。
+  Artifact   Done   JAR SHA-256 `57933e0bb2a92a8171a2dceed54f7401b299002cf6b119d0c6ed5923efffbefb`；视觉目录/术法效果目录 SHA-256 为 `663a78fbdd0a912f29aede8f8a200b81ed1898f8803e134c6bb4e0552c789e06` / `a0c46d8bdaa14676a8eb15cbb225a9e57288a5d4e131cda4044248e03f4bb7e2`。
+  Version/protocol   Done   `mod_version` 0.2.227→0.2.228；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
+  Backup   Done   `.bak/20260728_0.2.228_gates_walls/`；隔离快照 `/tmp/mc-mod-0.2.228-audit.A3r4vo`。

@@ -1754,7 +1754,8 @@ public final class LodestoneTechniqueVfx {
                     MAGIC_FAN, ALCHEMY_FURNACE, MAGIC_SCROLL, FORMATION_DISC,
                     SPIKED_CLUB, COMMAND_TOKEN, MAGIC_SCISSORS, MAGIC_BRICK,
                     MAGIC_UMBRELLA, MAGIC_BOW, MAGIC_RUYI, MAGIC_HOOK, MAGIC_WHIP,
-                    MAGIC_ROPE, MAGIC_BOAT, MAGIC_CHARIOT, MAGIC_HALL, RITUAL_ALTAR, PUPPET_FIGURE,
+                    MAGIC_ROPE, MAGIC_BOAT, MAGIC_CHARIOT, MAGIC_HALL, FORTRESS_WALL, MAGIC_GATE,
+                    RITUAL_ALTAR, PUPPET_FIGURE,
                     MAGIC_VAJRA, MAGIC_BOX, MAGIC_NEEDLE, SPIKED_SHIELD, CONFUCIAN_SAGE,
                     FORMATION_ROD, RUNE_STELE -> 2;
             default -> 1;
@@ -1960,6 +1961,14 @@ public final class LodestoneTechniqueVfx {
             }
             case MAGIC_HALL -> {
                 magicHallShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case FORTRESS_WALL -> {
+                fortressWallShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case MAGIC_GATE -> {
+                magicGateShape(level, family, start, end, radius, intensity, random);
                 yield true;
             }
             case RITUAL_ALTAR -> {
@@ -3780,6 +3789,111 @@ public final class LodestoneTechniqueVfx {
         emitFigureComponents(level, 293, List.of(
                 () -> shortLine(level, family, frontLeft, frontRight, 9, random),
                 () -> shortLine(level, family, ridgeLeft, ridgeRight, 9, random)), details);
+    }
+
+    /** Fortress wall silhouette: segmented earth wall, raised merlons and corner towers. */
+    private static void fortressWallShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                          Vec3 start, Vec3 end, float radius,
+                                          int intensity, Random random) {
+        Vec3 travel = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 forward = normalized(new Vec3(travel.x, 0.0D, travel.z),
+                new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 side = perpendicular(forward);
+        Vec3 up = normalized(side.cross(forward), new Vec3(0.0D, 1.0D, 0.0D));
+        Vec3 center = start.distanceToSqr(end) < 0.04D ? start : start.lerp(end, 0.5D);
+        double size = Math.max(0.9D, Math.min(4.8D, radius * 0.9D));
+        double halfLength = size * 1.35D;
+        double depth = size * 0.16D;
+        double wallHeight = size * 1.12D;
+        Vec3 frontBase = center.subtract(forward.scale(depth));
+        Vec3 backBase = center.add(forward.scale(depth));
+        Vec3 frontLeft = frontBase.subtract(side.scale(halfLength));
+        Vec3 frontRight = frontBase.add(side.scale(halfLength));
+        Vec3 backLeft = backBase.subtract(side.scale(halfLength));
+        Vec3 backRight = backBase.add(side.scale(halfLength));
+        Vec3 frontTopLeft = frontLeft.add(up.scale(wallHeight));
+        Vec3 frontTopRight = frontRight.add(up.scale(wallHeight));
+        Vec3 backTopLeft = backLeft.add(up.scale(wallHeight));
+        Vec3 backTopRight = backRight.add(up.scale(wallHeight));
+        List<Runnable> details = new ArrayList<>();
+        int segments = Math.min(12, Math.max(6, intensity / 2));
+        for (int segment = 0; segment < segments; segment++) {
+            double offset = -halfLength + halfLength * 2.0D * segment / (segments - 1.0D);
+            Vec3 frontColumn = frontBase.add(side.scale(offset));
+            Vec3 backColumn = backBase.add(side.scale(offset));
+            details.add(() -> shortLine(level, family, frontColumn,
+                    frontColumn.add(up.scale(wallHeight)), 5, random));
+            if ((segment & 1) == 0) {
+                details.add(() -> shortLine(level, family,
+                        frontColumn.add(up.scale(wallHeight)),
+                        backColumn.add(up.scale(wallHeight)), 4, random));
+            }
+        }
+        Vec3 leftTowerTop = frontLeft.add(up.scale(wallHeight * 1.24D));
+        Vec3 rightTowerTop = frontRight.add(up.scale(wallHeight * 1.24D));
+        emitFigureComponents(level, 307, List.of(
+                () -> shortLine(level, family, frontTopLeft, frontTopRight, 9, random),
+                () -> shortLine(level, family, backTopLeft, backTopRight, 8, random),
+                () -> shortLine(level, family, frontLeft, frontRight, 8, random),
+                () -> shortLine(level, family, leftTowerTop, rightTowerTop, 7, random)), details);
+    }
+
+    /** Gate silhouette: stone/light frame, two split doors and a long passage beyond. */
+    private static void magicGateShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                       Vec3 start, Vec3 end, float radius,
+                                       int intensity, Random random) {
+        Vec3 travel = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 forward = normalized(new Vec3(travel.x, 0.0D, travel.z),
+                new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 side = perpendicular(forward);
+        Vec3 up = normalized(side.cross(forward), new Vec3(0.0D, 1.0D, 0.0D));
+        Vec3 base = start.distanceToSqr(end) < 0.04D ? start : start.lerp(end, 0.5D);
+        double size = Math.max(0.85D, Math.min(4.0D, radius * 0.9D));
+        double halfWidth = size * 0.78D;
+        double height = size * 1.7D;
+        double depth = size * 0.12D;
+        Vec3 leftPost = base.subtract(side.scale(halfWidth));
+        Vec3 rightPost = base.add(side.scale(halfWidth));
+        Vec3 leftTop = leftPost.add(up.scale(height));
+        Vec3 rightTop = rightPost.add(up.scale(height));
+        Vec3 lintelMid = base.add(up.scale(height));
+        Vec3 leftDoorBottom = base.add(side.scale(-size * 0.08D)).add(forward.scale(depth));
+        Vec3 rightDoorBottom = base.add(side.scale(size * 0.08D)).add(forward.scale(depth));
+        Vec3 leftDoorTop = base.add(side.scale(-halfWidth * 0.72D))
+                .add(up.scale(height * 0.9D)).add(forward.scale(depth));
+        Vec3 rightDoorTop = base.add(side.scale(halfWidth * 0.72D))
+                .add(up.scale(height * 0.9D)).add(forward.scale(depth));
+        Vec3 passageLeft = base.subtract(side.scale(halfWidth * 0.82D))
+                .add(forward.scale(size * 1.55D));
+        Vec3 passageRight = base.add(side.scale(halfWidth * 0.82D))
+                .add(forward.scale(size * 1.55D));
+        Vec3 passageTop = base.add(up.scale(height * 0.86D))
+                .add(forward.scale(size * 1.55D));
+        List<Runnable> details = new ArrayList<>();
+        details.add(() -> shortLine(level, family, leftDoorBottom, leftDoorTop, 6, random));
+        details.add(() -> shortLine(level, family, rightDoorBottom, rightDoorTop, 6, random));
+        details.add(() -> shortLine(level, family,
+                leftDoorBottom.add(up.scale(height * 0.44D)),
+                leftDoorTop.add(up.scale(-height * 0.1D)), 5, random));
+        details.add(() -> shortLine(level, family,
+                rightDoorBottom.add(up.scale(height * 0.44D)),
+                rightDoorTop.add(up.scale(-height * 0.1D)), 5, random));
+        details.add(() -> shortLine(level, family, passageLeft,
+                passageLeft.add(up.scale(height * 0.86D)), 6, random));
+        details.add(() -> shortLine(level, family, passageRight,
+                passageRight.add(up.scale(height * 0.86D)), 6, random));
+        details.add(() -> shortLine(level, family,
+                passageLeft.add(up.scale(height * 0.86D)), passageTop, 7, random));
+        details.add(() -> ring(level, family, base.add(forward.scale(depth * 1.4D))
+                        .add(up.scale(height * 0.46D)), size * 0.28D,
+                Math.min(14, Math.max(8, intensity / 3)), random, 0.12F, 22));
+        emitFigureComponents(level, 311, List.of(
+                () -> shortLine(level, family, leftPost, leftTop, 8, random),
+                () -> shortLine(level, family, rightPost, rightTop, 8, random),
+                () -> shortLine(level, family, leftTop, rightTop, 9, random),
+                () -> shortLine(level, family, leftPost, rightPost, 7, random),
+                () -> spawn(level, LodestoneParticleRegistry.STAR_PARTICLE, family,
+                        lintelMid, up.scale(0.004D), 0.2F, 0.9F, 22, random.nextFloat())), details);
     }
 
     /** Ritual altar silhouette: stepped top, square footprint, corner posts and rune core. */

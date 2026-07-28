@@ -1849,6 +1849,93 @@ class AuthoredVisualCatalogTest {
     }
 
     @Test
+    void fortressWallsAndMagicGatesKeepAuthoredStructureMotionAndCompanions() {
+        AuthoredVisualCatalog.Snapshot catalog = AuthoredVisualCatalog.builtin();
+        long qi = catalog.palette("qi").orElseThrow().argb();
+        long water = catalog.palette("water").orElseThrow().argb();
+        long metal = catalog.palette("metal").orElseThrow().argb();
+        long earth = catalog.palette("earth").orElseThrow().argb();
+        long yin = catalog.palette("yin").orElseThrow().argb();
+        List<VisualProgramLayer> allLayers = catalog.profiles().values().stream()
+                .filter(profile -> profile.domain() == VisualDomain.TECHNIQUE)
+                .flatMap(profile -> profile.visualProgram().layers().stream())
+                .toList();
+
+        assertEquals(2, allLayers.stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.FORTRESS_WALL).count());
+        assertEquals(6, allLayers.stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_GATE).count());
+
+        VisualProgramLayer fallingFortress = figureLayer(catalog, "technique_1241",
+                VisualPrimitive.FORTRESS_WALL, "小型要塞");
+        assertEquals(1, fallingFortress.copies());
+        assertEquals(VisualProgramLayer.Path.FALL, fallingFortress.path());
+        assertEquals(VisualProgramLayer.Motion.MATERIALIZE, fallingFortress.motion());
+        assertEquals(earth, fallingFortress.primaryArgb());
+        assertEquals(metal, fallingFortress.secondaryArgb());
+
+        VisualProgramLayer risingWall = figureLayer(catalog, "technique_944",
+                VisualPrimitive.FORTRESS_WALL, "巨大城墙拔地而起");
+        assertEquals(1, risingWall.copies());
+        assertEquals(VisualProgramLayer.Path.RISE, risingWall.path());
+        assertEquals(earth, risingWall.primaryArgb());
+        assertEquals(metal, risingWall.secondaryArgb());
+
+        VisualProgramLayer screenGate = figureLayer(catalog, "technique_1478",
+                VisualPrimitive.MAGIC_GATE, "黑色门扉");
+        assertEquals(VisualProgramLayer.Path.DIRECT, screenGate.path());
+        assertEquals(yin, screenGate.primaryArgb());
+        assertEquals(qi, screenGate.secondaryArgb());
+        VisualProgramLayer hiddenStoneGate = figureLayer(catalog, "technique_297",
+                VisualPrimitive.MAGIC_GATE, "两丈来高的石门");
+        assertEquals(VisualProgramLayer.Path.STATIC, hiddenStoneGate.path());
+        assertEquals(VisualProgramLayer.Motion.MATERIALIZE, hiddenStoneGate.motion());
+        assertEquals(earth, hiddenStoneGate.primaryArgb());
+        assertEquals(qi, hiddenStoneGate.secondaryArgb());
+
+        VisualProgramLayer coldGate = figureLayer(catalog, "technique_468",
+                VisualPrimitive.MAGIC_GATE, "石门也仿佛纸糊");
+        assertEquals(earth, coldGate.primaryArgb());
+        assertEquals(water, coldGate.secondaryArgb());
+        assertFalse(catalog.find(VisualDomain.TECHNIQUE, "technique_468").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.sourceQuote().contains("白茫茫的寒风")
+                        && layer.primitive() == VisualPrimitive.PROJECTILE_SWARM));
+
+        for (String sourceToken : List.of("殿门就轻易的打开", "石门上符文")) {
+            VisualProgramLayer runeGate = figureLayer(catalog, "technique_611",
+                    VisualPrimitive.MAGIC_GATE, sourceToken);
+            assertEquals(1, runeGate.copies());
+            assertEquals(water, runeGate.primaryArgb());
+            assertEquals(qi, runeGate.secondaryArgb());
+            assertEquals(1, figureLayer(catalog, "technique_611",
+                    VisualPrimitive.RUNE_ORBIT, sourceToken).copies());
+        }
+        VisualProgramLayer lightGate = figureLayer(catalog, "technique_838",
+                VisualPrimitive.MAGIC_GATE, "高大光门");
+        assertEquals(VisualProgramLayer.Motion.MATERIALIZE, lightGate.motion());
+        assertEquals(qi, lightGate.primaryArgb());
+        assertEquals(qi, lightGate.secondaryArgb());
+        assertEquals(1, figureLayer(catalog, "technique_838",
+                VisualPrimitive.CHAIN_NET, "高大光门").copies());
+
+        for (String backgroundWall : List.of(
+                "technique_107", "technique_582", "technique_585", "technique_974")) {
+            assertFalse(catalog.find(VisualDomain.TECHNIQUE, backgroundWall).orElseThrow()
+                    .visualProgram().layers().stream()
+                    .anyMatch(layer -> layer.primitive() == VisualPrimitive.FORTRESS_WALL),
+                    backgroundWall);
+        }
+        for (String targetGate : List.of(
+                "technique_177", "technique_198", "technique_503", "technique_847",
+                "technique_1224")) {
+            assertFalse(catalog.find(VisualDomain.TECHNIQUE, targetGate).orElseThrow()
+                    .visualProgram().layers().stream()
+                    .anyMatch(layer -> layer.primitive() == VisualPrimitive.MAGIC_GATE), targetGate);
+        }
+    }
+
+    @Test
     void sagesFormationRodsStelesAndCommandTokensKeepAuthoredContinuity() {
         AuthoredVisualCatalog.Snapshot catalog = AuthoredVisualCatalog.builtin();
         long qi = catalog.palette("qi").orElseThrow().argb();
