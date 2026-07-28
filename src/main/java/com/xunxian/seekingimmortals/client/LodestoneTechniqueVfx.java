@@ -1754,7 +1754,7 @@ public final class LodestoneTechniqueVfx {
                     MAGIC_FAN, ALCHEMY_FURNACE, MAGIC_SCROLL, FORMATION_DISC,
                     SPIKED_CLUB, COMMAND_TOKEN, MAGIC_SCISSORS, MAGIC_BRICK,
                     MAGIC_UMBRELLA, MAGIC_BOW, MAGIC_RUYI, MAGIC_HOOK, MAGIC_WHIP,
-                    MAGIC_VAJRA, MAGIC_BOX, SPIKED_SHIELD -> 2;
+                    MAGIC_ROPE, MAGIC_VAJRA, MAGIC_BOX, SPIKED_SHIELD -> 2;
             default -> 1;
         };
     }
@@ -1938,6 +1938,10 @@ public final class LodestoneTechniqueVfx {
             }
             case MAGIC_WHIP -> {
                 magicWhipShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case MAGIC_ROPE -> {
+                magicRopeShape(level, family, start, end, radius, intensity, random);
                 yield true;
             }
             case MAGIC_GONG -> {
@@ -3322,6 +3326,56 @@ public final class LodestoneTechniqueVfx {
         emitFigureComponents(level, 241, List.of(
                 () -> shortLine(level, family, grip, midpoint, 7, random),
                 () -> shortLine(level, family, midpoint, tip, 7, random)), details);
+    }
+
+    /** Binding rope silhouette: luminous core, helical cord and tightening target coils. */
+    private static void magicRopeShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                       Vec3 start, Vec3 end, float radius,
+                                       int intensity, Random random) {
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 side = perpendicular(direction);
+        Vec3 up = normalized(direction.cross(side), new Vec3(0.0D, 1.0D, 0.0D));
+        double size = Math.max(0.68D, Math.min(2.6D, radius * 0.76D));
+        boolean hasPath = start.distanceToSqr(end) >= 0.04D;
+        double length = hasPath
+                ? Math.max(1.4D, Math.min(5.2D, start.distanceTo(end)))
+                : size * 2.5D;
+        Vec3 center = hasPath ? start.lerp(end, 0.5D) : start.add(up.scale(size * 0.72D));
+        Vec3 axisStart = hasPath ? start : center.subtract(direction.scale(length * 0.5D));
+        Vec3 axisEnd = hasPath ? end : center.add(direction.scale(length * 0.5D));
+        double coilRadius = size * 0.34D;
+        double phase = level.getGameTime() * 0.11D;
+        List<Vec3> ropePoints = new ArrayList<>();
+        for (int segment = 0; segment <= 14; segment++) {
+            double progress = segment / 14.0D;
+            double angle = phase + progress * Math.PI * 5.0D;
+            double envelope = 0.72D + Math.sin(Math.PI * progress) * 0.28D;
+            ropePoints.add(axisStart.lerp(axisEnd, progress)
+                    .add(side.scale(Math.cos(angle) * coilRadius * envelope))
+                    .add(up.scale(Math.sin(angle) * coilRadius * envelope)));
+        }
+        List<Runnable> details = new ArrayList<>();
+        for (int segment = 1; segment < ropePoints.size(); segment++) {
+            Vec3 from = ropePoints.get(segment - 1);
+            Vec3 to = ropePoints.get(segment);
+            details.add(() -> shortLine(level, family, from, to, 3, random));
+        }
+        Vec3 firstCoil = axisStart.lerp(axisEnd, 0.38D);
+        Vec3 secondCoil = axisStart.lerp(axisEnd, 0.68D);
+        details.add(() -> verticalRing(level, family, firstCoil, direction, coilRadius * 1.08D,
+                Math.min(14, Math.max(7, intensity / 4)), random, 0.13F));
+        details.add(() -> verticalRing(level, family, secondCoil, direction, coilRadius * 1.08D,
+                Math.min(14, Math.max(7, intensity / 4)), random, 0.13F));
+        details.add(() -> spawn(level, LodestoneParticleRegistry.STAR_PARTICLE, family,
+                ropePoints.get(0), direction.scale(-0.012D), 0.15F, 0.86F, 20,
+                random.nextFloat()));
+        details.add(() -> spawn(level, LodestoneParticleRegistry.STAR_PARTICLE, family,
+                ropePoints.get(ropePoints.size() - 1), direction.scale(0.012D), 0.15F, 0.86F,
+                20, random.nextFloat()));
+        emitFigureComponents(level, 263, List.of(
+                () -> shortLine(level, family, axisStart, axisEnd, 9, random),
+                () -> verticalRing(level, family, center, direction, coilRadius,
+                        Math.min(16, Math.max(8, intensity / 3)), random, 0.15F)), details);
     }
 
     /** Giant gong silhouette: suspended rim, inner face, central boss and striker. */

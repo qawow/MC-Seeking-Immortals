@@ -9452,3 +9452,18 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Verification   Done   两个生成器检查、Java 编译与两组定向测试通过；`./gradlew build --no-daemon --max-workers=1` `BUILD SUCCESSFUL in 1m 28s`，251 套件/1,174 测试均通过；JAR SHA-256 `0b646365bebcd192539e8ceb892d7c078d6ef950df4c3f9d5ca6bf684793edb6`。
   Version/protocol   Done   `mod_version` 0.2.220→0.2.221；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
   Backup   Done   `.bak/20260728_072735_0.2.221_vajra_boxes_flags/`；隔离构建快照 `/tmp/mc-mod-0.2.219-audit.yb1NTV`。
+
+## 613. 2026-07-28 0.2.222 绳索独立轮廓与器物连续显形
+
+  Step   Status   Notes
+  ---   ---   ---
+  Source boundary   Done   全量回读 13 条含“绳/索”的结构化视觉引文及鼎炉、盒匣、幡琴塔残差；实际绳索精确命中，`思索/搜索` 词内假命中与魔蟾长舌/怪兽身体两处比喻明确排除。
+  Compiler   Done   新增 `magic_rope=39`；具名捆仙绳/缚鬼索以 profile id 持续显形，真实红丝复用 `blood_thread`，鼎炉/盒匣/招魂幡/妙音琴/昆吾塔复用既有专属几何。
+  Runtime   Done   绳体由绳芯、2.5 圈螺旋、双束缚圈和端点星芒组成，接入层内分发与复杂轮廓 2 粒最低预算；契约固定 52-shape switch 未改。
+  Counts/palette   Done   金索/五火索/数火索/双足束缚为 5/5/5/2，红丝为 10/12/5；金索 metal、黑青绳 `yin→wood`、火索 fire、银焰绳 `qi→fire`，主体局部调色不受伴随层污染。
+  Companion fidelity   Done   保留火鸟、火焰、红丝、伏地阶段、符箓、寒焰、声波与封印；真实婴火/银焰/五色寒焰接回 `fire_plume`，不再退化为随机兽影、阵环或人影。
+  Diff/contracts   Done   相对 0.2.221 为 62 个预期 ID、116 条语义引文组变化，未解释变化 0、非程序 profile 字段变化 0；目录 5,727 profiles、2,292 techniques、1,806 authored、9,947/9,947 引文、10,946 层、101 primitive。
+  Targeted verification   Done   两个生成器 `--check` 及 `AuthoredVisualCatalogTest`/`LodestoneVfxContractTest` 通过；定向测试 `BUILD SUCCESSFUL in 13s`。
+  Full build   Done   隔离快照执行 `./gradlew build --no-daemon --max-workers=1`，`BUILD SUCCESSFUL in 1m 32s`；251 个测试套件、1,175 项测试 failure/error/skipped 均为 0。JAR SHA-256 `5b9b90f1b3af30db71bfeb657723f8a1dae2517cdd066b66e836d44e5e22f19f`；视觉目录/术法效果目录 SHA-256 分别为 `226c27be749f1a51999c61c800acd1a4e99325bdc1fd9e6d2c9e932292bc9133` / `5cf9cab0c6b00414690262d8ad1aea5cee4aaabd73d3bf45173c46a50821e20f`。
+  Version/protocol   Done   `mod_version` 0.2.221→0.2.222；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
+  Backup   Done   `.bak/20260728_075822_0.2.222_ropes_continuations/`；隔离快照 `/tmp/mc-mod-0.2.219-audit.yb1NTV`。

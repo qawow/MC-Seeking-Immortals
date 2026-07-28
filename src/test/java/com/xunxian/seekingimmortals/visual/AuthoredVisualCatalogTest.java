@@ -1283,7 +1283,7 @@ class AuthoredVisualCatalogTest {
 
         assertEquals(4, allLayers.stream()
                 .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_VAJRA).count());
-        assertEquals(12, allLayers.stream()
+        assertEquals(19, allLayers.stream()
                 .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_BOX).count());
         assertEquals(1, allLayers.stream()
                 .filter(layer -> layer.primitive() == VisualPrimitive.SPIKED_SHIELD).count());
@@ -1410,6 +1410,156 @@ class AuthoredVisualCatalogTest {
         assertEquals(5, giantNails.copies());
         assertEquals(VisualProgramLayer.Path.DIRECT, giantNails.path());
         assertEquals(metal, giantNails.primaryArgb());
+    }
+
+    @Test
+    void ropesAndExistingObjectsKeepExactAuthoredContinuity() {
+        AuthoredVisualCatalog.Snapshot catalog = AuthoredVisualCatalog.builtin();
+        long qi = catalog.palette("qi").orElseThrow().argb();
+        long fire = catalog.palette("fire").orElseThrow().argb();
+        long wood = catalog.palette("wood").orElseThrow().argb();
+        long water = catalog.palette("water").orElseThrow().argb();
+        long metal = catalog.palette("metal").orElseThrow().argb();
+        long yin = catalog.palette("yin").orElseThrow().argb();
+        long earth = catalog.palette("earth").orElseThrow().argb();
+
+        VisualProfile immortalRope = catalog.find(
+                VisualDomain.TECHNIQUE, "immortal_rope").orElseThrow();
+        assertEquals(immortalRope.visualProgram().sourceQuoteCount(),
+                immortalRope.visualProgram().layers().stream()
+                        .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_ROPE)
+                        .count());
+        assertTrue(immortalRope.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_ROPE)
+                .allMatch(layer -> layer.copies() == 1 && layer.primaryArgb() == qi));
+        VisualProfile ghostRope = catalog.find(
+                VisualDomain.TECHNIQUE, "ghost_bind").orElseThrow();
+        assertEquals(ghostRope.visualProgram().sourceQuoteCount(),
+                ghostRope.visualProgram().layers().stream()
+                        .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_ROPE)
+                        .count());
+        assertTrue(ghostRope.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_ROPE)
+                .allMatch(layer -> layer.primaryArgb() == yin
+                        && layer.secondaryArgb() == yin));
+
+        VisualProgramLayer goldRopes = figureLayer(catalog, "technique_478",
+                VisualPrimitive.MAGIC_ROPE, "几根金索");
+        assertEquals(5, goldRopes.copies());
+        assertEquals(VisualProgramLayer.Path.ORBIT, goldRopes.path());
+        assertEquals(metal, goldRopes.primaryArgb());
+        VisualProgramLayer blackGreenRope = figureLayer(catalog, "technique_485",
+                VisualPrimitive.MAGIC_ROPE, "黑青色绳索");
+        assertEquals(1, blackGreenRope.copies());
+        assertEquals(yin, blackGreenRope.primaryArgb());
+        assertEquals(wood, blackGreenRope.secondaryArgb());
+        VisualProgramLayer fiveFireRopes = figureLayer(catalog, "technique_538",
+                VisualPrimitive.MAGIC_ROPE, "五根粗大火索");
+        assertEquals(5, fiveFireRopes.copies());
+        assertEquals(fire, fiveFireRopes.primaryArgb());
+        assertEquals(VisualProgramLayer.Path.ORBIT, fiveFireRopes.path());
+        VisualProgramLayer severalFireRopes = figureLayer(catalog, "technique_566",
+                VisualPrimitive.MAGIC_ROPE, "数根粗大火索");
+        assertEquals(5, severalFireRopes.copies());
+        assertEquals(10, figureLayer(catalog, "technique_566",
+                VisualPrimitive.BLOOD_THREAD, "十道红丝").copies());
+        assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_566").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.FIRE_PLUME));
+        VisualProgramLayer footRopes = figureLayer(catalog, "technique_612",
+                VisualPrimitive.MAGIC_ROPE, "巨人双足");
+        assertEquals(2, footRopes.copies());
+        assertEquals(10, figureLayer(catalog, "technique_612",
+                VisualPrimitive.BLOOD_THREAD, "十根淡淡红丝").copies());
+        assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_612").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.FLAME_BIRD));
+        VisualProgramLayer silverFlameRope = figureLayer(catalog, "technique_1329",
+                VisualPrimitive.MAGIC_ROPE, "银焰绳索");
+        assertEquals(1, silverFlameRope.copies());
+        assertEquals(qi, silverFlameRope.primaryArgb());
+        assertEquals(fire, silverFlameRope.secondaryArgb());
+        assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_1329").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.FLAME_BIRD));
+        assertEquals(fire, figureLayer(catalog, "technique_578",
+                VisualPrimitive.MAGIC_ROPE, "红绳捆绑成一团").primaryArgb());
+        for (String simile : List.of("technique_1071", "technique_825")) {
+            assertFalse(catalog.find(VisualDomain.TECHNIQUE, simile).orElseThrow()
+                    .visualProgram().layers().stream()
+                    .anyMatch(layer -> layer.primitive() == VisualPrimitive.MAGIC_ROPE));
+        }
+
+        assertEquals(yin, figureLayer(catalog, "technique_154",
+                VisualPrimitive.RITUAL_BOWL, "聚魂钵").primaryArgb());
+        VisualProgramLayer childCauldron = figureLayer(catalog, "technique_530",
+                VisualPrimitive.CAULDRON_VESSEL, "鼎上则");
+        assertEquals(1, childCauldron.copies());
+        assertEquals(metal, childCauldron.primaryArgb());
+        VisualProgramLayer copperCauldron = figureLayer(catalog, "technique_814",
+                VisualPrimitive.CAULDRON_VESSEL, "铜鼎表面");
+        assertEquals(metal, copperCauldron.primaryArgb());
+        VisualProgramLayer blackGreenFlame = figureLayer(catalog, "technique_814",
+                VisualPrimitive.FIRE_PLUME, "黑青色火焰");
+        assertEquals(yin, blackGreenFlame.primaryArgb());
+        assertEquals(wood, blackGreenFlame.secondaryArgb());
+        VisualProgramLayer silverOuterFlame = figureLayer(catalog, "technique_921",
+                VisualPrimitive.FIRE_PLUME, "鼎外的银色火焰");
+        assertEquals(qi, silverOuterFlame.primaryArgb());
+        assertEquals(fire, silverOuterFlame.secondaryArgb());
+        assertEquals(metal, figureLayer(catalog, "technique_921",
+                VisualPrimitive.CAULDRON_VESSEL, "鼎外").primaryArgb());
+
+        VisualProgramLayer purpleFurnace = figureLayer(catalog, "technique_1429",
+                VisualPrimitive.ALCHEMY_FURNACE, "紫色铜炉");
+        assertEquals(yin, purpleFurnace.primaryArgb());
+        assertEquals(fire, figureLayer(catalog, "technique_1429",
+                VisualPrimitive.FIRE_PLUME, "一团婴火").primaryArgb());
+        assertFalse(catalog.find(VisualDomain.TECHNIQUE, "technique_1429").orElseThrow()
+                .visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("紫色铜炉"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.CLOUD_VORTEX));
+        assertEquals(metal, figureLayer(catalog, "technique_1403",
+                VisualPrimitive.MAGIC_BOX, "根本没有打开过").primaryArgb());
+        VisualProgramLayer redLightBox = figureLayer(catalog, "technique_371",
+                VisualPrimitive.MAGIC_BOX, "盒中爆发");
+        assertEquals(qi, redLightBox.primaryArgb());
+        assertEquals(water, redLightBox.secondaryArgb());
+        assertEquals(fire, figureLayer(catalog, "technique_371",
+                VisualPrimitive.IMPACT_ARCS, "盒中爆发").primaryArgb());
+        VisualProgramLayer openedJadeBox = figureLayer(catalog, "technique_769",
+                VisualPrimitive.MAGIC_BOX, "匣盖");
+        assertEquals(qi, openedJadeBox.primaryArgb());
+        assertEquals(water, openedJadeBox.secondaryArgb());
+        assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_769").orElseThrow()
+                .visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("匣盖"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.RUNE_ORBIT));
+
+        VisualProfile soulBanner = catalog.find(
+                VisualDomain.TECHNIQUE, "soul_banner_wave").orElseThrow();
+        assertEquals(soulBanner.visualProgram().sourceQuoteCount(),
+                soulBanner.visualProgram().layers().stream()
+                        .filter(layer -> layer.primitive() == VisualPrimitive.BANNER_STREAMER)
+                        .count());
+        assertTrue(soulBanner.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.BANNER_STREAMER)
+                .allMatch(layer -> layer.primaryArgb() == yin
+                        && layer.secondaryArgb() == yin));
+        assertTrue(soulBanner.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.MIST_VEIL));
+        VisualProgramLayer zither = figureLayer(catalog, "miaoyin_zither_domain",
+                VisualPrimitive.SPIRIT_QIN, "琴域压神");
+        assertEquals(yin, zither.primaryArgb());
+        assertTrue(catalog.find(VisualDomain.TECHNIQUE, "miaoyin_zither_domain").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.SOUND_WAVE
+                        && layer.primaryArgb() == yin));
+        VisualProgramLayer tower = figureLayer(catalog, "kunwu_tower_bind",
+                VisualPrimitive.PAGODA_TOWER, "镇魔塔印");
+        assertEquals(earth, tower.primaryArgb());
+        assertEquals(earth, figureLayer(catalog, "kunwu_tower_bind",
+                VisualPrimitive.RUNE_ORBIT, "镇魔塔印").primaryArgb());
     }
 
     private static VisualProgramLayer giantSwordLayer(
