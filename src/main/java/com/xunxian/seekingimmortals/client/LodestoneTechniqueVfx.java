@@ -1754,7 +1754,7 @@ public final class LodestoneTechniqueVfx {
                     MAGIC_FAN, ALCHEMY_FURNACE, MAGIC_SCROLL, FORMATION_DISC,
                     SPIKED_CLUB, COMMAND_TOKEN, MAGIC_SCISSORS, MAGIC_BRICK,
                     MAGIC_UMBRELLA, MAGIC_BOW, MAGIC_RUYI, MAGIC_HOOK, MAGIC_WHIP,
-                    MAGIC_ROPE, MAGIC_BOAT, MAGIC_CHARIOT, RITUAL_ALTAR, PUPPET_FIGURE,
+                    MAGIC_ROPE, MAGIC_BOAT, MAGIC_CHARIOT, MAGIC_HALL, RITUAL_ALTAR, PUPPET_FIGURE,
                     MAGIC_VAJRA, MAGIC_BOX, MAGIC_NEEDLE, SPIKED_SHIELD, CONFUCIAN_SAGE,
                     FORMATION_ROD, RUNE_STELE -> 2;
             default -> 1;
@@ -1956,6 +1956,10 @@ public final class LodestoneTechniqueVfx {
             }
             case MAGIC_CHARIOT -> {
                 magicChariotShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case MAGIC_HALL -> {
+                magicHallShape(level, family, start, end, radius, intensity, random);
                 yield true;
             }
             case RITUAL_ALTAR -> {
@@ -3702,6 +3706,80 @@ public final class LodestoneTechniqueVfx {
                 () -> shortLine(level, family,
                         deck.add(side.scale(halfWidth)),
                         deck.subtract(side.scale(halfWidth)), 7, random)), details);
+    }
+
+    /** Palace silhouette: raised platform, columns, beams, double roof and flying eaves. */
+    private static void magicHallShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                       Vec3 start, Vec3 end, float radius,
+                                       int intensity, Random random) {
+        Vec3 travel = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 forward = normalized(new Vec3(travel.x, 0.0D, travel.z),
+                new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 side = perpendicular(forward);
+        Vec3 up = normalized(side.cross(forward), new Vec3(0.0D, 1.0D, 0.0D));
+        Vec3 ground = start.distanceToSqr(end) < 0.04D ? start : start.lerp(end, 0.5D);
+        double size = Math.max(1.05D, Math.min(4.6D, radius * 0.86D));
+        double halfWidth = size * 1.08D;
+        double halfDepth = size * 0.68D;
+        Vec3 platform = ground.add(up.scale(size * 0.14D));
+        Vec3 frontLeft = platform.add(forward.scale(halfDepth)).subtract(side.scale(halfWidth));
+        Vec3 frontRight = platform.add(forward.scale(halfDepth)).add(side.scale(halfWidth));
+        Vec3 backLeft = platform.subtract(forward.scale(halfDepth)).subtract(side.scale(halfWidth));
+        Vec3 backRight = platform.subtract(forward.scale(halfDepth)).add(side.scale(halfWidth));
+        double insetWidth = halfWidth * 0.72D;
+        double insetDepth = halfDepth * 0.62D;
+        Vec3 frontLeftColumn = platform.add(forward.scale(insetDepth)).subtract(side.scale(insetWidth));
+        Vec3 frontRightColumn = platform.add(forward.scale(insetDepth)).add(side.scale(insetWidth));
+        Vec3 backLeftColumn = platform.subtract(forward.scale(insetDepth)).subtract(side.scale(insetWidth));
+        Vec3 backRightColumn = platform.subtract(forward.scale(insetDepth)).add(side.scale(insetWidth));
+        Vec3 columnRise = up.scale(size * 1.28D);
+        Vec3 frontLeftBeam = frontLeftColumn.add(columnRise);
+        Vec3 frontRightBeam = frontRightColumn.add(columnRise);
+        Vec3 backLeftBeam = backLeftColumn.add(columnRise);
+        Vec3 backRightBeam = backRightColumn.add(columnRise);
+        Vec3 frontLeftEave = frontLeftBeam.add(forward.scale(size * 0.18D))
+                .subtract(side.scale(size * 0.18D)).add(up.scale(size * 0.12D));
+        Vec3 frontRightEave = frontRightBeam.add(forward.scale(size * 0.18D))
+                .add(side.scale(size * 0.18D)).add(up.scale(size * 0.12D));
+        Vec3 backLeftEave = backLeftBeam.subtract(forward.scale(size * 0.18D))
+                .subtract(side.scale(size * 0.18D)).add(up.scale(size * 0.12D));
+        Vec3 backRightEave = backRightBeam.subtract(forward.scale(size * 0.18D))
+                .add(side.scale(size * 0.18D)).add(up.scale(size * 0.12D));
+        Vec3 ridgeLeft = platform.subtract(side.scale(halfWidth * 0.88D))
+                .add(up.scale(size * 1.92D));
+        Vec3 ridgeRight = platform.add(side.scale(halfWidth * 0.88D))
+                .add(up.scale(size * 1.92D));
+        Vec3 doorLeft = platform.add(forward.scale(insetDepth + 0.01D))
+                .subtract(side.scale(size * 0.24D));
+        Vec3 doorRight = platform.add(forward.scale(insetDepth + 0.01D))
+                .add(side.scale(size * 0.24D));
+        Vec3 doorTopLeft = doorLeft.add(up.scale(size * 0.78D));
+        Vec3 doorTopRight = doorRight.add(up.scale(size * 0.78D));
+        List<Runnable> details = new ArrayList<>();
+        details.add(() -> shortLine(level, family, frontRight, backRight, 7, random));
+        details.add(() -> shortLine(level, family, backRight, backLeft, 8, random));
+        details.add(() -> shortLine(level, family, backLeft, frontLeft, 7, random));
+        for (Vec3 column : List.of(frontLeftColumn, frontRightColumn,
+                backLeftColumn, backRightColumn)) {
+            details.add(() -> shortLine(level, family, column, column.add(columnRise), 8, random));
+        }
+        details.add(() -> shortLine(level, family, frontLeftBeam, frontRightBeam, 8, random));
+        details.add(() -> shortLine(level, family, backLeftBeam, backRightBeam, 8, random));
+        details.add(() -> shortLine(level, family, frontLeftEave, frontRightEave, 9, random));
+        details.add(() -> shortLine(level, family, backLeftEave, backRightEave, 9, random));
+        details.add(() -> shortLine(level, family, frontLeftEave, ridgeLeft, 6, random));
+        details.add(() -> shortLine(level, family, frontRightEave, ridgeRight, 6, random));
+        details.add(() -> shortLine(level, family, backLeftEave, ridgeLeft, 6, random));
+        details.add(() -> shortLine(level, family, backRightEave, ridgeRight, 6, random));
+        details.add(() -> shortLine(level, family, doorLeft, doorTopLeft, 5, random));
+        details.add(() -> shortLine(level, family, doorRight, doorTopRight, 5, random));
+        details.add(() -> shortLine(level, family, doorTopLeft, doorTopRight, 5, random));
+        details.add(() -> spawn(level, LodestoneParticleRegistry.TWINKLE_PARTICLE, family,
+                doorTopLeft.lerp(doorTopRight, 0.5D), up.scale(0.006D),
+                0.2F, 0.9F, 24, random.nextFloat()));
+        emitFigureComponents(level, 293, List.of(
+                () -> shortLine(level, family, frontLeft, frontRight, 9, random),
+                () -> shortLine(level, family, ridgeLeft, ridgeRight, 9, random)), details);
     }
 
     /** Ritual altar silhouette: stepped top, square footprint, corner posts and rune core. */

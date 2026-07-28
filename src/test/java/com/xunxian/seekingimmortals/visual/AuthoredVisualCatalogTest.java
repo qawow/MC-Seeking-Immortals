@@ -1760,6 +1760,95 @@ class AuthoredVisualCatalogTest {
     }
 
     @Test
+    void magicHallsKeepAuthoredArchitectureMotionAndCompanions() {
+        AuthoredVisualCatalog.Snapshot catalog = AuthoredVisualCatalog.builtin();
+        long qi = catalog.palette("qi").orElseThrow().argb();
+        long water = catalog.palette("water").orElseThrow().argb();
+        long metal = catalog.palette("metal").orElseThrow().argb();
+        long earth = catalog.palette("earth").orElseThrow().argb();
+        List<VisualProgramLayer> allLayers = catalog.profiles().values().stream()
+                .filter(profile -> profile.domain() == VisualDomain.TECHNIQUE)
+                .flatMap(profile -> profile.visualProgram().layers().stream())
+                .toList();
+
+        assertEquals(5, allLayers.stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_HALL).count());
+
+        VisualProgramLayer apparition = figureLayer(catalog, "technique_859",
+                VisualPrimitive.MAGIC_HALL, "巨大的宫殿虚影");
+        assertEquals(VisualProgramLayer.Path.STATIC, apparition.path());
+        assertEquals(VisualProgramLayer.Motion.DISSOLVE, apparition.motion());
+        assertEquals(qi, apparition.primaryArgb());
+        assertEquals(qi, apparition.secondaryArgb());
+        VisualProgramLayer ninePalace = figureLayer(catalog, "technique_859",
+                VisualPrimitive.RUNE_ORBIT, "巨大的宫殿虚影");
+        assertEquals(VisualProgramLayer.Path.ORBIT, ninePalace.path());
+        assertTrue(apparition.verticalOffset() > ninePalace.verticalOffset());
+
+        VisualProfile cityHall = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_962").orElseThrow();
+        List<VisualProgramLayer> cityHallLayers = cityHall.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("整座大殿"))
+                .toList();
+        assertEquals(List.of(VisualPrimitive.MAGIC_HALL, VisualPrimitive.LIGHT_CURTAIN,
+                        VisualPrimitive.ORB_PROJECTILE),
+                cityHallLayers.stream().map(VisualProgramLayer::primitive).toList());
+        VisualProgramLayer risingHall = cityHallLayers.get(0);
+        assertEquals(VisualProgramLayer.Path.RISE, risingHall.path());
+        assertEquals(earth, risingHall.primaryArgb());
+        assertEquals(metal, risingHall.secondaryArgb());
+        assertEquals(VisualProgramLayer.Path.RISE, cityHallLayers.get(1).path());
+        assertEquals(1, cityHallLayers.get(1).copies());
+        assertEquals(qi, cityHallLayers.get(1).primaryArgb());
+        assertEquals(VisualProgramLayer.Path.STATIC, cityHallLayers.get(2).path());
+        assertEquals(1, cityHallLayers.get(2).copies());
+        assertEquals(qi, cityHallLayers.get(2).primaryArgb());
+        assertTrue(cityHallLayers.get(2).verticalOffset() > 1.0D);
+
+        VisualProgramLayer retreatingHall = figureLayer(catalog, "technique_1104",
+                VisualPrimitive.MAGIC_HALL, "整座大殿无数蓝色符文");
+        assertEquals(VisualProgramLayer.Path.DIRECT, retreatingHall.path());
+        assertEquals(VisualProgramLayer.Motion.DISSOLVE, retreatingHall.motion());
+        assertEquals(water, retreatingHall.primaryArgb());
+        assertEquals(qi, retreatingHall.secondaryArgb());
+        VisualProgramLayer blueRunes = figureLayer(catalog, "technique_1104",
+                VisualPrimitive.RUNE_ORBIT, "整座大殿无数蓝色符文");
+        assertEquals(20, blueRunes.copies());
+        assertEquals(VisualProgramLayer.Path.SCATTER, blueRunes.path());
+        assertEquals(water, blueRunes.primaryArgb());
+
+        VisualProgramLayer domainHall = figureLayer(catalog, "technique_1178",
+                VisualPrimitive.MAGIC_HALL, "布置典雅的精美殿堂");
+        assertEquals(VisualProgramLayer.Path.STATIC, domainHall.path());
+        assertEquals(VisualProgramLayer.Motion.MATERIALIZE, domainHall.motion());
+        assertEquals(qi, domainHall.primaryArgb());
+        assertTrue(domainHall.radiusScale() > 3.0D);
+        assertEquals(VisualProgramLayer.Path.DIRECT, figureLayer(catalog, "technique_1178",
+                VisualPrimitive.CHANNEL_STREAM, "一道白痕").path());
+
+        VisualProgramLayer collapsingHall = figureLayer(catalog, "technique_1451",
+                VisualPrimitive.MAGIC_HALL, "金色宫殿也寸寸崩碎");
+        assertEquals(VisualProgramLayer.Path.STATIC, collapsingHall.path());
+        assertEquals(VisualProgramLayer.Motion.DISSOLVE, collapsingHall.motion());
+        assertEquals(metal, collapsingHall.primaryArgb());
+        assertEquals(earth, collapsingHall.secondaryArgb());
+        VisualProgramLayer ashes = figureLayer(catalog, "technique_1451",
+                VisualPrimitive.PROJECTILE_SWARM, "化为了灰烬");
+        assertEquals(20, ashes.copies());
+        assertEquals(VisualProgramLayer.Path.SCATTER, ashes.path());
+        assertEquals(earth, ashes.primaryArgb());
+
+        for (String backgroundHall : List.of(
+                "technique_763", "technique_423", "technique_1456", "technique_504",
+                "technique_1103", "technique_844", "technique_1399")) {
+            assertFalse(catalog.find(VisualDomain.TECHNIQUE, backgroundHall).orElseThrow()
+                    .visualProgram().layers().stream()
+                    .anyMatch(layer -> layer.primitive() == VisualPrimitive.MAGIC_HALL),
+                    backgroundHall);
+        }
+    }
+
+    @Test
     void sagesFormationRodsStelesAndCommandTokensKeepAuthoredContinuity() {
         AuthoredVisualCatalog.Snapshot catalog = AuthoredVisualCatalog.builtin();
         long qi = catalog.palette("qi").orElseThrow().argb();
