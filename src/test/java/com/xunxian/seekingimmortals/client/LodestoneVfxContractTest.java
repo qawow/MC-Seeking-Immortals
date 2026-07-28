@@ -146,7 +146,7 @@ class LodestoneVfxContractTest {
         assertTrue(renderer.contains("minimumCopyBudget(layer.primitive())"));
         assertTrue(renderer.contains("withSubBudget(copyQuota"));
         assertTrue(renderer.contains("VfxBudgetPlan.components("));
-        assertTrue(occurrences(renderer, "emitFigureComponents(level") >= 47);
+        assertTrue(occurrences(renderer, "emitFigureComponents(level") >= 50);
         assertTrue(renderer.contains("int samples = budgetedSamples(points + 1)"));
         assertTrue(renderer.contains("lineSampleProgress(sample, samples)"));
         assertTrue(renderer.contains("status == ParticleStatus.MINIMAL ? 7"));
@@ -159,7 +159,8 @@ class LodestoneVfxContractTest {
                 "spikedClubShape", "commandTokenShape", "magicScissorsShape",
                 "magicBrickShape", "magicUmbrellaShape", "magicBowShape",
                 "giantSwordShape", "magicRuyiShape", "magicHookShape", "magicWhipShape",
-                "magicRopeShape", "magicVajraShape", "magicBoxShape", "spikedShieldShape")) {
+                "magicRopeShape", "magicBoatShape", "ritualAltarShape", "puppetFigureShape",
+                "magicVajraShape", "magicBoxShape", "spikedShieldShape")) {
             assertTrue(renderer.contains("private static void " + helper + "("), helper);
         }
         for (String branch : List.of(
@@ -172,7 +173,8 @@ class LodestoneVfxContractTest {
                 "case MAGIC_BRICK ->", "case MAGIC_UMBRELLA ->",
                 "case MAGIC_BOW ->", "case GIANT_SWORD ->", "case MAGIC_RUYI ->",
                 "case MAGIC_HOOK ->", "case MAGIC_WHIP ->", "case MAGIC_VAJRA ->",
-                "case MAGIC_ROPE ->", "case MAGIC_BOX ->", "case SPIKED_SHIELD ->")) {
+                "case MAGIC_ROPE ->", "case MAGIC_BOAT ->", "case RITUAL_ALTAR ->",
+                "case PUPPET_FIGURE ->", "case MAGIC_BOX ->", "case SPIKED_SHIELD ->")) {
             assertTrue(renderer.contains(branch), branch);
         }
         assertTrue(renderer.contains("Vec3 copyOffset = layer.copies() > 1"));

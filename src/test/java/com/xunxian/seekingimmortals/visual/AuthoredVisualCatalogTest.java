@@ -1562,6 +1562,160 @@ class AuthoredVisualCatalogTest {
                 VisualPrimitive.RUNE_ORBIT, "镇魔塔印").primaryArgb());
     }
 
+    @Test
+    void puppetsBoatsAltarsRingsAndStarDiscsKeepAuthoredBodies() {
+        AuthoredVisualCatalog.Snapshot catalog = AuthoredVisualCatalog.builtin();
+        long qi = catalog.palette("qi").orElseThrow().argb();
+        long fire = catalog.palette("fire").orElseThrow().argb();
+        long wood = catalog.palette("wood").orElseThrow().argb();
+        long water = catalog.palette("water").orElseThrow().argb();
+        long metal = catalog.palette("metal").orElseThrow().argb();
+        long yin = catalog.palette("yin").orElseThrow().argb();
+        long earth = catalog.palette("earth").orElseThrow().argb();
+        List<VisualProgramLayer> allLayers = catalog.profiles().values().stream()
+                .filter(profile -> profile.domain() == VisualDomain.TECHNIQUE)
+                .flatMap(profile -> profile.visualProgram().layers().stream())
+                .toList();
+
+        assertEquals(15, allLayers.stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.PUPPET_FIGURE).count());
+        assertEquals(5, allLayers.stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_BOAT).count());
+        assertEquals(9, allLayers.stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.RITUAL_ALTAR).count());
+
+        VisualProgramLayer ironSoldiers = figureLayer(catalog, "technique_049",
+                VisualPrimitive.PUPPET_FIGURE, "两只士兵打扮的玩偶");
+        assertEquals(2, ironSoldiers.copies());
+        assertEquals(metal, ironSoldiers.primaryArgb());
+        VisualProgramLayer summonedSoldiers = figureLayer(catalog, "technique_049",
+                VisualPrimitive.PUPPET_FIGURE, "数个真人大小");
+        assertEquals(5, summonedSoldiers.copies());
+        assertEquals(qi, summonedSoldiers.primaryArgb());
+        VisualProfile puppetAmbush = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_049").orElseThrow();
+        assertTrue(puppetAmbush.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.MAGIC_BOW));
+        assertTrue(puppetAmbush.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.FLYING_BLADE));
+
+        VisualProgramLayer woodenFigures = figureLayer(catalog, "technique_1024",
+                VisualPrimitive.PUPPET_FIGURE, "八尊通体黑黝黝的木人");
+        assertEquals(8, woodenFigures.copies());
+        assertEquals(yin, woodenFigures.primaryArgb());
+        assertEquals(wood, woodenFigures.secondaryArgb());
+        VisualProgramLayer greenAltar = figureLayer(catalog, "technique_1024",
+                VisualPrimitive.RITUAL_ALTAR, "碧绿石台");
+        assertEquals(1, greenAltar.copies());
+        assertEquals(wood, greenAltar.primaryArgb());
+        assertFalse(catalog.find(VisualDomain.TECHNIQUE, "technique_1024").orElseThrow()
+                .visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("黑黝黝的木人"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.EYE_GAZE));
+
+        VisualProgramLayer jadePuppets = figureLayer(catalog, "technique_1302",
+                VisualPrimitive.PUPPET_FIGURE, "人形白玉傀儡");
+        assertEquals(4, jadePuppets.copies());
+        assertEquals(qi, jadePuppets.primaryArgb());
+        assertEquals(4, figureLayer(catalog, "technique_1302",
+                VisualPrimitive.FORMATION_BANNER, "宽大白旗").copies());
+        assertEquals(4, figureLayer(catalog, "technique_1302",
+                VisualPrimitive.FORMATION_BANNER, "四具傀儡").copies());
+        assertFalse(catalog.find(VisualDomain.TECHNIQUE, "technique_1302").orElseThrow()
+                .visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("人形白玉傀儡"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.SPIRIT_AVATAR));
+
+        VisualProgramLayer bluePuppets = figureLayer(catalog, "technique_833",
+                VisualPrimitive.PUPPET_FIGURE, "青甲傀儡");
+        assertEquals(3, bluePuppets.copies());
+        assertEquals(water, bluePuppets.primaryArgb());
+        assertEquals(metal, bluePuppets.secondaryArgb());
+        VisualProgramLayer ironPuppet = figureLayer(catalog, "technique_884",
+                VisualPrimitive.PUPPET_FIGURE, "黑乎乎的铁傀儡");
+        assertEquals(yin, ironPuppet.primaryArgb());
+        assertEquals(water, ironPuppet.secondaryArgb());
+        VisualProgramLayer blueSpikes = figureLayer(catalog, "technique_884",
+                VisualPrimitive.SPEAR_SPIKE, "蓝色细刺");
+        assertEquals(12, blueSpikes.copies());
+        assertEquals(water, blueSpikes.primaryArgb());
+        VisualProfile nascentSoulPuppet = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_528").orElseThrow();
+        assertTrue(nascentSoulPuppet.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("没入人形傀儡"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.PUPPET_FIGURE));
+        assertTrue(nascentSoulPuppet.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("没入人形傀儡"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.SPIRIT_AVATAR));
+
+        VisualProgramLayer windBoat = figureLayer(catalog, "technique_073",
+                VisualPrimitive.MAGIC_BOAT, "脚下的神风舟");
+        assertEquals(VisualProgramLayer.Path.DIRECT, windBoat.path());
+        assertEquals(qi, windBoat.primaryArgb());
+        assertEquals(VisualProgramLayer.Path.STATIC, figureLayer(catalog, "technique_086",
+                VisualPrimitive.MAGIC_BOAT, "歪歪扭扭").path());
+        assertEquals(metal, figureLayer(catalog, "technique_603",
+                VisualPrimitive.MAGIC_BOAT, "金舟微微一颤").primaryArgb());
+        assertEquals(yin, figureLayer(catalog, "technique_1253",
+                VisualPrimitive.MAGIC_BOAT, "黑色巨舟顿时破空").primaryArgb());
+        VisualProgramLayer bloodBoat = figureLayer(catalog, "technique_971",
+                VisualPrimitive.MAGIC_BOAT, "血红小舟");
+        assertEquals(VisualProgramLayer.Path.DIRECT, bloodBoat.path());
+        assertEquals(fire, bloodBoat.primaryArgb());
+        VisualProgramLayer bloodWake = figureLayer(catalog, "technique_971",
+                VisualPrimitive.BLOOD_THREAD, "血红小舟");
+        assertEquals(VisualProgramLayer.Path.DIRECT, bloodWake.path());
+        assertEquals(fire, bloodWake.primaryArgb());
+        assertEquals(fire, bloodWake.secondaryArgb());
+        assertEquals(4, figureLayer(catalog, "technique_971",
+                VisualPrimitive.WING_FAN, "血红晶翅").copies());
+        for (String backgroundBoat : List.of("technique_077", "technique_762")) {
+            assertFalse(catalog.find(VisualDomain.TECHNIQUE, backgroundBoat).orElseThrow()
+                    .visualProgram().layers().stream()
+                    .anyMatch(layer -> layer.primitive() == VisualPrimitive.MAGIC_BOAT));
+        }
+
+        VisualProgramLayer giantAltar = figureLayer(catalog, "technique_1270",
+                VisualPrimitive.RITUAL_ALTAR, "巨大祭坛");
+        assertEquals(earth, giantAltar.primaryArgb());
+        VisualProgramLayer eightPillars = figureLayer(catalog, "technique_1270",
+                VisualPrimitive.RUNE_PILLAR, "八只圆柱");
+        assertEquals(8, eightPillars.copies());
+        assertEquals(VisualProgramLayer.Path.STATIC, eightPillars.path());
+        assertEquals(earth, eightPillars.primaryArgb());
+        assertEquals(qi, figureLayer(catalog, "technique_1323",
+                VisualPrimitive.RITUAL_ALTAR, "银浆浇筑").primaryArgb());
+        assertEquals(metal, figureLayer(catalog, "technique_1474",
+                VisualPrimitive.RITUAL_ALTAR, "金色高台").primaryArgb());
+        assertEquals(8, figureLayer(catalog, "technique_726",
+                VisualPrimitive.RITUAL_ALTAR, "八个高台").copies());
+
+        VisualProgramLayer boneRings = figureLayer(catalog, "technique_626",
+                VisualPrimitive.WHEEL_DISC, "五枚颜色各异的骨戒");
+        assertEquals(5, boneRings.copies());
+        assertEquals(qi, boneRings.primaryArgb());
+        assertEquals(5, figureLayer(catalog, "technique_626",
+                VisualPrimitive.GHOST_HEAD, "五枚颜色各异的骨戒").copies());
+        VisualProgramLayer fiveColdFlames = figureLayer(catalog, "technique_626",
+                VisualPrimitive.FIRE_PLUME, "五种颜色各异寒焰");
+        assertEquals(5, fiveColdFlames.copies());
+        assertEquals(qi, fiveColdFlames.primaryArgb());
+        assertEquals(water, fiveColdFlames.secondaryArgb());
+        assertEquals(5, figureLayer(catalog, "technique_627",
+                VisualPrimitive.WHEEL_DISC, "戒指的变化").copies());
+
+        VisualProfile starDiscs = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_1407").orElseThrow();
+        assertEquals(3, starDiscs.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.FORMATION_DISC).count());
+        assertTrue(starDiscs.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("移星子母盘"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.SPATIAL_RIFT));
+        VisualProgramLayer shatteredDisc = figureLayer(catalog, "technique_1407",
+                VisualPrimitive.IMPACT_ARCS, "这块阵盘终于爆裂");
+        assertEquals(1, shatteredDisc.copies());
+    }
+
     private static VisualProgramLayer giantSwordLayer(
             AuthoredVisualCatalog.Snapshot catalog, String id, String sourceToken) {
         return figureLayer(catalog, id, VisualPrimitive.GIANT_SWORD, sourceToken);

@@ -9467,3 +9467,17 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Full build   Done   隔离快照执行 `./gradlew build --no-daemon --max-workers=1`，`BUILD SUCCESSFUL in 1m 32s`；251 个测试套件、1,175 项测试 failure/error/skipped 均为 0。JAR SHA-256 `5b9b90f1b3af30db71bfeb657723f8a1dae2517cdd066b66e836d44e5e22f19f`；视觉目录/术法效果目录 SHA-256 分别为 `226c27be749f1a51999c61c800acd1a4e99325bdc1fd9e6d2c9e932292bc9133` / `5cf9cab0c6b00414690262d8ad1aea5cee4aaabd73d3bf45173c46a50821e20f`。
   Version/protocol   Done   `mod_version` 0.2.221→0.2.222；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
   Backup   Done   `.bak/20260728_075822_0.2.222_ropes_continuations/`；隔离快照 `/tmp/mc-mod-0.2.219-audit.yb1NTV`。
+
+## 614. 2026-07-28 0.2.223 傀儡、飞舟与祭台独立轮廓
+
+  Step   Status   Notes
+  ---   ---   ---
+  Source boundary   Done   逐条回读真实人形傀儡、移动/传送舟、具名祭台、骨戒与星盘引文；受击战舟、神识扫船、黄金雕像和钢叉比喻明确排除。
+  Compiler   Done   新增 `puppet_figure=15`、`magic_boat=5`、`ritual_altar=9`；骨戒/星盘复用 `wheel_disc`/`formation_disc`，并补齐白旗、晶翅、寒焰、蓝刺与八圆柱伴随层。
+  Runtime   Done   傀儡由躯干框、头环、肩胯、关节四肢与胸核组成；飞舟由龙骨、舟艏艉、双舷和甲板肋组成；祭台由十字顶面、方形台基、角柱和旋转阵心组成，均接入复杂轮廓 2 粒最低预算。
+  Counts/palette   Done   两士兵/五召兵/八木人/四玉傀/三青甲按 2/5/8/4/3；血舟 1 + 双翼 primitive 4 + 火色直线血迹 1；骨戒/骷髅/寒焰均 5；八幡台和八圆柱均 8。局部配色保持木人 `yin→wood`、青甲 `water→metal`、铁傀 `yin→water`、血舟 fire、金舟 metal、黑舟 yin、石台 wood、祭坛 earth、聚星台 qi、金台 metal。
+  Diff/contracts   Done   相对 0.2.222 恰有 26 个预期 ID、34 条引文组变化，未解释变化 0、非程序 profile 字段变化 0；目录 5,727 profiles、2,292 techniques、1,806 非推断 authored、9,947/9,947 引文、10,968 层、104 primitive。
+  Verification   Done   两个生成器 `--check` 与目录/渲染定向测试通过；隔离快照完整 `./gradlew build --no-daemon --max-workers=1` 为 `BUILD SUCCESSFUL in 1m 29s`，251 套件/1,176 测试 failure/error/skipped 均为 0。
+  Artifact   Done   JAR SHA-256 `2d19f378149af4c7907a4303f4dec8554185adf8a395a1c9289c6a77cf5ce2ff`；视觉目录/术法效果目录 SHA-256 为 `69975d47cba54fb04935e23de95415ac2a53982932cd389f5714286a734b0b6c` / `c21e7bdd5175b7b3c67ccbf0dd02227894237b739e9ee5337abd4bd5a9e5a98d`。
+  Version/protocol   Done   `mod_version` 0.2.222→0.2.223；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
+  Backup   Done   `.bak/20260728_083954_0.2.223_puppets_boats_altars/`；隔离快照 `/tmp/mc-mod-0.2.219-audit.yb1NTV`。

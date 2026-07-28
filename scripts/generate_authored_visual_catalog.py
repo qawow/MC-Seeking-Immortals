@@ -412,11 +412,20 @@ PROGRAM_RULES = (
                     "陶羽银铃铛", "银铃铛", "这铃铛俨然", "一口黄钟", "黄钟只是")),
     ("magic_gong", ("黑色巨锣",)),
     ("gourd_vessel", ("葫芦", "玉葫芦", "宝葫芦", "灵葫芦", "玉瓶", "宝瓶", "灵瓶", "净瓶", "玉净瓶", "掌天瓶", "小瓶", "瓶影")),
+    ("magic_boat", ("脚下的神风舟却白光一闪", "神风舟就开始飞行的歪歪扭扭",
+                    "金舟微微一颤下", "黑色巨舟顿时破空声一响", "血红小舟")),
     ("ritual_bowl", ("聚魂钵", "漆黑钵盂", "乌黑圆钵", "碧绿圆钵", "银色圆钵", "圆钵", "钵盂")),
+    ("ritual_altar", ("七八丈高的碧绿石台", "巨大祭坛同时散发", "整个高台仿佛被银浆浇筑",
+                      "整个聚星台骤然大亮", "一方不大不小的金色高台", "整座金色高台顿时光芒大作",
+                      "八个高台上的巨幡", "祭坛中白光一闪", "祭坛上石傀儡")),
     ("ritual_lamp", ("手捧古灯",)),
     ("ritual_coffin", ("寒玉棺", "石棺中")),
     ("magic_staff", ("乌黑禅杖", "降魔巨杖", "降魔杖", "此宝就化为十余丈之长，水缸般粗细的庞然巨物")),
     ("magic_vajra", ("大晋金刚杵", "金刚杵")),
+    ("puppet_figure", ("士兵打扮的玩偶", "真人大小的士兵傀儡", "傀儡士兵的光矢",
+                       "十余头傀儡兽和傀儡士兵", "黑黝黝的木人", "数寸大小的傀儡",
+                       "人形白玉傀儡", "人形傀儡", "石人残骸", "祭坛上石傀儡",
+                       "青甲傀儡", "黑乎乎的铁傀儡", "铜人傀儡")),
     ("magic_bow", ("手持一把大弓",)),
     ("magic_ruyi", ("玉如意", "白色如意", "空中的如意", "刻在如意一侧")),
     ("magic_hook", ("摄魂钩", "钩锁神识边缘")),
@@ -445,13 +454,14 @@ PROGRAM_RULES = (
                      "巨大光剑", "巨剑", "石剑")),
     ("flying_sword", ("青竹蜂云剑", "飞剑", "青色小剑", "金色小剑", "小剑", "小青剑", "口剑", "剑影", "剑气纵横", "剑芒", "剑刃飞", "飞出一剑", "剑光分化", "分化出", "剑光在其", "化为三十六道", "化为七十二")),
     ("fire_plume", ("赤红火焰", "真火", "赤焰", "火焰从", "火柱", "火海", "烈焰", "三昧真火", "丹火", "青焰", "火球爆",
-                    "婴火", "银色火焰", "黑青色火焰", "五色寒焰",
+                    "婴火", "银色火焰", "黑青色火焰", "五色寒焰", "五种颜色各异寒焰",
                     "银白火焰便如飞鸟一般飞入丹炉", "熊熊银焰", "银焰翻滚的巨大火炉")),
-    ("formation_banner", ("阵旗", "令旗", "旗阵", "大旗", "战旗", "令旗一", "小旗", "法旗")),
+    ("formation_banner", ("阵旗", "令旗", "旗阵", "大旗", "战旗", "令旗一", "小旗", "法旗", "宽大白旗")),
     ("formation_disc", ("阵旗、阵盘", "阵旗阵盘", "是阵盘", "蓝光闪闪的阵盘",
-                        "青光阵盘", "海面之上的阵盘", "法盘")),
+                        "青光阵盘", "海面之上的阵盘", "法盘", "移星子母盘",
+                        "这块阵盘终于爆裂", "北斗天星盘")),
     ("pagoda_tower", ("宝塔", "浮屠", "金塔", "玉塔", "玲珑塔", "小塔", "塔影")),
-    ("rune_pillar", ("巨大水晶柱", "青铜柱子全都", "青铜巨柱", "金色巨柱", "巨大石柱")),
+    ("rune_pillar", ("巨大水晶柱", "青铜柱子全都", "青铜巨柱", "金色巨柱", "巨大石柱", "八只圆柱")),
     ("blood_thread", ("血丝", "精血丝", "血线", "血丝一", "血丝密", "淡红丝线", "红丝")),
     ("jade_slip", ("玉简", "青色玉简", "古玉简", "玉简一闪", "传法玉简")),
     ("magic_scroll", ("黑色画卷", "金色卷轴", "卷轴之上")),
@@ -481,7 +491,8 @@ PROGRAM_RULES = (
                        "兽影", "虎影", "巨猿", "魔猿", "麒麟", "玄武", "白虎")),
     ("lotus_mandala", ("莲花", "白莲", "金莲", "青莲", "血莲", "莲台", "莲瓣")),
     ("wheel_disc", ("宝轮", "法轮", "光轮", "圆盘", "轮盘", "日轮", "月轮", "圆轮", "指环",
-                    "漆黑圆环", "黑乎乎的圆环", "黑乎乎圆环", "银色圆环", "淡黄色手镯", "巨大云环")),
+                    "漆黑圆环", "黑乎乎的圆环", "黑乎乎圆环", "银色圆环", "淡黄色手镯", "巨大云环",
+                    "骨戒", "戒指的变化")),
     ("mirror_disc", ("宝镜", "古镜", "镜光", "镜面", "水镜", "明镜")),
     ("sword_rain", ("剑雨", "剑阵", "密密麻麻剑")),
     ("ice_prison", ("冰牢", "冰狱", "冰封", "冰墙", "玄冰", "寒冰")),
@@ -495,8 +506,8 @@ PROGRAM_RULES = (
     ("magnetic_field", ("元磁", "磁力", "磁光", "磁场", "两极",
                         "灰色光晕。此光晕滴溜溜一转")),
     ("scripture_glyph", ("经文", "书卷", "典籍", "墨字", "金文", "古字", "符字", "真言")),
-    ("wing_fan", ("双翼", "羽翼", "翅膀", "羽翅", "风雷翅")),
-    ("spear_spike", ("金针", "银针", "灵针", "飞针", "金色巨钉", "长矛", "冰矛", "冰锥", "地刺", "骨刺",
+    ("wing_fan", ("双翼", "羽翼", "翅膀", "羽翅", "风雷翅", "血红晶翅")),
+    ("spear_spike", ("金针", "银针", "灵针", "飞针", "金色巨钉", "长矛", "冰矛", "冰锥", "地刺", "骨刺", "蓝色细刺",
                      "晶枪", "冰枪", "火枪", "水枪", "雷枪", "短枪", "长箭", "光箭", "巨箭",
                      "黑色弩箭", "短戈", "长戈", "金戈", "骨矛")),
     ("orb_projectile", ("黑色晶球", "白色晶球", "青色晶球", "蓝色晶球",
@@ -593,6 +604,24 @@ def program_primitive_path(primitive: str, text: str, fallback: str) -> str:
                 "枷锁", "盘旋", "缠", "捆", "绑", "束缚", "锁住")):
             return "ORBIT"
         return fallback if fallback in {"DIRECT", "TRACK", "EXPAND"} else "STATIC"
+    if primitive == "magic_boat":
+        return "DIRECT" if any(token in text for token in (
+            "一闪而过", "激射而出", "激射而起", "破空声", "消失不见",
+        )) else "STATIC"
+    if primitive == "ritual_altar":
+        return "STATIC"
+    if primitive == "puppet_figure":
+        return "TRACK" if "轻轻一飘" in text and "墙壁" in text else "STATIC"
+    if primitive == "formation_disc" and any(token in text for token in (
+            "移星子母盘", "这块阵盘终于爆裂", "北斗天星盘")):
+        return "ORBIT"
+    if primitive == "wheel_disc" and any(token in text for token in (
+            "骨戒", "戒指的变化")):
+        return "STATIC"
+    if primitive == "blood_thread" and "血红小舟" in text:
+        return "DIRECT"
+    if primitive == "rune_pillar" and "八只圆柱" in text:
+        return "STATIC"
     if primitive == "magic_box":
         return "RISE" if "往半空中一抛" in text else "STATIC"
     if primitive == "magic_ruyi":
@@ -694,6 +723,21 @@ _MASS_WEAPON_TERMS = frozenset({
 })
 
 _EXACT_LOCAL_PALETTE_TERMS = {
+    "magic_boat": frozenset({
+        "脚下的神风舟却白光一闪", "神风舟就开始飞行的歪歪扭扭",
+        "金舟微微一颤下", "黑色巨舟顿时破空声一响", "血红小舟",
+    }),
+    "ritual_altar": frozenset({
+        "七八丈高的碧绿石台", "巨大祭坛同时散发", "整个高台仿佛被银浆浇筑",
+        "整个聚星台骤然大亮", "一方不大不小的金色高台", "整座金色高台顿时光芒大作",
+        "八个高台上的巨幡", "祭坛中白光一闪", "祭坛上石傀儡",
+    }),
+    "puppet_figure": frozenset({
+        "士兵打扮的玩偶", "真人大小的士兵傀儡", "傀儡士兵的光矢",
+        "十余头傀儡兽和傀儡士兵", "黑黝黝的木人", "数寸大小的傀儡",
+        "人形白玉傀儡", "人形傀儡", "石人残骸", "祭坛上石傀儡",
+        "青甲傀儡", "黑乎乎的铁傀儡", "铜人傀儡",
+    }),
     "magic_rope": frozenset({
         "黑青色绳索", "银焰绳索", "五根粗大火索", "数根粗大火索", "粗大火索",
         "几根金索", "金索", "红绳捆绑成一团",
@@ -701,10 +745,11 @@ _EXACT_LOCAL_PALETTE_TERMS = {
     "chain_net": frozenset({"巨网", "丝网", "光网", "雷网", "火网", "成千上万根纤细银丝"}),
     "spear_spike": frozenset({
         "晶枪", "冰枪", "火枪", "水枪", "雷枪", "短枪", "长箭", "光箭", "巨箭",
-        "黑色弩箭", "短戈", "长戈", "金戈", "骨矛", "金色巨钉",
+        "黑色弩箭", "短戈", "长戈", "金戈", "骨矛", "金色巨钉", "蓝色细刺",
     }),
     "wheel_disc": frozenset({
         "漆黑圆环", "黑乎乎的圆环", "黑乎乎圆环", "银色圆环", "淡黄色手镯", "巨大云环", "圆轮", "指环",
+        "骨戒", "戒指的变化",
     }),
     "shield_plate": frozenset({
         "龟壳法器", "铜盾", "冰玉盾", "剑盾", "元罡盾", "盾击反击", "器盾",
@@ -721,7 +766,7 @@ _EXACT_LOCAL_PALETTE_TERMS = {
     "magic_gong": frozenset({"黑色巨锣"}),
     "magic_mask": frozenset({"一张青色面具"}),
     "magic_cloth": frozenset({"一块四方锦帕", "锦帕的古怪符文", "一块黑色轻纱", "血色披风"}),
-    "rune_pillar": frozenset({"巨大水晶柱", "青铜柱子全都", "青铜巨柱", "金色巨柱", "巨大石柱"}),
+    "rune_pillar": frozenset({"巨大水晶柱", "青铜柱子全都", "青铜巨柱", "金色巨柱", "巨大石柱", "八只圆柱"}),
     "spirit_armor": frozenset({
         "赤金色的精美战甲", "精美之极的全身战甲", "漆黑如墨的黑色战甲",
         "黄色战甲在体表一现浮出", "三色花纹的古朴战甲",
@@ -730,6 +775,7 @@ _EXACT_LOCAL_PALETTE_TERMS = {
 }
 
 _EXACT_LOCAL_PALETTE_FALLBACKS = {
+    "magic_boat": "qi", "ritual_altar": "earth", "puppet_figure": "qi",
     "magic_rope": "qi",
     "chain_net": "qi", "spear_spike": "qi", "wheel_disc": "qi", "seal_cage": "metal",
     "shield_plate": "earth", "spiked_shield": "wood",
@@ -905,12 +951,15 @@ def program_palette(text: str, fallback: str, argbs: dict[str, int]) -> tuple[st
 
 _PRIMITIVE_PALETTE_FALLBACK = {
     "giant_sword": "qi",
+    "magic_boat": "qi",
     "ritual_bowl": "yin",
+    "ritual_altar": "earth",
     "ritual_lamp": "qi",
     "ritual_coffin": "yin",
     "magic_ruler": "qi",
     "magic_staff": "metal",
     "magic_vajra": "qi",
+    "puppet_figure": "qi",
     "magic_bow": "metal",
     "magic_ruyi": "qi",
     "magic_hook": "yin",
@@ -933,7 +982,8 @@ _PRIMITIVE_PALETTE_FALLBACK = {
 
 _LOCAL_PALETTE_PRIMITIVES = frozenset({
     "giant_sword",
-    "ritual_bowl", "ritual_lamp", "ritual_coffin", "magic_ruler", "magic_staff", "magic_vajra",
+    "magic_boat", "ritual_bowl", "ritual_altar", "ritual_lamp", "ritual_coffin",
+    "magic_ruler", "magic_staff", "magic_vajra", "puppet_figure",
     "magic_bow", "magic_ruyi", "magic_hook", "magic_whip", "magic_rope", "magic_box",
     "magic_fan", "magic_umbrella", "magic_scissors", "command_token",
     "magic_brick", "bell_chime", "magic_scroll", "formation_disc", "spiked_club",
@@ -966,8 +1016,9 @@ def program_palette_source(text: str, primitive: str, matched_terms: list[str]) 
 
 
 _FIGURE_PRIMITIVES = {
-    "cauldron_vessel", "alchemy_furnace", "bell_chime", "gourd_vessel", "light_curtain", "halo_ring",
-    "ritual_bowl", "ritual_lamp", "ritual_coffin", "magic_ruler", "magic_staff", "magic_vajra",
+    "cauldron_vessel", "alchemy_furnace", "bell_chime", "gourd_vessel", "magic_boat",
+    "light_curtain", "halo_ring", "ritual_bowl", "ritual_altar", "ritual_lamp",
+    "ritual_coffin", "magic_ruler", "magic_staff", "magic_vajra", "puppet_figure",
     "magic_bow", "magic_ruyi", "magic_hook", "magic_whip", "magic_rope", "magic_box",
     "magic_fan", "magic_umbrella", "magic_scissors",
     "banner_streamer", "seal_stamp", "command_token", "magic_brick", "seal_cage", "bridge_arc",
@@ -1119,6 +1170,21 @@ def program_primitives(text: str, base_shape: str,
     if ("giant_sword" in selected and "巨剑门" in text
             and "巨剑门重劈" not in text):
         selected.remove("giant_sword")
+    if "puppet_figure" in selected:
+        selected = ["puppet_figure"] + [
+            primitive for primitive in selected
+            if primitive != "puppet_figure"
+            and (primitive != "spirit_avatar"
+                 or any(token in text for token in ("元婴", "圭灵")))
+        ]
+        if "黑黝黝的木人" in text:
+            selected = [primitive for primitive in selected if primitive != "eye_gaze"]
+        evidence.append("forced:puppet_body")
+    if "magic_boat" in selected:
+        selected = ["magic_boat"] + [
+            primitive for primitive in selected if primitive != "magic_boat"
+        ]
+        evidence.append("forced:moving_boat")
     if not selected:
         # Avoid dumping every underspecified card onto aura_burst: pick a calmer default
         # from the text when possible.
@@ -1173,7 +1239,8 @@ def program_primitives(text: str, base_shape: str,
             selected.append("sound_wave")
         selected = ["bell_chime"] + [p for p in selected if p != "bell_chime"]
     if "wheel_disc" in selected and any(token in text for token in (
-            "漆黑圆环", "黑乎乎的圆环", "黑乎乎圆环", "银色圆环", "淡黄色手镯", "巨大云环")):
+            "漆黑圆环", "黑乎乎的圆环", "黑乎乎圆环", "银色圆环", "淡黄色手镯",
+            "巨大云环", "骨戒", "戒指的变化")):
         selected = ["wheel_disc"] + [p for p in selected if p != "wheel_disc"]
     if "formation_disc" in selected and "五色光阵" in text and "rune_orbit" not in selected:
         selected.append("rune_orbit")
@@ -1233,6 +1300,8 @@ def program_primitives(text: str, base_shape: str,
             tail.append("impact_arcs")
         if head == "wheel_disc" and "impact_arcs" in ordered[1:] and any(
                 token in text for token in ("爆裂开来", "爆裂开", "爆裂")):
+            tail.append("impact_arcs")
+        if head == "formation_disc" and "impact_arcs" in ordered[1:] and "爆裂" in text:
             tail.append("impact_arcs")
         ordered = [head] + tail
     return ordered[:4], evidence[:10]
@@ -1353,6 +1422,62 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
             elif (primitive in {"beam_lance", "projectile_swarm"}
                     and "无数黑色符文" in source and "一道粗大乌光" in source):
                 primary_key = secondary_key = "yin"
+            elif primitive == "magic_boat" and "血红小舟" in source:
+                primary_key = secondary_key = "fire"
+            elif primitive == "magic_boat" and "金舟" in source:
+                primary_key = secondary_key = "metal"
+            elif primitive == "magic_boat" and "黑色巨舟" in source:
+                primary_key = secondary_key = "yin"
+            elif primitive == "magic_boat":
+                primary_key = secondary_key = "qi"
+            elif primitive == "ritual_altar" and "碧绿石台" in source:
+                primary_key = secondary_key = "wood"
+            elif primitive == "ritual_altar" and any(token in source for token in (
+                    "银浆浇筑", "聚星台")):
+                primary_key = secondary_key = "qi"
+            elif primitive == "ritual_altar" and "金色高台" in source:
+                primary_key = secondary_key = "metal"
+            elif primitive == "ritual_altar":
+                primary_key = secondary_key = "earth"
+            elif primitive == "puppet_figure" and "黑黝黝的木人" in source:
+                primary_key, secondary_key = "yin", "wood"
+            elif primitive == "puppet_figure" and "人形白玉傀儡" in source:
+                primary_key = secondary_key = "qi"
+            elif primitive == "puppet_figure" and any(token in source for token in (
+                    "石人残骸", "祭坛上石傀儡")):
+                primary_key = secondary_key = "earth"
+            elif primitive == "puppet_figure" and "黑乎乎的铁傀儡" in source:
+                primary_key, secondary_key = "yin", "water"
+            elif primitive == "puppet_figure" and "青甲傀儡" in source:
+                primary_key, secondary_key = "water", "metal"
+            elif primitive == "puppet_figure" and "铜人傀儡" in source:
+                primary_key = secondary_key = "metal"
+            elif primitive == "puppet_figure" and "铁甲" in source:
+                primary_key = secondary_key = "metal"
+            elif primitive == "puppet_figure" and "银光一闪" in source:
+                primary_key, secondary_key = "qi", "metal"
+            elif primitive == "puppet_figure":
+                primary_key = secondary_key = "qi"
+            elif primitive == "wheel_disc" and any(token in source for token in (
+                    "骨戒", "戒指的变化")):
+                primary_key = secondary_key = "qi"
+            elif primitive == "formation_disc" and any(token in source for token in (
+                    "移星子母盘", "这块阵盘终于爆裂", "北斗天星盘")):
+                primary_key = secondary_key = "qi"
+            elif primitive == "formation_banner" and "宽大白旗" in source:
+                primary_key = secondary_key = "qi"
+            elif primitive == "wing_fan" and "血红晶翅" in source:
+                primary_key = secondary_key = "fire"
+            elif primitive == "spear_spike" and "蓝色细刺" in source:
+                primary_key = secondary_key = "water"
+            elif primitive == "ghost_head" and "骨戒" in source:
+                primary_key = secondary_key = "qi"
+            elif primitive == "blood_thread" and "血红小舟" in source:
+                primary_key = secondary_key = "fire"
+            elif primitive == "rune_pillar" and "八只圆柱" in source:
+                primary_key = secondary_key = "earth"
+            elif primitive == "fire_plume" and "五种颜色各异寒焰" in source:
+                primary_key, secondary_key = "qi", "water"
             elif primitive == "magic_rope" and profile_id == "ghost_bind":
                 primary_key = secondary_key = "yin"
             elif primitive == "magic_rope" and "黑青色绳索" in source:
@@ -1633,6 +1758,7 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
                 (primitive == "shield_plate" and "铜盾" in source and "强烈的黄芒" in source)
                 or (primitive == "orb_projectile" and any(token in source for token in (
                     "黑白圆石", "奇寒无比", "白茫茫的奇寒")))
+                or (primitive == "puppet_figure" and "青甲傀儡" in source)
                 or (primitive == "magic_ruyi" and "数团精血" in source
                     and "白色光霞" in source)
             )
@@ -1649,6 +1775,22 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
             if primitive in {"magic_vajra", "magic_box", "magic_ruyi", "magic_hook", "magic_whip",
                              "spiked_shield"}:
                 copies = 1
+            if primitive == "magic_boat":
+                copies = 1
+            if primitive == "ritual_altar":
+                copies = 8 if "八个高台上的巨幡" in source else 1
+            if primitive == "puppet_figure":
+                copies = 1
+                if "两只士兵打扮的玩偶" in source:
+                    copies = 2
+                elif "数个真人大小的士兵傀儡" in source:
+                    copies = 5
+                elif "黑黝黝的木人" in source:
+                    copies = 8
+                elif "人形白玉傀儡" in source:
+                    copies = 4
+                elif "三只傀儡" in source and "青甲傀儡" in source:
+                    copies = 3
             if primitive == "magic_rope":
                 copies = 1
                 if "几根金索" in source or "五根粗大火索" in source:
@@ -1665,7 +1807,11 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
                 elif "几根红丝" in source:
                     copies = 5
             if primitive == "formation_banner":
-                if any(token in source for token in (
+                if "宽大白旗" in source and "四道白光" in source:
+                    copies = 4
+                elif "四具傀儡" in source and "手中大旗" in source:
+                    copies = 4
+                elif any(token in source for token in (
                         "十几道光柱从这些小旗", "十几杆五色小旗")):
                     copies = 12
                 elif "八块颜色的一个青色小旗" in source:
@@ -1683,8 +1829,15 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
                 copies = 1
             if primitive == "wheel_disc" and "圆轮" in source:
                 copies = 1
+            if primitive == "wheel_disc" and any(token in source for token in (
+                    "骨戒", "戒指的变化")):
+                copies = 5
             if primitive == "spear_spike" and "金色巨钉" in source:
                 copies = 5
+            if primitive == "spear_spike" and "蓝色细刺" in source:
+                copies = 12
+            if primitive == "rune_pillar" and "八只圆柱" in source:
+                copies = 8
             if (primitive == "scripture_glyph"
                     and "一个玉盒内的金色书页" in source):
                 copies = 12
@@ -1693,6 +1846,12 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
                 copies = 1
             if primitive == "eye_gaze" and "五色眼珠" in source:
                 copies = 5
+            if primitive == "ghost_head" and "骨戒" in source:
+                copies = 5
+            if primitive == "fire_plume" and "五种颜色各异寒焰" in source:
+                copies = 5
+            if primitive == "wing_fan" and "血红晶翅" in source:
+                copies = 4
             if (primitive == "light_curtain"
                     and "一层青色霞光顿时浮现而出" in source):
                 copies = 1
@@ -1812,6 +1971,8 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
             if primitive == "impact_arcs" and "银色圆环" in source:
                 copies = 1
             if primitive == "impact_arcs" and "一团刺目爆裂而开" in source:
+                copies = 1
+            if primitive == "impact_arcs" and "这块阵盘终于爆裂" in source:
                 copies = 1
             if primitive == "impact_arcs" and "五道粗大金弧" in source:
                 copies = 5
