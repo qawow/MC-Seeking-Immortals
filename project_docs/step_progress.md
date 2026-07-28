@@ -9509,3 +9509,17 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Artifact   Done   JAR SHA-256 `afa0e8d9a0c042015a719f477d4cce40d2d0b71f7ee0fc65a27147ae3897ade8`；视觉目录/术法效果目录 SHA-256 为 `dadefd61da4297d94257e91b74d07d793d6ea141281aa1f885f20440b62bca71` / `ef4d5c32941bdedb18880a51415543ad0a1f7488c87a213fe99cc392200dbe51`。
   Version/protocol   Done   `mod_version` 0.2.224→0.2.225；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
   Backup   Done   `.bak/20260728_102231_0.2.225_magic_needles_seals/`；隔离快照 `/tmp/mc-mod-0.2.225-audit.sfWB0I`。
+
+## 617. 2026-07-28 0.2.226 倚天城巨人、战车与飞舟变形
+
+  Step   Status   Notes
+  ---   ---   ---
+  Source boundary   Done   回读 `technique_962` 两条直接引文及所有战车/飞舟相邻命中；仅建筑主动幻化为高大巨人、巨型战车和巨型飞舟的句子接线，排除被毁/被击、背景战舟、阵法目标灵舟、过阵灵舟与攻击位置玉车。
+  Compiler   Done   新增 `magic_chariot=1`；首条引文固定为 `magic_chariot + puppet_figure + magic_boat + sound_wave`，第二条大殿拔地、五色光罩与巨型光球保持原程序语义。
+  Runtime   Done   战车由刚性车架、四个带轮辐光环的车轮、前后轮轴、双柱车盖、横梁与前撞角组成，接入 figure 分发和复杂轮廓最低 2 粒预算；飞舟静止朝向的竖轴叉积修正为正 Y，不再倒置。
+  Counts/palette   Done   战车、巨人、飞舟各 12 份跨帧采样，均为 `STATIC` 与 `earth→metal`；垂直偏移分别为 0.03、0.28、1.35，避免三类对象完全重叠；轰鸣波为单份。
+  Diff/contracts   Done   相对 0.2.225 仅 `technique_962` 改变；原始两组差异中第二组仅全局 `layer_index` 顺延，忽略索引后恰一条语义引文变化。非程序字段变化 0，视觉顶层仅 `source_hashes`，术法目录 2,292 profile 全不变且仅 `java_source_audit` 更新。目录为 5,727 profiles、10,984 层、109 primitive；`magic_boat=6`、`puppet_figure=16`。
+  Verification   Done   两个生成器按依赖顺序重生成及 `--check` 通过；清理缓存后的目录/渲染定向测试通过；隔离快照完整构建 `BUILD SUCCESSFUL in 1m 26s`，251 套件/1,178 测试 failure/error/skipped 均为 0。
+  Artifact   Done   JAR SHA-256 `ddbb79d1df7d3014d27c9f229aca261a96db8056946464f87b243ce48ad05102`；视觉目录/术法效果目录 SHA-256 为 `32f5c9c59ed791e99bd0332db3c426126dacf4eb0f503f6e2078bafdb0a15c8f` / `a94b64e03ca267ccfd5a341a93759ed1a705847e1b1eda0a51cc2d881617db97`。
+  Version/protocol   Done   `mod_version` 0.2.225→0.2.226；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
+  Backup   Done   `.bak/20260728_173456_0.2.226_chariot_transformation/`；隔离快照 `/tmp/mc-mod-0.2.226-audit.ZZyzWz`。

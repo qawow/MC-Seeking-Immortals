@@ -1754,7 +1754,7 @@ public final class LodestoneTechniqueVfx {
                     MAGIC_FAN, ALCHEMY_FURNACE, MAGIC_SCROLL, FORMATION_DISC,
                     SPIKED_CLUB, COMMAND_TOKEN, MAGIC_SCISSORS, MAGIC_BRICK,
                     MAGIC_UMBRELLA, MAGIC_BOW, MAGIC_RUYI, MAGIC_HOOK, MAGIC_WHIP,
-                    MAGIC_ROPE, MAGIC_BOAT, RITUAL_ALTAR, PUPPET_FIGURE,
+                    MAGIC_ROPE, MAGIC_BOAT, MAGIC_CHARIOT, RITUAL_ALTAR, PUPPET_FIGURE,
                     MAGIC_VAJRA, MAGIC_BOX, MAGIC_NEEDLE, SPIKED_SHIELD, CONFUCIAN_SAGE,
                     FORMATION_ROD, RUNE_STELE -> 2;
             default -> 1;
@@ -1952,6 +1952,10 @@ public final class LodestoneTechniqueVfx {
             }
             case MAGIC_BOAT -> {
                 magicBoatShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case MAGIC_CHARIOT -> {
+                magicChariotShape(level, family, start, end, radius, intensity, random);
                 yield true;
             }
             case RITUAL_ALTAR -> {
@@ -3612,7 +3616,7 @@ public final class LodestoneTechniqueVfx {
                                        int intensity, Random random) {
         Vec3 forward = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
         Vec3 side = perpendicular(forward);
-        Vec3 up = normalized(forward.cross(side), new Vec3(0.0D, 1.0D, 0.0D));
+        Vec3 up = normalized(side.cross(forward), new Vec3(0.0D, 1.0D, 0.0D));
         double size = Math.max(0.72D, Math.min(3.0D, radius * 0.88D));
         Vec3 center = (start.distanceToSqr(end) < 0.04D ? start : start.lerp(end, 0.5D))
                 .add(up.scale(size * 0.62D));
@@ -3642,6 +3646,62 @@ public final class LodestoneTechniqueVfx {
                 () -> shortLine(level, family,
                         center.add(side.scale(size * 0.5D)),
                         center.subtract(side.scale(size * 0.5D)), 6, random)), details);
+    }
+
+    /** War chariot silhouette: rigid frame, four wheels, axles, canopy and forward ram. */
+    private static void magicChariotShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                          Vec3 start, Vec3 end, float radius,
+                                          int intensity, Random random) {
+        Vec3 travel = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 forward = normalized(new Vec3(travel.x, 0.0D, travel.z),
+                new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 side = perpendicular(forward);
+        Vec3 up = normalized(side.cross(forward), new Vec3(0.0D, 1.0D, 0.0D));
+        Vec3 base = start.distanceToSqr(end) < 0.04D ? start : start.lerp(end, 0.5D);
+        double size = Math.max(0.82D, Math.min(3.3D, radius * 0.92D));
+        Vec3 deck = base.add(up.scale(size * 0.62D));
+        Vec3 rear = deck.subtract(forward.scale(size * 0.78D));
+        Vec3 front = deck.add(forward.scale(size * 0.72D));
+        Vec3 rearAxle = rear.subtract(up.scale(size * 0.22D));
+        Vec3 frontAxle = front.subtract(up.scale(size * 0.22D));
+        double halfWidth = size * 0.56D;
+        double wheelRadius = size * 0.34D;
+        Vec3 rearLeft = rearAxle.add(side.scale(halfWidth));
+        Vec3 rearRight = rearAxle.subtract(side.scale(halfWidth));
+        Vec3 frontLeft = frontAxle.add(side.scale(halfWidth));
+        Vec3 frontRight = frontAxle.subtract(side.scale(halfWidth));
+        Vec3 canopyRear = rear.add(up.scale(size * 0.82D));
+        Vec3 canopyFront = front.add(up.scale(size * 0.82D));
+        Vec3 ramBase = front.subtract(up.scale(size * 0.08D));
+        Vec3 ramTip = ramBase.add(forward.scale(size * 0.88D));
+        List<Runnable> details = new ArrayList<>();
+        for (Vec3 wheel : List.of(rearLeft, rearRight, frontLeft, frontRight)) {
+            details.add(() -> verticalRing(level, family, wheel, side, wheelRadius,
+                    Math.min(14, Math.max(7, intensity / 4)), random, 0.14F));
+            details.add(() -> shortLine(level, family,
+                    wheel.subtract(up.scale(wheelRadius)),
+                    wheel.add(up.scale(wheelRadius)), 4, random));
+        }
+        details.add(() -> shortLine(level, family, rearAxle, frontAxle, 8, random));
+        details.add(() -> shortLine(level, family, rearLeft, rearRight, 6, random));
+        details.add(() -> shortLine(level, family, frontLeft, frontRight, 6, random));
+        details.add(() -> shortLine(level, family, rear, canopyRear, 5, random));
+        details.add(() -> shortLine(level, family, front, canopyFront, 5, random));
+        details.add(() -> shortLine(level, family, canopyRear, canopyFront, 7, random));
+        details.add(() -> shortLine(level, family,
+                canopyRear.add(side.scale(size * 0.38D)),
+                canopyRear.subtract(side.scale(size * 0.38D)), 5, random));
+        details.add(() -> shortLine(level, family,
+                canopyFront.add(side.scale(size * 0.38D)),
+                canopyFront.subtract(side.scale(size * 0.38D)), 5, random));
+        details.add(() -> shortLine(level, family, ramBase, ramTip, 7, random));
+        details.add(() -> spawn(level, LodestoneParticleRegistry.STAR_PARTICLE, family,
+                ramTip, forward.scale(0.014D), 0.18F, 0.92F, 22, random.nextFloat()));
+        emitFigureComponents(level, 281, List.of(
+                () -> shortLine(level, family, rear, front, 9, random),
+                () -> shortLine(level, family,
+                        deck.add(side.scale(halfWidth)),
+                        deck.subtract(side.scale(halfWidth)), 7, random)), details);
     }
 
     /** Ritual altar silhouette: stepped top, square footprint, corner posts and rune core. */

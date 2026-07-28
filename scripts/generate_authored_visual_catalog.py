@@ -414,6 +414,7 @@ PROGRAM_RULES = (
     ("gourd_vessel", ("葫芦", "玉葫芦", "宝葫芦", "灵葫芦", "玉瓶", "宝瓶", "灵瓶", "净瓶", "玉净瓶", "掌天瓶", "小瓶", "瓶影")),
     ("magic_boat", ("脚下的神风舟却白光一闪", "神风舟就开始飞行的歪歪扭扭",
                     "金舟微微一颤下", "黑色巨舟顿时破空声一响", "血红小舟")),
+    ("magic_chariot", ("巨型战车和巨型飞舟模样",)),
     ("ritual_bowl", ("聚魂钵", "漆黑钵盂", "乌黑圆钵", "碧绿圆钵", "银色圆钵", "圆钵", "钵盂")),
     ("ritual_altar", ("七八丈高的碧绿石台", "巨大祭坛同时散发", "整个高台仿佛被银浆浇筑",
                       "整个聚星台骤然大亮", "一方不大不小的金色高台", "整座金色高台顿时光芒大作",
@@ -656,6 +657,8 @@ def program_primitive_path(primitive: str, text: str, fallback: str) -> str:
         return "DIRECT" if any(token in text for token in (
             "一闪而过", "激射而出", "激射而起", "破空声", "消失不见",
         )) else "STATIC"
+    if primitive == "magic_chariot":
+        return "STATIC"
     if primitive == "ritual_altar":
         return "STATIC"
     if primitive == "puppet_figure":
@@ -1031,6 +1034,7 @@ _PRIMITIVE_PALETTE_FALLBACK = {
     "rune_stele": "qi",
     "giant_sword": "qi",
     "magic_boat": "qi",
+    "magic_chariot": "metal",
     "ritual_bowl": "yin",
     "ritual_altar": "earth",
     "ritual_lamp": "qi",
@@ -1062,7 +1066,7 @@ _PRIMITIVE_PALETTE_FALLBACK = {
 
 _LOCAL_PALETTE_PRIMITIVES = frozenset({
     "giant_sword", "confucian_sage", "formation_rod", "rune_stele",
-    "magic_boat", "ritual_bowl", "ritual_altar", "ritual_lamp", "ritual_coffin",
+    "magic_boat", "magic_chariot", "ritual_bowl", "ritual_altar", "ritual_lamp", "ritual_coffin",
     "magic_ruler", "magic_staff", "magic_vajra", "puppet_figure",
     "magic_bow", "magic_ruyi", "magic_hook", "magic_whip", "magic_rope", "magic_box",
     "magic_needle",
@@ -1102,6 +1106,7 @@ def program_palette_source(text: str, primitive: str, matched_terms: list[str]) 
 
 _FIGURE_PRIMITIVES = {
     "cauldron_vessel", "alchemy_furnace", "bell_chime", "gourd_vessel", "magic_boat",
+    "magic_chariot",
     "confucian_sage", "formation_rod", "rune_stele",
     "light_curtain", "halo_ring", "ritual_bowl", "ritual_altar", "ritual_lamp",
     "ritual_coffin", "magic_ruler", "magic_staff", "magic_vajra", "puppet_figure",
@@ -1296,6 +1301,11 @@ def program_primitives(text: str, base_shape: str,
             primitive for primitive in selected if primitive != "magic_boat"
         ]
         evidence.append("forced:moving_boat")
+    if (profile_id == "technique_962"
+            and "巨型战车和巨型飞舟模样" in text):
+        # Active city defenses transform here; destroyed or background vehicles do not.
+        selected = ["magic_chariot", "puppet_figure", "magic_boat", "sound_wave"]
+        evidence.append("forced:transformed_city_defenses")
     if not selected:
         # Avoid dumping every underspecified card onto aura_burst: pick a calmer default
         # from the text when possible.
@@ -1469,6 +1479,10 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
             palette_source = program_palette_source(source, primitive, matched_terms)
             if primitive == "confucian_sage":
                 primary_key = secondary_key = "qi"
+            elif (profile_id == "technique_962"
+                  and "巨型战车和巨型飞舟模样" in source
+                  and primitive in {"magic_chariot", "puppet_figure", "magic_boat", "sound_wave"}):
+                primary_key, secondary_key = "earth", "metal"
             elif primitive == "formation_rod" and profile_id == "technique_1493":
                 primary_key, secondary_key = "earth", "metal"
             elif primitive == "formation_rod" and profile_id == "technique_910":
@@ -1947,6 +1961,7 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
                     and "白色光霞" in source)
                 or (primitive == "chain_net" and profile_id == "technique_910")
                 or (primitive == "magic_needle" and profile_id == "technique_505")
+                or (primitive == "magic_chariot" and profile_id == "technique_962")
             )
             if ((primitive in _LOCAL_PALETTE_PRIMITIVES or exact_local_palette) and matched_terms
                     and primary_key != primitive_fallback and secondary_key == primitive_fallback):
@@ -2199,10 +2214,24 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
                 copies = 1
             if primitive == "afterimage_path" and "血色披风" in source:
                 copies = 1
+            transformed_defense = (profile_id == "technique_962"
+                                   and "巨型战车和巨型飞舟模样" in source)
+            if transformed_defense and primitive in {
+                    "magic_chariot", "puppet_figure", "magic_boat"}:
+                copies = 12
             layer_path = program_primitive_path(primitive, source, path)
             layer_anchor = program_anchor(source, layer_path, trigger)
             layer_spread = 360.0 if layer_path == "ORBIT" else spread
             layer_rotation = 360.0 if layer_path in {"ORBIT", "SPIRAL"} else rotation
+            layer_vertical_offset = (0.0 if layer_anchor in {"TARGET", "PATH"}
+                                     else (0.18 if "地面" not in source else 0.03))
+            if transformed_defense:
+                if primitive == "magic_chariot":
+                    layer_vertical_offset = 0.03
+                elif primitive == "puppet_figure":
+                    layer_vertical_offset = 0.28
+                elif primitive == "magic_boat":
+                    layer_vertical_offset = 1.35
             layers.append({
                 "layer_index": len(layers),
                 "event_ordinal": int(event.get("ordinal", event_index)),
@@ -2217,7 +2246,7 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
                 "speed": speed,
                 "spread_degrees": layer_spread,
                 "rotation_degrees": layer_rotation,
-                "vertical_offset": 0.0 if layer_anchor in {"TARGET", "PATH"} else (0.18 if "地面" not in source else 0.03),
+                "vertical_offset": layer_vertical_offset,
                 "jitter": 0.06 if motion in {"FLICKER", "PULSE"} else 0.02,
                 "primary_argb": int(argbs.get(primary_key, argbs[fallback_palette])),
                 "secondary_argb": int(argbs.get(secondary_key, argbs[fallback_palette])),

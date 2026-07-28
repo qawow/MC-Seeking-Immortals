@@ -1577,10 +1577,12 @@ class AuthoredVisualCatalogTest {
                 .flatMap(profile -> profile.visualProgram().layers().stream())
                 .toList();
 
-        assertEquals(15, allLayers.stream()
+        assertEquals(16, allLayers.stream()
                 .filter(layer -> layer.primitive() == VisualPrimitive.PUPPET_FIGURE).count());
-        assertEquals(5, allLayers.stream()
+        assertEquals(6, allLayers.stream()
                 .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_BOAT).count());
+        assertEquals(1, allLayers.stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_CHARIOT).count());
         assertEquals(9, allLayers.stream()
                 .filter(layer -> layer.primitive() == VisualPrimitive.RITUAL_ALTAR).count());
 
@@ -1673,6 +1675,47 @@ class AuthoredVisualCatalogTest {
             assertFalse(catalog.find(VisualDomain.TECHNIQUE, backgroundBoat).orElseThrow()
                     .visualProgram().layers().stream()
                     .anyMatch(layer -> layer.primitive() == VisualPrimitive.MAGIC_BOAT));
+        }
+
+        VisualProfile transformedDefenses = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_962").orElseThrow();
+        List<VisualProgramLayer> transformedLayers = transformedDefenses.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("巨型战车和巨型飞舟模样"))
+                .toList();
+        assertEquals(List.of(VisualPrimitive.MAGIC_CHARIOT, VisualPrimitive.PUPPET_FIGURE,
+                        VisualPrimitive.MAGIC_BOAT, VisualPrimitive.SOUND_WAVE),
+                transformedLayers.stream().map(VisualProgramLayer::primitive).toList());
+        for (VisualPrimitive primitive : List.of(VisualPrimitive.MAGIC_CHARIOT,
+                VisualPrimitive.PUPPET_FIGURE, VisualPrimitive.MAGIC_BOAT)) {
+            VisualProgramLayer transformed = transformedLayers.stream()
+                    .filter(layer -> layer.primitive() == primitive)
+                    .findFirst().orElseThrow();
+            assertEquals(12, transformed.copies(), primitive.id());
+            assertEquals(VisualProgramLayer.Path.STATIC, transformed.path(), primitive.id());
+            assertEquals(earth, transformed.primaryArgb(), primitive.id());
+            assertEquals(metal, transformed.secondaryArgb(), primitive.id());
+        }
+        assertTrue(figureLayer(catalog, "technique_962", VisualPrimitive.MAGIC_CHARIOT,
+                "巨型战车").verticalOffset()
+                < figureLayer(catalog, "technique_962", VisualPrimitive.PUPPET_FIGURE,
+                "高大巨人").verticalOffset());
+        assertTrue(figureLayer(catalog, "technique_962", VisualPrimitive.PUPPET_FIGURE,
+                "高大巨人").verticalOffset()
+                < figureLayer(catalog, "technique_962", VisualPrimitive.MAGIC_BOAT,
+                "巨型飞舟").verticalOffset());
+        assertEquals(1, transformedLayers.stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.SOUND_WAVE)
+                .findFirst().orElseThrow().copies());
+        assertTrue(transformedDefenses.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("巨型光球"))
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.ORB_PROJECTILE));
+        for (String nonTransformingVehicle : List.of(
+                "technique_995", "technique_762", "technique_1302", "technique_1303",
+                "technique_1375", "technique_1457", "technique_538")) {
+            assertFalse(catalog.find(VisualDomain.TECHNIQUE, nonTransformingVehicle).orElseThrow()
+                    .visualProgram().layers().stream()
+                    .anyMatch(layer -> layer.primitive() == VisualPrimitive.MAGIC_CHARIOT),
+                    nonTransformingVehicle);
         }
 
         VisualProgramLayer giantAltar = figureLayer(catalog, "technique_1270",

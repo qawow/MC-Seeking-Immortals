@@ -159,7 +159,8 @@ class LodestoneVfxContractTest {
                 "spikedClubShape", "commandTokenShape", "magicScissorsShape",
                 "magicBrickShape", "magicUmbrellaShape", "magicBowShape",
                 "giantSwordShape", "magicRuyiShape", "magicHookShape", "magicWhipShape",
-                "magicRopeShape", "magicBoatShape", "ritualAltarShape", "puppetFigureShape",
+                "magicRopeShape", "magicBoatShape", "magicChariotShape", "ritualAltarShape",
+                "puppetFigureShape",
                 "magicVajraShape", "magicBoxShape", "magicNeedleShape", "spikedShieldShape",
                 "confucianSageShape", "formationRodShape", "runeSteleShape")) {
             assertTrue(renderer.contains("private static void " + helper + "("), helper);
@@ -174,7 +175,8 @@ class LodestoneVfxContractTest {
                 "case MAGIC_BRICK ->", "case MAGIC_UMBRELLA ->",
                 "case MAGIC_BOW ->", "case GIANT_SWORD ->", "case MAGIC_RUYI ->",
                 "case MAGIC_HOOK ->", "case MAGIC_WHIP ->", "case MAGIC_VAJRA ->",
-                "case MAGIC_ROPE ->", "case MAGIC_BOAT ->", "case RITUAL_ALTAR ->",
+                "case MAGIC_ROPE ->", "case MAGIC_BOAT ->", "case MAGIC_CHARIOT ->",
+                "case RITUAL_ALTAR ->",
                 "case PUPPET_FIGURE ->", "case MAGIC_BOX ->", "case MAGIC_NEEDLE ->",
                 "case SPIKED_SHIELD ->",
                 "case CONFUCIAN_SAGE ->", "case FORMATION_ROD ->", "case RUNE_STELE ->")) {
