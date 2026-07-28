@@ -1849,6 +1849,119 @@ class AuthoredVisualCatalogTest {
     }
 
     @Test
+    void screensAndPagesKeepAuthoredFramesGlyphsAndCompanionEffects() {
+        AuthoredVisualCatalog.Snapshot catalog = AuthoredVisualCatalog.builtin();
+        long qi = catalog.palette("qi").orElseThrow().argb();
+        long water = catalog.palette("water").orElseThrow().argb();
+        long metal = catalog.palette("metal").orElseThrow().argb();
+        long earth = catalog.palette("earth").orElseThrow().argb();
+        long yin = catalog.palette("yin").orElseThrow().argb();
+        long fire = catalog.palette("fire").orElseThrow().argb();
+        List<VisualProgramLayer> allLayers = catalog.profiles().values().stream()
+                .filter(profile -> profile.domain() == VisualDomain.TECHNIQUE)
+                .flatMap(profile -> profile.visualProgram().layers().stream())
+                .toList();
+
+        assertEquals(4, allLayers.stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_SCREEN).count());
+        assertEquals(6, allLayers.stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_PAGE).count());
+
+        VisualProgramLayer livingScreen = figureLayer(catalog, "technique_1478",
+                VisualPrimitive.MAGIC_SCREEN, "白色晶芒");
+        assertEquals(1, livingScreen.copies());
+        assertEquals(VisualProgramLayer.Path.STATIC, livingScreen.path());
+        assertEquals(VisualProgramLayer.Motion.MATERIALIZE, livingScreen.motion());
+        assertEquals(qi, livingScreen.primaryArgb());
+        assertEquals(water, livingScreen.secondaryArgb());
+        assertFalse(catalog.find(VisualDomain.TECHNIQUE, "technique_1478").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.sourceQuote().contains("白色晶芒")
+                        && layer.primitive() == VisualPrimitive.PROJECTILE_SWARM));
+        assertEquals(1, figureLayer(catalog, "technique_1478",
+                VisualPrimitive.MAGIC_SCREEN, "黑色门扉").copies());
+        assertEquals(1, figureLayer(catalog, "technique_1478",
+                VisualPrimitive.MAGIC_GATE, "黑色门扉").copies());
+
+        for (String sourceToken : List.of("单手抓着铁牌", "自己的玉佩")) {
+            VisualProgramLayer mapScreen = figureLayer(catalog, "technique_605",
+                    VisualPrimitive.MAGIC_SCREEN, sourceToken);
+            assertEquals(1, mapScreen.copies());
+            assertEquals(VisualProgramLayer.Path.STATIC, mapScreen.path());
+            assertEquals(earth, mapScreen.primaryArgb());
+            assertEquals(metal, mapScreen.secondaryArgb());
+            assertEquals(1, figureLayer(catalog, "technique_605",
+                    VisualPrimitive.COMMAND_TOKEN, sourceToken).copies());
+            assertEquals(1, figureLayer(catalog, "technique_605",
+                    VisualPrimitive.SCRIPTURE_GLYPH, sourceToken).copies());
+            assertEquals(VisualProgramLayer.Path.DIRECT, figureLayer(catalog, "technique_605",
+                    VisualPrimitive.CHANNEL_STREAM, sourceToken).path());
+        }
+
+        VisualProgramLayer goldenPage = figureLayer(catalog, "technique_031",
+                VisualPrimitive.MAGIC_PAGE, "金色书页");
+        assertEquals(1, goldenPage.copies());
+        assertEquals(metal, goldenPage.primaryArgb());
+        assertEquals(metal, goldenPage.secondaryArgb());
+        assertEquals(1, figureLayer(catalog, "technique_031",
+                VisualPrimitive.MAGIC_BOX, "金色书页").copies());
+        assertEquals(12, figureLayer(catalog, "technique_031",
+                VisualPrimitive.SCRIPTURE_GLYPH, "金色书页").copies());
+
+        VisualProgramLayer glowingPage = figureLayer(catalog, "technique_035",
+                VisualPrimitive.MAGIC_PAGE, "书页上的光芒");
+        assertEquals(metal, glowingPage.primaryArgb());
+        assertEquals(qi, glowingPage.secondaryArgb());
+        VisualProgramLayer lightGlyphs = figureLayer(catalog, "technique_035",
+                VisualPrimitive.SCRIPTURE_GLYPH, "书页上的光芒");
+        assertEquals(12, lightGlyphs.copies());
+        assertEquals(VisualProgramLayer.Path.CONVERGE, lightGlyphs.path());
+        assertEquals(VisualProgramLayer.Motion.MATERIALIZE, lightGlyphs.motion());
+        assertFalse(catalog.find(VisualDomain.TECHNIQUE, "technique_035").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.PROJECTILE_SWARM));
+
+        VisualProgramLayer bloodPage = figureLayer(catalog, "technique_399",
+                VisualPrimitive.MAGIC_PAGE, "一团精血");
+        assertEquals(yin, bloodPage.primaryArgb());
+        assertEquals(fire, bloodPage.secondaryArgb());
+        assertEquals(fire, figureLayer(catalog, "technique_399",
+                VisualPrimitive.ORB_PROJECTILE, "一团精血").primaryArgb());
+        assertEquals(8, figureLayer(catalog, "technique_399",
+                VisualPrimitive.SCRIPTURE_GLYPH, "飞快的写").copies());
+        assertEquals(VisualProgramLayer.Motion.MATERIALIZE,
+                figureLayer(catalog, "technique_399",
+                        VisualPrimitive.GHOST_HEAD, "飞快的写").motion());
+        assertEquals(VisualProgramLayer.Motion.MATERIALIZE,
+                figureLayer(catalog, "technique_399",
+                        VisualPrimitive.FIRE_PLUME, "飞快的写").motion());
+        VisualProgramLayer sealedPage = figureLayer(catalog, "technique_399",
+                VisualPrimitive.MAGIC_PAGE, "一道蓝光打出");
+        assertEquals(yin, sealedPage.primaryArgb());
+        assertEquals(water, sealedPage.secondaryArgb());
+        assertEquals(VisualProgramLayer.Path.DIRECT,
+                figureLayer(catalog, "technique_399",
+                        VisualPrimitive.CHANNEL_STREAM, "一道蓝光打出").path());
+
+        VisualProgramLayer scripturePage = figureLayer(catalog, "technique_1215",
+                VisualPrimitive.MAGIC_PAGE, "金篆文从书页");
+        assertEquals(metal, scripturePage.primaryArgb());
+        assertEquals(qi, scripturePage.secondaryArgb());
+        VisualProgramLayer flowingGlyphs = figureLayer(catalog, "technique_1215",
+                VisualPrimitive.SCRIPTURE_GLYPH, "金篆文从书页");
+        assertEquals(20, flowingGlyphs.copies());
+        assertEquals(VisualProgramLayer.Path.DIRECT, flowingGlyphs.path());
+        assertEquals(VisualProgramLayer.Motion.MATERIALIZE, flowingGlyphs.motion());
+        VisualProgramLayer dissolvingGlyphs = figureLayer(catalog, "technique_1215",
+                VisualPrimitive.SCRIPTURE_GLYPH, "将经文化为点点灵光");
+        assertEquals(20, dissolvingGlyphs.copies());
+        assertEquals(VisualProgramLayer.Motion.DISSOLVE, dissolvingGlyphs.motion());
+        assertFalse(catalog.find(VisualDomain.TECHNIQUE, "technique_1215").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.PROJECTILE_SWARM));
+    }
+
+    @Test
     void fortressWallsAndMagicGatesKeepAuthoredStructureMotionAndCompanions() {
         AuthoredVisualCatalog.Snapshot catalog = AuthoredVisualCatalog.builtin();
         long qi = catalog.palette("qi").orElseThrow().argb();

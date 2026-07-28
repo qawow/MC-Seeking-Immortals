@@ -9553,3 +9553,18 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Artifact   Done   JAR SHA-256 `57933e0bb2a92a8171a2dceed54f7401b299002cf6b119d0c6ed5923efffbefb`；视觉目录/术法效果目录 SHA-256 为 `663a78fbdd0a912f29aede8f8a200b81ed1898f8803e134c6bb4e0552c789e06` / `a0c46d8bdaa14676a8eb15cbb225a9e57288a5d4e131cda4044248e03f4bb7e2`。
   Version/protocol   Done   `mod_version` 0.2.227→0.2.228；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
   Backup   Done   `.bak/20260728_0.2.228_gates_walls/`；隔离快照 `/tmp/mc-mod-0.2.228-audit.A3r4vo`。
+
+## 620. 2026-07-29 0.2.229 活化屏风与铭文书页独立轮廓
+
+  Step   Status   Notes
+  ---   ---   ---
+  Source boundary   Done   回读玉阙阁地图屏风、天蝎派山水屏风、金银书页、黑色血誓书页与金篆经页共六个 profile、十一条直接引文；桌椅背景、阁楼比喻及普通屏幕文本不命中。
+  Compiler   Done   新增 `magic_screen=4`、`magic_page=6`；精确 profile 与长引文分派保留门扉、令牌/玉佩、直线、数字、盒体、精血球、鬼头、黑焰和经文伴随层，删除三处文字/山水误生的 `projectile_swarm`。
+  Runtime   Done   屏风由双柱、上下框、支脚、山水折线、内环与游动星点组成；书页由薄页外框、折角、厚度边与五行铭文组成。两者接入 figure 分发和复杂轮廓最低 2 粒预算，固定 52-shape switch 未改。
+  Path/motion   Done   山水屏风为 `STATIC/MATERIALIZE`，后续屏风与地图屏风为 `STATIC/STEADY`；书页始终静止，光字 12 份 `CONVERGE/MATERIALIZE`，金篆文 20 份 `DIRECT/MATERIALIZE` 后以 20 份 `STATIC/DISSOLVE` 灵光消散。
+  Counts/palette   Done   屏风/书页主体均单份；天蝎屏风 `qi→water`，地图屏风 `earth→metal`，金页 `metal` 或 `metal→qi`，血誓黑页 `yin→fire/water`。精血、鬼头、黑焰和蓝色封印光保持独立局部配色。
+  Diff/contracts   Done   相对 0.2.228 恰有 6 个预期 profile、11 条去索引引文组变化，非程序字段变化 0；视觉顶层仅 `source_hashes`，术法目录 2,292 profile 全不变且仅 `java_source_audit` 更新。目录为 5,727 profiles、11,000 层、114 primitive。
+  Verification   Done   两个生成器顺序重生成及 `--check`、结构化差异审计、定向目录/渲染契约测试和隔离快照完整构建均通过；最终 `BUILD SUCCESSFUL in 1m 40s`，251 套件/1,181 测试 failure/error/skipped 均为 0。
+  Artifact   Done   JAR SHA-256 `bd22a58453f2df711fbfae883498427e65654938b033540c3cfac2483a001e37`；视觉目录/术法效果目录 SHA-256 为 `439f2d3283785d715ff0d6305009c4d949e700b3c70afd795a3a95bd9c136f63` / `9f38dc30d8f32ede3cd910237863c07c23f4a17838276df1f8da9c02b6ba922e`。
+  Version/protocol   Done   `mod_version` 0.2.228→0.2.229；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
+  Backup   Done   `.bak/20260729_0.2.229_screens_pages/`；隔离快照 `/tmp/mc-mod-0.2.229-audit.ahLnyo`。

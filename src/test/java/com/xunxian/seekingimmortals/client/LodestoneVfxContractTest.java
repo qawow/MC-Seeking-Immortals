@@ -160,7 +160,7 @@ class LodestoneVfxContractTest {
                 "magicBrickShape", "magicUmbrellaShape", "magicBowShape",
                 "giantSwordShape", "magicRuyiShape", "magicHookShape", "magicWhipShape",
                 "magicRopeShape", "magicBoatShape", "magicChariotShape", "magicHallShape",
-                "fortressWallShape", "magicGateShape",
+                "fortressWallShape", "magicGateShape", "magicScreenShape", "magicPageShape",
                 "ritualAltarShape", "puppetFigureShape",
                 "magicVajraShape", "magicBoxShape", "magicNeedleShape", "spikedShieldShape",
                 "confucianSageShape", "formationRodShape", "runeSteleShape")) {
@@ -178,6 +178,7 @@ class LodestoneVfxContractTest {
                 "case MAGIC_HOOK ->", "case MAGIC_WHIP ->", "case MAGIC_VAJRA ->",
                 "case MAGIC_ROPE ->", "case MAGIC_BOAT ->", "case MAGIC_CHARIOT ->",
                 "case MAGIC_HALL ->", "case FORTRESS_WALL ->", "case MAGIC_GATE ->",
+                "case MAGIC_SCREEN ->", "case MAGIC_PAGE ->",
                 "case RITUAL_ALTAR ->",
                 "case PUPPET_FIGURE ->", "case MAGIC_BOX ->", "case MAGIC_NEEDLE ->",
                 "case SPIKED_SHIELD ->",

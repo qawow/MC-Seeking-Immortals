@@ -1755,6 +1755,7 @@ public final class LodestoneTechniqueVfx {
                     SPIKED_CLUB, COMMAND_TOKEN, MAGIC_SCISSORS, MAGIC_BRICK,
                     MAGIC_UMBRELLA, MAGIC_BOW, MAGIC_RUYI, MAGIC_HOOK, MAGIC_WHIP,
                     MAGIC_ROPE, MAGIC_BOAT, MAGIC_CHARIOT, MAGIC_HALL, FORTRESS_WALL, MAGIC_GATE,
+                    MAGIC_SCREEN, MAGIC_PAGE,
                     RITUAL_ALTAR, PUPPET_FIGURE,
                     MAGIC_VAJRA, MAGIC_BOX, MAGIC_NEEDLE, SPIKED_SHIELD, CONFUCIAN_SAGE,
                     FORMATION_ROD, RUNE_STELE -> 2;
@@ -1969,6 +1970,14 @@ public final class LodestoneTechniqueVfx {
             }
             case MAGIC_GATE -> {
                 magicGateShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case MAGIC_SCREEN -> {
+                magicScreenShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case MAGIC_PAGE -> {
+                magicPageShape(level, family, start, end, radius, intensity, random);
                 yield true;
             }
             case RITUAL_ALTAR -> {
@@ -3894,6 +3903,101 @@ public final class LodestoneTechniqueVfx {
                 () -> shortLine(level, family, leftPost, rightPost, 7, random),
                 () -> spawn(level, LodestoneParticleRegistry.STAR_PARTICLE, family,
                         lintelMid, up.scale(0.004D), 0.2F, 0.9F, 22, random.nextFloat())), details);
+    }
+
+    /** Standing screen silhouette: framed map panel, feet, mountain trace and living map cursor. */
+    private static void magicScreenShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                         Vec3 start, Vec3 end, float radius,
+                                         int intensity, Random random) {
+        Vec3 travel = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 forward = normalized(new Vec3(travel.x, 0.0D, travel.z),
+                new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 side = perpendicular(forward);
+        Vec3 up = normalized(side.cross(forward), new Vec3(0.0D, 1.0D, 0.0D));
+        Vec3 base = start.distanceToSqr(end) < 0.04D ? start : start.lerp(end, 0.5D);
+        double size = Math.max(0.9D, Math.min(3.8D, radius * 0.88D));
+        double halfWidth = size * 1.08D;
+        double height = size * 1.58D;
+        Vec3 leftBase = base.subtract(side.scale(halfWidth));
+        Vec3 rightBase = base.add(side.scale(halfWidth));
+        Vec3 leftTop = leftBase.add(up.scale(height));
+        Vec3 rightTop = rightBase.add(up.scale(height));
+        Vec3 panelCenter = base.add(up.scale(height * 0.55D)).add(forward.scale(size * 0.04D));
+        Vec3 innerLeft = panelCenter.subtract(side.scale(halfWidth * 0.78D));
+        Vec3 innerRight = panelCenter.add(side.scale(halfWidth * 0.78D));
+        Vec3 mapLeft = innerLeft.subtract(up.scale(height * 0.18D));
+        Vec3 mapLeftPeak = innerLeft.add(side.scale(halfWidth * 0.3D)).add(up.scale(height * 0.14D));
+        Vec3 mapValley = panelCenter.subtract(up.scale(height * 0.1D));
+        Vec3 mapRightPeak = innerRight.subtract(side.scale(halfWidth * 0.34D)).add(up.scale(height * 0.2D));
+        Vec3 mapRight = innerRight.subtract(up.scale(height * 0.15D));
+        double phase = level.getGameTime() * 0.11D;
+        Vec3 cursor = panelCenter.add(side.scale(Math.cos(phase) * halfWidth * 0.48D))
+                .add(up.scale(Math.sin(phase) * height * 0.22D));
+        List<Runnable> details = new ArrayList<>();
+        details.add(() -> shortLine(level, family,
+                leftBase.subtract(side.scale(size * 0.24D)),
+                leftBase.add(side.scale(size * 0.24D)), 4, random));
+        details.add(() -> shortLine(level, family,
+                rightBase.subtract(side.scale(size * 0.24D)),
+                rightBase.add(side.scale(size * 0.24D)), 4, random));
+        details.add(() -> shortLine(level, family, mapLeft, mapLeftPeak, 5, random));
+        details.add(() -> shortLine(level, family, mapLeftPeak, mapValley, 5, random));
+        details.add(() -> shortLine(level, family, mapValley, mapRightPeak, 5, random));
+        details.add(() -> shortLine(level, family, mapRightPeak, mapRight, 5, random));
+        details.add(() -> shortLine(level, family,
+                innerLeft.add(up.scale(height * 0.28D)),
+                innerRight.add(up.scale(height * 0.28D)), 7, random));
+        details.add(() -> verticalRing(level, family, panelCenter, forward, size * 0.22D,
+                Math.min(14, Math.max(8, intensity / 3)), random, 0.12F));
+        details.add(() -> spawn(level, LodestoneParticleRegistry.STAR_PARTICLE, family,
+                cursor, up.scale(0.006D), 0.18F, 0.9F, 22, phaseAsFloat(phase)));
+        emitFigureComponents(level, 313, List.of(
+                () -> shortLine(level, family, leftBase, leftTop, 8, random),
+                () -> shortLine(level, family, rightBase, rightTop, 8, random),
+                () -> shortLine(level, family, leftTop, rightTop, 9, random),
+                () -> shortLine(level, family, leftBase, rightBase, 9, random)), details);
+    }
+
+    /** Inscribed page silhouette: thin rectangular leaf, folded corner and ordered glyph rows. */
+    private static void magicPageShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                       Vec3 start, Vec3 end, float radius,
+                                       int intensity, Random random) {
+        Vec3 direction = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 side = perpendicular(direction);
+        Vec3 up = normalized(side.cross(direction), new Vec3(0.0D, 1.0D, 0.0D));
+        Vec3 center = (start.distanceToSqr(end) < 0.04D ? start : start.lerp(end, 0.5D))
+                .add(up.scale(0.82D));
+        double size = Math.max(0.55D, Math.min(2.2D, radius * 0.62D));
+        double halfWidth = size * 0.52D;
+        double halfHeight = size * 0.72D;
+        Vec3 bottomLeft = center.subtract(side.scale(halfWidth)).subtract(up.scale(halfHeight));
+        Vec3 bottomRight = center.add(side.scale(halfWidth)).subtract(up.scale(halfHeight));
+        Vec3 topLeft = center.subtract(side.scale(halfWidth)).add(up.scale(halfHeight));
+        Vec3 topRight = center.add(side.scale(halfWidth)).add(up.scale(halfHeight));
+        Vec3 foldTop = topRight.subtract(side.scale(size * 0.22D));
+        Vec3 foldSide = topRight.subtract(up.scale(size * 0.22D));
+        List<Runnable> details = new ArrayList<>();
+        details.add(() -> shortLine(level, family, foldTop, foldSide, 4, random));
+        details.add(() -> shortLine(level, family, foldTop, topRight, 3, random));
+        details.add(() -> shortLine(level, family, foldSide, topRight, 3, random));
+        details.add(() -> shortLine(level, family,
+                bottomRight.add(direction.scale(size * 0.05D)),
+                topRight.add(direction.scale(size * 0.05D)), 6, random));
+        for (int row = -2; row <= 2; row++) {
+            double rowOffset = row * size * 0.22D;
+            double rowWidth = size * (row == 2 ? 0.2D : 0.32D);
+            Vec3 rowCenter = center.add(up.scale(rowOffset)).add(direction.scale(size * 0.025D));
+            details.add(() -> shortLine(level, family,
+                    rowCenter.subtract(side.scale(rowWidth)),
+                    rowCenter.add(side.scale(rowWidth)), 4, random));
+        }
+        details.add(() -> spawn(level, LodestoneParticleRegistry.TWINKLE_PARTICLE, family,
+                center, Vec3.ZERO, 0.16F, 0.86F, 22, random.nextFloat()));
+        emitFigureComponents(level, 317, List.of(
+                () -> shortLine(level, family, bottomLeft, topLeft, 7, random),
+                () -> shortLine(level, family, topLeft, foldTop, 6, random),
+                () -> shortLine(level, family, foldSide, bottomRight, 6, random),
+                () -> shortLine(level, family, bottomRight, bottomLeft, 7, random)), details);
     }
 
     /** Ritual altar silhouette: stepped top, square footprint, corner posts and rune core. */
