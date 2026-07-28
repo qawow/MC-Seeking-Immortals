@@ -1755,7 +1755,8 @@ public final class LodestoneTechniqueVfx {
                     SPIKED_CLUB, COMMAND_TOKEN, MAGIC_SCISSORS, MAGIC_BRICK,
                     MAGIC_UMBRELLA, MAGIC_BOW, MAGIC_RUYI, MAGIC_HOOK, MAGIC_WHIP,
                     MAGIC_ROPE, MAGIC_BOAT, RITUAL_ALTAR, PUPPET_FIGURE,
-                    MAGIC_VAJRA, MAGIC_BOX, SPIKED_SHIELD -> 2;
+                    MAGIC_VAJRA, MAGIC_BOX, SPIKED_SHIELD, CONFUCIAN_SAGE,
+                    FORMATION_ROD, RUNE_STELE -> 2;
             default -> 1;
         };
     }
@@ -1977,6 +1978,18 @@ public final class LodestoneTechniqueVfx {
                 spiritArmorShape(level, family, start, end, radius, intensity, random);
                 yield true;
             }
+            case CONFUCIAN_SAGE -> {
+                confucianSageShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case FORMATION_ROD -> {
+                formationRodShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case RUNE_STELE -> {
+                runeSteleShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
             default -> false;
         };
     }
@@ -1996,6 +2009,144 @@ public final class LodestoneTechniqueVfx {
                     : detailComponents.get(allocation.componentIndex() - coreComponents.size());
             withSubBudget(allocation.particles(), component);
         }
+    }
+
+    /** Confucian sage silhouette: tall robe, broad sleeves, scholar hat, silver eyes and three-part beard. */
+    private static void confucianSageShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                           Vec3 start, Vec3 end, float radius,
+                                           int intensity, Random random) {
+        Vec3 normal = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 side = perpendicular(normal);
+        Vec3 up = normalized(side.cross(normal), new Vec3(0.0D, 1.0D, 0.0D));
+        Vec3 base = (start.distanceToSqr(end) < 0.04D ? start : end)
+                .add(up.scale(0.08D));
+        double size = Math.max(0.95D, Math.min(4.2D, radius * 0.92D));
+        Vec3 waist = base.add(up.scale(size * 0.92D));
+        Vec3 chest = base.add(up.scale(size * 1.5D));
+        Vec3 leftShoulder = chest.subtract(side.scale(size * 0.72D));
+        Vec3 rightShoulder = chest.add(side.scale(size * 0.72D));
+        Vec3 head = base.add(up.scale(size * 2.12D));
+        Vec3 chin = head.subtract(up.scale(size * 0.2D));
+        Vec3 leftHem = base.subtract(side.scale(size * 0.62D));
+        Vec3 rightHem = base.add(side.scale(size * 0.62D));
+        List<Runnable> details = new ArrayList<>();
+        details.add(() -> shortLine(level, family, leftShoulder, leftHem, 8, random));
+        details.add(() -> shortLine(level, family, rightShoulder, rightHem, 8, random));
+        details.add(() -> shortLine(level, family, leftHem, rightHem, 6, random));
+        details.add(() -> shortLine(level, family, leftShoulder,
+                leftShoulder.subtract(side.scale(size * 0.72D)).subtract(up.scale(size * 0.28D)),
+                6, random));
+        details.add(() -> shortLine(level, family, rightShoulder,
+                rightShoulder.add(side.scale(size * 0.72D)).subtract(up.scale(size * 0.28D)),
+                6, random));
+        details.add(() -> verticalRing(level, family, head, normal, size * 0.24D,
+                Math.min(14, Math.max(7, intensity / 4)), random, 0.14F));
+        Vec3 hatBrim = head.add(up.scale(size * 0.28D));
+        details.add(() -> shortLine(level, family,
+                hatBrim.subtract(side.scale(size * 0.44D)),
+                hatBrim.add(side.scale(size * 0.44D)), 6, random));
+        details.add(() -> shortLine(level, family, hatBrim,
+                hatBrim.add(up.scale(size * 0.32D)), 4, random));
+        for (int beard = -1; beard <= 1; beard++) {
+            int strand = beard;
+            Vec3 root = chin.add(side.scale(strand * size * 0.09D));
+            Vec3 tip = root.subtract(up.scale(size * (0.42D + 0.08D * Math.abs(strand))));
+            details.add(() -> shortLine(level, family, root, tip, 4, random));
+        }
+        details.add(() -> {
+            Vec3 leftEye = head.subtract(side.scale(size * 0.09D));
+            Vec3 rightEye = head.add(side.scale(size * 0.09D));
+            spawn(level, LodestoneParticleRegistry.STAR_PARTICLE, family, leftEye,
+                    normal.scale(0.01D), 0.14F, 0.94F, 20, random.nextFloat());
+            spawn(level, LodestoneParticleRegistry.STAR_PARTICLE, family, rightEye,
+                    normal.scale(0.01D), 0.14F, 0.94F, 20, random.nextFloat());
+        });
+        details.add(() -> rotatingRing(level, family, waist, size * 0.32D,
+                Math.min(14, Math.max(7, intensity / 4)),
+                level.getGameTime() * 0.06D, random));
+        emitFigureComponents(level, 263, List.of(
+                () -> shortLine(level, family, base, head, 11, random),
+                () -> shortLine(level, family, leftShoulder, rightShoulder, 8, random)), details);
+    }
+
+    /** Formation rod silhouette: slender shaft, paired end rings, inscribed nodes and forked cap. */
+    private static void formationRodShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                          Vec3 start, Vec3 end, float radius,
+                                          int intensity, Random random) {
+        Vec3 direction = start.distanceToSqr(end) < 0.04D
+                ? new Vec3(0.0D, 1.0D, 0.0D)
+                : normalized(end.subtract(start), new Vec3(0.0D, 1.0D, 0.0D));
+        Vec3 side = perpendicular(direction);
+        Vec3 center = start.distanceToSqr(end) < 0.04D
+                ? start.add(0.0D, 0.85D, 0.0D) : start.lerp(end, 0.5D);
+        double size = Math.max(0.72D, Math.min(3.6D, radius * 1.08D));
+        Vec3 butt = center.subtract(direction.scale(size * 0.72D));
+        Vec3 tip = center.add(direction.scale(size * 0.72D));
+        double width = size * 0.08D;
+        List<Runnable> details = new ArrayList<>();
+        details.add(() -> verticalRing(level, family, butt, direction, size * 0.11D,
+                Math.min(10, Math.max(5, intensity / 5)), random, 0.12F));
+        details.add(() -> verticalRing(level, family, tip, direction, size * 0.13D,
+                Math.min(10, Math.max(5, intensity / 5)), random, 0.13F));
+        details.add(() -> shortLine(level, family, tip,
+                tip.add(direction.scale(size * 0.18D)).subtract(side.scale(size * 0.12D)),
+                3, random));
+        details.add(() -> shortLine(level, family, tip,
+                tip.add(direction.scale(size * 0.18D)).add(side.scale(size * 0.12D)),
+                3, random));
+        for (int rune = -1; rune <= 1; rune++) {
+            int mark = rune;
+            Vec3 point = center.add(direction.scale(mark * size * 0.34D));
+            details.add(() -> spawn(level, LodestoneParticleRegistry.TWINKLE_PARTICLE,
+                    family, point, side.scale(mark * 0.004D),
+                    0.13F, 0.88F, 20, random.nextFloat()));
+        }
+        emitFigureComponents(level, 269, List.of(
+                () -> shortLine(level, family, butt, tip, 10, random),
+                () -> shortLine(level, family, butt.add(side.scale(width)),
+                        tip.add(side.scale(width)), 9, random)), details);
+    }
+
+    /** Tianjing stele silhouette: thick slab, pedestal, inset crystal slot and central seal. */
+    private static void runeSteleShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                       Vec3 start, Vec3 end, float radius,
+                                       int intensity, Random random) {
+        Vec3 normal = normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 side = perpendicular(normal);
+        Vec3 up = normalized(side.cross(normal), new Vec3(0.0D, 1.0D, 0.0D));
+        Vec3 base = (start.distanceToSqr(end) < 0.04D ? start : end)
+                .add(up.scale(0.04D));
+        double size = Math.max(0.82D, Math.min(3.8D, radius * 0.94D));
+        double halfWidth = size * 0.52D;
+        Vec3 top = base.add(up.scale(size * 1.82D));
+        Vec3 leftBase = base.subtract(side.scale(halfWidth));
+        Vec3 rightBase = base.add(side.scale(halfWidth));
+        Vec3 leftTop = top.subtract(side.scale(halfWidth * 0.78D));
+        Vec3 rightTop = top.add(side.scale(halfWidth * 0.78D));
+        Vec3 center = base.lerp(top, 0.54D);
+        List<Runnable> details = new ArrayList<>();
+        details.add(() -> shortLine(level, family, leftBase, rightBase, 7, random));
+        details.add(() -> shortLine(level, family, leftTop, rightTop, 6, random));
+        details.add(() -> shortLine(level, family,
+                leftBase.subtract(side.scale(size * 0.22D)),
+                rightBase.add(side.scale(size * 0.22D)), 7, random));
+        details.add(() -> shortLine(level, family,
+                center.subtract(side.scale(size * 0.28D)),
+                center.add(side.scale(size * 0.28D)), 5, random));
+        details.add(() -> shortLine(level, family,
+                center.subtract(up.scale(size * 0.34D)),
+                center.add(up.scale(size * 0.34D)), 5, random));
+        details.add(() -> verticalRing(level, family, center, normal, size * 0.24D,
+                Math.min(14, Math.max(7, intensity / 4)), random, 0.14F));
+        details.add(() -> shortLine(level, family,
+                center.subtract(side.scale(size * 0.18D)).subtract(up.scale(size * 0.18D)),
+                center.add(side.scale(size * 0.18D)).add(up.scale(size * 0.18D)),
+                4, random));
+        details.add(() -> spawn(level, LodestoneParticleRegistry.STAR_PARTICLE, family,
+                center, normal.scale(0.012D), 0.19F, 0.94F, 24, random.nextFloat()));
+        emitFigureComponents(level, 277, List.of(
+                () -> shortLine(level, family, leftBase, leftTop, 10, random),
+                () -> shortLine(level, family, rightBase, rightTop, 10, random)), details);
     }
 
     /** 鼎 silhouette: bowl body + three legs + rising vapor. */

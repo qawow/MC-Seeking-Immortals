@@ -422,6 +422,7 @@ PROGRAM_RULES = (
     ("ritual_coffin", ("寒玉棺", "石棺中")),
     ("magic_staff", ("乌黑禅杖", "降魔巨杖", "降魔杖", "此宝就化为十余丈之长，水缸般粗细的庞然巨物")),
     ("magic_vajra", ("大晋金刚杵", "金刚杵")),
+    ("confucian_sage", ("十几丈高的白色人影", "儒家圣像")),
     ("puppet_figure", ("士兵打扮的玩偶", "真人大小的士兵傀儡", "傀儡士兵的光矢",
                        "十余头傀儡兽和傀儡士兵", "黑黝黝的木人", "数寸大小的傀儡",
                        "人形白玉傀儡", "人形傀儡", "石人残骸", "祭坛上石傀儡",
@@ -446,7 +447,9 @@ PROGRAM_RULES = (
     ("banner_streamer", ("阴罗幡", "巨幡", "幡旗", "杆幡", "黑幡", "灵幡", "宝幡", "玉竹幡", "竹幡", "血幡")),
     ("seal_stamp", ("法印一闪", "大印一压", "大印落下", "法印一", "玉印", "宝印", "印诀", "金印", "血印", "印玺")),
     ("command_token", ("黑色令牌", "长老令牌", "禁制令牌", "令牌上血光", "手中令牌",
-                       "金色令牌", "从令牌一面", "金银令牌", "玉牌")),
+                       "金色令牌", "从令牌一面", "金银令牌", "玉牌",
+                       "数块漆黑的木牌", "单手抓着铁牌", "轻轻一晃自己的玉佩",
+                       "绿牌翠芒一闪")),
     ("magic_mask", ("一张青色面具",)),
     ("seal_cage", ("铁笼", "黑笼", "金色囚笼")),
     ("bridge_arc", ("虹桥", "光桥", "玉桥", "虹桥光", "长虹光", "七彩桥", "光桥一")),
@@ -461,13 +464,15 @@ PROGRAM_RULES = (
                         "青光阵盘", "海面之上的阵盘", "法盘", "移星子母盘",
                         "这块阵盘终于爆裂", "北斗天星盘")),
     ("pagoda_tower", ("宝塔", "浮屠", "金塔", "玉塔", "玲珑塔", "小塔", "塔影")),
+    ("rune_stele", ("石碑微颤之下，通体灵光闪烁",)),
     ("rune_pillar", ("巨大水晶柱", "青铜柱子全都", "青铜巨柱", "金色巨柱", "巨大石柱", "八只圆柱")),
+    ("formation_rod", ("金黄色木棍般的东西", "黄色晶丝从木棍上腾起", "十二根青色木棍")),
     ("blood_thread", ("血丝", "精血丝", "血线", "血丝一", "血丝密", "淡红丝线", "红丝")),
     ("jade_slip", ("玉简", "青色玉简", "古玉简", "玉简一闪", "传法玉简")),
     ("magic_scroll", ("黑色画卷", "金色卷轴", "卷轴之上")),
     ("magic_cloth", ("一块四方锦帕", "锦帕的古怪符文", "一块黑色轻纱", "血色披风")),
     ("burning_talisman", ("符纸", "符火", "符焰", "燃符", "焚符", "符纸燃烧", "高阶符箓")),
-    ("talisman_brush", ("蓝濛濛灵符笔", "灵符笔", "笔尖处")),
+    ("talisman_brush", ("蓝濛濛灵符笔", "灵符笔", "笔尖处", "五色大笔")),
     ("spirit_qin", ("通体晶莹的白色古琴", "白色古琴")),
     ("ghost_head", ("巨大鬼头", "狰狞鬼头", "鬼头虚影", "骷髅头虚影", "巨型骷髅头", "白骨骷髅头", "巨大骷髅头", "巨大白骨头", "骷髅头", "鬼头", "鬼首")),
     ("spiked_shield", ("奇特的护盾",)),
@@ -488,6 +493,7 @@ PROGRAM_RULES = (
     ("serpent_dragon", ("青龙虚影", "巨龙虚影", "龙形虚影", "五爪青龙", "怪蛟虚影", "蛟影一吸收", "龙影", "火龙", "水龙", "雷龙", "冰龙", "风龙", "血龙", "蛟龙", "青色雷蛟", "金龙缠绕", "金色蟠龙", "火蛇", "灵蛇", "雷蛇", "青蛇", "黑蛇", "巨蛇", "蟒蛇", "巨蟒", "毒蛇")),
     ("flame_bird", ("火鸟", "炎鸟", "朱雀", "凤凰", "火凤", "金乌")),
     ("beast_phantom", ("十余头傀儡兽", "四只傀儡兽", "晶莹玉鼠",
+                       "迷你绿色雷兽虚影", "雷兽精魂",
                        "兽影", "虎影", "巨猿", "魔猿", "麒麟", "玄武", "白虎")),
     ("lotus_mandala", ("莲花", "白莲", "金莲", "青莲", "血莲", "莲台", "莲瓣")),
     ("wheel_disc", ("宝轮", "法轮", "光轮", "圆盘", "轮盘", "日轮", "月轮", "圆轮", "指环",
@@ -505,7 +511,9 @@ PROGRAM_RULES = (
     ("tidal_wave", ("巨浪", "海浪", "浪潮", "海潮", "洪水", "水幕", "水墙", "海啸")),
     ("magnetic_field", ("元磁", "磁力", "磁光", "磁场", "两极",
                         "灰色光晕。此光晕滴溜溜一转")),
-    ("scripture_glyph", ("经文", "书卷", "典籍", "墨字", "金文", "古字", "符字", "真言")),
+    ("scripture_glyph", ("经文", "书卷", "典籍", "墨字", "金文", "古字", "符字", "真言",
+                         "银灿灿「儒」字", "数字瞬间就由「二」字，变成了「三」",
+                         "一个「一」字浮现在")),
     ("wing_fan", ("双翼", "羽翼", "翅膀", "羽翅", "风雷翅", "血红晶翅")),
     ("spear_spike", ("金针", "银针", "灵针", "飞针", "金色巨钉", "长矛", "冰矛", "冰锥", "地刺", "骨刺", "蓝色细刺",
                      "晶枪", "冰枪", "火枪", "水枪", "雷枪", "短枪", "长箭", "光箭", "巨箭",
@@ -519,13 +527,18 @@ PROGRAM_RULES = (
     ("cloud_vortex", ("漩涡", "云团", "血云", "黑云")),
     ("rune_orbit", ("符文", "符箓", "符印", "法阵", "阵法", "阵图")),
     ("chain_net", ("锁链", "电网", "锁链网", "铁链", "灵链", "缚仙索", "缠丝成网",
-                   "巨网", "丝网", "光网", "雷网", "火网", "成千上万根纤细银丝")),
-    ("beam_lance", ("光柱", "光束", "剑虹", "剑光")),
+                   "巨网", "丝网", "光网", "雷网", "火网", "成千上万根纤细银丝",
+                   "五股青光从指尖处激射而出", "一张青色大网", "无数绿丝包裹",
+                   "绿丝包裹着吸入")),
+    ("beam_lance", ("光柱", "光束", "剑虹", "剑光", "五股青光从指尖处激射而出")),
+    ("channel_stream", ("从上面喷出了一丝黑线", "顿时一丝青光喷出")),
+    ("barrier_plane", ("晶莹异常的障壁",)),
     ("projectile_swarm", ("飞射", "箭雨", "无数", "密密麻麻")),
     ("body_aura", ("鳞片", "金身", "铠甲", "护体")),
     ("spirit_avatar", ("法相", "鬼影", "骷髅", "化身", "人形", "女子", "高大人影", "五具骨架",
                        "高大的黑色巨人")),
-    ("ground_field", ("地面", "大地", "领域", "地网")),
+    ("ground_field", ("地面", "大地", "领域", "地网", "丈许深大坑",
+                      "大坑表面就变得平整光滑")),
     ("mist_veil", ("迷雾", "云雾", "雾幕", "烟幕", "雾气腾", "黑雾", "血雾", "毒雾", "雾团", "隐踪匿迹", "隐匿身形")),
 )
 
@@ -597,6 +610,37 @@ def program_path(text: str) -> str:
 
 
 def program_primitive_path(primitive: str, text: str, fallback: str) -> str:
+    if primitive in {"confucian_sage", "rune_stele", "command_token"}:
+        return "STATIC"
+    if primitive == "formation_rod":
+        if "缓缓拉长" in text:
+            return "RISE"
+        if "扭动不停" in text:
+            return "ORBIT"
+        return "STATIC"
+    if primitive == "talisman_brush" and "五色大笔" in text:
+        return "STATIC"
+    if primitive == "chain_net" and any(token in text for token in (
+            "五股青光从指尖处激射而出", "一张青色大网")):
+        return "EXPAND"
+    if primitive == "chain_net" and "无数绿丝包裹" in text:
+        return "CONVERGE"
+    if primitive == "chain_net" and "绿丝包裹着吸入" in text:
+        return "CONVERGE"
+    if primitive == "beam_lance" and "五股青光从指尖处激射而出" in text:
+        return "DIRECT"
+    if primitive == "beam_lance" and "数十道光柱发出惊人轰鸣的拔地而起" in text:
+        return "RISE"
+    if primitive == "rune_pillar" and "数十道光柱发出惊人轰鸣的拔地而起" in text:
+        return "STATIC"
+    if primitive == "channel_stream" and any(token in text for token in (
+            "从上面喷出了一丝黑线", "顿时一丝青光喷出")):
+        return "DIRECT"
+    if primitive == "beast_phantom" and any(token in text for token in (
+            "迷你绿色雷兽虚影", "雷兽精魂")):
+        return "TRACK"
+    if primitive == "barrier_plane" and "晶莹异常的障壁" in text:
+        return "STATIC"
     if primitive == "magic_vajra":
         return "DIRECT"
     if primitive == "magic_rope":
@@ -723,6 +767,11 @@ _MASS_WEAPON_TERMS = frozenset({
 })
 
 _EXACT_LOCAL_PALETTE_TERMS = {
+    "confucian_sage": frozenset({"十几丈高的白色人影", "儒家圣像"}),
+    "formation_rod": frozenset({
+        "金黄色木棍般的东西", "黄色晶丝从木棍上腾起", "十二根青色木棍",
+    }),
+    "rune_stele": frozenset({"石碑微颤之下，通体灵光闪烁"}),
     "magic_boat": frozenset({
         "脚下的神风舟却白光一闪", "神风舟就开始飞行的歪歪扭扭",
         "金舟微微一颤下", "黑色巨舟顿时破空声一响", "血红小舟",
@@ -742,7 +791,11 @@ _EXACT_LOCAL_PALETTE_TERMS = {
         "黑青色绳索", "银焰绳索", "五根粗大火索", "数根粗大火索", "粗大火索",
         "几根金索", "金索", "红绳捆绑成一团",
     }),
-    "chain_net": frozenset({"巨网", "丝网", "光网", "雷网", "火网", "成千上万根纤细银丝"}),
+    "chain_net": frozenset({
+        "巨网", "丝网", "光网", "雷网", "火网", "成千上万根纤细银丝",
+        "五股青光从指尖处激射而出", "一张青色大网", "无数绿丝包裹",
+        "绿丝包裹着吸入",
+    }),
     "spear_spike": frozenset({
         "晶枪", "冰枪", "火枪", "水枪", "雷枪", "短枪", "长箭", "光箭", "巨箭",
         "黑色弩箭", "短戈", "长戈", "金戈", "骨矛", "金色巨钉", "蓝色细刺",
@@ -760,7 +813,10 @@ _EXACT_LOCAL_PALETTE_TERMS = {
         "黑色晶球", "白色晶球", "青色晶球", "蓝色晶球",
         "晶莹珠子", "黑白圆石", "黑色晶核", "晶球",
     }),
-    "beast_phantom": frozenset({"十余头傀儡兽", "四只傀儡兽", "晶莹玉鼠"}),
+    "beast_phantom": frozenset({
+        "十余头傀儡兽", "四只傀儡兽", "晶莹玉鼠",
+        "迷你绿色雷兽虚影", "雷兽精魂",
+    }),
     "seal_cage": frozenset({"铁笼", "黑笼", "金色囚笼"}),
     "serpent_dragon": frozenset({"金龙缠绕", "金色蟠龙"}),
     "magic_gong": frozenset({"黑色巨锣"}),
@@ -775,6 +831,7 @@ _EXACT_LOCAL_PALETTE_TERMS = {
 }
 
 _EXACT_LOCAL_PALETTE_FALLBACKS = {
+    "confucian_sage": "qi", "formation_rod": "earth", "rune_stele": "qi",
     "magic_boat": "qi", "ritual_altar": "earth", "puppet_figure": "qi",
     "magic_rope": "qi",
     "chain_net": "qi", "spear_spike": "qi", "wheel_disc": "qi", "seal_cage": "metal",
@@ -950,6 +1007,9 @@ def program_palette(text: str, fallback: str, argbs: dict[str, int]) -> tuple[st
 
 
 _PRIMITIVE_PALETTE_FALLBACK = {
+    "confucian_sage": "qi",
+    "formation_rod": "earth",
+    "rune_stele": "qi",
     "giant_sword": "qi",
     "magic_boat": "qi",
     "ritual_bowl": "yin",
@@ -981,7 +1041,7 @@ _PRIMITIVE_PALETTE_FALLBACK = {
 }
 
 _LOCAL_PALETTE_PRIMITIVES = frozenset({
-    "giant_sword",
+    "giant_sword", "confucian_sage", "formation_rod", "rune_stele",
     "magic_boat", "ritual_bowl", "ritual_altar", "ritual_lamp", "ritual_coffin",
     "magic_ruler", "magic_staff", "magic_vajra", "puppet_figure",
     "magic_bow", "magic_ruyi", "magic_hook", "magic_whip", "magic_rope", "magic_box",
@@ -1017,6 +1077,7 @@ def program_palette_source(text: str, primitive: str, matched_terms: list[str]) 
 
 _FIGURE_PRIMITIVES = {
     "cauldron_vessel", "alchemy_furnace", "bell_chime", "gourd_vessel", "magic_boat",
+    "confucian_sage", "formation_rod", "rune_stele",
     "light_curtain", "halo_ring", "ritual_bowl", "ritual_altar", "ritual_lamp",
     "ritual_coffin", "magic_ruler", "magic_staff", "magic_vajra", "puppet_figure",
     "magic_bow", "magic_ruyi", "magic_hook", "magic_whip", "magic_rope", "magic_box",
@@ -1115,6 +1176,23 @@ def program_primitives(text: str, base_shape: str,
         selected.insert(0, primitive)
     if profile_override:
         evidence.append("forced:profile:" + profile_id)
+    if profile_id == "technique_1134":
+        allowed = {"confucian_sage", "eye_gaze", "talisman_brush", "scripture_glyph"}
+        selected = [primitive for primitive in selected if primitive in allowed]
+        selected = ["confucian_sage"] + [
+            primitive for primitive in selected if primitive != "confucian_sage"
+        ]
+        evidence.append("forced:continuous_confucian_sage")
+    if profile_id == "technique_910":
+        selected = [primitive for primitive in selected if primitive != "projectile_swarm"]
+        evidence.append("forced:single_green_net_and_rods")
+    if profile_id == "technique_670" and any(token in text for token in (
+            "迷你绿色雷兽虚影", "雷兽精魂")):
+        selected = [primitive for primitive in selected if primitive != "projectile_swarm"]
+        evidence.append("forced:bound_thunder_beast_soul")
+    if profile_id == "technique_605":
+        selected = [primitive for primitive in selected if primitive != "ground_field"]
+        evidence.append("forced:map_not_ground")
     if "刺目红芒先从盒中爆发" in text and "impact_arcs" not in selected:
         selected.append("impact_arcs")
         evidence.append("forced:box_light_burst")
@@ -1332,6 +1410,9 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
         path = program_path(source)
         motion = program_motion(source, inferred)
         radius, length, height = program_scale(source, float(profile.get("radius", 0.9) or 0.9))
+        if profile_id == "technique_1134" and "十几丈高的白色人影" in source:
+            radius = max(radius, 2.2)
+            height = max(height, 3.0)
         digest = hashlib.sha256(f"{profile.get('id')}:{source_index}:{source}".encode("utf-8")).digest()
         phase = int.from_bytes(digest[:2], "big") % 360
         speed = 0.3 if "缓" in source or "慢" in source else 1.0
@@ -1349,7 +1430,52 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
                 _EXACT_LOCAL_PALETTE_FALLBACKS[primitive]
                 if exact_local_palette else _PRIMITIVE_PALETTE_FALLBACK.get(primitive, fallback_palette))
             palette_source = program_palette_source(source, primitive, matched_terms)
-            if primitive == "giant_sword":
+            if primitive == "confucian_sage":
+                primary_key = secondary_key = "qi"
+            elif primitive == "formation_rod" and profile_id == "technique_1493":
+                primary_key, secondary_key = "earth", "metal"
+            elif primitive == "formation_rod" and profile_id == "technique_910":
+                primary_key, secondary_key = "wood", "qi"
+            elif primitive == "rune_stele":
+                primary_key, secondary_key = "qi", "thunder"
+            elif primitive == "command_token" and profile_id == "technique_098":
+                primary_key, secondary_key = "yin", "wood"
+            elif primitive == "command_token" and profile_id == "technique_605":
+                if "铁牌" in source:
+                    primary_key = secondary_key = "metal"
+                else:
+                    primary_key, secondary_key = "qi", "wood"
+            elif primitive == "command_token" and profile_id == "technique_670":
+                primary_key = secondary_key = "wood"
+            elif primitive == "talisman_brush" and profile_id == "technique_1134":
+                primary_key, secondary_key = "qi", "thunder"
+            elif primitive == "scripture_glyph" and profile_id == "technique_1134":
+                primary_key = secondary_key = "metal"
+            elif primitive == "eye_gaze" and profile_id == "technique_1134":
+                primary_key = secondary_key = "metal"
+            elif primitive == "chain_net" and profile_id == "technique_910":
+                primary_key, secondary_key = "wood", "qi"
+            elif primitive == "beam_lance" and profile_id == "technique_910":
+                primary_key = secondary_key = "wood"
+            elif primitive == "chain_net" and profile_id == "technique_670":
+                primary_key = secondary_key = "wood"
+            elif primitive == "beast_phantom" and profile_id == "technique_670":
+                primary_key, secondary_key = "wood", "soul"
+            elif primitive == "channel_stream" and profile_id == "technique_605":
+                primary_key = secondary_key = "yin" if "黑线" in source else "wood"
+            elif primitive == "scripture_glyph" and profile_id == "technique_605":
+                primary_key = secondary_key = "metal" if "银色光点" in source else "wood"
+            elif primitive == "ground_field" and profile_id == "technique_340":
+                primary_key = secondary_key = "earth"
+            elif primitive in {"beam_lance", "rune_pillar", "halo_ring", "barrier_plane"} \
+                    and profile_id == "technique_457":
+                primary_key = secondary_key = "qi"
+            elif (primitive == "rune_orbit" and profile_id == "technique_1493"
+                    and "木棍" in source):
+                primary_key, secondary_key = "earth", "metal"
+            elif primitive == "chain_net" and profile_id == "technique_1330":
+                primary_key = secondary_key = "wood"
+            elif primitive == "giant_sword":
                 if "石剑" in source:
                     primary_key = "earth"
                     secondary_key = "yin" if "黑色光芒" in source else "earth"
@@ -1761,6 +1887,7 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
                 or (primitive == "puppet_figure" and "青甲傀儡" in source)
                 or (primitive == "magic_ruyi" and "数团精血" in source
                     and "白色光霞" in source)
+                or (primitive == "chain_net" and profile_id == "technique_910")
             )
             if ((primitive in _LOCAL_PALETTE_PRIMITIVES or exact_local_palette) and matched_terms
                     and primary_key != primitive_fallback and secondary_key == primitive_fallback):
@@ -1770,6 +1897,28 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
             copies = program_copies(source, matched_terms)
             if not matched_terms and primitive_index > 0:
                 copies = max(1, copies // 2)
+            if primitive in {"confucian_sage", "rune_stele", "talisman_brush",
+                             "scripture_glyph", "barrier_plane", "channel_stream"} \
+                    and profile_id in {"technique_1134", "technique_457", "technique_605"}:
+                copies = 1
+            if primitive == "formation_rod":
+                copies = 72 if profile_id == "technique_1493" else 12
+            if primitive == "command_token" and profile_id in {
+                    "technique_098", "technique_605", "technique_670"}:
+                copies = 5 if profile_id == "technique_098" else 1
+            if primitive == "chain_net" and profile_id in {"technique_670", "technique_910"}:
+                copies = 1
+            if primitive == "beam_lance" and profile_id == "technique_910":
+                copies = 5
+            if primitive == "beast_phantom" and profile_id == "technique_670":
+                copies = 1
+            if primitive == "ground_field" and profile_id == "technique_340":
+                copies = 1
+            if profile_id == "technique_457":
+                if primitive in {"rune_pillar", "halo_ring", "beam_lance"}:
+                    copies = 12
+                elif primitive in {"rune_stele", "barrier_plane"}:
+                    copies = 1
             if primitive == "formation_disc" and "法盘" in source:
                 copies = 1
             if primitive in {"magic_vajra", "magic_box", "magic_ruyi", "magic_hook", "magic_whip",

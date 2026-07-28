@@ -9481,3 +9481,17 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Artifact   Done   JAR SHA-256 `2d19f378149af4c7907a4303f4dec8554185adf8a395a1c9289c6a77cf5ce2ff`；视觉目录/术法效果目录 SHA-256 为 `69975d47cba54fb04935e23de95415ac2a53982932cd389f5714286a734b0b6c` / `c21e7bdd5175b7b3c67ccbf0dd02227894237b739e9ee5337abd4bd5a9e5a98d`。
   Version/protocol   Done   `mod_version` 0.2.222→0.2.223；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
   Backup   Done   `.bak/20260728_083954_0.2.223_puppets_boats_altars/`；隔离快照 `/tmp/mc-mod-0.2.219-audit.yb1NTV`。
+
+## 615. 2026-07-28 0.2.224 儒圣、阵桩、天晶碑与牌网连续性
+
+  Step   Status   Notes
+  ---   ---   ---
+  Source boundary   Done   逐条回读浩然儒圣、道兵阵桩、天晶碑、青丝网/爪网及木牌/铁牌/玉佩/令牌引文；背景石碑、巨大地图、钢叉比喻、城市号角和背景门楼明确排除。
+  Compiler   Done   新增 `confucian_sage=4`、`formation_rod=3`、`rune_stele=1`；儒圣四段主体连续，阵桩数量/状态局部绑定，天晶碑与柱环光障分层；牌吸雷兽精魂保持 `command_token + beast_phantom + chain_net`。
+  Runtime   Done   儒圣由袍体、阔袖、儒帽、三缕长髯、银瞳与腰环组成；阵桩由双杆芯、端环、铭文节点与叉冠组成；天晶碑由厚碑板、台座、晶槽、十字封印和中心星芒组成。三者接入层内 figure 分发和复杂轮廓最低 2 粒预算，固定 52-shape switch 与事件 7/16/30 上限不变。
+  Counts/palette   Done   数百阵桩按运行时上限 72，显形 `RISE`、结阵 `STATIC`；木棍阵纹 `earth→metal`，雷球阵纹 `thunder→qi`。天晶碑 1、石柱/灵环/上升光柱各 12、障壁 1；青丝网 1、青光 5、聚灵桩 12；黑木牌 5，其他牌体 1。青丝网保持 `wood→qi`，青色爪网为 wood。
+  Diff/contracts   Done   相对 0.2.223 恰有 11 个预期 ID、23 条引文组变化，非 `visual_program` profile 字段变化 0；视觉顶层仅生成器 `source_hashes` 更新，术法效果目录 2,292 个 profile 全不变且仅 Java 源审计摘要更新。目录为 5,727 profiles、2,292 techniques、1,806 非推断 authored、9,947/9,947 引文、10,980 层、107 primitive。
+  Verification   Done   两个生成器 `--check`、`AuthoredVisualCatalogTest`/`LodestoneVfxContractTest` 定向测试与最终隔离快照完整构建通过；`BUILD SUCCESSFUL in 1m 26s`，251 套件/1,177 测试 failure/error/skipped 均为 0。临时快照首次执行仅因 `gradlew` 缺可执行位返回 126，恢复临时权限后原命令成功。
+  Artifact   Done   JAR SHA-256 `6846ff3a486519fffd121bce1483d0ae7a78854dfa18ee8b5e4be831eddbf1e8`；视觉目录/术法效果目录 SHA-256 为 `e5fe88681a9bceeabe4d71283d974d3ba420652db8ab7bb315b3144c5e6d0da1` / `b6171bb1466fb4b6c7af4669cfe66230f8544c7c2804ac46aee8a8852e0d4265`。
+  Version/protocol   Done   `mod_version` 0.2.223→0.2.224；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
+  Backup   Done   `.bak/20260728_091343_0.2.224_sage_rods_stele/`；隔离快照 `/tmp/mc-mod-0.2.224-audit.1UgNv2`。

@@ -1716,6 +1716,140 @@ class AuthoredVisualCatalogTest {
         assertEquals(1, shatteredDisc.copies());
     }
 
+    @Test
+    void sagesFormationRodsStelesAndCommandTokensKeepAuthoredContinuity() {
+        AuthoredVisualCatalog.Snapshot catalog = AuthoredVisualCatalog.builtin();
+        long qi = catalog.palette("qi").orElseThrow().argb();
+        long wood = catalog.palette("wood").orElseThrow().argb();
+        long metal = catalog.palette("metal").orElseThrow().argb();
+        long yin = catalog.palette("yin").orElseThrow().argb();
+        long earth = catalog.palette("earth").orElseThrow().argb();
+        long thunder = catalog.palette("thunder").orElseThrow().argb();
+        List<VisualProgramLayer> allLayers = catalog.profiles().values().stream()
+                .filter(profile -> profile.domain() == VisualDomain.TECHNIQUE)
+                .flatMap(profile -> profile.visualProgram().layers().stream())
+                .toList();
+
+        assertEquals(4, allLayers.stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.CONFUCIAN_SAGE).count());
+        assertEquals(3, allLayers.stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.FORMATION_ROD).count());
+        assertEquals(1, allLayers.stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.RUNE_STELE).count());
+
+        VisualProfile sage = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_1134").orElseThrow();
+        assertEquals(4, sage.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.CONFUCIAN_SAGE).count());
+        assertTrue(sage.visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.CONFUCIAN_SAGE)
+                .allMatch(layer -> layer.copies() == 1
+                        && layer.primaryArgb() == qi
+                        && layer.secondaryArgb() == qi));
+        VisualProgramLayer silverEyes = figureLayer(catalog, "technique_1134",
+                VisualPrimitive.EYE_GAZE, "纯银般瞳孔");
+        assertEquals(metal, silverEyes.primaryArgb());
+        VisualProgramLayer fiveColorBrush = figureLayer(catalog, "technique_1134",
+                VisualPrimitive.TALISMAN_BRUSH, "五色大笔");
+        assertEquals(qi, fiveColorBrush.primaryArgb());
+        assertEquals(thunder, fiveColorBrush.secondaryArgb());
+        assertEquals(metal, figureLayer(catalog, "technique_1134",
+                VisualPrimitive.SCRIPTURE_GLYPH, "银灿灿「儒」字").primaryArgb());
+
+        VisualProgramLayer risingRods = figureLayer(catalog, "technique_1493",
+                VisualPrimitive.FORMATION_ROD, "缓缓拉长");
+        assertEquals(72, risingRods.copies());
+        assertEquals(VisualProgramLayer.Path.RISE, risingRods.path());
+        assertEquals(earth, risingRods.primaryArgb());
+        assertEquals(metal, risingRods.secondaryArgb());
+        VisualProgramLayer fixedRods = figureLayer(catalog, "technique_1493",
+                VisualPrimitive.FORMATION_ROD, "黄色晶丝");
+        assertEquals(72, fixedRods.copies());
+        assertEquals(VisualProgramLayer.Path.STATIC, fixedRods.path());
+        VisualProgramLayer rodRunes = figureLayer(catalog, "technique_1493",
+                VisualPrimitive.RUNE_ORBIT, "黄色晶丝");
+        assertEquals(earth, rodRunes.primaryArgb());
+        assertEquals(metal, rodRunes.secondaryArgb());
+        VisualProgramLayer thunderBallRunes = figureLayer(catalog, "technique_1493",
+                VisualPrimitive.RUNE_ORBIT, "雷电法阵缩小");
+        assertEquals(thunder, thunderBallRunes.primaryArgb());
+        assertEquals(qi, thunderBallRunes.secondaryArgb());
+
+        VisualProgramLayer stele = figureLayer(catalog, "technique_457",
+                VisualPrimitive.RUNE_STELE, "石碑微颤");
+        assertEquals(1, stele.copies());
+        assertEquals(qi, stele.primaryArgb());
+        assertEquals(thunder, stele.secondaryArgb());
+        VisualProgramLayer twelvePillars = figureLayer(catalog, "technique_457",
+                VisualPrimitive.RUNE_PILLAR, "巨大石柱");
+        assertEquals(12, twelvePillars.copies());
+        assertEquals(VisualProgramLayer.Path.STATIC, twelvePillars.path());
+        VisualProgramLayer twelveRings = figureLayer(catalog, "technique_457",
+                VisualPrimitive.HALO_RING, "粗大灵环");
+        assertEquals(12, twelveRings.copies());
+        assertEquals(VisualProgramLayer.Path.ORBIT, twelveRings.path());
+        VisualProgramLayer twelveBeams = figureLayer(catalog, "technique_457",
+                VisualPrimitive.BEAM_LANCE, "拔地而起");
+        assertEquals(12, twelveBeams.copies());
+        assertEquals(VisualProgramLayer.Path.RISE, twelveBeams.path());
+        assertEquals(1, figureLayer(catalog, "technique_457",
+                VisualPrimitive.BARRIER_PLANE, "晶莹异常的障壁").copies());
+
+        VisualProgramLayer greenThreads = figureLayer(catalog, "technique_910",
+                VisualPrimitive.CHAIN_NET, "五股青光");
+        assertEquals(1, greenThreads.copies());
+        assertEquals(wood, greenThreads.primaryArgb());
+        assertEquals(qi, greenThreads.secondaryArgb());
+        VisualProgramLayer fiveGreenBeams = figureLayer(catalog, "technique_910",
+                VisualPrimitive.BEAM_LANCE, "五股青光");
+        assertEquals(5, fiveGreenBeams.copies());
+        assertEquals(wood, fiveGreenBeams.primaryArgb());
+        VisualProgramLayer gatheringRods = figureLayer(catalog, "technique_910",
+                VisualPrimitive.FORMATION_ROD, "十二根青色木棍");
+        assertEquals(12, gatheringRods.copies());
+        assertEquals(VisualProgramLayer.Path.ORBIT, gatheringRods.path());
+        assertEquals(wood, gatheringRods.primaryArgb());
+        assertEquals(qi, gatheringRods.secondaryArgb());
+
+        VisualProgramLayer clawNet = figureLayer(catalog, "technique_1330",
+                VisualPrimitive.CHAIN_NET, "青色大网");
+        assertEquals(1, clawNet.copies());
+        assertEquals(wood, clawNet.primaryArgb());
+        assertEquals(wood, clawNet.secondaryArgb());
+
+        VisualProgramLayer blackWoodTokens = figureLayer(catalog, "technique_098",
+                VisualPrimitive.COMMAND_TOKEN, "漆黑的木牌");
+        assertEquals(5, blackWoodTokens.copies());
+        assertEquals(yin, blackWoodTokens.primaryArgb());
+        assertEquals(wood, blackWoodTokens.secondaryArgb());
+        VisualProfile mapTokens = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_605").orElseThrow();
+        assertFalse(mapTokens.visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.GROUND_FIELD));
+        assertEquals(metal, figureLayer(catalog, "technique_605",
+                VisualPrimitive.COMMAND_TOKEN, "铁牌").primaryArgb());
+
+        VisualProfile capturedSoul = catalog.find(
+                VisualDomain.TECHNIQUE, "technique_670").orElseThrow();
+        List<VisualPrimitive> captureLayers = capturedSoul.visualProgram().layers().stream()
+                .filter(layer -> layer.sourceQuote().contains("绿牌翠芒"))
+                .map(VisualProgramLayer::primitive)
+                .toList();
+        assertTrue(captureLayers.contains(VisualPrimitive.COMMAND_TOKEN));
+        assertTrue(captureLayers.contains(VisualPrimitive.BEAST_PHANTOM));
+        assertTrue(captureLayers.contains(VisualPrimitive.CHAIN_NET));
+        assertEquals(wood, figureLayer(catalog, "technique_670",
+                VisualPrimitive.CHAIN_NET, "绿牌翠芒").primaryArgb());
+
+        assertFalse(catalog.find(VisualDomain.TECHNIQUE, "technique_340").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.RUNE_STELE));
+        for (String id : List.of("technique_1344", "technique_965")) {
+            assertEquals(VisualProgramLayer.Path.STATIC, figureLayer(
+                    catalog, id, VisualPrimitive.COMMAND_TOKEN, "牌").path());
+        }
+    }
+
     private static VisualProgramLayer giantSwordLayer(
             AuthoredVisualCatalog.Snapshot catalog, String id, String sourceToken) {
         return figureLayer(catalog, id, VisualPrimitive.GIANT_SWORD, sourceToken);
