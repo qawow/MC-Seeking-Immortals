@@ -1850,6 +1850,145 @@ class AuthoredVisualCatalogTest {
         }
     }
 
+    @Test
+    void magicNeedlesAndNamedSealsKeepAuthoredCountsMotionAndCompanions() {
+        AuthoredVisualCatalog.Snapshot catalog = AuthoredVisualCatalog.builtin();
+        long qi = catalog.palette("qi").orElseThrow().argb();
+        long fire = catalog.palette("fire").orElseThrow().argb();
+        long metal = catalog.palette("metal").orElseThrow().argb();
+        long yin = catalog.palette("yin").orElseThrow().argb();
+        long wood = catalog.palette("wood").orElseThrow().argb();
+        long water = catalog.palette("water").orElseThrow().argb();
+        long earth = catalog.palette("earth").orElseThrow().argb();
+        List<VisualProgramLayer> allLayers = catalog.profiles().values().stream()
+                .filter(profile -> profile.domain() == VisualDomain.TECHNIQUE)
+                .flatMap(profile -> profile.visualProgram().layers().stream())
+                .toList();
+
+        assertEquals(25, allLayers.stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_NEEDLE).count());
+        assertEquals(5, allLayers.stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.SEAL_STAMP).count());
+        for (String id : List.of("gold_needle", "metal_needle")) {
+            List<VisualProgramLayer> templateNeedles = catalog.find(
+                            VisualDomain.TECHNIQUE, id).orElseThrow()
+                    .visualProgram().layers().stream()
+                    .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_NEEDLE)
+                    .toList();
+            assertEquals(4, templateNeedles.size(), id);
+            assertTrue(templateNeedles.stream().allMatch(layer -> layer.primaryArgb() == metal
+                    && layer.secondaryArgb() == metal), id);
+        }
+        List<VisualProgramLayer> spiritNeedles = catalog.find(
+                        VisualDomain.TECHNIQUE, "spirit_needle").orElseThrow()
+                .visualProgram().layers().stream()
+                .filter(layer -> layer.primitive() == VisualPrimitive.MAGIC_NEEDLE)
+                .toList();
+        assertEquals(4, spiritNeedles.size());
+        assertTrue(spiritNeedles.stream().allMatch(layer -> layer.primaryArgb() == qi
+                && layer.secondaryArgb() == qi));
+
+        VisualProgramLayer redOrbit = figureLayer(catalog, "technique_068",
+                VisualPrimitive.MAGIC_NEEDLE, "所有的飞针");
+        assertEquals(13, redOrbit.copies());
+        assertEquals(VisualProgramLayer.Path.ORBIT, redOrbit.path());
+        assertEquals(fire, redOrbit.primaryArgb());
+        assertEquals(fire, redOrbit.secondaryArgb());
+        VisualProgramLayer returningNeedles = figureLayer(catalog, "technique_068",
+                VisualPrimitive.MAGIC_NEEDLE, "飞进了玉匣");
+        assertEquals(13, returningNeedles.copies());
+        assertEquals(VisualProgramLayer.Path.DIRECT, returningNeedles.path());
+        assertEquals(1, figureLayer(catalog, "technique_068",
+                VisualPrimitive.CHAIN_NET, "红色丝网").copies());
+        assertEquals(1, figureLayer(catalog, "technique_068",
+                VisualPrimitive.MAGIC_BOX, "玉匣").copies());
+
+        VisualProgramLayer blackNeedles = figureLayer(catalog, "technique_291",
+                VisualPrimitive.MAGIC_NEEDLE, "乌黑细针");
+        assertEquals(20, blackNeedles.copies());
+        assertEquals(yin, blackNeedles.primaryArgb());
+        assertEquals(wood, blackNeedles.secondaryArgb());
+        VisualProgramLayer poisonNeedles = figureLayer(catalog, "technique_347",
+                VisualPrimitive.MAGIC_NEEDLE, "银针化为");
+        assertEquals(5, poisonNeedles.copies());
+        assertEquals(metal, poisonNeedles.primaryArgb());
+        assertEquals(VisualProgramLayer.Path.DIRECT, poisonNeedles.path());
+
+        VisualProgramLayer goldenRain = figureLayer(catalog, "technique_408",
+                VisualPrimitive.MAGIC_NEEDLE, "牛毛般金针");
+        assertEquals(20, goldenRain.copies());
+        assertEquals(VisualProgramLayer.Path.ORBIT, goldenRain.path());
+        assertEquals(metal, goldenRain.primaryArgb());
+        assertEquals(1, figureLayer(catalog, "technique_408",
+                VisualPrimitive.ORB_PROJECTILE, "牛毛般金针").copies());
+        assertFalse(catalog.find(VisualDomain.TECHNIQUE, "technique_408").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.sourceQuote().contains("牛毛般金针")
+                        && layer.primitive() == VisualPrimitive.PROJECTILE_SWARM));
+
+        assertEquals(12, figureLayer(catalog, "technique_495",
+                VisualPrimitive.MAGIC_NEEDLE, "纤细如丝的细针").copies());
+        VisualProgramLayer frozenNeedles = figureLayer(catalog, "technique_501",
+                VisualPrimitive.MAGIC_NEEDLE, "牛毛般细针");
+        assertEquals(12, frozenNeedles.copies());
+        assertEquals(qi, frozenNeedles.primaryArgb());
+        assertEquals(water, frozenNeedles.secondaryArgb());
+        assertEquals(1, figureLayer(catalog, "technique_501",
+                VisualPrimitive.ICE_PRISON, "牛毛般细针").copies());
+        VisualProgramLayer fallingNeedles = figureLayer(catalog, "technique_505",
+                VisualPrimitive.MAGIC_NEEDLE, "黄色细针");
+        assertEquals(20, fallingNeedles.copies());
+        assertEquals(VisualProgramLayer.Path.FALL, fallingNeedles.path());
+        assertEquals(earth, fallingNeedles.primaryArgb());
+        assertEquals(metal, fallingNeedles.secondaryArgb());
+
+        VisualProgramLayer beastNeedles = figureLayer(catalog, "technique_606",
+                VisualPrimitive.MAGIC_NEEDLE, "所有银针");
+        assertEquals(12, beastNeedles.copies());
+        assertEquals(metal, beastNeedles.primaryArgb());
+        assertEquals(1, figureLayer(catalog, "technique_606",
+                VisualPrimitive.RUNE_ORBIT, "所有银针").copies());
+        assertEquals(1, figureLayer(catalog, "technique_606",
+                VisualPrimitive.MIST_VEIL, "所有银针").copies());
+        assertEquals(12, figureLayer(catalog, "technique_717",
+                VisualPrimitive.MAGIC_NEEDLE, "细长银针").copies());
+        assertEquals(12, figureLayer(catalog, "technique_717",
+                VisualPrimitive.MAGIC_NEEDLE, "规律的轻颤").copies());
+        assertEquals(12, figureLayer(catalog, "technique_1017",
+                VisualPrimitive.MAGIC_NEEDLE, "纤细如发的银针").copies());
+        VisualProgramLayer reboundingNeedles = figureLayer(catalog, "technique_1289",
+                VisualPrimitive.MAGIC_NEEDLE, "青色飞针");
+        assertEquals(12, reboundingNeedles.copies());
+        assertEquals(VisualProgramLayer.Path.SCATTER, reboundingNeedles.path());
+        assertEquals(wood, reboundingNeedles.primaryArgb());
+
+        VisualProgramLayer bloodSeal = figureLayer(catalog, "technique_1256",
+                VisualPrimitive.SEAL_STAMP, "血色巨印");
+        assertEquals(1, bloodSeal.copies());
+        assertEquals(fire, bloodSeal.primaryArgb());
+        VisualProgramLayer landscapeSeal = figureLayer(catalog, "technique_1401",
+                VisualPrimitive.SEAL_STAMP, "方印章");
+        assertEquals(VisualProgramLayer.Path.FALL, landscapeSeal.path());
+        assertEquals(earth, landscapeSeal.primaryArgb());
+        assertEquals(qi, landscapeSeal.secondaryArgb());
+        assertEquals(qi, figureLayer(catalog, "technique_141",
+                VisualPrimitive.SEAL_STAMP, "白光中的大印").primaryArgb());
+        assertEquals(qi, figureLayer(catalog, "technique_599",
+                VisualPrimitive.SEAL_STAMP, "白玉大印").primaryArgb());
+        assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_141").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.GIANT_SWORD));
+        assertTrue(catalog.find(VisualDomain.TECHNIQUE, "technique_599").orElseThrow()
+                .visualProgram().layers().stream()
+                .anyMatch(layer -> layer.primitive() == VisualPrimitive.FLYING_SWORD));
+
+        for (String simile : List.of("technique_627", "technique_1293")) {
+            assertFalse(catalog.find(VisualDomain.TECHNIQUE, simile).orElseThrow()
+                    .visualProgram().layers().stream()
+                    .anyMatch(layer -> layer.primitive() == VisualPrimitive.MAGIC_NEEDLE));
+        }
+    }
+
     private static VisualProgramLayer giantSwordLayer(
             AuthoredVisualCatalog.Snapshot catalog, String id, String sourceToken) {
         return figureLayer(catalog, id, VisualPrimitive.GIANT_SWORD, sourceToken);

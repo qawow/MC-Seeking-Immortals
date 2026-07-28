@@ -1755,7 +1755,7 @@ public final class LodestoneTechniqueVfx {
                     SPIKED_CLUB, COMMAND_TOKEN, MAGIC_SCISSORS, MAGIC_BRICK,
                     MAGIC_UMBRELLA, MAGIC_BOW, MAGIC_RUYI, MAGIC_HOOK, MAGIC_WHIP,
                     MAGIC_ROPE, MAGIC_BOAT, RITUAL_ALTAR, PUPPET_FIGURE,
-                    MAGIC_VAJRA, MAGIC_BOX, SPIKED_SHIELD, CONFUCIAN_SAGE,
+                    MAGIC_VAJRA, MAGIC_BOX, MAGIC_NEEDLE, SPIKED_SHIELD, CONFUCIAN_SAGE,
                     FORMATION_ROD, RUNE_STELE -> 2;
             default -> 1;
         };
@@ -1920,6 +1920,10 @@ public final class LodestoneTechniqueVfx {
             }
             case MAGIC_BOX -> {
                 magicBoxShape(level, family, start, end, radius, intensity, random);
+                yield true;
+            }
+            case MAGIC_NEEDLE -> {
+                magicNeedleShape(level, family, start, end, radius, intensity, random);
                 yield true;
             }
             case MAGIC_UMBRELLA -> {
@@ -2330,30 +2334,90 @@ public final class LodestoneTechniqueVfx {
                         }));
     }
 
-    /** 印 silhouette: square stamp face + downward press ray. */
+    /** 印 silhouette: thick square seal body, raised grip, engraved face and press wave. */
     private static void sealStampShape(ClientLevel level, TechniqueVfxPalette.Family family,
                                        Vec3 start, Vec3 end, float radius,
                                        int intensity, Random random) {
         Vec3 center = start.distanceToSqr(end) < 0.04D ? start : end;
         double size = Math.max(0.35D, Math.min(1.6D, radius * 0.45D));
-        Vec3 face = center.add(0.0D, size * 1.2D, 0.0D);
-        // Square face as four edges.
-        Vec3 a = face.add(-size, 0.0D, -size);
-        Vec3 b = face.add(size, 0.0D, -size);
-        Vec3 c = face.add(size, 0.0D, size);
-        Vec3 d = face.add(-size, 0.0D, size);
+        Vec3 lowerFace = center.add(0.0D, size * 1.2D, 0.0D);
+        Vec3 upperFace = lowerFace.add(0.0D, size * 0.42D, 0.0D);
+        Vec3 a = lowerFace.add(-size, 0.0D, -size);
+        Vec3 b = lowerFace.add(size, 0.0D, -size);
+        Vec3 c = lowerFace.add(size, 0.0D, size);
+        Vec3 d = lowerFace.add(-size, 0.0D, size);
+        Vec3 upperA = a.add(0.0D, size * 0.42D, 0.0D);
+        Vec3 upperB = b.add(0.0D, size * 0.42D, 0.0D);
+        Vec3 upperC = c.add(0.0D, size * 0.42D, 0.0D);
+        Vec3 upperD = d.add(0.0D, size * 0.42D, 0.0D);
+        Vec3 gripTop = upperFace.add(0.0D, size * 0.68D, 0.0D);
         emitFigureComponents(level, 79, List.of(
-                () -> ring(level, family, face, size * 1.25D, 4, random, 0.15F, 20),
-                () -> shortLine(level, family, face, center,
+                () -> ring(level, family, lowerFace, size * 1.25D, 4, random, 0.15F, 20),
+                () -> shortLine(level, family, lowerFace, center,
                         Math.min(8, Math.max(4, intensity / 5)), random)),
                 List.of(
                         () -> shortLine(level, family, a, b, 4, random),
                         () -> shortLine(level, family, b, c, 4, random),
                         () -> shortLine(level, family, c, d, 4, random),
                         () -> shortLine(level, family, d, a, 4, random),
+                        () -> shortLine(level, family, upperA, upperB, 4, random),
+                        () -> shortLine(level, family, upperB, upperC, 4, random),
+                        () -> shortLine(level, family, upperC, upperD, 4, random),
+                        () -> shortLine(level, family, upperD, upperA, 4, random),
+                        () -> shortLine(level, family, a, upperA, 3, random),
+                        () -> shortLine(level, family, b, upperB, 3, random),
+                        () -> shortLine(level, family, c, upperC, 3, random),
+                        () -> shortLine(level, family, d, upperD, 3, random),
+                        () -> shortLine(level, family, upperFace, gripTop, 4, random),
+                        () -> ring(level, family, gripTop, size * 0.27D,
+                                Math.min(10, Math.max(5, intensity / 5)), random, 0.12F, 18),
+                        () -> shortLine(level, family,
+                                lowerFace.add(-size * 0.52D, 0.01D, 0.0D),
+                                lowerFace.add(size * 0.52D, 0.01D, 0.0D), 4, random),
+                        () -> shortLine(level, family,
+                                lowerFace.add(0.0D, 0.01D, -size * 0.52D),
+                                lowerFace.add(0.0D, 0.01D, size * 0.52D), 4, random),
                         () -> ring(level, family, center.add(0.0D, 0.05D, 0.0D),
                                 size * 0.85D, Math.min(14, Math.max(6, intensity / 4)),
                                 random, 0.13F, 16)));
+    }
+
+    /** Fine magic needle: narrow double rail, needle eye, tapered point and flight glints. */
+    private static void magicNeedleShape(ClientLevel level, TechniqueVfxPalette.Family family,
+                                         Vec3 start, Vec3 end, float radius,
+                                         int intensity, Random random) {
+        boolean stationary = start.distanceToSqr(end) < 0.04D;
+        Vec3 direction = stationary
+                ? new Vec3(0.0D, 0.0D, 1.0D)
+                : normalized(end.subtract(start), new Vec3(0.0D, 0.0D, 1.0D));
+        Vec3 side = perpendicular(direction);
+        Vec3 up = normalized(direction.cross(side), new Vec3(0.0D, 1.0D, 0.0D));
+        Vec3 center = stationary ? start.add(0.0D, 0.9D, 0.0D) : start.lerp(end, 0.62D);
+        double length = Math.max(0.5D, Math.min(1.9D, radius * 1.35D));
+        double width = Math.max(0.025D, Math.min(0.11D, radius * 0.055D));
+        Vec3 eye = center.subtract(direction.scale(length * 0.48D));
+        Vec3 tip = center.add(direction.scale(length * 0.58D));
+        Vec3 neck = tip.subtract(direction.scale(length * 0.14D));
+        Vec3 tailGlint = eye.subtract(direction.scale(length * 0.18D));
+        emitFigureComponents(level, 283, List.of(
+                () -> shortLine(level, family, eye, tip,
+                        Math.min(10, Math.max(5, intensity / 4)), random),
+                () -> spawn(level, LodestoneParticleRegistry.STAR_PARTICLE, family, tip,
+                        direction.scale(0.028D), 0.1F, 0.94F, 18, random.nextFloat())),
+                List.of(
+                        () -> shortLine(level, family, eye.add(side.scale(width)),
+                                neck.add(side.scale(width)), 6, random),
+                        () -> shortLine(level, family, eye.subtract(side.scale(width)),
+                                neck.subtract(side.scale(width)), 6, random),
+                        () -> shortLine(level, family, neck.add(side.scale(width)), tip, 3, random),
+                        () -> shortLine(level, family, neck.subtract(side.scale(width)), tip, 3, random),
+                        () -> verticalRing(level, family, eye, direction, width * 1.9D,
+                                Math.min(8, Math.max(5, intensity / 6)), random, 0.07F),
+                        () -> shortLine(level, family, eye.add(up.scale(width * 0.7D)),
+                                neck.add(up.scale(width * 0.7D)), 5, random),
+                        () -> spawn(level, LodestoneParticleRegistry.TWINKLE_PARTICLE, family,
+                                tailGlint, direction.scale(-0.012D),
+                                0.08F, 0.68F, 16, random.nextFloat())));
     }
 
     /** 虹桥 silhouette: arched path of particles from start to end. */

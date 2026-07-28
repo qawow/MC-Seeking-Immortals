@@ -435,6 +435,8 @@ PROGRAM_RULES = (
                     "数根粗大火索", "粗大火索", "几根金索", "金索", "红绳捆绑成一团")),
     ("magic_box", ("金属方盒", "黑色长匣", "黑匣", "玉盒", "木盒", "方盒", "玉匣", "匣盖",
                    "刺目红芒先从盒中")),
+    ("magic_needle", ("白濛濛的牛毛般细针", "纤细如丝的细针", "乌黑细针", "黄色细针",
+                      "牛毛般金针", "金针", "银针", "灵针", "飞针")),
     ("magic_fan", ("三焰扇", "青色羽扇", "羽扇", "从扇子狂涌而出", "从扇上浮现",
                    "三色光焰从扇面上", "三色火焰在扇面上", "单手持扇", "三色火柱从扇面上")),
     ("magic_umbrella", ("玉伞",)),
@@ -445,7 +447,9 @@ PROGRAM_RULES = (
     ("magic_ruler", ("混元尺", "银色巨尺", "巨大银尺", "半截银尺", "巨尺", "尺影")),
     ("magic_scissors", ("金色剪刀", "青色剪刀")),
     ("banner_streamer", ("阴罗幡", "巨幡", "幡旗", "杆幡", "黑幡", "灵幡", "宝幡", "玉竹幡", "竹幡", "血幡")),
-    ("seal_stamp", ("法印一闪", "大印一压", "大印落下", "法印一", "玉印", "宝印", "印诀", "金印", "血印", "印玺")),
+    ("seal_stamp", ("白光中的大印", "白玉大印", "血色巨印", "方印章",
+                    "法印一闪", "大印一压", "大印落下", "法印一", "玉印", "宝印",
+                    "印诀", "金印", "血印", "印玺")),
     ("command_token", ("黑色令牌", "长老令牌", "禁制令牌", "令牌上血光", "手中令牌",
                        "金色令牌", "从令牌一面", "金银令牌", "玉牌",
                        "数块漆黑的木牌", "单手抓着铁牌", "轻轻一晃自己的玉佩",
@@ -515,7 +519,7 @@ PROGRAM_RULES = (
                          "银灿灿「儒」字", "数字瞬间就由「二」字，变成了「三」",
                          "一个「一」字浮现在")),
     ("wing_fan", ("双翼", "羽翼", "翅膀", "羽翅", "风雷翅", "血红晶翅")),
-    ("spear_spike", ("金针", "银针", "灵针", "飞针", "金色巨钉", "长矛", "冰矛", "冰锥", "地刺", "骨刺", "蓝色细刺",
+    ("spear_spike", ("金色巨钉", "长矛", "冰矛", "冰锥", "地刺", "骨刺", "蓝色细刺",
                      "晶枪", "冰枪", "火枪", "水枪", "雷枪", "短枪", "长箭", "光箭", "巨箭",
                      "黑色弩箭", "短戈", "长戈", "金戈", "骨矛")),
     ("orb_projectile", ("黑色晶球", "白色晶球", "青色晶球", "蓝色晶球",
@@ -668,6 +672,21 @@ def program_primitive_path(primitive: str, text: str, fallback: str) -> str:
         return "STATIC"
     if primitive == "magic_box":
         return "RISE" if "往半空中一抛" in text else "STATIC"
+    if primitive == "magic_needle":
+        if any(token in text for token in ("围绕", "盘旋")):
+            return "ORBIT"
+        if "纷纷坠落" in text:
+            return "FALL"
+        if "弹射而飞" in text:
+            return "SCATTER"
+        if any(token in text for token in ("插满", "轻颤", "紫冰包裹")):
+            return "STATIC"
+        if any(token in text for token in (
+                "飞进了玉匣", "激射", "幻扎", "扎进", "没入", "弹入", "一扎")):
+            return "DIRECT"
+        if "飞出" in text:
+            return "DIRECT"
+        return fallback
     if primitive == "magic_ruyi":
         return "STATIC"
     if primitive == "magic_hook":
@@ -1026,6 +1045,7 @@ _PRIMITIVE_PALETTE_FALLBACK = {
     "magic_whip": "earth",
     "magic_rope": "qi",
     "magic_box": "earth",
+    "magic_needle": "metal",
     "spiked_shield": "wood",
     "magic_fan": "qi",
     "magic_umbrella": "qi",
@@ -1045,6 +1065,7 @@ _LOCAL_PALETTE_PRIMITIVES = frozenset({
     "magic_boat", "ritual_bowl", "ritual_altar", "ritual_lamp", "ritual_coffin",
     "magic_ruler", "magic_staff", "magic_vajra", "puppet_figure",
     "magic_bow", "magic_ruyi", "magic_hook", "magic_whip", "magic_rope", "magic_box",
+    "magic_needle",
     "magic_fan", "magic_umbrella", "magic_scissors", "command_token",
     "magic_brick", "bell_chime", "magic_scroll", "formation_disc", "spiked_club",
     "spiked_shield",
@@ -1065,6 +1086,10 @@ def program_palette_source(text: str, primitive: str, matched_terms: list[str]) 
     if primitive == "giant_hammer":
         # Its white skulls and green flames deliberately follow the hammer noun.
         return text[max(0, index - 20):min(len(text), index + len(term) + 48)]
+    if primitive == "magic_needle":
+        # Needle colours frequently follow the noun (red flight lines, green glints,
+        # purple ice), while later blood/talisman effects must not recolour the metal.
+        return text[max(0, index - 24):min(len(text), index + len(term) + 28)]
     if primitive in {"magic_rope", "chain_net"}:
         # Rope/net colours are often carried by their strands, not by the noun.
         return text[max(0, index - 48):min(len(text), index + len(term) + 12)]
@@ -1081,6 +1106,7 @@ _FIGURE_PRIMITIVES = {
     "light_curtain", "halo_ring", "ritual_bowl", "ritual_altar", "ritual_lamp",
     "ritual_coffin", "magic_ruler", "magic_staff", "magic_vajra", "puppet_figure",
     "magic_bow", "magic_ruyi", "magic_hook", "magic_whip", "magic_rope", "magic_box",
+    "magic_needle",
     "magic_fan", "magic_umbrella", "magic_scissors",
     "banner_streamer", "seal_stamp", "command_token", "magic_brick", "seal_cage", "bridge_arc",
     "magic_gong", "magic_mask", "magic_cloth", "rune_pillar", "spirit_armor",
@@ -1196,6 +1222,9 @@ def program_primitives(text: str, base_shape: str,
     if "刺目红芒先从盒中爆发" in text and "impact_arcs" not in selected:
         selected.append("impact_arcs")
         evidence.append("forced:box_light_burst")
+    if "magic_needle" in selected and "紫冰包裹" in text and "ice_prison" not in selected:
+        selected.append("ice_prison")
+        evidence.append("forced:needle_ice_prison")
     if "紫色铜炉" in text and "婴火" in text:
         selected = [primitive for primitive in selected if primitive != "cloud_vortex"]
         evidence.append("forced:furnace_fire_cloud")
@@ -1245,6 +1274,10 @@ def program_primitives(text: str, base_shape: str,
     if "chain_net" in selected and any(token in text for token in (
             "丝网般的无数白痕", "自投罗网", "蛛网般爬满")):
         selected.remove("chain_net")
+    if "magic_needle" in selected and any(token in text for token in (
+            "仿佛万千飞针", "金针般细小飞剑", "如同钢针般")):
+        selected.remove("magic_needle")
+        evidence.append("forced:needle_simile_excluded")
     if ("giant_sword" in selected and "巨剑门" in text
             and "巨剑门重劈" not in text):
         selected.remove("giant_sword")
@@ -1296,7 +1329,7 @@ def program_primitives(text: str, base_shape: str,
         keep_extra = {"lotus_mandala", "sword_rain", "projectile_swarm", "fire_plume",
                       "light_curtain", "spirit_avatar", "ghost_head", "wheel_disc",
                       "ritual_bowl", "magic_ruler", "magic_staff", "giant_hammer",
-                      "bell_chime", "magic_whip"}
+                      "bell_chime", "magic_whip", "seal_stamp"}
         selected = [p for p in selected if p == "flying_sword" or p in keep_extra]
     elif "giant_sword" in selected:
         explicit_small_swords = any(token in text for token in (
@@ -1358,6 +1391,10 @@ def program_primitives(text: str, base_shape: str,
                 tail.append("mist_veil")
         if head == "magic_rope":
             tail = [primitive for primitive in tail if primitive != "projectile_swarm"]
+        if head == "magic_needle":
+            tail = [primitive for primitive in tail if primitive != "projectile_swarm"]
+            if "mist_veil" in ordered[1:] and "血雾" in text:
+                tail.append("mist_veil")
         if (head == "magic_box" and "刺目红芒先从盒中爆发" in text
                 and "impact_arcs" in ordered[1:]):
             tail.append("impact_arcs")
@@ -1438,6 +1475,27 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
                 primary_key, secondary_key = "wood", "qi"
             elif primitive == "rune_stele":
                 primary_key, secondary_key = "qi", "thunder"
+            elif primitive == "magic_needle":
+                if profile_id == "spirit_needle":
+                    primary_key = secondary_key = "qi"
+                elif profile_id == "technique_068":
+                    primary_key = secondary_key = "fire"
+                elif profile_id == "technique_291":
+                    primary_key, secondary_key = "yin", "wood"
+                elif profile_id == "technique_501":
+                    primary_key, secondary_key = "qi", "water"
+                elif profile_id == "technique_505":
+                    primary_key, secondary_key = "earth", "metal"
+                elif profile_id == "technique_1289":
+                    primary_key = secondary_key = "wood"
+                else:
+                    primary_key = secondary_key = "metal"
+            elif primitive == "seal_stamp" and profile_id == "technique_1256":
+                primary_key = secondary_key = "fire"
+            elif primitive == "seal_stamp" and profile_id == "technique_1401":
+                primary_key, secondary_key = "earth", "qi"
+            elif primitive == "seal_stamp" and profile_id in {"technique_141", "technique_599"}:
+                primary_key = secondary_key = "qi"
             elif primitive == "command_token" and profile_id == "technique_098":
                 primary_key, secondary_key = "yin", "wood"
             elif primitive == "command_token" and profile_id == "technique_605":
@@ -1888,6 +1946,7 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
                 or (primitive == "magic_ruyi" and "数团精血" in source
                     and "白色光霞" in source)
                 or (primitive == "chain_net" and profile_id == "technique_910")
+                or (primitive == "magic_needle" and profile_id == "technique_505")
             )
             if ((primitive in _LOCAL_PALETTE_PRIMITIVES or exact_local_palette) and matched_terms
                     and primary_key != primitive_fallback and secondary_key == primitive_fallback):
@@ -1922,8 +1981,19 @@ def make_visual_program(profile: dict[str, Any], raw: dict[str, Any],
             if primitive == "formation_disc" and "法盘" in source:
                 copies = 1
             if primitive in {"magic_vajra", "magic_box", "magic_ruyi", "magic_hook", "magic_whip",
-                             "spiked_shield"}:
+                             "spiked_shield", "seal_stamp"}:
                 copies = 1
+            if primitive == "magic_needle":
+                if profile_id == "technique_068":
+                    copies = 13
+                elif profile_id in {"technique_291", "technique_408", "technique_505"}:
+                    copies = 20
+                elif profile_id == "technique_347":
+                    copies = 5
+                elif profile_id in {
+                        "technique_495", "technique_501", "technique_606",
+                        "technique_717", "technique_1017", "technique_1289"}:
+                    copies = 12
             if primitive == "magic_boat":
                 copies = 1
             if primitive == "ritual_altar":

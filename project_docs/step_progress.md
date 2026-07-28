@@ -9495,3 +9495,17 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Artifact   Done   JAR SHA-256 `6846ff3a486519fffd121bce1483d0ae7a78854dfa18ee8b5e4be831eddbf1e8`；视觉目录/术法效果目录 SHA-256 为 `e5fe88681a9bceeabe4d71283d974d3ba420652db8ab7bb315b3144c5e6d0da1` / `b6171bb1466fb4b6c7af4669cfe66230f8544c7c2804ac46aee8a8852e0d4265`。
   Version/protocol   Done   `mod_version` 0.2.223→0.2.224；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
   Backup   Done   `.bak/20260728_091343_0.2.224_sage_rods_stele/`；隔离快照 `/tmp/mc-mod-0.2.224-audit.1UgNv2`。
+
+## 616. 2026-07-28 0.2.225 细针独立轮廓与巨印立体化
+
+  Step   Status   Notes
+  ---   ---   ---
+  Source boundary   Done   逐条回读十三飞针、乌黑/金/银/白/黄/青细针与血色巨印、方印章、白光大印、白玉大印；金针般飞剑、万千飞针般毫毛和钢针般晶丝明确排除。
+  Compiler   Done   新增 `magic_needle=25`，由金针术/灭灵针 12 个模板层及 13 个原著引文组组成；四条明确巨印复用 `seal_stamp`，不扩大到手印、印诀、印记或背景印章。
+  Runtime   Done   细针由窄双轨针身、针眼、双侧收尖、脊光、尖端星芒和尾部闪点组成；印章扩展为上下方形印体、四角厚度、握柄、印面刻线和下压波纹。二者均接入 figure 分发及复杂轮廓最低 2 粒预算。
+  Counts/palette   Done   红线遁光针 13，乌黑针/金针雨/黄色落针 20，银针按原文 5/12；保持 fire、metal、`yin→wood`、`qi→water`、`earth→metal` 与 wood 局部颜色。巨印为 fire、`earth→qi` 或 qi，并保持金球、紫冰、符箓、血雾、巨剑/六侧袭和绿色小剑伴随层。
+  Diff/contracts   Done   相对 0.2.224 恰有 19 个预期 profile ID、36 条引文组变化，非 `visual_program` profile 字段变化 0；视觉顶层仅 `source_hashes` 更新，术法效果目录 2,292 个 profile 全不变且仅 `java_source_audit` 更新。目录为 5,727 profiles、10,981 层、108 primitive。
+  Verification   Done   两个生成器按“spell→visual”顺序重生成及 `--check`、结构化差异审计、定向契约测试和隔离快照完整构建均通过；`BUILD SUCCESSFUL in 1m 33s`，251 套件/1,178 测试 failure/error/skipped 均为 0。
+  Artifact   Done   JAR SHA-256 `afa0e8d9a0c042015a719f477d4cce40d2d0b71f7ee0fc65a27147ae3897ade8`；视觉目录/术法效果目录 SHA-256 为 `dadefd61da4297d94257e91b74d07d793d6ea141281aa1f885f20440b62bca71` / `ef4d5c32941bdedb18880a51415543ad0a1f7488c87a213fe99cc392200dbe51`。
+  Version/protocol   Done   `mod_version` 0.2.224→0.2.225；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
+  Backup   Done   `.bak/20260728_102231_0.2.225_magic_needles_seals/`；隔离快照 `/tmp/mc-mod-0.2.225-audit.sfWB0I`。
