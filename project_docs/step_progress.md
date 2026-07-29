@@ -9663,3 +9663,16 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Artifact   Done   JAR SHA-256 `dab8107b08133b73d783e31fb2a279dac1650e75265afd5d39f3953a0fac34db`；术法效果/视觉目录 SHA-256 为 `c06f84545cbb9aeca39a14fc75acd557a2151ccee683bfe21fe6d9fcf7a4f7d5` / `6d11cdf0af3783c2261d9b891ed16036e56ae2e33ec9330bc1dd81b75330415c`。
   Backup   Done   `.bak/20260729_123651_projection_guide_fix/`。
   Live QA   Pending   仍需真实客户端检查各种可替换方块/点击面的相邻落点、Fast/Fabulous 透明排序、双手切换及解除后临时预览的视觉反馈。
+## 583. 2026-07-29 `0.2.238` F-C3 丹炉显示与绘制层级
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   执行计划 F-C3，范围为 UI-15、UI-28；备份位于 `.bak/20260729_0.2.238_f_c3/`。
+  Idle/progress   Done   `AlchemyFurnaceMenu` 保留原始零总时长并提供 `isCrafting()`；屏幕空闲显示本地化空闲态和 0 进度，进行中按实际剩余/总时长并钳制异常值。
+  Tooltip order   Done   丹炉标签迁移至 `renderLabels`，原生槽位 tooltip 在其后绘制，避免光标携带物品覆盖自定义文字。
+  Localization   Done   中英文新增 `screen.seeking_immortals.alchemy_menu.idle`。
+  Tests   Done   `AlchemyFurnaceInteractionTest`、`ScreenLayoutTest` 定向测试通过，覆盖空闲、开始、完成边界、标签入口和 tooltip 顺序。
+  Generated resources   Done   按 `spell -> visual` 顺序刷新术法效果与视觉目录，2,292/5,727 profiles 检查通过。
+  Version/protocol   Done   `mod_version=0.2.237 -> 0.2.238`；未改网络字段、顺序、类型、注册和频道行为，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
+  Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1 --console=plain` 通过，`:aiPreflight` 记录 `mod_version=0.2.238`，`BUILD SUCCESSFUL in 1m 35s`；完整测试 1,205 项，failure/error/skipped 均为 0；JAR SHA-256 为 `c7f7197035b95c06f2b1023a60207e5c806b832f111de1cff61fa8e64af14029`。
+  Next implementation   Pending   F-D：UI-16、UI-17、UI-21、UI-23、UI-27；F-C3 丹炉空闲态、进度和 tooltip 仍需最终真实客户端 QA。

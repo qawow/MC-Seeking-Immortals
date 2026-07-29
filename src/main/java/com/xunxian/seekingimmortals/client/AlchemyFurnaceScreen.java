@@ -31,29 +31,61 @@ public class AlchemyFurnaceScreen extends AbstractJournalContainerScreen<Alchemy
         }
         int progress = menu.getProgress();
         int total = menu.getTotal();
-        double fraction = total <= 0 ? 0.0D : (total - progress) / (double)total;
+        double fraction = progressFraction(progress, total, menu.isCrafting());
         ImmortalUiSkin.drawSemanticStatusBar(graphics, x + 87, y + 35, 28, 7, fraction,
-                ImmortalUiSkin.StatusBarStyle.CULTIVATION);
+                menu.isCrafting()
+                        ? ImmortalUiSkin.StatusBarStyle.CULTIVATION
+                        : ImmortalUiSkin.StatusBarStyle.NEUTRAL);
     }
 
     @Override
-    protected void renderJournalOverlays(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
+    protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
+        // AbstractContainerScreen renders labels before its final tooltip pass. Keeping
+        // furnace text here ensures a carried item/slot tooltip is always drawn above it.
+        renderFurnaceLabels(graphics);
+    }
+
+    private void renderFurnaceLabels(GuiGraphics graphics) {
+        boolean crafting = menu.isCrafting();
+        int progress = menu.getProgress();
+        int total = menu.getTotal();
+        if (crafting) {
+            ImmortalUiSkin.drawStringFit(font, graphics,
+                    Component.translatable(progressTextKey(true),
+                            Math.max(0, Math.min(total, total - progress)), total).getString(),
+                    87, 23, 80, ImmortalUiSkin.JOURNAL_PAPER, false);
+        } else {
+            ImmortalUiSkin.drawStringFit(font, graphics,
+                    Component.translatable(progressTextKey(false)).getString(),
+                    87, 23, 80, ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
+        }
         ImmortalUiSkin.drawStringFit(font, graphics,
-                Component.translatable("screen.seeking_immortals.alchemy_menu.progress",
-                        Math.max(0, menu.getTotal() - menu.getProgress()), menu.getTotal()).getString(),
-                leftPos + 87, topPos + 23, 80, ImmortalUiSkin.JOURNAL_PAPER, false);
-        ImmortalUiSkin.drawStringFit(font, graphics, Component.translatable(
+                Component.translatable(
                         menu.isFormed()
                                 ? "screen.seeking_immortals.alchemy_menu.shell_ok"
                                 : "screen.seeking_immortals.alchemy_menu.shell_bad").getString(),
-                leftPos + 8, topPos + 69, 78,
+                8, 69, 78,
                 menu.isFormed() ? ImmortalUiSkin.JOURNAL_JADE_TEXT : ImmortalUiSkin.JOURNAL_CINNABAR_BRIGHT, false);
         ImmortalUiSkin.drawStringFit(font, graphics, Component.translatable(
                         menu.hasEarthFireRoom()
                                 ? "screen.seeking_immortals.alchemy_menu.room_ok"
                                 : "screen.seeking_immortals.alchemy_menu.room_none").getString(),
-                leftPos + 90, topPos + 69, 78,
+                90, 69, 78,
                 menu.hasEarthFireRoom() ? ImmortalUiSkin.JOURNAL_JADE_TEXT : ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
+    }
+
+    static double progressFraction(int progress, int total, boolean crafting) {
+        if (!crafting || total <= 0) {
+            return 0.0D;
+        }
+        int elapsed = Math.max(0, Math.min(total, total - Math.max(0, progress)));
+        return elapsed / (double) total;
+    }
+
+    static String progressTextKey(boolean crafting) {
+        return crafting
+                ? "screen.seeking_immortals.alchemy_menu.progress"
+                : "screen.seeking_immortals.alchemy_menu.idle";
     }
 
     static FurnaceLayout calculateLayout(int screenWidth, int screenHeight) {

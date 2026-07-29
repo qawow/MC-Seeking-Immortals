@@ -2111,6 +2111,7 @@
   "message.seeking_immortals.alchemy_furnace.skill_too_low": "炼制%s需要炼丹术等级 %s（当前等级 %s）",
   "screen.seeking_immortals.alchemy_menu.title": "炼丹炉",
   "screen.seeking_immortals.alchemy_menu.progress": "进度 %s/%s",
+  "screen.seeking_immortals.alchemy_menu.idle": "进度：空闲",
   "item.seeking_immortals.hundred_year_ice": "百年寒冰",
   "item.seeking_immortals.void_palace_cold_jade": "虚宫寒玉",
   "message.seeking_immortals.text_quest.dialogue.need_npc": "需要附近有对应执事/商人（%s）才能继续对话。",

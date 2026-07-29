@@ -93,11 +93,16 @@ public class AlchemyFurnaceMenu extends AbstractContainerMenu {
     }
 
     public int getProgress() {
-        return data.get(0);
+        return Math.max(0, data.get(0));
     }
 
     public int getTotal() {
-        return Math.max(1, data.get(1));
+        return Math.max(0, data.get(1));
+    }
+
+    /** True only while a recipe has a positive remaining duration. */
+    public boolean isCrafting() {
+        return getProgress() > 0 && getTotal() > 0;
     }
 
     public boolean isFormed() {

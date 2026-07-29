@@ -149,6 +149,20 @@ class ScreenLayoutTest {
     }
 
     @Test
+    void alchemyFurnaceProgressUsesIdleZeroAndClampedCraftingFraction() {
+        assertEquals(0.0D, AlchemyFurnaceScreen.progressFraction(0, 0, false), 0.0001D);
+        assertEquals(0.0D, AlchemyFurnaceScreen.progressFraction(20, 100, false), 0.0001D);
+        assertEquals(0.0D, AlchemyFurnaceScreen.progressFraction(100, 100, true), 0.0001D);
+        assertEquals(0.5D, AlchemyFurnaceScreen.progressFraction(50, 100, true), 0.0001D);
+        assertEquals(1.0D, AlchemyFurnaceScreen.progressFraction(0, 100, true), 0.0001D);
+        assertEquals(0.0D, AlchemyFurnaceScreen.progressFraction(120, 100, true), 0.0001D);
+        assertEquals("screen.seeking_immortals.alchemy_menu.idle",
+                AlchemyFurnaceScreen.progressTextKey(false));
+        assertEquals("screen.seeking_immortals.alchemy_menu.progress",
+                AlchemyFurnaceScreen.progressTextKey(true));
+    }
+
+    @Test
     void techniqueSkillBarAnchorsLeftAndFitsCommonScaledHudSizes() {
         assertSkillBarFits(180, 180);
         assertSkillBarFits(320, 180);
