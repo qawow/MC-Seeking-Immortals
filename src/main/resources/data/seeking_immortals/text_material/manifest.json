@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "source": "文本材料/data",
-  "catalog_files": 269,
+  "catalog_files": 270,
   "technique_files": 21,
-  "total_files": 290,
+  "total_files": 291,
   "files": [
     {
       "id": "alchemy_recipes",
@@ -1562,7 +1562,7 @@
     {
       "id": "named_npc_seeds_v137",
       "file": "named_npc_seeds_v137.json",
-      "entries": 13,
+      "entries": 179,
       "primary_key": "npcs"
     },
     {
@@ -1592,7 +1592,7 @@
     {
       "id": "npc_dialogues_v117",
       "file": "npc_dialogues_v117.json",
-      "entries": 10,
+      "entries": 168,
       "primary_key": "dialogues"
     },
     {
@@ -1744,7 +1744,13 @@
       "file": "quest_handbook_i18n_v1.json",
       "entries": 68,
       "primary_key": "hook_labels_zh"
+    },
+    {
+      "id": "detailed_quest_proof_routes",
+      "file": "detailed_quest_proof_routes.json",
+      "entries": 95,
+      "primary_key": "routes"
     }
   ],
-  "total_entries": 12327
+  "total_entries": 12746
 }

@@ -59,6 +59,8 @@ public final class DetailedQuestRuntimeService {
             "quest_cipher_or_intro_letter", "contribution>=500", "risk_accept",
             "kunwu_clue_pieces>=n", "fire_resist_ready", "detox_yin_resist");
     private static final Snapshot BUILTIN = loadBuiltin();
+    private static final DetailedQuestProofCatalog.Snapshot PROOF_ROUTES =
+            DetailedQuestProofCatalog.loadAndValidate(sourceStepCounts(BUILTIN));
     private static final Set<String> KNOWN_EVIDENCE = buildKnownEvidence();
 
     private DetailedQuestRuntimeService() {}
@@ -131,6 +133,11 @@ public final class DetailedQuestRuntimeService {
 
     public static Snapshot builtin() {
         return BUILTIN;
+    }
+
+    /** Strict proof routes consumed by the future structured event producers. */
+    public static DetailedQuestProofCatalog.Snapshot proofCatalog() {
+        return PROOF_ROUTES;
     }
 
     public static Optional<Chain> find(String chainId) {
@@ -730,6 +737,16 @@ public final class DetailedQuestRuntimeService {
             totalSteps += steps.size();
         }
         return new Snapshot(chains, totalSteps, unsupportedPrerequisites, unsupportedNeeds);
+    }
+
+    private static Map<String, Integer> sourceStepCounts(Snapshot snapshot) {
+        Map<String, Integer> counts = new LinkedHashMap<>();
+        if (snapshot != null) {
+            for (Chain chain : snapshot.chains().values()) {
+                counts.put(chain.id(), chain.steps().size());
+            }
+        }
+        return counts;
     }
 
     private static JsonObject readJson(String path) {

@@ -9717,3 +9717,15 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Tests   Done   F-E2 定向测试通过；完整构建共 255 个测试套件、1,210 项测试，failure/error/skipped 均为 0。
   Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功，`:aiPreflight` 记录 `mod_version=0.2.243`；JAR SHA-256 为 `02e2eabaac77061d59a0063627e61655340100ca091c726cc93b904122c7d128`。
   Next implementation   Pending   Q-A：建立 95 步详细任务证明路由；F-E2 及此前前端批次的真实客户端验收仍留在最终 QA。
+## 585. 2026-07-29 `0.2.244` Q-A 详细任务证明路由
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   执行计划 Q-A；既有运行时、版本和状态文档回滚位于 `.bak/20260729_154000_q_a_proof_routes/`，用户既有 `CLAUDE.md` 与 `project_docs/frontend_interaction_audit_0.2.198.md` 未纳入。
+  Route resource   Done   新增 `detailed_quest_proof_routes.json`，23 条任务链、95 个步骤逐步覆盖，每条记录包含证明类型、事件 id、参数、归属/队伍/消耗/重复策略、失败键、历史回放标记和生产者。
+  Strict catalog   Done   新增 `DetailedQuestProofCatalog`，在运行时初始化时校验 schema、源链步骤覆盖、唯一映射、参数键、生产者、事件 id、失败键和策略；`ADMIN_ONLY`、未知类型、未知参数或未知生产者均失败关闭。
+  Runtime wiring   Done   `DetailedQuestRuntimeService.proofCatalog()` 暴露已校验快照，路由目录与当前 `quest_chains_playable_v141.json` 的 23/95 快照交叉核对；Q-A 暂不迁移自然事件生产者。
+  Tests   Done   `DetailedQuestProofCatalogTest`、`DetailedQuestRuntimeServiceTest` 与 `TextMaterialManifestServiceTest` 定向测试通过；普通完整构建共 256 个测试套件、1,213 项测试，failure/error/skipped 均为 0。
+  Version/protocol   Done   `mod_version` 从 `0.2.243` 升至 `0.2.244`；未改网络字段、顺序、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=31` 保持不变。
+  Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功，`:aiPreflight` 记录 `mod_version=0.2.244`；JAR SHA-256 为 `bba62aa65a544dcd518cfe1c2812ad9d19bfc2e51a53ef426ce837b2c60347cf`。
+  Next implementation   Pending   Q-B：接入自然事件生产者；对话分型、阴阳窟闭环、维度/本命/旧 NPC 迁移及最终真实客户端/专服/双客户端 QA 仍未完成。
