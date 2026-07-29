@@ -117,7 +117,7 @@ class ClientVisualEngineContractTest {
         int lifecycle = network.indexOf("VisualEventPacket.class");
         assertTrue(legacy >= 0);
         assertTrue(lifecycle > legacy);
-        assertTrue(network.contains("PROTOCOL_VERSION = \"30\""));
+        assertTrue(network.contains("PROTOCOL_VERSION = \"31\""));
     }
 
     @Test

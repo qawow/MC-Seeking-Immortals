@@ -12,19 +12,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ScreenLayoutTest {
     @Test
-    void sectScreenPanelFitsNarrowScreens() {
-        assertPanelFits(120, 90, SectScreen.calculatePanelWidth(120), SectScreen.calculatePanelHeight(90));
-        assertPanelFits(200, 140, SectScreen.calculatePanelWidth(200), SectScreen.calculatePanelHeight(140));
-        assertPanelFits(320, 180, SectScreen.calculatePanelWidth(320), SectScreen.calculatePanelHeight(180));
-    }
-
-    @Test
-    void sectShopRowsStayInsidePanelReserve() {
-        assertShopRowsFit(SectScreen.calculatePanelWidth(200), SectScreen.calculatePanelHeight(140));
-        assertShopRowsFit(SectScreen.calculatePanelWidth(360), SectScreen.calculatePanelHeight(236));
-    }
-
-    @Test
     void techniqueEditorPanelFitsNarrowScreens() {
         assertPanelFits(120, 90, TechniqueEditScreen.calculatePanelWidth(120), TechniqueEditScreen.calculatePanelHeight(90));
         assertPanelFits(220, 150, TechniqueEditScreen.calculatePanelWidth(220), TechniqueEditScreen.calculatePanelHeight(150));
@@ -416,10 +403,6 @@ class ScreenLayoutTest {
         assertPanelFits(screenWidth, screenHeight, alchemy.panelWidth(), alchemy.panelHeight());
         assertFalse(alchemy.viewport().intersects(alchemy.closeButton()));
 
-        AuctionScreen.AuctionLayout auction = AuctionScreen.calculateLayout(screenWidth, screenHeight);
-        assertPanelFits(screenWidth, screenHeight, auction.panelWidth(), auction.panelHeight());
-        assertFalse(auction.viewport().intersects(auction.refreshButton()));
-
         AuctionHallScreen.HallLayout auctionHall = AuctionHallScreen.calculateLayout(screenWidth, screenHeight);
         assertPanelFits(screenWidth, screenHeight, auctionHall.panelWidth(), auctionHall.panelHeight());
         assertFalse(auctionHall.viewport().intersects(auctionHall.previousButton()));
@@ -473,17 +456,9 @@ class ScreenLayoutTest {
         assertTrue(preview.panel().inside(screenWidth, screenHeight));
         assertTrue(preview.viewport().inside(screenWidth, screenHeight));
 
-        SectScreen.Layout sect = SectScreen.calculateLayout(screenWidth, screenHeight);
-        assertPanelFits(screenWidth, screenHeight, sect.panelWidth(), sect.panelHeight());
-        assertTrue(sect.content().width() > 0 && sect.content().height() > 0);
-
         SectHallScreen.Layout sectHall = SectHallScreen.calculateLayout(screenWidth, screenHeight);
         assertPanelFits(screenWidth, screenHeight, sectHall.panelWidth(), sectHall.panelHeight());
         assertTrue(sectHall.content().width() > 0 && sectHall.content().height() > 0);
-
-        ShopScreen.Layout shop = ShopScreen.calculateLayout(screenWidth, screenHeight);
-        assertPanelFits(screenWidth, screenHeight, shop.panelWidth(), shop.panelHeight());
-        assertTrue(shop.content().width() > 0 && shop.content().height() > 0);
 
         WorldpackScreen.Layout worldpack = WorldpackScreen.calculateLayout(screenWidth, screenHeight);
         assertPanelFits(screenWidth, screenHeight, worldpack.panelWidth(), worldpack.panelHeight());
@@ -555,17 +530,6 @@ class ScreenLayoutTest {
         assertTrue(layout.viewport().h() >= 10,
                 "compendium viewport body too short at " + screenWidth + "x" + screenHeight);
         assertTrue(layout.viewport().w() >= 1);
-    }
-
-    private static void assertShopRowsFit(int panelWidth, int panelHeight) {
-        int offset = SectScreen.shopTopOffset(panelHeight);
-        int rows = SectScreen.visibleShopRows(panelWidth, panelHeight);
-        int bottomReserve = panelWidth < 300 ? 50 : 30;
-        int rowsBottom = offset + 20 + rows * 22;
-
-        assertTrue(offset >= 0, "shop top offset must be non-negative");
-        assertTrue(offset < panelHeight, "shop header must start inside the panel");
-        assertTrue(rowsBottom <= panelHeight - bottomReserve + 20, "shop rows must leave button reserve space");
     }
 
     private static void assertSkillBarFits(int screenWidth, int screenHeight) {

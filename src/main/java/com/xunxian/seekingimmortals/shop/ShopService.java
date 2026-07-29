@@ -126,7 +126,7 @@ public final class ShopService {
         if (!isMarketShop(normalizedShop)) {
             normalizedShop = MARKET_HERBAL_STALL;
         }
-        // Wave490: data sync never opens the legacy ShopScreen; hall MenuType is opened via NetworkHooks.
+        // Data sync never opens a legacy screen; the hall MenuType is opened via NetworkHooks.
         MarketSnapshot snapshot = snapshot(player, normalizedShop, WorldpackGameplayService.marketCostModifier(player), false);
         SyncShopDataPacket.send(player, toPacket(snapshot));
         sendMarketListing(player, snapshot);

@@ -9705,3 +9705,15 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Version/protocol   Done   `mod_version=0.2.238 -> 0.2.240`；0.2.239 首次构建后补充客户端闩触发版本门禁，最终递增至 0.2.240；网络字段、顺序、类型、注册和频道行为未改，协议 30 保持不变。
   Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功，JAR SHA-256 为 `c61063bc3a214328cc6901b163740fd0971153b6ba6f9ee7e13a313d431d95f7`；本地提交为 `2fba841e`（`fix: 收口低危交互与突破防重`）。
   Next implementation   Pending   F-E1/UI-20 秘境入口按钮产品收口；随后执行 F-E2/UI-22 旧屏删除与协议升级。F-D 及此前各批次的真实客户端 QA 留在最终验收。
+## 584. 2026-07-29 `0.2.243` F-E2 删除不可达旧屏幕
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   执行计划 F-E2/UI-22；既有源码、资源、测试、版本和生成档案回滚位于 `.bak/20260729_153000_f_e2_legacy_screen_cleanup/`，用户既有 `CLAUDE.md` 与 `project_docs/frontend_interaction_audit_0.2.198.md` 未纳入。
+  Legacy screens   Done   删除 `SectScreen`、`ShopScreen`、`AuctionScreen` 与 `OpenAuctionScreenPacket`；移除旧包注册、旧处理器和旧屏专属布局/语言键，保留三套正式 Hall 菜单。
+  Sync behavior   Done   `handleSyncSect`/`handleSyncShop` 只写入 `ClientSectData`/`ClientShopData`，不再因 `openScreen` 强开旧屏；宗门、坊市、拍卖正式入口仍由服务端菜单路径负责。
+  Protocol audit   Done   `ModNetwork.PROTOCOL_VERSION` 从 `30` 升至 `31`；方向集合、旧包文件不存在和协议版本回归断言通过，旧协议客户端会被频道版本拒绝。
+  Generated resources   Done   按 `spell -> visual` 顺序刷新两个受控生成档案并通过 `--check`，分别为 2,292 与 5,727 profiles。
+  Tests   Done   F-E2 定向测试通过；完整构建共 255 个测试套件、1,210 项测试，failure/error/skipped 均为 0。
+  Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功，`:aiPreflight` 记录 `mod_version=0.2.243`；JAR SHA-256 为 `02e2eabaac77061d59a0063627e61655340100ca091c726cc93b904122c7d128`。
+  Next implementation   Pending   Q-A：建立 95 步详细任务证明路由；F-E2 及此前前端批次的真实客户端验收仍留在最终 QA。

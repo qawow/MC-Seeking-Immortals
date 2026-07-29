@@ -1,7 +1,6 @@
 package com.xunxian.seekingimmortals.client;
 
 import com.xunxian.seekingimmortals.network.OpenAlchemyStatusPacket;
-import com.xunxian.seekingimmortals.network.OpenAuctionScreenPacket;
 import com.xunxian.seekingimmortals.network.OpenDialogueScreenPacket;
 import com.xunxian.seekingimmortals.network.OpenRefinePlanPacket;
 import com.xunxian.seekingimmortals.network.OpenStoragePreviewPacket;
@@ -27,24 +26,10 @@ public final class ClientPacketHandlers {
 
     public static void handleSyncSect(SyncSectDataPacket packet) {
         ClientSectData.set(packet);
-        // Wave490: sect opens via NetworkHooks SectHallMenu; legacy SectScreen only if no hall open.
-        if (packet.openScreen()) {
-            Minecraft mc = Minecraft.getInstance();
-            if (!(mc.screen instanceof SectHallScreen) && !(mc.screen instanceof SectScreen)) {
-                mc.setScreen(new SectScreen());
-            }
-        }
     }
 
     public static void handleSyncShop(SyncShopDataPacket packet) {
         ClientShopData.set(packet);
-        // Wave490: market opens via NetworkHooks MarketHallMenu; keep legacy ShopScreen only as soft fallback.
-        if (packet.openScreen()) {
-            Minecraft mc = Minecraft.getInstance();
-            if (!(mc.screen instanceof MarketHallScreen) && !(mc.screen instanceof ShopScreen)) {
-                mc.setScreen(new ShopScreen());
-            }
-        }
     }
 
     public static void handleSyncWorldpack(SyncWorldpackDataPacket packet) {
@@ -138,14 +123,6 @@ public final class ClientPacketHandlers {
             }
             default -> {
             }
-        }
-    }
-
-    public static void handleOpenAuction(OpenAuctionScreenPacket packet) {
-        // Wave490: prefer productized hall; legacy AuctionScreen only if no container open.
-        Minecraft mc = Minecraft.getInstance();
-        if (!(mc.screen instanceof AuctionHallScreen) && !(mc.screen instanceof AuctionScreen)) {
-            mc.setScreen(new AuctionScreen());
         }
     }
 

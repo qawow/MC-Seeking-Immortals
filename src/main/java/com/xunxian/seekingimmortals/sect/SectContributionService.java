@@ -709,7 +709,7 @@ public final class SectContributionService {
         currentDefinition(progress).ifPresent(definition ->
                 com.xunxian.seekingimmortals.catalog.ManualCatalogService.grantSectSpecialtyMethods(
                         player, definition.id(), progress.getSectQuestStage()));
-        // Wave490: never open legacy SectScreen via packet; MenuType is opened separately.
+        // Never open a legacy screen via packet; the MenuType is opened separately.
         SyncSectDataPacket.send(player, createPacket(player, cultivation, false, focusSectId));
         if (openScreen) {
             openSectHall(player, focusSectId);

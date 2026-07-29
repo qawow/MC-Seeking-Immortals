@@ -54,7 +54,6 @@ class ModNetworkDirectionTest {
             "SyncLoreUnlockPacket");
 
     private static final Set<String> S2C_SCREEN_OPENS = Set.of(
-            "OpenAuctionScreenPacket",
             "OpenDialogueScreenPacket",
             "OpenAlchemyStatusPacket",
             "OpenStoragePreviewPacket",
@@ -95,6 +94,13 @@ class ModNetworkDirectionTest {
             assertTrue(source.contains("DistExecutor.unsafeRunWhenOn(Dist.CLIENT"),
                     packet + " must be handled on the client");
         }
+    }
+
+    @Test
+    void legacyAuctionScreenPacketIsRemovedAndProtocolIsBumped() throws Exception {
+        assertTrue(Files.readString(MOD_NETWORK).contains("PROTOCOL_VERSION = \"31\""));
+        assertTrue(Files.notExists(NETWORK_ROOT.resolve("OpenAuctionScreenPacket.java")));
+        assertTrue(!Files.readString(MOD_NETWORK).contains("OpenAuctionScreenPacket"));
     }
 
     private static Map<String, Direction> parseExplicitRegistrations(String source) {

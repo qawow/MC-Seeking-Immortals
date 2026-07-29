@@ -193,9 +193,9 @@ class MultiplayerAuthorityRegressionTest {
         assertFalse(spell.contains("return true; // always hit players"));
 
         String network = Files.readString(JAVA_ROOT.resolve(Path.of("network", "ModNetwork.java")));
-        assertTrue(network.contains("PROTOCOL_VERSION = \"30\"")
-                || network.contains("PROTOCOL_VERSION=\"30\"")
-                || network.contains("private static final String PROTOCOL_VERSION = \"30\""));
+        assertTrue(network.contains("PROTOCOL_VERSION = \"31\"")
+                || network.contains("PROTOCOL_VERSION=\"31\"")
+                || network.contains("private static final String PROTOCOL_VERSION = \"31\""));
     }
 
     @Test
@@ -258,5 +258,6 @@ class MultiplayerAuthorityRegressionTest {
                 Path.of("client", "ClientPacketHandlers.java")));
         assertTrue(handlers.contains("handleSyncSect"));
         assertTrue(handlers.contains("handleOpenDialogue"));
+        assertFalse(handlers.contains("handleOpenAuction"));
     }
 }

@@ -7,8 +7,8 @@ import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 
 public final class ModNetwork {
-    // 0.2.159: append lifecycle visual instances after the existing VFX intent.
-    private static final String PROTOCOL_VERSION = "30";
+    // 0.2.243: remove the unreachable legacy auction screen packet.
+    private static final String PROTOCOL_VERSION = "31";
 
     public static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
             new ResourceLocation(SeekingImmortalsMod.MODID, "main"),
@@ -100,11 +100,6 @@ public final class ModNetwork {
                 .encoder(AuctionActionPacket::encode)
                 .decoder(AuctionActionPacket::decode)
                 .consumerMainThread(AuctionActionPacket::handle)
-                .add();
-        CHANNEL.messageBuilder(OpenAuctionScreenPacket.class, id++, NetworkDirection.PLAY_TO_CLIENT)
-                .encoder(OpenAuctionScreenPacket::encode)
-                .decoder(OpenAuctionScreenPacket::decode)
-                .consumerMainThread(OpenAuctionScreenPacket::handle)
                 .add();
         // Wave47: dialogue GUI packets.
         CHANNEL.messageBuilder(OpenDialogueScreenPacket.class, id++, NetworkDirection.PLAY_TO_CLIENT)
