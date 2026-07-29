@@ -2,6 +2,8 @@ package com.xunxian.seekingimmortals.client;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -41,6 +43,24 @@ class DragDualScrollTest {
         assertTrue(MethodTreeScreen.graphHitContains(10, 20, 40, 16, 50, 36));
         assertFalse(MethodTreeScreen.graphHitContains(10, 20, 40, 16, 50.1, 36));
         assertFalse(MethodTreeScreen.graphHitContains(10, 20, 40, 16, 9.9, 20));
+    }
+
+    @Test
+    void overlappingGraphNodesUseLastDrawnTopmostHit() {
+        List<MethodTreeScreen.GraphHit> hits = List.of(
+                new MethodTreeScreen.GraphHit(10, 10, 30, 16, "bottom"),
+                new MethodTreeScreen.GraphHit(18, 12, 30, 16, "top"));
+        assertEquals(1, MethodTreeScreen.topmostGraphHitIndex(hits, 20, 16));
+        assertEquals(-1, MethodTreeScreen.topmostGraphHitIndex(hits, 90, 90));
+    }
+
+    @Test
+    void zeroMovementGraphClickDoesNotEmitLayoutUpdate() {
+        assertFalse(MethodTreeScreen.shouldSendLayoutUpdate(false, 0, 0, 0, 0));
+        assertFalse(MethodTreeScreen.shouldSendLayoutUpdate(false, 2, -1, 2, -1));
+        assertTrue(MethodTreeScreen.shouldSendLayoutUpdate(true, 0, 0, 4, -2));
+        assertTrue(MethodTreeScreen.shouldSendLayoutUpdate(true, 3, 3, 0, 0));
+        assertFalse(MethodTreeScreen.shouldSendLayoutUpdate(true, 3, 3, 3, 3));
     }
 
     @Test

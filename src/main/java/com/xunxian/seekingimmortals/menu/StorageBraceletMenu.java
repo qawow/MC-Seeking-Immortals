@@ -130,7 +130,18 @@ public class StorageBraceletMenu extends AbstractContainerMenu {
     @Override
     public boolean stillValid(Player player) {
         ItemStack bracelet = hand == InteractionHand.MAIN_HAND ? player.getMainHandItem() : player.getOffhandItem();
-        if (bracelet != boundBracelet || bracelet.isEmpty() || !ArtifactStorageService.supportsStack(bracelet)) {
+        if (bracelet.isEmpty() || !ArtifactStorageService.supportsStack(bracelet)) {
+            return false;
+        }
+        if (player.level().isClientSide) {
+            // Client inventory synchronization may replace an NBT-bearing stack instance.
+            // Keep prediction open for the same supported item; the server path below remains
+            // anchored to the exact opening instance and rechecks ownership/integrity.
+            return boundBracelet != null && !boundBracelet.isEmpty()
+                    && bracelet.getItem() == boundBracelet.getItem()
+                    && ArtifactStorageService.storageSlots(bracelet) == storageSlots;
+        }
+        if (bracelet != boundBracelet) {
             return false;
         }
         if (player instanceof ServerPlayer serverPlayer) {

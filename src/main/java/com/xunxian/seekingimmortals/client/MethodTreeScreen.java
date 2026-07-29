@@ -61,7 +61,13 @@ public class MethodTreeScreen extends AbstractJournalScreen {
     private final List<GraphHit> graphHits = new ArrayList<>();
     /** Wave485/486: freeform layout offsets (server-synced via ClientMethodLayoutData). */
     private final Map<String, int[]> layoutOffsets = new HashMap<>();
-    private String draggingMethodId = "";
+    /** Node under the pointer; selection and the drag baseline are committed on release. */
+    private String pendingGraphMethodId = "";
+    private boolean graphDragMoved;
+    private double graphPressX;
+    private double graphPressY;
+    private int graphDragStartOffsetX;
+    private int graphDragStartOffsetY;
     private double dragGrabX;
     private double dragGrabY;
     private int graphOriginX;
@@ -85,7 +91,7 @@ public class MethodTreeScreen extends AbstractJournalScreen {
         DETAIL
     }
 
-    private record GraphHit(int x, int y, int w, int h, String methodId) {
+    record GraphHit(int x, int y, int w, int h, String methodId) {
         boolean contains(double mx, double my) {
             return mx >= x && mx <= x + w && my >= y && my <= y + h;
         }
@@ -150,6 +156,7 @@ public class MethodTreeScreen extends AbstractJournalScreen {
     }
 
     private void resetLayout() {
+        flushPendingLayout();
         layoutOffsets.clear();
         ClientMethodLayoutData.set(Map.of());
         resetPointerDrag();
@@ -237,6 +244,7 @@ public class MethodTreeScreen extends AbstractJournalScreen {
         idx = Math.floorMod(idx + delta, schoolTabs.size());
         activeSchool = schoolTabs.get(idx);
         scroll = 0;
+        detailScroll = 0;
         selectedIndex = filtered.isEmpty() ? -1 : 0;
         applyFilter();
     }
@@ -445,6 +453,25 @@ public class MethodTreeScreen extends AbstractJournalScreen {
     /** Hit-test used by click/drag start; package-visible for tests. */
     static boolean graphHitContains(int x, int y, int w, int h, double mx, double my) {
         return mx >= x && mx <= x + w && my >= y && my <= y + h;
+    }
+
+    /** Return the last drawn hit containing the pointer so overlapping nodes use topmost z-order. */
+    static int topmostGraphHitIndex(List<GraphHit> hits, double mouseX, double mouseY) {
+        if (hits == null) {
+            return -1;
+        }
+        for (int index = hits.size() - 1; index >= 0; index--) {
+            GraphHit hit = hits.get(index);
+            if (hit != null && hit.contains(mouseX, mouseY)) {
+                return index;
+            }
+        }
+        return -1;
+    }
+
+    /** A click with no movement must not emit a layout packet. */
+    static boolean shouldSendLayoutUpdate(boolean moved, int oldX, int oldY, int newX, int newY) {
+        return moved && (oldX != newX || oldY != newY);
     }
 
     @Override
@@ -837,10 +864,17 @@ public class MethodTreeScreen extends AbstractJournalScreen {
             Layout layout = calculateLayout(width, height);
             // Wave484/485: click/drag school-graph nodes.
             if (layout.detail().contains(mouseX, mouseY)) {
-                for (GraphHit hit : graphHits) {
-                    if (hit.contains(mouseX, mouseY) && hit.methodId() != null && !hit.methodId().isBlank()) {
-                        selectMethodById(hit.methodId());
-                        draggingMethodId = hit.methodId();
+                int hitIndex = topmostGraphHitIndex(graphHits, mouseX, mouseY);
+                if (hitIndex >= 0) {
+                    GraphHit hit = graphHits.get(hitIndex);
+                    if (hit.methodId() != null && !hit.methodId().isBlank()) {
+                        pendingGraphMethodId = hit.methodId();
+                        graphDragMoved = false;
+                        graphPressX = mouseX;
+                        graphPressY = mouseY;
+                        int[] startOffset = layoutOffsets.get(pendingGraphMethodId.toLowerCase(Locale.ROOT));
+                        graphDragStartOffsetX = startOffset == null ? 0 : startOffset[0];
+                        graphDragStartOffsetY = startOffset == null ? 0 : startOffset[1];
                         scrollDragTarget = ScrollDragTarget.NONE;
                         dragGrabX = mouseX - hit.x();
                         dragGrabY = mouseY - hit.y();
@@ -872,9 +906,31 @@ public class MethodTreeScreen extends AbstractJournalScreen {
     private void resetPointerDrag() {
         scrollDragTarget = ScrollDragTarget.NONE;
         pendingListIndex = -1;
-        draggingMethodId = "";
+        pendingGraphMethodId = "";
+        graphDragMoved = false;
+        graphPressX = 0.0D;
+        graphPressY = 0.0D;
+        graphDragStartOffsetX = 0;
+        graphDragStartOffsetY = 0;
         scrollDragStartY = 0.0D;
         scrollAtDragStart = 0;
+    }
+
+    private void flushPendingLayout() {
+        if (pendingGraphMethodId == null || pendingGraphMethodId.isBlank() || !graphDragMoved) {
+            return;
+        }
+        String key = pendingGraphMethodId.toLowerCase(Locale.ROOT);
+        int[] off = layoutOffsets.get(key);
+        int x = off == null ? 0 : off[0];
+        int y = off == null ? 0 : off[1];
+        if (shouldSendLayoutUpdate(true, graphDragStartOffsetX, graphDragStartOffsetY, x, y)) {
+            ModNetwork.CHANNEL.sendToServer(new MethodLayoutActionPacket(
+                    "set:" + pendingGraphMethodId + ":" + x + ":" + y));
+        }
+        // Make close/key flushes idempotent before the eventual mouse release.
+        graphDragStartOffsetX = x;
+        graphDragStartOffsetY = y;
     }
 
     private int hoveredListIndex(Layout layout, double mouseX, double mouseY) {
@@ -894,7 +950,12 @@ public class MethodTreeScreen extends AbstractJournalScreen {
 
     @Override
     public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
-        if (button == 0 && draggingMethodId != null && !draggingMethodId.isBlank()) {
+        if (button == 0 && pendingGraphMethodId != null && !pendingGraphMethodId.isBlank()) {
+            if (!graphDragMoved && !crossedScrollDragThreshold(graphPressY, mouseY)
+                    && !crossedScrollDragThreshold(graphPressX, mouseX)) {
+                return true;
+            }
+            graphDragMoved = true;
             int nodeW = graphNodeWidth;
             int nodeH = graphNodeHeight;
             int targetX = (int) Math.round(mouseX - dragGrabX);
@@ -908,13 +969,13 @@ public class MethodTreeScreen extends AbstractJournalScreen {
             int idxInWindow = -1;
             List<TextMaterialCatalogService.MethodEntry> window = currentGraphWindow();
             for (int i = 0; i < window.size(); i++) {
-                if (draggingMethodId.equalsIgnoreCase(window.get(i).id())) {
+                if (pendingGraphMethodId.equalsIgnoreCase(window.get(i).id())) {
                     idxInWindow = i;
                     break;
                 }
             }
             if (idxInWindow >= 0) {
-                layoutOffsets.put(draggingMethodId.toLowerCase(Locale.ROOT),
+                layoutOffsets.put(pendingGraphMethodId.toLowerCase(Locale.ROOT),
                         offsetFromGrid(targetX, targetY, graphOriginX, graphOriginY,
                                 idxInWindow, graphColumns, nodeW, nodeH, graphGapX, graphGapY));
             }
@@ -943,13 +1004,12 @@ public class MethodTreeScreen extends AbstractJournalScreen {
 
     @Override
     public boolean mouseReleased(double mouseX, double mouseY, int button) {
-        if (button == 0 && draggingMethodId != null && !draggingMethodId.isBlank()) {
-            // Wave486: persist final offset to server.
-            int[] off = layoutOffsets.get(draggingMethodId.toLowerCase(Locale.ROOT));
-            int x = off == null ? 0 : off[0];
-            int y = off == null ? 0 : off[1];
-            ModNetwork.CHANNEL.sendToServer(new MethodLayoutActionPacket(
-                    "set:" + draggingMethodId + ":" + x + ":" + y));
+        if (button == 0 && pendingGraphMethodId != null && !pendingGraphMethodId.isBlank()) {
+            String methodId = pendingGraphMethodId;
+            flushPendingLayout();
+            // Selection is committed after the graph baseline has been used, so a click
+            // cannot rebuild the graph underneath an in-progress drag.
+            selectMethodById(methodId);
             resetPointerDrag();
             updateCultivateButton();
             return true;
@@ -1062,11 +1122,18 @@ public class MethodTreeScreen extends AbstractJournalScreen {
 
     @Override
     public void onClose() {
+        flushPendingLayout();
         if (minecraft != null) {
             minecraft.setScreen(parent);
             return;
         }
         super.onClose();
+    }
+
+    @Override
+    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+        flushPendingLayout();
+        return super.keyPressed(keyCode, scanCode, modifiers);
     }
 
     record Rect(int x, int y, int width, int height) {

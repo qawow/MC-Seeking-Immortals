@@ -1,3 +1,17 @@
+## 582. 2026-07-29 `0.2.237` F-C2 储物手镯与功法树交互
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   执行计划 F-C2，范围为 UI-12 至 UI-14、UI-24 至 UI-26；备份位于 `.bak/20260729_0.2.237_f_c2/`，用户既有 `CLAUDE.md` 与 `project_docs/frontend_interaction_audit_0.2.198.md` 未纳入。
+  Storage authority   Done   客户端 `stillValid()` 允许同一支持物品的 NBT 栈替换以保持预测；服务端继续要求打开时的对象身份，并在菜单变更前检查连续所有权、境界和完整性。
+  Method graph input   Done   节点按下只建立候选，拖动超过 4px 才更新偏移；释放后选择并提交，重叠节点倒序命中，右键不进入该路径。
+  Layout persistence   Done   Esc/其他按键/关屏幂等冲刷实际布局变化；零位移点击不发包；切换流派详情滚动归零。
+  Tests   Done   `ArtifactStorageAuthorityTest`、`DragDualScrollTest` 定向测试通过；覆盖客户端实例替换、服务端锚点、倒序命中和零位移不发包。
+  Generated resources   Done   按 `spell -> visual` 顺序刷新术法效果与视觉目录，2,292/5,727 profiles 检查通过。
+  Version/protocol   Done   `mod_version=0.2.236 -> 0.2.237`；网络字段、顺序、类型、注册和频道行为未改，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
+  Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1 --console=plain` 通过，`:aiPreflight` 记录 `mod_version=0.2.237`，`BUILD SUCCESSFUL in 1m 34s`；完整测试 1,202 项，failure/error/skipped 均为 0；JAR SHA-256 为 `f7f86dc8701eb3d6b1dd4e1c5d51f0d1001257c7a93c3ee82c0996d0db5683ae`。
+  Next implementation   Pending   F-C3：UI-15 空闲丹炉进度与 UI-28 悬浮文字绘制层级；F-C2 手镯预测、节点交互和布局重开仍需最终真实客户端 QA。
+
 ## 581. 2026-07-29 `0.2.236` F-C1 任务、对话、编年史与 Lore
 
   Step   Status   Notes

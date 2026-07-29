@@ -1,11 +1,11 @@
-# 寻仙问道 — `0.2.236` 后续完整实现计划
+# 寻仙问道 — `0.2.237` 后续完整实现计划
 
-> 状态：F-A（UI-01 至 UI-05）、F-B（UI-06、UI-18）与 F-C1（UI-07 至 UI-11、UI-19）已完成并验证；下一实施入口为 F-C2。本文件继续定义剩余工作的实施顺序、边界和验收门。
+> 状态：F-A（UI-01 至 UI-05）、F-B（UI-06、UI-18）、F-C1（UI-07 至 UI-11、UI-19）与 F-C2（UI-12 至 UI-14、UI-24 至 UI-26）已完成并验证；下一实施入口为 F-C3。本文件继续定义剩余工作的实施顺序、边界和验收门。
 > 制定日期：2026-07-29。
-> 最近已提交基线：`e0cf0e8c refactor: 统一滚动列表输入契约`；F-C1 已完成并记录，下一批为 F-C2。
-> 初始版本基线：`mod_version=0.2.232`；当前执行版本：`mod_version=0.2.236`。
+> 最近已提交基线：`7d8205c5 fix: 收口任务对话与典籍交互`；F-C2 已完成并记录，下一批为 F-C3。
+> 初始版本基线：`mod_version=0.2.232`；当前执行版本：`mod_version=0.2.237`。
 > 网络基线：`ModNetwork.PROTOCOL_VERSION=30`。
-> 最近完整自动验证：完整单元测试 1,200 项通过；最终 Gradle 构建结果记录在本批更新记录中。
+> 最近完整自动验证：完整单元测试 1,202 项通过；最终 Gradle 构建结果记录在本批更新记录中。
 > 本文取代原先以 `0.1.57` 为基线的同名旧计划；历史 `master_plan.md` 只作完成轨迹参考，不再作为剩余工作真相。
 
 ## 1. 目标与边界
@@ -57,9 +57,9 @@
 | UI-09 | 中 | `DialogueScreen`、`DialogueActionPacket` | 静默丢包后动作闩能超时恢复 | 已修@0.2.236 |
 | UI-10 | 中 | `ChronicleScreen` | 未发现条目的列表和详情都隐藏真名 | 已修@0.2.236 |
 | UI-11 | 中 | `AbstractLoreScreen` | 超长详情可滚动且正确钳制 | 已修@0.2.236 |
-| UI-12 | 中 | `StorageBraceletMenu` | 客户端 NBT 栈换实例后仍能正常预测，服务端锚点仍严格 | 未修 |
-| UI-13 | 中 | `MethodTreeScreen` | 节点按下不破坏拖拽基线 | 未修 |
-| UI-14 | 中 | `MethodTreeScreen` | 重叠节点命中最上层 | 未修 |
+| UI-12 | 中 | `StorageBraceletMenu` | 客户端 NBT 栈换实例后仍能正常预测，服务端锚点仍严格 | 已修@0.2.237 |
+| UI-13 | 中 | `MethodTreeScreen` | 节点按下不破坏拖拽基线 | 已修@0.2.237 |
+| UI-14 | 中 | `MethodTreeScreen` | 重叠节点命中最上层 | 已修@0.2.237 |
 | UI-15 | 中 | `AlchemyFurnaceScreen`、`AlchemyFurnaceMenu` | 空闲炉显示 0 进度和空闲态 | 未修 |
 | UI-16 | 低 | `CultivationStatsScreen` | 同步重建时保留未确认滑条值 | 未修 |
 | UI-17 | 低 | `CultivationStatsScreen`、`BreakthroughService` | 突破双击与恶意重放均只结算一次 | 未修 |
@@ -69,9 +69,9 @@
 | UI-21 | 低 | `AuctionHallScreen` | resize 保留当前页 | 未修 |
 | UI-22 | 低 | `SectScreen`、`ShopScreen`、`AuctionScreen` | 删除不可达旧屏及废弃开屏包 | 独立协议批次 |
 | UI-23 | 低 | `ClientEvents` | 背包“修仙”按钮跟随 `guiLeft/guiTop` 和配方书位移 | 未修 |
-| UI-24 | 低 | `MethodTreeScreen` | 关屏/其他按键不丢最后一次布局偏移 | 未修 |
-| UI-25 | 低 | `MethodTreeScreen` | 零位移点击不发送布局包 | 未修 |
-| UI-26 | 低 | `MethodTreeScreen` | 切换流派后详情滚动归零 | 未修 |
+| UI-24 | 低 | `MethodTreeScreen` | 关屏/其他按键不丢最后一次布局偏移 | 已修@0.2.237 |
+| UI-25 | 低 | `MethodTreeScreen` | 零位移点击不发送布局包 | 已修@0.2.237 |
+| UI-26 | 低 | `MethodTreeScreen` | 切换流派后详情滚动归零 | 已修@0.2.237 |
 | UI-27 | 低 | `LifeSkillTreeScreen` | 内容高度与实际行间距一致，不滚过末行 | 未修 |
 | UI-28 | 低 | `AlchemyFurnaceScreen` | 悬浮文字绘制在光标携带物品下方 | 未修 |
 
@@ -212,7 +212,7 @@ NPC 迁移  ─┘
 
 人工验收：切换过滤器、模拟无响应动作、resize 对话、打开容器时收到对话包、阅读超长 Lore、查看未解锁编年史。
 
-### F-C2：储物手镯与功法树
+### F-C2：储物手镯与功法树（已完成@0.2.237）
 
 范围：UI-12 至 UI-14、UI-24 至 UI-26。规模：M。协议：不变。
 
@@ -226,7 +226,11 @@ NPC 迁移  ─┘
 
 自动化：扩充 `ArtifactStorageAuthorityTest`、`DragDualScrollTest`、`MethodLayoutServiceTest`、`ScreenLayoutTest`；增加服务端仍严格、客户端实例替换后可预测、重叠命中倒序和零位移不发包的断言。
 
-人工验收：手镯连续拖拽/Shift 移物；功法节点点击、拖动、重叠、右键干扰、Esc 关闭、重开后位置一致。
+完成记录：`StorageBraceletMenu.stillValid()` 在客户端按同一支持物品和槽位保留预测，服务端仍要求原始 `ItemStack` 身份并通过连续所有权、境界和完整性校验；功法图节点按下只建立候选，达到 4px 阈值后才拖动，松手才选择并提交实际偏移；命中检测倒序使用最后绘制节点；Esc/其他按键/关屏会幂等冲刷最后一次实际布局变化，零位移点击不发送布局包；切换流派清零详情滚动。`ArtifactStorageAuthorityTest`、`DragDualScrollTest` 与完整构建通过。生成档案按 `spell -> visual` 顺序刷新，2,292/5,727 profiles 检查通过。
+
+版本与协议：`mod_version=0.2.236 -> 0.2.237`；仅改变客户端交互、服务端菜单校验和测试/生成资源，未改变网络包字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。备份：`.bak/20260729_0.2.237_f_c2/`。
+
+人工验收：手镯连续拖拽/Shift 移物；功法节点点击、拖动、重叠、右键干扰、Esc 关闭、重开后位置一致。自动化已完成，真实客户端仍留在最终 QA。
 
 ### F-C3：丹炉显示与绘制层级
 
@@ -543,3 +547,5 @@ NPC 迁移  ─┘
 - 产品决策项 UI-20、仙界/DLC 范围和任何直接秘境入口扩权，必须先记录用户决定。
 - 被暂缓项必须写明原因、重新评估条件和玩家可见降级行为。
 - 计划完成后，归档过期的 `master_plan.md`/旧 smoke 文档入口，确保新代理只从当前真相开始。
+
+> CURRENT TRUTH 2026-07-29: `0.2.237` 已完成 F-C2（UI-12 至 UI-14、UI-24 至 UI-26）。储物手镯客户端允许同一支持物品的 NBT 实例替换以保持预测，服务端继续锚定打开时的实例并校验连续授权；功法树节点按下候选、拖动阈值、释放提交和重叠倒序命中已收口；关屏/按键布局冲刷幂等，零位移点击不发包，切换流派详情滚动归零。`ArtifactStorageAuthorityTest`、`DragDualScrollTest` 及生成档案 `spell -> visual` 检查通过。`mod_version=0.2.237`，协议 `30` 保持不变，回滚目录为 `.bak/20260729_0.2.237_f_c2/`。下一代码批为 F-C3（UI-15、UI-28）；真实客户端手镯预测、图节点交互和布局重开验收仍留在最终 QA。

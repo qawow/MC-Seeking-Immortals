@@ -67,6 +67,10 @@ class ArtifactStorageAuthorityTest {
         assertTrue(Pattern.compile("(?:this\\.)?boundBracelet(?:==|!=)|(?:==|!=)(?:this\\.)?boundBracelet")
                         .matcher(stillValid).find(),
                 "stillValid must compare boundBracelet by object identity");
+        assertTrue(stillValid.contains("isClientSide"),
+                "stillValid must separate client prediction from server authority");
+        assertTrue(stillValid.contains("getItem()==boundBracelet.getItem()"),
+                "client prediction may accept an NBT-replaced stack of the same item");
         assertTrue(stillValid.contains("isContinuouslyAuthorized")
                         || source.contains("isContinuouslyAuthorized"),
                 "menu mutations must re-check continuous storage authorization");
@@ -180,4 +184,3 @@ class ArtifactStorageAuthorityTest {
         assertTrue(menu.contains("if (!stillValid(player))"));
     }
 }
-
