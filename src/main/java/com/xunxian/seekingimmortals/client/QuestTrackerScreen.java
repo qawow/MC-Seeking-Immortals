@@ -439,28 +439,22 @@ public class QuestTrackerScreen extends AbstractJournalScreen {
 
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
-        if (button == 0) {
-            Layout layout = calculateLayout(width, height);
-            if (layout.list().contains(mouseX, mouseY) && !view.isEmpty()) {
-                int visible = listPanel.visibleRowCount();
-                int local = (int) ((mouseY - layout.list().y()) / Math.max(1, listPanel.rowStride()));
-                int index = listPanel.firstVisibleRow() + local;
-                if (local >= 0 && local < visible && index >= 0 && index < view.size()) {
-                    String selectedId = view.get(index).id();
-                    ClientQuestTrackerData.selectChain(selectedId);
-                    renderedSelectedChainId = selectedId;
-                    detailPanel.resetScroll();
-                    clearWidgets();
-                    rebuildButtons();
-                    return true;
-                }
-            }
-        }
-        if (listPanel.mouseClicked(mouseX, mouseY, button)
-                || detailPanel.mouseClicked(mouseX, mouseY, button)) {
+        if (super.mouseClicked(mouseX, mouseY, button)) {
             return true;
         }
-        return super.mouseClicked(mouseX, mouseY, button);
+        Layout layout = calculateLayout(width, height);
+        listPanel.setBounds(layout.list()).setContentRows(view.size());
+        if (listPanel.mouseClicked(mouseX, mouseY, button)) {
+            return true;
+        }
+        List<DetailLine> details = detailLines();
+        int detailWidth = Math.max(1, layout.detail().width() - 14);
+        detailPanel.setBounds(layout.detail())
+                .setContentHeight(measureDetail(details, detailWidth));
+        if (detailPanel.mouseClicked(mouseX, mouseY, button)) {
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -474,8 +468,26 @@ public class QuestTrackerScreen extends AbstractJournalScreen {
 
     @Override
     public boolean mouseReleased(double mouseX, double mouseY, int button) {
-        if (listPanel.mouseReleased(mouseX, mouseY, button)
-                || detailPanel.mouseReleased(mouseX, mouseY, button)) {
+        Layout layout = calculateLayout(width, height);
+        listPanel.setBounds(layout.list()).setContentRows(view.size());
+        ScrollableListPanel.ReleaseResult listRelease =
+                listPanel.mouseReleasedResult(mouseX, mouseY, button);
+        List<DetailLine> details = detailLines();
+        int detailWidth = Math.max(1, layout.detail().width() - 14);
+        detailPanel.setBounds(layout.detail())
+                .setContentHeight(measureDetail(details, detailWidth));
+        ScrollableListPanel.ReleaseResult detailRelease =
+                detailPanel.mouseReleasedResult(mouseX, mouseY, button);
+        if (listRelease.hasRowClick() && listRelease.clickedRow() < view.size()) {
+            String selectedId = view.get(listRelease.clickedRow()).id();
+            ClientQuestTrackerData.selectChain(selectedId);
+            renderedSelectedChainId = selectedId;
+            detailPanel.resetScroll();
+            clearWidgets();
+            rebuildButtons();
+            return true;
+        }
+        if (listRelease.consumed() || detailRelease.consumed()) {
             return true;
         }
         return super.mouseReleased(mouseX, mouseY, button);

@@ -16,6 +16,8 @@ import java.util.function.IntFunction;
  * optional list-row painting and visible-row ImmortalButton rebuild.
  */
 public final class ScrollableListPanel {
+    private static final int DRAG_THRESHOLD = 4;
+
     @FunctionalInterface
     public interface ContentRenderer {
         void render(GuiGraphics graphics, int contentX, int contentY, int contentWidth);
@@ -27,12 +29,34 @@ public final class ScrollableListPanel {
                     ImmortalUiSkin.InteractionState state, boolean hovered);
     }
 
+    /** Input lifecycle for content drags, scrollbar paging, and thumb dragging. */
+    public enum PointerState {
+        IDLE,
+        PENDING_ROW,
+        PENDING_TRACK,
+        DRAG_CONTENT,
+        DRAG_THUMB
+    }
+
+    /** Result of a left-button release. Row indexes are absolute list indexes. */
+    public record ReleaseResult(boolean consumed, int clickedRow) {
+        static ReleaseResult ignored() {
+            return new ReleaseResult(false, -1);
+        }
+
+        public boolean hasRowClick() {
+            return clickedRow >= 0;
+        }
+    }
+
     private int x;
     private int y;
     private int width;
     private int height;
     private int contentHeight;
     private int scrollOffset;
+    private int rowCount = -1;
+    private int rowScroll;
     private int scrollStep = 18;
     private int contentInsetLeft = 0;
     private int contentInsetTop = 0;
@@ -48,9 +72,13 @@ public final class ScrollableListPanel {
     private int scrollbarTrackBottomInset;
     private int rowHeight = 26;
     private int rowGap = 0;
-    private boolean isDragging = false;
-    private double dragStartY = 0;
-    private int scrollOffsetAtDragStart = 0;
+    private PointerState pointerState = PointerState.IDLE;
+    private double pressX;
+    private double pressY;
+    private int scrollOffsetAtPress;
+    private int pendingRow = -1;
+    private int thumbGrabOffset;
+    private boolean pressedThumb;
 
     public ScrollableListPanel() {
     }
@@ -60,6 +88,7 @@ public final class ScrollableListPanel {
         this.y = y;
         this.width = Math.max(0, width);
         this.height = Math.max(0, height);
+        clampToViewport();
         return this;
     }
 
@@ -72,6 +101,9 @@ public final class ScrollableListPanel {
 
     public ScrollableListPanel setContentHeight(int contentHeight) {
         this.contentHeight = Math.max(0, contentHeight);
+        this.rowCount = -1;
+        this.rowScroll = 0;
+        clampToViewport();
         return this;
     }
 
@@ -85,6 +117,7 @@ public final class ScrollableListPanel {
         this.contentInsetTop = Math.max(0, top);
         this.contentInsetRight = Math.max(0, right);
         this.contentInsetBottom = Math.max(0, bottom);
+        clampToViewport();
         return this;
     }
 
@@ -111,6 +144,7 @@ public final class ScrollableListPanel {
      */
     public ScrollableListPanel setScrollHeightReduce(int pixels) {
         this.scrollHeightReduce = Math.max(0, pixels);
+        clampToViewport();
         return this;
     }
 
@@ -124,6 +158,10 @@ public final class ScrollableListPanel {
     public ScrollableListPanel setRowMetrics(int rowHeight, int rowGap) {
         this.rowHeight = Math.max(1, rowHeight);
         this.rowGap = Math.max(0, rowGap);
+        if (isRowMode()) {
+            this.contentHeight = rowCount * rowStride();
+        }
+        clampToViewport();
         return this;
     }
 
@@ -151,6 +189,10 @@ public final class ScrollableListPanel {
         return scrollOffset;
     }
 
+    public PointerState pointerState() {
+        return pointerState;
+    }
+
     public int rowHeight() {
         return rowHeight;
     }
@@ -160,14 +202,25 @@ public final class ScrollableListPanel {
     }
 
     public void setScrollOffset(int scrollOffset) {
+        if (isRowMode()) {
+            setScrollRows((int) Math.round(scrollOffset / (double) Math.max(1, rowStride())));
+            return;
+        }
         this.scrollOffset = clampScroll(scrollOffset, contentHeight, scrollViewportHeight());
     }
 
     public void resetScroll() {
         this.scrollOffset = 0;
+        this.rowScroll = 0;
+        clearPointerState();
     }
 
     public void clampToViewport() {
+        if (isRowMode()) {
+            rowScroll = Mth.clamp(rowScroll, 0, maxRowScroll());
+            scrollOffset = rowScroll * rowStride();
+            return;
+        }
         this.scrollOffset = clampScroll(scrollOffset, contentHeight, scrollViewportHeight());
     }
 
@@ -193,6 +246,9 @@ public final class ScrollableListPanel {
     }
 
     public int maxScroll() {
+        if (isRowMode()) {
+            return maxRowScroll() * rowStride();
+        }
         return Math.max(0, contentHeight - scrollViewportHeight());
     }
 
@@ -200,19 +256,149 @@ public final class ScrollableListPanel {
         if (height <= 0) {
             return 0;
         }
-        return Math.max(1, height / Math.max(1, rowStride()));
+        return Math.max(1, rowViewportHeight() / Math.max(1, rowStride()));
     }
 
     public int firstVisibleRow() {
+        if (isRowMode()) {
+            return rowScroll;
+        }
         return Math.max(0, scrollOffset / Math.max(1, rowStride()));
     }
 
     public void setContentRows(int rowCount) {
-        setContentHeight(Math.max(0, rowCount) * rowStride());
+        this.rowCount = Math.max(0, rowCount);
+        this.contentHeight = this.rowCount * rowStride();
+        clampToViewport();
     }
 
     public void setScrollRows(int firstRow) {
-        setScrollOffset(Math.max(0, firstRow) * rowStride());
+        if (!isRowMode()) {
+            setScrollOffset(Math.max(0, firstRow) * rowStride());
+            return;
+        }
+        rowScroll = Mth.clamp(Math.max(0, firstRow), 0, maxRowScroll());
+        scrollOffset = rowScroll * rowStride();
+    }
+
+    public int maxRowScroll() {
+        if (!isRowMode()) {
+            return Math.max(0, contentHeight / Math.max(1, rowStride()) - visibleRowCount());
+        }
+        return Math.max(0, rowCount - visibleRowCount());
+    }
+
+    private boolean isRowMode() {
+        return rowCount >= 0;
+    }
+
+    private int rowViewportHeight() {
+        return Math.max(1, height - contentInsetTop - contentInsetBottom);
+    }
+
+    private int scrollbarContentHeight() {
+        if (!isRowMode()) {
+            return contentHeight;
+        }
+        return scrollbarViewportHeight() + maxRowScroll() * rowStride();
+    }
+
+    private int scrollbarViewportHeight() {
+        return isRowMode() ? rowViewportHeight() : scrollViewportHeight();
+    }
+
+    private boolean canScroll() {
+        return maxScroll() > 0;
+    }
+
+    private void clearPointerState() {
+        pointerState = PointerState.IDLE;
+        pressX = 0.0D;
+        pressY = 0.0D;
+        scrollOffsetAtPress = 0;
+        pendingRow = -1;
+        thumbGrabOffset = 0;
+        pressedThumb = false;
+    }
+
+    private void capturePress(double mouseX, double mouseY, int row) {
+        pressX = mouseX;
+        pressY = mouseY;
+        scrollOffsetAtPress = scrollOffset;
+        pendingRow = row;
+    }
+
+    private boolean crossedDragThreshold(double mouseX, double mouseY) {
+        return Math.max(Math.abs(mouseX - pressX), Math.abs(mouseY - pressY)) >= DRAG_THRESHOLD;
+    }
+
+    private void dragContentTo(double mouseY) {
+        int target = scrollOffsetAtPress + (int) Math.round(pressY - mouseY);
+        setScrollOffset(target);
+    }
+
+    private void dragThumbTo(double mouseY) {
+        UiRect track = scrollbarTrackBounds();
+        UiRect thumb = scrollbarThumbBounds();
+        int travel = Math.max(0, track.height() - thumb.height());
+        if (track.width() <= 0 || travel <= 0) {
+            return;
+        }
+        int thumbY = Mth.clamp((int) Math.round(mouseY) - thumbGrabOffset,
+                track.y(), track.bottom() - thumb.height());
+        double progress = (thumbY - track.y()) / (double) travel;
+        setScrollOffset((int) Math.round(progress * maxScroll()));
+    }
+
+    private void pageTrack(double mouseY, UiRect thumb) {
+        int direction = mouseY < thumb.y() ? -1 : 1;
+        setScrollOffset(scrollOffset + direction * scrollbarViewportHeight());
+    }
+
+    public UiRect scrollbarTrackBounds() {
+        if (!canScroll()) {
+            return new UiRect(0, 0, 0, 0);
+        }
+        int outerY = y + scrollbarTrackTopInset;
+        int outerHeight = Math.max(1, height - scrollbarTrackTopInset - scrollbarTrackBottomInset);
+        int padding = outerHeight >= 8 ? 2 : 0;
+        return new UiRect(x + width - scrollbarInsetRight, outerY + padding, 2,
+                Math.max(1, outerHeight - padding * 2));
+    }
+
+    public UiRect scrollbarThumbBounds() {
+        UiRect track = scrollbarTrackBounds();
+        int visualContentHeight = scrollbarContentHeight();
+        int viewportHeight = scrollbarViewportHeight();
+        if (track.width() <= 0 || visualContentHeight <= viewportHeight) {
+            return new UiRect(0, 0, 0, 0);
+        }
+        int thumbHeight = Math.max(Math.min(12, track.height()),
+                (int) Math.round(track.height() * (viewportHeight / (double) visualContentHeight)));
+        thumbHeight = Math.min(track.height(), thumbHeight);
+        int travel = Math.max(0, track.height() - thumbHeight);
+        int thumbY = track.y() + (int) Math.round(travel * (scrollOffset / (double) Math.max(1, maxScroll())));
+        return new UiRect(track.x(), thumbY, track.width(), thumbHeight);
+    }
+
+    private int rowIndexAt(double mouseX, double mouseY, int itemCount) {
+        if (itemCount <= 0 || mouseX < contentX() || mouseX >= contentX() + contentWidth()) {
+            return -1;
+        }
+        int contentTop = y + contentInsetTop;
+        int contentBottom = y + height - contentInsetBottom;
+        if (mouseY < contentTop || mouseY >= contentBottom) {
+            return -1;
+        }
+        int localY = (int) Math.floor(mouseY) - contentTop;
+        int logicalY = isRowMode() ? localY : localY + scrollOffset;
+        int stride = Math.max(1, rowStride());
+        int localRow = logicalY / stride;
+        if (logicalY % stride >= rowHeight) {
+            return -1;
+        }
+        int index = isRowMode() ? rowScroll + localRow : localRow;
+        return index >= 0 && index < itemCount ? index : -1;
     }
 
     public int scrollRows() {
@@ -220,50 +406,88 @@ public final class ScrollableListPanel {
     }
 
     public boolean mouseScrolled(double mouseX, double mouseY, double delta) {
-        int viewportHeight = scrollViewportHeight();
-        if (!contains(mouseX, mouseY) || contentHeight <= viewportHeight || delta == 0.0D) {
+        if (!contains(mouseX, mouseY) || delta == 0.0D) {
             return false;
         }
-        int next = clampScroll(scrollOffset - (int) Math.round(delta * scrollStep),
-                contentHeight, viewportHeight);
-        if (next == scrollOffset) {
-            return true;
+        clearPointerState();
+        if (!canScroll()) {
+            return false;
         }
-        scrollOffset = next;
+        int next = Mth.clamp(scrollOffset - (int) Math.round(delta * scrollStep), 0, maxScroll());
+        setScrollOffset(next);
         return true;
     }
 
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
-        if (button == 0 && contains(mouseX, mouseY)) {
-            int viewportHeight = scrollViewportHeight();
-            if (contentHeight > viewportHeight) {
-                isDragging = true;
-                dragStartY = mouseY;
-                scrollOffsetAtDragStart = scrollOffset;
-                return true;
-            }
+        if (button != 0 || !contains(mouseX, mouseY)) {
+            return false;
         }
-        return false;
+        UiRect track = scrollbarTrackBounds();
+        if (track.contains(mouseX, mouseY)) {
+            UiRect thumb = scrollbarThumbBounds();
+            capturePress(mouseX, mouseY, -1);
+            pointerState = PointerState.PENDING_TRACK;
+            pressedThumb = thumb.contains(mouseX, mouseY);
+            if (pressedThumb) {
+                thumbGrabOffset = (int) Math.floor(mouseY) - thumb.y();
+            } else {
+                pageTrack(mouseY, thumb);
+            }
+            return true;
+        }
+        int row = isRowMode() ? rowIndexAt(mouseX, mouseY, rowCount) : -1;
+        if (row < 0 && !canScroll()) {
+            return false;
+        }
+        capturePress(mouseX, mouseY, row);
+        pointerState = PointerState.PENDING_ROW;
+        return true;
     }
 
     public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
-        if (button == 0 && isDragging) {
-            double dragDistance = dragStartY - mouseY;
-            int pixelsToScroll = (int) dragDistance;
-            int viewportHeight = scrollViewportHeight();
-            scrollOffset = clampScroll(scrollOffsetAtDragStart + pixelsToScroll, contentHeight, viewportHeight);
+        if (button != 0 || pointerState == PointerState.IDLE) {
+            return false;
+        }
+        if (pointerState == PointerState.PENDING_ROW) {
+            if (crossedDragThreshold(mouseX, mouseY)) {
+                pointerState = PointerState.DRAG_CONTENT;
+                dragContentTo(mouseY);
+            }
+            return true;
+        }
+        if (pointerState == PointerState.DRAG_CONTENT) {
+            dragContentTo(mouseY);
+            return true;
+        }
+        if (pointerState == PointerState.PENDING_TRACK) {
+            if (pressedThumb && crossedDragThreshold(mouseX, mouseY)) {
+                pointerState = PointerState.DRAG_THUMB;
+                dragThumbTo(mouseY);
+            }
+            return true;
+        }
+        if (pointerState == PointerState.DRAG_THUMB) {
+            dragThumbTo(mouseY);
             return true;
         }
         return false;
     }
 
-    public boolean mouseReleased(double mouseX, double mouseY, int button) {
-        if (button == 0 && isDragging) {
-            isDragging = false;
-            dragStartY = 0;
-            return true;
+    public ReleaseResult mouseReleasedResult(double mouseX, double mouseY, int button) {
+        if (button != 0 || pointerState == PointerState.IDLE) {
+            return ReleaseResult.ignored();
         }
-        return false;
+        int clickedRow = -1;
+        if (pointerState == PointerState.PENDING_ROW && pendingRow >= 0 && isRowMode()
+                && rowIndexAt(mouseX, mouseY, rowCount) == pendingRow) {
+            clickedRow = pendingRow;
+        }
+        clearPointerState();
+        return new ReleaseResult(true, clickedRow);
+    }
+
+    public boolean mouseReleased(double mouseX, double mouseY, int button) {
+        return mouseReleasedResult(mouseX, mouseY, button).consumed();
     }
 
     /** Pixel-step scroll used by row lists that step by one row per notch. */
@@ -271,9 +495,9 @@ public final class ScrollableListPanel {
         if (!contains(mouseX, mouseY) || delta == 0.0D) {
             return false;
         }
-        int visible = visibleRowCount();
-        int maxFirst = Math.max(0, itemCount - visible);
-        int next = Mth.clamp(firstVisibleRow() - (int) Math.signum(delta), 0, maxFirst);
+        setContentRows(itemCount);
+        clearPointerState();
+        int next = Mth.clamp(rowScroll - (int) Math.signum(delta), 0, maxRowScroll());
         setScrollRows(next);
         return true;
     }
@@ -319,22 +543,14 @@ public final class ScrollableListPanel {
 
     public UiRect rowBounds(int visibleRowIndex) {
         int stride = rowStride();
-        int rowY = y + visibleRowIndex * stride;
-        return new UiRect(x, rowY, width, rowHeight);
+        int rowY = y + contentInsetTop + visibleRowIndex * stride;
+        return new UiRect(contentX(), rowY, contentWidth(), rowHeight);
     }
 
     public int hoveredRow(int mouseX, int mouseY, int itemCount) {
-        if (!contains(mouseX, mouseY)) {
-            return -1;
-        }
-        int visible = visibleRowCount();
-        int first = firstVisibleRow();
-        int local = (mouseY - y) / Math.max(1, rowStride());
-        if (local < 0 || local >= visible) {
-            return -1;
-        }
-        int index = first + local;
-        return index < itemCount ? local : -1;
+        int index = rowIndexAt(mouseX, mouseY, itemCount);
+        int local = index < 0 ? -1 : index - firstVisibleRow();
+        return local >= 0 && local < visibleRowCount() ? local : -1;
     }
 
     /**
@@ -388,10 +604,13 @@ public final class ScrollableListPanel {
     }
 
     public void drawScrollbar(GuiGraphics graphics) {
-        int trackY = y + scrollbarTrackTopInset;
-        int trackHeight = Math.max(1, height - scrollbarTrackTopInset - scrollbarTrackBottomInset);
-        ImmortalUiSkin.drawThinScrollbar(graphics, x + width - scrollbarInsetRight, trackY, trackHeight,
-                contentHeight, scrollViewportHeight(), scrollOffset);
+        UiRect track = scrollbarTrackBounds();
+        if (track.width() <= 0) {
+            return;
+        }
+        ImmortalUiSkin.drawThinScrollbar(graphics, track.x(), y + scrollbarTrackTopInset,
+                Math.max(1, height - scrollbarTrackTopInset - scrollbarTrackBottomInset),
+                scrollbarContentHeight(), scrollbarViewportHeight(), scrollOffset);
     }
 
     public static int clampScroll(int requested, int contentHeight, int viewportHeight) {

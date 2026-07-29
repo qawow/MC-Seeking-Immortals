@@ -472,6 +472,55 @@ public class SectHallScreen extends AbstractJournalContainerScreen<SectHallMenu>
         return super.mouseScrolled(mouseX, mouseY, delta);
     }
 
+    private boolean prepareListPointer(Layout layout) {
+        ClientSectData.Snapshot data = ClientSectData.get();
+        Rect viewport;
+        int total;
+        if (!data.member()) {
+            viewport = candidateViewport(layout);
+            total = visibleCandidates(data, menu.focusSectId()).size();
+        } else if (tab == Tab.SHOP) {
+            viewport = shopViewport(layout);
+            total = data.shopEntries().size();
+        } else {
+            return false;
+        }
+        bindListViewport(viewport, layout.rowHeight(), total);
+        return true;
+    }
+
+    @Override
+    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        if (super.mouseClicked(mouseX, mouseY, button)) {
+            return true;
+        }
+        if (prepareListPointer(calculateLayout(width, height))
+                && listPanel.mouseClicked(mouseX, mouseY, button)) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
+        int before = listPanel.scrollRows();
+        if (listPanel.mouseDragged(mouseX, mouseY, button, dragX, dragY)) {
+            if (listPanel.scrollRows() != before) {
+                rebuildActionWidgets();
+            }
+            return true;
+        }
+        return super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
+    }
+
+    @Override
+    public boolean mouseReleased(double mouseX, double mouseY, int button) {
+        if (listPanel.mouseReleased(mouseX, mouseY, button)) {
+            return true;
+        }
+        return super.mouseReleased(mouseX, mouseY, button);
+    }
+
     // -------------------------------------------------------------------------
     // Layout helpers (public API preserved for ScreenLayoutTest)
     // -------------------------------------------------------------------------

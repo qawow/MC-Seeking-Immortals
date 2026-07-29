@@ -34,7 +34,7 @@ class SectHallInteractionTest {
 
         String source = Files.readString(Path.of("src", "main", "java", "com", "xunxian",
                 "seekingimmortals", "client", "SectHallScreen.java")).replaceAll("\\s+", "");
-        assertEquals(3, occurrences(source, "visibleCandidates(data,menu.focusSectId())"));
+        assertEquals(4, occurrences(source, "visibleCandidates(data,menu.focusSectId())"));
         assertTrue(source.contains("protectedvoidcontainerTick()"));
         assertTrue(source.contains("if(snapshotChanged(observedSnapshot,snapshot)){observedSnapshot=snapshot;rebuildActionWidgets();}"));
     }

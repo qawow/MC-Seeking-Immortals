@@ -83,6 +83,37 @@ public class RefinementPlanScreen extends AbstractJournalScreen {
         return super.mouseScrolled(mouseX, mouseY, delta);
     }
 
+    @Override
+    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        if (super.mouseClicked(mouseX, mouseY, button)) {
+            return true;
+        }
+        Layout layout = calculateLayout(width, height);
+        UiRect viewport = layout.viewport();
+        int contentWidth = Math.max(1, viewport.width() - 10);
+        listPanel.setBounds(viewport).setContentHeight(measureContent(contentWidth));
+        if (listPanel.mouseClicked(mouseX, mouseY, button)) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
+        if (listPanel.mouseDragged(mouseX, mouseY, button, dragX, dragY)) {
+            return true;
+        }
+        return super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
+    }
+
+    @Override
+    public boolean mouseReleased(double mouseX, double mouseY, int button) {
+        if (listPanel.mouseReleased(mouseX, mouseY, button)) {
+            return true;
+        }
+        return super.mouseReleased(mouseX, mouseY, button);
+    }
+
     private int measureContent(int contentWidth) {
         if (lines.isEmpty()) {
             return font.lineHeight;

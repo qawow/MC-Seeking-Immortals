@@ -110,25 +110,16 @@ public class UiThemeSelectScreen extends AbstractJournalScreen {
 
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
-        if (button == 0) {
-            Layout layout = calculateLayout(width, height);
-            UiTheme[] themes = UiTheme.values();
-            if (layout.list().contains(mouseX, mouseY)) {
-                listPanel.setBounds(layout.list()).setContentRows(themes.length);
-                int local = listPanel.hoveredRow((int) mouseX, (int) mouseY, themes.length);
-                if (local >= 0) {
-                    int index = listPanel.firstVisibleRow() + local;
-                    if (index >= 0 && index < themes.length) {
-                        UiThemeConfig.select(themes[index]);
-                        return true;
-                    }
-                }
-            }
+        if (super.mouseClicked(mouseX, mouseY, button)) {
+            return true;
         }
+        Layout layout = calculateLayout(width, height);
+        UiTheme[] themes = UiTheme.values();
+        listPanel.setBounds(layout.list()).setContentRows(themes.length);
         if (listPanel.mouseClicked(mouseX, mouseY, button)) {
             return true;
         }
-        return super.mouseClicked(mouseX, mouseY, button);
+        return false;
     }
 
     @Override
@@ -152,7 +143,16 @@ public class UiThemeSelectScreen extends AbstractJournalScreen {
 
     @Override
     public boolean mouseReleased(double mouseX, double mouseY, int button) {
-        if (listPanel.mouseReleased(mouseX, mouseY, button)) {
+        Layout layout = calculateLayout(width, height);
+        UiTheme[] themes = UiTheme.values();
+        listPanel.setBounds(layout.list()).setContentRows(themes.length);
+        ScrollableListPanel.ReleaseResult release =
+                listPanel.mouseReleasedResult(mouseX, mouseY, button);
+        if (release.hasRowClick() && release.clickedRow() < themes.length) {
+            UiThemeConfig.select(themes[release.clickedRow()]);
+            return true;
+        }
+        if (release.consumed()) {
             return true;
         }
         return super.mouseReleased(mouseX, mouseY, button);

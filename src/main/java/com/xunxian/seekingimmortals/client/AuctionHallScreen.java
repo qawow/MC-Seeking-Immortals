@@ -211,6 +211,46 @@ public class AuctionHallScreen extends AbstractJournalContainerScreen<AuctionHal
         return super.mouseScrolled(mouseX, mouseY, delta);
     }
 
+    private boolean prepareListPointer(HallLayout layout) {
+        ClientAuctionLadderData.Snapshot data = ClientAuctionLadderData.get();
+        listPanel.setBounds(layout.viewport())
+                .setContentHeight(calculateContentHeight(data.lots().size()));
+        listPanel.clampToViewport();
+        return true;
+    }
+
+    @Override
+    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        if (super.mouseClicked(mouseX, mouseY, button)) {
+            return true;
+        }
+        if (prepareListPointer(calculateLayout(width, height))
+                && listPanel.mouseClicked(mouseX, mouseY, button)) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
+        int before = listPanel.scrollOffset();
+        if (listPanel.mouseDragged(mouseX, mouseY, button, dragX, dragY)) {
+            if (listPanel.scrollOffset() != before) {
+                rebuildButtons();
+            }
+            return true;
+        }
+        return super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
+    }
+
+    @Override
+    public boolean mouseReleased(double mouseX, double mouseY, int button) {
+        if (listPanel.mouseReleased(mouseX, mouseY, button)) {
+            return true;
+        }
+        return super.mouseReleased(mouseX, mouseY, button);
+    }
+
     static HallLayout calculateLayout(int screenWidth, int screenHeight) {
         int panelWidth = Math.min(360, Math.max(1, screenWidth - PANEL_MARGIN * 2));
         int panelHeight = Math.min(236, Math.max(1, screenHeight - PANEL_MARGIN * 2));

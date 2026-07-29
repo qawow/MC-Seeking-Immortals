@@ -1,18 +1,18 @@
-# 寻仙问道 — `0.2.233` 后续完整实现计划
+# 寻仙问道 — `0.2.234` 后续完整实现计划
 
-> 状态：F-A（UI-01 至 UI-05）已完成并验证；下一实施入口为 F-B。本文件继续定义剩余工作的实施顺序、边界和验收门。
+> 状态：F-A（UI-01 至 UI-05）与 F-B（UI-06、UI-18）已完成并验证；下一实施入口为 F-C1。本文件继续定义剩余工作的实施顺序、边界和验收门。
 > 制定日期：2026-07-29。
-> 代码基线：`0090c725 fix: 修复投影建造引导锁定`。
-> 初始版本基线：`mod_version=0.2.232`；当前执行版本：`mod_version=0.2.233`。
+> 代码基线：`6287c058 fix: 修复高危前端交互`；F-B 当前批次尚未提交。
+> 初始版本基线：`mod_version=0.2.232`；当前执行版本：`mod_version=0.2.234`。
 > 网络基线：`ModNetwork.PROTOCOL_VERSION=30`。
-> 最近完整自动验证：252 个测试套件、1,186 项测试通过。
+> 最近完整自动验证：完整单元测试 1,194 项通过；最终 Gradle 构建结果记录在本批更新记录中。
 > 本文取代原先以 `0.1.57` 为基线的同名旧计划；历史 `master_plan.md` 只作完成轨迹参考，不再作为剩余工作真相。
 
 ## 1. 目标与边界
 
 本计划收口四类剩余工作：
 
-1. 修复已逐行确认的 28 项前端交互问题，其中 5 项已修、21 项待修、2 项需要产品决策或独立协议清理。
+1. 修复已逐行确认的 28 项前端交互问题，其中 7 项已修、19 项待修、2 项需要产品决策或独立协议清理。
 2. 为 23 条详细任务、95 个步骤补齐自然玩法证据，深化对话世界动作，并完成阴阳窟专属玩法循环。
 3. 收口维度分类、本命法宝语义和旧 NPC 存档迁移，消除“模板被误报成待实现”或“兼容入口可被伪造”的长期债务。
 4. 完成当前版本的真实客户端、专服、双客户端、旧档、视觉、性能和边界条件验收。
@@ -51,7 +51,7 @@
 | UI-03 | 高 | `SectHallScreen` | 候选行、按钮、滚动统一使用同一可见列表 | 已修@0.2.233 |
 | UI-04 | 高 | `AuctionHallScreen`、`AuctionSoftService` | 最高价玩家重复点击不扣款、不推进结算 | 已修@0.2.233 |
 | UI-05 | 高 | `SectHallScreen` | 数据同步后重建控件，入宗不软锁 | 已修@0.2.233 |
-| UI-06 | 中 | `ScrollableListPanel` | 按下待定、拖动滚动、松手点击、滚动条独立命中 | 未修 |
+| UI-06 | 中 | `ScrollableListPanel` | 按下待定、拖动滚动、松手点击、滚动条独立命中 | 已修@0.2.234 |
 | UI-07 | 中 | `QuestTrackerScreen` | 过滤只改变列表，不篡改全局选中 | 未修 |
 | UI-08 | 中 | `ClientPacketHandlers` | 对话包不顶掉有服务端菜单状态的界面 | 未修 |
 | UI-09 | 中 | `DialogueScreen`、`DialogueActionPacket` | 静默丢包后动作闩能超时恢复 | 未修 |
@@ -63,7 +63,7 @@
 | UI-15 | 中 | `AlchemyFurnaceScreen`、`AlchemyFurnaceMenu` | 空闲炉显示 0 进度和空闲态 | 未修 |
 | UI-16 | 低 | `CultivationStatsScreen` | 同步重建时保留未确认滑条值 | 未修 |
 | UI-17 | 低 | `CultivationStatsScreen`、`BreakthroughService` | 突破双击与恶意重放均只结算一次 | 未修 |
-| UI-18 | 低 | 各行列表屏 | 只有左键可以选中列表行 | 未修 |
+| UI-18 | 低 | 各行列表屏 | 只有左键可以选中列表行 | 已修@0.2.234 |
 | UI-19 | 低 | `DialogueScreen` | resize 不重播 NPC 招呼语音 | 未修 |
 | UI-20 | 低 | `WorldpackScreen` | 秘境行按钮提供真实的界门引导或条件反馈 | 待产品收口 |
 | UI-21 | 低 | `AuctionHallScreen` | resize 保留当前页 | 未修 |
@@ -125,7 +125,7 @@
 9. 检查 `git diff --check`、相关 diff 和 `git status --short`，只暂存本批文件。
 10. 创建一个带中文主题、中文正文的本地提交；禁止自动 push、PR、amend、reset 或重写历史。
 
-版本号按执行时的真实当前版本递增。若紧接本计划实施，首个代码批候选为 `0.2.233`；该编号不是预留号，其他批次先落地时必须重新计算。
+版本号按执行时的真实当前版本递增。本计划的 F-A 已使用 `0.2.233`，F-B 当前批次使用 `0.2.234`；后续批次不得复用这些编号，必须按实际工作树重新计算。
 
 ## 5. 依赖顺序
 
@@ -174,7 +174,7 @@ NPC 迁移  ─┘
 
 完成记录：`TechniqueEditScreen` 仅允许 `PENDING` 提升为技法拖拽；任务列表以过滤器和可见任务 ID 顺序决定列表滚动重置，并独立追踪详情选择；宗门候选渲染、按钮和滚动共用 `visibleCandidates`，客户端快照值变化会重建动作控件；服务端在扣灵石和推进竞价前拒绝当前最高价玩家重放，客户端在同步或 40 tick 超时前按拍品禁用重复竞价。`DragDualScrollTest`、`ClientQuestTrackerDataTest`、`SectHallInteractionTest`、`AuctionSoftServiceTest`、`MarketAuctionPagingTest`、`MenuActionAuthorityTest` 及完整构建通过。真实客户端手势验收仍留在本计划的最终 QA 阶段。
 
-### F-B：统一滚动列表输入契约
+### F-B：统一滚动列表输入契约（已完成@0.2.234）
 
 范围：UI-06、UI-18，以及所有 `ScrollableListPanel` 消费者。规模：M。协议：不变。
 
@@ -187,9 +187,9 @@ NPC 迁移  ─┘
 - 右键和中键不进入行选择状态；保留屏幕自己的右键语义。
 - `QuestTrackerScreen`、`UiThemeSelectScreen` 及大厅类统一改为消费松手点击结果，不再抢先命中行。
 
-自动化：新增 `ScrollableListPanelInteractionTest` 或提取纯输入模型，覆盖点击、轻微抖动、内容拖动、拇指拖动、轨道点击、insets、行间隙、末尾空白和非左键。所有 24 个 Screen 的布局测试继续通过。
+自动化：新增 `ScrollableListPanelInteractionTest`，覆盖点击、轻微抖动、4px 阈值内容拖动、拇指拖动、轨道分页、insets、行间隙、末尾空白、滚轮取消和非左键；完整单元测试继续通过。
 
-人工验收：用滚轮、列表拖动、滚动条拖动三种方式逐屏操作；主题选择器点滚动条不切主题；大厅长列表可拖动；右键不改变行选中。
+完成记录：`ScrollableListPanel` 现在以 `IDLE/PENDING_ROW/PENDING_TRACK/DRAG_CONTENT/DRAG_THUMB` 状态机区分行点击、内容拖动和滚动条操作；行列表使用整数首行滚动，连续详情使用像素滚动；命中几何统一应用 content inset、行间隙和有效视口，轨道分页/拇指拖动不会击穿行。`QuestTrackerScreen`、`UiThemeSelectScreen`、炼丹/炼器详情屏及世界包、宗门、坊市、拍卖大厅均完成按下/拖动/松手转发，按钮先于列表处理。新增交互测试并修正宗门候选消费者契约计数。`mod_version=0.2.234`，协议保持 `30`。真实 Minecraft 客户端仍需用滚轮、内容拖动和滚动条拖动逐屏签字。
 
 ### F-C1：任务、对话、编年史与 Lore
 

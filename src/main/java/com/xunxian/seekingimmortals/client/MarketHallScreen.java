@@ -209,6 +209,51 @@ public class MarketHallScreen extends AbstractJournalContainerScreen<MarketHallM
         return super.mouseScrolled(mouseX, mouseY, delta);
     }
 
+    private boolean prepareListPointer(MarketLayout layout) {
+        String shopId = currentShopId();
+        ClientShopData.Snapshot data = ClientShopData.get();
+        boolean ready = data.synced() && (data.shopId().isBlank() || data.shopId().equals(shopId));
+        List<ClientShopData.Entry> entries = ready ? data.entries() : List.of();
+        int from = pageStart(page);
+        int to = pageEnd(page, entries.size());
+        listPanel.setBounds(layout.viewport())
+                .setContentHeight(calculateContentHeight(to - from));
+        listPanel.clampToViewport();
+        return true;
+    }
+
+    @Override
+    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        if (super.mouseClicked(mouseX, mouseY, button)) {
+            return true;
+        }
+        if (prepareListPointer(calculateLayout(width, height))
+                && listPanel.mouseClicked(mouseX, mouseY, button)) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
+        int before = listPanel.scrollOffset();
+        if (listPanel.mouseDragged(mouseX, mouseY, button, dragX, dragY)) {
+            if (listPanel.scrollOffset() != before) {
+                rebuild();
+            }
+            return true;
+        }
+        return super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
+    }
+
+    @Override
+    public boolean mouseReleased(double mouseX, double mouseY, int button) {
+        if (listPanel.mouseReleased(mouseX, mouseY, button)) {
+            return true;
+        }
+        return super.mouseReleased(mouseX, mouseY, button);
+    }
+
     static MarketLayout calculateLayout(int screenWidth, int screenHeight) {
         int panelWidth = Math.min(360, Math.max(1, screenWidth - PANEL_MARGIN * 2));
         int panelHeight = Math.min(236, Math.max(1, screenHeight - PANEL_MARGIN * 2));

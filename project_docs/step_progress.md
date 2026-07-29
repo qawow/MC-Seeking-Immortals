@@ -1,3 +1,17 @@
+## 580. 2026-07-29 `0.2.234` F-B 统一滚动列表输入契约
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   执行计划 F-B，范围为 `ScrollableListPanel` 及其消费者；源码初始回滚位于 `.bak/20260729_200009_f_b_scrollable_list/`，后续几何/测试/文档收尾回滚位于 `.bak/20260729_204500_f_b_followup/` 与 `.bak/20260729_210000_f_b_finalize/`。用户既有 `CLAUDE.md` 与 `project_docs/frontend_interaction_audit_0.2.198.md` 未纳入本批。
+  Input contract   Done   `ScrollableListPanel` 建立 `IDLE/PENDING_ROW/PENDING_TRACK/DRAG_CONTENT/DRAG_THUMB` 状态机；左键松手确认行点击，4px 后才进入滚动，轨道分页和拇指拖动独立命中，滚轮会取消待定点击。
+  Row geometry   Done   行模式维护整数首行滚动，内容 inset、行间隙和末行尾部空白均不命中；滚动条绘制、命中与拇指比例共用有效行视口，非整除视口可到达最后一行。
+  Consumers   Done   `QuestTrackerScreen`、`UiThemeSelectScreen`、炼丹/炼器详情屏、世界包、宗门、坊市和拍卖大厅完成按下/拖动/松手转发；大厅先让按钮处理点击，滚动变化才重建可见行按钮。
+  Tests   Done   新增 `ScrollableListPanelInteractionTest` 覆盖 8 个交互场景；完整 `./gradlew test --no-daemon --max-workers=1 --console=plain` 通过 1,194 项测试，失败/错误为 0；同步更新宗门候选消费者计数断言。
+  Generated resources   Done   源码冻结后按 `spell -> visual` 顺序重生成 `authored_spell_effects.json` 与 `authored_visual_catalog.json`；两个 `--check` 均通过，分别为 2,292 与 5,727 profiles。
+  Version/protocol   Done   `mod_version=0.2.233 -> 0.2.234`；未改网络包字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
+  Final build   Done   普通 `./gradlew cleanTest build --no-daemon --max-workers=1 --console=plain` 通过，`:aiPreflight` 记录 `mod_version=0.2.234`，`BUILD SUCCESSFUL in 1m 44s`；测试 1,194 项，失败/错误/跳过均为 0，JAR SHA-256 为 `5aab5bf9b7a5bbe77b32a2ef645f958fef6797a13535f0f4c3cfd947bd5c7e89`。
+  Next implementation   Pending   F-C1：任务、对话、编年史与 Lore；F-B 的真实 Minecraft 客户端滚轮、内容拖动和滚动条验收仍留在最终 QA。
+
 ## 579. 2026-07-29 `0.2.233` F-A 高危前端交互修复
 
   Step   Status   Notes

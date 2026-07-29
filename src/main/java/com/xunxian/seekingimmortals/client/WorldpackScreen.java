@@ -304,6 +304,51 @@ public class WorldpackScreen extends AbstractJournalScreen {
         return super.mouseScrolled(mouseX, mouseY, delta);
     }
 
+    private boolean prepareListPointer(Layout layout) {
+        ClientWorldpackData.Snapshot data = ClientWorldpackData.get();
+        if (!data.synced()) {
+            return false;
+        }
+        int total = tab == Tab.REGIONS ? data.regions().size() : data.realms().size();
+        listPanel.setBounds(toUi(listViewport(layout)))
+                .setRowMetrics(layout.rowHeight(), 0)
+                .setContentRows(total);
+        listPanel.clampToViewport();
+        return true;
+    }
+
+    @Override
+    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        if (super.mouseClicked(mouseX, mouseY, button)) {
+            return true;
+        }
+        if (prepareListPointer(calculateLayout(width, height))
+                && listPanel.mouseClicked(mouseX, mouseY, button)) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
+        int before = listPanel.scrollRows();
+        if (listPanel.mouseDragged(mouseX, mouseY, button, dragX, dragY)) {
+            if (listPanel.scrollRows() != before) {
+                rebuildActionWidgets();
+            }
+            return true;
+        }
+        return super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
+    }
+
+    @Override
+    public boolean mouseReleased(double mouseX, double mouseY, int button) {
+        if (listPanel.mouseReleased(mouseX, mouseY, button)) {
+            return true;
+        }
+        return super.mouseReleased(mouseX, mouseY, button);
+    }
+
     @Override
     public boolean isPauseScreen() {
         return false;

@@ -70,6 +70,35 @@ public class AlchemyStatusScreen extends AbstractJournalScreen {
         return super.mouseScrolled(mouseX, mouseY, delta);
     }
 
+    @Override
+    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        if (super.mouseClicked(mouseX, mouseY, button)) {
+            return true;
+        }
+        StatusLayout layout = calculateLayout(width, height);
+        listPanel.setBounds(layout.viewport()).setContentHeight(CONTENT_HEIGHT);
+        if (listPanel.mouseClicked(mouseX, mouseY, button)) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
+        if (listPanel.mouseDragged(mouseX, mouseY, button, dragX, dragY)) {
+            return true;
+        }
+        return super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
+    }
+
+    @Override
+    public boolean mouseReleased(double mouseX, double mouseY, int button) {
+        if (listPanel.mouseReleased(mouseX, mouseY, button)) {
+            return true;
+        }
+        return super.mouseReleased(mouseX, mouseY, button);
+    }
+
     static StatusLayout calculateLayout(int screenWidth, int screenHeight) {
         int panelWidth = Math.min(DEFAULT_WIDTH, Math.max(1, screenWidth - PANEL_MARGIN * 2));
         int panelHeight = Math.min(DEFAULT_HEIGHT, Math.max(1, screenHeight - PANEL_MARGIN * 2));
