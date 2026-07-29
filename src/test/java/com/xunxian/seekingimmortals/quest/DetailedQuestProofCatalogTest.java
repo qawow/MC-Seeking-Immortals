@@ -106,5 +106,17 @@ class DetailedQuestProofCatalogTest {
         assertFalse(catalog.covers("missing_chain", 1));
         assertEquals("yin_zhi_horse", catalog.find("peiying_material_hunt", 2)
                 .parameter("entity"));
+        DetailedQuestProofCatalog.Route mortal = catalog.find("mortal_qixuan_entry", 4);
+        assertEquals("changchun_gong", mortal.parameter("method"));
+        assertEquals(1, mortal.minimumLayer());
+        assertEquals("qi_refining", mortal.minimumRealm());
+        assertEquals("great_five_elements_world_art",
+                catalog.find("wuxing_intro", 3).parameter("method"));
+        assertEquals("fansheng_zhenmogong",
+                catalog.find("deity_huoyu_path", 3).parameter("method"));
+        assertEquals("body_integration",
+                catalog.find("guanghan_endgame_path", 5).parameter("realm"));
+        assertEquals("deity_transformation",
+                catalog.find("deity_huoyu_path", 8).parameter("realm"));
     }
 }

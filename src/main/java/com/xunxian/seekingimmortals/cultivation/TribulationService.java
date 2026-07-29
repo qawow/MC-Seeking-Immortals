@@ -1,6 +1,7 @@
 package com.xunxian.seekingimmortals.cultivation;
 
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
+import com.xunxian.seekingimmortals.quest.DetailedQuestProofService;
 import com.xunxian.seekingimmortals.network.TechniqueVfxPacket;
 import com.xunxian.seekingimmortals.network.VisualEventPacket;
 import com.xunxian.seekingimmortals.item.CatalogConsumableService;
@@ -205,6 +206,8 @@ public final class TribulationService {
         int reward = getSuccessResistanceReward(targetRealm);
         cultivation.clearTribulation();
         cultivation.addTribulationResistance(reward);
+        // Realm state is only a quest proof after the complete tribulation succeeds.
+        DetailedQuestProofService.recordRealmReached(player, targetRealm);
         // Wave43: durable flag for spatial/event requires (tribulation_success).
         player.getPersistentData().putBoolean("seeking_immortals_tribulation_success", true);
         player.getPersistentData().putString("seeking_immortals_last_tribulation_realm",

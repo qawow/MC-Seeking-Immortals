@@ -7,8 +7,10 @@ import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.catalog.TextMaterialCatalogService;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
+import com.xunxian.seekingimmortals.cultivation.TechniqueDataManager;
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
 import com.xunxian.seekingimmortals.network.SyncLearnedTechniquesPacket;
+import com.xunxian.seekingimmortals.quest.DetailedQuestProofService;
 import net.minecraft.server.level.ServerPlayer;
 
 import java.io.InputStream;
@@ -117,8 +119,15 @@ public final class MethodLayerTechniqueService {
         int[] granted = {0};
         CultivationHelper.get(player).ifPresent(cultivation -> {
             for (String techniqueId : techniques) {
+                TechniqueDataManager.TechniqueEntry entry = TechniqueDataManager
+                        .getTechnique(player.getServer(), techniqueId).orElse(null);
+                if (entry != null && !player.getAbilities().instabuild
+                        && !TechniqueGateService.canLearn(player, cultivation, entry).allowed()) {
+                    continue;
+                }
                 if (cultivation.learnTechnique(techniqueId)) {
                     granted[0]++;
+                    DetailedQuestProofService.recordTechniqueLearned(player, techniqueId);
                     SkillType skillType = SkillEffectRegistrySafe.byTechniqueId(techniqueId);
                     if (skillType != null && !cultivation.hasSkill(skillType)) {
                         cultivation.unlockSkillForQuest(skillType);

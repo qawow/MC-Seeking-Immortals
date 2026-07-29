@@ -5,6 +5,7 @@ import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.TechniqueDataManager;
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
 import com.xunxian.seekingimmortals.network.SyncLearnedTechniquesPacket;
+import com.xunxian.seekingimmortals.quest.DetailedQuestProofService;
 import com.xunxian.seekingimmortals.skill.TechniqueGateService;
 import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import net.minecraft.ChatFormatting;
@@ -36,12 +37,20 @@ public class TechniqueManualItem extends Item {
         if (!(player instanceof ServerPlayer serverPlayer) || serverPlayer.getServer() == null) {
             return InteractionResultHolder.fail(stack);
         }
+        if ("梵圣真片".equals(source)) {
+            com.xunxian.seekingimmortals.catalog.ManualCatalogService.BrahmaAssemblyResult assembly =
+                    ManualCatalogService.tryAssembleBrahmaSacred(serverPlayer, stack);
+            if (assembly != com.xunxian.seekingimmortals.catalog.ManualCatalogService.BrahmaAssemblyResult.NOT_APPLICABLE) {
+                return InteractionResultHolder.consume(stack);
+            }
+        }
         Component manualName = PlayerDisplayText.itemName(stack.getItem());
 
         CultivationHelper.get(player).ifPresentOrElse(cultivation -> {
             List<TechniqueDataManager.TechniqueEntry> techniques = TechniqueDataManager.getTechniquesBySource(serverPlayer.getServer(), source);
             int learned = 0;
             int blocked = 0;
+            List<String> learnedTechniqueIds = new java.util.ArrayList<>();
             for (TechniqueDataManager.TechniqueEntry technique : techniques) {
                 if (!TechniqueDataManager.matchesAttributeCondition(cultivation, technique.attribute())) {
                     blocked++;
@@ -57,6 +66,7 @@ public class TechniqueManualItem extends Item {
                 }
                 if (cultivation.learnTechnique(technique.id())) {
                     learned++;
+                    learnedTechniqueIds.add(technique.id());
                 }
             }
             if (techniques.isEmpty()) {
@@ -69,6 +79,9 @@ public class TechniqueManualItem extends Item {
                     ? ManualCatalogService.grantMethodsFromTechniqueSource(serverPlayer, source)
                     : 0;
             if (learned > 0 || methodsGranted > 0) {
+                for (String techniqueId : learnedTechniqueIds) {
+                    DetailedQuestProofService.recordTechniqueLearned(serverPlayer, techniqueId);
+                }
                 if (learned > 0) {
                     player.displayClientMessage(Component.translatable(
                             "message.seeking_immortals.technique_manual.learned", manualName, learned), false);

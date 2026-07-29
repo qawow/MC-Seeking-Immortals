@@ -6717,10 +6717,10 @@
       "id": "fansheng_zhenmogong",
       "display": "梵圣真魔功",
       "path": "body",
-      "realm_min": "VOID_REFINEMENT",
+      "realm_min": "NASCENT_SOUL",
       "source": "lingjie",
       "unlocks_techniques_school": "body",
-      "description": "梵圣真魔功：neutral属性/倾向的body向功法。境界跨度约 VOID_REFINEMENT–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
+      "description": "梵圣真魔功：neutral属性/倾向的body向功法。元婴后期可由明王诀、托天魔功与梵圣真片拼合成法体根基；配套高阶神通仍按各自境界门槛解锁。与相冲功法同修有心魔与走火风险。",
       "setting": {
         "novel_arc": "灵界",
         "combat_style": "法体",

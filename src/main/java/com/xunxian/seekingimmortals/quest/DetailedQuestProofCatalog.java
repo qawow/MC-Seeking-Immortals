@@ -5,6 +5,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
+import com.xunxian.seekingimmortals.catalog.TextMaterialCatalogService;
+import com.xunxian.seekingimmortals.cultivation.Realm;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -47,7 +49,7 @@ public final class DetailedQuestProofCatalog {
             "npc_dialogue", "region_travel", "reputation", "shop", "structure_runtime");
     private static final Set<String> PARAMETER_KEYS = Set.of(
             "auction", "choice", "dimension", "entity", "faction", "item", "method", "npc",
-            "realm", "region", "shop", "station", "structure");
+            "realm", "region", "shop", "station", "structure", "technique");
     private static final Map<String, String> EXPECTED_PARAMETER = Map.ofEntries(
             Map.entry("REGION_ENTER", "region"),
             Map.entry("DIMENSION_ENTER", "dimension"),
@@ -63,7 +65,7 @@ public final class DetailedQuestProofCatalog {
             Map.entry("ESCORT_COMPLETED", "region"),
             Map.entry("METHOD_LAYER_REACHED", "method"),
             Map.entry("REALM_REACHED", "realm"),
-            Map.entry("TECHNIQUE_LEARNED", "method"),
+            Map.entry("TECHNIQUE_LEARNED", "technique"),
             Map.entry("SHOP_TRANSACTION", "shop"),
             Map.entry("AUCTION_TRANSACTION", "auction"),
             Map.entry("REPUTATION_REACHED", "faction"),
@@ -97,7 +99,7 @@ public final class DetailedQuestProofCatalog {
 
     public record Route(String chainId, int step, String proofType, String eventId,
                         Map<String, String> requiredParams, String ownerPolicy, String partyPolicy,
-                        String consumePolicy, String repeatPolicy, String failureKey,
+                        int minimumLayer, String minimumRealm, String consumePolicy, String repeatPolicy, String failureKey,
                         boolean allowHistoryReplay, String producer) {
         public Route {
             chainId = normalize(chainId);
@@ -105,12 +107,23 @@ public final class DetailedQuestProofCatalog {
             eventId = normalize(eventId);
             requiredParams = requiredParams == null
                     ? Map.of() : Collections.unmodifiableMap(new LinkedHashMap<>(requiredParams));
+            minimumLayer = Math.max(0, minimumLayer);
+            minimumRealm = normalize(minimumRealm);
             ownerPolicy = normalize(ownerPolicy).toUpperCase(Locale.ROOT);
             partyPolicy = normalize(partyPolicy).toUpperCase(Locale.ROOT);
             consumePolicy = normalize(consumePolicy).toUpperCase(Locale.ROOT);
             repeatPolicy = normalize(repeatPolicy).toUpperCase(Locale.ROOT);
             failureKey = normalize(failureKey);
             producer = normalize(producer);
+        }
+
+        /** Compatibility constructor for callers that do not declare a numeric cultivation threshold. */
+        public Route(String chainId, int step, String proofType, String eventId,
+                     Map<String, String> requiredParams, String ownerPolicy, String partyPolicy,
+                     String consumePolicy, String repeatPolicy, String failureKey,
+                     boolean allowHistoryReplay, String producer) {
+            this(chainId, step, proofType, eventId, requiredParams, ownerPolicy, partyPolicy,
+                    0, "", consumePolicy, repeatPolicy, failureKey, allowHistoryReplay, producer);
         }
 
         public String parameter(String key) {
@@ -262,6 +275,30 @@ public final class DetailedQuestProofCatalog {
                 valid = false;
             }
         }
+        int minimumLayer = integer(object, "minimum_layer", 0);
+        String minimumRealm = normalize(string(object, "minimum_realm"));
+        if ("METHOD_LAYER_REACHED".equals(proofType)) {
+            if (minimumLayer < 1) {
+                errors.add(location + " METHOD_LAYER_REACHED requires minimum_layer >= 1");
+                valid = false;
+            }
+            String methodId = params.get("method");
+            if (methodId == null || TextMaterialCatalogService.builtin().findMethod(methodId).isEmpty()) {
+                errors.add(location + " references unknown method " + methodId);
+                valid = false;
+            }
+            if (!minimumRealm.isBlank() && Realm.fromDesignId(minimumRealm) == null) {
+                errors.add(location + " references unknown minimum_realm " + minimumRealm);
+                valid = false;
+            }
+        } else if ("REALM_REACHED".equals(proofType)
+                && Realm.fromDesignId(params.get("realm")) == null) {
+            errors.add(location + " references unknown realm " + params.get("realm"));
+            valid = false;
+        } else if (minimumLayer != 0 || !minimumRealm.isBlank()) {
+            errors.add(location + " minimum_layer/minimum_realm are only valid for METHOD_LAYER_REACHED");
+            valid = false;
+        }
         if (!object.has("allow_history_replay") || !object.get("allow_history_replay").isJsonPrimitive()
                 || !object.getAsJsonPrimitive("allow_history_replay").isBoolean()) {
             errors.add(location + " allow_history_replay must be boolean");
@@ -271,7 +308,8 @@ public final class DetailedQuestProofCatalog {
             return null;
         }
         return new Route(chainId, step, proofType, eventId, params, ownerPolicy, partyPolicy,
-                consumePolicy, repeatPolicy, failureKey, object.get("allow_history_replay").getAsBoolean(), producer);
+                minimumLayer, minimumRealm, consumePolicy, repeatPolicy, failureKey,
+                object.get("allow_history_replay").getAsBoolean(), producer);
     }
 
     private static Map<String, String> parseParams(JsonObject object, String location, List<String> errors) {

@@ -173,6 +173,7 @@ public final class SeekingImmortalsCommand {
                                                         .executes(ctx -> detailedQuestStatus(ctx.getSource(),
                                                                 StringArgumentType.getString(ctx, "id")))))
                                         .then(Commands.literal("claim")
+                                                .requires(source -> source.hasPermission(2))
                                                 .then(Commands.argument("id", StringArgumentType.word())
                                                         .executes(ctx -> detailedQuestClaim(ctx.getSource(),
                                                                 StringArgumentType.getString(ctx, "id")))))
@@ -726,8 +727,9 @@ public final class SeekingImmortalsCommand {
     }
 
     private static int detailedQuestClaim(CommandSourceStack source, String id) throws CommandSyntaxException {
-        return DetailedQuestRuntimeService.advance(source.getPlayerOrException(), id,
-                DetailedQuestRuntimeService.Evidence.of()) ? 1 : 0;
+        DetailedQuestRuntimeService.Progress progress = DetailedQuestRuntimeService.progressOf(
+                source.getPlayerOrException(), id);
+        return detailedQuestProve(source, id, progress.stage());
     }
 
     private static int detailedQuestStart(CommandSourceStack source, String id) throws CommandSyntaxException {
@@ -737,8 +739,17 @@ public final class SeekingImmortalsCommand {
 
     private static int detailedQuestProve(CommandSourceStack source, String id, int step)
             throws CommandSyntaxException {
-        String evidence = "quest_step_" + id.trim().toLowerCase(Locale.ROOT) + "_" + step;
-        return DetailedQuestRuntimeService.recordAndAdvance(source.getPlayerOrException(), evidence) > 0 ? 1 : 0;
+        com.xunxian.seekingimmortals.quest.DetailedQuestProofService.Result result =
+                com.xunxian.seekingimmortals.quest.DetailedQuestProofService.adminProve(
+                        source.getPlayerOrException(), id, step);
+        if (result.status() == com.xunxian.seekingimmortals.quest.DetailedQuestProofService.Status.ACCEPTED) {
+            source.sendSuccess(() -> Component.translatable(
+                    "command.seeking_immortals.detailed_quest.admin_proof", id, step), false);
+            return 1;
+        }
+        source.sendFailure(Component.translatable(
+                "command.seeking_immortals.detailed_quest.admin_proof_failed", result.reason()));
+        return 0;
     }
 
     private static int textQuestAdvance(CommandSourceStack source, String id) throws CommandSyntaxException {

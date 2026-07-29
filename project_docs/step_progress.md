@@ -9729,3 +9729,16 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Version/protocol   Done   `mod_version` 从 `0.2.243` 升至 `0.2.244`；未改网络字段、顺序、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=31` 保持不变。
   Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功，`:aiPreflight` 记录 `mod_version=0.2.244`；JAR SHA-256 为 `bba62aa65a544dcd518cfe1c2812ad9d19bfc2e51a53ef426ce837b2c60347cf`。
   Next implementation   Pending   Q-B：接入自然事件生产者；对话分型、阴阳窟闭环、维度/本命/旧 NPC 迁移及最终真实客户端/专服/双客户端 QA 仍未完成。本批提交：`cc5d0a2c feat: 建立详细任务证明路由目录`。
+## 584. 2026-07-30 `0.2.245` Q-B-1 修炼域自然证明生产者
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   执行 Q-B-1，备份位于 `.bak/20260730_004318_q_b_cultivation/`；用户既有 `CLAUDE.md` 与 `project_docs/frontend_interaction_audit_0.2.198.md` 未纳入本批。
+  Structured events   Done   新增 `DetailedQuestProofEvent`/`DetailedQuestProofService` 与 `advanceVerifiedRoute`；自然事件、管理员证明、历史回放和有界账本分离，死亡克隆复制持久证明数据。
+  Producers   Done   接入功法学习/升层/自动授予、术法学习/解锁、无雷劫突破和雷劫最终成功；实时能力与境界门槛由服务端重验。
+  Route/data fixes   Done   修正四类不可解析功法/境界 id，目录严格校验真实功法、境界、最低层数；梵圣真魔功改为元婴门槛并实现梵圣真片拼合事务。
+  Tests   Done   Q-B 修炼域定向测试通过；完整构建测试 257 个套件、1,217 项，failure/error/skipped 均为 0。
+  Generated resources   Done   `generate_authored_spell_effects.py --check` 报告 2,292 profiles，`generate_authored_visual_catalog.py --check` 报告 5,727 profiles。
+  Version/protocol   Done   `mod_version=0.2.245`；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=31` 保持不变。
+  Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功，JAR SHA-256 为 `19bcba6aad691e508b3587647dbc8f7b777aa7db1340be80d617f448e37c8abd`。
+  Next implementation   Pending   Q-B-2：地域、维度、秘境和结构事件；其余 Q-B 事件域、D-A、阴阳窟、维度分类、本命法宝、NPC 迁移和最终实机 QA 仍未完成。

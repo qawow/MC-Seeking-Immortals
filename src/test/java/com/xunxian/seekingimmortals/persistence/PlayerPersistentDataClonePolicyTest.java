@@ -110,6 +110,8 @@ class PlayerPersistentDataClonePolicyTest {
                 DetailedQuestRuntimeService.ROOT_TAG,
                 DetailedQuestRuntimeService.REWARD_TAG,
                 DetailedQuestRuntimeService.EVIDENCE_TAG,
+                com.xunxian.seekingimmortals.quest.DetailedQuestProofService.LEDGER_TAG,
+                com.xunxian.seekingimmortals.quest.DetailedQuestProofService.HISTORY_TAG,
                 DialogueWorldActionService.MARKERS_TAG,
                 DialogueWorldActionService.HINTS_TAG,
                 DialogueWorldActionService.ANOMALIES_TAG,

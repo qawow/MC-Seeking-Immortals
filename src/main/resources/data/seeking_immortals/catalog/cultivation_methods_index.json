@@ -698,7 +698,7 @@
     {
       "id": "fansheng_zhenmogong",
       "display": "梵圣真魔功",
-      "realm_min": "VOID_REFINEMENT",
+      "realm_min": "NASCENT_SOUL",
       "school": true,
       "attribute": "neutral"
     },

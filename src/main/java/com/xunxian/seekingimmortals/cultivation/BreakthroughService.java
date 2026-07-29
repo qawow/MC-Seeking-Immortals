@@ -7,6 +7,7 @@ import com.xunxian.seekingimmortals.item.pill.PillDeathSubstituteEvents;
 import com.xunxian.seekingimmortals.item.pill.PillQuality;
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
 import com.xunxian.seekingimmortals.persistence.PlayerPersistentDataClonePolicy;
+import com.xunxian.seekingimmortals.quest.DetailedQuestProofService;
 import com.xunxian.seekingimmortals.registry.ModBulkItems;
 import com.xunxian.seekingimmortals.registry.ModItems;
 import com.xunxian.seekingimmortals.spiritual.SpiritualAuraManager;
@@ -103,6 +104,7 @@ public final class BreakthroughService {
             boolean tribulationStarted = TribulationService.onBreakthroughSuccess(player, cultivation, result);
             if (!tribulationStarted) {
                 SyncCultivationDataPacket.send(player, cultivation);
+                DetailedQuestProofService.recordRealmReached(player, result.newRealm());
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.breakthrough.success",
                         result.newRealm().getDisplayName(),
                         result.newStage().getDisplayName(),

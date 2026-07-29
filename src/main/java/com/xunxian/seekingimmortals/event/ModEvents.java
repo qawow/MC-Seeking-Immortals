@@ -808,6 +808,7 @@ public final class ModEvents {
                 // M04: 掌天瓶唯一性服务端强制
                 com.xunxian.seekingimmortals.craft.GardenLiquidService.enforceUniqueBottle(serverPlayer);
                 syncClientMirrors(serverPlayer, cultivation);
+                com.xunxian.seekingimmortals.quest.DetailedQuestProofService.replayCurrent(serverPlayer);
             }
         });
     }
@@ -839,6 +840,10 @@ public final class ModEvents {
     private static boolean unlockConfiguredTechniqueSkills(ServerPlayer player, PlayerCultivation cultivation) {
         java.util.List<SkillType> unlocked = cultivation.unlockEligibleTechniqueSkills();
         if (unlocked.isEmpty()) return false;
+        for (SkillType skill : unlocked) {
+            com.xunxian.seekingimmortals.quest.DetailedQuestProofService.recordTechniqueLearned(
+                    player, skill.getTechniqueId());
+        }
         String names = unlocked.stream().map(SkillType::getDisplayName).collect(java.util.stream.Collectors.joining(", "));
         player.displayClientMessage(Component.translatable("message.seeking_immortals.skill.unlock", names), false);
         return true;

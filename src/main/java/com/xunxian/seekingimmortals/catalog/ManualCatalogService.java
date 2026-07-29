@@ -6,11 +6,14 @@ import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.cultivation.ProgressionGateApi;
 import com.xunxian.seekingimmortals.cultivation.Realm;
+import com.xunxian.seekingimmortals.cultivation.RealmStage;
 import com.xunxian.seekingimmortals.network.SyncLearnedMethodsPacket;
 import com.xunxian.seekingimmortals.quest.QuestProgress;
+import com.xunxian.seekingimmortals.quest.DetailedQuestProofService;
 import com.xunxian.seekingimmortals.sect.SectContributionService;
 import com.xunxian.seekingimmortals.sect.SectDefinitionService;
 import com.xunxian.seekingimmortals.skill.MethodLayerTechniqueService;
+import com.xunxian.seekingimmortals.registry.ModItems;
 import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
 import net.minecraft.nbt.CompoundTag;
@@ -18,6 +21,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.item.ItemStack;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,6 +65,12 @@ public final class ManualCatalogService {
         FACTION_MISMATCH,
         FACTION_RANK_TOO_LOW,
         CONVERT_REQUIRED
+    }
+
+    public enum BrahmaAssemblyResult {
+        NOT_APPLICABLE,
+        ASSEMBLED,
+        BLOCKED
     }
 
     record MethodLearnGate(MethodLearnFailure failure, String requiredMethod,
@@ -406,6 +416,7 @@ public final class ManualCatalogService {
             markLearnedMethod(player, method.id());
             setMethodLayer(player, method.id(), 1);
             int techniquesGranted = MethodLayerTechniqueService.grantForMethodLayer(player, method.id(), 1);
+            DetailedQuestProofService.recordMethodLayerReached(player, method.id());
             // Light insight buff so learning is immediately felt.
             player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 20 * 30, 0));
             player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 20 * 60, 0));
@@ -418,6 +429,61 @@ public final class ManualCatalogService {
             ok[0] = true;
         });
         return ok[0];
+    }
+
+    /**
+     * Consumes a real 梵圣真片 only after the authored 明王/托天 prerequisites are present.
+     * The assembled method is a special progression transaction, not a generic method-tree
+     * learning bypass; its high-tier techniques remain realm-gated by MethodLayerTechniqueService.
+     */
+    public static BrahmaAssemblyResult tryAssembleBrahmaSacred(ServerPlayer player, ItemStack stack) {
+        if (player == null || stack == null || stack.isEmpty()
+                || stack.getItem() != ModItems.TECHNIQUE_MANUAL_BRAHMA_SACRED_FRAGMENT.get()) {
+            return BrahmaAssemblyResult.NOT_APPLICABLE;
+        }
+        if (hasLearnedMethod(player, "fansheng_zhenmogong")) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.method.brahma.already"), true);
+            return BrahmaAssemblyResult.BLOCKED;
+        }
+        PlayerCultivation cultivation = CultivationHelper.get(player).orElse(null);
+        if (cultivation == null || cultivation.getRealm().ordinal() < Realm.NASCENT_SOUL.ordinal()
+                || (cultivation.getRealm() == Realm.NASCENT_SOUL
+                && cultivation.getStage() != RealmStage.LATE
+                && cultivation.getStage() != RealmStage.PEAK)) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.method.brahma.realm"), true);
+            return BrahmaAssemblyResult.BLOCKED;
+        }
+        if (!hasLearnedMethod(player, "mingwang_jue") || !hasLearnedMethod(player, "tuotian_mogong")) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.method.brahma.prerequisite"), true);
+            return BrahmaAssemblyResult.BLOCKED;
+        }
+        TextMaterialCatalogService.MethodEntry method = TextMaterialCatalogService.builtin()
+                .findMethod("fansheng_zhenmogong").orElse(null);
+        if (method == null) {
+            return BrahmaAssemblyResult.BLOCKED;
+        }
+        com.xunxian.seekingimmortals.skill.ManualConflictMatrixService.GateResult conflict =
+                com.xunxian.seekingimmortals.skill.ManualConflictMatrixService.canLearnMethod(
+                        player, method.id());
+        if (!conflict.allowed()) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.method.brahma.conflict"), true);
+            return BrahmaAssemblyResult.BLOCKED;
+        }
+        markLearnedMethod(player, method.id());
+        setMethodLayer(player, method.id(), 1);
+        MethodLayerTechniqueService.grantForMethodLayer(player, method.id(), 1);
+        if (!player.getAbilities().instabuild) {
+            stack.shrink(1);
+        }
+        SyncLearnedMethodsPacket.send(player);
+        DetailedQuestProofService.recordMethodLayerReached(player, method.id());
+        player.displayClientMessage(Component.translatable(
+                "message.seeking_immortals.method.brahma.assembled"), false);
+        return BrahmaAssemblyResult.ASSEMBLED;
     }
 
     /**
@@ -480,6 +546,7 @@ public final class ManualCatalogService {
             }
             setMethodLayer(player, method.id(), nextLayer);
             int techniquesGranted = MethodLayerTechniqueService.grantForMethodLayer(player, method.id(), nextLayer);
+            DetailedQuestProofService.recordMethodLayerReached(player, method.id());
             SyncLearnedMethodsPacket.send(player);
             player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 20 * 15, 0));
             player.displayClientMessage(Component.translatable("message.seeking_immortals.method.cultivated",
@@ -1007,6 +1074,7 @@ public final class ManualCatalogService {
             markLearnedMethod(player, method.id());
             setMethodLayer(player, method.id(), 1);
             MethodLayerTechniqueService.grantForMethodLayer(player, method.id(), 1);
+            DetailedQuestProofService.recordMethodLayerReached(player, method.id());
             granted[0] = true;
         });
         return granted[0];
@@ -1194,6 +1262,19 @@ public final class ManualCatalogService {
     private static String methodFromSourceKeywords(String blob) {
         if (blob.contains("长春") || blob.contains("changchun") || blob.contains("黄枫")) {
             return "changchun_gong";
+        }
+        if (blob.contains("梵圣") || blob.contains("fansheng")) {
+            return "fansheng_zhenmogong";
+        }
+        if (blob.contains("托天") || blob.contains("tuotian")
+                || blob.contains("乱星海魔修") || blob.contains("top_demonic")) {
+            return "tuotian_mogong";
+        }
+        if (blob.contains("明王") || blob.contains("mingwang") || blob.contains("大晋")) {
+            return "mingwang_jue";
+        }
+        if (blob.contains("真言门") || blob.contains("true_word") || blob.contains("幻世")) {
+            return "great_five_elements_world_art";
         }
         if (blob.contains("青元") || blob.contains("qingyuan") || blob.contains("剑诀") || blob.contains("剑宗") || blob.contains("巨剑") || blob.contains("凌霄")) {
             return "qingyuan_sword_art";

@@ -542,9 +542,9 @@
     "文本材料/data/item_descriptions_v122.json": "bd75a2525ccc5240030abbf6b44f7e02571001fd174d947bf22101d70d3eabcd"
   },
   "java_source_audit": {
-    "file_count": 619,
-    "aggregate_sha256": "982b26e8b13b75d26838a4796bdc751cb0576902e6a9522e6eeaa2e2b5702717",
-    "spell_related_file_count": 182,
+    "file_count": 621,
+    "aggregate_sha256": "75fbc8b7888d0ec13636dbd78d4c1c4f9bde555d04d6a42af745d49fd87f0edf",
+    "spell_related_file_count": 183,
     "spell_effect_class_count": 53,
     "skill_effect_registry_registration_count": 373,
     "spell_related_files": [
@@ -649,6 +649,7 @@
       "src/main/java/com/xunxian/seekingimmortals/network/SyncLearnedTechniquesPacket.java",
       "src/main/java/com/xunxian/seekingimmortals/network/TechniqueVfxPacket.java",
       "src/main/java/com/xunxian/seekingimmortals/network/VisualEventPacket.java",
+      "src/main/java/com/xunxian/seekingimmortals/quest/DetailedQuestProofService.java",
       "src/main/java/com/xunxian/seekingimmortals/quest/QuestService.java",
       "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
       "src/main/java/com/xunxian/seekingimmortals/registry/ModMobEffects.java",

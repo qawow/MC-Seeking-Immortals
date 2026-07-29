@@ -159,6 +159,7 @@ public final class DetailedQuestRuntimeService {
         copyTag(source, target, ROOT_TAG);
         copyTag(source, target, REWARD_TAG);
         copyTag(source, target, EVIDENCE_TAG);
+        DetailedQuestProofService.copyPersistentData(source, target);
     }
 
     public static List<Progress> listProgress(ServerPlayer player) {
@@ -218,6 +219,29 @@ public final class DetailedQuestRuntimeService {
 
     /** Advances one exact step only when its structured place/need proof is satisfied. */
     public static boolean advance(ServerPlayer player, String chainId, Evidence evidence) {
+        return advanceInternal(player, chainId, evidence, false, null);
+    }
+
+    /**
+     * Advances an exact route after {@link DetailedQuestProofService} has validated the producer
+     * and the live player state. This method intentionally remains package-visible so ordinary
+     * callers cannot bypass the structured proof authority.
+     */
+    static boolean advanceVerifiedRoute(ServerPlayer player, String chainId,
+                                         DetailedQuestProofCatalog.Route route, Evidence evidence) {
+        if (route == null || !route.chainId().equals(normalize(chainId))) {
+            return false;
+        }
+        DetailedQuestProofCatalog.Route catalogRoute = PROOF_ROUTES.find(route.chainId(), route.step());
+        if (catalogRoute == null || !catalogRoute.eventId().equals(route.eventId())) {
+            return false;
+        }
+        return advanceInternal(player, chainId, evidence, true, route);
+    }
+
+    private static boolean advanceInternal(ServerPlayer player, String chainId, Evidence evidence,
+                                            boolean verifiedRoute,
+                                            DetailedQuestProofCatalog.Route verified) {
         Chain chain = find(chainId).orElse(null);
         if (player == null || chain == null) {
             return false;
@@ -228,7 +252,7 @@ public final class DetailedQuestRuntimeService {
         }
         Step step = chain.steps().get(progress.stage() - 1);
         Evidence proof = evidence == null ? Evidence.of() : evidence;
-        if (!stepSatisfied(player, chain, step, proof)) {
+        if (!verifiedRoute && !stepSatisfied(player, chain, step, proof)) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.detailed_quest.proof_failed", chain.display(), step.number()), false);
             return false;
