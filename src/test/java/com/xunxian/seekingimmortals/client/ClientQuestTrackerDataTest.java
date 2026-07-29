@@ -103,4 +103,16 @@ class ClientQuestTrackerDataTest {
         assertFalse(QuestTrackerScreen.selectedChainChanged("second_path", "second_path"));
         assertTrue(QuestTrackerScreen.selectedChainChanged("second_path", "first_path"));
     }
+
+    @Test
+    void filteringDoesNotRewriteGlobalSelection() {
+        ClientQuestTrackerData.set(new SyncQuestTrackerPacket(List.of(AVAILABLE, LOCKED)));
+        assertTrue(ClientQuestTrackerData.selectChain("locked_path"));
+
+        assertFalse(QuestTrackerScreen.selectionVisible(
+                List.of(ClientQuestTrackerData.parseChainLine(AVAILABLE).orElseThrow()),
+                ClientQuestTrackerData.selectedChainId()));
+        assertEquals("locked_path", ClientQuestTrackerData.selectedChainId());
+        assertEquals("locked_path", ClientQuestTrackerData.selectedChain().orElseThrow().id());
+    }
 }

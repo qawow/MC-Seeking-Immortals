@@ -21,6 +21,7 @@ import java.util.Locale;
 public class DialogueScreen extends AbstractJournalScreen {
     private static final int DESIRED_WIDTH = 360;
     private static final int DESIRED_HEIGHT = 240;
+    static final int ACTION_TIMEOUT_TICKS = 100;
     private static final ResourceLocation PORTRAIT_DEFAULT =
             new ResourceLocation(SeekingImmortalsMod.MODID, "textures/gui/dialogue/portrait_default.png");
     private static final ResourceLocation PORTRAIT_MO_LAO =
@@ -37,7 +38,9 @@ public class DialogueScreen extends AbstractJournalScreen {
     private final OpenDialogueScreenPacket view;
     private final List<ImmortalButton> actionButtons = new ArrayList<>();
     private boolean actionPending;
+    private int actionPendingTicks;
     private boolean closeSent;
+    private boolean greetingPlayed;
     private int promptScroll;
     private int renderedPromptHeight;
 
@@ -48,10 +51,15 @@ public class DialogueScreen extends AbstractJournalScreen {
     }
 
     public DialogueScreen(OpenDialogueScreenPacket view) {
+        this(view, false);
+    }
+
+    DialogueScreen(OpenDialogueScreenPacket view, boolean greetingPlayed) {
         super(Component.translatable("screen.seeking_immortals.dialogue.title"));
         this.view = view == null
                 ? new OpenDialogueScreenPacket("", "", "", "", Component.empty(), List.of(), List.of())
                 : view;
+        this.greetingPlayed = greetingPlayed;
     }
 
     @Override
@@ -79,7 +87,11 @@ public class DialogueScreen extends AbstractJournalScreen {
                 }
             }, index == 0, true);
         }
-        playVoice(npcVoice());
+        applyActionPendingState();
+        if (!greetingPlayed) {
+            greetingPlayed = true;
+            playVoice(npcVoice());
+        }
     }
 
     private void addButton(Rect rect, Component label, net.minecraft.client.gui.components.Button.OnPress onPress,
@@ -98,10 +110,45 @@ public class DialogueScreen extends AbstractJournalScreen {
             return false;
         }
         actionPending = true;
-        for (ImmortalButton button : actionButtons) {
-            button.active = false;
-        }
+        actionPendingTicks = 0;
+        applyActionPendingState();
         return true;
+    }
+
+    private void applyActionPendingState() {
+        for (ImmortalButton button : actionButtons) {
+            button.active = !actionPending;
+        }
+    }
+
+    private void clearActionPending() {
+        actionPending = false;
+        actionPendingTicks = 0;
+        applyActionPendingState();
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        if (actionPending && actionTimedOut(++actionPendingTicks)) {
+            clearActionPending();
+        }
+    }
+
+    static boolean actionTimedOut(int elapsedTicks) {
+        return elapsedTicks >= ACTION_TIMEOUT_TICKS;
+    }
+
+    boolean actionPending() {
+        return actionPending;
+    }
+
+    boolean greetingPlayed() {
+        return greetingPlayed;
+    }
+
+    String sessionContext() {
+        return view.context();
     }
 
     private void send(String action, String choice) {

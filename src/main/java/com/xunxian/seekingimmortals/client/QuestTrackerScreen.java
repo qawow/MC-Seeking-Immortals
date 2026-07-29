@@ -119,11 +119,6 @@ public class QuestTrackerScreen extends AbstractJournalScreen {
                         String.CASE_INSENSITIVE_ORDER));
         ViewSignature nextSignature = viewSignature(filter.key, next);
         view = List.copyOf(next);
-        boolean selectedStillVisible = view.stream()
-                .anyMatch(line -> line.id().equals(ClientQuestTrackerData.selectedChainId()));
-        if (!selectedStillVisible && !view.isEmpty()) {
-            ClientQuestTrackerData.selectChain(view.get(0).id());
-        }
         String currentSelectedChainId = ClientQuestTrackerData.selectedChainId();
         if (renderedViewSignature == null || viewChanged(renderedViewSignature, nextSignature)) {
             listPanel.resetScroll();
@@ -305,6 +300,11 @@ public class QuestTrackerScreen extends AbstractJournalScreen {
                 QuestPresentationService.find(line.id());
         List<DetailLine> details = new ArrayList<>();
         details.add(new DetailLine(displayTitle(line.id()), stateColor(state), 0));
+        if (!isVisibleSelection(line.id())) {
+            details.add(new DetailLine(Component.translatable(
+                    "screen.seeking_immortals.quest_tracker.detail_filtered_out").getString(),
+                    ImmortalUiSkin.JOURNAL_PAPER_MUTED, 2));
+        }
         details.add(new DetailLine(Component.translatable("screen.seeking_immortals.quest_tracker.detail_status",
                 Component.translatable(stateKey(state)), line.stage(), Math.max(0, line.steps())).getString(),
                 ImmortalUiSkin.JOURNAL_SPIRIT, 1));
@@ -426,15 +426,16 @@ public class QuestTrackerScreen extends AbstractJournalScreen {
     }
 
     private Optional<ClientQuestTrackerData.ChainLine> selectedLine() {
-        String selectedId = ClientQuestTrackerData.selectedChainId();
-        if (selectedId != null && !selectedId.isBlank()) {
-            for (ClientQuestTrackerData.ChainLine line : view) {
-                if (selectedId.equals(line.id())) {
-                    return Optional.of(line);
-                }
-            }
-        }
-        return view.isEmpty() ? Optional.empty() : Optional.of(view.get(0));
+        return ClientQuestTrackerData.selectedChain();
+    }
+
+    private boolean isVisibleSelection(String chainId) {
+        return selectionVisible(view, chainId);
+    }
+
+    static boolean selectionVisible(List<ClientQuestTrackerData.ChainLine> visible, String chainId) {
+        return chainId != null && visible != null
+                && visible.stream().anyMatch(line -> line != null && chainId.equals(line.id()));
     }
 
     @Override

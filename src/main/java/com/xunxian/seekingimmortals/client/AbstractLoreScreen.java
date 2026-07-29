@@ -4,6 +4,11 @@ import com.xunxian.seekingimmortals.network.LoreScreenActionPacket;
 import com.xunxian.seekingimmortals.network.ModNetwork;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
+import net.minecraft.util.FormattedCharSequence;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * Shared shell for the M16 lore family (bestiary / chronicle / compendium).
@@ -25,6 +30,8 @@ public abstract class AbstractLoreScreen extends AbstractJournalScreen {
     protected static final int STACKED_BREAKPOINT =
             com.xunxian.seekingimmortals.client.ui.InkLayout.Spec.LORE.stackedBreakpoint();
     protected static final int MIN_BODY_LINE = 10;
+    private int detailScroll;
+    private String detailSelectionKey = "";
 
     protected AbstractLoreScreen(Component title) {
         super(title);
@@ -187,19 +194,74 @@ public abstract class AbstractLoreScreen extends AbstractJournalScreen {
             int closeX, int closeY, int closeW, int closeH) {
     }
 
+    /** Resets detail scrolling only when the selected lore entry actually changes. */
+    protected void setDetailSelectionKey(String key) {
+        String safe = key == null ? "" : key;
+        if (!Objects.equals(detailSelectionKey, safe)) {
+            detailSelectionKey = safe;
+            detailScroll = 0;
+        }
+    }
+
+    /** Handles wheel input for a detail pane and keeps the offset within measured content. */
+    protected boolean scrollLoreDetail(double mouseX, double mouseY, UiRect detail,
+                                       List<String> lines, double delta) {
+        if (detail == null || !detail.contains(mouseX, mouseY)) {
+            return false;
+        }
+        int contentHeight = measureWrappedDetail(lines, Math.max(1, detail.width() - 12));
+        int visibleHeight = Math.max(1, detail.height() - 4);
+        detailScroll = clampDetailScroll(detailScroll - (int) Math.round(delta * (font.lineHeight + 2)),
+                contentHeight, visibleHeight);
+        return true;
+    }
+
+    static int clampDetailScroll(int offset, int contentHeight, int viewportHeight) {
+        return Math.max(0, Math.min(offset, Math.max(0, contentHeight - Math.max(1, viewportHeight))));
+    }
+
     /** Draws a scrollable multi-line detail pane with the lore family's scissor insets. */
-    protected void renderWrappedDetail(GuiGraphics graphics, int x, int y, int w, int h, java.util.List<String> lines) {
+    protected void renderWrappedDetail(GuiGraphics graphics, int x, int y, int w, int h, List<String> lines) {
+        List<FormattedCharSequence> wrapped = wrappedDetailLines(lines, Math.max(1, w - 12));
+        int contentHeight = measureWrappedDetail(wrapped);
+        int visibleHeight = Math.max(1, h - 4);
+        detailScroll = clampDetailScroll(detailScroll, contentHeight, visibleHeight);
         ImmortalUiSkin.withScissor(graphics, x + 2, y + 2, Math.max(1, w - 4), Math.max(1, h - 4), () -> {
-            int cursorY = y + 6;
-            for (String line : lines) {
-                java.util.List<net.minecraft.util.FormattedCharSequence> wrapped =
-                        font.split(Component.literal(line == null ? "" : line), Math.max(1, w - 12));
-                for (net.minecraft.util.FormattedCharSequence seq : wrapped) {
-                    graphics.drawString(font, seq, x + 6, cursorY, ImmortalUiSkin.JOURNAL_PAPER, false);
-                    cursorY += font.lineHeight + 2;
-                }
+            int cursorY = y + 6 - detailScroll;
+            for (FormattedCharSequence sequence : wrapped) {
+                graphics.drawString(font, sequence, x + 6, cursorY, ImmortalUiSkin.JOURNAL_PAPER, false);
+                cursorY += font.lineHeight + 2;
             }
         });
+        ImmortalUiSkin.drawThinScrollbar(graphics, x + w - 3, y + 1, Math.max(1, h - 2),
+                contentHeight, visibleHeight, detailScroll);
+    }
+
+    private int measureWrappedDetail(List<String> lines, int availableWidth) {
+        return measureWrappedDetail(wrappedDetailLines(lines, availableWidth));
+    }
+
+    private int measureWrappedDetail(List<FormattedCharSequence> wrapped) {
+        return Math.max(1, wrapped.size() * (font.lineHeight + 2));
+    }
+
+    private List<FormattedCharSequence> wrappedDetailLines(List<String> lines, int availableWidth) {
+        List<FormattedCharSequence> wrapped = new ArrayList<>();
+        if (lines != null) {
+            for (String line : lines) {
+                List<FormattedCharSequence> split = font.split(
+                        Component.literal(line == null ? "" : line), Math.max(1, availableWidth));
+                if (split.isEmpty()) {
+                    wrapped.add(Component.empty().getVisualOrderText());
+                } else {
+                    wrapped.addAll(split);
+                }
+            }
+        }
+        if (wrapped.isEmpty()) {
+            wrapped.add(Component.empty().getVisualOrderText());
+        }
+        return List.copyOf(wrapped);
     }
 
     protected static UiRect toUiRect(int x, int y, int w, int h) {

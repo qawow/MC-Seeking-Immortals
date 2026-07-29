@@ -113,14 +113,15 @@ public class ChronicleScreen extends AbstractLoreScreen {
                         if (tab == Tab.EVENTS) {
                             FactionQuestCatalogService.Entry entry = events.get(index);
                             boolean unlocked = ClientLoreData.isChronicleDiscovered(entry.id());
-                            label = unlocked ? eventDisplay(entry).getString()
-                                    : Component.translatable("screen.seeking_immortals.chronicle.locked").getString();
+                            label = displayName(eventDisplay(entry).getString(), unlocked);
                             color = unlocked ? ImmortalUiSkin.JOURNAL_PAPER : ImmortalUiSkin.JOURNAL_PAPER_MUTED;
                         } else {
                             TimelineChronicleService.TimelinePhase phase = phases.get(index);
                             boolean unlocked = ClientLoreData.hasTimelinePhase(phase.phase());
-                            label = (unlocked ? "● " : "○ ") + phaseDisplay(phase).getString()
-                                    + " / " + ArtifactDisplayTexts.realm(phase.realm()).getString();
+                            label = unlocked
+                                    ? "● " + displayName(phaseDisplay(phase).getString(), true)
+                                            + " / " + ArtifactDisplayTexts.realm(phase.realm()).getString()
+                                    : "○ " + displayName(phaseDisplay(phase).getString(), false);
                             color = unlocked ? ImmortalUiSkin.JOURNAL_JADE_TEXT : ImmortalUiSkin.JOURNAL_PAPER_MUTED;
                         }
                         ImmortalUiSkin.drawStringFit(font, graphics, label,
@@ -134,6 +135,13 @@ public class ChronicleScreen extends AbstractLoreScreen {
     }
 
     private void renderDetail(GuiGraphics graphics, Layout layout) {
+        List<String> lines = detailLines();
+        setDetailSelectionKey("chronicle:" + tab + ":" + selectedDetailId());
+        renderWrappedDetail(graphics, layout.detail().x(), layout.detail().y(),
+                layout.detail().w(), layout.detail().h(), lines);
+    }
+
+    private List<String> detailLines() {
         List<String> lines = new ArrayList<>();
         if (!ClientLoreData.isSynced()) {
             lines.add(Component.translatable("screen.seeking_immortals.lore.not_synced").getString());
@@ -143,7 +151,7 @@ public class ChronicleScreen extends AbstractLoreScreen {
             } else {
                 FactionQuestCatalogService.Entry entry = events.get(selected);
                 boolean unlocked = ClientLoreData.isChronicleDiscovered(entry.id());
-                lines.add(eventDisplay(entry).getString());
+                lines.add(displayName(eventDisplay(entry).getString(), unlocked));
                 lines.add(unlocked
                         ? Component.translatable("screen.seeking_immortals.chronicle.discovered").getString()
                         : Component.translatable("screen.seeking_immortals.chronicle.undiscovered").getString());
@@ -155,21 +163,39 @@ public class ChronicleScreen extends AbstractLoreScreen {
             } else {
                 TimelineChronicleService.TimelinePhase phase = phases.get(selected);
                 boolean unlocked = ClientLoreData.hasTimelinePhase(phase.phase());
-                lines.add(phaseDisplay(phase).getString());
-                lines.add(Component.translatable("screen.seeking_immortals.chronicle.phase_summary",
-                        ArtifactDisplayTexts.realm(phase.realm()), phase.nodeCount()).getString());
+                lines.add(displayName(phaseDisplay(phase).getString(), unlocked));
+                if (unlocked) {
+                    lines.add(Component.translatable("screen.seeking_immortals.chronicle.phase_summary",
+                            ArtifactDisplayTexts.realm(phase.realm()), phase.nodeCount()).getString());
+                }
                 lines.add(unlocked
                         ? Component.translatable("screen.seeking_immortals.chronicle.phase_unlocked").getString()
                         : Component.translatable("screen.seeking_immortals.chronicle.phase_locked").getString());
-                List<String> mainline = TimelineChronicleService.builtin().mainlineOrder();
-                if (!mainline.isEmpty()) {
-                    lines.add(Component.translatable(
-                            "screen.seeking_immortals.chronicle.mainline_count", mainline.size()).getString());
+                if (unlocked) {
+                    List<String> mainline = TimelineChronicleService.builtin().mainlineOrder();
+                    if (!mainline.isEmpty()) {
+                        lines.add(Component.translatable(
+                                "screen.seeking_immortals.chronicle.mainline_count", mainline.size()).getString());
+                    }
                 }
             }
         }
-        renderWrappedDetail(graphics, layout.detail().x(), layout.detail().y(),
-                layout.detail().w(), layout.detail().h(), lines);
+        return List.copyOf(lines);
+    }
+
+    private String selectedDetailId() {
+        if (tab == Tab.EVENTS) {
+            return selected >= 0 && selected < events.size() ? events.get(selected).id() : "";
+        }
+        return selected >= 0 && selected < phases.size() ? phases.get(selected).phase() : "";
+    }
+
+    private static String lockedDisplay() {
+        return Component.translatable("screen.seeking_immortals.chronicle.locked").getString();
+    }
+
+    static String displayName(String raw, boolean discovered) {
+        return discovered ? (raw == null ? "" : raw) : lockedDisplay();
     }
 
     private static Component eventDisplay(FactionQuestCatalogService.Entry entry) {
@@ -207,6 +233,11 @@ public class ChronicleScreen extends AbstractLoreScreen {
             int total = tab == Tab.EVENTS ? events.size() : phases.size();
             int visible = Math.max(1, layout.list().h() / ROW_H);
             listScroll = Mth.clamp(listScroll - (int) Math.round(delta), 0, Math.max(0, total - visible));
+            return true;
+        }
+        if (scrollLoreDetail(mouseX, mouseY,
+                new UiRect(layout.detail().x(), layout.detail().y(), layout.detail().w(), layout.detail().h()),
+                detailLines(), delta)) {
             return true;
         }
         return super.mouseScrolled(mouseX, mouseY, delta);

@@ -1,18 +1,18 @@
-# 寻仙问道 — `0.2.234` 后续完整实现计划
+# 寻仙问道 — `0.2.236` 后续完整实现计划
 
-> 状态：F-A（UI-01 至 UI-05）与 F-B（UI-06、UI-18）已完成并验证；下一实施入口为 F-C1。本文件继续定义剩余工作的实施顺序、边界和验收门。
+> 状态：F-A（UI-01 至 UI-05）、F-B（UI-06、UI-18）与 F-C1（UI-07 至 UI-11、UI-19）已完成并验证；下一实施入口为 F-C2。本文件继续定义剩余工作的实施顺序、边界和验收门。
 > 制定日期：2026-07-29。
-> 代码基线：`6287c058 fix: 修复高危前端交互`；F-B 当前批次尚未提交。
-> 初始版本基线：`mod_version=0.2.232`；当前执行版本：`mod_version=0.2.234`。
+> 最近已提交基线：`e0cf0e8c refactor: 统一滚动列表输入契约`；F-C1 已完成并记录，下一批为 F-C2。
+> 初始版本基线：`mod_version=0.2.232`；当前执行版本：`mod_version=0.2.236`。
 > 网络基线：`ModNetwork.PROTOCOL_VERSION=30`。
-> 最近完整自动验证：完整单元测试 1,194 项通过；最终 Gradle 构建结果记录在本批更新记录中。
+> 最近完整自动验证：完整单元测试 1,200 项通过；最终 Gradle 构建结果记录在本批更新记录中。
 > 本文取代原先以 `0.1.57` 为基线的同名旧计划；历史 `master_plan.md` 只作完成轨迹参考，不再作为剩余工作真相。
 
 ## 1. 目标与边界
 
 本计划收口四类剩余工作：
 
-1. 修复已逐行确认的 28 项前端交互问题，其中 7 项已修、19 项待修、2 项需要产品决策或独立协议清理。
+1. 修复已逐行确认的 28 项前端交互问题，其中 13 项已修、13 项待修、2 项需要产品决策或独立协议清理。
 2. 为 23 条详细任务、95 个步骤补齐自然玩法证据，深化对话世界动作，并完成阴阳窟专属玩法循环。
 3. 收口维度分类、本命法宝语义和旧 NPC 存档迁移，消除“模板被误报成待实现”或“兼容入口可被伪造”的长期债务。
 4. 完成当前版本的真实客户端、专服、双客户端、旧档、视觉、性能和边界条件验收。
@@ -52,11 +52,11 @@
 | UI-04 | 高 | `AuctionHallScreen`、`AuctionSoftService` | 最高价玩家重复点击不扣款、不推进结算 | 已修@0.2.233 |
 | UI-05 | 高 | `SectHallScreen` | 数据同步后重建控件，入宗不软锁 | 已修@0.2.233 |
 | UI-06 | 中 | `ScrollableListPanel` | 按下待定、拖动滚动、松手点击、滚动条独立命中 | 已修@0.2.234 |
-| UI-07 | 中 | `QuestTrackerScreen` | 过滤只改变列表，不篡改全局选中 | 未修 |
-| UI-08 | 中 | `ClientPacketHandlers` | 对话包不顶掉有服务端菜单状态的界面 | 未修 |
-| UI-09 | 中 | `DialogueScreen`、`DialogueActionPacket` | 静默丢包后动作闩能超时恢复 | 未修 |
-| UI-10 | 中 | `ChronicleScreen` | 未发现条目的列表和详情都隐藏真名 | 未修 |
-| UI-11 | 中 | `AbstractLoreScreen` | 超长详情可滚动且正确钳制 | 未修 |
+| UI-07 | 中 | `QuestTrackerScreen` | 过滤只改变列表，不篡改全局选中 | 已修@0.2.236 |
+| UI-08 | 中 | `ClientPacketHandlers` | 对话包不顶掉有服务端菜单状态的界面 | 已修@0.2.236 |
+| UI-09 | 中 | `DialogueScreen`、`DialogueActionPacket` | 静默丢包后动作闩能超时恢复 | 已修@0.2.236 |
+| UI-10 | 中 | `ChronicleScreen` | 未发现条目的列表和详情都隐藏真名 | 已修@0.2.236 |
+| UI-11 | 中 | `AbstractLoreScreen` | 超长详情可滚动且正确钳制 | 已修@0.2.236 |
 | UI-12 | 中 | `StorageBraceletMenu` | 客户端 NBT 栈换实例后仍能正常预测，服务端锚点仍严格 | 未修 |
 | UI-13 | 中 | `MethodTreeScreen` | 节点按下不破坏拖拽基线 | 未修 |
 | UI-14 | 中 | `MethodTreeScreen` | 重叠节点命中最上层 | 未修 |
@@ -64,7 +64,7 @@
 | UI-16 | 低 | `CultivationStatsScreen` | 同步重建时保留未确认滑条值 | 未修 |
 | UI-17 | 低 | `CultivationStatsScreen`、`BreakthroughService` | 突破双击与恶意重放均只结算一次 | 未修 |
 | UI-18 | 低 | 各行列表屏 | 只有左键可以选中列表行 | 已修@0.2.234 |
-| UI-19 | 低 | `DialogueScreen` | resize 不重播 NPC 招呼语音 | 未修 |
+| UI-19 | 低 | `DialogueScreen` | resize 不重播 NPC 招呼语音 | 已修@0.2.236 |
 | UI-20 | 低 | `WorldpackScreen` | 秘境行按钮提供真实的界门引导或条件反馈 | 待产品收口 |
 | UI-21 | 低 | `AuctionHallScreen` | resize 保留当前页 | 未修 |
 | UI-22 | 低 | `SectScreen`、`ShopScreen`、`AuctionScreen` | 删除不可达旧屏及废弃开屏包 | 独立协议批次 |
@@ -191,7 +191,7 @@ NPC 迁移  ─┘
 
 完成记录：`ScrollableListPanel` 现在以 `IDLE/PENDING_ROW/PENDING_TRACK/DRAG_CONTENT/DRAG_THUMB` 状态机区分行点击、内容拖动和滚动条操作；行列表使用整数首行滚动，连续详情使用像素滚动；命中几何统一应用 content inset、行间隙和有效视口，轨道分页/拇指拖动不会击穿行。`QuestTrackerScreen`、`UiThemeSelectScreen`、炼丹/炼器详情屏及世界包、宗门、坊市、拍卖大厅均完成按下/拖动/松手转发，按钮先于列表处理。新增交互测试并修正宗门候选消费者契约计数。`mod_version=0.2.234`，协议保持 `30`。真实 Minecraft 客户端仍需用滚轮、内容拖动和滚动条拖动逐屏签字。
 
-### F-C1：任务、对话、编年史与 Lore
+### F-C1：任务、对话、编年史与 Lore（已完成@0.2.236）
 
 范围：UI-07 至 UI-11、UI-19。规模：M。协议：不变。
 
@@ -204,7 +204,11 @@ NPC 迁移  ─┘
 - `ChronicleScreen` 的列表标题、详情标题和正文入口共用 discovered 判定，锁定状态不泄露真实名称。
 - `AbstractLoreScreen` 增加详情滚动、内容高度测量和钳制；选择真正变化时才归零。
 
-自动化：扩充 `ClientQuestTrackerDataTest`、`DialogueScreenLayoutTest`、`DialoguePacketTest`、`LoreCatalogServiceTest`、`SyncLoreUnlockPacketTest`；新增会话闩超时和编年史显示策略的纯函数测试。
+自动化：扩充 `ClientQuestTrackerDataTest`、`DialogueScreenLayoutTest`，覆盖过滤保留全局选择、动作闩超时和容器界面覆盖策略；Lore 详情滚动、编年史锁定标题和同会话语音闩由源码契约与屏幕布局回归覆盖。
+
+完成记录：任务过滤不再改写全局选择，隐藏选择仍显示详情并提示当前筛选状态；对话包不会覆盖 `AbstractContainerScreen`，同一会话可刷新；动作闩 100 tick 无回包自动恢复且控件重建继承闩状态；编年史时间线与详情在未解锁时统一显示泛化锁定文本；Lore 详情使用共享滚动/测量/钳制；NPC 招呼语仅在会话首次初始化播放。`ClientQuestTrackerDataTest`、`DialogueScreenLayoutTest` 及完整构建通过。真实客户端的过滤、容器覆盖、超长详情和 resize 验收仍留在最终 QA。
+
+版本与协议：`mod_version=0.2.234 -> 0.2.236`（生成档案按 `spell -> visual` 顺序刷新）；未改变网络包字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。备份：`.bak/20260729_0.2.235_f_c1/`。
 
 人工验收：切换过滤器、模拟无响应动作、resize 对话、打开容器时收到对话包、阅读超长 Lore、查看未解锁编年史。
 
@@ -488,7 +492,7 @@ NPC 迁移  ─┘
 
 | 批次 | `mod_version` | 协议默认判断 |
 |---|---|---|
-| 本计划文档 | 不变，保持 `0.2.232` | 保持 30 |
+| 本计划文档 | 不变，当前执行版本为 `0.2.236` | 保持 30 |
 | F-A 至 F-D | 每个已提交代码批 +1 patch | 不改包格式则保持当前协议 |
 | F-E1 | +1 patch | 复用现有字段则不升；新增/改字段则升 |
 | F-E2 旧屏清理 | +1 patch | 删除消息注册，必须升协议 |

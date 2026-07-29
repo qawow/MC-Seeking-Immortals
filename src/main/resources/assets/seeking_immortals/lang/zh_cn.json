@@ -1992,6 +1992,7 @@
   "screen.seeking_immortals.quest_tracker.progress_stage": "阶段 %s/%s",
   "screen.seeking_immortals.quest_tracker.empty_filtered": "此筛选下暂无任务。",
   "screen.seeking_immortals.quest_tracker.pick_hint": "从左侧选择一条任务查看详情。",
+  "screen.seeking_immortals.quest_tracker.detail_filtered_out": "当前任务不在此筛选结果中，详情仍保留。",
   "screen.seeking_immortals.quest_tracker.detail_status": "状态：%s　进度：%s/%s",
   "screen.seeking_immortals.quest_tracker.detail_description": "任务描述：%s",
   "screen.seeking_immortals.quest_tracker.description_missing": "任务描述暂缺，请向绑定任务角色询问。",

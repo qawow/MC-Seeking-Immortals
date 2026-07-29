@@ -1982,6 +1982,7 @@
   "screen.seeking_immortals.quest_tracker.progress_stage": "Stage %s/%s",
   "screen.seeking_immortals.quest_tracker.empty_filtered": "No quests match this filter.",
   "screen.seeking_immortals.quest_tracker.pick_hint": "Select a quest on the left to view its details.",
+  "screen.seeking_immortals.quest_tracker.detail_filtered_out": "This quest is outside the current filter; its details remain visible.",
   "screen.seeking_immortals.quest_tracker.detail_status": "Status: %s  Progress: %s/%s",
   "screen.seeking_immortals.quest_tracker.detail_description": "Description: %s",
   "screen.seeking_immortals.quest_tracker.description_missing": "Description unavailable; ask the bound quest character.",

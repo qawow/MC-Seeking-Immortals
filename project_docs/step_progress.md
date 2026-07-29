@@ -1,3 +1,18 @@
+## 581. 2026-07-29 `0.2.236` F-C1 任务、对话、编年史与 Lore
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   执行计划 F-C1，范围为 UI-07 至 UI-11、UI-19；本批既有文件回滚位于 `.bak/20260729_0.2.235_f_c1/`，用户既有 `CLAUDE.md` 与 `project_docs/frontend_interaction_audit_0.2.198.md` 未纳入。
+  Quest filter   Done   筛选只改变可见列表，不再调用全局选择回退；被隐藏的当前任务仍保留详情并显示筛选提示。
+  Dialogue routing   Done   对话包不会覆盖 `AbstractContainerScreen`；同一权威会话可以刷新对话视图，其他服务端菜单保持不动。
+  Dialogue latch/audio   Done   动作闩记录 tick，100 tick 无回包恢复；控件重建继承 pending 状态；NPC 招呼语只在新会话首个初始化播放。
+  Chronicle/Lore   Done   未解锁事件与时间线列表、详情统一使用锁定文本；Lore 详情共享测量、滚动条、内容钳制和选择变化归零。
+  Tests   Done   `ClientQuestTrackerDataTest` 与 `DialogueScreenLayoutTest` 定向测试通过；完整测试 1,200 项，failure/error/skipped 均为 0。
+  Generated resources   Done   按 `spell -> visual` 顺序刷新术法效果与视觉目录，2,292/5,727 profiles 检查通过。
+  Version/protocol   Done   `mod_version=0.2.234 -> 0.2.236`；未改网络包字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
+  Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1 --console=plain` 通过，`:aiPreflight` 记录 `mod_version=0.2.236`，`BUILD SUCCESSFUL in 1m 33s`。
+  Next implementation   Pending   F-C2：储物手镯与功法树；F-C1 的过滤、容器覆盖、超长 Lore、锁定条目和 resize 仍需最终真实客户端 QA。
+
 ## 580. 2026-07-29 `0.2.234` F-B 统一滚动列表输入契约
 
   Step   Status   Notes

@@ -139,6 +139,13 @@ public class BestiaryScreen extends AbstractLoreScreen {
     }
 
     private void renderDetail(GuiGraphics graphics, Layout layout) {
+        List<String> lines = detailLines();
+        setDetailSelectionKey("bestiary:" + filter + ":" + selectedId);
+        renderWrappedDetail(graphics, layout.detail().x(), layout.detail().y(),
+                layout.detail().w(), layout.detail().h(), lines);
+    }
+
+    private List<String> detailLines() {
         List<String> lines = new ArrayList<>();
         if (!ClientLoreData.isSynced()) {
             lines.add(Component.translatable("screen.seeking_immortals.lore.not_synced").getString());
@@ -165,8 +172,7 @@ public class BestiaryScreen extends AbstractLoreScreen {
                         entry.drops() == null ? 0 : entry.drops().size()).getString());
             }
         }
-        renderWrappedDetail(graphics, layout.detail().x(), layout.detail().y(),
-                layout.detail().w(), layout.detail().h(), lines);
+        return List.copyOf(lines);
     }
 
     @Override
@@ -192,6 +198,11 @@ public class BestiaryScreen extends AbstractLoreScreen {
         if (layout.list().contains(mouseX, mouseY)) {
             int visible = Math.max(1, layout.list().h() / ROW_H);
             listScroll = Mth.clamp(listScroll - (int) Math.round(delta), 0, Math.max(0, view.size() - visible));
+            return true;
+        }
+        if (scrollLoreDetail(mouseX, mouseY,
+                new UiRect(layout.detail().x(), layout.detail().y(), layout.detail().w(), layout.detail().h()),
+                detailLines(), delta)) {
             return true;
         }
         return super.mouseScrolled(mouseX, mouseY, delta);

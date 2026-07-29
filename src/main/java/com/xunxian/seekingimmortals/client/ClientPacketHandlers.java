@@ -13,6 +13,8 @@ import com.xunxian.seekingimmortals.network.SyncWorldpackDataPacket;
 import com.xunxian.seekingimmortals.network.TechniqueVfxPacket;
 import com.xunxian.seekingimmortals.network.VisualEventPacket;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 
 import java.util.Locale;
 
@@ -148,7 +150,27 @@ public final class ClientPacketHandlers {
     }
 
     public static void handleOpenDialogue(OpenDialogueScreenPacket packet) {
-        Minecraft.getInstance().setScreen(new DialogueScreen(packet));
+        if (packet == null) {
+            return;
+        }
+        Minecraft mc = Minecraft.getInstance();
+        if (mc.screen instanceof DialogueScreen current) {
+            boolean sameSession = current.sessionContext().equals(packet.context());
+            mc.setScreen(new DialogueScreen(packet, sameSession && current.greetingPlayed()));
+            return;
+        }
+        if (!canReplaceDialogue(mc.screen)) {
+            return;
+        }
+        mc.setScreen(new DialogueScreen(packet));
+    }
+
+    static boolean canReplaceDialogue(Screen screen) {
+        return canReplaceDialogue(screen instanceof AbstractContainerScreen<?>, screen instanceof DialogueScreen);
+    }
+
+    static boolean canReplaceDialogue(boolean containerOpen, boolean dialogueOpen) {
+        return dialogueOpen || !containerOpen;
     }
 
     public static void handleOpenAlchemyStatus(OpenAlchemyStatusPacket packet) {
