@@ -9728,4 +9728,4 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Tests   Done   `DetailedQuestProofCatalogTest`、`DetailedQuestRuntimeServiceTest` 与 `TextMaterialManifestServiceTest` 定向测试通过；普通完整构建共 256 个测试套件、1,213 项测试，failure/error/skipped 均为 0。
   Version/protocol   Done   `mod_version` 从 `0.2.243` 升至 `0.2.244`；未改网络字段、顺序、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=31` 保持不变。
   Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功，`:aiPreflight` 记录 `mod_version=0.2.244`；JAR SHA-256 为 `bba62aa65a544dcd518cfe1c2812ad9d19bfc2e51a53ef426ce837b2c60347cf`。
-  Next implementation   Pending   Q-B：接入自然事件生产者；对话分型、阴阳窟闭环、维度/本命/旧 NPC 迁移及最终真实客户端/专服/双客户端 QA 仍未完成。
+  Next implementation   Pending   Q-B：接入自然事件生产者；对话分型、阴阳窟闭环、维度/本命/旧 NPC 迁移及最终真实客户端/专服/双客户端 QA 仍未完成。本批提交：`cc5d0a2c feat: 建立详细任务证明路由目录`。

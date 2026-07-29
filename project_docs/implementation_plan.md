@@ -361,7 +361,7 @@ NPC 迁移  ─┘
 - 未知证明类型、未知参数、重复映射和无生产者映射使构建失败。
 - 不解析中文 `do` 文本猜测状态。
 
-完成记录：新增 `detailed_quest_proof_routes.json`，为 23 条可玩任务链逐步映射 95 条服务端证明路由；`DetailedQuestProofCatalog` 严格校验 schema、链/步骤覆盖、证明类型、参数键、策略、生产者、事件 id 和失败键，并在 `DetailedQuestRuntimeService` 初始化时与当前任务快照交叉核对。禁止 `ADMIN_ONLY`，未知路由会使运行时初始化失败，不再从中文 `do` 文本猜测证据。新增 `DetailedQuestProofCatalogTest` 覆盖 23/95 完整性、唯一事件 id、策略、参数和运行时查找。`mod_version=0.2.243 -> 0.2.244`，协议字段、顺序、注册和频道行为不变，`ModNetwork.PROTOCOL_VERSION=31` 保持不变。Q-A 不接入自然事件生产者；下一批为 Q-B。
+完成记录：新增 `detailed_quest_proof_routes.json`，为 23 条可玩任务链逐步映射 95 条服务端证明路由；`DetailedQuestProofCatalog` 严格校验 schema、链/步骤覆盖、证明类型、参数键、策略、生产者、事件 id 和失败键，并在 `DetailedQuestRuntimeService` 初始化时与当前任务快照交叉核对。禁止 `ADMIN_ONLY`，未知路由会使运行时初始化失败，不再从中文 `do` 文本猜测证据。新增 `DetailedQuestProofCatalogTest` 覆盖 23/95 完整性、唯一事件 id、策略、参数和运行时查找。`mod_version=0.2.243 -> 0.2.244`，协议字段、顺序、注册和频道行为不变，`ModNetwork.PROTOCOL_VERSION=31` 保持不变。Q-A 不接入自然事件生产者；下一批为 Q-B。提交：`cc5d0a2c feat: 建立详细任务证明路由目录`。
 
 ### Q-B：接入自然事件生产者
 
@@ -579,7 +579,7 @@ NPC 迁移  ─┘
 
 > CURRENT TRUTH 2026-07-29: `0.2.243` 已完成后续实施计划 F-E2/UI-22。删除三套旧宗门/坊市/拍卖屏和无生产发送方的 `OpenAuctionScreenPacket`，同步包只更新客户端数据，正式 Hall 菜单入口保持不变；协议从 `30` 升至 `31`，旧协议客户端会被频道版本拒绝。F-E2 定向测试、两个生成器 `--check` 与普通完整构建通过，255 个测试套件、1,210 项测试 failure/error/skipped 均为 0，JAR SHA-256 为 `02e2eabaac77061d59a0063627e61655340100ca091c726cc93b904122c7d128`。备份目录为 `.bak/20260729_153000_f_e2_legacy_screen_cleanup/`。下一实施入口为 Q-A；F-E2 及此前批次的真实客户端交互仍需最终 QA。提交：`3ae9d12b refactor: 删除不可达旧界面`。
 
-> CURRENT TRUTH 2026-07-29: `0.2.244` 已完成后续实施计划 Q-A。新增并严格校验 23 条任务链、95 个步骤的证明路由；运行时会对链/步骤覆盖、证明类型、参数键、策略、生产者和事件 id 做失败关闭校验，`ADMIN_ONLY` 路由不被接受。新增 `DetailedQuestProofCatalogTest`，定向测试通过；协议字段、顺序、注册和频道行为未改，`ModNetwork.PROTOCOL_VERSION=31` 保持不变。Q-A 只建立数据路由，尚未把自然游戏事件迁移到统一 `DetailedQuestProofService`，下一实施入口为 Q-B；F-E2 及此前前端批次的真实客户端交互仍需最终 QA。备份目录为 `.bak/20260729_154000_q_a_proof_routes/`。
+> CURRENT TRUTH 2026-07-29: `0.2.244` 已完成后续实施计划 Q-A。新增并严格校验 23 条任务链、95 个步骤的证明路由；运行时会对链/步骤覆盖、证明类型、参数键、策略、生产者和事件 id 做失败关闭校验，`ADMIN_ONLY` 路由不被接受。新增 `DetailedQuestProofCatalogTest`，定向测试通过；协议字段、顺序、注册和频道行为未改，`ModNetwork.PROTOCOL_VERSION=31` 保持不变。Q-A 只建立数据路由，尚未把自然游戏事件迁移到统一 `DetailedQuestProofService`，下一实施入口为 Q-B；F-E2 及此前前端批次的真实客户端交互仍需最终 QA。备份目录为 `.bak/20260729_154000_q_a_proof_routes/`。提交：`cc5d0a2c feat: 建立详细任务证明路由目录`。
 
 > 以下 `CURRENT TRUTH` 条目为历史批次记录，不代表当前实施入口。
 
