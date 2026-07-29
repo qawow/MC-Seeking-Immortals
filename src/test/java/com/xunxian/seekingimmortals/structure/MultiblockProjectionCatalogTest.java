@@ -1,7 +1,11 @@
 package com.xunxian.seekingimmortals.structure;
 
-import net.minecraft.core.BlockPos;
 import com.xunxian.seekingimmortals.block.PortalArrayStructure;
+import com.xunxian.seekingimmortals.catalog.ItemCatalogService;
+import com.xunxian.seekingimmortals.item.CatalogItemDescriptionService;
+import com.xunxian.seekingimmortals.registry.BulkItemClassifier;
+import com.xunxian.seekingimmortals.registry.BulkItemKind;
+import net.minecraft.core.BlockPos;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.Files;
@@ -122,12 +126,46 @@ class MultiblockProjectionCatalogTest {
     }
 
     @Test
-    void clientPreviewAcceptsCatalogStationCarriersAsReachableControllers() throws Exception {
+    void catalogFacilitySelectorsAreReachableAndRejectOrdinaryCarriers() {
+        for (MultiblockStructureCatalog.StructureEntry entry
+                : MultiblockStructureCatalog.builtin().structures().values()) {
+            if (!CatalogStationGeometry.supports(entry.pattern().validator())) {
+                continue;
+            }
+            if (entry.id().equals("structure_repair_bench")
+                    || entry.id().equals("structure_blueprint_table")) {
+                continue;
+            }
+            ItemCatalogService.CarrierMeta meta = ItemCatalogService.findMeta(entry.id()).orElseThrow();
+            assertTrue(CatalogItemDescriptionService.isStructureTokenCarrier(entry.id()), entry.id());
+            assertEquals(BulkItemKind.CARRIER,
+                    BulkItemClassifier.classify(entry.id(), meta.category()), entry.id());
+            assertTrue(MultiblockProjectionSelector.fromStructureToken(entry.id()).isPresent(), entry.id());
+            assertTrue(MultiblockProjectionSelector.fromStructureToken(MOD_PREFIX + entry.id()).isPresent(),
+                    entry.id());
+        }
+
+        assertTrue(MultiblockProjectionSelector.fromControllerBlock("alchemy_furnace").isPresent());
+        assertFalse(MultiblockProjectionSelector.fromStructureToken("structure_repair_bench").isPresent());
+        assertFalse(MultiblockProjectionSelector.fromStructureToken("structure_blueprint_table").isPresent());
+        assertFalse(MultiblockProjectionSelector.fromStructureToken("array_blueprint_scroll").isPresent());
+        assertFalse(MultiblockProjectionSelector.fromStructureToken("minecraft:kill_array_hub").isPresent());
+        assertFalse(MultiblockProjectionSelector.fromStructureToken(null).isPresent());
+    }
+
+    @Test
+    void clientBlueprintPairPinsTheOffhandSelectorAtItsPlacementOrigin() throws Exception {
         String renderer = Files.readString(Path.of(
                 "src/main/java/com/xunxian/seekingimmortals/client/MultiblockProjectionRenderer.java"));
+        assertTrue(renderer.contains("event.getEntity().getOffhandItem()"));
         assertTrue(renderer.contains("stack.getItem() instanceof CatalogCarrierItem carrier"));
-        assertTrue(renderer.contains("controllerId = carrier.catalogId();"));
-        assertTrue(renderer.contains("MultiblockProjectionCatalog.find(controllerId)"));
+        assertTrue(renderer.contains("MultiblockProjectionSelector.fromStructureToken(carrier.catalogId())"));
+        assertTrue(renderer.contains("new BlockPlaceContext(event.getEntity(), InteractionHand.OFF_HAND"));
+        assertTrue(renderer.contains("origin = context.getClickedPos().immutable();"));
+        int pinnedPriority = renderer.indexOf("if (pinnedProjection != null && pinnedOrigin != null)");
+        int heldPreview = renderer.indexOf("Optional<Preview> held = heldPreview", pinnedPriority);
+        assertTrue(pinnedPriority >= 0 && heldPreview > pinnedPriority,
+                "a pinned guide must win over the moving held-item preview");
     }
 
     @Test

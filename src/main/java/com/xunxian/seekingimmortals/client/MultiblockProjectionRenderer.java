@@ -6,6 +6,7 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.item.CatalogCarrierItem;
 import com.xunxian.seekingimmortals.structure.MultiblockProjectionCatalog;
+import com.xunxian.seekingimmortals.structure.MultiblockProjectionSelector;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.LevelRenderer;
@@ -86,14 +87,17 @@ public final class MultiblockProjectionRenderer {
             layerCursor = 0;
         }
 
-        Optional<Preview> held = heldPreview(minecraft, level);
-        if (held.isPresent()) {
-            setVisible(held.get().projection(), held.get().origin());
-        } else if (pinnedProjection != null && pinnedOrigin != null) {
+        // Keep a pinned guide fixed even while its selector remains in the off hand.
+        if (pinnedProjection != null && pinnedOrigin != null) {
             setVisible(pinnedProjection, pinnedOrigin);
         } else {
-            visibleProjection = null;
-            visibleOrigin = null;
+            Optional<Preview> held = heldPreview(minecraft, level);
+            if (held.isPresent()) {
+                setVisible(held.get().projection(), held.get().origin());
+            } else {
+                visibleProjection = null;
+                visibleOrigin = null;
+            }
         }
     }
 
@@ -103,17 +107,29 @@ public final class MultiblockProjectionRenderer {
                 || !(event.getEntity().level() instanceof ClientLevel level)) {
             return;
         }
-        ItemStack held = event.getEntity().getItemInHand(event.getHand());
-        if (!isBlueprint(held)) {
+        ItemStack blueprint = event.getEntity().getItemInHand(event.getHand());
+        if (!isBlueprint(blueprint)) {
             return;
         }
-        String controllerId = blockId(level.getBlockState(event.getPos()).getBlock());
-        Optional<MultiblockProjectionCatalog.Projection> projection =
-                MultiblockProjectionCatalog.find(controllerId);
+        ItemStack selector = event.getHand() == InteractionHand.MAIN_HAND
+                ? event.getEntity().getOffhandItem()
+                : ItemStack.EMPTY;
+        Optional<MultiblockProjectionCatalog.Projection> projection = selectorProjection(selector);
+        BlockPos origin = event.getPos().immutable();
+        if (projection.isPresent()) {
+            // Mirror vanilla's adjacent placement position so a generic target block can anchor
+            // an unplaced catalog facility without pretending the token itself places blocks.
+            BlockPlaceContext context = new BlockPlaceContext(event.getEntity(), InteractionHand.OFF_HAND,
+                    selector, event.getHitVec());
+            origin = context.getClickedPos().immutable();
+        } else {
+            String controllerId = blockId(level.getBlockState(event.getPos()).getBlock());
+            projection = MultiblockProjectionSelector.fromControllerBlock(controllerId);
+        }
         if (projection.isEmpty()) {
             return;
         }
-        togglePinned(level, event.getPos().immutable(), projection.get());
+        togglePinned(level, origin, projection.get());
         // Controller use handlers commonly consume any held item before Item#useOn can run.
         event.setCancellationResult(InteractionResult.SUCCESS);
         event.setCanceled(true);
@@ -244,21 +260,25 @@ public final class MultiblockProjectionRenderer {
         }
         for (InteractionHand hand : InteractionHand.values()) {
             ItemStack stack = minecraft.player.getItemInHand(hand);
-            String controllerId;
-            if (stack.getItem() instanceof BlockItem blockItem) {
-                controllerId = blockId(blockItem.getBlock());
-            } else if (stack.getItem() instanceof CatalogCarrierItem carrier) {
-                controllerId = carrier.catalogId();
-            } else {
-                continue;
-            }
-            Optional<MultiblockProjectionCatalog.Projection> projection =
-                    MultiblockProjectionCatalog.find(controllerId);
+            Optional<MultiblockProjectionCatalog.Projection> projection = selectorProjection(stack);
             if (projection.isEmpty()) {
                 continue;
             }
             BlockPlaceContext context = new BlockPlaceContext(minecraft.player, hand, stack, hit);
             return Optional.of(new Preview(projection.get(), context.getClickedPos().immutable()));
+        }
+        return Optional.empty();
+    }
+
+    private static Optional<MultiblockProjectionCatalog.Projection> selectorProjection(ItemStack stack) {
+        if (stack == null || stack.isEmpty()) {
+            return Optional.empty();
+        }
+        if (stack.getItem() instanceof BlockItem blockItem) {
+            return MultiblockProjectionSelector.fromControllerBlock(blockId(blockItem.getBlock()));
+        }
+        if (stack.getItem() instanceof CatalogCarrierItem carrier) {
+            return MultiblockProjectionSelector.fromStructureToken(carrier.catalogId());
         }
         return Optional.empty();
     }
@@ -303,7 +323,8 @@ public final class MultiblockProjectionRenderer {
         if (Minecraft.getInstance().player != null) {
             Minecraft.getInstance().player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.multiblock_projection.pinned",
-                    Component.translatable(projection.displayKey())), true);
+                    Component.translatable(projection.displayKey()),
+                    origin.getX(), origin.getY(), origin.getZ()), true);
         }
     }
 

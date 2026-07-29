@@ -9580,3 +9580,18 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Verification   Done   首次普通构建的 `aiPreflight` 已通过，随后由 `authoredSpellEffectsCheck` 准确拦截过期生成文件；重生成后再次执行普通 `./gradlew build`，`BUILD SUCCESSFUL in 1m 26s`，251 套件/1,181 测试 failure/error/skipped 均为 0。
   Artifact   Done   JAR SHA-256 `655f6db92e9eab1336ce3a271247580ab591eed7451918c8cf350c07b3be6667`；术法效果/视觉目录 SHA-256 为 `facc6654812f9e116eb8c98f7e3cf4c213adf93ba7716ae919cb817c6663a76b` / `42d5693602e55338d3a788a0a80b6555a2a19f55fed9a54db76e605b60bde20d`。
   Backup   Done   `.bak/20260729_121459_0.2.230_version_gate/`。
+
+## 622. 2026-07-29 0.2.232 投影建造引导修复
+
+  Step   Status   Notes
+  ---   ---   ---
+  Selection gesture   Done   主手结构蓝图台 + 副手设施令牌/控制器可在任意方块表面右键，按 `BlockPlaceContext` 的原版相邻放置位置锁定对应投影；无有效副手时继续支持直接右键已放置控制器。
+  Stable guide   Done   固定投影优先于手持物临时预览，选择器留在副手或准星移开后投影不再漂移；相同结构/原点再次使用可解除固定，提示包含实际原点坐标。
+  Selector boundary   Done   新增客户端中立 `MultiblockProjectionSelector`；46 个真实目录设施均验证为 `CatalogCarrierItem` 路径并可解析，结构修复台、蓝图台自身、普通目录载体及外部命名空间失败关闭。
+  Localization   Done   中英文蓝图台与结构令牌提示说明双手组合、相邻放置位、逐层滚轮及空气潜行启封；解除提示不再误称关闭仍在手持预览的投影。
+  Generated resources   Done   按“spell→visual”顺序重生成；`authored_spell_effects.json` 仅将 Java 审计更新为 622 文件与新聚合哈希，`authored_visual_catalog.json` 仅同步下游哈希，2,292/5,727 profiles 不变，两项 `--check` 通过。
+  Version/protocol   Done   最终 `mod_version` 0.2.230→0.2.232；`0.2.231` 首次完整构建后收紧 `CatalogCarrierItem` 类型边界，版本指纹门禁要求再次递增，未使用跳过参数。未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
+  Verification   Done   投影目录、结构工具、目录物品三组定向测试通过；最终普通 `./gradlew build --no-daemon --max-workers=1` `BUILD SUCCESSFUL in 1m 31s`，`:aiPreflight` 正常记录 `0.2.232`，251 套件/1,182 测试 failure/error/skipped 均为 0。
+  Artifact   Done   JAR SHA-256 `dab8107b08133b73d783e31fb2a279dac1650e75265afd5d39f3953a0fac34db`；术法效果/视觉目录 SHA-256 为 `c06f84545cbb9aeca39a14fc75acd557a2151ccee683bfe21fe6d9fcf7a4f7d5` / `6d11cdf0af3783c2261d9b891ed16036e56ae2e33ec9330bc1dd81b75330415c`。
+  Backup   Done   `.bak/20260729_123651_projection_guide_fix/`。
+  Live QA   Pending   仍需真实客户端检查各种可替换方块/点击面的相邻落点、Fast/Fabulous 透明排序、双手切换及解除后临时预览的视觉反馈。
