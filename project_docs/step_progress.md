@@ -9689,5 +9689,5 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Tests   Done   `CultivationStatsInteractionTest`、`BreakthroughRequestGateTest`、`MarketAuctionPagingTest`、`ScreenLayoutTest` 通过；完整测试 1,210 项，failure/error/skipped 均为 0。
   Generated resources   Done   按 `spell -> visual` 顺序刷新两个作者目录，2,292/5,727 profiles 检查通过。
   Version/protocol   Done   `mod_version=0.2.238 -> 0.2.240`；0.2.239 首次构建后补充客户端闩触发版本门禁，最终递增至 0.2.240；网络字段、顺序、类型、注册和频道行为未改，协议 30 保持不变。
-  Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功，JAR SHA-256 为 `c61063bc3a214328cc6901b163740fd0971153b6ba6f9ee7e13a313d431d95f7`。
+  Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功，JAR SHA-256 为 `c61063bc3a214328cc6901b163740fd0971153b6ba6f9ee7e13a313d431d95f7`；本地提交为 `2fba841e`（`fix: 收口低危交互与突破防重`）。
   Next implementation   Pending   F-E1/UI-20 秘境入口按钮产品收口；随后执行 F-E2/UI-22 旧屏删除与协议升级。F-D 及此前各批次的真实客户端 QA 留在最终验收。

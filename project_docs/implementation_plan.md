@@ -562,7 +562,7 @@ NPC 迁移  ─┘
 - 被暂缓项必须写明原因、重新评估条件和玩家可见降级行为。
 - 计划完成后，归档过期的 `master_plan.md`/旧 smoke 文档入口，确保新代理只从当前真相开始。
 
-> CURRENT TRUTH 2026-07-29: `0.2.240` 已完成后续实施计划 F-D（UI-16、UI-17、UI-21、UI-23、UI-27）。修炼滑条 pending 值跨控件重建保留并在服务端快照确认后清除；突破客户端 40 tick 闩与服务端 10 tick 资源扣除前请求闩同时生效；拍卖大厅 resize 复用当前页；背包修仙入口跟随原版 GUI 原点；生活技能树内容高度包含实际段落/行距和上下 inset，末行不再被多滚。`CultivationStatsInteractionTest`、`BreakthroughRequestGateTest`、`MarketAuctionPagingTest`、`ScreenLayoutTest` 及普通构建通过，完整测试 1,210 项且 failure/error/skipped 均为 0。生成档案按 `spell -> visual` 顺序刷新，2,292/5,727 profiles 检查通过。`mod_version=0.2.240`，协议 `30` 保持不变，回滚目录为 `.bak/20260729_0.2.239_f_d/`。下一实施入口为 F-E1/UI-20 产品收口与独立协议批次 F-E2/UI-22；F-D 及此前各批次仍需最终真实客户端 QA。提交：待本批本地提交完成。
+> CURRENT TRUTH 2026-07-29: `0.2.240` 已完成后续实施计划 F-D（UI-16、UI-17、UI-21、UI-23、UI-27）。修炼滑条 pending 值跨控件重建保留并在服务端快照确认后清除；突破客户端 40 tick 闩与服务端 10 tick 资源扣除前请求闩同时生效；拍卖大厅 resize 复用当前页；背包修仙入口跟随原版 GUI 原点；生活技能树内容高度包含实际段落/行距和上下 inset，末行不再被多滚。`CultivationStatsInteractionTest`、`BreakthroughRequestGateTest`、`MarketAuctionPagingTest`、`ScreenLayoutTest` 及普通构建通过，完整测试 1,210 项且 failure/error/skipped 均为 0。生成档案按 `spell -> visual` 顺序刷新，2,292/5,727 profiles 检查通过。`mod_version=0.2.240`，协议 `30` 保持不变，回滚目录为 `.bak/20260729_0.2.239_f_d/`。下一实施入口为 F-E1/UI-20 产品收口与独立协议批次 F-E2/UI-22；F-D 及此前各批次仍需最终真实客户端 QA。提交：`2fba841e`。
 > 以下 `CURRENT TRUTH` 条目为历史批次记录，不代表当前实施入口。
 
 > CURRENT TRUTH 2026-07-29: `0.2.237` 已完成 F-C2（UI-12 至 UI-14、UI-24 至 UI-26）。储物手镯客户端允许同一支持物品的 NBT 实例替换以保持预测，服务端继续锚定打开时的实例并校验连续授权；功法树节点按下候选、拖动阈值、释放提交和重叠倒序命中已收口；关屏/按键布局冲刷幂等，零位移点击不发包，切换流派详情滚动归零。`ArtifactStorageAuthorityTest`、`DragDualScrollTest` 及生成档案 `spell -> visual` 检查通过。`mod_version=0.2.237`，协议 `30` 保持不变，回滚目录为 `.bak/20260729_0.2.237_f_c2/`。下一代码批为 F-C3（UI-15、UI-28）；真实客户端手镯预测、图节点交互和布局重开验收仍留在最终 QA。
