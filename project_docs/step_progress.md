@@ -1,3 +1,17 @@
+## 583. 2026-07-29 `0.2.242` F-E1 秘境入口反馈收口
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   执行计划 F-E1/UI-20；源码、语言、测试、版本和生成资源回滚位于 `.bak/20260729_0.2.241_f_e1/`，用户既有 `CLAUDE.md` 与 `project_docs/frontend_interaction_audit_0.2.198.md` 未纳入。
+  Realm row actions   Done   有服务端验证锚点时显示“定位界门”；无入口时显示“查看条件”；已有秘境显示状态并禁用动作，客户端不发送直接进入请求。
+  Server feedback   Done   `locate`/`conditions` 复用 `WorldpackActionPacket` 的既有两个字符串字段；服务端解析内建秘境、所属地域、可用维度锚点，并按区域、境界、周期/剧情、冷却、锚点和凭证顺序返回首项反馈。
+  Anchor validation   Done   世界包快照的 `anchorReady` 同时验证目标维度存在；定位动作只返回服务端锚点坐标，不接受客户端维度或坐标。
+  Tests   Done   `ClientWorldpackDataTest`、`SecretRealmEntryAuthorityTest`、`MarketWorldpackPacketTest` 定向通过；完整测试 1,211 项，failure/error/skipped 均为 0。
+  Generated resources   Done   按 `spell -> visual` 顺序刷新术法效果和视觉目录；两个 `--check` 均通过，分别为 2,292 与 5,727 profiles。
+  Version/protocol   Done   初次 `0.2.241` 构建后锚点校验收紧触发版本指纹门禁，最终升至 `mod_version=0.2.242`；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
+  Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功，`:aiPreflight` 记录 `0.2.242`，JAR SHA-256 为 `00b6647d35380694eea2cf834d58a946a626396cba71161ef2adbb406c2f825b`。
+  Next implementation   Pending   F-E2/UI-22：删除不可达旧屏幕并独立提升协议；F-E1 及此前批次的真实客户端交互仍留在最终 QA。
+
 ## 582. 2026-07-29 `0.2.237` F-C2 储物手镯与功法树交互
 
   Step   Status   Notes

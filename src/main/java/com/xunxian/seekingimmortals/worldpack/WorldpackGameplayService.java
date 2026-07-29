@@ -38,6 +38,8 @@ public final class WorldpackGameplayService {
     public static final String ACTION_SYNC = "sync";
     public static final String ACTION_TRAVEL = "travel";
     public static final String ACTION_ENTER = "enter";
+    public static final String ACTION_LOCATE = "locate";
+    public static final String ACTION_CONDITIONS = "conditions";
     public static final String ACTION_RETURN = "return";
 
     public static final String EFFECT_AURA_PLUS_5 = "aura_plus_5";
@@ -170,9 +172,149 @@ public final class WorldpackGameplayService {
             case ACTION_TRAVEL -> travel(player, targetId);
             case ACTION_ENTER -> player.sendSystemMessage(Component.translatable(
                     "message.seeking_immortals.worldpack.gate_required"));
+            case ACTION_LOCATE -> locateRealmGate(player, targetId);
+            case ACTION_CONDITIONS -> describeRealmEntry(player, targetId);
             case ACTION_RETURN -> returnFromSecretRealm(player);
             default -> player.sendSystemMessage(Component.translatable(
                     "message.seeking_immortals.worldpack.unknown_action", Component.literal("无效操作")));
+        }
+    }
+
+    /**
+     * Information-only response for the worldpack screen. The server resolves the configured region anchor;
+     * the client cannot provide a dimension or coordinate and this action never teleports the player.
+     */
+    public static boolean locateRealmGate(ServerPlayer player, String realmId) {
+        Optional<WorldpackDataService.SecretRealm> realmOptional = WorldpackDataService.builtin()
+                .findSecretRealm(realmId == null ? "" : realmId);
+        if (realmOptional.isEmpty()) {
+            player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.unknown_realm",
+                    Component.literal("未收录秘境")));
+            return false;
+        }
+        WorldpackDataService.SecretRealm realm = realmOptional.get();
+        Optional<WorldpackDataService.RegionCard> regionOptional = WorldpackDataService.builtin()
+                .findRegion(realm.regionId());
+        if (regionOptional.isEmpty()) {
+            player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.unknown_region",
+                    Component.literal("未收录地域")));
+            return false;
+        }
+        WorldpackSavedData savedData = WorldpackSavedData.get(player.server.overworld());
+        Optional<WorldpackSavedData.Anchor> anchor = savedData.getAnchor(regionOptional.get().travelAnchor())
+                .filter(candidate -> canTeleportToAnchor(player, candidate));
+        if (anchor.isEmpty()) {
+            player.sendSystemMessage(Component.translatable(
+                    "message.seeking_immortals.worldpack.gate_unavailable", display(realm)));
+            return false;
+        }
+        BlockPos position = BlockPos.containing(anchor.get().x(), anchor.get().y(), anchor.get().z());
+        player.sendSystemMessage(Component.translatable(
+                "message.seeking_immortals.worldpack.gate_location",
+                display(realm),
+                Component.literal(anchor.get().dimension()),
+                position.getX(), position.getY(), position.getZ()));
+        return true;
+    }
+
+    /** Returns the first server-authoritative blocker without opening or reserving an entry transaction. */
+    public static boolean describeRealmEntry(ServerPlayer player, String realmId) {
+        WorldpackDataService.Snapshot snapshot = WorldpackDataService.builtin();
+        Optional<WorldpackDataService.SecretRealm> realmOptional = snapshot
+                .findSecretRealm(realmId == null ? "" : realmId);
+        if (realmOptional.isEmpty()) {
+            player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.unknown_realm",
+                    Component.literal("未收录秘境")));
+            return false;
+        }
+        WorldpackDataService.SecretRealm realm = realmOptional.get();
+        Optional<WorldpackDataService.RegionCard> regionOptional = snapshot.findRegion(realm.regionId());
+        if (regionOptional.isEmpty()) {
+            player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.unknown_region",
+                    Component.literal("未收录地域")));
+            return false;
+        }
+        boolean[] reported = { false };
+        CultivationHelper.get(player).ifPresentOrElse(cultivation -> {
+            String activeRealm = cultivation.getWorldpackActiveSecretRealmId();
+            if (activeRealm != null && !activeRealm.isBlank()) {
+                player.sendSystemMessage(Component.translatable(
+                        "message.seeking_immortals.worldpack.already_in_realm",
+                        secretRealmDisplay(snapshot, activeRealm)));
+                reported[0] = true;
+                return;
+            }
+            if (!realm.regionId().equals(cultivation.getWorldpackCurrentRegionId())) {
+                player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.wrong_region",
+                        regionDisplay(snapshot, realm.regionId())));
+                reported[0] = true;
+                return;
+            }
+            if (!meetsMinRealm(cultivation.getRealm(), realm.minRealm())
+                    && !ProgressionGateApi.meetsRealm(player, realm.minRealm())) {
+                player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.realm_too_low",
+                        realmDisplay(realm.minRealm())));
+                reported[0] = true;
+                return;
+            }
+            Optional<String> openDenied = SecretRealmSessionService.validateOpen(player, realm.id());
+            if (openDenied.isPresent()) {
+                sendEntryDenied(player, openDenied.get());
+                reported[0] = true;
+                return;
+            }
+            long now = gameTime(player);
+            long cooldownUntil = cultivation.getWorldpackCooldownUntil(realm.id());
+            if (cooldownUntil > now) {
+                player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.cooldown",
+                        (cooldownUntil - now + 19L) / 20L));
+                reported[0] = true;
+                return;
+            }
+            WorldpackSavedData savedData = WorldpackSavedData.get(player.server.overworld());
+            Optional<WorldpackSavedData.Anchor> anchor = savedData.getAnchor(regionOptional.get().travelAnchor())
+                    .filter(candidate -> canTeleportToAnchor(player, candidate));
+            if (anchor.isEmpty()) {
+                player.sendSystemMessage(Component.translatable(
+                        "message.seeking_immortals.worldpack.gate_unavailable", display(realm)));
+                reported[0] = true;
+                return;
+            }
+            if (!hasTicket(player, realm.ticketItem())) {
+                player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.missing_ticket",
+                        itemDisplay(realm.ticketItem())));
+                reported[0] = true;
+                return;
+            }
+            player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.gate_required"));
+            reported[0] = true;
+        }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.no_data")));
+        return reported[0];
+    }
+
+    private static void sendEntryDenied(ServerPlayer player, String reason) {
+        String normalized = reason == null ? "" : reason;
+        if (normalized.startsWith("realm_too_low:")) {
+            player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.realm_too_low",
+                    realmDisplay(normalized.substring("realm_too_low:".length()))));
+        } else if (normalized.startsWith("party_full:")) {
+            player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.party_full",
+                    normalized.substring("party_full:".length())));
+        } else if (normalized.startsWith("window_closed:")) {
+            player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.window_closed",
+                    Component.literal("当前开放时段")));
+        } else {
+            String reasonKey = switch (normalized.split(":", 2)[0]) {
+                case "seal_locked", "tide_locked" ->
+                        "message.seeking_immortals.worldpack.entry_reason_seal";
+                case "night_required" -> "message.seeking_immortals.worldpack.entry_reason_night";
+                case "quest_locked", "cycle_locked", "event_locked", "rift_locked", "war_locked",
+                        "node_locked", "invitation_required", "qualification_required", "ghost_path_required",
+                        "puppet_access_required" -> "message.seeking_immortals.worldpack.entry_reason_quest";
+                default -> "message.seeking_immortals.worldpack.entry_reason_unknown";
+            };
+            player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.enter_denied",
+                    Component.translatable(reasonKey)));
         }
     }
 
@@ -866,13 +1008,14 @@ public final class WorldpackGameplayService {
                         display(region),
                         region.minRealm(),
                         region.auraMultiplier(),
-                        savedData.hasAnchor(region.travelAnchor()),
+                        hasUsableAnchor(player, savedData, region.travelAnchor()),
                         currentRegion.equals(region.id())))
                 .toList();
         List<RealmData> realms = snapshot.secretRealms().stream()
                 .map(realm -> {
                     WorldpackDataService.RegionCard region = snapshot.findRegion(realm.regionId()).orElse(null);
-                    boolean anchorReady = region != null && savedData.hasAnchor(region.travelAnchor());
+                    boolean anchorReady = region != null
+                            && hasUsableAnchor(player, savedData, region.travelAnchor());
                     long remaining = Math.max(0L, cultivation.getWorldpackCooldownUntil(realm.id()) - now);
                     return new RealmData(
                             realm.id(),
@@ -1383,6 +1526,12 @@ public final class WorldpackGameplayService {
     private static boolean canTeleportToAnchor(ServerPlayer player, WorldpackSavedData.Anchor anchor) {
         ResourceLocation location = ResourceLocation.tryParse(anchor.dimension());
         return location != null && player.server.getLevel(ResourceKey.create(Registries.DIMENSION, location)) != null;
+    }
+
+    private static boolean hasUsableAnchor(ServerPlayer player, WorldpackSavedData savedData, String anchorId) {
+        return player != null && savedData != null && savedData.getAnchor(anchorId)
+                .filter(anchor -> canTeleportToAnchor(player, anchor))
+                .isPresent();
     }
 
     private static boolean hasTicket(ServerPlayer player, String itemId) {

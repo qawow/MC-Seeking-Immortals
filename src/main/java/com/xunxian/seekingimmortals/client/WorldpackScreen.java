@@ -124,9 +124,23 @@ public class WorldpackScreen extends AbstractJournalScreen {
                 addRenderableWidget(button);
             } else {
                 ClientWorldpackData.SecretRealm realm = data.realms().get(listScroll + row);
+                RealmAction realmAction = realmAction(data, realm);
+                Component label = Component.translatable(switch (realmAction) {
+                    case LOCATE_GATE -> "screen.seeking_immortals.worldpack.locate_gate";
+                    case VIEW_CONDITIONS -> "screen.seeking_immortals.worldpack.view_conditions";
+                    case IN_PROGRESS -> "screen.seeking_immortals.worldpack.in_progress";
+                });
                 ImmortalButton button = ImmortalButton.primary(action.x(), action.y(), action.width(), action.height(),
-                        Component.translatable("screen.seeking_immortals.worldpack.gate_required"), ignored -> {});
-                button.active = false;
+                        label, ignored -> {
+                            if (realmAction == RealmAction.LOCATE_GATE) {
+                                ModNetwork.CHANNEL.sendToServer(new WorldpackActionPacket(
+                                        WorldpackGameplayService.ACTION_LOCATE, realm.id()));
+                            } else if (realmAction == RealmAction.VIEW_CONDITIONS) {
+                                ModNetwork.CHANNEL.sendToServer(new WorldpackActionPacket(
+                                        WorldpackGameplayService.ACTION_CONDITIONS, realm.id()));
+                            }
+                        });
+                button.active = realmAction != RealmAction.IN_PROGRESS;
                 addRenderableWidget(button);
             }
         }
@@ -371,8 +385,27 @@ public class WorldpackScreen extends AbstractJournalScreen {
         int hash = Boolean.hashCode(!data.activeSecretRealmId().isBlank());
         for (ClientWorldpackData.SecretRealm realm : data.realms()) {
             hash = 31 * hash + Boolean.hashCode(data.currentRealmCooldownTicks(realm) <= 0L);
+            hash = 31 * hash + realmAction(data, realm).ordinal();
         }
         return hash;
+    }
+
+    enum RealmAction {
+        LOCATE_GATE,
+        VIEW_CONDITIONS,
+        IN_PROGRESS
+    }
+
+    /** Information-only action; the client never receives permission to enter directly. */
+    static RealmAction realmAction(ClientWorldpackData.Snapshot data,
+                                   ClientWorldpackData.SecretRealm realm) {
+        if (data == null || realm == null) {
+            return RealmAction.VIEW_CONDITIONS;
+        }
+        if (!data.activeSecretRealmId().isBlank() || realm.active()) {
+            return RealmAction.IN_PROGRESS;
+        }
+        return realm.anchorReady() ? RealmAction.LOCATE_GATE : RealmAction.VIEW_CONDITIONS;
     }
 
     /** Travel is only active when the region is anchored, not current, and no secret realm is open. */

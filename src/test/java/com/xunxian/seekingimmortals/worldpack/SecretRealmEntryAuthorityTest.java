@@ -18,9 +18,14 @@ class SecretRealmEntryAuthorityTest {
                 gameplay.indexOf("case ACTION_RETURN"));
         assertFalse(actionCase.contains("enterSecretRealm("));
         assertTrue(actionCase.contains("gate_required"));
+        assertTrue(actionCase.contains("ACTION_LOCATE"));
+        assertTrue(actionCase.contains("ACTION_CONDITIONS"));
 
         String screen = Files.readString(JAVA_ROOT.resolve(Path.of("client", "WorldpackScreen.java")));
         assertFalse(screen.contains("WorldpackGameplayService.ACTION_ENTER, realm.id()"));
+        assertTrue(screen.contains("WorldpackGameplayService.ACTION_LOCATE, realm.id()"));
+        assertTrue(screen.contains("WorldpackGameplayService.ACTION_CONDITIONS, realm.id()"));
+        assertTrue(screen.contains("realmAction(data, realm)"));
 
         String commands = Files.readString(JAVA_ROOT.resolve(Path.of("command", "SeekingImmortalsCommand.java")));
         assertTrue(commands.contains("Commands.literal(\"enter\").requires(source -> source.hasPermission(2))"));

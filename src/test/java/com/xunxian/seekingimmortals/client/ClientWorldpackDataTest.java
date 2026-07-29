@@ -120,6 +120,27 @@ class ClientWorldpackDataTest {
         assertFalse(WorldpackScreen.canEnterRealm(data, data.realms().get(0)));
     }
 
+    @Test
+    void realmRowUsesLocateConditionsOrStatusWithoutDirectEntry() {
+        ClientWorldpackData.set(packetWithRegionsAndRealms(
+                "", false, true, true, false, 0L));
+        ClientWorldpackData.Snapshot data = ClientWorldpackData.get();
+        assertEquals(WorldpackScreen.RealmAction.LOCATE_GATE,
+                WorldpackScreen.realmAction(data, data.realms().get(0)));
+
+        ClientWorldpackData.set(packetWithRegionsAndRealms(
+                "", false, false, true, false, 0L));
+        data = ClientWorldpackData.get();
+        assertEquals(WorldpackScreen.RealmAction.VIEW_CONDITIONS,
+                WorldpackScreen.realmAction(data, data.realms().get(0)));
+
+        ClientWorldpackData.set(packetWithRegionsAndRealms(
+                "realm", false, true, true, true, 0L));
+        data = ClientWorldpackData.get();
+        assertEquals(WorldpackScreen.RealmAction.IN_PROGRESS,
+                WorldpackScreen.realmAction(data, data.realms().get(0)));
+    }
+
     private static SyncWorldpackDataPacket packet(long eventTicks, long cooldownTicks) {
         return packetWithCooldownAndActive("", cooldownTicks, eventTicks);
     }
@@ -161,7 +182,7 @@ class ClientWorldpackDataTest {
                         "region", "Region", "qi_refining", 1.0D, regionAnchor, regionCurrent)),
                 List.of(new SyncWorldpackDataPacket.RealmData(
                         "realm", "Realm", "region", "qi_refining", "ticket",
-                        cooldownTicks, true, realmCurrentRegion, realmActive)),
+                        cooldownTicks, regionAnchor, realmCurrentRegion, realmActive)),
                 false);
     }
 }
