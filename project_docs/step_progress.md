@@ -1,3 +1,14 @@
+## 578. 2026-07-29 `0.2.232` 后续完整实现计划
+
+  Step   Status   Notes
+  ---   ---   ---
+  Current-state audit   Done   以 `0.2.232`、协议 30、提交 `0090c725` 为基线，核对前端审计、详细任务、阴阳窟、维度、本命法宝、旧 NPC 兼容和实机签字遗留；排除 `0.2.176+` 已收口的过期缺口。
+  Plan replacement   Done   重写 `project_docs/implementation_plan.md`，取代 `0.1.57` 旧计划；28 项前端问题和玩法/迁移/验收工作均有独立 ID、依赖、批次、测试门、版本/协议决策和完成定义。
+  Change class   Done   纯项目文档；`mod_version` 保持 `0.2.232`，`ModNetwork.PROTOCOL_VERSION` 保持 `30`。
+  Verification   Done   文档差异和格式检查按本批执行；无代码、资源、数据包或构建逻辑变化，因此不重跑 Gradle，沿用最近普通完整构建 251 套件/1,182 项通过的基线事实。
+  Backup   Done   `.bak/20260729_implementation_plan_0.2.232/` 保存原计划与进度文档。
+  Next implementation   Pending   从 F-A 五项高危前端交互修复开始，随后按列表框架、中危/低危、任务自然证据、对话、阴阳窟、迁移和当前 JAR 复签顺序推进。
+
 ## 577. 2026-07-26 0.2.184 全量作者法术功能与独立视觉接线
 
   Step   Status   Notes
