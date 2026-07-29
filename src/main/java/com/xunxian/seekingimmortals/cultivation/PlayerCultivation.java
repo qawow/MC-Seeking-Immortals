@@ -1824,7 +1824,8 @@ public class PlayerCultivation {
         cultivationExp = Math.max(getCurrentStageStartExp(), Math.min(cultivationExp, getCurrentStageCapExp()));
         breakthroughPillBonus = tag.contains("BreakthroughPillBonus") ? Math.max(0.0D, Math.min(0.20D, tag.getDouble("BreakthroughPillBonus"))) : (tag.getBoolean("BreakthroughAssisted") ? 0.05D : 0.0D);
         breakthroughAssisted = breakthroughPillBonus > 0.0D;
-        meditating = tag.getBoolean("Meditating");
+        // 重登不恢复打坐状态：坐垫座位实体不会随存档恢复，避免“幽灵打坐”持续获得修炼收益。
+        meditating = false;
         spiritualRoot = SpiritualRoot.fromName(tag.getString("SpiritualRoot"));
         loadSpiritualRootAttributes(tag);
         try { specialPhysique = SpecialPhysique.valueOf(tag.getString("SpecialPhysique")); } catch (Exception ignored) { specialPhysique = SpecialPhysique.NONE; }
@@ -1942,8 +1943,9 @@ public class PlayerCultivation {
                 }
             }
         }
-        divineConsciousness = Math.min(divineConsciousness, getMaxDivineConsciousness());
-        spiritualPower = Math.min(spiritualPower, getMaxSpiritualPower());
+        // 读档双向钳制：既不超上限，也不允许负值（防止损坏/篡改的 NBT 造成永久负灵力）。
+        divineConsciousness = Math.max(0, Math.min(divineConsciousness, getMaxDivineConsciousness()));
+        spiritualPower = Math.max(0, Math.min(spiritualPower, getMaxSpiritualPower()));
     }
 
     private void clearTechniqueSlots() {

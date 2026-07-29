@@ -1,5 +1,6 @@
 package com.xunxian.seekingimmortals.cultivation;
 
+import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation.QiDeviationTier;
 import com.xunxian.seekingimmortals.item.InventoryDeliveryService;
 import com.xunxian.seekingimmortals.item.pill.PillDeathSubstituteEvents;
@@ -409,8 +410,14 @@ public final class BreakthroughService {
             return itemRequirement(player, "poison_dragon_supreme", assisted, List.of(
                     option(ModItems.POISON_DRAGON_PEARL_SUPREME.get(), PillQuality.SUPREME)));
         }
+        // M5: 批量目录物品可能缺失/未绑定，空指针防护——缺失时放行该需求并记录警告，不因数据缺陷阻断突破。
+        var jiangchenPill = ModBulkItems.byId().get("jiangchen_pill");
+        if (jiangchenPill == null || !jiangchenPill.isPresent()) {
+            SeekingImmortalsMod.LOGGER.warn("Bulk item jiangchen_pill missing; breakthrough resource requirement waived");
+            return new ResourceRequirement(resourceName("jiangchen"), 1, 1, assisted, List.of(), true);
+        }
         return itemRequirement(player, "jiangchen", assisted, List.of(
-                option(ModBulkItems.byId().get("jiangchen_pill").get(), PillQuality.LOW)));
+                option(jiangchenPill.get(), PillQuality.LOW)));
     }
 
     private static boolean requiresFoundationBuildingPill(PlayerCultivation cultivation) {

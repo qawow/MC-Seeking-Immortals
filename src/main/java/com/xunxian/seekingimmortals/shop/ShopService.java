@@ -397,6 +397,10 @@ public final class ShopService {
     }
 
     public static PurchaseResult buyWithItemCurrency(ServerPlayer player, String shopId, String entryId, CostModifier costModifier) {
+        // 与贡献购买路径保持一致：鬼修坊市封禁同样拦截物品货币路径。
+        if (com.xunxian.seekingimmortals.sect.GhostSectBanService.isShopDenied(player, shopId)) {
+            return new PurchaseResult(PurchaseStatus.ACCESS_DENIED, null, null, -1);
+        }
         Optional<Entry> entryOptional = getShop(shopId).find(entryId);
         if (entryOptional.isEmpty()) {
             return new PurchaseResult(PurchaseStatus.UNKNOWN_ENTRY, null, null, -1);
@@ -424,6 +428,10 @@ public final class ShopService {
         if (!hasItem(player, currencyItem, adjustedCost)) {
             return new PurchaseResult(PurchaseStatus.NOT_ENOUGH_CURRENCY, entry, item, -1, UNLIMITED_STOCK, adjustedCost);
         }
+        // 与贡献购买路径保持一致：物品货币路径同样受每日限购约束。
+        if (!ShopQuotaService.canBuy(player, shopId, entryId, 5)) {
+            return new PurchaseResult(PurchaseStatus.OUT_OF_STOCK, entry, item, -1);
+        }
         StockReservation stockReservation = reserveStock(player, shopId, entry);
         if (stockReservation.status() != PurchaseStatus.SUCCESS) {
             return new PurchaseResult(stockReservation.status(), entry, item, -1, stockReservation.remainingStock(), adjustedCost);
@@ -433,6 +441,7 @@ public final class ShopService {
             return new PurchaseResult(PurchaseStatus.NOT_ENOUGH_CURRENCY, entry, item, -1, UNLIMITED_STOCK, adjustedCost);
         }
         giveItem(player, item, entry.count());
+        ShopQuotaService.recordBuy(player, shopId, entryId);
         MerchantShopPolicyCatalog.settleRisk(player, shopId, entry.itemId());
         return new PurchaseResult(PurchaseStatus.SUCCESS, entry, item, -1, stockReservation.remainingStock(), adjustedCost);
     }

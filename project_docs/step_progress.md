@@ -9568,3 +9568,15 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Artifact   Done   JAR SHA-256 `bd22a58453f2df711fbfae883498427e65654938b033540c3cfac2483a001e37`；视觉目录/术法效果目录 SHA-256 为 `439f2d3283785d715ff0d6305009c4d949e700b3c70afd795a3a95bd9c136f63` / `9f38dc30d8f32ede3cd910237863c07c23f4a17838276df1f8da9c02b6ba922e`。
   Version/protocol   Done   `mod_version` 0.2.228→0.2.229；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
   Backup   Done   `.bak/20260729_0.2.229_screens_pages/`；隔离快照 `/tmp/mc-mod-0.2.229-audit.ahLnyo`。
+
+## 621. 2026-07-29 0.2.230 审查修复与版本门禁收口
+
+  Step   Status   Notes
+  ---   ---   ---
+  Gameplay fixes   Done   收录当前审查中的突破资源空值防护、读档打坐状态复位与灵力/神识非负钳制、商店日限购滚动，以及物品货币购买路径的鬼修封禁与日限购补齐。
+  Generated resources   Done   按“spell→visual”依赖顺序重生成；`authored_spell_effects.json` 保持 2,292 profiles，`authored_visual_catalog.json` 保持 5,727 profiles，最终仅同步 Java 审计与下游源哈希，两项 `--check` 均通过。
+  Version gate   Done   `mod_version` 0.2.229→0.2.230，修复可发布代码/资源变化未递增版本导致的 `aiPreflight` 阻断。
+  Version/protocol   Done   未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 不变。
+  Verification   Done   首次普通构建的 `aiPreflight` 已通过，随后由 `authoredSpellEffectsCheck` 准确拦截过期生成文件；重生成后再次执行普通 `./gradlew build`，`BUILD SUCCESSFUL in 1m 26s`，251 套件/1,181 测试 failure/error/skipped 均为 0。
+  Artifact   Done   JAR SHA-256 `655f6db92e9eab1336ce3a271247580ab591eed7451918c8cf350c07b3be6667`；术法效果/视觉目录 SHA-256 为 `facc6654812f9e116eb8c98f7e3cf4c213adf93ba7716ae919cb817c6663a76b` / `42d5693602e55338d3a788a0a80b6555a2a19f55fed9a54db76e605b60bde20d`。
+  Backup   Done   `.bak/20260729_121459_0.2.230_version_gate/`。
