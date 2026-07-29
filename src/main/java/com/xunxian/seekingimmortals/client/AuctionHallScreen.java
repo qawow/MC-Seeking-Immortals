@@ -9,7 +9,9 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /** Live, server-paged auction ladder with an in-page scroll viewport. */
 public class AuctionHallScreen extends AbstractJournalContainerScreen<AuctionHallMenu> {
@@ -18,8 +20,11 @@ public class AuctionHallScreen extends AbstractJournalContainerScreen<AuctionHal
     private static final int ROW_GAP = 4;
 
     private final ScrollableListPanel listPanel = new ScrollableListPanel();
-    private int observedRevision = Integer.MIN_VALUE;
+    private final Map<String, Integer> pendingBidTicks = new HashMap<>();
+    private final Map<String, ImmortalButton> bidButtons = new HashMap<>();
+    private long observedRevision = Long.MIN_VALUE;
     private int observedPage = -1;
+    private static final int BID_REQUEST_TIMEOUT_TICKS = 40;
 
     public AuctionHallScreen(AuctionHallMenu menu, Inventory inv, Component title) {
         super(menu, inv, title);
@@ -41,6 +46,7 @@ public class AuctionHallScreen extends AbstractJournalContainerScreen<AuctionHal
 
     private void rebuildButtons() {
         clearWidgets();
+        bidButtons.clear();
         HallLayout layout = calculateLayout(width, height);
         ClientAuctionLadderData.Snapshot data = ClientAuctionLadderData.get();
         int page = data.page();
@@ -48,7 +54,7 @@ public class AuctionHallScreen extends AbstractJournalContainerScreen<AuctionHal
             listPanel.resetScroll();
         }
         observedPage = page;
-        observedRevision = data.hashCode();
+        observedRevision = ClientAuctionLadderData.revision();
 
         addRenderableWidget(ImmortalButton.secondary(layout.refreshButton().x(), layout.refreshButton().y(),
                 layout.refreshButton().width(), layout.refreshButton().height(),
@@ -97,13 +103,14 @@ public class AuctionHallScreen extends AbstractJournalContainerScreen<AuctionHal
         ImmortalButton bid = ImmortalButton.primary(buttonX + (buttonWidth + gap) * 2, buttonY,
                 Math.max(1, row.right() - 4 - (buttonX + (buttonWidth + gap) * 2)), 17,
                 Component.translatable("screen.seeking_immortals.auction.bid"), ignored ->
-                        send(AuctionActionPacket.ACTION_BID, lot.lotId()));
+                        requestBid(lot.lotId()));
         boolean visible = buttonY >= viewport.y() && buttonY + 17 <= viewport.bottom();
         preview.visible = visible;
         settle.visible = visible;
         bid.visible = visible;
         settle.active = !lot.settled();
-        bid.active = !lot.settled();
+        bid.active = canBid(lot.settled(), pendingBidTicks.containsKey(lot.lotId()));
+        bidButtons.put(lot.lotId(), bid);
         addRenderableWidget(preview);
         addRenderableWidget(settle);
         addRenderableWidget(bid);
@@ -113,11 +120,39 @@ public class AuctionHallScreen extends AbstractJournalContainerScreen<AuctionHal
         ModNetwork.CHANNEL.sendToServer(new AuctionActionPacket(action, payload, menu.accessToken()));
     }
 
+    private void requestBid(String lotId) {
+        if (lotId == null || lotId.isBlank() || pendingBidTicks.containsKey(lotId)) {
+            return;
+        }
+        pendingBidTicks.put(lotId, 0);
+        ImmortalButton button = bidButtons.get(lotId);
+        if (button != null) {
+            button.active = false;
+        }
+        send(AuctionActionPacket.ACTION_BID, lotId);
+    }
+
     @Override
     protected void containerTick() {
         super.containerTick();
-        ClientAuctionLadderData.Snapshot data = ClientAuctionLadderData.get();
-        if (data.hashCode() != observedRevision) {
+        boolean timedOut = false;
+        var iterator = pendingBidTicks.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<String, Integer> entry = iterator.next();
+            int age = entry.getValue() + 1;
+            if (age >= BID_REQUEST_TIMEOUT_TICKS) {
+                iterator.remove();
+                timedOut = true;
+            } else {
+                entry.setValue(age);
+            }
+        }
+        long revision = ClientAuctionLadderData.revision();
+        boolean revisionChanged = revision != observedRevision;
+        if (revisionChanged) {
+            pendingBidTicks.clear();
+        }
+        if (revisionChanged || timedOut) {
             rebuildButtons();
         }
     }
@@ -226,6 +261,10 @@ public class AuctionHallScreen extends AbstractJournalContainerScreen<AuctionHal
      */
     static boolean canPageNext(boolean synced, int page, int maxPage) {
         return !synced || page < maxPage;
+    }
+
+    static boolean canBid(boolean settled, boolean pending) {
+        return !settled && !pending;
     }
 
     /** Requested page payload for previous/next buttons. */

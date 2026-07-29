@@ -83,4 +83,24 @@ class ClientQuestTrackerDataTest {
                 ACTIVE,
                 LOCKED)));
     }
+
+    @Test
+    void trackerViewSignaturePreservesScrollForSameVisibleRowsAndSelection() {
+        var first = ClientQuestTrackerData.parseChainLine(FIRST).orElseThrow();
+        var second = ClientQuestTrackerData.parseChainLine(SECOND).orElseThrow();
+        var completedSecond = ClientQuestTrackerData.parseChainLine(
+                "second_path 4/4 DONE branch=righteous cost=-:0 own=0 LOCK=1 REW=1").orElseThrow();
+
+        QuestTrackerScreen.ViewSignature previous = QuestTrackerScreen.viewSignature(
+                "all", List.of(first, second));
+        QuestTrackerScreen.ViewSignature refreshed = QuestTrackerScreen.viewSignature(
+                "all", List.of(first, completedSecond));
+        QuestTrackerScreen.ViewSignature filtered = QuestTrackerScreen.viewSignature(
+                "done", List.of(completedSecond));
+
+        assertFalse(QuestTrackerScreen.viewChanged(previous, refreshed));
+        assertTrue(QuestTrackerScreen.viewChanged(previous, filtered));
+        assertFalse(QuestTrackerScreen.selectedChainChanged("second_path", "second_path"));
+        assertTrue(QuestTrackerScreen.selectedChainChanged("second_path", "first_path"));
+    }
 }

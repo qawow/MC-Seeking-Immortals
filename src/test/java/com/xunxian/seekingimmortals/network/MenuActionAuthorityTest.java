@@ -92,7 +92,8 @@ class MenuActionAuthorityTest {
         String sect = compact(Files.readString(JAVA_ROOT.resolve(
                 Path.of("client", "SectHallScreen.java"))));
         assertTrue(sect.contains("menu.accessToken()"));
-        assertTrue(sect.contains("menu.focusSectId().equals(candidate.id())"));
+        assertTrue(sect.contains("visibleCandidates(data,menu.focusSectId())"));
+        assertTrue(sect.contains("focus.equals(candidate.id())"));
     }
 
     @Test

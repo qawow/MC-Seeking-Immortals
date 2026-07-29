@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -141,5 +142,26 @@ class AuctionSoftServiceTest {
                 "reward resolution must inspect authored reward_item");
         assertTrue(body.contains("returnnull;"),
                 "authored but unresolved reward ids must fail closed instead of fuzzy fallback");
+    }
+
+    @Test
+    void currentLeaderReplayIsRecognizedBeforeAnyShardReservation() throws Exception {
+        UUID leader = UUID.randomUUID();
+        assertTrue(AuctionSoftService.isCurrentLeader(leader, leader));
+        assertFalse(AuctionSoftService.isCurrentLeader(leader, UUID.randomUUID()));
+        assertFalse(AuctionSoftService.isCurrentLeader(null, leader));
+        assertFalse(AuctionSoftService.shouldAutoSettle(4, 50_000L, 1L, 9));
+        assertTrue(AuctionSoftService.shouldAutoSettle(5, 50_000L, 1L, 9));
+        assertTrue(AuctionSoftService.shouldAutoSettle(1, 50_000L, 1L, 10));
+
+        String source = java.nio.file.Files.readString(java.nio.file.Path.of(
+                "src", "main", "java", "com", "xunxian", "seekingimmortals",
+                "catalog", "AuctionSoftService.java")).replaceAll("\\s+", "");
+        int leaderGate = source.indexOf("if(isCurrentLeader(currentLeader,player.getUUID()))");
+        int consume = source.indexOf("consumeShards(player,delta)");
+        int place = source.indexOf("house.placeOrRaise(lot.id(),player.getUUID(),next)");
+        assertTrue(leaderGate >= 0 && consume > leaderGate,
+                "the current leader must be rejected before shard consumption");
+        assertTrue(place > consume, "no auction state may advance before payment succeeds");
     }
 }

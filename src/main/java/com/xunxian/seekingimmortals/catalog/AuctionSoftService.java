@@ -271,18 +271,23 @@ public final class AuctionSoftService {
         }
 
         int current = house.currentAmount(lot.id());
+        UUID currentLeader = house.getBid(lot.id()).map(AuctionHouseSavedData.BidState::bidder).orElse(null);
+        if (isCurrentLeader(currentLeader, player.getUUID())) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.auction.already_leader", lotDisplay(lot)), true);
+            syncLadder(player, 0);
+            return false;
+        }
         int next = nextBidCost(lot, current, snapshot.minIncrementPct(), snapshot.depositFloor());
         int delta = Math.max(1, next - Math.max(currentPersonalEscrow(player, lot.id()), 0));
         UUID previousLeader = null;
         int previousEscrow = 0;
         if (current > 0) {
-            UUID leader = house.getBid(lot.id()).map(AuctionHouseSavedData.BidState::bidder).orElse(null);
+            UUID leader = currentLeader;
             if (leader != null && !leader.equals(player.getUUID())) {
                 delta = next;
                 previousLeader = leader;
                 previousEscrow = current;
-            } else if (leader != null && leader.equals(player.getUUID())) {
-                delta = Math.max(1, next - current);
             }
         }
 
@@ -312,9 +317,7 @@ public final class AuctionSoftService {
                 lotDisplay(lot), next, state.raises()), true);
 
         // Wave466: auto-settle when bid reaches catalog maxEquiv floor.
-        long max = Math.max(lot.maxEquiv(), lot.minEquiv());
-        boolean hitCeiling = max > 0 && next >= Math.max(1L, max / 5000L);
-        if (state.raises() >= 5 || hitCeiling) {
+        if (shouldAutoSettle(state.raises(), lot.maxEquiv(), lot.minEquiv(), next)) {
             boolean settled = settle(player, lot);
             syncLadder(player, 0);
             return settled;
@@ -471,6 +474,15 @@ public final class AuctionSoftService {
 
     public static int nextBidCost(Lot lot, int currentBid, double minIncrementPct) {
         return nextBidCost(lot, currentBid, minIncrementPct, builtin().depositFloor());
+    }
+
+    static boolean isCurrentLeader(UUID leader, UUID bidder) {
+        return leader != null && bidder != null && leader.equals(bidder);
+    }
+
+    static boolean shouldAutoSettle(int raises, long maxEquiv, long minEquiv, int nextBid) {
+        long ceiling = Math.max(maxEquiv, minEquiv);
+        return raises >= 5 || (ceiling > 0L && nextBid >= Math.max(1L, ceiling / 5000L));
     }
 
     public static int nextBidCost(Lot lot, int currentBid, double minIncrementPct, int depositFloor) {

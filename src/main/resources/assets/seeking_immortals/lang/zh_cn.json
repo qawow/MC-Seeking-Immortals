@@ -1916,6 +1916,7 @@
   "message.seeking_immortals.auction.shared_hint": "共享最高价 %s，下次 %s，领先者 %s，状态 %s",
   "message.seeking_immortals.auction.lot_settled": "拍品已结算：%s",
   "message.seeking_immortals.auction.not_leader": "你不是 %s 的当前最高出价者",
+  "message.seeking_immortals.auction.already_leader": "你已经是 %s 的当前最高出价者",
   "message.seeking_immortals.text_quest.dialogue.greeting": "%s：道友请了。（阶段 %s / 分支 %s）",
   "message.seeking_immortals.text_quest.dialogue.not_started": "%s：此线尚未开启。可用开始命令接取。",
   "message.seeking_immortals.text_quest.dialogue.complete": "%s：此线已完结。",

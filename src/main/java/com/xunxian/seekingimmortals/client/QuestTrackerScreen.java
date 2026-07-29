@@ -19,6 +19,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -56,6 +57,8 @@ public class QuestTrackerScreen extends AbstractJournalScreen {
 
     private Filter filter = Filter.ALL;
     private List<ClientQuestTrackerData.ChainLine> view = List.of();
+    private ViewSignature renderedViewSignature;
+    private String renderedSelectedChainId = "";
     private final TabBar<Filter> filterBar = new TabBar<>(Filter.ALL);
     private final ScrollableListPanel listPanel = new ScrollableListPanel();
     private final ScrollableListPanel detailPanel = new ScrollableListPanel();
@@ -114,14 +117,22 @@ public class QuestTrackerScreen extends AbstractJournalScreen {
         next.sort(Comparator.comparingInt((ClientQuestTrackerData.ChainLine line) -> stateOrder(stateOf(line)))
                 .thenComparing(line -> QuestPresentationService.title(line.id(), chineseLocale()),
                         String.CASE_INSENSITIVE_ORDER));
+        ViewSignature nextSignature = viewSignature(filter.key, next);
         view = List.copyOf(next);
         boolean selectedStillVisible = view.stream()
                 .anyMatch(line -> line.id().equals(ClientQuestTrackerData.selectedChainId()));
         if (!selectedStillVisible && !view.isEmpty()) {
             ClientQuestTrackerData.selectChain(view.get(0).id());
         }
-        listPanel.resetScroll();
-        detailPanel.resetScroll();
+        String currentSelectedChainId = ClientQuestTrackerData.selectedChainId();
+        if (renderedViewSignature == null || viewChanged(renderedViewSignature, nextSignature)) {
+            listPanel.resetScroll();
+        }
+        if (selectedChainChanged(renderedSelectedChainId, currentSelectedChainId)) {
+            detailPanel.resetScroll();
+        }
+        renderedViewSignature = nextSignature;
+        renderedSelectedChainId = currentSelectedChainId;
     }
 
     private boolean matchesFilter(DisplayState state) {
@@ -435,7 +446,9 @@ public class QuestTrackerScreen extends AbstractJournalScreen {
                 int local = (int) ((mouseY - layout.list().y()) / Math.max(1, listPanel.rowStride()));
                 int index = listPanel.firstVisibleRow() + local;
                 if (local >= 0 && local < visible && index >= 0 && index < view.size()) {
-                    ClientQuestTrackerData.selectChain(view.get(index).id());
+                    String selectedId = view.get(index).id();
+                    ClientQuestTrackerData.selectChain(selectedId);
+                    renderedSelectedChainId = selectedId;
                     detailPanel.resetScroll();
                     clearWidgets();
                     rebuildButtons();
@@ -823,6 +836,27 @@ public class QuestTrackerScreen extends AbstractJournalScreen {
 
     static int clampScroll(int offset, int contentHeight, int viewportHeight) {
         return ScrollableListPanel.clampScroll(offset, contentHeight, viewportHeight);
+    }
+
+    static ViewSignature viewSignature(String filterKey,
+                                       List<ClientQuestTrackerData.ChainLine> lines) {
+        List<String> ids = lines == null ? List.of() : lines.stream()
+                .filter(Objects::nonNull)
+                .map(ClientQuestTrackerData.ChainLine::id)
+                .filter(Objects::nonNull)
+                .toList();
+        return new ViewSignature(filterKey == null ? "" : filterKey, ids);
+    }
+
+    static boolean viewChanged(ViewSignature previous, ViewSignature next) {
+        return !Objects.equals(previous, next);
+    }
+
+    static boolean selectedChainChanged(String previous, String next) {
+        return !Objects.equals(previous, next);
+    }
+
+    record ViewSignature(String filterKey, List<String> ids) {
     }
 
     record Layout(UiRect panel, UiRect titleBar, UiRect list, UiRect detail, List<UiRect> filters,

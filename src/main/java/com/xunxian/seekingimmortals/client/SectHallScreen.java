@@ -12,6 +12,7 @@ import net.minecraft.world.entity.player.Inventory;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Productized sect hall with dialogue, mission, shop and progress parity.
@@ -31,6 +32,7 @@ public class SectHallScreen extends AbstractJournalContainerScreen<SectHallMenu>
     private final TabBar<Tab> tabBar = new TabBar<>(Tab.MISSION);
 
     private Tab tab = Tab.MISSION;
+    private ClientSectData.Snapshot observedSnapshot;
 
     public SectHallScreen(SectHallMenu menu, Inventory inv, Component title) {
         super(menu, inv, title);
@@ -46,7 +48,18 @@ public class SectHallScreen extends AbstractJournalContainerScreen<SectHallMenu>
     @Override
     protected void init() {
         super.init();
+        observedSnapshot = ClientSectData.get();
         rebuildActionWidgets();
+    }
+
+    @Override
+    protected void containerTick() {
+        super.containerTick();
+        ClientSectData.Snapshot snapshot = ClientSectData.get();
+        if (snapshotChanged(observedSnapshot, snapshot)) {
+            observedSnapshot = snapshot;
+            rebuildActionWidgets();
+        }
     }
 
     // -------------------------------------------------------------------------
@@ -112,10 +125,7 @@ public class SectHallScreen extends AbstractJournalContainerScreen<SectHallMenu>
 
     private void addCandidateButtons(Layout layout, ClientSectData.Snapshot data) {
         Rect viewport = candidateViewport(layout);
-        List<ClientSectData.Candidate> candidates = data.candidates().stream()
-                .filter(candidate -> menu.focusSectId().isBlank()
-                        || menu.focusSectId().equals(candidate.id()))
-                .toList();
+        List<ClientSectData.Candidate> candidates = visibleCandidates(data, menu.focusSectId());
         bindListViewport(viewport, layout.rowHeight(), candidates.size());
         int listScroll = listPanel.scrollRows();
         int visible = listPanel.visibleRowCount();
@@ -287,26 +297,27 @@ public class SectHallScreen extends AbstractJournalContainerScreen<SectHallMenu>
     private void renderCandidates(GuiGraphics graphics, Layout layout, Rect content,
                                   ClientSectData.Snapshot data, int mouseX, int mouseY) {
         Rect viewport = candidateViewport(layout);
+        List<ClientSectData.Candidate> candidates = visibleCandidates(data, menu.focusSectId());
         if (content.height() >= 18) {
             ImmortalUiSkin.drawStringFit(font, graphics,
                     Component.translatable("screen.seeking_immortals.sect.candidates").getString(),
                     content.x() + 5, content.y() + 4, Math.max(1, content.width() - 10),
                     ImmortalUiSkin.JOURNAL_PAPER, false);
         }
-        if (data.candidates().isEmpty()) {
+        if (candidates.isEmpty()) {
             ImmortalUiSkin.drawWrappedText(font, graphics,
                     Component.translatable("screen.seeking_immortals.sect.candidates_empty"),
                     viewport.x() + 2, viewport.y() + 2, Math.max(1, viewport.width() - 4),
                     viewport.height(), ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
             return;
         }
-        bindListViewport(viewport, layout.rowHeight(), data.candidates().size());
+        bindListViewport(viewport, layout.rowHeight(), candidates.size());
         int listScroll = listPanel.scrollRows();
         int visible = listPanel.visibleRowCount();
-        int hovered = listPanel.hoveredRow(mouseX, mouseY, data.candidates().size());
+        int hovered = listPanel.hoveredRow(mouseX, mouseY, candidates.size());
         ImmortalUiSkin.withScissor(graphics, viewport.x(), viewport.y(), viewport.width(), viewport.height(), () -> {
-            for (int row = 0; row < visible && listScroll + row < data.candidates().size(); row++) {
-                ClientSectData.Candidate candidate = data.candidates().get(listScroll + row);
+            for (int row = 0; row < visible && listScroll + row < candidates.size(); row++) {
+                ClientSectData.Candidate candidate = candidates.get(listScroll + row);
                 Rect item = rowRect(viewport, layout.rowHeight(), row);
                 Rect action = rowAction(viewport, layout.rowHeight(), row);
                 ImmortalUiSkin.drawListRow(graphics, item.x(), item.y(), item.width(), item.height(),
@@ -414,6 +425,22 @@ public class SectHallScreen extends AbstractJournalContainerScreen<SectHallMenu>
                 "text.seeking_immortals.unknown_faction");
     }
 
+    static List<ClientSectData.Candidate> visibleCandidates(ClientSectData.Snapshot data,
+                                                            String focusSectId) {
+        if (data == null || data.candidates() == null) {
+            return List.of();
+        }
+        String focus = focusSectId == null ? "" : focusSectId;
+        return data.candidates().stream()
+                .filter(candidate -> candidate != null
+                        && (focus.isBlank() || focus.equals(candidate.id())))
+                .toList();
+    }
+
+    static boolean snapshotChanged(ClientSectData.Snapshot previous, ClientSectData.Snapshot next) {
+        return !Objects.equals(previous, next);
+    }
+
     // -------------------------------------------------------------------------
     // Input
     // -------------------------------------------------------------------------
@@ -427,7 +454,7 @@ public class SectHallScreen extends AbstractJournalContainerScreen<SectHallMenu>
         int total;
         if (!data.member()) {
             viewport = candidateViewport(layout);
-            total = data.candidates().size();
+            total = visibleCandidates(data, menu.focusSectId()).size();
         } else if (tab == Tab.SHOP) {
             viewport = shopViewport(layout);
             total = data.shopEntries().size();

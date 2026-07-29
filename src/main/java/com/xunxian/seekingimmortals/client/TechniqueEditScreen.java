@@ -31,7 +31,7 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
     private double dragStartY;
     private int scrollOffsetAtDragStart;
 
-    private enum DragIntent {
+    enum DragIntent {
         NONE,
         PENDING,
         SCROLLING,
@@ -165,8 +165,8 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
             double distanceX = mouseX - dragStartX;
             double distanceY = mouseY - dragStartY;
             boolean crossedThreshold = crossedDragThreshold(distanceX, distanceY);
-            if (dragIntent != DragIntent.TECHNIQUE && shouldPromoteTechniqueDrag(
-                    layout, mouseX, mouseY, crossedThreshold, !pressedTechniqueId.isBlank())) {
+            if (shouldPromoteTechniqueDrag(dragIntent, layout, mouseX, mouseY,
+                    crossedThreshold, !pressedTechniqueId.isBlank())) {
                 dragIntent = DragIntent.TECHNIQUE;
                 draggingTechniqueId = pressedTechniqueId;
             } else if (dragIntent == DragIntent.PENDING && crossedThreshold) {
@@ -444,10 +444,17 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
         return canScroll && (!hasTechnique || Math.abs(distanceY) > Math.abs(distanceX));
     }
 
+    static boolean shouldPromoteTechniqueDrag(DragIntent intent, Layout layout,
+                                              double mouseX, double mouseY,
+                                              boolean crossedThreshold, boolean hasTechnique) {
+        return intent == DragIntent.PENDING && crossedThreshold && hasTechnique && layout != null
+                && layout.slotPane().contains(mouseX, mouseY);
+    }
+
     static boolean shouldPromoteTechniqueDrag(Layout layout, double mouseX, double mouseY,
                                               boolean crossedThreshold, boolean hasTechnique) {
-        return crossedThreshold && hasTechnique && layout != null
-                && layout.slotPane().contains(mouseX, mouseY);
+        return shouldPromoteTechniqueDrag(DragIntent.PENDING, layout, mouseX, mouseY,
+                crossedThreshold, hasTechnique);
     }
 
     /** Package-visible: learned-list wheel step used by drag-source pane. */

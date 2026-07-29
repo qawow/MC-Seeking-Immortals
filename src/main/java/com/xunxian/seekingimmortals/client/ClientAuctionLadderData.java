@@ -7,10 +7,12 @@ import java.util.List;
 /** Wave491 client mirror of live auction ladder pages. */
 public final class ClientAuctionLadderData {
     private static Snapshot snapshot = Snapshot.empty();
+    private static long revision;
 
     private ClientAuctionLadderData() {}
 
     public static void set(SyncAuctionLadderPacket packet) {
+        revision++;
         if (packet == null) {
             snapshot = Snapshot.empty();
             return;
@@ -21,10 +23,16 @@ public final class ClientAuctionLadderData {
 
     public static void reset() {
         snapshot = Snapshot.empty();
+        revision++;
     }
 
     public static Snapshot get() {
         return snapshot;
+    }
+
+    /** Monotonic local marker for every received ladder snapshot, including unchanged data. */
+    public static long revision() {
+        return revision;
     }
 
     public record Snapshot(boolean synced, int page, int pageSize, int totalLots,

@@ -1,3 +1,17 @@
+## 579. 2026-07-29 `0.2.233` F-A 高危前端交互修复
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   执行 `implementation_plan.md` 的 F-A，范围仅 UI-01 至 UI-05；既有文件回滚位于 `.bak/20260729_185008_f_a_high_risk/`，包含源码、语言、测试、计划/进度/交接文档及生成资源快照。用户既有 `CLAUDE.md` 与 `project_docs/frontend_interaction_audit_0.2.198.md` 未纳入本批。
+  UI-01   Done   `TechniqueEditScreen` 只有 `PENDING` 可提升为技法拖拽，`SCROLLING` 穿过槽位区域不会重新绑定；`DragDualScrollTest` 覆盖两种状态。
+  UI-02   Done   `QuestTrackerScreen` 以“过滤器 + 可见任务 ID 顺序”签名决定列表滚动重置，详情仅在选中任务实际变化时归零；手动选中会同步渲染态。
+  UI-03/UI-05   Done   `SectHallScreen` 的候选行、按钮、行数和滚动统一使用 `visibleCandidates`；客户端完整快照值变化时重建控件并钳制既有页签/滚动，入宗、任务和贡献同步不会软锁。
+  UI-04   Done   `AuctionSoftService` 在扣灵石、竞价推进和自动结算之前拒绝当前最高价者重放；`AuctionHallScreen` 对每个拍品临时禁用重复点击，收到任意拍卖同步或 40 tick 超时后恢复。同步 revision 对相同内容回包也单调递增。
+  Generated resources   Done   F-A 的 6 个 Java 文件令术法索引 Java 审计摘要过期；按 `spell -> visual` 顺序刷新 `authored_spell_effects.json` 与 `authored_visual_catalog.json`。2,292/5,727 profiles 不变，仅更新聚合摘要和下游哈希。
+  Verification   Done   两个生成器 `--check` 通过；`./gradlew cleanTest build --no-daemon --max-workers=1 --console=plain` 为 `BUILD SUCCESSFUL in 1m 34s`，252 个测试套件、1,186 项测试，failure/error/skipped 均为 0；`:aiPreflight` 未跳过并记录 `mod_version=0.2.233`。
+  Version/protocol   Done   代码、资源、语言、测试和文档变更，`mod_version=0.2.232 -> 0.2.233`；未改网络包字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
+  Next implementation   Pending   F-B：为 `ScrollableListPanel` 及其消费者建立统一按下/拖动/松手输入契约；真实 Minecraft 客户端仍需验收 F-A 的窄屏拖拽、任务同步、候选按钮、连击竞价和入宗刷新。
+
 ## 578. 2026-07-29 `0.2.232` 后续完整实现计划
 
   Step   Status   Notes

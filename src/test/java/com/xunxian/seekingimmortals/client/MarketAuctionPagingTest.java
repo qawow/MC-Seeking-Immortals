@@ -104,6 +104,22 @@ class MarketAuctionPagingTest {
     }
 
     @Test
+    void auctionBidAvailabilityWaitsForSyncOrTimeoutInsteadOfAllowingReplay() {
+        assertTrue(AuctionHallScreen.canBid(false, false));
+        assertFalse(AuctionHallScreen.canBid(false, true));
+        assertFalse(AuctionHallScreen.canBid(true, false));
+
+        long before = ClientAuctionLadderData.revision();
+        SyncAuctionLadderPacket snapshot = new SyncAuctionLadderPacket(0, 6, 1, lots(1));
+        ClientAuctionLadderData.set(snapshot);
+        long firstSync = ClientAuctionLadderData.revision();
+        ClientAuctionLadderData.set(snapshot);
+        assertTrue(firstSync > before);
+        assertTrue(ClientAuctionLadderData.revision() > firstSync,
+                "an unchanged rejection snapshot must still release a pending bid button");
+    }
+
+    @Test
     void auctionInPageScrollHeightFollowsCurrentServerPageLotCountOnly() {
         // Server page 0 with 6 lots vs page 3 with 2 lots — content height differs by row count,
         // independent of totalLots / maxPage (which only gate the server page buttons).

@@ -121,6 +121,10 @@ class DragDualScrollTest {
         assertFalse(TechniqueEditScreen.shouldPromoteTechniqueDrag(
                 wide, wide.learnedPane().x() + 1, wide.learnedPane().y() + 1, true, true));
         assertFalse(TechniqueEditScreen.shouldPromoteTechniqueDrag(wide, slotX, slotY, true, false));
+        assertFalse(TechniqueEditScreen.shouldPromoteTechniqueDrag(
+                TechniqueEditScreen.DragIntent.SCROLLING, wide, slotX, slotY, true, true));
+        assertTrue(TechniqueEditScreen.shouldPromoteTechniqueDrag(
+                TechniqueEditScreen.DragIntent.PENDING, wide, slotX, slotY, true, true));
     }
 
     @Test

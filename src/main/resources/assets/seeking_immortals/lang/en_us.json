@@ -1906,6 +1906,7 @@
   "message.seeking_immortals.auction.shared_hint": "Shared top bid %s, next %s, leader %s, state %s",
   "message.seeking_immortals.auction.lot_settled": "Lot already settled: %s",
   "message.seeking_immortals.auction.not_leader": "You are not the current leader of %s",
+  "message.seeking_immortals.auction.already_leader": "You are already the current leader of %s",
   "message.seeking_immortals.text_quest.dialogue.greeting": "%s: Greetings. (stage %s / branch %s)",
   "message.seeking_immortals.text_quest.dialogue.not_started": "%s: This line is not started. Use start.",
   "message.seeking_immortals.text_quest.dialogue.complete": "%s: This line is complete.",
