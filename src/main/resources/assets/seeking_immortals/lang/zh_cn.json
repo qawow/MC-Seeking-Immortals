@@ -50,6 +50,7 @@
   "command.seeking_immortals.breakthrough.fail": "突破失败：灵力/修为不足，或瓶颈未破。失败会提高后续保底。",
   "key.seeking_immortals.breakthrough": "尝试突破",
   "message.seeking_immortals.breakthrough.no_data": "无法读取你的修炼数据。",
+  "message.seeking_immortals.breakthrough.request_pending": "突破请求正在结算，请等待 %s tick。",
   "message.seeking_immortals.breakthrough.not_at_cap": "修为尚未达到当前瓶颈：%s/%s。",
   "message.seeking_immortals.breakthrough.need_resource": "突破需要对应境界丹药、完整五行根基，或已服用的突破辅助药力。",
   "message.seeking_immortals.breakthrough.preview": "突破预览：最终成功率 %s%%。",

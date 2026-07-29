@@ -40,6 +40,8 @@ class ScreenLayoutTest {
         assertTrue(LifeSkillTreeScreen.calculateContentHeight(false)
                         >= LifeSkillTreeScreen.calculateContentHeight(true),
                 "single-column skill content should be at least as tall as two-column content");
+        assertEquals(418, LifeSkillTreeScreen.calculateContentHeight(true));
+        assertEquals(662, LifeSkillTreeScreen.calculateContentHeight(false));
         assertEquals(0, LifeSkillTreeScreen.clampScroll(-10, 200, 80));
         assertEquals(120, LifeSkillTreeScreen.clampScroll(999, 200, 80));
     }
@@ -71,6 +73,16 @@ class ScreenLayoutTest {
             assertTrue(layout.right() <= size[0]);
             assertTrue(layout.bottom() <= size[1]);
         }
+    }
+
+    @Test
+    void inventoryCultivationEntryFollowsVanillaGuiOrigin() {
+        ClientEvents.InventoryEntryLayout first = ClientEvents.inventoryEntryLayout(220, 150, 854, 480);
+        ClientEvents.InventoryEntryLayout shifted = ClientEvents.inventoryEntryLayout(300, 175, 854, 480);
+        assertEquals(220, first.x());
+        assertEquals(130, first.y());
+        assertEquals(300, shifted.x());
+        assertEquals(155, shifted.y());
     }
 
     @Test

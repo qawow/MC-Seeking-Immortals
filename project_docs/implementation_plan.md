@@ -1,18 +1,18 @@
-# 寻仙问道 — `0.2.237` 后续完整实现计划
+# 寻仙问道 — `0.2.240` 后续完整实现计划
 
 > 状态：F-A（UI-01 至 UI-05）、F-B（UI-06、UI-18）、F-C1（UI-07 至 UI-11、UI-19）、F-C2（UI-12 至 UI-14、UI-24 至 UI-26）与 F-C3（UI-15、UI-28）已完成并验证；下一实施入口为 F-D。本文件继续定义剩余工作的实施顺序、边界和验收门。
 > 制定日期：2026-07-29。
-> 最近已提交基线：`f2dafa11 fix: 修复功法树与储物手镯交互`；F-C3 已完成并记录，下一批为 F-D。
-> 初始版本基线：`mod_version=0.2.232`；当前执行版本：`mod_version=0.2.238`。
+> 最近已提交基线：`ae4802ed fix: 收口丹炉显示与悬浮提示层级`；F-D 已完成并记录，下一批为 F-E1/F-E2。
+> 初始版本基线：`mod_version=0.2.232`；当前执行版本：`mod_version=0.2.240`。
 > 网络基线：`ModNetwork.PROTOCOL_VERSION=30`。
-> 最近完整自动验证：完整单元测试 1,205 项通过；最终 Gradle 构建结果记录在本批更新记录中。
+> 最近完整自动验证：完整单元测试 1,210 项通过；最终 Gradle 构建结果记录在本批更新记录中。
 > 本文取代原先以 `0.1.57` 为基线的同名旧计划；历史 `master_plan.md` 只作完成轨迹参考，不再作为剩余工作真相。
 
 ## 1. 目标与边界
 
 本计划收口四类剩余工作：
 
-1. 修复已逐行确认的 28 项前端交互问题，其中 13 项已修、13 项待修、2 项需要产品决策或独立协议清理。
+1. 修复已逐行确认的 28 项前端交互问题，其中 21 项已修、5 项待修、1 项需要产品决策、1 项需要独立协议清理。
 2. 为 23 条详细任务、95 个步骤补齐自然玩法证据，深化对话世界动作，并完成阴阳窟专属玩法循环。
 3. 收口维度分类、本命法宝语义和旧 NPC 存档迁移，消除“模板被误报成待实现”或“兼容入口可被伪造”的长期债务。
 4. 完成当前版本的真实客户端、专服、双客户端、旧档、视觉、性能和边界条件验收。
@@ -61,18 +61,18 @@
 | UI-13 | 中 | `MethodTreeScreen` | 节点按下不破坏拖拽基线 | 已修@0.2.237 |
 | UI-14 | 中 | `MethodTreeScreen` | 重叠节点命中最上层 | 已修@0.2.237 |
 | UI-15 | 中 | `AlchemyFurnaceScreen`、`AlchemyFurnaceMenu` | 空闲炉显示 0 进度和空闲态 | 已修@0.2.238 |
-| UI-16 | 低 | `CultivationStatsScreen` | 同步重建时保留未确认滑条值 | 未修 |
-| UI-17 | 低 | `CultivationStatsScreen`、`BreakthroughService` | 突破双击与恶意重放均只结算一次 | 未修 |
+| UI-16 | 低 | `CultivationStatsScreen` | 同步重建时保留未确认滑条值 | 已修@0.2.240 |
+| UI-17 | 低 | `CultivationStatsScreen`、`BreakthroughService` | 突破双击与恶意重放均只结算一次 | 已修@0.2.240 |
 | UI-18 | 低 | 各行列表屏 | 只有左键可以选中列表行 | 已修@0.2.234 |
 | UI-19 | 低 | `DialogueScreen` | resize 不重播 NPC 招呼语音 | 已修@0.2.236 |
 | UI-20 | 低 | `WorldpackScreen` | 秘境行按钮提供真实的界门引导或条件反馈 | 待产品收口 |
-| UI-21 | 低 | `AuctionHallScreen` | resize 保留当前页 | 未修 |
+| UI-21 | 低 | `AuctionHallScreen` | resize 保留当前页 | 已修@0.2.240 |
 | UI-22 | 低 | `SectScreen`、`ShopScreen`、`AuctionScreen` | 删除不可达旧屏及废弃开屏包 | 独立协议批次 |
-| UI-23 | 低 | `ClientEvents` | 背包“修仙”按钮跟随 `guiLeft/guiTop` 和配方书位移 | 未修 |
+| UI-23 | 低 | `ClientEvents` | 背包“修仙”按钮跟随 `guiLeft/guiTop` 和配方书位移 | 已修@0.2.240 |
 | UI-24 | 低 | `MethodTreeScreen` | 关屏/其他按键不丢最后一次布局偏移 | 已修@0.2.237 |
 | UI-25 | 低 | `MethodTreeScreen` | 零位移点击不发送布局包 | 已修@0.2.237 |
 | UI-26 | 低 | `MethodTreeScreen` | 切换流派后详情滚动归零 | 已修@0.2.237 |
-| UI-27 | 低 | `LifeSkillTreeScreen` | 内容高度与实际行间距一致，不滚过末行 | 未修 |
+| UI-27 | 低 | `LifeSkillTreeScreen` | 内容高度与实际行间距一致，不滚过末行 | 已修@0.2.240 |
 | UI-28 | 低 | `AlchemyFurnaceScreen` | 悬浮文字绘制在光标携带物品下方 | 已修@0.2.238 |
 
 ### 3.2 玩法、迁移和验收台账
@@ -250,19 +250,27 @@ NPC 迁移  ─┘
 
 人工验收：空闲/开始/进行中/完成边界和槽位悬浮提示仍需在最终真实客户端 QA 抽检。
 
-### F-D：其余低危交互
+### F-D：其余低危交互（已完成@0.2.240）
 
 范围：UI-16、UI-17、UI-21、UI-23、UI-27。规模：M。协议：不变。
 
 实施：
 
-- 修炼滑条把 `pendingScale` 视为未确认本地状态；服务端确认 revision 到达后才覆盖。
-- 突破按钮点击后禁用至结果同步或安全超时；`BreakthroughService` 同时用服务端 tick/revision 闩在任何扣料前拒绝短时间重复请求，不能只依赖可信客户端。
-- 拍卖屏仅首次打开请求第 0 页，resize 和控件重建保留当前页；超出新页数时才钳制。
-- 背包“修仙”按钮以 `InventoryScreen.getGuiLeft()/getGuiTop()` 为锚，配方书开合和窗口 resize 后重算。
-- 生活技能树的测量间距与渲染间距使用同一常量，最大滚动精确落在最后一行。
+- 修炼滑条把 `pendingScale` 传过控件重建；服务端快照未确认前不会覆盖本地值，确认值到达后才清除 pending。
+- 突破按钮收到请求后禁用至快照对象变化或 40 tick 超时；`BreakthroughService` 在服务端持久数据中写入 10 tick 闩，在扣料前拒绝短窗口重复请求。
+- 拍卖屏首次打开请求第 0 页，后续 `init()`（包括 resize）复用客户端当前页，服务端页数变化时仍由快照钳制。
+- 背包“修仙”按钮以 `InventoryScreen.getGuiLeft()/getGuiTop()` 为锚，GUI 原点随配方书开合和窗口 resize 重新读取。
+- 生活技能树用统一的行距、段间距和上下 inset 计算内容高度，最大滚动把末行停在底部 inset 内。
 
-自动化：扩充 `CultivationStatsInteractionTest`、突破服务测试、`MarketAuctionPagingTest`、`ScreenLayoutTest`；新增服务端重复突破不扣第二份资源的回归。
+自动化：扩充 `CultivationStatsInteractionTest`、`BreakthroughRequestGateTest`、`MarketAuctionPagingTest`、`ScreenLayoutTest`；覆盖滑条重建、客户端突破闩、服务端 tick 边界、拍卖 resize、GUI 原点和末行滚动高度。
+
+完成记录：F-D 五项均已落地；客户端突破闩在快照同步或 40 tick 超时后恢复，服务端 10 tick 请求闩在资源扣除前拒绝重复包；拍卖页 resize 不再回到第 0 页；背包入口改用原版 GUI 原点；生活技能树内容高度与上下 inset 精确闭合。
+
+版本与协议：`mod_version=0.2.238 -> 0.2.240`。首次 0.2.239 构建后补充客户端突破闩触发版本指纹门禁，最终按规则递增至 0.2.240；未改变网络包字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。备份：`.bak/20260729_0.2.239_f_d/`。
+
+最终构建：`./gradlew build --no-daemon --max-workers=1 --console=plain` 成功，1,210 项测试 failure/error/skipped 均为 0；JAR SHA-256 为 `c61063bc3a214328cc6901b163740fd0971153b6ba6f9ee7e13a313d431d95f7`。
+
+人工验收：滑条同步、突破重复点击、拍卖 resize、配方书开合、生活技能树末行仍需最终真实客户端 QA 抽检。
 
 ### F-E1：秘境入口按钮产品收口
 
@@ -502,7 +510,7 @@ NPC 迁移  ─┘
 
 | 批次 | `mod_version` | 协议默认判断 |
 |---|---|---|
-| 本计划文档 | 不变，当前执行版本为 `0.2.236` | 保持 30 |
+| 本计划文档 | 不变，当前执行版本为 `0.2.240` | 保持 30 |
 | F-A 至 F-D | 每个已提交代码批 +1 patch | 不改包格式则保持当前协议 |
 | F-E1 | +1 patch | 复用现有字段则不升；新增/改字段则升 |
 | F-E2 旧屏清理 | +1 patch | 删除消息注册，必须升协议 |
@@ -553,5 +561,8 @@ NPC 迁移  ─┘
 - 产品决策项 UI-20、仙界/DLC 范围和任何直接秘境入口扩权，必须先记录用户决定。
 - 被暂缓项必须写明原因、重新评估条件和玩家可见降级行为。
 - 计划完成后，归档过期的 `master_plan.md`/旧 smoke 文档入口，确保新代理只从当前真相开始。
+
+> CURRENT TRUTH 2026-07-29: `0.2.240` 已完成后续实施计划 F-D（UI-16、UI-17、UI-21、UI-23、UI-27）。修炼滑条 pending 值跨控件重建保留并在服务端快照确认后清除；突破客户端 40 tick 闩与服务端 10 tick 资源扣除前请求闩同时生效；拍卖大厅 resize 复用当前页；背包修仙入口跟随原版 GUI 原点；生活技能树内容高度包含实际段落/行距和上下 inset，末行不再被多滚。`CultivationStatsInteractionTest`、`BreakthroughRequestGateTest`、`MarketAuctionPagingTest`、`ScreenLayoutTest` 及普通构建通过，完整测试 1,210 项且 failure/error/skipped 均为 0。生成档案按 `spell -> visual` 顺序刷新，2,292/5,727 profiles 检查通过。`mod_version=0.2.240`，协议 `30` 保持不变，回滚目录为 `.bak/20260729_0.2.239_f_d/`。下一实施入口为 F-E1/UI-20 产品收口与独立协议批次 F-E2/UI-22；F-D 及此前各批次仍需最终真实客户端 QA。提交：待本批本地提交完成。
+> 以下 `CURRENT TRUTH` 条目为历史批次记录，不代表当前实施入口。
 
 > CURRENT TRUTH 2026-07-29: `0.2.237` 已完成 F-C2（UI-12 至 UI-14、UI-24 至 UI-26）。储物手镯客户端允许同一支持物品的 NBT 实例替换以保持预测，服务端继续锚定打开时的实例并校验连续授权；功法树节点按下候选、拖动阈值、释放提交和重叠倒序命中已收口；关屏/按键布局冲刷幂等，零位移点击不发包，切换流派详情滚动归零。`ArtifactStorageAuthorityTest`、`DragDualScrollTest` 及生成档案 `spell -> visual` 检查通过。`mod_version=0.2.237`，协议 `30` 保持不变，回滚目录为 `.bak/20260729_0.2.237_f_c2/`。下一代码批为 F-C3（UI-15、UI-28）；真实客户端手镯预测、图节点交互和布局重开验收仍留在最终 QA。

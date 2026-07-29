@@ -22,4 +22,20 @@ class CultivationStatsInteractionTest {
         assertTrue(CultivationStatsScreen.shouldSendMovementScale(0.50D, 0.50D, 0.55D));
         assertTrue(CultivationStatsScreen.shouldSendMovementScale(0.60D, 0.50D, 0.55D));
     }
+
+    @Test
+    void movementScaleKeepsPendingValueWhenSliderIsRebuilt() {
+        assertEquals(0.75D, CultivationStatsScreen.initialMovementScale(0.20D, 0.75D), 0.0001D);
+        assertEquals(0.20D, CultivationStatsScreen.initialMovementScale(0.20D, Double.NaN), 0.0001D);
+        assertEquals(0.20D, CultivationStatsScreen.initialMovementScale(0.20D, Double.POSITIVE_INFINITY), 0.0001D);
+    }
+
+    @Test
+    void breakthroughButtonWaitsForSyncBeforeAllowingAnotherRequest() {
+        assertTrue(CultivationStatsScreen.breakthroughRequestCanStart(-1));
+        assertFalse(CultivationStatsScreen.breakthroughRequestCanStart(0));
+        Object before = new Object();
+        assertFalse(CultivationStatsScreen.breakthroughSyncArrived(before, before));
+        assertTrue(CultivationStatsScreen.breakthroughSyncArrived(before, new Object()));
+    }
 }

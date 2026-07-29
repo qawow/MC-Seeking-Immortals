@@ -318,8 +318,10 @@ public final class ClientEvents {
         @SubscribeEvent
         public static void onScreenInit(ScreenEvent.Init.Post event) {
             if (event.getScreen().getClass() != InventoryScreen.class) return;
+            InventoryScreen inventoryScreen = (InventoryScreen) event.getScreen();
             InventoryEntryLayout layout = inventoryEntryLayout(
-                    event.getScreen().width, event.getScreen().height);
+                    inventoryScreen.getGuiLeft(), inventoryScreen.getGuiTop(),
+                    inventoryScreen.width, inventoryScreen.height);
             event.addListener(ImmortalButton.secondary(layout.x(), layout.y(), layout.width(), layout.height(),
                     Component.translatable("screen.seeking_immortals.cultivation_stats.tab"), button -> {
                         Minecraft minecraft = Minecraft.getInstance();
@@ -331,13 +333,20 @@ public final class ClientEvents {
     }
 
     static InventoryEntryLayout inventoryEntryLayout(int screenWidth, int screenHeight) {
+        int guiLeft = Math.max(0, (screenWidth - 176) / 2);
+        int guiTop = Math.max(0, (screenHeight - 166) / 2);
+        return inventoryEntryLayout(guiLeft, guiTop, screenWidth, screenHeight);
+    }
+
+    static InventoryEntryLayout inventoryEntryLayout(int guiLeft, int guiTop,
+                                                     int screenWidth, int screenHeight) {
         int margin = 2;
         int buttonWidth = Math.min(42, Math.max(1, screenWidth - margin * 2));
         int buttonHeight = Math.min(18, Math.max(1, screenHeight - margin * 2));
         int maxX = Math.max(margin, screenWidth - buttonWidth - margin);
         int maxY = Math.max(margin, screenHeight - buttonHeight - margin);
-        int x = Math.max(margin, Math.min(screenWidth / 2 - 88, maxX));
-        int y = Math.max(margin, Math.min(screenHeight / 2 - 104, maxY));
+        int x = Math.max(margin, Math.min(guiLeft, maxX));
+        int y = Math.max(margin, Math.min(guiTop - buttonHeight - 2, maxY));
         return new InventoryEntryLayout(x, y, buttonWidth, buttonHeight);
     }
 

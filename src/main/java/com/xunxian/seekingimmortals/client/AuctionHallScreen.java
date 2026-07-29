@@ -24,6 +24,7 @@ public class AuctionHallScreen extends AbstractJournalContainerScreen<AuctionHal
     private final Map<String, ImmortalButton> bidButtons = new HashMap<>();
     private long observedRevision = Long.MIN_VALUE;
     private int observedPage = -1;
+    private boolean initialized;
     private static final int BID_REQUEST_TIMEOUT_TICKS = 40;
 
     public AuctionHallScreen(AuctionHallMenu menu, Inventory inv, Component title) {
@@ -38,9 +39,11 @@ public class AuctionHallScreen extends AbstractJournalContainerScreen<AuctionHal
 
     @Override
     protected void init() {
+        int requestedPage = pageForInit(initialized, ClientAuctionLadderData.get().page());
         super.init();
         ModNetwork.CHANNEL.sendToServer(new AuctionActionPacket(
-                AuctionActionPacket.ACTION_PAGE, "0", menu.accessToken()));
+                AuctionActionPacket.ACTION_PAGE, Integer.toString(requestedPage), menu.accessToken()));
+        initialized = true;
         rebuildButtons();
     }
 
@@ -314,6 +317,10 @@ public class AuctionHallScreen extends AbstractJournalContainerScreen<AuctionHal
 
     static int nextPage(int page) {
         return Math.max(0, page + 1);
+    }
+
+    static int pageForInit(boolean initialized, int currentPage) {
+        return initialized ? Math.max(0, currentPage) : 0;
     }
 
     private void drawLots(GuiGraphics graphics, HallLayout layout, int mouseX, int mouseY) {

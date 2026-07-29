@@ -50,6 +50,7 @@
   "command.seeking_immortals.breakthrough.fail": "Breakthrough failed: spiritual power/cultivation is insufficient or bottleneck remains. Failures increase guarantee.",
   "key.seeking_immortals.breakthrough": "Attempt Breakthrough",
   "message.seeking_immortals.breakthrough.no_data": "Unable to read your cultivation data.",
+  "message.seeking_immortals.breakthrough.request_pending": "The breakthrough request is being settled; wait %s ticks.",
   "message.seeking_immortals.breakthrough.not_at_cap": "Cultivation has not reached the current bottleneck: %s/%s.",
   "message.seeking_immortals.breakthrough.need_resource": "Breakthrough requires the matching realm pill, complete five-element foundation, or pre-consumed breakthrough aid.",
   "message.seeking_immortals.breakthrough.preview": "Breakthrough preview: final success chance %s%%.",

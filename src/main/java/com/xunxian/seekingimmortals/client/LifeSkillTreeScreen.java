@@ -15,6 +15,9 @@ public class LifeSkillTreeScreen extends AbstractJournalScreen {
     private static final int SECTION_HEADER_HEIGHT = 18;
     private static final int SKILL_ROW_HEIGHT = 52;
     private static final int SKILL_ROW_GAP = 4;
+    private static final int SECTION_GAP = 6;
+    private static final int CONTENT_INSET_TOP = 5;
+    private static final int CONTENT_INSET_BOTTOM = 7;
 
     private static final SkillType[] LIFE_SKILLS = {
             SkillType.ALCHEMY,
@@ -46,7 +49,7 @@ public class LifeSkillTreeScreen extends AbstractJournalScreen {
         super(Component.translatable("screen.seeking_immortals.skill_tree.title"));
         this.parent = parent;
         this.listPanel.setScrollStep(18)
-                .setContentInsets(5, 5, 7, 0)
+                .setContentInsets(CONTENT_INSET_TOP, CONTENT_INSET_TOP, 7, CONTENT_INSET_BOTTOM)
                 .setScrollbarInsetRight(3);
     }
 
@@ -107,7 +110,7 @@ public class LifeSkillTreeScreen extends AbstractJournalScreen {
                         int nextY = renderSection(g, contentX, contentY, contentWidth,
                                 Component.translatable("screen.seeking_immortals.skill_tree.section.life"),
                                 LIFE_SKILLS, mouseX, mouseY);
-                        renderSection(g, contentX, nextY + 6, contentWidth,
+                        renderSection(g, contentX, nextY + SECTION_GAP, contentWidth,
                                 Component.translatable("screen.seeking_immortals.skill_tree.section.special"),
                                 SPECIAL_SKILLS, mouseX, mouseY);
                     }
@@ -188,9 +191,11 @@ public class LifeSkillTreeScreen extends AbstractJournalScreen {
     }
 
     static int calculateContentHeight(boolean columns) {
-        int lifeHeight = sectionHeight(LIFE_SKILLS.length);
-        int specialHeight = sectionHeight(SPECIAL_SKILLS.length);
-        return columns ? Math.max(lifeHeight, specialHeight) + 10 : lifeHeight + specialHeight + 16;
+        int lifeHeight = sectionBodyHeight(LIFE_SKILLS.length);
+        int specialHeight = sectionBodyHeight(SPECIAL_SKILLS.length);
+        int bodyHeight = columns ? Math.max(lifeHeight, specialHeight)
+                : lifeHeight + SECTION_GAP + specialHeight;
+        return Math.max(1, CONTENT_INSET_TOP + bodyHeight + CONTENT_INSET_BOTTOM);
     }
 
     static int clampScroll(int requested, int contentHeight, int viewportHeight) {
@@ -210,8 +215,10 @@ public class LifeSkillTreeScreen extends AbstractJournalScreen {
         return 100 + Math.max(0, level) * 50;
     }
 
-    private static int sectionHeight(int entries) {
-        return SECTION_HEADER_HEIGHT + Math.max(0, entries) * (SKILL_ROW_HEIGHT + SKILL_ROW_GAP);
+    private static int sectionBodyHeight(int entries) {
+        int count = Math.max(0, entries);
+        int advance = SECTION_HEADER_HEIGHT + count * (SKILL_ROW_HEIGHT + SKILL_ROW_GAP);
+        return Math.max(SECTION_HEADER_HEIGHT, advance - (count > 0 ? SKILL_ROW_GAP : 0));
     }
 
     private int renderSection(GuiGraphics graphics, int x, int y, int width, Component heading,

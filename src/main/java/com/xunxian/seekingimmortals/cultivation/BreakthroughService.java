@@ -28,6 +28,9 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 public final class BreakthroughService {
+    private static final String BREAKTHROUGH_REQUEST_GATE_UNTIL =
+            "SeekingImmortalsBreakthroughRequestGateUntil";
+    private static final long BREAKTHROUGH_REQUEST_GATE_TICKS = 10L;
     private static final Set<UUID> ACTIVE_EXTREME_DEATHS = ConcurrentHashMap.newKeySet();
     private static final Set<UUID> COMMITTED_EXTREME_DEATHS = ConcurrentHashMap.newKeySet();
 
@@ -43,8 +46,26 @@ public final class BreakthroughService {
         if (player.isSpectator()) {
             return;
         }
+        long now = player.serverLevel().getGameTime();
+        long gateUntil = player.getPersistentData().getLong(BREAKTHROUGH_REQUEST_GATE_UNTIL);
+        if (isBreakthroughRequestBlocked(now, gateUntil)) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.breakthrough.request_pending",
+                    Math.max(1L, gateUntil - now)), true);
+            return;
+        }
+        player.getPersistentData().putLong(BREAKTHROUGH_REQUEST_GATE_UNTIL,
+                nextBreakthroughRequestGate(now));
         CultivationHelper.get(player).ifPresentOrElse(cultivation -> attempt(player, cultivation),
                 () -> player.displayClientMessage(Component.translatable("message.seeking_immortals.breakthrough.no_data"), true));
+    }
+
+    static boolean isBreakthroughRequestBlocked(long now, long gateUntil) {
+        return gateUntil > now;
+    }
+
+    static long nextBreakthroughRequestGate(long now) {
+        return now + BREAKTHROUGH_REQUEST_GATE_TICKS;
     }
 
     private static void attempt(ServerPlayer player, PlayerCultivation cultivation) {

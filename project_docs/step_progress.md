@@ -9676,3 +9676,18 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Version/protocol   Done   `mod_version=0.2.237 -> 0.2.238`；未改网络字段、顺序、类型、注册和频道行为，`ModNetwork.PROTOCOL_VERSION=30` 保持不变。
   Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1 --console=plain` 通过，`:aiPreflight` 记录 `mod_version=0.2.238`，`BUILD SUCCESSFUL in 1m 35s`；完整测试 1,205 项，failure/error/skipped 均为 0；JAR SHA-256 为 `c7f7197035b95c06f2b1023a60207e5c806b832f111de1cff61fa8e64af14029`。
   Next implementation   Pending   F-D：UI-16、UI-17、UI-21、UI-23、UI-27；F-C3 丹炉空闲态、进度和 tooltip 仍需最终真实客户端 QA。
+## 584. 2026-07-29 `0.2.240` F-D 低危交互收口
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   执行计划 F-D，范围为 UI-16、UI-17、UI-21、UI-23、UI-27；备份位于 `.bak/20260729_0.2.239_f_d/`，用户既有 `CLAUDE.md` 与 `project_docs/frontend_interaction_audit_0.2.198.md` 未纳入。
+  Cultivation slider   Done   `CultivationStatsScreen` 在控件重建时转移 pending 滑条值；服务端快照未确认前保留本地值，确认后才清除。
+  Breakthrough gate   Done   客户端按钮在快照对象变化或 40 tick 超时前禁用；`BreakthroughService` 使用玩家持久数据的 10 tick 服务端闩，在任何资源扣除前拒绝短窗口重复请求。
+  Auction resize   Done   `AuctionHallScreen` 首次初始化请求第 0 页，resize 触发的后续 `init()` 复用当前页；页数变化仍由服务端快照钳制。
+  Inventory entry   Done   背包“修仙”入口改用 `InventoryScreen.getGuiLeft()/getGuiTop()`，配方书位移和窗口 resize 后重新读取原点。
+  Life skill height   Done   `LifeSkillTreeScreen` 使用统一行距、段间距、上下 inset 计算内容高度，末行滚动终点落在底部 inset 内。
+  Tests   Done   `CultivationStatsInteractionTest`、`BreakthroughRequestGateTest`、`MarketAuctionPagingTest`、`ScreenLayoutTest` 通过；完整测试 1,210 项，failure/error/skipped 均为 0。
+  Generated resources   Done   按 `spell -> visual` 顺序刷新两个作者目录，2,292/5,727 profiles 检查通过。
+  Version/protocol   Done   `mod_version=0.2.238 -> 0.2.240`；0.2.239 首次构建后补充客户端闩触发版本门禁，最终递增至 0.2.240；网络字段、顺序、类型、注册和频道行为未改，协议 30 保持不变。
+  Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功，JAR SHA-256 为 `c61063bc3a214328cc6901b163740fd0971153b6ba6f9ee7e13a313d431d95f7`。
+  Next implementation   Pending   F-E1/UI-20 秘境入口按钮产品收口；随后执行 F-E2/UI-22 旧屏删除与协议升级。F-D 及此前各批次的真实客户端 QA 留在最终验收。

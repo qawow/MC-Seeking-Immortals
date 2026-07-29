@@ -52,6 +52,10 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
     private final TabBar<StatsTab> tabBar = new TabBar<>(StatsTab.FOUNDATION);
     private StatsTab activeTab = StatsTab.FOUNDATION;
     private MovementSpeedSlider movementSpeedSlider;
+    private double pendingMovementScale = Double.NaN;
+    private ImmortalButton breakthroughButton;
+    private int breakthroughPendingTicks = -1;
+    private ClientCultivationData.Snapshot breakthroughSnapshot;
     private int renderedContentHeight;
     private int contentRevision = Integer.MIN_VALUE;
 
@@ -85,15 +89,20 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
      * (the old JournalTabButton re-evaluated selection every frame).
      */
     private void rebuildActionWidgets() {
+        if (movementSpeedSlider != null) {
+            pendingMovementScale = movementSpeedSlider.pendingScale();
+        }
         clearWidgets();
         PanelLayout layout = calculateLayout(width, height);
 
         attachTabs(layout);
 
-        addRenderableWidget(ImmortalButton.danger(layout.breakthroughButton().x(), layout.breakthroughButton().y(),
+        breakthroughButton = ImmortalButton.danger(layout.breakthroughButton().x(), layout.breakthroughButton().y(),
                 layout.breakthroughButton().width(), layout.breakthroughButton().height(),
                 Component.translatable("screen.seeking_immortals.cultivation_stats.breakthrough"),
-                button -> ModNetwork.CHANNEL.sendToServer(new AttemptBreakthroughPacket())));
+                button -> requestBreakthrough());
+        breakthroughButton.active = breakthroughRequestCanStart(breakthroughPendingTicks);
+        addRenderableWidget(breakthroughButton);
         addRenderableWidget(ImmortalButton.secondary(layout.methodTreeButton().x(), layout.methodTreeButton().y(),
                 layout.methodTreeButton().width(), layout.methodTreeButton().height(),
                 Component.translatable("screen.seeking_immortals.cultivation_stats.methods"), button -> {
@@ -125,7 +134,7 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
 
         movementSpeedSlider = new MovementSpeedSlider(layout.slider().x(), layout.slider().y(),
                 layout.slider().width(), layout.slider().height(),
-                ClientCultivationData.getSnapshot().movementSpeedScale());
+                ClientCultivationData.getSnapshot().movementSpeedScale(), pendingMovementScale);
         addRenderableWidget(movementSpeedSlider);
         updateSliderVisibility(layout);
     }
@@ -170,6 +179,38 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
         renderedContentHeight = 0;
         contentRevision = Integer.MIN_VALUE;
         super.resize(minecraft, width, height);
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        if (breakthroughPendingTicks < 0) {
+            return;
+        }
+        ClientCultivationData.Snapshot current = ClientCultivationData.getSnapshot();
+        if (breakthroughSyncArrived(breakthroughSnapshot, current)
+                || breakthroughPendingTicks >= BREAKTHROUGH_CLIENT_TIMEOUT_TICKS) {
+            breakthroughPendingTicks = -1;
+            if (breakthroughButton != null) {
+                breakthroughButton.active = true;
+            }
+        } else {
+            breakthroughPendingTicks++;
+        }
+    }
+
+    private static final int BREAKTHROUGH_CLIENT_TIMEOUT_TICKS = 40;
+
+    private void requestBreakthrough() {
+        if (!breakthroughRequestCanStart(breakthroughPendingTicks)) {
+            return;
+        }
+        breakthroughPendingTicks = 0;
+        breakthroughSnapshot = ClientCultivationData.getSnapshot();
+        if (breakthroughButton != null) {
+            breakthroughButton.active = false;
+        }
+        ModNetwork.CHANNEL.sendToServer(new AttemptBreakthroughPacket());
     }
 
     @Override
@@ -289,6 +330,21 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
         return Double.isNaN(pendingScale)
                 ? Math.abs(value - acknowledgedScale) >= 0.0001D
                 : Math.abs(value - pendingScale) >= 0.0001D;
+    }
+
+    static double initialMovementScale(double acknowledgedScale, double pendingScale) {
+        double pending = quantizeMovementScale(pendingScale);
+        return Double.isNaN(pendingScale) || !Double.isFinite(pendingScale)
+                ? quantizeMovementScale(acknowledgedScale)
+                : pending;
+    }
+
+    static boolean breakthroughRequestCanStart(int pendingTicks) {
+        return pendingTicks < 0;
+    }
+
+    static boolean breakthroughSyncArrived(Object before, Object current) {
+        return before != null && current != null && before != current;
     }
 
     static PanelLayout calculateLayout(int screenWidth, int screenHeight) {
@@ -957,10 +1013,16 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
         private double pendingScale = Double.NaN;
         private double acknowledgedScale;
 
-        MovementSpeedSlider(int x, int y, int width, int height, double scale) {
-            super(x, y, width, height, Component.empty(), quantizeMovementScale(scale));
-            acknowledgedScale = value;
+        MovementSpeedSlider(int x, int y, int width, int height, double scale, double pendingScale) {
+            super(x, y, width, height, Component.empty(), initialMovementScale(scale, pendingScale));
+            acknowledgedScale = quantizeMovementScale(scale);
+            this.pendingScale = Double.isFinite(pendingScale)
+                    ? quantizeMovementScale(pendingScale) : Double.NaN;
             updateMessage();
+        }
+
+        double pendingScale() {
+            return pendingScale;
         }
 
         void syncFromSnapshot(double scale) {

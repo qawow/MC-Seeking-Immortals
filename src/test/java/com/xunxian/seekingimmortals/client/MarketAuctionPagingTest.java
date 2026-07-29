@@ -104,6 +104,13 @@ class MarketAuctionPagingTest {
     }
 
     @Test
+    void auctionResizeKeepsCurrentPageInsteadOfRequestingPageZero() {
+        assertEquals(0, AuctionHallScreen.pageForInit(false, 4));
+        assertEquals(4, AuctionHallScreen.pageForInit(true, 4));
+        assertEquals(0, AuctionHallScreen.pageForInit(true, -4));
+    }
+
+    @Test
     void auctionBidAvailabilityWaitsForSyncOrTimeoutInsteadOfAllowingReplay() {
         assertTrue(AuctionHallScreen.canBid(false, false));
         assertFalse(AuctionHallScreen.canBid(false, true));
