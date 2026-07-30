@@ -71,10 +71,44 @@ class DetailedQuestCultivationRouteTest {
         String breakthrough = Files.readString(Path.of("src/main/java/com/xunxian/seekingimmortals/cultivation/BreakthroughService.java"));
         String tribulation = Files.readString(Path.of("src/main/java/com/xunxian/seekingimmortals/cultivation/TribulationService.java"));
         String command = Files.readString(Path.of("src/main/java/com/xunxian/seekingimmortals/command/SeekingImmortalsCommand.java"));
+        String proof = Files.readString(Path.of("src/main/java/com/xunxian/seekingimmortals/quest/DetailedQuestProofService.java"));
+        String runtime = Files.readString(Path.of("src/main/java/com/xunxian/seekingimmortals/quest/DetailedQuestRuntimeService.java"));
         assertTrue(manual.contains("DetailedQuestProofService.recordMethodLayerReached(player, method.id())"));
         assertTrue(breakthrough.contains("DetailedQuestProofService.recordRealmReached(player, result.newRealm())"));
         assertTrue(tribulation.contains("DetailedQuestProofService.recordRealmReached(player, targetRealm)"));
         assertTrue(command.contains("DetailedQuestProofService.adminProve"));
         assertFalse(command.contains("String evidence = \"quest_step_\""));
+        assertTrue(proof.contains("player.hasPermissions(2)"));
+        assertTrue(runtime.contains("progress.stage() != route.step()"));
+        assertTrue(runtime.contains("!catalogRoute.equals(route)"));
+        assertTrue(runtime.contains("verified.step() != progress.stage()"));
+    }
+
+    @Test
+    void realmAndLoginBackfillKeepDelayedTechniqueUnlocksReachable() throws Exception {
+        String service = Files.readString(Path.of(
+                "src/main/java/com/xunxian/seekingimmortals/skill/MethodLayerTechniqueService.java"));
+        String events = Files.readString(Path.of(
+                "src/main/java/com/xunxian/seekingimmortals/event/ModEvents.java"));
+        String breakthrough = Files.readString(Path.of(
+                "src/main/java/com/xunxian/seekingimmortals/cultivation/BreakthroughService.java"));
+        String tribulation = Files.readString(Path.of(
+                "src/main/java/com/xunxian/seekingimmortals/cultivation/TribulationService.java"));
+        assertTrue(service.contains("backfillEligibleTechniques"));
+        assertTrue(events.contains("backfillEligibleTechniques(serverPlayer)"));
+        assertTrue(breakthrough.contains("backfillEligibleTechniques(player)"));
+        assertTrue(tribulation.contains("backfillEligibleTechniques(player)"));
+    }
+
+    @Test
+    void adminProofConversionPreservesTheOriginalProducer() {
+        DetailedQuestProofEvent event = DetailedQuestProofEvent.of(
+                DetailedQuestProofEvent.Type.REGION_ENTER,
+                "region_travel",
+                java.util.Map.of("region", "huangfeng_outer"),
+                "region:huangfeng_outer");
+
+        assertEquals("region_travel", event.asAdmin().producer());
+        assertEquals(DetailedQuestProofEvent.Source.ADMIN, event.asAdmin().source());
     }
 }

@@ -142,6 +142,23 @@ public final class MethodLayerTechniqueService {
         return granted[0];
     }
 
+    /**
+     * Re-checks all learned methods after a realm change or login. Matrix rows can contain
+     * techniques from a higher realm than the method's current layer; those techniques must be
+     * granted later once the player reaches the required realm instead of being lost forever.
+     */
+    public static int backfillEligibleTechniques(ServerPlayer player) {
+        if (player == null) {
+            return 0;
+        }
+        int granted = 0;
+        for (String methodId : com.xunxian.seekingimmortals.catalog.ManualCatalogService.learnedMethodIds(player)) {
+            granted += grantForMethodLayer(player, methodId,
+                    com.xunxian.seekingimmortals.catalog.ManualCatalogService.getMethodLayer(player, methodId));
+        }
+        return granted;
+    }
+
     private static LayerUnlock mappedLayer(String methodId, int actualLayer) {
         if (actualLayer <= 0) {
             return null;

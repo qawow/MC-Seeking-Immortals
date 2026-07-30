@@ -164,6 +164,9 @@ public final class DetailedQuestProofService {
         if (player == null) {
             return rejected("missing_player");
         }
+        if (!player.hasPermissions(2)) {
+            return rejected("permission_denied");
+        }
         DetailedQuestProofCatalog.Route route = DetailedQuestRuntimeService.proofCatalog().find(chainId, step);
         if (route == null) {
             return rejected("unknown_route");

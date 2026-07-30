@@ -233,7 +233,11 @@ public final class DetailedQuestRuntimeService {
             return false;
         }
         DetailedQuestProofCatalog.Route catalogRoute = PROOF_ROUTES.find(route.chainId(), route.step());
-        if (catalogRoute == null || !catalogRoute.eventId().equals(route.eventId())) {
+        if (catalogRoute == null || !catalogRoute.equals(route)) {
+            return false;
+        }
+        Progress progress = progressOf(player, route.chainId());
+        if (!progress.started() || progress.complete() || progress.stage() != route.step()) {
             return false;
         }
         return advanceInternal(player, chainId, evidence, true, route);
@@ -248,6 +252,9 @@ public final class DetailedQuestRuntimeService {
         }
         Progress progress = progressOf(player, chain.id());
         if (!progress.started() || progress.complete() || progress.stage() > chain.steps().size()) {
+            return false;
+        }
+        if (verifiedRoute && (verified == null || verified.step() != progress.stage())) {
             return false;
         }
         Step step = chain.steps().get(progress.stage() - 1);

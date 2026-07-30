@@ -788,6 +788,8 @@ public final class ModEvents {
             cultivation.ensureRootInitialized(event.getEntity().getRandom());
             if (event.getEntity() instanceof ServerPlayer serverPlayer) {
                 unlockConfiguredTechniqueSkills(serverPlayer, cultivation);
+                com.xunxian.seekingimmortals.skill.MethodLayerTechniqueService
+                        .backfillEligibleTechniques(serverPlayer);
             }
             event.getEntity().displayClientMessage(
                     Component.translatable("message.seeking_immortals.login", cultivation.getRealm().getDisplayName(), cultivation.getStage().getDisplayName(), cultivation.getSpiritualPower(), cultivation.getMaxSpiritualPower()), false);

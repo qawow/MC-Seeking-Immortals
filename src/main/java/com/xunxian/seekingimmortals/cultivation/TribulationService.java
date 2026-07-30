@@ -206,6 +206,8 @@ public final class TribulationService {
         int reward = getSuccessResistanceReward(targetRealm);
         cultivation.clearTribulation();
         cultivation.addTribulationResistance(reward);
+        com.xunxian.seekingimmortals.skill.MethodLayerTechniqueService
+                .backfillEligibleTechniques(player);
         // Realm state is only a quest proof after the complete tribulation succeeds.
         DetailedQuestProofService.recordRealmReached(player, targetRealm);
         // Wave43: durable flag for spatial/event requires (tribulation_success).

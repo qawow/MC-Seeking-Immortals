@@ -9742,3 +9742,16 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Version/protocol   Done   `mod_version=0.2.245`；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=31` 保持不变。
   Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功，JAR SHA-256 为 `19bcba6aad691e508b3587647dbc8f7b777aa7db1340be80d617f448e37c8abd`。
   Next implementation   Pending   Q-B-2：地域、维度、秘境和结构事件；其余 Q-B 事件域、D-A、阴阳窟、维度分类、本命法宝、NPC 迁移和最终实机 QA 仍未完成。
+
+## 586. 2026-07-30 `0.2.246` Q-B-1 权限、步骤与延迟解锁硬化
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   收口 Q-B-1 审计缺口；完整回滚位于 `.bak/20260730_232529_q_b_hardening_finalize/`，早期源码备份位于 `.bak/20260730_011500_q_b_hardening/` 与 `.bak/20260730_010000_q_b_1_security/`。用户既有 `CLAUDE.md` 与 `project_docs/frontend_interaction_audit_0.2.198.md` 未纳入。
+  Admin authority   Done   `adminProve` 服务边界自身要求 permission 2；`asAdmin()` 只改变来源类型并保留事件原始 producer，避免未来调用者绕过命令层权限或错配路由生产者。
+  Route authority   Done   验证推进要求路由对象与当前目录完全一致，任务已开始、未完成且当前阶段等于路由步骤；内部推进再次校验步骤，错步骤、伪造路由和过期事件均失败关闭。
+  Technique backfill   Done   登录及真实升境完成后遍历已学功法，回补此前因境界不足而延迟的术法；雷劫境界只在雷劫最终成功后回补。
+  Tests/resources   Done   契约测试覆盖权限、路由一致性、当前步骤、producer 保留和延迟术法回补；两个受控生成目录按 `spell -> visual` 顺序刷新并分别通过 2,292/5,727 profiles 检查。
+  Version/protocol   Done   `mod_version=0.2.245 -> 0.2.246`；未改网络包字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=31` 保持不变。
+  Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功，`:aiPreflight` 记录 `0.2.246`；1,219 项测试 failure/error/skipped 均为 0；JAR SHA-256 为 `b3400910a75b8b480f9ccdc8d4f91688e8cca7166b9032fb09b87ba3fa44c223`。
+  Next implementation   Pending   Q-B-2：地域、维度、秘境和结构事件；Q-B-3 至 Q-B-5、D-A、阴阳窟、维度/本命/NPC 迁移及最终实机签字仍未完成。

@@ -104,6 +104,8 @@ public final class BreakthroughService {
             boolean tribulationStarted = TribulationService.onBreakthroughSuccess(player, cultivation, result);
             if (!tribulationStarted) {
                 SyncCultivationDataPacket.send(player, cultivation);
+                com.xunxian.seekingimmortals.skill.MethodLayerTechniqueService
+                        .backfillEligibleTechniques(player);
                 DetailedQuestProofService.recordRealmReached(player, result.newRealm());
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.breakthrough.success",
                         result.newRealm().getDisplayName(),

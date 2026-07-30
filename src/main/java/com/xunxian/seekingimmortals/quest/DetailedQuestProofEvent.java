@@ -107,7 +107,7 @@ public record DetailedQuestProofEvent(Type type, String producer, Map<String, St
     }
 
     DetailedQuestProofEvent asAdmin() {
-        return new DetailedQuestProofEvent(type, "cultivation", parameters, ownerId, actorId, partyMembers,
+        return new DetailedQuestProofEvent(type, producer, parameters, ownerId, actorId, partyMembers,
                 eventKey, Source.ADMIN, observedLayer);
     }
 
