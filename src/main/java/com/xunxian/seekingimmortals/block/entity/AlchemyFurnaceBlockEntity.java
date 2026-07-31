@@ -569,6 +569,10 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
         }
         com.xunxian.seekingimmortals.item.InventoryDeliveryService.giveOrEnqueue(
                 player, result, "alchemy_furnace_collect");
+        // Q-B-3: the player who retrieves a completed batch has really completed alchemy at
+        // this furnace station; the station id is the server-side furnace tier, never client input.
+        com.xunxian.seekingimmortals.quest.DetailedQuestProofService.recordAlchemyCompleted(
+                player, "alchemy_furnace_g" + Math.min(5, Math.max(1, getFurnaceTier())));
         player.displayClientMessage(Component.translatable("message.seeking_immortals.alchemy_furnace.collected", result.getHoverName(), result.getCount()), false);
         setChanged();
     }

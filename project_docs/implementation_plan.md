@@ -1,11 +1,11 @@
 # 寻仙问道 — `0.2.246` 后续完整实现计划
 
-> 状态：F-A（UI-01 至 UI-05）、F-B（UI-06、UI-18）、F-C1（UI-07 至 UI-11、UI-19）、F-C2（UI-12 至 UI-14、UI-24 至 UI-26）、F-C3（UI-15、UI-28）、F-D（UI-16、UI-17、UI-21、UI-23、UI-27）、F-E1（UI-20）、F-E2（UI-22）、Q-A（95 步证明路由）、Q-B-1（修炼/境界/功法/术法生产者）与 Q-B-2（地域/维度/秘境/结构）已完成并验证；下一实施入口为 Q-B-3（物品/制作/炼丹/炼器/交付）。本文件继续定义剩余工作的实施顺序、边界和验收门。
+> 状态：F-A（UI-01 至 UI-05）、F-B（UI-06、UI-18）、F-C1（UI-07 至 UI-11、UI-19）、F-C2（UI-12 至 UI-14、UI-24 至 UI-26）、F-C3（UI-15、UI-28）、F-D（UI-16、UI-17、UI-21、UI-23、UI-27）、F-E1（UI-20）、F-E2（UI-22）、Q-A（95 步证明路由）、Q-B-1（修炼/境界/功法/术法生产者）、Q-B-2（地域/维度/秘境/结构）与 Q-B-3（物品/制作/炼丹/交付）已完成并验证；下一实施入口为 Q-B-4（击杀/活捕/护送/遭遇/队伍归属）。本文件继续定义剩余工作的实施顺序、边界和验收门。
 > 制定日期：2026-07-29。
-> 最近已提交基线：`7639ace2 fix: 收紧任务证明权限与术法回补`；Q-B-1、其安全硬化与 Q-B-2 已完成并验证，下一批为 Q-B-3。
-> 初始版本基线：`mod_version=0.2.232`；当前执行版本：`mod_version=0.2.248`。
+> 最近已提交基线：`707bc375 feat: 接入地域维度秘境结构的结构化任务证明`；Q-B-1、其安全硬化、Q-B-2 与 Q-B-3 已完成并验证，下一批为 Q-B-4。
+> 初始版本基线：`mod_version=0.2.232`；当前执行版本：`mod_version=0.2.249`。
 > 网络基线：`ModNetwork.PROTOCOL_VERSION=31`。
-> 最近完整自动验证：1,235 项测试通过，failure/error/skipped 均为 0；`0.2.248` 完整 Gradle 构建结果记录在本批更新记录中。
+> 最近完整自动验证：1,247 项测试通过，failure/error/skipped 均为 0；`0.2.249` 完整 Gradle 构建结果记录在本批更新记录中。
 > 本文取代原先以 `0.1.57` 为基线的同名旧计划；历史 `master_plan.md` 只作完成轨迹参考，不再作为剩余工作真相。
 
 ## 1. 目标与边界
@@ -393,7 +393,11 @@ NPC 迁移  ─┘
 
 #### Q-B-2：地域、维度、秘境与结构生产者（已完成，`0.2.248`）
 
-`DetailedQuestProofEvent` 增加服务端世界上下文（dimensionId/currentRegionId/secretRealmId/sessionId/phase/packedPosition/hasPosition/authorityId）与类型化工厂；校验按域收紧：REGION_ENTER 要求现场地域一致或绑定秘境会话，DIMENSION_ENTER 比较传送完成后的实际维度，STRUCTURE_FORMED 要求目录存在、`isStationFormed` 且只读 `isCommissioned`（不经 `ensureState` 创建状态），SPIRIT_ROOT_TESTED 检查 `isSpiritualRootTested`，深层秘境 ID 只能由绑定会话事件生成。生产点接入：地域/维度传送成功、秘境入口/中/核心/主动退出、`form()` 成功后、`markStructure()` 成型+启用后、测灵石测试成功后。超时与死亡遣返走非主动退出路径。路由分类修正：`spirit_root_test`→SPIRIT_ROOT_TESTED、`tianyuan_garrison_board`→INFO_ACKNOWLEDGED（Q-B-5 可信入口）、`zm_candle`→REGION_ENTER（仅 core 会话事件）、`hy_core`→ITEM_ACQUIRED tai_yang_jing_huo（Q-B-3）。HISTORY_TAG 新记录为含世界上下文的 CompoundTag 并兼容旧 boolean；结构回放重验原维度/原坐标；链启动后立即回放。新增 `DetailedQuestWorldProofRouteTest`（13 项）并更新目录测试；完整构建 1,235 项测试通过；协议保持 `31`。剩余风险：`contribution_stele`/`inner_sect_task_board` 无已注册方块无法成型（对应两步失败关闭，待后续补真实方块）；`tianyuan_garrison_board` 信息确认入口待 Q-B-5；`hy_core` 物品证明待 Q-B-3。
+`DetailedQuestProofEvent` 增加服务端世界上下文（dimensionId/currentRegionId/secretRealmId/sessionId/phase/packedPosition/hasPosition/authorityId）与类型化工厂；校验按域收紧：REGION_ENTER 要求现场地域一致或绑定秘境会话，DIMENSION_ENTER 比较传送完成后的实际维度，STRUCTURE_FORMED 要求目录存在、`isStationFormed` 且只读 `isCommissioned`（不经 `ensureState` 创建状态），SPIRIT_ROOT_TESTED 检查 `isSpiritualRootTested`，深层秘境 ID 只能由绑定会话事件生成。生产点接入：地域/维度传送成功、秘境入口/中/核心/主动退出、`form()` 成功后、`markStructure()` 成型+启用后、测灵石测试成功后。超时与死亡遣返走非主动退出路径。路由分类修正：`spirit_root_test`→SPIRIT_ROOT_TESTED、`tianyuan_garrison_board`→INFO_ACKNOWLEDGED（Q-B-5 可信入口）、`zm_candle`→REGION_ENTER（仅 core 会话事件）、`hy_core`→ITEM_ACQUIRED tai_yang_jing_huo（Q-B-3）。HISTORY_TAG 新记录为含世界上下文的 CompoundTag 并兼容旧 boolean；结构回放重验原维度/原坐标；链启动后立即回放。新增 `DetailedQuestWorldProofRouteTest`（13 项）并更新目录测试；完整构建 1,235 项测试通过；协议保持 `31`。剩余风险：`contribution_stele`/`inner_sect_task_board` 无已注册方块无法成型（对应两步失败关闭，待后续补真实方块）；`tianyuan_garrison_board` 信息确认入口待 Q-B-5。
+
+#### Q-B-3：物品获取、制作、炼丹与交付生产者（已完成，`0.2.249`）
+
+注册 6 个故事载体（`tai_yang_jing_huo`、`five_cold_flames`、`silver_tadpole_script`、`dragon_scale_fruit`、`blank_letter`、`gray_realm_clue`）补齐 ITEM_ACQUIRED/ITEM_DELIVERED 路由的真实载体；`itemsProvingToken` 纯映射把路由令牌解析为真实规范物品（别名折叠与概念令牌显式映射，身份规则仅对真实载体生效，概念令牌失败关闭）。ITEM_ACQUIRED/CRAFT_COMPLETED/ITEM_DELIVERED 自然事件要求玩家真实持有可证明物品（服务端背包扫描），历史回放只使用服务端记录事实；ALCHEMY_COMPLETED 按站台别名等价校验。生产点：`onItemPickup`→`recordItemAcquired`、`onItemCrafted`→`recordItemCrafted`（取代旧 `recordAndAdvance` 字符串路径）、`AlchemyFurnaceBlockEntity.giveOutput`→`recordAlchemyCompleted`、turnin_quests→`recordItemDelivered`（真实持有 + giver/place NPC 匹配）。`record()` 账本去重检查移至一步/链槽位之前，court_hunt_gray 第 2/4 步同物品双交付不再互相遮蔽。HISTORY_TAG 物品记录携带 `Item`/`Station` 字段。新增 `DetailedQuestItemProofRouteTest`（12 项），完整构建 1,247 项测试通过；协议保持 `31`。剩余风险：`tianyuan_garrison_board` 信息确认入口待 Q-B-5；Q-B-4/Q-B-5 事件域未接入；新载体掉落/配方/商店来源由作者资料驱动。
 
 ### D-A：对话世界动作分型
 

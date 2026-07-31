@@ -1,5 +1,6 @@
 package com.xunxian.seekingimmortals.quest;
 
+import com.xunxian.seekingimmortals.catalog.ItemCatalogService;
 import com.xunxian.seekingimmortals.catalog.ManualCatalogService;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
@@ -17,6 +18,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.item.ItemStack;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -46,6 +48,21 @@ public final class DetailedQuestProofService {
             "blood_forbidden", "bf_outer_mist", "bf_water_jiao", "blood_forbidden_exit_array",
             "island_xutian_window", "dajin_kunwu_approach", "fallen_demon_rift", "zm_inner", "zm_candle",
             "yinyang_cave_gate", "gh_approach");
+
+    /**
+     * Q-B-3 authored item tokens -> real canonical items that can prove them. Tokens that are
+     * already canonical items (or alias-collapse to one) need no entry here; the identity rule
+     * covers them. Only server-observed pickups/crafts/deliveries of these canonical items may
+     * produce the corresponding proof.
+     */
+    static final Map<String, Set<String>> PROOF_ITEM_MAPPINGS = Map.ofEntries(
+            Map.entry("spirit_herb", Set.of("blood_forbidden_herb", "spirit_herb_bundle")),
+            Map.entry("xutian_map_fragment", Set.of("void_palace_map_fragment")),
+            Map.entry("survival_preparation", Set.of(
+                    "spirit_recovery_pill", "detox_minor_pill", "escape_talisman", "fire_talisman", "speed_talisman")),
+            Map.entry("fire_resist_ready", Set.of("yang_flame_talisman")),
+            Map.entry("fire_toad_resistance", Set.of("yang_flame_talisman", "detox_minor_pill")),
+            Map.entry("realm_gate_token", Set.of("spirit_realm_gate_pass", "spirit_realm_gate_voucher")));
 
     public enum Status {
         ACCEPTED,
@@ -85,6 +102,14 @@ public final class DetailedQuestProofService {
         boolean duplicate = false;
         Set<String> handledChains = new LinkedHashSet<>();
         for (DetailedQuestProofCatalog.Route route : candidates) {
+            String ledgerKey = ledgerKey(route, event);
+            // Ledger check first: an already-proven route must not consume the one-step-per-chain
+            // slot, otherwise a later same-chain route (e.g. court_hunt_gray step 2/4 both
+            // delivering gray_realm_clue) would be permanently shadowed.
+            if (hasLedger(player, ledgerKey)) {
+                duplicate = true;
+                continue;
+            }
             if (!handledChains.add(route.chainId())) {
                 continue;
             }
@@ -93,11 +118,6 @@ public final class DetailedQuestProofService {
             }
             DetailedQuestRuntimeService.Progress progress =
                     DetailedQuestRuntimeService.progressOf(player, route.chainId());
-            String ledgerKey = ledgerKey(route, event);
-            if (hasLedger(player, ledgerKey)) {
-                duplicate = true;
-                continue;
-            }
             if (!progress.started() || progress.complete() || progress.stage() != route.step()) {
                 if (route.allowHistoryReplay()) {
                     stored |= storeHistory(player, route, event);
@@ -146,6 +166,99 @@ public final class DetailedQuestProofService {
     /** Strict spiritual-root test proof; only the appraisal producer may call this. */
     public static Result recordSpiritualRootTested(ServerPlayer player) {
         return record(player, DetailedQuestProofEvent.spiritualRootTested());
+    }
+
+    /** Item pickup proof; only the server-observed pickup event may call this. */
+    public static Result recordItemAcquired(ServerPlayer player, String itemId) {
+        return recordWithCanonicalItem(player, itemId, "acquire");
+    }
+
+    /** Craft-completion proof; only the server crafting event may call this. */
+    public static Result recordItemCrafted(ServerPlayer player, String itemId) {
+        return recordWithCanonicalItem(player, itemId, "craft");
+    }
+
+    /** Alchemy-batch completion proof at a real furnace station. */
+    public static Result recordAlchemyCompleted(ServerPlayer player, String stationId) {
+        if (player == null) {
+            return rejected("missing_player");
+        }
+        String station = normalize(stationId);
+        if (station.isBlank()) {
+            return rejected("missing_station");
+        }
+        return record(player, DetailedQuestProofEvent.alchemyCompleted(station));
+    }
+
+    /**
+     * Item turn-in proof. The player must really hold an item that proves the delivered route
+     * token and the delivering npc must match the chain giver or current step place.
+     */
+    public static Result recordItemDelivered(ServerPlayer player, String npcId) {
+        if (player == null) {
+            return rejected("missing_player");
+        }
+        String npc = normalize(npcId);
+        Result last = rejected("no_delivery_route");
+        boolean anyAccepted = false;
+        int advancedTotal = 0;
+        for (DetailedQuestRuntimeService.Progress progress : DetailedQuestRuntimeService.listProgress(player)) {
+            if (!progress.started() || progress.complete()) {
+                continue;
+            }
+            DetailedQuestProofCatalog.Route route = DetailedQuestRuntimeService.proofCatalog()
+                    .find(progress.id(), progress.stage());
+            if (route == null || !"ITEM_DELIVERED".equals(route.proofType())) {
+                continue;
+            }
+            DetailedQuestRuntimeService.Chain chain = DetailedQuestRuntimeService.find(progress.id()).orElse(null);
+            if (chain == null || !deliveryNpcMatches(chain, progress.stage(), npc)) {
+                continue;
+            }
+            String held = heldProvingItem(player, route.parameter("item"));
+            if (held == null) {
+                continue;
+            }
+            Result result = record(player, DetailedQuestProofEvent.itemDelivered(held));
+            if (result.accepted()) {
+                anyAccepted = true;
+            }
+            advancedTotal = Math.max(advancedTotal, result.advanced());
+            last = result;
+        }
+        if (anyAccepted) {
+            return new Result(Status.ACCEPTED, advancedTotal, "item_delivered");
+        }
+        return last;
+    }
+
+    private static Result recordWithCanonicalItem(ServerPlayer player, String itemId, String kind) {
+        if (player == null) {
+            return rejected("missing_player");
+        }
+        if (itemId == null || itemId.isBlank()) {
+            return rejected("missing_item");
+        }
+        String canonical = ItemCatalogService.resolveId(itemId);
+        if (canonical == null || canonical.isBlank()) {
+            return rejected("unknown_item");
+        }
+        DetailedQuestProofEvent event = "craft".equals(kind)
+                ? DetailedQuestProofEvent.itemCrafted(canonical)
+                : DetailedQuestProofEvent.itemAcquired(canonical);
+        return record(player, event);
+    }
+
+    /** Whether the delivering npc may legitimately accept the current step's delivery. */
+    static boolean deliveryNpcMatches(DetailedQuestRuntimeService.Chain chain, int stage, String npcId) {
+        if (chain == null || npcId == null || npcId.isBlank() || stage < 1 || stage > chain.steps().size()) {
+            return false;
+        }
+        String npc = normalize(npcId);
+        if (npc.equals(normalize(chain.giverNpc()))) {
+            return true;
+        }
+        return DetailedQuestRuntimeService.placeTokens(chain.steps().get(stage - 1).place()).contains(npc);
     }
 
     /**
@@ -361,12 +474,114 @@ public final class DetailedQuestProofService {
             if (!route.proofType().equals(event.type().name()) || !route.producer().equals(event.producer())) {
                 continue;
             }
-            if (!route.requiredParams().equals(event.parameters())) {
+            if (!paramsMatch(route, event)) {
                 continue;
             }
             result.add(route);
         }
         return result;
+    }
+
+    /**
+     * Route parameters normally match exactly. Item routes additionally accept any canonical
+     * item that is a declared prover of the authored route token (e.g. acquired
+     * {@code water_pearl} proves the {@code jiao_pearl} token), so alias and concept tokens stay
+     * honest without trusting client strings.
+     */
+    private static boolean paramsMatch(DetailedQuestProofCatalog.Route route,
+                                       DetailedQuestProofEvent event) {
+        if (route.requiredParams().equals(event.parameters())) {
+            return true;
+        }
+        if (!isItemRoute(route.proofType())) {
+            return false;
+        }
+        String key = route.requiredParams().keySet().iterator().next();
+        return routeItemMatches(route.requiredParams().get(key), event.parameters().get(key));
+    }
+
+    /** Pure rule shared by validation and tests: can the acquired/delivered item prove the token? */
+    static boolean routeItemMatches(String routeItemToken, String eventItemId) {
+        if (routeItemToken == null || eventItemId == null) {
+            return false;
+        }
+        String normalized = normalize(eventItemId);
+        if (normalized.isBlank() || itemsProvingToken(routeItemToken).isEmpty()) {
+            return false;
+        }
+        if (itemsProvingToken(routeItemToken).contains(normalized)) {
+            return true;
+        }
+        String canonical = ItemCatalogService.resolveId(normalized);
+        return canonical != null && itemsProvingToken(routeItemToken).contains(canonical);
+    }
+
+    private static boolean isItemRoute(String proofType) {
+        return "ITEM_ACQUIRED".equals(proofType) || "CRAFT_COMPLETED".equals(proofType)
+                || "ITEM_DELIVERED".equals(proofType);
+    }
+
+    /** Canonical items whose server-observed acquisition/craft/delivery proves the route token. */
+    static Set<String> itemsProvingToken(String routeItemToken) {
+        String token = normalize(routeItemToken);
+        if (token.isBlank()) {
+            return Set.of();
+        }
+        LinkedHashSet<String> result = new LinkedHashSet<>(PROOF_ITEM_MAPPINGS.getOrDefault(token, Set.of()));
+        String canonical = ItemCatalogService.resolveId(token);
+        if (canonical != null && !canonical.isBlank() && isRealCarrier(canonical)) {
+            result.add(canonical);
+        }
+        return Set.copyOf(result);
+    }
+
+    /** Bulk carriers plus dedicated ModItems registrations that route tokens may resolve to. */
+    private static boolean isRealCarrier(String canonicalId) {
+        return ItemCatalogService.findMeta(canonicalId).isPresent()
+                || REGISTERED_PROOF_CARRIERS.contains(normalize(canonicalId));
+    }
+
+    private static final Set<String> REGISTERED_PROOF_CARRIERS = Set.of(
+            "yin_body_protection_charm", "fire_talisman", "speed_talisman");
+
+    /** True when the player holds any item whose canonical id proves the route token. */
+    static boolean holdsProvingItem(ServerPlayer player, String routeItemToken) {
+        return heldProvingItem(player, routeItemToken) != null;
+    }
+
+    /** Returns the canonical id of a held item that proves the token, or null. */
+    private static String heldProvingItem(ServerPlayer player, String routeItemToken) {
+        if (player == null) {
+            return null;
+        }
+        Set<String> proving = itemsProvingToken(routeItemToken);
+        if (proving.isEmpty()) {
+            return null;
+        }
+        for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
+            var stack = player.getInventory().getItem(i);
+            if (stack.isEmpty()) {
+                continue;
+            }
+            String path = itemPath(stack);
+            if (path.isBlank()) {
+                continue;
+            }
+            String canonical = ItemCatalogService.resolveId(path);
+            if (canonical != null && proving.contains(canonical)) {
+                return canonical;
+            }
+        }
+        return null;
+    }
+
+    private static String itemPath(ItemStack stack) {
+        try {
+            var key = net.minecraftforge.registries.ForgeRegistries.ITEMS.getKey(stack.getItem());
+            return key == null ? "" : normalize(key.getPath());
+        } catch (Throwable ignored) {
+            return "";
+        }
     }
 
     private static boolean authoritativeState(ServerPlayer player,
@@ -394,6 +609,22 @@ public final class DetailedQuestProofService {
             case "REGION_ENTER" -> regionProofAuthoritative(player, route, event);
             case "DIMENSION_ENTER" -> dimensionProofAuthoritative(player, route, event);
             case "STRUCTURE_FORMED" -> structureProofAuthoritative(player, route, event);
+            case "ITEM_ACQUIRED", "CRAFT_COMPLETED", "ITEM_DELIVERED" -> {
+                // Replay uses the server-recorded history fact; natural events require the
+                // player to actually hold an item proving the route token right now.
+                if (event.source() == DetailedQuestProofEvent.Source.HISTORY) {
+                    yield !event.parameter("item").isBlank();
+                }
+                yield holdsProvingItem(player, route.parameter("item"));
+            }
+            case "ALCHEMY_COMPLETED" -> {
+                if (event.parameter("station").isBlank()) {
+                    yield false;
+                }
+                String expected = ItemCatalogService.resolveId(route.parameter("station"));
+                String actual = ItemCatalogService.resolveId(event.parameter("station"));
+                yield expected != null && expected.equals(actual);
+            }
             default -> true;
         };
     }
@@ -546,6 +777,12 @@ public final class DetailedQuestProofService {
         if (event.hasPosition()) {
             entry.putLong("Pos", event.packedPosition());
         }
+        if (isItemRoute(event.type().name()) && !event.parameter("item").isBlank()) {
+            entry.putString("Item", event.parameter("item"));
+        }
+        if ("ALCHEMY_COMPLETED".equals(event.type().name()) && !event.parameter("station").isBlank()) {
+            entry.putString("Station", event.parameter("station"));
+        }
         return entry;
     }
 
@@ -576,6 +813,10 @@ public final class DetailedQuestProofService {
             case "DIMENSION_ENTER" -> DetailedQuestProofEvent.dimensionEntered(tag.getString("Dimension"));
             case "STRUCTURE_FORMED" -> DetailedQuestProofEvent.structureFormed(
                     route.parameter("structure"), tag.getString("Dimension"), tag.getLong("Pos"));
+            case "ITEM_ACQUIRED" -> DetailedQuestProofEvent.itemAcquired(tag.getString("Item"));
+            case "CRAFT_COMPLETED" -> DetailedQuestProofEvent.itemCrafted(tag.getString("Item"));
+            case "ITEM_DELIVERED" -> DetailedQuestProofEvent.itemDelivered(tag.getString("Item"));
+            case "ALCHEMY_COMPLETED" -> DetailedQuestProofEvent.alchemyCompleted(tag.getString("Station"));
             case "METHOD_LAYER_REACHED" -> DetailedQuestProofEvent.methodLayerReached(
                     route.parameter("method"), Math.max(1, tag.getInt("Layer")));
             case "REALM_REACHED" -> {

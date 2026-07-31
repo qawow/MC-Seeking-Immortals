@@ -5659,5 +5659,17 @@
   "message.seeking_immortals.daily_event.reward_combat_required": "Defeat the event encounter before claiming this reward.",
   "message.seeking_immortals.daily_event.reward_inactive": "There is no active daily event reward for this region.",
   "message.seeking_immortals.daily_event.reward_unresolved": "The event reward configuration could not be resolved; the claim remains available.",
-  "message.seeking_immortals.spell.authored.success": "%s cast successfully."
+  "message.seeking_immortals.spell.authored.success": "%s cast successfully.",
+  "item.seeking_immortals.tai_yang_jing_huo": "Sun Essence Fire",
+  "tooltip.seeking_immortals.material.tai_yang_jing_huo": "Sun essence fire tempered in the fire prison; a body-integration fire material.",
+  "item.seeking_immortals.five_cold_flames": "Five Cold Flames",
+  "tooltip.seeking_immortals.material.five_cold_flames": "Five-colored cold flames gathered on the Xiaojigong cold-flame line.",
+  "item.seeking_immortals.silver_tadpole_script": "Silver Tadpole Script",
+  "tooltip.seeking_immortals.material.silver_tadpole_script": "A silver tadpole-script fragment from Man Huzi's cave.",
+  "item.seeking_immortals.dragon_scale_fruit": "Dragon-Scale Fruit",
+  "tooltip.seeking_immortals.material.dragon_scale_fruit": "A dragon-scale fruit guarded by golden jiao in the deep outer sea.",
+  "item.seeking_immortals.blank_letter": "Blank Letter",
+  "tooltip.seeking_immortals.material.blank_letter": "A blank, wordless letter to be delivered to the gray-realm border.",
+  "item.seeking_immortals.gray_realm_clue": "Gray-Realm Clue",
+  "tooltip.seeking_immortals.material.gray_realm_clue": "A clue voucher for gray-realm warrants and inspections."
 }

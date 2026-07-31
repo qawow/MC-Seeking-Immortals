@@ -5659,5 +5659,17 @@
   "message.seeking_immortals.daily_event.reward_combat_required": "该事件需要击败事件遭遇后才能结算奖励。",
   "message.seeking_immortals.daily_event.reward_inactive": "当前地域没有可结算的有效每日事件。",
   "message.seeking_immortals.daily_event.reward_unresolved": "事件奖励配置无法解析，未消耗本次领取机会。",
-  "message.seeking_immortals.spell.authored.success": "%s 施展成功。"
+  "message.seeking_immortals.spell.authored.success": "%s 施展成功。",
+  "item.seeking_immortals.tai_yang_jing_huo": "太阳精火",
+  "tooltip.seeking_immortals.material.tai_yang_jing_huo": "火狱淬炼的太阳精火，合体期火行材料。",
+  "item.seeking_immortals.five_cold_flames": "五寒焰",
+  "tooltip.seeking_immortals.material.five_cold_flames": "小极宫寒焰线采集的五色寒焰。",
+  "item.seeking_immortals.silver_tadpole_script": "银蝌文残页",
+  "tooltip.seeking_immortals.material.silver_tadpole_script": "蛮胡子洞府流传的银蝌文残页。",
+  "item.seeking_immortals.dragon_scale_fruit": "龙鳞果",
+  "tooltip.seeking_immortals.material.dragon_scale_fruit": "外海深域金蛟守护的龙鳞果。",
+  "item.seeking_immortals.blank_letter": "无字信",
+  "tooltip.seeking_immortals.material.blank_letter": "空白无字的信件，需送至灰界边缘。",
+  "item.seeking_immortals.gray_realm_clue": "灰界线索",
+  "tooltip.seeking_immortals.material.gray_realm_clue": "灰界通缉与查缉的线索凭证。"
 }

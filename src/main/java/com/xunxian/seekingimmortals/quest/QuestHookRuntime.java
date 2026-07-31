@@ -348,7 +348,7 @@ public final class QuestHookRuntime {
         }
         tryAdvanceByHook(player, "craft_" + itemId);
         tryAdvanceByHook(player, "refine_" + itemId);
-        DetailedQuestRuntimeService.recordAndAdvance(player, itemId);
+        DetailedQuestProofService.recordItemCrafted(player, itemId);
         if (itemId.contains("pill") || itemId.contains("dan")) {
             tryAdvanceByHook(player, "alchemy_apprentice");
             tryAdvanceByHook(player, "alchemy_loop");
@@ -373,7 +373,7 @@ public final class QuestHookRuntime {
         }
         tryAdvanceByHook(player, "gather_" + itemId);
         tryAdvanceByHook(player, "collect_" + itemId);
-        DetailedQuestRuntimeService.recordAndAdvance(player, itemId);
+        DetailedQuestProofService.recordItemAcquired(player, itemId);
         if (itemId.contains("herb") || itemId.contains("grass") || itemId.contains("spirit_grass")) {
             tryAdvanceByHook(player, "gather_spirit_herb");
         }
@@ -428,6 +428,9 @@ public final class QuestHookRuntime {
                 }
             }
             case "turnin_quests" -> {
+                // Structured delivery proofs first: the player must really hold the delivered
+                // item and hand it to the giver/place npc.
+                DetailedQuestProofService.recordItemDelivered(player, npcId);
                 for (String questId : questIds) {
                     if (DetailedQuestRuntimeService.find(questId).isEmpty()) {
                         tryAdvanceActive(player, questId);

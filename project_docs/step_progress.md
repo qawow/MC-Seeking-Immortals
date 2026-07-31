@@ -9771,3 +9771,20 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Version/protocol   Done   `mod_version=0.2.246 -> 0.2.248`（首次 0.2.247 构建后因路由资源与测试文件同步触发版本指纹门禁，最终递增）；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=31` 保持不变。
   Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功（1m 26s），`:aiPreflight` 记录 `0.2.248`；JAR SHA-256 为 `394ec84847c12f2397375b0f11d48f83aa9b02229554ebceac1fdd7931b9b941`。
   Next implementation   Pending   Q-B-3：物品获取、制作、炼丹、炼器和交付事件；Q-B-4/Q-B-5、D-A、阴阳窟、维度/本命/NPC 迁移及最终实机签字仍未完成。
+
+## 588. 2026-08-01 `0.2.249` Q-B-3 物品获取、制作、炼丹与交付事件结构化证明
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   执行计划 Q-B-3；源码、bulk 目录、双语语言文件、版本和计划/进度/交接/缺口/物品文档回滚位于 `.bak/20260801_034809_q_b_3/`。用户既有 `CLAUDE.md`、`CC-Switch-v3.19.0-Linux-x86_64.deb`、`project_docs/frontend_interaction_audit_0.2.198.md` 与 `issues/` 未纳入本批。
+  New carriers   Done   注册 6 个故事载体：`tai_yang_jing_huo`、`five_cold_flames`、`silver_tadpole_script`、`dragon_scale_fruit`、`blank_letter`、`gray_realm_clue`（bulk 1195 条）；双语名称/说明、生成模型与确定性纹理已补齐。
+  Token mapping   Done   `itemsProvingToken` 纯映射：别名折叠（jiao_pearl→water_pearl、lingzhu_fruit→fire_spirit_fruit）、概念令牌显式映射真实物品（spirit_herb/xutian_map_fragment/survival_preparation/fire_resist_ready/fire_toad_resistance/realm_gate_token），身份规则仅对真实载体生效，概念令牌失败关闭。
+  Authority   Done   ITEM_ACQUIRED/CRAFT_COMPLETED/ITEM_DELIVERED 自然事件要求玩家真实持有可证明物品（服务端背包扫描），历史回放只使用服务端记录事实；ALCHEMY_COMPLETED 按站台别名规范等价；`routeItemMatches` 纯规则匹配事件物品与令牌证明集。
+  Producers   Done   `onItemPickup`→`recordItemAcquired`、`onItemCrafted`→`recordItemCrafted`（均取代旧 `recordAndAdvance(player, itemId)` 字符串路径）、`AlchemyFurnaceBlockEntity.giveOutput`→`recordAlchemyCompleted`（站台来自服务端炉级）、turnin_quests→`recordItemDelivered`（真实持有 + giver/place NPC 匹配）。
+  Ledger fix   Done   `record()` 账本去重检查移至一步/链槽位之前，court_hunt_gray 第 2/4 步同物品双交付不再互相遮蔽。
+  History   Done   HISTORY_TAG 物品记录携带 `Item`/`Station` 字段，`eventFromHistory` 可重建物品事件，物品事实只回放服务端记录历史。
+  Tests   Done   新增 `DetailedQuestItemProofRouteTest`（12 项）；更新 `CatalogItemDescriptionServiceTest` bulk 计数 1189→1195；物品贴图生成器重跑并提交 6 张新 PNG；普通完整构建 259 套件 / 1,247 项测试，failure/error/skipped 均为 0。
+  Generated resources   Done   `generate_authored_spell_effects.py --check` 报告 2,292 profiles，`generate_authored_visual_catalog.py --check` 报告 5,727 profiles（按 `spell -> visual` 顺序刷新）。
+  Version/protocol   Done   `mod_version=0.2.248 -> 0.2.249`；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=31` 保持不变。
+  Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功（1m 22s），`:aiPreflight` 记录 `0.2.249`；JAR SHA-256 为 `de1997534878e1a7571324fcfa5fdc3073dbd10777de9ccf80b509fafc2ab2b7`。
+  Next implementation   Pending   Q-B-4：击杀、活捕、护送、遭遇和队伍归属事件；Q-B-5、D-A、阴阳窟、维度/本命/NPC 迁移及最终实机签字仍未完成。

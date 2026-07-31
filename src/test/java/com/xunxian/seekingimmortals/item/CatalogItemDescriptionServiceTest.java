@@ -41,7 +41,7 @@ class CatalogItemDescriptionServiceTest {
             }
         }
         // Dedicated ModItems registrations must not remain duplicated in the bulk registry.
-        assertEquals(1189, count, "bulk catalog count after removing dedicated registrations");
+        assertEquals(1195, count, "bulk catalog count after removing dedicated registrations");
         assertTrue(placeholders >= 796, "placeholders=" + placeholders);
     }
 

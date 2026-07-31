@@ -7191,6 +7191,42 @@
       "category": "material",
       "rarity": "uncommon",
       "description": "目录载体：阴精矿石块"
+    },
+    {
+      "id": "tai_yang_jing_huo",
+      "category": "material",
+      "rarity": "epic",
+      "description": "目录载体：太阳精火"
+    },
+    {
+      "id": "five_cold_flames",
+      "category": "material",
+      "rarity": "rare",
+      "description": "目录载体：五寒焰"
+    },
+    {
+      "id": "silver_tadpole_script",
+      "category": "material",
+      "rarity": "rare",
+      "description": "目录载体：银蝌文残页"
+    },
+    {
+      "id": "dragon_scale_fruit",
+      "category": "material",
+      "rarity": "epic",
+      "description": "目录载体：龙鳞果"
+    },
+    {
+      "id": "blank_letter",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "目录载体：无字信"
+    },
+    {
+      "id": "gray_realm_clue",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "目录载体：灰界线索"
     }
   ]
 }

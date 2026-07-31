@@ -119,6 +119,38 @@ public record DetailedQuestProofEvent(Type type, String producer, Map<String, St
                 "spirit_root_test", Source.NATURAL, 0);
     }
 
+    /** Item pickup proof; the id is the server-observed canonical item path. */
+    public static DetailedQuestProofEvent itemAcquired(String itemId) {
+        String item = normalize(itemId);
+        return new DetailedQuestProofEvent(Type.ITEM_ACQUIRED, "item_pickup",
+                Map.of("item", item), null, null, Set.of(),
+                "item:" + item, Source.NATURAL, 0);
+    }
+
+    /** Craft-completion proof; produced only by the server crafting event. */
+    public static DetailedQuestProofEvent itemCrafted(String itemId) {
+        String item = normalize(itemId);
+        return new DetailedQuestProofEvent(Type.CRAFT_COMPLETED, "crafting",
+                Map.of("item", item), null, null, Set.of(),
+                "craft:" + item, Source.NATURAL, 0);
+    }
+
+    /** Item turn-in proof; produced only when the player really holds the item at delivery. */
+    public static DetailedQuestProofEvent itemDelivered(String itemId) {
+        String item = normalize(itemId);
+        return new DetailedQuestProofEvent(Type.ITEM_DELIVERED, "item_delivery",
+                Map.of("item", item), null, null, Set.of(),
+                "deliver:" + item, Source.NATURAL, 0);
+    }
+
+    /** Alchemy-batch completion proof at a real furnace station. */
+    public static DetailedQuestProofEvent alchemyCompleted(String stationId) {
+        String station = normalize(stationId);
+        return new DetailedQuestProofEvent(Type.ALCHEMY_COMPLETED, "alchemy",
+                Map.of("station", station), null, null, Set.of(),
+                "alchemy:" + station, Source.NATURAL, 0);
+    }
+
     /** Region arrival proven by a successful server-authoritative region transition. */
     public static DetailedQuestProofEvent regionEntered(String regionId) {
         String region = normalize(regionId);
