@@ -34,7 +34,8 @@ class DetailedQuestProofCatalogTest {
             Map.entry("METHOD_LAYER_REACHED", "method"), Map.entry("REALM_REACHED", "realm"),
             Map.entry("TECHNIQUE_LEARNED", "method"), Map.entry("SHOP_TRANSACTION", "shop"),
             Map.entry("AUCTION_TRANSACTION", "auction"), Map.entry("REPUTATION_REACHED", "faction"),
-            Map.entry("CHOICE_COMMITTED", "choice"), Map.entry("INFO_ACKNOWLEDGED", "choice"));
+            Map.entry("CHOICE_COMMITTED", "choice"), Map.entry("INFO_ACKNOWLEDGED", "choice"),
+            Map.entry("SPIRIT_ROOT_TESTED", "item"));
 
     @Test
     void allTwentyThreeChainsAndNinetyFiveStepsHaveExactlyOneRoute() {

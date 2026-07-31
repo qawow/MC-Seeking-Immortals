@@ -68,6 +68,24 @@ public final class MultiblockOperationalService {
         return state == null ? 1.0D : state.efficiency();
     }
 
+    /**
+     * Read-only formal-commission check: the station must already exist in the operational
+     * saved data in a non-disabled state at this exact dimension/origin. It never creates state
+     * via {@link #ensureState} and never mutates anything, so it is safe for proof validation
+     * and replay. A weak {@code single_core:any_solid} shell alone cannot pass because the
+     * commissioned state only appears after a completed {@link #form} transaction.
+     */
+    public static boolean isCommissioned(ServerLevel level, String stationId, BlockPos origin) {
+        if (level == null || origin == null || stationId == null || stationId.isBlank()
+                || MultiblockStructureCatalog.builtin().find(stationId).isEmpty()) {
+            return false;
+        }
+        String dim = level.dimension().location().toString();
+        return MultiblockOperationalSavedData.get(level).find(dim, stationId, origin)
+                .map(state -> state.state() != MultiblockOperationalSavedData.OpState.DISABLED && state.hp() > 0)
+                .orElse(false);
+    }
+
     public static boolean isOperational(Level level, String stationId, BlockPos origin) {
         return efficiencyAt(level, stationId, origin) > 0.0D;
     }
@@ -297,6 +315,7 @@ public final class MultiblockOperationalService {
                     refundStacks(player, shards);
                     return false;
                 }
+                recordFormedProof(player, stationId, origin);
                 player.displayClientMessage(Component.translatable(
                         "message.seeking_immortals.multiblock.formed_ok",
                         stationDisplay(entry), reserved.size(), shardCost), true);
@@ -312,10 +331,20 @@ public final class MultiblockOperationalService {
         if (next == null) {
             return false;
         }
+        recordFormedProof(player, stationId, origin);
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.multiblock.formed_ok",
                 stationDisplay(entry), materials.size(), 0), true);
         return true;
+    }
+
+    /** Records the structured structure-formed proof only after the form transaction committed. */
+    private static void recordFormedProof(ServerPlayer player, String stationId, BlockPos origin) {
+        if (player == null || player.level() == null || origin == null) {
+            return;
+        }
+        com.xunxian.seekingimmortals.quest.DetailedQuestProofService.recordStructureFormed(
+                player, stationId, player.level().dimension().location().toString(), origin.asLong());
     }
 
     public static boolean overhaul(ServerPlayer player, String stationId, BlockPos origin) {

@@ -1,7 +1,7 @@
 package com.xunxian.seekingimmortals.npc;
 
 import com.xunxian.seekingimmortals.entity.SummonedServitorEntity;
-import com.xunxian.seekingimmortals.quest.DetailedQuestRuntimeService;
+import com.xunxian.seekingimmortals.structure.MultiblockOperationalService;
 import com.xunxian.seekingimmortals.structure.MultiblockStationService;
 import com.xunxian.seekingimmortals.structure.MultiblockStructureCatalog;
 import com.xunxian.seekingimmortals.worldpack.ReputationService;
@@ -66,6 +66,16 @@ public final class DialogueWorldActionService {
                     "message.seeking_immortals.dialogue.location_unverified"), false);
             return false;
         }
+        ServerLevel level = player.server.getLevel(ResourceKey.create(Registries.DIMENSION,
+                ResourceLocation.tryParse(located.dimension())));
+        // Only a really formed and formally commissioned structure at the located dimension
+        // may be marked; a mere coordinate anchor or a bare single-core shell is never enough.
+        if (level == null || !MultiblockStationService.isStationFormed(level, id, located.pos())
+                || !MultiblockOperationalService.isCommissioned(level, id, located.pos())) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.dialogue.location_unverified"), false);
+            return false;
+        }
         CompoundTag markers = player.getPersistentData().getCompound(MARKERS_TAG).copy();
         CompoundTag marker = new CompoundTag();
         marker.putString("Dimension", located.dimension());
@@ -74,7 +84,8 @@ public final class DialogueWorldActionService {
         markers.put(id, marker);
         player.getPersistentData().put(MARKERS_TAG, markers);
         NpcDialogueFlags.setFlag(player, "structure_marked_" + id);
-        DetailedQuestRuntimeService.recordAndAdvance(player, id);
+        com.xunxian.seekingimmortals.quest.DetailedQuestProofService.recordStructureFormed(
+                player, id, located.dimension(), located.pos().asLong());
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.dialogue.location_marked"), false);
         return true;

@@ -329,6 +329,8 @@ public final class DimensionTravelService {
         setCooldown(player, routeKey, cooldownFor(method));
         RegionRegistry.resolveAndSync(player);
         FlyingAuthorityPolicy.onDimensionChanged(player, targetId);
+        // The proof compares the actual post-teleport dimension; the requested target is never trusted.
+        com.xunxian.seekingimmortals.quest.DetailedQuestProofService.recordDimensionEntered(player);
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.dim_travel.success", dimensionDisplay(toDim), methodDisplay(method)), true);
         return true;

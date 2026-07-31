@@ -38,7 +38,8 @@ public final class DetailedQuestProofCatalog {
             "ITEM_ACQUIRED", "ITEM_DELIVERED", "CRAFT_COMPLETED", "ALCHEMY_COMPLETED",
             "ENTITY_KILLED", "ENTITY_CAPTURED_ALIVE", "ENCOUNTER_CLEARED", "ESCORT_COMPLETED",
             "METHOD_LAYER_REACHED", "REALM_REACHED", "TECHNIQUE_LEARNED", "SHOP_TRANSACTION",
-            "AUCTION_TRANSACTION", "REPUTATION_REACHED", "CHOICE_COMMITTED", "INFO_ACKNOWLEDGED");
+            "AUCTION_TRANSACTION", "REPUTATION_REACHED", "CHOICE_COMMITTED", "INFO_ACKNOWLEDGED",
+            "SPIRIT_ROOT_TESTED");
     private static final Set<String> OWNER_POLICIES = Set.of("PLAYER", "PARTY_LEADER", "PARTY_MEMBER", "SERVER");
     private static final Set<String> PARTY_POLICIES = Set.of("SOLO", "SOLO_OR_PARTY", "PARTY_ONLY");
     private static final Set<String> CONSUME_POLICIES = Set.of("NONE", "ON_SUCCESS", "ON_ACCEPT", "RESERVE_THEN_COMMIT");
@@ -46,7 +47,7 @@ public final class DetailedQuestProofCatalog {
     private static final Set<String> PRODUCERS = Set.of(
             "alchemy", "auction", "capture", "crafting", "cultivation", "dialogue_choice",
             "dimension_travel", "encounter", "escort", "item_delivery", "item_pickup", "living_kill",
-            "npc_dialogue", "region_travel", "reputation", "shop", "structure_runtime");
+            "npc_dialogue", "region_travel", "reputation", "shop", "spirit_root", "structure_runtime");
     private static final Set<String> PARAMETER_KEYS = Set.of(
             "auction", "choice", "dimension", "entity", "faction", "item", "method", "npc",
             "realm", "region", "shop", "station", "structure", "technique");
@@ -70,7 +71,8 @@ public final class DetailedQuestProofCatalog {
             Map.entry("AUCTION_TRANSACTION", "auction"),
             Map.entry("REPUTATION_REACHED", "faction"),
             Map.entry("CHOICE_COMMITTED", "choice"),
-            Map.entry("INFO_ACKNOWLEDGED", "choice"));
+            Map.entry("INFO_ACKNOWLEDGED", "choice"),
+            Map.entry("SPIRIT_ROOT_TESTED", "item"));
     private static final Map<String, String> EXPECTED_PRODUCER = Map.ofEntries(
             Map.entry("REGION_ENTER", "region_travel"),
             Map.entry("DIMENSION_ENTER", "dimension_travel"),
@@ -91,7 +93,8 @@ public final class DetailedQuestProofCatalog {
             Map.entry("AUCTION_TRANSACTION", "auction"),
             Map.entry("REPUTATION_REACHED", "reputation"),
             Map.entry("CHOICE_COMMITTED", "dialogue_choice"),
-            Map.entry("INFO_ACKNOWLEDGED", "npc_dialogue"));
+            Map.entry("INFO_ACKNOWLEDGED", "npc_dialogue"),
+            Map.entry("SPIRIT_ROOT_TESTED", "spirit_root"));
 
     private static final Snapshot BUILTIN = loadAndValidate(readSourceSteps());
 

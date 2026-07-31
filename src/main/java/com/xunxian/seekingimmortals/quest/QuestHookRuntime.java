@@ -70,14 +70,6 @@ public final class QuestHookRuntime {
             Map.entry("yinyang_ku", List.of("yinyang_ku_intel", "peiying_material_hunt")),
             Map.entry("thousand_bamboo_puppet_tower", List.of("qianzhu_tower_trial")),
             Map.entry("guanghan_realm", List.of("guanghan_endgame_path")));
-    private static final Map<String, List<String>> REALM_ENTRY_EVIDENCE = Map.ofEntries(
-            Map.entry("blood_forbidden", List.of("blood_forbidden_entry_stele")),
-            Map.entry("void_palace", List.of("xutian_palace_gate_fragment")),
-            Map.entry("kunwu_mountain", List.of("dajin_kunwu_approach")),
-            Map.entry("fallen_demon_valley", List.of("fallen_demon_rift")),
-            Map.entry("yinyang_ku", List.of("yinyang_cave_gate")),
-            Map.entry("thousand_bamboo_puppet_tower", List.of("qz_l1")),
-            Map.entry("guanghan_realm", List.of("gh_approach")));
     private static boolean registered;
 
     private QuestHookRuntime() {}
@@ -131,7 +123,6 @@ public final class QuestHookRuntime {
             return;
         }
         String region = normalize(regionId);
-        DetailedQuestRuntimeService.recordAndAdvance(player, region);
         startDetailedChains(player, detailedChainsForRegion(region),
                 DetailedQuestRuntimeService.Evidence.of(region));
         CultivationHelper.get(player).ifPresent(cultivation -> {
@@ -148,14 +139,10 @@ public final class QuestHookRuntime {
             return;
         }
         String realm = normalize(realmId);
-        DetailedQuestRuntimeService.recordAndAdvance(player, realm);
         List<String> chains = detailedChainsForSecretRealm(realm);
         DetailedQuestRuntimeService.Evidence evidence = DetailedQuestRuntimeService.Evidence.of(realm);
         startDetailedChains(player, chains, evidence);
-        for (String entryEvidence : REALM_ENTRY_EVIDENCE.getOrDefault(realm, List.of())) {
-            DetailedQuestRuntimeService.recordAndAdvance(player, entryEvidence);
-        }
-        startDetailedChains(player, chains, evidence);
+        DetailedQuestProofService.recordSecretRealmEntry(player, realm);
     }
 
     static boolean isHighRealmPathEligible(Realm realm, RealmStage stage) {
@@ -403,15 +390,12 @@ public final class QuestHookRuntime {
         tryAdvanceByHook(player, "secret_" + realm);
         tryAdvanceByHook(player, realm + "_" + layerKey);
         tryAdvanceByHook(player, "trial_" + layerKey);
-        DetailedQuestRuntimeService.recordAndAdvance(player, realm);
-        DetailedQuestRuntimeService.recordAndAdvance(player, layerKey);
-        DetailedQuestRuntimeService.recordAndAdvance(player, realm + "_" + layerKey);
-        if ("blood_forbidden".equals(realm) && "bf_water_jiao".equals(layerKey)) {
+        if ("blood_forbidden".equals(realm) && "mid".equals(layerKey)) {
             DetailedQuestRuntimeService.Evidence waterEvidence =
                     DetailedQuestRuntimeService.Evidence.of("bf_water_jiao");
             startDetailedChains(player, List.of("nangong_wan_weight_optional"), waterEvidence);
-            DetailedQuestRuntimeService.advance(player, "nangong_wan_weight_optional", waterEvidence);
         }
+        DetailedQuestProofService.recordSecretRealmLayer(player, realm, layerKey);
         if ("core".equals(layerKey) || "boss".equals(layerKey)) {
             tryAdvanceByHook(player, "secret_realm_clear");
             tryStartOrAdvanceChain(player, realm.contains("blood") ? "blood_forbidden_campaign" : "");

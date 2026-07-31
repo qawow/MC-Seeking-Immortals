@@ -9755,3 +9755,19 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Version/protocol   Done   `mod_version=0.2.245 -> 0.2.246`；未改网络包字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=31` 保持不变。
   Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功，`:aiPreflight` 记录 `0.2.246`；1,219 项测试 failure/error/skipped 均为 0；JAR SHA-256 为 `b3400910a75b8b480f9ccdc8d4f91688e8cca7166b9032fb09b87ba3fa44c223`。
   Next implementation   Pending   Q-B-2：地域、维度、秘境和结构事件；Q-B-3 至 Q-B-5、D-A、阴阳窟、维度/本命/NPC 迁移及最终实机签字仍未完成。
+
+## 587. 2026-08-01 `0.2.248` Q-B-2 地域、维度、秘境和结构事件结构化证明
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   执行计划 Q-B-2；源码、路由资源、版本和计划/进度/交接/缺口文档回滚位于 `.bak/20260801_025546_q_b_2/`。用户既有 `CLAUDE.md`、`CC-Switch-v3.19.0-Linux-x86_64.deb`、`project_docs/frontend_interaction_audit_0.2.198.md` 与 `issues/` 未纳入本批。
+  World context   Done   `DetailedQuestProofEvent` 携带服务端世界上下文（dimensionId/currentRegionId/secretRealmId/sessionId/phase/packedPosition/hasPosition/authorityId）；路由参数仍只含目录要求字段，客户端不能输入可信上下文。
+  Authority checks   Done   REGION_ENTER 要求现场地域一致或绑定秘境会话；DIMENSION_ENTER 比较传送完成后的实际维度；STRUCTURE_FORMED 要求目录存在 + `isStationFormed` + 只读 `isCommissioned`（不经 `ensureState` 创建状态）；SPIRIT_ROOT_TESTED 检查 `isSpiritualRootTested`；深层秘境 ID 不能经普通地域入口伪造。
+  Producers   Done   地域/维度传送成功、秘境入口/中/核心/主动退出、`form()` 成功后、`markStructure()` 成型+启用校验后、测灵石测试成功均接入结构化证明；超时和死亡遣返走非主动退出路径。
+  Classification   Done   `spirit_root_test`→SPIRIT_ROOT_TESTED；`tianyuan_garrison_board`→INFO_ACKNOWLEDGED（Q-B-5 可信入口）；`zm_candle`→REGION_ENTER（仅 core 会话事件）；`hy_core`→ITEM_ACQUIRED tai_yang_jing_huo（Q-B-3）。
+  History/replay   Done   HISTORY_TAG 新记录为含世界上下文的 CompoundTag，兼容旧 boolean；地域/维度只回放服务端记录事实，结构回放重验原维度/原坐标；死亡克隆独立复制账本与历史；链启动后立即回放。
+  Tests   Done   新增 `DetailedQuestWorldProofRouteTest`（13 项）并更新 `DetailedQuestProofCatalogTest` 参数表；普通完整构建 258 套件 / 1,235 项测试，failure/error/skipped 均为 0。
+  Generated resources   Done   `generate_authored_spell_effects.py --check` 报告 2,292 profiles，`generate_authored_visual_catalog.py --check` 报告 5,727 profiles（按 `spell -> visual` 顺序刷新）。
+  Version/protocol   Done   `mod_version=0.2.246 -> 0.2.248`（首次 0.2.247 构建后因路由资源与测试文件同步触发版本指纹门禁，最终递增）；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=31` 保持不变。
+  Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功（1m 26s），`:aiPreflight` 记录 `0.2.248`；JAR SHA-256 为 `394ec84847c12f2397375b0f11d48f83aa9b02229554ebceac1fdd7931b9b941`。
+  Next implementation   Pending   Q-B-3：物品获取、制作、炼丹、炼器和交付事件；Q-B-4/Q-B-5、D-A、阴阳窟、维度/本命/NPC 迁移及最终实机签字仍未完成。

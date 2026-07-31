@@ -170,7 +170,7 @@ public final class SecretRealmSessionService {
             if (session.isTimedOut(now)) {
                 player.sendSystemMessage(Component.translatable(
                         "message.seeking_immortals.worldpack.realm_timeout", realmDisplay(active)));
-                WorldpackGameplayService.returnFromSecretRealm(player);
+                WorldpackGameplayService.returnFromSecretRealm(player, false);
             }
         });
     }
@@ -188,7 +188,7 @@ public final class SecretRealmSessionService {
             player.sendSystemMessage(Component.translatable(
                     "message.seeking_immortals.worldpack.realm_death_eject",
                     realmDisplay(cultivation.getWorldpackActiveSecretRealmId())));
-            WorldpackGameplayService.returnFromSecretRealm(player);
+            WorldpackGameplayService.returnFromSecretRealm(player, false);
         });
     }
 

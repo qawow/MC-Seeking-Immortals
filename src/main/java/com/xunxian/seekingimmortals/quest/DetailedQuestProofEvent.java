@@ -15,10 +15,18 @@ import java.util.UUID;
  * <p>Business code should use the typed factories instead of assembling quest-step tokens. The
  * optional owner/party fields are carried for later multi-player producers; the proof service
  * still re-checks the actual player state before accepting an event.</p>
+ *
+ * <p>The world-context fields ({@code dimensionId}, {@code currentRegionId},
+ * {@code secretRealmId}, {@code sessionId}, {@code phase}, {@code packedPosition}) are trusted
+ * server facts attached by the producer. Route parameters remain the only catalog-facing fields;
+ * clients can never supply this context.</p>
  */
 public record DetailedQuestProofEvent(Type type, String producer, Map<String, String> parameters,
                                       UUID ownerId, UUID actorId, Set<UUID> partyMembers,
-                                      String eventKey, Source source, int observedLayer) {
+                                      String eventKey, Source source, int observedLayer,
+                                      String dimensionId, String currentRegionId, String secretRealmId,
+                                      String sessionId, String phase, long packedPosition,
+                                      boolean hasPosition, String authorityId) {
     public enum Type {
         REGION_ENTER,
         DIMENSION_ENTER,
@@ -39,7 +47,8 @@ public record DetailedQuestProofEvent(Type type, String producer, Map<String, St
         AUCTION_TRANSACTION,
         REPUTATION_REACHED,
         CHOICE_COMMITTED,
-        INFO_ACKNOWLEDGED
+        INFO_ACKNOWLEDGED,
+        SPIRIT_ROOT_TESTED
     }
 
     public enum Source {
@@ -66,6 +75,20 @@ public record DetailedQuestProofEvent(Type type, String producer, Map<String, St
         eventKey = normalize(eventKey);
         source = source == null ? Source.NATURAL : source;
         observedLayer = Math.max(0, observedLayer);
+        dimensionId = normalize(dimensionId);
+        currentRegionId = normalize(currentRegionId);
+        secretRealmId = normalize(secretRealmId);
+        sessionId = normalize(sessionId);
+        phase = normalize(phase);
+        authorityId = normalize(authorityId);
+    }
+
+    /** Compatible two-argument constructor used by pre-Q-B-2 call sites and tests. */
+    public DetailedQuestProofEvent(Type type, String producer, Map<String, String> parameters,
+                                   UUID ownerId, UUID actorId, Set<UUID> partyMembers,
+                                   String eventKey, Source source, int observedLayer) {
+        this(type, producer, parameters, ownerId, actorId, partyMembers,
+                eventKey, source, observedLayer, "", "", "", "", "", 0L, false, "");
     }
 
     public static DetailedQuestProofEvent methodLayerReached(String methodId, int layer) {
@@ -89,6 +112,51 @@ public record DetailedQuestProofEvent(Type type, String producer, Map<String, St
                 "technique:" + id, Source.NATURAL, 0);
     }
 
+    /** Strict spiritual-root test proof; produced only by the appraisal stone or the appraisal slab. */
+    public static DetailedQuestProofEvent spiritualRootTested() {
+        return new DetailedQuestProofEvent(Type.SPIRIT_ROOT_TESTED, "spirit_root",
+                Map.of("item", "spirit_root_test"), null, null, Set.of(),
+                "spirit_root_test", Source.NATURAL, 0);
+    }
+
+    /** Region arrival proven by a successful server-authoritative region transition. */
+    public static DetailedQuestProofEvent regionEntered(String regionId) {
+        String region = normalize(regionId);
+        return new DetailedQuestProofEvent(Type.REGION_ENTER, "region_travel",
+                Map.of("region", region), null, null, Set.of(),
+                "region:" + region, Source.NATURAL, 0)
+                .withWorld("", region, "", "", "", "", 0L, false);
+    }
+
+    /** Dimension arrival proven after the post-teleport dimension is verified. */
+    public static DetailedQuestProofEvent dimensionEntered(String dimensionId) {
+        String dimension = normalize(dimensionId);
+        return new DetailedQuestProofEvent(Type.DIMENSION_ENTER, "dimension_travel",
+                Map.of("dimension", dimension), null, null, Set.of(),
+                "dimension:" + dimension, Source.NATURAL, 0)
+                .withWorld(dimension, "", "", "", "", "", 0L, false);
+    }
+
+    /** Secret-realm phase region proof; only produced by session-bound realm events. */
+    public static DetailedQuestProofEvent secretRealmLayerEntered(String regionId, String realmId,
+                                                                  String sessionId, String phase) {
+        String region = normalize(regionId);
+        return new DetailedQuestProofEvent(Type.REGION_ENTER, "region_travel",
+                Map.of("region", region), null, null, Set.of(),
+                "region:" + region, Source.NATURAL, 0)
+                .withWorld("", realmId, realmId, sessionId, phase, "", 0L, false);
+    }
+
+    /** Structure-formation proof bound to the exact dimension and origin that were commissioned. */
+    public static DetailedQuestProofEvent structureFormed(String stationId, String dimensionId,
+                                                          long packedPosition) {
+        String structure = normalize(stationId);
+        return new DetailedQuestProofEvent(Type.STRUCTURE_FORMED, "structure_runtime",
+                Map.of("structure", structure), null, null, Set.of(),
+                "structure:" + structure, Source.NATURAL, 0)
+                .withWorld(dimensionId, "", "", "", "", "", packedPosition, true);
+    }
+
     /** Creates an event for a future producer while keeping the route-facing fields explicit. */
     public static DetailedQuestProofEvent of(Type type, String producer, Map<String, String> parameters,
                                              String eventKey) {
@@ -98,17 +166,29 @@ public record DetailedQuestProofEvent(Type type, String producer, Map<String, St
 
     DetailedQuestProofEvent forOwner(UUID owner) {
         return new DetailedQuestProofEvent(type, producer, parameters, owner, actorId, partyMembers,
-                eventKey, source, observedLayer);
+                eventKey, source, observedLayer, dimensionId, currentRegionId, secretRealmId,
+                sessionId, phase, packedPosition, hasPosition, authorityId);
     }
 
     DetailedQuestProofEvent asHistory() {
         return new DetailedQuestProofEvent(type, producer, parameters, ownerId, actorId, partyMembers,
-                eventKey, Source.HISTORY, observedLayer);
+                eventKey, Source.HISTORY, observedLayer, dimensionId, currentRegionId, secretRealmId,
+                sessionId, phase, packedPosition, hasPosition, authorityId);
     }
 
     DetailedQuestProofEvent asAdmin() {
         return new DetailedQuestProofEvent(type, producer, parameters, ownerId, actorId, partyMembers,
-                eventKey, Source.ADMIN, observedLayer);
+                eventKey, Source.ADMIN, observedLayer, dimensionId, currentRegionId, secretRealmId,
+                sessionId, phase, packedPosition, hasPosition, authorityId);
+    }
+
+    /** Attaches trusted server world context; never populated from client input. */
+    DetailedQuestProofEvent withWorld(String worldDimensionId, String worldRegionId, String worldRealmId,
+                                      String worldSessionId, String worldPhase, String worldAuthorityId,
+                                      long worldPackedPosition, boolean worldHasPosition) {
+        return new DetailedQuestProofEvent(type, producer, parameters, ownerId, actorId, partyMembers,
+                eventKey, source, observedLayer, worldDimensionId, worldRegionId, worldRealmId,
+                worldSessionId, worldPhase, worldPackedPosition, worldHasPosition, worldAuthorityId);
     }
 
     public String parameter(String key) {

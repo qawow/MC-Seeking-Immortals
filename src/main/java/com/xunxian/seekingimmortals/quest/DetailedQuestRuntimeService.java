@@ -214,6 +214,9 @@ public final class DetailedQuestRuntimeService {
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.detailed_quest.started", chain.display(), chain.steps().size()), false);
         showCurrentStep(player, chain.id());
+        // Replay previously stored world/cultivation facts now that the chain is at step one,
+        // so a chain started after its fact was recorded does not wait for the next login.
+        DetailedQuestProofService.replayCurrent(player);
         return true;
     }
 
@@ -445,7 +448,8 @@ public final class DetailedQuestRuntimeService {
             case "window_open" -> windowOpen(player, "blood_forbidden");
             case "in_blood_forbidden" -> atRegion(player, "blood_forbidden");
             case "reached_water_zone" -> hasEvidence(player, "bf_water_jiao")
-                    || hasFlag(player, "reached_water_zone");
+                    || hasFlag(player, "reached_water_zone")
+                    || DetailedQuestProofService.hasRegionProof(player, "bf_water_jiao");
             case "ascension_success" -> hasFlag(player, "ascension_success")
                     || player.getPersistentData().getBoolean("seeking_immortals_tribulation_success");
             case "arrived_tianyuan" -> atRegion(player, "tianyuan");

@@ -207,6 +207,7 @@ public final class AscensionService {
         FlyingAuthorityPolicy.onDimensionChanged(player, DimensionRegistryService.TIANYUAN);
         grantStarterPack(player);
         com.xunxian.seekingimmortals.quest.QuestHookRuntime.onRegionReached(player, "tianyuan");
+        com.xunxian.seekingimmortals.quest.DetailedQuestProofService.recordDimensionEntered(player);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.ascension.success"), false);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.ascension.backup_stored"), false);
         return true;

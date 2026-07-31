@@ -71,6 +71,7 @@ public class LingGenTestStoneItem extends Item {
                 SyncCultivationDataPacket.send(targetServerPlayer, cultivation);
                 grantMysticVialForLowTalent(level, targetServerPlayer, cultivation);
                 QuestService.onRootTested(targetServerPlayer);
+                com.xunxian.seekingimmortals.quest.DetailedQuestProofService.recordSpiritualRootTested(targetServerPlayer);
             }
             playEffects(level, target);
             if (consumeUse && stack != null) {

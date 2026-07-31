@@ -384,6 +384,7 @@ public final class WorldpackGameplayService {
             player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.travel_success", display(region)));
             ReputationService.onPortalTravel(player, region.id());
             com.xunxian.seekingimmortals.quest.QuestHookRuntime.onRegionReached(player, region.id());
+            com.xunxian.seekingimmortals.quest.DetailedQuestProofService.recordRegionReached(player, region.id());
             sync(player, false);
             success[0] = true;
         }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.no_data")));
@@ -536,6 +537,9 @@ public final class WorldpackGameplayService {
             });
             SecretRealmSessionService.onEnter(player, realm.id());
             SecretRealmTrialService.onEnter(player, realm.id());
+            if (dedicatedDimension) {
+                com.xunxian.seekingimmortals.quest.DetailedQuestProofService.recordDimensionEntered(player);
+            }
             sync(player, false);
             success[0] = true;
         }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.no_data")));
@@ -809,6 +813,15 @@ public final class WorldpackGameplayService {
     }
 
     public static boolean returnFromSecretRealm(ServerPlayer player) {
+        return returnFromSecretRealm(player, true);
+    }
+
+    /**
+     * Leaves the active secret realm. {@code voluntary} is true for player-initiated returns and
+     * false for timeout or death repatriation; only voluntary exits may record the
+     * {@code blood_forbidden_exit_array} exit proof.
+     */
+    public static boolean returnFromSecretRealm(ServerPlayer player, boolean voluntary) {
         boolean[] success = { false };
         CultivationHelper.get(player).ifPresentOrElse(cultivation -> {
             if (cultivation.getWorldpackActiveSecretRealmId().isBlank()) {
@@ -829,6 +842,9 @@ public final class WorldpackGameplayService {
                 player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.no_return"));
                 return;
             }
+            String activeRealm = cultivation.getWorldpackActiveSecretRealmId();
+            Optional<SecretRealmProgressSavedData.Session> activeSession =
+                    SecretRealmSessionService.activeSession(player, activeRealm);
             player.teleportTo(targetLevel, cultivation.getWorldpackReturnX(), cultivation.getWorldpackReturnY(), cultivation.getWorldpackReturnZ(),
                     cultivation.getWorldpackReturnYRot(), cultivation.getWorldpackReturnXRot());
             if (player.serverLevel() != targetLevel
@@ -836,6 +852,10 @@ public final class WorldpackGameplayService {
                     cultivation.getWorldpackReturnZ()) > 16.0D) {
                 player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.return_teleport_failed"));
                 return;
+            }
+            if (voluntary && activeSession.isPresent()) {
+                com.xunxian.seekingimmortals.quest.DetailedQuestProofService.recordVoluntaryExit(
+                        player, activeRealm, activeSession.get().sessionId());
             }
             cultivation.setWorldpackActiveSecretRealmId("");
             cultivation.clearWorldpackReturnLocation();
