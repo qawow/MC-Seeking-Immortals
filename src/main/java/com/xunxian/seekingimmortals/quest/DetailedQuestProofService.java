@@ -64,6 +64,14 @@ public final class DetailedQuestProofService {
             Map.entry("fire_toad_resistance", Set.of("yang_flame_talisman", "detox_minor_pill")),
             Map.entry("realm_gate_token", Set.of("spirit_realm_gate_pass", "spirit_realm_gate_voucher")));
 
+    /**
+     * Q-B-4 authored entity tokens -> real server entity/boss ids that can prove them. The
+     * identity rule always applies because the event entity id is a server-observed fact from
+     * the killed/captured entity; no client string can inject it.
+     */
+    static final Map<String, Set<String>> PROOF_ENTITY_MAPPINGS = Map.ofEntries(
+            Map.entry("qianzhu_tower_lord", Set.of("puppet_tower_lord")));
+
     public enum Status {
         ACCEPTED,
         DUPLICATE,
@@ -247,6 +255,84 @@ public final class DetailedQuestProofService {
                 ? DetailedQuestProofEvent.itemCrafted(canonical)
                 : DetailedQuestProofEvent.itemAcquired(canonical);
         return record(player, event);
+    }
+
+    /** Kill proof; the id and the attribution are server-observed facts. */
+    public static Result recordEntityKilled(ServerPlayer player, String entityId) {
+        if (player == null) {
+            return rejected("missing_player");
+        }
+        String entity = normalize(entityId);
+        if (entity.isBlank()) {
+            return rejected("missing_entity");
+        }
+        return record(player, DetailedQuestProofEvent.entityKilled(entity));
+    }
+
+    /** Alive-capture proof; only the completed capture transaction may call this. */
+    public static Result recordEntityCaptured(ServerPlayer player, String entityId) {
+        if (player == null) {
+            return rejected("missing_player");
+        }
+        String entity = normalize(entityId);
+        if (entity.isBlank()) {
+            return rejected("missing_entity");
+        }
+        return record(player, DetailedQuestProofEvent.entityCapturedAlive(entity));
+    }
+
+    /**
+     * Encounter-clear proof for a secret-realm layer. Deep encounter regions are only producible
+     * while the player holds a live session for the exact realm; ordinary encounter regions have
+     * their own server producers.
+     */
+    public static Result recordEncounterCleared(ServerPlayer player, String realmId, String layer) {
+        if (player == null) {
+            return rejected("missing_player");
+        }
+        String realm = normalize(realmId);
+        String phase = normalize(layer);
+        if (realm.isBlank() || phase.isBlank()) {
+            return rejected("missing_context");
+        }
+        List<String> regionIds = encounterRegionsForPhase(realm, phase);
+        if (regionIds.isEmpty()) {
+            return rejected("no_encounter_regions");
+        }
+        Optional<SecretRealmProgressSavedData.Session> session = SecretRealmSessionService.activeSession(player, realm);
+        if (session.isEmpty()) {
+            return rejected("no_active_session");
+        }
+        Result last = rejected("no_encounter_regions");
+        boolean anyAccepted = false;
+        int advancedTotal = 0;
+        for (String regionId : regionIds) {
+            DetailedQuestProofEvent event = DetailedQuestProofEvent.secretRealmEncounterCleared(
+                    regionId, realm, session.get().sessionId(), phase);
+            Result result = record(player, event);
+            if (result.accepted()) {
+                anyAccepted = true;
+            }
+            advancedTotal = Math.max(advancedTotal, result.advanced());
+            last = result;
+        }
+        if (anyAccepted) {
+            return new Result(Status.ACCEPTED, advancedTotal, "encounter_cleared");
+        }
+        return last;
+    }
+
+    /** Escort-completion proof; the region is the live region where the escort ended. */
+    public static Result recordEscortCompleted(ServerPlayer player) {
+        if (player == null) {
+            return rejected("missing_player");
+        }
+        String live = normalize(CultivationHelper.get(player)
+                .map(cultivation -> cultivation.getWorldpackCurrentRegionId()).orElse(""));
+        if (live.isBlank()) {
+            return rejected("missing_region");
+        }
+        return record(player, DetailedQuestProofEvent.escortCompleted(live));
     }
 
     /** Whether the delivering npc may legitimately accept the current step's delivery. */
@@ -493,11 +579,39 @@ public final class DetailedQuestProofService {
         if (route.requiredParams().equals(event.parameters())) {
             return true;
         }
-        if (!isItemRoute(route.proofType())) {
+        if (isItemRoute(route.proofType())) {
+            String key = route.requiredParams().keySet().iterator().next();
+            return routeItemMatches(route.requiredParams().get(key), event.parameters().get(key));
+        }
+        if (isEntityRoute(route.proofType())) {
+            String key = route.requiredParams().keySet().iterator().next();
+            return entityTokenMatches(route.requiredParams().get(key), event.parameters().get(key));
+        }
+        return false;
+    }
+
+    private static boolean isEntityRoute(String proofType) {
+        return "ENTITY_KILLED".equals(proofType) || "ENTITY_CAPTURED_ALIVE".equals(proofType);
+    }
+
+    /** Pure rule shared by validation and tests: can the event entity id prove the route token? */
+    static boolean entityTokenMatches(String routeEntityToken, String eventEntityId) {
+        if (routeEntityToken == null || eventEntityId == null) {
             return false;
         }
-        String key = route.requiredParams().keySet().iterator().next();
-        return routeItemMatches(route.requiredParams().get(key), event.parameters().get(key));
+        String normalized = normalize(eventEntityId);
+        return !normalized.isBlank() && entitiesProvingToken(routeEntityToken).contains(normalized);
+    }
+
+    /** Server entity/boss ids whose kill/capture proves the route token (identity always included). */
+    static Set<String> entitiesProvingToken(String routeEntityToken) {
+        String token = normalize(routeEntityToken);
+        if (token.isBlank()) {
+            return Set.of();
+        }
+        LinkedHashSet<String> result = new LinkedHashSet<>(PROOF_ENTITY_MAPPINGS.getOrDefault(token, Set.of()));
+        result.add(token);
+        return Set.copyOf(result);
     }
 
     /** Pure rule shared by validation and tests: can the acquired/delivered item prove the token? */
@@ -617,6 +731,23 @@ public final class DetailedQuestProofService {
                 }
                 yield holdsProvingItem(player, route.parameter("item"));
             }
+            case "ENTITY_KILLED", "ENTITY_CAPTURED_ALIVE" -> {
+                // The entity id and the kill/capture attribution are server-observed facts.
+                if (event.source() == DetailedQuestProofEvent.Source.HISTORY) {
+                    yield !event.parameter("entity").isBlank();
+                }
+                yield entityTokenMatches(route.parameter("entity"), event.parameter("entity"));
+            }
+            case "ENCOUNTER_CLEARED" -> encounterProofAuthoritative(player, route, event);
+            case "ESCORT_COMPLETED" -> {
+                if (event.source() == DetailedQuestProofEvent.Source.HISTORY) {
+                    yield !event.parameter("region").isBlank();
+                }
+                String live = normalize(CultivationHelper.get(player)
+                        .map(cultivation -> cultivation.getWorldpackCurrentRegionId()).orElse(""));
+                yield !live.isBlank() && event.currentRegionId().equals(live)
+                        && trustedRegionAliases(live).contains(route.parameter("region"));
+            }
             case "ALCHEMY_COMPLETED" -> {
                 if (event.parameter("station").isBlank()) {
                     yield false;
@@ -653,6 +784,47 @@ public final class DetailedQuestProofService {
                 && SecretRealmSessionService.activeSession(player, event.secretRealmId())
                 .map(session -> session.sessionId().equals(event.sessionId()))
                 .orElse(false);
+    }
+
+    /**
+     * Encounter clears are only accepted from a bound secret-realm layer or the live ordinary
+     * region. Deep encounter regions can never be forged through the ordinary path.
+     */
+    private static boolean encounterProofAuthoritative(ServerPlayer player,
+                                                       DetailedQuestProofCatalog.Route route,
+                                                       DetailedQuestProofEvent event) {
+        if (event.source() == DetailedQuestProofEvent.Source.HISTORY) {
+            return !event.parameter("region").isBlank();
+        }
+        if (event.secretRealmId().isBlank()) {
+            String live = normalize(CultivationHelper.get(player)
+                    .map(cultivation -> cultivation.getWorldpackCurrentRegionId()).orElse(""));
+            return !live.isBlank() && event.currentRegionId().equals(live)
+                    && trustedRegionAliases(live).contains(route.parameter("region"));
+        }
+        return encounterRegionsForPhase(event.secretRealmId(), event.phase())
+                .contains(route.parameter("region"))
+                && SecretRealmSessionService.activeSession(player, event.secretRealmId())
+                .map(session -> session.sessionId().equals(event.sessionId()))
+                .orElse(false);
+    }
+
+    /**
+     * Trusted secret-realm layer -> encounter-clear region ids. Regions without a realm-phase
+     * source (wuxing_shallow_trial, gray_realm_border, heifeng_sea) have no producer yet and
+     * stay fail-closed until their content layer exists.
+     */
+    static List<String> encounterRegionsForPhase(String realmId, String phase) {
+        String key = normalize(realmId) + ":" + normalize(phase);
+        return switch (key) {
+            case "blood_forbidden:mid" -> List.of("bf_water_jiao");
+            case "fallen_demon_valley:core" -> List.of("zm_candle");
+            case "thousand_bamboo_puppet_tower:mid" -> List.of("qz_l2");
+            case "thousand_bamboo_puppet_tower:core" -> List.of("qz_l3");
+            case "yinyang_ku:mid" -> List.of("yy_yezha");
+            case "guanghan_realm:core" -> List.of("gh_inner");
+            default -> List.of();
+        };
     }
 
     private static boolean dimensionProofAuthoritative(ServerPlayer player,
@@ -783,6 +955,13 @@ public final class DetailedQuestProofService {
         if ("ALCHEMY_COMPLETED".equals(event.type().name()) && !event.parameter("station").isBlank()) {
             entry.putString("Station", event.parameter("station"));
         }
+        if (isEntityRoute(event.type().name()) && !event.parameter("entity").isBlank()) {
+            entry.putString("Entity", event.parameter("entity"));
+        }
+        if (("ENCOUNTER_CLEARED".equals(event.type().name()) || "ESCORT_COMPLETED".equals(event.type().name()))
+                && !event.parameter("region").isBlank()) {
+            entry.putString("Region", event.parameter("region"));
+        }
         return entry;
     }
 
@@ -817,6 +996,12 @@ public final class DetailedQuestProofService {
             case "CRAFT_COMPLETED" -> DetailedQuestProofEvent.itemCrafted(tag.getString("Item"));
             case "ITEM_DELIVERED" -> DetailedQuestProofEvent.itemDelivered(tag.getString("Item"));
             case "ALCHEMY_COMPLETED" -> DetailedQuestProofEvent.alchemyCompleted(tag.getString("Station"));
+            case "ENTITY_KILLED" -> DetailedQuestProofEvent.entityKilled(tag.getString("Entity"));
+            case "ENTITY_CAPTURED_ALIVE" -> DetailedQuestProofEvent.entityCapturedAlive(tag.getString("Entity"));
+            case "ENCOUNTER_CLEARED" -> DetailedQuestProofEvent.encounterCleared(
+                    tag.getString("Region").isBlank() ? route.parameter("region") : tag.getString("Region"));
+            case "ESCORT_COMPLETED" -> DetailedQuestProofEvent.escortCompleted(
+                    tag.getString("Region").isBlank() ? route.parameter("region") : tag.getString("Region"));
             case "METHOD_LAYER_REACHED" -> DetailedQuestProofEvent.methodLayerReached(
                     route.parameter("method"), Math.max(1, tag.getInt("Layer")));
             case "REALM_REACHED" -> {

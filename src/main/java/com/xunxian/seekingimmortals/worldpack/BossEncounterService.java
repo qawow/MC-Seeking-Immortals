@@ -141,6 +141,8 @@ public final class BossEncounterService {
         if (bossId.isBlank()) {
             return false;
         }
+        // Q-B-4: the killer is the validated session owner; record the structured kill proof.
+        com.xunxian.seekingimmortals.quest.DetailedQuestProofService.recordEntityKilled(killer, bossId);
         CompoundTag kills = killer.getPersistentData().getCompound(KILL_ROOT).copy();
         boolean firstKill = !kills.getBoolean(bossId);
         if (firstKill) {

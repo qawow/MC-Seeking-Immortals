@@ -9788,3 +9788,19 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Version/protocol   Done   `mod_version=0.2.248 -> 0.2.249`；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=31` 保持不变。
   Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功（1m 22s），`:aiPreflight` 记录 `0.2.249`；JAR SHA-256 为 `de1997534878e1a7571324fcfa5fdc3073dbd10777de9ccf80b509fafc2ab2b7`。
   Next implementation   Pending   Q-B-4：击杀、活捕、护送、遭遇和队伍归属事件；Q-B-5、D-A、阴阳窟、维度/本命/NPC 迁移及最终实机签字仍未完成。
+
+## 589. 2026-08-01 `0.2.250` Q-B-4 击杀、活捕、护送、遭遇与归属事件结构化证明
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   执行计划 Q-B-4；源码和版本文档回滚位于 `.bak/20260801_040848_q_b_4/`。用户既有 `CLAUDE.md`、`CC-Switch-v3.19.0-Linux-x86_64.deb`、`project_docs/frontend_interaction_audit_0.2.198.md` 与 `issues/` 未纳入本批。
+  Entity mapping   Done   `PROOF_ENTITY_MAPPINGS`：`qianzhu_tower_lord`→`puppet_tower_lord`（千竹塔塔主真实 Boss id），身份规则始终生效；`entityTokenMatches` 纯规则匹配事件实体与令牌证明集。
+  Encounter mapping   Done   `encounterRegionsForPhase`：blood_forbidden:mid→bf_water_jiao、fallen_demon_valley:core→zm_candle、千竹塔:mid→qz_l2/core→qz_l3、yinyang_ku:mid→yy_yezha、guanghan_realm:core→gh_inner；未映射区域失败关闭。
+  Authority   Done   ENTITY_KILLED/ENTITY_CAPTURED_ALIVE 事件实体必须属于令牌证明集且归属为服务端作战权威；ENCOUNTER_CLEARED 要求绑定会话或现场地域别名；ESCORT_COMPLETED 要求事件区域等于现场地域。
+  Producers   Done   `BossEncounterService.onBossKilled`（claimEncounter 归属校验后）、`QuestHookRuntime.onLivingDrops`、`QuestHookRuntime.onSecretRealmClear`、`ArtifactCaptureService.releaseOrCapture`（活捕事务完成后）、`EscortMissionService.onStewardContact`（受控侍灵+执事邻近后）均接入结构化证明。
+  History   Done   HISTORY_TAG 记录新增 `Entity`/`Region` 字段，`eventFromHistory` 可重建击杀/捕获/遭遇/护送事件。
+  Tests   Done   新增 `DetailedQuestCombatProofRouteTest`（10 项）；普通完整构建 260 套件 / 1,257 项测试，failure/error/skipped 均为 0。
+  Generated resources   Done   `generate_authored_spell_effects.py --check` 报告 2,292 profiles，`generate_authored_visual_catalog.py --check` 报告 5,727 profiles（按 `spell -> visual` 顺序刷新）。
+  Version/protocol   Done   `mod_version=0.2.249 -> 0.2.250`；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=31` 保持不变。
+  Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功（1m 24s），`:aiPreflight` 记录 `0.2.250`；JAR SHA-256 为 `396c75b36d1583d094ae516642ae3f54b6d3a4e370e8f96a9f325b45db40964f`。
+  Next implementation   Pending   Q-B-5：NPC 对话、选择、商店、拍卖、声望和规则告知事件；D-A、阴阳窟、维度/本命/NPC 迁移及最终实机签字仍未完成。

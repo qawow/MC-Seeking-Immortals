@@ -323,6 +323,7 @@ public final class QuestHookRuntime {
             if (key != null) {
                 typeId = key.getPath();
             }
+            DetailedQuestProofService.recordEntityKilled(killer, typeId);
             tryAdvanceByHook(killer, "kill_" + normalize(typeId));
             tryAdvanceByHook(killer, "slay_" + normalize(typeId));
             if (typeId.contains("beast") || typeId.contains("wolf") || typeId.contains("spider")) {
@@ -396,6 +397,7 @@ public final class QuestHookRuntime {
             startDetailedChains(player, List.of("nangong_wan_weight_optional"), waterEvidence);
         }
         DetailedQuestProofService.recordSecretRealmLayer(player, realm, layerKey);
+        DetailedQuestProofService.recordEncounterCleared(player, realm, layerKey);
         if ("core".equals(layerKey) || "boss".equals(layerKey)) {
             tryAdvanceByHook(player, "secret_realm_clear");
             tryStartOrAdvanceChain(player, realm.contains("blood") ? "blood_forbidden_campaign" : "");

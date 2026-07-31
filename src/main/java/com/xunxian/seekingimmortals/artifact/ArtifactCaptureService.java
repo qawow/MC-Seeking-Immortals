@@ -107,6 +107,8 @@ public final class ArtifactCaptureService {
         best.addEffect(new MobEffectInstance(MobEffects.GLOWING, 40, 0));
         best.discard();
         BestiaryUnlockService.unlock(player, id, BestiaryUnlockService.UnlockKind.SEEN);
+        // Q-B-4: the capture transaction removed the beast; record the structured capture proof.
+        com.xunxian.seekingimmortals.quest.DetailedQuestProofService.recordEntityCaptured(player, id);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.capture.caught",
                 beastDisplay(id)), true);
         return true;

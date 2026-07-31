@@ -151,6 +151,49 @@ public record DetailedQuestProofEvent(Type type, String producer, Map<String, St
                 "alchemy:" + station, Source.NATURAL, 0);
     }
 
+    /** Kill proof; the id is the server-observed entity/boss id with correct attribution. */
+    public static DetailedQuestProofEvent entityKilled(String entityId) {
+        String entity = normalize(entityId);
+        return new DetailedQuestProofEvent(Type.ENTITY_KILLED, "living_kill",
+                Map.of("entity", entity), null, null, Set.of(),
+                "kill:" + entity, Source.NATURAL, 0);
+    }
+
+    /** Alive-capture proof; produced only after the capture transaction removed the beast. */
+    public static DetailedQuestProofEvent entityCapturedAlive(String entityId) {
+        String entity = normalize(entityId);
+        return new DetailedQuestProofEvent(Type.ENTITY_CAPTURED_ALIVE, "capture",
+                Map.of("entity", entity), null, null, Set.of(),
+                "capture:" + entity, Source.NATURAL, 0);
+    }
+
+    /** Encounter-clear proof; ordinary encounters carry no secret-realm context. */
+    public static DetailedQuestProofEvent encounterCleared(String regionId) {
+        String region = normalize(regionId);
+        return new DetailedQuestProofEvent(Type.ENCOUNTER_CLEARED, "encounter",
+                Map.of("region", region), null, null, Set.of(),
+                "encounter:" + region, Source.NATURAL, 0);
+    }
+
+    /** Encounter-clear proof bound to a secret-realm layer clear. */
+    public static DetailedQuestProofEvent secretRealmEncounterCleared(String regionId, String realmId,
+                                                                      String sessionId, String phase) {
+        String region = normalize(regionId);
+        return new DetailedQuestProofEvent(Type.ENCOUNTER_CLEARED, "encounter",
+                Map.of("region", region), null, null, Set.of(),
+                "encounter:" + region, Source.NATURAL, 0)
+                .withWorld("", region, realmId, sessionId, phase, "", 0L, false);
+    }
+
+    /** Escort-completion proof; the region is the live region where the escort ended. */
+    public static DetailedQuestProofEvent escortCompleted(String regionId) {
+        String region = normalize(regionId);
+        return new DetailedQuestProofEvent(Type.ESCORT_COMPLETED, "escort",
+                Map.of("region", region), null, null, Set.of(),
+                "escort:" + region, Source.NATURAL, 0)
+                .withWorld("", region, "", "", "", "", 0L, false);
+    }
+
     /** Region arrival proven by a successful server-authoritative region transition. */
     public static DetailedQuestProofEvent regionEntered(String regionId) {
         String region = normalize(regionId);

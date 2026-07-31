@@ -1,11 +1,11 @@
 # 寻仙问道 — `0.2.246` 后续完整实现计划
 
-> 状态：F-A（UI-01 至 UI-05）、F-B（UI-06、UI-18）、F-C1（UI-07 至 UI-11、UI-19）、F-C2（UI-12 至 UI-14、UI-24 至 UI-26）、F-C3（UI-15、UI-28）、F-D（UI-16、UI-17、UI-21、UI-23、UI-27）、F-E1（UI-20）、F-E2（UI-22）、Q-A（95 步证明路由）、Q-B-1（修炼/境界/功法/术法生产者）、Q-B-2（地域/维度/秘境/结构）与 Q-B-3（物品/制作/炼丹/交付）已完成并验证；下一实施入口为 Q-B-4（击杀/活捕/护送/遭遇/队伍归属）。本文件继续定义剩余工作的实施顺序、边界和验收门。
+> 状态：F-A（UI-01 至 UI-05）、F-B（UI-06、UI-18）、F-C1（UI-07 至 UI-11、UI-19）、F-C2（UI-12 至 UI-14、UI-24 至 UI-26）、F-C3（UI-15、UI-28）、F-D（UI-16、UI-17、UI-21、UI-23、UI-27）、F-E1（UI-20）、F-E2（UI-22）、Q-A（95 步证明路由）、Q-B-1（修炼/境界/功法/术法生产者）、Q-B-2（地域/维度/秘境/结构）、Q-B-3（物品/制作/炼丹/交付）与 Q-B-4（击杀/活捕/护送/遭遇）已完成并验证；下一实施入口为 Q-B-5（NPC 对话/选择/商店/拍卖/声望/规则告知）。本文件继续定义剩余工作的实施顺序、边界和验收门。
 > 制定日期：2026-07-29。
-> 最近已提交基线：`707bc375 feat: 接入地域维度秘境结构的结构化任务证明`；Q-B-1、其安全硬化、Q-B-2 与 Q-B-3 已完成并验证，下一批为 Q-B-4。
-> 初始版本基线：`mod_version=0.2.232`；当前执行版本：`mod_version=0.2.249`。
+> 最近已提交基线：`24a96982 feat: 接入物品制作炼丹交付的结构化任务证明`；Q-B-1、其安全硬化、Q-B-2、Q-B-3 与 Q-B-4 已完成并验证，下一批为 Q-B-5。
+> 初始版本基线：`mod_version=0.2.232`；当前执行版本：`mod_version=0.2.250`。
 > 网络基线：`ModNetwork.PROTOCOL_VERSION=31`。
-> 最近完整自动验证：1,247 项测试通过，failure/error/skipped 均为 0；`0.2.249` 完整 Gradle 构建结果记录在本批更新记录中。
+> 最近完整自动验证：1,257 项测试通过，failure/error/skipped 均为 0；`0.2.250` 完整 Gradle 构建结果记录在本批更新记录中。
 > 本文取代原先以 `0.1.57` 为基线的同名旧计划；历史 `master_plan.md` 只作完成轨迹参考，不再作为剩余工作真相。
 
 ## 1. 目标与边界
@@ -397,7 +397,11 @@ NPC 迁移  ─┘
 
 #### Q-B-3：物品获取、制作、炼丹与交付生产者（已完成，`0.2.249`）
 
-注册 6 个故事载体（`tai_yang_jing_huo`、`five_cold_flames`、`silver_tadpole_script`、`dragon_scale_fruit`、`blank_letter`、`gray_realm_clue`）补齐 ITEM_ACQUIRED/ITEM_DELIVERED 路由的真实载体；`itemsProvingToken` 纯映射把路由令牌解析为真实规范物品（别名折叠与概念令牌显式映射，身份规则仅对真实载体生效，概念令牌失败关闭）。ITEM_ACQUIRED/CRAFT_COMPLETED/ITEM_DELIVERED 自然事件要求玩家真实持有可证明物品（服务端背包扫描），历史回放只使用服务端记录事实；ALCHEMY_COMPLETED 按站台别名等价校验。生产点：`onItemPickup`→`recordItemAcquired`、`onItemCrafted`→`recordItemCrafted`（取代旧 `recordAndAdvance` 字符串路径）、`AlchemyFurnaceBlockEntity.giveOutput`→`recordAlchemyCompleted`、turnin_quests→`recordItemDelivered`（真实持有 + giver/place NPC 匹配）。`record()` 账本去重检查移至一步/链槽位之前，court_hunt_gray 第 2/4 步同物品双交付不再互相遮蔽。HISTORY_TAG 物品记录携带 `Item`/`Station` 字段。新增 `DetailedQuestItemProofRouteTest`（12 项），完整构建 1,247 项测试通过；协议保持 `31`。剩余风险：`tianyuan_garrison_board` 信息确认入口待 Q-B-5；Q-B-4/Q-B-5 事件域未接入；新载体掉落/配方/商店来源由作者资料驱动。
+注册 6 个故事载体（`tai_yang_jing_huo`、`five_cold_flames`、`silver_tadpole_script`、`dragon_scale_fruit`、`blank_letter`、`gray_realm_clue`）补齐 ITEM_ACQUIRED/ITEM_DELIVERED 路由的真实载体；`itemsProvingToken` 纯映射把路由令牌解析为真实规范物品（别名折叠与概念令牌显式映射，身份规则仅对真实载体生效，概念令牌失败关闭）。ITEM_ACQUIRED/CRAFT_COMPLETED/ITEM_DELIVERED 自然事件要求玩家真实持有可证明物品（服务端背包扫描），历史回放只使用服务端记录事实；ALCHEMY_COMPLETED 按站台别名等价校验。生产点：`onItemPickup`→`recordItemAcquired`、`onItemCrafted`→`recordItemCrafted`（取代旧 `recordAndAdvance` 字符串路径）、`AlchemyFurnaceBlockEntity.giveOutput`→`recordAlchemyCompleted`、turnin_quests→`recordItemDelivered`（真实持有 + giver/place NPC 匹配）。`record()` 账本去重检查移至一步/链槽位之前，court_hunt_gray 第 2/4 步同物品双交付不再互相遮蔽。HISTORY_TAG 物品记录携带 `Item`/`Station` 字段。新增 `DetailedQuestItemProofRouteTest`（12 项），完整构建 1,247 项测试通过；协议保持 `31`。剩余风险：`tianyuan_garrison_board` 信息确认入口待 Q-B-5；新载体掉落/配方/商店来源由作者资料驱动。
+
+#### Q-B-4：击杀、活捕、护送、遭遇与归属生产者（已完成，`0.2.250`）
+
+`PROOF_ENTITY_MAPPINGS` 把 `qianzhu_tower_lord` 解析为真实 Boss id `puppet_tower_lord`；`encounterRegionsForPhase` 映射六个秘境层清场遭遇区域（bf_water_jiao/zm_candle/qz_l2/qz_l3/yy_yezha/gh_inner）。ENTITY_KILLED/ENTITY_CAPTURED_ALIVE 事件实体必须属于令牌证明集且归属为服务端作战权威；ENCOUNTER_CLEARED 要求绑定会话或现场地域别名；ESCORT_COMPLETED 要求事件区域等于现场地域。生产点：`BossEncounterService.onBossKilled`（claimEncounter 归属校验后）、`QuestHookRuntime.onLivingDrops`、`onSecretRealmClear`、`ArtifactCaptureService.releaseOrCapture`（活捕事务完成后）、`EscortMissionService.onStewardContact`（受控侍灵+执事邻近后）。HISTORY_TAG 记录新增 `Entity`/`Region` 字段。新增 `DetailedQuestCombatProofRouteTest`（10 项），完整构建 1,257 项测试通过；协议保持 `31`。剩余风险：wuxing_shallow_trial/gray_realm_border/heifeng_sea 遭遇与灰界护送尚无内容层（失败关闭）；yin_zhi_horse 活捕路由待 Y-B；队伍共享推进未实现（无通用队伍 API）。
 
 ### D-A：对话世界动作分型
 

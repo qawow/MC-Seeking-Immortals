@@ -120,6 +120,9 @@ public final class EscortMissionService {
             return false;
         }
         clearEscort(player, true);
+        // Q-B-4: the owned escort reached the steward; record the structured escort proof with
+        // the live region where the escort ended.
+        com.xunxian.seekingimmortals.quest.DetailedQuestProofService.recordEscortCompleted(player);
         return true;
     }
 
