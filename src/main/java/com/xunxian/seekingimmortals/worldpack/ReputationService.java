@@ -49,6 +49,11 @@ public final class ReputationService {
     public static int add(ServerPlayer player, String factionKey, int delta) {
         int next = get(player, factionKey) + delta;
         set(player, factionKey, next);
+        // Q-B-5: reaching a positive reputation value for the ledger key is the server fact.
+        if (next >= 1) {
+            com.xunxian.seekingimmortals.quest.DetailedQuestProofService.recordReputationReached(
+                    player, factionKey);
+        }
         return next;
     }
 

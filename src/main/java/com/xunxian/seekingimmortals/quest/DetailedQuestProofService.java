@@ -72,6 +72,42 @@ public final class DetailedQuestProofService {
     static final Map<String, Set<String>> PROOF_ENTITY_MAPPINGS = Map.ofEntries(
             Map.entry("qianzhu_tower_lord", Set.of("puppet_tower_lord")));
 
+    /** Q-B-4 authored npc tokens -> real server npc ids that can prove them. */
+    static final Map<String, Set<String>> PROOF_NPC_MAPPINGS = Map.ofEntries(
+            Map.entry("qianzhu_teacher", Set.of("npc_qianzhu_mechanic")));
+
+    /** Q-B-5 authored shop tokens -> real market shop ids that can prove them. */
+    static final Map<String, Set<String>> PROOF_SHOP_MAPPINGS = Map.ofEntries(
+            Map.entry("star_palace_registry", Set.of("star_registration", "star_palace_patrol_supply")),
+            Map.entry("inverse_star_smuggle", Set.of("inverse_black", "inverse_star_black_market")),
+            Map.entry("reincarnation_trade_desk", Set.of("reincarnation_desk", "nether_ferry_vendor")));
+
+    /** Q-B-5 authored auction tokens -> real auction venue ids that can prove them. */
+    static final Map<String, Set<String>> PROOF_AUCTION_MAPPINGS = Map.ofEntries(
+            Map.entry("dajin_wanbao_auction", Set.of("wanbao_auction")));
+
+    /** Q-B-5 authored faction tokens -> real reputation ledger keys that can prove them. */
+    static final Map<String, Set<String>> PROOF_FACTION_MAPPINGS = Map.ofEntries(
+            Map.entry("huangfeng", Set.of("huangfeng", "huangfeng_gu")));
+
+    /**
+     * Q-B-5 authored rule-acknowledgement tokens produced by specific server dialogue nodes:
+     * choice token -> (treeId, nodeId) source pairs. Only these server-observed node visits may
+     * produce the corresponding INFO_ACKNOWLEDGED proof.
+     */
+    static final Map<String, Set<String>> INFO_CHOICE_SOURCES = Map.ofEntries(
+            Map.entry("blood_forbidden_window", Set.of("tree_sect_contribution_clerk:quota_shop")),
+            Map.entry("star_palace_rejection_rule", Set.of("tree_star_palace_registrar:inverse_block")),
+            Map.entry("fengyuan_gate_contribution_rule", Set.of("tree_tianyuan_registrar:pay_portal")),
+            Map.entry("tianyuan_garrison_board", Set.of("tree_tianyuan_registrar:jobs")),
+            Map.entry("true_word_lecture", Set.of("tree_zhenyan_lecturer:accept_lesson")),
+            Map.entry("reincarnation_backlash_terms", Set.of("tree_reincarnation_clerk:intro_quest")));
+
+    /** Q-B-5 authored choice tokens produced by specific server dialogue nodes. */
+    static final Map<String, Set<String>> CHOICE_COMMITTED_SOURCES = Map.ofEntries(
+            Map.entry("inverse_star_cipher", Set.of("tree_inverse_star_contact:cipher")),
+            Map.entry("true_word_basic_drill", Set.of("tree_zhenyan_lecturer:accept_lesson")));
+
     public enum Status {
         ACCEPTED,
         DUPLICATE,
@@ -335,6 +371,86 @@ public final class DetailedQuestProofService {
         return record(player, DetailedQuestProofEvent.escortCompleted(live));
     }
 
+    /**
+     * Records every Q-B-5 proof a server dialogue node visit may produce: the NPC dialogue
+     * itself plus the authored acknowledgement/choice tokens bound to this (tree, node).
+     */
+    public static Result recordDialogueNode(ServerPlayer player, String npcId, String treeId, String nodeId) {
+        if (player == null) {
+            return rejected("missing_player");
+        }
+        Result last = rejected("no_dialogue_proofs");
+        boolean anyAccepted = false;
+        int advancedTotal = 0;
+        if (!normalize(npcId).isBlank()) {
+            Result result = record(player, DetailedQuestProofEvent.npcDialogue(npcId));
+            if (result.accepted()) {
+                anyAccepted = true;
+            }
+            advancedTotal = Math.max(advancedTotal, result.advanced());
+            last = result;
+        }
+        String source = normalize(treeId) + ":" + normalize(nodeId);
+        if (source.indexOf(':') > 0) {
+            for (String choice : acknowledgedChoiceTokens(treeId, nodeId)) {
+                Result result = record(player, DetailedQuestProofEvent.infoAcknowledged(choice));
+                if (result.accepted()) {
+                    anyAccepted = true;
+                }
+                advancedTotal = Math.max(advancedTotal, result.advanced());
+                last = result;
+            }
+            for (String choice : committedChoiceTokens(treeId, nodeId)) {
+                Result result = record(player, DetailedQuestProofEvent.choiceCommitted(choice));
+                if (result.accepted()) {
+                    anyAccepted = true;
+                }
+                advancedTotal = Math.max(advancedTotal, result.advanced());
+                last = result;
+            }
+        }
+        if (anyAccepted) {
+            return new Result(Status.ACCEPTED, advancedTotal, "dialogue_proofs");
+        }
+        return last;
+    }
+
+    /** Shop-transaction proof after a successful server-authoritative purchase. */
+    public static Result recordShopTransaction(ServerPlayer player, String shopId) {
+        if (player == null) {
+            return rejected("missing_player");
+        }
+        String shop = normalize(shopId);
+        if (shop.isBlank()) {
+            return rejected("missing_shop");
+        }
+        return record(player, DetailedQuestProofEvent.shopTransaction(shop));
+    }
+
+    /** Auction-transaction proof after a successful server-authoritative bid. */
+    public static Result recordAuctionTransaction(ServerPlayer player, String venueId) {
+        if (player == null) {
+            return rejected("missing_player");
+        }
+        String venue = normalize(venueId);
+        if (venue.isBlank()) {
+            return rejected("missing_venue");
+        }
+        return record(player, DetailedQuestProofEvent.auctionTransaction(venue));
+    }
+
+    /** Reputation proof after the reputation ledger key reaches a positive value. */
+    public static Result recordReputationReached(ServerPlayer player, String factionKey) {
+        if (player == null) {
+            return rejected("missing_player");
+        }
+        String faction = normalize(factionKey);
+        if (faction.isBlank()) {
+            return rejected("missing_faction");
+        }
+        return record(player, DetailedQuestProofEvent.reputationReached(faction));
+    }
+
     /** Whether the delivering npc may legitimately accept the current step's delivery. */
     static boolean deliveryNpcMatches(DetailedQuestRuntimeService.Chain chain, int stage, String npcId) {
         if (chain == null || npcId == null || npcId.isBlank() || stage < 1 || stage > chain.steps().size()) {
@@ -587,6 +703,18 @@ public final class DetailedQuestProofService {
             String key = route.requiredParams().keySet().iterator().next();
             return entityTokenMatches(route.requiredParams().get(key), event.parameters().get(key));
         }
+        if ("NPC_DIALOGUE".equals(route.proofType())) {
+            return npcTokenMatches(route.parameter("npc"), event.parameter("npc"));
+        }
+        if ("SHOP_TRANSACTION".equals(route.proofType())) {
+            return shopTokenMatches(route.parameter("shop"), event.parameter("shop"));
+        }
+        if ("AUCTION_TRANSACTION".equals(route.proofType())) {
+            return auctionTokenMatches(route.parameter("auction"), event.parameter("auction"));
+        }
+        if ("REPUTATION_REACHED".equals(route.proofType())) {
+            return factionTokenMatches(route.parameter("faction"), event.parameter("faction"));
+        }
         return false;
     }
 
@@ -614,6 +742,71 @@ public final class DetailedQuestProofService {
         return Set.copyOf(result);
     }
 
+    /** Pure rule: can the server npc id prove the route npc token? */
+    static boolean npcTokenMatches(String routeNpcToken, String eventNpcId) {
+        return tokenInSet(routeNpcToken, eventNpcId, PROOF_NPC_MAPPINGS);
+    }
+
+    /** Pure rule: can the server market shop id prove the route shop token? */
+    static boolean shopTokenMatches(String routeShopToken, String eventShopId) {
+        return tokenInSet(routeShopToken, eventShopId, PROOF_SHOP_MAPPINGS);
+    }
+
+    /** Pure rule: can the server auction venue id prove the route auction token? */
+    static boolean auctionTokenMatches(String routeAuctionToken, String eventAuctionId) {
+        return tokenInSet(routeAuctionToken, eventAuctionId, PROOF_AUCTION_MAPPINGS);
+    }
+
+    /** Pure rule: can the server reputation key prove the route faction token? */
+    static boolean factionTokenMatches(String routeFactionToken, String eventFactionKey) {
+        return tokenInSet(routeFactionToken, eventFactionKey, PROOF_FACTION_MAPPINGS);
+    }
+
+    private static boolean tokenInSet(String routeToken, String eventValue,
+                                      Map<String, Set<String>> mappings) {
+        if (routeToken == null || eventValue == null) {
+            return false;
+        }
+        String normalized = normalize(eventValue);
+        if (normalized.isBlank()) {
+            return false;
+        }
+        LinkedHashSet<String> provable = new LinkedHashSet<>(
+                mappings.getOrDefault(normalize(routeToken), Set.of()));
+        provable.add(normalize(routeToken));
+        return provable.contains(normalized);
+    }
+
+    /** Authored choice tokens a server dialogue node visit acknowledges. */
+    static Set<String> acknowledgedChoiceTokens(String treeId, String nodeId) {
+        String source = normalize(treeId) + ":" + normalize(nodeId);
+        if (source.indexOf(':') <= 0) {
+            return Set.of();
+        }
+        LinkedHashSet<String> choices = new LinkedHashSet<>();
+        for (Map.Entry<String, Set<String>> entry : INFO_CHOICE_SOURCES.entrySet()) {
+            if (entry.getValue().contains(source)) {
+                choices.add(entry.getKey());
+            }
+        }
+        return Set.copyOf(choices);
+    }
+
+    /** Authored choice tokens a server dialogue node visit commits. */
+    static Set<String> committedChoiceTokens(String treeId, String nodeId) {
+        String source = normalize(treeId) + ":" + normalize(nodeId);
+        if (source.indexOf(':') <= 0) {
+            return Set.of();
+        }
+        LinkedHashSet<String> choices = new LinkedHashSet<>();
+        for (Map.Entry<String, Set<String>> entry : CHOICE_COMMITTED_SOURCES.entrySet()) {
+            if (entry.getValue().contains(source)) {
+                choices.add(entry.getKey());
+            }
+        }
+        return Set.copyOf(choices);
+    }
+
     /** Pure rule shared by validation and tests: can the acquired/delivered item prove the token? */
     static boolean routeItemMatches(String routeItemToken, String eventItemId) {
         if (routeItemToken == null || eventItemId == null) {
@@ -628,6 +821,18 @@ public final class DetailedQuestProofService {
         }
         String canonical = ItemCatalogService.resolveId(normalized);
         return canonical != null && itemsProvingToken(routeItemToken).contains(canonical);
+    }
+
+    /** Reputation ledger keys that prove the route faction token (identity always included). */
+    static Set<String> factionsProvingToken(String routeFactionToken) {
+        String token = normalize(routeFactionToken);
+        if (token.isBlank()) {
+            return Set.of();
+        }
+        LinkedHashSet<String> result = new LinkedHashSet<>(
+                PROOF_FACTION_MAPPINGS.getOrDefault(token, Set.of()));
+        result.add(token);
+        return Set.copyOf(result);
     }
 
     private static boolean isItemRoute(String proofType) {
@@ -747,6 +952,42 @@ public final class DetailedQuestProofService {
                         .map(cultivation -> cultivation.getWorldpackCurrentRegionId()).orElse(""));
                 yield !live.isBlank() && event.currentRegionId().equals(live)
                         && trustedRegionAliases(live).contains(route.parameter("region"));
+            }
+            case "NPC_DIALOGUE" -> {
+                if (event.source() == DetailedQuestProofEvent.Source.HISTORY) {
+                    yield !event.parameter("npc").isBlank();
+                }
+                yield npcTokenMatches(route.parameter("npc"), event.parameter("npc"));
+            }
+            case "INFO_ACKNOWLEDGED", "CHOICE_COMMITTED" -> {
+                // The choice token is produced by the server dialogue mapping; only the exact
+                // authored token may match the route.
+                if (event.source() == DetailedQuestProofEvent.Source.HISTORY) {
+                    yield !event.parameter("choice").isBlank();
+                }
+                yield route.parameter("choice").equals(event.parameter("choice"));
+            }
+            case "SHOP_TRANSACTION" -> {
+                if (event.source() == DetailedQuestProofEvent.Source.HISTORY) {
+                    yield !event.parameter("shop").isBlank();
+                }
+                yield shopTokenMatches(route.parameter("shop"), event.parameter("shop"));
+            }
+            case "AUCTION_TRANSACTION" -> {
+                if (event.source() == DetailedQuestProofEvent.Source.HISTORY) {
+                    yield !event.parameter("auction").isBlank();
+                }
+                yield auctionTokenMatches(route.parameter("auction"), event.parameter("auction"));
+            }
+            case "REPUTATION_REACHED" -> {
+                if (event.source() == DetailedQuestProofEvent.Source.HISTORY) {
+                    yield !event.parameter("faction").isBlank();
+                }
+                // The live reputation ledger is the server truth; any positive value for a key
+                // that proves the route faction counts as reached.
+                yield factionsProvingToken(route.parameter("faction")).stream()
+                        .anyMatch(faction -> com.xunxian.seekingimmortals.worldpack.ReputationService
+                                .get(player, faction) >= 1);
             }
             case "ALCHEMY_COMPLETED" -> {
                 if (event.parameter("station").isBlank()) {
@@ -962,6 +1203,22 @@ public final class DetailedQuestProofService {
                 && !event.parameter("region").isBlank()) {
             entry.putString("Region", event.parameter("region"));
         }
+        if ("NPC_DIALOGUE".equals(event.type().name()) && !event.parameter("npc").isBlank()) {
+            entry.putString("Npc", event.parameter("npc"));
+        }
+        if (("INFO_ACKNOWLEDGED".equals(event.type().name()) || "CHOICE_COMMITTED".equals(event.type().name()))
+                && !event.parameter("choice").isBlank()) {
+            entry.putString("Choice", event.parameter("choice"));
+        }
+        if ("SHOP_TRANSACTION".equals(event.type().name()) && !event.parameter("shop").isBlank()) {
+            entry.putString("Shop", event.parameter("shop"));
+        }
+        if ("AUCTION_TRANSACTION".equals(event.type().name()) && !event.parameter("auction").isBlank()) {
+            entry.putString("Auction", event.parameter("auction"));
+        }
+        if ("REPUTATION_REACHED".equals(event.type().name()) && !event.parameter("faction").isBlank()) {
+            entry.putString("Faction", event.parameter("faction"));
+        }
         return entry;
     }
 
@@ -1002,6 +1259,12 @@ public final class DetailedQuestProofService {
                     tag.getString("Region").isBlank() ? route.parameter("region") : tag.getString("Region"));
             case "ESCORT_COMPLETED" -> DetailedQuestProofEvent.escortCompleted(
                     tag.getString("Region").isBlank() ? route.parameter("region") : tag.getString("Region"));
+            case "NPC_DIALOGUE" -> DetailedQuestProofEvent.npcDialogue(tag.getString("Npc"));
+            case "INFO_ACKNOWLEDGED" -> DetailedQuestProofEvent.infoAcknowledged(tag.getString("Choice"));
+            case "CHOICE_COMMITTED" -> DetailedQuestProofEvent.choiceCommitted(tag.getString("Choice"));
+            case "SHOP_TRANSACTION" -> DetailedQuestProofEvent.shopTransaction(tag.getString("Shop"));
+            case "AUCTION_TRANSACTION" -> DetailedQuestProofEvent.auctionTransaction(tag.getString("Auction"));
+            case "REPUTATION_REACHED" -> DetailedQuestProofEvent.reputationReached(tag.getString("Faction"));
             case "METHOD_LAYER_REACHED" -> DetailedQuestProofEvent.methodLayerReached(
                     route.parameter("method"), Math.max(1, tag.getInt("Layer")));
             case "REALM_REACHED" -> {

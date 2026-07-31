@@ -1,11 +1,11 @@
 # 寻仙问道 — `0.2.246` 后续完整实现计划
 
-> 状态：F-A（UI-01 至 UI-05）、F-B（UI-06、UI-18）、F-C1（UI-07 至 UI-11、UI-19）、F-C2（UI-12 至 UI-14、UI-24 至 UI-26）、F-C3（UI-15、UI-28）、F-D（UI-16、UI-17、UI-21、UI-23、UI-27）、F-E1（UI-20）、F-E2（UI-22）、Q-A（95 步证明路由）、Q-B-1（修炼/境界/功法/术法生产者）、Q-B-2（地域/维度/秘境/结构）、Q-B-3（物品/制作/炼丹/交付）与 Q-B-4（击杀/活捕/护送/遭遇）已完成并验证；下一实施入口为 Q-B-5（NPC 对话/选择/商店/拍卖/声望/规则告知）。本文件继续定义剩余工作的实施顺序、边界和验收门。
+> 状态：F-A（UI-01 至 UI-05）、F-B（UI-06、UI-18）、F-C1（UI-07 至 UI-11、UI-19）、F-C2（UI-12 至 UI-14、UI-24 至 UI-26）、F-C3（UI-15、UI-28）、F-D（UI-16、UI-17、UI-21、UI-23、UI-27）、F-E1（UI-20）、F-E2（UI-22）、Q-A（95 步证明路由）与 Q-B（Q-B-1 至 Q-B-5 全部事件域）已完成并验证；下一实施入口为 D-A（对话世界动作分型）。本文件继续定义剩余工作的实施顺序、边界和验收门。
 > 制定日期：2026-07-29。
-> 最近已提交基线：`24a96982 feat: 接入物品制作炼丹交付的结构化任务证明`；Q-B-1、其安全硬化、Q-B-2、Q-B-3 与 Q-B-4 已完成并验证，下一批为 Q-B-5。
-> 初始版本基线：`mod_version=0.2.232`；当前执行版本：`mod_version=0.2.250`。
+> 最近已提交基线：`55143860 feat: 接入击杀活捕护送遭遇的结构化任务证明`；Q-A、Q-B-1 至 Q-B-5 全部完成并验证，下一批为 D-A。
+> 初始版本基线：`mod_version=0.2.232`；当前执行版本：`mod_version=0.2.251`。
 > 网络基线：`ModNetwork.PROTOCOL_VERSION=31`。
-> 最近完整自动验证：1,257 项测试通过，failure/error/skipped 均为 0；`0.2.250` 完整 Gradle 构建结果记录在本批更新记录中。
+> 最近完整自动验证：1,268 项测试通过，failure/error/skipped 均为 0；`0.2.251` 完整 Gradle 构建结果记录在本批更新记录中。
 > 本文取代原先以 `0.1.57` 为基线的同名旧计划；历史 `master_plan.md` 只作完成轨迹参考，不再作为剩余工作真相。
 
 ## 1. 目标与边界
@@ -402,6 +402,10 @@ NPC 迁移  ─┘
 #### Q-B-4：击杀、活捕、护送、遭遇与归属生产者（已完成，`0.2.250`）
 
 `PROOF_ENTITY_MAPPINGS` 把 `qianzhu_tower_lord` 解析为真实 Boss id `puppet_tower_lord`；`encounterRegionsForPhase` 映射六个秘境层清场遭遇区域（bf_water_jiao/zm_candle/qz_l2/qz_l3/yy_yezha/gh_inner）。ENTITY_KILLED/ENTITY_CAPTURED_ALIVE 事件实体必须属于令牌证明集且归属为服务端作战权威；ENCOUNTER_CLEARED 要求绑定会话或现场地域别名；ESCORT_COMPLETED 要求事件区域等于现场地域。生产点：`BossEncounterService.onBossKilled`（claimEncounter 归属校验后）、`QuestHookRuntime.onLivingDrops`、`onSecretRealmClear`、`ArtifactCaptureService.releaseOrCapture`（活捕事务完成后）、`EscortMissionService.onStewardContact`（受控侍灵+执事邻近后）。HISTORY_TAG 记录新增 `Entity`/`Region` 字段。新增 `DetailedQuestCombatProofRouteTest`（10 项），完整构建 1,257 项测试通过；协议保持 `31`。剩余风险：wuxing_shallow_trial/gray_realm_border/heifeng_sea 遭遇与灰界护送尚无内容层（失败关闭）；yin_zhi_horse 活捕路由待 Y-B；队伍共享推进未实现（无通用队伍 API）。
+
+#### Q-B-5：NPC 对话、选择、商店、拍卖、声望与规则告知生产者（已完成，`0.2.251`，Q-B 系列收口）
+
+令牌映射：`qianzhu_teacher`→`npc_qianzhu_mechanic`、三组作者商店→真实市场店（star_palace_registry→star_registration/star_palace_patrol_supply 等）、`dajin_wanbao_auction`→`wanbao_auction`、`huangfeng`→`huangfeng_gu`；规则告知/选择令牌绑定服务端对话树节点（`INFO_CHOICE_SOURCES`/`CHOICE_COMMITTED_SOURCES`），`tianyuan_garrison_board` 按 Q-B-2 指定接入 tree_tianyuan_registrar 的 jobs（open_quest_board）节点。校验：NPC/商店/拍卖/声望事件令牌必须属于路由证明集，声望以服务端账本实时值≥1为准；告知/选择令牌严格相等且只能由服务端节点映射产生。生产点：`QuestHookRuntime.onDialogueNode`→`recordDialogueNode`、`ShopService.handleClientAction` 购买成功后、`AuctionSoftService.bid` 出价提交成功后、`ReputationService.add` 声望达正值后。HISTORY_TAG 记录新增 Npc/Choice/Shop/Auction/Faction 字段。新增 `DetailedQuestDialogueProofRouteTest`（10 项），完整构建 1,268 项测试通过；协议保持 `31`。Q-B 系列全部完成后，95 步全部事件域已接入统一证明服务。剩余风险：四项规则告知、三项选择、三家商店与 `fallen_demon_token` 拍卖无运行时内容层（失败关闭）；旧命名 Villager 对话身份权威属 M-C。
 
 ### D-A：对话世界动作分型
 

@@ -298,6 +298,9 @@ public final class AuctionSoftService {
 
         AuctionHouseSavedData.BidState state = house.placeOrRaise(lot.id(), player.getUUID(), next);
         setPersonalEscrow(player, lot.id(), next);
+        // Q-B-5: a successful server-authoritative bid records the auction proof with the venue id.
+        venueOpt.ifPresent(venue -> com.xunxian.seekingimmortals.quest.DetailedQuestProofService
+                .recordAuctionTransaction(player, venue.id()));
         // Wave466/467: refund previous leader's escrow when outbid (online now, offline ledger).
         if (previousLeader != null && previousEscrow > 0 && player.getServer() != null) {
             ServerPlayer previous = player.getServer().getPlayerList().getPlayer(previousLeader);

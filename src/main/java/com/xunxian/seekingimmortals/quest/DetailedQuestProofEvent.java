@@ -194,6 +194,54 @@ public record DetailedQuestProofEvent(Type type, String producer, Map<String, St
                 .withWorld("", region, "", "", "", "", 0L, false);
     }
 
+    /** NPC dialogue proof; the npc id comes from the server dialogue session. */
+    public static DetailedQuestProofEvent npcDialogue(String npcId) {
+        String npc = normalize(npcId);
+        return new DetailedQuestProofEvent(Type.NPC_DIALOGUE, "npc_dialogue",
+                Map.of("npc", npc), null, null, Set.of(),
+                "npc:" + npc, Source.NATURAL, 0);
+    }
+
+    /** Rule-acknowledgement proof; the choice token is produced from a server dialogue node. */
+    public static DetailedQuestProofEvent infoAcknowledged(String choiceToken) {
+        String choice = normalize(choiceToken);
+        return new DetailedQuestProofEvent(Type.INFO_ACKNOWLEDGED, "npc_dialogue",
+                Map.of("choice", choice), null, null, Set.of(),
+                "info:" + choice, Source.NATURAL, 0);
+    }
+
+    /** Dialogue-choice proof; the choice token is produced from a server dialogue node. */
+    public static DetailedQuestProofEvent choiceCommitted(String choiceToken) {
+        String choice = normalize(choiceToken);
+        return new DetailedQuestProofEvent(Type.CHOICE_COMMITTED, "dialogue_choice",
+                Map.of("choice", choice), null, null, Set.of(),
+                "choice:" + choice, Source.NATURAL, 0);
+    }
+
+    /** Shop-transaction proof; the shop id is the server-authoritative market shop id. */
+    public static DetailedQuestProofEvent shopTransaction(String shopId) {
+        String shop = normalize(shopId);
+        return new DetailedQuestProofEvent(Type.SHOP_TRANSACTION, "shop",
+                Map.of("shop", shop), null, null, Set.of(),
+                "shop:" + shop, Source.NATURAL, 0);
+    }
+
+    /** Auction-transaction proof; the venue id comes from the auction snapshot. */
+    public static DetailedQuestProofEvent auctionTransaction(String auctionId) {
+        String auction = normalize(auctionId);
+        return new DetailedQuestProofEvent(Type.AUCTION_TRANSACTION, "auction",
+                Map.of("auction", auction), null, null, Set.of(),
+                "auction:" + auction, Source.NATURAL, 0);
+    }
+
+    /** Reputation proof; the faction key is the server reputation ledger key. */
+    public static DetailedQuestProofEvent reputationReached(String factionKey) {
+        String faction = normalize(factionKey);
+        return new DetailedQuestProofEvent(Type.REPUTATION_REACHED, "reputation",
+                Map.of("faction", faction), null, null, Set.of(),
+                "rep:" + faction, Source.NATURAL, 0);
+    }
+
     /** Region arrival proven by a successful server-authoritative region transition. */
     public static DetailedQuestProofEvent regionEntered(String regionId) {
         String region = normalize(regionId);

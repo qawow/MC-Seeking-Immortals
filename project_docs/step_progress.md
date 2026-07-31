@@ -9804,3 +9804,19 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Version/protocol   Done   `mod_version=0.2.249 -> 0.2.250`；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=31` 保持不变。
   Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功（1m 24s），`:aiPreflight` 记录 `0.2.250`；JAR SHA-256 为 `396c75b36d1583d094ae516642ae3f54b6d3a4e370e8f96a9f325b45db40964f`。
   Next implementation   Pending   Q-B-5：NPC 对话、选择、商店、拍卖、声望和规则告知事件；D-A、阴阳窟、维度/本命/NPC 迁移及最终实机签字仍未完成。
+
+## 590. 2026-08-01 `0.2.251` Q-B-5 NPC 对话、选择、商店、拍卖、声望与规则告知事件结构化证明
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   执行计划 Q-B-5（Q-B 系列最后一个事件域）；源码和版本文档回滚位于 `.bak/20260801_042209_q_b_5/`。用户既有 `CLAUDE.md`、`CC-Switch-v3.19.0-Linux-x86_64.deb`、`project_docs/frontend_interaction_audit_0.2.198.md` 与 `issues/` 未纳入本批。
+  Token mapping   Done   `PROOF_NPC_MAPPINGS`（qianzhu_teacher→npc_qianzhu_mechanic）、`PROOF_SHOP_MAPPINGS`（三组作者商店→真实市场店）、`PROOF_AUCTION_MAPPINGS`（dajin_wanbao_auction→wanbao_auction）、`PROOF_FACTION_MAPPINGS`（huangfeng→huangfeng_gu）。
+  Dialogue sources   Done   `INFO_CHOICE_SOURCES`/`CHOICE_COMMITTED_SOURCES`：规则告知/选择令牌←服务端对话树节点；tianyuan_garrison_board 按 Q-B-2 指定接入 tree_tianyuan_registrar 的 jobs（open_quest_board）节点。
+  Authority   Done   NPC/商店/拍卖/声望事件令牌必须属于路由证明集，声望以服务端账本实时值≥1为准；告知/选择令牌严格相等且只能由服务端节点映射产生；历史回放只使用服务端记录事实。
+  Producers   Done   `QuestHookRuntime.onDialogueNode`→`recordDialogueNode`（一次访问产出 NPC+告知/选择证明）、`ShopService.handleClientAction` 购买成功后、`AuctionSoftService.bid` 出价提交成功后、`ReputationService.add` 声望达正值后。
+  History   Done   HISTORY_TAG 记录新增 `Npc`/`Choice`/`Shop`/`Auction`/`Faction` 字段并可重建事件。
+  Tests   Done   新增 `DetailedQuestDialogueProofRouteTest`（10 项，含作者对话树节点交叉校验）；普通完整构建 261 套件 / 1,268 项测试，failure/error/skipped 均为 0。
+  Generated resources   Done   `generate_authored_spell_effects.py --check` 报告 2,292 profiles，`generate_authored_visual_catalog.py --check` 报告 5,727 profiles（按 `spell -> visual` 顺序刷新）。
+  Version/protocol   Done   `mod_version=0.2.250 -> 0.2.251`；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=31` 保持不变。
+  Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功（1m 23s），`:aiPreflight` 记录 `0.2.251`；JAR SHA-256 为 `5a78110bd1c465dfce3bf90e97f0564d901f26f023effdeef4ef24cec5079138`。
+  Next implementation   Pending   Q-B 系列（Q-B-1 至 Q-B-5）全部完成；下一实施入口为 D-A（对话世界动作分型），随后阴阳窟 Y-A/Y-B/Y-C、维度 M-A、本命 M-B、NPC 迁移 M-C 及最终实机签字。

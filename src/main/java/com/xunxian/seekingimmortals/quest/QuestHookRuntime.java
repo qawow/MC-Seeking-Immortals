@@ -290,6 +290,8 @@ public final class QuestHookRuntime {
         ServerPlayer player = event.getPlayer();
         String nodeId = normalize(event.getNodeId());
         String treeId = normalize(event.getTreeId());
+        // Q-B-5: structured dialogue proofs from the server dialogue session.
+        DetailedQuestProofService.recordDialogueNode(player, event.getNpcId(), treeId, nodeId);
         // 1) Node id as hook / chain id.
         tryAdvanceByHook(player, nodeId);
         tryStartOrAdvanceChain(player, nodeId);

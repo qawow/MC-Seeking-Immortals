@@ -199,6 +199,9 @@ public final class ShopService {
         sendMarketResult(player, result);
         if (result != null && result.success()) {
             com.xunxian.seekingimmortals.worldpack.ReputationService.onShopPurchase(player, normalizedShop);
+            // Q-B-5: a successful server-authoritative purchase records the shop proof.
+            com.xunxian.seekingimmortals.quest.DetailedQuestProofService.recordShopTransaction(
+                    player, normalizedShop);
         }
         syncMarket(player, normalizedShop, false);
     }
