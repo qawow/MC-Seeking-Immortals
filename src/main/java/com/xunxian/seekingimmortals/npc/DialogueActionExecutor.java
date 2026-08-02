@@ -43,6 +43,7 @@ public final class DialogueActionExecutor {
     public static final String OPEN_TRAVEL_UI = "open_travel_ui";
     public static final String MARK_STRUCTURE = "mark_structure";
     public static final String HINT = "hint";
+    public static final String CLUE = "clue";
     public static final String CALL_GUARD = "call_guard";
     public static final String COMBAT_FLAG = "combat_flag";
     public static final String COMBAT_OR_ARREST = "combat_or_arrest";
@@ -141,19 +142,16 @@ public final class DialogueActionExecutor {
                 String structure = firstNonBlank(effect.param("structure"), effect.param("id"), "marked_structure");
                 yield DialogueWorldActionService.markStructure(player, structure);
             }
-            case HINT -> {
+            case HINT, CLUE -> {
                 String hint = firstNonBlank(effect.param("hint"), effect.param("structure"),
                         effect.param("id"), treeId + ":" + nodeId);
                 yield DialogueWorldActionService.recordHint(player, hint);
             }
             case ANOMALY_LOG -> DialogueWorldActionService.recordAnomaly(
                     player, npcId, treeId, nodeId);
-            case CALL_GUARD, COMBAT_FLAG, COMBAT_OR_ARREST -> {
-                boolean triggered = DialogueWorldActionService.triggerCombat(player, npcId, treeId, type);
-                player.displayClientMessage(Component.translatable(
-                        "message.seeking_immortals.dialogue.tension"), false);
-                yield triggered;
-            }
+            case CALL_GUARD -> DialogueWorldActionService.callGuard(player, npcId, treeId);
+            case COMBAT_FLAG -> DialogueWorldActionService.combatFlag(player, npcId, treeId);
+            case COMBAT_OR_ARREST -> DialogueWorldActionService.combatOrArrest(player, npcId, treeId);
             case ADD_SUSPICION -> {
                 int amount = Math.max(1, effect.paramInt("amount", 10));
                 DialogueWorldActionService.addSuspicion(player, npcId, amount);

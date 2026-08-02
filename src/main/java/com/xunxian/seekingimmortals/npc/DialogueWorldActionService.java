@@ -192,6 +192,43 @@ public final class DialogueWorldActionService {
         return true;
     }
 
+    /**
+     * D-A: territory-bound guard. Currently delegates to the hostile shell path so behaviour
+     * is unchanged; D-A-4 replaces this with a guard entity bound to faction territory and
+     * enforcement target.
+     */
+    public static boolean callGuard(ServerPlayer player, String npcId, String treeId) {
+        return triggerCombat(player, npcId, treeId, "call_guard");
+    }
+
+    /**
+     * D-A: combat_flag only establishes hostile consequences (ledger + penalty + marker).
+     * It never fabricates an arrest or spawns an entity by itself.
+     */
+    public static boolean combatFlag(ServerPlayer player, String npcId, String treeId) {
+        if (player == null) {
+            return false;
+        }
+        String action = normalize(firstNonBlank(treeId, npcId, "dialogue")) + ":combat_flag";
+        CompoundTag combat = player.getPersistentData().getCompound(COMBAT_TAG).copy();
+        combat.putLong(action, player.serverLevel().getGameTime());
+        trimOldest(combat);
+        player.getPersistentData().put(COMBAT_TAG, combat);
+        NpcDialogueFlags.setFlag(player, "dialogue_combat_flag");
+        applyHostilityPenalty(player, npcId);
+        player.displayClientMessage(Component.translatable(
+                "message.seeking_immortals.dialogue.tension"), false);
+        return true;
+    }
+
+    /**
+     * D-A: combat vs arrest decision point. Currently delegates to the hostile shell path so
+     * behaviour is unchanged; D-A-4 adds the warn/fine/arrest branches driven by suspicion.
+     */
+    public static boolean combatOrArrest(ServerPlayer player, String npcId, String treeId) {
+        return triggerCombat(player, npcId, treeId, "combat_or_arrest");
+    }
+
     public static void applyHostilityPenalty(ServerPlayer player, String npcId) {
         if (player == null) {
             return;

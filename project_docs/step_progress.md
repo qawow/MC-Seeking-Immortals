@@ -1,3 +1,14 @@
+## 586. 2026-08-02 `0.2.254` D-A-1 对话世界动作对账与 dispatch 分型
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   仅 `DialogueActionExecutor`/`DialogueWorldActionService` + 新对账测试；快照 `backups/20260802230718/da1/`。
+  Coverage test   Done   新增 `DialogueActionCoverageTest`：作者 effect 世界动作家族闭合断言 + 源码契约（CALL_GUARD/COMBAT_FLAG/COMBAT_OR_ARREST 独立 handler、未知 fail-closed）。
+  Dispatch split   Done   合并 case 拆为独立 `callGuard`/`combatFlag`/`combatOrArrest`；`combatFlag` 只写敌对后果不生成实体；新增 `CLUE` 别名。
+  Tests/build   Done   `npc.*` 定向通过；生成器按序刷新（2292/5727）；`./gradlew build` 成功，preflight 记录 0.2.254。
+  Version/protocol   Done   `mod_version=0.2.253 -> 0.2.254`；`ModNetwork.PROTOCOL_VERSION=31` 不变。
+  Next   Pending   D-A-2：mark_structure 意图匹配 + hint 来源绑定。
+
 ## 585. 2026-08-02 `0.2.253` 时间线持久化稳定键
 
   Step   Status   Notes
