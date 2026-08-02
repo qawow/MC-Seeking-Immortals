@@ -1,3 +1,15 @@
+## 589. 2026-08-03 `0.2.257` D-A-4 执法/战斗动作分型（D-A 收口）
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   仅 `DialogueWorldActionService` + lang + 测试；快照 `backups/20260803011722/da4/`。
+  callGuard   Done   召唤 owner 绑定守卫（configure+Stance.GUARD，守点反击保护玩家）；每势力上限 1，非攻击玩家的 hostile shell。
+  combatFlag   Done   保持只写敌对后果+惩罚+标记，不生成实体。
+  combatOrArrest   Done   按 suspectLevel 分派 warn/fine/arrest/combat；arrest 写持久标记+守卫+可恢复落点，settleArrest 传送回场并解除。
+  Tests/lang/build   Done   npc.*/quest.*/persistence.* 通过；6 组双语键对等；生成器按序刷新；`./gradlew build` 成功，preflight 记录 0.2.257。
+  Version/protocol   Done   `mod_version=0.2.256 -> 0.2.257`；`ModNetwork.PROTOCOL_VERSION=31` 不变。
+  D-A status   Done   D-A-1..4（0.2.254-0.2.257）全部完成；下一入口为 Y 系列（阴阳窟）或 M 系列。
+
 ## 588. 2026-08-03 `0.2.256` D-A-3 suspicion 时间衰减与 anomaly 势力分桶
 
   Step   Status   Notes

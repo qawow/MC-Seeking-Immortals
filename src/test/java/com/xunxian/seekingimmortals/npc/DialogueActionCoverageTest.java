@@ -199,4 +199,34 @@ class DialogueActionCoverageTest {
         assertTrue(service.contains("normalize(npcId)") || service.contains("\"world\""),
                 "anomaly log must bucket by NPC/authority");
     }
+
+    @Test
+    void guardsProtectAndArrestHasRecoveryAndRelease() throws Exception {
+        String service = Files.readString(JAVA_ROOT.resolve("npc/DialogueWorldActionService.java"));
+
+        // callGuard summons an owner-bound GUARD (configure + Stance.GUARD) rather than a
+        // hostile shell aimed at the player, capped per faction.
+        assertTrue(service.contains("guard.configure(player,")
+                && service.contains("guard.setStance(SummonedServitorEntity.Stance.GUARD)"),
+                "call_guard must spawn an owner-bound guarding servitor");
+        assertTrue(service.contains("MAX_GUARDS_PER_FACTION"),
+                "call_guard must be capped per faction");
+        assertFalse(service.contains("SummonedServitorEntity.Archetype.GENERIC) != null"),
+                "call_guard must not be reduced to a generic shell");
+
+        // combat_or_arrest branches on suspicion level: warn / fine / arrest / combat.
+        assertTrue(service.contains("int level = suspectLevel(player, authority);"),
+                "combat_or_arrest must consult the suspicion level");
+        assertTrue(service.contains("arrestPlayer(player, authority);"));
+        assertTrue(service.contains("finePlayer(player, authority);"));
+        assertTrue(service.contains("warnPlayer(player, authority);"));
+
+        // Arrest must persist a marker with a recoverable position and an explicit release.
+        assertTrue(service.contains("public static boolean arrestPlayer("));
+        assertTrue(service.contains("public static boolean settleArrest("));
+        assertTrue(service.contains("public static boolean isArrested("));
+        assertTrue(service.contains("RecoverX"));
+        assertTrue(service.contains("player.teleportTo(level,"),
+                "arrest release must teleport back to the recoverable spot");
+    }
 }

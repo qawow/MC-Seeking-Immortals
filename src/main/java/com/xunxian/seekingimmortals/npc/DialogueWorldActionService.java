@@ -30,14 +30,18 @@ public final class DialogueWorldActionService {
     public static final String ANOMALIES_TAG = "seeking_immortals_dialogue_anomalies";
     public static final String SUSPICION_TAG = "seeking_immortals_dialogue_suspicion";
     public static final String COMBAT_TAG = "seeking_immortals_dialogue_combat";
+    public static final String ARRESTS_TAG = "seeking_immortals_dialogue_arrests";
     public static final String HOSTILE_MARKER = "seeking_immortals_dialogue_hostile";
     public static final String HOSTILE_PLAYER = "seeking_immortals_dialogue_hostile_player";
     public static final String HOSTILE_ACTION = "seeking_immortals_dialogue_hostile_action";
+    private static final String GUARD_MARKER = "seeking_immortals_dialogue_guard";
     private static final int STRUCTURE_SCAN_RADIUS = 10;
     private static final int STRUCTURE_SCAN_Y = 4;
     private static final int MAX_SUSPICION = 100;
     private static final int MAX_LOG_ENTRIES = 48;
     private static final int MAX_BOUND_HOSTILES = 2;
+    private static final int MAX_GUARDS_PER_FACTION = 1;
+    private static final long GUARD_LIFE_TICKS = 20L * 60L * 20L;
     private static final long COMBAT_COOLDOWN_TICKS = 20L * 60L * 5L;
     /** How much a faction suspicion bucket decays per game-hour (settlement point). */
     private static final int SUSPICION_DECAY_PER_HOUR = 12;
@@ -58,6 +62,7 @@ public final class DialogueWorldActionService {
         copyTag(source, target, ANOMALIES_TAG);
         copyTag(source, target, SUSPICION_TAG);
         copyTag(source, target, COMBAT_TAG);
+        copyTag(source, target, ARRESTS_TAG);
     }
 
     /** Marks only a known structure backed by a world anchor or a nearby formed shell. */
@@ -309,12 +314,50 @@ public final class DialogueWorldActionService {
     }
 
     /**
-     * D-A: territory-bound guard. Currently delegates to the hostile shell path so behaviour
-     * is unchanged; D-A-4 replaces this with a guard entity bound to faction territory and
-     * enforcement target.
+     * D-A: territory-bound guard. Summons an owner-bound guard that stands GUARD at the spot
+     * and retaliates against attackers; it never attacks the protected player and is capped
+     * per faction so repeated dialogue visits do not farm guards.
      */
     public static boolean callGuard(ServerPlayer player, String npcId, String treeId) {
-        return triggerCombat(player, npcId, treeId, "call_guard");
+        if (player == null || player.serverLevel().getDifficulty() == Difficulty.PEACEFUL) {
+            return false;
+        }
+        String faction = normalize(firstNonBlank(npcId, treeId, "world"));
+        if (faction.isBlank()) {
+            faction = "world";
+        }
+        ServerLevel level = player.serverLevel();
+        AABB area = player.getBoundingBox().inflate(24.0D, 16.0D, 24.0D);
+        int guardCount = 0;
+        for (Mob mob : level.getEntitiesOfClass(Mob.class, area)) {
+            CompoundTag tag = mob.getPersistentData();
+            if (tag.getBoolean(GUARD_MARKER) && player.getUUID().equals(tag.getUUID("GuardOwner"))) {
+                guardCount++;
+            }
+        }
+        if (guardCount >= MAX_GUARDS_PER_FACTION) {
+            return true;
+        }
+        com.xunxian.seekingimmortals.registry.ModEntities.SUMMONED_SERVITOR.get();
+        SummonedServitorEntity guard = com.xunxian.seekingimmortals.registry.ModEntities.SUMMONED_SERVITOR.get().create(level);
+        if (guard == null) {
+            return false;
+        }
+        guard.setPos(player.getX() + 2.0D, player.getY(), player.getZ() + 2.0D);
+        guard.configure(player, "dialogue_guard_" + faction, (int) GUARD_LIFE_TICKS, 48.0D, 7.0D,
+                TrialCombatShellService.archetypeFor(faction));
+        guard.setStance(SummonedServitorEntity.Stance.GUARD);
+        CompoundTag guardTag = guard.getPersistentData();
+        guardTag.putBoolean(GUARD_MARKER, true);
+        guardTag.putUUID("GuardOwner", player.getUUID());
+        guardTag.putString("GuardFaction", faction);
+        guard.setPersistenceRequired();
+        if (level.addFreshEntity(guard)) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.dialogue.guard_called", factionDisplay(faction)), false);
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -338,11 +381,166 @@ public final class DialogueWorldActionService {
     }
 
     /**
-     * D-A: combat vs arrest decision point. Currently delegates to the hostile shell path so
-     * behaviour is unchanged; D-A-4 adds the warn/fine/arrest branches driven by suspicion.
+     * D-A: combat vs arrest decision point driven by suspicion level.
+     * <ul>
+     *   <li>clear (0) → warning, reputation/favor penalty only</li>
+     *   <li>warn (1) → fine (spirit stones/contribution) plus penalty</li>
+     *   <li>arrest (2) → arrest: persistent marker, a stationed guard, recoverable spot,
+     *       explicit release via settle on the same authority</li>
+     *   <li>already-arrested or hostile-leaning → existing combat shell</li>
+     * </ul>
      */
     public static boolean combatOrArrest(ServerPlayer player, String npcId, String treeId) {
-        return triggerCombat(player, npcId, treeId, "combat_or_arrest");
+        if (player == null) {
+            return false;
+        }
+        String authority = normalize(firstNonBlank(npcId, treeId, "world"));
+        if (authority.isBlank()) {
+            authority = "world";
+        }
+        int level = suspectLevel(player, authority);
+        if (level >= 2 || isArrested(player, authority)) {
+            if (isArrested(player, authority)) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.dialogue.already_arrested"), true);
+                return true;
+            }
+            arrestPlayer(player, authority);
+            return true;
+        }
+        if (level == 1) {
+            finePlayer(player, authority);
+            return true;
+        }
+        // Clear suspicion: a warning and a small penalty, or combat if a combat flag already stands.
+        if (player.getPersistentData().getCompound(COMBAT_TAG)
+                .getLong(normalize(authority) + ":combat_flag") > 0L) {
+            return triggerCombat(player, npcId, treeId, "combat_or_arrest");
+        }
+        warnPlayer(player, authority);
+        return true;
+    }
+
+    private static void warnPlayer(ServerPlayer player, String authority) {
+        applyHostilityPenalty(player, authority);
+        player.displayClientMessage(Component.translatable(
+                "message.seeking_immortals.dialogue.warned", factionDisplay(authority)), true);
+    }
+
+    private static void finePlayer(ServerPlayer player, String authority) {
+        com.xunxian.seekingimmortals.quest.QuestProgress progress = null;
+        var cultivation = com.xunxian.seekingimmortals.cultivation.CultivationHelper.get(player).orElse(null);
+        if (cultivation != null) {
+            progress = cultivation.getSevenMysteriesQuest();
+        }
+        int fine = 0;
+        if (progress != null) {
+            int available = progress.getContribution();
+            fine = Math.min(20, available);
+            if (fine > 0) {
+                progress.spendContribution(fine);
+            }
+        }
+        if (fine <= 0) {
+            finePlayerStones(player, 15);
+        }
+        applyHostilityPenalty(player, authority);
+        player.displayClientMessage(Component.translatable(
+                "message.seeking_immortals.dialogue.fined", fine), true);
+        clearSuspicion(player, authority);
+    }
+
+    /** D-A: arrest marks the player for an authority with a recoverable spot and a guard. */
+    public static boolean arrestPlayer(ServerPlayer player, String authority) {
+        if (player == null) {
+            return false;
+        }
+        CompoundTag arrests = player.getPersistentData().getCompound(ARRESTS_TAG).copy();
+        CompoundTag entry = new CompoundTag();
+        entry.putString("Authority", normalize(authority));
+        entry.putLong("At", player.serverLevel().getGameTime());
+        entry.putString("Dimension", player.level().dimension().location().toString());
+        entry.putLong("RecoverX", player.getBlockX());
+        entry.putLong("RecoverY", player.getBlockY());
+        entry.putLong("RecoverZ", player.getBlockZ());
+        arrests.put(normalize(authority), entry);
+        player.getPersistentData().put(ARRESTS_TAG, arrests);
+        callGuard(player, authority, "arrest");
+        clearSuspicion(player, authority);
+        player.displayClientMessage(Component.translatable(
+                "message.seeking_immortals.dialogue.arrested", factionDisplay(authority)), true);
+        return true;
+    }
+
+    /** D-A: explicit arrest release; settles the marker so a later encounter can start fresh. */
+    public static boolean settleArrest(ServerPlayer player, String authority) {
+        if (player == null) {
+            return false;
+        }
+        String id = normalize(authority);
+        CompoundTag arrests = player.getPersistentData().getCompound(ARRESTS_TAG).copy();
+        if (!arrests.contains(id)) {
+            return false;
+        }
+        CompoundTag entry = arrests.getCompound(id);
+        if (entry.contains("RecoverX")) {
+            try {
+                var dimension = net.minecraft.resources.ResourceKey.create(
+                        net.minecraft.core.registries.Registries.DIMENSION,
+                        net.minecraft.resources.ResourceLocation.tryParse(entry.getString("Dimension")));
+                net.minecraft.server.level.ServerLevel level =
+                        player.getServer() == null ? null : player.getServer().getLevel(dimension);
+                if (level != null) {
+                    player.teleportTo(level, entry.getLong("RecoverX") + 0.5D,
+                            entry.getLong("RecoverY"), entry.getLong("RecoverZ") + 0.5D,
+                            java.util.EnumSet.noneOf(net.minecraft.world.entity.RelativeMovement.class),
+                            player.getYRot(), player.getXRot());
+                }
+            } catch (RuntimeException ignored) {
+                // stay in place if the recorded dimension is unavailable
+            }
+        }
+        arrests.remove(id);
+        player.getPersistentData().put(ARRESTS_TAG, arrests);
+        player.displayClientMessage(Component.translatable(
+                "message.seeking_immortals.dialogue.arrest_released", factionDisplay(authority)), true);
+        return true;
+    }
+
+    public static boolean isArrested(ServerPlayer player, String authority) {
+        return player != null && player.getPersistentData().getCompound(ARRESTS_TAG)
+                .contains(normalize(authority));
+    }
+
+    private static void clearSuspicion(ServerPlayer player, String authority) {
+        CompoundTag root = player.getPersistentData().getCompound(SUSPICION_TAG).copy();
+        root.remove(normalize(authority));
+        player.getPersistentData().put(SUSPICION_TAG, root);
+    }
+
+    private static void finePlayerStones(ServerPlayer player, int amount) {
+        var item = com.xunxian.seekingimmortals.registry.ModItems.METAL_SPIRIT_STONE.get();
+        for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
+            var stack = player.getInventory().getItem(i);
+            if (!stack.isEmpty() && stack.is(item)) {
+                int remove = Math.min(amount, stack.getCount());
+                stack.shrink(remove);
+                amount -= remove;
+                if (amount <= 0) {
+                    break;
+                }
+            }
+        }
+    }
+
+    private static String factionDisplay(String authority) {
+        return switch (normalize(authority)) {
+            case "heavenly_inspector" -> "天庭巡查";
+            case "market_vendor" -> "坊市管事";
+            case "tianyuan_registrar" -> "天渊执事";
+            case "inverse_star_contact" -> "逆星接引";
+            default -> authority;
+        };
     }
 
     public static void applyHostilityPenalty(ServerPlayer player, String npcId) {
