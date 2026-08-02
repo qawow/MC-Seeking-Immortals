@@ -80,9 +80,7 @@ public final class TimelineChronicleService {
         if (id.isBlank()) {
             return false;
         }
-        Optional<TimelinePhase> phase = BUILTIN.phases().stream()
-                .filter(p -> normalize(p.phase()).equals(id) || normalize(p.phase()).contains(id))
-                .findFirst();
+        Optional<TimelinePhase> phase = resolvePhase(id);
         if (phase.isEmpty()) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.timeline.unknown",
@@ -90,11 +88,17 @@ public final class TimelineChronicleService {
             return false;
         }
         CompoundTag root = player.getPersistentData().getCompound(TIMELINE_TAG).copy();
-        String key = normalize(phase.get().phase());
-        if (root.getBoolean(key)) {
+        String stableKey = stablePhaseKey(phase.get());
+        String legacyKey = normalize(phase.get().phase());
+        boolean already = root.getBoolean(stableKey) || root.getBoolean(legacyKey)
+                || (root.contains(legacyKey) && root.getBoolean(legacyKey));
+        if (already) {
             return false;
         }
-        root.putBoolean(key, true);
+        // Write the stable realm-scoped key and keep the display-name alias so older
+        // saves and readers that still look up the display name keep working.
+        root.putBoolean(stableKey, true);
+        root.putBoolean(legacyKey, true);
         player.getPersistentData().put(TIMELINE_TAG, root);
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.timeline.unlocked",
@@ -103,11 +107,43 @@ public final class TimelineChronicleService {
         return true;
     }
 
+    /**
+     * Resolves a phase by its exact display name or realm keyword prefix, matching earlier
+     * callers that pass abbreviated kind names (凡人/炼气/...).
+     */
+    private static Optional<TimelinePhase> resolvePhase(String id) {
+        for (TimelinePhase phase : BUILTIN.phases()) {
+            if (normalize(phase.phase()).equals(id) || normalize(phase.realm()).equals(id)) {
+                return Optional.of(phase);
+            }
+        }
+        return BUILTIN.phases().stream()
+                .filter(p -> normalize(p.phase()).contains(id))
+                .findFirst();
+    }
+
+    /**
+     * Stable persistent key derived from the realm id plus the display name. Keeping the realm
+     * prefix means a future rename of the display name cannot orphan the unlock flag.
+     */
+    private static String stablePhaseKey(TimelinePhase phase) {
+        String realm = normalize(phase.realm());
+        return realm.isBlank() ? "si_phase:" + normalize(phase.phase())
+                : "si_phase:" + realm + ":" + normalize(phase.phase());
+    }
+
     public static boolean hasPhase(ServerPlayer player, String phaseId) {
         if (player == null) {
             return false;
         }
-        return player.getPersistentData().getCompound(TIMELINE_TAG).getBoolean(normalize(phaseId));
+        CompoundTag root = player.getPersistentData().getCompound(TIMELINE_TAG);
+        String id = normalize(phaseId);
+        if (root.getBoolean(id)) {
+            return true;
+        }
+        return resolvePhase(id)
+                .map(phase -> root.getBoolean(stablePhaseKey(phase)))
+                .orElse(false);
     }
 
     public static int unlockedPhaseCount(ServerPlayer player) {
@@ -116,8 +152,8 @@ public final class TimelineChronicleService {
         }
         CompoundTag root = player.getPersistentData().getCompound(TIMELINE_TAG);
         int count = 0;
-        for (String key : root.getAllKeys()) {
-            if (root.getBoolean(key)) {
+        for (TimelinePhase phase : BUILTIN.phases()) {
+            if (root.getBoolean(stablePhaseKey(phase)) || root.getBoolean(normalize(phase.phase()))) {
                 count++;
             }
         }

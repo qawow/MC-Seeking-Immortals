@@ -1,3 +1,14 @@
+## 585. 2026-08-02 `0.2.253` 时间线持久化稳定键
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   仅 `TimelineChronicleService`；快照 `backups/20260802203220/quest-fix-2/`。
+  Stable keys   Done   解锁键改为 `si_phase:<realm>:<name>` 稳定键并双写显示名键；`resolvePhase` 支持 realm 关键字；`hasPhase`/`unlockedPhaseCount` 兼容新旧键，重命名不丢不会重复解锁。
+  Remaining audit   Done   评估并记录内容层剩余项（NPC 注册 M-C、七玄门逃离交互、10 条 fail-closed 路由、结构锚点、事务原子性等），不越界改动内容层。
+  Tests/build   Done   quest/lore/persistence 定向通过；生成器按序刷新（2292/5727）；`./gradlew build` 成功，preflight 记录 0.2.253。
+  Version/protocol   Done   `mod_version=0.2.252 -> 0.2.253`；`ModNetwork.PROTOCOL_VERSION=31` 不变。
+  Next   Pending   内容层计划（D-A/Y 系列/M 系列/M-C NPC 迁移）在实施计划中推进。
+
 ## 584. 2026-08-02 `0.2.252` quest 目录审计修复批
 
   Step   Status   Notes
