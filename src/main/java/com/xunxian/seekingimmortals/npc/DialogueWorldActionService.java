@@ -39,6 +39,13 @@ public final class DialogueWorldActionService {
     private static final int MAX_LOG_ENTRIES = 48;
     private static final int MAX_BOUND_HOSTILES = 2;
     private static final long COMBAT_COOLDOWN_TICKS = 20L * 60L * 5L;
+    /** How much a faction suspicion bucket decays per game-hour (settlement point). */
+    private static final int SUSPICION_DECAY_PER_HOUR = 12;
+    private static final long TICKS_PER_HOUR = 20L * 60L * 60L;
+    /** Suspicion at/above this level escalates dialogue enforcement to a fine/warning. */
+    public static final int WARN_SUSPICION_THRESHOLD = 30;
+    /** Suspicion at/above this level escalates dialogue enforcement to an arrest. */
+    public static final int ARREST_SUSPICION_THRESHOLD = 60;
 
     private DialogueWorldActionService() {}
 
@@ -175,7 +182,9 @@ public final class DialogueWorldActionService {
         if (player == null) {
             return false;
         }
-        String id = firstNonBlank(normalize(treeId) + ":" + normalize(nodeId), normalize(npcId));
+        // Bucket by enforcement authority (NPC/faction) first so repeated anomalies from the
+        // same party settle together instead of scattering per raw node id.
+        String id = firstNonBlank(normalize(npcId), normalize(treeId) + ":" + normalize(nodeId));
         if (id.replace(":", "").isBlank()) {
             return false;
         }
@@ -194,9 +203,15 @@ public final class DialogueWorldActionService {
         if (id.isBlank()) {
             id = "world";
         }
+        long now = player.serverLevel().getGameTime();
         CompoundTag root = player.getPersistentData().getCompound(SUSPICION_TAG).copy();
-        int next = Math.max(0, Math.min(MAX_SUSPICION, root.getInt(id) + Math.max(0, amount)));
-        root.putInt(id, next);
+        CompoundTag entry = root.getCompound(id);
+        int current = decayedSuspicion(entry.getInt("Value"), entry.getLong("LastAt"), now);
+        int next = Math.max(0, Math.min(MAX_SUSPICION, current + Math.max(0, amount)));
+        CompoundTag updated = new CompoundTag();
+        updated.putInt("Value", next);
+        updated.putLong("LastAt", now);
+        root.put(id, updated);
         player.getPersistentData().put(SUSPICION_TAG, root);
         NpcDialogueFlags.setFlag(player, "suspicion_recorded");
         player.displayClientMessage(Component.translatable(
@@ -204,9 +219,42 @@ public final class DialogueWorldActionService {
         return next;
     }
 
+    /** Current suspicion for an authority, time-decayed to now (read-only settlement view). */
     public static int suspicion(ServerPlayer player, String authorityId) {
-        return player == null ? 0 : player.getPersistentData().getCompound(SUSPICION_TAG)
-                .getInt(normalize(authorityId));
+        if (player == null) {
+            return 0;
+        }
+        CompoundTag root = player.getPersistentData().getCompound(SUSPICION_TAG);
+        CompoundTag entry = root.getCompound(normalize(authorityId));
+        return decayedSuspicion(entry.getInt("Value"), entry.getLong("LastAt"),
+                player.serverLevel().getGameTime());
+    }
+
+    /**
+     * D-A suspicion level: 0 = clear, 1 = warn/fine territory, 2 = arrest territory.
+     * Consumed by {@link #combatOrArrest} to choose warning vs fine vs arrest.
+     */
+    public static int suspectLevel(ServerPlayer player, String authorityId) {
+        int value = suspicion(player, authorityId);
+        if (value >= ARREST_SUSPICION_THRESHOLD) {
+            return 2;
+        }
+        if (value >= WARN_SUSPICION_THRESHOLD) {
+            return 1;
+        }
+        return 0;
+    }
+
+    private static int decayedSuspicion(int value, long lastAt, long now) {
+        if (value <= 0 || lastAt <= 0 || now <= lastAt) {
+            return value;
+        }
+        long elapsed = now - lastAt;
+        int hours = (int) (elapsed / TICKS_PER_HOUR);
+        if (hours <= 0) {
+            return value;
+        }
+        return Math.max(0, value - hours * SUSPICION_DECAY_PER_HOUR);
     }
 
     /** Spawns at most one shell per action and two dialogue hostiles per player in the area. */

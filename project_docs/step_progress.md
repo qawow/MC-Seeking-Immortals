@@ -1,3 +1,15 @@
+## 588. 2026-08-03 `0.2.256` D-A-3 suspicion 时间衰减与 anomaly 势力分桶
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   仅 `DialogueWorldActionService` + 测试；快照 `backups/20260803001750/da3/`。
+  Decay/settlement   Done   SUSPICION 条目带 Value+LastAt，读取按每小时 -12 衰减；addSuspicion 先衰减再加并写回。
+  Thresholds   Done   WARN=30 / ARREST=60 公开常量；新增 suspectLevel 0/1/2 分级（供 D-A-4 消费）。
+  Anomaly bucket   Done   recordAnomaly 优先按 NPC/势力分桶，回退 tree:node；保留来源与年龄淘汰。
+  Tests/build   Done   npc.*/quest.*/persistence.* 定向通过；生成器按序刷新；`./gradlew build` 成功，preflight 记录 0.2.256。
+  Version/protocol   Done   `mod_version=0.2.255 -> 0.2.256`；`ModNetwork.PROTOCOL_VERSION=31` 不变。
+  Next   Pending   D-A-4：call_guard/combat_flag/combat_or_arrest 分型。
+
 ## 587. 2026-08-02 `0.2.255` D-A-2 mark_structure 意图匹配 + hint 来源绑定
 
   Step   Status   Notes

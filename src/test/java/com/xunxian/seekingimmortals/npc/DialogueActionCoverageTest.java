@@ -176,4 +176,27 @@ class DialogueActionCoverageTest {
         assertTrue(service.contains("trimOldestByAge(hints)"),
                 "hint ledger eviction must use age, not key order");
     }
+
+    @Test
+    void suspicionSettlesByDecayAndThresholdsAndAnomaliesBucketByFaction() throws Exception {
+        String service = Files.readString(JAVA_ROOT.resolve("npc/DialogueWorldActionService.java"));
+
+        // Suspicion is a decaying tally with warn/arrest thresholds (the arrest consumer comes
+        // in D-A-4); it must never accumulate without a settlement point.
+        assertTrue(service.contains("SUSPICION_TAG") && service.contains("LastAt"),
+                "suspicion entries must carry a last-update timestamp for decay");
+        assertTrue(service.contains("WARN_SUSPICION_THRESHOLD")
+                        || service.contains("WARN_SUSPICION"),
+                "suspicion must define a warn threshold");
+        assertTrue(service.contains("ARREST_SUSPICION_THRESHOLD")
+                        || service.contains("ARREST_SUSPICION"),
+                "suspicion must define an arrest threshold");
+        assertTrue(service.contains("suspectLevel("),
+                "suspicion must expose a categorized level for the arrest consumer");
+
+        // Recent anomalies are bucketed by authority/faction (NPC first), not by raw node id.
+        assertTrue(service.contains("ANOMALIES_TAG"));
+        assertTrue(service.contains("normalize(npcId)") || service.contains("\"world\""),
+                "anomaly log must bucket by NPC/authority");
+    }
 }
