@@ -155,7 +155,12 @@ public final class FtbCustomTaskHooks {
                 .map(Spec.NativeReady.class::cast)
                 .toList();
         if (ready.isEmpty()) {
-            data.setProgress(1L);
+            // Mirror/rep/war progress is player-scoped: a single member's earned state may
+            // complete the shared task, but never grant team-wide FTB rewards from a quest
+            // that carries rewards or consumes resources (authority-model asymmetry fix).
+            if (isAuthoritySafeQuest(data.task().getQuest())) {
+                data.setProgress(1L);
+            }
             return;
         }
         if (ready.size() != 1 || !isAuthoritySafeQuest(data.task().getQuest())) {
@@ -168,8 +173,7 @@ public final class FtbCustomTaskHooks {
         if (!validation.valid() || !validation.intent().target().equals(readyTarget)) {
             return;
         }
-        Optional<ServerPlayer> authority = singleAuthorityPlayer(
-                data.teamData(), data.teamData().getOnlineMembers());
+        Optional<ServerPlayer> authority = singleAuthorityPlayer(data);
         if (authority.isEmpty() || !authority.get().getUUID().equals(player.getUUID())) {
             return;
         }
@@ -183,6 +187,51 @@ public final class FtbCustomTaskHooks {
                 && quest.getTasks().stream().noneMatch(Task::consumesResources);
     }
 
+    /**
+     * Resolves the single online authority member of the task team. The online-members query is
+     * only evaluated after the FTB Teams manager is confirmed loaded, so a not-yet-initialized
+     * manager cannot throw before the guard (the check runs on the server tick path).
+     */
+    private static Optional<ServerPlayer> singleAuthorityPlayer(CustomTask.Data data) {
+        if (data == null || data.teamData() == null || data.teamData().getTeamId() == null) {
+            return Optional.empty();
+        }
+        try {
+            if (!FTBTeamsAPI.api().isManagerLoaded()) {
+                return Optional.empty();
+            }
+            TeamManager manager = FTBTeamsAPI.api().getManager();
+            Collection<ServerPlayer> reportedOnline = data.teamData().getOnlineMembers();
+            Optional<Team> optionalTeam = manager.getTeamByID(data.teamData().getTeamId());
+            if (optionalTeam.isEmpty()) {
+                return Optional.empty();
+            }
+            Team team = optionalTeam.get();
+            if (!data.teamData().getTeamId().equals(team.getId()) || !team.isValid()
+                    || (!team.isPlayerTeam() && !team.isPartyTeam())) {
+                return Optional.empty();
+            }
+            List<ServerPlayer> online = reportedOnline.stream()
+                    .filter(java.util.Objects::nonNull)
+                    .toList();
+            UUID implicitMember = team.isPlayerTeam() ? team.getId() : team.getOwner();
+            Optional<UUID> authority = FtbNativeQuestSync.singleAuthorityMember(
+                    team.getMembers(), implicitMember,
+                    online.stream().map(ServerPlayer::getUUID).toList());
+            if (authority.isEmpty()) {
+                return Optional.empty();
+            }
+            ServerPlayer player = online.get(0);
+            return manager.getTeamForPlayer(player)
+                    .filter(effective -> effective.getId().equals(team.getId()))
+                    .map(ignored -> player);
+        } catch (RuntimeException | LinkageError exception) {
+            SeekingImmortalsMod.LOGGER.error("FTB team authority lookup failed; native write rejected", exception);
+            return Optional.empty();
+        }
+    }
+
+    /** Object-completion fallback entry: online members are already resolved by the event. */
     private static Optional<ServerPlayer> singleAuthorityPlayer(TeamData data,
                                                                  Collection<ServerPlayer> reportedOnline) {
         if (data == null || reportedOnline == null || data.getTeamId() == null) {

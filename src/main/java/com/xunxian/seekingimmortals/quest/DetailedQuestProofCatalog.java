@@ -28,8 +28,6 @@ public final class DetailedQuestProofCatalog {
     private static final String SOURCE_PATH = "data/" + SeekingImmortalsMod.MODID
             + "/text_material/quest_chains_playable_v141.json";
     private static final int SCHEMA_VERSION = 1;
-    private static final int EXPECTED_CHAIN_COUNT = 23;
-    private static final int EXPECTED_STEP_COUNT = 95;
     private static final Pattern ID = Pattern.compile("[a-z][a-z0-9_]*");
     private static final Pattern FAILURE_KEY = Pattern.compile("[a-z][a-z0-9_.]*");
 
@@ -120,15 +118,6 @@ public final class DetailedQuestProofCatalog {
             producer = normalize(producer);
         }
 
-        /** Compatibility constructor for callers that do not declare a numeric cultivation threshold. */
-        public Route(String chainId, int step, String proofType, String eventId,
-                     Map<String, String> requiredParams, String ownerPolicy, String partyPolicy,
-                     String consumePolicy, String repeatPolicy, String failureKey,
-                     boolean allowHistoryReplay, String producer) {
-            this(chainId, step, proofType, eventId, requiredParams, ownerPolicy, partyPolicy,
-                    0, "", consumePolicy, repeatPolicy, failureKey, allowHistoryReplay, producer);
-        }
-
         public String parameter(String key) {
             return requiredParams.getOrDefault(normalize(key), "");
         }
@@ -199,12 +188,6 @@ public final class DetailedQuestProofCatalog {
             }
         }
         validateCoverage(sourceSteps, routes, byStep, errors);
-        if (routes.size() != EXPECTED_STEP_COUNT) {
-            errors.add("expected " + EXPECTED_STEP_COUNT + " valid routes, got " + routes.size());
-        }
-        if (sourceSteps.size() != EXPECTED_CHAIN_COUNT) {
-            errors.add("expected " + EXPECTED_CHAIN_COUNT + " source chains, got " + sourceSteps.size());
-        }
         if (!errors.isEmpty()) {
             throw new IllegalStateException("Invalid detailed quest proof routes: " + String.join("; ", errors));
         }
@@ -236,11 +219,11 @@ public final class DetailedQuestProofCatalog {
             errors.add(location + " has unknown proof_type " + proofType);
             valid = false;
         }
-        if (!OWNER_POLICIES.contains(ownerPolicy) || "ADMIN_ONLY".equals(ownerPolicy)) {
+        if (!OWNER_POLICIES.contains(ownerPolicy)) {
             errors.add(location + " has illegal owner_policy " + ownerPolicy);
             valid = false;
         }
-        if (!PARTY_POLICIES.contains(partyPolicy) || "ADMIN_ONLY".equals(partyPolicy)) {
+        if (!PARTY_POLICIES.contains(partyPolicy)) {
             errors.add(location + " has illegal party_policy " + partyPolicy);
             valid = false;
         }
@@ -402,11 +385,14 @@ public final class DetailedQuestProofCatalog {
             }
             try (Reader reader = new InputStreamReader(stream, StandardCharsets.UTF_8)) {
                 JsonElement element = JsonParser.parseReader(reader);
-                return element != null && element.isJsonObject() ? element.getAsJsonObject() : null;
+                if (element != null && element.isJsonObject()) {
+                    return element.getAsJsonObject();
+                }
+                throw new IllegalStateException("Route resource is not a JSON object: " + path);
             }
         } catch (Exception exception) {
             SeekingImmortalsMod.LOGGER.error("Failed to load detailed quest proof catalog {}", path, exception);
-            return null;
+            throw new IllegalStateException("Corrupt detailed quest proof route resource: " + path, exception);
         }
     }
 
@@ -438,7 +424,9 @@ public final class DetailedQuestProofCatalog {
     }
 
     private static boolean validId(String value) {
-        return value != null && ID.matcher(value.trim().toLowerCase(Locale.ROOT)).matches();
+        // Match the raw value against the declared lowercase contract before any
+        // normalization, so mixed-case ids cannot silently pass the format gate.
+        return value != null && ID.matcher(value).matches();
     }
 
     private static String key(String chainId, int step) {

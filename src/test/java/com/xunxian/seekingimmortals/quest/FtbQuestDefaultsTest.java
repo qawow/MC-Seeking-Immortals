@@ -10,6 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.attribute.FileTime;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
@@ -263,6 +264,51 @@ class FtbQuestDefaultsTest {
 
         assertEquals(FtbQuestDefaults.InstallStatus.SKIPPED_FTB_ABSENT, result.status());
         assertFalse(Files.exists(configDir));
+    }
+
+    @Test
+    void staleStateFromOlderRevisionUpgradesWhenManifestGrows() throws IOException {
+        Path configDir = tempDir.resolve("config");
+        FtbQuestDefaults.installDefaultPack(configDir);
+        Path state = stateFile(configDir);
+        List<String> lines = new java.util.ArrayList<>(Files.readAllLines(state));
+        String lastEntry = lines.get(lines.size() - 1);
+        lines.remove(lines.size() - 1);
+        Files.writeString(state, String.join("\n", lines));
+        String addedRelative = lastEntry.substring("sha256.".length(), lastEntry.indexOf('='));
+        Path addedTarget = configDir.resolve("ftbquests/quests").resolve(addedRelative);
+        Files.delete(addedTarget);
+
+        FtbQuestDefaults.InstallResult result = FtbQuestDefaults.installDefaultPack(configDir);
+
+        assertEquals(FtbQuestDefaults.InstallStatus.UPGRADED, result.status());
+        assertPackMatchesBundled(configDir.resolve("ftbquests/quests"));
+        assertTrue(Files.readString(state).contains(lastEntry),
+                "Rewritten state must record every manifest entry");
+    }
+
+    @Test
+    void staleStateKeepsRecordedEntriesSafeAndUpgradeDoesNotRewriteOtherFiles() throws IOException {
+        Path configDir = tempDir.resolve("config");
+        FtbQuestDefaults.installDefaultPack(configDir);
+        Path state = stateFile(configDir);
+        List<String> lines = new java.util.ArrayList<>(Files.readAllLines(state));
+        lines.remove(lines.size() - 1);
+        Files.writeString(state, String.join("\n", lines));
+        Path targetRoot = configDir.resolve("ftbquests/quests");
+        Map<String, byte[]> before = managedBytes(targetRoot);
+
+        FtbQuestDefaults.InstallResult result = FtbQuestDefaults.installDefaultPack(configDir);
+
+        assertEquals(FtbQuestDefaults.InstallStatus.CURRENT, result.status());
+        for (Map.Entry<String, byte[]> entry : before.entrySet()) {
+            assertArrayEquals(entry.getValue(), Files.readAllBytes(targetRoot.resolve(entry.getKey())),
+                    "Recorded files must not be rewritten by the stale-state upgrade");
+        }
+        for (FtbDefaultPackManifest.ManagedFile file : FtbDefaultPackManifest.FILES) {
+            assertTrue(Files.readString(state).contains("sha256." + file.relativePath()),
+                    "Rewritten state must record " + file.relativePath());
+        }
     }
 
     private static void seedBundledWithoutState(Path targetRoot, boolean crLf) throws IOException {

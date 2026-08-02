@@ -43,25 +43,6 @@ class FtbNativeQuestSyncTest {
     }
 
     @Test
-    void writeTargetsDeduplicateAndIgnoreOrdinaryTags() {
-        assertEquals(List.of(new FtbNativeQuestSync.Target("qixuan_mortal_path", 1)),
-                FtbNativeQuestSync.writeTargets(Set.of(
-                        "seeking_immortals",
-                        "si_native_write_qixuan_mortal_path_1",
-                        "optional")));
-    }
-
-    @Test
-    void writeTargetsFailClosedForMalformedOrMultipleNativeWrites() {
-        assertTrue(FtbNativeQuestSync.writeTargets(Set.of(
-                "si_native_write_qixuan_mortal_path_1",
-                "si_native_write_missing_chain_1")).isEmpty());
-        assertTrue(FtbNativeQuestSync.writeTargets(Set.of(
-                "si_native_write_qixuan_mortal_path_1",
-                "si_native_write_qixuan_mortal_path_2")).isEmpty());
-    }
-
-    @Test
     void writeIntentRequiresOneMatchingNativeChainTag() {
         FtbNativeQuestSync.WriteIntentValidation valid = FtbNativeQuestSync.validateWriteIntent(Set.of(
                 "seeking_immortals",

@@ -1,3 +1,18 @@
+## 584. 2026-08-02 `0.2.252` quest 目录审计修复批
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   依据 `issues/src-main-java-com-xunxian-seekingimmortals-quest.md`（26 文件/91 条）修复 quest 包；编辑前快照位于 `backups/20260802143359/quest-fix/`，用户既有 `CLAUDE.md` 与 `project_docs/frontend_interaction_audit_0.2.198.md` 未纳入。
+  High   Done   对话树节点按 stepCount 比例映射（不再泄漏 complete 节点）；4 个无生产者路由 token 接线真实服务端对话节点（新手链第 1 步可完成）；`auction_catalog_v93.json` 新增 `wanbao_auction` 场馆修复万宝楼拍卖证明；10 条内容层路由保持失败关闭留待 D-A/Y/M 系列计划。
+  Security   Done   FTB 镜像任务强制 `isAuthoritySafeQuest`（防跨成员奖励泄漏）；`singleAuthorityPlayer` 先确认 FTB Teams manager 再查在线成员（消除 tick 路径 NPE）。
+  Medium   Done   FTB 默认包 state 迁移死锁（新增章节自动升级+2 回归测试）；main story 秘境门改读 `SecretRealmProgressSavedData`；`teleportToYue` 落点/全容器物品扫描/`chooseBranch` 返回值；`chaotic_sea_politics` 分支硬门移除与 optional 步骤豁免；权威文件 fail-closed；`new_game` 前置放宽；unique 故事奖励注册 7 个真实物品；`FtbRewardBridgeService` 不再无凭据烧账本；时间线关键词补齐。
+  Low   Done   每日事件幂等/归属解析/关键词遮蔽/缓存/钳制/越界防护/死代码与注释清理等 20+ 项。
+  Tests   Done   新增/更新回归测试（FtbQuestDefaults state 迁移 2 项、路由接线断言、分支/optional 断言、参数键对齐）；quest 包与 persistence/物品目录定向测试全部通过。
+  Generated resources   Done   7 张 unique 物品纹理经 `generate_item_textures.py` 生成；`authored_spell_effects.json`/`authored_visual_catalog.json` 按 spell→visual 刷新，`--check` 通过（2,292/5,727 profiles）。
+  Version/protocol   Done   `mod_version=0.2.251 -> 0.2.252`；未改网络包字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=31` 保持不变。
+  Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功，`BUILD SUCCESSFUL in 1m 30s`，`:aiPreflight` 记录 `mod_version=0.2.252`。
+  Remaining risk   Pending   6 个任务 NPC 未注册（M-C）、10 条内容层路由失败关闭（D-A/Y/M 系列）、`SevenMysteriesQuest` 逃离目标显示不可达（状态机重构风险）、时间线持久化键显示名、贡献事务非原子；详见 `project_docs/updates/20260802_0.2.252_quest_audit_fix.md`。
+
 ## 583. 2026-07-29 `0.2.242` F-E1 秘境入口反馈收口
 
   Step   Status   Notes

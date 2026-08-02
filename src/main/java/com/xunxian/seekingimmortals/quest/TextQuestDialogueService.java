@@ -93,9 +93,10 @@ public final class TextQuestDialogueService {
 
     public static boolean act(ServerPlayer player, String chainId, String choiceId) {
         String choice = choiceId == null ? "" : choiceId.trim().toLowerCase(Locale.ROOT);
-        // Wave55: world-NPC authority gate for advancing/branching through dialogue.
+        // Wave55: world-NPC authority gate for starting/advancing/branching through dialogue.
         if (("advance".equals(choice) || choice.startsWith("branch")
-                || "righteous".equals(choice) || "demonic".equals(choice) || "neutral".equals(choice))
+                || "righteous".equals(choice) || "demonic".equals(choice) || "neutral".equals(choice)
+                || "start".equals(choice))
                 && !TextQuestNpcHookService.requireNearbyNpcOrWarn(player, chainId)) {
             return false;
         }

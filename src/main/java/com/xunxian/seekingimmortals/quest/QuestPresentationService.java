@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Read-only player-facing metadata for the native quest tracker.
@@ -29,6 +30,10 @@ import java.util.Optional;
 public final class QuestPresentationService {
     private static final String ROOT = "data/" + SeekingImmortalsMod.MODID + "/text_material/";
     private static final Snapshot BUILTIN = loadBuiltin();
+    private static final Map<String, List<TextQuestChainService.RewardPreview>> FINALE_CACHE =
+            new ConcurrentHashMap<>();
+    private static final Map<String, Optional<TextQuestChainService.StageCost>> STAGE_COST_CACHE =
+            new ConcurrentHashMap<>();
 
     private QuestPresentationService() {}
 
@@ -100,11 +105,14 @@ public final class QuestPresentationService {
 
     /** Returns the same catalog-first finale preview used by the native reward authority. */
     public static List<TextQuestChainService.RewardPreview> finaleRewards(String chainId) {
-        try {
-            return TextQuestChainService.finaleRewardPreview(chainId);
-        } catch (Throwable ignored) {
-            return List.of();
-        }
+        String id = normalize(chainId);
+        return FINALE_CACHE.computeIfAbsent(id, key -> {
+            try {
+                return List.copyOf(TextQuestChainService.finaleRewardPreview(key));
+            } catch (Throwable ignored) {
+                return List.of();
+            }
+        });
     }
 
     /** Pure description of the next transition's material cost, when one exists. */
@@ -113,7 +121,9 @@ public final class QuestPresentationService {
         if (chain.isEmpty()) {
             return Optional.empty();
         }
-        return TextQuestChainService.stageCostFor(chain.get().id(), currentStage + 1, chain.get().stepCount());
+        String key = normalize(chainId) + ":" + (currentStage + 1);
+        return STAGE_COST_CACHE.computeIfAbsent(key, ignored ->
+                TextQuestChainService.stageCostFor(chain.get().id(), currentStage + 1, chain.get().stepCount()));
     }
 
     /** Mid-chain milestone reward; the server grants this once at the midpoint. */

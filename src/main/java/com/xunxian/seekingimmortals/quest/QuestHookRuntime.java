@@ -5,13 +5,14 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
+import com.xunxian.seekingimmortals.entity.CultivationBeastEntity;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.Realm;
 import com.xunxian.seekingimmortals.cultivation.RealmStage;
 import com.xunxian.seekingimmortals.npc.DialogueBranchService;
 import com.xunxian.seekingimmortals.npc.DialogueNodeReachedEvent;
 import com.xunxian.seekingimmortals.npc.NpcDialogueFlags;
-import com.xunxian.seekingimmortals.region.DailyEventScheduler;
+import com.xunxian.seekingimmortals.entity.SummonedServitorEntity;
 import com.xunxian.seekingimmortals.worldpack.DailyEventEffectCatalog;
 import com.xunxian.seekingimmortals.worldpack.DailyEventEffectExecutor;
 import net.minecraft.nbt.CompoundTag;
@@ -80,13 +81,9 @@ public final class QuestHookRuntime {
         }
         try {
             MinecraftForge.EVENT_BUS.register(QuestHookRuntime.class);
-        } catch (Throwable ignored) {
+        } catch (Throwable exception) {
             // unit tests without bus
-        }
-        try {
-            DailyEventScheduler.registerHook(QuestHookRuntime::onDailyEvent);
-        } catch (Throwable ignored) {
-            // region package may be unavailable in pure unit tests
+            SeekingImmortalsMod.LOGGER.warn("QuestHookRuntime event-bus registration skipped", exception);
         }
         registered = true;
         SeekingImmortalsMod.LOGGER.info("Registered M11 QuestHookRuntime (hooks={}, effects={}, chains_with_steps={})",
@@ -162,17 +159,6 @@ public final class QuestHookRuntime {
         }
     }
 
-    /** M06 daily event subscription. */
-    public static void onDailyEvent(String regionId, String eventId) {
-        // Daily events do not have a single player context; mark soft region flag only.
-        // Player-scoped accept still goes through QuestHookSoftService / commands.
-        String hook = normalize(eventId);
-        if (hook.isBlank()) {
-            return;
-        }
-        // No-op without player; player path is onPlayerDaily below if needed.
-    }
-
     @SubscribeEvent
     public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) {
@@ -214,26 +200,34 @@ public final class QuestHookRuntime {
             if (hook.isBlank()) {
                 continue;
             }
+            boolean hookHandled = false;
             LinkedHashSet<String> chains = new LinkedHashSet<>(
                     HOOK_TO_CHAINS.getOrDefault(hook, List.of()));
             QuestHookSoftService.mappedChainId(hook).ifPresent(chains::add);
             for (String chainId : chains) {
                 TextQuestChainService.ChainProgress progress = TextQuestChainService.progressOf(player, chainId);
                 if (progress.stage() <= 0) {
-                    handled |= TextQuestChainService.start(player, chainId);
+                    hookHandled |= TextQuestChainService.start(player, chainId);
                 } else if (!progress.complete()
                         && TextQuestChainService.matchesCurrentStepHook(player, chainId, hook)) {
-                    handled |= TextQuestChainService.advance(player, chainId);
+                    hookHandled |= TextQuestChainService.advance(player, chainId);
                 }
             }
-            NpcDialogueFlags.setFlag(player, "hook_" + hook);
-            handled = true;
+            if (hookHandled) {
+                NpcDialogueFlags.setFlag(player, "hook_" + hook);
+            }
+            handled |= hookHandled;
         }
 
-        claims.remove(claim);
-        claims.add(claim);
-        writeDailyClaims(root, claims);
-        player.getPersistentData().put(DAILY_ROOT, root);
+        // Only latch the per-roll idempotency claim when a gate actually passed, so a failed
+        // start/advance (unmet faction/region/parent gate or missing stage cost) can retry
+        // within the same roll window once the gate is satisfied.
+        if (handled) {
+            claims.remove(claim);
+            claims.add(claim);
+            writeDailyClaims(root, claims);
+            player.getPersistentData().put(DAILY_ROOT, root);
+        }
         return handled;
     }
 
@@ -315,7 +309,8 @@ public final class QuestHookRuntime {
         if (event == null || event.getEntity() == null || event.getEntity().level().isClientSide) {
             return;
         }
-        if (!(event.getSource().getEntity() instanceof ServerPlayer killer)) {
+        ServerPlayer killer = combatAuthorityPlayer(event);
+        if (killer == null) {
             return;
         }
         try {
@@ -334,6 +329,23 @@ public final class QuestHookRuntime {
         } catch (RuntimeException exception) {
             SeekingImmortalsMod.LOGGER.error("Failed to apply committed quest kill hooks", exception);
         }
+    }
+
+    /** Kill attribution matches the combat authority used by ModEvents for the same event. */
+    private static ServerPlayer combatAuthorityPlayer(LivingDropsEvent event) {
+        net.minecraft.world.entity.Entity source = event.getSource().getEntity();
+        if (source instanceof ServerPlayer player) {
+            return player;
+        }
+        java.util.Optional<java.util.UUID> ownerId = source instanceof SummonedServitorEntity servitor
+                ? servitor.getOwnerUUID()
+                : source instanceof CultivationBeastEntity beast && beast.isCompanion()
+                ? beast.getOwnerUUID()
+                : java.util.Optional.empty();
+        if (ownerId.isEmpty() || source.getServer() == null) {
+            return CultivationBeastEntity.recentCompanionDamageOwner(event.getEntity()).orElse(null);
+        }
+        return source.getServer().getPlayerList().getPlayer(ownerId.get());
     }
 
     @SubscribeEvent
@@ -599,6 +611,12 @@ public final class QuestHookRuntime {
         if (progress.stage() <= 0) {
             TextQuestChainService.start(player, id);
         } else if (!progress.complete()) {
+            // Guard against double-advance when this id already fired as the current step
+            // hook (hook/chain id collisions): only the authored current-step hook (or an
+            // empty expectation, i.e. dialogue-advance semantics) may advance here.
+            if (!TextQuestChainService.matchesCurrentStepHook(player, id, id)) {
+                return;
+            }
             TextQuestChainService.advance(player, id);
         }
     }

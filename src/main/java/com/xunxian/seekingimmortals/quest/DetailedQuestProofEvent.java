@@ -267,7 +267,7 @@ public record DetailedQuestProofEvent(Type type, String producer, Map<String, St
         return new DetailedQuestProofEvent(Type.REGION_ENTER, "region_travel",
                 Map.of("region", region), null, null, Set.of(),
                 "region:" + region, Source.NATURAL, 0)
-                .withWorld("", realmId, realmId, sessionId, phase, "", 0L, false);
+                .withWorld("", region, realmId, sessionId, phase, "", 0L, false);
     }
 
     /** Structure-formation proof bound to the exact dimension and origin that were commissioned. */

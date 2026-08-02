@@ -122,7 +122,12 @@ public final class TextQuestNpcHookService {
         if (autoStart) {
             TextQuestChainService.ChainProgress progress = TextQuestChainService.progressOf(player, id);
             if (progress.stage() <= 0) {
-                TextQuestChainService.start(player, id);
+                boolean started = TextQuestChainService.start(player, id);
+                if (!started) {
+                    // Start gates (realm/region/faction) rejected the auto-start; keep the
+                    // interaction honest by not broadcasting a full success afterwards.
+                    return false;
+                }
             }
         }
         TextQuestDialogueService.talk(player, id);

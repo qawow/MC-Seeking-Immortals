@@ -12,6 +12,7 @@ import com.xunxian.seekingimmortals.region.RegionRegistry;
 import com.xunxian.seekingimmortals.util.PlayerDisplayText;
 import com.xunxian.seekingimmortals.worldpack.ReputationService;
 import com.xunxian.seekingimmortals.worldpack.SecretRealmCatalogService;
+import com.xunxian.seekingimmortals.worldpack.SecretRealmProgressSavedData;
 import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -74,8 +75,7 @@ public final class MainStorySoftService {
             return false;
         }
         String id = normalize(chapterId);
-        return player.getPersistentData().getCompound(ROOT).getBoolean(id)
-                || player.getPersistentData().getCompound(ROOT).getBoolean(chapterId == null ? "" : chapterId.trim());
+        return player.getPersistentData().getCompound(ROOT).getBoolean(id);
     }
 
     private static boolean completeInternal(ServerPlayer player, String chapterId, boolean startLinked, boolean loud) {
@@ -190,14 +190,21 @@ public final class MainStorySoftService {
                 }
             }
             if (gate.secretRealmClear() != null && !gate.secretRealmClear().isBlank()) {
-                String realm = gate.secretRealmClear();
-                CompoundTag core = player.getPersistentData().getCompound("seeking_immortals_secret_realm_core_clear");
-                CompoundTag mid = player.getPersistentData().getCompound("seeking_immortals_secret_realm_mid_clear");
-                if (!core.getBoolean(realm) && !mid.getBoolean(realm)) {
+                String realm = normalize(gate.secretRealmClear());
+                boolean cleared = SecretRealmProgressSavedData.get(player).hasFirstCleared(player.getUUID(), realm);
+                if (!cleared) {
+                    // Legacy fallback for saves that recorded clears before the world-level ledger.
+                    CompoundTag core = player.getPersistentData()
+                            .getCompound("seeking_immortals_secret_realm_core_clear");
+                    CompoundTag mid = player.getPersistentData()
+                            .getCompound("seeking_immortals_secret_realm_mid_clear");
+                    cleared = core.getBoolean(realm) || mid.getBoolean(realm);
+                }
+                if (!cleared) {
                     if (warn) {
                         player.displayClientMessage(Component.translatable(
                                 "message.seeking_immortals.main_story.secret_locked",
-                                chapterDisplay(chapterId), secretRealmDisplay(realm)), true);
+                                chapterDisplay(chapterId), secretRealmDisplay(gate.secretRealmClear())), true);
                     }
                     ok[0] = false;
                     return;
@@ -331,7 +338,7 @@ public final class MainStorySoftService {
         gates.put("chapter_2_foundation_secret", new UnlockGate("QI_REFINING", "", "", 0, "blood_forbidden", "blood_forbidden_token"));
         gates.put("chapter_3_chaotic_sea", new UnlockGate("FOUNDATION", "chaotic_sea", "chaotic_sea", 5, "", ""));
         gates.put("chapter_4_great_jin", new UnlockGate("CORE_FORMATION", "", "dajin", 5, "", ""));
-        gates.put("chapter_5_deity_transformation", new UnlockGate("NASCENT_SOUL", "", "demonic_path", 0, "fallen_demon", ""));
+        gates.put("chapter_5_deity_transformation", new UnlockGate("NASCENT_SOUL", "", "demonic_path", 0, "fallen_demon_valley", ""));
         gates.put("chapter_6_spirit_realm", new UnlockGate("DEITY_TRANSFORMATION", "", "tianyuan", 10, "", "mortal_to_tianyuan"));
         // Overlay from full chapters file if present.
         JsonObject full = readJson(path("text_material/main_story_chapters.json"));

@@ -89,7 +89,7 @@ public class QuestProgress {
     }
 
     public void setSectQuestStage(int sectQuestStage) {
-        this.sectQuestStage = Math.max(0, sectQuestStage);
+        this.sectQuestStage = Math.max(0, Math.min(5, sectQuestStage));
     }
 
     public boolean hasSectFlag(String flag) {
@@ -130,7 +130,8 @@ public class QuestProgress {
     }
 
     public void addReputation(int amount) {
-        reputation += amount;
+        long updated = (long) reputation + amount;
+        reputation = (int) Math.max(Integer.MIN_VALUE, Math.min(Integer.MAX_VALUE, updated));
     }
 
     public boolean hasYueArrived() {
@@ -227,11 +228,14 @@ public class QuestProgress {
         branchChoice = tag.getString("BranchChoice");
         sectId = tag.getString("SectId");
         sectRole = tag.getString("SectRole");
-        sectQuestStage = Math.max(0, tag.getInt("SectQuestStage"));
+        int rawSectQuestStage = tag.getInt("SectQuestStage");
         if ("qinglan_sect".equals(sectId)
-                && (sectQuestStage <= 0 || sectQuestStage > com.xunxian.seekingimmortals.sect.SectContributionService.STAGE_PHASE10_COMPLETE)) {
-            sectQuestStage = 2;
+                && (rawSectQuestStage <= 0 || rawSectQuestStage > com.xunxian.seekingimmortals.sect.SectContributionService.STAGE_PHASE10_COMPLETE)) {
+            rawSectQuestStage = 2;
         }
+        sectQuestStage = Math.max(0, Math.min(
+                com.xunxian.seekingimmortals.sect.SectContributionService.STAGE_PHASE10_COMPLETE,
+                rawSectQuestStage));
         contribution = Math.max(0, tag.getInt("Contribution"));
         reputation = tag.getInt("SevenMysteriesReputation");
         yueArrived = tag.getBoolean("YueArrived");
@@ -246,19 +250,27 @@ public class QuestProgress {
                 ? loadBlockPos(tag.getCompound("YuePortalMarker"))
                 : null;
         flags.clear();
-        ListTag flagList = tag.getList("Flags", 8);
-        for (int i = 0; i < flagList.size(); i++) {
-            String flag = flagList.getString(i);
-            if (!flag.isBlank()) {
-                flags.add(flag);
+        if (tag.contains("Flags", Tag.TAG_LIST)) {
+            ListTag flagList = tag.getList("Flags", 8);
+            if (flagList.getElementType() == Tag.TAG_STRING) {
+                for (int i = 0; i < flagList.size(); i++) {
+                    String flag = flagList.getString(i);
+                    if (!flag.isBlank()) {
+                        flags.add(flag);
+                    }
+                }
             }
         }
         sectFlags.clear();
-        ListTag sectFlagList = tag.getList("SectFlags", 8);
-        for (int i = 0; i < sectFlagList.size(); i++) {
-            String flag = sectFlagList.getString(i);
-            if (!flag.isBlank()) {
-                sectFlags.add(flag);
+        if (tag.contains("SectFlags", Tag.TAG_LIST)) {
+            ListTag sectFlagList = tag.getList("SectFlags", 8);
+            if (sectFlagList.getElementType() == Tag.TAG_STRING) {
+                for (int i = 0; i < sectFlagList.size(); i++) {
+                    String flag = sectFlagList.getString(i);
+                    if (!flag.isBlank()) {
+                        sectFlags.add(flag);
+                    }
+                }
             }
         }
     }

@@ -14,12 +14,14 @@ class QuestAuthorityCatalogTest {
         assertTrue(demonic.stages().get(2).branchAny().contains("hehuan_sect"));
 
         QuestAuthorityCatalog.ChainRule politics = QuestAuthorityCatalog.find("chaotic_sea_politics").orElseThrow();
-        assertEquals("rebel", politics.stages().get(3).requiresBranch());
+        assertTrue(politics.stages().get(3) == null || politics.stages().get(3).requiresBranch().isBlank(),
+                "chaotic_sea_politics must not hard-gate stages after the one-time branch lock");
 
         QuestAuthorityCatalog.ChainRule blood = QuestAuthorityCatalog.find("blood_forbidden_campaign").orElseThrow();
         assertEquals(4, blood.partySizeMax());
 
         QuestAuthorityCatalog.ChainRule war = QuestAuthorityCatalog.find("mulan_war_campaign").orElseThrow();
-        assertEquals("m4_holy_bird_mulan", war.stages().get(5).prerequisite());
+        assertTrue(war.stages().get(5) == null || war.stages().get(5).prerequisite().isBlank(),
+                "optional step 5 must not hard-gate the campaign");
     }
 }

@@ -1,11 +1,6 @@
 package com.xunxian.seekingimmortals.quest;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.catalog.ExtendedCatalogService;
-import com.xunxian.seekingimmortals.compat.ModCompat;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -44,33 +39,12 @@ public final class FtbQuestBridgeService {
         return BUILTIN.chapterCount();
     }
 
-    public static boolean isFtbPresent() {
-        try {
-            return ModCompat.FTB_QUESTS_LOADED;
-        } catch (Throwable ignored) {
-            return false;
-        }
-    }
-
     public static Optional<String> chapterForChain(String chainId) {
         String id = normalize(chainId);
         if (id.isBlank()) {
             return Optional.empty();
         }
         return Optional.ofNullable(BUILTIN.chainToChapter().get(id));
-    }
-
-    public static List<String> sampleMappings(int limit) {
-        List<String> out = new ArrayList<>();
-        int i = 0;
-        for (ExtendedCatalogService.QuestChain chain : ExtendedCatalogService.builtin().questChains().values()) {
-            String chapter = chapterForChain(chain.id()).orElse("-");
-            out.add(chain.id() + " -> " + chapter);
-            if (++i >= Math.max(1, limit)) {
-                break;
-            }
-        }
-        return out;
     }
 
     /** All 62 chains have a chapter mapping (keyword or explicit). */
@@ -85,7 +59,7 @@ public final class FtbQuestBridgeService {
 
     private static Snapshot loadBuiltin() {
         List<ChapterSeed> chapters = new ArrayList<>();
-        // Keep in sync with FtbQuestDefaults.SEED_FILES chapter list.
+        // Keep in sync with FtbDefaultPackManifest.FILES chapter list.
         chapters.add(new ChapterSeed("chapters/seeking_immortals_main.snbt",
                 "seeking_immortals_main", "寻仙问道：主线任务"));
         chapters.add(new ChapterSeed("chapters/seeking_immortals_chaotic_sea.snbt",

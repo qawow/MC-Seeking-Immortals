@@ -106,8 +106,13 @@ public final class QuestLineService {
             List<String> chapters = stringList(o.get("chapters"));
             List<String> leads = stringList(o.get("leads_to"));
             int steps = asInt(o, "step_count");
-            if (steps <= 0 && o.has("steps") && o.get("steps").isJsonArray()) {
-                steps = o.getAsJsonArray("steps").size();
+            if (steps <= 0 && o.has("steps")) {
+                JsonElement stepsElement = o.get("steps");
+                if (stepsElement.isJsonArray()) {
+                    steps = stepsElement.getAsJsonArray().size();
+                } else if (stepsElement.isJsonPrimitive() && stepsElement.getAsJsonPrimitive().isNumber()) {
+                    steps = stepsElement.getAsInt();
+                }
             }
             QuestLine line = new QuestLine(
                     id,
@@ -120,13 +125,15 @@ public final class QuestLineService {
                     str(o, "playtime_hint"),
                     firstNonBlank(str(o, "synopsis"), str(o, "tagline"), "")
             );
-            lines.put(id, line);
+            lines.put(normalize(id), line);
             for (String chapter : chapters) {
                 String ch = normalize(chapter);
                 if (!ch.isBlank() && !knownChapters.contains(ch) && !knownChapters.contains(chapter)) {
                     unresolvedChapters.add(id + "->" + chapter);
                 }
-                byChapter.computeIfAbsent(ch.isBlank() ? chapter : ch, k -> new ArrayList<>()).add(id);
+                if (!ch.isBlank()) {
+                    byChapter.computeIfAbsent(ch, k -> new ArrayList<>()).add(id);
+                }
             }
             for (String lead : leads) {
                 String lid = normalize(lead);
@@ -186,12 +193,14 @@ public final class QuestLineService {
     private static JsonObject readJson(String path) {
         try (InputStream stream = QuestLineService.class.getClassLoader().getResourceAsStream(path)) {
             if (stream == null) {
+                SeekingImmortalsMod.LOGGER.error("Quest line resource missing: {}", path);
                 return null;
             }
             try (Reader reader = new InputStreamReader(stream, StandardCharsets.UTF_8)) {
                 return JsonParser.parseReader(reader).getAsJsonObject();
             }
-        } catch (Exception ignored) {
+        } catch (Exception exception) {
+            SeekingImmortalsMod.LOGGER.error("Failed to parse quest line resource {}", path, exception);
             return null;
         }
     }

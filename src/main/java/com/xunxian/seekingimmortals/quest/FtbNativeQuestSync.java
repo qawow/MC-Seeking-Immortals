@@ -64,25 +64,6 @@ public final class FtbNativeQuestSync {
         return parseTarget(normalize(raw), READY_PREFIX);
     }
 
-    public static List<Target> writeTargets(Set<String> tags) {
-        if (tags == null || tags.isEmpty()) {
-            return List.of();
-        }
-        LinkedHashSet<Target> targets = new LinkedHashSet<>();
-        for (String tag : tags) {
-            String normalized = normalize(tag);
-            if (!normalized.startsWith(WRITE_PREFIX)) {
-                continue;
-            }
-            Optional<Target> target = parseWriteTag(normalized);
-            if (target.isEmpty()) {
-                return List.of();
-            }
-            targets.add(target.get());
-        }
-        return targets.size() == 1 ? List.copyOf(targets) : List.of();
-    }
-
     /**
      * Validates both the explicit write tag and the ordinary native-chain tag on
      * the containing FTB quest. A mismatched or ambiguous projection fails closed.

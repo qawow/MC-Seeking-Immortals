@@ -1,6 +1,9 @@
 package com.xunxian.seekingimmortals.quest;
 
+import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import net.minecraft.server.level.ServerPlayer;
+
+import java.util.Locale;
 
 /**
  * Soft FTB/in-mod reward bridge.
@@ -12,7 +15,8 @@ import net.minecraft.server.level.ServerPlayer;
  * this bridge remains ledger-only and does not invent a second pay table.
  */
 public final class FtbRewardBridgeService {
-    private static final String ROOT = "seeking_immortals_ftb_reward_bridge";
+    /** Shared legacy bridge tag; the authority ledger always wins. */
+    public static final String ROOT_TAG = "seeking_immortals_ftb_reward_bridge";
 
     private FtbRewardBridgeService() {}
 
@@ -20,14 +24,16 @@ public final class FtbRewardBridgeService {
         if (player == null || chainId == null || chainId.isBlank()) {
             return;
         }
-        String id = chainId.trim().toLowerCase();
-        // Authority path always grants first; bridge only mirrors the ledger tag.
+        String id = chainId.trim().toLowerCase(Locale.ROOT);
         if (!TextQuestChainService.hasAuthorityReward(player, id)) {
-            // Extremely rare legacy call site without prior grant: mark only, do not invent rewards.
-            TextQuestChainService.markAuthorityReward(player, id);
+            // Never invent or burn the authority ledger from this bridge: the real grant
+            // path (TextQuestChainService.advance) must pay first. Log so a future legacy
+            // call site is visible instead of silently swallowing the finale reward.
+            SeekingImmortalsMod.LOGGER.warn("FTB reward bridge called without an authority grant for {}", id);
+            return;
         }
-        var legacy = player.getPersistentData().getCompound(ROOT).copy();
+        var legacy = player.getPersistentData().getCompound(ROOT_TAG).copy();
         legacy.putBoolean(id, true);
-        player.getPersistentData().put(ROOT, legacy);
+        player.getPersistentData().put(ROOT_TAG, legacy);
     }
 }

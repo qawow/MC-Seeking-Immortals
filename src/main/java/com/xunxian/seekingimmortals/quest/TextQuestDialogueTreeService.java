@@ -42,7 +42,20 @@ public final class TextQuestDialogueTreeService {
         if (stage <= 0) {
             return Optional.of(nodes.get(0));
         }
-        int idx = Math.min(nodes.size() - 1, Math.max(0, stage));
+        int lastIdx = nodes.size() - 1;
+        int finaleIdx = Math.max(1, lastIdx - 1);
+        ExtendedCatalogService.QuestChain chain = ExtendedCatalogService.builtin().questChains().get(normalize(chainId));
+        int stepCount = chain == null ? 0 : Math.max(1, chain.stepCount());
+        int idx;
+        if (stepCount <= 2) {
+            idx = finaleIdx;
+        } else {
+            int midCount = finaleIdx - 1;
+            int numerator = (stage - 1) * midCount;
+            int denominator = stepCount - 1;
+            idx = 1 + Math.min(midCount, (numerator + denominator - 1) / denominator);
+        }
+        idx = Math.min(lastIdx - 1, Math.max(1, idx));
         return Optional.of(nodes.get(idx));
     }
 

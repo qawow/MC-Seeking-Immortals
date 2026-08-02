@@ -27,7 +27,9 @@ import java.util.Optional;
 
 /** Runtime authority for quest fields not represented by the thin quest index. */
 public final class QuestAuthorityCatalog {
+    private static final boolean[] RULES_LOAD_OK = { true };
     private static final Map<String, ChainRule> RULES = loadBuiltin();
+    private static final boolean RULES_LOAD_FAILED = !RULES_LOAD_OK[0];
 
     public enum Gate {
         OPEN,
@@ -37,7 +39,8 @@ public final class QuestAuthorityCatalog {
         PARTY,
         BRANCH,
         PREREQUISITE,
-        FACTION
+        FACTION,
+        LOAD_FAILED
     }
 
     public record StageRule(int stage, String requiresBranch, String prerequisite, List<String> branchAny) {}
@@ -57,6 +60,9 @@ public final class QuestAuthorityCatalog {
     }
 
     public static Gate startGate(ServerPlayer player, String chainId) {
+        if (RULES_LOAD_FAILED) {
+            return Gate.LOAD_FAILED;
+        }
         ChainRule rule = RULES.get(normalize(chainId));
         if (player == null || rule == null || player.getAbilities().instabuild) {
             return Gate.OPEN;
@@ -84,6 +90,9 @@ public final class QuestAuthorityCatalog {
     }
 
     public static Gate stageGate(ServerPlayer player, String chainId, int targetStage) {
+        if (RULES_LOAD_FAILED) {
+            return Gate.LOAD_FAILED;
+        }
         ChainRule rule = RULES.get(normalize(chainId));
         StageRule stage = rule == null ? null : rule.stages().get(targetStage);
         if (player == null || stage == null || player.getAbilities().instabuild) {
@@ -161,13 +170,15 @@ public final class QuestAuthorityCatalog {
         String path = "data/" + SeekingImmortalsMod.MODID + "/text_material/quest_chains.json";
         try (InputStream stream = QuestAuthorityCatalog.class.getClassLoader().getResourceAsStream(path)) {
             if (stream == null) {
+                RULES_LOAD_OK[0] = false;
                 return Map.of();
             }
             try (InputStreamReader reader = new InputStreamReader(stream, StandardCharsets.UTF_8)) {
                 return parse(JsonParser.parseReader(reader).getAsJsonObject());
             }
         } catch (Exception exception) {
-            SeekingImmortalsMod.LOGGER.warn("Failed to load quest authority rules from {}", path, exception);
+            RULES_LOAD_OK[0] = false;
+            SeekingImmortalsMod.LOGGER.error("Failed to load quest authority rules from {}", path, exception);
             return Map.of();
         }
     }
@@ -197,10 +208,12 @@ public final class QuestAuthorityCatalog {
                         continue;
                     }
                     JsonObject step = steps.get(i).getAsJsonObject();
+                    boolean optional = asBool(step, "optional");
                     String branch = normalize(str(step, "requires_branch"));
                     String prerequisite = normalize(firstString(step.get("requires")));
                     List<String> branchAny = strings(step, "branch_any");
-                    if (!branch.isBlank() || !prerequisite.isBlank() || !branchAny.isEmpty()) {
+                    // Authored-optional steps must not hard-gate the chain with their requires.
+                    if (!optional && (!branch.isBlank() || !prerequisite.isBlank() || !branchAny.isEmpty())) {
                         stages.put(i + 1, new StageRule(i + 1, branch, prerequisite, branchAny));
                     }
                 }
@@ -219,6 +232,11 @@ public final class QuestAuthorityCatalog {
     private static JsonObject object(JsonObject parent, String key) {
         return parent != null && parent.has(key) && parent.get(key).isJsonObject()
                 ? parent.getAsJsonObject(key) : null;
+    }
+
+    private static boolean asBool(JsonObject object, String key) {
+        return object != null && object.has(key) && !object.get(key).isJsonNull()
+                && Boolean.parseBoolean(object.get(key).getAsString());
     }
 
     private static String str(JsonObject object, String key) {

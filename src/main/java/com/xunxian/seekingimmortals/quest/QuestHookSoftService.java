@@ -47,17 +47,27 @@ public final class QuestHookSoftService {
         if (direct != null && TextQuestChainService.find(direct).isPresent()) {
             return Optional.of(direct);
         }
-        // Fallback: same-id chain, then keyword match against known chains.
+        // Fallback: same-id chain first.
         if (TextQuestChainService.find(id).isPresent()) {
             return Optional.of(id);
         }
+        // Keyword heuristics for common hook prefixes run before substring matching so
+        // broad tokens (sect/void/nether/diyuan) follow the authored intent instead of
+        // whichever index row happens to sort first.
+        Optional<String> keyword = keywordMatch(id);
+        if (keyword.isPresent()) {
+            return keyword;
+        }
         for (ExtendedCatalogService.QuestChain chain : ExtendedCatalogService.builtin().questChains().values()) {
             String chainId = chain.id();
-            if (id.contains(chainId) || chainId.contains(id)) {
+            if (chainId.length() >= 3 && (id.contains(chainId) || chainId.contains(id))) {
                 return Optional.of(chainId);
             }
         }
-        // Keyword heuristics for common hook prefixes.
+        return Optional.empty();
+    }
+
+    private static Optional<String> keywordMatch(String id) {
         if (id.contains("huangfeng") || id.contains("qixuan") || id.contains("alchemy")) {
             return firstPresent("huangfeng_cultivation_path", "qixuan_mortal_path");
         }
@@ -67,29 +77,29 @@ public final class QuestHookSoftService {
         if (id.contains("ghost") || id.contains("yin") || id.contains("nether")) {
             return firstPresent("ghost_path", "yin_luo_ghost_sect", "yin_cluster_pilgrim");
         }
-        if (id.contains("star") || id.contains("chaotic") || id.contains("void") || id.contains("inverse")) {
+        if (id.contains("blood") || id.contains("diyuan") || id.contains("void")) {
+            return firstPresent("blood_forbidden_campaign", "nether_river_campaign", "diyuan_campaign",
+                    "void_palace_campaign");
+        }
+        if (id.contains("star") || id.contains("chaotic") || id.contains("inverse")) {
             return firstPresent("star_palace_internal_politics", "chaotic_sea_politics");
         }
         if (id.contains("dajin") || id.contains("kunwu") || id.contains("wanbao") || id.contains("sect")) {
             return firstPresent("dajin_kunwu_line", "kunwu_mountain_expedition", "dajin_wanbao_route");
         }
-        if (id.contains("spirit") || id.contains("tianyuan") || id.contains("ascension") || id.contains("diyuan")) {
+        if (id.contains("spirit") || id.contains("tianyuan") || id.contains("ascension")) {
             return firstPresent("spirit_realm_rise", "tianyuan_merit_path", "spirit_realm_border");
         }
         if (id.contains("demon") || id.contains("fallen") || id.contains("ancient")) {
             return firstPresent("ancient_demon_line", "fallen_demon_expedition", "demonic_six_path");
         }
         if (id.contains("craft") || id.contains("refine") || id.contains("talisman") || id.contains("puppet")
-                || id.contains("formation") || id.contains("alchemy")) {
+                || id.contains("formation")) {
             return firstPresent("craft_master", "tianfu_talisman_path", "qianzhu_puppet_path", "yuling_puppet_path");
         }
         if (id.contains("barbarian") || id.contains("clan") || id.contains("fengyuan") || id.contains("human")) {
             return firstPresent("barbarian_kings_line", "human_clan_neutral_intro", "spirit_eighteen_clans",
                     "human_clan_league_hub");
-        }
-        if (id.contains("blood") || id.contains("nether") || id.contains("diyuan") || id.contains("void")) {
-            return firstPresent("blood_forbidden_campaign", "nether_river_campaign", "diyuan_campaign",
-                    "void_palace_campaign");
         }
         return Optional.empty();
     }
@@ -104,7 +114,8 @@ public final class QuestHookSoftService {
         }
         Optional<String> mapped = mappedChainId(entry.id());
         player.displayClientMessage(Component.translatable("message.seeking_immortals.quest_hook.preview",
-                Component.empty(), hookDisplay(entry)), false);
+                PlayerDisplayText.safeLiteral(entry.id(), "text.seeking_immortals.unknown_quest"),
+                hookDisplay(entry)), false);
         if (mapped.isPresent()) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.quest_hook.mapped",
                     chainDisplay(mapped.get())), false);
@@ -145,13 +156,18 @@ public final class QuestHookSoftService {
         TextQuestChainService.ChainProgress progress = TextQuestChainService.progressOf(player, mapped.get());
         if (progress.stage() > 0) {
             // Wave466: already started — open dialogue / advance instead of hard-fail.
+            boolean advanced = false;
             if (!progress.complete()) {
-                TextQuestChainService.advance(player, mapped.get());
+                advanced = TextQuestChainService.advance(player, mapped.get());
+                if (!advanced) {
+                    player.displayClientMessage(Component.translatable(
+                            "message.seeking_immortals.quest_hook.advance_locked", chainDisplay(mapped.get())), false);
+                }
             }
             player.displayClientMessage(Component.translatable("message.seeking_immortals.quest_hook.accepted",
                     hookDisplay(entry), chainDisplay(mapped.get())), true);
             TextQuestNpcHookService.openDialogue(player, mapped.get(), false);
-            return true;
+            return advanced || progress.complete();
         }
         boolean started = TextQuestChainService.start(player, mapped.get());
         if (started) {

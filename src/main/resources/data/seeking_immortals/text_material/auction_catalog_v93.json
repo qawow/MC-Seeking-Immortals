@@ -8,126 +8,453 @@
       "display": "太南小会",
       "region": "tiannan",
       "cycle_years": 5,
-      "realm_focus": ["QI_REFINING", "FOUNDATION"],
-      "lots": [
-        {"item": "升仙令情报/入门机会", "start": [50, 200], "type": "service"},
-        {"item": "低阶法器", "start": [10, 80]},
-        {"item": "筑基丹（偶）", "start": [500, 1500], "rarity": "event"},
-        {"item": "基础丹方/符", "start": [5, 50]}
+      "realm_focus": [
+        "QI_REFINING",
+        "FOUNDATION"
       ],
-      "setting": {"lore": "凡人跨入修仙界的初级交易会结构。"}
+      "lots": [
+        {
+          "item": "升仙令情报/入门机会",
+          "start": [
+            50,
+            200
+          ],
+          "type": "service"
+        },
+        {
+          "item": "低阶法器",
+          "start": [
+            10,
+            80
+          ]
+        },
+        {
+          "item": "筑基丹（偶）",
+          "start": [
+            500,
+            1500
+          ],
+          "rarity": "event"
+        },
+        {
+          "item": "基础丹方/符",
+          "start": [
+            5,
+            50
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "凡人跨入修仙界的初级交易会结构。"
+      }
     },
     {
       "id": "tiannan_trade_fair",
       "display": "天南交易会",
       "region": "tiannan",
-      "realm_focus": ["CORE_FORMATION", "NASCENT_SOUL"],
+      "realm_focus": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
       "lots": [
-        {"item": "赤精芝", "start": [8000, 40000], "type": "herb"},
-        {"item": "上古傀儡术/魄石交换", "start": [20000, 100000], "type": "manual_or_trade"},
-        {"item": "庚精（极少）", "start": [30000, 150000]},
-        {"item": "元婴丹药", "start": [15000, 80000]},
-        {"item": "困仙环类未认主法宝", "start": [20000, 100000]},
-        {"item": "六级妖丹/千年灵草换庚精消息", "start": [3000, 20000], "type": "barter"}
+        {
+          "item": "赤精芝",
+          "start": [
+            8000,
+            40000
+          ],
+          "type": "herb"
+        },
+        {
+          "item": "上古傀儡术/魄石交换",
+          "start": [
+            20000,
+            100000
+          ],
+          "type": "manual_or_trade"
+        },
+        {
+          "item": "庚精（极少）",
+          "start": [
+            30000,
+            150000
+          ]
+        },
+        {
+          "item": "元婴丹药",
+          "start": [
+            15000,
+            80000
+          ]
+        },
+        {
+          "item": "困仙环类未认主法宝",
+          "start": [
+            20000,
+            100000
+          ]
+        },
+        {
+          "item": "六级妖丹/千年灵草换庚精消息",
+          "start": [
+            3000,
+            20000
+          ],
+          "type": "barter"
+        }
       ],
       "barter_mode": true,
-      "setting": {"lore": "元婴级以物易物为主；天晶傀儡、庚精消息等名场面。"}
+      "setting": {
+        "lore": "元婴级以物易物为主；天晶傀儡、庚精消息等名场面。"
+      }
     },
     {
       "id": "border_wager_reward",
       "display": "边界赌战赏库",
       "region": "tiannan",
-      "currency": ["tiannan_war_merit", "low_spirit_stone"],
-      "lots": [
-        {"item": "庚精", "cost_merit": [150, 300], "or_stone": [20000, 120000]},
-        {"item": "玄天仙藤根茎", "cost_merit": [200, 400], "unique_cycle": true},
-        {"item": "疗伤丹批", "cost_merit": [10, 30]},
-        {"item": "阵旗修复", "cost_merit": [50, 80]}
+      "currency": [
+        "tiannan_war_merit",
+        "low_spirit_stone"
       ],
-      "setting": {"lore": "九国盟/四大势力赌战与边功兑换。"}
+      "lots": [
+        {
+          "item": "庚精",
+          "cost_merit": [
+            150,
+            300
+          ],
+          "or_stone": [
+            20000,
+            120000
+          ]
+        },
+        {
+          "item": "玄天仙藤根茎",
+          "cost_merit": [
+            200,
+            400
+          ],
+          "unique_cycle": true
+        },
+        {
+          "item": "疗伤丹批",
+          "cost_merit": [
+            10,
+            30
+          ]
+        },
+        {
+          "item": "阵旗修复",
+          "cost_merit": [
+            50,
+            80
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "九国盟/四大势力赌战与边功兑换。"
+      }
     },
     {
       "id": "tianxing_city_auction",
       "display": "天星城拍卖",
       "region": "chaotic_sea",
-      "realm_focus": ["CORE_FORMATION", "NASCENT_SOUL"],
-      "lots": [
-        {"item": "海兽妖丹（6-8级）", "start": [2000, 80000]},
-        {"item": "金雷竹相关", "start": [30000, 200000]},
-        {"item": "虚天殿残图碎片", "start": [10000, 100000]},
-        {"item": "梵圣真片（极罕）", "start": [50000, 300000]},
-        {"item": "玛瑙角等结婴材", "start": [8000, 50000]}
+      "realm_focus": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
       ],
-      "setting": {"lore": "乱星海内星海经济中枢。"}
+      "lots": [
+        {
+          "item": "海兽妖丹（6-8级）",
+          "start": [
+            2000,
+            80000
+          ]
+        },
+        {
+          "item": "金雷竹相关",
+          "start": [
+            30000,
+            200000
+          ]
+        },
+        {
+          "item": "虚天殿残图碎片",
+          "start": [
+            10000,
+            100000
+          ]
+        },
+        {
+          "item": "梵圣真片（极罕）",
+          "start": [
+            50000,
+            300000
+          ]
+        },
+        {
+          "item": "玛瑙角等结婴材",
+          "start": [
+            8000,
+            50000
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "乱星海内星海经济中枢。"
+      }
     },
     {
       "id": "heishi_cujin_ge",
       "display": "黑石城寸金阁",
       "region": "chaotic_sea_outer",
       "lots": [
-        {"item": "玛瑙角", "start": [8000, 40000]},
-        {"item": "外星海妖材", "start": [1000, 50000]},
-        {"item": "上古丹方玉简", "start": [5000, 80000]}
+        {
+          "item": "玛瑙角",
+          "start": [
+            8000,
+            40000
+          ]
+        },
+        {
+          "item": "外星海妖材",
+          "start": [
+            1000,
+            50000
+          ]
+        },
+        {
+          "item": "上古丹方玉简",
+          "start": [
+            5000,
+            80000
+          ]
+        }
       ],
-      "setting": {"lore": "外星海据点交易；兽潮前后物价暴涨。"}
+      "setting": {
+        "lore": "外星海据点交易；兽潮前后物价暴涨。"
+      }
     },
     {
       "id": "dajin_surface_auction",
       "display": "晋京大拍卖",
       "region": "dajin",
-      "realm_focus": ["CORE_FORMATION", "NASCENT_SOUL"],
+      "realm_focus": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
       "lots": [
-        {"item": "庚精", "start": [25000, 120000]},
-        {"item": "傀儡材料包", "start": [15000, 100000]},
-        {"item": "晶化妖丹", "start": [10000, 60000]},
-        {"item": "高阶符箓（地/天）", "start": [5000, 80000]},
-        {"item": "培婴相关辅材", "start": [20000, 150000]},
-        {"item": "古宝残件", "start": [80000, 500000]}
+        {
+          "item": "庚精",
+          "start": [
+            25000,
+            120000
+          ]
+        },
+        {
+          "item": "傀儡材料包",
+          "start": [
+            15000,
+            100000
+          ]
+        },
+        {
+          "item": "晶化妖丹",
+          "start": [
+            10000,
+            60000
+          ]
+        },
+        {
+          "item": "高阶符箓（地/天）",
+          "start": [
+            5000,
+            80000
+          ]
+        },
+        {
+          "item": "培婴相关辅材",
+          "start": [
+            20000,
+            150000
+          ]
+        },
+        {
+          "item": "古宝残件",
+          "start": [
+            80000,
+            500000
+          ]
+        }
       ],
       "commission_pct": 5,
-      "setting": {"lore": "人界明面顶拍；供给优于天南。"}
+      "setting": {
+        "lore": "人界明面顶拍；供给优于天南。"
+      }
     },
     {
       "id": "dajin_underground_auction",
       "display": "晋京地下拍卖",
       "region": "dajin",
-      "risk": ["identity_exposure", "ambush_after", "demonic_flag"],
-      "lots": [
-        {"item": "墨金", "start": [20000, 100000]},
-        {"item": "五行玉", "start": [15000, 90000]},
-        {"item": "庚精（黑市）", "start": [20000, 100000]},
-        {"item": "禁术玉简", "start": [30000, 200000]},
-        {"item": "魔髓钻交换席", "start": "barter"},
-        {"item": "来路不明古宝", "start": [100000, 800000]}
+      "risk": [
+        "identity_exposure",
+        "ambush_after",
+        "demonic_flag"
       ],
-      "setting": {"lore": "韩立以魔髓钻换五行玉/庚精结构；拍完易被盯梢。"}
+      "lots": [
+        {
+          "item": "墨金",
+          "start": [
+            20000,
+            100000
+          ]
+        },
+        {
+          "item": "五行玉",
+          "start": [
+            15000,
+            90000
+          ]
+        },
+        {
+          "item": "庚精（黑市）",
+          "start": [
+            20000,
+            100000
+          ]
+        },
+        {
+          "item": "禁术玉简",
+          "start": [
+            30000,
+            200000
+          ]
+        },
+        {
+          "item": "魔髓钻交换席",
+          "start": "barter"
+        },
+        {
+          "item": "来路不明古宝",
+          "start": [
+            100000,
+            800000
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "韩立以魔髓钻换五行玉/庚精结构；拍完易被盯梢。"
+      }
     },
     {
       "id": "tianyuan_auction",
       "display": "天渊坊市/拍卖",
       "region": "spirit_realm",
-      "currency": ["spirit_realm_stone", "tianyuan_merit"],
-      "lots": [
-        {"item": "玉清丹/化神丹方", "merit": [15, 50]},
-        {"item": "真蟾液", "merit": [30, 100]},
-        {"item": "天雷木", "merit": [20, 80]},
-        {"item": "墨麒麟鳞片", "merit": [40, 120]},
-        {"item": "葵水真灵丹材", "merit": [50, 150]},
-        {"item": "灵地租约", "merit": [30, 200]}
+      "currency": [
+        "spirit_realm_stone",
+        "tianyuan_merit"
       ],
-      "setting": {"lore": "飞升修士补给核心；功勋与灵界通货并行。"}
+      "lots": [
+        {
+          "item": "玉清丹/化神丹方",
+          "merit": [
+            15,
+            50
+          ]
+        },
+        {
+          "item": "真蟾液",
+          "merit": [
+            30,
+            100
+          ]
+        },
+        {
+          "item": "天雷木",
+          "merit": [
+            20,
+            80
+          ]
+        },
+        {
+          "item": "墨麒麟鳞片",
+          "merit": [
+            40,
+            120
+          ]
+        },
+        {
+          "item": "葵水真灵丹材",
+          "merit": [
+            50,
+            150
+          ]
+        },
+        {
+          "item": "灵地租约",
+          "merit": [
+            30,
+            200
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "飞升修士补给核心；功勋与灵界通货并行。"
+      }
     },
     {
       "id": "sizhu_auction",
       "display": "四族拍卖（灵界）",
       "region": "spirit_realm",
-      "realm_focus": ["VOID_REFINEMENT", "BODY_INTEGRATION"],
-      "lots": [
-        {"item": "魔金山脉入场关联", "type": "access"},
-        {"item": "合体级材料", "price_note": "灵界顶价"},
-        {"item": "真灵血丝/鳞", "price_note": "稀有"}
+      "realm_focus": [
+        "VOID_REFINEMENT",
+        "BODY_INTEGRATION"
       ],
-      "setting": {"lore": "魔金山脉开放前的多方拍卖结构。"}
+      "lots": [
+        {
+          "item": "魔金山脉入场关联",
+          "type": "access"
+        },
+        {
+          "item": "合体级材料",
+          "price_note": "灵界顶价"
+        },
+        {
+          "item": "真灵血丝/鳞",
+          "price_note": "稀有"
+        }
+      ],
+      "setting": {
+        "lore": "魔金山脉开放前的多方拍卖结构。"
+      }
+    },
+    {
+      "id": "wanbao_auction",
+      "display": "万宝楼拍卖场",
+      "region": "dajin",
+      "realm_focus": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "lots": [
+        {
+          "item": "万宝楼法宝拍品",
+          "start": [
+            30000,
+            200000
+          ]
+        },
+        {
+          "item": "大晋拍卖池精品",
+          "start": [
+            20000,
+            150000
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "万宝楼与大晋拍卖框架拍品池的固定主场。"
+      }
     }
   ],
   "price_modifiers": {

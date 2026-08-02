@@ -196,9 +196,6 @@ public final class QuestRewardService {
         if (chainId.contains("huangfeng") || chainId.contains("blood")) {
             rows.add("huangfeng_qi");
         }
-        if (chainId.contains("foundation") || chainId.contains("blood_forbidden")) {
-            rows.add("foundation_path");
-        }
         return rows;
     }
 
@@ -299,7 +296,11 @@ public final class QuestRewardService {
                     if (!stepEl.isJsonObject()) {
                         continue;
                     }
-                    for (String u : stringList(stepEl.getAsJsonObject().get("unique"))) {
+                    JsonObject step = stepEl.getAsJsonObject();
+                    LinkedHashSet<String> stepUniques = new LinkedHashSet<>(
+                            stringList(step.get("unique")));
+                    stepUniques.addAll(stringList(step.get("unique_account")));
+                    for (String u : stepUniques) {
                         unique.add(u);
                         uniques.add(canonicalUnique(u));
                     }
@@ -324,12 +325,14 @@ public final class QuestRewardService {
     private static JsonObject readJson(String path) {
         try (InputStream stream = QuestRewardService.class.getClassLoader().getResourceAsStream(path)) {
             if (stream == null) {
+                SeekingImmortalsMod.LOGGER.error("Quest reward resource missing: {}", path);
                 return null;
             }
             try (Reader reader = new InputStreamReader(stream, StandardCharsets.UTF_8)) {
                 return JsonParser.parseReader(reader).getAsJsonObject();
             }
-        } catch (Exception ignored) {
+        } catch (Exception exception) {
+            SeekingImmortalsMod.LOGGER.error("Failed to parse quest reward resource {}", path, exception);
             return null;
         }
     }

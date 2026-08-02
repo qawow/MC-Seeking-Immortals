@@ -329,6 +329,9 @@ public final class DetailedQuestRuntimeService {
                 continue;
             }
             Chain chain = BUILTIN.chains().get(progress.id());
+            if (progress.stage() > chain.steps().size()) {
+                continue;
+            }
             Step step = chain.steps().get(progress.stage() - 1);
             Evidence proof = Evidence.of(normalized);
             if (stepSatisfied(player, chain, step, proof) && advance(player, progress.id(), proof)) {
@@ -355,7 +358,8 @@ public final class DetailedQuestRuntimeService {
         if (candidates.isEmpty() && !npc.isBlank()) {
             for (Chain chain : BUILTIN.chains().values()) {
                 Progress progress = progressOf(player, chain.id());
-                if (!progress.started() || progress.complete()) {
+                if (!progress.started() || progress.complete()
+                        || progress.stage() > chain.steps().size()) {
                     continue;
                 }
                 Step step = chain.steps().get(progress.stage() - 1);
@@ -384,6 +388,9 @@ public final class DetailedQuestRuntimeService {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.detailed_quest.completed", chain.display()), false);
             return true;
+        }
+        if (progress.stage() > chain.steps().size()) {
+            return false;
         }
         Step step = chain.steps().get(progress.stage() - 1);
         player.displayClientMessage(Component.translatable(
@@ -441,7 +448,7 @@ public final class DetailedQuestRuntimeService {
 
     private static boolean matchesPrerequisite(ServerPlayer player, String token, Evidence evidence) {
         return switch (token) {
-            case "new_game" -> noDetailedProgress(player);
+            case "new_game" -> noDetailedProgress(player) || isFreshProgress(player);
             case "outer_or_inner_huangfeng_or_high_rep" -> hasFlag(player, "outer_disciple")
                     || sect(player).contains("huangfeng") || ReputationService.get(player, "huangfeng_gu") >= 10;
             case "blood_forbidden_token", "zhui_mo_ling" -> hasItem(player, token);
@@ -512,8 +519,13 @@ public final class DetailedQuestRuntimeService {
     }
 
     private static boolean rewardPreflight(JsonObject reward) {
-        if (reward == null || !reward.has("item") || !reward.get("item").isJsonPrimitive()) {
+        if (reward == null || !reward.has("item")) {
             return true;
+        }
+        if (!reward.get("item").isJsonPrimitive()) {
+            // Multi-item array rewards are not supported by the grant path; refuse to
+            // spend the player's contribution on a reward that would throw later.
+            return false;
         }
         String itemId = reward.get("item").getAsString();
         return ItemCatalogService.resolveCatalogItem(itemId) != null;
@@ -683,6 +695,20 @@ public final class DetailedQuestRuntimeService {
         return player.getPersistentData().getCompound(ROOT_TAG).isEmpty();
     }
 
+    /**
+     * New-game fallback: the intro chain stays startable while every started chain is still at
+     * its first stage and none is complete, so a region-triggered auto-start (dajin/chaotic_sea
+     * spawns) cannot permanently lock the tutorial chain.
+     */
+    private static boolean isFreshProgress(ServerPlayer player) {
+        for (Progress progress : listProgress(player)) {
+            if (progress.complete() || progress.stage() > 1) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     private static Evidence mergeEvidence(Evidence evidence, String token) {
         LinkedHashSet<String> merged = new LinkedHashSet<>();
         if (evidence != null) {
@@ -699,7 +725,11 @@ public final class DetailedQuestRuntimeService {
     private static void recordEvidence(ServerPlayer player, String token) {
         CompoundTag evidence = player.getPersistentData().getCompound(EVIDENCE_TAG).copy();
         if (!evidence.contains(token) && evidence.getAllKeys().size() >= MAX_EVIDENCE) {
-            evidence.getAllKeys().stream().sorted().findFirst().ifPresent(evidence::remove);
+            evidence.getAllKeys().stream().sorted().findFirst().ifPresent(evicted -> {
+                SeekingImmortalsMod.LOGGER.warn("Detailed quest evidence ledger full; evicting {}",
+                        evicted);
+                evidence.remove(evicted);
+            });
         }
         evidence.putBoolean(token, true);
         player.getPersistentData().put(EVIDENCE_TAG, evidence);

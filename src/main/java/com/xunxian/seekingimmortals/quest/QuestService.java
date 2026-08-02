@@ -157,6 +157,7 @@ public final class QuestService {
             player.sendSystemMessage(Component.translatable("message.seeking_immortals.quest.bad_choice"));
             return false;
         }
+        boolean[] handled = { false };
         CultivationHelper.get(player).ifPresent(cultivation -> {
             QuestProgress progress = cultivation.getSevenMysteriesQuest();
             if (progress.getStage() != SevenMysteriesQuest.STAGE_INFIGHTING || !progress.hasFlag(SevenMysteriesQuest.FLAG_EVIDENCE)) {
@@ -184,8 +185,9 @@ public final class QuestService {
             player.sendSystemMessage(Component.translatable("message.seeking_immortals.quest.choice_success",
                     branchDisplay(normalized)));
             checkProgress(player, cultivation);
+            handled[0] = true;
         });
-        return true;
+        return handled[0];
     }
 
     public static boolean spawnQuestNpc(ServerPlayer player, String name) {
@@ -430,7 +432,11 @@ public final class QuestService {
         MinecraftServer server = player.getServer();
         ServerLevel overworld = server == null ? null : server.getLevel(Level.OVERWORLD);
         ServerLevel targetLevel = overworld == null ? player.serverLevel() : overworld;
-        BlockPos target = new BlockPos(128, targetLevel.getMinBuildHeight() + 80, 128);
+        // Start high above the surface and descend so the first solid block is the actual
+        // terrain roof (spawn-area surface sits well above minBuildHeight + 80).
+        int startY = Math.min(targetLevel.getMaxBuildHeight() - 32,
+                targetLevel.getMinBuildHeight() + 160);
+        BlockPos target = new BlockPos(128, Math.max(startY, targetLevel.getMinBuildHeight() + 2), 128);
         while (target.getY() > targetLevel.getMinBuildHeight() + 2 && !targetLevel.getBlockState(target.below()).isSolid()) {
             target = target.below();
         }
@@ -466,7 +472,8 @@ public final class QuestService {
 
     private static boolean hasItem(ServerPlayer player, Item item, int count) {
         int total = 0;
-        for (ItemStack stack : player.getInventory().items) {
+        for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
+            ItemStack stack = player.getInventory().getItem(i);
             if (stack.is(item)) total += stack.getCount();
         }
         return total >= count;
@@ -476,7 +483,8 @@ public final class QuestService {
         if (player.getAbilities().instabuild) return true;
         if (!hasItem(player, item, count)) return false;
         int remaining = count;
-        for (ItemStack stack : player.getInventory().items) {
+        for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
+            ItemStack stack = player.getInventory().getItem(i);
             if (!stack.is(item)) continue;
             int remove = Math.min(remaining, stack.getCount());
             stack.shrink(remove);

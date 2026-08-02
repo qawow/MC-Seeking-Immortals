@@ -32,7 +32,7 @@ class DetailedQuestProofCatalogTest {
             Map.entry("ENTITY_KILLED", "entity"), Map.entry("ENTITY_CAPTURED_ALIVE", "entity"),
             Map.entry("ENCOUNTER_CLEARED", "region"), Map.entry("ESCORT_COMPLETED", "region"),
             Map.entry("METHOD_LAYER_REACHED", "method"), Map.entry("REALM_REACHED", "realm"),
-            Map.entry("TECHNIQUE_LEARNED", "method"), Map.entry("SHOP_TRANSACTION", "shop"),
+            Map.entry("TECHNIQUE_LEARNED", "technique"), Map.entry("SHOP_TRANSACTION", "shop"),
             Map.entry("AUCTION_TRANSACTION", "auction"), Map.entry("REPUTATION_REACHED", "faction"),
             Map.entry("CHOICE_COMMITTED", "choice"), Map.entry("INFO_ACKNOWLEDGED", "choice"),
             Map.entry("SPIRIT_ROOT_TESTED", "item"));

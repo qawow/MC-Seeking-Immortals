@@ -162,22 +162,30 @@ public final class FtbQuestDefaults {
         if (Files.isSymbolicLink(stateFile) || !Files.isRegularFile(stateFile, LinkOption.NOFOLLOW_LINKS)) {
             return StateRead.invalid("Default-pack state is not a regular file");
         }
-        Properties properties = new Properties();
-        try (var reader = Files.newBufferedReader(stateFile, StandardCharsets.UTF_8)) {
-            properties.load(reader);
-            String revision = properties.getProperty("installer_revision", "").trim();
-            Map<String, String> hashes = new LinkedHashMap<>();
-            for (FtbDefaultPackManifest.ManagedFile managed : FtbDefaultPackManifest.FILES) {
-                String hash = properties.getProperty("sha256." + managed.relativePath(), "").trim();
-                if (!hash.matches("[0-9a-f]{64}")) {
-                    return StateRead.invalid("Default-pack state is missing " + managed.relativePath());
+            Properties properties = new Properties();
+            try (var reader = Files.newBufferedReader(stateFile, StandardCharsets.UTF_8)) {
+                properties.load(reader);
+                String revision = properties.getProperty("installer_revision", "").trim();
+                Map<String, String> hashes = new LinkedHashMap<>();
+                for (FtbDefaultPackManifest.ManagedFile managed : FtbDefaultPackManifest.FILES) {
+                    String hash = properties.getProperty("sha256." + managed.relativePath(), "").trim();
+                    if (hash.isEmpty()) {
+                        // Entry added by a newer manifest: older installers never recorded it.
+                        // Leave it unrecorded so the upgrade path installs it instead of
+                        // permanently blocking every boot with an invalid state.
+                        hashes.put(managed.relativePath(), "");
+                        continue;
+                    }
+                    if (!hash.matches("[0-9a-f]{64}")) {
+                        return StateRead.invalid("Default-pack state has a malformed hash for "
+                                + managed.relativePath());
+                    }
+                    hashes.put(managed.relativePath(), hash);
                 }
-                hashes.put(managed.relativePath(), hash);
-            }
-            if (revision.isBlank()) {
-                return StateRead.invalid("Default-pack state has no installer revision");
-            }
-            return StateRead.valid(new PackState(revision, hashes));
+                if (revision.isBlank()) {
+                    return StateRead.invalid("Default-pack state has no installer revision");
+                }
+                return StateRead.valid(new PackState(revision, hashes));
         } catch (IOException | IllegalArgumentException exception) {
             return StateRead.invalid("Default-pack state cannot be read: " + exception.getMessage());
         }
@@ -222,10 +230,23 @@ public final class FtbQuestDefaults {
         if (stateRead.exists()) {
             for (Map.Entry<String, ExistingFile> entry : files.entrySet()) {
                 ExistingFile existing = entry.getValue();
+                String recorded = stateRead.state().hashes().get(entry.getKey());
+                if (recorded == null || recorded.isBlank()) {
+                    // Newly added manifest entry: an existing different file is treated as a
+                    // user customization and blocks the upgrade; a missing file is simply the
+                    // upgrade work item and stays safe.
+                    if (existing.exists()) {
+                        BundledFile desired = bundled.get(entry.getKey());
+                        if (desired != null && !existing.digest().equals(desired.digest())
+                                && !desired.managed().historicalHashes().contains(existing.digest())) {
+                            return Inspection.unsafe("Legacy managed file is customized: " + entry.getKey());
+                        }
+                    }
+                    continue;
+                }
                 if (!existing.exists()) {
                     return Inspection.unsafe("Managed file was deleted after installation: " + entry.getKey());
                 }
-                String recorded = stateRead.state().hashes().get(entry.getKey());
                 if (!existing.digest().equals(recorded)) {
                     return Inspection.unsafe("Managed file differs from installed state: " + entry.getKey());
                 }
@@ -341,9 +362,7 @@ public final class FtbQuestDefaults {
         for (ExistingFile snapshot : existing.values()) {
             boolean present = Files.exists(snapshot.path(), LinkOption.NOFOLLOW_LINKS);
             if (!snapshot.exists()) {
-                if (present) {
-                    return false;
-                }
+                // Newly added manifest entries are expected to be installed by this migration.
                 continue;
             }
             if (!present || Files.isSymbolicLink(snapshot.path())

@@ -40,7 +40,7 @@ class PlayerPersistentDataClonePolicyTest {
             "seeking_immortals_auction_personal_raises",
             "seeking_immortals_auction_won",
             "seeking_immortals_unique_story_rewards",
-            "seeking_immortals_ftb_reward_bridge",
+            com.xunxian.seekingimmortals.quest.FtbRewardBridgeService.ROOT_TAG,
             "seeking_immortals_main_story",
             "seeking_immortals_soft_phases",
             "seeking_immortals_shop_quota",

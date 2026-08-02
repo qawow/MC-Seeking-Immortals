@@ -82,7 +82,10 @@ class QuestPresentationServiceTest {
 
         QuestPresentationService.ChainPresentation politics =
                 QuestPresentationService.find("chaotic_sea_politics").orElseThrow();
-        assertTrue(politics.stage(3).orElseThrow().requirements().stream().anyMatch(value ->
-                value.textZh().contains("逆星盟") && value.enforced()));
+        // One-time branch lock makes mixed rebel/loyalist hard gates impossible; stages
+        // must not enforce them.
+        assertTrue(politics.stage(3).isEmpty() || politics.stage(3).orElseThrow()
+                .requirements().stream().noneMatch(value ->
+                        value.textZh().contains("逆星盟") && value.enforced()));
     }
 }

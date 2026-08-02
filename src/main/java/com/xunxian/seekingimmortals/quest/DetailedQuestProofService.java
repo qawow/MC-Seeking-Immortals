@@ -1,5 +1,6 @@
 package com.xunxian.seekingimmortals.quest;
 
+import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.catalog.ItemCatalogService;
 import com.xunxian.seekingimmortals.catalog.ManualCatalogService;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
@@ -101,12 +102,16 @@ public final class DetailedQuestProofService {
             Map.entry("fengyuan_gate_contribution_rule", Set.of("tree_tianyuan_registrar:pay_portal")),
             Map.entry("tianyuan_garrison_board", Set.of("tree_tianyuan_registrar:jobs")),
             Map.entry("true_word_lecture", Set.of("tree_zhenyan_lecturer:accept_lesson")),
-            Map.entry("reincarnation_backlash_terms", Set.of("tree_reincarnation_clerk:intro_quest")));
+            Map.entry("reincarnation_backlash_terms", Set.of("tree_reincarnation_clerk:intro_quest")),
+            Map.entry("mortal_qixuan_entry_step_1", Set.of("tree_tiannan_steward:visitor_service")),
+            Map.entry("true_word_exam_passed", Set.of("tree_zhenyan_lecturer:inner")),
+            Map.entry("tianyuan_return_fee", Set.of("tree_tianyuan_registrar:portal_fee")));
 
     /** Q-B-5 authored choice tokens produced by specific server dialogue nodes. */
     static final Map<String, Set<String>> CHOICE_COMMITTED_SOURCES = Map.ofEntries(
             Map.entry("inverse_star_cipher", Set.of("tree_inverse_star_contact:cipher")),
-            Map.entry("true_word_basic_drill", Set.of("tree_zhenyan_lecturer:accept_lesson")));
+            Map.entry("true_word_basic_drill", Set.of("tree_zhenyan_lecturer:accept_lesson")),
+            Map.entry("inverse_star_alignment", Set.of("tree_inverse_star_contact:star_spy")));
 
     public enum Status {
         ACCEPTED,
@@ -1292,6 +1297,7 @@ public final class DetailedQuestProofService {
         if (ledger.getAllKeys().size() >= MAX_LEDGER_ENTRIES) {
             String oldest = ledger.getAllKeys().stream().sorted().findFirst().orElse("");
             if (!oldest.isBlank()) {
+                SeekingImmortalsMod.LOGGER.warn("Detailed quest proof ledger full; evicting {}", oldest);
                 ledger.remove(oldest);
             }
         }

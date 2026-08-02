@@ -132,13 +132,15 @@ public final class TimelineChronicleService {
         String id = normalize(eventId);
         if (id.contains("mortal") || id.startsWith("m1") || id.contains("qixuan")) {
             unlockPhase(player, "凡人");
-        } else if (id.contains("huangfeng") || id.contains("qi_refin") || id.contains("blood")) {
+        } else if (id.contains("huangfeng") || id.contains("qi_refin") || id.contains("blood")
+                || id.contains("chapter_1") || id.equals("chapter_1_sect")) {
             unlockPhase(player, "炼气");
         } else if (id.contains("foundation") || id.contains("tiannan")) {
             unlockPhase(player, "筑基");
         } else if (id.contains("core") || id.contains("chaotic") || id.contains("star")) {
             unlockPhase(player, "结丹");
-        } else if (id.contains("nascent") || id.contains("dajin") || id.contains("void")) {
+        } else if (id.contains("nascent") || id.contains("dajin") || id.contains("void")
+                || id.contains("chapter_4") || id.contains("great_jin")) {
             unlockPhase(player, "元婴");
         } else if (id.contains("deity") || id.contains("spirit") || id.contains("tianyuan")) {
             unlockPhase(player, "化神");

@@ -256,6 +256,7 @@ public final class TextQuestChainService {
             case BRANCH -> StartEligibility.blocked(StartGate.BRANCH);
             case PREREQUISITE -> StartEligibility.blocked(StartGate.PREREQUISITE);
             case FACTION -> StartEligibility.blocked(StartGate.FACTION);
+            case LOAD_FAILED -> StartEligibility.blocked(StartGate.DATA);
         };
     }
 
@@ -401,45 +402,64 @@ public final class TextQuestChainService {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.text_quest.not_started", questDisplay(chain)), false);
             return false;
-        } else if (chain.stepCount() > 0 && stage >= chain.stepCount()) {
+        }
+        if (chain.stepCount() <= 0) {
+            // Zero-step chains can never complete; refuse to farm stages/reputation.
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.text_quest.start_no_data"), false);
+            return false;
+        }
+        if (stage > chain.stepCount()) {
+            // Stale save over-shifted by a data shrink: settle the finale exactly once.
+            stage = chain.stepCount();
+            root.putInt(id, stage);
+            player.getPersistentData().put(ROOT_TAG, root);
+            return finishChain(player, chain, id);
+        }
+        if (stage >= chain.stepCount()) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.complete",
                     questDisplay(chain)), false);
             return false;
-        } else {
-            QuestAuthorityCatalog.Gate stageGate = QuestAuthorityCatalog.stageGate(player, id, stage + 1);
-            if (stageGate != QuestAuthorityCatalog.Gate.OPEN) {
-                warnStageGate(player, stageGate);
-                return false;
-            }
-            // Wave48: consume stage cost before advancing beyond current stage.
-            if (!payStageCost(player, id, stage + 1, chain.stepCount())) {
-                return false;
-            }
-            stage++;
         }
+        QuestAuthorityCatalog.Gate stageGate = QuestAuthorityCatalog.stageGate(player, id, stage + 1);
+        if (stageGate != QuestAuthorityCatalog.Gate.OPEN) {
+            warnStageGate(player, stageGate);
+            return false;
+        }
+        // Wave48: consume stage cost before advancing beyond current stage.
+        if (!payStageCost(player, id, stage + 1, chain.stepCount())) {
+            return false;
+        }
+        stage++;
         root.putInt(id, stage);
         player.getPersistentData().put(ROOT_TAG, root);
-        if (chain.stepCount() > 0 && stage >= chain.stepCount()) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.finished",
-                    questDisplay(chain)), true);
-            // Wave454: single authority finale path (ledger prevents double grant with FTB bridge).
-            grantAuthorityFinaleReward(player, id);
-            grantBranchFinaleBonus(player, id);
-            QuestRewardService.onTextChainFinished(player, id);
-            FtbRewardBridgeService.onTextQuestFinished(player, id);
-            // Wave457: finishing a chain with main_chapter_ref auto-completes that chapter flag.
-            maybeCompleteMainStory(player, chain);
-            com.xunxian.seekingimmortals.worldpack.ReputationService.add(player, factionFor(id), 5);
-            com.xunxian.seekingimmortals.worldpack.ReputationService.onQuestComplete(player, id);
-        } else {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.advanced",
-                    questDisplay(chain), stage, Math.max(chain.stepCount(), stage)), true);
-            // Wave41: mid-stage soft grant every half-chain (once per stage mark).
-            grantMidStageReward(player, id, stage, chain.stepCount());
-            // Branch choice window around 1/3 progress.
-            maybeOfferBranchChoice(player, id, stage, chain.stepCount());
-            com.xunxian.seekingimmortals.worldpack.ReputationService.add(player, factionFor(id), 1);
+        if (stage >= chain.stepCount()) {
+            return finishChain(player, chain, id);
         }
+        player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.advanced",
+                questDisplay(chain), stage, Math.max(chain.stepCount(), stage)), true);
+        // Wave41: mid-stage soft grant every half-chain (once per stage mark).
+        grantMidStageReward(player, id, stage, chain.stepCount());
+        // Branch choice window around 1/3 progress.
+        maybeOfferBranchChoice(player, id, stage, chain.stepCount());
+        com.xunxian.seekingimmortals.worldpack.ReputationService.add(player, factionFor(id), 1);
+        syncTracker(player);
+        return true;
+    }
+
+    /** Single-authority chain finale: rewards, main-story flag, reputation and sync. */
+    private static boolean finishChain(ServerPlayer player, ExtendedCatalogService.QuestChain chain, String id) {
+        player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.finished",
+                questDisplay(chain)), true);
+        // Wave454: single authority finale path (ledger prevents double grant with FTB bridge).
+        grantAuthorityFinaleReward(player, id);
+        grantBranchFinaleBonus(player, id);
+        QuestRewardService.onTextChainFinished(player, id);
+        FtbRewardBridgeService.onTextQuestFinished(player, id);
+        // Wave457: finishing a chain with main_chapter_ref auto-completes that chapter flag.
+        maybeCompleteMainStory(player, chain);
+        com.xunxian.seekingimmortals.worldpack.ReputationService.add(player, factionFor(id), 5);
+        com.xunxian.seekingimmortals.worldpack.ReputationService.onQuestComplete(player, id);
         syncTracker(player);
         return true;
     }
@@ -451,6 +471,7 @@ public final class TextQuestChainService {
             case FACTION -> "message.seeking_immortals.text_quest.stage_faction_required";
             case PARTY -> "message.seeking_immortals.text_quest.party_too_large";
             case KARMA -> "message.seeking_immortals.text_quest.karma_required";
+            case LOAD_FAILED -> "message.seeking_immortals.text_quest.start_no_data";
             default -> "message.seeking_immortals.text_quest.start_no_data";
         };
         player.displayClientMessage(Component.translatable(key), true);
@@ -910,7 +931,7 @@ public final class TextQuestChainService {
         }
         // Migrate older soft/FTB tags into the unified ledger on first check.
         if (player.getPersistentData().getCompound(REWARD_TAG).getBoolean(id)
-                || player.getPersistentData().getCompound("seeking_immortals_ftb_reward_bridge").getBoolean(id)) {
+                || player.getPersistentData().getCompound(FtbRewardBridgeService.ROOT_TAG).getBoolean(id)) {
             markAuthorityReward(player, id);
             return true;
         }

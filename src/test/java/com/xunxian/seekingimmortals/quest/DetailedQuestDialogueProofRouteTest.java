@@ -29,11 +29,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class DetailedQuestDialogueProofRouteTest {
     private static final Path JAVA_ROOT = Path.of(
             "src", "main", "java", "com", "xunxian", "seekingimmortals");
-    private static final Set<String> FAIL_CLOSED_INFO = Set.of(
-            "mortal_qixuan_entry_step_1", "tianyuan_return_fee",
-            "true_word_exam_passed", "dayan_complete_rarity_rule");
+    private static final Set<String> FAIL_CLOSED_INFO = Set.of("dayan_complete_rarity_rule");
     private static final Set<String> FAIL_CLOSED_CHOICES = Set.of(
-            "bf_mid_contest", "inverse_star_alignment", "gh_true_immortal_pressure");
+            "bf_mid_contest", "gh_true_immortal_pressure");
     private static final Set<String> FAIL_CLOSED_SHOPS = Set.of(
             "heifeng_sea_route", "dajin_jin_capital_rim", "ziling_exchange");
     private static final Set<String> FAIL_CLOSED_AUCTIONS = Set.of("fallen_demon_token");
@@ -52,6 +50,12 @@ class DetailedQuestDialogueProofRouteTest {
                 DetailedQuestProofService.acknowledgedChoiceTokens("tree_zhenyan_lecturer", "accept_lesson"));
         assertEquals(Set.of("reincarnation_backlash_terms"),
                 DetailedQuestProofService.acknowledgedChoiceTokens("tree_reincarnation_clerk", "intro_quest"));
+        assertEquals(Set.of("mortal_qixuan_entry_step_1"),
+                DetailedQuestProofService.acknowledgedChoiceTokens("tree_tiannan_steward", "visitor_service"));
+        assertEquals(Set.of("true_word_exam_passed"),
+                DetailedQuestProofService.acknowledgedChoiceTokens("tree_zhenyan_lecturer", "inner"));
+        assertEquals(Set.of("tianyuan_return_fee"),
+                DetailedQuestProofService.acknowledgedChoiceTokens("tree_tianyuan_registrar", "portal_fee"));
 
         assertTrue(DetailedQuestProofService.acknowledgedChoiceTokens("tree_tianyuan_registrar", "greet").isEmpty());
         assertTrue(DetailedQuestProofService.acknowledgedChoiceTokens("", "jobs").isEmpty());
@@ -65,6 +69,8 @@ class DetailedQuestDialogueProofRouteTest {
                 DetailedQuestProofService.committedChoiceTokens("tree_inverse_star_contact", "cipher"));
         assertEquals(Set.of("true_word_basic_drill"),
                 DetailedQuestProofService.committedChoiceTokens("tree_zhenyan_lecturer", "accept_lesson"));
+        assertEquals(Set.of("inverse_star_alignment"),
+                DetailedQuestProofService.committedChoiceTokens("tree_inverse_star_contact", "star_spy"));
         assertTrue(DetailedQuestProofService.committedChoiceTokens("tree_inverse_star_contact", "shop").isEmpty());
         assertTrue(DetailedQuestProofService.committedChoiceTokens("", "").isEmpty());
     }
