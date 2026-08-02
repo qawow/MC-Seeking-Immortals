@@ -1,3 +1,15 @@
+## 587. 2026-08-02 `0.2.255` D-A-2 mark_structure 意图匹配 + hint 来源绑定
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   仅 `DialogueWorldActionService`/`DialogueActionExecutor`/`DetailedQuestRuntimeService` + 测试；快照 `backups/20260802232834/da2/`。
+  Structure intent   Done   markStructure 增加作者 type/dimension 意图校验与首次标记幂等证明；保留成型+commissioned 权威校验。
+  Hint source   Done   recordHint 返回仅首次；条目绑定 At/Npc/Node 来源；重复访问不重复记录。
+  Eviction   Done   全部淘汰改为按时间（trimOldestByAge/trimOldestCombat），删除字典序删键模拟时间淘汰。
+  Tests/build   Done   npc.*/quest.* 定向通过；lang 对等；生成器按序刷新；`./gradlew build` 成功，preflight 记录 0.2.255。
+  Version/protocol   Done   `mod_version=0.2.254 -> 0.2.255`；`ModNetwork.PROTOCOL_VERSION=31` 不变。
+  Next   Pending   D-A-3：suspicion/anomaly 分桶与结算。
+
 ## 586. 2026-08-02 `0.2.254` D-A-1 对话世界动作对账与 dispatch 分型
 
   Step   Status   Notes

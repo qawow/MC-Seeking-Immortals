@@ -55,8 +55,24 @@ public final class DialogueWorldActionService {
 
     /** Marks only a known structure backed by a world anchor or a nearby formed shell. */
     public static boolean markStructure(ServerPlayer player, String structureId) {
+        return markStructure(player, structureId, "", "");
+    }
+
+    /**
+     * D-A: marks a structure only when it matches every intended dimension of the dialogue
+     * context (structure type, optional authored dimension) and is the current detailed-quest
+     * step. A bare coordinate anchor or unrelated lookalike structure is never enough.
+     */
+    public static boolean markStructure(ServerPlayer player, String structureId,
+                                        String authorType, String authorDimension) {
         String id = normalize(structureId);
         if (player == null || MultiblockStructureCatalog.builtin().find(id).isEmpty()) {
+            return false;
+        }
+        MultiblockStructureCatalog.StructureEntry entry = MultiblockStructureCatalog.builtin().find(id).get();
+        if (!authorType.isBlank() && !entry.type().equalsIgnoreCase(authorType)) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.dialogue.structure_type_mismatch", id, authorType), false);
             return false;
         }
         LocatedStructure located = findWorldAnchor(player, id)
@@ -64,6 +80,12 @@ public final class DialogueWorldActionService {
         if (located == null) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.dialogue.location_unverified"), false);
+            return false;
+        }
+        if (!authorDimension.isBlank() && !normalize(located.dimension()).contains(normalize(authorDimension))) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.dialogue.structure_dimension_mismatch",
+                    id, located.dimension(), authorDimension), false);
             return false;
         }
         ServerLevel level = player.server.getLevel(ResourceKey.create(Registries.DIMENSION,
@@ -77,6 +99,7 @@ public final class DialogueWorldActionService {
             return false;
         }
         CompoundTag markers = player.getPersistentData().getCompound(MARKERS_TAG).copy();
+        boolean alreadyMarked = markers.contains(id);
         CompoundTag marker = new CompoundTag();
         marker.putString("Dimension", located.dimension());
         marker.putLong("Pos", located.pos().asLong());
@@ -84,23 +107,68 @@ public final class DialogueWorldActionService {
         markers.put(id, marker);
         player.getPersistentData().put(MARKERS_TAG, markers);
         NpcDialogueFlags.setFlag(player, "structure_marked_" + id);
-        com.xunxian.seekingimmortals.quest.DetailedQuestProofService.recordStructureFormed(
-                player, id, located.dimension(), located.pos().asLong());
+        if (!alreadyMarked) {
+            com.xunxian.seekingimmortals.quest.DetailedQuestProofService.recordStructureFormed(
+                    player, id, located.dimension(), located.pos().asLong());
+        }
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.dialogue.location_marked"), false);
         return true;
     }
 
-    public static boolean recordHint(ServerPlayer player, String hintId) {
+    /**
+     * Records a hint bound to its dialogue source. Returns true only on first record; repeated
+     * visits to the same node never double-record or double-advance.
+     */
+    public static boolean recordHint(ServerPlayer player, String hintId, String npcId, String nodeId) {
         String id = normalize(hintId);
         if (player == null || id.isBlank()) {
             return false;
         }
-        putBoundedBoolean(player, HINTS_TAG, id);
-        NpcDialogueFlags.setFlag(player, "hint_" + id);
-        player.displayClientMessage(Component.translatable(
-                "message.seeking_immortals.dialogue.hint_recorded", id), false);
-        return true;
+        CompoundTag hints = player.getPersistentData().getCompound(HINTS_TAG).copy();
+        boolean added = !hints.contains(id);
+        if (added) {
+            hints.put(id, hintEntry(npcId, nodeId, player));
+        }
+        trimOldestByAge(hints);
+        player.getPersistentData().put(HINTS_TAG, hints);
+        if (added) {
+            NpcDialogueFlags.setFlag(player, "hint_" + id);
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.dialogue.hint_recorded", id), false);
+        }
+        return added;
+    }
+
+    private static CompoundTag hintEntry(String npcId, String nodeId, ServerPlayer player) {
+        CompoundTag entry = new CompoundTag();
+        entry.putLong("At", player.serverLevel().getGameTime());
+        if (npcId != null && !npcId.isBlank()) {
+            entry.putString("Npc", normalize(npcId));
+        }
+        if (nodeId != null && !nodeId.isBlank()) {
+            entry.putString("Node", normalize(nodeId));
+        }
+        return entry;
+    }
+
+    private static void trimOldestByAge(CompoundTag root) {
+        while (root.getAllKeys().size() > MAX_LOG_ENTRIES) {
+            String evict = null;
+            long oldest = Long.MAX_VALUE;
+            for (String key : root.getAllKeys()) {
+                long at = root.getCompound(key).getLong("At");
+                if (at < oldest) {
+                    oldest = at;
+                    evict = key;
+                }
+            }
+            if (evict != null) {
+                root.remove(evict);
+            } else {
+                break;
+            }
+        }
     }
 
     public static boolean recordAnomaly(ServerPlayer player, String npcId, String treeId, String nodeId) {
@@ -111,7 +179,7 @@ public final class DialogueWorldActionService {
         if (id.replace(":", "").isBlank()) {
             return false;
         }
-        putBoundedBoolean(player, ANOMALIES_TAG, id);
+        addBoundedEntry(player, ANOMALIES_TAG, id, npcId, nodeId);
         NpcDialogueFlags.setFlag(player, "anomaly_" + normalize(nodeId));
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.dialogue.anomaly_recorded"), false);
@@ -185,7 +253,7 @@ public final class DialogueWorldActionService {
         hostile.setPersistenceRequired();
         hostile.setTarget(player);
         combat.putLong(action, now);
-        trimOldest(combat);
+        trimOldestCombat(combat);
         player.getPersistentData().put(COMBAT_TAG, combat);
         NpcDialogueFlags.setFlag(player, "dialogue_combat_" + normalize(actionType));
         applyHostilityPenalty(player, npcId);
@@ -212,7 +280,7 @@ public final class DialogueWorldActionService {
         String action = normalize(firstNonBlank(treeId, npcId, "dialogue")) + ":combat_flag";
         CompoundTag combat = player.getPersistentData().getCompound(COMBAT_TAG).copy();
         combat.putLong(action, player.serverLevel().getGameTime());
-        trimOldest(combat);
+        trimOldestCombat(combat);
         player.getPersistentData().put(COMBAT_TAG, combat);
         NpcDialogueFlags.setFlag(player, "dialogue_combat_flag");
         applyHostilityPenalty(player, npcId);
@@ -287,16 +355,30 @@ public final class DialogueWorldActionService {
                 level.dimension().location().toString(), best));
     }
 
-    private static void putBoundedBoolean(ServerPlayer player, String rootKey, String id) {
+    private static void addBoundedEntry(ServerPlayer player, String rootKey, String id,
+                                        String npcId, String nodeId) {
         CompoundTag root = player.getPersistentData().getCompound(rootKey).copy();
-        root.putBoolean(id, true);
-        trimOldest(root);
+        root.put(id, hintEntry(npcId, nodeId, player));
+        trimOldestByAge(root);
         player.getPersistentData().put(rootKey, root);
     }
 
-    private static void trimOldest(CompoundTag root) {
+    private static void trimOldestCombat(CompoundTag root) {
         while (root.getAllKeys().size() > MAX_LOG_ENTRIES) {
-            root.getAllKeys().stream().sorted().findFirst().ifPresent(root::remove);
+            String evict = null;
+            long oldest = Long.MAX_VALUE;
+            for (String key : root.getAllKeys()) {
+                long at = root.getLong(key);
+                if (at < oldest) {
+                    oldest = at;
+                    evict = key;
+                }
+            }
+            if (evict != null) {
+                root.remove(evict);
+            } else {
+                break;
+            }
         }
     }
 

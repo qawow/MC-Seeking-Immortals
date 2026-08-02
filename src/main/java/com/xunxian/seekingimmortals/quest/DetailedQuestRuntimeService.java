@@ -436,6 +436,48 @@ public final class DetailedQuestRuntimeService {
         return List.copyOf(ids);
     }
 
+    /**
+     * Returns true when the player's active chain is currently at a step whose authored
+     * place expects the given structure id. Used by dialogue world actions so a structure
+     * can only be marked when it is the intended current step, not an unrelated lookalike.
+     */
+    public static boolean currentStepExpectsStructure(ServerPlayer player, String structureId) {
+        if (player == null || structureId == null || structureId.isBlank()) {
+            return false;
+        }
+        String wanted = normalize(structureId);
+        for (Progress progress : listProgress(player)) {
+            if (!progress.started() || progress.complete()
+                    || progress.stage() <= 0 || progress.stage() > progress.stepCount()) {
+                continue;
+            }
+            Chain chain = BUILTIN.chains().get(progress.id());
+            if (chain == null || chain.steps().isEmpty()) {
+                continue;
+            }
+            Step step = chain.steps().get(progress.stage() - 1);
+            for (String token : placeTokens(step.place())) {
+                if (token.equals(wanted)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /** Whether the player has any started, not-yet-complete detailed quest chain. */
+    public static boolean hasActiveDetailedQuest(ServerPlayer player) {
+        if (player == null) {
+            return false;
+        }
+        for (Progress progress : listProgress(player)) {
+            if (progress.started() && !progress.complete()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     private static boolean prerequisitesMet(ServerPlayer player, Chain chain, Evidence evidence) {
         for (String raw : chain.prerequisites()) {
             String token = normalize(raw);

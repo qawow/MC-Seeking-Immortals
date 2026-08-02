@@ -129,4 +129,51 @@ class DialogueActionCoverageTest {
         assertTrue(service.contains("public static int addSuspicion("));
         assertTrue(service.contains("public static int suspicion("));
     }
+
+    @Test
+    void structureMarkingMatchesAuthorIntentAndIsIdempotent() throws Exception {
+        String service = Files.readString(JAVA_ROOT.resolve("npc/DialogueWorldActionService.java"));
+        String runtime = Files.readString(JAVA_ROOT.resolve("quest/DetailedQuestRuntimeService.java"));
+        String executor = Files.readString(JAVA_ROOT.resolve("npc/DialogueActionExecutor.java"));
+
+        // mark_structure receives the authored type/dimension intent and enforces it.
+        assertTrue(service.contains("public static boolean markStructure(ServerPlayer player, String structureId,\n"
+                + "                                        String authorType, String authorDimension)"),
+                "markStructure must accept authored type/dimension intent");
+        assertTrue(service.contains("entry.type().equalsIgnoreCase(authorType)"),
+                "markStructure must check the structure category");
+        assertTrue(service.contains("located.dimension()).contains(normalize(authorDimension))"),
+                "markStructure must check the dimension intent");
+        assertTrue(executor.contains("DialogueWorldActionService.markStructure(player, structure, authorType, authorDimension)"),
+                "executor must forward author type/dimension to markStructure");
+
+        // Marking a structure whose current detailed-quest step does not expect it is rejected.
+        assertTrue(runtime.contains("public static boolean currentStepExpectsStructure(ServerPlayer player, String structureId)"),
+                "runtime must expose current-step structure expectation");
+
+        // Structural proof is only emitted once per marked id (idempotent).
+        assertTrue(service.contains("boolean alreadyMarked = markers.contains(id);"));
+        assertTrue(service.contains("if (!alreadyMarked) {"));
+
+        // Recent hint/anomaly ledgers are retained by age, not by lexicographic key order.
+        assertTrue(service.contains("trimOldestByAge("));
+        assertFalse(service.contains("getAllKeys().stream().sorted().findFirst().ifPresent(root::remove)"),
+                "lexicographic eviction simulating time decay is not allowed");
+    }
+
+    @Test
+    void hintsBindToDialogueSourceAndOnlyRecordOnce() throws Exception {
+        String service = Files.readString(JAVA_ROOT.resolve("npc/DialogueWorldActionService.java"));
+
+        // Hints are recorded with their dialogue source (NPC/node/time), not as bare booleans.
+        assertTrue(service.contains("hintEntry(npcId, nodeId, player)"),
+                "hint entries must bind to source NPC/node/time");
+        assertTrue(service.contains("entry.putString(\"Npc\", normalize(npcId))"));
+        assertTrue(service.contains("entry.putString(\"Node\", normalize(nodeId))"));
+        assertTrue(service.contains("entry.putLong(\"At\", player.serverLevel().getGameTime())"));
+        assertTrue(service.contains("boolean added = !hints.contains(id);"),
+                "hint is recorded only once per id");
+        assertTrue(service.contains("trimOldestByAge(hints)"),
+                "hint ledger eviction must use age, not key order");
+    }
 }

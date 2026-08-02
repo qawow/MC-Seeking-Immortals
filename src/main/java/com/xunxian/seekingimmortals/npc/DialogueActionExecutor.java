@@ -140,12 +140,14 @@ public final class DialogueActionExecutor {
             }
             case MARK_STRUCTURE -> {
                 String structure = firstNonBlank(effect.param("structure"), effect.param("id"), "marked_structure");
-                yield DialogueWorldActionService.markStructure(player, structure);
+                String authorType = effect.param("type");
+                String authorDimension = effect.param("dimension");
+                yield DialogueWorldActionService.markStructure(player, structure, authorType, authorDimension);
             }
             case HINT, CLUE -> {
                 String hint = firstNonBlank(effect.param("hint"), effect.param("structure"),
                         effect.param("id"), treeId + ":" + nodeId);
-                yield DialogueWorldActionService.recordHint(player, hint);
+                yield DialogueWorldActionService.recordHint(player, hint, npcId, nodeId);
             }
             case ANOMALY_LOG -> DialogueWorldActionService.recordAnomaly(
                     player, npcId, treeId, nodeId);
