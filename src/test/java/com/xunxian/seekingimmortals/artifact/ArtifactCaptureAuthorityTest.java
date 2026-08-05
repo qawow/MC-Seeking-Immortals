@@ -26,10 +26,39 @@ class ArtifactCaptureAuthorityTest {
         assertTrue(gate.contains("instanceofnet.minecraft.world.entity.player.Player"));
         assertTrue(gate.contains("instanceofnet.minecraft.world.entity.npc.AbstractVillager"));
         assertTrue(gate.contains("!servitor.isHostileTrial()"));
-        assertTrue(gate.contains(".filter(BeastBestiaryService.BeastEntry::tameable)"));
-        assertTrue(gate.contains("!entry.trueSpirit()&&!entry.companionOnly()"));
+        // Y-B: capturable() keeps the true-spirit/companion exclusions while also honouring the
+        // authored capture_only right (see BeastBestiaryService.BeastEntry.capturable).
+        assertTrue(gate.contains(".filter(BeastBestiaryService.BeastEntry::capturable)"));
         assertFalse(gate.contains("instanceofMonster"),
                 "ordinary monsters must never become capture candidates");
+    }
+
+    @Test
+    void captureOnlyBeastsStayCapturableButNeverBecomeCompanions() throws Exception {
+        // 阴芝马 is authored `tameable: "capture_only"`: legal to take alive, never a pet.
+        BeastBestiaryService.BeastEntry horse =
+                BeastBestiaryService.find("yinyang_yinzhima").orElseThrow();
+        assertTrue(horse.captureOnly(), "authored capture_only must be parsed");
+        assertTrue(horse.capturable(), "capture_only beasts must be legal capture targets");
+        assertFalse(horse.tameable(), "capture_only must never grant pet/contract rights");
+        assertTrue(BeastBestiaryService.isCapturable("yinyang_yinzhima"));
+        assertTrue(BeastBestiaryService.isCaptureOnlyBeast("yinyang_yinzhima"));
+
+        // The exclusions still hold for protected beasts.
+        BeastBestiaryService.all().values().stream()
+                .filter(entry -> entry.trueSpirit() || entry.companionOnly())
+                .forEach(entry -> assertFalse(entry.capturable(),
+                        "true spirits/companions must never be capturable: " + entry.id()));
+    }
+
+    @Test
+    void sessionBoundLayerBeastsStayCapturableOnlyWhenAuthoredCaptureOnly() throws Exception {
+        // Y-A-2 tags layer-roster mobs as trial mobs, which would otherwise make the capture
+        // objective unreachable. The exemption must be narrow: authored capture_only only.
+        String gate = compact(methodSource(Files.readString(SOURCE), "static boolean isCapturableTarget("));
+        assertTrue(gate.contains("SecretRealmTrialService.isTrialMob(mob)")
+                        && gate.contains("!BeastBestiaryService.isCaptureOnlyBeast(beastIdOf(living))"),
+                "trial mobs stay excluded unless the author marked them capture_only");
     }
 
     @Test
@@ -54,8 +83,7 @@ class ArtifactCaptureAuthorityTest {
                 .map(BeastBestiaryService::find)
                 .filter(java.util.Optional::isPresent)
                 .map(java.util.Optional::orElseThrow)
-                .filter(BeastBestiaryService.BeastEntry::tameable)
-                .filter(entry -> !entry.trueSpirit() && !entry.companionOnly())
+                .filter(BeastBestiaryService.BeastEntry::capturable)
                 .count();
 
         assertTrue(capturable > 0, "capture hardening must not eliminate every shipped ecology target");

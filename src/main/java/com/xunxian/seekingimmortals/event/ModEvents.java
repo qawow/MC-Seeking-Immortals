@@ -290,6 +290,14 @@ public final class ModEvents {
                 if (serverPlayer.tickCount % 20 == 0) {
                     com.xunxian.seekingimmortals.worldpack.SecretRealmSessionService.tickSessions(serverPlayer);
                 }
+                // Y-B: live-carrier transit timeout degrades to inferior material, never deletes.
+                if (serverPlayer.tickCount % 100 == 0) {
+                    long gameTime = serverPlayer.serverLevel().getGameTime();
+                    for (net.minecraft.world.item.ItemStack carried : serverPlayer.getInventory().items) {
+                        com.xunxian.seekingimmortals.beast.LiveCaptureCarrierService
+                                .tickTransit(serverPlayer, carried, gameTime);
+                    }
+                }
                 // Wave485: battlefield AI pulse while sect war is active.
                 if (serverPlayer.tickCount % 40 == 0) {
                     com.xunxian.seekingimmortals.sect.SectWarService.tickBattlefieldAi(serverPlayer);
@@ -522,6 +530,10 @@ public final class ModEvents {
                 && event.getSource().getEntity() instanceof ServerPlayer killer) {
             com.xunxian.seekingimmortals.sect.SectWarService.onKill(killer, victim);
         }
+        // Y-B: authored failure branch 「运出途中死，只剩劣材」 — dying downgrades live carriers.
+        if (event.getEntity() instanceof ServerPlayer dead) {
+            com.xunxian.seekingimmortals.beast.LiveCaptureCarrierService.degradeAllCarried(dead);
+        }
         // Wave471: secret-realm kill gates (patrol/guardian/boss).
         // Wave485: sect-war battlefield shell kills score for the killer's side.
         ServerPlayer combatOwner = resolveCombatAuthorityPlayer(event.getSource().getEntity());
@@ -555,6 +567,9 @@ public final class ModEvents {
             }
             // M10: ecology beast loot + bestiary unlock on kill.
             com.xunxian.seekingimmortals.beast.BeastLootService.handleEcologyKill(killer, mob);
+            // Y-B: killing an authored capture-only beast yields inferior material only —
+            // never a live carrier and never the ENTITY_CAPTURED_ALIVE proof.
+            com.xunxian.seekingimmortals.beast.LiveCaptureCarrierService.onCaptureOnlyKilled(killer, mob);
             // Wave489/491: sect daily kill mission progress with typed target filter.
             if (mob.getType().getCategory() == net.minecraft.world.entity.MobCategory.MONSTER) {
                 String typeId = net.minecraftforge.registries.ForgeRegistries.ENTITY_TYPES

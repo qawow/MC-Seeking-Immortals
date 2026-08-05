@@ -41,10 +41,20 @@ public final class BeastBestiaryService {
             boolean tameable,
             boolean trueSpirit,
             boolean companionOnly,
-            String entityIdHint) {
+            String entityIdHint,
+            boolean captureOnly) {
 
         public BeastTierService.ScaledStats scaledStats() {
             return BeastTierService.scaleStats(tier);
+        }
+
+        /**
+         * Y-B: may be taken alive, which is a different right from being contractible as a pet.
+         * Authors write {@code tameable: "capture_only"} for beasts that are capture targets but
+         * must never become companions (阴芝马: 活捕禁制优先；杀光=失败向).
+         */
+        public boolean capturable() {
+            return (tameable || captureOnly) && !trueSpirit && !companionOnly;
         }
     }
 
@@ -168,7 +178,9 @@ public final class BeastBestiaryService {
                         pet || (prev != null && prev.tameable()),
                         trueSpirit,
                         companionOnly,
-                        str(o, "entity_id_hint").isBlank() && prev != null ? prev.entityIdHint() : str(o, "entity_id_hint"));
+                        str(o, "entity_id_hint").isBlank() && prev != null ? prev.entityIdHint() : str(o, "entity_id_hint"),
+                        // The detailed overlay never revokes an authored capture_only right.
+                        isCaptureOnly(str(o, "tameable")) || (prev != null && prev.captureOnly()));
                 byId.put(id, next);
                 if (!next.display().isBlank()) {
                     displayToId.put(next.display(), id);
@@ -182,14 +194,14 @@ public final class BeastBestiaryService {
             if (prev == null) {
                 byId.put(companionId, new BeastEntry(
                         companionId, companionId, "lingshou", 3, 1, 13, "",
-                        List.of(), List.of(), "", true, false, true, ""));
+                        List.of(), List.of(), "", true, false, true, "", false));
                 continue;
             }
             byId.put(companionId, new BeastEntry(
                     prev.id(), prev.display(), prev.category(), prev.threat(), prev.tier(), prev.tierMax(),
                     prev.element(), prev.regions(), prev.drops(), prev.habitat(), true,
                     prev.trueSpirit() || "zhenling".equals(prev.category()) || "zhenling_bloodline".equals(prev.category()),
-                    true, prev.entityIdHint()));
+                    true, prev.entityIdHint(), prev.captureOnly()));
             displayToId.putIfAbsent(prev.display(), companionId);
         }
 
@@ -227,7 +239,8 @@ public final class BeastBestiaryService {
                 tameable,
                 trueSpirit,
                 companionOnly,
-                str(o, "entity_id_hint"));
+                str(o, "entity_id_hint"),
+                isCaptureOnly(str(o, "tameable")));
         byId.put(id, entry);
         displayToId.put(display, id);
     }
@@ -265,6 +278,28 @@ public final class BeastBestiaryService {
         }
         int t = BeastTierService.clampTier(Math.max(1, threat));
         return new int[]{t, t};
+    }
+
+    /**
+     * Y-B: authored {@code capture_only} means "may be taken alive, never a companion".
+     * Kept separate from {@link #isTruthy} so it never grants pet/contract rights.
+     */
+    private static boolean isCaptureOnly(String value) {
+        if (value == null || value.isBlank()) {
+            return false;
+        }
+        String v = value.trim().toLowerCase(Locale.ROOT);
+        return "capture_only".equals(v) || "capture".equals(v);
+    }
+
+    /** Y-B: capture-eligible (tameable or capture_only), excluding true spirits/companions. */
+    public static boolean isCapturable(String beastId) {
+        return find(beastId).map(BeastEntry::capturable).orElse(false);
+    }
+
+    /** Y-B: authored capture-only beasts must never be contractible as pets. */
+    public static boolean isCaptureOnlyBeast(String beastId) {
+        return find(beastId).map(BeastEntry::captureOnly).orElse(false);
     }
 
     private static boolean isTruthy(String value) {

@@ -50,6 +50,9 @@ public final class ModItems {
     public static final RegistryObject<Item> ALLIANCE_MERIT_TOKEN = ITEMS.register("alliance_merit_token", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> WAR_CONTRIBUTION_TOKEN = ITEMS.register("war_contribution_token", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> CAPTURE_JAR = ITEMS.register("capture_jar", () -> new com.xunxian.seekingimmortals.item.CaptureJarItem(new Item.Properties()));
+    /** Y-B: single live-beast transport carrier for authored capture-only beasts. */
+    public static final RegistryObject<Item> LIVE_BEAST_CARRIER = ITEMS.register("live_beast_carrier",
+            () -> new com.xunxian.seekingimmortals.item.LiveBeastCarrierItem(new Item.Properties()));
     public static final RegistryObject<Item> JADE_SLIP_BLANK = ITEMS.register("jade_slip_blank",
             () -> new CatalogConsumableItem(
                     new Item.Properties().rarity(net.minecraft.world.item.Rarity.UNCOMMON).stacksTo(16),

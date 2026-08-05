@@ -102,6 +102,11 @@ public final class ArtifactCaptureService {
             return false;
         }
         String id = beastIdOf(best);
+        // Y-B: authored capture-only beasts (阴芝马) travel in a dedicated live carrier instead of
+        // the generic jar, so 「活的才是丹」 and the carrier can degrade in transit.
+        if (com.xunxian.seekingimmortals.beast.BeastBestiaryService.isCaptureOnlyBeast(id)) {
+            return captureIntoLiveCarrier(player, best, id, tier);
+        }
         jar.getOrCreateTag().putString(TAG, id);
         jar.getOrCreateTag().putInt(TAG_TIER, tier);
         best.addEffect(new MobEffectInstance(MobEffects.GLOWING, 40, 0));
@@ -114,27 +119,62 @@ public final class ArtifactCaptureService {
         return true;
     }
 
+    /**
+     * Y-B: seals an authored capture-only beast into a live carrier bound to the current
+     * secret-realm session, then records the capture proof. The beast is only removed after the
+     * carrier is actually delivered, so a full inventory cannot destroy the capture.
+     */
+    private static boolean captureIntoLiveCarrier(ServerPlayer player, LivingEntity target,
+                                                  String beastId, int tier) {
+        String sessionId = com.xunxian.seekingimmortals.cultivation.CultivationHelper.get(player)
+                .map(c -> c.getWorldpackActiveSecretRealmId())
+                .flatMap(realm -> com.xunxian.seekingimmortals.worldpack.SecretRealmSessionService
+                        .activeSession(player, realm))
+                .map(session -> session.sessionId())
+                .orElse("");
+        ItemStack carrier = com.xunxian.seekingimmortals.beast.LiveCaptureCarrierService.createLive(
+                beastId, tier, sessionId, player.serverLevel().getGameTime());
+        // Outbox delivery: a dropped/full/disconnected inventory recovers instead of losing the beast.
+        com.xunxian.seekingimmortals.item.InventoryDeliveryService.giveOrEnqueue(
+                player, carrier, "live_capture_carrier");
+        target.addEffect(new MobEffectInstance(MobEffects.GLOWING, 40, 0));
+        target.discard();
+        BestiaryUnlockService.unlock(player, beastId, BestiaryUnlockService.UnlockKind.SEEN);
+        com.xunxian.seekingimmortals.quest.DetailedQuestProofService.recordEntityCaptured(player, beastId);
+        player.displayClientMessage(Component.translatable(
+                "message.seeking_immortals.capture.live_sealed", beastDisplay(beastId)), true);
+        return true;
+    }
+
     static boolean isCapturableTarget(LivingEntity living) {
         if (living == null || !living.isAlive()) {
             return false;
         }
-        if (!living.getPersistentData().getBoolean("seeking_immortals_ecology_beast")) {
+        // Y-B: ecology spawns are the ordinary capture pool; authored capture-only beasts placed by
+        // a secret-realm layer roster are also legal targets even though they are not ecology mobs.
+        if (!living.getPersistentData().getBoolean("seeking_immortals_ecology_beast")
+                && !BeastBestiaryService.isCaptureOnlyBeast(beastIdOf(living))) {
             return false;
         }
         if (living instanceof net.minecraft.world.entity.player.Player
                 || living instanceof net.minecraft.world.entity.npc.AbstractVillager) {
             return false;
         }
+        if (living instanceof net.minecraft.world.entity.Mob mob && BossEncounterService.isBossMob(mob)) {
+            return false;
+        }
+        // Y-B: a session-bound layer beast stays capturable when the author marked it a capture
+        // target (阴芝马 is the objective of its own layer); every other trial shell does not.
         if (living instanceof net.minecraft.world.entity.Mob mob
-                && (BossEncounterService.isBossMob(mob) || SecretRealmTrialService.isTrialMob(mob))) {
+                && SecretRealmTrialService.isTrialMob(mob)
+                && !BeastBestiaryService.isCaptureOnlyBeast(beastIdOf(living))) {
             return false;
         }
         if (living instanceof SummonedServitorEntity servitor && !servitor.isHostileTrial()) {
             return false;
         }
         return BeastBestiaryService.find(beastIdOf(living))
-                .filter(BeastBestiaryService.BeastEntry::tameable)
-                .filter(entry -> !entry.trueSpirit() && !entry.companionOnly())
+                .filter(BeastBestiaryService.BeastEntry::capturable)
                 .isPresent();
     }
 

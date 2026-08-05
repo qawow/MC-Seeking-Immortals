@@ -23,6 +23,7 @@ public final class ModCreativeTabs {
                 output.accept(ModItems.ALLIANCE_MERIT_TOKEN.get());
                 output.accept(ModItems.WAR_CONTRIBUTION_TOKEN.get());
                 output.accept(ModItems.CAPTURE_JAR.get());
+                output.accept(ModItems.LIVE_BEAST_CARRIER.get());
 
                 // 五行灵石
                 output.accept(ModItems.METAL_SPIRIT_STONE.get());

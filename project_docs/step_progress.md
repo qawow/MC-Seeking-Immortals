@@ -1,3 +1,15 @@
+## 592. 2026-08-06 `0.2.260` Y-B 阴芝马活捕与运输
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   新增 2 Java + 1 物品模型 + 1 贴图 + 1 测试；改 6 Java/2 lang；快照 `backups/20260806001109_yb/`（11 文件）。
+  捕获链阻塞   Done   解除三处叠加阻塞：`capture_only` 未解析（新增独立 `captureOnly` 字段与 `capturable()`，不与 `tameable` 混权）；层生成体被当 trial mob 一律排除（Y-A-2 引入的缺陷，例外收窄到仅 capture_only）；`ecology_beast=false`（同按 capture_only 放行）。
+  证明对齐   Done   `PROOF_ENTITY_MAPPINGS` 新增 `yin_zhi_horse -> yinyang_yinzhima`，沿用 mapping+identity 解析器，不放宽校验。
+  活体载体   Done   新增 `live_beast_carrier`（stacksTo(1)）与 `LiveCaptureCarrierService`：每次捕获铸新 CaptureUuid + SourceSession，状态机单向 LIVE→DEGRADED；超时（20min，5s tick）与玩家死亡只降级不删除；经 giveOrEnqueue outbox 发放；击杀只产劣材且绝不记 ENTITY_CAPTURED_ALIVE。
+  Tests/lang/build   Done   beast/artifact/quest/worldpack/catalog 通过；新增 5 项 + 扩充 2 项；lang 新增 10 键中英 5714 对等；贴图用生成器自身 painter 产出；生成器按序刷新 `--check` 通过；完整 build 成功 1m29s，265 套件/1,291 项全 0；JAR SHA-256 `2a48b535b227e553d1691698b9cfd60b36282b7ee97a1362f48ad6f24a265dd6`。
+  Version/protocol   Done   `mod_version=0.2.259 -> 0.2.260`；`ModNetwork.PROTOCOL_VERSION=31` 不变。
+  Remaining   Noted   step 3（窟外协作炼丹）仍不可达，载体尚无消费方；载体仅在背包主格 tick，储物法器内不降级，待 Y-C 覆盖。
+
 ## 591. 2026-08-05 `0.2.259` Y-A-2 层刷怪消费者、spawn id 纠正与付代价绕行
 
   Step   Status   Notes

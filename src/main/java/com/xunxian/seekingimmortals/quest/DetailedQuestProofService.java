@@ -71,7 +71,10 @@ public final class DetailedQuestProofService {
      * the killed/captured entity; no client string can inject it.
      */
     static final Map<String, Set<String>> PROOF_ENTITY_MAPPINGS = Map.ofEntries(
-            Map.entry("qianzhu_tower_lord", Set.of("puppet_tower_lord")));
+            Map.entry("qianzhu_tower_lord", Set.of("puppet_tower_lord")),
+            // Y-B: the authored route token 阴芝马 is proven by the real bestiary id that the
+            // yy_yinzhi layer actually spawns (see beast_bestiary_runtime yinyang_yinzhima).
+            Map.entry("yin_zhi_horse", Set.of("yinyang_yinzhima")));
 
     /** Q-B-4 authored npc tokens -> real server npc ids that can prove them. */
     static final Map<String, Set<String>> PROOF_NPC_MAPPINGS = Map.ofEntries(
