@@ -104,8 +104,14 @@ public final class TextQuestNpcHookService {
         if (player == null || villager == null) {
             return false;
         }
-        String name = villager.getCustomName() == null ? "" : villager.getCustomName().getString();
-        Optional<String> chain = chainForNpcId(player, name);
+        // M-C: resolve through the migration service. A raw getCustomName() read was the forgery
+        // vector — any name-tagged villager anywhere could impersonate an authored quest NPC.
+        String npcId = com.xunxian.seekingimmortals.npc.LegacyNpcMigrationService
+                .resolveNpcId(player, villager);
+        if (npcId.isBlank()) {
+            return false;
+        }
+        Optional<String> chain = chainForNpcId(player, npcId);
         return chain.filter(id -> !id.isBlank())
                 .map(id -> openDialogue(player, id, true))
                 .orElse(false);
@@ -162,10 +168,11 @@ public final class TextQuestNpcHookService {
             }
         }
         for (Villager villager : player.serverLevel().getEntitiesOfClass(Villager.class, box)) {
-            String name = villager.getCustomName() == null ? "" : villager.getCustomName().getString();
-            String nameNorm = normalize(name);
-            String alias = DISPLAY_ALIASES.getOrDefault(nameNorm, nameNorm);
-            if (expectedNorm.equals(nameNorm) || expectedNorm.equals(alias) || alias.equals(expectedNorm)) {
+            // M-C: only a migrated persistent id counts. Otherwise a forged name tag placed next
+            // to the player would satisfy every "talk to the bound NPC" step gate.
+            String migrated = com.xunxian.seekingimmortals.npc.LegacyNpcMigrationService
+                    .persistentNpcId(villager);
+            if (!migrated.isBlank() && expectedNorm.equals(migrated)) {
                 return true;
             }
         }

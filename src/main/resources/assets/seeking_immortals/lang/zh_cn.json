@@ -2096,6 +2096,7 @@
  "message.seeking_immortals.natal.none": "尚未绑定本命法宝。",
  "message.seeking_immortals.natal.grown": "本命成长：%s → %s",
  "command.seeking_immortals.natal.status": "本命：%s 成长 %s",
+ "command.seeking_immortals.npc.migration_audit": "旧命名 NPC 迁移审计：已迁移 %s｜重复 %s｜已拒绝 %s｜待迁移 %s",
  "message.seeking_immortals.daily_event.spawn": "每日事件遭遇：%s ×%s",
  "message.seeking_immortals.daily_event.merchant": "商队事件：%s（无战斗刷新）",
  "entity.seeking_immortals.boss.name": "秘境首领·%s",

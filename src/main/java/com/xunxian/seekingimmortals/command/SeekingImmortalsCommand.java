@@ -214,6 +214,8 @@ public final class SeekingImmortalsCommand {
                         .then(Commands.literal("info")
                                 .then(Commands.argument("id", StringArgumentType.word())
                                         .executes(ctx -> npcInfo(ctx.getSource(), StringArgumentType.getString(ctx, "id")))))
+                        .then(Commands.literal("audit").requires(source -> source.hasPermission(2))
+                                .executes(ctx -> npcMigrationAudit(ctx.getSource())))
                         .then(Commands.literal("talk").requires(source -> source.hasPermission(2))
                                 .then(Commands.argument("id", StringArgumentType.word())
                                         .executes(ctx -> npcTalk(ctx.getSource(), StringArgumentType.getString(ctx, "id"), ""))
@@ -910,6 +912,19 @@ public final class SeekingImmortalsCommand {
             source.sendSuccess(() -> npcDisplay(npc.id()), false);
         }
         return list.isEmpty() ? 0 : 1;
+    }
+
+    /**
+     * M-C: read-only world-upgrade report for legacy name-tagged villagers nearby.
+     * Reports migrated / ambiguous / rejected / pending and never destroys player entities.
+     */
+    private static int npcMigrationAudit(CommandSourceStack source) throws CommandSyntaxException {
+        ServerPlayer player = source.getPlayerOrException();
+        var report = com.xunxian.seekingimmortals.npc.LegacyNpcMigrationService.audit(player, 48.0D);
+        source.sendSuccess(() -> Component.translatable(
+                "command.seeking_immortals.npc.migration_audit",
+                report.migrated(), report.ambiguous(), report.rejected(), report.pending()), false);
+        return 1;
     }
 
     private static int npcInfo(CommandSourceStack source, String id) {

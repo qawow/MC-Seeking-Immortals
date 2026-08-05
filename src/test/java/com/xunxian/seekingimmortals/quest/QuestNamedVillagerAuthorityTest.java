@@ -32,8 +32,14 @@ class QuestNamedVillagerAuthorityTest {
         String interaction = compact(methodSource(source,
                 "public static boolean handleLegacyNamedVillagerInteraction("));
 
-        assertTrue(interaction.contains("handleSevenMysteriesNpc(player,name)"),
-                "legacy Mo Lao/steward names must remain usable after upgrading a world");
+        // M-C: legacy worlds still work, but the dispatch key is the migrated persistent npc id,
+        // not the raw name tag. A bare display-name read was the forgery vector.
+        assertTrue(interaction.contains("handleSevenMysteriesNpcId(player,npcId)"),
+                "legacy Mo Lao/steward villagers must dispatch on the migrated npc id");
+        assertTrue(interaction.contains("LegacyNpcMigrationService"),
+                "the compatibility path must go through the one-time migration window");
+        assertFalse(interaction.contains("villager.getCustomName()"),
+                "a raw name-tag read must not decide quest authority");
         assertTrue(interaction.contains("handleLegacyNamedVillagerInteraction(player,villager)"),
                 "legacy text-quest villagers must reach only the explicit compatibility hook");
     }

@@ -90,8 +90,16 @@ public final class QuestService {
         if (player == null || npc == null) {
             return false;
         }
-        String name = npc.getCustomName() == null ? "" : npc.getCustomName().getString();
-        if (handleSevenMysteriesNpc(player, name)) {
+        // M-C: prefer the entity's own authoritative id — spawns now stamp it, so a stamped NPC
+        // cannot be renamed into a different role. Only a legacy blank-id spawn (created before
+        // stamping existed) still falls back to its display name, so existing saves keep working.
+        String dedicatedId = npc.getNamedNpcId();
+        if (!dedicatedId.isBlank()) {
+            if (handleSevenMysteriesNpcId(player, dedicatedId)) {
+                return true;
+            }
+        } else if (handleSevenMysteriesNpc(player,
+                npc.getCustomName() == null ? "" : npc.getCustomName().getString())) {
             return true;
         }
         return TextQuestNpcHookService.handleNamedNpcInteraction(player, npc);
@@ -101,11 +109,31 @@ public final class QuestService {
         if (player == null || villager == null) {
             return false;
         }
-        String name = villager.getCustomName() == null ? "" : villager.getCustomName().getString();
-        if (handleSevenMysteriesNpc(player, name)) {
+        // M-C: the seven-mysteries branch was the worst forgery case — a bare name tag started the
+        // chain and handed out a free spiritual-root test. Only a migrated persistent id counts now.
+        String npcId = com.xunxian.seekingimmortals.npc.LegacyNpcMigrationService
+                .resolveNpcId(player, villager);
+        if (handleSevenMysteriesNpcId(player, npcId)) {
             return true;
         }
         return TextQuestNpcHookService.handleLegacyNamedVillagerInteraction(player, villager);
+    }
+
+    /** M-C: seven-mysteries dispatch keyed on the authoritative npc id, not a display name. */
+    private static boolean handleSevenMysteriesNpcId(ServerPlayer player, String npcId) {
+        if (npcId == null || npcId.isBlank()) {
+            return false;
+        }
+        if ("npc_mo_lao".equals(npcId)) {
+            start(player);
+            LingGenTestStoneItem.testPlayer(player.serverLevel(), player, player, ItemStack.EMPTY, false, false);
+            return true;
+        }
+        if ("npc_qixuan_steward".equals(npcId)) {
+            check(player);
+            return true;
+        }
+        return false;
     }
 
     private static boolean handleSevenMysteriesNpc(ServerPlayer player, String name) {
@@ -200,6 +228,13 @@ public final class QuestService {
         }
         ServerLevel level = player.serverLevel();
         String identity = namedNpcId == null ? "" : namedNpcId.trim();
+        // M-C: an admin spawn used to carry a display name only, leaving the entity with a blank
+        // id — which is why the dedicated path had to dispatch on the name tag. Stamp the
+        // authoritative id at spawn so identity never has to be re-derived from a rename.
+        if (identity.isBlank()) {
+            identity = com.xunxian.seekingimmortals.npc.LegacyNpcMigrationService
+                    .npcIdForLegacyName(name);
+        }
         BlockPos preferred = BlockPos.containing(
                 player.getX() + 1.5D, player.getY(), player.getZ() + 1.5D);
         if (NpcSpawnService.spawnQuestNpc(

@@ -1,3 +1,20 @@
+## 596. 2026-08-06 `0.2.265` M-C 旧命名 NPC 迁移（M 系列收口）
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   新增 1 Java + 1 测试；改 6 文件；快照 `backups/20260806033017_mc/`（9 文件）。
+  核心缺口   Done   `handleLegacyNamedVillagerInteraction` 此前只读 `getCustomName()`，无持久 id、无区域校验、无迁移闩——给任意村民挂命名牌写「墨老先生」即可**反复、在任意位置**触发 `SevenMysteriesQuest.start` 与免费灵根测试（`LingGenTestStoneItem.testPlayer`）。这是伪造向量，不是兼容路径。
+  迁移窗口   Done   新增 `LegacyNpcMigrationService`：窗口为「无持久 id + 已知旧实体类型 + 合法作者名 + 匹配区域 + 未处理」五条同时成立，`isMigrationCandidate` 为纯布尔函数可脱离服务端测试。首次交互写 `SeekingImmortalsNpcId` + `MigrationVersion=1` + `SourceRegion` + `MigratedAt` 到实体 persistentData，之后只读持久 id。
+  伪造拒绝   Done   名称**精确匹配**（无前缀/子串），「墨老」「墨老先生的徒弟」均不通过；区域不符即判伪造。拒绝结果闩到 `TAG_REJECTED`，同一命名牌不会每次右键重新评估。
+  区域权威   Done   查实这六个别名 id **在整个数据树中都不存在**，唯一权威是 `TextQuestChainService.npcFor(chainId)` 的关键字规则；故 `legalRegionsFor` 由绑定该 NPC 的任务链 `region` 反推（墨老=tiannan、木兰使者=mulan、星宫掮客=chaotic_sea、昆吾执事=dajin/kunwu）。空集必然拒绝，不会误放行。
+  七玄门执事纠正   Done   原代码把「七玄门执事」与「墨老先生」都走同一 `handleSevenMysteriesNpc(name)`，但 `npcFor` 把含 `qixuan` 的链全映射到 `npc_mo_lao`，故新 id `npc_qixuan_steward` 无链绑定、`legalRegionsFor` 会返回空集而永不可迁移。查实 `qixuan_men`/`huangfeng_valley` 两张宗门卡区域均为 `tiannan`，加 `PINNED_REGIONS` 显式兜底。
+  邻近校验收口   Done   `isNearBoundNpc` 的 Villager 分支此前同样只比对命名牌——把伪造村民放在身边即可满足所有「与绑定 NPC 对话」的步骤门禁。现改为只信 `persistentNpcId`。
+  审计命令   Done   新增 permission 2 的 `/seeking_immortals npc audit`：报告已迁移/重复/已拒绝/待迁移四类，48 格半径，**只读不删**（测试断言 audit 方法体内不含 `discard`/`remove`/`kill`）。
+  Tests/lang/build   Done   新增 `LegacyNpcMigrationServiceTest`（8 项，已核对 XML 确认真实执行非零匹配）；`QuestNamedVillagerAuthorityTest` 方向更新（改判持久 id 分派、禁止原始命名牌读取）。`npc.*`、`quest.*`、`command.*`、`region.*`、`catalog.*`、`resources.*` 全部通过。lang 新增 2 键中英各 5733 完全对等。生成器按序刷新并 `--check` 通过，`file_count` 626→627（新增 1 主源），profile 数 2292/5733 零变化。完整 build 成功 1m28s，**269 套件 / 1,320 项全 0**；JAR SHA-256 `6b34897eae2bc6a422a36cfa04928f046f5cf01936c3e112fcb03e59186ea7e3`。
+  Version/protocol   Done   `mod_version=0.2.263 -> 0.2.265`；`ModNetwork.PROTOCOL_VERSION=31` 不变（实体 NBT 迁移不升协议）。0.2.264 已构建成功，但收尾加固又改了 Java 源，`aiPreflight` 指纹门禁正确拦下——按流程进一位到 0.2.265 重新构建，**未使用** `-PaiSkipVersionBumpCheck`。
+  专用路径同类漏洞   Done   收尾时发现同一类伪造也存在于专用 NPC 路径：`handleNamedNpcInteraction` 读 `npc.getCustomName()` 分派，把已存在的 `CultivatorNpcEntity` 改名「墨老先生」即可拿免费灵根测试。根因是 `spawnQuestNpc(player, name)` 传空 `namedNpcId`——管理员生成的墨老先生只有显示名、没有 id，所以当初只能按名分派。现在生成时经 `npcIdForLegacyName` 盖上权威 id，交互改为 **id 优先**；仅 `namedNpcId` 为空的旧档实体才回退显示名，故已生成的旧 NPC 不回归。
+  Remaining   Noted   旧档中**盖章前**生成的专用 NPC（`namedNpcId` 为空）仍走显示名回退，对它们改名的向量未关闭——新生成的一律免疫，但旧实体需重新生成才彻底干净；`isMigrationCandidate` 的 `knownLegacyType` 在 `resolveNpcId` 中硬传 `true`（该路径只接 Villager），参数已就位但目前无第二种旧类型可辨；`audit` 的 ambiguous 只统计半径内同 id 重复实体，不检测跨维度重复；迁移是一次性的（按设计），故在错误区域被误迁移的村民无法自动纠正，只能手工处理，且当前没有解绑/重置命令。M 系列（M-A/M-B/M-C）已全部完成，下一步为 QA-01（单客户端实机签字）与 QA-02（专服 + 双客户端签字）。
+
 ## 595. 2026-08-06 `0.2.263` M-B 本命飞剑实例绑定与迁移
 
   Step   Status   Notes

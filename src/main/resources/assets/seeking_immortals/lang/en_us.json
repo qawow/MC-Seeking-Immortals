@@ -2086,6 +2086,7 @@
  "message.seeking_immortals.natal.none": "No natal artifact bound.",
  "message.seeking_immortals.natal.grown": "Natal growth: %s -> %s",
  "command.seeking_immortals.natal.status": "Natal: %s growth %s",
+ "command.seeking_immortals.npc.migration_audit": "Legacy NPC migration audit: migrated %s | duplicate %s | rejected %s | pending %s",
  "message.seeking_immortals.daily_event.spawn": "Daily encounter: %s ×%s",
  "message.seeking_immortals.daily_event.merchant": "Merchant event: %s (no combat spawn)",
  "entity.seeking_immortals.boss.name": "Realm Boss·%s",
