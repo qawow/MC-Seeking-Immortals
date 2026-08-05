@@ -63,6 +63,24 @@ public final class AuctionSoftService {
 
     public static final int PAGE_SIZE = 6;
 
+    /**
+     * True when the author placed an auction venue in this region.
+     *
+     * <p>The credential path (拍卖请柬) uses this instead of a hardcoded region list, so a venue
+     * added to {@code economy_auction_bands.json} becomes reachable without touching Java. Blank
+     * or unknown regions fail closed.</p>
+     */
+    public static boolean hostsVenue(String regionId) {
+        if (regionId == null || regionId.isBlank()) {
+            return false;
+        }
+        String region = regionId.trim().toLowerCase(Locale.ROOT);
+        return builtin().venues().stream()
+                .map(Venue::region)
+                .filter(candidate -> candidate != null && !candidate.isBlank())
+                .anyMatch(candidate -> candidate.trim().toLowerCase(Locale.ROOT).equals(region));
+    }
+
     /** Wave490: productized auction hall MenuType open path. */
     public static void openHall(ServerPlayer player) {
         openHall(player, 0);

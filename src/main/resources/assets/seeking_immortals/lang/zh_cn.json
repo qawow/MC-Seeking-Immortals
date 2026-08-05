@@ -4982,6 +4982,7 @@
  "message.seeking_immortals.catalog_consumable.spirit_gather_disk": "聚灵阵盘激活，周身灵气汇聚。",
  "message.seeking_immortals.catalog_consumable.spirit_gather_disk_failed": "此地灵机紊乱，阵盘未能成阵。",
  "message.seeking_immortals.catalog_consumable.auction_invite": "请柬已验：商会记下了你的名号，可前往拍卖行大厅。",
+ "message.seeking_immortals.catalog_consumable.auction_invite_wrong_region": "此地没有拍卖行，请柬无处可递。",
  "message.seeking_immortals.catalog_consumable.sect_identity_none": "令牌黯淡无光——你尚未拜入任何宗门。",
  "message.seeking_immortals.catalog_consumable.sect_identity": "宗门令牌显现：%s · %s。",
  "message.seeking_immortals.catalog_consumable.star_palace_tax": "星宫税吏验讫抽税凭条，岛贸信誉+3。",

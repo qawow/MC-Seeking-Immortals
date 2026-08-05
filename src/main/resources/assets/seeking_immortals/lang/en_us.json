@@ -4982,6 +4982,7 @@
  "message.seeking_immortals.catalog_consumable.spirit_gather_disk": "The spirit-gathering disk hums; aura converges around you.",
  "message.seeking_immortals.catalog_consumable.spirit_gather_disk_failed": "The local leylines are turbulent; the disk failed to form an array.",
  "message.seeking_immortals.catalog_consumable.auction_invite": "Invitation verified: the merchant guild notes your name for the auction hall.",
+ "message.seeking_immortals.catalog_consumable.auction_invite_wrong_region": "No auction house here; the invitation has nowhere to be presented.",
  "message.seeking_immortals.catalog_consumable.sect_identity_none": "The token stays dim — you belong to no sect yet.",
  "message.seeking_immortals.catalog_consumable.sect_identity": "Sect token reveals: %s · %s.",
  "message.seeking_immortals.catalog_consumable.star_palace_tax": "Star Palace tax receipt stamped; island trade reputation +3.",

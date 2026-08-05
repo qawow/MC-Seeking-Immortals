@@ -45,6 +45,8 @@ public final class CatalogConsumableService {
     public static final String LIGHTNING_WARD_CHARGES_KEY = "SeekingImmortalsLightningWardCharges";
     public static final String TRIBULATION_DAMAGE_MARKER_KEY = "SeekingImmortalsTribulationDamage";
     public static final String FERTILIZER_CHARGES_KEY = "SeekingImmortalsFertilizerCharges";
+    /** Latches the one-time merchant-guild introduction granted by the reusable auction pass. */
+    public static final String AUCTION_INVITE_INTRODUCED_KEY = "SeekingImmortalsAuctionInviteIntroduced";
     private static final float LIGHTNING_REMAINING_MULTIPLIER = 0.35F;
 
     public enum UseResult {
@@ -543,10 +545,25 @@ public final class CatalogConsumableService {
     }
 
     private static boolean openAuctionInvite(ServerPlayer player) {
-        // Soft invitation: merchant-guild introduction plus a hint toward the auction hall.
-        com.xunxian.seekingimmortals.worldpack.ReputationService.add(player, "merchant_guild", 2);
+        // The invitation is the authored non-admin credential for the auction hall: sold at
+        // 乱星海岛杂货 and named as auction_invite_or_reputation on node_dajin_wanbao. It stays a
+        // reusable pass (see shouldConsumeOnSuccess), so the introduction reputation is latched
+        // once per player instead of granted on every right-click.
+        String region = CultivationHelper.get(player)
+                .map(PlayerCultivation::getWorldpackCurrentRegionId)
+                .orElse("");
+        if (!com.xunxian.seekingimmortals.catalog.AuctionSoftService.hostsVenue(region)) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.catalog_consumable.auction_invite_wrong_region"), true);
+            return false;
+        }
+        if (!player.getPersistentData().getBoolean(AUCTION_INVITE_INTRODUCED_KEY)) {
+            player.getPersistentData().putBoolean(AUCTION_INVITE_INTRODUCED_KEY, true);
+            com.xunxian.seekingimmortals.worldpack.ReputationService.add(player, "merchant_guild", 2);
+        }
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.catalog_consumable.auction_invite"), true);
+        com.xunxian.seekingimmortals.catalog.AuctionSoftService.openHall(player);
         return true;
     }
 

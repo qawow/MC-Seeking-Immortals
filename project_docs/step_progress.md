@@ -9994,3 +9994,20 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Version/protocol   Done   `mod_version=0.2.250 -> 0.2.251`；未改网络字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=31` 保持不变。
   Final build   Done   普通 `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功（1m 23s），`:aiPreflight` 记录 `0.2.251`；JAR SHA-256 为 `5a78110bd1c465dfce3bf90e97f0564d901f26f023effdeef4ef24cec5079138`。
   Next implementation   Pending   Q-B 系列（Q-B-1 至 Q-B-5）全部完成；下一实施入口为 D-A（对话世界动作分型），随后阴阳窟 Y-A/Y-B/Y-C、维度 M-A、本命 M-B、NPC 迁移 M-C 及最终实机签字。
+
+## 591. 2026-08-06 `0.2.266` QA 前置：拍卖行非管理员入口与请柬声望闩
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   为 QA-01 签字做前置核查时发现拍卖环节不可执行，先修缺口再写清单；回滚位于 `backups/20260806044329_auction_invite/`（8 个文件）。用户既有 `CLAUDE.md` 与 `project_docs/frontend_interaction_audit_0.2.198.md` 未纳入本批。
+  Blocker found   Done   `AuctionHallMenu` 是 `bid`/`settle` 的唯一授权门（`AuctionActionPacket:48`），而 `AuctionSoftService.openHall` 的唯一调用方是 permission 2 的 `catalog auction open`（`SeekingImmortalsCommand:1742`）。QA-01 要求「拍卖…全程不用管理员命令」，按当时代码无法执行。
+  Authored authority   Done   拍卖请柬在三处独立作者数据里都是凭证：`merchant_shops.json` 乱星海岛杂货售价 30 灵石、`consumables_index.json` 的 `effect: open_auction_invite`、`node_dajin_wanbao` 与 `dajin_wanbao_spine` 的 `auction_invite_or_reputation`。`shouldConsumeOnSuccess` 早已豁免其消耗，即作者按「可重复使用的通行证」设计。
+  Reputation farm   Done   同一路径的第二个缺陷：`openAuctionInvite` 只加 +2 `merchant_guild` 声望并打印提示，物品不消耗、无闩、无冷却，可无限右键刷声望，喂给 `shopDiscountMultiplier`（FRIENDLY 10 / HONORED 25）与 `recordReputationReached`。拍卖场馆均为 `rep_min: 0`，故这不是拍卖解锁向量，收益是永久商店折扣加一个免费声望证明。
+  Region authority   Done   新增 `AuctionSoftService.hostsVenue(regionId)`，合法区域由 `economy_auction_bands.json` 的 `venues[].region` 反推（`dajin`、`chaotic_sea`），空白/未知区域一律 false。新增场馆无需改 Java 即可到达。
+  Implementation   Done   `openAuctionInvite` 改为：先按当前区域校验场馆存在，再以 `AUCTION_INVITE_INTRODUCED_KEY` 持久闩发放一次性引荐声望，最后 `openHall(player)`。请柬仍不消耗（保持作者语义），闩收口的是重复发放而非玩家的请柬。
+  Tests   Done   新增 `AuctionInviteAccessTest`（3 项）。已核对 `TEST-*.xml` 确认 3 项真实执行、非零匹配：区域取自作者场馆且 fail-closed、请柬为非管理员入口、声望先查闩后发放。`shouldConsumeOnSuccess("open_auction_invite")` 已由 `CatalogConsumableServiceTest:49` 钉住，未重复断言（该方法为包私有，不为测试放宽可见性）。
+  lang   Done   新增 1 键（错误区域提示 × 中英），中英各 5734 完全对等，无单侧键。
+  Generated resources   Done   按 `spell -> visual` 顺序刷新并 `--check` 通过；`file_count` 627 不变（新增文件为测试源），profile 数 2292/5733 零变化，嵌入的 Java 聚合哈希随主源改动而更新。
+  Version/protocol   Done   `mod_version=0.2.265 -> 0.2.266`；未改动网络包字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=31` 保持不变。
+  Final build   Done   `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功（1m 30s），`:aiPreflight` 记录 `mod_version=0.2.266`；270 套件 / 1,323 项，failure/error/skipped 均为 0；JAR SHA-256 `46be731b1f73c235a3502e1b9068b19e887f229a066854ae22ebe8948398a638`。
+  Next implementation   Pending   D-A/Y/M 全部代码批已完成。下一步为 QA-01（单客户端）与 QA-02（专服+双客户端）实机签字，签字清单待写，报告须由实际执行者填写。
