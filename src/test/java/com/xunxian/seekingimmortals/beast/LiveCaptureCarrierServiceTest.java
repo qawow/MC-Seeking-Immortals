@@ -64,6 +64,9 @@ class LiveCaptureCarrierServiceTest {
         // Degradation is one-way and never deletes the carrier.
         assertTrue(service.contains("if (!isCarrier(stack) || !isLive(stack))"),
                 "degrade must be idempotent on an already-dead carrier");
+        // Y-C: the death branch sweeps every compartment, not just the main inventory.
+        assertTrue(service.contains("carriedCompartments(player)"),
+                "the death branch must use the shared compartment sweep");
         assertFalse(service.contains("stack.shrink(") || service.contains("setCount(0)"),
                 "a timed-out carrier must degrade, not vanish");
     }
@@ -97,9 +100,9 @@ class LiveCaptureCarrierServiceTest {
                 "carrier delivery must go through the recoverable outbox");
 
         // Transit timeout ticks, and dying degrades what is carried.
-        assertTrue(events.contains("LiveCaptureCarrierService\n                                .tickTransit(serverPlayer, carried, gameTime)")
-                        || events.contains("tickTransit(serverPlayer, carried, gameTime)"),
-                "transit timeout must be ticked server-side");
+        // Y-C moved the per-stack loop into tickCarriedTransit so every compartment is swept.
+        assertTrue(events.contains("tickCarriedTransit(serverPlayer"),
+                "transit timeout must be ticked server-side across all compartments");
         assertTrue(events.contains("LiveCaptureCarrierService.degradeAllCarried(dead)"),
                 "player death must degrade live carriers");
         assertTrue(events.contains("LiveCaptureCarrierService.onCaptureOnlyKilled(killer, mob)"),

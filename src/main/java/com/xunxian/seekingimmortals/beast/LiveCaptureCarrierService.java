@@ -132,6 +132,36 @@ public final class LiveCaptureCarrierService {
     }
 
     /**
+     * Every compartment a carrier can rest in. Y-B only swept the main inventory, so a carrier
+     * parked in the offhand or an armour slot silently escaped transit pressure entirely.
+     */
+    private static java.util.List<java.util.List<ItemStack>> carriedCompartments(ServerPlayer player) {
+        return java.util.List.of(
+                player.getInventory().items,
+                player.getInventory().offhand,
+                player.getInventory().armor);
+    }
+
+    /**
+     * Transit timeout sweep across every carried compartment. Called from the player tick so a
+     * carrier cannot dodge {@link #LIVE_TIMEOUT_TICKS} by sitting in the offhand.
+     */
+    public static int tickCarriedTransit(ServerPlayer player, long gameTime) {
+        if (player == null) {
+            return 0;
+        }
+        int degraded = 0;
+        for (java.util.List<ItemStack> compartment : carriedCompartments(player)) {
+            for (ItemStack stack : compartment) {
+                if (tickTransit(player, stack, gameTime)) {
+                    degraded++;
+                }
+            }
+        }
+        return degraded;
+    }
+
+    /**
      * Degrades every live carrier the player holds; used for the authored death branch
      * 「运出途中死，只剩劣材」 so dying in transit never yields full-price material.
      */
@@ -140,9 +170,11 @@ public final class LiveCaptureCarrierService {
             return 0;
         }
         int degraded = 0;
-        for (ItemStack stack : player.getInventory().items) {
-            if (isCarrier(stack) && isLive(stack) && degrade(stack)) {
-                degraded++;
+        for (java.util.List<ItemStack> compartment : carriedCompartments(player)) {
+            for (ItemStack stack : compartment) {
+                if (isCarrier(stack) && isLive(stack) && degrade(stack)) {
+                    degraded++;
+                }
             }
         }
         if (degraded > 0) {

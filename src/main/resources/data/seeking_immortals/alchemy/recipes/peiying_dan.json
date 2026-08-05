@@ -1,0 +1,34 @@
+{
+  "id": "peiying_dan",
+  "display_translation": "alchemy_recipe.seeking_immortals.peiying_dan",
+  "output_items": {
+    "low": "seeking_immortals:nascent_soul_pill",
+    "medium": "seeking_immortals:nascent_soul_pill",
+    "high": "seeking_immortals:nascent_soul_pill",
+    "supreme": "seeking_immortals:nascent_soul_pill"
+  },
+  "output_count": 1,
+  "mana_cost": 60,
+  "cook_ticks": 600,
+  "success_rate": 0.15,
+  "explosion_chance": 0.14,
+  "required_furnace_tier": 3,
+  "ideal_fire_tier": 3,
+  "min_control_realm": "CORE_FORMATION",
+  "controlled": false,
+  "requires_earth_fire_room": false,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:live_beast_carrier",
+      "count": 1
+    },
+    {
+      "item": "seeking_immortals:yin_essence_ore",
+      "count": 2
+    },
+    {
+      "item": "seeking_immortals:spirit_beast_bone",
+      "count": 1
+    }
+  ]
+}

@@ -5,6 +5,7 @@ import com.xunxian.seekingimmortals.alchemy.AlchemyFormulaKnowledge;
 import com.xunxian.seekingimmortals.alchemy.AlchemyDisplayTexts;
 import com.xunxian.seekingimmortals.alchemy.AlchemyRecipe;
 import com.xunxian.seekingimmortals.alchemy.AlchemyRecipeService;
+import com.xunxian.seekingimmortals.alchemy.PeiyingCoopAlchemyService;
 import com.xunxian.seekingimmortals.block.AlchemyFurnaceBlock;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.block.AlchemyLidBlock;
@@ -70,6 +71,11 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
     private UUID craftingPlayerId;
     private int formRefreshCooldown;
     private boolean migratedLegacyComponents;
+    /**
+     * Y-C: on-site partners captured when the coop batch started. They invested the cook time,
+     * so they are the only candidates for step-3 credit; presence is re-confirmed at settlement.
+     */
+    private java.util.List<UUID> coopParticipants = java.util.List.of();
 
     private final ItemStackHandler items = new ItemStackHandler(5) {
         @Override
@@ -238,6 +244,8 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
         ItemStack waste = new ItemStack(ModItems.WASTE_PILL.get());
         storedOutput = waste.copy();
         items.setStackInSlot(SLOT_OUTPUT, waste);
+        // Y-C: an aborted batch is a failed batch; settle the coop snapshot on the failure branch.
+        settleCoopParticipants(crafter, false);
         progressTicks = 0;
         totalTicks = 0;
         successRate = 0.0D;
@@ -343,6 +351,10 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
             setChanged();
             return;
         }
+        // Y-C: read the carrier's life state before the ingredients are consumed, otherwise the
+        // stack that decides 「活的才是丹」 is already gone by the time the rate is computed.
+        boolean coopRecipe = PeiyingCoopAlchemyService.isCoopRecipe(recipe);
+        boolean carrierLive = coopRecipe && PeiyingCoopAlchemyService.snapshotCarrierLive(player);
         if (!AlchemyRecipeService.consumeInputs(player, recipe)) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.alchemy_furnace.missing",
                     AlchemyDisplayTexts.recipe(recipe.id()), AlchemyRecipeService.missingSummary(player, recipe)), true);
@@ -359,6 +371,19 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
                 .applyStationEfficiency(successRate, stationEfficiency);
         explosionChance = AlchemyRecipeService.explosionChance(player, recipe, furnaceTier, lidTier, fireTier, formulaSource);
         craftingPlayerId = player.getUUID();
+        // Y-C: the coop route obeys the authored band, and only that route.
+        coopParticipants = coopRecipe
+                ? PeiyingCoopAlchemyService.snapshotParticipants(serverLevel, worldPosition, player)
+                : java.util.List.of();
+        if (coopRecipe) {
+            successRate = PeiyingCoopAlchemyService.resolveSuccessRate(
+                    successRate, carrierLive, coopParticipants.size());
+            player.displayClientMessage(Component.translatable(
+                    carrierLive
+                            ? "message.seeking_immortals.peiying_coop.live_input"
+                            : "message.seeking_immortals.peiying_coop.degraded_input",
+                    coopParticipants.size(), (int) Math.round(successRate * 100.0D)), false);
+        }
         player.displayClientMessage(Component.translatable("message.seeking_immortals.alchemy_furnace.started",
                 AlchemyDisplayTexts.recipe(recipe.id()), recipe.manaCost(), (int) Math.round(successRate * 100.0D)), false);
         serverLevel.playSound(null, worldPosition, SoundEvents.BLAZE_SHOOT, SoundSource.BLOCKS, 0.4F, 0.8F);
@@ -491,6 +516,11 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
         }
         double roll = serverLevel.random.nextDouble();
         if (roll < explosionChance) {
+            // Y-C: a burst furnace is still a settled batch. Partners who stayed take the
+            // failure branch instead of silently losing the credit with the destroyed block.
+            settleCoopParticipants(craftingPlayerId == null
+                    ? null
+                    : serverLevel.getServer().getPlayerList().getPlayer(craftingPlayerId), false);
             // Explosion also wears the operational station before the block is destroyed.
             damageStationState(serverLevel, 80);
             discardStoredContents();
@@ -574,7 +604,29 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
         com.xunxian.seekingimmortals.quest.DetailedQuestProofService.recordAlchemyCompleted(
                 player, "alchemy_furnace_g" + Math.min(5, Math.max(1, getFurnaceTier())));
         player.displayClientMessage(Component.translatable("message.seeking_immortals.alchemy_furnace.collected", result.getHoverName(), result.getCount()), false);
+        // Y-C: settle the coop snapshot once, on the same collection that pays the crafter.
+        settleCoopParticipants(player, !result.is(ModItems.WASTE_PILL.get()));
         setChanged();
+    }
+
+    /**
+     * Y-C: credits the partners who were on site when the batch started and are still on site
+     * now. Cleared after settling so one batch can never pay the same snapshot twice.
+     */
+    private void settleCoopParticipants(ServerPlayer collector, boolean succeeded) {
+        if (coopParticipants.isEmpty() || !(level instanceof ServerLevel serverLevel)) {
+            coopParticipants = java.util.List.of();
+            return;
+        }
+        java.util.List<UUID> snapshot = coopParticipants;
+        coopParticipants = java.util.List.of();
+        java.util.List<ServerPlayer> credited = PeiyingCoopAlchemyService.creditCoopParticipants(
+                serverLevel, worldPosition, collector, snapshot,
+                "alchemy_furnace_g" + Math.min(5, Math.max(1, getFurnaceTier())), succeeded);
+        if (!credited.isEmpty() && collector != null) {
+            collector.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.peiying_coop.credited", credited.size()), false);
+        }
     }
 
     private Component getRecipeName() {
@@ -788,6 +840,13 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
         if (craftingPlayerId != null) {
             tag.putUUID("CraftingPlayerId", craftingPlayerId);
         }
+        // Y-C: the coop snapshot belongs to the in-flight batch, so it must survive relog and
+        // chunk unload; otherwise partners silently lose credit they already earned.
+        net.minecraft.nbt.ListTag participants = new net.minecraft.nbt.ListTag();
+        for (UUID id : coopParticipants) {
+            participants.add(net.minecraft.nbt.NbtUtils.createUUID(id));
+        }
+        tag.put("CoopParticipants", participants);
     }
 
     @Override
@@ -808,6 +867,18 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
         explosionChance = tag.getDouble("ExplosionChance");
         craftingPlayerId = tag.hasUUID("CraftingPlayerId") ? tag.getUUID("CraftingPlayerId") : null;
         migratedLegacyComponents = tag.getBoolean("MigratedLegacyComponents");
+        // Y-C: restore the coop snapshot, capped the same way it was captured.
+        java.util.List<UUID> restored = new java.util.ArrayList<>();
+        net.minecraft.nbt.ListTag participants =
+                tag.getList("CoopParticipants", net.minecraft.nbt.Tag.TAG_INT_ARRAY);
+        for (int i = 0; i < participants.size()
+                && restored.size() < PeiyingCoopAlchemyService.MAX_COOP_PARTNERS; i++) {
+            UUID id = net.minecraft.nbt.NbtUtils.loadUUID(participants.get(i));
+            if (id != null && !restored.contains(id)) {
+                restored.add(id);
+            }
+        }
+        coopParticipants = java.util.List.copyOf(restored);
         migrateLegacyComponentsIntoSlots();
         syncComponentsFromSlots();
     }

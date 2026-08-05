@@ -58,7 +58,8 @@ class JeiRecipeCoverageResourceTest {
         }
 
         // The three removed generic pill recipes must not re-enter the packaged JEI corpus.
-        assertEquals(126, alchemyIds.size());
+        // Y-C: +peiying_dan, the coop route that finally closes peiying_material_hunt.
+        assertEquals(127, alchemyIds.size());
         assertEquals(alchemyIds, manifestIds,
                 "The client JEI packaged manifest must match every authoritative alchemy recipe file");
         assertEquals(73, ArtifactDataService.builtin().refinementRecipes().size());

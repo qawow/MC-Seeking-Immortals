@@ -291,12 +291,10 @@ public final class ModEvents {
                     com.xunxian.seekingimmortals.worldpack.SecretRealmSessionService.tickSessions(serverPlayer);
                 }
                 // Y-B: live-carrier transit timeout degrades to inferior material, never deletes.
+                // Y-C: sweeps every carried compartment, so the offhand is not a free stash.
                 if (serverPlayer.tickCount % 100 == 0) {
-                    long gameTime = serverPlayer.serverLevel().getGameTime();
-                    for (net.minecraft.world.item.ItemStack carried : serverPlayer.getInventory().items) {
-                        com.xunxian.seekingimmortals.beast.LiveCaptureCarrierService
-                                .tickTransit(serverPlayer, carried, gameTime);
-                    }
+                    com.xunxian.seekingimmortals.beast.LiveCaptureCarrierService
+                            .tickCarriedTransit(serverPlayer, serverPlayer.serverLevel().getGameTime());
                 }
                 // Wave485: battlefield AI pulse while sect war is active.
                 if (serverPlayer.tickCount % 40 == 0) {

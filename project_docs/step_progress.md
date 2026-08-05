@@ -1,3 +1,18 @@
+## 593. 2026-08-06 `0.2.261` Y-C 窟外协作炼丹（Y 系列收口）
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   新增 2 Java/资源 + 1 测试；改 6 文件；快照 `backups/20260806015114_yc/`（11 文件）。
+  计划前提纠正   Done   计划与我上批的说法「step 3 因 station 不可达」不成立：`alchemy_furnace_g1/g2/g3` 均别名到 `alchemy_furnace`，任何 3 阶及以下丹炉本就满足 `station` 证明；真实缺口是 step 3 与阴芝马毫无绑定（任意配方收丹都能过）。
+  用户选项偏差   Noted   用户选「新注册独立培婴丹物品」，但四处作者源（bulk 描述 `目录载体：培婴丹`、`pills_index` display、zh_cn `item.*.nascent_soul_pill`、`recipe_nascent_soul` 输出）已一致认定 `nascent_soul_pill` **就是**培婴丹。新注册会让创造页签/JEI 出现两个同名「培婴丹」，故改为复用既有载体并保留别名，已向用户说明并请其确认；如坚持独立物品可另批切换。
+  协作配方   Done   新增 `alchemy/recipes/peiying_dan.json`（manifest 126→127，`required_furnace_tier=3`/`ideal_fire_tier=3`/`success_rate=0.15`，主料 `live_beast_carrier`），作者 tier-5 残篇配方 `nascent_soul_pill` 原样保留，一丹两路。`live_beast_carrier` 此前不是任何配方的材料，故 `findByHeldIngredient` 无歧义。
+  活体成丹分档   Done   `PeiyingCoopAlchemyService.resolveSuccessRate` 为纯函数，活/劣占互斥子带（活 0.20–0.35、劣 0.15–0.18），故任何站点/技能/人数都无法把「打折的肉」抬到活体水平；作者带 `[0.15, 0.35]` 为硬上下界。载体状态在 `consumeInputs` **之前**按 `inventory.items` 同序快照，避免读到与实际被烧不同的那只。
+  协作结算   Done   开炉时快照在场同修（`COOP_RADIUS=6`、上限 4 人），收丹时二次确认仍在场者才计入，随批次存 `CoopParticipants` NBT 跨重连；每人独立记 `recordAlchemyCompleted`（step 3 为 SOLO_OR_PARTY），分成走 `giveOrEnqueue`，丹本身不按人数倍增；爆炉与断壳中止也按失败分支结算一次，快照结算后即清空防重复。
+  Y-B 缺口修复   Done   Y-B 只 tick 背包主格，副手/盔甲位载体永不超时（可绕过运输压力）。新增 `tickCarriedTransit` 与共享 `carriedCompartments`，超时与死亡两条路径统一覆盖 items/offhand/armor。原「储物法器绕过」风险不成立：本模组无末影箱/储物法器系统。
+  Tests/lang/build   Done   新增 `PeiyingCoopAlchemyServiceTest`（6 项，含 21×9 组合的作者带穷举）；改 2 处既有断言（tick helper 迁移、配方数 126→127）。lang 新增 12 键中英各 5720 完全对等。生成器按 `spell -> visual` 顺序刷新并 `--check` 通过，diff 仅 `file_count` 625→626 与两个级联哈希，profile 数 2292/5733 零变化。完整 `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功 1m46s，**266 套件 / 1,297 项，failure/error/skipped 均为 0**；JAR SHA-256 `b277a70de76d777b5738a4dcaa70e2d4d8a88be3ebc3bb66929837b900327875`。
+  Version/protocol   Done   `mod_version=0.2.260 -> 0.2.261`；未改网络字段/顺序/类型/注册/频道，`ModNetwork.PROTOCOL_VERSION=31` 不变（协作状态在方块实体 NBT）。
+  Remaining   Noted   step 3 仍只校验 station，未强制该炉次真的用了阴芝马载体（同炉收任意丹亦可过 step 3），需 `ALCHEMY_COMPLETED` 支持配方/材料参数才能收紧；协作分成暂为灵石碎片/废丹固定一件，未按 `peiying_dan_market_low: [80000, 400000]` 分档；`yy_alchemy_coop` 层的 `furnace_safety_array` 防爆陷阱尚无实现，协作点目前只是普通丹炉；活捕仍未按 `live_capture_value_low` / `kill_material_value_low` 区间给价。下一实施入口 M-A（维度状态分类）。
+
 ## 592. 2026-08-06 `0.2.260` Y-B 阴芝马活捕与运输
 
   Step   Status   Notes
