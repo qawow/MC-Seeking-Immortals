@@ -10010,4 +10010,4 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Generated resources   Done   按 `spell -> visual` 顺序刷新并 `--check` 通过；`file_count` 627 不变（新增文件为测试源），profile 数 2292/5733 零变化，嵌入的 Java 聚合哈希随主源改动而更新。
   Version/protocol   Done   `mod_version=0.2.265 -> 0.2.266`；未改动网络包字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=31` 保持不变。
   Final build   Done   `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功（1m 30s），`:aiPreflight` 记录 `mod_version=0.2.266`；270 套件 / 1,323 项，failure/error/skipped 均为 0；JAR SHA-256 `46be731b1f73c235a3502e1b9068b19e887f229a066854ae22ebe8948398a638`。
-  Next implementation   Pending   D-A/Y/M 全部代码批已完成。下一步为 QA-01（单客户端）与 QA-02（专服+双客户端）实机签字，签字清单待写，报告须由实际执行者填写。
+  Next implementation   Pending   D-A/Y/M 全部代码批已完成。签字清单已写入 `project_docs/qa_signoff_checklist_0.2.266.md`（docs-only，未升版本），文件名刻意避开被 `live_smoke sign` 覆盖的两个名字。下一步为 QA-01（单客户端）与 QA-02（专服+双客户端）实机签字，报告须由实际执行者填写；我无法运行客户端或专服，清单内任何一格都未代填。
