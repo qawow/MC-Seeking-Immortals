@@ -10048,4 +10048,5 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Generators   Done   按 `spell -> visual` 顺序刷新并 `--check` 通过；方块与物品贴图生成器 render_mismatch 均为 0；profile 数 2292/5733 零变化。
   Version/protocol   Done   `mod_version=0.2.267 -> 0.2.268`；纯数据包与商店条目新增，`ModNetwork.PROTOCOL_VERSION=31` 保持不变。
   Final build   Done   `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功（1m 21s），`:aiPreflight` 记录 `0.2.268`；271 套件 / 1,327 项，failure/error/skipped 均为 0；JAR SHA-256 `7e5b87d251bdf621de8cb2130f2c989b44d3cd5a5853a56f19fdd026629799d8`。
+  Command/docs handoff   Done   新增 `project_docs/command_reference.md`，按 `SeekingImmortalsCommand` 的真实权限树整理普通查询、权限 2 调试/作弊、异常状态、管理员变更与 `live_smoke` 单机/多人签字；本次为 docs-only，不升版本、不改协议。备份：`backups/20260806074930_docs_command_reference/`。
   Next implementation   Pending   符箓配方数据驱动化（`TalismanCraftService` 硬编码 24 条仅出 5 种成品，`talisman_recipes.json` 的 24 种成品从未落地，`recipeBlueprintCount()` 直接 `return 24` 把缺口盖住）—— 供给已就位，现在改造不会让符箓从「能做」变「做不了」；随后约 646 个孤儿物品分类处理、主线 14 步 fail-closed 内容层、多方块建造引导与凡人修仙传风格 UI。
