@@ -250,7 +250,9 @@ public final class DimensionTravelService {
             return false;
         }
         Optional<DimensionRegistryService.DimensionDef> def = DimensionRegistryService.find(toDim);
-        if (def.isPresent() && def.get().isDeferred()) {
+        // M-A: gate on the classified state, not just "deferred". A preview shell, an abstract
+        // template and a logical cluster id are all non-enterable for ordinary travel.
+        if (def.isPresent() && !def.get().enterable()) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.dim_travel.deferred", dimensionDisplay(toDim),
                     PlayerDisplayText.safeLiteral(def.get().note(), "screen.seeking_immortals.display.unknown")), false);

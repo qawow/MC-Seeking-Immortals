@@ -80,6 +80,35 @@
       ]
     }
   ],
+  "classification": {
+    "schema_note": "M-A: 维度状态四分类的唯一数据源。未列出的 id 默认 playable；status/playable 与本表冲突时以本表为准。抽象模板与逻辑集群不属于「待实现」，只有 preview_locked 才计入。",
+    "preview_locked": [
+      {
+        "id": "seeking_immortals:immortal_realm",
+        "display": "仙界",
+        "note": "远期 DLC；维度 json 仅为 noise+fixed 空壳，作者已标 playable:false"
+      },
+      {
+        "id": "seeking_immortals:asura_realm",
+        "display": "修罗界",
+        "note": "维度 json 仅为 noise+nether_wastes 空壳；作者目录未收录，此前被硬种子误标可进入"
+      }
+    ],
+    "abstract_template": [
+      {
+        "id": "seeking_immortals:secret_realm_instance",
+        "display": "秘境实例模板",
+        "note": "dimension_type 模板，非独立可进入维度；由 M09 实例化"
+      }
+    ],
+    "logical_cluster": [
+      {
+        "id": "seeking_immortals:yin_underworld",
+        "display": "阴司集群（逻辑）",
+        "note": "逻辑集群 id；实际口袋 yin_ming_pocket / nether_river_pocket 均为 playable"
+      }
+    ]
+  },
   "notes": [
     "mortal_world maps to minecraft:overworld (no custom dim json)",
     "yin_underworld is logical cluster; pockets are yin_ming_pocket + nether_river_pocket",

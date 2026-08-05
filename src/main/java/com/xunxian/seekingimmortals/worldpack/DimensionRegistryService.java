@@ -48,6 +48,38 @@ public final class DimensionRegistryService {
 
     private DimensionRegistryService() {}
 
+    /**
+     * M-A: honest four-way state for a dimension id.
+     *
+     * <p>The old model was a {@code playable} boolean plus a {@code status} string, which
+     * conflated three unrelated things: a shipped enterable world, an instantiation template,
+     * and a logical grouping id. Only {@link #PREVIEW_LOCKED} is pending implementation work —
+     * a template and a cluster id are correct architecture, not a backlog.</p>
+     */
+    public enum DimensionClass {
+        /** A real, enterable dimension (or the overworld mapping). */
+        PLAYABLE,
+        /** Ships as a datapack shell only; entry is closed until it is actually built. */
+        PREVIEW_LOCKED,
+        /** A {@code dimension_type} template instantiated per session, never entered by id. */
+        ABSTRACT_TEMPLATE,
+        /** A grouping id whose real worlds are the dimensions it maps to. */
+        LOGICAL_CLUSTER;
+
+        static DimensionClass parse(String raw) {
+            if (raw == null) {
+                return null;
+            }
+            return switch (raw.trim().toLowerCase(Locale.ROOT)) {
+                case "playable" -> PLAYABLE;
+                case "preview_locked" -> PREVIEW_LOCKED;
+                case "abstract_template" -> ABSTRACT_TEMPLATE;
+                case "logical_cluster" -> LOGICAL_CLUSTER;
+                default -> null;
+            };
+        }
+    }
+
     public record DimensionDef(
             String id,
             String display,
@@ -58,9 +90,16 @@ public final class DimensionRegistryService {
             String status,
             String note,
             List<String> mapsTo,
-            boolean playable) {
-        public boolean isDeferred() {
-            return status != null && status.startsWith("deferred");
+            boolean playable,
+            DimensionClass dimensionClass) {
+        /** The single authority for "may a player travel here by ordinary means". */
+        public boolean enterable() {
+            return dimensionClass == DimensionClass.PLAYABLE;
+        }
+
+        /** Pending implementation work: only a locked preview shell counts. */
+        public boolean pendingImplementation() {
+            return dimensionClass == DimensionClass.PREVIEW_LOCKED;
         }
 
         public String effectiveMinecraftId() {
@@ -108,7 +147,18 @@ public final class DimensionRegistryService {
         public List<DimensionDef> playable() {
             List<DimensionDef> out = new ArrayList<>();
             for (DimensionDef def : byId.values()) {
-                if (def.playable() && !def.isDeferred()) {
+                if (def.enterable()) {
+                    out.add(def);
+                }
+            }
+            return List.copyOf(out);
+        }
+
+        /** All ids in one class, in registry order. */
+        public List<DimensionDef> inClass(DimensionClass dimensionClass) {
+            List<DimensionDef> out = new ArrayList<>();
+            for (DimensionDef def : byId.values()) {
+                if (def.dimensionClass() == dimensionClass) {
                     out.add(def);
                 }
             }
@@ -132,8 +182,25 @@ public final class DimensionRegistryService {
         return SNAPSHOT.all();
     }
 
+    /**
+     * Ids still pending implementation. M-A narrowed this to {@code PREVIEW_LOCKED} only:
+     * an abstract template and a logical cluster id are honest architecture, not a backlog.
+     */
     public static List<String> deferredIds() {
         return SNAPSHOT.deferredIds();
+    }
+
+    public static DimensionClass classOf(String id) {
+        return find(id).map(DimensionDef::dimensionClass).orElse(null);
+    }
+
+    /** Ordinary travel authority. Unknown ids fail closed. */
+    public static boolean isEnterable(String id) {
+        return find(id).map(DimensionDef::enterable).orElse(false);
+    }
+
+    public static List<DimensionDef> inClass(DimensionClass dimensionClass) {
+        return SNAPSHOT.inClass(dimensionClass);
     }
 
     public static boolean isKnown(String id) {
@@ -220,7 +287,65 @@ public final class DimensionRegistryService {
         ingestIndex(map, deferred, readJson("data/" + SeekingImmortalsMod.MODID + "/catalog/dimensions_index.json"));
         seedRequired(map, deferred);
 
+        // M-A: classification is a single-resource authority applied last, so a stale
+        // status string in any upstream index can no longer decide enterability.
+        applyClassification(map, readJson("data/" + SeekingImmortalsMod.MODID + "/catalog/dimensions_reconcile.json"));
+
+        // Pending work is exactly the preview-locked shells, deduplicated. Upstream ingest
+        // added markers twice (ingestRegistry + ingestIndex) and mixed in template/cluster ids.
+        List<String> pending = new ArrayList<>();
+        for (DimensionDef def : map.values()) {
+            if (def.pendingImplementation() && !pending.contains(def.id())) {
+                pending.add(def.id());
+            }
+        }
+        deferred.clear();
+        deferred.addAll(pending);
+
         return new Snapshot(Collections.unmodifiableMap(map), List.copyOf(deferred));
+    }
+
+    /**
+     * M-A: overwrites the class of every id listed in {@code dimensions_reconcile.json}.
+     * Anything not listed keeps the class inferred from its own status/playable fields, so
+     * adding a shell to the data file is the only edit needed to close its entry.
+     */
+    private static void applyClassification(Map<String, DimensionDef> map, JsonObject root) {
+        if (root == null || !root.has("classification") || !root.get("classification").isJsonObject()) {
+            return;
+        }
+        JsonObject classification = root.getAsJsonObject("classification");
+        for (DimensionClass target : DimensionClass.values()) {
+            String bucket = target.name().toLowerCase(Locale.ROOT);
+            for (JsonElement element : array(classification, bucket)) {
+                String id = element.isJsonObject()
+                        ? str(element.getAsJsonObject(), "id")
+                        : (element.isJsonPrimitive() ? element.getAsString() : "");
+                String note = element.isJsonObject() ? str(element.getAsJsonObject(), "note") : "";
+                if (id.isBlank()) {
+                    continue;
+                }
+                String key = normalize(id);
+                DimensionDef existing = map.get(key);
+                if (existing == null) {
+                    SeekingImmortalsMod.LOGGER.warn(
+                            "Dimension classification for unknown id {} ignored", key);
+                    continue;
+                }
+                map.put(key, new DimensionDef(
+                        existing.id(),
+                        existing.display(),
+                        existing.cosmology(),
+                        existing.minRealm(),
+                        existing.realmCap(),
+                        existing.minecraftLayer(),
+                        existing.status(),
+                        note.isBlank() ? existing.note() : note,
+                        existing.mapsTo(),
+                        target == DimensionClass.PLAYABLE,
+                        target));
+            }
+        }
     }
 
     private static void seedRequired(Map<String, DimensionDef> map, List<String> deferred) {
@@ -242,7 +367,7 @@ public final class DimensionRegistryService {
                 "", "", "pocket", "deferred_logical", "逻辑集群；实际口袋 yin_ming_pocket / nether_river_pocket",
                 List.of(YIN_MING_POCKET, NETHER_RIVER_POCKET), false));
         for (DimensionDef def : map.values()) {
-            if (def.isDeferred() && !deferred.contains(def.id())) {
+            if (def.pendingImplementation() && !deferred.contains(def.id())) {
                 deferred.add(def.id());
             }
         }
@@ -393,7 +518,28 @@ public final class DimensionRegistryService {
                 status == null ? "" : status,
                 note == null ? "" : note,
                 mapsTo == null ? List.of() : List.copyOf(mapsTo),
-                playable);
+                playable,
+                inferClass(status, playable));
+    }
+
+    /**
+     * M-A: class inferred from the legacy status/playable pair, for ids the reconcile resource
+     * does not classify. {@code deferred_template} / {@code deferred_logical} carry their own
+     * meaning, so they map to the architectural classes rather than to pending work.
+     */
+    private static DimensionClass inferClass(String status, boolean playable) {
+        String raw = status == null ? "" : status.trim().toLowerCase(Locale.ROOT);
+        if (raw.startsWith("deferred_template")) {
+            return DimensionClass.ABSTRACT_TEMPLATE;
+        }
+        if (raw.startsWith("deferred_logical")) {
+            return DimensionClass.LOGICAL_CLUSTER;
+        }
+        if (raw.startsWith("deferred") || !playable) {
+            // An authored `playable: false` is an honest "not built yet", not an enterable world.
+            return DimensionClass.PREVIEW_LOCKED;
+        }
+        return DimensionClass.PLAYABLE;
     }
 
     private static JsonObject readJson(String path) {

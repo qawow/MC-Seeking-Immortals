@@ -34,11 +34,19 @@ class M13DimensionsAscensionTest {
         assertTrue(DimensionRegistryService.find("mortal_world").isPresent());
         assertEquals(DimensionRegistryService.OVERWORLD,
                 DimensionRegistryService.toMinecraftDimensionId(DimensionRegistryService.MORTAL_WORLD));
-        // deferred markers are explicit, not silent
+        // M-A: pending work is explicit, and reversed in direction — the abstract template and
+        // the logical cluster id are honest architecture, so they must NOT be counted as work.
         assertFalse(DimensionRegistryService.deferredIds().isEmpty());
-        assertTrue(DimensionRegistryService.find("seeking_immortals:yin_underworld").map(d -> d.isDeferred()).orElse(false)
-                || DimensionRegistryService.deferredIds().stream().anyMatch(id -> id.contains("yin_underworld")
-                || id.contains("secret_realm_instance")));
+        assertFalse(DimensionRegistryService.deferredIds().stream()
+                        .anyMatch(id -> id.contains("yin_underworld") || id.contains("secret_realm_instance")),
+                "a template/cluster id is not pending implementation work");
+        assertEquals(DimensionRegistryService.DimensionClass.LOGICAL_CLUSTER,
+                DimensionRegistryService.classOf("seeking_immortals:yin_underworld"));
+        assertEquals(DimensionRegistryService.DimensionClass.ABSTRACT_TEMPLATE,
+                DimensionRegistryService.classOf("seeking_immortals:secret_realm_instance"));
+        // Neither is enterable, so ordinary travel still fails closed for both.
+        assertFalse(DimensionRegistryService.isEnterable("seeking_immortals:yin_underworld"));
+        assertFalse(DimensionRegistryService.isEnterable("seeking_immortals:secret_realm_instance"));
     }
 
     @Test

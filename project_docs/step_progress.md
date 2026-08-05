@@ -1,3 +1,19 @@
+## 594. 2026-08-06 `0.2.262` M-A 维度状态分类
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   新增 1 测试；改 7 文件（3 Java/1 数据/2 lang/1 既有测试）；快照 `backups/20260806023705_ma/`（10 文件）。
+  四分类枚举   Done   `DimensionClass{PLAYABLE, PREVIEW_LOCKED, ABSTRACT_TEMPLATE, LOGICAL_CLUSTER}`，`DimensionDef` 新增该字段并提供 `enterable()`（唯一旅行权威）与 `pendingImplementation()`（仅 PREVIEW_LOCKED）。旧 `isDeferred()` 全部删除，4 处调用点收口。
+  抽象/逻辑移出待实现   Done   `secret_realm_instance`→ABSTRACT_TEMPLATE、`yin_underworld`→LOGICAL_CLUSTER，两者不再计入 `deferredIds()`；但仍不可旅行（`enterable()=false`），fail-closed 未放宽。
+  待实现列表去重   Done   `deferredIds()` 改为按 `pendingImplementation()` 重算并去重。此前 `ingestRegistry`+`ingestIndex` 各 `deferred.add` 一次，实测 4 项/2 唯一。
+  空壳诚实标注   Done   `immortal_realm` 作者标 `playable:false` 但 `status` 为空，`isDeferred()=false` 导致命令显示「可进入」且旅行未被拦；`asura_realm` 更乐观——作者目录 6 个维度里根本没有它，`playable=true` 仅来自 `seedRequired` 硬种子，数据包 json 只是 noise+nether_wastes 空壳。两者改标 PREVIEW_LOCKED 并关闭普通旅行。
+  旅行门禁   Done   `DimensionTravelService` 由 `isDeferred()` 改判 `!enterable()`，preview 空壳与模板/集群 id 一并 fail-closed；`inferClass` 让作者 `playable:false` 自动落 PREVIEW_LOCKED，不必逐个进数据表。
+  数据源收敛   Done   分类由 `catalog/dimensions_reconcile.json` 新增 `classification` 块单一驱动，`applyClassification` 最后应用，未列出的 id 按自身 status/playable 推断；未知 id 记 warn 不静默。该文件此前**无任何 Java 读取方**（仅测试断言其存在），现真正接线。
+  命令展示   Done   `catalogDimensions`/`catalogDimensionGet` 改四类展示，修掉 `def.isDeferred()?"待实现":"可进入"` 误报；管理员视图按三个非 playable 类分别列出。
+  Tests/lang/build   Done   新增 `DimensionClassificationTest`（7 项）；`M13DimensionsAscensionTest:38-41` 方向反转（模板/集群必须**不在** deferred）。lang 新增 8 键中英各 5724 完全对等。生成器按 `spell -> visual` 顺序刷新并 `--check` 通过，diff 仅两个聚合哈希，`file_count` 保持 626（本批只增测试文件），profile 数 2292/5733 零变化。完整 build 成功 1m21s，**267 套件 / 1,304 项全 0**；JAR SHA-256 `f76e4cc848d4c86c533b1077cafb5a93282458337e5dde66c82d024efbcd3c2a`。
+  Version/protocol   Done   `mod_version=0.2.261 -> 0.2.262`；`ModNetwork.PROTOCOL_VERSION=31` 不变（纯服务端分类与命令展示）。
+  Remaining   Noted   两个空壳的数据包 json 与飞行规则**故意保留**（重分类是状态变更而非删除，已访问过的存档仍能加载），但玩家若已在 `immortal_realm`/`asura_realm` 内，本批不驱逐、也未加返回路径；`spirit_to_immortal` 等指向仙界的作者路线现会被 `!enterable()` 拒绝，属预期但作者路线表未同步标注；`isDirectRouteImplemented` 仍只放行 `mortal_to_tianyuan`/`tianyuan_to_fengyuan` 两条，其余 24 条 access_route 依旧未实现（M-A 未触及）。下一实施入口 M-B（本命飞剑实例绑定与迁移）。
+
 ## 593. 2026-08-06 `0.2.261` Y-C 窟外协作炼丹（Y 系列收口）
 
   Step   Status   Notes

@@ -1741,19 +1741,43 @@ public final class SeekingImmortalsCommand {
         for (var def : snap.playable()) {
             MutableComponent line = Component.literal("- ").append(dimensionDisplay(def.id()))
                     .append("｜最低境界 ").append(realmDisplay(def.minRealm()))
-                    .append("｜状态 ").append(def.isDeferred() ? "待实现" : "可进入");
+                    .append("｜状态 ").append(dimensionClassLabel(def.dimensionClass()));
             if (source.hasPermission(2)) {
                 line.append("｜").append(adminId(def.id()));
             }
             source.sendSuccess(() -> line, false);
             if (++shown >= 16) break;
         }
+        // M-A: report the three non-playable classes separately; a template or a logical
+        // cluster id is honest architecture, not pending work.
         if (source.hasPermission(2)) {
-            for (String deferred : snap.deferredIds()) {
-                source.sendSuccess(() -> Component.literal("待实现：").append(adminId(deferred)), false);
+            for (var dimensionClass : java.util.List.of(
+                    com.xunxian.seekingimmortals.worldpack.DimensionRegistryService.DimensionClass.PREVIEW_LOCKED,
+                    com.xunxian.seekingimmortals.worldpack.DimensionRegistryService.DimensionClass.ABSTRACT_TEMPLATE,
+                    com.xunxian.seekingimmortals.worldpack.DimensionRegistryService.DimensionClass.LOGICAL_CLUSTER)) {
+                for (var def : snap.inClass(dimensionClass)) {
+                    MutableComponent line = Component.empty()
+                            .append(dimensionClassLabel(dimensionClass))
+                            .append("：").append(adminId(def.id()));
+                    source.sendSuccess(() -> line, false);
+                }
             }
         }
         return 1;
+    }
+
+    /** M-A: the four honest dimension states, replacing the old deferred/enterable guess. */
+    private static Component dimensionClassLabel(
+            com.xunxian.seekingimmortals.worldpack.DimensionRegistryService.DimensionClass dimensionClass) {
+        if (dimensionClass == null) {
+            return Component.translatable("text.seeking_immortals.dimension_class.preview_locked");
+        }
+        return switch (dimensionClass) {
+            case PLAYABLE -> Component.translatable("text.seeking_immortals.dimension_class.playable");
+            case PREVIEW_LOCKED -> Component.translatable("text.seeking_immortals.dimension_class.preview_locked");
+            case ABSTRACT_TEMPLATE -> Component.translatable("text.seeking_immortals.dimension_class.abstract_template");
+            case LOGICAL_CLUSTER -> Component.translatable("text.seeking_immortals.dimension_class.logical_cluster");
+        };
     }
 
     private static int catalogDimensionGet(CommandSourceStack source, String id) {
@@ -1766,7 +1790,7 @@ public final class SeekingImmortalsCommand {
         MutableComponent line = Component.literal("维度：").append(dimensionDisplay(def.id()))
                 .append("｜最低境界 ").append(realmDisplay(def.minRealm()))
                 .append("｜境界上限 ").append(realmDisplay(def.realmCap()))
-                .append("｜状态 ").append(def.isDeferred() ? "待实现" : "可进入");
+                .append("｜状态 ").append(dimensionClassLabel(def.dimensionClass()));
         if (PlayerDisplayText.isSafe(def.note()) && !def.note().isBlank()) {
             line.append("｜说明 ").append(def.note());
         }
