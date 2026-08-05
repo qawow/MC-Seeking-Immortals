@@ -138,6 +138,22 @@
           "count_max": 1,
           "unique": false,
           "first_clear_only": false
+        },
+        {
+          "item": "star_sand",
+          "chance": 0.22,
+          "count_min": 1,
+          "count_max": 3,
+          "unique": false,
+          "first_clear_only": false
+        },
+        {
+          "item": "eight_spirit_ruler_shard",
+          "chance": 0.09,
+          "count_min": 1,
+          "count_max": 1,
+          "unique": false,
+          "first_clear_only": false
         }
       ]
     },
@@ -180,6 +196,14 @@
         {
           "item": "marrow_extract_pill",
           "chance": 0.06,
+          "count_min": 1,
+          "count_max": 1,
+          "unique": false,
+          "first_clear_only": false
+        },
+        {
+          "item": "nine_dragon_cauldron_shard",
+          "chance": 0.08,
           "count_min": 1,
           "count_max": 1,
           "unique": false,
@@ -368,6 +392,14 @@
           "count_max": 1,
           "unique": false,
           "first_clear_only": false
+        },
+        {
+          "item": "seven_flame_fan_replica",
+          "chance": 0.07,
+          "count_min": 1,
+          "count_max": 1,
+          "unique": false,
+          "first_clear_only": false
         }
       ]
     },
@@ -452,6 +484,22 @@
           "count_max": 1,
           "unique": false,
           "first_clear_only": false
+        },
+        {
+          "item": "turtle_shell",
+          "chance": 0.3,
+          "count_min": 1,
+          "count_max": 3,
+          "unique": false,
+          "first_clear_only": false
+        },
+        {
+          "item": "void_palace_cold_jade",
+          "chance": 0.14,
+          "count_min": 1,
+          "count_max": 2,
+          "unique": false,
+          "first_clear_only": false
         }
       ]
     },
@@ -472,7 +520,8 @@
         {"item": "demon_core_high", "chance": 0.32, "count_min": 1, "count_max": 2, "unique": false, "first_clear_only": false},
         {"item": "demon_suppress_talisman_blank", "chance": 0.22, "count_min": 1, "count_max": 2, "unique": false, "first_clear_only": false},
         {"item": "demonic_blood_coral", "chance": 0.18, "count_min": 1, "count_max": 2, "unique": false, "first_clear_only": false},
-        {"item": "gold_demon_chain", "chance": 0.04, "count_min": 1, "count_max": 1, "unique": true, "first_clear_only": true}
+        {"item": "gold_demon_chain", "chance": 0.04, "count_min": 1, "count_max": 1, "unique": true, "first_clear_only": true},
+        {"item": "xuanhuang_mirror_shard", "chance": 0.1, "count_min": 1, "count_max": 2, "unique": false, "first_clear_only": false}
       ]
     },
     {
@@ -482,7 +531,8 @@
         {"item": "earth_spine_root", "chance": 0.36, "count_min": 1, "count_max": 3, "unique": false, "first_clear_only": false},
         {"item": "beast_bone_block", "chance": 0.28, "count_min": 1, "count_max": 2, "unique": false, "first_clear_only": false},
         {"item": "demon_core_high", "chance": 0.16, "count_min": 1, "count_max": 1, "unique": false, "first_clear_only": false},
-        {"item": "pressure_resist_pill", "chance": 0.12, "count_min": 1, "count_max": 2, "unique": false, "first_clear_only": false}
+        {"item": "pressure_resist_pill", "chance": 0.12, "count_min": 1, "count_max": 2, "unique": false, "first_clear_only": false},
+        {"item": "diyuan_pressure_moss", "chance": 0.3, "count_min": 1, "count_max": 3, "unique": false, "first_clear_only": false}
       ]
     },
     {
@@ -502,7 +552,8 @@
         {"item": "clear_void_pill", "chance": 0.18, "count_min": 1, "count_max": 2, "unique": false, "first_clear_only": false},
         {"item": "immortal_jade", "chance": 0.10, "count_min": 1, "count_max": 1, "unique": false, "first_clear_only": false},
         {"item": "jade_slip_blank", "chance": 0.35, "count_min": 1, "count_max": 3, "unique": false, "first_clear_only": false},
-        {"item": "alliance_merit_token", "chance": 0.45, "count_min": 2, "count_max": 5, "unique": false, "first_clear_only": false}
+        {"item": "alliance_merit_token", "chance": 0.45, "count_min": 2, "count_max": 5, "unique": false, "first_clear_only": false},
+        {"item": "void_bell_fragment", "chance": 0.05, "count_min": 1, "count_max": 1, "unique": false, "first_clear_only": false}
       ]
     },
     {
@@ -582,7 +633,8 @@
         {"item": "wannian_spirit_grass", "chance": 0.18, "count_min": 1, "count_max": 2, "unique": false, "first_clear_only": false},
         {"item": "spirit_grass", "chance": 0.55, "count_min": 2, "count_max": 6, "unique": false, "first_clear_only": false},
         {"item": "wood_spirit_stone_mid", "chance": 0.24, "count_min": 1, "count_max": 2, "unique": false, "first_clear_only": false},
-        {"item": "spirit_gathering_pill", "chance": 0.12, "count_min": 1, "count_max": 2, "unique": false, "first_clear_only": false}
+        {"item": "spirit_gathering_pill", "chance": 0.12, "count_min": 1, "count_max": 2, "unique": false, "first_clear_only": false},
+        {"item": "poison_sac", "chance": 0.26, "count_min": 1, "count_max": 2, "unique": false, "first_clear_only": false}
       ]
     },
     {

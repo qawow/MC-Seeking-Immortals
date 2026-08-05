@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "talisman_paper",
+  "ingredients": [
+    {
+      "item": "seeking_immortals:talisman_paper_mid"
+    },
+    {
+      "item": "seeking_immortals:talisman_paper_mid"
+    },
+    {
+      "item": "seeking_immortals:talisman_paper_mid"
+    },
+    {
+      "item": "seeking_immortals:thunder_stone"
+    }
+  ],
+  "result": {
+    "item": "seeking_immortals:talisman_paper_high",
+    "count": 1
+  }
+}

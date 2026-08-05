@@ -10029,3 +10029,23 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Version/protocol   Done   `mod_version=0.2.266 -> 0.2.267`；纯注册与资源新增，无 BlockEntity 与自定义状态，`ModNetwork.PROTOCOL_VERSION=31` 保持不变。
   Final build   Done   `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功（1m 24s），`:aiPreflight` 记录 `0.2.267`；270 套件 / 1,324 项，failure/error/skipped 均为 0；JAR SHA-256 `fa46aa86b0231cece196bcf13ec0199fe80c5ce5d7801c2ac62fc4641c73bc24`。
   Next implementation   Pending   符箓系统假覆盖（`TalismanCraftService` 硬编码 24 配方仅出 5 种成品，`talisman_recipes.json` 从未被读，`recipeBlueprintCount()` 直接 return 24 把缺口盖住）；约 646 个无获取途径物品的分类处理；主线 14 步 fail-closed 的内容层；多方块建造引导与凡人修仙传风格 UI。
+
+## 593. 2026-08-06 `0.2.268` 符箓与法宝供给链（死配方 55 → 0）
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   物品获取方向第二批；回滚位于 `backups/20260806070902_talisman_supply/`（14 个文件）。用户既有 `CLAUDE.md` 与 `project_docs/frontend_interaction_audit_0.2.198.md` 未纳入本批。
+  Root cause   Done   **55 / 84 条已发布配方至少有一个原料无任何获取途径** —— 在 JEI 里能看见、永远做不出来。四个原料就堵住 33 条：`spirit_silk`(13)、`talisman_paper`(9)、`fire_feather`(8)、`ghost_wood`(3)。
+  Talisman chain   Done   28 项符箓链输入中 19 项无获取途径（别名解析后仍为 19/19）。最要命的是 `TalismanCraftService.materialRequirements:201` 给**每一条**符箓配方强制加 1 个 `talisman_ink_bottle`，而符墨自身零来源 —— 等于整套符箓制作在数据层就是关闭的。
+  The trap   Done   商店条目的 `id` 只是标签、`item` 才是实发物（`ShopService:626`）。`tiannan_talisman_lane` 挂着 `id: talisman_paper` 实发 `talisman_paper_mortal`（凡符纸），`tiannan_refinement_forge` 挂着 `id: low_spirit_iron` 实发 `spirit_iron`。两处都让人以为有卖，实际那个 id 拿不到。这正是缺口长期隐形的原因。
+  Paper ladder   Done   作者在 `talisman_materials_catalog.json` 写好了完整造纸阶梯（`spirit_silk → talisman_paper → _mid → _high → _spirit_realm`，逐级材料与产量齐备），但**从未被任何 Java 读取**。本批按作者数据逐字落成 5 条 shapeless 配方。
+  Ink recipes   Done   按 `materials_catalog.json` 的 `craft_from` 落成 3 条墨配方（妖血墨/灵草墨/精魄墨）+ 1 条符墨瓶配方。`beast_blood_ink` 的两个原料本就可得，只差配方。
+  Shop supply   Done   按作者标注区域给 9 家运行时商店加 14 条货：天南符箓巷（灵蚕丝/火羽/符墨）、天南炼器铺（低阶灵铁）、天南药市（紫芝/参灵）、阴罗鬼市（鬼木）、冥河渡口（魂苔/冥骨草）、天元功勋（星月草）、慕兰法师（幻沙/风贤草）、乱星海杂货（雷莹莲）、丰元拍卖（虚髓/凤尾蕨）。纯新增 108 行，无文件回流。
+  Boss drops   Done   剩余 10 个 epic/legendary 碎片按作者区域挂到 `boss_loot_runtime.json` 的 8 个首领（`turtle_shell`/`void_palace_cold_jade`→乱星海蛟王、`xuanhuang_mirror_shard`→封魔之主、`nine_dragon_cauldron_shard`→堕魔投影、`void_bell_fragment`→九仙试炼灵、`diyuan_pressure_moss`→地渊守卫、`star_sand`/`eight_spirit_ruler_shard`→昆吾傀王、`seven_flame_fan_replica`→金魔将、`poison_sac`→园心守）。
+  Harvest corrections   Done   我的发放位收割四次漏渠道，每次都靠测试自带的健全性断言或对账发现：炼丹产出字段是 `output_items`（键 low/medium/high/**supreme**）不是 `outputs`；`worldpack/boss_loot_runtime.json` 是真实渠道（`BossLootService:154` 先读它，作者表只是回落）；`SpiritStoneLadderService:112` 的元素兑换链让 `metal_spirit_stone_mid` 本就可得。修正后死配方从虚高的 55 收敛为真实的 10，再补齐至 0。
+  Tests   Done   新增 `TalismanSupplyChainResourceTest`（3 项，已核对 `TEST-*.xml` 真实执行）：符箓链根节点必须有发放位、造纸阶梯端到端可走、**任何已发布配方不得依赖无获取途径的本模组原料（基线钉 0）**。只收割「发放位」（配方 result / loot entry / 商店实发 item / 炼丹 output_items / 妖兽与首领掉落 / 灵石兑换输出），原料位出现不算可得 —— 这正是缺口此前隐形的机制。含防空转断言（收割数 >300 且必含已知商店物）。
+  Test pins   Done   修 3 处被本批打破的商店条目数断言：`chaotic_sea_island_general` 10→11、`tiannan_refinement_forge` 2→3、`tianyuan_merit_exchange` 4→5。
+  Generators   Done   按 `spell -> visual` 顺序刷新并 `--check` 通过；方块与物品贴图生成器 render_mismatch 均为 0；profile 数 2292/5733 零变化。
+  Version/protocol   Done   `mod_version=0.2.267 -> 0.2.268`；纯数据包与商店条目新增，`ModNetwork.PROTOCOL_VERSION=31` 保持不变。
+  Final build   Done   `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功（1m 21s），`:aiPreflight` 记录 `0.2.268`；271 套件 / 1,327 项，failure/error/skipped 均为 0；JAR SHA-256 `7e5b87d251bdf621de8cb2130f2c989b44d3cd5a5853a56f19fdd026629799d8`。
+  Next implementation   Pending   符箓配方数据驱动化（`TalismanCraftService` 硬编码 24 条仅出 5 种成品，`talisman_recipes.json` 的 24 种成品从未落地，`recipeBlueprintCount()` 直接 `return 24` 把缺口盖住）—— 供给已就位，现在改造不会让符箓从「能做」变「做不了」；随后约 646 个孤儿物品分类处理、主线 14 步 fail-closed 内容层、多方块建造引导与凡人修仙传风格 UI。

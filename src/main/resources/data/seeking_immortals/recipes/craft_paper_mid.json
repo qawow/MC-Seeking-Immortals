@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "talisman_paper",
+  "ingredients": [
+    {
+      "item": "seeking_immortals:talisman_paper"
+    },
+    {
+      "item": "seeking_immortals:talisman_paper"
+    },
+    {
+      "item": "seeking_immortals:talisman_paper"
+    },
+    {
+      "item": "seeking_immortals:talisman_paper"
+    },
+    {
+      "item": "seeking_immortals:star_moon_grass"
+    }
+  ],
+  "result": {
+    "item": "seeking_immortals:talisman_paper_mid",
+    "count": 2
+  }
+}

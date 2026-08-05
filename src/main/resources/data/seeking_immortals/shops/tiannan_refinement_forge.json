@@ -19,6 +19,13 @@
       "cost": 45,
       "stock": 12,
       "refresh_ticks": 48000
+    },
+    {
+      "id": "low_spirit_iron_ingot",
+      "item": "seeking_immortals:low_spirit_iron",
+      "count": 1,
+      "cost": 6,
+      "stock": 32
     }
   ]
 }

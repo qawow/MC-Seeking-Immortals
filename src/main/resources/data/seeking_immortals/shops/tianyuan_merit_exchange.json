@@ -34,6 +34,14 @@
       "cost": 300,
       "stock": 4,
       "refresh_ticks": 48000
+    },
+    {
+      "id": "star_moon_grass",
+      "item": "seeking_immortals:star_moon_grass",
+      "count": 1,
+      "cost": 120,
+      "stock": 6,
+      "refresh_ticks": 48000
     }
   ]
 }

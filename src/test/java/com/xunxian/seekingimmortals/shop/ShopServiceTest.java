@@ -232,7 +232,7 @@ class ShopServiceTest {
 
         ShopService.Shop islandGeneral = ShopService.getShop(ShopService.CHAOTIC_SEA_ISLAND_GENERAL);
         assertEquals(ShopService.CHAOTIC_SEA_ISLAND_GENERAL, islandGeneral.id());
-        assertEquals(10, islandGeneral.entries().size());
+        assertEquals(11, islandGeneral.entries().size());
         for (ShopService.Entry entry : islandGeneral.entries()) {
             assertEquals(ShopService.CURRENCY_ITEM, entry.currency());
             assertEquals("seeking_immortals:metal_spirit_stone", entry.currencyItemId());
@@ -307,7 +307,7 @@ class ShopServiceTest {
 
         ShopService.Shop refinementForge = ShopService.getShop(ShopService.TIANNAN_REFINEMENT_FORGE);
         assertEquals(ShopService.TIANNAN_REFINEMENT_FORGE, refinementForge.id());
-        assertEquals(2, refinementForge.entries().size());
+        assertEquals(3, refinementForge.entries().size());
         for (ShopService.Entry entry : refinementForge.entries()) {
             assertEquals(ShopService.CURRENCY_ITEM, entry.currency());
             assertEquals("seeking_immortals:metal_spirit_stone", entry.currencyItemId());
@@ -406,7 +406,7 @@ class ShopServiceTest {
 
         ShopService.Shop tianyuanMerit = ShopService.getShop(ShopService.TIANYUAN_MERIT_EXCHANGE);
         assertEquals(ShopService.TIANYUAN_MERIT_EXCHANGE, tianyuanMerit.id());
-        assertEquals(4, tianyuanMerit.entries().size());
+        assertEquals(5, tianyuanMerit.entries().size());
         for (ShopService.Entry entry : tianyuanMerit.entries()) {
             assertEquals(ShopService.CURRENCY_ITEM, entry.currency());
             assertEquals("seeking_immortals:alliance_merit_token", entry.currencyItemId());

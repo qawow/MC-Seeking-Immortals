@@ -82,6 +82,14 @@
       "count": 1,
       "cost": 5,
       "stock": 20
+    },
+    {
+      "id": "thunder_essence_lotus",
+      "item": "seeking_immortals:thunder_essence_lotus",
+      "count": 1,
+      "cost": 260,
+      "stock": 2,
+      "refresh_ticks": 48000
     }
   ]
 }

@@ -46,6 +46,27 @@
       "count": 1,
       "cost": 10,
       "stock": 6
+    },
+    {
+      "id": "spirit_silk_bundle",
+      "item": "seeking_immortals:spirit_silk",
+      "count": 2,
+      "cost": 5,
+      "stock": 24
+    },
+    {
+      "id": "fire_feather",
+      "item": "seeking_immortals:fire_feather",
+      "count": 1,
+      "cost": 7,
+      "stock": 12
+    },
+    {
+      "id": "talisman_ink_bottle",
+      "item": "seeking_immortals:talisman_ink_bottle",
+      "count": 1,
+      "cost": 6,
+      "stock": 10
     }
   ]
 }

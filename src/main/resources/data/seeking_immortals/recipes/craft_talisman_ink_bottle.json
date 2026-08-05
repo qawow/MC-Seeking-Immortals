@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "talisman_ink",
+  "ingredients": [
+    {
+      "item": "seeking_immortals:beast_blood_ink"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "result": {
+    "item": "seeking_immortals:talisman_ink_bottle",
+    "count": 4
+  }
+}

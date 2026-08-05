@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "talisman_paper",
+  "ingredients": [
+    {
+      "item": "seeking_immortals:talisman_paper_high"
+    },
+    {
+      "item": "seeking_immortals:talisman_paper_high"
+    },
+    {
+      "item": "seeking_immortals:void_marrow"
+    }
+  ],
+  "result": {
+    "item": "seeking_immortals:talisman_paper_spirit_realm",
+    "count": 1
+  }
+}

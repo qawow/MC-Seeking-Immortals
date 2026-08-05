@@ -39,6 +39,20 @@
       "count": 1,
       "cost": 10,
       "stock": 4
+    },
+    {
+      "id": "soul_moss",
+      "item": "seeking_immortals:soul_moss",
+      "count": 1,
+      "cost": 5,
+      "stock": 8
+    },
+    {
+      "id": "nether_bone_grass",
+      "item": "seeking_immortals:nether_bone_grass",
+      "count": 1,
+      "cost": 7,
+      "stock": 6
     }
   ]
 }

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "talisman_ink",
+  "ingredients": [
+    {
+      "item": "seeking_immortals:beast_blood_vial"
+    },
+    {
+      "item": "seeking_immortals:spirit_stone_shard"
+    }
+  ],
+  "result": {
+    "item": "seeking_immortals:beast_blood_ink",
+    "count": 2
+  }
+}

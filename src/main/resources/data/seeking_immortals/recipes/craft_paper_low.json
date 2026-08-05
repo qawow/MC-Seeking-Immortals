@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "talisman_paper",
+  "ingredients": [
+    {
+      "item": "seeking_immortals:spirit_silk"
+    },
+    {
+      "item": "seeking_immortals:spirit_silk"
+    },
+    {
+      "item": "seeking_immortals:spirit_stone_shard"
+    },
+    {
+      "item": "seeking_immortals:spirit_stone_shard"
+    }
+  ],
+  "result": {
+    "item": "seeking_immortals:talisman_paper",
+    "count": 4
+  }
+}

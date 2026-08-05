@@ -25,6 +25,20 @@
       "count": 1,
       "cost": 8,
       "stock": 4
+    },
+    {
+      "id": "purple_ganoderma",
+      "item": "seeking_immortals:purple_ganoderma",
+      "count": 1,
+      "cost": 7,
+      "stock": 6
+    },
+    {
+      "id": "ginseng_spirit_root",
+      "item": "seeking_immortals:ginseng_spirit",
+      "count": 1,
+      "cost": 9,
+      "stock": 4
     }
   ]
 }

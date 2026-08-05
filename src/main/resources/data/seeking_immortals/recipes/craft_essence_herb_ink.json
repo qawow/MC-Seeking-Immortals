@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "talisman_ink",
+  "ingredients": [
+    {
+      "item": "seeking_immortals:star_moon_grass"
+    },
+    {
+      "item": "seeking_immortals:beast_blood_vial"
+    },
+    {
+      "item": "seeking_immortals:beast_blood_vial"
+    }
+  ],
+  "result": {
+    "item": "seeking_immortals:essence_herb_ink",
+    "count": 1
+  }
+}
