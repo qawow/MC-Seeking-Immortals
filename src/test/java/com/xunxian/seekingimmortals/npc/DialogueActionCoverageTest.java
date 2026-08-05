@@ -39,7 +39,10 @@ class DialogueActionCoverageTest {
             "combat_flag",
             "combat_or_arrest",
             "add_suspicion",
-            "anomaly_log");
+            "anomaly_log",
+            // Y-A-2: paid detour (「付代价绕道」) spends resources, suppresses a layer roster and
+            // settles an encounter proof, so it is a world action and needs typed handling.
+            "sacrifice_bypass");
 
     private static Set<String> authoredEffectTypes() throws Exception {
         Set<String> types = new LinkedHashSet<>();
@@ -92,6 +95,25 @@ class DialogueActionCoverageTest {
         assertTrue(authoredWorld.contains("combat_or_arrest"));
         assertTrue(authoredWorld.contains("add_suspicion"));
         assertTrue(authoredWorld.contains("anomaly_log"));
+        // Y-A-2: the paid-detour action is authored and must resolve to its own handler.
+        assertTrue(authoredWorld.contains("sacrifice_bypass"));
+    }
+
+    @Test
+    void paidDetourIsTypedAndFailsClosedOutsideAuthoredLayers() throws Exception {
+        String executor = Files.readString(JAVA_ROOT.resolve("npc/DialogueActionExecutor.java"));
+        String service = Files.readString(JAVA_ROOT.resolve("npc/DialogueWorldActionService.java"));
+
+        // sacrifice_bypass dispatches to its own handler; it must not reuse an unrelated action.
+        assertTrue(executor.contains("SACRIFICE_BYPASS -> DialogueWorldActionService.sacrificeBypass("),
+                "sacrifice_bypass must have a dedicated handler");
+        assertTrue(service.contains("public static boolean sacrificeBypass("));
+
+        // Blank realm/layer intent is refused rather than defaulted into some layer.
+        assertTrue(service.contains("if (realm.isBlank() || layer.isBlank())"),
+                "paid detour must refuse blank realm/layer intent");
+        assertTrue(service.contains("bypass_unavailable"),
+                "an unbypassable target must report a dedicated failure");
     }
 
     @Test

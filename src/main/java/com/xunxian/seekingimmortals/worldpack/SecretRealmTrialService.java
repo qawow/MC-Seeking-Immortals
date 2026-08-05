@@ -76,6 +76,10 @@ public final class SecretRealmTrialService {
             placeSealedChest(level, coreCenter, player, session, id, Layer.CORE);
             // Wave460: mid patrol before core boss pressure.
             spawnMidPatrol(level, player, session, midCenter, id);
+            // Y-A-2: authored per-layer rosters (fail-closed per unresolvable spawn id).
+            SecretRealmLayerSpawnService.spawnRealmLayers(player, id);
+            // Y-A-2: authored paid-detour broker, so 绕行 is reachable without admin commands.
+            SecretRealmBypassService.ensureTollBroker(player, id);
             // Wave48: one-time guardian encounter per realm for this player.
             spawnCoreEncounter(level, player, session, coreCenter, id);
             SecretRealmCatalogService.find(id).stream()

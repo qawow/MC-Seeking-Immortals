@@ -512,6 +512,27 @@ public final class DialogueWorldActionService {
                 .contains(normalize(authority));
     }
 
+    /**
+     * Y-A-2: authored 「付代价绕道」 (pay_yezha_toll) — spend resources to skip a bypassable
+     * encounter layer instead of fighting it. Fails closed for any layer authors did not mark
+     * bypassable; the atomic cost/refund transaction lives in
+     * {@link com.xunxian.seekingimmortals.worldpack.SecretRealmBypassService}.
+     */
+    public static boolean sacrificeBypass(ServerPlayer player, String realmId, String layerId) {
+        if (player == null) {
+            return false;
+        }
+        String realm = normalize(realmId);
+        String layer = normalize(layerId);
+        if (realm.isBlank() || layer.isBlank()) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.worldpack.bypass_unavailable"), true);
+            return false;
+        }
+        return com.xunxian.seekingimmortals.worldpack.SecretRealmBypassService
+                .bypassLayer(player, realm, layer).success();
+    }
+
     private static void clearSuspicion(ServerPlayer player, String authority) {
         CompoundTag root = player.getPersistentData().getCompound(SUSPICION_TAG).copy();
         root.remove(normalize(authority));

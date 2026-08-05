@@ -1293,6 +1293,76 @@
       ]
     },
     {
+      "id": "tree_yinyang_toll_broker",
+      "archetype": "yinyang_toll_broker",
+      "npc_ids": [
+        "npc_yinyang_ghost_rogue"
+      ],
+      "root": "greet",
+      "nodes": [
+        {
+          "id": "greet",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "夜叉巢？你是送药，还是送菜？",
+            "巢口有旧道。要走，得留东西。"
+          ],
+          "next": [
+            "pay_toll",
+            "walk_in"
+          ],
+          "effects": []
+        },
+        {
+          "id": "pay_toll",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "识相。银翅认血不认脸，这点买命钱够压住巢口的雾。",
+            "记着：绕过去的人，取不到巢里的东西。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "sacrifice_bypass",
+              "realm": "yinyang_ku",
+              "layer": "yy_yezha",
+              "novel_anchor": "阴阳窟·银翅夜叉巢"
+            }
+          ]
+        },
+        {
+          "id": "walk_in",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "硬闯？那我在这儿等着收你的储物袋。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": []
+        },
+        {
+          "id": "end",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "活着出来再谈价。"
+          ],
+          "next": [],
+          "effects": []
+        }
+      ]
+    },
+    {
       "id": "tree_heifeng_captain",
       "archetype": "heifeng_captain",
       "npc_ids": [

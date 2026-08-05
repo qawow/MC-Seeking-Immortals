@@ -49,6 +49,8 @@ public final class DialogueActionExecutor {
     public static final String COMBAT_OR_ARREST = "combat_or_arrest";
     public static final String ADD_SUSPICION = "add_suspicion";
     public static final String ANOMALY_LOG = "anomaly_log";
+    /** Y-A-2: authored 「付代价绕道」 — spend resources to skip a bypassable encounter layer. */
+    public static final String SACRIFICE_BYPASS = "sacrifice_bypass";
 
     private DialogueActionExecutor() {}
 
@@ -160,6 +162,8 @@ public final class DialogueActionExecutor {
                 DialogueWorldActionService.applyHostilityPenalty(player, npcId);
                 yield true;
             }
+            case SACRIFICE_BYPASS -> DialogueWorldActionService.sacrificeBypass(
+                    player, effect.param("realm"), firstNonBlank(effect.param("layer"), effect.param("region")));
             default -> {
                 player.displayClientMessage(Component.translatable(
                         "message.seeking_immortals.dialogue.effect_unsupported", type), false);

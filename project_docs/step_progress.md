@@ -1,3 +1,15 @@
+## 591. 2026-08-05 `0.2.259` Y-A-2 层刷怪消费者、spawn id 纠正与付代价绕行
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   新增 2 服务 + 2 测试；改 4 Java/2 lang/1 对话数据/1 运行时数据；快照 `backups/20260805230735_ya2/`（9 文件）。
+  层刷怪消费者   Done   新增 `SecretRealmLayerSpawnService`，逐条 fail-closed 解析（不可解析条目跳过+warn，绝不替换）；自设 `MAX_LAYER_SPAWNS_PER_REQUEST=4`/`PER_ENTRY=10`（无会话预算可复用）；按 session|realm|layer 闩锁；经 tagTrial 绑定归属。
+  spawn id 纠正   Done   21 处可验证纠正（yinyang 8、tianlan 5、void_palace/qianzhu/guanghan 各 2、kunwu/nether 各 1）；全包可解析 29/178→50/178，阴阳窟 0/11→8/11 四个战斗层均可刷。
+  付代价绕行   Done   新增 `SecretRealmBypassService` + effect type `sacrifice_bypass` + 作者对话树 `tree_yinyang_toll_broker` + 巢口经纪 NPC（不需管理员命令）；仅 `yinyang_ku:yy_yezha` 放行，抓马层不可购买；原子预留→记账→抑制名录+清场，记账被拒双路退款；不发战斗战利；同会话不二次扣费。
+  计划偏差   Noted   「全包机械修正 35 处」不成立：真实悬空 149 条，纯前缀仅 14 可验证，20 层零候选，4 个 realm 整体无目标。余 128 处需作者定夺，不猜。
+  Tests/lang/build   Done   npc.*/worldpack.*/quest.* 通过；新增 9 项断言；lang 新增 8 键中英 5703 对等；生成器按序刷新 `--check` 通过（profile 零变化）；完整 build 成功 1m50s，264 套件/1,284 项全 0；JAR SHA-256 `4e5d14b734cb6847a11a192ffee01ec67ba278cb59629331fe048fe40580bf49`。
+  Version/protocol   Done   `mod_version=0.2.258 -> 0.2.259`；`ModNetwork.PROTOCOL_VERSION=31` 不变。
+
 ## 590. 2026-08-05 `0.2.258` Y-A-1 阴阳窟数据归属与银翅夜叉 BOSS 接线
 
   Step   Status   Notes

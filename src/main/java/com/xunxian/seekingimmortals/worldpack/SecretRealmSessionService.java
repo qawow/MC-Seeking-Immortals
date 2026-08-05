@@ -297,6 +297,11 @@ public final class SecretRealmSessionService {
         return tag == null ? "" : normalizeId(tag.getString(REALM_ID));
     }
 
+    /** Y-A-2: the bound encounter id, so a layer-scoped consumer can filter its own mobs. */
+    public static String boundEncounterId(CompoundTag tag) {
+        return tag == null ? "" : normalizeId(tag.getString(ENCOUNTER_ID));
+    }
+
     private static Component realmDisplay(String realmId) {
         Optional<SecretRealmCatalogService.RealmDef> runtime = SecretRealmCatalogService.find(realmId);
         if (runtime.isPresent()) {
