@@ -166,7 +166,9 @@ public final class ArtifactActiveSkillService {
                 ArtifactVfxOrchestrator.overrideFor(def.id()));
         player.getCooldowns().addCooldown(stack.getItem(), cooldown);
         // 本命成长
-        if (def.id().equals(NatalBindingService.boundId(player))) {
+        // M-B: the cast stack must be the bound instance; a second copy of the same id
+        // must not grow the player's natal artifact.
+        if (NatalBindingService.isBoundInstance(player, stack)) {
             NatalBindingService.grow(player);
         }
         return CastResult.SUCCESS;

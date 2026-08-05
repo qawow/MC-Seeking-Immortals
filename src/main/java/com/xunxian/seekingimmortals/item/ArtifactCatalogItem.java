@@ -73,9 +73,25 @@ public class ArtifactCatalogItem extends Item {
             }
             return InteractionResultHolder.consume(stack);
         }
-        // M15: sneak-use 认主（UUID 绑定 + 本命）。
+        // M15: sneak-use 认主（UUID 绑定）。M-B: 本命绑定改为双手仪式，不再随认主发生。
         if (player.isShiftKeyDown()) {
             if (!level.isClientSide && player instanceof ServerPlayer serverPlayer) {
+                // M-B: embryo in one hand + already-claimed artifact in the other binds the natal
+                // instance. Checked before claim so the ritual is never mistaken for a claim.
+                InteractionHand otherHand = hand == InteractionHand.MAIN_HAND
+                        ? InteractionHand.OFF_HAND : InteractionHand.MAIN_HAND;
+                ItemStack otherStack = player.getItemInHand(otherHand);
+                if (NatalBindingService.EMBRYO_ITEM_ID.equals(artifactId)) {
+                    return NatalBindingService.bindWithEmbryo(serverPlayer, stack, otherStack)
+                            ? InteractionResultHolder.success(stack)
+                            : InteractionResultHolder.fail(stack);
+                }
+                if (otherStack.getItem() instanceof ArtifactCatalogItem otherArtifact
+                        && NatalBindingService.EMBRYO_ITEM_ID.equals(otherArtifact.artifactId())) {
+                    return NatalBindingService.bindWithEmbryo(serverPlayer, otherStack, stack)
+                            ? InteractionResultHolder.success(stack)
+                            : InteractionResultHolder.fail(stack);
+                }
                 boolean claimed = com.xunxian.seekingimmortals.artifact.ArtifactOwnershipService
                         .claim(serverPlayer, stack, artifactId);
                 // 器灵觉醒：已认主且再次潜行+主手空冷却时尝试（同路径，claim 幂等后走 awaken）。
@@ -163,7 +179,9 @@ public class ArtifactCatalogItem extends Item {
                 ArtifactActivationService.appendActivationTooltip(stack, artifact, tooltip);
             }
             com.xunxian.seekingimmortals.artifact.ArtifactOwnershipService.appendOwnershipTooltip(stack, tooltip);
-            if (stack.hasTag() && stack.getTag().getBoolean(NatalBindingService.STACK_BOUND)) {
+            // M-B: the bound marker is the instance tag, so an unbound copy of the same
+            // artifact id no longer advertises itself as 本命.
+            if (stack.hasTag() && !stack.getTag().getString(NatalBindingService.STACK_INSTANCE).isBlank()) {
                 int growth = NatalBindingService.growthFromStack(stack);
                 tooltip.add(Component.translatable("tooltip.seeking_immortals.natal.bound_mark")
                         .withStyle(ChatFormatting.GOLD));
@@ -172,7 +190,7 @@ public class ArtifactCatalogItem extends Item {
                             .withStyle(ChatFormatting.YELLOW));
                 }
             } else {
-                tooltip.add(Component.translatable("tooltip.seeking_immortals.natal.bind_hint")
+                tooltip.add(Component.translatable("tooltip.seeking_immortals.natal.bind_hint_embryo")
                         .withStyle(ChatFormatting.DARK_GRAY));
             }
             com.xunxian.seekingimmortals.artifact.ArtifactActiveSkillService.resolve(artifactId).ifPresent(skill ->

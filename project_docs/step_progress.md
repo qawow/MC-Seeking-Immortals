@@ -1,3 +1,19 @@
+## 595. 2026-08-06 `0.2.263` M-B 本命飞剑实例绑定与迁移
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   新增 1 测试；改 9 文件（7 Java/2 lang）；快照 `backups/20260806030625_mb/`（12 文件）。
+  核心缺陷   Done   本命收益此前全部按 `artifact.id().equals(boundId(player))` 判定——**同 id 的第二件完全继承**冷却减免、灵力减免、完整度减免与成长，从未绑定也照拿。现改为实例绑定：`NatalBindingService` schema 1→2，玩家侧根记录 `ArtifactId + InstanceUuid + SchemaVersion + Growth`，目标物品写同一 `STACK_INSTANCE`。
+  认主不再自动绑定   Done   `ArtifactOwnershipService.claim` 删除 `NatalBindingService.bind` 调用。此前玩家认主的**第一件**法宝就静默成为其唯一本命，与「结丹后择一飞剑为本命」的作者设定冲突。
+  收益点收口   Done   5 处：`ArtifactActivationService` 成长 + 三个折扣助手（`effectiveIntegrityCost`/`effectiveSpiritualCost`/`effectiveCooldown` 均新增 `stack` 形参，5 个调用点同步）、`ArtifactActiveSkillService` 成长、`ArtifactRefinementService` 成长。祭炼那处最严重：铸出**全新一件**即可让包里的本命成长，现要求 `holdsBoundInstanceOf` 真的带着该实例。
+  实例解析 fail-closed   Done   `isBoundInstance` 四重校验：实例 id 非空且相等、artifact id 与 boundId 一致、且 `ownerUuid` 必须解析为本人——故复制 NBT 的载体在他人手里无效。
+  双手绑定仪式   Done   新增 `bindWithEmbryo(player, embryo, target)`：`natal_sword_embryo` + 已认主法宝 + 结丹门槛，潜行右键任一手触发（`ArtifactCatalogItem.use` 在 claim 之前分派，两个方向都识别）。胚只在所有拒绝路径 return 之后 `shrink(1)`，失败不吞组件；创造模式不消耗。
+  旧档迁移   Done   `isLegacyBinding`（有 id 无实例或 schema<2）+ `migrateLegacyBinding`：身上**唯一**匹配且已认主的同 id 法宝才收养，多件返回 `AMBIGUOUS` 要求用胚重新择定（不替玩家猜哪把剑），成长值原样保留。新增 permission 2 的 `/seeking_immortals artifact natal diagnose` 报告状态并在可行时迁移。
+  tooltip/激活类型   Done   绑定标记改读 `STACK_INSTANCE`，未绑定的同 id 副本不再显示「本命法宝」；提示改 `bind_hint_embryo` 描述真实双手仪式。`natal_slot` 保持 deferred 激活类型，`hasActivation("natal_sword_embryo")` 断言为 false。
+  Tests/lang/build   Done   新增 `NatalInstanceBindingTest`（8 项，已核对 XML 确认真实执行非零匹配）；`artifact.*`、`item.*`、`command.*`、`persistence.*`、`catalog.*`、`resources.*` 全部通过。lang 新增 16 键中英各 5732 完全对等。生成器按 `spell -> visual` 顺序刷新并 `--check` 通过，diff 仅两个聚合哈希，`file_count` 保持 626，profile 数 2292/5733 零变化。完整 build 成功 1m21s，**268 套件 / 1,312 项全 0**；JAR SHA-256 `48e16e1d299c4ff2011f543b30ae8b8b4511060695c6d8dd4cd2743b70f9d2fd`。
+  Version/protocol   Done   `mod_version=0.2.262 -> 0.2.263`；`ModNetwork.PROTOCOL_VERSION=31` 不变（NBT 兼容迁移不升协议，与计划一致）。
+  Remaining   Noted   `boundId`/`growth` 仍是玩家侧单值，旧档在**迁移前**仍按 id 走成长（`grow` 未要求实例，命令 `natal grow` 亦然），只是收益（折扣）已要求实例——即旧档会出现「能成长但不减免」的过渡态，需 diagnose 一次；`AMBIGUOUS` 分支要求玩家再消耗一枚胚，等于旧档多件同名法宝者要付额外成本；实例 UUID 只防同 id 混淆，未防**同一实例**被交易转手后原主的 `boundId` 残留（物品到他人手里 `ownerUuid` 不匹配故收益失效，但玩家侧记录未清理，也无解绑路径）；`bindWithEmbryo` 未限制 target 必须是 `flying_sword` 类型，任何已认主法宝均可择为本命，与「本命**飞剑**胚」的命名不完全吻合。下一实施入口 M-C（旧命名 NPC 迁移）。
+
 ## 594. 2026-08-06 `0.2.262` M-A 维度状态分类
 
   Step   Status   Notes

@@ -146,7 +146,7 @@ public final class ArtifactActivationService {
         boolean repairActivation = ActivationKind.REPAIR.id.equals(info.kind());
         if (!repairActivation && info.integrityCost() > 0 && !player.getAbilities().instabuild) {
             int integrity = getIntegrity(stack, artifact);
-            int effectiveCost = effectiveIntegrityCost(player, artifact, info);
+            int effectiveCost = effectiveIntegrityCost(player, stack, artifact, info);
             if (!hasUsableIntegrity(integrity, info.integrityCost(), false)) {
                 player.displayClientMessage(Component.translatable(
                         "message.seeking_immortals.artifact.integrity_broken", stack.getHoverName()), true);
@@ -169,7 +169,7 @@ public final class ArtifactActivationService {
                     player, cultivation, stack, artifact, powerScale);
             if (castResult == ArtifactActiveSkillService.CastResult.SUCCESS) {
                 if (info.integrityCost() > 0 && !player.getAbilities().instabuild) {
-                    int effectiveCost = effectiveIntegrityCost(player, artifact, info);
+                    int effectiveCost = effectiveIntegrityCost(player, stack, artifact, info);
                     consumeIntegrityWithVfx(player, stack, artifact, effectiveCost);
                 }
                 consumeTalismanUse(player, stack, info);
@@ -204,7 +204,7 @@ public final class ArtifactActivationService {
             }
         }
         int spCost = ArtifactPowerService.scaledSpiritualCost(
-                effectiveSpiritualCost(player, artifact, info), powerScale);
+                effectiveSpiritualCost(player, stack, artifact, info), powerScale);
         if (!cultivation.consumeSpiritualPower(spCost)) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.not_enough_qi"), true);
             return false;
@@ -219,16 +219,17 @@ public final class ArtifactActivationService {
             applyActivation(player, cultivation, artifact, info, powerScale);
             emitGenericActivationVfx(player, artifact, info, activationStart);
             // Wave456: natal-bound artifact gains growth on successful activation.
-            if (artifact.id().equals(NatalBindingService.boundId(player))) {
+            // M-B: only the bound instance grows; a second copy of the same id must not.
+            if (NatalBindingService.isBoundInstance(player, stack)) {
                 NatalBindingService.grow(player);
             }
             if (info.integrityCost() > 0 && !player.getAbilities().instabuild) {
-                int effectiveCost = effectiveIntegrityCost(player, artifact, info);
+                int effectiveCost = effectiveIntegrityCost(player, stack, artifact, info);
                 consumeIntegrityWithVfx(player, stack, artifact, effectiveCost); // last light
             }
         }
         int cooldown = ArtifactPowerService.scaledCooldown(
-                effectiveCooldown(player, artifact, info), powerScale);
+                effectiveCooldown(player, stack, artifact, info), powerScale);
         player.getCooldowns().addCooldown(activatedItem, cooldown);
         consumeTalismanUse(player, stack, info);
         playActivationFeedback(player);
@@ -245,13 +246,15 @@ public final class ArtifactActivationService {
         return true;
     }
 
-    private static int effectiveIntegrityCost(ServerPlayer player, ArtifactDataService.ArtifactDefinition artifact,
+    /** M-B: the discount belongs to the bound instance, so the stack decides, not the id. */
+    private static int effectiveIntegrityCost(ServerPlayer player, ItemStack stack,
+                                              ArtifactDataService.ArtifactDefinition artifact,
                                               ActivationInfo info) {
         int cost = info.integrityCost();
         if (cost <= 0) {
             return 0;
         }
-        if (artifact.id().equals(NatalBindingService.boundId(player))) {
+        if (NatalBindingService.isBoundInstance(player, stack)) {
             int growth = NatalBindingService.growth(player);
             cost = Math.max(0, cost - growth / 25);
         }
@@ -271,20 +274,22 @@ public final class ArtifactActivationService {
         return instabuild || integrityCost <= 0 || integrity > 0;
     }
 
-    private static int effectiveSpiritualCost(ServerPlayer player, ArtifactDataService.ArtifactDefinition artifact,
+    private static int effectiveSpiritualCost(ServerPlayer player, ItemStack stack,
+                                              ArtifactDataService.ArtifactDefinition artifact,
                                               ActivationInfo info) {
         int cost = info.spiritualPowerCost();
-        if (artifact.id().equals(NatalBindingService.boundId(player))) {
+        if (NatalBindingService.isBoundInstance(player, stack)) {
             int growth = NatalBindingService.growth(player);
             cost = Math.max(1, cost - growth / 50);
         }
         return cost;
     }
 
-    private static int effectiveCooldown(ServerPlayer player, ArtifactDataService.ArtifactDefinition artifact,
+    private static int effectiveCooldown(ServerPlayer player, ItemStack stack,
+                                         ArtifactDataService.ArtifactDefinition artifact,
                                          ActivationInfo info) {
         int cooldown = info.cooldownTicks();
-        if (artifact.id().equals(NatalBindingService.boundId(player))) {
+        if (NatalBindingService.isBoundInstance(player, stack)) {
             int growth = NatalBindingService.growth(player);
             // Percent cut saturates softer than flat -60 ticks.
             double factor = 1.0D - Math.min(0.35D, growth / 200.0D);

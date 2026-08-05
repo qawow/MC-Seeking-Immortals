@@ -66,10 +66,9 @@ public final class ArtifactOwnershipService {
         if (!tag.contains(REFINEMENT_LAYER_TAG, Tag.TAG_INT)) {
             tag.putInt(REFINEMENT_LAYER_TAG, 0);
         }
-        // 本命认主（最多一件）：与 NatalBindingService 协同，不覆盖已有本命除非创造模式。
-        if (NatalBindingService.boundId(player).isBlank() || player.getAbilities().instabuild) {
-            NatalBindingService.bind(player, stack);
-        }
+        // M-B: claiming records ownership only. Binding a natal artifact is a deliberate
+        // two-hand ritual (embryo + claimed artifact + 结丹), never a side effect of claiming —
+        // otherwise the first artifact a player ever claimed silently became their only 本命.
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.artifact.claim.success",
                 displayName(stack, def, artifactId)), true);

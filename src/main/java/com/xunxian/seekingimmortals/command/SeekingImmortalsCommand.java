@@ -107,7 +107,9 @@ public final class SeekingImmortalsCommand {
                                 .then(Commands.literal("bind").requires(source -> source.hasPermission(2))
                                         .executes(ctx -> natalBind(ctx.getSource())))
                                 .then(Commands.literal("grow").requires(source -> source.hasPermission(2))
-                                        .executes(ctx -> natalGrow(ctx.getSource())))))
+                                        .executes(ctx -> natalGrow(ctx.getSource())))
+                                .then(Commands.literal("diagnose").requires(source -> source.hasPermission(2))
+                                        .executes(ctx -> natalDiagnose(ctx.getSource())))))
                 .then(Commands.literal("quest")
                         .executes(ctx -> questShow(ctx.getSource()))
                         .then(Commands.literal("start").executes(ctx -> questStart(ctx.getSource())))
@@ -813,7 +815,35 @@ public final class SeekingImmortalsCommand {
 
     private static int natalBind(CommandSourceStack source) throws CommandSyntaxException {
         ServerPlayer player = source.getPlayerOrException();
-        return com.xunxian.seekingimmortals.artifact.NatalBindingService.bind(player, player.getMainHandItem()) ? 1 : 0;
+        // M-B: the operator command uses the same two-hand ritual as gameplay (embryo + target),
+        // so there is no privileged path that binds without the authored component.
+        return com.xunxian.seekingimmortals.artifact.NatalBindingService.bindWithEmbryo(
+                player, player.getOffhandItem(), player.getMainHandItem()) ? 1 : 0;
+    }
+
+    /**
+     * M-B: read-only rescue diagnostic for a save whose natal binding predates instance ids.
+     * Reports the recorded state and, when exactly one carried artifact matches, adopts it.
+     */
+    private static int natalDiagnose(CommandSourceStack source) throws CommandSyntaxException {
+        ServerPlayer player = source.getPlayerOrException();
+        String id = com.xunxian.seekingimmortals.artifact.NatalBindingService.boundId(player);
+        String instance = com.xunxian.seekingimmortals.artifact.NatalBindingService.boundInstance(player);
+        boolean legacy = com.xunxian.seekingimmortals.artifact.NatalBindingService.isLegacyBinding(player);
+        source.sendSuccess(() -> Component.translatable(
+                "command.seeking_immortals.natal.diagnose",
+                id.isBlank() ? Component.literal("-") : artifactDisplay(id),
+                instance.isBlank() ? Component.literal("-") : Component.literal(instance),
+                Component.literal(legacy ? "legacy" : "current")), false);
+        if (!legacy) {
+            return 1;
+        }
+        var result = com.xunxian.seekingimmortals.artifact.NatalBindingService.migrateLegacyBinding(player);
+        source.sendSuccess(() -> Component.translatable(
+                "command.seeking_immortals.natal.migrate." + result.name().toLowerCase(java.util.Locale.ROOT)),
+                false);
+        return result == com.xunxian.seekingimmortals.artifact.NatalBindingService
+                .MigrationResult.MIGRATED ? 1 : 0;
     }
 
     private static int natalGrow(CommandSourceStack source) throws CommandSyntaxException {

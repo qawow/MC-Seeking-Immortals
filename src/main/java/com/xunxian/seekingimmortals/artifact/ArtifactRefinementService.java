@@ -221,8 +221,10 @@ public final class ArtifactRefinementService {
             player.containerMenu.broadcastChanges();
             playFeedback(player, true, recipe);
             // Wave459: refining bound natal artifact grows it.
+            // M-B: forging a brand-new copy must not grow the bound instance sitting in the bag —
+            // the player has to actually carry that instance for the growth to be theirs.
             if (recipe.artifactId() != null
-                    && recipe.artifactId().equals(NatalBindingService.boundId(player))) {
+                    && NatalBindingService.holdsBoundInstanceOf(player, recipe.artifactId())) {
                 NatalBindingService.grow(player);
             }
             com.xunxian.seekingimmortals.skill.LifeSkillService.grantPractice(player,
