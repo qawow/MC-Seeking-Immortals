@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "seeking_immortals:item/spirit_vein_tap"
-  }
+  "parent": "seeking_immortals:block/spirit_vein_tap"
 }

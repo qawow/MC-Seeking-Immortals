@@ -78,6 +78,67 @@ class StructureResourceContractTest {
         assertTrue(MultiblockStationService.singleCoreBlockId("unknown_single_core").isEmpty());
     }
 
+    /**
+     * A {@code single_core} station whose id has no entry in {@code SINGLE_CORE_BLOCK_IDS} returns
+     * {@code missing_core_mapping} forever, so {@code isStationFormed} can never be true and no
+     * {@code STRUCTURE_FORMED} proof can ever land. Two of these sit on the opening of the main
+     * story: {@code mortal_qixuan_entry} step 5 and {@code huangfeng_blood_quota} step 1.
+     */
+    @Test
+    void everySingleCoreStationResolvesToARegisteredBlock() throws Exception {
+        JsonObject root = read(DATA.resolve("text_material/multiblock_station_patterns.json"));
+        Set<String> singleCore = new HashSet<>();
+        for (JsonElement element : root.getAsJsonArray("stations")) {
+            JsonObject station = element.getAsJsonObject();
+            if ("single_core".equals(station.getAsJsonObject("pattern").get("validator").getAsString())) {
+                singleCore.add(station.get("id").getAsString());
+            }
+        }
+        // Pins the input so a future data edit cannot shrink this contract into vacuous success.
+        assertEquals(13, singleCore.size(), "authored single_core stations: " + singleCore);
+
+        // structure_blueprint_table stays a held tool (BaseMaterialItem -> StructureToolService),
+        // not a placeable block: giving it a BlockItem would silently kill the projection guide.
+        Set<String> exceptions = Set.of("structure_blueprint_table");
+        assertEquals(1, exceptions.size(), "every excepted station must be justified in this test");
+
+        String blockSource = stripComments(Files.readString(Path.of(
+                "src/main/java/com/xunxian/seekingimmortals/registry/ModBlocks.java")));
+        Set<String> registered = new HashSet<>();
+        java.util.regex.Matcher matcher = java.util.regex.Pattern
+                .compile("BLOCKS\\.register\\(\"([a-z0-9_]+)\"").matcher(blockSource);
+        while (matcher.find()) {
+            registered.add(matcher.group(1));
+        }
+        assertTrue(registered.contains("low_spirit_iron_ore"), "block id harvest must work");
+
+        for (String stationId : singleCore) {
+            if (exceptions.contains(stationId)) {
+                continue;
+            }
+            java.util.Optional<net.minecraft.resources.ResourceLocation> mapped =
+                    MultiblockStationService.singleCoreBlockId(stationId);
+            assertTrue(mapped.isPresent(),
+                    "single_core station has no core block mapping, so it can never form: " + stationId);
+            assertEquals("seeking_immortals", mapped.get().getNamespace(), stationId);
+            assertTrue(registered.contains(mapped.get().getPath()),
+                    "mapped core block is not registered in ModBlocks: "
+                            + stationId + " -> " + mapped.get());
+        }
+
+        // Reverse direction: a mapping for a station that does not exist is a typo.
+        for (String mappedStation : MultiblockStationService.singleCoreStationIds()) {
+            assertTrue(singleCore.contains(mappedStation),
+                    "mapped id is not an authored single_core station: " + mappedStation);
+        }
+
+        // The sentinel must stay: deleting it would hide the symptom instead of fixing the cause.
+        String stationSource = stripComments(Files.readString(Path.of(
+                "src/main/java/com/xunxian/seekingimmortals/structure/MultiblockStationService.java")));
+        assertTrue(stationSource.contains("missing_core_mapping:"),
+                "the fail-closed sentinel for an unmapped core must remain");
+    }
+
     @Test
     void naturalStructuresHaveSetsBiomeTagsAndDedicatedLoot() throws Exception {
         assertNaturalStructure(
@@ -261,5 +322,10 @@ class StructureResourceContractTest {
 
     private static JsonObject read(Path path) throws Exception {
         return JsonParser.parseString(Files.readString(path)).getAsJsonObject();
+    }
+
+    /** Strips block and line comments so a doc reference cannot satisfy a code assertion. */
+    private static String stripComments(String source) {
+        return source.replaceAll("(?s)/\\*.*?\\*/", "").replaceAll("//[^\n]*", "");
     }
 }

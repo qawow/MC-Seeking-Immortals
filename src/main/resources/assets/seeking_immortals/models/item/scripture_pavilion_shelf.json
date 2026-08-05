@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "seeking_immortals:item/scripture_pavilion_shelf"
-  }
+  "parent": "seeking_immortals:block/scripture_pavilion_shelf"
 }

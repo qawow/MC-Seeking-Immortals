@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "seeking_immortals:item/kunwu_copper_ore"
-  }
+  "parent": "seeking_immortals:block/kunwu_copper_ore"
 }

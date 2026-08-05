@@ -103,6 +103,18 @@ public final class ModCreativeTabs {
                 output.accept(ModItems.ALCHEMY_FURNACE_TIER_5.get());
                 output.accept(ModItems.ALCHEMY_FURNACE_ARRAY_NODE.get());
                 output.accept(ModItems.SECT_EARTH_FIRE_ROOM.get());
+                // 0.2.267: single_core station cores. These left the bulk carrier loop below when
+                // they became blocks, so they need explicit entries to stay reachable.
+                output.accept(ModItems.KUNWU_COPPER_ORE.get());
+                output.accept(ModItems.CONTRIBUTION_STELE.get());
+                output.accept(ModItems.OWNERSHIP_STELE.get());
+                output.accept(ModItems.SPIRIT_VEIN_TAP.get());
+                output.accept(ModItems.ICE_CRYSTAL_COOLER.get());
+                output.accept(ModItems.SCRIPTURE_PAVILION_SHELF.get());
+                output.accept(ModItems.PILL_CABINET.get());
+                output.accept(ModItems.WEAPON_RACK_ARTIFACT.get());
+                output.accept(ModItems.MARKET_STALL_COUNTER.get());
+                output.accept(ModItems.INNER_SECT_TASK_BOARD.get());
                 output.accept(ModItems.ALCHEMY_LID_LOW.get());
                 output.accept(ModItems.ALCHEMY_LID_MID.get());
                 output.accept(ModItems.ALCHEMY_LID_HIGH.get());

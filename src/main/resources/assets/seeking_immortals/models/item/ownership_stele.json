@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "seeking_immortals:item/ownership_stele"
-  }
+  "parent": "seeking_immortals:block/ownership_stele"
 }

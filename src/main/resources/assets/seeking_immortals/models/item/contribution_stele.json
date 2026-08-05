@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "seeking_immortals:item/contribution_stele"
-  }
+  "parent": "seeking_immortals:block/contribution_stele"
 }

@@ -181,6 +181,51 @@ public final class ModBlocks {
     public static final RegistryObject<Block> ALCHEMY_FURNACE_ARRAY_NODE = BLOCKS.register("alchemy_furnace_array_node", () -> new Block(
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).strength(1.5F, 3.0F).requiresCorrectToolForDrops().sound(SoundType.AMETHYST).noOcclusion()));
 
+    // 0.2.267: core blocks for the authored single_core stations. Without a block these stations
+    // returned missing_core_mapping forever, so isStationFormed could never be true and the
+    // STRUCTURE_FORMED proofs on mortal_qixuan_entry#5 / huangfeng_blood_quota#1 were unreachable.
+    /** 昆吾铜矿: ore-tier core. No worldgen feature yet, so it is a placed block rather than a mined one. */
+    public static final RegistryObject<Block> KUNWU_COPPER_ORE = BLOCKS.register("kunwu_copper_ore",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE)
+                    .strength(3.0F, 3.0F).requiresCorrectToolForDrops().sound(SoundType.STONE),
+                    UniformInt.of(1, 3)));
+    /** 贡献碑: on the main-story critical path, so it carries stone-tier blast resistance. */
+    public static final RegistryObject<Block> CONTRIBUTION_STELE = BLOCKS.register("contribution_stele",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(3.0F, 6.0F)
+                    .requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    /** 认主石碑: binds cave-dwelling structure ownership. */
+    public static final RegistryObject<Block> OWNERSHIP_STELE = BLOCKS.register("ownership_stele",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(3.0F, 6.0F)
+                    .requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    /** 灵脉引流管: spirit-tech plumbing, lit like the other leyline hardware. */
+    public static final RegistryObject<Block> SPIRIT_VEIN_TAP = BLOCKS.register("spirit_vein_tap",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).strength(2.5F, 4.0F)
+                    .requiresCorrectToolForDrops().sound(SoundType.AMETHYST).lightLevel(state -> 5)));
+    /** 冰鉴: rapid cooling for alchemy, so glass-like rather than stone. */
+    public static final RegistryObject<Block> ICE_CRYSTAL_COOLER = BLOCKS.register("ice_crystal_cooler",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(2.0F, 3.0F)
+                    .requiresCorrectToolForDrops().sound(SoundType.GLASS)));
+    /** 藏经阁书架: wooden furniture, axe-breakable like the talisman table. */
+    public static final RegistryObject<Block> SCRIPTURE_PAVILION_SHELF = BLOCKS.register("scripture_pavilion_shelf",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(2.0F, 3.0F)
+                    .sound(SoundType.WOOD)));
+    /** 丹柜. */
+    public static final RegistryObject<Block> PILL_CABINET = BLOCKS.register("pill_cabinet",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(2.0F, 3.0F)
+                    .sound(SoundType.WOOD)));
+    /** 法宝架. */
+    public static final RegistryObject<Block> WEAPON_RACK_ARTIFACT = BLOCKS.register("weapon_rack_artifact",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.5F, 4.0F)
+                    .sound(SoundType.WOOD)));
+    /** 坊市摊柜. */
+    public static final RegistryObject<Block> MARKET_STALL_COUNTER = BLOCKS.register("market_stall_counter",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(2.0F, 3.0F)
+                    .sound(SoundType.WOOD)));
+    /** 内门任务牌: huangfeng_blood_quota step 1 proves against this. */
+    public static final RegistryObject<Block> INNER_SECT_TASK_BOARD = BLOCKS.register("inner_sect_task_board",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(2.0F, 3.0F)
+                    .sound(SoundType.WOOD)));
+
     /** Wave500: lids are placeable multiblock parts above the furnace controller. */
     public static final RegistryObject<Block> ALCHEMY_LID_LOW = registerAlchemyLid("alchemy_lid_low", 1);
     public static final RegistryObject<Block> ALCHEMY_LID_MID = registerAlchemyLid("alchemy_lid_mid", 2);

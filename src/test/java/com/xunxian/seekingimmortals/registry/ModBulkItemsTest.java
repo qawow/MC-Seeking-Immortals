@@ -35,6 +35,12 @@ class ModBulkItemsTest {
             "little_green_bottle",
             "mystic_green_liquid"
     );
+    /** 0.2.267: ids ModItems now owns as BlockItems for the authored single_core stations. */
+    private static final Set<String> BLOCK_OWNED_IDS = Set.of(
+            "kunwu_copper_ore", "contribution_stele", "ownership_stele", "spirit_vein_tap",
+            "ice_crystal_cooler", "scripture_pavilion_shelf", "pill_cabinet",
+            "weapon_rack_artifact", "market_stall_counter", "inner_sect_task_board");
+
     private static final Set<String> DEDICATED_REGISTRATIONS = Set.of(
             "void_crystal", "dragon_blood_grass", "blood_qi_pill", "body_tempering_pill",
             "forget_dust_pill", "ice_fire_pill", "marrow_repair_pill", "poison_dragon_pearl",
@@ -70,7 +76,12 @@ class ModBulkItemsTest {
         assertTrue(ids.contains("dingshen_fu"));
         assertTrue(ids.contains("blood_escape_fu"));
         assertTrue(ids.contains("palm_heaven_bottle_stand"));
-        assertTrue(ids.contains("market_stall_counter"));
+        // 0.2.267: market_stall_counter became a block; structure_blueprint_table stays a
+        // bulk-registered held tool (BaseMaterialItem -> StructureToolService).
+        assertTrue(ids.contains("structure_blueprint_table"));
+        for (String id : BLOCK_OWNED_IDS) {
+            assertFalse(ids.contains(id), "block-owned id must not be bulk-registered: " + id);
+        }
         assertTrue(hasDingshenGrade);
         assertFalse(ids.contains("jiangying_pill"), "duplicate Jiangchen alias must not be registered");
         for (String id : DEDICATED_REGISTRATIONS) {

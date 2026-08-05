@@ -10011,3 +10011,21 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Version/protocol   Done   `mod_version=0.2.265 -> 0.2.266`；未改动网络包字段、顺序、类型、注册或频道行为，`ModNetwork.PROTOCOL_VERSION=31` 保持不变。
   Final build   Done   `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功（1m 30s），`:aiPreflight` 记录 `mod_version=0.2.266`；270 套件 / 1,323 项，failure/error/skipped 均为 0；JAR SHA-256 `46be731b1f73c235a3502e1b9068b19e887f229a066854ae22ebe8948398a638`。
   Next implementation   Pending   D-A/Y/M 全部代码批已完成。签字清单已写入 `project_docs/qa_signoff_checklist_0.2.266.md`（docs-only，未升版本），文件名刻意避开被 `live_smoke sign` 覆盖的两个名字。下一步为 QA-01（单客户端）与 QA-02（专服+双客户端）实机签字，报告须由实际执行者填写；我无法运行客户端或专服，清单内任何一格都未代填。
+
+## 592. 2026-08-06 `0.2.267` single_core 站点核心方块（主线开局解堵）
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   物品/主线/多方块三方向排查后的第一批；回滚位于 `backups/20260806063157_singlecore/`（26 个文件，含 10 张被删物品贴图的 HEAD 副本）。用户既有 `CLAUDE.md` 与 `project_docs/frontend_interaction_audit_0.2.198.md` 未纳入本批。
+  Root cause   Done   `MultiblockStationService:29-31` 的 `SINGLE_CORE_BLOCK_IDS` 只有 2 条，而 `multiblock_station_patterns.json` 里有 **13** 个站点用 `pattern.validator == "single_core"`。其余 11 个走 `:305-309` 返回 `missing_core_mapping`，`isStationFormed` 永远为 false。
+  Main story impact   Done   `DetailedQuestProofService:1103` 的结构证明要求 `isStationFormed` **且** `isCommissioned`。`mortal_qixuan_entry#5` 需 `contribution_stele`、`huangfeng_blood_quota#1` 需 `inner_sect_task_board` —— 第 0-1 章，正常生存流程走不过去。8 条 `STRUCTURE_FORMED` 路由中只有这 2 条是硬堵，另 6 条的验证器（`teleport_gate`/`cultivation_chamber`/`small_control_2x2`/`rift_world_seed`/`secret_realm_gate`）均已实现。
+  Blocks   Done   `ModBlocks` 新增 10 个方块：`kunwu_copper_ore` 用 `DropExperienceBlock`（同其余矿石），两块石碑给 6.0F 爆炸抗性（主线关键路径，不该被爬行者删掉证明），5 件宗门木器不加 `requiresCorrectToolForDrops`（同 `TALISMAN_TABLE`），`spirit_vein_tap` 给 lightLevel 5。全部为 `cube_all`，故均不加 `noOcclusion()`。
+  id conflict   Done   这 10 个 id 原为 bulk 目录载体（有物品无方块）。按选定策略注册同名 BlockItem 并从 `catalog_bulk_items.json` 摘除该 id（1202→1192，删 60 行，1 空格缩进未回流）。`ModBulkItems` 新增 `BLOCK_OWNED_IDS` 兜底，防止将来目录再生引入重复 id 崩注册。
+  Exception   Done   `structure_blueprint_table` 故意**不**接方块：它经 `BaseMaterialItem:60` → `StructureToolService:35` 作手持工具用（0.2.232 投影建造引导）。给它 BlockItem 会把右键从「开投影引导」变成「放方块」，且不报错、不失败测试 —— 静默杀死功能。测试里把这一例外具名钉住。
+  lang   Done   新增 10 个 `block.seeking_immortals.*` 键，**保留** `item.` 键 —— 有 14 处 Java 在运行时拼 `"item.seeking_immortals." + id`（`ManualCatalogService`、`ArtifactOwnershipService` 等），删掉会让目录 UI 显示裸键。中英各 5734→5744 完全对等，无单侧键。
+  Resources   Done   每方块 4 个文件：blockstate、block 模型（`cube_all`）、item 模型（重指向 block 模型）、自掉落 loot table。删除 10 张 `textures/item/*.png` 使其退出物品贴图生成器的发现范围。
+  Generators   Done   先改 `generate_block_textures.py` 的推断表（否则 9 个会画成灰砖）：新增 `SINGLE_CORE_ORES`/`SINGLE_CORE_WORKSTATIONS`，木器→wood、`ice_crystal_cooler`/`spirit_vein_tap`→jade、`kunwu_copper_ore`→bronze。按 `spell -> visual` 顺序刷新后 `--check` 全过；方块贴图 104→114，**既有贴图 0 处改写**，render_mismatch 与 uniqueness_adjustments 均为 0；物品贴图生成器同样 0 不一致。`file_count` 627 不变。
+  Tests   Done   新增 `everySingleCoreStationResolvesToARegisteredBlock`（钉住 13 个 single_core 站点、具名 1 个例外、从注释剥离后的 `ModBlocks` 源码正则收割真实 `register(` 调用、反查映射不得指向不存在的站点、`missing_core_mapping` 哨兵不得被删）。先失败后修复：修前报 `market_stall_counter` 无核心块映射。同步修复 3 处失效断言：`ModBulkItemsTest:73`、`CatalogItemDescriptionServiceTest:44`（1202→1192）、`ItemCatalogServiceTest:20`。
+  Version/protocol   Done   `mod_version=0.2.266 -> 0.2.267`；纯注册与资源新增，无 BlockEntity 与自定义状态，`ModNetwork.PROTOCOL_VERSION=31` 保持不变。
+  Final build   Done   `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功（1m 24s），`:aiPreflight` 记录 `0.2.267`；270 套件 / 1,324 项，failure/error/skipped 均为 0；JAR SHA-256 `fa46aa86b0231cece196bcf13ec0199fe80c5ce5d7801c2ac62fc4641c73bc24`。
+  Next implementation   Pending   符箓系统假覆盖（`TalismanCraftService` 硬编码 24 配方仅出 5 种成品，`talisman_recipes.json` 从未被读，`recipeBlueprintCount()` 直接 return 24 把缺口盖住）；约 646 个无获取途径物品的分类处理；主线 14 步 fail-closed 的内容层；多方块建造引导与凡人修仙传风格 UI。

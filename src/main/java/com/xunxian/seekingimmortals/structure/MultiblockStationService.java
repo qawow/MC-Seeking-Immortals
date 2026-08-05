@@ -26,9 +26,30 @@ public final class MultiblockStationService {
     private static final long LARGE_TTL_TICKS = 40L;
 
     private static final Map<CacheKey, CacheEntry> CACHE = new ConcurrentHashMap<>();
-    private static final Map<String, ResourceLocation> SINGLE_CORE_BLOCK_IDS = Map.of(
-            "low_spirit_iron_ore", new ResourceLocation(SeekingImmortalsMod.MODID, "low_spirit_iron_ore"),
-            "yin_essence_ore_block", new ResourceLocation(SeekingImmortalsMod.MODID, "yin_essence_ore"));
+    /**
+     * Core block per authored {@code single_core} station. An unmapped station yields
+     * {@code missing_core_mapping} and can never form, which is why every authored single_core id
+     * except the held-tool exception below must appear here.
+     *
+     * <p>{@code structure_blueprint_table} is deliberately absent: it is a held tool dispatched
+     * through {@code StructureToolService}, and giving it a placeable block would replace the
+     * projection guide with a block placement.</p>
+     */
+    private static final Map<String, ResourceLocation> SINGLE_CORE_BLOCK_IDS = Map.ofEntries(
+            Map.entry("low_spirit_iron_ore", new ResourceLocation(SeekingImmortalsMod.MODID, "low_spirit_iron_ore")),
+            Map.entry("yin_essence_ore_block", new ResourceLocation(SeekingImmortalsMod.MODID, "yin_essence_ore")),
+            Map.entry("kunwu_copper_ore", new ResourceLocation(SeekingImmortalsMod.MODID, "kunwu_copper_ore")),
+            Map.entry("contribution_stele", new ResourceLocation(SeekingImmortalsMod.MODID, "contribution_stele")),
+            Map.entry("ownership_stele", new ResourceLocation(SeekingImmortalsMod.MODID, "ownership_stele")),
+            Map.entry("spirit_vein_tap", new ResourceLocation(SeekingImmortalsMod.MODID, "spirit_vein_tap")),
+            Map.entry("ice_crystal_cooler", new ResourceLocation(SeekingImmortalsMod.MODID, "ice_crystal_cooler")),
+            Map.entry("scripture_pavilion_shelf",
+                    new ResourceLocation(SeekingImmortalsMod.MODID, "scripture_pavilion_shelf")),
+            Map.entry("pill_cabinet", new ResourceLocation(SeekingImmortalsMod.MODID, "pill_cabinet")),
+            Map.entry("weapon_rack_artifact", new ResourceLocation(SeekingImmortalsMod.MODID, "weapon_rack_artifact")),
+            Map.entry("market_stall_counter", new ResourceLocation(SeekingImmortalsMod.MODID, "market_stall_counter")),
+            Map.entry("inner_sect_task_board",
+                    new ResourceLocation(SeekingImmortalsMod.MODID, "inner_sect_task_board")));
     private static final Set<String> SPECIALIZED_VALIDATORS = Set.of(
             "alchemy_furnace_shell",
             "altar",
@@ -435,6 +456,11 @@ public final class MultiblockStationService {
             return Optional.empty();
         }
         return Optional.ofNullable(SINGLE_CORE_BLOCK_IDS.get(stationId));
+    }
+
+    /** Station ids carrying a core-block mapping; lets tests catch a mapping for a nonexistent station. */
+    static Set<String> singleCoreStationIds() {
+        return SINGLE_CORE_BLOCK_IDS.keySet();
     }
 
     private static Set<String> mergeValidators() {

@@ -563,6 +563,30 @@ public final class ModItems {
     public static final RegistryObject<Item> SECT_EARTH_FIRE_ROOM = ITEMS.register("sect_earth_fire_room", () -> new BlockItem(ModBlocks.SECT_EARTH_FIRE_ROOM.get(), new Item.Properties()));
     public static final RegistryObject<Item> ALCHEMY_FURNACE_ARRAY_NODE = ITEMS.register("alchemy_furnace_array_node",
             () -> new BlockItem(ModBlocks.ALCHEMY_FURNACE_ARRAY_NODE.get(), new Item.Properties()));
+
+    // 0.2.267: single_core station cores. These ids were bulk catalog carriers with no block, so
+    // the stations could never form; they are removed from catalog_bulk_items.json in the same
+    // change to keep the item id unique.
+    public static final RegistryObject<Item> KUNWU_COPPER_ORE = ITEMS.register("kunwu_copper_ore",
+            () -> new BlockItem(ModBlocks.KUNWU_COPPER_ORE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> CONTRIBUTION_STELE = ITEMS.register("contribution_stele",
+            () -> new BlockItem(ModBlocks.CONTRIBUTION_STELE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> OWNERSHIP_STELE = ITEMS.register("ownership_stele",
+            () -> new BlockItem(ModBlocks.OWNERSHIP_STELE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> SPIRIT_VEIN_TAP = ITEMS.register("spirit_vein_tap",
+            () -> new BlockItem(ModBlocks.SPIRIT_VEIN_TAP.get(), new Item.Properties()));
+    public static final RegistryObject<Item> ICE_CRYSTAL_COOLER = ITEMS.register("ice_crystal_cooler",
+            () -> new BlockItem(ModBlocks.ICE_CRYSTAL_COOLER.get(), new Item.Properties()));
+    public static final RegistryObject<Item> SCRIPTURE_PAVILION_SHELF = ITEMS.register("scripture_pavilion_shelf",
+            () -> new BlockItem(ModBlocks.SCRIPTURE_PAVILION_SHELF.get(), new Item.Properties()));
+    public static final RegistryObject<Item> PILL_CABINET = ITEMS.register("pill_cabinet",
+            () -> new BlockItem(ModBlocks.PILL_CABINET.get(), new Item.Properties()));
+    public static final RegistryObject<Item> WEAPON_RACK_ARTIFACT = ITEMS.register("weapon_rack_artifact",
+            () -> new BlockItem(ModBlocks.WEAPON_RACK_ARTIFACT.get(), new Item.Properties()));
+    public static final RegistryObject<Item> MARKET_STALL_COUNTER = ITEMS.register("market_stall_counter",
+            () -> new BlockItem(ModBlocks.MARKET_STALL_COUNTER.get(), new Item.Properties()));
+    public static final RegistryObject<Item> INNER_SECT_TASK_BOARD = ITEMS.register("inner_sect_task_board",
+            () -> new BlockItem(ModBlocks.INNER_SECT_TASK_BOARD.get(), new Item.Properties()));
     public static final RegistryObject<Item> ALCHEMY_LID_LOW = ITEMS.register("alchemy_lid_low",
             () -> new BlockItem(ModBlocks.ALCHEMY_LID_LOW.get(), new Item.Properties().stacksTo(16)));
     public static final RegistryObject<Item> ALCHEMY_LID_MID = ITEMS.register("alchemy_lid_mid",

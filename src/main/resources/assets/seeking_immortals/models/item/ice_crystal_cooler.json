@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "seeking_immortals:item/ice_crystal_cooler"
-  }
+  "parent": "seeking_immortals:block/ice_crystal_cooler"
 }

@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "seeking_immortals:item/weapon_rack_artifact"
-  }
+  "parent": "seeking_immortals:block/weapon_rack_artifact"
 }

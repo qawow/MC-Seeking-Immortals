@@ -58,6 +58,24 @@ public final class ModBulkItems {
             "mystic_green_liquid"
     );
 
+    /**
+     * 0.2.267: ids that {@code ModItems} now owns as BlockItems for the authored single_core
+     * stations. They were removed from {@code catalog_bulk_items.json}; this set keeps a catalog
+     * regeneration that reintroduces one from crashing registration on a duplicate id.
+     */
+    private static final Set<String> BLOCK_OWNED_IDS = Set.of(
+            "kunwu_copper_ore",
+            "contribution_stele",
+            "ownership_stele",
+            "spirit_vein_tap",
+            "ice_crystal_cooler",
+            "scripture_pavilion_shelf",
+            "pill_cabinet",
+            "weapon_rack_artifact",
+            "market_stall_counter",
+            "inner_sect_task_board"
+    );
+
     private static final Map<String, RegistryObject<Item>> BY_ID = new LinkedHashMap<>();
     private static final List<String> IDS = new ArrayList<>();
     private static final Map<String, String> GRADES = new LinkedHashMap<>();
@@ -122,6 +140,10 @@ public final class ModBulkItems {
                 id = id.trim().toLowerCase(Locale.ROOT);
                 if (UNIQUE_FORBIDDEN.contains(id)) {
                     SeekingImmortalsMod.LOGGER.warn("Skipped unique forbidden bulk id: {}", id);
+                    continue;
+                }
+                if (BLOCK_OWNED_IDS.contains(id)) {
+                    SeekingImmortalsMod.LOGGER.warn("Skipped bulk id owned by a registered block: {}", id);
                     continue;
                 }
                 if (BY_ID.containsKey(id)) continue;

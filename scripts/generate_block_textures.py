@@ -170,9 +170,27 @@ def infer_accent(block_id: str) -> str:
     return "neutral"
 
 
+# 0.2.267: core blocks for the authored single_core stations. Without these rules the wooden
+# furniture and the copper ore all fall through to grey masonry.
+SINGLE_CORE_ORES = {"kunwu_copper_ore"}
+SINGLE_CORE_WORKSTATIONS = {
+    "ice_crystal_cooler",
+    "inner_sect_task_board",
+    "market_stall_counter",
+    "pill_cabinet",
+    "scripture_pavilion_shelf",
+    "spirit_vein_tap",
+    "weapon_rack_artifact",
+}
+
+
 def infer_kind(block_id: str) -> str:
     if block_id in {"spirit_ore", "low_spirit_iron_ore", "yin_essence_ore"} or block_id.endswith("_spirit_ore"):
         return "ore"
+    if block_id in SINGLE_CORE_ORES:
+        return "ore"
+    if block_id in SINGLE_CORE_WORKSTATIONS:
+        return "workstation"
     if block_id == "leyline_surface_marker":
         return "marker"
     if block_id.startswith("alchemy_furnace") and block_id != "alchemy_furnace_array_node":
@@ -229,11 +247,21 @@ def infer_palette(block_id: str, kind: str) -> str:
             return "wood"
         if block_id == "sect_earth_fire_room":
             return "deepstone"
+        # Sect furniture reads as lacquered wood; the two spirit-tech fittings read as jade.
+        if block_id in {"inner_sect_task_board", "market_stall_counter", "pill_cabinet",
+                        "scripture_pavilion_shelf", "weapon_rack_artifact"}:
+            return "wood"
+        if block_id in {"ice_crystal_cooler", "spirit_vein_tap"}:
+            return "jade"
         return "metal"
     if kind in {"furnace", "lid"}:
         return ("bronze", "bronze", "metal", "jade", "obsidian")[min(5, infer_tier(block_id)) - 1]
     if kind == "ore":
-        return "deepstone" if block_id == "yin_essence_ore" else "stone"
+        if block_id == "yin_essence_ore":
+            return "deepstone"
+        if block_id == "kunwu_copper_ore":
+            return "bronze"
+        return "stone"
     if kind == "marker":
         return "jade"
     if "demon" in block_id or "hidden" in block_id or "nether" in block_id or "cycle" in block_id:

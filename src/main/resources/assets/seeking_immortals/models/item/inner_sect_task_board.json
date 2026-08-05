@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "seeking_immortals:item/inner_sect_task_board"
-  }
+  "parent": "seeking_immortals:block/inner_sect_task_board"
 }

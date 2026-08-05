@@ -17,7 +17,7 @@ class ItemCatalogServiceTest {
         assertTrue(snapshot.carriers().containsKey("altar_stone"));
         assertTrue(snapshot.carriers().containsKey("dingshen_fu"));
         assertTrue(snapshot.carriers().containsKey("palm_heaven_bottle_stand"));
-        assertTrue(snapshot.carriers().containsKey("market_stall_counter"));
+        assertTrue(snapshot.carriers().containsKey("structure_blueprint_table"));
     }
 
     @Test

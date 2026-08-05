@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "seeking_immortals:item/market_stall_counter"
-  }
+  "parent": "seeking_immortals:block/market_stall_counter"
 }

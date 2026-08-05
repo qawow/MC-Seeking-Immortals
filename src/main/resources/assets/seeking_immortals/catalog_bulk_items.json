@@ -3575,12 +3575,6 @@
    "description": "目录载体：杀阵核心"
   },
   {
-   "id": "kunwu_copper_ore",
-   "category": "material",
-   "rarity": "common",
-   "description": "目录载体：昆吾铜矿"
-  },
-  {
    "id": "kunwu_fire_moss",
    "category": "material",
    "rarity": "common",
@@ -6743,18 +6737,6 @@
    "grade": "di"
   },
   {
-   "id": "spirit_vein_tap",
-   "category": "material",
-   "rarity": "uncommon",
-   "description": "灵脉引流管：灵玉管，螺旋导灵纹。接驳地下灵脉，提升聚灵与炼丹效率。"
-  },
-  {
-   "id": "ice_crystal_cooler",
-   "category": "material",
-   "rarity": "uncommon",
-   "description": "冰鉴：寒玉匣，冰晶石砌成。急速降温，防炸炉损器。"
-  },
-  {
    "id": "immortal_alchemy_cauldron",
    "category": "artifact",
    "rarity": "uncommon",
@@ -6923,18 +6905,6 @@
    "description": "灵石库：禁制门，点石阵计数，可接防盗杀阵。"
   },
   {
-   "id": "scripture_pavilion_shelf",
-   "category": "material",
-   "rarity": "uncommon",
-   "description": "藏经阁书架：灵木架，防火符，借阅禁制。"
-  },
-  {
-   "id": "contribution_stele",
-   "category": "material",
-   "rarity": "uncommon",
-   "description": "贡献碑：宗门贡献查询与任务核销节点。"
-  },
-  {
    "id": "flying_boat_dock",
    "category": "material",
    "rarity": "uncommon",
@@ -6945,18 +6915,6 @@
    "category": "artifact",
    "rarity": "uncommon",
    "description": "灵田灌溉阵盘：根系导槽自动渗灵水。"
-  },
-  {
-   "id": "pill_cabinet",
-   "category": "material",
-   "rarity": "uncommon",
-   "description": "丹柜：多层屉，恒温符，认主锁。"
-  },
-  {
-   "id": "weapon_rack_artifact",
-   "category": "material",
-   "rarity": "uncommon",
-   "description": "法宝架：玉托木架，养器微阵温养。"
   },
   {
    "id": "blood_forbidden_entry_stele",
@@ -7073,12 +7031,6 @@
    "description": "灵药暖室：灵膜顶，温控，内置圃位。"
   },
   {
-   "id": "market_stall_counter",
-   "category": "material",
-   "rarity": "uncommon",
-   "description": "坊市摊柜：价签阵，防盗微禁。"
-  },
-  {
    "id": "warehouse_loading_bay",
    "category": "material",
    "rarity": "uncommon",
@@ -7121,12 +7073,6 @@
    "description": "丹炉防爆小阵：泄压符石，降炸炉损毁。"
   },
   {
-   "id": "ownership_stele",
-   "category": "material",
-   "rarity": "uncommon",
-   "description": "认主石碑：血印槽，绑定洞府结构归属。"
-  },
-  {
    "id": "spirit_beast_evolution_pool",
    "category": "material",
    "rarity": "uncommon",
@@ -7137,12 +7083,6 @@
    "category": "material",
    "rarity": "uncommon",
    "description": "渡劫台：化神飞升前稳固雷劫落点的人造/天成台。"
-  },
-  {
-   "id": "inner_sect_task_board",
-   "category": "material",
-   "rarity": "uncommon",
-   "description": "内门任务牌：灵纸帖，日刷，接贡献任务。"
   },
   {
    "id": "war_banner_pole",

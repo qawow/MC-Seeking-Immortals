@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "seeking_immortals:item/pill_cabinet"
-  }
+  "parent": "seeking_immortals:block/pill_cabinet"
 }
