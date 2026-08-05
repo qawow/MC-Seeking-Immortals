@@ -23,13 +23,26 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class SecretRealmM09ServiceTest {
     @Test
-    void catalogLoadsNineteenAuthorRealms() {
-        assertEquals(19, SecretRealmCatalogService.size(),
-                "expected 19 author secret realms, got " + SecretRealmCatalogService.size());
+    void catalogLoadsTwentyAuthorRealms() {
+        assertEquals(20, SecretRealmCatalogService.size(),
+                "expected 20 author secret realms, got " + SecretRealmCatalogService.size());
         assertTrue(SecretRealmCatalogService.find("blood_forbidden").isPresent());
         assertTrue(SecretRealmCatalogService.find("void_palace").isPresent());
         assertTrue(SecretRealmCatalogService.find("seven_meridian_cave").isPresent());
         assertTrue(SecretRealmCatalogService.find("chaotic_sea_abyss_rift").isPresent());
+        // Y-A: yinyang_ku now owns the yy_* layers; the catacomb keeps its own four.
+        assertTrue(SecretRealmCatalogService.find("yinyang_ku").isPresent());
+        assertTrue(SecretRealmCatalogService.find("yin_mountain_catacomb").isPresent());
+        SecretRealmCatalogService.RealmDef yinyang = SecretRealmCatalogService.find("yinyang_ku").orElseThrow();
+        assertEquals("dajin", yinyang.regionId());
+        assertEquals("yinyang_cave_gate", yinyang.gate());
+        assertEquals(List.of("yy_outer", "yy_split", "yy_yezha", "yy_yinzhi", "yy_alchemy_coop"),
+                yinyang.layers().stream().map(SecretRealmCatalogService.LayerDef::id).toList());
+        SecretRealmCatalogService.RealmDef catacomb = SecretRealmCatalogService.find("yin_mountain_catacomb").orElseThrow();
+        assertTrue(catacomb.layers().stream().noneMatch(layer -> layer.id().startsWith("yy_")),
+                "yin_mountain_catacomb must not carry yinyang-ku yy_* layers");
+        assertEquals(List.of("corpse_gate", "yin_lang", "jiang_guan_shi", "yin_si_stela"),
+                catacomb.layers().stream().map(SecretRealmCatalogService.LayerDef::id).toList());
     }
 
     @Test
@@ -102,7 +115,7 @@ class SecretRealmM09ServiceTest {
 
     @Test
     void everyAuthorRealmHasRunnableNamedBossAndRewardTable() {
-        assertEquals(19, SecretRealmCatalogService.size());
+        assertEquals(20, SecretRealmCatalogService.size());
         for (SecretRealmCatalogService.RealmDef realm : SecretRealmCatalogService.snapshot().byId().values()) {
             assertFalse(realm.bosses().isEmpty(), "realm missing named boss: " + realm.id());
             for (String bossId : realm.bosses()) {

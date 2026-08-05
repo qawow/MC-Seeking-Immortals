@@ -566,6 +566,16 @@
       ]
     },
     {
+      "boss_id": "silver_wing_yaksha",
+      "secret_realm": "yinyang_ku",
+      "drops": [
+        {"item": "corpse_marrow", "chance": 0.42, "count_min": 1, "count_max": 3, "unique": false, "first_clear_only": false},
+        {"item": "silver_wing", "chance": 0.38, "count_min": 1, "count_max": 2, "unique": false, "first_clear_only": false},
+        {"item": "yin_essence_ore", "chance": 0.26, "count_min": 1, "count_max": 2, "unique": false, "first_clear_only": false},
+        {"item": "demon_core_mid", "chance": 0.22, "count_min": 1, "count_max": 1, "unique": false, "first_clear_only": false}
+      ]
+    },
+    {
       "boss_id": "garden_heart_warden",
       "secret_realm": "spirit_grass_valley",
       "drops": [

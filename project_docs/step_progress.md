@@ -1,3 +1,16 @@
+## 590. 2026-08-05 `0.2.258` Y-A-1 阴阳窟数据归属与银翅夜叉 BOSS 接线
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   4 个数据文件 + flavor + 生成目录 + 2 个测试 + 生成器；快照 `backups/20260805221702_ya1/`（10 文件，含 gradle.properties）。
+  层归属   Done   `yy_outer/yy_split/yy_yezha/yy_yinzhi/yy_alchemy_coop` 从 `yin_mountain_catacomb` 移到新增 `yinyang_ku` 运行时条目；阴罗冢补回自有四层。
+  作者源   Done   `text_material/secret_realms.json` 19→20 补 `yinyang_ku`（此前运行时/维度/证明均引用但作者源缺失）；`secret_realm_flavor.json` 同步。
+  BOSS   Done   选用作者既有 `silver_wing_yaksha`（图鉴标注「阴阳窟高危种」，tier 8/yaoshou）→ 走专用 `CultivationBeastEntity`，兼修「图鉴有条目无 spawn 引用」缺口；两份掉落表新增该表，4 项掉落 id 均可解析。
+  生成物   Done   生成器 `CANONICAL_COUNTS` 与 `AuthoredVisualCatalogTest` 同步 REALM 19→20/ZONE 75→79/BOSS 27→28，总数 `3779-344+6`；重跑 5733 profiles，`--check` current。
+  计划偏差   Noted   `LayerDef.spawns` 全项目无消费方（178 条仅 13 条可解析，19/20 秘境均悬空）；`Session` 无预算 API。故四个缺失图鉴条目与层刷怪/绕行 handler 一并推迟到 Y-A-2。
+  Tests/build   Done   worldpack.*/visual.* 定向通过；完整 `./gradlew build` 成功 1m52s；262 套件 / 1,274 项 failure/error/skipped 全 0；JAR SHA-256 `9bbaedea117de97ba5799d73fd52aaeb0f34c469a542bae7fb2bbfb419f875b1`。
+  Version/protocol   Done   `mod_version=0.2.257 -> 0.2.258`；`ModNetwork.PROTOCOL_VERSION=31` 不变。
+
 ## 589. 2026-08-03 `0.2.257` D-A-4 执法/战斗动作分型（D-A 收口）
 
   Step   Status   Notes

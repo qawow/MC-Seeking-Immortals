@@ -31,7 +31,8 @@ class AuthoredVisualCatalogTest {
     void unifiedCatalogLoadsEveryDomainWithoutCollapsingSharedIds() {
         AuthoredVisualCatalog.Snapshot catalog = AuthoredVisualCatalog.builtin();
         int techniqueCount = AuthoredSpellEffectCatalog.builtin().counts().total();
-        int totalCount = 3779 - 344 + techniqueCount;
+        // Y-A-1: +1 REALM / +4 ZONE / +1 BOSS for the yinyang_ku split from yin_mountain_catacomb.
+        int totalCount = 3779 - 344 + 6 + techniqueCount;
 
         assertEquals(3, catalog.schemaVersion());
         assertEquals(totalCount, catalog.declaredProfileCount());
@@ -45,9 +46,9 @@ class AuthoredVisualCatalogTest {
         assertEquals(457, catalog.count(VisualDomain.MATERIAL));
         assertEquals(1890, catalog.count(VisualDomain.BEAST));
         assertEquals(179, catalog.count(VisualDomain.NPC));
-        assertEquals(19, catalog.count(VisualDomain.REALM));
-        assertEquals(75, catalog.count(VisualDomain.ZONE));
-        assertEquals(27, catalog.count(VisualDomain.BOSS));
+        assertEquals(20, catalog.count(VisualDomain.REALM));
+        assertEquals(79, catalog.count(VisualDomain.ZONE));
+        assertEquals(28, catalog.count(VisualDomain.BOSS));
         assertEquals(22, catalog.count(VisualDomain.STATUS));
         assertEquals(92, catalog.count(VisualDomain.STRUCTURE));
         assertEquals(8, catalog.count(VisualDomain.VEHICLE));
@@ -63,9 +64,9 @@ class AuthoredVisualCatalogTest {
                 Map.entry(VisualDomain.MATERIAL, 457),
                 Map.entry(VisualDomain.BEAST, 1890),
                 Map.entry(VisualDomain.NPC, 179),
-                Map.entry(VisualDomain.REALM, 19),
-                Map.entry(VisualDomain.ZONE, 75),
-                Map.entry(VisualDomain.BOSS, 27),
+                Map.entry(VisualDomain.REALM, 20),
+                Map.entry(VisualDomain.ZONE, 79),
+                Map.entry(VisualDomain.BOSS, 28),
                 Map.entry(VisualDomain.STATUS, 22),
                 Map.entry(VisualDomain.STRUCTURE, 92),
                 Map.entry(VisualDomain.VEHICLE, 8),
