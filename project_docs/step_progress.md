@@ -10071,4 +10071,25 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Final build   Done   `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功（1m 26s），`:aiPreflight` 记录 `0.2.269`；272 套件 / 1,332 项，failure/error/skipped 均为 0；JAR SHA-256 `172458e0301d837b3276ff8e3644315c7f2d569e2c606497eebaf4da1f0b4333`。
   Residual risk   Open   未实机验证；21 种新可造成品的施放行为是 role 推断的（锁魂符与散魂符可能走同一 mode）；成功率未按符纸品阶 `success_base` 加成（相对作者规格抄了近路）；`paper_grade`/`paper_item_id` 未交叉校验（当前 24 条一致但无断言）；3 条 stub 对应的 3 种成品仍无获取途径；`talisman_ink_bottle` 现在没有任何配方消费它，成为可造但无用途的物品。
 
-  Next implementation   Pending   约 646 个孤儿物品分类处理（35 个 `recipe_*` 是 26 个 `alchemy_formula_*` 的重复项，商店实际卖后者）、主线 14 步 fail-closed 内容层（3 商店 / 1 拍卖 / 3 遭遇 / 2 对话选择 / 1 告知 / 1 护送 / 1 活捕）、多方块建造引导投影强化、凡人修仙传风格 UI 多套。
+  Next implementation   Pending   （该项已于 0.2.270 更正并上锁：真实孤儿数为 1128 而非 646，`recipe_*` 与 `alchemy_formula_*` 无 stem 重叠，原重复项判断有误）主线 14 步 fail-closed 内容层（3 商店 / 1 拍卖 / 3 遭遇 / 2 对话选择 / 1 告知 / 1 护送 / 1 活捕）、多方块建造引导投影强化、凡人修仙传风格 UI 多套。
+
+## 595. 2026-08-06 `0.2.270` 物品获取普查上锁 + 主线唯一制作证明解堵
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   物品获取方向第四批；回滚位于 `backups/20260806085007_orphan_audit/`（6 个文件）。用户既有 `CLAUDE.md` 与 `project_docs/frontend_interaction_audit_0.2.198.md` 未纳入本批。
+  Number correction   Done   **更正我自己在 0.2.267 交接里写的「约 646 个孤儿物品」—— 该数字是错的**，实测 **1128 / 1667**。错在两处：646 只统计 bulk 目录物品（漏掉手写注册与枚举派生的分级丹药），且「可得」口径比发放位宽。中途我还报过 1073 与 1141，三次口径都不同 —— 说明这个数字不该由我手算，故本批落成测试。
+  Registered universe   Done   注册有三条路径：`ModItems` 208 处字面量、7 个 helper 工厂、bulk 目录 1192 条。分级丹药按 `type.id() + "_" + suffix` 拼接注册，**源码无 id 字面量**，任何按字面量收割的方法都会漏。唯一覆盖三条路径的表面是 `models/item/*.json`（1667），测试断言 bulk 每条都有模型，用以证明该代理关系成立而非假定。
+  Grant channels   Done   除 0.2.268 已知 8 条外新增 9 条：法宝炼制（73）、傀儡组装、主线任务奖励、名义 NPC 掉落、飞升配装、拍卖法宝、炼制失败回收、灵草种植、**硬编码发放**（服务里直接 `giveOrEnqueue(new ItemStack(ModItems.X))` 的 54 个 id）。共 17 条。
+  Channels ruled out   Done   查证后确认**不是**发放渠道：`items_by_region.json`（`RegionItemsService` 与其唯一调用方的 `giveOrEnqueue` 调用数均为 0，是定价/展示数据）、`sects/missions/*.json` 的 `item`（`collect_item` 目标，是要求玩家上交、付贡献点）、`beast_materials_loot_v92.json`（内容是中文显示名不是 id，属设计文档）、`catalog/merchant_shops_runtime.json`（只是店铺 id 列表，真实货单仍在 `shops/<id>.json`，见 `ShopService:597` —— 我原先担心的 runtime 覆盖 authored 在此不成立）。
+  Main story unblock   Done   全部 95 条证明路由里只有 **1 条** `CRAFT_COMPLETED`：`deity_huoyu_path` 第 6 步「合成回阳真水」，此前**两重堵死**。(1) id 对不上：路由要 `huiyang_true_water`，而同名炼丹配方产出 `return_yang_true_water` 及分级，玩家能拿到的永远不等于 token。(2) 炼丹根本不发制作证明：取丹只记 `recordAlchemyCompleted(station)`，而 `recordItemCrafted` 唯一调用点挂在原版 `ItemCraftedEvent` 上，该事件对丹炉不触发 —— 任何带物品的制作路由都无法靠炼丹满足。两处均修，废丹不算，id 取自实发 stack 而非客户端输入。
+  Existing test blind spot   Done   `DetailedQuestItemProofRouteTest` 的「真实载体」校验只认 bulk id 与源码字面量，故把**全部枚举派生分级丹药**判为假载体（我加映射时它报 `mapped prover is not a real carrier: return_yang_true_water_supreme`）。那是该断言自身的盲区而非映射有误 —— 该 id 确实注册，只是无字面量。改为同时识别 `base + PillQuality` 拼接注册。
+  Duplicate pills investigated   Done   `bigu_pill`（辟谷丹）等 9 个 id 与其分级阶梯重复（商店挂 `id: bigu_pill` 实发 `fasting_pill_low`，仍是 0.2.268 的 `id`/`item` 标签机制）。按「冗余的删」本应删，**但查证后否掉**：引用面覆盖 20+ 数据文件、`ConsumableVfxOrchestrator`、`pill_effect_catalog.json`，且 `huiyang_true_water` 被主线证明路由引用。分级丹药效果走 `CatalogPillItem` 的 `CatalogPillType` switch，与 `pill_effect_catalog.json` 无关，故功能无损失。留作已知冗余并用商店标签断言钉住。
+  Tests   Done   新增 `ItemAcquisitionAuditTest`（3 项）与 `MainStoryCraftProofTest`（2 项）。**先失败后修复共三次，且都是真实缺陷**：审计首跑报 `1134 > 1128`（我漏了硬编码发放渠道）；商店标签实测 134 而我猜 62；主线测试修前报 `crafting 下品回阳真水 must prove deity_huoyu_path step 6, or the chain is uncompletable`。
+  Test pins   Done   孤儿数钉**上限 1128**（补获取降低它，新增不可达物品顶破它）；注册全集钉 1667；17 条渠道**每条都必须有产出**（静默失配会让可得物品显示为不可得 —— 正是 0.2.268 把死配方从真实 10 虚报到 55 的机制，共四次）；商店标签另钉具名项 `market_herbal_stall.json:bigu_pill->fasting_pill_low`。
+  Generators   Done   按 `spell -> visual` 顺序刷新并 `--check` 通过；profile 数 2292/5733 零变化；方块与物品贴图 render_mismatch 与 uniqueness_adjustments 均为 0。
+  Version/protocol   Done   `mod_version=0.2.269 -> 0.2.270`；服务端证明映射与丹炉取丹证明记录，无数据包新增，`ModNetwork.PROTOCOL_VERSION=31` 保持不变。
+  Final build   Done   `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功（1m 29s），`:aiPreflight` 记录 `0.2.270`；274 套件 / 1,337 项，failure/error/skipped 均为 0；JAR SHA-256 `419865c6472dac12243635fcf65355f38af0b4277c9086242d5dbbaedd1e6196`。
+  Residual risk   Open   未实机验证（第 6 步要 NASCENT_SOUL 才能控火）；**1128 是上限而非目标**，612 个 material 与 174 个 artifact 孤儿仍无获取途径，是本批未解决的主体问题；144 个法宝有目录条目但作者未给 materials（只有 `obtain.source`，多为 `loot_craft_quest` 或中文散文），补配方等于替作者设计；9 个重复丹药 id 与 `talisman_ink_bottle` 仍在；丹炉每次取丹多发一条 `recordItemCrafted`，幂等靠 `repeat_policy: IDEMPOTENT`，未做性能测量；商店标签上限 134 是实测当前值而非逐条审阅过的目标值。
+
+  Next implementation   Pending   主线 14 步 fail-closed 内容层（3 商店 / 1 拍卖 / 3 遭遇 / 2 对话选择 / 1 告知 / 1 护送 / 1 活捕）、多方块建造引导投影强化、凡人修仙传风格 UI 多套；物品获取的主体缺口仍是 612 个 material 与 174 个 artifact 孤儿（后者作者未给 materials，补配方等于替作者设计）。

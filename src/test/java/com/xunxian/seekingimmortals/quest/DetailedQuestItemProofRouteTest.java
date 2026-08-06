@@ -80,10 +80,32 @@ class DetailedQuestItemProofRouteTest {
         Set<String> mapped = new HashSet<>();
         DetailedQuestProofService.PROOF_ITEM_MAPPINGS.values().forEach(mapped::addAll);
         for (String item : mapped) {
-            assertTrue(bulkIds().contains(item)
-                            || ModItemsSource().contains("\"" + item + "\""),
-                    "mapped prover is not a real carrier: " + item);
+            assertTrue(isRegisteredCarrier(item), "mapped prover is not a real carrier: " + item);
         }
+    }
+
+    /**
+     * True when the id is really registered. Bulk catalog ids and hand-written {@code ITEMS.register}
+     * literals are not the whole registry: graded catalog pills register as {@code type.id() + "_" +
+     * suffix}, so ids like {@code return_yang_true_water_supreme} never appear as a literal anywhere.
+     * Checking only literals made every enum-composed pill look like a fake carrier.
+     */
+    private static boolean isRegisteredCarrier(String id) throws Exception {
+        if (bulkIds().contains(id) || ModItemsSource().contains("\"" + id + "\"")) {
+            return true;
+        }
+        for (String suffix : List.of("_mid", "_high", "_supreme", "_low")) {
+            if (!id.endsWith(suffix)) {
+                continue;
+            }
+            String base = id.substring(0, id.length() - suffix.length());
+            // The base must be a registered pill type and the graded variant must be registered from it.
+            if (ModItemsSource().contains("\"" + base + "\"")
+                    && compact(ModItemsSource()).contains("\"" + suffix.substring(1) + "\",PillQuality.")) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Test

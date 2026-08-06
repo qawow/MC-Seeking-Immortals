@@ -603,6 +603,17 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
         // this furnace station; the station id is the server-side furnace tier, never client input.
         com.xunxian.seekingimmortals.quest.DetailedQuestProofService.recordAlchemyCompleted(
                 player, "alchemy_furnace_g" + Math.min(5, Math.max(1, getFurnaceTier())));
+        // The station proof alone cannot satisfy an item-bearing craft route, and the vanilla
+        // ItemCraftedEvent never fires for a furnace, so record the pill itself too. Waste pills are
+        // a failed batch and prove nothing. The id comes from the delivered stack, never client input.
+        if (!result.is(ModItems.WASTE_PILL.get())) {
+            net.minecraft.resources.ResourceLocation crafted =
+                    net.minecraftforge.registries.ForgeRegistries.ITEMS.getKey(result.getItem());
+            if (crafted != null) {
+                com.xunxian.seekingimmortals.quest.DetailedQuestProofService.recordItemCrafted(
+                        player, crafted.getPath());
+            }
+        }
         player.displayClientMessage(Component.translatable("message.seeking_immortals.alchemy_furnace.collected", result.getHoverName(), result.getCount()), false);
         // Y-C: settle the coop snapshot once, on the same collection that pays the crafter.
         settleCoopParticipants(player, !result.is(ModItems.WASTE_PILL.get()));

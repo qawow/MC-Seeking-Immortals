@@ -63,7 +63,13 @@ public final class DetailedQuestProofService {
                     "spirit_recovery_pill", "detox_minor_pill", "escape_talisman", "fire_talisman", "speed_talisman")),
             Map.entry("fire_resist_ready", Set.of("yang_flame_talisman")),
             Map.entry("fire_toad_resistance", Set.of("yang_flame_talisman", "detox_minor_pill")),
-            Map.entry("realm_gate_token", Set.of("spirit_realm_gate_pass", "spirit_realm_gate_voucher")));
+            Map.entry("realm_gate_token", Set.of("spirit_realm_gate_pass", "spirit_realm_gate_voucher")),
+            // deity_huoyu_path step 6 "合成回阳真水" is the only CRAFT_COMPLETED route in the game. The
+            // authored token is the ungraded name, but the alchemy file called huiyang_true_water.json
+            // outputs the graded ladder, so any grade the furnace can actually deliver must prove it.
+            Map.entry("huiyang_true_water", Set.of(
+                    "return_yang_true_water", "return_yang_true_water_mid",
+                    "return_yang_true_water_high", "return_yang_true_water_supreme")));
 
     /**
      * Q-B-4 authored entity tokens -> real server entity/boss ids that can prove them. The
