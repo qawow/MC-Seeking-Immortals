@@ -3627,6 +3627,7 @@
  "message.seeking_immortals.sect_mission.beast_missing": "契约灵兽不足：需要 %s，当前 %s",
  "message.seeking_immortals.sect_mission.formation_missing": "尚未在接取任务后成功部署阵法。",
  "message.seeking_immortals.talisman_table.skill_locked": "符箓绘制技能未解锁。",
+ "message.seeking_immortals.talisman_table.realm_too_low": "境界不足，无法绘制此符箓。",
  "message.seeking_immortals.puppet_assembly_bench.skill_locked": "傀儡操控技能未解锁。",
  "message.seeking_immortals.puppet_assembly_bench.missing_blueprint": "缺少对应傀儡图纸；图纸只需放在行囊中，不会随制作消耗。",
  "message.seeking_immortals.puppet_assembly_bench.spawn_failed": "傀儡实体生成失败，已退还本次制作材料。",

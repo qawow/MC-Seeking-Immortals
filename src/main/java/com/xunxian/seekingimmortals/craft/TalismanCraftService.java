@@ -1,33 +1,55 @@
 package com.xunxian.seekingimmortals.craft;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.catalog.ItemCatalogService;
+import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
+import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
+import com.xunxian.seekingimmortals.cultivation.Realm;
 import com.xunxian.seekingimmortals.item.InventoryDeliveryService;
-import com.xunxian.seekingimmortals.registry.ModItems;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.registries.RegistryObject;
 
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
-import java.util.function.Supplier;
 
 /**
- * Text-material talisman_recipes runtime (24). Materials remap to existing carriers.
- * Recipes are built lazily so unit tests and class-loading do not touch the item registry early.
+ * Talisman crafting driven by the authored corpus in {@code talisman_recipes.json}: 24 blueprints
+ * with 24 distinct products. This runtime previously hardcoded a parallel 24-entry list that
+ * produced only 5 items and shared just 5 ids with the corpus, so 19 authored talismans had no
+ * craft route at all while {@code recipeBlueprintCount()} returned a literal 24 that hid the gap.
+ *
+ * <p>Blueprints fail closed: one whose product, ink or any material cannot be resolved is omitted
+ * from the runtime instead of becoming a placeholder recipe. The three authored {@code recipe_*}
+ * stubs carry no materials array, so they are counted as blueprints but never become craftable.</p>
+ *
+ * <p>Recipes build lazily so unit tests and class-loading do not touch the item registry early.</p>
  */
 public final class TalismanCraftService {
+    private static final String RECIPE_RESOURCE =
+            "data/" + SeekingImmortalsMod.MODID + "/text_material/talisman_recipes.json";
+
     private static volatile List<Recipe> recipes;
+    private static volatile List<JsonObject> authored;
 
     private TalismanCraftService() {}
 
     public record Material(Item item, int count) {}
 
-    public record Recipe(String id, String display, List<Material> materials, Item product, double successRate) {}
+    /** One authored blueprint; {@code yield}, {@code ink} and {@code realmMin} come from the corpus. */
+    public record Recipe(String id, String display, List<Material> materials, Item product,
+                         double successRate, int yield, Item ink, Realm realmMin) {}
 
     public record CraftResult(boolean success, Recipe recipe, ItemStack product, String messageKey) {}
 
@@ -35,14 +57,14 @@ public final class TalismanCraftService {
         return ensureRecipes();
     }
 
-    /** Registry-free count for unit tests / preflight. */
+    /** Registry-free authored blueprint count: every corpus entry, craftable or not. */
     public static int recipeBlueprintCount() {
-        return 24;
+        return authoredEntries().size();
     }
 
     public static Optional<Recipe> findCraftable(ServerPlayer player) {
         for (Recipe recipe : ensureRecipes()) {
-            if (hasMaterials(player, recipe)) {
+            if (meetsRealm(player, recipe) && hasMaterials(player, recipe)) {
                 return Optional.of(recipe);
             }
         }
@@ -59,7 +81,7 @@ public final class TalismanCraftService {
 
     /** Wave466: craft a specific recipe by id (catalog authority bridge). */
     public static Optional<Recipe> find(String recipeId) {
-        String id = recipeId == null ? "" : recipeId.trim().toLowerCase(java.util.Locale.ROOT);
+        String id = recipeId == null ? "" : recipeId.trim().toLowerCase(Locale.ROOT);
         if (id.isBlank()) {
             return Optional.empty();
         }
@@ -68,9 +90,6 @@ public final class TalismanCraftService {
                 return Optional.of(recipe);
             }
             // Allow bare names without craft_ prefix.
-            if (id.startsWith("craft_") && recipe.id().equals(id)) {
-                return Optional.of(recipe);
-            }
             if (!id.startsWith("craft_") && recipe.id().equals("craft_" + id)) {
                 return Optional.of(recipe);
             }
@@ -83,18 +102,17 @@ public final class TalismanCraftService {
         if (optional.isEmpty()) {
             return new CraftResult(false, null, ItemStack.EMPTY, "message.seeking_immortals.talisman_table.unknown_recipe");
         }
-        Recipe recipe = optional.get();
-        if (!player.getAbilities().instabuild && !hasMaterials(player, recipe)) {
-            return new CraftResult(false, recipe, ItemStack.EMPTY, "message.seeking_immortals.talisman_table.missing_materials");
-        }
-        return craftRecipe(player, recipe);
+        // No early material check: craftRecipe's preflight is the single gate, so the id route and the
+        // station route report the same reason in the same order (skill, then realm, then materials).
+        return craftRecipe(player, optional.get());
     }
 
     private static CraftResult craftRecipe(ServerPlayer player, Recipe recipe) {
         boolean creative = player.getAbilities().instabuild;
         boolean skillUnlocked = com.xunxian.seekingimmortals.skill.LifeSkillService.meetsLevel(player,
                 com.xunxian.seekingimmortals.skill.SkillType.TALISMAN_CRAFTING, 0);
-        String preflightFailure = preflightFailure(creative, skillUnlocked, creative || hasMaterials(player, recipe));
+        String preflightFailure = preflightFailure(creative, skillUnlocked, creative || hasMaterials(player, recipe),
+                creative || meetsRealm(player, recipe));
         if (!preflightFailure.isBlank()) {
             return new CraftResult(false, recipe, ItemStack.EMPTY, preflightFailure);
         }
@@ -114,7 +132,7 @@ public final class TalismanCraftService {
                     com.xunxian.seekingimmortals.skill.SkillType.TALISMAN_CRAFTING, 8, 3);
             return new CraftResult(false, recipe, ItemStack.EMPTY, "message.seeking_immortals.talisman_table.failed");
         }
-        ItemStack product = new ItemStack(recipe.product());
+        ItemStack product = new ItemStack(recipe.product(), recipe.yield());
         // Prefer outbox over world drop when the player cannot fully accept the product.
         InventoryDeliveryService.giveOrEnqueue(player, product, "talisman_craft:" + recipe.id());
         com.xunxian.seekingimmortals.skill.LifeSkillService.grantPractice(player,
@@ -133,6 +151,17 @@ public final class TalismanCraftService {
             }
             return recipes;
         }
+    }
+
+    /** A blueprint below the authored realm gate stays visible but cannot be crafted. */
+    private static boolean meetsRealm(ServerPlayer player, Recipe recipe) {
+        if (recipe.realmMin() == null || player.getAbilities().instabuild) {
+            return true;
+        }
+        return CultivationHelper.get(player)
+                .map(PlayerCultivation::getRealm)
+                .map(realm -> realm.ordinal() >= recipe.realmMin().ordinal())
+                .orElse(false);
     }
 
     private static boolean hasMaterials(ServerPlayer player, Recipe recipe) {
@@ -190,25 +219,28 @@ public final class TalismanCraftService {
     }
 
     /**
-     * Exact transactional input set, including the implicit talisman ink cost.
+     * Exact transactional input set, including the authored per-recipe ink cost.
      * Shared with recipe viewers so display and server consumption cannot drift.
      */
     public static Optional<Map<Item, Integer>> materialRequirements(Recipe recipe) {
+        if (recipe == null || recipe.materials().isEmpty() || recipe.ink() == null) {
+            return Optional.empty();
+        }
         Map<Item, Integer> requirements = new LinkedHashMap<>();
         for (Material material : recipe.materials()) {
             requirements.merge(material.item(), material.count(), Integer::sum);
         }
-        Item ink = ItemCatalogService.resolveCatalogItem("talisman_ink_bottle");
-        if (ink == null) {
-            return Optional.empty();
-        }
-        requirements.merge(ink, requiredInkCount(), Integer::sum);
+        requirements.merge(recipe.ink(), requiredInkCount(), Integer::sum);
         return Optional.of(requirements);
     }
 
-    static String preflightFailure(boolean creative, boolean skillUnlocked, boolean materialsAvailable) {
+    static String preflightFailure(boolean creative, boolean skillUnlocked, boolean materialsAvailable,
+                                   boolean realmMet) {
         if (!skillUnlocked) {
             return "message.seeking_immortals.talisman_table.skill_locked";
+        }
+        if (!realmMet) {
+            return "message.seeking_immortals.talisman_table.realm_too_low";
         }
         if (!creative && !materialsAvailable) {
             return "message.seeking_immortals.talisman_table.missing_materials";
@@ -231,49 +263,87 @@ public final class TalismanCraftService {
         return total;
     }
 
+    /**
+     * Project the authored corpus onto registered items. An entry whose product, ink or any material
+     * cannot be resolved is dropped rather than shipped as a half-valid recipe, and the three
+     * authored {@code recipe_*} stubs have no materials array so they never become craftable.
+     */
     private static List<Recipe> buildRecipes() {
         List<Recipe> list = new ArrayList<>();
-        list.add(recipe("craft_fire_burst", "爆炎符", mats(m(ModItems.TALISMAN_PAPER_MORTAL, 1), m(ModItems.TRUE_DRAGON_BLOOD, 1), m(ModItems.PHOENIX_FEATHER, 1)), ModItems.FIRE_TALISMAN, 0.70D));
-        list.add(recipe("craft_armor_ward", "护体符", mats(m(ModItems.TALISMAN_PAPER_MORTAL, 1), m(ModItems.SPIRIT_IRON, 1), m(ModItems.SPIRIT_STONE_SHARD, 1)), ModItems.ARMOR_TALISMAN, 0.70D));
-        list.add(recipe("craft_speed_wind", "疾风符", mats(m(ModItems.TALISMAN_PAPER_MORTAL, 1), m(ModItems.PHOENIX_FEATHER, 1), m(ModItems.SPIRIT_STONE_SHARD, 1)), ModItems.SPEED_TALISMAN, 0.70D));
-        list.add(recipe("craft_mirage_heart", "幻心符", mats(m(ModItems.TALISMAN_PAPER_MORTAL, 2), m(ModItems.TIME_SAND, 1), m(ModItems.TRUE_DRAGON_BLOOD, 1)), ModItems.SPEED_TALISMAN, 0.55D));
-        list.add(recipe("craft_soul_scatter", "散魂符", mats(m(ModItems.TALISMAN_PAPER_MORTAL, 2), m(ModItems.SOUL_FRAGMENT, 2)), ModItems.YIN_BODY_PROTECTION_CHARM, 0.45D));
-        list.add(recipe("craft_demon_suppress", "镇魔符", mats(m(ModItems.TALISMAN_PAPER_MORTAL, 2), m(ModItems.DEMON_SUPPRESS_TALISMAN_BLANK, 1), m(ModItems.SPIRIT_STONE_SHARD, 2)), ModItems.ARMOR_TALISMAN, 0.50D));
-        list.add(recipe("craft_yin_ward", "阴护符", mats(m(ModItems.TALISMAN_PAPER_MORTAL, 1), m(ModItems.YIN_STONE, 2), m(ModItems.SOUL_FRAGMENT, 1)), ModItems.YIN_BODY_PROTECTION_CHARM, 0.60D));
-        list.add(recipe("craft_pressure_resist", "抗压符", mats(m(ModItems.TALISMAN_PAPER_MORTAL, 1), m(ModItems.SPIRIT_IRON, 2)), ModItems.PRESSURE_RESIST_CHARM, 0.65D));
-        list.add(recipe("craft_spirit_burst", "灵爆符", mats(m(ModItems.TALISMAN_PAPER_MORTAL, 1), m(ModItems.SPIRIT_STONE_SHARD, 3)), ModItems.FIRE_TALISMAN, 0.75D));
-        list.add(recipe("craft_cold_seal", "寒封符", mats(m(ModItems.TALISMAN_PAPER_MORTAL, 1), m(ModItems.COLD_JADE, 1), m(ModItems.SPIRIT_STONE_SHARD, 1)), ModItems.ARMOR_TALISMAN, 0.55D));
-        list.add(recipe("craft_void_step", "虚步符", mats(m(ModItems.TALISMAN_PAPER_MORTAL, 2), m(ModItems.VOID_CRYSTAL, 1)), ModItems.SPEED_TALISMAN, 0.40D));
-        list.add(recipe("craft_beast_bind", "缚兽符", mats(m(ModItems.TALISMAN_PAPER_MORTAL, 1), m(ModItems.BEAST_CORE, 1), m(ModItems.SPIRIT_STONE_SHARD, 1)), ModItems.ARMOR_TALISMAN, 0.55D));
-        list.add(recipe("craft_heal_light", "回春符", mats(m(ModItems.TALISMAN_PAPER_MORTAL, 1), m(ModItems.SPIRIT_GRASS, 2)), ModItems.ARMOR_TALISMAN, 0.70D));
-        list.add(recipe("craft_thunder_mark", "雷纹符", mats(m(ModItems.TALISMAN_PAPER_MORTAL, 1), m(ModItems.STAR_METEORITE, 1), m(ModItems.SPIRIT_STONE_SHARD, 1)), ModItems.FIRE_TALISMAN, 0.50D));
-        list.add(recipe("craft_blood_lock", "血锁符", mats(m(ModItems.TALISMAN_PAPER_MORTAL, 2), m(ModItems.TRUE_DRAGON_BLOOD, 2)), ModItems.FIRE_TALISMAN, 0.45D));
-        list.add(recipe("craft_soul_calm", "安魂符", mats(m(ModItems.TALISMAN_PAPER_MORTAL, 1), m(ModItems.SOUL_FRAGMENT, 1), m(ModItems.COLD_JADE, 1)), ModItems.YIN_BODY_PROTECTION_CHARM, 0.60D));
-        list.add(recipe("craft_earth_wall", "土壁符", mats(m(ModItems.TALISMAN_PAPER_MORTAL, 1), m(ModItems.SPIRIT_IRON, 1), m(ModItems.IRONWOOD, 1)), ModItems.ARMOR_TALISMAN, 0.65D));
-        list.add(recipe("craft_wind_blade", "风刃符", mats(m(ModItems.TALISMAN_PAPER_MORTAL, 1), m(ModItems.PHOENIX_FEATHER, 2)), ModItems.FIRE_TALISMAN, 0.60D));
-        list.add(recipe("craft_metal_needle", "金针符", mats(m(ModItems.TALISMAN_PAPER_MORTAL, 1), m(ModItems.SPIRIT_IRON, 2)), ModItems.FIRE_TALISMAN, 0.65D));
-        list.add(recipe("craft_wood_vine", "藤缚符", mats(m(ModItems.TALISMAN_PAPER_MORTAL, 1), m(ModItems.IRONWOOD, 2), m(ModItems.SPIRIT_GRASS, 1)), ModItems.ARMOR_TALISMAN, 0.60D));
-        list.add(recipe("craft_water_mist", "水雾符", mats(m(ModItems.TALISMAN_PAPER_MORTAL, 1), m(ModItems.COLD_JADE, 1), m(ModItems.SPIRIT_GRASS, 1)), ModItems.SPEED_TALISMAN, 0.60D));
-        list.add(recipe("craft_star_guide", "星引符", mats(m(ModItems.TALISMAN_PAPER_MORTAL, 2), m(ModItems.STAR_METEORITE, 1), m(ModItems.IMMORTAL_JADE, 1)), ModItems.SPEED_TALISMAN, 0.40D));
-        list.add(recipe("craft_chaos_ward", "混沌护符", mats(m(ModItems.TALISMAN_PAPER_MORTAL, 2), m(ModItems.CHAOS_GOLD, 1), m(ModItems.VOID_CRYSTAL, 1)), ModItems.ARMOR_TALISMAN, 0.35D));
-        list.add(recipe("craft_primordial_seal", "混元印符", mats(m(ModItems.TALISMAN_PAPER_MORTAL, 3), m(ModItems.PRIMORDIAL_ESSENCE, 1)), ModItems.ARMOR_TALISMAN, 0.30D));
-        return List.copyOf(list);
-    }
-
-    private static Recipe recipe(String id, String display, List<Material> materials, RegistryObject<? extends Item> product, double successRate) {
-        return new Recipe(id, display, materials, product.get(), successRate);
-    }
-
-    @SafeVarargs
-    private static List<Material> mats(Supplier<Material>... parts) {
-        List<Material> list = new ArrayList<>(parts.length);
-        for (Supplier<Material> part : parts) {
-            list.add(part.get());
+        for (JsonObject entry : authoredEntries()) {
+            String id = text(entry, "id");
+            Item product = ItemCatalogService.resolveCatalogItem(text(entry, "talisman_id"));
+            Item ink = ItemCatalogService.resolveCatalogItem(text(entry, "ink"));
+            if (id.isBlank() || product == null || ink == null || !entry.has("materials")) {
+                continue;
+            }
+            List<Material> materials = new ArrayList<>();
+            boolean resolved = true;
+            for (JsonElement element : entry.getAsJsonArray("materials")) {
+                if (!element.isJsonObject()) {
+                    resolved = false;
+                    break;
+                }
+                JsonObject material = element.getAsJsonObject();
+                Item item = ItemCatalogService.resolveCatalogItem(text(material, "id"));
+                int count = material.has("count") ? material.get("count").getAsInt() : 1;
+                if (item == null || count <= 0) {
+                    resolved = false;
+                    break;
+                }
+                materials.add(new Material(item, count));
+            }
+            if (!resolved || materials.isEmpty()) {
+                SeekingImmortalsMod.LOGGER.warn("Talisman blueprint {} has unresolvable materials; omitted", id);
+                continue;
+            }
+            String display = text(entry, "display");
+            list.add(new Recipe(id, display.isBlank() ? id : display, List.copyOf(materials), product,
+                    entry.has("base_success_rate") ? entry.get("base_success_rate").getAsDouble() : 0.5D,
+                    Math.max(1, entry.has("yield") ? entry.get("yield").getAsInt() : 1),
+                    ink, Realm.fromDesignId(text(entry, "realm_min"))));
         }
         return List.copyOf(list);
     }
 
-    private static Supplier<Material> m(RegistryObject<? extends Item> item, int count) {
-        return () -> new Material(item.get(), count);
+    /** Registry-free corpus read, so blueprint counting works in pure unit environments. */
+    private static List<JsonObject> authoredEntries() {
+        List<JsonObject> local = authored;
+        if (local != null) {
+            return local;
+        }
+        synchronized (TalismanCraftService.class) {
+            if (authored == null) {
+                authored = loadAuthored();
+            }
+            return authored;
+        }
+    }
+
+    private static List<JsonObject> loadAuthored() {
+        try (InputStream stream = TalismanCraftService.class.getClassLoader()
+                .getResourceAsStream(RECIPE_RESOURCE)) {
+            if (stream == null) {
+                SeekingImmortalsMod.LOGGER.error("Talisman recipe corpus missing: {}", RECIPE_RESOURCE);
+                return List.of();
+            }
+            JsonObject root = JsonParser.parseReader(
+                    new InputStreamReader(stream, StandardCharsets.UTF_8)).getAsJsonObject();
+            List<JsonObject> entries = new ArrayList<>();
+            for (JsonElement element : root.getAsJsonArray("recipes")) {
+                if (element.isJsonObject()) {
+                    entries.add(element.getAsJsonObject());
+                }
+            }
+            return List.copyOf(entries);
+        } catch (Exception exception) {
+            SeekingImmortalsMod.LOGGER.error("Failed loading talisman recipe corpus {}", RECIPE_RESOURCE, exception);
+            return List.of();
+        }
+    }
+
+    private static String text(JsonObject object, String field) {
+        JsonElement value = object.get(field);
+        return value == null || !value.isJsonPrimitive() ? "" : value.getAsString();
     }
 }

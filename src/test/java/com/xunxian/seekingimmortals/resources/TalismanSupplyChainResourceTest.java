@@ -147,6 +147,18 @@ class TalismanSupplyChainResourceTest {
         // grant position even though no data file lists it. Harvested from source so the set cannot
         // drift from the implementation.
         granted.addAll(spiritStoneExchangeOutputs());
+        // Talisman crafting became a real grant channel in 0.2.269: TalismanCraftService now projects
+        // talisman_recipes.json, so every blueprint with a materials array grants its talisman_id.
+        JsonObject talismans = read(DATA.resolve("text_material/talisman_recipes.json"));
+        for (JsonElement element : talismans.getAsJsonArray("recipes")) {
+            JsonObject recipe = element.getAsJsonObject();
+            JsonArray materials = recipe.getAsJsonArray("materials");
+            if (materials == null || materials.isEmpty()) {
+                // Authored stub with no inputs: the runtime omits it, so it grants nothing.
+                continue;
+            }
+            granted.add(bare(recipe.get("talisman_id").getAsString()));
+        }
         // Boss drops likewise: BossLootService reads worldpack/boss_loot_runtime.json first and
         // only falls back to the authored text_material table when the runtime file is absent.
         for (JsonElement table : read(DATA.resolve("worldpack/boss_loot_runtime.json"))

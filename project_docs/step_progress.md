@@ -10049,4 +10049,26 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Version/protocol   Done   `mod_version=0.2.267 -> 0.2.268`；纯数据包与商店条目新增，`ModNetwork.PROTOCOL_VERSION=31` 保持不变。
   Final build   Done   `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功（1m 21s），`:aiPreflight` 记录 `0.2.268`；271 套件 / 1,327 项，failure/error/skipped 均为 0；JAR SHA-256 `7e5b87d251bdf621de8cb2130f2c989b44d3cd5a5853a56f19fdd026629799d8`。
   Command/docs handoff   Done   新增 `project_docs/command_reference.md`，按 `SeekingImmortalsCommand` 的真实权限树整理普通查询、权限 2 调试/作弊、异常状态、管理员变更与 `live_smoke` 单机/多人签字；本次为 docs-only，不升版本、不改协议。备份：`backups/20260806074930_docs_command_reference/`。
-  Next implementation   Pending   符箓配方数据驱动化（`TalismanCraftService` 硬编码 24 条仅出 5 种成品，`talisman_recipes.json` 的 24 种成品从未落地，`recipeBlueprintCount()` 直接 `return 24` 把缺口盖住）—— 供给已就位，现在改造不会让符箓从「能做」变「做不了」；随后约 646 个孤儿物品分类处理、主线 14 步 fail-closed 内容层、多方块建造引导与凡人修仙传风格 UI。
+  Next implementation   Pending   （已于 0.2.269 完成）符箓配方数据驱动化；随后约 646 个孤儿物品分类处理、主线 14 步 fail-closed 内容层、多方块建造引导与凡人修仙传风格 UI。
+
+## 594. 2026-08-06 `0.2.269` 符箓配方数据驱动化（19 种成品从无路可造到可造）
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scope/backup   Done   物品获取方向第三批；回滚位于 `backups/20260806080042_talisman_datadriven/`（9 个文件）。用户既有 `CLAUDE.md` 与 `project_docs/frontend_interaction_audit_0.2.198.md` 未纳入本批。
+  Root cause   Done   **两份互不相干的 24**：`talisman_recipes.json` 有 24 条配方、24 种不同成品；`buildRecipes()` 另有硬编码 24 条却只产出 5 种成品（靠重复指向凑条数）。两份只有 5 个 id 重合，作者的 19 种符箓在制符台上没有任何入口。
+  Hidden by a literal   Done   `recipeBlueprintCount()` 直接 `return 24`，四处断言钉这个数（`CraftCatalogCoverageTest:14`、`M04CraftProductionTest:81`、`JeiRecipeCoverageResourceTest:66`，另一处 `> 0`）全部通过且**永远**通过 —— 硬编码列表与作者语料哪边变了都不会被发现。改为数语料后，作者加一条配方四处断言同时跟着动。
+  Authored fields honoured   Done   兑现三个此前被丢掉的字段：`yield`（作者按品阶给 1-3，21 条可造配方里 10 条 >1，走满一轮共 33 张；旧码恒定 1）、`ink`（作者给每条配方指定专属墨，旧码给全部 24 条强制扣 `talisman_ink_bottle`，即上一批查到的「符墨零来源导致整套符箓在数据层关闭」）、`realm_min`（QI_REFINING/FOUNDATION/CORE_FORMATION/NASCENT_SOUL 四档，旧码完全无门槛）。
+  Gate ordering   Done   新 `realm_too_low` 关卡排在扣材料**之前**，低境界玩家不会先付料再被拒；顺序为 技能 → 境界 → 材料。顺手统一 `craftById`：删掉它自己那道提前的材料检查，改与制符台共用同一处 preflight，两条入口的失败原因与顺序不再可能分叉。
+  Fail-closed stubs   Done   `recipe_invisibility_talisman` / `recipe_binding_talisman` / `recipe_gold_armor_talisman` 在作者语料里**没有 materials 数组**。没有替作者编材料：三条计入蓝图数（24），运行时跳过，`recipes()` 实际 21 条。测试具名钉住并断言它们**不得**长出 materials —— 作者哪天补了，测试会要求移出 stub 集合放开制作而非默默接受。
+  Harvest sync   Done   制符现在是**真实发放渠道**，`TalismanSupplyChainResourceTest.grantPositions()` 同步加入：每条带 materials 的蓝图发放其 `talisman_id`。不加这条，下次统计会把 21 种新可造符箓算成「无获取途径」—— 与上一批我漏掉四个渠道是同一类错。
+  Old products checked   Done   逐个核过旧的 5 种成品（`fire_talisman`/`armor_talisman`/`speed_talisman`/`yin_body_protection_charm`/`pressure_resist_charm`），五者都另有配方或商店发放位，未因切换而丢失获取途径。
+  Tests   Done   新增 `TalismanAuthoredRecipeTest`（5 项，已核对 `TEST-*.xml` 真实执行）。**先失败后修复**：首个断言针对硬编码 `ModItems.TALISMAN_PAPER_MORTAL`，修前在 `TalismanAuthoredRecipeTest.java:22` 报 `AssertionFailedError`。钉住六件事：配方不得硬编码、计数不得是字面量、蓝图数必须等于语料条数、24 种成品互不重复（重复即有成品不可达）、每条可造蓝图必须有 materials 与 ink、`yield` 与 `realm_min` 必须真正到达运行时；墨与境界取值集合也钉住。
+  Test pins   Done   `TalismanCraftServiceTest` 随 `preflightFailure` 3 参改 4 参更新，并新增断言：境界不足时报 `realm_too_low` 而非 `missing_materials`。既有四处 `recipeBlueprintCount()` 断言无需改动（语料确为 24），改后由语料驱动。
+  Lang   Done   新增 `message.seeking_immortals.talisman_table.realm_too_low` 一键，中英各 5744→5745 完全对等，无单侧键。
+  Generators   Done   按 `spell -> visual` 顺序刷新并 `--check` 通过；profile 数 2292/5733 零变化，视觉两文件仅 `source_hashes` / `java_source_audit` 各 1 行变动；方块与物品贴图 render_mismatch 与 uniqueness_adjustments 均为 0。
+  Version/protocol   Done   `mod_version=0.2.268 -> 0.2.269`；改的是服务端制符授权逻辑与语料读取，无数据包新增，`ModNetwork.PROTOCOL_VERSION=31` 保持不变。
+  Final build   Done   `./gradlew build --no-daemon --max-workers=1 --console=plain` 成功（1m 26s），`:aiPreflight` 记录 `0.2.269`；272 套件 / 1,332 项，failure/error/skipped 均为 0；JAR SHA-256 `172458e0301d837b3276ff8e3644315c7f2d569e2c606497eebaf4da1f0b4333`。
+  Residual risk   Open   未实机验证；21 种新可造成品的施放行为是 role 推断的（锁魂符与散魂符可能走同一 mode）；成功率未按符纸品阶 `success_base` 加成（相对作者规格抄了近路）；`paper_grade`/`paper_item_id` 未交叉校验（当前 24 条一致但无断言）；3 条 stub 对应的 3 种成品仍无获取途径；`talisman_ink_bottle` 现在没有任何配方消费它，成为可造但无用途的物品。
+
+  Next implementation   Pending   约 646 个孤儿物品分类处理（35 个 `recipe_*` 是 26 个 `alchemy_formula_*` 的重复项，商店实际卖后者）、主线 14 步 fail-closed 内容层（3 商店 / 1 拍卖 / 3 遭遇 / 2 对话选择 / 1 告知 / 1 护送 / 1 活捕）、多方块建造引导投影强化、凡人修仙传风格 UI 多套。

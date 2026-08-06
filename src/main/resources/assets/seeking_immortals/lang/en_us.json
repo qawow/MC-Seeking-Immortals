@@ -3617,6 +3617,7 @@
  "message.seeking_immortals.sect_mission.beast_missing": "Beast contracts short: need %s, have %s",
  "message.seeking_immortals.sect_mission.formation_missing": "Deploy a formation after accepting this mission first.",
  "message.seeking_immortals.talisman_table.skill_locked": "Talisman crafting skill locked.",
+ "message.seeking_immortals.talisman_table.realm_too_low": "Your realm is too low to inscribe this talisman.",
  "message.seeking_immortals.puppet_assembly_bench.skill_locked": "Puppet control skill locked.",
  "message.seeking_immortals.puppet_assembly_bench.missing_blueprint": "The matching puppet blueprint must be present in your inventory; it is not consumed by crafting.",
  "message.seeking_immortals.puppet_assembly_bench.spawn_failed": "The puppet entity could not spawn, so all materials were refunded.",

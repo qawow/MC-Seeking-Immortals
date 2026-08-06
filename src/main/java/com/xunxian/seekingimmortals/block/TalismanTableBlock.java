@@ -23,7 +23,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 /**
  * Text-material talisman_table. Sneak-use validates 3x3 multiblock then crafts via
- * TalismanCraftService (24 mapped recipes from text materials).
+ * TalismanCraftService, which reads the authored talisman_recipes.json corpus.
  */
 public class TalismanTableBlock extends Block {
     private static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D);
